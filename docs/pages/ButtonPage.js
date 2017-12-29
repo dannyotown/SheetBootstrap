@@ -85,18 +85,12 @@ const ButtonPage = (props) => {
         </Button>
         <Button color="success" outline>
           Success
-        </Button> 
+        </Button>
         <Button color="danger" outline>
           Danger
         </Button>
         <Button color="warning" outline>
           Warning
-        </Button>
-        <Button rounded outline color="info">
-          Rounded Outline
-        </Button>
-        <Button flat size="lg">
-          Flat
         </Button>
         <Button color="default" block size="lg">
           Default

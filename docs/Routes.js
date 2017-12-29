@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ButtonPage from './pages/ButtonPage';
+import ButtonPagePro from './pages/pro/ButtonPage';
 import CSSPage from './pages/CSSPage';
 import TablePage from './pages/TablePage';
 import BadgePage from './pages/BadgePage';
@@ -46,6 +47,7 @@ class Routes extends React.Component {
         <Route path='/css/jumbotron' component={JumbotronPage} />
         <Route path='/components/cards' component={CardsPage} />
         <Route path='/components/buttons' component={ButtonPage} />
+        <Route path='/components/pro/buttons' component={ButtonPagePro} />
         <Route path='/components/progress' component={ProgressPage} />
         <Route path='/components/popover' component={PopoverPage} />
         <Route path='/components/pagination' component={PaginationPage} />
@@ -57,7 +59,7 @@ class Routes extends React.Component {
         <Route path='/javascript/modal' component={ModalPage} />
         <Route path='/javascript/carousel' component={CarouselPage} />
         <Route path='/javascript/collapse' component={CollapsePage} />
-        <Route path='/javascript/videocarousel' component={VideoCarouselPage} />        
+        <Route path='/javascript/videocarousel' component={VideoCarouselPage} />
         <Route path='/css/masks' component={MasksPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;

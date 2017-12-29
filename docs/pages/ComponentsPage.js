@@ -1,6 +1,6 @@
 import React from 'react';
 const NavLink = require('react-router-dom').NavLink;
-import { Container, Row, Col, Jumbotron, Fa } from 'mdbreact';
+import { Container, Row, Col, Jumbotron, Badge, Fa } from 'mdbreact';
 
 
 class ComponentsPage extends React.Component {
@@ -23,6 +23,9 @@ class ComponentsPage extends React.Component {
                 </li>
                 <li>
                   <NavLink to="/components/buttons">Buttons <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/buttons">Buttons <Badge pill color="indigo">PRO</Badge><Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/components/cards">Cards <Fa icon="angle-right" /></NavLink>
