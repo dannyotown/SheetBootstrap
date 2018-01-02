@@ -5,15 +5,21 @@ import classNames from 'classnames';
 class Card extends Component {
 
   render() {
- 
+
     const {
       className,
       tag: Tag,
+      cascade,
+      wide,
+      narrow,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'card',
+      cascade ? 'card-cascade' : false,
+      wide ? 'wider' : false,
+      narrow ? 'narrower' : false,
       className
     );
 
