@@ -12,14 +12,16 @@ class Card extends Component {
       cascade,
       wide,
       narrow,
+      reverse,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'card',
       cascade ? 'card-cascade' : false,
-      wide ? 'wider' : false,
-      narrow ? 'narrower' : false,
+      wide ? 'card-cascade wider' : false,
+      narrow ? 'card-cascade narrower' : false,
+      reverse ? 'card-cascade wider reverse' : false,
       className
     );
 
