@@ -1,24 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Waves from './Waves';
 
 class View extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cursorPos: {}
+    };
+  }
+
+  handleClick(e){
+    // Get Cursor Position
+    let cursorPos = {
+      top: e.clientY,
+      left: e.clientX,
+      time: Date.now()
+    };
+    this.setState({ cursorPos: cursorPos });
+  }
 
   render() {
     const {
       className,
       children,
+      overlay,
+      zoom,
       tag: Tag,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'view',
+      overlay ? 'overlay hm-' + overlay : '',
+      zoom ? 'overlay hm-zoom' : '',
+      'Ripple-parent',
       className
     );
     return (
-      <Tag {...attributes} className={classes} >{this.props.children}</Tag>
-
+      <Tag {...attributes} className={classes} onMouseDown={ this.handleClick.bind(this) } onTouchStart={ this.handleClick.bind(this) } >
+        {this.props.children}<Waves cursorPos={ this.state.cursorPos } />
+      </Tag>
     );
   }
 }
@@ -30,6 +53,8 @@ View.defaultProps = {
 View.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  overlay: PropTypes.string,
+  zoom: PropTypes.bool,
   tag: PropTypes.string
 };
 

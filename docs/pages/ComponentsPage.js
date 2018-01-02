@@ -25,7 +25,7 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/buttons">Buttons <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/components/pro/buttons">Buttons <Badge pill color="indigo">PRO</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/components/pro/buttons">Buttons PRO <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/components/cards">Cards <Fa icon="angle-right" /></NavLink>
