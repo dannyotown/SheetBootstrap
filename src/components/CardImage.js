@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Waves from './Waves';
-import { Mask, View } from 'mdbreact';
+import Mask from './Mask';
+import View from './View';
 
 
 class CardImage extends Component {
