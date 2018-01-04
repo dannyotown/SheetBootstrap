@@ -5,6 +5,9 @@
   "license": "MIT",
   "repository": "https://github.com/mdbootstrap/React-Bootstrap-with-Material-Design",
   "main": "dist/mdbreact.js",
+  "files": [
+    "dist/*"
+  ],
   "dependencies": {
     "bootstrap": "4.0.0-beta.2",
     "classnames": "^2.2.5",
