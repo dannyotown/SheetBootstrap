@@ -1,6 +1,6 @@
 import React from 'react';
 import { Progress } from 'mdbreact';
-import Circle from '../../src/components/Circle';
+import Spinner from '../../src/components/Spinner';
 
 
 const ProgressPage = (props) => {
@@ -18,17 +18,14 @@ const ProgressPage = (props) => {
         <Progress color="warning" value="30" animated>Wow!</Progress>
         <Progress color="info" value="25">Cool</Progress>
       </div>
-        <div className="container d-flex align-content-around flex-wrap">
-          <Circle small />
+        <div className="col-3">
+          <Spinner green small />
         </div>
-        <div className="container d-flex align-content-around flex-wrap">
-          <Circle green />
+        <div className="col-4">
+          <Spinner yellow />
         </div>
-        <div className="container d-flex align-content-around flex-wrap">
-          <Circle big yellow />
-        </div>
-        <div className="container d-flex align-content-around flex-wrap">
-          <Circle crazy big multicolor />
+        <div className="col-5">
+          <Spinner crazy big multicolor />
         </div>
     </div>
   );
