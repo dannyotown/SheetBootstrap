@@ -1,0 +1,16 @@
+.fadeElement {
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  display: block;
+  width: 100%;
+  opacity: 0;
+  top: -20px;
+  visibility: hidden;
+}
+.fadeElement.fadeIn {
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+}

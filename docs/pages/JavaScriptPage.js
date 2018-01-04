@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Jumbotron, Fa } from 'mdbreact';
+import { Container, Row, Col, Jumbotron, Fa, Badge } from 'mdbreact';
 const NavLink = require('react-router-dom').NavLink;
 
 class JavaScriptPage extends React.Component {
@@ -11,6 +11,9 @@ class JavaScriptPage extends React.Component {
             <Jumbotron>
               <h1><Fa icon="code" className="grey-text" /> JavaScript</h1>
               <ul className="list-unstyled example-components-list">
+                <li>
+                  <NavLink to="/javascript/pro/select">Material Select <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                </li>
                 <li>
                   <NavLink to="/javascript/modal">Modal <Fa icon="angle-right" /></NavLink>
                 </li>
