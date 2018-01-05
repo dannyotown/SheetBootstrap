@@ -57,8 +57,7 @@ class Button extends React.Component {
 
     const classes = classNames(
       floating ? 'btn-floating' : 'btn',
-      flat ? 'btn-flat' : false,
-      gradient ? `${gradient}-gradient` : `btn${outline ? '-outline' : ''}-${color}`,
+      flat ? 'btn-flat' : gradient ? `${gradient}-gradient` : `btn${outline ? '-outline' : ''}-${color}`,
       size ? `btn-${size}` : false,
       rounded ? 'btn-rounded' : false,
       block ? 'btn-block' : false,
