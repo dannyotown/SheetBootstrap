@@ -9,7 +9,6 @@ class Options extends React.Component {
     const {
       className,
       children,
-      toggleMenu,
       ...attributes
     } = this.props;
 
@@ -17,7 +16,6 @@ class Options extends React.Component {
       'dropdown-content',
       'select-dropdown',
       'fadeElement',
-      toggleMenu ? 'fadeIn' : '',
       className
     );
     return (
@@ -29,7 +27,6 @@ class Options extends React.Component {
 Options.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  toggleMenu: PropTypes.bool
 };
 
 export default Options;

@@ -8,15 +8,18 @@ class Select extends React.Component {
     const {
       className,
       children,
+      multiple,
+      color,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'select-wrapper',
+      this.props.color ? 'colorful-select dropdown-' + this.props.color : '',
       className
     );
     return (
-      <div {...attributes} className={classes}>
+      <div {...attributes} data-color={this.props.color} data-multiple={this.props.multiple} className={classes}>
         <span className="caret">▼</span>
         {children}
       </div>
@@ -26,7 +29,9 @@ class Select extends React.Component {
 
 Select.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  multiple: PropTypes.bool,
+  color: PropTypes.string
 };
 
 export default Select;
