@@ -12,7 +12,6 @@ class SelectInput extends React.Component {
       className,
       children,
       value,
-      triggerSelectClick,
       ...attributes
     } = this.props;
 
@@ -21,7 +20,7 @@ class SelectInput extends React.Component {
       className
     );
     return (
-      <input type="text" readOnly value={value} {...attributes} className={classes} onClick={this.props.triggerSelectClick} />
+      <input type="text" ref="selectInput" readOnly value={value} {...attributes} className={classes}/>
     );
   }
 }
@@ -30,7 +29,6 @@ SelectInput.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   value: PropTypes.string,
-  triggerSelectClick: PropTypes.func
 };
 
 export default SelectInput;

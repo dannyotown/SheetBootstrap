@@ -1,76 +1,189 @@
 import React from 'react';
+import ReactDOM, { findDOMNode } from 'react-dom';
 import Select from '../../../src/components/pro/Select';
 import SelectInput from '../../../src/components/pro/SelectInput';
-import Options from '../../../src/components/pro/Options';
-import Option from '../../../src/components/pro/Option';
+import Options from '../../../src/components/pro/SelectOptions';
+import Option from '../../../src/components/pro/SelectOption';
 
 class SelectPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      dropdownMenuOpen: false,
       value: "Choose your option",
-      option1: "Option nr 1",
-      option2: "Option nr 2",
-      option3: "Option nr 3",
-      option4: "Option nr 4",
-      option5: "Option nr 5",
+      value2: "Choose your option",
+      value3: "Choose your option",
+      value4: "Choose your option",
+      value5: "Choose your option"
     }
-    this.toggleSelect = this.toggleSelect.bind(this);
-    this.optionClick1 = this.optionClick1.bind(this);
+    this.optionClick = this.optionClick.bind(this);
     this.optionClick2 = this.optionClick2.bind(this);
     this.optionClick3 = this.optionClick3.bind(this);
     this.optionClick4 = this.optionClick4.bind(this);
     this.optionClick5 = this.optionClick5.bind(this);
+
+    this.onClick = this.onClick.bind(this);
+    this.otherDropdownsClose = this.otherDropdownsClose.bind(this);
   }
 
-  toggleSelect() {
-    this.setState({dropdownMenuOpen: !this.state.dropdownMenuOpen});
+  optionClick(value) {
+    if (value.constructor === Array) {
+      value = value.join(', ');
+    }
+    this.setState({value: value});
+  }
+  optionClick2(value) {
+    if (value.constructor === Array) {
+      value = value.join(', ');
+    }
+    this.setState({value2: value});
+  }
+  optionClick3(value) {
+    if (value.constructor === Array) {
+      value = value.join(', ');
+    }
+    this.setState({value3: value});
+  }
+  optionClick4(value) {
+    if (value.constructor === Array) {
+      value = value.join(', ');
+    }
+    this.setState({value4: value});
+  }
+  optionClick5(value) {
+    if (value.constructor === Array) {
+      value = value.join(', ');
+    }
+    this.setState({value5: value});
   }
 
-  optionClick1() {
-    this.setState({value: this.state.option1});
-    this.toggleSelect();
+  onClick(e) {
+    // check if select is multiple
+    if (e.target.dataset.multiple === 'true') {
+      return;
+    }
+
+    if (e.target.classList.contains('select-dropdown')) {
+      this.otherDropdownsClose();
+      e.target.nextElementSibling.classList.add('fadeIn');
+    } else {
+      this.otherDropdownsClose();
+    }
   }
-  optionClick2() {
-    this.setState({value: this.state.option2});
-    this.toggleSelect();
+
+  otherDropdownsClose() {
+    let dropdowns = document.querySelectorAll('.dropdown-content');
+    for (let i = 0; i < dropdowns.length; i++) {
+      if (dropdowns[i].classList.contains('fadeIn')) {
+        dropdowns[i].classList.remove('fadeIn');
+      }
+    }
   }
-  optionClick3() {
-    this.setState({value: this.state.option3});
-    this.toggleSelect();
+
+  componentDidMount() {
+    document.addEventListener('click', this.onClick);
   }
-  optionClick4() {
-    this.setState({value: this.state.option4});
-    this.toggleSelect();
-  }
-  optionClick5() {
-    this.setState({value: this.state.option5});
-    this.toggleSelect();
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onClick);
   }
 
   render() {
     return(
-      <div className="container mt-5">
-        <h2 className="mb-5"><strong>Basic example</strong></h2>
+      <div className="container mt-5 primary-text">
+        <h4 className="my-4 indigo-text"><strong>Basic example</strong></h4>
         <div className="row">
           <div className="col-md-6">
 
             <Select>
-              <SelectInput ref="selectInput" value={this.state.value} triggerSelectClick={this.toggleSelect}></SelectInput>
-              <Options toggleMenu={this.state.dropdownMenuOpen}>
-                <Option value="" disabled selected>Choose your option</Option>
-                <Option triggerOptionClick={this.optionClick1}>{this.state.option1}</Option>
-                <Option triggerOptionClick={this.optionClick2}>{this.state.option2}</Option>
-                <Option triggerOptionClick={this.optionClick3}>{this.state.option3}</Option>
-                <Option triggerOptionClick={this.optionClick4}>{this.state.option4}</Option>
-                <Option triggerOptionClick={this.optionClick5}>{this.state.option5}</Option>
+              <SelectInput value={this.state.value}></SelectInput>
+              <Options>
+                <Option disabled>Choose your option</Option>
+                <Option triggerOptionClick={this.optionClick}>Option nr 1</Option>
+                <Option triggerOptionClick={this.optionClick}>Option nr 2</Option>
+                <Option triggerOptionClick={this.optionClick}>Option nr 3</Option>
+                <Option triggerOptionClick={this.optionClick}>Option nr 4</Option>
+                <Option triggerOptionClick={this.optionClick}>Option nr 5</Option>
               </Options>
             </Select>
             <label>Example label</label>
 
           </div>
         </div>
+        <h4 className="my-4 teal-text"><strong>Multiple select</strong></h4>
+        <div className="row">
+          <div className="col-md-6">
+
+            <Select multiple>
+              <SelectInput value={this.state.value2}></SelectInput>
+              <Options>
+                <Option disabled>Choose your option</Option>
+                <Option triggerOptionClick={this.optionClick2}>Option nr 1</Option>
+                <Option triggerOptionClick={this.optionClick2}>Option nr 2</Option>
+                <Option triggerOptionClick={this.optionClick2}>Option nr 3</Option>
+                <Option triggerOptionClick={this.optionClick2}>Option nr 4</Option>
+                <Option triggerOptionClick={this.optionClick2}>Option nr 5</Option>
+              </Options>
+            </Select>
+            <label>Example label</label>
+
+          </div>
+        </div>
+        <h4 className="my-4 deep-orange-text"><strong>Colorful select</strong></h4>
+        <div className="row">
+          <div className="col-md-6">
+
+            <Select color="primary">
+              <SelectInput value={this.state.value3}></SelectInput>
+              <Options>
+                <Option disabled>Choose your option</Option>
+                <Option triggerOptionClick={this.optionClick3}>Option nr 1</Option>
+                <Option triggerOptionClick={this.optionClick3}>Option nr 2</Option>
+                <Option triggerOptionClick={this.optionClick3}>Option nr 3</Option>
+                <Option triggerOptionClick={this.optionClick3}>Option nr 4</Option>
+                <Option triggerOptionClick={this.optionClick3}>Option nr 5</Option>
+              </Options>
+            </Select>
+            <label>Blue select</label>
+
+          </div>
+        </div>
+        <h4 className="my-4 blue-grey-text"><strong>Select with icons</strong></h4>
+        <div className="row">
+          <div className="col-md-6">
+
+            <Select>
+              <SelectInput value={this.state.value4}></SelectInput>
+              <Options>
+                <Option disabled>Choose your option</Option>
+                <Option icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg" triggerOptionClick={this.optionClick4}>Option nr 1</Option>
+                <Option icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" triggerOptionClick={this.optionClick4}>Option nr 2</Option>
+                <Option icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg" triggerOptionClick={this.optionClick4}>Option nr 3</Option>
+              </Options>
+            </Select>
+            <label>Example label</label>
+
+          </div>
+        </div>
+        <h4 className="my-4 deep-purple-text"><strong>Options groups</strong></h4>
+        <div className="row">
+          <div className="col-md-6">
+
+            <Select>
+              <SelectInput value={this.state.value5}></SelectInput>
+              <Options>
+                  <Option disabled>team 1</Option>
+                  <Option triggerOptionClick={this.optionClick5}>Option nr 1</Option>
+                  <Option triggerOptionClick={this.optionClick5}>Option nr 2</Option>
+                  <Option disabled>team 2</Option>
+                  <Option triggerOptionClick={this.optionClick5}>Option nr 3</Option>
+                  <Option triggerOptionClick={this.optionClick5}>Option nr 4</Option>
+              </Options>
+            </Select>
+            <label>Example label</label>
+
+          </div>
+        </div>
+        <br/><br/><br/><br/><br/>
       </div>
     );
   }
