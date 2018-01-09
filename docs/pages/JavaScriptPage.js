@@ -15,6 +15,9 @@ class JavaScriptPage extends React.Component {
                   <NavLink to="/javascript/pro/datepicker">Date picker <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/javascript/pro/timepicker">Time picker <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/javascript/pro/select">Material Select <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
