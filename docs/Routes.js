@@ -30,6 +30,7 @@ import DropdownPage from './pages/DropdownPage';
 import VideoCarouselPage from './pages/VideoCarouselPage';
 import HoverPage from './pages/HoverPage';
 import SelectPage from './pages/pro/SelectPage';
+import DatePickerPage from './pages/pro/DatePickerPage';
 
 class Routes extends React.Component {
   render() {
@@ -65,6 +66,7 @@ class Routes extends React.Component {
         <Route path='/css/masks' component={MasksPage} />
         <Route path='/css/hover' component={HoverPage} />
         <Route path='/javascript/pro/select' component={SelectPage} />
+        <Route path='/javascript/pro/datepicker' component={DatePickerPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

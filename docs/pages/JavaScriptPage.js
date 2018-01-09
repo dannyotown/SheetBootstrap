@@ -12,6 +12,9 @@ class JavaScriptPage extends React.Component {
               <h1><Fa icon="code" className="grey-text" /> JavaScript</h1>
               <ul className="list-unstyled example-components-list">
                 <li>
+                  <NavLink to="/javascript/pro/datepicker">Date picker <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/javascript/pro/select">Material Select <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
