@@ -22,6 +22,7 @@ import PopoverPage from './pages/PopoverPage';
 import ListGroupPage from './pages/ListGroupPage';
 import CarouselPage from './pages/CarouselPage';
 import CollapsePage from './pages/CollapsePage';
+import CollapsePagePro from './pages/pro/CollapsePage';
 import TabsPage from './pages/TabsPage';
 import TooltipsPage from './pages/TooltipsPage';
 import FooterPage from './pages/FooterPage';
@@ -63,6 +64,7 @@ class Routes extends React.Component {
         <Route path='/javascript/modal' component={ModalPage} />
         <Route path='/javascript/carousel' component={CarouselPage} />
         <Route path='/javascript/collapse' component={CollapsePage} />
+        <Route path='/javascript/pro/collapse' component={CollapsePagePro} />
         <Route path='/javascript/videocarousel' component={VideoCarouselPage} />
         <Route path='/css/masks' component={MasksPage} />
         <Route path='/css/hover' component={HoverPage} />

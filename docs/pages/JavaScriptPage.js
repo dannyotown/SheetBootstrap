@@ -26,6 +26,9 @@ class JavaScriptPage extends React.Component {
                 <li>
                   <NavLink to="/javascript/collapse">Collapse <Fa icon="angle-right" /></NavLink>
                 </li>
+                <li>
+                  <NavLink to="/javascript/pro/collapse">Collapse PRO <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                </li>
               </ul>
             </Jumbotron>
           </Col>
