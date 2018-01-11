@@ -34,6 +34,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/dropdown">Dropdown <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/forms">Forms <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/input">Input <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>

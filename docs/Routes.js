@@ -34,6 +34,7 @@ import HoverPage from './pages/HoverPage';
 import SelectPage from './pages/pro/SelectPage';
 import DatePickerPage from './pages/pro/DatePickerPage';
 import TimePickerPage from './pages/pro/TimePickerPage';
+import FormsPage from './pages/FormsPage';
 
 class Routes extends React.Component {
   render() {
@@ -54,6 +55,7 @@ class Routes extends React.Component {
         <Route path='/css/jumbotron' component={JumbotronPage} />
         <Route path='/components/cards' component={CardsPage} />
         <Route path='/components/buttons' component={ButtonPage} />
+        <Route path='/components/forms' component={FormsPage} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
         <Route path='/components/progress' component={ProgressPage} />
         <Route path='/components/popover' component={PopoverPage} />
