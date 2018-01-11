@@ -13,6 +13,7 @@ import ModalPage from './pages/ModalPage';
 import JavaScriptPage from './pages/JavaScriptPage';
 import ProgressPage from './pages/ProgressPage';
 import InputPage from './pages/InputPage';
+import InputPagePro from './pages/pro/InputPage';
 import MediaPage from './pages/MediaPage';
 import JumbotronPage from './pages/JumbotronPage';
 import AlertPage from './pages/AlertPage';
@@ -46,6 +47,7 @@ class Routes extends React.Component {
         <Route path='/components/breadcrumb' component={BreadcrumbPage} />
         <Route path='/components/media' component={MediaPage} />
         <Route path='/components/input' component={InputPage} />
+        <Route path='/components/pro/input' component={InputPagePro} />
         <Route path='/components/alert' component={AlertPage} />
         <Route path='/components/dropdown' component={DropdownPage} />
         <Route path='/css/icons' component={FaPage} />

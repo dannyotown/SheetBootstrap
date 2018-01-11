@@ -37,6 +37,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/input">Input <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/pro/input">Input PRO <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/list-group">List group <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
