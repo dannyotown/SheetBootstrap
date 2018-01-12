@@ -20,6 +20,9 @@ class JavaScriptPage extends React.Component {
                 <li>
                   <NavLink to="/javascript/collapse">Collapse <Fa icon="angle-right" /></NavLink>
                 </li>
+                <li>
+                  <NavLink to="/javascript/sidenav">SideNav <Fa icon="angle-right" /></NavLink>
+                </li>
               </ul>
             </Jumbotron>
           </Col>

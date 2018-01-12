@@ -30,6 +30,7 @@ import DropdownPage from './pages/DropdownPage';
 import VideoCarouselPage from './pages/VideoCarouselPage';
 import HoverPage from './pages/HoverPage';
 import SelectPage from './pages/pro/SelectPage';
+import SideNavPage from './pages/SideNavPage';
 
 class Routes extends React.Component {
   render() {
@@ -62,6 +63,7 @@ class Routes extends React.Component {
         <Route path='/javascript/carousel' component={CarouselPage} />
         <Route path='/javascript/collapse' component={CollapsePage} />
         <Route path='/javascript/videocarousel' component={VideoCarouselPage} />
+        <Route path='/javascript/sidenav' component={SideNavPage} />
         <Route path='/css/masks' component={MasksPage} />
         <Route path='/css/hover' component={HoverPage} />
         <Route path='/javascript/pro/select' component={SelectPage} />
