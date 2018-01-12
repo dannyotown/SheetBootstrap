@@ -35,6 +35,7 @@ import SelectPage from './pages/pro/SelectPage';
 import DatePickerPage from './pages/pro/DatePickerPage';
 import TimePickerPage from './pages/pro/TimePickerPage';
 import FormsPage from './pages/FormsPage';
+import ScrollSpyPage from './pages/ScrollSpyPage';
 
 class Routes extends React.Component {
   render() {
@@ -75,6 +76,7 @@ class Routes extends React.Component {
         <Route path='/javascript/pro/select' component={SelectPage} />
         <Route path='/javascript/pro/datepicker' component={DatePickerPage} />
         <Route path='/javascript/pro/timepicker' component={TimePickerPage} />
+        <Route path='/javascript/scrollspy' component={ScrollSpyPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />
