@@ -26,7 +26,6 @@ class ScrollSpyPage extends React.Component  {
         scrollSpySectionsOffset.push(currentOffsetTop);
       }
     }
-    console.log(scrollSpySectionsOffset);
   }
 
   componentWillUnmount() {
