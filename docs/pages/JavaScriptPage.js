@@ -12,6 +12,12 @@ class JavaScriptPage extends React.Component {
               <h1><Fa icon="code" className="grey-text" /> JavaScript</h1>
               <ul className="list-unstyled example-components-list">
                 <li>
+                  <NavLink to="/javascript/pro/datepicker">Date picker <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/javascript/pro/timepicker">Time picker <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/javascript/pro/select">Material Select <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
@@ -19,6 +25,9 @@ class JavaScriptPage extends React.Component {
                 </li>
                 <li>
                   <NavLink to="/javascript/collapse">Collapse <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/javascript/pro/collapse">Collapse PRO <Badge pill color="red">NEW</Badge><Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/javascript/sidenav">SideNav <Fa icon="angle-right" /></NavLink>
