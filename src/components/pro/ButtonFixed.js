@@ -51,6 +51,7 @@ class ButtonFixed extends React.Component {
       type,
       icon,
       innerRef,
+      topSection,
       ...attributes
     } = this.props;
 
@@ -77,6 +78,7 @@ class ButtonFixed extends React.Component {
       {...attributes}
       >
         <a
+        href={this.props.topSection ? this.props.topSection : '#'}
         className={classes}
         onClick={this.onClick}
         onMouseDown={ this.handleClick.bind(this) }
@@ -111,7 +113,8 @@ ButtonFixed.propTypes = {
   size: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  topSection: PropTypes.string
 };
 
 export default ButtonFixed;
