@@ -3,8 +3,7 @@ import SideNav from '../../src/components/SideNav';
 import SideNavNav from '../../src/components/SideNavNav';
 import SideNavCat from '../../src/components/SideNavCat';
 import SideNavItem from '../../src/components/SideNavItem';
-import { Navbar, NavbarToggler, NavbarItem, NavbarLink, NavbarNav, Button, Fa } from 'mdbreact';
-
+import { Fa } from 'mdbreact';
 
 class SideNavPage extends React.Component {
   constructor(props) {
@@ -128,10 +127,10 @@ class SideNavPage extends React.Component {
       <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" hidden isOpenWithButton={isOpenWithButtonA} breakWidth={1300} className="deep-purple darken-4">
       <li>
         <ul className="social">
-          <li><a href="#" className="icons-sm fb-ic"><i className="fa fa-facebook"></i></a></li>
-          <li><a href="#" className="icons-sm pin-ic"><i className="fa fa-pinterest"></i></a></li>
-          <li><a href="#" className="icons-sm gplus-ic"><i className="fa fa-google-plus"></i></a></li>
-          <li><a href="#" className="icons-sm tw-ic"><i className="fa fa-twitter"></i></a></li>
+          <li><a href="#"><Fa icon="facebook"></Fa></a></li>
+          <li><a href="#"><Fa icon="pinterest"></Fa></a></li>
+          <li><a href="#"><Fa icon="google-plus"></Fa></a></li>
+          <li><a href="#"><Fa icon="twitter"></Fa></a></li>
         </ul>
       </li>
         <SideNavNav>
