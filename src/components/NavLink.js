@@ -9,7 +9,6 @@ class NavLink extends Component {
     const {
       children,
       className,
-      active,
       tag: Tag,
       href,
       ...attributes
@@ -17,8 +16,7 @@ class NavLink extends Component {
 
     const classes = classNames(
       'nav-link',
-      attributes.disabled ? 'disabled' : '',
-      active ? 'active' : '',
+      attributes.disabled ? 'disabled' : ''
       className
     );
 
@@ -33,7 +31,6 @@ class NavLink extends Component {
 NavLink.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  active: PropTypes.bool,
   children: PropTypes.node,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   href: PropTypes.string
