@@ -55,6 +55,7 @@ class Navbar extends Component {
       color,
       className,
       tag: Tag,
+      double,
       ...attributes
     } = this.props;
 
@@ -68,6 +69,7 @@ class Navbar extends Component {
       scrolling ? 'scrolling-navbar' : '',
       this.state.isCollapsed ? 'top-nav-collapse' : '',
       color ? color : '',
+      double ? 'double-nav': '',
       className
     );
 

@@ -5,16 +5,20 @@ import classNames from 'classnames';
 class NavbarNav extends Component {
 
   render() {
- 
+
     const {
       children,
       className,
+      right,
+      left,
       tag: Tag,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'navbar-nav',
+      left && "mr-auto",
+      right && "ml-auto",
       className,
     );
 
