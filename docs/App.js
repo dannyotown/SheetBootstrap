@@ -33,7 +33,7 @@ class App extends Component {
             </NavbarBrand>
             {!this.state.isWideEnough && <NavbarToggler onClick ={this.onClick} />}
             <Collapse isOpen={this.state.collapse} navbar>
-              <NavbarNav className="ml-auto" onClick={this.onClick}>
+              <NavbarNav right onClick={this.onClick}>
                 <NavItem>
                   <NavLink className="nav-link" to="/">Home</NavLink>
                 </NavItem>
