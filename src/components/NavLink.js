@@ -16,7 +16,7 @@ class NavLink extends Component {
 
     const classes = classNames(
       'nav-link',
-      attributes.disabled ? 'disabled' : ''
+      attributes.disabled ? 'disabled' : '',
       className
     );
 
