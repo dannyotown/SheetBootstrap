@@ -54,15 +54,12 @@ class ButtonPage extends React.Component {
         </section>
         <section>
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-          <ButtonFixed onMouseEnter={this.onHover} onMouseLeave={this.onMouseLeave} floating size="lg" color="red" icon="pencil" style={{bottom: '140px', right: '24px'}}>
+          <ButtonFixed onMouseEnter={this.onHover} onMouseLeave={this.onMouseLeave} floating size="lg" color="red" icon="pencil" style={{bottom: '45px', right: '24px'}}>
             <ButtonFixedItem buttonStyle={this.state.buttonStyle} color="red" icon="star"></ButtonFixedItem>
             <ButtonFixedItem buttonStyle={this.state.buttonStyle} color="yellow" icon="user"></ButtonFixedItem>
             <ButtonFixedItem buttonStyle={this.state.buttonStyle} color="green" icon="envelope"></ButtonFixedItem>
             <ButtonFixedItem buttonStyle={this.state.buttonStyle} color="blue" icon="shopping-cart"></ButtonFixedItem>
           </ButtonFixed>
-        </section>
-        <section>
-          <ButtonFixed topSection="#top-section" floating size="lg" color="red" icon="arrow-up" style={{bottom: '45px', right: '24px'}}></ButtonFixed>
         </section>
       </div>
     );
