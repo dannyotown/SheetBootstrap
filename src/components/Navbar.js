@@ -74,7 +74,7 @@ class Navbar extends Component {
     );
 
     return (
-      <Tag {...attributes} className={classes} ref="navbar" />
+      <Tag {...attributes} className={classes} role="navigation" ref="navbar" />
     );
   }
 }

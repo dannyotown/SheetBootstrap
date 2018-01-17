@@ -17,8 +17,9 @@ class NavbarNav extends Component {
 
     const classes = classNames(
       'navbar-nav',
-      left && "mr-auto",
-      right && "ml-auto",
+      right ? "ml-auto" :
+      left ? "mr-auto" :
+      "justify-content-around w-100",
       className,
     );
 
