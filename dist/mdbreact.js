@@ -4925,6 +4925,8 @@ var _classnames2 = _interopRequireDefault(_classnames);
 
 var _Fa = __webpack_require__(10);
 
+var _Fa2 = _interopRequireDefault(_Fa);
+
 var _Waves = __webpack_require__(3);
 
 var _Waves2 = _interopRequireDefault(_Waves);
@@ -5017,7 +5019,7 @@ var ButtonFixed = function (_React$Component) {
             onClick: this.onClick,
             onMouseDown: this.handleClick.bind(this),
             onTouchStart: this.handleClick.bind(this) },
-          _react2.default.createElement(_Fa.Fa, { icon: this.props.icon }),
+          _react2.default.createElement(_Fa2.default, { icon: this.props.icon }),
           this.props.disabled ? false : _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos, outline: outline, flat: flat })
         ),
         _react2.default.createElement(
@@ -5169,6 +5171,8 @@ var _classnames2 = _interopRequireDefault(_classnames);
 
 var _Fa = __webpack_require__(10);
 
+var _Fa2 = _interopRequireDefault(_Fa);
+
 var _Waves = __webpack_require__(3);
 
 var _Waves2 = _interopRequireDefault(_Waves);
@@ -5251,7 +5255,7 @@ var ButtonFixed = function (_React$Component) {
         _react2.default.createElement(
           'a',
           _extends({}, attributes, { style: this.props.buttonStyle, onClick: this.onClick, onMouseDown: this.handleClick.bind(this), onTouchStart: this.handleClick.bind(this), className: classes }),
-          _react2.default.createElement(_Fa.Fa, { icon: this.props.icon }),
+          _react2.default.createElement(_Fa2.default, { icon: this.props.icon }),
           this.props.disabled ? false : _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos, outline: outline, flat: flat })
         )
       );
@@ -26995,6 +26999,8 @@ var _classnames2 = _interopRequireDefault(_classnames);
 
 var _Collapse = __webpack_require__(28);
 
+var _Collapse2 = _interopRequireDefault(_Collapse);
+
 var _Waves = __webpack_require__(3);
 
 var _Waves2 = _interopRequireDefault(_Waves);
@@ -27081,7 +27087,7 @@ var SideNavCat = function (_React$Component) {
           _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
         ),
         _react2.default.createElement(
-          _Collapse.Collapse,
+          _Collapse2.default,
           { isOpen: isOpen, className: 'collapsible-body' },
           _react2.default.createElement(
             'ul',
