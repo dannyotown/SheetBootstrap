@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { View } from 'mdbreact';
 import Transition from 'react-motion-ui-pack';
 import Waves from './Waves';
 
