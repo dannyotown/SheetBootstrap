@@ -20,10 +20,10 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-motion-ui-pack": "^0.10.3",
-    "react-popper": "^0.7.2",
+    "react-popper": "^0.7.5",
     "react-router-dom": "^4.2.0",
     "react-scripts": "1.0.11",
-    "react-toastify": "^3.1.0"
+    "react-toastify": "^3.2.2"
   },
   "scripts": {
     "build": "webpack",
@@ -38,15 +38,15 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-app": "^0.2.1",
     "babel-preset-stage-0": "^6.24.1",
-    "css-loader": "^0.28.4",
-    "eslint": "^4.8.0",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.15.0",
     "eslint-plugin-react": "^7.5.1",
     "html-webpack-plugin": "^2.30.1",
     "jshint": "^2.9.5",
-    "mdbootstrap": "^4.4.3",
+    "mdbootstrap": "^4.4.4",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
+    "webpack-dev-server": "^2.11.0"
   }
 }
