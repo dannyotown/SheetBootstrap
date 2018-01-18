@@ -19,7 +19,7 @@ class App extends Component {
 
   onClick(){
     this.setState({
-      collapse: !this.state.collapse,
+      collapse: !this.state.collapse
     });
   }
 
