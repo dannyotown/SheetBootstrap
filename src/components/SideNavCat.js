@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Collapse } from './Collapse';
+import Collapse from './Collapse';
 import Waves from './Waves';
 
 
@@ -55,23 +55,21 @@ class SideNavCat extends React.Component {
       className
     );
 
-
-
     return (
       <Tag>
-        <a className={classes} onClick={this.onClick}
-           onMouseDown={ this.handleClick.bind(this) }
-           onTouchStart={ this.handleClick.bind(this) }
+        <a className = { classes } onClick = { this.onClick }
+           onMouseDown = { this.handleClick.bind(this) }
+           onTouchStart = { this.handleClick.bind(this) }
            {...attributes}
         >
           { icon &&
-            <i className={"fa fa-" + icon}>&nbsp;</i>
+            <i className = { "fa fa-" + icon }>&nbsp;</i>
           }
           {name}
-          <i className="fa fa-angle-down rotate-icon"></i>
-        <Waves cursorPos={ this.state.cursorPos } />
+          <i className = "fa fa-angle-down rotate-icon"></i>
+        <Waves cursorPos = { this.state.cursorPos } />
         </a>
-        <Collapse isOpen={isOpen} className="collapsible-body">
+        <Collapse isOpen = {isOpen} className = "collapsible-body">
           <ul>
             {children}
           </ul>
