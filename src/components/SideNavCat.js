@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Collapse } from 'mdbreact';
+import { Collapse } from './Collapse';
 import Waves from './Waves';
 
 

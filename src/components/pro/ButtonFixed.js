@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Fa } from 'mdbreact';
+import { Fa } from '../Fa';
 import Waves from '../Waves';
 
 class ButtonFixed extends React.Component {
