@@ -1,9 +1,9 @@
 {
   "name": "mdbreact",
-  "version": "4.1.0-pro",
+  "version": "4.1.0",
   "author": "MDBootstrap",
   "license": "MIT",
-  "repository": "https://github.com/mdbootstrap/React-Bootstrap-with-Material-Design",
+  "repository": "https://git.mdbootstrap.com/mdb/react/re-pro",
   "main": "dist/mdbreact.js",
   "files": [
     "dist/*"
