@@ -97,7 +97,7 @@ class SelectPage extends React.Component {
             <Select>
               <SelectInput value={this.state.value}></SelectInput>
               <SelectOptions>
-                <SelectOption disabled>Choose your option</Option>
+                <SelectOption disabled>Choose your option</SelectOption>
                 <SelectOption triggerOptionClick={this.optionClick}>Option nr 1</SelectOption>
                 <SelectOption triggerOptionClick={this.optionClick}>Option nr 2</SelectOption>
                 <SelectOption triggerOptionClick={this.optionClick}>Option nr 3</SelectOption>
@@ -116,7 +116,7 @@ class SelectPage extends React.Component {
             <Select multiple>
               <SelectInput value={this.state.value2}></SelectInput>
               <SelectOptions>
-                <SelectOption disabled>Choose your option</Option>
+                <SelectOption disabled>Choose your option</SelectOption>
                 <SelectOption triggerOptionClick={this.optionClick2}>Option nr 1</SelectOption>
                 <SelectOption triggerOptionClick={this.optionClick2}>Option nr 2</SelectOption>
                 <SelectOption triggerOptionClick={this.optionClick2}>Option nr 3</SelectOption>
@@ -135,7 +135,7 @@ class SelectPage extends React.Component {
             <Select color="primary">
               <SelectInput value={this.state.value3}></SelectInput>
               <SelectOptions>
-                <SelectOption disabled>Choose your option</Option>
+                <SelectOption disabled>Choose your option</SelectOption>
                 <SelectOption triggerOptionClick={this.optionClick3}>Option nr 1</SelectOption>
                 <SelectOption triggerOptionClick={this.optionClick3}>Option nr 2</SelectOption>
                 <SelectOption triggerOptionClick={this.optionClick3}>Option nr 3</SelectOption>
