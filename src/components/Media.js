@@ -15,6 +15,8 @@ class Media extends React.Component {
       middle,
       object,
       right,
+      round,
+      thumbnail,
       tag,
       top,
       ...attributes
@@ -44,6 +46,8 @@ class Media extends React.Component {
       middle ?'media-middle': false,
       object ?'media-object': false,
       list ? 'media-list': false,
+      thumbnail ? 'img-thumbnail': false,
+      round ? 'rounded-circle z-depth-1-half': false,
       !body && !heading && !left && !right && !top && !bottom && !middle && !object && !list ? 'media' : false,
       className
     );
@@ -63,6 +67,8 @@ Media.propTypes = {
   list: PropTypes.bool,
   middle: PropTypes.bool,
   object: PropTypes.bool,
+  thumbnail: PropTypes.bool,
+  round: PropTypes.bool,
   right: PropTypes.bool,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   top: PropTypes.bool
