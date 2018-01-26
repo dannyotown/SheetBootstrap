@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM, { findDOMNode } from 'react-dom';
 import Select from '../../../src/components/pro/Select';
 import SelectInput from '../../../src/components/pro/SelectInput';
-import Options from '../../../src/components/pro/SelectOptions';
-import Option from '../../../src/components/pro/SelectOption';
+import SelectOptions from '../../../src/components/pro/SelectOptions';
+import SelectOption from '../../../src/components/pro/SelectOption';
 
 class SelectPage extends React.Component {
   constructor(props) {
@@ -96,14 +96,14 @@ class SelectPage extends React.Component {
 
             <Select>
               <SelectInput value={this.state.value}></SelectInput>
-              <Options>
-                <Option disabled>Choose your option</Option>
-                <Option triggerOptionClick={this.optionClick}>Option nr 1</Option>
-                <Option triggerOptionClick={this.optionClick}>Option nr 2</Option>
-                <Option triggerOptionClick={this.optionClick}>Option nr 3</Option>
-                <Option triggerOptionClick={this.optionClick}>Option nr 4</Option>
-                <Option triggerOptionClick={this.optionClick}>Option nr 5</Option>
-              </Options>
+              <SelectOptions>
+                <SelectOption disabled>Choose your option</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick}>Option nr 1</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick}>Option nr 2</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick}>Option nr 3</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick}>Option nr 4</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick}>Option nr 5</SelectOption>
+              </SelectOptions>
             </Select>
             <label>Example label</label>
 
@@ -115,14 +115,14 @@ class SelectPage extends React.Component {
 
             <Select multiple>
               <SelectInput value={this.state.value2}></SelectInput>
-              <Options>
-                <Option disabled>Choose your option</Option>
-                <Option triggerOptionClick={this.optionClick2}>Option nr 1</Option>
-                <Option triggerOptionClick={this.optionClick2}>Option nr 2</Option>
-                <Option triggerOptionClick={this.optionClick2}>Option nr 3</Option>
-                <Option triggerOptionClick={this.optionClick2}>Option nr 4</Option>
-                <Option triggerOptionClick={this.optionClick2}>Option nr 5</Option>
-              </Options>
+              <SelectOptions>
+                <SelectOption disabled>Choose your option</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick2}>Option nr 1</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick2}>Option nr 2</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick2}>Option nr 3</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick2}>Option nr 4</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick2}>Option nr 5</SelectOption>
+              </SelectOptions>
             </Select>
             <label>Example label</label>
 
@@ -134,14 +134,14 @@ class SelectPage extends React.Component {
 
             <Select color="primary">
               <SelectInput value={this.state.value3}></SelectInput>
-              <Options>
-                <Option disabled>Choose your option</Option>
-                <Option triggerOptionClick={this.optionClick3}>Option nr 1</Option>
-                <Option triggerOptionClick={this.optionClick3}>Option nr 2</Option>
-                <Option triggerOptionClick={this.optionClick3}>Option nr 3</Option>
-                <Option triggerOptionClick={this.optionClick3}>Option nr 4</Option>
-                <Option triggerOptionClick={this.optionClick3}>Option nr 5</Option>
-              </Options>
+              <SelectOptions>
+                <SelectOption disabled>Choose your option</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick3}>Option nr 1</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick3}>Option nr 2</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick3}>Option nr 3</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick3}>Option nr 4</SelectOption>
+                <SelectOption triggerOptionClick={this.optionClick3}>Option nr 5</SelectOption>
+              </SelectOptions>
             </Select>
             <label>Blue select</label>
 
@@ -153,12 +153,12 @@ class SelectPage extends React.Component {
 
             <Select>
               <SelectInput value={this.state.value4}></SelectInput>
-              <Options>
-                <Option disabled>Choose your option</Option>
-                <Option icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg" triggerOptionClick={this.optionClick4}>Option nr 1</Option>
-                <Option icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" triggerOptionClick={this.optionClick4}>Option nr 2</Option>
-                <Option icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg" triggerOptionClick={this.optionClick4}>Option nr 3</Option>
-              </Options>
+              <SelectOptions>
+                <SelectOption disabled>Choose your option</SelectOption>
+                <SelectOption icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg" triggerOptionClick={this.optionClick4}>Option nr 1</SelectOption>
+                <SelectOption icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" triggerOptionClick={this.optionClick4}>Option nr 2</SelectOption>
+                <SelectOption icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg" triggerOptionClick={this.optionClick4}>Option nr 3</SelectOption>
+              </SelectOptions>
             </Select>
             <label>Example label</label>
 
@@ -170,14 +170,14 @@ class SelectPage extends React.Component {
 
             <Select>
               <SelectInput value={this.state.value5}></SelectInput>
-              <Options>
-                  <Option disabled>team 1</Option>
-                  <Option triggerOptionClick={this.optionClick5}>Option nr 1</Option>
-                  <Option triggerOptionClick={this.optionClick5}>Option nr 2</Option>
-                  <Option disabled>team 2</Option>
-                  <Option triggerOptionClick={this.optionClick5}>Option nr 3</Option>
-                  <Option triggerOptionClick={this.optionClick5}>Option nr 4</Option>
-              </Options>
+              <SelectOptions>
+                  <SelectOption disabled>team 1</SelectOption>
+                  <SelectOption triggerOptionClick={this.optionClick5}>Option nr 1</SelectOption>
+                  <SelectOption triggerOptionClick={this.optionClick5}>Option nr 2</SelectOption>
+                  <SelectOption disabled>team 2</SelectOption>
+                  <SelectOption triggerOptionClick={this.optionClick5}>Option nr 3</SelectOption>
+                  <SelectOption triggerOptionClick={this.optionClick5}>Option nr 4</SelectOption>
+              </SelectOptions>
             </Select>
             <label>Example label</label>
 
