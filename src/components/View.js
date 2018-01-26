@@ -26,6 +26,7 @@ class View extends React.Component {
       className,
       children,
       overlay,
+      hover,
       zoom,
       tag: Tag,
       ...attributes
@@ -33,8 +34,9 @@ class View extends React.Component {
 
     const classes = classNames(
       'view',
-      overlay ? 'overlay hm-' + overlay : '',
-      zoom ? 'overlay hm-zoom' : '',
+      overlay && `hm-${overlay}`,
+      zoom && 'hm-zoom',
+      hover && 'overlay',
       'Ripple-parent',
       className
     );
@@ -55,6 +57,7 @@ View.propTypes = {
   className: PropTypes.string,
   overlay: PropTypes.string,
   zoom: PropTypes.bool,
+  hover: PropTypes.bool,
   tag: PropTypes.string
 };
 
