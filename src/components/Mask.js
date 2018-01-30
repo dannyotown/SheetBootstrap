@@ -8,12 +8,14 @@ class Mask extends React.Component {
     const {
       className,
       children,
+      pattern,
       tag: Tag,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'mask',
+      pattern && `pattern-${pattern}`,
       className
     );
     return (
@@ -28,6 +30,7 @@ Mask.defaultProps = {
 
 Mask.propTypes = {
   tag: PropTypes.string,
+  pattern: PropTypes.number,
   children: PropTypes.node,
   className: PropTypes.string
 };
