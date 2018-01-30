@@ -188,6 +188,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = __webpack_require__(4);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -223,7 +227,7 @@ var Waves = function (_React$Component) {
   _createClass(Waves, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'Ripple ' + (this.props.outline || this.props.flat ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : ''), ref: 'ripple', style: {
+      return _react2.default.createElement('div', { className: 'Ripple ' + (this.props.outline || this.props.flat ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : ''), style: {
           top: this.state.top + 'px',
           left: this.state.left + 'px',
           width: this.state.width + 'px',
@@ -235,8 +239,8 @@ var Waves = function (_React$Component) {
     value: function reppling(cursorPos) {
 
       // Get the element
-      var $ripple = this.refs.ripple;
-      var $button = $ripple.parentElement;
+      var $ripple = _reactDom2.default.findDOMNode(this);
+      var $button = $ripple.parentNode;
 
       var buttonStyle = window.getComputedStyle($button);
       var buttonPos = $button.getBoundingClientRect();
