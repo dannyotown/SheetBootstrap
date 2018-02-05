@@ -15,6 +15,7 @@ class ButtonFixed extends React.Component {
 
   handleClick(e){
     // Get Cursor Position
+    e.preventDefault();
     let cursorPos = {
       top: e.clientY,
       left: e.clientX,
