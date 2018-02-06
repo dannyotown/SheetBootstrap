@@ -5,12 +5,14 @@
   transition: 0.5s;
   display: block;
   width: 100%;
+  top: 0;
   opacity: 0;
-  top: -20px;
+  transform-origin:top; 
+  transform:scaleY(0.7);
   visibility: hidden;
 }
 .fadeElement.fadeIn {
-  top: 0;
+  transform:scaleY(1);
   opacity: 1;
   visibility: visible;
 }
