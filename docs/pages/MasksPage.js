@@ -11,24 +11,24 @@ class MasksPage extends React.Component {
           <Col md="4">
             <View>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
-              <Mask pattern="1" className="flex-center">
-                <p className="white-text">pattern = "1"</p>
+              <Mask pattern={1} className="flex-center">
+                <p className="white-text">pattern = &#123;1&#125;</p>
               </Mask>
             </View>
           </Col>
           <Col md="4">
             <View>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
-              <Mask pattern="2" className="flex-center">
-                <p className="white-text">pattern = "2"</p>
+              <Mask pattern={2} className="flex-center">
+                <p className="white-text">pattern = &#123;2&#125;</p>
               </Mask>
             </View>
           </Col>
           <Col md="4">
             <View>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
-              <Mask pattern="3" className="flex-center">
-                <p className="white-text">pattern = "3"</p>
+              <Mask pattern={3} className="flex-center">
+                <p className="white-text">pattern = &#123;3&#125;</p>
               </Mask>
             </View>
           </Col>
