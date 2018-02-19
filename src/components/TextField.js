@@ -116,9 +116,17 @@ class TextField extends React.Component {
     let formControlClass = 'form-control';
 
     if (textareaInput) {
-      formControlClass = 'md-textarea';
+      formControlClass = 'md-textarea form-control';
     } else if (inputType) {
       formControlClass = 'form-control';
+    }
+
+    if (Tag === 'input') {
+      attributes.type = type;
+    }
+
+    if (disabled) {
+      attributes.disabled = true;
     }
 
     const classes = classNames(
@@ -126,6 +134,8 @@ class TextField extends React.Component {
       validate ? 'validate' : false,
       filled ? 'filled-in' : false,
       gap ? 'with-gap' : false,
+      type === "checkbox" ? gap ? false :'form-check-input' : false,
+      type === "radio" ? 'form-check-input' : false,
       className
     );
 
@@ -147,18 +157,10 @@ class TextField extends React.Component {
     const labelClassFix = classNames(
       isNotEmpty ? 'active' : false,
       disabled ? 'disabled' : false,
-      this.props.type === "checkbox" ? 'mr-5' : false,
-      this.props.type === "radio" ? 'mr-5' : false,
+      type === "checkbox" ? 'form-check-label mr-5' : false,
+      type === "radio" ? 'form-check-label mr-5' : false,
       labelClass
     );
-
-    if (Tag === 'input') {
-      attributes.type = type;
-    }
-
-    if (disabled) {
-      attributes.disabled = true;
-    }
 
     return (
       <div className={containerClassFix}>

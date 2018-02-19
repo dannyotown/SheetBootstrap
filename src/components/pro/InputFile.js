@@ -40,7 +40,8 @@ class InputFile extends React.Component {
     const btnClass = classNames(
       'btn',
       'btn-' + btnColor,
-      'btn-sm'
+      'btn-sm',
+      'float-left'
     );
 
     const inputFieldClass = classNames(
@@ -50,7 +51,7 @@ class InputFile extends React.Component {
     );
     return (
       <form>
-        <div className="file-field">
+        <div className="file-field md-form">
           <div className={btnClass}>
             <span>{this.props.btnTitle}</span>
             <input multiple={this.props.multiple} onChange={(e) => this.fileChange(e.target.files)} type="file" />
