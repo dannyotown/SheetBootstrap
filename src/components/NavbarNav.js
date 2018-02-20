@@ -34,7 +34,9 @@ class NavbarNav extends Component {
 NavbarNav.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  right: PropTypes.bool,
+  left: PropTypes.bool
 };
 
 NavbarNav.defaultProps = {
