@@ -7,7 +7,7 @@ class MasksPage extends React.Component {
   render () {
     return (
       <Container>
-        <Row>
+        <Row className="mt-4">
           <Col md="4">
             <View>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
@@ -59,7 +59,6 @@ class MasksPage extends React.Component {
             </View>
           </Col>
         </Row>
-        <div style={{height: '100vh'}} />
       </Container>
     );
   }
