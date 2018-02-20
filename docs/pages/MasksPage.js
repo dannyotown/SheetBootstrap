@@ -7,7 +7,7 @@ class MasksPage extends React.Component {
   render () {
     return (
       <Container>
-        <Row>
+        <Row className="mt-4">
           <Col md="4">
             <View>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
@@ -35,31 +35,30 @@ class MasksPage extends React.Component {
         </Row>
         <Row className="mt-4">
           <Col md="4">
-            <View overlay="blue-light">
+            <View>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
-              <Mask className="flex-center">
+              <Mask className="flex-center" overlay="blue-light">
                 <p className="white-text">overlay = "blue-light"</p>
               </Mask>
             </View>
           </Col>
           <Col md="4">
-            <View overlay="blue-strong">
+            <View>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
-              <Mask className="flex-center">
+              <Mask className="flex-center" overlay="blue-strong">
                 <p className="white-text">overlay = "blue-strong"</p>
               </Mask>
             </View>
           </Col>
           <Col md="4">
-            <View overlay="blue-slight">
+            <View>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
-              <Mask className="flex-center">
+              <Mask className="flex-center" overlay="blue-slight">
                 <p className="white-text">overlay = "blue-slight"</p>
               </Mask>
             </View>
           </Col>
         </Row>
-        <div style={{height: '100vh'}} />
       </Container>
     );
   }
