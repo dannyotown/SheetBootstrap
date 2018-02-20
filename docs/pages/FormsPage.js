@@ -56,7 +56,7 @@ class FormsPage extends React.Component  {
               <Input label="Your name" icon="user" group type="email" validate error="wrong" success="right"/>
               <Input label="Your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
               <Input label="Subject" icon="tag" group type="email" validate error="wrong" success="right"/>
-              <Input type="textarea" label="Your message" icon="pencil"/>
+              <Input type="textarea" rows="2" label="Your message" icon="pencil"/>
               <div className="text-center">
                 <Button color="deep-orange" color="unique">Send <Fa icon="paper-plane-o" className="ml-1"/></Button>
               </div>

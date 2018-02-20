@@ -5,8 +5,8 @@ const NavLink = require('react-router-dom').NavLink;
 class FooterPage extends React.Component {
   render(){
     return(
-      <Footer className="center-on-small-only">
-        <Container fluid>
+      <Footer color="cyan">
+        <Container fluid className="text-center text-md-left">
           <Row>
             <Col md="6">
               <h5 className="title">Footer Content</h5>
@@ -15,15 +15,15 @@ class FooterPage extends React.Component {
             <Col md="6">
               <h5 className="title">Links</h5>
               <ul>
-                <li><a href="#!">Link 1</a></li>
-                <li><a href="#!">Link 2</a></li>
-                <li><a href="#!">Link 3</a></li>
-                <li><a href="#!">Link 4</a></li>
+                <li className="list-unstyled"><a href="#!">Link 1</a></li>
+                <li className="list-unstyled"><a href="#!">Link 2</a></li>
+                <li className="list-unstyled"><a href="#!">Link 3</a></li>
+                <li className="list-unstyled"><a href="#!">Link 4</a></li>
               </ul>
             </Col>
           </Row>
         </Container>
-        <div className="footer-copyright">
+        <div className="footer-copyright py-3 text-center">
           <Container fluid>
               &copy; {(new Date().getFullYear())} Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
           </Container>

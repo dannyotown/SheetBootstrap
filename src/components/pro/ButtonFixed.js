@@ -87,7 +87,7 @@ class ButtonFixed extends React.Component {
           <Fa icon={this.props.icon} />
           {this.props.disabled ? false : <Waves cursorPos={ this.state.cursorPos } outline={outline} flat={flat} />}
         </a>
-        <ul>{this.props.children}</ul>
+        <ul className="list-unstyled">{this.props.children}</ul>
       </div>
     );
   }

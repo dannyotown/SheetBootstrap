@@ -63,7 +63,7 @@ class App extends Component {
           </main>
 
           <Footer color="indigo">
-            <p className="footer-copyright mb-0">
+            <p className="footer-copyright mb-0 py-3 text-center">
               &copy; {(new Date().getFullYear())} Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
             </p>
           </Footer>
