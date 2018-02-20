@@ -62,7 +62,7 @@ class TextField extends React.Component {
   }
 
   onChange(ev) {
-    if(this.props.type !== "checkbox" && this.props.type !== "radio") {
+    if(this.props.type !== 'checkbox' && this.props.type !== 'radio') {
       this.setState({
         innerValue: ev.target.value,
         isPristine: false
@@ -134,13 +134,13 @@ class TextField extends React.Component {
       validate ? 'validate' : false,
       filled ? 'filled-in' : false,
       gap ? 'with-gap' : false,
-      type === "checkbox" ? gap ? false :'form-check-input' : false,
-      type === "radio" ? 'form-check-input' : false,
+      type === 'checkbox' ? gap ? false : 'form-check-input' : false,
+      type === 'radio' ? 'form-check-input' : false,
       className
     );
 
     const containerClassFix = classNames(
-      'md-form',
+      type === 'checkbox' || type === 'radio' ? 'form-check my-3' : 'md-form',
       group ? 'form-group' : false,
       size ? `form-${size}` : false,
       containerClass
@@ -157,8 +157,8 @@ class TextField extends React.Component {
     const labelClassFix = classNames(
       isNotEmpty ? 'active' : false,
       disabled ? 'disabled' : false,
-      type === "checkbox" ? 'form-check-label mr-5' : false,
-      type === "radio" ? 'form-check-label mr-5' : false,
+      type === 'checkbox' ? 'form-check-label mr-5' : false,
+      type === 'radio' ? 'form-check-label mr-5' : false,
       labelClass
     );
 
