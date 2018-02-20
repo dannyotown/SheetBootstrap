@@ -9,6 +9,7 @@ class Mask extends React.Component {
       className,
       children,
       pattern,
+      overlay,
       tag: Tag,
       ...attributes
     } = this.props;
@@ -16,6 +17,7 @@ class Mask extends React.Component {
     const classes = classNames(
       'mask',
       pattern && `pattern-${pattern}`,
+      overlay && `rgba-${overlay}`,
       className
     );
     return (
@@ -32,7 +34,8 @@ Mask.propTypes = {
   tag: PropTypes.string,
   pattern: PropTypes.number,
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  overlay: PropTypes.string
 };
 
 export default Mask;
