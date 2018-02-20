@@ -10,25 +10,25 @@ class HoverPage extends React.Component {
         <h2 className="py-4">Basic expamples</h2>
         <Row>
           <Col md="4">
-            <View overlay="red-strong">
+            <View hover>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
-              <Mask className="flex-center">
+              <Mask className="flex-center" overlay="red-strong">
                 <p className="white-text">Strong overlay</p>
               </Mask>
             </View>
           </Col>
           <Col md="4">
-            <View overlay="red-light">
+            <View hover>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
-              <Mask className="flex-center">
+              <Mask className="flex-center" overlay="red-light">
                 <p className="white-text">Light overlay</p>
               </Mask>
             </View>
           </Col>
           <Col md="4">
-            <View overlay="red-slight">
+            <View hover>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
-              <Mask className="flex-center">
+              <Mask className="flex-center" overlay="red-slight">
                 <p className="white-text">Super light overlay</p>
               </Mask>
             </View>
@@ -36,7 +36,7 @@ class HoverPage extends React.Component {
         </Row>
         <Row className="mt-4">
           <Col md="6">
-            <View zoom>
+            <View hover zoom>
               <img src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg" className="img-fluid" alt="" />
               <Mask className="flex-center">
                 <p className="white-text">Zoom effect</p>
