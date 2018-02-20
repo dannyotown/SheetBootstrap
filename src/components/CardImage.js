@@ -44,10 +44,10 @@ class CardImage extends Component {
 
     if ( this.props.src ) {
       return (
-        <View overlay="white-slight">
+        <View>
         <div className="Ripple-parent">
           {innerContent}
-          <Mask/>
+          <Mask overlay="white-slight"/>
           <Waves cursorPos={ this.state.cursorPos } />
           </div>
         </View>
