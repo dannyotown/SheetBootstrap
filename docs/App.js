@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Button, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, Footer } from 'mdbreact';
+import { Button, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, Footer, NavLink } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
-
-const NavLink = require('react-router-dom').NavLink;
 
 import Routes from './Routes';
 
@@ -12,7 +10,6 @@ class App extends Component {
     super(props);
     this.state ={
       collapsed: false,
-      // isWideEnough: false
     };
     this.handleTogglerClick = this.handleTogglerClick.bind(this);
     this.handleNavbarClick = this.handleNavbarClick.bind(this);
@@ -45,16 +42,16 @@ class App extends Component {
             <Collapse isOpen={this.state.collapsed} navbar>
               <NavbarNav right onClick={this.handleNavbarClick}>
                 <NavItem>
-                  <NavLink className="nav-link" to="/">Home</NavLink>
+                  <NavLink to="/">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/css">CSS</NavLink>
+                  <NavLink to="/css">CSS</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/components">Components</NavLink>
+                  <NavLink to="/components">Components</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/javascript">JavaScript</NavLink>
+                  <NavLink to="/javascript">JavaScript</NavLink>
                 </NavItem>
               </NavbarNav>
             </Collapse>
