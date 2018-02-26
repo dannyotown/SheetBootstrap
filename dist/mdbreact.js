@@ -1888,10 +1888,11 @@ var Mask = function (_React$Component) {
           className = _props.className,
           children = _props.children,
           pattern = _props.pattern,
+          overlay = _props.overlay,
           Tag = _props.tag,
-          attributes = _objectWithoutProperties(_props, ['className', 'children', 'pattern', 'tag']);
+          attributes = _objectWithoutProperties(_props, ['className', 'children', 'pattern', 'overlay', 'tag']);
 
-      var classes = (0, _classnames2.default)('mask', pattern && 'pattern-' + pattern, className);
+      var classes = (0, _classnames2.default)('mask', pattern && 'pattern-' + pattern, overlay && 'rgba-' + overlay, className);
       return _react2.default.createElement(
         Tag,
         _extends({}, attributes, { className: classes }),
@@ -1911,7 +1912,8 @@ Mask.propTypes = {
   tag: _propTypes2.default.string,
   pattern: _propTypes2.default.number,
   children: _propTypes2.default.node,
-  className: _propTypes2.default.string
+  className: _propTypes2.default.string,
+  overlay: _propTypes2.default.string
 };
 
 exports.default = Mask;
@@ -1988,13 +1990,12 @@ var View = function (_React$Component) {
       var _props = this.props,
           className = _props.className,
           children = _props.children,
-          overlay = _props.overlay,
           hover = _props.hover,
           zoom = _props.zoom,
           Tag = _props.tag,
-          attributes = _objectWithoutProperties(_props, ['className', 'children', 'overlay', 'hover', 'zoom', 'tag']);
+          attributes = _objectWithoutProperties(_props, ['className', 'children', 'hover', 'zoom', 'tag']);
 
-      var classes = (0, _classnames2.default)('view', overlay && 'hm-' + overlay, zoom && 'hm-zoom', hover && 'overlay', 'Ripple-parent', className);
+      var classes = (0, _classnames2.default)('view', zoom && 'zoom', hover && 'overlay', 'Ripple-parent', className);
       return _react2.default.createElement(
         Tag,
         _extends({}, attributes, { className: classes, onMouseDown: this.handleClick.bind(this), onTouchStart: this.handleClick.bind(this) }),
@@ -2014,7 +2015,6 @@ View.defaultProps = {
 View.propTypes = {
   children: _propTypes2.default.node,
   className: _propTypes2.default.string,
-  overlay: _propTypes2.default.string,
   zoom: _propTypes2.default.bool,
   hover: _propTypes2.default.bool,
   tag: _propTypes2.default.string
@@ -2776,7 +2776,7 @@ var TextField = function (_React$Component) {
   }, {
     key: 'onChange',
     value: function onChange(ev) {
-      if (this.props.type !== "checkbox" && this.props.type !== "radio") {
+      if (this.props.type !== 'checkbox' && this.props.type !== 'radio') {
         this.setState({
           innerValue: ev.target.value,
           isPristine: false
@@ -2831,18 +2831,10 @@ var TextField = function (_React$Component) {
       var formControlClass = 'form-control';
 
       if (textareaInput) {
-        formControlClass = 'md-textarea';
+        formControlClass = 'md-textarea form-control';
       } else if (inputType) {
         formControlClass = 'form-control';
       }
-
-      var classes = (0, _classnames2.default)(formControlClass, validate ? 'validate' : false, filled ? 'filled-in' : false, gap ? 'with-gap' : false, className);
-
-      var containerClassFix = (0, _classnames2.default)('md-form', group ? 'form-group' : false, size ? 'form-' + size : false, containerClass);
-
-      var iconClassFix = (0, _classnames2.default)('fa', icon ? 'fa-' + icon : false, isNotEmpty ? 'active' : false, iconClass, 'prefix');
-
-      var labelClassFix = (0, _classnames2.default)(isNotEmpty ? 'active' : false, disabled ? 'disabled' : false, this.props.type === "checkbox" ? 'mr-5' : false, this.props.type === "radio" ? 'mr-5' : false, labelClass);
 
       if (Tag === 'input') {
         attributes.type = type;
@@ -2851,6 +2843,14 @@ var TextField = function (_React$Component) {
       if (disabled) {
         attributes.disabled = true;
       }
+
+      var classes = (0, _classnames2.default)(formControlClass, validate ? 'validate' : false, filled ? 'filled-in' : false, gap ? 'with-gap' : false, type === 'checkbox' ? gap ? false : 'form-check-input' : false, type === 'radio' ? 'form-check-input' : false, className);
+
+      var containerClassFix = (0, _classnames2.default)(type === 'checkbox' || type === 'radio' ? 'form-check my-3' : 'md-form', group ? 'form-group' : false, size ? 'form-' + size : false, containerClass);
+
+      var iconClassFix = (0, _classnames2.default)('fa', icon ? 'fa-' + icon : false, isNotEmpty ? 'active' : false, iconClass, 'prefix');
+
+      var labelClassFix = (0, _classnames2.default)(isNotEmpty ? 'active' : false, disabled ? 'disabled' : false, type === 'checkbox' ? 'form-check-label mr-5' : false, type === 'radio' ? 'form-check-label mr-5' : false, labelClass);
 
       return _react2.default.createElement(
         'div',
@@ -4595,7 +4595,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, ".Ripple {\r\n    position: absolute;\r\n    background: rgba(255, 255, 255, 0.3);\r\n    border-radius: 50%;\r\n    opacity: 1;\r\n    transform: scale(0);\r\n}\r\n\r\n.Ripple-outline {\r\n  background: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.Ripple.is-reppling {\r\n    animation: ripple 0.5s linear;\r\n}\r\n\r\n.Ripple-parent {\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n\r\n@keyframes ripple {\r\n    100% {\r\n        opacity: 0;\r\n        transform: scale(3);\r\n    }\r\n}\r\n", ""]);
+exports.push([module.i, ".Ripple {\r\n    position: absolute;\r\n    background: rgba(255, 255, 255, 0.3);\r\n    border-radius: 50%;\r\n    opacity: 1;\r\n    transform: scale(0);\r\n}\r\n\r\n.Ripple-outline {\r\n  background: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.Ripple.is-reppling {\r\n    animation: ripple 0.5s linear;\r\n}\r\n\r\n.Ripple-parent {\r\n    position: relative;\r\n    overflow: hidden;\r\n    touch-action: none;\r\n}\r\n\r\n@keyframes ripple {\r\n    100% {\r\n        opacity: 0;\r\n        transform: scale(3);\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -5033,7 +5033,7 @@ var ButtonFixed = function (_React$Component) {
         ),
         _react2.default.createElement(
           'ul',
-          null,
+          { className: 'list-unstyled' },
           this.props.children
         )
       );
@@ -5569,12 +5569,12 @@ var CardImage = function (_Component) {
       if (this.props.src) {
         return _react2.default.createElement(
           _View2.default,
-          { overlay: 'white-slight' },
+          null,
           _react2.default.createElement(
             'div',
             { className: 'Ripple-parent' },
             innerContent,
-            _react2.default.createElement(_Mask2.default, null),
+            _react2.default.createElement(_Mask2.default, { overlay: 'white-slight' }),
             _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
           )
         );
@@ -12928,7 +12928,7 @@ var Footer = function (_Component) {
           Tag = _props.tag,
           attributes = _objectWithoutProperties(_props, ['color', 'children', 'className', 'tag']);
 
-      var classes = (0, _classnames2.default)('page-footer', color ? color : '', className);
+      var classes = (0, _classnames2.default)('page-footer mt-4', color ? color : '', className);
 
       return _react2.default.createElement(
         Tag,
@@ -13170,7 +13170,7 @@ var InputFile = function (_React$Component) {
           multiple = _props.multiple,
           attributes = _objectWithoutProperties(_props, ['className', 'btnTitle', 'btnColor', 'textFieldTitle', 'multiple']);
 
-      var btnClass = (0, _classnames2.default)('btn', 'btn-' + btnColor, 'btn-sm');
+      var btnClass = (0, _classnames2.default)('btn', 'btn-' + btnColor, 'btn-sm', 'float-left');
 
       var inputFieldClass = (0, _classnames2.default)('file-path validate', this.state.files ? 'valid' : false, className);
       return _react2.default.createElement(
@@ -13178,7 +13178,7 @@ var InputFile = function (_React$Component) {
         null,
         _react2.default.createElement(
           'div',
-          { className: 'file-field' },
+          { className: 'file-field md-form' },
           _react2.default.createElement(
             'div',
             { className: btnClass },
@@ -13237,6 +13237,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = __webpack_require__(4);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -13274,7 +13278,8 @@ var InputRange = function (_React$Component) {
       thumbHeight: 0,
       thumbWidth: 0,
       thumbTop: '10px',
-      thumbMarginLeft: '-6px'
+      thumbMarginLeft: '-6px',
+      input: 'input'
     };
     _this.rangeChange = _this.rangeChange.bind(_this);
     _this.rangeFocus = _this.rangeFocus.bind(_this);
@@ -13286,7 +13291,7 @@ var InputRange = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.setState({ value: this.props.value });
-      var input = this.refs.input;
+      var input = _reactDom2.default.findDOMNode(this.refs.input);
       var inputWidth = input.offsetWidth;
       oneStep = inputWidth / this.props.max;
       this.setState({ leftPosition: oneStep * this.props.value });
@@ -13305,7 +13310,8 @@ var InputRange = function (_React$Component) {
   }, {
     key: 'rangeMouseLeave',
     value: function rangeMouseLeave() {
-      this.refs.input.blur();
+      var input = _reactDom2.default.findDOMNode(this.refs.input);
+      input.blur();
       this.setState({ thumbActive: false, thumbHeight: 0, thumbWidth: 0, thumbTop: '10px', thumbMarginLeft: '-6px' });
     }
   }, {
@@ -13325,7 +13331,7 @@ var InputRange = function (_React$Component) {
       return _react2.default.createElement(
         'form',
         { className: 'range-field' },
-        _react2.default.createElement('input', { className: inputClass, min: this.props.min, max: this.props.max, value: this.state.value, ref: 'input', type: 'range', onChange: this.rangeChange, onFocus: this.rangeFocus, onMouseLeave: this.rangeMouseLeave }),
+        _react2.default.createElement('input', { className: inputClass, min: this.props.min, max: this.props.max, value: this.state.value, ref: this.state.input, type: 'range', onChange: this.rangeChange, onFocus: this.rangeFocus, onMouseLeave: this.rangeMouseLeave }),
         _react2.default.createElement(
           'span',
           { className: thumbClass, style: { left: this.state.leftPosition, height: this.state.thumbHeight, width: this.state.thumbWidth, top: this.state.thumbTop, marginLeft: this.state.thumbMarginLeft } },
@@ -13397,7 +13403,7 @@ exports = module.exports = __webpack_require__(5)(false);
 
 
 // module
-exports.push([module.i, ".thumb {\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\n}\n", ""]);
+exports.push([module.i, ".thumb {\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\n}\n\ninput[type=\"range\"] {\n  -webkit-appearance: none;\n}\n\n/* thumb */\n\ninput[type=range]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  border: none;\n  height: 14px;\n  width: 14px;\n  border-radius: 50%;\n  background-color: #4285f4;\n  transform-origin: 50% 50%;\n  margin: -5px 0 0 0;\n  transition: 0.3s; }\n  input[type=range]:focus::-webkit-slider-runnable-track {\n    background: #ccc; }\n  input[type=range]::-moz-range-track {\n    /*required for proper track sizing in FF*/\n    height: 3px;\n    background: #c2c0c2;\n    border: none; }\n  input[type=range]::-moz-range-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4;\n    margin-top: -5px; }\n  input[type=range]:-moz-focusring {\n    /*hide the outline behind the border*/\n    outline: 1px solid #ffffff;\n    outline-offset: -1px; }\n  input[type=range]:focus::-moz-range-track {\n    background: #c2c0c2; }\n  input[type=range]::-ms-track {\n    height: 3px;\n    background: transparent;\n    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */\n    border-color: transparent;\n    /*leave room for the larger thumb to overflow with a transparent border */\n    border-width: 6px 0;\n    color: transparent;\n    /*remove default tick marks*/ }\n  input[type=range]::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]::-ms-fill-upper {\n    background: #c2c0c2; }\n  input[type=range]::-ms-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4; }\n  input[type=range]:focus::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]:focus::-ms-fill-upper {\n    background: #c2c0c2; }", ""]);
 
 // exports
 
@@ -13936,7 +13942,7 @@ var defaultProps = {
   backdrop: true,
   keyboard: true,
   zIndex: 1050,
-  fade: false,
+  fade: true,
   modalTransitionTimeout: 300,
   backdropTransitionTimeout: 150
 };
@@ -14144,7 +14150,7 @@ var Modal = function (_React$Component) {
       if (this.hasTransition()) {
         return _react2.default.createElement(
           _reactTransitionGroup.TransitionGroup,
-          { component: null, className: (0, _utils.mapToCssModules)(wrapClassName) },
+          { className: (0, _utils.mapToCssModules)(wrapClassName) },
           isOpen && _react2.default.createElement(
             _Fade2.default,
             _extends({
@@ -15419,7 +15425,10 @@ var Navbar = function (_Component) {
 
     var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props, refs));
 
-    _this.state = { isCollapsed: false };
+    _this.state = {
+      isCollapsed: false,
+      navbar: 'navbar'
+    };
     _this.refs = {};
     return _this;
   }
@@ -15465,7 +15474,7 @@ var Navbar = function (_Component) {
 
       var classes = (0, _classnames2.default)('navbar', light ? 'navbar-light' : '', dark ? 'navbar-dark' : '', sticky ? 'sticky-' + sticky : '', fixed ? 'fixed-' + fixed : '', getExpandClass(expand), scrolling ? 'scrolling-navbar' : '', this.state.isCollapsed ? 'top-nav-collapse' : '', color ? color : '', double ? 'double-nav' : '', className);
 
-      return _react2.default.createElement(Tag, _extends({}, attributes, { className: classes, role: 'navigation', ref: 'navbar' }));
+      return _react2.default.createElement(Tag, _extends({}, attributes, { className: classes, role: 'navigation', ref: this.state.navbar }));
     }
   }]);
 
@@ -15639,7 +15648,9 @@ var NavbarNav = function (_Component) {
 NavbarNav.propTypes = {
   tag: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
   className: _propTypes2.default.string,
-  children: _propTypes2.default.node
+  children: _propTypes2.default.node,
+  right: _propTypes2.default.bool,
+  left: _propTypes2.default.bool
 };
 
 NavbarNav.defaultProps = {
@@ -15827,6 +15838,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _NavLink$propTypes;
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15843,7 +15856,13 @@ var _classnames = __webpack_require__(2);
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _Waves = __webpack_require__(3);
+
+var _Waves2 = _interopRequireDefault(_Waves);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -15856,13 +15875,42 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var NavLink = function (_Component) {
   _inherits(NavLink, _Component);
 
-  function NavLink() {
+  function NavLink(props) {
     _classCallCheck(this, NavLink);
 
-    return _possibleConstructorReturn(this, (NavLink.__proto__ || Object.getPrototypeOf(NavLink)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (NavLink.__proto__ || Object.getPrototypeOf(NavLink)).call(this, props));
+
+    _this.state = {
+      cursorPos: {}
+    };
+    _this.onClick = _this.onClick.bind(_this);
+    return _this;
   }
 
   _createClass(NavLink, [{
+    key: 'handleClick',
+    value: function handleClick(e) {
+      // Get Cursor Position
+      e.preventDefault();
+      var cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      this.setState({ cursorPos: cursorPos });
+    }
+  }, {
+    key: 'onClick',
+    value: function onClick(e) {
+      if (this.props.disabled) {
+        e.preventDefault();
+        return;
+      }
+      if (this.props.onClick) {
+        this.props.onClick(e);
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
@@ -15870,14 +15918,22 @@ var NavLink = function (_Component) {
           className = _props.className,
           Tag = _props.tag,
           href = _props.href,
-          attributes = _objectWithoutProperties(_props, ['children', 'className', 'tag', 'href']);
+          disabled = _props.disabled,
+          innerRef = _props.innerRef,
+          attributes = _objectWithoutProperties(_props, ['children', 'className', 'tag', 'href', 'disabled', 'innerRef']);
 
-      var classes = (0, _classnames2.default)('nav-link', attributes.disabled ? 'disabled' : '', className);
+      var classes = (0, _classnames2.default)('nav-link', disabled ? 'disabled' : 'Ripple-parent', className);
 
       return _react2.default.createElement(
         Tag,
-        _extends({}, attributes, { className: classes, href: href }),
-        children
+        _extends({ className: classes, href: href,
+          onClick: this.onClick,
+          onMouseDown: this.handleClick.bind(this),
+          onTouchStart: this.handleClick.bind(this),
+          ref: innerRef
+        }, attributes),
+        children,
+        this.props.disabled ? false : _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
       );
     }
   }]);
@@ -15885,13 +15941,12 @@ var NavLink = function (_Component) {
   return NavLink;
 }(_react.Component);
 
-NavLink.propTypes = {
+NavLink.propTypes = (_NavLink$propTypes = {
   className: _propTypes2.default.string,
   disabled: _propTypes2.default.bool,
   children: _propTypes2.default.node,
-  tag: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
-  href: _propTypes2.default.string
-};
+  tag: _propTypes2.default.string
+}, _defineProperty(_NavLink$propTypes, 'tag', _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string])), _defineProperty(_NavLink$propTypes, 'href', _propTypes2.default.string), _NavLink$propTypes);
 
 NavLink.defaultProps = {
   tag: 'a',
@@ -27742,7 +27797,6 @@ var Table = function (_React$Component) {
       return _react2.default.createElement(
         'table',
         _extends({}, attributes, { className: classes }),
-        ' ',
         this.props.children
       );
     }

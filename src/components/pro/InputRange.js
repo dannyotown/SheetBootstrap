@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM, { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 require('./InputRange.css');
@@ -15,7 +16,8 @@ class InputRange extends React.Component {
       thumbHeight: 0,
       thumbWidth: 0,
       thumbTop: '10px',
-      thumbMarginLeft: '-6px'
+      thumbMarginLeft: '-6px',
+      input: 'input'
     }
     this.rangeChange = this.rangeChange.bind(this);
     this.rangeFocus = this.rangeFocus.bind(this);
@@ -24,7 +26,7 @@ class InputRange extends React.Component {
 
   componentDidMount() {
     this.setState({value: this.props.value})
-    let input = this.refs.input;
+    let input = ReactDOM.findDOMNode(this.refs.input);
     let inputWidth = input.offsetWidth;
     oneStep = inputWidth / this.props.max;
     this.setState({leftPosition: oneStep * this.props.value});
@@ -40,7 +42,8 @@ class InputRange extends React.Component {
   }
 
   rangeMouseLeave() {
-    this.refs.input.blur();
+    let input = ReactDOM.findDOMNode(this.refs.input);
+    input.blur();
     this.setState({thumbActive: false, thumbHeight: 0, thumbWidth: 0, thumbTop: '10px', thumbMarginLeft: '-6px'});
   }
 
@@ -64,7 +67,7 @@ class InputRange extends React.Component {
 
     return (
       <form className="range-field">
-        <input className={inputClass} min={this.props.min} max={this.props.max} value={this.state.value} ref="input" type="range" onChange={this.rangeChange} onFocus={this.rangeFocus} onMouseLeave={this.rangeMouseLeave}/>
+        <input className={inputClass} min={this.props.min} max={this.props.max} value={this.state.value} ref={this.state.input} type="range" onChange={this.rangeChange} onFocus={this.rangeFocus} onMouseLeave={this.rangeMouseLeave}/>
         <span className={thumbClass} style={{left: this.state.leftPosition, height: this.state.thumbHeight, width: this.state.thumbWidth, top: this.state.thumbTop, marginLeft: this.state.thumbMarginLeft}}>
           <span className="value">{this.state.value}</span>
         </span>

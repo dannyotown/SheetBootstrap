@@ -30,6 +30,7 @@
     }
     &.wider {
       @extend .z-depth-0;
+      background-color: transparent;
       .view {
         z-index: 2;
       }
@@ -39,7 +40,7 @@
         @extend .z-depth-1;
         background: $white;
         z-index: 1;
-        border-radius: $md-card-border-radius;
+        border-radius: 0 0 $md-card-border-radius $md-card-border-radius;
       }
       &.reverse {
         .view {
