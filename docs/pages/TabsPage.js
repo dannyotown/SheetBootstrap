@@ -27,7 +27,7 @@ class TabsPage extends React.Component {
           <Col md="12">
             <Nav className="nav-tabs nav-justified">
               <NavItem>
-                <NavLink
+                <NavLink to="#"
                   className={classnames({ active: this.state.activeItem === '1' })}
                   onClick={() => { this.toggle('1'); }}
                 >
@@ -35,7 +35,7 @@ class TabsPage extends React.Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink
+                <NavLink to="#"
                   className={classnames({ active: this.state.activeItem === '2' })}
                   onClick={() => { this.toggle('2'); }}
                 >
