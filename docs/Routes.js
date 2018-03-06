@@ -10,7 +10,7 @@ import BreadcrumbPage from './pages/BreadcrumbPage';
 import FaPage from './pages/FaPage';
 import ComponentsPage from './pages/ComponentsPage';
 import ModalPage from './pages/ModalPage';
-import JavaScriptPage from './pages/JavaScriptPage';
+import AdvancedPage from './pages/AdvancedPage';
 import ProgressPage from './pages/ProgressPage';
 import InputPage from './pages/InputPage';
 import InputPagePro from './pages/pro/InputPage';
@@ -66,19 +66,19 @@ class Routes extends React.Component {
         <Route path='/components/tabs' component={TabsPage} />
         <Route path='/components/tooltips' component={TooltipsPage} />
         <Route path='/components/footer' component={FooterPage} />
-        <Route exact path='/javascript' component={JavaScriptPage} />
-        <Route path='/javascript/modal' component={ModalPage} />
-        <Route path='/javascript/carousel' component={CarouselPage} />
-        <Route path='/javascript/collapse' component={CollapsePage} />
-        <Route path='/javascript/pro/collapse' component={CollapsePagePro} />
-        <Route path='/javascript/videocarousel' component={VideoCarouselPage} />
-        <Route path='/javascript/sidenav' component={SideNavPage} />
+        <Route exact path='/advanced' component={AdvancedPage} />
+        <Route path='/advanced/modal' component={ModalPage} />
+        <Route path='/advanced/carousel' component={CarouselPage} />
+        <Route path='/advanced/collapse' component={CollapsePage} />
+        <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
+        <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
+        <Route path='/advanced/sidenav' component={SideNavPage} />
         <Route path='/css/masks' component={MasksPage} />
         <Route path='/css/hover' component={HoverPage} />
-        <Route path='/javascript/pro/select' component={SelectPage} />
-        <Route path='/javascript/pro/datepicker' component={DatePickerPage} />
-        <Route path='/javascript/pro/timepicker' component={TimePickerPage} />
-        <Route path='/javascript/scrollspy' component={ScrollSpyPage} />
+        <Route path='/advanced/pro/select' component={SelectPage} />
+        <Route path='/advanced/pro/datepicker' component={DatePickerPage} />
+        <Route path='/advanced/pro/timepicker' component={TimePickerPage} />
+        <Route path='/advanced/scrollspy' component={ScrollSpyPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

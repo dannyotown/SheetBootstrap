@@ -42,9 +42,9 @@ class HomePage extends React.Component {
                   </NavLink>
                 </Col>
                 <Col md="4" className="text-center home-feature-box">
-                  <NavLink to="/javascript">
+                  <NavLink to="/advanced">
                     <Fa icon="code" className="green-text" />
-                    <span>JavaScript</span>
+                    <span>Advanced</span>
                   </NavLink>
                 </Col>
               </Row>
