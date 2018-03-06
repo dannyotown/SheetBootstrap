@@ -15,9 +15,6 @@ class CSSPage extends React.Component {
                   <NavLink to="/css/hover">Hover effects <Fa icon="angle-right" /><Badge pill color="danger">NEW</Badge></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/css/table">Table <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
                   <NavLink to="/css/icons">Icons <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
@@ -25,6 +22,9 @@ class CSSPage extends React.Component {
                 </li>
                 <li>
                   <NavLink to="/css/masks">Masks <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/css/table">Table <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>
             </Jumbotron>

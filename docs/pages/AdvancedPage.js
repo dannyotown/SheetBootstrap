@@ -12,10 +12,13 @@ class AdvancedPage extends React.Component {
               <h1><Fa icon="code" className="grey-text" /> Advanced</h1>
               <ul className="list-unstyled example-components-list">
                 <li>
-                  <NavLink to="/advanced/pro/datepicker">Date picker <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/collapse">Collapse <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/timepicker">Time picker <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/collapse">Collapse PRO <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/pro/datepicker">Date picker <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/pro/select">Material Select <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
@@ -24,10 +27,7 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/modal">Modal <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/collapse">Collapse <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/pro/collapse">Collapse PRO <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/timepicker">Time picker <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/scrollspy">ScrollSpy <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
