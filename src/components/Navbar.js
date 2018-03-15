@@ -21,7 +21,6 @@ class Navbar extends Component {
     super(props, refs);
     this.state = {
       isCollapsed: false,
-      navbar: 'navbar'
     };
     this.refs = {};
   }
@@ -77,7 +76,7 @@ class Navbar extends Component {
     );
 
     return (
-      <Tag {...attributes} className={classes} role="navigation" ref={this.state.navbar} />
+      <Tag {...attributes} className={classes} role="navigation" />
     );
   }
 }
