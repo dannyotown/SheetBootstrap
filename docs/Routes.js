@@ -79,6 +79,7 @@ class Routes extends React.Component {
         <Route path='/advanced/pro/datepicker' component={DatePickerPage} />
         <Route path='/advanced/pro/timepicker' component={TimePickerPage} />
         <Route path='/advanced/scrollspy' component={ScrollSpyPage} />
+        <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

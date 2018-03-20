@@ -35,6 +35,9 @@ class AdvancedPage extends React.Component {
                 <li>
                   <NavLink to="/advanced/sidenav">SideNav <Badge pill color="danger">NEW</Badge> <Fa icon="angle-right" /></NavLink>
                 </li>
+                <li>
+                  <NavLink to="/advanced/videocarousel">Video Carousel <Badge pill color="danger">NEW</Badge> <Fa icon="angle-right" /></NavLink>
+                </li>
               </ul>
             </Jumbotron>
           </Col>
