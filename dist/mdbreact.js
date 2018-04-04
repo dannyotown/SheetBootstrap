@@ -67,7 +67,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "http://localhost:8080/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 56);
@@ -16861,8 +16861,7 @@ var Navbar = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props, refs));
 
     _this.state = {
-      isCollapsed: false,
-      navbar: 'navbar'
+      isCollapsed: false
     };
     _this.refs = {};
     return _this;
@@ -16909,7 +16908,7 @@ var Navbar = function (_Component) {
 
       var classes = (0, _classnames2.default)('navbar', light ? 'navbar-light' : '', dark ? 'navbar-dark' : '', sticky ? 'sticky-' + sticky : '', fixed ? 'fixed-' + fixed : '', getExpandClass(expand), scrolling ? 'scrolling-navbar' : '', this.state.isCollapsed ? 'top-nav-collapse' : '', color ? color : '', double ? 'double-nav' : '', className);
 
-      return _react2.default.createElement(Tag, _extends({}, attributes, { className: classes, role: 'navigation', ref: this.state.navbar }));
+      return _react2.default.createElement(Tag, _extends({}, attributes, { className: classes, role: 'navigation' }));
     }
   }]);
 

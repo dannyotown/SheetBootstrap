@@ -37,7 +37,8 @@ module.exports = function (env) {
       filename: outputFile,
       library: libraryName,
       libraryTarget: 'umd',
-      umdNamedDefine: true
+      umdNamedDefine: true,
+      publicPath: 'http://localhost:8080/'
     },
     externals: [
       {
