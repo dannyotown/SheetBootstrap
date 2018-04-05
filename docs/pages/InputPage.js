@@ -3,12 +3,28 @@ import { Input, FormInline, Button } from 'mdbreact';
 
 
 class InputPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
 
-  render () {
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Textarea value: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
     return (
       <div className="container-fluid" style={{textAlign: 'initial'}}>
         <div>
-          <Input label="Example label" />
+          <Input label="Example label"/>
 
           <Input label="Example label" size="sm" />
           <Input label="Example label" size="sm" icon="envelope"/>
@@ -32,8 +48,8 @@ class InputPage extends React.Component {
           </FormInline>
 
           <Input type="textarea" label="Icon Prefix" rows="2" icon="pencil"/>
-          <Input type="textarea" label="Basic textarea" rows="2"/>
-
+          <Input type="textarea" label="Basic textarea" rows="2" value={this.state.value} onChange={this.handleChange} />
+          <Button onClick={this.handleSubmit}>Submit</Button>
         </div>
       </div>
     );
