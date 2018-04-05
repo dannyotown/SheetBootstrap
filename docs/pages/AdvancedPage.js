@@ -42,6 +42,9 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/sidenav">SideNav <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/advanced/sticky">Sticky Content <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/advanced/videocarousel">Video Carousel <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>

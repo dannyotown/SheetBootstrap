@@ -78,6 +78,8 @@ import TabContent from './components/TabContent';
 import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
+import Sticky from './components/pro/Sticky';
+import StickyContainer from './components/pro/StickyContainer';
 
 export {
   Badge,
@@ -159,5 +161,7 @@ export {
   TabContent,
   TextField,
   Tooltip,
-  View
+  View,
+  Sticky,
+  StickyContainer
 };
