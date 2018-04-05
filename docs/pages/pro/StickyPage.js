@@ -55,7 +55,7 @@ class StickyPage extends React.Component {
             <h2 className="text-center" style={{ marginTop: 150 }}>
               overflowing container
             </h2>
-            <Container style={{height: 500}}></Container>
+            <Container style={{height: 525}}></Container>
             <h2 className="text-center" style={{ marginTop: 150 }}>
               hi there!
             </h2>
