@@ -37,6 +37,7 @@ import DatePickerPage from './pages/pro/DatePickerPage';
 import TimePickerPage from './pages/pro/TimePickerPage';
 import FormsPage from './pages/FormsPage';
 import ScrollSpyPage from './pages/ScrollSpyPage';
+import ChartsPage from './pages/ChartsPage';
 
 class Routes extends React.Component {
   render() {
@@ -80,6 +81,7 @@ class Routes extends React.Component {
         <Route path='/advanced/pro/timepicker' component={TimePickerPage} />
         <Route path='/advanced/scrollspy' component={ScrollSpyPage} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
+        <Route path='/advanced/charts' component={ChartsPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

@@ -12,7 +12,7 @@ class CSSPage extends React.Component {
               <h1><Fa icon="css3" className="grey-text" /> CSS</h1>
               <ul className="list-unstyled example-components-list">
                 <li>
-                  <NavLink to="/css/hover">Hover effects <Fa icon="angle-right" /><Badge pill color="danger">NEW</Badge></NavLink>
+                  <NavLink to="/css/hover">Hover effects <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/css/icons">Icons <Fa icon="angle-right" /></NavLink>

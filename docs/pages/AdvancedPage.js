@@ -12,31 +12,37 @@ class AdvancedPage extends React.Component {
               <h1><Fa icon="code" className="grey-text" /> Advanced</h1>
               <ul className="list-unstyled example-components-list">
                 <li>
+                  <NavLink to="/advanced/carousel">Carousel <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/charts">Charts <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/advanced/collapse">Collapse <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/collapse">Collapse PRO <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/collapse">Collapse PRO <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/datepicker">Date picker <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/datepicker">Date picker <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/select">Material Select <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/select">Material Select <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/modal">Modal <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/timepicker">Time picker <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/timepicker">Time picker <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/scrollspy">ScrollSpy <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/scrollspy">ScrollSpy <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/sidenav">SideNav <Badge pill color="danger">NEW</Badge> <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/sidenav">SideNav <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/videocarousel">Video Carousel <Badge pill color="danger">NEW</Badge> <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/videocarousel">Video Carousel <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>
             </Jumbotron>
