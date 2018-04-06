@@ -9,7 +9,8 @@ class TabsPage extends React.Component {
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      activeItem: '1'
+      activeItem: '1',
+      activeItem2: '1'
     };
   }
 
@@ -20,12 +21,19 @@ class TabsPage extends React.Component {
       });
     }
   }
+  toggle2(tab) {
+    if (this.state.activeItem2 !== tab) {
+      this.setState({
+        activeItem2: tab
+      });
+    }
+  }
   render() {
     return (
       <Container className="mt-4">
         <Row>
           <Col md="12">
-            <Nav className="nav-tabs nav-justified">
+            <Nav tabs className="nav-justified">
               <NavItem>
                 <NavLink to="#"
                   className={classnames({ active: this.state.activeItem === '1' })}
@@ -66,6 +74,56 @@ class TabsPage extends React.Component {
                       <CardTitle>Special Title Treatment</CardTitle>
                       <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
                       <Button>Go somewhere</Button>
+                    </CardBody>
+                  </Col>
+                </Row>
+              </TabPane>
+            </TabContent>
+
+            <Nav classicTabs color="blue" className="nav-justified mt-5">
+              <NavItem>
+                <NavLink to="#"
+                  className={classnames({ active: this.state.activeItem2 === '1' })}
+                  onClick={() => { this.toggle2('1'); }}
+                >
+                        Tab 1
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#"
+                  className={classnames({ active: this.state.activeItem2 === '2' })}
+                  onClick={() => { this.toggle2('2'); }}
+                >
+                        Tab 2
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <TabContent className="card" activeItem={this.state.activeItem2}>
+              <TabPane tabId="1">
+                <Row>
+                  <Col md="12">
+                    <CardBody>
+                      <CardTitle>These are some classic tabs</CardTitle>
+                      <CardText>Here comes a Material Design classic!</CardText>
+                      <Button color="blue">Go somewhere</Button>
+                    </CardBody>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane tabId="2">
+                <Row>
+                  <Col md="6">
+                    <CardBody>
+                      <CardTitle>Material</CardTitle>
+                      <CardText>Just for You</CardText>
+                      <Button color="blue">Go somewhere</Button>
+                    </CardBody>
+                  </Col>
+                  <Col md="6">
+                    <CardBody>
+                      <CardTitle>Design</CardTitle>
+                      <CardText>Tab the contents of your heart.</CardText>
+                      <Button color="blue">Go somewhere</Button>
                     </CardBody>
                   </Col>
                 </Row>
