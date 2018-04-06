@@ -39,6 +39,9 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/pro/timepicker">Time picker <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/advanced/scrollbar">ScrollBar <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/advanced/scrollspy">ScrollSpy <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
