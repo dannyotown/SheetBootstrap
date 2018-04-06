@@ -15,25 +15,28 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/collapse">Collapse <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/collapse">Collapse PRO <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/collapse">Collapse PRO<Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/datepicker">Date picker <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/datepicker">Date picker<Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/select">Material Select <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/select">Material Select<Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/modal">Modal <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/timepicker">Time picker <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/timepicker">Time picker<Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/scrollspy">ScrollSpy <Badge pill color="danger">NEW</Badge><Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/scrollbar">ScrollBar <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/sidenav">SideNav <Badge pill color="danger">NEW</Badge> <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/scrollspy">ScrollSpy<Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/sidenav">SideNav <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>
             </Jumbotron>
