@@ -27,6 +27,9 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/pro/datepicker">Date picker <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/advanced/pro/lightbox">Lightbox <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/advanced/pro/select">Material Select <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
