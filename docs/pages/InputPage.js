@@ -24,7 +24,38 @@ class InputPage extends React.Component {
     return (
       <Container fluid style={{textAlign: 'initial'}}>
         <div>
-          <h2 className="mt-5"><strong>Default Bootstrap Inputs</strong></h2>
+
+
+
+          <h2 className="mt-5"><strong>Material Design Inputs</strong></h2>
+          <Input label="Example label"/>
+
+          <Input label="Example label" size="sm" />
+          <Input label="Example label" size="sm" icon="envelope"/>
+
+          <Input label="Example label" icon="envelope"/>
+          <Input label="Example label" icon="user"/>
+
+          <Input hint="placeholder" label="Example label" />
+
+          <Input defaultValue="John Doe" label="Example label" />
+
+          <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
+          <Input label="Type your password" icon="lock" group type="password" validate/>
+
+          <Input label="Example label" disabled/>
+
+          <FormInline>
+            <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
+            <Input label="Type your password" icon="lock" group type="password" validate/>
+            <Button>Login</Button>
+          </FormInline>
+
+          <Input type="textarea" label="Icon Prefix" rows="2" icon="pencil"/>
+          <Input type="textarea" label="Basic textarea" rows="2" value={this.state.value} onChange={this.handleChange} />
+          <Button onClick={this.handleSubmit}>Submit</Button>
+        <hr className="mt-5" />
+        <h2 className="mt-5"><strong>Default Bootstrap Inputs</strong></h2>
           <label for="exampleForm2">Basic example</label>
           <input type="text" id="exampleForm2" class="form-control" />
           <h4 className="mt-4"><strong>Input fields</strong></h4>
@@ -78,7 +109,7 @@ class InputPage extends React.Component {
                 <label for="inputPassword4">Password</label>
                 <input type="password" class="form-control" id="inputPassword4" placeholder="Password" />
               </div>
-            </div>     
+            </div>
             <div class="form-group">
               <label for="inputAddress">Address</label>
               <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
@@ -194,35 +225,6 @@ class InputPage extends React.Component {
               </small>
             </div>
           </form>
-
-          <hr className="mt-5" />
-          <h2 className="mt-5"><strong>Material Design Inputs</strong></h2>
-          <Input label="Example label"/>
-
-          <Input label="Example label" size="sm" />
-          <Input label="Example label" size="sm" icon="envelope"/>
-
-          <Input label="Example label" icon="envelope"/>
-          <Input label="Example label" icon="user"/>
-
-          <Input hint="placeholder" label="Example label" />
-
-          <Input defaultValue="John Doe" label="Example label" />
-
-          <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
-          <Input label="Type your password" icon="lock" group type="password" validate/>
-
-          <Input label="Example label" disabled/>
-
-          <FormInline>
-            <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
-            <Input label="Type your password" icon="lock" group type="password" validate/>
-            <Button>Login</Button>
-          </FormInline>
-
-          <Input type="textarea" label="Icon Prefix" rows="2" icon="pencil"/>
-          <Input type="textarea" label="Basic textarea" rows="2" value={this.state.value} onChange={this.handleChange} />
-          <Button onClick={this.handleSubmit}>Submit</Button>
         </div>
       </Container>
     );
