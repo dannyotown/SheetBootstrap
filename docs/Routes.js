@@ -41,11 +41,8 @@ import ChartsPage from './pages/ChartsPage';
 import StickyPage from './pages/pro/StickyPage';
 import LightboxPage from './pages/pro/LightboxPage';
 import ScrollBarPage from './pages/ScrollBarPage';
-<<<<<<< HEAD
 import MultiCarouselPage from './pages/pro/MultiCarouselPage';
-=======
 import DoubleNavigationPage from './pages/DoubleNavigationPage';
->>>>>>> 2c6470a43a7f5b830baa27e55f0c534e8a3d50ff
 
 class Routes extends React.Component {
   render() {
