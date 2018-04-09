@@ -55,6 +55,14 @@ module.exports = function (env) {
           commonjs: 'react-dom',
           amd: 'react-dom'
         }
+      },
+      {
+        "prop-types": {
+          root: 'PropTypes',
+          commonjs2: 'prop-types',
+          commonjs: 'prop-types',
+          amd: 'prop-types',
+        }
       }
     ],
     module: {
