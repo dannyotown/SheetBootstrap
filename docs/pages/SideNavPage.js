@@ -1,9 +1,5 @@
 import React from 'react';
-import SideNav from '../../src/components/SideNav';
-import SideNavNav from '../../src/components/SideNavNav';
-import SideNavCat from '../../src/components/SideNavCat';
-import SideNavItem from '../../src/components/SideNavItem';
-import { Fa } from 'mdbreact';
+import { Fa, SideNavItem, SideNavCat, SideNavNav, SideNav } from 'mdbreact';
 
 class SideNavPage extends React.Component {
   constructor(props) {
@@ -12,7 +8,6 @@ class SideNavPage extends React.Component {
     this.onClick1 = this.onClick1.bind(this);
     this.onClick2 = this.onClick2.bind(this);
     this.onClick3 = this.onClick3.bind(this);
-    this.onClick4 = this.onClick4.bind(this);
     this.handleToggleClickA = this.handleToggleClickA.bind(this);
     this.handleToggleClickB = this.handleToggleClickB.bind(this);
     this.state ={
