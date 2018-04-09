@@ -57,7 +57,7 @@ module.exports = function (env) {
         }
       },
       {
-        "prop-types": {
+        'prop-types': {
           root: 'PropTypes',
           commonjs2: 'prop-types',
           commonjs: 'prop-types',
