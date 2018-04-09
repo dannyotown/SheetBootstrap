@@ -15,7 +15,11 @@ class Carousel extends Component {
   componentDidMount() {
     this.cycleInterval = setInterval(() => {
       this.props.next();
-    }, 5000);
+    }, this.props.interval);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.cycleInterval);
   }
 
   getChildContext() {
@@ -37,6 +41,8 @@ class Carousel extends Component {
       next,
       children,
       className,
+      multiItem,
+      interval,
       tag: Tag,
       ...attributes
     } = this.props;
@@ -46,6 +52,7 @@ class Carousel extends Component {
     const classes = classNames(
       'carousel',
       'carousel-fade',
+      this.props.multiItem ? 'carousel-multi-item' : '',
       className
     );
 
@@ -63,11 +70,14 @@ Carousel.propTypes = {
   next: PropTypes.func.isRequired,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  multiItem: PropTypes.bool,
+  interval: PropTypes.number
 };
 
 Carousel.defaultProps = {
-  tag: 'div'
+  tag: 'div',
+  interval: 6000
 };
 
 Carousel.childContextTypes = {

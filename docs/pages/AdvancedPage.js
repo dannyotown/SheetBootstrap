@@ -36,6 +36,9 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/modal">Modal <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/advanced/pro/multicarousel">Multi-item Carousel <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/advanced/pro/timepicker">Time picker <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>

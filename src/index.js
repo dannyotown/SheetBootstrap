@@ -16,6 +16,8 @@ import CarouselCaption from './components/CarouselCaption';
 import CarouselControl from './components/CarouselControl';
 import CarouselInner from './components/CarouselInner';
 import CarouselItem from './components/CarouselItem';
+import CarouselIndicators from './components/CarouselIndicators';
+import CarouselIndicator from './components/CarouselIndicator';
 import Col from './components/Col';
 import Collapse from './components/Collapse';
 import CollapseHeader from './components/pro/CollapseHeader';
@@ -101,6 +103,8 @@ export {
   CarouselControl,
   CarouselInner,
   CarouselItem,
+  CarouselIndicators,
+  CarouselIndicator,
   Col,
   Collapse,
   CollapseHeader,

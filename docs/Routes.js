@@ -41,6 +41,7 @@ import ChartsPage from './pages/ChartsPage';
 import StickyPage from './pages/pro/StickyPage';
 import LightboxPage from './pages/pro/LightboxPage';
 import ScrollBarPage from './pages/ScrollBarPage';
+import MultiCarouselPage from './pages/pro/MultiCarouselPage';
 
 class Routes extends React.Component {
   render() {
@@ -88,6 +89,7 @@ class Routes extends React.Component {
         <Route path='/advanced/sticky' component={StickyPage} />
         <Route path='/advanced/pro/lightbox' component={LightboxPage} />
         <Route path='/advanced/scrollbar' component={ScrollBarPage} />
+        <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />
