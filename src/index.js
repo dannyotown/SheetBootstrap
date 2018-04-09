@@ -80,6 +80,7 @@ import Tooltip from './components/Tooltip';
 import View from './components/View';
 import Sticky from './components/pro/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
+import PerfectScrollbar from './components/PerfectScrollbar';
 
 export {
   Badge,
@@ -163,5 +164,6 @@ export {
   Tooltip,
   View,
   Sticky,
-  StickyContainer
+  StickyContainer,
+  PerfectScrollbar
 };
