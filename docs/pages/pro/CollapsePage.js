@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button, Collapse, Card, CardBody } from 'mdbreact';
-import CollapseHeader from '../../../src/components/pro/CollapseHeader';
+import { Container, Button, Collapse, Card, CardBody, CollapseHeader } from 'mdbreact';
 
 class CollapsePage extends Component {
   constructor(props) {
@@ -54,9 +53,9 @@ class CollapsePage extends Component {
 
   render() {
     return (
-      <Container className="accordion">
+      <Container className="accordion mt-5">
         <h1>Accordion PRO</h1>
-        <Card>
+        <Card className="mt-3">
           <CollapseHeader onClick={this.onClick1}>Collapsible Group Item #1
             <i className={this.state.accordion === 1 ? 'fa fa-angle-down rotate-icon' : 'fa fa-angle-down'}></i>
           </CollapseHeader>

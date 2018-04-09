@@ -26,6 +26,9 @@ class CSSPage extends React.Component {
                 <li>
                   <NavLink to="/css/table">Table <Fa icon="angle-right" /></NavLink>
                 </li>
+                <li>
+                  <NavLink to="/css/double"> Double Navigation  <Fa icon="angle-right" /></NavLink>
+                </li>
               </ul>
             </Jumbotron>
           </Col>

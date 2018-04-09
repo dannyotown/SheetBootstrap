@@ -15,7 +15,7 @@ class ScrollBarPage extends React.Component  {
           <Container style={style} className="scrollbar-primary"></Container>
         </PerfectScrollbar>
       </Container>
-    );s
+    );
   }
 };
 
