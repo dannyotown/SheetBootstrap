@@ -105,7 +105,7 @@ class TextField extends React.Component {
       ...attributes
     } = this.props;
 
-    let isNotEmpty = Boolean(this.state.innerValue.toString()) || hint || this.state.isTouched;
+    let isNotEmpty = Boolean(this.state.innerValue) || hint || this.state.isTouched;
 
 
     const inputType = type === 'input';
