@@ -119,8 +119,8 @@ render() {
   const specialCaseNavbarStyles = {WebkitBoxOrient: 'horizontal', flexDirection: 'row'};
     return (
         <Router>
-          <div>
-            <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" isOpenWithButton={isOpenWithButtonA} breakWidth={1300} className="deep-purple darken-4" hidden>
+          <div className="mt-5">
+            <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" isOpenWithButton={isOpenWithButtonA} breakWidth={1300} className="deep-purple darken-2" hidden>
               <li>
                 <ul className="social">
                   <li><a href="#"><Fa icon="facebook"></Fa></a></li>
@@ -148,7 +148,7 @@ render() {
                 </SideNavCat>
               </SideNavNav>
             </SideNav>
-            <Navbar color="indigo" dark expand="md" scrolling>
+            <Navbar color="deep-purple darken-3" dark expand="md" scrolling>
               <NavbarNav left>
                 <NavItem>
                   <div className="text-white" style={divstyle}>
@@ -168,7 +168,7 @@ render() {
                 </NavItem>
                 <NavItem>
                   <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                    <DropdownToggle nav caret>Dropdown</DropdownToggle>
+                    <DropdownToggle nav caret> <div className="d-none d-md-inline">Dropdown</div></DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem href="#">Action</DropdownItem>
                       <DropdownItem href="#">Another Action</DropdownItem>
