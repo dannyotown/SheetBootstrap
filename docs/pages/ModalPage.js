@@ -137,7 +137,7 @@ class ModalPage extends React.Component {
       <Container>
         <h4 className="mt-4">Basic example</h4>
         <Button color="danger" onClick={this.toggle} >Modal</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} backdrop="static">
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -149,7 +149,7 @@ class ModalPage extends React.Component {
         </Modal>
         <h4 className="mt-4">Central modal</h4>
         <Button color="primary" onClick={this.toggle2} >Medium modal</Button>
-        <Modal isOpen={this.state.modal2} toggle={this.toggle2} backdrop="static">
+        <Modal isOpen={this.state.modal2} toggle={this.toggle2}>
           <ModalHeader toggle={this.toggle2}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -160,7 +160,7 @@ class ModalPage extends React.Component {
           </ModalFooter>
         </Modal>
         <Button color="primary" onClick={this.toggle3} >Small modal</Button>
-        <Modal isOpen={this.state.modal3} toggle={this.toggle3} backdrop="static" size="sm">
+        <Modal isOpen={this.state.modal3} toggle={this.toggle3} size="sm">
           <ModalHeader toggle={this.toggle3}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -171,7 +171,7 @@ class ModalPage extends React.Component {
           </ModalFooter>
         </Modal>
         <Button color="primary" onClick={this.toggle4} >Large modal</Button>
-        <Modal isOpen={this.state.modal4} toggle={this.toggle4} backdrop="static" size="lg">
+        <Modal isOpen={this.state.modal4} toggle={this.toggle4} size="lg">
           <ModalHeader toggle={this.toggle4}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -182,7 +182,7 @@ class ModalPage extends React.Component {
           </ModalFooter>
         </Modal>
         <Button color="primary" onClick={this.toggle5}>Fluid modal</Button>
-        <Modal isOpen={this.state.modal5} toggle={this.toggle5} backdrop="static" size="fluid">
+        <Modal isOpen={this.state.modal5} toggle={this.toggle5} size="fluid">
           <ModalHeader toggle={this.toggle5}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -194,7 +194,7 @@ class ModalPage extends React.Component {
         </Modal>
         <h4 className="mt-4">Side modal</h4>
         <Button color="secondary" onClick={this.toggle6}>Top right</Button>
-        <Modal isOpen={this.state.modal6} toggle={this.toggle6} backdrop="static" side position="top-right">
+        <Modal isOpen={this.state.modal6} toggle={this.toggle6} side position="top-right">
           <ModalHeader toggle={this.toggle6}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -205,7 +205,7 @@ class ModalPage extends React.Component {
           </ModalFooter>
         </Modal>
         <Button color="secondary" onClick={this.toggle7}>Bottom left</Button>
-        <Modal isOpen={this.state.modal7} toggle={this.toggle7} backdrop="static" side position="bottom-left">
+        <Modal isOpen={this.state.modal7} toggle={this.toggle7} side position="bottom-left">
           <ModalHeader toggle={this.toggle7}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -217,7 +217,7 @@ class ModalPage extends React.Component {
         </Modal>
         <h4 className="mt-4">Fluid modal</h4>
         <Button color="info" onClick={this.toggle8}>Right</Button>
-        <Modal isOpen={this.state.modal8} toggle={this.toggle8} backdrop="static" fullHeight position="right">
+        <Modal isOpen={this.state.modal8} toggle={this.toggle8} fullHeight position="right">
           <ModalHeader toggle={this.toggle8}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -228,7 +228,7 @@ class ModalPage extends React.Component {
           </ModalFooter>
         </Modal>        
         <Button color="info" onClick={this.toggle9}>Bottom</Button>
-        <Modal isOpen={this.state.modal9} toggle={this.toggle9} backdrop="static" fullHeight position="bottom">
+        <Modal isOpen={this.state.modal9} toggle={this.toggle9} fullHeight position="bottom">
           <ModalHeader toggle={this.toggle9}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -240,7 +240,7 @@ class ModalPage extends React.Component {
         </Modal>        
         <h4 className="mt-4">Frame modal</h4>
         <Button color="warning" onClick={this.toggle10}>Bottom</Button>
-        <Modal isOpen={this.state.modal10} toggle={this.toggle10} backdrop="static" frame position="bottom">
+        <Modal isOpen={this.state.modal10} toggle={this.toggle10} frame position="bottom">
           <ModalBody className="text-center">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             <Button color="secondary" onClick={this.toggle10}>Close</Button>{' '}
@@ -248,7 +248,7 @@ class ModalPage extends React.Component {
           </ModalBody>
         </Modal> 
         <Button color="warning" onClick={this.toggle11}>Top</Button>
-        <Modal isOpen={this.state.modal11} toggle={this.toggle11} backdrop="static" frame position="top">
+        <Modal isOpen={this.state.modal11} toggle={this.toggle11} frame position="top">
           <ModalBody className="text-center">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             <Button color="secondary" onClick={this.toggle11}>Close</Button>{' '}
@@ -269,7 +269,7 @@ class ModalPage extends React.Component {
         </Modal>       
         <h4 className="mt-4">Scrolling long content</h4>
         <Button color="primary" onClick={this.toggle13}>Modal</Button>
-        <Modal isOpen={this.state.modal13} toggle={this.toggle13} backdrop="static">
+        <Modal isOpen={this.state.modal13} toggle={this.toggle13}>
           <ModalHeader toggle={this.toggle13}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -281,7 +281,7 @@ class ModalPage extends React.Component {
         </Modal>    
         <h4 className="mt-4">Vertically centered</h4>
         <Button color="primary" onClick={this.toggle14} >Modal</Button>
-        <Modal isOpen={this.state.modal14} toggle={this.toggle14} backdrop="static" centered>
+        <Modal isOpen={this.state.modal14} toggle={this.toggle14} centered>
           <ModalHeader toggle={this.toggle14}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -293,7 +293,7 @@ class ModalPage extends React.Component {
         </Modal> 
         <h4 className="mt-4">Tooltips and popovers</h4>
         <Button color="primary" onClick={this.toggle15} >Modal</Button>
-        <Modal isOpen={this.state.modal15} toggle={this.toggle15} backdrop="static">
+        <Modal isOpen={this.state.modal15} toggle={this.toggle15}>
           <ModalHeader toggle={this.toggle15}>Modal title</ModalHeader>
           <ModalBody>
             This
@@ -332,7 +332,7 @@ class ModalPage extends React.Component {
         </Modal> 
         <h4 className="mt-4">Using the grid</h4>
         <Button onClick={this.toggle16}>Modal</Button>
-        <Modal isOpen={this.state.modal16} toggle={this.toggle16} backdrop="static">
+        <Modal isOpen={this.state.modal16} toggle={this.toggle16}>
           <ModalHeader toggle={this.toggle16}>Modal title</ModalHeader>
           <ModalBody>
             <Container fluid className="text-white">
@@ -371,7 +371,7 @@ class ModalPage extends React.Component {
         </Modal>  
         <h4 className="mt-4">Varying modal content</h4>
         <Button color="primary" onClick={this.toggle17} >Open modal for {this.state.mailAddress}</Button>
-        <Modal isOpen={this.state.modal17} toggle={this.toggle17} backdrop="static">
+        <Modal isOpen={this.state.modal17} toggle={this.toggle17}>
           <ModalHeader toggle={this.toggle17}>New message to {this.state.mailAddress}</ModalHeader>
           <ModalBody>
             <div className="md-form">

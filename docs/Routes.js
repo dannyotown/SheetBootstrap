@@ -42,6 +42,7 @@ import StickyPage from './pages/pro/StickyPage';
 import LightboxPage from './pages/pro/LightboxPage';
 import ScrollBarPage from './pages/ScrollBarPage';
 import MultiCarouselPage from './pages/pro/MultiCarouselPage';
+import ThumbnailsCarousel from './pages/pro/ThumbnailsCarousel';
 import DoubleNavigationPage from './pages/DoubleNavigationPage';
 
 class Routes extends React.Component {
@@ -91,6 +92,7 @@ class Routes extends React.Component {
         <Route path='/advanced/pro/lightbox' component={LightboxPage} />
         <Route path='/advanced/scrollbar' component={ScrollBarPage} />
         <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
+        <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />
         <Route path='/css/double' component={DoubleNavigationPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;

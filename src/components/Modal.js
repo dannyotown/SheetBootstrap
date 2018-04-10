@@ -131,7 +131,7 @@ class Modal extends React.Component {
   handleBackdropClick(e) {
     if (this.props.backdrop !== true) return;
 
-    const container = this._dialog;
+    const container = document.getElementsByClassName('modal-content')[0];
 
     if (e.target && !container.contains(e.target) && this.props.toggle) {
       this.props.toggle();
