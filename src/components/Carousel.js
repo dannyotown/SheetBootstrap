@@ -42,6 +42,7 @@ class Carousel extends Component {
       children,
       className,
       multiItem,
+      thumbnails,
       interval,
       tag: Tag,
       ...attributes
@@ -53,6 +54,7 @@ class Carousel extends Component {
       'carousel',
       'carousel-fade',
       this.props.multiItem ? 'carousel-multi-item' : '',
+      this.props.thumbnails ? 'carousel-thumbnails' : '',
       className
     );
 
@@ -72,7 +74,8 @@ Carousel.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   multiItem: PropTypes.bool,
-  interval: PropTypes.number
+  interval: PropTypes.number,
+  thumbnails: PropTypes.bool
 };
 
 Carousel.defaultProps = {
