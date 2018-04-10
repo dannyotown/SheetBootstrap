@@ -148,7 +148,7 @@ render() {
                 </SideNavCat>
               </SideNavNav>
             </SideNav>
-            <Navbar color="deep-purple darken-3" dark expand="md" scrolling>
+            <Navbar color="deep-purple darken-3" dark expand="md">
               <NavbarNav left>
                 <NavItem>
                   <div className="text-white" style={divstyle}>
