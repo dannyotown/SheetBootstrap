@@ -116,9 +116,8 @@ class InputPage extends React.Component {
         <InputFile multiple btnColor="info" btn-size="sm"></InputFile>
 
         <hr className="my-5" />
-
+        
         <h2 className="title mb-5"><strong>Range</strong></h2>
-
         <InputRange min={0} max={100} value={50}></InputRange>
 
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
