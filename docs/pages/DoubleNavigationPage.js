@@ -167,7 +167,7 @@ render() {
                     <NavLink to="#"><Fa icon="user" className="d-inline-inline"/>  <div className="d-none d-md-inline">Account</div></NavLink>
                 </NavItem>
                 <NavItem>
-                  <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                  <Dropdown isOpen={this.state.dropdownOpen} toggle={()=>"baba"} onMouseEnter={this.toggle} onMouseLeave={this.toggle}>
                     <DropdownToggle nav caret> <div className="d-none d-md-inline">Dropdown</div></DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem href="#">Action</DropdownItem>
