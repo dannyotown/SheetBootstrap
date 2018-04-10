@@ -13,12 +13,14 @@ class Nav extends Component {
       tabs,
       color,
       classicTabs,
+      pills,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'nav',
       this.props.tabs && 'nav-tabs',
+      this.props.pills && 'md-pills',
       this.props.classicTabs && 'classic-tabs',
       this.props.color && 'tabs-'+this.props.color,
       className,
@@ -35,7 +37,11 @@ class Nav extends Component {
 Nav.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  color: PropTypes.string,
+  classicTabs: PropTypes.bool,
+  pills: PropTypes.bool,
+  tabs: PropTypes.bool
 };
 
 Nav.defaultProps = {

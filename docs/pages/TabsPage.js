@@ -10,7 +10,8 @@ class TabsPage extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       activeItem: '1',
-      activeItem2: '1'
+      activeItem2: '1',
+      activeItem3: '1'
     };
   }
 
@@ -25,6 +26,13 @@ class TabsPage extends React.Component {
     if (this.state.activeItem2 !== tab) {
       this.setState({
         activeItem2: tab
+      });
+    }
+  }
+  toggle2(tab) {
+    if (this.state.activeItem3 !== tab) {
+      this.setState({
+        activeItem3: tab
       });
     }
   }
@@ -55,8 +63,10 @@ class TabsPage extends React.Component {
               <TabPane tabId="1">
                 <Row>
                   <Col md="12">
-                    <h4>Tab 1 Contents</h4>
+                  <CardBody>
+                    <CardTitle>Traditional, panel-like navigation</CardTitle>
                     <Button>Go somewhere</Button>
+                    </CardBody>
                   </Col>
                 </Row>
               </TabPane>
@@ -124,6 +134,56 @@ class TabsPage extends React.Component {
                       <CardTitle>Design</CardTitle>
                       <CardText>Tab the contents of your heart.</CardText>
                       <Button color="blue">Go somewhere</Button>
+                    </CardBody>
+                  </Col>
+                </Row>
+              </TabPane>
+            </TabContent>
+
+            <Nav pills className="nav-justified pills-secondary mt-5">
+              <NavItem>
+                <NavLink to="#"
+                  className={classnames({ active: this.state.activeItem3 === '1' })}
+                  onClick={() => { this.toggle2('1'); }}
+                >
+                        A
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#"
+                  className={classnames({ active: this.state.activeItem3 === '2' })}
+                  onClick={() => { this.toggle2('2'); }}
+                >
+                        B
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <TabContent activeItem={this.state.activeItem3}>
+              <TabPane tabId="1">
+                <Row>
+                  <Col md="12">
+                    <CardBody>
+                      <CardTitle>Take the pills</CardTitle>
+                      <CardText>Open your mind!</CardText>
+                      <Button color="secondary">Yeah</Button>
+                    </CardBody>
+                  </Col>
+                </Row>
+              </TabPane>
+              <TabPane tabId="2">
+                <Row>
+                  <Col md="6">
+                    <CardBody>
+                      <CardTitle>Material</CardTitle>
+                      <CardText>Why</CardText>
+                      <Button color="secondary">here</Button>
+                    </CardBody>
+                  </Col>
+                  <Col md="6">
+                    <CardBody>
+                      <CardTitle>Design</CardTitle>
+                      <CardText>Not</CardText>
+                      <Button color="secondary">there</Button>
                     </CardBody>
                   </Col>
                 </Row>
