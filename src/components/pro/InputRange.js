@@ -28,13 +28,13 @@ class InputRange extends React.Component {
     this.setState({value: this.props.value})
     let input = ReactDOM.findDOMNode(this.refs.input);
     let inputWidth = input.offsetWidth;
-    oneStep = inputWidth / this.props.max;
-    this.setState({leftPosition: oneStep * this.props.value});
+    oneStep = inputWidth / (this.props.max - this.props.min);
+    this.setState({leftPosition: oneStep * this.props.value - oneStep * this.props.min});
   }
 
   rangeChange(e) {
     let newValue = e.target.value;
-    this.setState({value: newValue, leftPosition: oneStep * newValue})
+    this.setState({value: newValue, leftPosition: oneStep * newValue - oneStep * this.props.min});
   }
 
   rangeFocus() {

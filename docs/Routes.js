@@ -37,7 +37,12 @@ import DatePickerPage from './pages/pro/DatePickerPage';
 import TimePickerPage from './pages/pro/TimePickerPage';
 import FormsPage from './pages/FormsPage';
 import ScrollSpyPage from './pages/ScrollSpyPage';
+import ChartsPage from './pages/ChartsPage';
 import StickyPage from './pages/pro/StickyPage';
+import LightboxPage from './pages/pro/LightboxPage';
+import ScrollBarPage from './pages/ScrollBarPage';
+import MultiCarouselPage from './pages/pro/MultiCarouselPage';
+import DoubleNavigationPage from './pages/DoubleNavigationPage';
 
 class Routes extends React.Component {
   render() {
@@ -81,7 +86,12 @@ class Routes extends React.Component {
         <Route path='/advanced/pro/timepicker' component={TimePickerPage} />
         <Route path='/advanced/scrollspy' component={ScrollSpyPage} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
+        <Route path='/advanced/charts' component={ChartsPage} />
         <Route path='/advanced/sticky' component={StickyPage} />
+        <Route path='/advanced/pro/lightbox' component={LightboxPage} />
+        <Route path='/advanced/scrollbar' component={ScrollBarPage} />
+        <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
+        <Route path='/css/double' component={DoubleNavigationPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

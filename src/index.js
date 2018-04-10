@@ -16,6 +16,8 @@ import CarouselCaption from './components/CarouselCaption';
 import CarouselControl from './components/CarouselControl';
 import CarouselInner from './components/CarouselInner';
 import CarouselItem from './components/CarouselItem';
+import CarouselIndicators from './components/CarouselIndicators';
+import CarouselIndicator from './components/CarouselIndicator';
 import Col from './components/Col';
 import Collapse from './components/Collapse';
 import CollapseHeader from './components/pro/CollapseHeader';
@@ -78,6 +80,9 @@ import TabContent from './components/TabContent';
 import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
+import Sticky from './components/pro/Sticky';
+import StickyContainer from './components/pro/StickyContainer';
+import PerfectScrollbar from './components/PerfectScrollbar';
 
 export {
   Badge,
@@ -98,6 +103,8 @@ export {
   CarouselControl,
   CarouselInner,
   CarouselItem,
+  CarouselIndicators,
+  CarouselIndicator,
   Col,
   Collapse,
   CollapseHeader,
@@ -159,5 +166,8 @@ export {
   TabContent,
   TextField,
   Tooltip,
-  View
+  View,
+  Sticky,
+  StickyContainer,
+  PerfectScrollbar
 };

@@ -5,16 +5,22 @@ import classNames from 'classnames';
 class Nav extends Component {
 
   render() {
- 
+
     const {
       children,
       className,
       tag: Tag,
+      tabs,
+      color,
+      classicTabs,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'nav',
+      this.props.tabs && 'nav-tabs',
+      this.props.classicTabs && 'classic-tabs',
+      this.props.color && 'tabs-'+this.props.color,
       className,
     );
 
