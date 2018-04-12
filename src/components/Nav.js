@@ -22,7 +22,8 @@ class Nav extends Component {
       this.props.tabs && 'nav-tabs',
       this.props.pills && 'md-pills',
       this.props.classicTabs && 'classic-tabs',
-      this.props.color && 'tabs-'+this.props.color,
+      this.props.pills && this.props.color ? 'pills-'+this.props.color : false,
+      (this.props.tabs || this.props.classicTabs) && this.props.color ? 'tabs-'+this.props.color : false,
       className,
     );
 
