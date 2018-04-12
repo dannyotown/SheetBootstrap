@@ -7,7 +7,7 @@ const libraryName = 'mdbreact';
 module.exports = function (env) {
   let outputFile;
   const plugins = [
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env)
     }),
@@ -68,6 +68,7 @@ module.exports = function (env) {
     module: {
       rules: [
         { test: /\.(js)$/, use: 'babel-loader' },
+        { test: /\.(jsx)$/, use: 'babel-loader' },
         { test: /\.css$/, use: ['style-loader', 'css-loader']},
         { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader'},
         { test: /\.(woff|woff2)$/, loader: 'url-loader?prefix=font/&limit=5000', query: { outputPath: 'font/', publicPath: '../font/' }},
