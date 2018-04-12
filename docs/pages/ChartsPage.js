@@ -1,5 +1,5 @@
 import React from 'react';
-import { Line, Radar } from 'react-chartjs-2';
+import { Line, Chart } from 'react-chartjs-2';
 import { CirclePie } from 'salad-ui.chart';
 import { Container, Row, Col, Fa } from 'mdbreact';
 
@@ -35,7 +35,7 @@ class ChartsPage extends React.Component {
   componentDidMount() {
     // Radar chart
     const ctxR = document.getElementById("radarChart").getContext('2d');
-    const myRadarChart = new Chart(ctxR, {
+    new Chart(ctxR, {
       type: 'radar',
       data: {
         labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
@@ -68,7 +68,7 @@ class ChartsPage extends React.Component {
     });
     // Bar chart
     var ctxB = document.getElementById("barChart").getContext('2d');
-    var myBarChart = new Chart(ctxB, {
+    new Chart(ctxB, {
       type: 'bar',
       data: {
           labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -106,7 +106,7 @@ class ChartsPage extends React.Component {
     });
     // Polar chart
     var ctxPA = document.getElementById("polarChart").getContext('2d');
-    var myPolarChart = new Chart(ctxPA, {
+    new Chart(ctxPA, {
       type: 'polarArea',
       data: {
           labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
@@ -124,7 +124,7 @@ class ChartsPage extends React.Component {
     });
     // Pie chart
     var ctxP = document.getElementById("pieChart").getContext('2d');
-    var myPieChart = new Chart(ctxP, {
+    new Chart(ctxP, {
         type: 'pie',
         data: {
             labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
@@ -142,7 +142,7 @@ class ChartsPage extends React.Component {
     });
     //doughnut
     var ctxD = document.getElementById("doughnutChart").getContext('2d');
-    var myLineChart = new Chart(ctxD, {
+    new Chart(ctxD, {
         type: 'doughnut',
         data: {
             labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],

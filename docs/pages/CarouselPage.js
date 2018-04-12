@@ -96,10 +96,10 @@ class CarouselPage extends Component {
           <CarouselControl direction="prev" role="button" onClick={() => { this.prev(); }} />
           <CarouselControl direction="next" role="button" onClick={() => { this.next(); }} />
           <CarouselIndicators>
-            <CarouselIndicator active={activeItem == 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
-            <CarouselIndicator active={activeItem == 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
-            <CarouselIndicator active={activeItem == 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
-            <CarouselIndicator active={activeItem == 4 ? true : false} onClick={() => { this.goToIndex(4); }}></CarouselIndicator>
+            <CarouselIndicator active={activeItem === 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
+            <CarouselIndicator active={activeItem === 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
+            <CarouselIndicator active={activeItem === 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
+            <CarouselIndicator active={activeItem === 4 ? true : false} onClick={() => { this.goToIndex(4); }}></CarouselIndicator>
           </CarouselIndicators>
         </Carousel>
       </Container>

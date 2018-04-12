@@ -3385,7 +3385,7 @@ var TextField = function (_React$Component) {
           gap = _props.gap,
           attributes = _objectWithoutProperties(_props, ['containerClass', 'size', 'group', 'className', 'type', 'el', 'tag', 'id', 'hint', 'validate', 'value', 'label', 'error', 'success', 'disabled', 'labelClass', 'icon', 'iconClass', 'filled', 'gap']);
 
-      var isNotEmpty = Boolean(this.state.innerValue.toString()) || hint || this.state.isTouched;
+      var isNotEmpty = Boolean(this.state.innerValue) || hint || this.state.isTouched;
 
       var inputType = type === 'input';
       var textareaInput = type === 'textarea';
@@ -16228,9 +16228,10 @@ var Nav = function (_Component) {
           tabs = _props.tabs,
           color = _props.color,
           classicTabs = _props.classicTabs,
-          attributes = _objectWithoutProperties(_props, ['children', 'className', 'tag', 'tabs', 'color', 'classicTabs']);
+          pills = _props.pills,
+          attributes = _objectWithoutProperties(_props, ['children', 'className', 'tag', 'tabs', 'color', 'classicTabs', 'pills']);
 
-      var classes = (0, _classnames2.default)('nav', this.props.tabs && 'nav-tabs', this.props.classicTabs && 'classic-tabs', this.props.color && 'tabs-' + this.props.color, className);
+      var classes = (0, _classnames2.default)('nav', this.props.tabs && 'nav-tabs', this.props.pills && 'md-pills', this.props.classicTabs && 'classic-tabs', this.props.pills && this.props.color ? 'pills-' + this.props.color : false, (this.props.tabs || this.props.classicTabs) && this.props.color ? 'tabs-' + this.props.color : false, className);
 
       return _react2.default.createElement(
         Tag,
@@ -16246,7 +16247,11 @@ var Nav = function (_Component) {
 Nav.propTypes = {
   tag: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
   className: _propTypes2.default.string,
-  children: _propTypes2.default.node
+  children: _propTypes2.default.node,
+  color: _propTypes2.default.string,
+  classicTabs: _propTypes2.default.bool,
+  pills: _propTypes2.default.bool,
+  tabs: _propTypes2.default.bool
 };
 
 Nav.defaultProps = {
@@ -32301,7 +32306,7 @@ var TabPane = function (_React$Component) {
           attributes = _objectWithoutProperties(_props, ['className', 'tabId']);
 
       var classes = (0, _classnames2.default)('tab-pane', { active: tabId === this.context.activeItemId }, className);
-      return _react2.default.createElement('div', _extends({}, attributes, { className: classes }));
+      return _react2.default.createElement('div', _extends({}, attributes, { className: classes, role: 'tabpanel' }));
     }
   }]);
 

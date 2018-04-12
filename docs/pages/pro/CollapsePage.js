@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Button, Collapse, Card, CardBody, CollapseHeader } from 'mdbreact';
+import { Container, Collapse, Card, CardBody, CollapseHeader } from 'mdbreact';
 
 class CollapsePage extends Component {
   constructor(props) {

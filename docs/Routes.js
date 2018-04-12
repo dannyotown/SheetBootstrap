@@ -32,7 +32,7 @@ import DropdownPage from './pages/DropdownPage';
 import VideoCarouselPage from './pages/VideoCarouselPage';
 import HoverPage from './pages/HoverPage';
 import SelectPage from './pages/pro/SelectPage';
-import SideNavPage from './pages/SideNavPage';
+import SideNavPage from './pages/pro/SideNavPage';
 import DatePickerPage from './pages/pro/DatePickerPage';
 import TimePickerPage from './pages/pro/TimePickerPage';
 import FormsPage from './pages/FormsPage';
@@ -79,7 +79,7 @@ class Routes extends React.Component {
         <Route path='/advanced/collapse' component={CollapsePage} />
         <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
-        <Route path='/advanced/sidenav' component={SideNavPage} />
+        <Route path='/advanced/pro/sidenav' component={SideNavPage} />
         <Route path='/css/masks' component={MasksPage} />
         <Route path='/css/hover' component={HoverPage} />
         <Route path='/advanced/pro/select' component={SelectPage} />

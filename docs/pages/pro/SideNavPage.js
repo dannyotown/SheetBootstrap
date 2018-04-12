@@ -105,8 +105,8 @@ class SideNavPage extends React.Component {
 
   render() {
     const divstyle = {width: "50%", display: "inline-block"}
-    const button1 = <a href="#" onClick={this.handleToggleClickA} key="sideNavToggleA"><Fa icon="bars" size="5x"></Fa></a>
-    const button2 = <a href="#" onClick={this.handleToggleClickB} key="sideNavToggleB"><Fa icon="bars" size="5x"></Fa></a>
+    const button1 = <a href="#!" onClick={this.handleToggleClickA} key="sideNavToggleA"><Fa icon="bars" size="5x"></Fa></a>
+    const button2 = <a href="#!" onClick={this.handleToggleClickB} key="sideNavToggleB"><Fa icon="bars" size="5x"></Fa></a>
     const isOpenWithButtonA = this.state.toggleStateA;
     const isOpenWithButtonB = this.state.toggleStateB;
 
@@ -122,10 +122,10 @@ class SideNavPage extends React.Component {
       <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" hidden isOpenWithButton={isOpenWithButtonA} breakWidth={1300} className="deep-purple darken-4">
       <li>
         <ul className="social">
-          <li><a href="#"><Fa icon="facebook"></Fa></a></li>
-          <li><a href="#"><Fa icon="pinterest"></Fa></a></li>
-          <li><a href="#"><Fa icon="google-plus"></Fa></a></li>
-          <li><a href="#"><Fa icon="twitter"></Fa></a></li>
+          <li><a href="#!"><Fa icon="facebook"></Fa></a></li>
+          <li><a href="#!"><Fa icon="pinterest"></Fa></a></li>
+          <li><a href="#!"><Fa icon="google-plus"></Fa></a></li>
+          <li><a href="#!"><Fa icon="twitter"></Fa></a></li>
         </ul>
       </li>
         <SideNavNav>
@@ -151,10 +151,10 @@ class SideNavPage extends React.Component {
       <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" hidden isOpenWithButton={isOpenWithButtonB} className="side-nav-light" right breakWidth={1300}>
       <li>
         <ul className="social">
-          <li><a href="#" className="icons-sm fb-ic"><i className="fa fa-facebook"></i></a></li>
-          <li><a href="#" className="icons-sm pin-ic"><i className="fa fa-pinterest"></i></a></li>
-          <li><a href="#" className="icons-sm gplus-ic"><i className="fa fa-google-plus"></i></a></li>
-          <li><a href="#" className="icons-sm tw-ic"><i className="fa fa-twitter"></i></a></li>
+          <li><a href="#!" className="icons-sm fb-ic"><i className="fa fa-facebook"></i></a></li>
+          <li><a href="#!" className="icons-sm pin-ic"><i className="fa fa-pinterest"></i></a></li>
+          <li><a href="#!" className="icons-sm gplus-ic"><i className="fa fa-google-plus"></i></a></li>
+          <li><a href="#!" className="icons-sm tw-ic"><i className="fa fa-twitter"></i></a></li>
         </ul>
       </li>
         <SideNavNav>
