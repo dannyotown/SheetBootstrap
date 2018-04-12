@@ -1,7 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup, ButtonToolbar, Fa } from 'mdbreact';
-import ButtonFixed from '../../../src/components/pro/ButtonFixed';
-import ButtonFixedItem from '../../../src/components/pro/ButtonFixedItem';
+import { Button, ButtonGroup, ButtonToolbar, Fa, ButtonFixed, ButtonFixedItem } from 'mdbreact';
 
 class ButtonPage extends React.Component {
  constructor(props) {

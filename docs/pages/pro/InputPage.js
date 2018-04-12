@@ -1,9 +1,5 @@
 import React from 'react';
-import { Container, Input, FormInline } from 'mdbreact';
-import InputSwitch from '../../../src/components/pro/InputSwitch';
-import InputFile from '../../../src/components/pro/InputFile';
-import InputRange from '../../../src/components/pro/InputRange';
-
+import { Container, Input, FormInline, InputSwitch, InputFile, InputRange } from 'mdbreact';
 
 class InputPage extends React.Component {
   constructor(props) {

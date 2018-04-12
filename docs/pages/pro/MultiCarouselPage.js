@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
 import { Carousel, CarouselCaption, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, View, Mask, Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, Button, Fa } from 'mdbreact';
 
 class MultiCarouselPage extends Component {
-
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
@@ -41,9 +39,7 @@ class MultiCarouselPage extends Component {
   }
 
   render(){
-
     const { activeItem } = this.state;
-
     return(
       <Container>
         <h4 className="mt-5 mb-2">Multi-item Carousel</h4>

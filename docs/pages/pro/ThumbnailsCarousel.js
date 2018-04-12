@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-
-import { Carousel, CarouselCaption, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, View, Mask, Container } from 'mdbreact';
+import { Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Container } from 'mdbreact';
 
 class ThumbnailsCarouselPage extends Component {
-
   constructor(props) {
     super(props);
     this.next = this.next.bind(this);
@@ -41,9 +39,7 @@ class ThumbnailsCarouselPage extends Component {
   }
 
   render(){
-
     const { activeItem } = this.state;
-
     return(
       <Container>
         <h4 className="mt-5 mb-2">Thumbnails Carousel</h4>
@@ -66,9 +62,9 @@ class ThumbnailsCarouselPage extends Component {
           <CarouselControl direction="prev" role="button" onClick={() => { this.prev(); }} />
           <CarouselControl direction="next" role="button" onClick={() => { this.next(); }} />
           <CarouselIndicators>
-            <CarouselIndicator img="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(88).jpg" active={activeItem == 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
-            <CarouselIndicator img="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(121).jpg" active={activeItem == 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
-            <CarouselIndicator img="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(31).jpg" active={activeItem == 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
+            <CarouselIndicator img="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(88).jpg" active={activeItem === 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
+            <CarouselIndicator img="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(121).jpg" active={activeItem === 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
+            <CarouselIndicator img="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(31).jpg" active={activeItem === 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
           </CarouselIndicators>
         </Carousel>
       </Container>
