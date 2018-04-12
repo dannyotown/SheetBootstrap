@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Popover, PopoverBody, PopoverHeader } from 'mdbreact';
+import { Popover, PopoverBody, PopoverHeader } from 'mdbreact';
  
 class PopoverPage extends React.Component {
 

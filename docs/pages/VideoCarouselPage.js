@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Carousel, CarouselCaption, CarouselControl, CarouselInner, CarouselItem } from 'mdbreact';
+import { Carousel, CarouselControl, CarouselInner, CarouselItem } from 'mdbreact';
 
 class CarouselPage extends Component {
   constructor(props) {
@@ -39,7 +39,6 @@ class CarouselPage extends Component {
   }
 
   render(){
-    const { activeItem } = this.state;
     return(
       <div className="container mt-4">
         <div className="row">

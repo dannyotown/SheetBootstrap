@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Fa, SideNavItem, SideNavCat, SideNavNav, SideNav } from 'mdbreact';
+import { Navbar, NavbarNav, NavItem, NavLink, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Fa, SideNavItem, SideNavCat, SideNavNav, SideNav } from 'mdbreact';
 
 
 class TestPage extends React.Component  {
@@ -115,7 +115,7 @@ toggle() {
 render() {
   const isOpenWithButtonA = this.state.toggleStateA;
   const divstyle = {width: "50%", display: "inline-block"}
-  const button1 = <div href="#" onClick={this.handleToggleClickA} key="sideNavToggleA"><Fa icon="bars" color="white" size="2x"></Fa></div>
+  const button1 = <div href="#!" onClick={this.handleToggleClickA} key="sideNavToggleA"><Fa icon="bars" color="white" size="2x"></Fa></div>
   const specialCaseNavbarStyles = {WebkitBoxOrient: 'horizontal', flexDirection: 'row'};
     return (
         <Router>
@@ -123,10 +123,10 @@ render() {
             <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" isOpenWithButton={isOpenWithButtonA} breakWidth={1300} className="deep-purple darken-2" hidden>
               <li>
                 <ul className="social">
-                  <li><a href="#"><Fa icon="facebook"></Fa></a></li>
-                  <li><a href="#"><Fa icon="pinterest"></Fa></a></li>
-                  <li><a href="#"><Fa icon="google-plus"></Fa></a></li>
-                  <li><a href="#"><Fa icon="twitter"></Fa></a></li>
+                  <li><a href="#!"><Fa icon="facebook"></Fa></a></li>
+                  <li><a href="#!"><Fa icon="pinterest"></Fa></a></li>
+                  <li><a href="#!"><Fa icon="google-plus"></Fa></a></li>
+                  <li><a href="#!"><Fa icon="twitter"></Fa></a></li>
                 </ul>
               </li>
               <SideNavNav>
@@ -158,22 +158,22 @@ render() {
               </NavbarNav>
               <NavbarNav right style={specialCaseNavbarStyles}>
                 <NavItem active>
-                    <NavLink to="#"><Fa icon="envelope" className="d-inline-inline"/>  <div className="d-none d-md-inline">Contact</div></NavLink>
+                    <NavLink to="#!"><Fa icon="envelope" className="d-inline-inline"/>  <div className="d-none d-md-inline">Contact</div></NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="#"><Fa icon="comments-o" className="d-inline-inline"/> <div className="d-none d-md-inline">Support</div></NavLink>
+                    <NavLink to="#!"><Fa icon="comments-o" className="d-inline-inline"/> <div className="d-none d-md-inline">Support</div></NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink to="#"><Fa icon="user" className="d-inline-inline"/>  <div className="d-none d-md-inline">Account</div></NavLink>
+                    <NavLink to="#!"><Fa icon="user" className="d-inline-inline"/>  <div className="d-none d-md-inline">Account</div></NavLink>
                 </NavItem>
                 <NavItem>
                   <Dropdown isOpen={this.state.dropdownOpen} toggle={()=>"baba"} onMouseEnter={this.toggle} onMouseLeave={this.toggle}>
                     <DropdownToggle nav caret> <div className="d-none d-md-inline">Dropdown</div></DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem href="#">Action</DropdownItem>
-                      <DropdownItem href="#">Another Action</DropdownItem>
-                      <DropdownItem href="#">Something else here</DropdownItem>
-                      <DropdownItem href="#">Something else here</DropdownItem>
+                      <DropdownItem href="#!">Action</DropdownItem>
+                      <DropdownItem href="#!">Another Action</DropdownItem>
+                      <DropdownItem href="#!">Something else here</DropdownItem>
+                      <DropdownItem href="#!">Something else here</DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
                 </NavItem>

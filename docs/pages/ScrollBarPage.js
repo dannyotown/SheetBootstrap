@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
-import { Container, Row, Col, PerfectScrollbar } from 'mdbreact';
+import { Container, PerfectScrollbar } from 'mdbreact';
 
 
 class ScrollBarPage extends React.Component  {

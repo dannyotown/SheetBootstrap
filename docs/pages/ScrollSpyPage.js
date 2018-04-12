@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
-import { Container, Row, Col, ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText } from 'mdbreact';
+import { Container, ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText } from 'mdbreact';
 
 const scrollSpySectionsOffset = [];
 

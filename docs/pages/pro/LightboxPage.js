@@ -45,47 +45,47 @@ class LightboxPage extends React.Component  {
           <Row>
             <Col md="4">
               <figure>
-                <img src={smallImages[0]} alt="Gallery image" className="img-fluid" onClick={() => this.setState({ photoIndex: 0, isOpen: true })} />
+                <img src={smallImages[0]} alt="Gallery" className="img-fluid" onClick={() => this.setState({ photoIndex: 0, isOpen: true })} />
               </figure>
             </Col>
             <Col md="4">
               <figure>
-                <img src={smallImages[1]} alt="Gallery image" className="img-fluid" onClick={() => this.setState({ photoIndex: 1, isOpen: true })} />
+                <img src={smallImages[1]} alt="Gallery" className="img-fluid" onClick={() => this.setState({ photoIndex: 1, isOpen: true })} />
               </figure> 
             </Col>
             <Col md="4">
               <figure>
-                <img src={smallImages[2]} alt="Gallery image" className="img-fluid" onClick={() => this.setState({ photoIndex: 2, isOpen: true })} />
+                <img src={smallImages[2]} alt="Gallery" className="img-fluid" onClick={() => this.setState({ photoIndex: 2, isOpen: true })} />
               </figure> 
             </Col>
             <Col md="4">
               <figure>
-                <img src={smallImages[3]} alt="Gallery image" className="img-fluid" onClick={() => this.setState({ photoIndex: 3, isOpen: true })} />
+                <img src={smallImages[3]} alt="Gallery" className="img-fluid" onClick={() => this.setState({ photoIndex: 3, isOpen: true })} />
               </figure> 
             </Col>
             <Col md="4">
               <figure>
-                <img src={smallImages[4]} alt="Gallery image" className="img-fluid" onClick={() => this.setState({ photoIndex: 4, isOpen: true })} />
+                <img src={smallImages[4]} alt="Gallery" className="img-fluid" onClick={() => this.setState({ photoIndex: 4, isOpen: true })} />
               </figure> 
             </Col>
             <Col md="4">
               <figure>
-                <img src={smallImages[5]} alt="Gallery image" className="img-fluid" onClick={() => this.setState({ photoIndex: 5, isOpen: true })} />
+                <img src={smallImages[5]} alt="Gallery" className="img-fluid" onClick={() => this.setState({ photoIndex: 5, isOpen: true })} />
               </figure> 
             </Col>
             <Col md="4">
               <figure>
-                <img src={smallImages[6]} alt="Gallery image" className="img-fluid" onClick={() => this.setState({ photoIndex: 6, isOpen: true })} />
+                <img src={smallImages[6]} alt="Gallery" className="img-fluid" onClick={() => this.setState({ photoIndex: 6, isOpen: true })} />
               </figure> 
             </Col>
             <Col md="4">
               <figure>
-                <img src={smallImages[7]} alt="Gallery image" className="img-fluid" onClick={() => this.setState({ photoIndex: 7, isOpen: true })} />
+                <img src={smallImages[7]} alt="Gallery" className="img-fluid" onClick={() => this.setState({ photoIndex: 7, isOpen: true })} />
               </figure> 
             </Col>
             <Col md="4">
               <figure>
-                <img src={smallImages[8]} alt="Gallery image" className="img-fluid" onClick={() => this.setState({ photoIndex: 8, isOpen: true })} />
+                <img src={smallImages[8]} alt="Gallery" className="img-fluid" onClick={() => this.setState({ photoIndex: 8, isOpen: true })} />
               </figure> 
             </Col>
           </Row>
