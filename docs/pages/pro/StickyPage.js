@@ -1,19 +1,19 @@
 import React from 'react';
-import { Sticky, StickyContainer, Container } from 'mdbreact';
+import { Sticky, StickyContainer } from 'mdbreact';
 
 class StickyPage extends React.Component {
   render() {
     const wrapper = { height: '3500px', backgroundColor: 'rgba(0,0,0,.15)' }
     const background = {width: '100%', backgroundColor: '#fff', height: '3000px', lineHeight: '1.5'}
     const headerStyle = { width: '100%', background: '#2f93ce', color: '#fff', padding: '10px 20px', margin: '0'};
-    const demoWrapper = { width: 960, margin: '0 auto', };
+    const mainWrapper = { width: 960, margin: '0 auto', };
     const sidebar = { float: 'left', width: '230px', padding: '10px 15px'};
     const article = { width: '458px', padding: '0 20px', borderLeft: '1px solid #ccc', borderRight: '1px solid #ccc',float: 'left'}
     const footer = {background: '#67686b', color: '#fff', textAlign: 'center', height: '700px', display: 'block'};
     return(
       <div style={wrapper}>
       <div style={background}>
-        <div style={demoWrapper}>
+        <div style={mainWrapper}>
           <StickyContainer style={{ background: "#fff", height: '465px' }}>
             <Sticky>
               {({
@@ -24,7 +24,6 @@ class StickyPage extends React.Component {
                 distanceFromBottom,
                 calculatedHeight
               }) => {
-                // console.log({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight });
 
                 return (
                   <div
@@ -92,7 +91,7 @@ class StickyPage extends React.Component {
           </div>
           <div style={article}>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum lacus sed velit luctus tempus. Ut bibendum gravida rutrum. Phasellus et ipsum id ante interdum laoreet. Vivamus pharetra tortor sed libero interdum at volutpat arcu cursus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas porta tempor ullamcorper. Curabitur quis elit nisl. In tincidunt, purus eget commodo pretium, libero mauris egestas sem, in vestibulum sem lacus ac odio. Donec pharetra tristique nulla, non scelerisque mauris auctor in. Sed elit mauris, pellentesque sed iaculis id, condimentum eget sem. Maecenas at enim mi. Duis non nunc justo, vitae tristique purus. Quisque sagittis convallis elementum.</p>
-            
+
             <p>Donec sed lectus tellus. Cras felis leo, imperdiet a interdum in, vestibulum eu quam. Donec elit est, interdum eget mattis quis, semper ac est. Nam dignissim ultrices risus, a ornare justo pretium vitae. Quisque vitae pellentesque mauris. Cras consectetur laoreet adipiscing. Morbi placerat, elit et dapibus vestibulum, ipsum diam pellentesque metus, eu tincidunt tellus elit in quam. Mauris quis accumsan urna. Proin commodo sapien volutpat lectus ultricies varius. Duis elit enim, dapibus nec convallis id, egestas non neque. Sed a libero eu dolor ultrices ultricies a sit amet nulla.</p>
 
             <p>In hac habitasse platea dictumst. Nulla a velit dolor. Vestibulum in purus libero. Donec et orci libero. Proin eget lacinia nisi. Proin eget pretium nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse purus diam, adipiscing quis ultrices in, fringilla non neque. Integer et lectus lectus, vel congue massa. Duis tincidunt ipsum non quam bibendum et lacinia purus viverra. Etiam tortor est, volutpat vel ultricies a, aliquet et augue. Vivamus sed nulla enim, vel egestas tortor.</p>
