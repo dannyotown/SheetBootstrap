@@ -9,7 +9,6 @@ class StickyPage extends React.Component {
     const mainWrapper = { width: 960, margin: '0 auto', };
     const sidebar = { float: 'left', width: '230px', padding: '10px 15px'};
     const article = { width: '458px', padding: '0 20px', borderLeft: '1px solid #ccc', borderRight: '1px solid #ccc',float: 'left'}
-    const footer = {background: '#67686b', color: '#fff', textAlign: 'center', height: '700px', display: 'block'};
     return(
       <div style={wrapper}>
       <div style={background}>
