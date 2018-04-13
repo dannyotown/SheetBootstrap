@@ -1,33 +1,21 @@
-import React, { Component } from 'react';
-import { ScrollBar } from 'mdbreact';
+import React from 'react';
+import { Container, PerfectScrollbar } from 'mdbreact';
 
 
-class ScrollBarPage extends Component {
+class ScrollBarPage extends React.Component  {
 
-
-  render(){
-    return (
-      <div className="example">
-      <ScrollBar
-          onScrollY={() => console.log('onScrollY')}
-          onScrollX={() => logEvent('onScrollX')}
-          onScrollUp={() => logEvent('onScrollUp')}
-          onScrollDown={() => logEvent('onScrollDown')}
-          onScrollLeft={() => logEvent('onScrollLeft')}
-          onScrollRight={() => logEvent('onScrollRight')}
-          onYReachStart={() => logEvent('onYReachStart')}
-          onYReachEnd={() => logEvent('onYReachEnd')}
-          onXReachStart={() => logEvent('onXReachStart')}
-          onXReachEnd={() => logEvent('onXReachEnd')}
-      >
-          <div style={{height: '1000px'}} />
-      </ScrollBar>
-  </div>
-
+  render() {
+    const outerContainerStyle = {width: '600px', height: '400px'}
+    const style = { backgroundImage: "url('https://i.imgur.com/nAUUNzH.jpg')",
+    width: "1280px", height: "720px", position: 'relative'}
+    return(
+      <Container style={outerContainerStyle} className="mt-5">
+        <PerfectScrollbar option={{wheelSpeed:1}} className="scrollbar-primary">
+          <Container style={style} className="scrollbar-primary"></Container>
+        </PerfectScrollbar>
+      </Container>
     );
   }
-}
-
+};
 
 export default ScrollBarPage;
-

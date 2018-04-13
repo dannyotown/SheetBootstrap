@@ -32,12 +32,18 @@ import DropdownPage from './pages/DropdownPage';
 import VideoCarouselPage from './pages/VideoCarouselPage';
 import HoverPage from './pages/HoverPage';
 import SelectPage from './pages/pro/SelectPage';
-import SideNavPage from './pages/SideNavPage';
+import SideNavPage from './pages/pro/SideNavPage';
 import DatePickerPage from './pages/pro/DatePickerPage';
 import TimePickerPage from './pages/pro/TimePickerPage';
 import FormsPage from './pages/FormsPage';
 import ScrollSpyPage from './pages/ScrollSpyPage';
+import ChartsPage from './pages/ChartsPage';
+import StickyPage from './pages/pro/StickyPage';
+import LightboxPage from './pages/pro/LightboxPage';
 import ScrollBarPage from './pages/ScrollBarPage';
+import MultiCarouselPage from './pages/pro/MultiCarouselPage';
+import ThumbnailsCarousel from './pages/pro/ThumbnailsCarousel';
+import DoubleNavigationPage from './pages/DoubleNavigationPage';
 
 class Routes extends React.Component {
   render() {
@@ -73,14 +79,21 @@ class Routes extends React.Component {
         <Route path='/advanced/collapse' component={CollapsePage} />
         <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
-        <Route path='/advanced/sidenav' component={SideNavPage} />
+        <Route path='/advanced/pro/sidenav' component={SideNavPage} />
         <Route path='/css/masks' component={MasksPage} />
         <Route path='/css/hover' component={HoverPage} />
         <Route path='/advanced/pro/select' component={SelectPage} />
         <Route path='/advanced/pro/datepicker' component={DatePickerPage} />
         <Route path='/advanced/pro/timepicker' component={TimePickerPage} />
         <Route path='/advanced/scrollspy' component={ScrollSpyPage} />
+        <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
+        <Route path='/advanced/charts' component={ChartsPage} />
+        <Route path='/advanced/sticky' component={StickyPage} />
+        <Route path='/advanced/pro/lightbox' component={LightboxPage} />
         <Route path='/advanced/scrollbar' component={ScrollBarPage} />
+        <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
+        <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />
+        <Route path='/css/double' component={DoubleNavigationPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

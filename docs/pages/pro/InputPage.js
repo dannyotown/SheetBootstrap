@@ -1,9 +1,5 @@
 import React from 'react';
-import { Container, Input, FormInline } from 'mdbreact';
-import InputSwitch from '../../../src/components/pro/InputSwitch';
-import InputFile from '../../../src/components/pro/InputFile';
-import InputRange from '../../../src/components/pro/InputRange';
-
+import { Container, Input, FormInline, InputSwitch, InputFile, InputRange } from 'mdbreact';
 
 class InputPage extends React.Component {
   constructor(props) {
@@ -116,9 +112,8 @@ class InputPage extends React.Component {
         <InputFile multiple btnColor="info" btn-size="sm"></InputFile>
 
         <hr className="my-5" />
-
+        
         <h2 className="title mb-5"><strong>Range</strong></h2>
-
         <InputRange min={0} max={100} value={50}></InputRange>
 
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

@@ -17,7 +17,7 @@ class TabPane extends React.Component {
       className
     );
     return (
-      <div {...attributes} className={classes} />
+      <div {...attributes} className={classes} role="tabpanel"/>
 
     );
   }

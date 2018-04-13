@@ -1,9 +1,5 @@
 import React from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
-import Select from '../../../src/components/pro/Select';
-import SelectInput from '../../../src/components/pro/SelectInput';
-import SelectOptions from '../../../src/components/pro/SelectOptions';
-import SelectOption from '../../../src/components/pro/SelectOption';
+import { Select, SelectInput, SelectOptions, SelectOption } from 'mdbreact';
 
 class SelectPage extends React.Component {
   constructor(props) {
@@ -64,7 +60,9 @@ class SelectPage extends React.Component {
 
     if (e.target.classList.contains('select-dropdown')) {
       this.otherDropdownsClose();
-      e.target.nextElementSibling.classList.add('fadeIn');
+      if (e.target.nextElementSibling) {
+        e.target.nextElementSibling.classList.add('fadeIn');
+      }
     } else {
       this.otherDropdownsClose();
     }

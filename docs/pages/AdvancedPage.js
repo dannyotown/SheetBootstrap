@@ -12,31 +12,52 @@ class AdvancedPage extends React.Component {
               <h1><Fa icon="code" className="grey-text" /> Advanced</h1>
               <ul className="list-unstyled example-components-list">
                 <li>
+                  <NavLink to="/advanced/carousel">Carousel <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/charts">Charts <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/advanced/collapse">Collapse <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/collapse">Collapse PRO<Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/collapse">Collapse PRO <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/datepicker">Date picker<Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/datepicker">Date picker <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/select">Material Select<Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/lightbox">Lightbox <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/pro/select">Material Select <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/modal">Modal <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/timepicker">Time picker<Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/multicarousel">Multi-item Carousel <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/pro/timepicker">Time picker <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/scrollbar">ScrollBar <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/scrollspy">ScrollSpy<Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/scrollspy">ScrollSpy <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/sidenav">SideNav <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/sidenav">SideNav <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/sticky">Sticky Content <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/pro/thumbnailscarousel">Thumbnails Carousel <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/videocarousel">Video Carousel <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>
             </Jumbotron>

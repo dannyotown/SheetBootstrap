@@ -1,7 +1,5 @@
 import React from 'react';
-import { Button, ButtonGroup, ButtonToolbar, Fa } from 'mdbreact';
-import ButtonFixed from '../../../src/components/pro/ButtonFixed';
-import ButtonFixedItem from '../../../src/components/pro/ButtonFixedItem';
+import { Button, Fa, ButtonFixed, ButtonFixedItem } from 'mdbreact';
 
 class ButtonPage extends React.Component {
  constructor(props) {
@@ -23,7 +21,7 @@ class ButtonPage extends React.Component {
 
   render() {
     return(
-      <div className="container-fluid text-center">
+      <div className="container-fluid text-center mt-5">
         <section id="top-section">
           <Button rounded>Rounded Default</Button>
           <Button color="primary" rounded>Rounded Primary</Button>
@@ -52,8 +50,7 @@ class ButtonPage extends React.Component {
           <Button tag="a" floating gradient="peach"><Fa icon="leaf" /></Button>
           <Button tag="a" floating gradient="blue"><Fa icon="star" /></Button>
         </section>
-        <section>
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <section style={{height: "1000px"}}>
           <ButtonFixed onMouseEnter={this.onHover} onMouseLeave={this.onMouseLeave} floating size="lg" color="red" icon="pencil" style={{bottom: '45px', right: '24px'}}>
             <ButtonFixedItem buttonStyle={this.state.buttonStyle} color="red" icon="star"></ButtonFixedItem>
             <ButtonFixedItem buttonStyle={this.state.buttonStyle} color="yellow" icon="user"></ButtonFixedItem>

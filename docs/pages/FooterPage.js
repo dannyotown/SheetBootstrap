@@ -1,6 +1,5 @@
 import React from 'react';
 import { Col, Container, Row, Footer } from 'mdbreact';
-const NavLink = require('react-router-dom').NavLink;
 
 class FooterPage extends React.Component {
   render(){
