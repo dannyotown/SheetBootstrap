@@ -35,12 +35,13 @@ class View extends React.Component {
       'view',
       zoom && 'zoom',
       hover && 'overlay',
-      'Ripple-parent',
+      this.props.waves ? 'Ripple-parent': false,
       className
     );
     return (
       <Tag {...attributes} className={classes} onMouseDown={ this.handleClick.bind(this) } onTouchStart={ this.handleClick.bind(this) } >
-        {this.props.children}<Waves cursorPos={ this.state.cursorPos } />
+        {this.props.children}
+        {this.props.waves && <Waves cursorPos={ this.state.cursorPos } />}
       </Tag>
     );
   }
@@ -55,7 +56,8 @@ View.propTypes = {
   className: PropTypes.string,
   zoom: PropTypes.bool,
   hover: PropTypes.bool,
-  tag: PropTypes.string
+  tag: PropTypes.string,
+  waves: PropTypes.bool
 };
 
 export default View;
