@@ -27,6 +27,7 @@ class View extends React.Component {
       children,
       hover,
       zoom,
+      waves,
       tag: Tag,
       ...attributes
     } = this.props;
