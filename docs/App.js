@@ -53,6 +53,9 @@ class App extends Component {
                 <NavItem>
                   <NavLink to="/advanced">Advanced</NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink to="/sections">Sections</NavLink>
+                </NavItem>
               </NavbarNav>
             </Collapse>
           </Navbar>
