@@ -44,6 +44,8 @@ import ScrollBarPage from './pages/ScrollBarPage';
 import MultiCarouselPage from './pages/pro/MultiCarouselPage';
 import ThumbnailsCarousel from './pages/pro/ThumbnailsCarousel';
 import DoubleNavigationPage from './pages/DoubleNavigationPage';
+import SectionsPage from './pages/pro/sections/SectionsPage';
+import TestimonialsPage from './pages/pro/sections/TestimonialsPage';
 
 class Routes extends React.Component {
   render() {
@@ -94,6 +96,8 @@ class Routes extends React.Component {
         <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
         <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />
         <Route path='/css/double' component={DoubleNavigationPage} />
+        <Route path='/sections' component={SectionsPage} />
+        <Route path='/pro/sections' component={TestimonialsPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />
