@@ -13,10 +13,13 @@ class SectionsPage extends React.Component {
               <ul className="list-unstyled example-components-list">
               <h5 className="grey-text">Intros </h5>
               <li>
-                <NavLink to="/pro/sections/app">App Intro <Fa icon="angle-right" /></NavLink>
+                <NavLink to="/pro/sections/app">App intro <Fa icon="angle-right" /></NavLink>
               </li>
               <li>
-                <NavLink to="/pro/sections/contactform">Contact Form <Fa icon="angle-right" /></NavLink>
+                <NavLink to="/pro/sections/contactform">Contact Form intro <Fa icon="angle-right" /></NavLink>
+              </li>
+              <li>
+                <NavLink to="/pro/sections/classicform">Classic Register Form intro <Fa icon="angle-right" /></NavLink>
               </li>
               <br/>
                 <li>
