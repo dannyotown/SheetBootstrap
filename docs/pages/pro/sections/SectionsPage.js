@@ -15,6 +15,9 @@ class SectionsPage extends React.Component {
               <li>
                 <NavLink to="/pro/sections/app">App Intro <Fa icon="angle-right" /></NavLink>
               </li>
+              <li>
+                <NavLink to="/pro/sections/contactform">Contact Form <Fa icon="angle-right" /></NavLink>
+              </li>
               <br/>
                 <li>
                   <NavLink to="/pro/sections/testimonials">Testimonials <Fa icon="angle-right" /></NavLink>
