@@ -83,6 +83,10 @@ import View from './components/View';
 import Sticky from './components/pro/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
 import PerfectScrollbar from './components/PerfectScrollbar';
+import CardUp from './components/pro/CardUp';
+import Avatar from './components/pro/Avatar';
+import Testimonial from './components/pro/Testimonial';
+import TestimonialControl from './components/pro/TestimonialControl';
 
 export {
   Badge,
@@ -169,5 +173,9 @@ export {
   View,
   Sticky,
   StickyContainer,
-  PerfectScrollbar
+  PerfectScrollbar,
+  CardUp,
+  Avatar,
+  Testimonial,
+  TestimonialControl
 };

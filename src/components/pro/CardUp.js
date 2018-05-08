@@ -2,28 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class Card extends Component {
+class CardUp extends Component {
 
   render() {
 
     const {
       className,
       tag: Tag,
-      cascade,
-      wide,
-      narrow,
-      reverse,
-      testimonial,
+      color,
+      gradient,
       ...attributes
     } = this.props;
 
     const classes = classNames(
-      'card',
-      cascade ? 'card-cascade' : false,
-      wide ? 'card-cascade wider' : false,
-      narrow ? 'card-cascade narrower' : false,
-      reverse ? 'card-cascade wider reverse' : false,
-      testimonial ? 'testimonial-card' : false,
+      'card-up',
+      color && color + '-color',
+      gradient && gradient + '-gradient',
       className
     );
 
@@ -33,13 +27,13 @@ class Card extends Component {
   }
 }
 
-Card.propTypes = {
+CardUp.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string
 };
 
-Card.defaultProps = {
+CardUp.defaultProps = {
   tag: 'div'
 };
 
-export default Card;
+export default CardUp;

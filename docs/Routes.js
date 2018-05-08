@@ -48,6 +48,7 @@ import SectionsPage from './pages/pro/sections/SectionsPage';
 import TestimonialsPage from './pages/pro/sections/TestimonialsPage';
 import AppPage from './pages/pro/sections/AppPage';
 
+import TestimonialsMultiPage from './pages/pro/sections/TestimonialsMultiPage';
 
 class Routes extends React.Component {
   render() {
@@ -102,6 +103,7 @@ class Routes extends React.Component {
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
         <Route path='/pro/sections/app' component={AppPage} />
 
+        <Route path='/pro/sections/testimonialsMulti' component={TestimonialsMultiPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

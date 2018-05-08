@@ -2,28 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class Card extends Component {
+class Avatar extends Component {
 
   render() {
 
     const {
       className,
       tag: Tag,
-      cascade,
-      wide,
-      narrow,
-      reverse,
-      testimonial,
       ...attributes
     } = this.props;
 
     const classes = classNames(
-      'card',
-      cascade ? 'card-cascade' : false,
-      wide ? 'card-cascade wider' : false,
-      narrow ? 'card-cascade narrower' : false,
-      reverse ? 'card-cascade wider reverse' : false,
-      testimonial ? 'testimonial-card' : false,
+      'avatar',
       className
     );
 
@@ -33,13 +23,13 @@ class Card extends Component {
   }
 }
 
-Card.propTypes = {
+Avatar.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string
 };
 
-Card.defaultProps = {
+Avatar.defaultProps = {
   tag: 'div'
 };
 
-export default Card;
+export default Avatar;
