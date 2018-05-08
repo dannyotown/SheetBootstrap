@@ -35,7 +35,7 @@ class TestimonialsPage extends Component {
     const { activeItem } = this.state;
 
     return(
-      <Container className="text-center">
+      <Container>
         <section className="text-center my-5">
 
           <h2 className="h1-responsive font-weight-bold my-5">Testimonials v.1</h2>

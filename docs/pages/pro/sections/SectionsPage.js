@@ -12,6 +12,9 @@ class SectionsPage extends React.Component {
               <h1><Fa icon="code" className="grey-text" /> Sections</h1>
               <ul className="list-unstyled example-components-list">
                 <li>
+                  <NavLink to="/pro/sections/ecommerce">E-commerce <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/pro/sections/testimonials">Testimonials <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
