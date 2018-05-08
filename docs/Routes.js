@@ -47,6 +47,7 @@ import DoubleNavigationPage from './pages/DoubleNavigationPage';
 import SectionsPage from './pages/pro/sections/SectionsPage';
 import TestimonialsPage from './pages/pro/sections/TestimonialsPage';
 import TestimonialsMultiPage from './pages/pro/sections/TestimonialsMultiPage';
+import EcommercePage from './pages/pro/sections/EcommercePage';
 import AppPage from './pages/pro/sections/AppPage';
 import ContactFormPage from './pages/pro/sections/ContactFormPage'
 import ClassicFormPage from './pages/pro/sections/ClassicFormPage'
@@ -103,6 +104,7 @@ class Routes extends React.Component {
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
         <Route path='/pro/sections/testimonialsMulti' component={TestimonialsMultiPage} />
+        <Route path='/pro/sections/ecommerce' component={EcommercePage} />
         <Route path='/pro/sections/app' component={AppPage} />
         <Route path='/pro/sections/contactform' component={ContactFormPage} />
         <Route path='/pro/sections/classicform' component={ClassicFormPage} />
