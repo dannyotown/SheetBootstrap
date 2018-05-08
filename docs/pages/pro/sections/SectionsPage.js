@@ -11,17 +11,20 @@ class SectionsPage extends React.Component {
             <Jumbotron>
               <h1><Fa icon="code" className="grey-text" /> Sections</h1>
               <ul className="list-unstyled example-components-list">
-              <h5 className="grey-text">Intros </h5>
-              <li>
-                <NavLink to="/pro/sections/app">App intro <Fa icon="angle-right" /></NavLink>
-              </li>
-              <li>
-                <NavLink to="/pro/sections/contactform">Contact Form intro <Fa icon="angle-right" /></NavLink>
-              </li>
-              <li>
-                <NavLink to="/pro/sections/classicform">Classic Register Form intro <Fa icon="angle-right" /></NavLink>
-              </li>
-              <br/>
+                <h5 className="grey-text">Intros </h5>
+                <li>
+                  <NavLink to="/pro/sections/app">App intro <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/pro/sections/contactform">Contact Form intro <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/pro/sections/classicform">Classic Register Form intro <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/pro/sections/videobackground">Video Background intro <Fa icon="angle-right" /></NavLink>
+                </li>
+                <br/>
                 <li>
                   <NavLink to="/pro/sections/ecommerce">E-commerce <Fa icon="angle-right" /></NavLink>
                 </li>
