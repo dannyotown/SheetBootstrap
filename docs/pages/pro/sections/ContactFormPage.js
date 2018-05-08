@@ -29,8 +29,7 @@ class AppPage extends React.Component {
   const navStyle = { marginTop: '4rem'}
   const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>
     return (
-      <div>
-
+      <div id="contactformpage">
         <Router>
           <div>
             <Navbar style={navStyle} dark expand="md" fixed="top" scrolling>
@@ -80,8 +79,8 @@ class AppPage extends React.Component {
                   <Button outline color="white">Learn More</Button>
                 </div>
                 <Col md="6" xl="5" className="mb-4">
-                  <Card>
-                    <CardBody className="z-depth-2 grey-text">
+                  <Card className="dark-grey-text">
+                    <CardBody className="z-depth-2">
                       <h3 className="dark-grey-text text-center"><strong>Write to us:</strong></h3>
                       <hr/>
                       <Input label="Your name" icon="user"/>
