@@ -4,7 +4,7 @@ import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collap
 import './ContactFormPage.css'
 
 
-class AppPage extends React.Component {
+class ContactFormPage extends React.Component {
   constructor(props) {
     super(props),
     this.state = {
@@ -113,4 +113,4 @@ class AppPage extends React.Component {
   }
 };
 
-export default AppPage;
+export default ContactFormPage;
