@@ -13,6 +13,9 @@ class Carousel extends Component {
   }
 
   componentDidMount() {
+    if(this.props.interval === false) {
+      return;
+    }
     this.cycleInterval = setInterval(() => {
       this.props.next();
     }, this.props.interval);
@@ -44,6 +47,7 @@ class Carousel extends Component {
       multiItem,
       thumbnails,
       interval,
+      testimonial,
       tag: Tag,
       ...attributes
     } = this.props;
@@ -55,6 +59,7 @@ class Carousel extends Component {
       'carousel-fade',
       this.props.multiItem ? 'carousel-multi-item' : '',
       this.props.thumbnails ? 'carousel-thumbnails' : '',
+      this.props.testimonial ? 'testimonial-carousel' : '',
       className
     );
 
@@ -74,7 +79,7 @@ Carousel.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   multiItem: PropTypes.bool,
-  interval: PropTypes.number,
+  interval: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
   thumbnails: PropTypes.bool
 };
 
