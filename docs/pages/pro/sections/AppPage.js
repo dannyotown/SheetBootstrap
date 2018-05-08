@@ -29,7 +29,7 @@ class AppPage extends React.Component {
   const navStyle = { marginTop: '4rem'}
   const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>
     return (
-      <div>
+      <div id="apppage">
         <Router>
           <div>
           <Navbar style={navStyle} dark expand="md" fixed="top" scrolling>
@@ -66,7 +66,7 @@ class AppPage extends React.Component {
           </div>
         </Router>
           <View>
-            <Mask className="d-flex justify-content-center align-items-center app-gradient">
+            <Mask className="d-flex justify-content-center align-items-center gradient">
             <Container>
               <Row>
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
