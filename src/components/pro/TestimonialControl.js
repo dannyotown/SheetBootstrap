@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class Control extends Component {
+class TestimonialControl extends Component {
 
   render() {
  
@@ -12,18 +12,26 @@ class Control extends Component {
       className,
       onClick,
       tag: Tag,
-      iconLeft,
-      iconRight,
       ...attributes
     } = this.props;
 
+    let arrow;
+
+    if (direction === "prev") {
+      arrow = "left";
+    } else {
+      arrow = "right"
+    }
+
     const classes = classNames(
-      'carousel-control-' + direction,
+      'carousel-item-' + direction,
+      arrow,
+      'carousel-control',
       className
     );
 
     const caretClasses = classNames(
-      'carousel-control-' + direction + '-icon'
+      'icon-' + direction
     );
 
     if(direction === 'prev') {
@@ -34,33 +42,25 @@ class Control extends Component {
 
     return (
       <Tag className={classes} data-slide={direction} onClick={onClick}>
-        {this.props.iconLeft ? (
-          <i className="fa fa-chevron-left"></i>
-        ) : this.props.iconRight ? (
-          <i className="fa fa-chevron-right"></i>
-        ) : (
-          <div>
-            <span className={caretClasses} aria-hidden="true"></span>
-            <span className="sr-only">Previous</span>
-          </div>
-         )}
+        <div>
+          <span className={caretClasses} aria-hidden="true"></span>
+          <span className="sr-only">Previous</span>
+        </div>
       </Tag>
     );
   }
 }
 
-Control.propTypes = {
+TestimonialControl.propTypes = {
   onClick: PropTypes.any,
   text: PropTypes.string,
   direction: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  iconLeft: PropTypes.bool,
-  iconRight: PropTypes.bool
+  className: PropTypes.string
 };
 
-Control.defaultProps = {
+TestimonialControl.defaultProps = {
   tag: 'a'
 };
 
-export default Control;
+export default TestimonialControl;

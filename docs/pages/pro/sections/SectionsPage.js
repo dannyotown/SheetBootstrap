@@ -14,6 +14,9 @@ class SectionsPage extends React.Component {
                 <li>
                   <NavLink to="/pro/sections/testimonials">Testimonials <Fa icon="angle-right" /></NavLink>
                 </li>
+                <li>
+                  <NavLink to="/pro/sections/testimonialsMulti">Testimonials Multi Item <Fa icon="angle-right" /></NavLink>
+                </li>
               </ul>
             </Jumbotron>
           </Col>
