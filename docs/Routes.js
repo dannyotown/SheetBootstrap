@@ -49,9 +49,10 @@ import TestimonialsPage from './pages/pro/sections/TestimonialsPage';
 import TestimonialsMultiPage from './pages/pro/sections/TestimonialsMultiPage';
 import EcommercePage from './pages/pro/sections/EcommercePage';
 import AppPage from './pages/pro/sections/AppPage';
-import ContactFormPage from './pages/pro/sections/ContactFormPage'
-import ClassicFormPage from './pages/pro/sections/ClassicFormPage'
-import VideoBackgroundPage from './pages/pro/sections/VideoBackgroundPage'
+import ContactFormPage from './pages/pro/sections/ContactFormPage';
+import ClassicFormPage from './pages/pro/sections/ClassicFormPage';
+import VideoBackgroundPage from './pages/pro/sections/VideoBackgroundPage';
+import ProjectsPage from './pages/pro/sections/ProjectsPage';
 
 class Routes extends React.Component {
   render() {
@@ -110,6 +111,7 @@ class Routes extends React.Component {
         <Route path='/pro/sections/contactform' component={ContactFormPage} />
         <Route path='/pro/sections/classicform' component={ClassicFormPage} />
         <Route path='/pro/sections/videobackground' component={VideoBackgroundPage} />
+        <Route path='/pro/sections/projects' component={ProjectsPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />
