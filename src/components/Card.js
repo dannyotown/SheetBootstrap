@@ -15,6 +15,7 @@ class Card extends Component {
       reverse,
       testimonial,
       ecommerce,
+      collection,
       ...attributes
     } = this.props;
 
@@ -26,6 +27,7 @@ class Card extends Component {
       reverse ? 'card-cascade wider reverse' : false,
       testimonial ? 'testimonial-card' : false,
       ecommerce ? 'card-ecommerce' : false,
+      collection ? 'collection-card' : false,
       className
     );
 

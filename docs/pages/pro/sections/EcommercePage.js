@@ -1,9 +1,45 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, CardFooter, Fa, Tooltip } from 'mdbreact';
+import { Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, CardFooter, Fa, Tooltip, Badge, Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Button } from 'mdbreact';
 
 class EcommercePage extends Component {
+  constructor(props) {
+    super(props);
+    this.next = this.next.bind(this);
+    this.prev = this.prev.bind(this);
+    this.state = {
+      activeItem: 1,
+      maxLength: 3
+    };
+  }
+
+  next() {
+    let nextItem = this.state.activeItem + 1;
+    if(nextItem > this.state.maxLength) {
+      this.setState({ activeItem: 1 });
+    } else {
+      this.setState({ activeItem: nextItem });
+    }
+  }
+
+  prev() {
+    let prevItem = this.state.activeItem - 1;
+    if(prevItem < 1) {
+      this.setState({ activeItem: this.state.maxLength });
+    } else {
+      this.setState({ activeItem: prevItem });
+    }
+  }
+
+  goToIndex(item) {
+    if (this.state.activeItem !== item) {
+      this.setState({
+        activeItem: item
+      });
+    }
+  }
 
   render() {
+    const { activeItem } = this.state;
     return(
       <Container>
 
@@ -269,6 +305,349 @@ class EcommercePage extends Component {
           </Row>
 
         </section>
+
+        <section className="text-center my-5">
+
+          <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
+          <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+          <Row>
+            <Col lg="3" md="6" className="mb-lg-0 mb-4">
+              <Card className="align-items-center">
+                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" top alt="sample photo" overlay="white-slight" />
+                <CardBody className="text-center">
+                  <a href="" className="grey-text">
+                    <h5>Shirt</h5>
+                  </a>
+                  <h5>
+                    <strong>
+                      <a href="" className="dark-grey-text">Denim shirt <Badge pill color="danger">NEW</Badge></a>
+                    </strong>
+                  </h5>
+                  <h4 className="font-weight-bold blue-text">
+                    <strong>120$</strong>
+                  </h4>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="3" md="6" className="mb-lg-0 mb-4">
+              <Card className="align-items-center">
+                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg" top alt="sample photo" overlay="white-slight" />
+                <CardBody className="text-center">
+                  <a href="" className="grey-text">
+                    <h5>Sport wear</h5>
+                  </a>
+                  <h5>
+                    <strong>
+                      <a href="" className="dark-grey-text">Sweatshirt</a>
+                    </strong>
+                  </h5>
+                  <h4 className="font-weight-bold blue-text">
+                    <strong>139$</strong>
+                  </h4>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="3" md="6" className="mb-lg-0 mb-4">
+              <Card className="align-items-center">
+                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg" top alt="sample photo" overlay="white-slight" />
+                <CardBody className="text-center">
+                  <a href="" className="grey-text">
+                    <h5>Sport wear</h5>
+                  </a>
+                  <h5>
+                    <strong>
+                      <a href="" className="dark-grey-text">Grey blouse <Badge pill color="primary">BEST</Badge></a>
+                    </strong>
+                  </h5>
+                  <h4 className="font-weight-bold blue-text">
+                    <strong>99$</strong>
+                  </h4>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="3" md="6" className="mb-lg-0 mb-4">
+              <Card className="align-items-center">
+                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg" top alt="sample photo" overlay="white-slight" />
+                <CardBody className="text-center">
+                  <a href="" className="grey-text">
+                    <h5>Outwear</h5>
+                  </a>
+                  <h5>
+                    <strong>
+                      <a href="" className="dark-grey-text">Black jacket</a>
+                    </strong>
+                  </h5>
+                  <h4 className="font-weight-bold blue-text">
+                    <strong>219$</strong>
+                  </h4>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+          
+        </section>
+
+        <section className="text-center my-5">
+
+          <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
+          <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+          <Row>
+            <Col lg="3" md="6" className="mb-lg-0 mb-4">
+              <Card collection className="z-depth-1-half">
+                <div className="view zoom">
+                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg" className="img-fluid" alt=""/>
+                  <div className="stripe dark">
+                    <a>
+                      <p>Red trousers <Fa icon="angle-right"></Fa></p>
+                    </a>
+                  </div>
+                </div>
+              </Card>
+            </Col>
+            <Col lg="3" md="6" className="mb-lg-0 mb-4">
+              <Card collection className="z-depth-1-half">
+                <div className="view zoom">
+                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/8.jpg" className="img-fluid" alt=""/>
+                  <div className="stripe dark">
+                    <a>
+                      <p>Sweatshirt <Fa icon="angle-right"></Fa></p>
+                    </a>
+                  </div>
+                </div>
+              </Card>
+            </Col>
+            <Col lg="3" md="6" className="mb-lg-0 mb-4">
+              <Card collection className="z-depth-1-half">
+                <div className="view zoom">
+                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/9.jpg" className="img-fluid" alt=""/>
+                  <div className="stripe dark">
+                    <a>
+                      <p>Accessories <Fa icon="angle-right"></Fa></p>
+                    </a>
+                  </div>
+                </div>
+              </Card>
+            </Col>
+            <Col lg="3" md="6" className="mb-lg-0 mb-4">
+              <Card collection className="z-depth-1-half">
+                <div className="view zoom">
+                  <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/7.jpg" className="img-fluid" alt=""/>
+                  <div className="stripe dark">
+                    <a>
+                      <p>Sweatshirt <Fa icon="angle-right"></Fa></p>
+                    </a>
+                  </div>
+                </div>
+              </Card>
+            </Col>
+          </Row>
+          
+        </section>     
+
+        <section className="text-center my-5">
+
+          <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
+          <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+          <Carousel
+            multiItem
+            activeItem={this.state.activeItem}
+            next={this.next}>
+            <div className="controls-top">
+              <CarouselControl iconLeft className="btn-floating" direction="prev" role="button" onClick={() => { this.prev(); }} />
+              <CarouselControl iconRight className="btn-floating" direction="next" role="button" onClick={() => { this.next(); }} />
+            </div>
+            <CarouselIndicators>
+              <CarouselIndicator active={activeItem === 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
+              <CarouselIndicator active={activeItem === 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
+              <CarouselIndicator active={activeItem === 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
+            </CarouselIndicators>
+            <CarouselInner>
+              <Row>
+                <CarouselItem itemId="1">
+                  <Col md="4">
+                    <Card narrow ecommerce className="mb-2">
+                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" alt="sample photo"/>
+                      <CardBody>
+                        <a href="" className="text-muted">
+                          <h5>Shoes</h5>
+                        </a>
+                        <CardTitle><strong><a href="">Leather boots</a></strong></CardTitle>
+                        <CardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.</CardText>
+                        <CardFooter className="px-1">
+                          <span className="float-left">69$</span>
+                          <span className="float-right">
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-eye grey-text ml-3" tooltipContent="Quick look"/>
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-heart grey-text ml-3" tooltipContent="Add to watchlist"/>
+                          </span>
+                        </CardFooter>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col md="4" className="clearfix d-none d-md-block">
+                    <Card narrow ecommerce className="mb-2">
+                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg" alt="sample photo"/>
+                      <CardBody>
+                        <a href="" className="text-muted">
+                          <h5>Jeans</h5>
+                        </a>
+                        <CardTitle><strong><a href="">Slim jeans</a></strong></CardTitle>
+                        <CardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.</CardText>
+                        <CardFooter className="px-1">
+                          <span className="float-left">99$</span>
+                          <span className="float-right">
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-eye grey-text ml-3" tooltipContent="Quick look"/>
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-heart grey-text ml-3" tooltipContent="Add to watchlist"/>
+                          </span>
+                        </CardFooter>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col md="4" className="clearfix d-none d-md-block">
+                    <Card narrow ecommerce className="mb-2">
+                      <CardImage top src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg" alt="sample photo"/>
+                      <CardBody>
+                        <a href="" className="text-muted">
+                          <h5>Shorts</h5>
+                        </a>
+                        <CardTitle><strong><a href="">Denim shorts</a></strong></CardTitle>
+                        <CardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.</CardText>
+                        <CardFooter className="px-1">
+                          <span className="float-left">49$</span>
+                          <span className="float-right">
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-eye grey-text ml-3" tooltipContent="Quick look"/>
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-heart grey-text ml-3" tooltipContent="Add to watchlist"/>
+                          </span>
+                        </CardFooter>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </CarouselItem>
+                <CarouselItem itemId="2">
+                  <Col md="4">
+                    <Card narrow ecommerce className="mb-2">
+                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" alt="sample photo"/>
+                      <CardBody>
+                        <a href="" className="text-muted">
+                          <h5>Shoes</h5>
+                        </a>
+                        <CardTitle><strong><a href="">Leather boots</a></strong></CardTitle>
+                        <CardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.</CardText>
+                        <CardFooter className="px-1">
+                          <span className="float-left">69$</span>
+                          <span className="float-right">
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-eye grey-text ml-3" tooltipContent="Quick look"/>
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-heart grey-text ml-3" tooltipContent="Add to watchlist"/>
+                          </span>
+                        </CardFooter>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col md="4" className="clearfix d-none d-md-block">
+                    <Card narrow ecommerce className="mb-2">
+                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg" alt="sample photo"/>
+                      <CardBody>
+                        <a href="" className="text-muted">
+                          <h5>Jeans</h5>
+                        </a>
+                        <CardTitle><strong><a href="">Slim jeans</a></strong></CardTitle>
+                        <CardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.</CardText>
+                        <CardFooter className="px-1">
+                          <span className="float-left">99$</span>
+                          <span className="float-right">
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-eye grey-text ml-3" tooltipContent="Quick look"/>
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-heart grey-text ml-3" tooltipContent="Add to watchlist"/>
+                          </span>
+                        </CardFooter>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col md="4" className="clearfix d-none d-md-block">
+                    <Card narrow ecommerce className="mb-2">
+                      <CardImage top src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg" alt="sample photo"/>
+                      <CardBody>
+                        <a href="" className="text-muted">
+                          <h5>Shorts</h5>
+                        </a>
+                        <CardTitle><strong><a href="">Denim shorts</a></strong></CardTitle>
+                        <CardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.</CardText>
+                        <CardFooter className="px-1">
+                          <span className="float-left">49$</span>
+                          <span className="float-right">
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-eye grey-text ml-3" tooltipContent="Quick look"/>
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-heart grey-text ml-3" tooltipContent="Add to watchlist"/>
+                          </span>
+                        </CardFooter>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </CarouselItem>
+                <CarouselItem itemId="3">
+                  <Col md="4">
+                    <Card narrow ecommerce className="mb-2">
+                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" alt="sample photo"/>
+                      <CardBody>
+                        <a href="" className="text-muted">
+                          <h5>Shoes</h5>
+                        </a>
+                        <CardTitle><strong><a href="">Leather boots</a></strong></CardTitle>
+                        <CardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.</CardText>
+                        <CardFooter className="px-1">
+                          <span className="float-left">69$</span>
+                          <span className="float-right">
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-eye grey-text ml-3" tooltipContent="Quick look"/>
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-heart grey-text ml-3" tooltipContent="Add to watchlist"/>
+                          </span>
+                        </CardFooter>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col md="4" className="clearfix d-none d-md-block">
+                    <Card narrow ecommerce className="mb-2">
+                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg" alt="sample photo"/>
+                      <CardBody>
+                        <a href="" className="text-muted">
+                          <h5>Jeans</h5>
+                        </a>
+                        <CardTitle><strong><a href="">Slim jeans</a></strong></CardTitle>
+                        <CardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.</CardText>
+                        <CardFooter className="px-1">
+                          <span className="float-left">99$</span>
+                          <span className="float-right">
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-eye grey-text ml-3" tooltipContent="Quick look"/>
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-heart grey-text ml-3" tooltipContent="Add to watchlist"/>
+                          </span>
+                        </CardFooter>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                  <Col md="4" className="clearfix d-none d-md-block">
+                    <Card narrow ecommerce className="mb-2">
+                      <CardImage top src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg" alt="sample photo"/>
+                      <CardBody>
+                        <a href="" className="text-muted">
+                          <h5>Shorts</h5>
+                        </a>
+                        <CardTitle><strong><a href="">Denim shorts</a></strong></CardTitle>
+                        <CardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.</CardText>
+                        <CardFooter className="px-1">
+                          <span className="float-left">49$</span>
+                          <span className="float-right">
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-eye grey-text ml-3" tooltipContent="Quick look"/>
+                            <Tooltip placement="top" tag="a" component="i" componentClass="fa fa-heart grey-text ml-3" tooltipContent="Add to watchlist"/>
+                          </span>
+                        </CardFooter>
+                      </CardBody>
+                    </Card>
+                  </Col>
+                </CarouselItem>
+              </Row>
+            </CarouselInner>
+          </Carousel>
+
+        </section>   
 
 
       </Container>
