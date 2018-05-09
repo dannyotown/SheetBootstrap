@@ -649,6 +649,504 @@ class EcommercePage extends Component {
 
         </section>   
 
+        <section className="text-center my-5">
+
+          <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
+          <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+          <Row>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card pricing>
+                <div className="price header white-text blue rounded-top">
+                  <h2 className="number">10</h2>
+                  <div className="version">
+                    <h5 className="mb-0">Basic</h5>
+                  </div>
+                </div>
+                <CardBody className="striped mb-1">
+                  <ul>
+                    <li>
+                      <p className="mt-2"><Fa icon="check" className="green-text pr-2"></Fa>20 GB Of Storage</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="check" className="green-text pr-2"></Fa>2 Email Accounts</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="times" className="red-text pr-2"></Fa>24h Tech Support</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="times" className="red-text pr-2"></Fa>300 GB Bandwidth</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="times" className="red-text pr-2"></Fa>User Management </p>
+                    </li>
+                  </ul>
+                  <Button color="blue">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card pricing>
+                <div className="price header white-text indigo rounded-top">
+                  <h2 className="number">20</h2>
+                  <div className="version">
+                    <h5 className="mb-0">Pro</h5>
+                  </div>
+                </div>
+                <CardBody className="striped mb-1">
+                  <ul>
+                    <li>
+                      <p className="mt-2"><Fa icon="check" className="green-text pr-2"></Fa>20 GB Of Storage</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="check" className="green-text pr-2"></Fa>4 Email Accounts</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="check" className="green-text pr-2"></Fa>24h Tech Support</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="times" className="red-text pr-2"></Fa>300 GB Bandwidth</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="times" className="red-text pr-2"></Fa>User Management </p>
+                    </li>
+                  </ul>
+                  <Button color="indigo">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card pricing>
+                <div className="price header white-text deep-purple rounded-top">
+                  <h2 className="number">30</h2>
+                  <div className="version">
+                    <h5 className="mb-0">Enterprise</h5>
+                  </div>
+                </div>
+                <CardBody className="striped mb-1">
+                  <ul>
+                    <li>
+                      <p className="mt-2"><Fa icon="check" className="green-text pr-2"></Fa>20 GB Of Storage</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="check" className="green-text pr-2"></Fa>5 Email Accounts</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="check" className="green-text pr-2"></Fa>24h Tech Support</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="check" className="green-text pr-2"></Fa>300 GB Bandwidth</p>
+                    </li>
+                    <li>
+                      <p><Fa icon="check" className="green-text pr-2"></Fa>User Management </p>
+                    </li>
+                  </ul>
+                  <Button color="deep-purple">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+
+        </section>
+
+        <section className="text-center my-5">
+
+          <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
+          <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+          <Row>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card className="card-image" style={{backgroundImage: 'url("https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg")'}}>
+                <div className="text-white text-center pricing-card d-flex align-items-center rgba-stylish-strong py-3 px-3 rounded">
+                  <CardBody>
+                    <h5>Basic</h5>
+                    <div className="price pt-0">
+                      <h2 className="number mb-0">10</h2>
+                    </div>
+                    <ul className="striped mb-0">
+                      <li>
+                        <p><strong>1</strong> project</p>
+                      </li>
+                      <li>
+                        <p><strong>100</strong> components</p>
+                      </li>
+                      <li>
+                        <p><strong>150</strong> features</p>
+                      </li>
+                      <li>
+                        <p><strong>200</strong> members</p>
+                      </li>
+                      <li>
+                        <p><strong>250</strong> messages</p>
+                      </li>
+                    </ul>
+                    <Button outline color="white">Buy now</Button>
+                  </CardBody>
+                </div>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card className="card-image" style={{backgroundImage: 'url("https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg")'}}>
+                <div className="text-white text-center pricing-card d-flex align-items-center rgba-teal-strong py-3 px-3 rounded">
+                  <CardBody>
+                    <h5>Pro</h5>
+                    <div className="price pt-0">
+                      <h2 className="number mb-0">20</h2>
+                    </div>
+                    <ul className="striped mb-0">
+                      <li>
+                        <p><strong>3</strong> projects</p>
+                      </li>
+                      <li>
+                        <p><strong>200</strong> components</p>
+                      </li>
+                      <li>
+                        <p><strong>250</strong> features</p>
+                      </li>
+                      <li>
+                        <p><strong>300</strong> members</p>
+                      </li>
+                      <li>
+                        <p><strong>350</strong> messages</p>
+                      </li>
+                    </ul>
+                    <Button outline color="white">Buy now</Button>
+                  </CardBody>
+                </div>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card className="card-image" style={{backgroundImage: 'url("https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg")'}}>
+                <div className="text-white text-center pricing-card d-flex align-items-center rgba-stylish-strong py-3 px-3 rounded">
+                  <CardBody>
+                    <h5>Enterprise</h5>
+                    <div className="price pt-0">
+                      <h2 className="number mb-0">30</h2>
+                    </div>
+                    <ul className="striped mb-0">
+                      <li>
+                        <p><strong>5</strong> projects</p>
+                      </li>
+                      <li>
+                        <p><strong>300</strong> components</p>
+                      </li>
+                      <li>
+                        <p><strong>350</strong> features</p>
+                      </li>
+                      <li>
+                        <p><strong>400</strong> members</p>
+                      </li>
+                      <li>
+                        <p><strong>450</strong> messages</p>
+                      </li>
+                    </ul>
+                    <Button outline color="white">Buy now</Button>
+                  </CardBody>
+                </div>
+              </Card>
+            </Col>
+          </Row>
+        
+        </section>
+
+        <section className="text-center my-5">
+
+          <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
+          <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+          <Row>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card>        
+                <CardBody>
+                  <h5 className="mb-4">Basic plan</h5>
+                  <div className="d-flex justify-content-center">
+                    <div className="card-circle d-flex justify-content-center align-items-center">
+                      <Fa icon="home" className="light-blue-text"></Fa>
+                    </div>
+                  </div>
+
+                  <h2 className="font-weight-bold my-4">59$</h2>
+                  <p className="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa pariatur id nobis accusamus deleniti cumque hic laborum.</p>
+                  <Button rounded color="light-blue">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card className="purple-gradient">        
+                <CardBody className="white-text">
+                  <h5 className="mb-4">Premium plan</h5>
+                  <div className="d-flex justify-content-center">
+                    <div className="card-circle d-flex justify-content-center align-items-center">
+                      <Fa icon="group" className="light-blue-text"></Fa>
+                    </div>
+                  </div>
+
+                  <h2 className="font-weight-bold my-4">79$</h2>
+                  <p>Esse corporis saepe laudantium velit adipisci cumque iste ratione facere non distinctio cupiditate sequi atque.</p>
+                  <Button outline rounded color="white">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card>        
+                <CardBody>
+                  <h5 className="mb-4">Advanced plan</h5>
+                  <div className="d-flex justify-content-center">
+                    <div className="card-circle d-flex justify-content-center align-items-center">
+                      <Fa icon="bar-chart" className="light-blue-text"></Fa>
+                    </div>
+                  </div>
+
+                  <h2 className="font-weight-bold my-4">99$</h2>
+                  <p className="grey-text">At ab ea a molestiae corrupti numquam quo beatae minima ratione magni accusantium repellat eveniet quia vitae.</p>
+                  <Button rounded color="light-blue">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+
+
+        </section>
+
+
+        <section className="text-center my-5">
+
+          <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
+          <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+          <Row>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card>        
+                <CardBody>
+                  <h5 className="mb-4">Basic plan</h5>
+                  <div className="d-flex justify-content-center">
+                    <div className="card-circle d-flex justify-content-center align-items-center">
+                      <Fa icon="home" className="indigo-text"></Fa>
+                    </div>
+                  </div>
+
+                  <h2 className="font-weight-bold my-4">59$</h2>
+                  <p className="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa pariatur id nobis accusamus deleniti cumque hic laborum.</p>
+                  <Button rounded color="indigo">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card className="indigo">        
+                <CardBody className="white-text">
+                  <h5 className="mb-4">Premium plan</h5>
+                  <div className="d-flex justify-content-center">
+                    <div className="card-circle d-flex justify-content-center align-items-center">
+                      <Fa icon="group" className="light-blue-text"></Fa>
+                    </div>
+                  </div>
+
+                  <h2 className="font-weight-bold my-4">79$</h2>
+                  <p>Esse corporis saepe laudantium velit adipisci cumque iste ratione facere non distinctio cupiditate sequi atque.</p>
+                  <Button outline rounded color="white">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card>        
+                <CardBody>
+                  <h5 className="mb-4">Advanced plan</h5>
+                  <div className="d-flex justify-content-center">
+                    <div className="card-circle d-flex justify-content-center align-items-center">
+                      <Fa icon="bar-chart" className="indigo-text"></Fa>
+                    </div>
+                  </div>
+
+                  <h2 className="font-weight-bold my-4">99$</h2>
+                  <p className="grey-text">At ab ea a molestiae corrupti numquam quo beatae minima ratione magni accusantium repellat eveniet quia vitae.</p>
+                  <Button rounded color="indigo">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </section>
+
+        <section className="text-center my-5">
+
+          <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
+          <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+          <Row>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card pricing>
+                <CardBody>
+                  <h5 className="font-weight-bold mt-3">Basic</h5>
+                  <div className="price pt-0">
+                    <h2 className="number red-text mb-0">10</h2>
+                  </div>
+                  <ul className="striped mb-1">
+                    <li>
+                      <p><strong>1</strong> project</p>
+                    </li>
+                    <li>
+                      <p><strong>100</strong> components</p>
+                    </li>
+                    <li>
+                      <p><strong>150</strong> features</p>
+                    </li>
+                    <li>
+                      <p><strong>200</strong> members</p>
+                    </li>
+                    <li>
+                      <p><strong>250</strong> messages</p>
+                    </li>
+                  </ul>
+                  <Button rounded color="danger" className="mb-4">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card className="card-image" style={{backgroundImage: 'url("https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg")'}}>
+                <div className="text-white text-center pricing-card d-flex align-items-center rgba-indigo-strong py-3 px-3 rounded">
+                  <CardBody>
+                    <h5 className="font-weight-bold mt-2">Pro</h5>
+                    <div className="price pt-0">
+                      <h2 className="number mb-0">20</h2>
+                    </div>
+                    <ul className="striped mb-0">
+                      <li>
+                        <p><strong>3</strong> projects</p>
+                      </li>
+                      <li>
+                        <p><strong>200</strong> components</p>
+                      </li>
+                      <li>
+                        <p><strong>250</strong> features</p>
+                      </li>
+                      <li>
+                        <p><strong>300</strong> members</p>
+                      </li>
+                      <li>
+                        <p><strong>350</strong> messages</p>
+                      </li>
+                    </ul>
+                    <Button outline color="white">Buy now</Button>
+                  </CardBody>
+                </div>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card pricing>
+                <CardBody>
+                  <h5 className="font-weight-bold mt-3">Enterprise</h5>
+                  <div className="price pt-0">
+                    <h2 className="number mb-0">30</h2>
+                  </div>
+                  <ul className="striped mb-1">
+                    <li>
+                      <p><strong>5</strong> projects</p>
+                    </li>
+                    <li>
+                      <p><strong>300</strong> components</p>
+                    </li>
+                    <li>
+                      <p><strong>350</strong> features</p>
+                    </li>
+                    <li>
+                      <p><strong>400</strong> members</p>
+                    </li>
+                    <li>
+                      <p><strong>450</strong> messages</p>
+                    </li>
+                  </ul>
+                  <Button rounded color="danger" className="mb-4">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        
+        </section>
+
+
+        <section className="text-center my-5">
+
+          <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
+          <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+          <Row>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card pricing className="white-text">
+                <div className="aqua-gradient rounded-top">
+                  <h4 className="option" style={{padding: '2.5rem', marginBottom: 0, fontWeight: 500}}>BASIC</h4>
+                </div>
+                <CardBody className="striped green-striped card-background px-5">
+                  <h2 className="my-4 pb-3 h1">20$</h2>
+                  <ul>
+                    <li>
+                      <p><strong>1</strong> project</p>
+                    </li>
+                    <li>
+                      <p><strong>100</strong> components</p>
+                    </li>
+                    <li>
+                      <p><strong>150</strong> features</p>
+                    </li>
+                    <li>
+                      <p><strong>200</strong> members</p>
+                    </li>
+                  </ul>
+                  <Button rounded gradient="aqua" className="mb-3 mt-3">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card pricing className="white-text">
+                <div className="peach-gradient rounded-top">
+                  <h4 className="option" style={{padding: '2.5rem', marginBottom: 0, fontWeight: 500}}>PRO</h4>
+                </div>
+                <CardBody className="striped orange-striped card-background px-5">
+                  <h2 className="my-4 pb-3 h1">80$</h2>
+                  <ul>
+                    <li>
+                      <p><strong>3</strong> projects</p>
+                    </li>
+                    <li>
+                      <p><strong>200</strong> components</p>
+                    </li>
+                    <li>
+                      <p><strong>250</strong> features</p>
+                    </li>
+                    <li>
+                      <p><strong>300</strong> members</p>
+                    </li>
+                  </ul>
+                  <Button rounded gradient="peach" className="mb-3 mt-3">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col lg="4" md="12" className="mb-lg-0 mb-4">
+              <Card pricing className="white-text">
+                <div className="purple-gradient rounded-top">
+                  <h4 className="option" style={{padding: '2.5rem', marginBottom: 0, fontWeight: 500}}>ENTERPRISE</h4>
+                </div>
+                <CardBody className="striped purple-striped card-background px-5">
+                  <h2 className="my-4 pb-3 h1">100$</h2>
+                  <ul>
+                    <li>
+                      <p><strong>5</strong> projects</p>
+                    </li>
+                    <li>
+                      <p><strong>300</strong> components</p>
+                    </li>
+                    <li>
+                      <p><strong>350</strong> features</p>
+                    </li>
+                    <li>
+                      <p><strong>400</strong> members</p>
+                    </li>
+                  </ul>
+                  <Button rounded gradient="purple" className="mb-3 mt-3">Buy now</Button>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+
+        </section>
 
       </Container>
     );
