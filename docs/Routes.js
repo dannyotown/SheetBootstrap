@@ -54,7 +54,7 @@ import ClassicFormPage from './pages/pro/sections/ClassicFormPage';
 import VideoBackgroundPage from './pages/pro/sections/VideoBackgroundPage';
 import ProjectsPage from './pages/pro/sections/ProjectsPage';
 import BlogPage from './pages/pro/sections/BlogPage';
-
+import TeamPage from'./pages/pro/sections/TeamPage';
 
 class Routes extends React.Component {
   render() {
@@ -115,6 +115,7 @@ class Routes extends React.Component {
         <Route path='/pro/sections/videobackground' component={VideoBackgroundPage} />
         <Route path='/pro/sections/projects' component={ProjectsPage} />
         <Route path='/pro/sections/blog' component={BlogPage} />
+        <Route path='/pro/sections/team' component={TeamPage} />        
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />
