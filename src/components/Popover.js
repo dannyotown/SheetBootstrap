@@ -8,7 +8,7 @@ import outy from 'outy';
 
 
 // import '../docs/css/tooltip.css'
- 
+
 class Popover extends React.Component {
 
   constructor(props) {
@@ -64,7 +64,7 @@ class Popover extends React.Component {
   }
 
   render() {
-    const { 
+    const {
       placement,
       component,
       componentStyle,
@@ -96,7 +96,7 @@ class Popover extends React.Component {
         <Target
           innerRef={c => (this.target = findDOMNode(c))}
           component={component}
-          style={componentStyle} 
+          style={componentStyle}
           className={classes}
           onClick={this._handleTargetClick}
         >
@@ -117,9 +117,7 @@ class Popover extends React.Component {
                 placement={placement}
                 className={popoverClasses}
               >
-                <div className="popover-inner">
-                  {children}
-                </div>
+                {children}
                 <Arrow className={arrowClasses} />
               </Popper>}
         </Transition>
