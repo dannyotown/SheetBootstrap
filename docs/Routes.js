@@ -56,6 +56,9 @@ import ProjectsPage from './pages/pro/sections/ProjectsPage';
 import FeaturesPage from './pages/pro/sections/FeaturesPage';
 import ContactPage from './pages/pro/sections/ContactPage';
 import SocialButtonsPage from './pages/pro/SocialButtonsPage';
+import BlogPage from './pages/pro/sections/BlogPage';
+import TeamPage from'./pages/pro/sections/TeamPage';
+import MagazinePage from'./pages/pro/sections/MagazinePage';
 
 class Routes extends React.Component {
   render() {
@@ -118,6 +121,9 @@ class Routes extends React.Component {
         <Route path='/pro/sections/features' component={FeaturesPage} />
         <Route path='/pro/sections/contact' component={ContactPage} />
         <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
+        <Route path='/pro/sections/blog' component={BlogPage} />
+        <Route path='/pro/sections/team' component={TeamPage} />
+        <Route path='/pro/sections/magazine' component={MagazinePage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />
