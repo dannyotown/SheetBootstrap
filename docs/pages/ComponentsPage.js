@@ -61,6 +61,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/progress">Progress <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/pro/socialbuttons">Social Buttons <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/tabs">Tabs <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>

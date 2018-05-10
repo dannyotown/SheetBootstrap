@@ -53,6 +53,9 @@ import ContactFormPage from './pages/pro/sections/ContactFormPage';
 import ClassicFormPage from './pages/pro/sections/ClassicFormPage';
 import VideoBackgroundPage from './pages/pro/sections/VideoBackgroundPage';
 import ProjectsPage from './pages/pro/sections/ProjectsPage';
+import FeaturesPage from './pages/pro/sections/FeaturesPage';
+import ContactPage from './pages/pro/sections/ContactPage';
+import SocialButtonsPage from './pages/pro/SocialButtonsPage';
 
 class Routes extends React.Component {
   render() {
@@ -112,6 +115,9 @@ class Routes extends React.Component {
         <Route path='/pro/sections/classicform' component={ClassicFormPage} />
         <Route path='/pro/sections/videobackground' component={VideoBackgroundPage} />
         <Route path='/pro/sections/projects' component={ProjectsPage} />
+        <Route path='/pro/sections/features' component={FeaturesPage} />
+        <Route path='/pro/sections/contact' component={ContactPage} />
+        <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

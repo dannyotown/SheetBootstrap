@@ -26,7 +26,13 @@ class SectionsPage extends React.Component {
                 </li>
                 <br/>
                 <li>
+                  <NavLink to="/pro/sections/contact">Contact <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/pro/sections/ecommerce">E-commerce <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/pro/sections/features">Features <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/pro/sections/projects">Projects <Fa icon="angle-right" /></NavLink>
