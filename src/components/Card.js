@@ -17,6 +17,8 @@ class Card extends Component {
       ecommerce,
       collection,
       pricing,
+      personal,
+      news,
       ...attributes
     } = this.props;
 
@@ -30,6 +32,8 @@ class Card extends Component {
       ecommerce ? 'card-ecommerce' : false,
       collection ? 'collection-card' : false,
       pricing ? 'pricing-card' : false,
+      personal ? 'card-personal' : false,
+      news ? 'news-card': false,
       className
     );
 
