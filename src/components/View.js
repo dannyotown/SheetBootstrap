@@ -27,6 +27,7 @@ class View extends React.Component {
       children,
       hover,
       zoom,
+      rounded,
       waves,
       tag: Tag,
       ...attributes
@@ -34,6 +35,7 @@ class View extends React.Component {
 
     const classes = classNames(
       'view',
+      rounded && 'rounded',
       zoom && 'zoom',
       hover && 'overlay',
       this.props.waves ? 'Ripple-parent': false,
@@ -57,6 +59,7 @@ View.propTypes = {
   className: PropTypes.string,
   zoom: PropTypes.bool,
   hover: PropTypes.bool,
+  rounded: PropTypes.bool,
   tag: PropTypes.string,
   waves: PropTypes.bool
 };
