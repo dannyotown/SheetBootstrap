@@ -38,6 +38,9 @@ class SectionsPage extends React.Component {
                   <NavLink to="/pro/sections/projects">Projects <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/pro/sections/social">Social <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/pro/sections/team">Team <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
