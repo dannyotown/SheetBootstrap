@@ -11,6 +11,7 @@ class AdvancedPage extends React.Component {
             <Jumbotron>
               <h1><Fa icon="code" className="grey-text" /> Advanced</h1>
               <ul className="list-unstyled example-components-list">
+                <h6 className="mt-3 grey-text">FREE </h6>
                 <li>
                   <NavLink to="/advanced/carousel">Carousel <Fa icon="angle-right" /></NavLink>
                 </li>
@@ -21,7 +22,20 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/collapse">Collapse <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/collapse">Collapse PRO <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/modal">Modal <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/scrollbar">ScrollBar <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/videocarousel">Video Carousel <Fa icon="angle-right" /></NavLink>
+                </li>
+                <h6 className="mt-3 grey-text">PRO </h6>
+                <li>
+                  <NavLink to="/advanced/pro/charts">Charts <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/pro/collapse">Accordion <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/pro/datepicker">Date picker <Fa icon="angle-right" /></NavLink>
@@ -33,31 +47,22 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/pro/select">Material Select <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/modal">Modal <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
                   <NavLink to="/advanced/pro/multicarousel">Multi-item Carousel <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/pro/timepicker">Time picker <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/scrollbar">ScrollBar <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/scrollspy">ScrollSpy <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/scrollspy">ScrollSpy <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/pro/sidenav">SideNav <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/sticky">Sticky Content <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/advanced/pro/sticky">Sticky Content <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/pro/timepicker">Time picker <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/pro/thumbnailscarousel">Thumbnails Carousel <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/advanced/videocarousel">Video Carousel <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>
             </Jumbotron>
