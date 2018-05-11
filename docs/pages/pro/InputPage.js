@@ -7,7 +7,8 @@ class InputPage extends React.Component {
     this.state = {
       radio: false,
       radio2: false,
-      radio3: false
+      radio3: false,
+      switchState: 'unchecked'
     }
     this.onClick1 = this.onClick1.bind(this);
     this.onClick2 = this.onClick2.bind(this);
@@ -18,6 +19,7 @@ class InputPage extends React.Component {
     this.onClick7 = this.onClick7.bind(this);
     this.onClick8 = this.onClick8.bind(this);
     this.onClick9 = this.onClick9.bind(this);
+    this.onSwitchChange = this.onSwitchChange.bind(this);
   }
 
   onClick1() {
@@ -54,6 +56,14 @@ class InputPage extends React.Component {
 
   onClick9() {
     this.setState({radio3: 9});
+  }
+
+  onSwitchChange() {
+    if (this.state.switchState == 'checked') {
+      this.setState({switchState: 'unchecked'});
+    } else {
+      this.setState({switchState: 'checked'});
+    }
   }
 
   render () {
@@ -98,7 +108,7 @@ class InputPage extends React.Component {
         <hr className="my-5" />
 
         <h2 className="title mb-5"><strong>Switch</strong></h2>
-        <InputSwitch></InputSwitch>
+        <InputSwitch checked={this.state.switchState} onChange={this.onSwitchChange}></InputSwitch>
         <h4 className="mt-5 mb-3">Disabled</h4>
         <InputSwitch disabled></InputSwitch>
 
