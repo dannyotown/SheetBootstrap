@@ -14,7 +14,7 @@ const TeamPage = () =>  {
           <p className="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
           <Row>
             <Col lg="3" md="6"  className="mb-lg-0 mb-5">
-              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" className="rounded-circle z-depth-1" alt="Sample avatar"/>
+              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" className="rounded-circle z-depth-1 img-fluid" alt="Sample avatar"/>
               <h5 className="font-weight-bold mt-4 mb-3">Anna Williams</h5>
               <p className="text-uppercase blue-text">Graphic designer</p>
               <p className="grey-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci  sed quia non numquam modi tempora eius.</p>
@@ -33,7 +33,7 @@ const TeamPage = () =>  {
             </Col>
 
             <Col lg="3" md="6"  className="mb-lg-0 mb-5">
-              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" className="rounded-circle z-depth-1" alt="Sample avatar"/>
+              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" className="rounded-circle z-depth-1 img-fluid" alt="Sample avatar"/>
               <h5 className="font-weight-bold mt-4 mb-3">John Doe</h5>
               <p className="text-uppercase blue-text">Web Developer</p>
               <p className="grey-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem ipsa accusantium doloremque rem laudantium totam aperiam.</p>
@@ -49,7 +49,7 @@ const TeamPage = () =>  {
             </Col>
 
             <Col lg="3" md="6"  className="mb-lg-0 mb-5">
-              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" className="rounded-circle z-depth-1" alt="Sample avatar"/>
+              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" className="rounded-circle z-depth-1 img-fluid" alt="Sample avatar"/>
               <h5 className="font-weight-bold mt-4 mb-3">Maria Smith</h5>
               <p className="text-uppercase blue-text">Photographer</p>
               <p className="grey-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim est fugiat nulla id eu laborum.</p>
@@ -68,7 +68,7 @@ const TeamPage = () =>  {
             </Col>
 
             <Col lg="3" md="6"  className="mb-lg-0 mb-5">
-              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" className="rounded-circle z-depth-1" alt="Sample avatar"/>
+              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" className="rounded-circle z-depth-1 img-fluid" alt="Sample avatar"/>
               <h5 className="font-weight-bold mt-4 mb-3">Tom Adams</h5>
               <p className="text-uppercase blue-text">Backend Developer</p>
               <p className="grey-text">Perspiciatis repellendus ad odit consequuntur, eveniet earum nisi qui consectetur totam officia voluptates perferendis voluptatibus aut.</p>
@@ -96,7 +96,7 @@ const TeamPage = () =>  {
           <p className="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
           <Row>
             <Col md="4" className="mb-md-0 mb-5">
-              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" className="rounded z-depth-1-half" alt="Sample avatar"/>
+              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" className="rounded z-depth-1-half img-fluid" alt="Sample avatar"/>
               <h4 className="font-weight-bold dark-grey-text my-4">Maria Kate</h4>
               <h6 className="text-uppercase grey-text mb-3">Photographer</h6>
               <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-fb">
@@ -111,7 +111,7 @@ const TeamPage = () =>  {
             </Col>
 
             <Col md="4" className="mb-md-0 mb-5">
-              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" className="rounded z-depth-1-half" alt="Sample avatar"/>
+              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" className="rounded z-depth-1-half img-fluid" alt="Sample avatar"/>
               <h4 className="font-weight-bold dark-grey-text my-4">John Doe</h4>
               <h6 className="text-uppercase grey-text mb-3">Front-end Developer</h6>
               <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-email">
@@ -126,7 +126,7 @@ const TeamPage = () =>  {
             </Col>
 
             <Col md="4" className="mb-md-0 mb-5">
-              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" className="rounded z-depth-1-half" alt="Sample avatar"/>
+              <Avatar tag="img" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" className="rounded z-depth-1-half img-fluid" alt="Sample avatar"/>
               <h4 className="font-weight-bold dark-grey-text my-4">Sarah Melyah</h4>
               <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
               <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-li">
@@ -154,7 +154,7 @@ const TeamPage = () =>  {
           <Row className="text-md-left">
             <Col lg="6" md="12" className="mb-5"> 
               <Col md="4" lg="6" className="float-left">
-                <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1" tag="img" alt="Sample avatar"/>
+                <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" alt="Sample avatar"/>
               </Col>
               <Col md="8" lg="6" className="float-right">
                 <h4 className="font-weight-bold mb-3">John Doe</h4>
@@ -174,7 +174,7 @@ const TeamPage = () =>  {
 
             <Col lg="6" md="12" className="mb-5"> 
               <Col md="4" lg="6" className="float-left">
-                <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1" tag="img" alt="Sample avatar"/>
+                <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" alt="Sample avatar"/>
               </Col>
               <Col md="8" lg="6" className="float-right">
                 <h4 className="font-weight-bold mb-3">Maria Kate</h4>
@@ -194,7 +194,7 @@ const TeamPage = () =>  {
 
             <Col lg="6" md="12" className="mb-5"> 
               <Col md="4" lg="6" className="float-left">
-                <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1" tag="img" alt="Sample avatar"/>
+                <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" alt="Sample avatar"/>
               </Col>
               <Col md="8" lg="6" className="float-right">
                 <h4 className="font-weight-bold mb-3">Anna Deynah</h4>
@@ -214,7 +214,7 @@ const TeamPage = () =>  {
 
             <Col lg="6" md="12" className="mb-5"> 
               <Col md="4" lg="6" className="float-left">
-                <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1" tag="img" alt="Sample avatar"/>
+                <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" alt="Sample avatar"/>
               </Col>
               <Col md="8" lg="6" className="float-right">
                 <h4 className="font-weight-bold mb-3">Sarah Melyah</h4>

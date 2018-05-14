@@ -385,12 +385,12 @@ class SocialPage extends Component {
             <CardBody>
               <div className="content">
                 <div className="right-side-meta">14 h</div>
-                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" class="rounded-circle avatar-img z-depth-1-half"/>Kate
+                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" className="rounded-circle avatar-img z-depth-1-half"/>Kate
               </div>
             </CardBody>
             <CardImage top src="https://mdbootstrap.com/img/Photos/Others/girl1.jpg" alt="Card image cap"/>
             <CardBody>
-              <div class="social-meta">
+              <div className="social-meta">
                 <p>Another great adventure! </p>
                 <span><Fa icon="heart-o"/>25 likes</span>
                 <p><Fa icon="comment"/>13 comments</p>
@@ -411,15 +411,15 @@ class SocialPage extends Component {
               <CardBody>
                 <div className="content">
                   <div className="right-side-meta">2 h</div>
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" class="rounded-circle avatar-img z-depth-1-half"/>Tony
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" className="rounded-circle avatar-img z-depth-1-half"/>Tony
                 </div>
               </CardBody>
-              <div class="embed-responsive embed-responsive-1by1">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/37pwbUp8t1I" allowfullscreen></iframe>
+              <div className="embed-responsive embed-responsive-1by1">
+                <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/37pwbUp8t1I" allowFullScreen></iframe>
               </div>
               <CardBody>
-                <div class="social-meta">
-                  <p class="blue-text">#awesome #bboy #battle #breaking #cool</p>
+                <div className="social-meta">
+                  <p className="blue-text">#awesome #bboy #battle #breaking #cool</p>
                   <span><Fa icon="heart-o"/>265 likes</span>
                   <p><Fa icon="comment"/>89 comments</p>
                 </div>
