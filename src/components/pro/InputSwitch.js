@@ -5,19 +5,15 @@ import classNames from 'classnames';
 class InputSwitch extends React.Component {
   constructor(props) {
     super(props);
-    let checked = props.checked;
     this.state = {
-      switchState: checked
+      switchState: this.props.checked
     }
-    this.onSwitchChange = this.onSwitchChange.bind(this);
   }
 
-  onSwitchChange() {
-    if (this.state.switchState == 'checked') {
-      this.setState({switchState: 'unchecked'});
-    } else {
-      this.setState({switchState: 'checked'});
-    }
+  componentWillReceiveProps(props) {
+    this.setState({
+      switchState: props.checked
+    });
   }
 
   render() {
@@ -36,7 +32,7 @@ class InputSwitch extends React.Component {
       <div {...attributes} className={classes}>
         <label>
           Off
-          <input onChange={this.onSwitchChange} disabled={this.props.disabled} type="checkbox" />
+          <input disabled={this.props.disabled} type="checkbox" />
           <span className="lever"></span>
           On
         </label>
