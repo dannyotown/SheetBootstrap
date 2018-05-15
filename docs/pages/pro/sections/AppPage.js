@@ -32,7 +32,7 @@ class AppPage extends React.Component {
       <div id="apppage">
         <Router>
           <div>
-          <Navbar style={navStyle} dark expand="md" fixed="top" scrolling>
+          <Navbar style={navStyle} dark expand="md" fixed="top">
             <Container>
               <NavbarBrand>
                 <strong className="white-text">MDB</strong>
