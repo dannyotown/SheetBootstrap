@@ -17,50 +17,50 @@ class Popover extends React.Component {
       isOpen: false
     };
 
-    this._setOusideTap = this._setOusideTap.bind(this);
-    this._handleOutsideTap = this._handleOutsideTap.bind(this);
     this._handleTargetClick = this._handleTargetClick.bind(this);
+    // this._setOusideTap = this._setOusideTap.bind(this);
+    // this._handleOutsideTap = this._handleOutsideTap.bind(this);
   }
 
 
-  componentDidMount() {
-    this._setOusideTap();
-  }
+  // componentDidMount() {
+  //   this._setOusideTap();
+  // }
 
-  componentDidUpdate(lastProps, lastState) {
-    if (lastState.isOpen !== this.state.isOpen) {
-      setTimeout(() => this._setOusideTap());
-    }
-  }
+  // componentDidUpdate(lastProps, lastState) {
+  //   if (lastState.isOpen !== this.state.isOpen) {
+  //     setTimeout(() => this._setOusideTap());
+  //   }
+  // }
 
-  componentWillUnmount() {
-    this.outsideTap.remove();
-  }
+  // componentWillUnmount() {
+  //   this.outsideTap.remove();
+  // }
 
-  _setOusideTap() {
-    const elements = [this.target];
+  // _setOusideTap() {
+  //   const elements = [this.target];
 
-    if (this.popper) {
-      elements.push(this.popper);
-    }
+  //   if (this.popper) {
+  //     elements.push(this.popper);
+  //   }
 
-    if (this.outsideTap) {
-      this.outsideTap.remove();
-    }
+  //   if (this.outsideTap) {
+  //     this.outsideTap.remove();
+  //   }
 
-    this.outsideTap = outy(
-      elements,
-      ['click', 'touchstart'],
-      this._handleOutsideTap
-    );
-  }
+  //   this.outsideTap = outy(
+  //     elements,
+  //     ['click', 'touchstart'],
+  //     this._handleOutsideTap
+  //   );
+  // }
 
-  _handleOutsideTap() {
-    this.setState({ isOpen: false });
-  }
+  // _handleOutsideTap() {
+  //   this.setState({ isOpen: false });
+  // }
 
   _handleTargetClick() {
-    this.setState({ isOpen: true });
+    this.setState({ isOpen: !this.state.isOpen });
   }
 
   render() {
