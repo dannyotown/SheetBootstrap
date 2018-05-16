@@ -24,6 +24,9 @@ class Carousel extends Component {
   }
 
   componentWillUnmount() {
+    if(this.props.interval === false) {
+      return;
+    }
     clearInterval(this.cycleInterval);
   }
 
@@ -39,10 +42,12 @@ class Carousel extends Component {
     this.setState({
       activeItem: nextProps.activeItem
     });
-    clearInterval(this.cycleInterval);
-    this.cycleInterval = setInterval(() => {
-      this.props.next();
-    }, this.props.interval);  
+    if(this.props.interval !== false) {
+      clearInterval(this.cycleInterval);
+      this.cycleInterval = setInterval(() => {
+        this.props.next();
+      }, this.props.interval);  
+    }
   }
 
   render() {
