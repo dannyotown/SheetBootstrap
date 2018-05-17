@@ -53,7 +53,7 @@ class ContactFormPage extends React.Component {
                   <NavbarNav right >
                     <NavItem>
                       <FormInline waves>
-                        <div className="md-form mt-0">
+                        <div className="md-form my-0">
                           <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
                         </div>
                       </FormInline>
