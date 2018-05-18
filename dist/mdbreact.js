@@ -4820,63 +4820,63 @@ var _SideNavCat = __webpack_require__(195);
 
 var _SideNavCat2 = _interopRequireDefault(_SideNavCat);
 
-var _SideNavItem = __webpack_require__(196);
+var _SideNavItem = __webpack_require__(198);
 
 var _SideNavItem2 = _interopRequireDefault(_SideNavItem);
 
-var _SideNavNav = __webpack_require__(197);
+var _SideNavNav = __webpack_require__(199);
 
 var _SideNavNav2 = _interopRequireDefault(_SideNavNav);
 
-var _Select = __webpack_require__(198);
+var _Select = __webpack_require__(200);
 
 var _Select2 = _interopRequireDefault(_Select);
 
-var _SelectInput = __webpack_require__(199);
+var _SelectInput = __webpack_require__(201);
 
 var _SelectInput2 = _interopRequireDefault(_SelectInput);
 
-var _SelectOptions = __webpack_require__(200);
+var _SelectOptions = __webpack_require__(202);
 
 var _SelectOptions2 = _interopRequireDefault(_SelectOptions);
 
-var _SelectOption = __webpack_require__(203);
+var _SelectOption = __webpack_require__(205);
 
 var _SelectOption2 = _interopRequireDefault(_SelectOption);
 
-var _Spinner = __webpack_require__(204);
+var _Spinner = __webpack_require__(206);
 
 var _Spinner2 = _interopRequireDefault(_Spinner);
 
-var _TabPane = __webpack_require__(205);
+var _TabPane = __webpack_require__(207);
 
 var _TabPane2 = _interopRequireDefault(_TabPane);
 
-var _TabContent = __webpack_require__(206);
+var _TabContent = __webpack_require__(208);
 
 var _TabContent2 = _interopRequireDefault(_TabContent);
 
-var _Sticky = __webpack_require__(207);
+var _Sticky = __webpack_require__(209);
 
 var _Sticky2 = _interopRequireDefault(_Sticky);
 
-var _StickyContainer = __webpack_require__(208);
+var _StickyContainer = __webpack_require__(210);
 
 var _StickyContainer2 = _interopRequireDefault(_StickyContainer);
 
-var _CardUp = __webpack_require__(209);
+var _CardUp = __webpack_require__(211);
 
 var _CardUp2 = _interopRequireDefault(_CardUp);
 
-var _Avatar = __webpack_require__(210);
+var _Avatar = __webpack_require__(212);
 
 var _Avatar2 = _interopRequireDefault(_Avatar);
 
-var _Testimonial = __webpack_require__(211);
+var _Testimonial = __webpack_require__(213);
 
 var _Testimonial2 = _interopRequireDefault(_Testimonial);
 
-var _TestimonialControl = __webpack_require__(212);
+var _TestimonialControl = __webpack_require__(214);
 
 var _TestimonialControl2 = _interopRequireDefault(_TestimonialControl);
 
@@ -33054,6 +33054,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+__webpack_require__(196);
+
 var SideNavCat = function (_React$Component) {
   _inherits(SideNavCat, _React$Component);
 
@@ -33127,11 +33129,15 @@ var SideNavCat = function (_React$Component) {
         ),
         _react2.default.createElement(
           _Collapse2.default,
-          { isOpen: isOpen, className: 'collapsible-body' },
+          { isOpen: isOpen },
           _react2.default.createElement(
-            'ul',
-            null,
-            children
+            'div',
+            { className: 'collapsible-body' },
+            _react2.default.createElement(
+              'ul',
+              null,
+              children
+            )
           )
         )
       );
@@ -33159,6 +33165,51 @@ exports.default = SideNavCat;
 
 /***/ }),
 /* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(197);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(8)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!./SideNav.css", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!./SideNav.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 197 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(7)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".collapsible-body {\r\n  display: block;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33286,7 +33337,7 @@ SideNavItem.defaultProps = {
 exports.default = SideNavItem;
 
 /***/ }),
-/* 197 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33371,7 +33422,7 @@ SideNavNav.defaultProps = {
 exports.default = SideNavNav;
 
 /***/ }),
-/* 198 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33453,7 +33504,7 @@ Select.propTypes = {
 exports.default = Select;
 
 /***/ }),
-/* 199 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33524,7 +33575,7 @@ SelectInput.propTypes = {
 exports.default = SelectInput;
 
 /***/ }),
-/* 200 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33560,7 +33611,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(201);
+__webpack_require__(203);
 
 var Options = function (_React$Component) {
   _inherits(Options, _React$Component);
@@ -33599,13 +33650,13 @@ Options.propTypes = {
 exports.default = Options;
 
 /***/ }),
-/* 201 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(202);
+var content = __webpack_require__(204);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -33630,7 +33681,7 @@ if(false) {
 }
 
 /***/ }),
-/* 202 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(7)(false);
@@ -33644,7 +33695,7 @@ exports.push([module.i, ".fadeElement {\r\n  -webkit-transition: 0.5s;\r\n  -moz
 
 
 /***/ }),
-/* 203 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33811,7 +33862,7 @@ Option.propTypes = {
 exports.default = Option;
 
 /***/ }),
-/* 204 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34036,7 +34087,7 @@ Spinner.defaultProps = {
 exports.default = Spinner;
 
 /***/ }),
-/* 205 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34109,7 +34160,7 @@ TabPane.propTypes = {
 exports.default = TabPane;
 
 /***/ }),
-/* 206 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34208,7 +34259,7 @@ TabContent.propTypes = propTypes;
 exports.default = TabContent;
 
 /***/ }),
-/* 207 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34374,7 +34425,7 @@ Sticky.contextTypes = {
 exports.default = Sticky;
 
 /***/ }),
-/* 208 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34510,7 +34561,7 @@ Container.childContextTypes = {
 exports.default = Container;
 
 /***/ }),
-/* 209 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34586,7 +34637,7 @@ CardUp.defaultProps = {
 exports.default = CardUp;
 
 /***/ }),
-/* 210 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34660,7 +34711,7 @@ Avatar.defaultProps = {
 exports.default = Avatar;
 
 /***/ }),
-/* 211 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34734,7 +34785,7 @@ Testimonial.defaultProps = {
 exports.default = Testimonial;
 
 /***/ }),
-/* 212 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
