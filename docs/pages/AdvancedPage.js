@@ -25,9 +25,6 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/modal">Modal <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/advanced/scrollbar">ScrollBar <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
                   <NavLink to="/advanced/videocarousel">Video Carousel <Fa icon="angle-right" /></NavLink>
                 </li>
                 <h6 className="mt-3 grey-text">PRO </h6>
@@ -48,6 +45,9 @@ class AdvancedPage extends React.Component {
                 </li>
                 <li>
                   <NavLink to="/advanced/pro/multicarousel">Multi-item Carousel <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/pro/scrollbar">ScrollBar <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/pro/scrollspy">ScrollSpy <Fa icon="angle-right" /></NavLink>

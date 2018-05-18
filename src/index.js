@@ -61,7 +61,6 @@ import Table from './components/Table';
 import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
-import PerfectScrollbar from './components/PerfectScrollbar';
 
 // PRO
 import ButtonFixed from './components/pro/ButtonFixed';
@@ -70,6 +69,7 @@ import CollapseHeader from './components/pro/CollapseHeader';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
+import PerfectScrollbar from './components/pro/PerfectScrollbar';
 import ScrollSpyBox from './components/pro/ScrollSpyBox';
 import ScrollSpyList from './components/pro/ScrollSpyList';
 import ScrollSpyListItem from './components/pro/ScrollSpyListItem';
@@ -156,7 +156,6 @@ export {
   TextField,
   Tooltip,
   View,
-  PerfectScrollbar,
   // PRO
   ButtonFixed,
   ButtonFixedItem,
@@ -164,6 +163,7 @@ export {
   InputFile,
   InputRange,
   InputSwitch,
+  PerfectScrollbar,
   ScrollSpyBox,
   ScrollSpyList,
   ScrollSpyListItem,

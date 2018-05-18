@@ -31,13 +31,13 @@ import VideoCarouselPage from './pages/VideoCarouselPage';
 import HoverPage from './pages/HoverPage';
 import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
-import ScrollBarPage from './pages/ScrollBarPage';
 
 // PRO
 import ButtonPagePro from './pages/pro/ButtonPage';
 import ChartsPagePro from './pages/pro/ChartsPage';
 import InputPagePro from './pages/pro/InputPage';
 import CollapsePagePro from './pages/pro/CollapsePage';
+import ScrollBarPage from './pages/pro/ScrollBarPage';
 import ScrollSpyPage from './pages/pro/ScrollSpyPage';
 import SelectPage from './pages/pro/SelectPage';
 import SideNavPage from './pages/pro/SideNavPage';
@@ -102,7 +102,6 @@ class Routes extends React.Component {
         <Route path='/css/hover' component={HoverPage} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
         <Route path='/advanced/charts' component={ChartsPage} />
-        <Route path='/advanced/scrollbar' component={ScrollBarPage} />
         {/* PRO */}
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
@@ -115,6 +114,7 @@ class Routes extends React.Component {
         <Route path='/advanced/pro/lightbox' component={LightboxPage} />
         <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
         <Route path='/components/pro/progress' component={ProgressPagePro} />
+        <Route path='/advanced/pro/scrollbar' component={ScrollBarPage} />
         <Route path='/advanced/pro/scrollspy' component={ScrollSpyPage} />
         <Route path='/advanced/pro/sticky' component={StickyPage} />
         <Route path='/components/pro/tabs' component={TabsPage} />
