@@ -55,15 +55,6 @@ import Popover from './components/Popover';
 import PopoverBody from './components/PopoverBody';
 import PopoverHeader from './components/PopoverHeader';
 import Progress from './components/Progress';
-import ScrollSpyBox from './components/ScrollSpyBox';
-import ScrollSpyList from './components/ScrollSpyList';
-import ScrollSpyListItem from './components/ScrollSpyListItem';
-import ScrollSpyText from './components/ScrollSpyText';
-import SideNav from './components/SideNav';
-import SideNavCat from './components/SideNavCat';
-import SideNavItem from './components/SideNavItem';
-import SideNavNav from './components/SideNavNav';
-import Spinner from './components/Spinner';
 import Waves from './components/Waves';
 import Row from './components/Row';
 import Table from './components/Table';
@@ -79,10 +70,19 @@ import CollapseHeader from './components/pro/CollapseHeader';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
+import ScrollSpyBox from './components/pro/ScrollSpyBox';
+import ScrollSpyList from './components/pro/ScrollSpyList';
+import ScrollSpyListItem from './components/pro/ScrollSpyListItem';
+import ScrollSpyText from './components/pro/ScrollSpyText';
+import SideNav from './components/pro/SideNav';
+import SideNavCat from './components/pro/SideNavCat';
+import SideNavItem from './components/pro/SideNavItem';
+import SideNavNav from './components/pro/SideNavNav';
 import Select from './components/pro/Select';
 import SelectInput from './components/pro/SelectInput';
 import SelectOptions from './components/pro/SelectOptions';
 import SelectOption from './components/pro/SelectOption';
+import Spinner from './components/pro/Spinner';
 import TabPane from './components/pro/TabPane';
 import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
@@ -150,15 +150,6 @@ export {
   PopoverBody,
   PopoverHeader,
   Progress,
-  ScrollSpyBox,
-  ScrollSpyList,
-  ScrollSpyListItem,
-  ScrollSpyText,
-  SideNav,
-  SideNavCat,
-  SideNavItem,
-  SideNavNav,
-  Spinner,
   Waves,
   Row,
   Table,
@@ -173,10 +164,19 @@ export {
   InputFile,
   InputRange,
   InputSwitch,
+  ScrollSpyBox,
+  ScrollSpyList,
+  ScrollSpyListItem,
+  ScrollSpyText,
+  SideNav,
+  SideNavCat,
+  SideNavItem,
+  SideNavNav,
   Select,
   SelectInput,
   SelectOptions,
   SelectOption,
+  Spinner,
   TabPane,
   TabContent,
   Sticky,

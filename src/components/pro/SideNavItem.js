@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Waves from './Waves';
+import Waves from '../Waves';
 
 class SideNavItem extends React.Component {
   constructor(props) {

@@ -4518,7 +4518,7 @@ module.exports = __webpack_require__(52);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TestimonialControl = exports.Testimonial = exports.Avatar = exports.CardUp = exports.StickyContainer = exports.Sticky = exports.TabContent = exports.TabPane = exports.SelectOption = exports.SelectOptions = exports.SelectInput = exports.Select = exports.InputSwitch = exports.InputRange = exports.InputFile = exports.CollapseHeader = exports.ButtonFixedItem = exports.ButtonFixed = exports.PerfectScrollbar = exports.View = exports.Tooltip = exports.TextField = exports.Table = exports.Row = exports.Waves = exports.Spinner = exports.SideNavNav = exports.SideNavItem = exports.SideNavCat = exports.SideNav = exports.ScrollSpyText = exports.ScrollSpyListItem = exports.ScrollSpyList = exports.ScrollSpyBox = exports.Progress = exports.PopoverHeader = exports.PopoverBody = exports.Popover = exports.PageLink = exports.PageItem = exports.Pagination = exports.NavLink = exports.NavItem = exports.NavbarToggler = exports.NavbarNav = exports.NavbarBrand = exports.Navbar = exports.Nav = exports.ModalHeader = exports.ModalFooter = exports.ModalBody = exports.Modal = exports.Media = exports.Mask = exports.ListGroupItem = exports.ListGroup = exports.Jumbotron = exports.Input = exports.FreeBird = exports.Footer = exports.FormInline = exports.Fade = exports.Fa = exports.EdgeHeader = exports.DropdownToggle = exports.DropdownMenu = exports.DropdownItem = exports.Dropdown = exports.Container = exports.Collapse = exports.Col = exports.CarouselIndicator = exports.CarouselIndicators = exports.CarouselItem = exports.CarouselInner = exports.CarouselControl = exports.CarouselCaption = exports.Carousel = exports.CardFooter = exports.CardTitle = exports.CardText = exports.CardImage = exports.CardBody = exports.Card = exports.ButtonToolbar = exports.ButtonGroup = exports.Button = exports.BreadcrumbItem = exports.Breadcrumb = exports.Badge = undefined;
+exports.TestimonialControl = exports.Testimonial = exports.Avatar = exports.CardUp = exports.StickyContainer = exports.Sticky = exports.TabContent = exports.TabPane = exports.Spinner = exports.SelectOption = exports.SelectOptions = exports.SelectInput = exports.Select = exports.SideNavNav = exports.SideNavItem = exports.SideNavCat = exports.SideNav = exports.ScrollSpyText = exports.ScrollSpyListItem = exports.ScrollSpyList = exports.ScrollSpyBox = exports.InputSwitch = exports.InputRange = exports.InputFile = exports.CollapseHeader = exports.ButtonFixedItem = exports.ButtonFixed = exports.PerfectScrollbar = exports.View = exports.Tooltip = exports.TextField = exports.Table = exports.Row = exports.Waves = exports.Progress = exports.PopoverHeader = exports.PopoverBody = exports.Popover = exports.PageLink = exports.PageItem = exports.Pagination = exports.NavLink = exports.NavItem = exports.NavbarToggler = exports.NavbarNav = exports.NavbarBrand = exports.Navbar = exports.Nav = exports.ModalHeader = exports.ModalFooter = exports.ModalBody = exports.Modal = exports.Media = exports.Mask = exports.ListGroupItem = exports.ListGroup = exports.Jumbotron = exports.Input = exports.FreeBird = exports.Footer = exports.FormInline = exports.Fade = exports.Fa = exports.EdgeHeader = exports.DropdownToggle = exports.DropdownMenu = exports.DropdownItem = exports.Dropdown = exports.Container = exports.Collapse = exports.Col = exports.CarouselIndicator = exports.CarouselIndicators = exports.CarouselItem = exports.CarouselInner = exports.CarouselControl = exports.CarouselCaption = exports.Carousel = exports.CardFooter = exports.CardTitle = exports.CardText = exports.CardImage = exports.CardBody = exports.Card = exports.ButtonToolbar = exports.ButtonGroup = exports.Button = exports.BreadcrumbItem = exports.Breadcrumb = exports.Badge = undefined;
 
 var _Badge = __webpack_require__(53);
 
@@ -4744,51 +4744,15 @@ var _Progress = __webpack_require__(173);
 
 var _Progress2 = _interopRequireDefault(_Progress);
 
-var _ScrollSpyBox = __webpack_require__(175);
-
-var _ScrollSpyBox2 = _interopRequireDefault(_ScrollSpyBox);
-
-var _ScrollSpyList = __webpack_require__(176);
-
-var _ScrollSpyList2 = _interopRequireDefault(_ScrollSpyList);
-
-var _ScrollSpyListItem = __webpack_require__(177);
-
-var _ScrollSpyListItem2 = _interopRequireDefault(_ScrollSpyListItem);
-
-var _ScrollSpyText = __webpack_require__(178);
-
-var _ScrollSpyText2 = _interopRequireDefault(_ScrollSpyText);
-
-var _SideNav = __webpack_require__(179);
-
-var _SideNav2 = _interopRequireDefault(_SideNav);
-
-var _SideNavCat = __webpack_require__(180);
-
-var _SideNavCat2 = _interopRequireDefault(_SideNavCat);
-
-var _SideNavItem = __webpack_require__(181);
-
-var _SideNavItem2 = _interopRequireDefault(_SideNavItem);
-
-var _SideNavNav = __webpack_require__(182);
-
-var _SideNavNav2 = _interopRequireDefault(_SideNavNav);
-
-var _Spinner = __webpack_require__(183);
-
-var _Spinner2 = _interopRequireDefault(_Spinner);
-
 var _Waves = __webpack_require__(4);
 
 var _Waves2 = _interopRequireDefault(_Waves);
 
-var _Row = __webpack_require__(184);
+var _Row = __webpack_require__(175);
 
 var _Row2 = _interopRequireDefault(_Row);
 
-var _Table = __webpack_require__(185);
+var _Table = __webpack_require__(176);
 
 var _Table2 = _interopRequireDefault(_Table);
 
@@ -4796,7 +4760,7 @@ var _TextField = __webpack_require__(39);
 
 var _TextField2 = _interopRequireDefault(_TextField);
 
-var _Tooltip = __webpack_require__(186);
+var _Tooltip = __webpack_require__(177);
 
 var _Tooltip2 = _interopRequireDefault(_Tooltip);
 
@@ -4804,49 +4768,85 @@ var _View = __webpack_require__(33);
 
 var _View2 = _interopRequireDefault(_View);
 
-var _PerfectScrollbar = __webpack_require__(187);
+var _PerfectScrollbar = __webpack_require__(178);
 
 var _PerfectScrollbar2 = _interopRequireDefault(_PerfectScrollbar);
 
-var _ButtonFixed = __webpack_require__(191);
+var _ButtonFixed = __webpack_require__(182);
 
 var _ButtonFixed2 = _interopRequireDefault(_ButtonFixed);
 
-var _ButtonFixedItem = __webpack_require__(192);
+var _ButtonFixedItem = __webpack_require__(183);
 
 var _ButtonFixedItem2 = _interopRequireDefault(_ButtonFixedItem);
 
-var _CollapseHeader = __webpack_require__(193);
+var _CollapseHeader = __webpack_require__(184);
 
 var _CollapseHeader2 = _interopRequireDefault(_CollapseHeader);
 
-var _InputFile = __webpack_require__(194);
+var _InputFile = __webpack_require__(185);
 
 var _InputFile2 = _interopRequireDefault(_InputFile);
 
-var _InputRange = __webpack_require__(195);
+var _InputRange = __webpack_require__(186);
 
 var _InputRange2 = _interopRequireDefault(_InputRange);
 
-var _InputSwitch = __webpack_require__(198);
+var _InputSwitch = __webpack_require__(189);
 
 var _InputSwitch2 = _interopRequireDefault(_InputSwitch);
 
-var _Select = __webpack_require__(199);
+var _ScrollSpyBox = __webpack_require__(190);
+
+var _ScrollSpyBox2 = _interopRequireDefault(_ScrollSpyBox);
+
+var _ScrollSpyList = __webpack_require__(191);
+
+var _ScrollSpyList2 = _interopRequireDefault(_ScrollSpyList);
+
+var _ScrollSpyListItem = __webpack_require__(192);
+
+var _ScrollSpyListItem2 = _interopRequireDefault(_ScrollSpyListItem);
+
+var _ScrollSpyText = __webpack_require__(193);
+
+var _ScrollSpyText2 = _interopRequireDefault(_ScrollSpyText);
+
+var _SideNav = __webpack_require__(194);
+
+var _SideNav2 = _interopRequireDefault(_SideNav);
+
+var _SideNavCat = __webpack_require__(195);
+
+var _SideNavCat2 = _interopRequireDefault(_SideNavCat);
+
+var _SideNavItem = __webpack_require__(196);
+
+var _SideNavItem2 = _interopRequireDefault(_SideNavItem);
+
+var _SideNavNav = __webpack_require__(197);
+
+var _SideNavNav2 = _interopRequireDefault(_SideNavNav);
+
+var _Select = __webpack_require__(198);
 
 var _Select2 = _interopRequireDefault(_Select);
 
-var _SelectInput = __webpack_require__(200);
+var _SelectInput = __webpack_require__(199);
 
 var _SelectInput2 = _interopRequireDefault(_SelectInput);
 
-var _SelectOptions = __webpack_require__(201);
+var _SelectOptions = __webpack_require__(200);
 
 var _SelectOptions2 = _interopRequireDefault(_SelectOptions);
 
-var _SelectOption = __webpack_require__(204);
+var _SelectOption = __webpack_require__(203);
 
 var _SelectOption2 = _interopRequireDefault(_SelectOption);
+
+var _Spinner = __webpack_require__(204);
+
+var _Spinner2 = _interopRequireDefault(_Spinner);
 
 var _TabPane = __webpack_require__(205);
 
@@ -4882,7 +4882,6 @@ var _TestimonialControl2 = _interopRequireDefault(_TestimonialControl);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// PRO
 // FREE
 exports.Badge = _Badge2.default;
 exports.Breadcrumb = _Breadcrumb2.default;
@@ -4940,15 +4939,6 @@ exports.Popover = _Popover2.default;
 exports.PopoverBody = _PopoverBody2.default;
 exports.PopoverHeader = _PopoverHeader2.default;
 exports.Progress = _Progress2.default;
-exports.ScrollSpyBox = _ScrollSpyBox2.default;
-exports.ScrollSpyList = _ScrollSpyList2.default;
-exports.ScrollSpyListItem = _ScrollSpyListItem2.default;
-exports.ScrollSpyText = _ScrollSpyText2.default;
-exports.SideNav = _SideNav2.default;
-exports.SideNavCat = _SideNavCat2.default;
-exports.SideNavItem = _SideNavItem2.default;
-exports.SideNavNav = _SideNavNav2.default;
-exports.Spinner = _Spinner2.default;
 exports.Waves = _Waves2.default;
 exports.Row = _Row2.default;
 exports.Table = _Table2.default;
@@ -4962,10 +4952,19 @@ exports.CollapseHeader = _CollapseHeader2.default;
 exports.InputFile = _InputFile2.default;
 exports.InputRange = _InputRange2.default;
 exports.InputSwitch = _InputSwitch2.default;
+exports.ScrollSpyBox = _ScrollSpyBox2.default;
+exports.ScrollSpyList = _ScrollSpyList2.default;
+exports.ScrollSpyListItem = _ScrollSpyListItem2.default;
+exports.ScrollSpyText = _ScrollSpyText2.default;
+exports.SideNav = _SideNav2.default;
+exports.SideNavCat = _SideNavCat2.default;
+exports.SideNavItem = _SideNavItem2.default;
+exports.SideNavNav = _SideNavNav2.default;
 exports.Select = _Select2.default;
 exports.SelectInput = _SelectInput2.default;
 exports.SelectOptions = _SelectOptions2.default;
 exports.SelectOption = _SelectOption2.default;
+exports.Spinner = _Spinner2.default;
 exports.TabPane = _TabPane2.default;
 exports.TabContent = _TabContent2.default;
 exports.Sticky = _Sticky2.default;
@@ -4974,6 +4973,8 @@ exports.CardUp = _CardUp2.default;
 exports.Avatar = _Avatar2.default;
 exports.Testimonial = _Testimonial2.default;
 exports.TestimonialControl = _TestimonialControl2.default;
+
+// PRO
 
 /***/ }),
 /* 53 */
@@ -29968,1112 +29969,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var ScrollBox = function (_Component) {
-  _inherits(ScrollBox, _Component);
-
-  function ScrollBox() {
-    _classCallCheck(this, ScrollBox);
-
-    return _possibleConstructorReturn(this, (ScrollBox.__proto__ || Object.getPrototypeOf(ScrollBox)).apply(this, arguments));
-  }
-
-  _createClass(ScrollBox, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          className = _props.className,
-          children = _props.children,
-          attributes = _objectWithoutProperties(_props, ['className', 'children']);
-
-      var classes = (0, _classnames2.default)('scroll-box', className);
-
-      return _react2.default.createElement(
-        'div',
-        _extends({}, attributes, { className: classes }),
-        children
-      );
-    }
-  }]);
-
-  return ScrollBox;
-}(_react.Component);
-
-ScrollBox.propTypes = {
-  className: _propTypes2.default.string,
-  children: _propTypes2.default.node
-};
-
-exports.default = ScrollBox;
-
-/***/ }),
-/* 176 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ScrollSpyList = function (_Component) {
-  _inherits(ScrollSpyList, _Component);
-
-  function ScrollSpyList() {
-    _classCallCheck(this, ScrollSpyList);
-
-    return _possibleConstructorReturn(this, (ScrollSpyList.__proto__ || Object.getPrototypeOf(ScrollSpyList)).apply(this, arguments));
-  }
-
-  _createClass(ScrollSpyList, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          className = _props.className,
-          children = _props.children,
-          color = _props.color,
-          attributes = _objectWithoutProperties(_props, ['className', 'children', 'color']);
-
-      var classes = (0, _classnames2.default)('nav nav-tabs horizontal-spy', color ? color : false, className);
-
-      return _react2.default.createElement(
-        'ul',
-        _extends({}, attributes, { role: 'navigation', className: classes }),
-        children
-      );
-    }
-  }]);
-
-  return ScrollSpyList;
-}(_react.Component);
-
-ScrollSpyList.propTypes = {
-  className: _propTypes2.default.string,
-  children: _propTypes2.default.node,
-  color: _propTypes2.default.string
-};
-
-exports.default = ScrollSpyList;
-
-/***/ }),
-/* 177 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ScrollSpyListItem = function (_Component) {
-  _inherits(ScrollSpyListItem, _Component);
-
-  function ScrollSpyListItem() {
-    _classCallCheck(this, ScrollSpyListItem);
-
-    return _possibleConstructorReturn(this, (ScrollSpyListItem.__proto__ || Object.getPrototypeOf(ScrollSpyListItem)).apply(this, arguments));
-  }
-
-  _createClass(ScrollSpyListItem, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          className = _props.className,
-          children = _props.children,
-          active = _props.active,
-          attributes = _objectWithoutProperties(_props, ['className', 'children', 'active']);
-
-      var classes = (0, _classnames2.default)('nav-link ', active ? 'active' : false, className);
-
-      return _react2.default.createElement(
-        'li',
-        { className: 'nav-item' },
-        _react2.default.createElement(
-          'a',
-          _extends({}, attributes, { className: classes, role: 'tab' }),
-          children
-        )
-      );
-    }
-  }]);
-
-  return ScrollSpyListItem;
-}(_react.Component);
-
-ScrollSpyListItem.propTypes = {
-  className: _propTypes2.default.string,
-  children: _propTypes2.default.node,
-  active: _propTypes2.default.bool
-};
-
-exports.default = ScrollSpyListItem;
-
-/***/ }),
-/* 178 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ScrollSpyText = function (_Component) {
-  _inherits(ScrollSpyText, _Component);
-
-  function ScrollSpyText() {
-    _classCallCheck(this, ScrollSpyText);
-
-    return _possibleConstructorReturn(this, (ScrollSpyText.__proto__ || Object.getPrototypeOf(ScrollSpyText)).apply(this, arguments));
-  }
-
-  _createClass(ScrollSpyText, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          className = _props.className,
-          children = _props.children,
-          scrollSpyRef = _props.scrollSpyRef,
-          attributes = _objectWithoutProperties(_props, ['className', 'children', 'scrollSpyRef']);
-
-      var classes = (0, _classnames2.default)('scrollspy-example z-depth-1', className);
-
-      return _react2.default.createElement(
-        'div',
-        _extends({}, attributes, { ref: this.props.scrollSpyRef, className: classes }),
-        children
-      );
-    }
-  }]);
-
-  return ScrollSpyText;
-}(_react.Component);
-
-ScrollSpyText.propTypes = {
-  className: _propTypes2.default.string,
-  children: _propTypes2.default.node,
-  scrollSpyRef: _propTypes2.default.func
-};
-
-exports.default = ScrollSpyText;
-
-/***/ }),
-/* 179 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _reactMotionUiPack = __webpack_require__(19);
-
-var _reactMotionUiPack2 = _interopRequireDefault(_reactMotionUiPack);
-
-var _Waves = __webpack_require__(4);
-
-var _Waves2 = _interopRequireDefault(_Waves);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SideNav = function (_React$Component) {
-  _inherits(SideNav, _React$Component);
-
-  function SideNav(props) {
-    _classCallCheck(this, SideNav);
-
-    var _this = _possibleConstructorReturn(this, (SideNav.__proto__ || Object.getPrototypeOf(SideNav)).call(this, props));
-
-    _this.state = {
-      isThere: false,
-      showOverlay: false,
-      cursorPos: {}
-    };
-    _this.updatePredicate = _this.updatePredicate.bind(_this);
-    _this.handleOverlayClick = _this.handleOverlayClick.bind(_this);
-    _this.onClick = _this.onClick.bind(_this);
-    return _this;
-  }
-
-  _createClass(SideNav, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.updatePredicate();
-      window.addEventListener("resize", this.updatePredicate);
-    }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      window.removeEventListener("resize", this.updatePredicate);
-    }
-  }, {
-    key: 'updatePredicate',
-    value: function updatePredicate() {
-      if (!this.props.hidden) {
-        this.setState({ isThere: window.innerWidth > this.props.breakWidth });
-      }
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(NextProps) {
-      if (this.props.isOpenWithButton !== NextProps.isOpenWithButton) {
-        this.setState({
-          isThere: true,
-          showOverlay: true
-        });
-      }
-    }
-  }, {
-    key: 'handleOverlayClick',
-    value: function handleOverlayClick() {
-      this.setState({
-        isThere: false,
-        showOverlay: false
-      });
-    }
-  }, {
-    key: 'handleClick',
-    value: function handleClick(e) {
-      // Get Cursor Position
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({ cursorPos: cursorPos });
-    }
-  }, {
-    key: 'onClick',
-    value: function onClick(e) {
-      if (this.props.disabled) {
-        e.preventDefault();
-        return;
-      }
-
-      if (this.props.onClick) {
-        this.props.onClick(e);
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          Tag = _props.tag,
-          fixed = _props.fixed,
-          logo = _props.logo,
-          bg = _props.bg,
-          href = _props.href,
-          children = _props.children,
-          className = _props.className,
-          breakWidth = _props.breakWidth,
-          hidden = _props.hidden,
-          right = _props.right,
-          isOpenWithButton = _props.isOpenWithButton,
-          key = _props.key,
-          attributes = _objectWithoutProperties(_props, ['tag', 'fixed', 'logo', 'bg', 'href', 'children', 'className', 'breakWidth', 'hidden', 'right', 'isOpenWithButton', 'key']);
-
-      var classes = (0, _classnames2.default)('side-nav', fixed && 'fixed', right && 'right-aligned', className);
-
-      var isThere = this.state.isThere;
-      var showOverlay = this.state.showOverlay;
-      var overlay = _react2.default.createElement('div', { id: 'sidenav-overlay', onClick: this.handleOverlayClick, key: 'overlay' });
-      var translateX = right ? 300 : -300;
-
-      var sidenav = _react2.default.createElement(
-        Tag,
-        _extends({}, attributes, { className: classes, style: { backgroundImage: 'url(' + bg }, key: '{key}' }),
-        _react2.default.createElement(
-          'ul',
-          { className: 'custom-scrollbar list-unstyled' },
-          logo && _react2.default.createElement(
-            'li',
-            null,
-            _react2.default.createElement(
-              'div',
-              { className: 'logo-wrapper' },
-              _react2.default.createElement(
-                'a',
-                { href: href,
-                  className: 'Ripple-parent', onClick: this.onClick,
-                  onMouseDown: this.handleClick.bind(this),
-                  onTouchStart: this.handleClick.bind(this) },
-                _react2.default.createElement('img', { src: logo, className: 'img-fluid flex-center d-block' }),
-                _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
-              )
-            )
-          ),
-          children
-        )
-      );
-
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          _reactMotionUiPack2.default,
-          {
-            component: false,
-            enter: { opacity: 1, translateX: 0 },
-            leave: { opacity: 0.2, translateX: translateX }
-          },
-          isThere && sidenav
-        ),
-        showOverlay && overlay
-      );
-    }
-  }]);
-
-  return SideNav;
-}(_react2.default.Component);
-
-SideNav.propTypes = {
-  children: _propTypes2.default.node,
-  tag: _propTypes2.default.string,
-  className: _propTypes2.default.string,
-  href: _propTypes2.default.string,
-  src: _propTypes2.default.string,
-  breakWidth: _propTypes2.default.number,
-  isOpenWithButton: _propTypes2.default.bool,
-  bg: _propTypes2.default.string
-};
-
-SideNav.defaultProps = {
-  tag: 'div',
-  href: '#',
-  breakWidth: 1400
-};
-
-exports.default = SideNav;
-
-/***/ }),
-/* 180 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _Collapse = __webpack_require__(34);
-
-var _Collapse2 = _interopRequireDefault(_Collapse);
-
-var _Waves = __webpack_require__(4);
-
-var _Waves2 = _interopRequireDefault(_Waves);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SideNavCat = function (_React$Component) {
-  _inherits(SideNavCat, _React$Component);
-
-  function SideNavCat(props) {
-    _classCallCheck(this, SideNavCat);
-
-    var _this = _possibleConstructorReturn(this, (SideNavCat.__proto__ || Object.getPrototypeOf(SideNavCat)).call(this, props));
-
-    _this.state = {
-      cursorPos: {}
-    };
-    _this.onClick = _this.onClick.bind(_this);
-    return _this;
-  }
-
-  _createClass(SideNavCat, [{
-    key: 'handleClick',
-    value: function handleClick(e) {
-      // Get Cursor Position
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({ cursorPos: cursorPos });
-    }
-  }, {
-    key: 'onClick',
-    value: function onClick(e) {
-      if (this.props.disabled) {
-        e.preventDefault();
-        return;
-      }
-
-      if (this.props.onClick) {
-        this.props.onClick(e);
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          Tag = _props.tag,
-          children = _props.children,
-          className = _props.className,
-          name = _props.name,
-          icon = _props.icon,
-          onClick = _props.onClick,
-          isOpen = _props.isOpen,
-          attributes = _objectWithoutProperties(_props, ['tag', 'children', 'className', 'name', 'icon', 'onClick', 'isOpen']);
-
-      var classes = (0, _classnames2.default)('collapsible-header', 'Ripple-parent', 'arrow-r', isOpen ? 'active' : false, className);
-
-      return _react2.default.createElement(
-        Tag,
-        null,
-        _react2.default.createElement(
-          'a',
-          _extends({ className: classes, onClick: this.onClick,
-            onMouseDown: this.handleClick.bind(this),
-            onTouchStart: this.handleClick.bind(this)
-          }, attributes),
-          icon && _react2.default.createElement(
-            'i',
-            { className: "fa fa-" + icon },
-            '\xA0'
-          ),
-          name,
-          _react2.default.createElement('i', { className: 'fa fa-angle-down rotate-icon' }),
-          _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
-        ),
-        _react2.default.createElement(
-          _Collapse2.default,
-          { isOpen: isOpen, className: 'collapsible-body' },
-          _react2.default.createElement(
-            'ul',
-            null,
-            children
-          )
-        )
-      );
-    }
-  }]);
-
-  return SideNavCat;
-}(_react2.default.Component);
-
-SideNavCat.propTypes = {
-  children: _propTypes2.default.node,
-  tag: _propTypes2.default.string,
-  className: _propTypes2.default.string,
-  name: _propTypes2.default.string,
-  icon: _propTypes2.default.string,
-  toggle: _propTypes2.default.func,
-  isOpen: _propTypes2.default.bool
-};
-
-SideNavCat.defaultProps = {
-  tag: 'li'
-};
-
-exports.default = SideNavCat;
-
-/***/ }),
-/* 181 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-var _Waves = __webpack_require__(4);
-
-var _Waves2 = _interopRequireDefault(_Waves);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SideNavItem = function (_React$Component) {
-  _inherits(SideNavItem, _React$Component);
-
-  function SideNavItem(props) {
-    _classCallCheck(this, SideNavItem);
-
-    var _this = _possibleConstructorReturn(this, (SideNavItem.__proto__ || Object.getPrototypeOf(SideNavItem)).call(this, props));
-
-    _this.state = {
-      cursorPos: {}
-    };
-    _this.onClick = _this.onClick.bind(_this);
-    return _this;
-  }
-
-  _createClass(SideNavItem, [{
-    key: 'handleClick',
-    value: function handleClick(e) {
-      // Get Cursor Position
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({ cursorPos: cursorPos });
-    }
-  }, {
-    key: 'onClick',
-    value: function onClick(e) {
-      if (this.props.disabled) {
-        e.preventDefault();
-        return;
-      }
-
-      if (this.props.onClick) {
-        this.props.onClick(e);
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          Tag = _props.tag,
-          children = _props.children,
-          href = _props.href,
-          className = _props.className,
-          innerRef = _props.innerRef,
-          attributes = _objectWithoutProperties(_props, ['tag', 'children', 'href', 'className', 'innerRef']);
-
-      var classes = (0, _classnames2.default)('Ripple-parent', className);
-
-      return _react2.default.createElement(
-        Tag,
-        _extends({
-          className: classes,
-          ref: innerRef,
-          onClick: this.onClick,
-          onMouseDown: this.handleClick.bind(this),
-          onTouchStart: this.handleClick.bind(this)
-        }, attributes),
-        _react2.default.createElement(
-          'a',
-          { className: classes, href: href },
-          children,
-          _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
-        )
-      );
-    }
-  }]);
-
-  return SideNavItem;
-}(_react2.default.Component);
-
-SideNavItem.propTypes = {
-  children: _propTypes2.default.node,
-  href: _propTypes2.default.string,
-  tag: _propTypes2.default.string,
-  innerRef: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
-  className: _propTypes2.default.string
-};
-
-SideNavItem.defaultProps = {
-  tag: 'li'
-};
-
-exports.default = SideNavItem;
-
-/***/ }),
-/* 182 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var SideNavNav = function (_React$Component) {
-  _inherits(SideNavNav, _React$Component);
-
-  function SideNavNav() {
-    _classCallCheck(this, SideNavNav);
-
-    return _possibleConstructorReturn(this, (SideNavNav.__proto__ || Object.getPrototypeOf(SideNavNav)).apply(this, arguments));
-  }
-
-  _createClass(SideNavNav, [{
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          Tag = _props.tag,
-          children = _props.children,
-          className = _props.className,
-          attributes = _objectWithoutProperties(_props, ['tag', 'children', 'className']);
-
-      var classes = (0, _classnames2.default)('collapsible', 'collapsible-accordion', className);
-
-      return _react2.default.createElement(
-        'li',
-        null,
-        _react2.default.createElement(
-          Tag,
-          _extends({}, attributes, { className: classes }),
-          children
-        )
-      );
-    }
-  }]);
-
-  return SideNavNav;
-}(_react2.default.Component);
-
-SideNavNav.propTypes = {
-  children: _propTypes2.default.node,
-  tag: _propTypes2.default.string,
-  className: _propTypes2.default.string
-
-};
-
-SideNavNav.defaultProps = {
-  tag: 'ul'
-};
-
-exports.default = SideNavNav;
-
-/***/ }),
-/* 183 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Spinner = function (_Component) {
-  _inherits(Spinner, _Component);
-
-  function Spinner() {
-    _classCallCheck(this, Spinner);
-
-    return _possibleConstructorReturn(this, (Spinner.__proto__ || Object.getPrototypeOf(Spinner)).apply(this, arguments));
-  }
-
-  _createClass(Spinner, [{
-    key: 'theChosenColorSpinner',
-    value: function theChosenColorSpinner(spinnerClasses) {
-
-      if (this.props.multicolor) {
-
-        var theSpinnerItself = _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'div',
-            { className: 'spinner-layer spinner-blue' },
-            _react2.default.createElement(
-              'div',
-              { className: 'circle-clipper left' },
-              _react2.default.createElement('div', { className: 'circle' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'gap-patch' },
-              _react2.default.createElement('div', { className: 'circle' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'circle-clipper right' },
-              _react2.default.createElement('div', { className: 'circle' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'spinner-layer spinner-red' },
-            _react2.default.createElement(
-              'div',
-              { className: 'circle-clipper left' },
-              _react2.default.createElement('div', { className: 'circle' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'gap-patch' },
-              _react2.default.createElement('div', { className: 'circle' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'circle-clipper right' },
-              _react2.default.createElement('div', { className: 'circle' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'spinner-layer spinner-yellow' },
-            _react2.default.createElement(
-              'div',
-              { className: 'circle-clipper left' },
-              _react2.default.createElement('div', { className: 'circle' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'gap-patch' },
-              _react2.default.createElement('div', { className: 'circle' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'circle-clipper right' },
-              _react2.default.createElement('div', { className: 'circle' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'spinner-layer spinner-green' },
-            _react2.default.createElement(
-              'div',
-              { className: 'circle-clipper left' },
-              _react2.default.createElement('div', { className: 'circle' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'gap-patch' },
-              _react2.default.createElement('div', { className: 'circle' })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'circle-clipper right' },
-              _react2.default.createElement('div', { className: 'circle' })
-            )
-          )
-        );
-        return theSpinnerItself;
-      } else {
-        var _theSpinnerItself = _react2.default.createElement(
-          'div',
-          { className: spinnerClasses },
-          _react2.default.createElement(
-            'div',
-            { className: 'circle-clipper left' },
-            _react2.default.createElement('div', { className: 'circle' })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'gap-patch' },
-            _react2.default.createElement('div', { className: 'circle' })
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'circle-clipper right' },
-            _react2.default.createElement('div', { className: 'circle' })
-          )
-        );
-        return _theSpinnerItself;
-      };
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      var _props = this.props,
-          className = _props.className,
-          Tag = _props.tag,
-          big = _props.big,
-          small = _props.small,
-          crazy = _props.crazy,
-          red = _props.red,
-          green = _props.green,
-          yellow = _props.yellow,
-          blue = _props.blue,
-          multicolor = _props.multicolor,
-          attributes = _objectWithoutProperties(_props, ['className', 'tag', 'big', 'small', 'crazy', 'red', 'green', 'yellow', 'blue', 'multicolor']);
-
-      var classes = (0, _classnames2.default)(className);
-
-      var wrapperClasses = (0, _classnames2.default)('preloader-wrapper', 'active', big ? 'big' : false, small ? 'small' : false, className);
-
-      var spinnerClasses = (0, _classnames2.default)('spinner-layer', red ? 'spinner-red-only' : false, green ? 'spinner-green-only' : false, yellow ? 'spinner-yellow-only' : 'spinner-blue-only', className);
-
-      if (this.props.crazy) {
-        return _react2.default.createElement(
-          'div',
-          { className: wrapperClasses },
-          _react2.default.createElement(
-            'div',
-            { className: wrapperClasses },
-            _react2.default.createElement(
-              'div',
-              { className: wrapperClasses },
-              _react2.default.createElement(
-                'div',
-                { className: wrapperClasses },
-                this.theChosenColorSpinner(spinnerClasses)
-              )
-            )
-          )
-        );
-      } else {
-        return _react2.default.createElement(
-          'div',
-          { className: wrapperClasses },
-          this.theChosenColorSpinner(spinnerClasses)
-        );
-      }
-    }
-  }]);
-
-  return Spinner;
-}(_react.Component);
-
-Spinner.propTypes = {
-  tag: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
-  className: _propTypes2.default.string,
-  big: _propTypes2.default.bool,
-  small: _propTypes2.default.bool,
-  crazy: _propTypes2.default.bool,
-  red: _propTypes2.default.bool,
-  green: _propTypes2.default.bool,
-  yellow: _propTypes2.default.bool,
-  multicolor: _propTypes2.default.bool
-};
-
-Spinner.defaultProps = {
-  tag: 'div'
-};
-
-exports.default = Spinner;
-
-/***/ }),
-/* 184 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(1);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _classnames = __webpack_require__(2);
-
-var _classnames2 = _interopRequireDefault(_classnames);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 var Row = function (_Component) {
   _inherits(Row, _Component);
 
@@ -31112,7 +30007,7 @@ Row.defaultProps = {
 exports.default = Row;
 
 /***/ }),
-/* 185 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31203,7 +30098,7 @@ Table.propTypes = {
 exports.default = Table;
 
 /***/ }),
-/* 186 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31390,7 +30285,7 @@ Tooltip.propTypes = {
 exports.default = Tooltip;
 
 /***/ }),
-/* 187 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31408,7 +30303,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _propTypes = __webpack_require__(1);
 
-var _perfectScrollbar = __webpack_require__(188);
+var _perfectScrollbar = __webpack_require__(179);
 
 var _perfectScrollbar2 = _interopRequireDefault(_perfectScrollbar);
 
@@ -31420,7 +30315,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(189);
+__webpack_require__(180);
 
 var handlerNameByEvent = {
     'ps-scroll-y': 'onScrollY',
@@ -31545,7 +30440,7 @@ ScrollBar.propTypes = {
 };
 
 /***/ }),
-/* 188 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32726,13 +31621,13 @@ PerfectScrollbar.prototype.removePsClasses = function removePsClasses() {
 exports.default = PerfectScrollbar;
 
 /***/ }),
-/* 189 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(190);
+var content = __webpack_require__(181);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -32757,7 +31652,7 @@ if(false) {
 }
 
 /***/ }),
-/* 190 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(7)(false);
@@ -32771,7 +31666,7 @@ exports.push([module.i, "\r\n/*\r\n * Container style\r\n */\r\n .ps {\r\n  over
 
 
 /***/ }),
-/* 191 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32937,7 +31832,7 @@ ButtonFixed.propTypes = {
 exports.default = ButtonFixed;
 
 /***/ }),
-/* 192 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33087,7 +31982,7 @@ ButtonFixed.propTypes = {
 exports.default = ButtonFixed;
 
 /***/ }),
-/* 193 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33176,7 +32071,7 @@ CollapseHeader.propTypes = {
 exports.default = CollapseHeader;
 
 /***/ }),
-/* 194 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33306,7 +32201,7 @@ InputFile.defaultProps = {
 exports.default = InputFile;
 
 /***/ }),
-/* 195 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33344,7 +32239,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(196);
+__webpack_require__(187);
 
 var oneStep = '';
 
@@ -33449,13 +32344,13 @@ InputRange.defaultProps = {
 exports.default = InputRange;
 
 /***/ }),
-/* 196 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(197);
+var content = __webpack_require__(188);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -33480,7 +32375,7 @@ if(false) {
 }
 
 /***/ }),
-/* 197 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(7)(false);
@@ -33488,13 +32383,13 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, ".thumb {\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\n}\n\ninput[type=\"range\"] {\n  -webkit-appearance: none;\n}\n\n/* thumb */\n\ninput[type=range]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  border: none;\n  height: 14px;\n  width: 14px;\n  border-radius: 50%;\n  background-color: #4285f4;\n  transform-origin: 50% 50%;\n  margin: -5px 0 0 0;\n  transition: 0.3s; }\n  input[type=range]:focus::-webkit-slider-runnable-track {\n    background: #ccc; }\n  input[type=range]::-moz-range-track {\n    /*required for proper track sizing in FF*/\n    height: 3px;\n    background: #c2c0c2;\n    border: none; }\n  input[type=range]::-moz-range-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4;\n    margin-top: -5px; }\n  input[type=range]:-moz-focusring {\n    /*hide the outline behind the border*/\n    outline: 1px solid #ffffff;\n    outline-offset: -1px; }\n  input[type=range]:focus::-moz-range-track {\n    background: #c2c0c2; }\n  input[type=range]::-ms-track {\n    height: 3px;\n    background: transparent;\n    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */\n    border-color: transparent;\n    /*leave room for the larger thumb to overflow with a transparent border */\n    border-width: 6px 0;\n    color: transparent;\n    /*remove default tick marks*/ }\n  input[type=range]::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]::-ms-fill-upper {\n    background: #c2c0c2; }\n  input[type=range]::-ms-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4; }\n  input[type=range]:focus::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]:focus::-ms-fill-upper {\n    background: #c2c0c2; }", ""]);
+exports.push([module.i, ".thumb {\r\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\r\n}\r\n\r\ninput[type=\"range\"] {\r\n  -webkit-appearance: none;\r\n}\r\n\r\n/* thumb */\r\n\r\ninput[type=range]::-webkit-slider-thumb {\r\n  -webkit-appearance: none;\r\n  border: none;\r\n  height: 14px;\r\n  width: 14px;\r\n  border-radius: 50%;\r\n  background-color: #4285f4;\r\n  transform-origin: 50% 50%;\r\n  margin: -5px 0 0 0;\r\n  transition: 0.3s; }\r\n  input[type=range]:focus::-webkit-slider-runnable-track {\r\n    background: #ccc; }\r\n  input[type=range]::-moz-range-track {\r\n    /*required for proper track sizing in FF*/\r\n    height: 3px;\r\n    background: #c2c0c2;\r\n    border: none; }\r\n  input[type=range]::-moz-range-thumb {\r\n    border: none;\r\n    height: 14px;\r\n    width: 14px;\r\n    border-radius: 50%;\r\n    background: #4285f4;\r\n    margin-top: -5px; }\r\n  input[type=range]:-moz-focusring {\r\n    /*hide the outline behind the border*/\r\n    outline: 1px solid #ffffff;\r\n    outline-offset: -1px; }\r\n  input[type=range]:focus::-moz-range-track {\r\n    background: #c2c0c2; }\r\n  input[type=range]::-ms-track {\r\n    height: 3px;\r\n    background: transparent;\r\n    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */\r\n    border-color: transparent;\r\n    /*leave room for the larger thumb to overflow with a transparent border */\r\n    border-width: 6px 0;\r\n    color: transparent;\r\n    /*remove default tick marks*/ }\r\n  input[type=range]::-ms-fill-lower {\r\n    background: #c2c0c2; }\r\n  input[type=range]::-ms-fill-upper {\r\n    background: #c2c0c2; }\r\n  input[type=range]::-ms-thumb {\r\n    border: none;\r\n    height: 14px;\r\n    width: 14px;\r\n    border-radius: 50%;\r\n    background: #4285f4; }\r\n  input[type=range]:focus::-ms-fill-lower {\r\n    background: #c2c0c2; }\r\n  input[type=range]:focus::-ms-fill-upper {\r\n    background: #c2c0c2; }", ""]);
 
 // exports
 
 
 /***/ }),
-/* 198 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33596,7 +32491,888 @@ InputSwitch.defaultProps = {
 exports.default = InputSwitch;
 
 /***/ }),
-/* 199 */
+/* 190 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScrollBox = function (_Component) {
+  _inherits(ScrollBox, _Component);
+
+  function ScrollBox() {
+    _classCallCheck(this, ScrollBox);
+
+    return _possibleConstructorReturn(this, (ScrollBox.__proto__ || Object.getPrototypeOf(ScrollBox)).apply(this, arguments));
+  }
+
+  _createClass(ScrollBox, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          className = _props.className,
+          children = _props.children,
+          attributes = _objectWithoutProperties(_props, ['className', 'children']);
+
+      var classes = (0, _classnames2.default)('scroll-box', className);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({}, attributes, { className: classes }),
+        children
+      );
+    }
+  }]);
+
+  return ScrollBox;
+}(_react.Component);
+
+ScrollBox.propTypes = {
+  className: _propTypes2.default.string,
+  children: _propTypes2.default.node
+};
+
+exports.default = ScrollBox;
+
+/***/ }),
+/* 191 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScrollSpyList = function (_Component) {
+  _inherits(ScrollSpyList, _Component);
+
+  function ScrollSpyList() {
+    _classCallCheck(this, ScrollSpyList);
+
+    return _possibleConstructorReturn(this, (ScrollSpyList.__proto__ || Object.getPrototypeOf(ScrollSpyList)).apply(this, arguments));
+  }
+
+  _createClass(ScrollSpyList, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          className = _props.className,
+          children = _props.children,
+          color = _props.color,
+          attributes = _objectWithoutProperties(_props, ['className', 'children', 'color']);
+
+      var classes = (0, _classnames2.default)('nav nav-tabs horizontal-spy', color ? color : false, className);
+
+      return _react2.default.createElement(
+        'ul',
+        _extends({}, attributes, { role: 'navigation', className: classes }),
+        children
+      );
+    }
+  }]);
+
+  return ScrollSpyList;
+}(_react.Component);
+
+ScrollSpyList.propTypes = {
+  className: _propTypes2.default.string,
+  children: _propTypes2.default.node,
+  color: _propTypes2.default.string
+};
+
+exports.default = ScrollSpyList;
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScrollSpyListItem = function (_Component) {
+  _inherits(ScrollSpyListItem, _Component);
+
+  function ScrollSpyListItem() {
+    _classCallCheck(this, ScrollSpyListItem);
+
+    return _possibleConstructorReturn(this, (ScrollSpyListItem.__proto__ || Object.getPrototypeOf(ScrollSpyListItem)).apply(this, arguments));
+  }
+
+  _createClass(ScrollSpyListItem, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          className = _props.className,
+          children = _props.children,
+          active = _props.active,
+          attributes = _objectWithoutProperties(_props, ['className', 'children', 'active']);
+
+      var classes = (0, _classnames2.default)('nav-link ', active ? 'active' : false, className);
+
+      return _react2.default.createElement(
+        'li',
+        { className: 'nav-item' },
+        _react2.default.createElement(
+          'a',
+          _extends({}, attributes, { className: classes, role: 'tab' }),
+          children
+        )
+      );
+    }
+  }]);
+
+  return ScrollSpyListItem;
+}(_react.Component);
+
+ScrollSpyListItem.propTypes = {
+  className: _propTypes2.default.string,
+  children: _propTypes2.default.node,
+  active: _propTypes2.default.bool
+};
+
+exports.default = ScrollSpyListItem;
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ScrollSpyText = function (_Component) {
+  _inherits(ScrollSpyText, _Component);
+
+  function ScrollSpyText() {
+    _classCallCheck(this, ScrollSpyText);
+
+    return _possibleConstructorReturn(this, (ScrollSpyText.__proto__ || Object.getPrototypeOf(ScrollSpyText)).apply(this, arguments));
+  }
+
+  _createClass(ScrollSpyText, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          className = _props.className,
+          children = _props.children,
+          scrollSpyRef = _props.scrollSpyRef,
+          attributes = _objectWithoutProperties(_props, ['className', 'children', 'scrollSpyRef']);
+
+      var classes = (0, _classnames2.default)('scrollspy-example z-depth-1', className);
+
+      return _react2.default.createElement(
+        'div',
+        _extends({}, attributes, { ref: this.props.scrollSpyRef, className: classes }),
+        children
+      );
+    }
+  }]);
+
+  return ScrollSpyText;
+}(_react.Component);
+
+ScrollSpyText.propTypes = {
+  className: _propTypes2.default.string,
+  children: _propTypes2.default.node,
+  scrollSpyRef: _propTypes2.default.func
+};
+
+exports.default = ScrollSpyText;
+
+/***/ }),
+/* 194 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _reactMotionUiPack = __webpack_require__(19);
+
+var _reactMotionUiPack2 = _interopRequireDefault(_reactMotionUiPack);
+
+var _Waves = __webpack_require__(4);
+
+var _Waves2 = _interopRequireDefault(_Waves);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SideNav = function (_React$Component) {
+  _inherits(SideNav, _React$Component);
+
+  function SideNav(props) {
+    _classCallCheck(this, SideNav);
+
+    var _this = _possibleConstructorReturn(this, (SideNav.__proto__ || Object.getPrototypeOf(SideNav)).call(this, props));
+
+    _this.state = {
+      isThere: false,
+      showOverlay: false,
+      cursorPos: {}
+    };
+    _this.updatePredicate = _this.updatePredicate.bind(_this);
+    _this.handleOverlayClick = _this.handleOverlayClick.bind(_this);
+    _this.onClick = _this.onClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(SideNav, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.updatePredicate();
+      window.addEventListener("resize", this.updatePredicate);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener("resize", this.updatePredicate);
+    }
+  }, {
+    key: 'updatePredicate',
+    value: function updatePredicate() {
+      if (!this.props.hidden) {
+        this.setState({ isThere: window.innerWidth > this.props.breakWidth });
+      }
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(NextProps) {
+      if (this.props.isOpenWithButton !== NextProps.isOpenWithButton) {
+        this.setState({
+          isThere: true,
+          showOverlay: true
+        });
+      }
+    }
+  }, {
+    key: 'handleOverlayClick',
+    value: function handleOverlayClick() {
+      this.setState({
+        isThere: false,
+        showOverlay: false
+      });
+    }
+  }, {
+    key: 'handleClick',
+    value: function handleClick(e) {
+      // Get Cursor Position
+      var cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      this.setState({ cursorPos: cursorPos });
+    }
+  }, {
+    key: 'onClick',
+    value: function onClick(e) {
+      if (this.props.disabled) {
+        e.preventDefault();
+        return;
+      }
+
+      if (this.props.onClick) {
+        this.props.onClick(e);
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          Tag = _props.tag,
+          fixed = _props.fixed,
+          logo = _props.logo,
+          bg = _props.bg,
+          href = _props.href,
+          children = _props.children,
+          className = _props.className,
+          breakWidth = _props.breakWidth,
+          hidden = _props.hidden,
+          right = _props.right,
+          isOpenWithButton = _props.isOpenWithButton,
+          key = _props.key,
+          attributes = _objectWithoutProperties(_props, ['tag', 'fixed', 'logo', 'bg', 'href', 'children', 'className', 'breakWidth', 'hidden', 'right', 'isOpenWithButton', 'key']);
+
+      var classes = (0, _classnames2.default)('side-nav', fixed && 'fixed', right && 'right-aligned', className);
+
+      var isThere = this.state.isThere;
+      var showOverlay = this.state.showOverlay;
+      var overlay = _react2.default.createElement('div', { id: 'sidenav-overlay', onClick: this.handleOverlayClick, key: 'overlay' });
+      var translateX = right ? 300 : -300;
+
+      var sidenav = _react2.default.createElement(
+        Tag,
+        _extends({}, attributes, { className: classes, style: { backgroundImage: 'url(' + bg }, key: '{key}' }),
+        _react2.default.createElement(
+          'ul',
+          { className: 'custom-scrollbar list-unstyled' },
+          logo && _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'logo-wrapper' },
+              _react2.default.createElement(
+                'a',
+                { href: href,
+                  className: 'Ripple-parent', onClick: this.onClick,
+                  onMouseDown: this.handleClick.bind(this),
+                  onTouchStart: this.handleClick.bind(this) },
+                _react2.default.createElement('img', { src: logo, className: 'img-fluid flex-center d-block' }),
+                _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
+              )
+            )
+          ),
+          children
+        )
+      );
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          _reactMotionUiPack2.default,
+          {
+            component: false,
+            enter: { opacity: 1, translateX: 0 },
+            leave: { opacity: 0.2, translateX: translateX }
+          },
+          isThere && sidenav
+        ),
+        showOverlay && overlay
+      );
+    }
+  }]);
+
+  return SideNav;
+}(_react2.default.Component);
+
+SideNav.propTypes = {
+  children: _propTypes2.default.node,
+  tag: _propTypes2.default.string,
+  className: _propTypes2.default.string,
+  href: _propTypes2.default.string,
+  src: _propTypes2.default.string,
+  breakWidth: _propTypes2.default.number,
+  isOpenWithButton: _propTypes2.default.bool,
+  bg: _propTypes2.default.string
+};
+
+SideNav.defaultProps = {
+  tag: 'div',
+  href: '#',
+  breakWidth: 1400
+};
+
+exports.default = SideNav;
+
+/***/ }),
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _Collapse = __webpack_require__(34);
+
+var _Collapse2 = _interopRequireDefault(_Collapse);
+
+var _Waves = __webpack_require__(4);
+
+var _Waves2 = _interopRequireDefault(_Waves);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SideNavCat = function (_React$Component) {
+  _inherits(SideNavCat, _React$Component);
+
+  function SideNavCat(props) {
+    _classCallCheck(this, SideNavCat);
+
+    var _this = _possibleConstructorReturn(this, (SideNavCat.__proto__ || Object.getPrototypeOf(SideNavCat)).call(this, props));
+
+    _this.state = {
+      cursorPos: {}
+    };
+    _this.onClick = _this.onClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(SideNavCat, [{
+    key: 'handleClick',
+    value: function handleClick(e) {
+      // Get Cursor Position
+      var cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      this.setState({ cursorPos: cursorPos });
+    }
+  }, {
+    key: 'onClick',
+    value: function onClick(e) {
+      if (this.props.disabled) {
+        e.preventDefault();
+        return;
+      }
+
+      if (this.props.onClick) {
+        this.props.onClick(e);
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          Tag = _props.tag,
+          children = _props.children,
+          className = _props.className,
+          name = _props.name,
+          icon = _props.icon,
+          onClick = _props.onClick,
+          isOpen = _props.isOpen,
+          attributes = _objectWithoutProperties(_props, ['tag', 'children', 'className', 'name', 'icon', 'onClick', 'isOpen']);
+
+      var classes = (0, _classnames2.default)('collapsible-header', 'Ripple-parent', 'arrow-r', isOpen ? 'active' : false, className);
+
+      return _react2.default.createElement(
+        Tag,
+        null,
+        _react2.default.createElement(
+          'a',
+          _extends({ className: classes, onClick: this.onClick,
+            onMouseDown: this.handleClick.bind(this),
+            onTouchStart: this.handleClick.bind(this)
+          }, attributes),
+          icon && _react2.default.createElement(
+            'i',
+            { className: "fa fa-" + icon },
+            '\xA0'
+          ),
+          name,
+          _react2.default.createElement('i', { className: 'fa fa-angle-down rotate-icon' }),
+          _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
+        ),
+        _react2.default.createElement(
+          _Collapse2.default,
+          { isOpen: isOpen, className: 'collapsible-body' },
+          _react2.default.createElement(
+            'ul',
+            null,
+            children
+          )
+        )
+      );
+    }
+  }]);
+
+  return SideNavCat;
+}(_react2.default.Component);
+
+SideNavCat.propTypes = {
+  children: _propTypes2.default.node,
+  tag: _propTypes2.default.string,
+  className: _propTypes2.default.string,
+  name: _propTypes2.default.string,
+  icon: _propTypes2.default.string,
+  toggle: _propTypes2.default.func,
+  isOpen: _propTypes2.default.bool
+};
+
+SideNavCat.defaultProps = {
+  tag: 'li'
+};
+
+exports.default = SideNavCat;
+
+/***/ }),
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _Waves = __webpack_require__(4);
+
+var _Waves2 = _interopRequireDefault(_Waves);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SideNavItem = function (_React$Component) {
+  _inherits(SideNavItem, _React$Component);
+
+  function SideNavItem(props) {
+    _classCallCheck(this, SideNavItem);
+
+    var _this = _possibleConstructorReturn(this, (SideNavItem.__proto__ || Object.getPrototypeOf(SideNavItem)).call(this, props));
+
+    _this.state = {
+      cursorPos: {}
+    };
+    _this.onClick = _this.onClick.bind(_this);
+    return _this;
+  }
+
+  _createClass(SideNavItem, [{
+    key: 'handleClick',
+    value: function handleClick(e) {
+      // Get Cursor Position
+      var cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      this.setState({ cursorPos: cursorPos });
+    }
+  }, {
+    key: 'onClick',
+    value: function onClick(e) {
+      if (this.props.disabled) {
+        e.preventDefault();
+        return;
+      }
+
+      if (this.props.onClick) {
+        this.props.onClick(e);
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          Tag = _props.tag,
+          children = _props.children,
+          href = _props.href,
+          className = _props.className,
+          innerRef = _props.innerRef,
+          attributes = _objectWithoutProperties(_props, ['tag', 'children', 'href', 'className', 'innerRef']);
+
+      var classes = (0, _classnames2.default)('Ripple-parent', className);
+
+      return _react2.default.createElement(
+        Tag,
+        _extends({
+          className: classes,
+          ref: innerRef,
+          onClick: this.onClick,
+          onMouseDown: this.handleClick.bind(this),
+          onTouchStart: this.handleClick.bind(this)
+        }, attributes),
+        _react2.default.createElement(
+          'a',
+          { className: classes, href: href },
+          children,
+          _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
+        )
+      );
+    }
+  }]);
+
+  return SideNavItem;
+}(_react2.default.Component);
+
+SideNavItem.propTypes = {
+  children: _propTypes2.default.node,
+  href: _propTypes2.default.string,
+  tag: _propTypes2.default.string,
+  innerRef: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
+  className: _propTypes2.default.string
+};
+
+SideNavItem.defaultProps = {
+  tag: 'li'
+};
+
+exports.default = SideNavItem;
+
+/***/ }),
+/* 197 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SideNavNav = function (_React$Component) {
+  _inherits(SideNavNav, _React$Component);
+
+  function SideNavNav() {
+    _classCallCheck(this, SideNavNav);
+
+    return _possibleConstructorReturn(this, (SideNavNav.__proto__ || Object.getPrototypeOf(SideNavNav)).apply(this, arguments));
+  }
+
+  _createClass(SideNavNav, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          Tag = _props.tag,
+          children = _props.children,
+          className = _props.className,
+          attributes = _objectWithoutProperties(_props, ['tag', 'children', 'className']);
+
+      var classes = (0, _classnames2.default)('collapsible', 'collapsible-accordion', className);
+
+      return _react2.default.createElement(
+        'li',
+        null,
+        _react2.default.createElement(
+          Tag,
+          _extends({}, attributes, { className: classes }),
+          children
+        )
+      );
+    }
+  }]);
+
+  return SideNavNav;
+}(_react2.default.Component);
+
+SideNavNav.propTypes = {
+  children: _propTypes2.default.node,
+  tag: _propTypes2.default.string,
+  className: _propTypes2.default.string
+
+};
+
+SideNavNav.defaultProps = {
+  tag: 'ul'
+};
+
+exports.default = SideNavNav;
+
+/***/ }),
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33678,7 +33454,7 @@ Select.propTypes = {
 exports.default = Select;
 
 /***/ }),
-/* 200 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33749,7 +33525,7 @@ SelectInput.propTypes = {
 exports.default = SelectInput;
 
 /***/ }),
-/* 201 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -33785,7 +33561,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(202);
+__webpack_require__(201);
 
 var Options = function (_React$Component) {
   _inherits(Options, _React$Component);
@@ -33824,13 +33600,13 @@ Options.propTypes = {
 exports.default = Options;
 
 /***/ }),
-/* 202 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(203);
+var content = __webpack_require__(202);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -33855,7 +33631,7 @@ if(false) {
 }
 
 /***/ }),
-/* 203 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(7)(false);
@@ -33863,13 +33639,13 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, ".fadeElement {\n  -webkit-transition: 0.5s;\n  -moz-transition: 0.5s;\n  -o-transition: 0.5s;\n  transition: 0.5s;\n  display: block;\n  width: 100%;\n  top: 0;\n  opacity: 0;\n  transform-origin:top; \n  transform:scaleY(0.7);\n  visibility: hidden;\n}\n.fadeElement.fadeIn {\n  transform:scaleY(1);\n  opacity: 1;\n  visibility: visible;\n}\n", ""]);
+exports.push([module.i, ".fadeElement {\r\n  -webkit-transition: 0.5s;\r\n  -moz-transition: 0.5s;\r\n  -o-transition: 0.5s;\r\n  transition: 0.5s;\r\n  display: block;\r\n  width: 100%;\r\n  top: 0;\r\n  opacity: 0;\r\n  transform-origin:top; \r\n  transform:scaleY(0.7);\r\n  visibility: hidden;\r\n}\r\n.fadeElement.fadeIn {\r\n  transform:scaleY(1);\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 204 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -34034,6 +33810,231 @@ Option.propTypes = {
 };
 
 exports.default = Option;
+
+/***/ }),
+/* 204 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = __webpack_require__(2);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Spinner = function (_Component) {
+  _inherits(Spinner, _Component);
+
+  function Spinner() {
+    _classCallCheck(this, Spinner);
+
+    return _possibleConstructorReturn(this, (Spinner.__proto__ || Object.getPrototypeOf(Spinner)).apply(this, arguments));
+  }
+
+  _createClass(Spinner, [{
+    key: 'theChosenColorSpinner',
+    value: function theChosenColorSpinner(spinnerClasses) {
+
+      if (this.props.multicolor) {
+
+        var theSpinnerItself = _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'div',
+            { className: 'spinner-layer spinner-blue' },
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper left' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'gap-patch' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper right' },
+              _react2.default.createElement('div', { className: 'circle' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'spinner-layer spinner-red' },
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper left' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'gap-patch' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper right' },
+              _react2.default.createElement('div', { className: 'circle' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'spinner-layer spinner-yellow' },
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper left' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'gap-patch' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper right' },
+              _react2.default.createElement('div', { className: 'circle' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'spinner-layer spinner-green' },
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper left' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'gap-patch' },
+              _react2.default.createElement('div', { className: 'circle' })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'circle-clipper right' },
+              _react2.default.createElement('div', { className: 'circle' })
+            )
+          )
+        );
+        return theSpinnerItself;
+      } else {
+        var _theSpinnerItself = _react2.default.createElement(
+          'div',
+          { className: spinnerClasses },
+          _react2.default.createElement(
+            'div',
+            { className: 'circle-clipper left' },
+            _react2.default.createElement('div', { className: 'circle' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'gap-patch' },
+            _react2.default.createElement('div', { className: 'circle' })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'circle-clipper right' },
+            _react2.default.createElement('div', { className: 'circle' })
+          )
+        );
+        return _theSpinnerItself;
+      };
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          className = _props.className,
+          Tag = _props.tag,
+          big = _props.big,
+          small = _props.small,
+          crazy = _props.crazy,
+          red = _props.red,
+          green = _props.green,
+          yellow = _props.yellow,
+          blue = _props.blue,
+          multicolor = _props.multicolor,
+          attributes = _objectWithoutProperties(_props, ['className', 'tag', 'big', 'small', 'crazy', 'red', 'green', 'yellow', 'blue', 'multicolor']);
+
+      var classes = (0, _classnames2.default)(className);
+
+      var wrapperClasses = (0, _classnames2.default)('preloader-wrapper', 'active', big ? 'big' : false, small ? 'small' : false, className);
+
+      var spinnerClasses = (0, _classnames2.default)('spinner-layer', red ? 'spinner-red-only' : false, green ? 'spinner-green-only' : false, yellow ? 'spinner-yellow-only' : 'spinner-blue-only', className);
+
+      if (this.props.crazy) {
+        return _react2.default.createElement(
+          'div',
+          { className: wrapperClasses },
+          _react2.default.createElement(
+            'div',
+            { className: wrapperClasses },
+            _react2.default.createElement(
+              'div',
+              { className: wrapperClasses },
+              _react2.default.createElement(
+                'div',
+                { className: wrapperClasses },
+                this.theChosenColorSpinner(spinnerClasses)
+              )
+            )
+          )
+        );
+      } else {
+        return _react2.default.createElement(
+          'div',
+          { className: wrapperClasses },
+          this.theChosenColorSpinner(spinnerClasses)
+        );
+      }
+    }
+  }]);
+
+  return Spinner;
+}(_react.Component);
+
+Spinner.propTypes = {
+  tag: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
+  className: _propTypes2.default.string,
+  big: _propTypes2.default.bool,
+  small: _propTypes2.default.bool,
+  crazy: _propTypes2.default.bool,
+  red: _propTypes2.default.bool,
+  green: _propTypes2.default.bool,
+  yellow: _propTypes2.default.bool,
+  multicolor: _propTypes2.default.bool
+};
+
+Spinner.defaultProps = {
+  tag: 'div'
+};
+
+exports.default = Spinner;
 
 /***/ }),
 /* 205 */
