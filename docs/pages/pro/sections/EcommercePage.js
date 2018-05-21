@@ -8,13 +8,14 @@ class EcommercePage extends Component {
     this.prev = this.prev.bind(this);
     this.state = {
       activeItem: 1,
-      maxLength: 3
+      length: 3,
+      slide: true
     };
   }
 
   next() {
     let nextItem = this.state.activeItem + 1;
-    if(nextItem > this.state.maxLength) {
+    if(nextItem > this.state.length) {
       this.setState({ activeItem: 1 });
     } else {
       this.setState({ activeItem: nextItem });
@@ -24,7 +25,7 @@ class EcommercePage extends Component {
   prev() {
     let prevItem = this.state.activeItem - 1;
     if(prevItem < 1) {
-      this.setState({ activeItem: this.state.maxLength });
+      this.setState({ activeItem: this.state.length });
     } else {
       this.setState({ activeItem: prevItem });
     }
@@ -39,7 +40,7 @@ class EcommercePage extends Component {
   }
 
   render() {
-    const { activeItem } = this.state;
+    const { activeItem, length, slide } = this.state;
     return(
       <Container>
         <section className="text-center my-5">
@@ -436,6 +437,7 @@ class EcommercePage extends Component {
           <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
           <Carousel
             multiItem
+            slide={this.state.slide}
             activeItem={this.state.activeItem}
             next={this.next}>
             <div className="controls-top">

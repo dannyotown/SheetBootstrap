@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Transition from 'react-motion-ui-pack';
-import Waves from './Waves';
-
-
+import Waves from '../Waves';
 
 class SideNav extends React.Component {
 

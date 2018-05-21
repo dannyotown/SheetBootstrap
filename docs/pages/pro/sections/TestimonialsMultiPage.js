@@ -8,13 +8,14 @@ class TestimonialsMultiPage extends Component {
     this.prev = this.prev.bind(this);
     this.state = {
       activeItem: 1,
-      maxLength: 3
+      length: 3,
+      slide: true
     };
   }
 
   next() {
     let nextItem = this.state.activeItem + 1;
-    if(nextItem > this.state.maxLength) {
+    if(nextItem > this.state.length) {
       this.setState({ activeItem: 1 });
     } else {
       this.setState({ activeItem: nextItem });
@@ -24,7 +25,7 @@ class TestimonialsMultiPage extends Component {
   prev() {
     let prevItem = this.state.activeItem - 1;
     if(prevItem < 1) {
-      this.setState({ activeItem: this.state.maxLength });
+      this.setState({ activeItem: this.state.length });
     } else {
       this.setState({ activeItem: prevItem });
     }
@@ -39,17 +40,16 @@ class TestimonialsMultiPage extends Component {
   }
 
   render(){
-    const { activeItem } = this.state;
+    const { activeItem, length, slide } = this.state;
     return(
       <Container>
         <section className="text-center my-5">
-
           <h2 className="h1-responsive font-weight-bold my-5">Testimonials v.4</h2>
-
           <Row>
             <Carousel 
               testimonial
               multiItem
+              slide={this.state.slide}
               activeItem={this.state.activeItem}
               next={this.next}>
               <div className="controls-top">

@@ -30,6 +30,7 @@ class CardImage extends Component {
       className,
       overlay,
       top,
+      waves,
       tag: Tag,
       ...attributes
     } = this.props;
@@ -53,7 +54,7 @@ class CardImage extends Component {
           <div className="Ripple-parent" onMouseDown={ this.handleClick.bind(this) } onTouchStart={ this.handleClick.bind(this) }>
             {innerContent}
             <Mask overlay={overlay}/>
-            <Waves cursorPos={ this.state.cursorPos } />
+            {this.props.waves && <Waves cursorPos={ this.state.cursorPos } />}
           </div>
         </View>
       );
@@ -67,12 +68,14 @@ class CardImage extends Component {
 
 CardImage.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  waves: PropTypes.bool,
   className: PropTypes.string
 };
 
 CardImage.defaultProps = {
   tag: 'img',
-  overlay: 'white-slight'
+  overlay: 'white-slight',
+  waves: true
 };
 
 export default CardImage;

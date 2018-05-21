@@ -29,6 +29,7 @@ class View extends React.Component {
       zoom,
       rounded,
       waves,
+      src,
       tag: Tag,
       ...attributes
     } = this.props;
@@ -41,8 +42,19 @@ class View extends React.Component {
       this.props.waves ? 'Ripple-parent': false,
       className
     );
+
+    let viewStyle;
+    if(this.props.src) {
+      viewStyle = {
+        backgroundImage: 'url(' + this.props.src + ')',
+        backgroundSize: 'cover',
+        width: '100%',
+        height: '100%'
+      }
+    }
+
     return (
-      <Tag {...attributes} className={classes} onMouseDown={ this.handleClick.bind(this) } onTouchStart={ this.handleClick.bind(this) } >
+      <Tag {...attributes} className={classes} onMouseDown={ this.handleClick.bind(this) } onTouchStart={ this.handleClick.bind(this) } style={viewStyle} >
         {this.props.children}
         {this.props.waves && <Waves cursorPos={ this.state.cursorPos } />}
       </Tag>

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Collapse from './Collapse';
-import Waves from './Waves';
-
+import Collapse from '../Collapse';
+import Waves from '../Waves';
+require('./SideNav.css');
 
 class SideNavCat extends React.Component {
   constructor(props) {
@@ -69,10 +69,12 @@ class SideNavCat extends React.Component {
           <i className = "fa fa-angle-down rotate-icon"></i>
         <Waves cursorPos = { this.state.cursorPos } />
         </a>
-        <Collapse isOpen = {isOpen} className = "collapsible-body">
-          <ul>
-            {children}
-          </ul>
+        <Collapse isOpen = {isOpen}>
+          <div className = "collapsible-body">
+            <ul>
+              {children}
+            </ul>
+          </div>
         </Collapse>
       </Tag>
     );

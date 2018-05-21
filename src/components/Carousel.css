@@ -23,3 +23,7 @@
 .carousel-multi-item .carousel-item {
   display: inline-block !important;
 }
+
+.carousel .carousel-slide-item {
+  transition: left 0.5s;
+}

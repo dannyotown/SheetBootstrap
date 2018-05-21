@@ -53,6 +53,7 @@ class App extends Component {
                 <NavItem>
                   <NavLink to="/advanced">Advanced</NavLink>
                 </NavItem>
+                {/* PRO */}
                 <NavItem>
                   <NavLink to="/sections">Sections</NavLink>
                 </NavItem>
