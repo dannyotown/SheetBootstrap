@@ -50,7 +50,7 @@ class SocialPage extends Component {
         <h2 className="title pt-4 mt-5">
           <strong>Social newsfeed v.1 </strong>
         </h2>
-        <Card className="my-5 px-5" style={{fontWeight: 300, maxWidth: 600}}>
+        <Card className="my-5 px-5 pt-4" style={{fontWeight: 300, maxWidth: 600}}>
           <CardBody className="py-0">
             <Row>
               <div className="mdb-feed">
@@ -65,7 +65,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a className="like">
-                        <i className="fa fa-heart"></i>
+                        <Fa icon="heart"/>
                         <span>5 likes</span>
                       </a>
                     </div>
@@ -87,7 +87,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a className="like">
-                        <i className="fa fa-heart"></i>
+                        <Fa icon="heart"/>
                         <span>18 likes</span>
                       </a>
                     </div>
@@ -105,7 +105,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a className="like">
-                        <i className="fa fa-heart"></i>
+                        <Fa icon="heart"/>
                         <span>11 likes</span>
                       </a>
                     </div>
@@ -124,7 +124,7 @@ class SocialPage extends Component {
                     <div className="added-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero inventore, iste quas libero eius? Vitae sint neque animi alias sunt dolor, accusantium ducimus, non placeat voluptate.</div>
                     <div className="feed-footer">
                       <a className="like">
-                        <i className="fa fa-heart"></i>
+                        <Fa icon="heart"/>
                         <span>7 likes</span>
                       </a>
                     </div>
@@ -146,7 +146,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a className="like">
-                        <i className="fa fa-heart"></i>
+                        <Fa icon="heart"/>
                         <span>53 likes</span>
                       </a>
                     </div>
@@ -161,7 +161,7 @@ class SocialPage extends Component {
         <h2 className="title pt-4 mt-5">
           <strong>Social newsfeed v.2 </strong>
         </h2>
-        <Card className="my-5 px-5" style={{fontWeight: 300, maxWidth: 600}}>
+        <Card className="my-5 px-5 pt-4" style={{fontWeight: 300, maxWidth: 600}}>
           <CardBody className="py-0">
             <Row>
               <div className="mdb-feed">
