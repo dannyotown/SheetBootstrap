@@ -7,7 +7,9 @@ class InputPage extends React.Component {
     this.state = {
       radio: false,
       radio2: false,
-      radio3: false
+      radio3: false,
+      checkbox: true,
+      switch: true
     }
     this.onClick1 = this.onClick1.bind(this);
     this.onClick2 = this.onClick2.bind(this);
@@ -18,6 +20,8 @@ class InputPage extends React.Component {
     this.onClick7 = this.onClick7.bind(this);
     this.onClick8 = this.onClick8.bind(this);
     this.onClick9 = this.onClick9.bind(this);
+    this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
+    this.handleSwitchChange = this.handleSwitchChange.bind(this);
   }
 
   onClick1() {
@@ -56,12 +60,20 @@ class InputPage extends React.Component {
     this.setState({radio3: 9});
   }
 
+  handleCheckboxChange() {
+    this.setState({checkbox: !this.state.checkbox});
+  }
+
+  handleSwitchChange() {
+    this.setState({switch: !this.state.switch});
+  }
+
   render () {
     return (
       <Container className="mt-5">
         <h2 className="title mb-5"><strong>Checkboxes</strong></h2>
         <h4 className="mt-5 mb-3">Basic examples</h4>
-        <Input label="Classic checkbox" type="checkbox" id="checkbox1" />
+        <Input label="Classic checkbox" checked={this.state.checkbox} onChange={this.handleCheckboxChange} type="checkbox" id="checkbox" />
         <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox2" />
 
         <h4 className="mt-5 mb-3">Disabled checkboxes</h4>
@@ -98,7 +110,7 @@ class InputPage extends React.Component {
         <hr className="my-5" />
 
         <h2 className="title mb-5"><strong>Switch</strong></h2>
-        <InputSwitch></InputSwitch>
+        <InputSwitch checked={this.state.switch} onChange={this.handleSwitchChange}></InputSwitch>
         <h4 className="mt-5 mb-3">Disabled</h4>
         <InputSwitch disabled></InputSwitch>
 

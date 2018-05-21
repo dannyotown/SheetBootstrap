@@ -8,13 +8,14 @@ class MultiCarouselPage extends Component {
     this.prev = this.prev.bind(this);
     this.state = {
       activeItem: 1,
-      maxLength: 3
+      length: 3,
+      slide: true
     };
   }
 
   next() {
     let nextItem = this.state.activeItem + 1;
-    if(nextItem > this.state.maxLength) {
+    if(nextItem > this.state.length) {
       this.setState({ activeItem: 1 });
     } else {
       this.setState({ activeItem: nextItem });
@@ -24,7 +25,7 @@ class MultiCarouselPage extends Component {
   prev() {
     let prevItem = this.state.activeItem - 1;
     if(prevItem < 1) {
-      this.setState({ activeItem: this.state.maxLength });
+      this.setState({ activeItem: this.state.length });
     } else {
       this.setState({ activeItem: prevItem });
     }
@@ -39,13 +40,15 @@ class MultiCarouselPage extends Component {
   }
 
   render(){
-    const { activeItem } = this.state;
+    const { activeItem, length, slide } = this.state;
     return(
       <Container>
         <h4 className="mt-5 mb-2">Multi-item Carousel</h4>
         <Carousel 
           multiItem
+          slide={this.state.slide}
           activeItem={this.state.activeItem}
+          length={this.state.length}
           next={this.next}>
           <div className="controls-top">
             <CarouselControl iconLeft className="btn-floating" direction="prev" role="button" onClick={() => { this.prev(); }} />

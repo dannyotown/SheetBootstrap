@@ -12,6 +12,7 @@ class ComponentsPage extends React.Component {
             <Jumbotron>
               <h1><Fa icon="cubes" className="grey-text" /> Components</h1>
               <ul className="list-unstyled example-components-list">
+                <h6 className="mt-3 grey-text">FREE </h6>
                 <li>
                   <NavLink to="/components/alert">Alert <Fa icon="angle-right" /></NavLink>
                 </li>
@@ -23,9 +24,6 @@ class ComponentsPage extends React.Component {
                 </li>
                 <li>
                   <NavLink to="/components/buttons">Buttons <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/buttons">Buttons PRO <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/components/cards">Cards <Fa icon="angle-right" /></NavLink>
@@ -43,9 +41,6 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/input">Input <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/components/pro/input">Input PRO <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
                   <NavLink to="/components/list-group">List group <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
@@ -61,10 +56,23 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/progress">Progress <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/components/tabs">Tabs <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/components/tooltips">Tooltips <Fa icon="angle-right" /></NavLink>
+                </li>
+                <h6 className="mt-3 grey-text">PRO </h6>
+                <li>
+                  <NavLink to="/components/pro/buttons">Buttons <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/components/tooltips">Tooltips <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/components/pro/input">Input <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/progress">Progress <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/socialbuttons">Social Buttons <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/tabs">Tabs <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>
             </Jumbotron>

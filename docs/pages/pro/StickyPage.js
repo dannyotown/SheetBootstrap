@@ -10,7 +10,7 @@ class StickyPage extends React.Component {
     const sidebar = { float: 'left', width: '230px', padding: '10px 15px'};
     const article = { width: '458px', padding: '0 20px', borderLeft: '1px solid #ccc', borderRight: '1px solid #ccc',float: 'left'}
     return(
-      <div style={wrapper}>
+      <div style={wrapper} className="mt-4">
       <div style={background}>
         <div style={mainWrapper}>
           <StickyContainer style={{ background: "#fff", height: '465px' }}>
