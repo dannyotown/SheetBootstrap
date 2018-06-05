@@ -7,8 +7,9 @@ import ButtonGroup from './components/ButtonGroup';
 import ButtonToolbar from './components/ButtonToolbar';
 import Card from './components/Card';
 import CardBody from './components/CardBody';
-import CardImage from './components/CardImage';
 import CardFooter from './components/CardFooter';
+import CardHeader from './components/CardHeader';
+import CardImage from './components/CardImage';
 import CardText from './components/CardText';
 import CardTitle from './components/CardTitle';
 import Carousel from './components/Carousel';
@@ -103,10 +104,11 @@ export {
   ButtonToolbar,
   Card,
   CardBody,
+  CardFooter,
+  CardHeader,
   CardImage,
   CardText,
   CardTitle,
-  CardFooter,
   Carousel,
   CarouselCaption,
   CarouselControl,

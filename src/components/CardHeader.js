@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class CardFooter extends Component {
+class CardHeader extends Component {
 
   render() {
 
@@ -14,7 +14,7 @@ class CardFooter extends Component {
     } = this.props;
 
     const classes = classNames(
-      'card-footer',
+      'card-header',
       color && color + ' white-text',
       className
     );
@@ -25,15 +25,15 @@ class CardFooter extends Component {
   }
 }
 
-CardFooter.propTypes = {
+CardHeader.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
   color: PropTypes.string
 };
 
-CardFooter.defaultProps = {
+CardHeader.defaultProps = {
   tag: 'div',
   color: false
 };
 
-export default CardFooter;
+export default CardHeader;
