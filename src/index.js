@@ -91,7 +91,7 @@ import CardUp from './components/pro/CardUp';
 import Avatar from './components/pro/Avatar';
 import Testimonial from './components/pro/Testimonial';
 import TestimonialControl from './components/pro/TestimonialControl';
-import RotatingCard from './components/pro/RotatingCard';
+import FlippingCard from './components/pro/FlippingCard';
 
 export {
   // FREE
@@ -186,5 +186,5 @@ export {
   Avatar,
   Testimonial,
   TestimonialControl,
-  RotatingCard
+  FlippingCard
 };

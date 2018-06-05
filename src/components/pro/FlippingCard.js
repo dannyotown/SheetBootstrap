@@ -7,7 +7,7 @@ function RotatingCard (props) {
   const {
     className,
     tag: Tag,
-    innerTag: innerTag,
+    innerTag: InnerTag,
     flipped,
     ...attributes
   } = props;
@@ -20,9 +20,9 @@ function RotatingCard (props) {
 
   return (
     <Tag {...attributes} className="card-wrapper">
-      <innerTag className={classes}>
+      <InnerTag className={classes}>
         {props.children}
-      </innerTag>
+      </InnerTag>
     </Tag>
   );
 }
