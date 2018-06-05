@@ -67,6 +67,9 @@ import TeamPage from'./pages/pro/sections/TeamPage';
 import MagazinePage from'./pages/pro/sections/MagazinePage';
 import SocialPage from'./pages/pro/sections/SocialPage';
 import FormsPagePro from './pages/pro/FormsPage';
+import PanelPage from'./pages/PanelPage';
+import CardsPagePro from'./pages/pro/CardsPage';
+
 
 class Routes extends React.Component {
   render() {
@@ -103,6 +106,7 @@ class Routes extends React.Component {
         <Route path='/css/hover' component={HoverPage} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
         <Route path='/advanced/charts' component={ChartsPage} />
+        <Route path='/components/panels' component={PanelPage} />
         {/* PRO */}
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
@@ -123,6 +127,7 @@ class Routes extends React.Component {
         <Route path='/css/pro/double' component={DoubleNavigationPage} />
         <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
         <Route path='/components/pro/forms' component={FormsPagePro} />
+        <Route path='/components/pro/cards' component={CardsPagePro} />
         {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
@@ -139,6 +144,7 @@ class Routes extends React.Component {
         <Route path='/pro/sections/team' component={TeamPage} />
         <Route path='/pro/sections/magazine' component={MagazinePage} />
         <Route path='/pro/sections/social' component={SocialPage} />
+
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

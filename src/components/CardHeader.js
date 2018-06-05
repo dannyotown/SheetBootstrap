@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class CardTitle extends Component {
+class CardHeader extends Component {
 
   render() {
 
     const {
       className,
       tag: Tag,
-      sub,
+      color,
       ...attributes
     } = this.props;
 
     const classes = classNames(
-      sub ? 'card-subtitle' : 'card-title',
+      'card-header',
+      color && color + ' white-text',
       className
     );
 
@@ -24,15 +25,15 @@ class CardTitle extends Component {
   }
 }
 
-CardTitle.propTypes = {
+CardHeader.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  sub: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  color: PropTypes.string
 };
 
-CardTitle.defaultProps = {
-  tag: 'h4',
-  sub: false
+CardHeader.defaultProps = {
+  tag: 'div',
+  color: false
 };
 
-export default CardTitle;
+export default CardHeader;

@@ -7,8 +7,9 @@ import ButtonGroup from './components/ButtonGroup';
 import ButtonToolbar from './components/ButtonToolbar';
 import Card from './components/Card';
 import CardBody from './components/CardBody';
-import CardImage from './components/CardImage';
 import CardFooter from './components/CardFooter';
+import CardHeader from './components/CardHeader';
+import CardImage from './components/CardImage';
 import CardText from './components/CardText';
 import CardTitle from './components/CardTitle';
 import Carousel from './components/Carousel';
@@ -63,9 +64,12 @@ import Tooltip from './components/Tooltip';
 import View from './components/View';
 
 // PRO
+import Avatar from './components/pro/Avatar';
 import ButtonFixed from './components/pro/ButtonFixed';
 import ButtonFixedItem from './components/pro/ButtonFixedItem';
+import CardUp from './components/pro/CardUp';
 import CollapseHeader from './components/pro/CollapseHeader';
+import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
@@ -87,11 +91,8 @@ import TabPane from './components/pro/TabPane';
 import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
-import CardUp from './components/pro/CardUp';
-import Avatar from './components/pro/Avatar';
 import Testimonial from './components/pro/Testimonial';
 import TestimonialControl from './components/pro/TestimonialControl';
-import RotatingCard from './components/pro/RotatingCard';
 
 export {
   // FREE
@@ -103,10 +104,11 @@ export {
   ButtonToolbar,
   Card,
   CardBody,
+  CardFooter,
+  CardHeader,
   CardImage,
   CardText,
   CardTitle,
-  CardFooter,
   Carousel,
   CarouselCaption,
   CarouselControl,
@@ -158,9 +160,12 @@ export {
   Tooltip,
   View,
   // PRO
+  Avatar,
   ButtonFixed,
   ButtonFixedItem,
+  CardUp,
   CollapseHeader,
+  FlippingCard,
   InputFile,
   InputRange,
   InputSwitch,
@@ -182,9 +187,6 @@ export {
   TabContent,
   Sticky,
   StickyContainer,
-  CardUp,
-  Avatar,
   Testimonial,
   TestimonialControl,
-  RotatingCard
 };

@@ -5,15 +5,17 @@ import classNames from 'classnames';
 class CardFooter extends Component {
 
   render() {
- 
+
     const {
       className,
       tag: Tag,
+      color,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'card-footer',
+      color && color + ' white-text',
       className
     );
 
@@ -25,11 +27,13 @@ class CardFooter extends Component {
 
 CardFooter.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  className: PropTypes.string,
+  color: PropTypes.string
 };
 
 CardFooter.defaultProps = {
-  tag: 'div'
+  tag: 'div',
+  color: false
 };
 
 export default CardFooter;
