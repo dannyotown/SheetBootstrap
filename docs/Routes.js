@@ -67,6 +67,7 @@ import BlogPage from './pages/pro/sections/BlogPage';
 import TeamPage from'./pages/pro/sections/TeamPage';
 import MagazinePage from'./pages/pro/sections/MagazinePage';
 import SocialPage from'./pages/pro/sections/SocialPage';
+import FormsPagePro from './pages/pro/FormsPage';
 import CardsPagePro from'./pages/pro/CardsPage';
 
 class Routes extends React.Component {
@@ -124,6 +125,9 @@ class Routes extends React.Component {
         <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />
         <Route path='/css/pro/double' component={DoubleNavigationPage} />
         <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
+        <Route path='/components/pro/forms' component={FormsPagePro} />
+        <Route path='/components/pro/cards' component={CardsPagePro} />
+        {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
         <Route path='/pro/sections/testimonialsMulti' component={TestimonialsMultiPage} />
