@@ -10,12 +10,16 @@ class CardHeader extends Component {
       className,
       tag: Tag,
       color,
+      border,
+      transparent,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'card-header',
       color && color + ' white-text',
+      border && 'border-' + border,
+      transparent && 'bg-transparent',
       className
     );
 
@@ -28,7 +32,9 @@ class CardHeader extends Component {
 CardHeader.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
+  border: PropTypes.string,
+  transparent: PropTypes.bool
 };
 
 CardHeader.defaultProps = {
