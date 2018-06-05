@@ -63,6 +63,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/pro/buttons">Buttons <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/pro/forms">Forms <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/pro/input">Input <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
