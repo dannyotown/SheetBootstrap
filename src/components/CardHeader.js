@@ -32,8 +32,7 @@ CardHeader.propTypes = {
 };
 
 CardHeader.defaultProps = {
-  tag: 'div',
-  color: false
+  tag: 'div'
 };
 
 export default CardHeader;
