@@ -56,9 +56,9 @@ class InputPage extends React.Component {
           
           <Row>
             <Col sm="4">
-              <InputNumeric min={5} max={15} value={10}/>
-              <InputNumeric precision={2} value={50.3} step={0.1}/>
-              <InputNumeric precision={2} value={50.3} step={0.5} snap/>
+              <InputNumeric min={5} max={15} value={10} className="mb-2"/>
+              <InputNumeric precision={2} value={50.3} step={0.1} className="mb-2"/>
+              <InputNumeric precision={2} value={50.3} step={0.5} snap className="mb-2"/>
             </Col>
           </Row>
 
