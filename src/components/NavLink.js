@@ -42,6 +42,7 @@ class NavLink extends Component {
       children,
       className,
       disabled,
+      active,
       to,
       ...attributes
     } = this.props;
@@ -49,6 +50,7 @@ class NavLink extends Component {
     const classes = classNames(
       'nav-link',
       disabled ? 'disabled' : 'Ripple-parent',
+      active && 'active',
       className
     );
 
@@ -71,7 +73,8 @@ NavLink.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   children: PropTypes.node,
-  to: PropTypes.string
+  to: PropTypes.string,
+  active: PropTypes.bool
 };
 
 

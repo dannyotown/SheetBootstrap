@@ -8,6 +8,7 @@ import ButtonToolbar from './components/ButtonToolbar';
 import Card from './components/Card';
 import CardBody from './components/CardBody';
 import CardFooter from './components/CardFooter';
+import CardGroup from './components/CardGroup';
 import CardHeader from './components/CardHeader';
 import CardImage from './components/CardImage';
 import CardText from './components/CardText';
@@ -106,6 +107,7 @@ export {
   Card,
   CardBody,
   CardFooter,
+  CardGroup,
   CardHeader,
   CardImage,
   CardText,

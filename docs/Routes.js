@@ -22,6 +22,7 @@ import PaginationPage from './pages/PaginationPage';
 import PopoverPage from './pages/PopoverPage';
 import ListGroupPage from './pages/ListGroupPage';
 import CarouselPage from './pages/CarouselPage';
+import PanelPage from'./pages/PanelPage';
 import CollapsePage from './pages/CollapsePage';
 import TooltipsPage from './pages/TooltipsPage';
 import FooterPage from './pages/FooterPage';
@@ -67,9 +68,7 @@ import TeamPage from'./pages/pro/sections/TeamPage';
 import MagazinePage from'./pages/pro/sections/MagazinePage';
 import SocialPage from'./pages/pro/sections/SocialPage';
 import FormsPagePro from './pages/pro/FormsPage';
-import PanelPage from'./pages/PanelPage';
 import CardsPagePro from'./pages/pro/CardsPage';
-
 
 class Routes extends React.Component {
   render() {
@@ -144,7 +143,7 @@ class Routes extends React.Component {
         <Route path='/pro/sections/team' component={TeamPage} />
         <Route path='/pro/sections/magazine' component={MagazinePage} />
         <Route path='/pro/sections/social' component={SocialPage} />
-
+        <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

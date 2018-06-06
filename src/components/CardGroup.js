@@ -2,24 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class CardHeader extends Component {
+class CardGroup extends Component {
 
   render() {
 
     const {
       className,
       tag: Tag,
-      color,
-      border,
-      transparent,
+      deck,
+      column,
       ...attributes
     } = this.props;
 
     const classes = classNames(
-      'card-header',
-      color && color + ' white-text',
-      border && 'border-' + border,
-      transparent && 'bg-transparent',
+      deck ? 'card-deck' : column ? 'card-columns' : 'card-group',
       className
     );
 
@@ -29,16 +25,15 @@ class CardHeader extends Component {
   }
 }
 
-CardHeader.propTypes = {
+CardGroup.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  color: PropTypes.string,
-  border: PropTypes.string,
-  transparent: PropTypes.bool
+  deck: PropTypes.bool,
+  column: PropTypes.bool
 };
 
-CardHeader.defaultProps = {
+CardGroup.defaultProps = {
   tag: 'div'
 };
 
-export default CardHeader;
+export default CardGroup;
