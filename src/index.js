@@ -75,6 +75,7 @@ import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
+import LightboxStyles from './components/pro/Lightbox.css';
 import PerfectScrollbar from './components/pro/PerfectScrollbar';
 import ScrollSpyBox from './components/pro/ScrollSpyBox';
 import ScrollSpyList from './components/pro/ScrollSpyList';
@@ -173,6 +174,7 @@ export {
   InputFile,
   InputRange,
   InputSwitch,
+  LightboxStyles,
   PerfectScrollbar,
   ScrollSpyBox,
   ScrollSpyList,

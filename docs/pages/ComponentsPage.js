@@ -59,6 +59,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/progress">Progress <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/search">Search <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/tooltips">Tooltips <Fa icon="angle-right" /></NavLink>
                 </li>
                 <h6 className="mt-3 grey-text">PRO </h6>
@@ -76,6 +79,9 @@ class ComponentsPage extends React.Component {
                 </li>
                 <li>
                   <NavLink to="/components/pro/progress">Progress <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/search">Search <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/components/pro/socialbuttons">Social Buttons <Fa icon="angle-right" /></NavLink>

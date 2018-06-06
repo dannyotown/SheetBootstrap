@@ -32,6 +32,7 @@ import VideoCarouselPage from './pages/VideoCarouselPage';
 import HoverPage from './pages/HoverPage';
 import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
+import SearchPage from './pages/SearchPage';
 
 // PRO
 import ButtonPagePro from './pages/pro/ButtonPage';
@@ -69,6 +70,7 @@ import MagazinePage from'./pages/pro/sections/MagazinePage';
 import SocialPage from'./pages/pro/sections/SocialPage';
 import FormsPagePro from './pages/pro/FormsPage';
 import CardsPagePro from'./pages/pro/CardsPage';
+import SearchPagePro from './pages/pro/SearchPage';
 
 class Routes extends React.Component {
   render() {
@@ -106,6 +108,7 @@ class Routes extends React.Component {
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
         <Route path='/advanced/charts' component={ChartsPage} />
         <Route path='/components/panels' component={PanelPage} />
+        <Route path='/components/search' component={SearchPage} />
         {/* PRO */}
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
@@ -127,6 +130,7 @@ class Routes extends React.Component {
         <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
         <Route path='/components/pro/forms' component={FormsPagePro} />
         <Route path='/components/pro/cards' component={CardsPagePro} />
+        <Route path='/components/pro/search' component={SearchPagePro} />
         {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
@@ -143,7 +147,6 @@ class Routes extends React.Component {
         <Route path='/pro/sections/team' component={TeamPage} />
         <Route path='/pro/sections/magazine' component={MagazinePage} />
         <Route path='/pro/sections/social' component={SocialPage} />
-        <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

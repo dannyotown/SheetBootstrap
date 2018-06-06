@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'mdbreact';
 import Lightbox from 'react-image-lightbox';
-require ('./Lightbox.css');
 
 const images = [
   'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg',
