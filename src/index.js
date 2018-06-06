@@ -66,6 +66,7 @@ import Tooltip from './components/Tooltip';
 import View from './components/View';
 
 // PRO
+import Autocomplete from './components/pro/Autocomplete';
 import Avatar from './components/pro/Avatar';
 import ButtonFixed from './components/pro/ButtonFixed';
 import ButtonFixedItem from './components/pro/ButtonFixedItem';
@@ -165,6 +166,7 @@ export {
   Tooltip,
   View,
   // PRO
+  Autocomplete,
   Avatar,
   ButtonFixed,
   ButtonFixedItem,

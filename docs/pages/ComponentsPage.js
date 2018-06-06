@@ -66,6 +66,9 @@ class ComponentsPage extends React.Component {
                 </li>
                 <h6 className="mt-3 grey-text">PRO </h6>
                 <li>
+                  <NavLink to="/components/pro/autocomplete">Autocomplete <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/pro/buttons">Buttons <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>

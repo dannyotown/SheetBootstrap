@@ -35,6 +35,7 @@ import ChartsPage from './pages/ChartsPage';
 import SearchPage from './pages/SearchPage';
 
 // PRO
+import AutocompletePage from './pages/pro/AutocompletePage';
 import ButtonPagePro from './pages/pro/ButtonPage';
 import ChartsPagePro from './pages/pro/ChartsPage';
 import InputPagePro from './pages/pro/InputPage';
@@ -110,6 +111,7 @@ class Routes extends React.Component {
         <Route path='/components/panels' component={PanelPage} />
         <Route path='/components/search' component={SearchPage} />
         {/* PRO */}
+        <Route path='/components/pro/autocomplete' component={AutocompletePage} />
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
         <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
