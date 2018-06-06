@@ -119,7 +119,7 @@ class AutocompletePage extends React.Component {
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
-      placeholder: 'Type a programming language',
+      placeholder: 'Pick your state',
       value,
       onChange: this.onChange,
     };
