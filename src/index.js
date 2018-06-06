@@ -33,6 +33,7 @@ import FormInline from './components/FormInline';
 import Footer from './components/Footer';
 import FreeBird from './components/FreeBird';
 import Input from './components/Input';
+import InputNumeric from './components/InputNumeric';
 import Jumbotron from './components/Jumbotron';
 import ListGroup from './components/ListGroup';
 import ListGroupItem from './components/ListGroupItem';
@@ -130,6 +131,7 @@ export {
   Footer,
   FreeBird,
   Input,
+  InputNumeric,
   Jumbotron,
   ListGroup,
   ListGroupItem,
