@@ -20,6 +20,7 @@
     "raf": "^3.4.0",
     "react": "^16.3.1",
     "react-addons-css-transition-group": "^15.6.2",
+    "react-autosuggest": "^9.3.4",
     "react-dom": "^16.3.1",
     "react-motion-ui-pack": "^0.10.3",
     "react-numeric-input": "^2.2.3",
