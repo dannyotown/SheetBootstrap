@@ -32,7 +32,7 @@ class VideoBackgroundPage extends React.Component {
       <div id="videobackground">
         <Router>
           <div>
-            <Navbar style={navStyle} dark expand="md" fixed="top">
+            <Navbar style={navStyle} dark expand="md" fixed="top" scrolling>
               <Container>
                 <NavbarBrand>
                   <span className="white-text">Navbar</span>

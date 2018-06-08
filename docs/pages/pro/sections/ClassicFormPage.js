@@ -32,7 +32,7 @@ class ClassicFormPage extends React.Component {
       <div id="classicformpage">
         <Router>
           <div>
-            <Navbar style={navStyle} dark expand="md" fixed="top">
+            <Navbar style={navStyle} dark expand="md" fixed="top" scrolling>
               <Container>
                 <NavbarBrand>
                   <strong className="white-text">MDB</strong>
