@@ -25,26 +25,30 @@ const theme = {
 
 
 // TODO:
-// 1) dokończyć stylowanie;// [v] sprawdzić metody szukania (by szukał zawartości, nie tylko pierwszego znaku)
-// 3) clear Button: https://github.com/moroshko/react-autosuggest/issues/442
-// http://seek-oss.github.io/seek-style-guide/autosuggest/
+// 1) Sprawa kliknięcia w label, czyli ref dla inputa i focus()
+// 2) Posprzątać
+// 3) docsy
 
-//przez to, że to wrapper jedynie, nie mam dostępu do inputa (atrybut type, label mdbInput, clear button etc)
 
 class Autocomplete extends Component {
   constructor(props) {
     super(props);
     this.state = {
       value: '',
-      suggestions: []
+      suggestions: [],
+      isTouched: false,
     };
-    this.getSuggestions = this.getSuggestions.bind(this)
-    this.getSuggestionValue = this.getSuggestionValue.bind(this)
-    this.renderSuggestion = this.renderSuggestion.bind(this)
-    this.onChange = this.onChange.bind(this)
-    this.handleInputFocus = this.handleInputFocus.bind(this)
-
+    this.InputRef = React.createRef();
+    this.getSuggestions = this.getSuggestions.bind(this);
+    this.getSuggestionValue = this.getSuggestionValue.bind(this);
+    this.renderSuggestion = this.renderSuggestion.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onClick = this.onClick.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+    this.triggerFocus = this.triggerFocus.bind(this);
+    this.handleClear = this.handleClear.bind(this);
   }
+
 
   renderSuggestion = suggestion => (
     <div>
@@ -58,6 +62,16 @@ class Autocomplete extends Component {
       value: newValue
     });
   };
+
+  onClick (ev) {
+    this.setState({ isTouched: true });
+    // this.inputElRef.focus();
+
+  }
+
+  onBlur (ev) {
+    this.setState({ isTouched: false });
+  }
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
@@ -83,65 +97,144 @@ class Autocomplete extends Component {
       lang.toLowerCase().includes(inputValue)
     );
   }
-    handleInputFocus(ev) {
-    // ignore if event is a window blur
-    if (document.activeElement === this.inputElRef) {
-      this.setState({ isTouched: true });
-    }
-    // execute callback
-    let fn = this.props.onBlur;
-    fn && fn(ev);
+
+  triggerFocus() {
+    // document.getElementById("haha").focus()
+    // hack to enable IE10 pointer-events shim
+    // console.log(this.inputElRef)
+    // console.log(this.inputElRef);
+    // this.InputElRef.focus();
+
   }
+
   render() {
+
     const { value, suggestions } = this.state;
-    const inputProps = {
-      placeholder: this.props.placeholder,
-      value,
-      onChange: this.onChange,
-    };
+
     const {
       className,
       placeholder,
       possibleSuggestions,
+      disabled,
+      label,
+      labelClass,
+      icon,
+      iconSize,
+      iconClass,
+      close,
+      closeClass,
+      id,
       ...attributes
     } = this.props;
 
+    if (disabled) {
+      attributes.disabled = true;
+    }
+
+    // needed for rendering custom input
+    const inputProps = {
+      placeholder: placeholder,
+      value,
+      onChange: this.onChange,
+      // id: 'theInputID'
+    };
 
 
+    // the main variable for classFixes
+    let isNotEmpty = Boolean(this.state.value) || placeholder || this.state.isTouched;
 
-class InputComponent extends React.Component {
-  render() {
-
-    return <div><input {...this.props.inputProps} /></div>;
-  }
-}
-
-    // TODO: użyć MDB <Input>
-    const renderInputComponent = inputProps => (
-      <input
-        {...inputProps}
-        id={this.props.id}
-        // ref={el => { this.inputElRef = el; }}
-        value = {this.state.value}
-        placeholder={this.props.placeholder} label={this.props.label} value={this.state.value}>
-
-       </input>
+    // classFixes:
+    const labelClassFix = classNames(
+      isNotEmpty && 'active',
+      disabled && 'disabled',
+      labelClass
     );
+    const iconClassFix = classNames(
+      'prefix',
+      this.state.isTouched && 'active',
+      iconClass,
+    );
+    const closeClassFix = classNames(
+      closeClass
+    )
 
+    const isCloseVisible = () => {
+      let hiddenOrNot = "hidden"
+      if (this.state.value) {
+        hiddenOrNot = "visible";
+      }
+      return hiddenOrNot;
+    }
+
+    // A close icon style fix:
+    const closeStyleFix = {
+      position: "absolute",
+      zIndex: 2,
+      top: ".85rem",
+      right: 0,
+      border: "none",
+      background: "0 0",
+      visibility: isCloseVisible(),
+    }
+
+
+    const storeInputReference = (autosuggest) => {
+      if (autosuggest != null) {
+        this.input = autosuggest.input;
+      }
+    }
+
+    const renderInputComponent = inputProps => (
+
+      <div className="md-form">
+        {icon && <Fa icon={icon} size={iconSize} className={iconClassFix}/>}
+        <input type="text" id="form1" className="form-control"
+          {...inputProps}
+          {...attributes}
+          id ="haha"
+           value = {value}
+            //  ref={el => { this.inputElRef = el; }}
+            // ref={this.storeInputReference}
+            // ref = {this.InputRef}
+
+
+          // innerRef={inputProps.ref} ref={null}
+           onClick={this.onClick}
+           onBlur={this.onBlur}
+           onFocus={(ev, val) => {
+            this.onClick();
+            inputProps.onFocus(ev, val);}}
+          />
+        <label htmlFor="form1"
+          onClick={this.triggerFocus}
+          className={labelClassFix}
+        >{label}</label>
+        { close && <Fa
+                      icon="close"
+                      onClick={(ev, val) => {
+                        this.handleClear();
+                        }}
+                      style={closeStyleFix}
+                      className={closeClassFix}
+                    />}
+      </div>
+    );
 
     return (
       <Autosuggest
-                suggestions={suggestions}
-                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                getSuggestions={this.getSuggestions}
-                getSuggestionValue={this.getSuggestionValue}
-                renderSuggestion={this.renderSuggestion}
-                inputProps={inputProps}
-                onChange={this.onChange}
-                theme={theme}
-                renderInputComponent={renderInputComponent}
-                {...attributes}
+        suggestions={suggestions}
+        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+        getSuggestions={this.getSuggestions}
+        getSuggestionValue={this.getSuggestionValue}
+        renderSuggestion={this.renderSuggestion}
+        inputProps={inputProps}
+        onChange={this.onChange}
+        theme={theme}
+        renderInputComponent={renderInputComponent}
+        // inputAttributes={{ id: 'theInputID', autoFocus: true }}
+        // ref={autosuggest => autosuggest.input.select()}
+        {...attributes}
       />
 
     );
@@ -150,7 +243,7 @@ class InputComponent extends React.Component {
 
 Autocomplete.propTypes = {
   className: PropTypes.string,
-  icon: PropTypes.string
+  // icon: PropTypes.string
 };
 
 Autocomplete.defaultProps = {

@@ -1,7 +1,5 @@
 import React from 'react';
 import { Container, Autocomplete } from 'mdbreact';
-// import Autosuggest from 'react-autosuggest';
-// import Autocomplete from 'react-autocomplete';
 
 const states = [
   "Alabama",
@@ -56,66 +54,22 @@ const states = [
   "Wyoming"
 ];
 
-// Teach Autosuggest how to calculate suggestions for any given input value.
+const AutocompletePage = () => {
 
-
-// When suggestion is clicked, Autosuggest needs to populate the input
-// based on the clicked suggestion. Teach Autosuggest how to calculate the
-// input value for every given suggestion.
-// const getSuggestionValue = suggestion => suggestion;
-
-
-
-class AutocompletePage extends React.Component {
-  constructor() {
-    super();
-
-  }
-
-  // onChange = (event, { newValue }) => {
-  //   this.setState({
-  //     value: newValue
-  //   });
-  // };
-  // Autosuggest will call this function every time you need to update suggestions.
-  // You already implemented this logic above, so just use it.
-  // onSuggestionsFetchRequested = ({ value }) => {
-  //   this.setState({
-  //     suggestions: getSuggestions(value)
-  //   });
-  // };
-
-  // Autosuggest will call this function every time you need to clear suggestions.
-
-
-  render() {
-    // const { value, suggestions } = this.state;
-
-    // Autosuggest will pass through all these props to the input.
-
-
-    // Finally, render it!
-    return (
-
-      <Container style={{marginTop: 200, marginLeft: 'auto', marginRight: 'auto'}}>
-        <Autocomplete
+  return (
+    <Container
+      style={{marginTop: 200, marginLeft: 'auto', marginRight: 'auto', paddingLeft: 200, paddingRight: 200}}
+    >
+      <Autocomplete
         possibleSuggestions = {states}
-        placeholder="sup"
         label="Choose your favorite state"
-        // value = {this.state.value}
-        // onChange = {this.onChange.bind(this)}
-        // suggestions ={ this.state.suggestions}
-          // suggestions={suggestions}
-          // onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-          // onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-          // // getSuggestions={getSuggestions}
-          // getSuggestionValue={getSuggestionValue}
-          // renderSuggestion={renderSuggestion}
-          // inputProps={inputProps}
-        />
-      </Container>
-    );
-  }
+        icon="heart"
+        close
+        closeClass="grey-text"
+      />
+    </Container>
+  );
 }
+
 
 export default AutocompletePage;
