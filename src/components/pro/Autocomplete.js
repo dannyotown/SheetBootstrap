@@ -26,6 +26,7 @@ const theme = {
 
 // TODO:
 // 1) Sprawa kliknięcia w label, czyli ref dla inputa i focus()
+// 2) po wybraniu opcji - onBlur
 // 2) Posprzątać
 // 3) docsy
 
@@ -38,13 +39,12 @@ class Autocomplete extends Component {
       suggestions: [],
       isTouched: false,
     };
-    this.InputRef = React.createRef();
     this.getSuggestions = this.getSuggestions.bind(this);
     this.getSuggestionValue = this.getSuggestionValue.bind(this);
     this.renderSuggestion = this.renderSuggestion.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
-    this.onBlur = this.onBlur.bind(this);
+    this.blurCallback = this.blurCallback.bind(this);
     this.triggerFocus = this.triggerFocus.bind(this);
     this.handleClear = this.handleClear.bind(this);
   }
@@ -61,16 +61,24 @@ class Autocomplete extends Component {
     this.setState({
       value: newValue
     });
+    this.blurCallback();
+    // const input = document.getElementById(this.props.id);
+    // input.blur();
   };
 
   onClick (ev) {
     this.setState({ isTouched: true });
-    // this.inputElRef.focus();
-
   }
 
-  onBlur (ev) {
+  blurCallback (ev) {
+    // let currentValue = this.state.value;
     this.setState({ isTouched: false });
+    const input = document.getElementById(this.props.id);
+
+    // console.log(input);
+    // ev.target.blur();
+// console.log(ev.target);
+
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
@@ -84,6 +92,10 @@ class Autocomplete extends Component {
       suggestions: []
     });
   };
+  onSuggestionSelected = () => {
+    this.blurCallback();
+  }
+
   handleClear() {
     this.setState({
       value: ''
@@ -97,13 +109,20 @@ class Autocomplete extends Component {
       lang.toLowerCase().includes(inputValue)
     );
   }
-
+  setInputRef(el) {
+     this.inputElRef = el;
+  }
   triggerFocus() {
     // document.getElementById("haha").focus()
     // hack to enable IE10 pointer-events shim
     // console.log(this.inputElRef)
     // console.log(this.inputElRef);
-    // this.InputElRef.focus();
+    //  this.ref.inputRef.focus();
+    //  const label = document.getElementById("label");
+     //  console.log(label);
+     //  console.log(input);
+     const input = document.getElementById(this.props.id);
+     input.focus();
 
   }
 
@@ -136,7 +155,10 @@ class Autocomplete extends Component {
       placeholder: placeholder,
       value,
       onChange: this.onChange,
-      // id: 'theInputID'
+      onBlur: this.blurCallback,
+      onClick: this.onClick,
+      onFocus: this.onFocus,
+      id: this.props.id
     };
 
 
@@ -178,11 +200,11 @@ class Autocomplete extends Component {
     }
 
 
-    const storeInputReference = (autosuggest) => {
-      if (autosuggest != null) {
-        this.input = autosuggest.input;
-      }
-    }
+    // const storeInputReference = (autosuggest) => {
+    //   if (autosuggest != null) {
+    //     this.input = autosuggest.input;
+    //   }
+    // }
 
     const renderInputComponent = inputProps => (
 
@@ -191,21 +213,26 @@ class Autocomplete extends Component {
         <input type="text" id="form1" className="form-control"
           {...inputProps}
           {...attributes}
-          id ="haha"
+          // id ="haha"
            value = {value}
             //  ref={el => { this.inputElRef = el; }}
             // ref={this.storeInputReference}
             // ref = {this.InputRef}
-
+            // ref={(input) => {
+            //   if (inputProps.ref) {
+            //     inputProps.ref(input);
+            //   }
+            //   this.setInputRef(input);
+            // }}
 
           // innerRef={inputProps.ref} ref={null}
-           onClick={this.onClick}
-           onBlur={this.onBlur}
-           onFocus={(ev, val) => {
+            onClick={this.onClick}
+            // onBlur={this.onBlur}
+            onFocus={(ev, val) => {
             this.onClick();
             inputProps.onFocus(ev, val);}}
           />
-        <label htmlFor="form1"
+        <label htmlFor="form1" id="label"
           onClick={this.triggerFocus}
           className={labelClassFix}
         >{label}</label>
@@ -227,9 +254,11 @@ class Autocomplete extends Component {
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         getSuggestions={this.getSuggestions}
         getSuggestionValue={this.getSuggestionValue}
+        onSuggestionSelected={this.blurCallback}
         renderSuggestion={this.renderSuggestion}
         inputProps={inputProps}
         onChange={this.onChange}
+        // onBlur={this.onBlur}
         theme={theme}
         renderInputComponent={renderInputComponent}
         // inputAttributes={{ id: 'theInputID', autoFocus: true }}
