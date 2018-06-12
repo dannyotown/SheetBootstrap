@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fa, SideNavItem, SideNavCat, SideNavNav, SideNav } from 'mdbreact';
+import { Fa, SideNavItem, SideNavCat, SideNavNav, SideNav, SideNavLink } from 'mdbreact';
 
 class SideNavPage extends React.Component {
   constructor(props) {
@@ -130,20 +130,20 @@ class SideNavPage extends React.Component {
       </li>
         <SideNavNav>
           <SideNavCat name="Submit blog" onClick={this.onClick} isOpen={this.state.accordion === 0 } icon="chevron-right">
-              <SideNavItem>Submit listing</SideNavItem>
-              <SideNavItem>Registration form</SideNavItem>
+              <SideNavLink>Submit listing</SideNavLink>
+              <SideNavLink>Registration form</SideNavLink>
             </SideNavCat>
-            <SideNavCat name="Instruction" onClick={this.onClick1} isOpen={this.state.accordion === 1 } icon="hand-pointer-o">
-              <SideNavItem>For bloggers</SideNavItem>
-              <SideNavItem>For authors</SideNavItem>
+            <SideNavCat name="Instruction" onClick={this.onClick1} isOpen={this.state.accordion === 1 } icon="hand-pointer-o" href="#">
+              <SideNavLink>For bloggers</SideNavLink>
+              <SideNavLink>For authors</SideNavLink>
             </SideNavCat>
             <SideNavCat name="About" onClick={this.onClick2} isOpen={this.state.accordion === 2 } icon="eye">
-              <SideNavItem>Instruction</SideNavItem>
-              <SideNavItem>Monthly meetings</SideNavItem>
+              <SideNavLink>Instruction</SideNavLink>
+              <SideNavLink>Monthly meetings</SideNavLink>
             </SideNavCat>
             <SideNavCat name="Contact me" onClick={this.onClick3} isOpen={this.state.accordion === 3 } icon="envelope-o">
-              <SideNavItem>FAQ</SideNavItem>
-              <SideNavItem>Write a message</SideNavItem>
+              <SideNavLink>FAQ</SideNavLink>
+              <SideNavLink>Write a message</SideNavLink>
             </SideNavCat>
         </SideNavNav>
       </SideNav>
@@ -159,20 +159,20 @@ class SideNavPage extends React.Component {
       </li>
         <SideNavNav>
           <SideNavCat name="Submit blog" onClick={this.onClick} isOpen={this.state.accordion === 0 } icon="chevron-right" >
-              <SideNavItem>Submit listing</SideNavItem>
-              <SideNavItem>Registration form</SideNavItem>
+              <SideNavLink className="active">Submit listing</SideNavLink>
+              <SideNavLink>Registration form</SideNavLink>
             </SideNavCat>
             <SideNavCat name="Instruction" onClick={this.onClick1} isOpen={this.state.accordion === 1 } icon="hand-pointer-o">
-              <SideNavItem>For bloggers</SideNavItem>
-              <SideNavItem>For authors</SideNavItem>
+              <SideNavLink>For bloggers</SideNavLink>
+              <SideNavLink>For authors</SideNavLink>
             </SideNavCat>
             <SideNavCat name="About" onClick={this.onClick2} isOpen={this.state.accordion === 2 } icon="eye">
-              <SideNavItem>Instruction</SideNavItem>
-              <SideNavItem>Monthly meetings</SideNavItem>
+              <SideNavLink>Instruction</SideNavLink>
+              <SideNavLink>Monthly meetings</SideNavLink>
             </SideNavCat>
             <SideNavCat name="Contact me" onClick={this.onClick3} isOpen={this.state.accordion === 3 } icon="envelope-o">
-              <SideNavItem>FAQ</SideNavItem>
-              <SideNavItem>Write a message</SideNavItem>
+              <SideNavLink>FAQ</SideNavLink>
+              <SideNavLink>Write a message</SideNavLink>
             </SideNavCat>
         </SideNavNav>
       </SideNav>
