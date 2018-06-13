@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
-import { Container, FormInline, Button, Navbar, NavbarBrand, Collapse, NavbarToggler, NavbarNav, NavItem, NavLink, Fa, Select, SelectInput, SelectOptions, SelectOption, Input  } from 'mdbreact';
+import { Container, FormInline, Button, Navbar, NavbarBrand, Collapse, NavbarToggler, NavbarNav, NavItem, NavLink, Fa, Select, SelectInput, SelectOptions, SelectOption  } from 'mdbreact';
 
 class SearchPagePro extends React.Component {
   constructor(props) {
@@ -8,14 +7,14 @@ class SearchPagePro extends React.Component {
     this.state ={
       collapsed: false,
       value: "Choose your option",
-      searchValue: ''
+      value2: "Choose your option"
     };
     this.handleTogglerClick = this.handleTogglerClick.bind(this);
     this.handleNavbarClick = this.handleNavbarClick.bind(this);
     this.optionClick = this.optionClick.bind(this);
+    this.optionClick2 = this.optionClick2.bind(this);
     this.onClick = this.onClick.bind(this);
     this.otherDropdownsClose = this.otherDropdownsClose.bind(this);
-    this.autocomplete = this.autocomplete.bind(this);
   }
 
   handleTogglerClick(){
@@ -35,6 +34,13 @@ class SearchPagePro extends React.Component {
       value = value.join(', ');
     }
     this.setState({value: value});
+  }
+
+  optionClick2(value) {
+    if (value.constructor === Array) {
+      value = value.join(', ');
+    }
+    this.setState({value2: value});
   }
 
   onClick(e) {
@@ -63,10 +69,6 @@ class SearchPagePro extends React.Component {
         dropdowns[i].classList.remove('fadeIn');
       }
     }
-  }
-
-  autocomplete = (e) => {
-    this.setState({searchValue: e.target.value});
   }
 
   componentDidMount() {
@@ -140,10 +142,9 @@ class SearchPagePro extends React.Component {
         <h3 className="mt-5">Search within select</h3>
         <Select>
           <SelectInput value={this.state.value}></SelectInput>
-          <SelectOptions>
-            <Input hint="Search" className="search" containerClass="search-wrap" type="text" onChange={e => this.autocomplete(e)} />
+          <SelectOptions search>
             <SelectOption disabled>Choose your option</SelectOption>
-            {this.state.searchValue.includes('Option nr 1') && <SelectOption triggerOptionClick={this.optionClick}>Option nr 1</SelectOption>}
+            <SelectOption triggerOptionClick={this.optionClick}>Option nr 1</SelectOption>
             <SelectOption triggerOptionClick={this.optionClick}>Option nr 2</SelectOption>
             <SelectOption triggerOptionClick={this.optionClick}>Option nr 3</SelectOption>
             <SelectOption triggerOptionClick={this.optionClick}>Option nr 4</SelectOption>
@@ -151,6 +152,20 @@ class SearchPagePro extends React.Component {
           </SelectOptions>
         </Select>
         <label>Example label</label>
+        <h3 className="mt-5">Search within multiselect</h3>
+        <Select multiple>
+          <SelectInput value={this.state.value2}></SelectInput>
+          <SelectOptions search>
+            <SelectOption disabled>Choose your option</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 1</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 2</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 3</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 4</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 5</SelectOption>
+          </SelectOptions>
+        </Select>
+        <label>Example label</label>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       </Container>
     );
   }
