@@ -19,11 +19,20 @@ class SideNav extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.fixed) {
+      this.setState({
+        isThere: true
+      })
+      return
+    }
     this.updatePredicate();
     window.addEventListener("resize", this.updatePredicate);
   }
 
   componentWillUnmount() {
+    if (this.props.fixed) {
+      return
+    }
     window.removeEventListener("resize", this.updatePredicate);
   }
 
@@ -87,6 +96,11 @@ class SideNav extends React.Component {
       ...attributes
     } = this.props;
 
+    let {
+      isThere,
+      showOverlay
+    } = this.state
+
     const classes = classNames(
       'side-nav',
       fixed && 'fixed',
@@ -94,8 +108,6 @@ class SideNav extends React.Component {
       className
     );
 
-    let isThere = this.state.isThere;
-    let showOverlay = this.state.showOverlay;
     const overlay = <div id="sidenav-overlay" onClick={this.handleOverlayClick} key="overlay"></div>
     const translateX = right ? 300 : -300;
 
