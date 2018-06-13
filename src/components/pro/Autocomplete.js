@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM, { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Autosuggest from 'react-autosuggest';
@@ -37,6 +38,7 @@ class Autocomplete extends Component {
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
+    if (this.props.search) { return; }
     this.setState({
       suggestions: this.getSuggestions(value)
     });
@@ -45,7 +47,6 @@ class Autocomplete extends Component {
   getSuggestions = (value) => {
     const inputValue = value.toLowerCase();
     const inputLength = inputValue.length;
-
     return inputLength === 0 ? [] : this.props.data.filter(lang =>
       lang.toLowerCase().includes(inputValue)
     );
@@ -62,7 +63,10 @@ class Autocomplete extends Component {
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
-    });
+    })
+    if(this.props.search) {
+      this.props.search(newValue, ReactDOM.findDOMNode(this).parentNode.parentNode.querySelectorAll('li'));
+    }
   };
 
   onClick (ev) {
@@ -107,6 +111,7 @@ class Autocomplete extends Component {
       close,
       closeClass,
       id,
+      search,
       ...attributes
     } = this.props;
 

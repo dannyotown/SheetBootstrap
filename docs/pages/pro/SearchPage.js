@@ -1,6 +1,14 @@
 import React from 'react';
 import ReactDOM, { findDOMNode } from 'react-dom';
-import { Container, FormInline, Button, Navbar, NavbarBrand, Collapse, NavbarToggler, NavbarNav, NavItem, NavLink, Fa, Select, SelectInput, SelectOptions, SelectOption, Input  } from 'mdbreact';
+import { Container, FormInline, Button, Navbar, NavbarBrand, Collapse, NavbarToggler, NavbarNav, NavItem, NavLink, Fa, Select, SelectInput, SelectOptions, SelectOption, Autocomplete  } from 'mdbreact';
+
+const options = [
+  'Option nr 1',
+  'Option nr 2',
+  'Option nr 3',
+  'Option nr 4',
+  'Option nr 5'
+]
 
 class SearchPagePro extends React.Component {
   constructor(props) {
@@ -8,14 +16,27 @@ class SearchPagePro extends React.Component {
     this.state ={
       collapsed: false,
       value: "Choose your option",
-      searchValue: ''
+      value2: "Choose your option"
     };
     this.handleTogglerClick = this.handleTogglerClick.bind(this);
     this.handleNavbarClick = this.handleNavbarClick.bind(this);
     this.optionClick = this.optionClick.bind(this);
+    this.optionClick2 = this.optionClick2.bind(this);
     this.onClick = this.onClick.bind(this);
     this.otherDropdownsClose = this.otherDropdownsClose.bind(this);
-    this.autocomplete = this.autocomplete.bind(this);
+    this.search = this.search.bind(this);
+  }
+
+  search(value, options) {
+    options.forEach(function(option) {
+      let optionValue = option.children[0].innerHTML.toLowerCase();
+      if(!optionValue.includes(value)) {
+        option.style.display = "none";
+      } 
+      if(value == '') {
+        option.style.display = "block";
+      }
+    })
   }
 
   handleTogglerClick(){
@@ -35,6 +56,13 @@ class SearchPagePro extends React.Component {
       value = value.join(', ');
     }
     this.setState({value: value});
+  }
+
+  optionClick2(value) {
+    if (value.constructor === Array) {
+      value = value.join(', ');
+    }
+    this.setState({value2: value});
   }
 
   onClick(e) {
@@ -63,10 +91,6 @@ class SearchPagePro extends React.Component {
         dropdowns[i].classList.remove('fadeIn');
       }
     }
-  }
-
-  autocomplete = (e) => {
-    this.setState({searchValue: e.target.value});
   }
 
   componentDidMount() {
@@ -141,16 +165,45 @@ class SearchPagePro extends React.Component {
         <Select>
           <SelectInput value={this.state.value}></SelectInput>
           <SelectOptions>
-            <Input hint="Search" className="search" containerClass="search-wrap" type="text" onChange={e => this.autocomplete(e)} />
+            <div className="mx-2">
+              <Autocomplete
+                data = {options}
+                label="Search"
+                id="input"
+                search={this.search}
+              />
+            </div>
             <SelectOption disabled>Choose your option</SelectOption>
-            {this.state.searchValue.includes('Option nr 1') && <SelectOption triggerOptionClick={this.optionClick}>Option nr 1</SelectOption>}
-            <SelectOption triggerOptionClick={this.optionClick}>Option nr 2</SelectOption>
-            <SelectOption triggerOptionClick={this.optionClick}>Option nr 3</SelectOption>
-            <SelectOption triggerOptionClick={this.optionClick}>Option nr 4</SelectOption>
-            <SelectOption triggerOptionClick={this.optionClick}>Option nr 5</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick}>{options[0]}</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick}>{options[1]}</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick}>{options[2]}</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick}>{options[3]}</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick}>{options[4]}</SelectOption>
           </SelectOptions>
         </Select>
         <label>Example label</label>
+        <h3 className="mt-5">Search within multiselect</h3>
+        <Select multiple>
+          <SelectInput value={this.state.value2}></SelectInput>
+          <SelectOptions>
+            <div className="mx-2">
+              <Autocomplete
+                data = {options}
+                label="Search"
+                id="input"
+                search={this.search}
+              />
+            </div>
+            <SelectOption disabled>Choose your option</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 1</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 2</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 3</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 4</SelectOption>
+            <SelectOption triggerOptionClick={this.optionClick2}>Option nr 5</SelectOption>
+          </SelectOptions>
+        </Select>
+        <label>Example label</label>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       </Container>
     );
   }
