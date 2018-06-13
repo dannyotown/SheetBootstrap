@@ -85,6 +85,7 @@ import ScrollSpyText from './components/pro/ScrollSpyText';
 import SideNav from './components/pro/SideNav';
 import SideNavCat from './components/pro/SideNavCat';
 import SideNavItem from './components/pro/SideNavItem';
+import SideNavLink from './components/pro/SideNavLink';
 import SideNavNav from './components/pro/SideNavNav';
 import Select from './components/pro/Select';
 import SelectInput from './components/pro/SelectInput';
@@ -185,6 +186,7 @@ export {
   SideNav,
   SideNavCat,
   SideNavItem,
+  SideNavLink,
   SideNavNav,
   Select,
   SelectInput,

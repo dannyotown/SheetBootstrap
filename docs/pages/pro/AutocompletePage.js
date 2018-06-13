@@ -341,14 +341,9 @@ class AutocompletePage extends React.Component {
           titleClass="d-inline title"
           className="text-center light-blue darken-3 white-text">
             <Fa icon="pencil"
-            // style={{marginRight: 9}}
-            //  className="justify-content-between"
-            // className="float-left"
              />Contact From
             <Fa icon="close"
-            // style={{marginRight: 16}}
              className="float-right"
-            // className="float-right"
               onClick={this.handleModalCloseClick.bind(this)}
                   /></ModalHeader>
           <ModalBody>
@@ -357,7 +352,8 @@ class AutocompletePage extends React.Component {
             <Autocomplete label="Subject" icon="tag" data={subjects} close/>
             <Input label="Your message" type="textarea" rows="2" icon="pencil" iconClass="dark-grey"/>
             <div className="text-center mt-1-half">
-              <Button color="info" className="mb-2">send<Fa icon="send" className="ml-1"/></Button>
+              <Button color="info" className="mb-2"
+              onClick={this.handleModalCloseClick.bind(this)}>send<Fa icon="send" className="ml-1"/></Button>
             </div>
           </ModalBody>
         </Modal>
