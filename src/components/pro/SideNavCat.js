@@ -11,27 +11,23 @@ class SideNavCat extends React.Component {
     this.state = {
       cursorPos: {}
     };
-    this.onClick = this.onClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e){
-    // Get Cursor Position
-    let cursorPos = {
-      top: e.clientY,
-      left: e.clientX,
-      time: Date.now()
-    };
-    this.setState({ cursorPos: cursorPos });
-  }
-
-  onClick(e) {
-    if (this.props.disabled) {
-      e.preventDefault();
-      return;
-    }
-
-    if (this.props.onClick) {
+    if (!this.props.disabled) {
+      // Waves - Get Cursor Position
+      let cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      this.setState({ cursorPos: cursorPos });
+      // do the passed in callback:
+      if (this.props.onClick) {
       this.props.onClick(e);
+      }
+      e.stopPropagation();
     }
   }
 
@@ -43,6 +39,7 @@ class SideNavCat extends React.Component {
       name,
       icon,
       onClick,
+      disabled,
       isOpen,
       ...attributes
     } = this.props;
@@ -51,15 +48,17 @@ class SideNavCat extends React.Component {
       'collapsible-header',
       'Ripple-parent',
       'arrow-r',
-      isOpen ? 'active' : false,
+      isOpen && 'active',
+      disabled && 'disabled',
       className
     );
 
     return (
       <Tag>
-        <a className = { classes } onClick = { this.onClick }
-           onMouseDown = { this.handleClick.bind(this) }
-           onTouchStart = { this.handleClick.bind(this) }
+        <a className = { classes }
+           onClick = { this.handleClick }
+           onMouseDown = { this.handleClick }
+           onTouchStart = { this.handleClick }
            {...attributes}
         >
           { icon &&
