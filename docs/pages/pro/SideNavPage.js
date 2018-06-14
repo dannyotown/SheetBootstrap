@@ -119,7 +119,12 @@ class SideNavPage extends React.Component {
         <div className="text-center" style={divstyle}>
           {button2}
         </div>
-      <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" hidden isOpenWithButton={isOpenWithButtonA} breakWidth={1300} className="deep-purple darken-4">
+      <SideNav
+        logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
+        hidden
+        isOpenWithButton={isOpenWithButtonA}
+        className="deep-purple darken-4"
+      >
       <li>
         <ul className="social">
           <li><a href="#!"><Fa icon="facebook"></Fa></a></li>
@@ -148,15 +153,21 @@ class SideNavPage extends React.Component {
         </SideNavNav>
       </SideNav>
 
-      <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" hidden isOpenWithButton={isOpenWithButtonB} className="side-nav-light" right breakWidth={1300}>
-      <li>
-        <ul className="social">
-          <li><a href="#!" className="icons-sm fb-ic"><i className="fa fa-facebook"></i></a></li>
-          <li><a href="#!" className="icons-sm pin-ic"><i className="fa fa-pinterest"></i></a></li>
-          <li><a href="#!" className="icons-sm gplus-ic"><i className="fa fa-google-plus"></i></a></li>
-          <li><a href="#!" className="icons-sm tw-ic"><i className="fa fa-twitter"></i></a></li>
-        </ul>
-      </li>
+      <SideNav
+        logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
+        hidden
+        isOpenWithButton={isOpenWithButtonB}
+        className="side-nav-light"
+        right
+      >
+        <li>
+          <ul className="social">
+            <li><a href="#!" className="icons-sm fb-ic"><i className="fa fa-facebook"></i></a></li>
+            <li><a href="#!" className="icons-sm pin-ic"><i className="fa fa-pinterest"></i></a></li>
+            <li><a href="#!" className="icons-sm gplus-ic"><i className="fa fa-google-plus"></i></a></li>
+            <li><a href="#!" className="icons-sm tw-ic"><i className="fa fa-twitter"></i></a></li>
+          </ul>
+        </li>
         <SideNavNav>
           <SideNavCat name="Submit blog" onClick={this.onClick} isOpen={this.state.accordion === 0 } icon="chevron-right" >
               <SideNavLink className="active">Submit listing</SideNavLink>
