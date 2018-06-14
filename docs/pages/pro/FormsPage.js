@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Input, Button, Fa, Card, CardBody, ModalFooter, Forms } from 'mdbreact';
+import { Container, Row, Col, Input, Button, Fa, Card, CardBody, ModalFooter } from 'mdbreact';
 import './Forms.css';
 
 class FormsPage extends React.Component  {
