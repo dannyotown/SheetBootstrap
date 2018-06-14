@@ -66,6 +66,7 @@ class SideNav extends React.Component {
       time: Date.now()
     };
     this.setState({ cursorPos: cursorPos });
+    e.stopPropagation();
   }
 
   onClick(e) {
@@ -77,6 +78,8 @@ class SideNav extends React.Component {
     if (this.props.onClick) {
       this.props.onClick(e);
     }
+    e.stopPropagation();
+
   }
 
   render() {
