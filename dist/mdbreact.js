@@ -37009,9 +37009,7 @@ var SideNav = function (_React$Component) {
               _react2.default.createElement(
                 'a',
                 { href: href,
-                  className: 'Ripple-parent', onClick: this.onClick,
-                  onMouseDown: this.handleClick.bind(this),
-                  onTouchStart: this.handleClick.bind(this) },
+                  className: 'Ripple-parent', onClick: this.onClick },
                 _react2.default.createElement('img', { src: logo, className: 'img-fluid flex-center d-block' }),
                 _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
               )
@@ -37162,9 +37160,7 @@ var SideNavCat = function (_React$Component) {
         _react2.default.createElement(
           'a',
           _extends({ className: classes,
-            onClick: this.handleClick,
-            onMouseDown: this.handleClick,
-            onTouchStart: this.handleClick
+            onClick: this.handleClick
           }, attributes),
           icon && _react2.default.createElement(
             'i',
@@ -37353,9 +37349,7 @@ var SideNavItem = function (_React$Component) {
         _extends({
           className: classes,
           ref: innerRef,
-          onClick: this.onClick,
-          onMouseDown: this.handleClick.bind(this),
-          onTouchStart: this.handleClick.bind(this)
+          onClick: this.onClick
         }, attributes),
         _react2.default.createElement(
           'a',
@@ -37478,8 +37472,6 @@ var SideNavItem = function (_React$Component) {
         _extends({ className: classes,
           ref: innerRef,
           onClick: this.handleClick,
-          onMouseDown: this.handleClick,
-          onTouchStart: this.handleClick,
           to: to
         }, attributes),
         children,

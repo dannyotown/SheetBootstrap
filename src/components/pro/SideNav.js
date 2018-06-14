@@ -118,9 +118,7 @@ class SideNav extends React.Component {
             <li>
               <div className="logo-wrapper">
                 <a href={href}
-                className="Ripple-parent" onClick={this.onClick}
-                onMouseDown={ this.handleClick.bind(this) }
-                onTouchStart={ this.handleClick.bind(this) }>
+                className="Ripple-parent" onClick={this.onClick}>
                   <img src={logo} className="img-fluid flex-center d-block"/>
                   <Waves cursorPos={ this.state.cursorPos } />
                 </a>

@@ -57,8 +57,6 @@ class SideNavCat extends React.Component {
       <Tag>
         <a className = { classes }
            onClick = { this.handleClick }
-           onMouseDown = { this.handleClick }
-           onTouchStart = { this.handleClick }
            {...attributes}
         >
           { icon &&

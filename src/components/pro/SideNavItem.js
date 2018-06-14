@@ -55,8 +55,6 @@ class SideNavItem extends React.Component {
         className={classes}
         ref={innerRef}
         onClick={this.onClick}
-        onMouseDown={ this.handleClick.bind(this) }
-        onTouchStart={ this.handleClick.bind(this) }
         {...attributes}
       >
         <a className={classes} href={href}>{children}<Waves cursorPos={ this.state.cursorPos } /></a>
