@@ -3,7 +3,7 @@ import ReactDOM, { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Autosuggest from 'react-autosuggest';
-import {TextField, Input, Fa } from 'mdbreact'
+import Fa from '../Fa';
 
 const theme = {
   container:                'md-form',
