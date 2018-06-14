@@ -49,8 +49,6 @@ class SideNavItem extends React.Component {
       <Link className={classes}
             ref={innerRef}
             onClick={this.handleClick}
-            onMouseDown={ this.handleClick }
-            onTouchStart={ this.handleClick }
             to={to}
             {...attributes}
       >

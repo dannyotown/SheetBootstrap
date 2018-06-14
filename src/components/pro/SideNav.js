@@ -15,7 +15,7 @@ class SideNav extends React.Component {
     }
     this.updatePredicate = this.updatePredicate.bind(this);
     this.handleOverlayClick = this.handleOverlayClick.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -59,24 +59,19 @@ class SideNav extends React.Component {
   }
 
   handleClick(e){
-    // Get Cursor Position
-    let cursorPos = {
-      top: e.clientY,
-      left: e.clientX,
-      time: Date.now()
-    };
-    this.setState({ cursorPos: cursorPos });
-    e.stopPropagation();
-  }
-
-  onClick(e) {
-    if (this.props.disabled) {
-      e.preventDefault();
-      return;
-    }
-
-    if (this.props.onClick) {
+    if (!this.props.disabled) {
+      // Waves - Get Cursor Position
+      let cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      this.setState({ cursorPos: cursorPos });
+      // do the passed in callback:
+      if (this.props.onClick) {
       this.props.onClick(e);
+      }
+      e.stopPropagation();
     }
     e.stopPropagation();
 
@@ -121,9 +116,7 @@ class SideNav extends React.Component {
             <li>
               <div className="logo-wrapper">
                 <a href={href}
-                className="Ripple-parent" onClick={this.onClick}
-                onMouseDown={ this.handleClick.bind(this) }
-                onTouchStart={ this.handleClick.bind(this) }>
+                className="Ripple-parent" onClick={this.handleClick}>
                   <img src={logo} className="img-fluid flex-center d-block"/>
                   <Waves cursorPos={ this.state.cursorPos } />
                 </a>
