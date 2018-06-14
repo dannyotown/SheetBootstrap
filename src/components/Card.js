@@ -20,6 +20,7 @@ class Card extends Component {
       personal,
       news,
       color,
+      text,
       border,
       ...attributes
     } = this.props;
@@ -36,7 +37,8 @@ class Card extends Component {
       pricing && 'pricing-card',
       personal && 'card-personal',
       news && 'news-card',
-      color && color + ' white-text',
+      color && color,
+      text && text + '-text',
       border && 'border-' + border,
       className
     );
@@ -55,7 +57,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  tag: 'div'
+  tag: 'div',
 };
 
 export default Card;
