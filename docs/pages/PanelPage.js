@@ -28,7 +28,7 @@ function PanelPage() {
 
       <h2 className="mt-5">Titles, text and links</h2>
 
-      <Card style={panelStyle}>
+      <Card style={{width: '22rem', marginTop: '1rem'}}>
         <CardBody>
           <CardTitle>Panel title</CardTitle>
           <CardTitle tag="h6" sub className="mb-2 text-muted">Panel title</CardTitle>
@@ -40,7 +40,7 @@ function PanelPage() {
 
       <h2 className="mt-5">List groups</h2>
 
-      <Card style={panelStyle}>
+      <Card style={{width: '22rem', marginTop: '1rem'}}>
         <ListGroup>
           <ListGroupItem>Cras justo odio</ListGroupItem>
           <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
@@ -51,7 +51,7 @@ function PanelPage() {
       <hr className="mt-5"/>
       <h2 className="mt-5">Header and footer</h2>
 
-      <Card style={panelStyle}>
+      <Card style={{width: '22rem', marginTop: '1rem'}}>
         <CardHeader color="deep-orange lighten-1">Featured</CardHeader>
         <CardBody>
           <CardTitle>Special title treatment</CardTitle>
@@ -60,7 +60,7 @@ function PanelPage() {
         </CardBody>
       </Card>
 
-      <Card style={panelStyle}>
+      <Card style={{width: '22rem', marginTop: '1rem'}}>
         <CardHeader color="primary-color" tag="h3">Featured</CardHeader>
         <CardBody>
           <CardTitle>Special title treatment</CardTitle>
@@ -69,7 +69,7 @@ function PanelPage() {
         </CardBody>
       </Card>
 
-      <Card style={panelStyle} className="text-center">
+      <Card style={{width: '22rem', marginTop: '1rem'}} className="text-center">
         <CardHeader color="success-color">Featured</CardHeader>
         <CardBody>
           <CardTitle>Special title treatment</CardTitle>
@@ -123,7 +123,7 @@ function PanelPage() {
       <hr className="mt-5"/>
       <h2 className="mt-5">Text alignment</h2>
 
-      <Card style={panelStyle}>
+      <Card style={{width: '20rem', marginTop: '1rem'}}>
         <CardBody>
           <CardTitle>Special title treatment</CardTitle>
           <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
@@ -131,7 +131,7 @@ function PanelPage() {
         </CardBody>
       </Card>
 
-      <Card className="text-center" style={panelStyle}>
+      <Card className="text-center" style={{width: '20rem', marginTop: '1rem'}}>
         <CardBody>
           <CardTitle>Special title treatment</CardTitle>
           <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
@@ -139,7 +139,7 @@ function PanelPage() {
         </CardBody>
       </Card>
 
-      <Card className="text-right" style={panelStyle}>
+      <Card className="text-right" style={{width: '20rem', marginTop: '1rem'}}>
         <CardBody>
           <CardTitle>Special title treatment</CardTitle>
           <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
@@ -175,9 +175,9 @@ function PanelPage() {
       <h2 className="mt-5">Styles</h2>
 
       <Row>
-        <Col md="6">
+        <Col md="6" className="mb-4">
 
-          <Card color="indigo" className="text-center">
+          <Card color="indigo" text="white" className="text-center">
             <CardBody>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
             </CardBody>
@@ -185,7 +185,7 @@ function PanelPage() {
 
           <br/>
 
-          <Card color="pink lighten-2" className="text-center">
+          <Card color="pink lighten-2" text="white" className="text-center">
             <CardBody>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
             </CardBody>
@@ -193,7 +193,7 @@ function PanelPage() {
 
           <br/>
 
-          <Card color="info-color" className="text-center">
+          <Card color="info-color" text="white" className="text-center">
             <CardBody>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
             </CardBody>
@@ -202,7 +202,7 @@ function PanelPage() {
         </Col>
         <Col md="6">
 
-          <Card color="red lighten-1" className="text-center">
+          <Card color="red lighten-1" text="white" className="text-center">
             <CardBody>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
             </CardBody>
@@ -210,7 +210,7 @@ function PanelPage() {
 
             <br/>
 
-          <Card color="success-color" className="text-center">
+          <Card color="success-color" text="white" className="text-center">
             <CardBody>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
             </CardBody>
@@ -218,7 +218,7 @@ function PanelPage() {
 
             <br/>
 
-          <Card color="mdb-color lighten-2" className="text-center">
+          <Card color="mdb-color lighten-2" text="white" className="text-center">
             <CardBody>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
             </CardBody>
@@ -420,8 +420,8 @@ function PanelPage() {
       <Card className="p-3">
         <blockquote className="blockquote mb-0 card-body">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">
-            <small class="text-muted">
+          <footer className="blockquote-footer">
+            <small className="text-muted">
             Someone famous in <cite title="Source Title">Source Title</cite>
             </small>
           </footer>
@@ -435,11 +435,11 @@ function PanelPage() {
         </CardBody>
       </Card>
 
-      <Card color="primary-color" className="text-center p-3">
+      <Card color="primary-color" text="white" className="text-center p-3">
         <blockquote className="blockquote mb-0">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
-          <footer class="blockquote-footer">
-            <small class="text-muted">
+          <footer className="blockquote-footer">
+            <small className="text-muted">
             Someone famous in <cite title="Source Title">Source Title</cite>
             </small>
           </footer>
@@ -457,8 +457,8 @@ function PanelPage() {
       <Card className="text-right p-3">
         <blockquote className="blockquote mb-0 card-body">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">
-            <small class="text-muted">
+          <footer className="blockquote-footer">
+            <small className="text-muted">
             Someone famous in <cite title="Source Title">Source Title</cite>
             </small>
           </footer>
