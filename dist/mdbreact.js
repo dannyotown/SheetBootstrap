@@ -36894,7 +36894,7 @@ var SideNav = function (_React$Component) {
     };
     _this.updatePredicate = _this.updatePredicate.bind(_this);
     _this.handleOverlayClick = _this.handleOverlayClick.bind(_this);
-    _this.onClick = _this.onClick.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
     return _this;
   }
 
@@ -36946,24 +36946,19 @@ var SideNav = function (_React$Component) {
   }, {
     key: 'handleClick',
     value: function handleClick(e) {
-      // Get Cursor Position
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({ cursorPos: cursorPos });
-    }
-  }, {
-    key: 'onClick',
-    value: function onClick(e) {
-      if (this.props.disabled) {
-        e.preventDefault();
-        return;
-      }
-
-      if (this.props.onClick) {
-        this.props.onClick(e);
+      if (!this.props.disabled) {
+        // Waves - Get Cursor Position
+        var cursorPos = {
+          top: e.clientY,
+          left: e.clientX,
+          time: Date.now()
+        };
+        this.setState({ cursorPos: cursorPos });
+        // do the passed in callback:
+        if (this.props.onClick) {
+          this.props.onClick(e);
+        }
+        e.stopPropagation();
       }
     }
   }, {
@@ -37009,7 +37004,7 @@ var SideNav = function (_React$Component) {
               _react2.default.createElement(
                 'a',
                 { href: href,
-                  className: 'Ripple-parent', onClick: this.onClick },
+                  className: 'Ripple-parent', onClick: this.handleClick },
                 _react2.default.createElement('img', { src: logo, className: 'img-fluid flex-center d-block' }),
                 _react2.default.createElement(_Waves2.default, { cursorPos: this.state.cursorPos })
               )
@@ -37304,31 +37299,26 @@ var SideNavItem = function (_React$Component) {
     _this.state = {
       cursorPos: {}
     };
-    _this.onClick = _this.onClick.bind(_this);
+    _this.handleClick = _this.handleClick.bind(_this);
     return _this;
   }
 
   _createClass(SideNavItem, [{
     key: 'handleClick',
     value: function handleClick(e) {
-      // Get Cursor Position
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({ cursorPos: cursorPos });
-    }
-  }, {
-    key: 'onClick',
-    value: function onClick(e) {
-      if (this.props.disabled) {
-        e.preventDefault();
-        return;
-      }
-
-      if (this.props.onClick) {
-        this.props.onClick(e);
+      if (!this.props.disabled) {
+        // Waves - Get Cursor Position
+        var cursorPos = {
+          top: e.clientY,
+          left: e.clientX,
+          time: Date.now()
+        };
+        this.setState({ cursorPos: cursorPos });
+        // do the passed in callback:
+        if (this.props.onClick) {
+          this.props.onClick(e);
+        }
+        e.stopPropagation();
       }
     }
   }, {
@@ -37349,7 +37339,7 @@ var SideNavItem = function (_React$Component) {
         _extends({
           className: classes,
           ref: innerRef,
-          onClick: this.onClick
+          onClick: this.handleClick
         }, attributes),
         _react2.default.createElement(
           'a',
