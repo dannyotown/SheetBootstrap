@@ -279,7 +279,7 @@ class AutocompletePage extends React.Component {
       modal: !this.state.modal
     })
   }
-  handleModalCloseClick() {
+  handleModalClearClick() {
     this.setState({
       modal: false
     })
@@ -296,8 +296,8 @@ class AutocompletePage extends React.Component {
             data = {states}
             label="Choose your favorite state"
             icon="heart"
-            close
-            closeClass="grey-text" id="input"
+            clear
+            clearClass="grey-text" id="input"
             className="mx-auto"
           />
 
@@ -314,7 +314,7 @@ class AutocompletePage extends React.Component {
                 </div>
                 <Input label="Your email" group type="email" validate error="wrong" success="right"/>
                 <Input label="Your password" group type="password" validate containerClass="mb-0"/>
-                <Autocomplete label="Your country" close data={countries} closeClass="grey-text"/>
+                <Autocomplete label="Your country" clear data={countries} clearClass="grey-text"/>
                 <div className="text-center pt-3 mb-3">
                   <Button type="button" gradient="blue" rounded className="btn-block z-depth-1a">Sign in</Button>
                 </div>
@@ -344,16 +344,16 @@ class AutocompletePage extends React.Component {
              />Contact From
             <Fa icon="close"
              className="float-right"
-              onClick={this.handleModalCloseClick.bind(this)}
+              onClick={this.handleModalClearClick.bind(this)}
                   /></ModalHeader>
           <ModalBody>
             <Input label="Your name" icon="envelope" iconClass="dark-grey"/>
             <Input label="Your email" icon="lock" iconClass="dark-grey"/>
-            <Autocomplete label="Subject" icon="tag" data={subjects} close/>
+            <Autocomplete label="Subject" icon="tag" data={subjects} clear/>
             <Input label="Your message" type="textarea" rows="2" icon="pencil" iconClass="dark-grey"/>
             <div className="text-center mt-1-half">
               <Button color="info" className="mb-2"
-              onClick={this.handleModalCloseClick.bind(this)}>send<Fa icon="send" className="ml-1"/></Button>
+              onClick={this.handleModalClearClick.bind(this)}>send<Fa icon="send" className="ml-1"/></Button>
             </div>
           </ModalBody>
         </Modal>
