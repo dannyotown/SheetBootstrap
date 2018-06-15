@@ -40,7 +40,7 @@ class App extends Component {
             <NavbarToggler onClick={this.handleTogglerClick}/>
             <Collapse isOpen={this.state.collapsed} navbar>
               <NavbarNav right>
-                <NavItem active>
+                <NavItem>
                   <NavLink to="/" onClick={this.handleNavbarClick}>Home</NavLink>
                 </NavItem>
                 <NavItem>
