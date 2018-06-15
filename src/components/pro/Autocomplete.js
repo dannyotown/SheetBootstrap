@@ -47,8 +47,8 @@ class Autocomplete extends Component {
   getSuggestions = (value) => {
     const inputValue = value.toLowerCase();
     const inputLength = inputValue.length;
-    return inputLength === 0 ? [] : this.props.data.filter(lang =>
-      lang.toLowerCase().includes(inputValue)
+    return inputLength === 0 ? [] : this.props.data.filter(data =>
+      data.toLowerCase().includes(inputValue)
     );
   }
 
@@ -108,8 +108,8 @@ class Autocomplete extends Component {
       icon,
       iconSize,
       iconClass,
-      close,
-      closeClass,
+      clear,
+      clearClass,
       id,
       search,
       ...attributes
@@ -145,25 +145,25 @@ class Autocomplete extends Component {
       this.state.isTouched && 'active',
       iconClass,
     );
-    const closeClassFix = classNames(
-      closeClass
+    const clearClassFix = classNames(
+      clearClass
     )
 
-    const isCloseVisible = () => {
+    const isclearVisible = () => {
       let hiddenOrNot = "hidden"
       if (this.state.value) {
         hiddenOrNot = "visible";
       }
       return hiddenOrNot;
     }
-    const closeStyleFix = {
+    const clearStyleFix = {
       position: "absolute",
       zIndex: 2,
       top: ".85rem",
       right: 0,
       border: "none",
       background: "0 0",
-      visibility: isCloseVisible(),
+      visibility: isclearVisible(),
     }
 
     // Here our magic happens:
@@ -182,9 +182,9 @@ class Autocomplete extends Component {
           onClick={this.triggerFocus}
           className={labelClassFix}
         >{label}</label>
-        { close &&
-        <Fa icon="close" onClick={this.handleClear} style={closeStyleFix}
-        className={closeClassFix}/>}
+        { clear &&
+        <Fa icon="close" onClick={this.handleClear} style={clearStyleFix}
+        className={clearClassFix}/>}
       </div>
     );
 
@@ -215,7 +215,8 @@ Autocomplete.propTypes = {
 };
 
 Autocomplete.defaultProps = {
-  id: 'autocomplete-1'
+  id: 'autocomplete-1',
+  clear: true
 };
 
 export default Autocomplete;

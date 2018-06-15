@@ -13,7 +13,6 @@ class App extends Component {
     };
     this.handleTogglerClick = this.handleTogglerClick.bind(this);
     this.handleNavbarClick = this.handleNavbarClick.bind(this);
-
   }
 
   handleTogglerClick(){
@@ -23,9 +22,9 @@ class App extends Component {
   }
 
   handleNavbarClick(){
-      this.setState({
-        collapsed: false
-      });
+    this.setState({
+      collapsed: false
+    });
   }
 
   render() {
@@ -40,22 +39,22 @@ class App extends Component {
             </NavbarBrand>
             <NavbarToggler onClick={this.handleTogglerClick}/>
             <Collapse isOpen={this.state.collapsed} navbar>
-              <NavbarNav right onClick={this.handleNavbarClick}>
-                <NavItem>
-                  <NavLink to="/">Home</NavLink>
+              <NavbarNav right>
+                <NavItem active>
+                  <NavLink to="/" onClick={this.handleNavbarClick}>Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/css">CSS</NavLink>
+                  <NavLink onClick={this.handleNavbarClick} to="/css">CSS</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/components">Components</NavLink>
+                  <NavLink onClick={this.handleNavbarClick} to="/components">Components</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/advanced">Advanced</NavLink>
+                  <NavLink onClick={this.handleNavbarClick} to="/advanced">Advanced</NavLink>
                 </NavItem>
                 {/* PRO */}
                 <NavItem>
-                  <NavLink to="/sections">Sections</NavLink>
+                  <NavLink onClick={this.handleNavbarClick} to="/sections">Sections</NavLink>
                 </NavItem>
               </NavbarNav>
             </Collapse>

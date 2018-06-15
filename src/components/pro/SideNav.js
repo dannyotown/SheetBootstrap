@@ -73,6 +73,8 @@ class SideNav extends React.Component {
       }
       e.stopPropagation();
     }
+    e.stopPropagation();
+
   }
 
   render() {
