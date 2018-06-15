@@ -4744,8 +4744,8 @@ var Autocomplete = function (_Component) {
     _this.getSuggestions = function (value) {
       var inputValue = value.toLowerCase();
       var inputLength = inputValue.length;
-      return inputLength === 0 ? [] : _this.props.data.filter(function (lang) {
-        return lang.toLowerCase().includes(inputValue);
+      return inputLength === 0 ? [] : _this.props.data.filter(function (data) {
+        return data.toLowerCase().includes(inputValue);
       });
     };
 
@@ -4833,11 +4833,11 @@ var Autocomplete = function (_Component) {
           icon = _props.icon,
           iconSize = _props.iconSize,
           iconClass = _props.iconClass,
-          close = _props.close,
-          closeClass = _props.closeClass,
+          clear = _props.clear,
+          clearClass = _props.clearClass,
           id = _props.id,
           search = _props.search,
-          attributes = _objectWithoutProperties(_props, ['className', 'placeholder', 'data', 'disabled', 'label', 'labelClass', 'icon', 'iconSize', 'iconClass', 'close', 'closeClass', 'id', 'search']);
+          attributes = _objectWithoutProperties(_props, ['className', 'placeholder', 'data', 'disabled', 'label', 'labelClass', 'icon', 'iconSize', 'iconClass', 'clear', 'clearClass', 'id', 'search']);
 
       if (disabled) {
         attributes.disabled = true;
@@ -4860,23 +4860,23 @@ var Autocomplete = function (_Component) {
       // classFixes:
       var labelClassFix = (0, _classnames2.default)(isNotEmpty && 'active', disabled && 'disabled', labelClass);
       var iconClassFix = (0, _classnames2.default)('prefix', this.state.isTouched && 'active', iconClass);
-      var closeClassFix = (0, _classnames2.default)(closeClass);
+      var clearClassFix = (0, _classnames2.default)(clearClass);
 
-      var isCloseVisible = function isCloseVisible() {
+      var isclearVisible = function isclearVisible() {
         var hiddenOrNot = "hidden";
         if (_this2.state.value) {
           hiddenOrNot = "visible";
         }
         return hiddenOrNot;
       };
-      var closeStyleFix = {
+      var clearStyleFix = {
         position: "absolute",
         zIndex: 2,
         top: ".85rem",
         right: 0,
         border: "none",
         background: "0 0",
-        visibility: isCloseVisible()
+        visibility: isclearVisible()
 
         // Here our magic happens:
 
@@ -4900,8 +4900,8 @@ var Autocomplete = function (_Component) {
             },
             label
           ),
-          close && _react2.default.createElement(_Fa2.default, { icon: 'close', onClick: _this2.handleClear, style: closeStyleFix,
-            className: closeClassFix })
+          clear && _react2.default.createElement(_Fa2.default, { icon: 'close', onClick: _this2.handleClear, style: clearStyleFix,
+            className: clearClassFix })
         );
       };
 
@@ -4931,7 +4931,8 @@ Autocomplete.propTypes = {
 };
 
 Autocomplete.defaultProps = {
-  id: 'autocomplete-1'
+  id: 'autocomplete-1',
+  clear: true
 };
 
 exports.default = Autocomplete;
@@ -6086,10 +6087,11 @@ var Card = function (_Component) {
           personal = _props.personal,
           news = _props.news,
           color = _props.color,
+          text = _props.text,
           border = _props.border,
-          attributes = _objectWithoutProperties(_props, ['className', 'tag', 'cascade', 'wide', 'narrow', 'reverse', 'testimonial', 'ecommerce', 'collection', 'pricing', 'personal', 'news', 'color', 'border']);
+          attributes = _objectWithoutProperties(_props, ['className', 'tag', 'cascade', 'wide', 'narrow', 'reverse', 'testimonial', 'ecommerce', 'collection', 'pricing', 'personal', 'news', 'color', 'text', 'border']);
 
-      var classes = (0, _classnames2.default)('card', cascade && 'card-cascade', wide && 'card-cascade wider', narrow && 'card-cascade narrower', reverse && 'card-cascade wider reverse', testimonial && 'testimonial-card', ecommerce && 'card-ecommerce', collection && 'collection-card', pricing && 'pricing-card', personal && 'card-personal', news && 'news-card', color && color + ' white-text', border && 'border-' + border, className);
+      var classes = (0, _classnames2.default)('card', cascade && 'card-cascade', wide && 'card-cascade wider', narrow && 'card-cascade narrower', reverse && 'card-cascade wider reverse', testimonial && 'testimonial-card', ecommerce && 'card-ecommerce', collection && 'collection-card', pricing && 'pricing-card', personal && 'card-personal', news && 'news-card', color && color, text && text + '-text', border && 'border-' + border, className);
 
       return _react2.default.createElement(Tag, _extends({}, attributes, { className: classes }));
     }
@@ -36960,6 +36962,7 @@ var SideNav = function (_React$Component) {
         }
         e.stopPropagation();
       }
+      e.stopPropagation();
     }
   }, {
     key: 'render',
