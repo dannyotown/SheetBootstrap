@@ -22,6 +22,7 @@ import PaginationPage from './pages/PaginationPage';
 import PopoverPage from './pages/PopoverPage';
 import ListGroupPage from './pages/ListGroupPage';
 import CarouselPage from './pages/CarouselPage';
+import PanelPage from'./pages/PanelPage';
 import CollapsePage from './pages/CollapsePage';
 import TooltipsPage from './pages/TooltipsPage';
 import FooterPage from './pages/FooterPage';
@@ -31,8 +32,10 @@ import VideoCarouselPage from './pages/VideoCarouselPage';
 import HoverPage from './pages/HoverPage';
 import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
+import SearchPage from './pages/SearchPage';
 
 // PRO
+import AutocompletePage from './pages/pro/AutocompletePage';
 import ButtonPagePro from './pages/pro/ButtonPage';
 import ChartsPagePro from './pages/pro/ChartsPage';
 import InputPagePro from './pages/pro/InputPage';
@@ -66,6 +69,9 @@ import BlogPage from './pages/pro/sections/BlogPage';
 import TeamPage from'./pages/pro/sections/TeamPage';
 import MagazinePage from'./pages/pro/sections/MagazinePage';
 import SocialPage from'./pages/pro/sections/SocialPage';
+import FormsPagePro from './pages/pro/FormsPage';
+import CardsPagePro from'./pages/pro/CardsPage';
+import SearchPagePro from './pages/pro/SearchPage';
 
 class Routes extends React.Component {
   render() {
@@ -102,7 +108,10 @@ class Routes extends React.Component {
         <Route path='/css/hover' component={HoverPage} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
         <Route path='/advanced/charts' component={ChartsPage} />
+        <Route path='/components/panels' component={PanelPage} />
+        <Route path='/components/search' component={SearchPage} />
         {/* PRO */}
+        <Route path='/components/pro/autocomplete' component={AutocompletePage} />
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
         <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
@@ -121,6 +130,10 @@ class Routes extends React.Component {
         <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />
         <Route path='/css/pro/double' component={DoubleNavigationPage} />
         <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
+        <Route path='/components/pro/forms' component={FormsPagePro} />
+        <Route path='/components/pro/cards' component={CardsPagePro} />
+        <Route path='/components/pro/search' component={SearchPagePro} />
+        {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
         <Route path='/pro/sections/testimonialsMulti' component={TestimonialsMultiPage} />

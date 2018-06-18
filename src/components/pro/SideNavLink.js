@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Waves from '../Waves';
+const Link = require('react-router-dom').NavLink;
 
 class SideNavItem extends React.Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class SideNavItem extends React.Component {
     const {
       tag: Tag,
       children,
-      href,
+      to,
       className,
       innerRef,
       ...attributes
@@ -44,17 +45,16 @@ class SideNavItem extends React.Component {
       className
     );
 
-
-
     return (
-      <Tag
-        className={classes}
-        ref={innerRef}
-        onClick={this.handleClick}
-        {...attributes}
+      <Link className={classes}
+            ref={innerRef}
+            onClick={this.handleClick}
+            to={to}
+            {...attributes}
       >
-        <a className={classes} href={href}>{children}<Waves cursorPos={ this.state.cursorPos } /></a>
-      </Tag>
+        {children}
+        <Waves cursorPos={ this.state.cursorPos } />
+      </Link>
     );
   }
 }
@@ -68,7 +68,7 @@ SideNavItem.propTypes = {
 };
 
 SideNavItem.defaultProps = {
-  tag: 'li',
+  to: '#'
 };
 
 export default SideNavItem;

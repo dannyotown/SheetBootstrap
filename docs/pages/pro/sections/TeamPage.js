@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Card, CardBody, Avatar, Mask, Fa, View, Button} from 'mdbreact';
 
 const TeamPage = () =>  {
-  
+
   return(
     <Container>
       <h2 className="title text-center text-md-left pt-4 mt-5">
-        <strong>Blog listing v.1 </strong>
+        <strong>Team v.1 </strong>
       </h2>
       <Card className="my-5 px-5 pb-5 text-center">
         <CardBody>
@@ -88,7 +88,7 @@ const TeamPage = () =>  {
       </Card>
 
       <h2 className="title text-center text-md-left pt-4 mt-5">
-        <strong>Blog listing v.2 </strong>
+        <strong>Team v.2 </strong>
       </h2>
       <Card className="my-5 px-1 pb-5 text-center">
         <CardBody>
@@ -145,14 +145,14 @@ const TeamPage = () =>  {
       </Card>
 
       <h2 className="title text-center text-md-left pt-4 mt-5">
-        <strong>Blog listing v.3 </strong>
+        <strong>Team v.3 </strong>
       </h2>
       <Card className="my-5 px-5 pb-1 text-center">
         <CardBody>
           <h2 className="h1-responsive font-weight-bold my-5">Our amazing team</h2>
           <p className="grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
           <Row className="text-md-left">
-            <Col lg="6" md="12" className="mb-5"> 
+            <Col lg="6" md="12" className="mb-5">
               <Col md="4" lg="6" className="float-left">
                 <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" alt="Sample avatar"/>
               </Col>
@@ -172,7 +172,7 @@ const TeamPage = () =>  {
               </Col>
             </Col>
 
-            <Col lg="6" md="12" className="mb-5"> 
+            <Col lg="6" md="12" className="mb-5">
               <Col md="4" lg="6" className="float-left">
                 <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" alt="Sample avatar"/>
               </Col>
@@ -192,7 +192,7 @@ const TeamPage = () =>  {
               </Col>
             </Col>
 
-            <Col lg="6" md="12" className="mb-5"> 
+            <Col lg="6" md="12" className="mb-5">
               <Col md="4" lg="6" className="float-left">
                 <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" alt="Sample avatar"/>
               </Col>
@@ -212,7 +212,7 @@ const TeamPage = () =>  {
               </Col>
             </Col>
 
-            <Col lg="6" md="12" className="mb-5"> 
+            <Col lg="6" md="12" className="mb-5">
               <Col md="4" lg="6" className="float-left">
                 <Avatar src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg" className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid" tag="img" alt="Sample avatar"/>
               </Col>

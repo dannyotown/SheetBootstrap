@@ -16,7 +16,7 @@ class ContactFormPage extends React.Component {
 
   onClick(){
     this.setState({
-        collapse: !this.state.collapse,
+      collapse: !this.state.collapse,
     });
   }
 
@@ -25,6 +25,7 @@ class ContactFormPage extends React.Component {
       collapse: false
     });
   }
+
   render(){
   const navStyle = { marginTop: '4rem'}
   const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>

@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class Avatar extends Component {
+class CardHeader extends Component {
 
   render() {
 
     const {
       className,
       tag: Tag,
-      round,
-      circle,
+      color,
+      border,
+      transparent,
       ...attributes
     } = this.props;
 
     const classes = classNames(
-      'avatar',
-      round && 'rounded',
-      circle && 'rounded-circle',
+      'card-header',
+      color && color + ' white-text',
+      border && 'border-' + border,
+      transparent && 'bg-transparent',
       className
     );
 
@@ -27,17 +29,16 @@ class Avatar extends Component {
   }
 }
 
-Avatar.propTypes = {
+CardHeader.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  round: PropTypes.bool,
-  circle: PropTypes.bool,
+  color: PropTypes.string,
+  border: PropTypes.string,
+  transparent: PropTypes.bool
 };
 
-Avatar.defaultProps = {
-  tag: 'div',
-  round: false,
-  circle: false
+CardHeader.defaultProps = {
+  tag: 'div'
 };
 
-export default Avatar;
+export default CardHeader;

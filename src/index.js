@@ -7,8 +7,10 @@ import ButtonGroup from './components/ButtonGroup';
 import ButtonToolbar from './components/ButtonToolbar';
 import Card from './components/Card';
 import CardBody from './components/CardBody';
-import CardImage from './components/CardImage';
 import CardFooter from './components/CardFooter';
+import CardGroup from './components/CardGroup';
+import CardHeader from './components/CardHeader';
+import CardImage from './components/CardImage';
 import CardText from './components/CardText';
 import CardTitle from './components/CardTitle';
 import Carousel from './components/Carousel';
@@ -32,6 +34,7 @@ import FormInline from './components/FormInline';
 import Footer from './components/Footer';
 import FreeBird from './components/FreeBird';
 import Input from './components/Input';
+import InputNumeric from './components/InputNumeric';
 import Jumbotron from './components/Jumbotron';
 import ListGroup from './components/ListGroup';
 import ListGroupItem from './components/ListGroupItem';
@@ -63,12 +66,17 @@ import Tooltip from './components/Tooltip';
 import View from './components/View';
 
 // PRO
+import Autocomplete from './components/pro/Autocomplete';
+import Avatar from './components/pro/Avatar';
 import ButtonFixed from './components/pro/ButtonFixed';
 import ButtonFixedItem from './components/pro/ButtonFixedItem';
+import CardUp from './components/pro/CardUp';
 import CollapseHeader from './components/pro/CollapseHeader';
+import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
+import LightboxStyles from './components/pro/Lightbox.css';
 import PerfectScrollbar from './components/pro/PerfectScrollbar';
 import ScrollSpyBox from './components/pro/ScrollSpyBox';
 import ScrollSpyList from './components/pro/ScrollSpyList';
@@ -77,6 +85,7 @@ import ScrollSpyText from './components/pro/ScrollSpyText';
 import SideNav from './components/pro/SideNav';
 import SideNavCat from './components/pro/SideNavCat';
 import SideNavItem from './components/pro/SideNavItem';
+import SideNavLink from './components/pro/SideNavLink';
 import SideNavNav from './components/pro/SideNavNav';
 import Select from './components/pro/Select';
 import SelectInput from './components/pro/SelectInput';
@@ -87,8 +96,6 @@ import TabPane from './components/pro/TabPane';
 import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
-import CardUp from './components/pro/CardUp';
-import Avatar from './components/pro/Avatar';
 import Testimonial from './components/pro/Testimonial';
 import TestimonialControl from './components/pro/TestimonialControl';
 
@@ -102,10 +109,12 @@ export {
   ButtonToolbar,
   Card,
   CardBody,
+  CardFooter,
+  CardGroup,
+  CardHeader,
   CardImage,
   CardText,
   CardTitle,
-  CardFooter,
   Carousel,
   CarouselCaption,
   CarouselControl,
@@ -127,6 +136,7 @@ export {
   Footer,
   FreeBird,
   Input,
+  InputNumeric,
   Jumbotron,
   ListGroup,
   ListGroupItem,
@@ -157,12 +167,17 @@ export {
   Tooltip,
   View,
   // PRO
+  Autocomplete,
+  Avatar,
   ButtonFixed,
   ButtonFixedItem,
+  CardUp,
   CollapseHeader,
+  FlippingCard,
   InputFile,
   InputRange,
   InputSwitch,
+  LightboxStyles,
   PerfectScrollbar,
   ScrollSpyBox,
   ScrollSpyList,
@@ -171,6 +186,7 @@ export {
   SideNav,
   SideNavCat,
   SideNavItem,
+  SideNavLink,
   SideNavNav,
   Select,
   SelectInput,
@@ -181,8 +197,6 @@ export {
   TabContent,
   Sticky,
   StickyContainer,
-  CardUp,
-  Avatar,
   Testimonial,
-  TestimonialControl
+  TestimonialControl,
 };

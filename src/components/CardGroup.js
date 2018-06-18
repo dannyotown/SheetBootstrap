@@ -2,22 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class Avatar extends Component {
+class CardGroup extends Component {
 
   render() {
 
     const {
       className,
       tag: Tag,
-      round,
-      circle,
+      deck,
+      column,
       ...attributes
     } = this.props;
 
     const classes = classNames(
-      'avatar',
-      round && 'rounded',
-      circle && 'rounded-circle',
+      deck ? 'card-deck' : column ? 'card-columns' : 'card-group',
       className
     );
 
@@ -27,17 +25,15 @@ class Avatar extends Component {
   }
 }
 
-Avatar.propTypes = {
+CardGroup.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  round: PropTypes.bool,
-  circle: PropTypes.bool,
+  deck: PropTypes.bool,
+  column: PropTypes.bool
 };
 
-Avatar.defaultProps = {
-  tag: 'div',
-  round: false,
-  circle: false
+CardGroup.defaultProps = {
+  tag: 'div'
 };
 
-export default Avatar;
+export default CardGroup;

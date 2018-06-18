@@ -47,6 +47,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/media">Media <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/panels">Panels <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/pagination">Pagination <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
@@ -56,17 +59,32 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/progress">Progress <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/search">Search <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/tooltips">Tooltips <Fa icon="angle-right" /></NavLink>
                 </li>
                 <h6 className="mt-3 grey-text">PRO </h6>
                 <li>
+                  <NavLink to="/components/pro/autocomplete">Autocomplete <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/pro/buttons">Buttons <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/cards">Cards <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/forms">Forms <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/components/pro/input">Input <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/components/pro/progress">Progress <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/search">Search <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/components/pro/socialbuttons">Social Buttons <Fa icon="angle-right" /></NavLink>

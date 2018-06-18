@@ -20,7 +20,7 @@ class SelectInput extends React.Component {
       className
     );
     return (
-      <input type="text" ref="selectInput" readOnly value={value} {...attributes} className={classes}/>
+      <input type="text" readOnly value={value} {...attributes} className={classes}/>
     );
   }
 }
