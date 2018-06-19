@@ -49,8 +49,8 @@ class EcommercePage extends Component {
           <Row>
             <Col lg="3" md="6" className="mb-lg-0 mb-4">
               <Card cascade narrow ecommerce>
-                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/1.jpg" top alt="sample photo" overlay="white-slight" />
-                <CardBody className="text-center">
+                <CardImage cascade src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/1.jpg" top alt="sample photo" overlay="white-slight" />
+                <CardBody cascade className="text-center">
                   <a href="" className="grey-text">
                     <h5>Denim</h5>
                   </a>
@@ -92,8 +92,8 @@ class EcommercePage extends Component {
             </Col>
             <Col lg="3" md="6" className="mb-lg-0 mb-4">
               <Card cascade narrow ecommerce>
-                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/2.jpg" top alt="sample photo" overlay="white-slight" />
-                <CardBody className="text-center">
+                <CardImage cascade src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/2.jpg" top alt="sample photo" overlay="white-slight" />
+                <CardBody cascade className="text-center">
                   <a href="" className="grey-text">
                     <h5>Shoes</h5>
                   </a>
@@ -135,8 +135,8 @@ class EcommercePage extends Component {
             </Col>
             <Col lg="3" md="6" className="mb-lg-0 mb-4">
               <Card cascade narrow ecommerce>
-                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/4.jpg" top alt="sample photo" overlay="white-slight" />
-                <CardBody className="text-center">
+                <CardImage cascade src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/4.jpg" top alt="sample photo" overlay="white-slight" />
+                <CardBody cascade className="text-center">
                   <a href="" className="grey-text">
                     <h5>Outwear</h5>
                   </a>
@@ -178,8 +178,8 @@ class EcommercePage extends Component {
             </Col>
             <Col lg="3" md="6" className="mb-lg-0 mb-4">
               <Card cascade narrow ecommerce>
-                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/3.jpg" top alt="sample photo" overlay="white-slight" />
-                <CardBody className="text-center">
+                <CardImage cascade src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/3.jpg" top alt="sample photo" overlay="white-slight" />
+                <CardBody cascade className="text-center">
                   <a href="" className="grey-text">
                     <h5>Blouses</h5>
                   </a>
@@ -228,8 +228,8 @@ class EcommercePage extends Component {
           <Row>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
               <Card wide ecommerce>
-                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (55).jpg" top alt="sample photo" />
-                <CardBody className="text-center">
+                <CardImage cascade src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (55).jpg" top alt="sample photo" />
+                <CardBody cascade className="text-center">
                   <a href="" className="text-muted">
                     <h5>Camera</h5>
                   </a>
@@ -251,8 +251,8 @@ class EcommercePage extends Component {
             </Col>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
               <Card wide ecommerce>
-                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (49).jpg" top alt="sample photo" />
-                <CardBody className="text-center">
+                <CardImage cascade src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (49).jpg" top alt="sample photo" />
+                <CardBody cascade className="text-center">
                   <a href="" className="text-muted">
                     <h5>Photography</h5>
                   </a>
@@ -274,8 +274,8 @@ class EcommercePage extends Component {
             </Col>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
               <Card wide ecommerce>
-                <CardImage src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (56).jpg" top alt="sample photo" />
-                <CardBody className="text-center">
+                <CardImage cascade src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (56).jpg" top alt="sample photo" />
+                <CardBody cascade className="text-center">
                   <a href="" className="text-muted">
                     <h5>Smartphone</h5>
                   </a>
@@ -454,8 +454,8 @@ class EcommercePage extends Component {
                 <CarouselItem itemId="1">
                   <Col md="4">
                     <Card narrow ecommerce className="mb-2">
-                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" alt="sample photo"/>
-                      <CardBody>
+                      <CardImage cascade top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg" alt="sample photo"/>
+                      <CardBody cascade>
                         <a href="" className="text-muted">
                           <h5>Shoes</h5>
                         </a>
@@ -473,8 +473,8 @@ class EcommercePage extends Component {
                   </Col>
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Card narrow ecommerce className="mb-2">
-                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg" alt="sample photo"/>
-                      <CardBody>
+                      <CardImage cascade top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg" alt="sample photo"/>
+                      <CardBody cascade>
                         <a href="" className="text-muted">
                           <h5>Jeans</h5>
                         </a>
@@ -492,8 +492,8 @@ class EcommercePage extends Component {
                   </Col>
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Card narrow ecommerce className="mb-2">
-                      <CardImage top src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg" alt="sample photo"/>
-                      <CardBody>
+                      <CardImage cascade top src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg" alt="sample photo"/>
+                      <CardBody cascade>
                         <a href="" className="text-muted">
                           <h5>Shorts</h5>
                         </a>
@@ -513,8 +513,8 @@ class EcommercePage extends Component {
                 <CarouselItem itemId="2">
                   <Col md="4">
                     <Card narrow ecommerce className="mb-2">
-                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(30).jpg" alt="sample photo"/>
-                      <CardBody>
+                      <CardImage cascade top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(30).jpg" alt="sample photo"/>
+                      <CardBody cascade>
                         <a href="" className="text-muted">
                           <h5>Shoes</h5>
                         </a>
@@ -532,8 +532,8 @@ class EcommercePage extends Component {
                   </Col>
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Card narrow ecommerce className="mb-2">
-                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(37).jpg" alt="sample photo"/>
-                      <CardBody>
+                      <CardImage cascade top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(37).jpg" alt="sample photo"/>
+                      <CardBody cascade>
                         <a href="" className="text-muted">
                           <h5>Jeans</h5>
                         </a>
@@ -551,8 +551,8 @@ class EcommercePage extends Component {
                   </Col>
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Card narrow ecommerce className="mb-2">
-                      <CardImage top src="https://mdbootstrap.com/img/Photos/Others/img%20(35).jpg" alt="sample photo"/>
-                      <CardBody>
+                      <CardImage cascade top src="https://mdbootstrap.com/img/Photos/Others/img%20(35).jpg" alt="sample photo"/>
+                      <CardBody cascade>
                         <a href="" className="text-muted">
                           <h5>Shorts</h5>
                         </a>
@@ -572,8 +572,8 @@ class EcommercePage extends Component {
                 <CarouselItem itemId="3">
                   <Col md="4">
                     <Card narrow ecommerce className="mb-2">
-                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(32).jpg" alt="sample photo"/>
-                      <CardBody>
+                      <CardImage cascade top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(32).jpg" alt="sample photo"/>
+                      <CardBody cascade>
                         <a href="" className="text-muted">
                           <h5>Shoes</h5>
                         </a>
@@ -591,8 +591,8 @@ class EcommercePage extends Component {
                   </Col>
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Card narrow ecommerce className="mb-2">
-                      <CardImage top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(33).jpg" alt="sample photo"/>
-                      <CardBody>
+                      <CardImage cascade top src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(33).jpg" alt="sample photo"/>
+                      <CardBody cascade>
                         <a href="" className="text-muted">
                           <h5>Jeans</h5>
                         </a>
@@ -610,8 +610,8 @@ class EcommercePage extends Component {
                   </Col>
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Card narrow ecommerce className="mb-2">
-                      <CardImage top src="https://mdbootstrap.com/img/Photos/Others/img%20(38).jpg" alt="sample photo"/>
-                      <CardBody>
+                      <CardImage cascade top src="https://mdbootstrap.com/img/Photos/Others/img%20(38).jpg" alt="sample photo"/>
+                      <CardBody cascade>
                         <a href="" className="text-muted">
                           <h5>Shorts</h5>
                         </a>

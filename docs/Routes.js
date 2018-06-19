@@ -72,6 +72,7 @@ import SocialPage from'./pages/pro/sections/SocialPage';
 import FormsPagePro from './pages/pro/FormsPage';
 import CardsPagePro from'./pages/pro/CardsPage';
 import SearchPagePro from './pages/pro/SearchPage';
+import FooterPagePro from './pages/pro/FooterPage';
 
 class Routes extends React.Component {
   render() {
@@ -133,6 +134,7 @@ class Routes extends React.Component {
         <Route path='/components/pro/forms' component={FormsPagePro} />
         <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route path='/components/pro/search' component={SearchPagePro} />
+        <Route path='/components/pro/footer' component={FooterPagePro} />
         {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
