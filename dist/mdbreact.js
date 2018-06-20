@@ -38032,10 +38032,10 @@ var Option = function (_React$Component) {
       var label = null;
       if (this.state.multiple) {
         if (!this.props.disabled) {
-          input = _react2.default.createElement('input', { type: 'checkbox', checked: this.state.checked });
+          input = _react2.default.createElement('input', { type: 'checkbox', className: 'form-check-input', checked: this.state.checked });
           label = _react2.default.createElement('label', { style: { height: '10px' }, 'data-multiple': this.state.multiple });
         } else {
-          input = _react2.default.createElement('input', { type: 'checkbox', disabled: true });
+          input = _react2.default.createElement('input', { type: 'checkbox', className: 'form-check-input', disabled: true });
           label = _react2.default.createElement('label', { style: { height: '10px' }, 'data-multiple': this.state.multiple });
         }
       }
