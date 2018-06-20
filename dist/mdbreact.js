@@ -2634,10 +2634,11 @@ var View = function (_React$Component) {
           rounded = _props.rounded,
           waves = _props.waves,
           src = _props.src,
+          cascade = _props.cascade,
           Tag = _props.tag,
-          attributes = _objectWithoutProperties(_props, ['className', 'children', 'hover', 'zoom', 'rounded', 'waves', 'src', 'tag']);
+          attributes = _objectWithoutProperties(_props, ['className', 'children', 'hover', 'zoom', 'rounded', 'waves', 'src', 'cascade', 'tag']);
 
-      var classes = (0, _classnames2.default)('view', rounded && 'rounded', zoom && 'zoom', hover && 'overlay', this.props.waves ? 'Ripple-parent' : false, className);
+      var classes = (0, _classnames2.default)('view', rounded && 'rounded', zoom && 'zoom', hover && 'overlay', cascade && 'view-cascade', this.props.waves ? 'Ripple-parent' : false, className);
 
       var viewStyle = void 0;
       if (this.props.src) {
@@ -2672,7 +2673,8 @@ View.propTypes = {
   hover: _propTypes2.default.bool,
   rounded: _propTypes2.default.bool,
   tag: _propTypes2.default.string,
-  waves: _propTypes2.default.bool
+  waves: _propTypes2.default.bool,
+  cascade: _propTypes2.default.bool
 };
 
 exports.default = View;
@@ -4744,8 +4746,8 @@ var Autocomplete = function (_Component) {
     _this.getSuggestions = function (value) {
       var inputValue = value.toLowerCase();
       var inputLength = inputValue.length;
-      return inputLength === 0 ? [] : _this.props.data.filter(function (lang) {
-        return lang.toLowerCase().includes(inputValue);
+      return inputLength === 0 ? [] : _this.props.data.filter(function (data) {
+        return data.toLowerCase().includes(inputValue);
       });
     };
 
@@ -4833,11 +4835,11 @@ var Autocomplete = function (_Component) {
           icon = _props.icon,
           iconSize = _props.iconSize,
           iconClass = _props.iconClass,
-          close = _props.close,
-          closeClass = _props.closeClass,
+          clear = _props.clear,
+          clearClass = _props.clearClass,
           id = _props.id,
           search = _props.search,
-          attributes = _objectWithoutProperties(_props, ['className', 'placeholder', 'data', 'disabled', 'label', 'labelClass', 'icon', 'iconSize', 'iconClass', 'close', 'closeClass', 'id', 'search']);
+          attributes = _objectWithoutProperties(_props, ['className', 'placeholder', 'data', 'disabled', 'label', 'labelClass', 'icon', 'iconSize', 'iconClass', 'clear', 'clearClass', 'id', 'search']);
 
       if (disabled) {
         attributes.disabled = true;
@@ -4860,23 +4862,23 @@ var Autocomplete = function (_Component) {
       // classFixes:
       var labelClassFix = (0, _classnames2.default)(isNotEmpty && 'active', disabled && 'disabled', labelClass);
       var iconClassFix = (0, _classnames2.default)('prefix', this.state.isTouched && 'active', iconClass);
-      var closeClassFix = (0, _classnames2.default)(closeClass);
+      var clearClassFix = (0, _classnames2.default)(clearClass);
 
-      var isCloseVisible = function isCloseVisible() {
+      var isclearVisible = function isclearVisible() {
         var hiddenOrNot = "hidden";
         if (_this2.state.value) {
           hiddenOrNot = "visible";
         }
         return hiddenOrNot;
       };
-      var closeStyleFix = {
+      var clearStyleFix = {
         position: "absolute",
         zIndex: 2,
         top: ".85rem",
         right: 0,
         border: "none",
         background: "0 0",
-        visibility: isCloseVisible()
+        visibility: isclearVisible()
 
         // Here our magic happens:
 
@@ -4900,8 +4902,8 @@ var Autocomplete = function (_Component) {
             },
             label
           ),
-          close && _react2.default.createElement(_Fa2.default, { icon: 'close', onClick: _this2.handleClear, style: closeStyleFix,
-            className: closeClassFix })
+          clear && _react2.default.createElement(_Fa2.default, { icon: 'close', onClick: _this2.handleClear, style: clearStyleFix,
+            className: clearClassFix })
         );
       };
 
@@ -4931,7 +4933,8 @@ Autocomplete.propTypes = {
 };
 
 Autocomplete.defaultProps = {
-  id: 'autocomplete-1'
+  id: 'autocomplete-1',
+  clear: true
 };
 
 exports.default = Autocomplete;
@@ -6086,10 +6089,11 @@ var Card = function (_Component) {
           personal = _props.personal,
           news = _props.news,
           color = _props.color,
+          text = _props.text,
           border = _props.border,
-          attributes = _objectWithoutProperties(_props, ['className', 'tag', 'cascade', 'wide', 'narrow', 'reverse', 'testimonial', 'ecommerce', 'collection', 'pricing', 'personal', 'news', 'color', 'border']);
+          attributes = _objectWithoutProperties(_props, ['className', 'tag', 'cascade', 'wide', 'narrow', 'reverse', 'testimonial', 'ecommerce', 'collection', 'pricing', 'personal', 'news', 'color', 'text', 'border']);
 
-      var classes = (0, _classnames2.default)('card', cascade && 'card-cascade', wide && 'card-cascade wider', narrow && 'card-cascade narrower', reverse && 'card-cascade wider reverse', testimonial && 'testimonial-card', ecommerce && 'card-ecommerce', collection && 'collection-card', pricing && 'pricing-card', personal && 'card-personal', news && 'news-card', color && color + ' white-text', border && 'border-' + border, className);
+      var classes = (0, _classnames2.default)('card', cascade && 'card-cascade', wide && 'card-cascade wider', narrow && 'card-cascade narrower', reverse && 'card-cascade wider reverse', testimonial && 'testimonial-card', ecommerce && 'card-ecommerce', collection && 'collection-card', pricing && 'pricing-card', personal && 'card-personal', news && 'news-card', color && color, text && text + '-text', border && 'border-' + border, className);
 
       return _react2.default.createElement(Tag, _extends({}, attributes, { className: classes }));
     }
@@ -6163,9 +6167,10 @@ var CardBody = function (_Component) {
       var _props = this.props,
           className = _props.className,
           Tag = _props.tag,
-          attributes = _objectWithoutProperties(_props, ['className', 'tag']);
+          cascade = _props.cascade,
+          attributes = _objectWithoutProperties(_props, ['className', 'tag', 'cascade']);
 
-      var classes = (0, _classnames2.default)('card-body', className);
+      var classes = (0, _classnames2.default)('card-body', cascade && 'card-body-cascade', className);
 
       return _react2.default.createElement(Tag, _extends({}, attributes, { className: classes }));
     }
@@ -6176,7 +6181,8 @@ var CardBody = function (_Component) {
 
 CardBody.propTypes = {
   tag: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
-  className: _propTypes2.default.string
+  className: _propTypes2.default.string,
+  cascade: _propTypes2.default.bool
 };
 
 CardBody.defaultProps = {
@@ -6453,6 +6459,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _CardImage$propTypes;
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -6527,8 +6535,9 @@ var CardImage = function (_Component) {
           top = _props.top,
           waves = _props.waves,
           hover = _props.hover,
+          cascade = _props.cascade,
           Tag = _props.tag,
-          attributes = _objectWithoutProperties(_props, ['className', 'overlay', 'top', 'waves', 'hover', 'tag']);
+          attributes = _objectWithoutProperties(_props, ['className', 'overlay', 'top', 'waves', 'hover', 'cascade', 'tag']);
 
       var classes = (0, _classnames2.default)(top && 'card-img-top', className);
 
@@ -6539,7 +6548,7 @@ var CardImage = function (_Component) {
       if (this.props.src) {
         return _react2.default.createElement(
           _View2.default,
-          { hover: this.props.hover },
+          { hover: this.props.hover, cascade: this.props.cascade },
           _react2.default.createElement(
             'div',
             { className: 'Ripple-parent', onMouseDown: this.handleClick.bind(this), onTouchStart: this.handleClick.bind(this) },
@@ -6561,17 +6570,18 @@ var CardImage = function (_Component) {
   return CardImage;
 }(_react.Component);
 
-CardImage.propTypes = _defineProperty({
+CardImage.propTypes = (_CardImage$propTypes = {
   tag: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
   waves: _propTypes2.default.bool,
   className: _propTypes2.default.string
-}, 'waves', _propTypes2.default.bool);
+}, _defineProperty(_CardImage$propTypes, 'waves', _propTypes2.default.bool), _defineProperty(_CardImage$propTypes, 'cascade', _propTypes2.default.bool), _CardImage$propTypes);
 
 CardImage.defaultProps = {
   tag: 'img',
   overlay: 'white-slight',
   waves: true,
-  hover: false
+  hover: false,
+  cascade: false
 };
 
 exports.default = CardImage;
@@ -17401,7 +17411,7 @@ var Nav = function (_Component) {
           header = _props.header,
           attributes = _objectWithoutProperties(_props, ['children', 'className', 'tag', 'tabs', 'color', 'classicTabs', 'pills', 'header']);
 
-      var classes = (0, _classnames2.default)('nav', tabs && 'nav-tabs', pills && 'md-pills', classicTabs && 'classic-tabs', header && 'nav-pills card-header-pills', pills && color ? 'pills-' + color : false, (tabs || classicTabs) && color ? 'tabs-' + this.props.color : false, className);
+      var classes = (0, _classnames2.default)('nav', tabs && 'nav-tabs', pills && 'md-pills', header && 'nav-pills card-header-pills', pills && color ? 'pills-' + color : false, (tabs || classicTabs) && color ? 'tabs-' + this.props.color : false, className);
 
       return _react2.default.createElement(
         Tag,
@@ -36960,6 +36970,7 @@ var SideNav = function (_React$Component) {
         }
         e.stopPropagation();
       }
+      e.stopPropagation();
     }
   }, {
     key: 'render',

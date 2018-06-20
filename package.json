@@ -2,7 +2,6 @@
   "name": "mdbreact",
   "version": "4.5.0",
   "author": "MDBootstrap",
-  "license": "MIT",
   "repository": "https://git.mdbootstrap.com/mdb/react/re-pro",
   "main": "dist/mdbreact.js",
   "files": [
