@@ -82,10 +82,10 @@ class Option extends React.Component {
     let label = null;
     if (this.state.multiple) {
       if (!this.props.disabled) {
-        input = <input type="checkbox" checked={this.state.checked}  />;
+        input = <input type="checkbox" className="form-check-input" checked={this.state.checked}  />;
         label = <label style={{height: '10px'}} data-multiple={this.state.multiple}></label>;
       } else {
-        input = <input type="checkbox" disabled />;
+        input = <input type="checkbox" className="form-check-input" disabled />;
         label = <label style={{height: '10px'}} data-multiple={this.state.multiple}></label>;
       }
     }

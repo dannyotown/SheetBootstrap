@@ -175,11 +175,11 @@ const BlogPage = () =>  {
           <Row>
             <Col md="12">
               <Card reverse>
-                <View hover waves>
+                <View hover cascade waves>
                   <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(142).jpg" className="img-fluid"/>
                   <Mask overlay="white-slight" className="waves-light"/>
                 </View>
-                <CardBody className="text-center">
+                <CardBody cascade className="text-center">
                   <h2 className="font-weight-bold"><a>Title of the news</a></h2>
                   <p>Written by <a><strong>Abby Madison</strong></a>, 26/08/2018</p>
                   <Button className="btn-fb waves-light">
@@ -216,11 +216,11 @@ const BlogPage = () =>  {
           <Row>
             <Col md="12">
               <Card reverse>
-                <View hover waves>
+                <View hover cascade waves>
                   <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(146).jpg" className="img-fluid"/>
                   <Mask overlay="white-slight" className="waves-light"/>
                 </View>
-                <CardBody className="text-center">
+                <CardBody cascade className="text-center">
                 <h2 className="font-weight-bold"><a>Title of the news</a></h2>
                   <p>Written by <a><strong>Abby Madison</strong></a>, 21/08/2018</p>
                     <Button className="btn-fb waves-light">
