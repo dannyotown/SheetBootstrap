@@ -5,7 +5,7 @@ import classNames from 'classnames';
 class CarouselIndicator extends Component {
 
   render() {
- 
+
     let {
       active,
       children,
