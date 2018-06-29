@@ -35,3 +35,4 @@ Select.propTypes = {
 };
 
 export default Select;
+export { Select as MDBSelect };

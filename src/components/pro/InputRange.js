@@ -90,3 +90,5 @@ InputRange.defaultProps = {
 };
 
 export default InputRange;
+export { InputRange as MDBInputRange };
+

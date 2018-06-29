@@ -30,3 +30,4 @@ ScrollSpyText.propTypes = {
 };
 
 export default ScrollSpyText;
+export { ScrollSpyText as MDBScrollSpyText };

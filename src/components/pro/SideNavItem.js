@@ -72,5 +72,6 @@ SideNavItem.defaultProps = {
 };
 
 export default SideNavItem;
+export { SideNavItem as MDBSideNavItem };
 
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 
-export default class Sticky extends Component {
+class Sticky extends Component {
   static propTypes = {
     topOffset: PropTypes.number,
     bottomOffset: PropTypes.number,
@@ -136,3 +136,5 @@ export default class Sticky extends Component {
   }
 }
 
+export default Sticky;
+export { Sticky as MDBSticky };

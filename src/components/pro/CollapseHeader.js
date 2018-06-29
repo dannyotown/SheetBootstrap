@@ -38,3 +38,5 @@ CollapseHeader.propTypes = {
 };
 
 export default CollapseHeader;
+export { CollapseHeader as MDBCollapseHeader };
+

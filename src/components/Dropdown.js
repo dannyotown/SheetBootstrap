@@ -181,3 +181,4 @@ Dropdown.childContextTypes = {
 };
 
 export default Dropdown;
+export { Dropdown as MDBDropdown };

@@ -32,3 +32,4 @@ SelectInput.propTypes = {
 };
 
 export default SelectInput;
+export { SelectInput as MDBSelectInput };

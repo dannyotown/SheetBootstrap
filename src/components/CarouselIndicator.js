@@ -34,3 +34,4 @@ CarouselIndicator.defaultProps = {
 };
 
 export default CarouselIndicator;
+export { CarouselIndicator as MDBCarouselIndicator };

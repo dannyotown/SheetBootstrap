@@ -43,3 +43,5 @@ RotatingCard.defaultProps = {
 };
 
 export default RotatingCard;
+export { RotatingCard as MDBRotatingCard };
+

@@ -28,3 +28,4 @@ ScrollBox.propTypes = {
 };
 
 export default ScrollBox;
+export { ScrollBox as MDBScrollBox };
