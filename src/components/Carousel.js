@@ -121,8 +121,14 @@ class Carousel extends Component {
 
     return (
       <Tag {...attributes} className={classes} aria-label={ariaLabel}>
+        {(this.props.showControls && this.props.multiItem) && (
+          <div className="controls-top">
+            <CarouselControl iconLeft className="btn-floating" direction="prev" role="button" onClick={this.prev}/>
+            <CarouselControl iconRight className="btn-floating" direction="next" role="button" onClick={this.next}/>
+          </div>
+        )}
         {children}
-        {this.props.showControls && (
+        {(this.props.showControls && !this.props.multiItem) && (
           <React.Fragment>
             <CarouselControl direction="prev" role="button" onClick={this.prev} />
             <CarouselControl direction="next" role="button" onClick={this.next} />
@@ -165,3 +171,4 @@ Carousel.childContextTypes = {
 };
 
 export default Carousel;
+export { Carousel as MDBCarousel };

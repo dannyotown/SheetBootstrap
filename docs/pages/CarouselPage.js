@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import { Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask, Container } from 'mdbreact';
+import  { MDBCarousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask, Container } from 'mdbreact';
 
 class CarouselPage extends Component {
 
@@ -9,7 +8,7 @@ class CarouselPage extends Component {
     return(
       <Container>
         <h4 className="mt-5 mb-2">Basic example</h4>
-        <Carousel
+        <MDBCarousel
           activeItem={1}
           length={4}
           showControls={true}
@@ -57,7 +56,7 @@ class CarouselPage extends Component {
               </CarouselCaption>
             </CarouselItem>
           </CarouselInner>
-        </Carousel>
+        </MDBCarousel>
       </Container>
     );
   }
