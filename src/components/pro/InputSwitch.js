@@ -55,5 +55,5 @@ InputSwitch.defaultProps = {
 };
 
 export default InputSwitch;
-export { InputSwitch as MDBInputSwitch };
+export { InputSwitch as MDBSwitch };
 

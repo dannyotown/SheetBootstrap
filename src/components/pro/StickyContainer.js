@@ -86,4 +86,4 @@ class Container extends PureComponent {
 }
 
 export default Container;
-export { Container as MDBContainer };
+export { Container as MDBStickyContent };

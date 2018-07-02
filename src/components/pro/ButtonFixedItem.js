@@ -97,4 +97,4 @@ ButtonFixed.propTypes = {
 };
 
 export default ButtonFixed;
-export { ButtonFixed as MDBButtonFixed };
+export { ButtonFixed as MDBBtnFixedItem };

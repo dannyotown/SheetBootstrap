@@ -66,6 +66,6 @@ Fa.propTypes = {
 
 
 export default Fa ;
-export { Fa as MDBFa };
+export { Fa as MDBIcon };
 
 

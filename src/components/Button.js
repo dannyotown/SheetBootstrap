@@ -115,4 +115,4 @@ Button.propTypes = {
 };
 
 export default Button;
-export { Button as MDBButton };
+export { Button as MDBBtn };

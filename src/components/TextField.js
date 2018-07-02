@@ -219,4 +219,4 @@ TextField.defaultProps = {
 };
 
 export default TextField;
-export { TextField as MDBTextField };
+export { TextField as MDBTextarea };

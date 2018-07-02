@@ -103,4 +103,4 @@ ScrollBar.propTypes = {
 };
 
 export default ScrollBar;
-export { ScrollBar as MDBScrollBar };
+export { ScrollBar as MDBScrollbar };

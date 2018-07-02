@@ -31,4 +31,4 @@ ScrollSpyList.propTypes = {
 };
 
 export default ScrollSpyList;
-export { ScrollSpyList as MDBScrollSpyList };
+export { ScrollSpyList as MDBScrollspyList };

@@ -37,4 +37,4 @@ PageLink.defaultProps = {
 };
 
 export default PageLink;
-export { PageLink as MDBPageLink };
+export { PageLink as MDBPageNav };

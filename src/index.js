@@ -103,9 +103,9 @@ import TestimonialControl from './components/pro/TestimonialControl';
 import MDBBadge from './components/Badge';
 import MDBBreadcrumb from './components/Breadcrumb';
 import MDBBreadcrumbItem from './components/BreadcrumbItem';
-import MDBButton from './components/Button';
-import MDBButtonGroup from './components/ButtonGroup';
-import MDBButtonToolbar from './components/ButtonToolbar';
+import MDBBtn from './components/Button';
+import MDBBtnGroup from './components/ButtonGroup';
+import MDBBtnToolbar from './components/ButtonToolbar';
 import MDBCard from './components/Card';
 import MDBCardBody from './components/CardBody';
 import MDBCardFooter from './components/CardFooter';
@@ -129,13 +129,13 @@ import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
 import MDBDropdownToggle from './components/DropdownToggle';
 import MDBEdgeHeader from './components/EdgeHeader';
-import MDBFa from './components/Fa';
+import MDBIcon from './components/Fa';
 import MDBFade from './components/Fade';
 import MDBFormInline from './components/FormInline';
 import MDBFooter from './components/Footer';
 import MDBFreeBird from './components/FreeBird';
 import MDBInput from './components/Input';
-import MDBInputNumeric from './components/InputNumeric';
+import MDBInputSelect from './components/InputNumeric';
 import MDBJumbotron from './components/Jumbotron';
 import MDBListGroup from './components/ListGroup';
 import MDBListGroupItem from './components/ListGroupItem';
@@ -154,7 +154,7 @@ import MDBNavItem from './components/NavItem';
 import MDBNavLink from './components/NavLink';
 import MDBPagination from './components/Pagination';
 import MDBPageItem from './components/PageItem';
-import MDBPageLink from './components/PageLink';
+import MDBPageNav from './components/PageLink';
 import MDBPopover from './components/Popover';
 import MDBPopoverBody from './components/PopoverBody';
 import MDBPopoverHeader from './components/PopoverHeader';
@@ -162,27 +162,27 @@ import MDBProgress from './components/Progress';
 import MDBWaves from './components/Waves';
 import MDBRow from './components/Row';
 import MDBTable from './components/Table';
-import MDBTextField from './components/TextField';
+import MDBTextarea from './components/TextField';
 import MDBTooltip from './components/Tooltip';
 import MDBView from './components/View';
 
 // MDB PRO
 import MDBAutocomplete from './components/pro/Autocomplete';
 import MDBAvatar from './components/pro/Avatar';
-import MDBButtonFixed from './components/pro/ButtonFixed';
-import MDBButtonFixedItem from './components/pro/ButtonFixedItem';
+import MDBBtnFixed from './components/pro/ButtonFixed';
+import MDBBtnFixedItem from './components/pro/ButtonFixedItem';
 import MDBCardUp from './components/pro/CardUp';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBFlippingCard from './components/pro/FlippingCard';
-import MDBInputFile from './components/pro/InputFile';
-import MDBInputRange from './components/pro/InputRange';
-import MDBInputSwitch from './components/pro/InputSwitch';
+import MDBFileInput from './components/pro/InputFile';
+import MDBRangeInput from './components/pro/InputRange';
+import MDBSwitch from './components/pro/InputSwitch';
 import MDBLightboxStyles from './components/pro/Lightbox.css';
-import MDBPerfectScrollbar from './components/pro/PerfectScrollbar';
-import MDBScrollSpyBox from './components/pro/ScrollSpyBox';
-import MDBScrollSpyList from './components/pro/ScrollSpyList';
-import MDBScrollSpyListItem from './components/pro/ScrollSpyListItem';
-import MDBScrollSpyText from './components/pro/ScrollSpyText';
+import MDBScrollbar from './components/pro/PerfectScrollbar';
+import MDBScrollspyBox from './components/pro/ScrollSpyBox';
+import MDBScrollspyList from './components/pro/ScrollSpyList';
+import MDBScrollspyListItem from './components/pro/ScrollSpyListItem';
+import MDBScrollspyText from './components/pro/ScrollSpyText';
 import MDBSideNav from './components/pro/SideNav';
 import MDBSideNavCat from './components/pro/SideNavCat';
 import MDBSideNavItem from './components/pro/SideNavItem';
@@ -190,13 +190,13 @@ import MDBSideNavLink from './components/pro/SideNavLink';
 import MDBSideNavNav from './components/pro/SideNavNav';
 import MDBSelect from './components/pro/Select';
 import MDBSelectInput from './components/pro/SelectInput';
-import MDBSelectOptions from './components/pro/SelectOptions';
+import MDBSelectDropdown from './components/pro/SelectOptions';
 import MDBSelectOption from './components/pro/SelectOption';
 import MDBSpinner from './components/pro/Spinner';
 import MDBTabPane from './components/pro/TabPane';
 import MDBTabContent from './components/pro/TabContent';
 import MDBSticky from './components/pro/Sticky';
-import MDBStickyContainer from './components/pro/StickyContainer';
+import MDBStickyContent from './components/pro/StickyContainer';
 import MDBTestimonial from './components/pro/Testimonial';
 import MDBTestimonialControl from './components/pro/TestimonialControl';
 
@@ -304,9 +304,9 @@ export {
   MDBBadge,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
-  MDBButton,
-  MDBButtonGroup,
-  MDBButtonToolbar,
+  MDBBtn,
+  MDBBtnGroup,
+  MDBBtnToolbar,
   MDBCard,
   MDBCardBody,
   MDBCardFooter,
@@ -330,13 +330,13 @@ export {
   MDBDropdownMenu,
   MDBDropdownToggle,
   MDBEdgeHeader,
-  MDBFa,
+  MDBIcon,
   MDBFade,
   MDBFormInline,
   MDBFooter,
   MDBFreeBird,
   MDBInput,
-  MDBInputNumeric,
+  MDBInputSelect,
   MDBJumbotron,
   MDBListGroup,
   MDBListGroupItem,
@@ -355,7 +355,7 @@ export {
   MDBNavLink,
   MDBPagination,
   MDBPageItem,
-  MDBPageLink,
+  MDBPageNav,
   MDBPopover,
   MDBPopoverBody,
   MDBPopoverHeader,
@@ -363,26 +363,26 @@ export {
   MDBWaves,
   MDBRow,
   MDBTable,
-  MDBTextField,
+  MDBTextarea,
   MDBTooltip,
   MDBView,
   // MDB PRO
   MDBAutocomplete,
   MDBAvatar,
-  MDBButtonFixed,
-  MDBButtonFixedItem,
+  MDBBtnFixed,
+  MDBBtnFixedItem,
   MDBCardUp,
   MDBCollapseHeader,
   MDBFlippingCard,
-  MDBInputFile,
-  MDBInputRange,
-  MDBInputSwitch,
+  MDBFileInput,
+  MDBRangeInput,
+  MDBSwitch,
   MDBLightboxStyles,
-  MDBPerfectScrollbar,
-  MDBScrollSpyBox,
-  MDBScrollSpyList,
-  MDBScrollSpyListItem,
-  MDBScrollSpyText,
+  MDBScrollbar,
+  MDBScrollspyBox,
+  MDBScrollspyList,
+  MDBScrollspyListItem,
+  MDBScrollspyText,
   MDBSideNav,
   MDBSideNavCat,
   MDBSideNavItem,
@@ -390,13 +390,13 @@ export {
   MDBSideNavNav,
   MDBSelect,
   MDBSelectInput,
-  MDBSelectOptions,
+  MDBSelectDropdown,
   MDBSelectOption,
   MDBSpinner,
   MDBTabPane,
   MDBTabContent,
   MDBSticky,
-  MDBStickyContainer,
+  MDBStickyContent,
   MDBTestimonial,
   MDBTestimonialControl
 };
