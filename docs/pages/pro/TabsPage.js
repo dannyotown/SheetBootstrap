@@ -264,83 +264,87 @@ class TabsPage extends React.Component {
 
               <h2 className="mt-5">Classic tabs</h2>
 
-              <Nav classicTabs color="cyan">
-                <NavItem>
-                  <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs1 === '1' })} onClick={() => { this.toggleClassicTabs1('1'); }}>
-                    Profile
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs1 === '2' })} onClick={() => { this.toggleClassicTabs1('2'); }}>
-                  Follow
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs1 === '3' })} onClick={() => { this.toggleClassicTabs1('3'); }}>
-                        Contact
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs1 === '4' })} onClick={() => { this.toggleClassicTabs1('4'); }}>
-                    Be Awesome
-                  </NavLink>
-                </NavItem>
-              </Nav>
-              <TabContent className="card" activeItem={this.state.activeItemClassicTabs1}>
-                <TabPane tabId="1">
-                <p>Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias.</p>
-                </TabPane>
-                <TabPane tabId="2">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-                </TabPane>
-                <TabPane tabId="3">
-                <p>Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias.</p>
-                </TabPane>
-                <TabPane tabId="4">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-                </TabPane>
-              </TabContent>
+              <div className="classic-tabs">
+                <Nav classicTabs color="cyan">
+                  <NavItem>
+                    <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs1 === '1' })} onClick={() => { this.toggleClassicTabs1('1'); }}>
+                      Profile
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs1 === '2' })} onClick={() => { this.toggleClassicTabs1('2'); }}>
+                    Follow
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs1 === '3' })} onClick={() => { this.toggleClassicTabs1('3'); }}>
+                          Contact
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs1 === '4' })} onClick={() => { this.toggleClassicTabs1('4'); }}>
+                      Be Awesome
+                    </NavLink>
+                  </NavItem>
+                </Nav>
+                <TabContent className="card" activeItem={this.state.activeItemClassicTabs1}>
+                  <TabPane tabId="1">
+                  <p>Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias.</p>
+                  </TabPane>
+                  <TabPane tabId="2">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                  </TabPane>
+                  <TabPane tabId="3">
+                  <p>Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias.</p>
+                  </TabPane>
+                  <TabPane tabId="4">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                  </TabPane>
+                </TabContent>
+              </div>
 
-              <Nav classicTabs color="orange" className="mt-5">
-                <NavItem>
-                  <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs2 === '1' })} onClick={() => { this.toggleClassicTabs2('1'); }}>
-                  <Fa icon="user" size="2x"/><br/>
-                    Profile
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs2 === '2' })} onClick={() => { this.toggleClassicTabs2('2'); }}>
-                  <Fa icon="heart" size="2x"/><br/>
-                  Follow
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs2 === '3' })} onClick={() => { this.toggleClassicTabs2('3'); }}>
-                  <Fa icon="envelope" size="2x"/><br/>
-                        Contact
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs2 === '4' })} onClick={() => { this.toggleClassicTabs2('4'); }}>
-                  <Fa icon="star" size="2x"/><br/>
-                    Be Awesome
-                  </NavLink>
-                </NavItem>
-              </Nav>
-              <TabContent className="card mb-5" activeItem={this.state.activeItemClassicTabs2}>
-                <TabPane tabId="1">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-                </TabPane>
-                <TabPane tabId="2">
-                <p>Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias.</p>
-                </TabPane>
-                <TabPane tabId="3">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
-                </TabPane>
-                <TabPane tabId="4">
-                <p>Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias.</p>
-                </TabPane>
-              </TabContent>
+              <div className="classic-tabs">
+                <Nav classicTabs color="orange" className="mt-5">
+                  <NavItem>
+                    <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs2 === '1' })} onClick={() => { this.toggleClassicTabs2('1'); }}>
+                    <Fa icon="user" size="2x"/><br/>
+                      Profile
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs2 === '2' })} onClick={() => { this.toggleClassicTabs2('2'); }}>
+                    <Fa icon="heart" size="2x"/><br/>
+                    Follow
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs2 === '3' })} onClick={() => { this.toggleClassicTabs2('3'); }}>
+                    <Fa icon="envelope" size="2x"/><br/>
+                          Contact
+                    </NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink to="#" className={classnames({ active: this.state.activeItemClassicTabs2 === '4' })} onClick={() => { this.toggleClassicTabs2('4'); }}>
+                    <Fa icon="star" size="2x"/><br/>
+                      Be Awesome
+                    </NavLink>
+                  </NavItem>
+                </Nav>
+                <TabContent className="card mb-5" activeItem={this.state.activeItemClassicTabs2}>
+                  <TabPane tabId="1">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                  </TabPane>
+                  <TabPane tabId="2">
+                  <p>Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias.</p>
+                  </TabPane>
+                  <TabPane tabId="3">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima.</p>
+                  </TabPane>
+                  <TabPane tabId="4">
+                  <p>Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias.</p>
+                  </TabPane>
+                </TabContent>
+              </div>
             </Col>
           </Row>
         </Container>
