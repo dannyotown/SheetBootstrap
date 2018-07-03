@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row, Card, CardUp, CardBody, CardImage, CardTitle, CardText, Avatar, FlippingCard, Fa } from 'mdbreact';
+import { Container, Col, Row, Card, CardUp, CardBody, CardImage, CardTitle, CardText, Avatar, FlippingCard, Fa, Button } from 'mdbreact';
 
 class FlippingCardPage extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class FlippingCardPage extends React.Component {
 
     return (
         <Container>
-          <h2 className="my-5">Stylish cards</h2>
+          <h2>Stylish cards</h2>
           <Row className="mt-2">
             <Col style={colStyle}>
 
@@ -49,7 +49,8 @@ class FlippingCardPage extends React.Component {
             </Col>
           </Row>
 
-          <h2 className="my-5">Testimonial cards</h2>
+          <hr className="my-5"/>
+          <h2>Testimonial cards</h2>
 
           <Row className="mt-2">
             <Col style={colStyle}>
@@ -84,7 +85,44 @@ class FlippingCardPage extends React.Component {
             </Col>
           </Row>
 
-          <h2 className="my-5">Flipping card</h2>
+
+          <hr className="my-5"/>
+          <h2>Image Overlay</h2>
+
+          <Row>
+            <Col col="5">
+              <Card className="card-image" style={{backgroundImage: "url('https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg')"}}>
+                <div className="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+                  <div>
+                    <h5 className="pink-text"><Fa icon="pie-chart" /> Marketing</h5>
+                    <CardTitle tag="h3" className="pt-2"><strong>This is card title</strong></CardTitle>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+                        optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                        Odit sed qui, dolorum!</p>
+                    <Button color="pink"><Fa icon="clone left" /> View project</Button>
+                  </div>
+                </div>
+              </Card>
+            </Col>
+            <Col>
+            <Card className="card-image" style={{backgroundImage: "url('https://mdbootstrap.com/img/Photos/Horizontal/City/6-col/img%20(47).jpg')"}}>
+
+                <div className="text-white text-center d-flex align-items-center rgba-indigo-strong py-5 px-4">
+                  <div>
+                    <h5 className="orange-text"><Fa icon="desktop" /> Software</h5>
+                    <CardTitle tag="h3" className="pt-2"><strong>This is card title</strong></CardTitle>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat, laboriosam, voluptatem,
+                        optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos.
+                        Odit sed qui, dolorum!</p>
+                    <Button color="deep-orange"><Fa icon="clone left" /> View project</Button>
+                  </div>
+                </div>
+              </Card>
+            </Col>
+          </Row>
+
+          <hr className="my-5"/>
+          <h2>Flipping card</h2>
 
           <Row>
             <Col>
