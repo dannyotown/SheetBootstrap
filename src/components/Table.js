@@ -13,13 +13,16 @@ class Table extends React.Component {
       striped,
       hover,
       responsive,
+      responsiveSm,
+      responsiveMd,
+      responsiveLg,
+      responsiveXl,
       ...attributes
     } = this.props;
 
 
     const classes  = classNames(
       'table',
-      responsive ? 'table-responsive' : false,
       small ? 'table-sm' : false,
       bordered ? 'table-bordered' : false,
       striped ? 'table-striped' : false,
@@ -27,16 +30,18 @@ class Table extends React.Component {
       className
     );
 
-    // const table = <table {...attributes} className={classes}> {this.props.children}</table>;
-
-    // if (responsive) {
-    //   return (
-    //     <div className="table-responsive">{table}</div>
-    //   );
-    // }
+    const wrapperClasses = classNames(
+      responsive ? 'table-responsive' : false,
+      responsiveSm && 'table-responsive-sm',
+      responsiveMd && 'table-responsive-md',
+      responsiveLg && 'table-responsive-lg',
+      responsiveXl && 'table-responsive-xl'
+    )
 
     return (
-      <table {...attributes} className={classes}>{this.props.children}</table>
+      <div className={wrapperClasses}>
+        <table {...attributes} className={classes}>{this.props.children}</table>
+      </div>
     );
   }
 }
@@ -48,7 +53,11 @@ Table.propTypes = {
   striped: PropTypes.bool,
   hover: PropTypes.bool,
   children: PropTypes.node,
-  responsive: PropTypes.bool
+  responsive: PropTypes.bool,
+  responsiveSm: PropTypes.bool,
+  responsiveMd: PropTypes.bool,
+  responsiveLg: PropTypes.bool,
+  responsiveXl: PropTypes.bool
 };
 
 export default Table;

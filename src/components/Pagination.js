@@ -9,12 +9,16 @@ class Pagination extends Component {
     const {
       children,
       className,
+      circle,
+      color,
       tag: Tag,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       'pagination',
+      circle && 'pagination-circle',
+      color && 'pg-' + color,
       className,
     );
 
@@ -29,6 +33,8 @@ class Pagination extends Component {
 Pagination.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
+  circle: PropTypes.bool,
+  color: PropTypes.string,
   children: PropTypes.node
 };
 
