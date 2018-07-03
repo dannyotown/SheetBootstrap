@@ -42,3 +42,4 @@ CardHeader.defaultProps = {
 };
 
 export default CardHeader;
+export { CardHeader as MDBCardHeader };

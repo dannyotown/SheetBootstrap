@@ -5,7 +5,7 @@ import classNames from 'classnames';
 class CarouselIndicator extends Component {
 
   render() {
- 
+
     let {
       active,
       children,
@@ -34,3 +34,4 @@ CarouselIndicator.defaultProps = {
 };
 
 export default CarouselIndicator;
+export { CarouselIndicator as MDBCarouselIndicator };

@@ -57,3 +57,5 @@ TabContent.childContextTypes = {
 TabContent.propTypes = propTypes;
 
 export default TabContent;
+export { TabContent as MDBTabContent };
+

@@ -37,3 +37,5 @@ CardUp.defaultProps = {
 };
 
 export default CardUp;
+export { CardUp as MDBCardUp };
+

@@ -52,3 +52,5 @@ Table.propTypes = {
 };
 
 export default Table;
+export { Table as MDBTable };
+

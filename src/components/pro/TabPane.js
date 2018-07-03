@@ -33,3 +33,4 @@ TabPane.propTypes = {
 };
 
 export default TabPane;
+export { TabPane as MDBTabPane };

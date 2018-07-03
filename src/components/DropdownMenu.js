@@ -67,3 +67,4 @@ DropdownMenu.contextTypes = {
 };
 
 export default DropdownMenu;
+export { DropdownMenu as MDBDropdownMenu };

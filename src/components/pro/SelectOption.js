@@ -110,3 +110,5 @@ Option.propTypes = {
 };
 
 export default Option;
+export { Option as MDBOption };
+

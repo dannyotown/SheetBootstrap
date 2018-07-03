@@ -93,3 +93,4 @@ SideNavCat.defaultProps = {
 };
 
 export default SideNavCat;
+export { SideNavCat as MDBSideNavCat };

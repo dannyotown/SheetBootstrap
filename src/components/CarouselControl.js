@@ -5,7 +5,7 @@ import classNames from 'classnames';
 class Control extends Component {
 
   render() {
- 
+
     let {
       direction,
       text,
@@ -64,3 +64,4 @@ Control.defaultProps = {
 };
 
 export default Control;
+export { Control as MDBControl };
