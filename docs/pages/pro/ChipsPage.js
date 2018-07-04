@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Chip, Card } from 'mdbreact';
+import { Container, Col, Chip, Card, Chips } from 'mdbreact';
 
 class ChipsPage extends React.Component {
   constructor(props) {
@@ -45,7 +45,6 @@ class ChipsPage extends React.Component {
     this.setState({
       ['show'+param]: false
     })
-    console.log(param);
   }
   render() {
 
@@ -112,7 +111,7 @@ class ChipsPage extends React.Component {
           </Card>
 
           <hr className="my-5"/>
-          <h2 className="mb-4">Chips without Avatart</h2>
+          <h2 className="mb-4">Chips without avatars</h2>
 
           <Card style={cardStyle}>
             <div style={chipsRowStyle1}>

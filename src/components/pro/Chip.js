@@ -10,7 +10,6 @@ class Chip extends Component {
     this.state = {
       cursorPos: {}
     };
-    // this.onClick = this.onClick.bind(this);
     this.handleCloseClick = this.handleCloseClick.bind(this);
 
   }
@@ -94,4 +93,3 @@ Chip.defaultProps = {
 
 export default Chip;
 export { Chip as MDBChip };
-
