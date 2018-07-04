@@ -71,6 +71,7 @@ import Avatar from './components/pro/Avatar';
 import ButtonFixed from './components/pro/ButtonFixed';
 import ButtonFixedItem from './components/pro/ButtonFixedItem';
 import CardUp from './components/pro/CardUp';
+import Chip from './components/pro/Chip';
 import CollapseHeader from './components/pro/CollapseHeader';
 import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
@@ -172,6 +173,7 @@ import MDBAvatar from './components/pro/Avatar';
 import MDBBtnFixed from './components/pro/ButtonFixed';
 import MDBBtnFixedItem from './components/pro/ButtonFixedItem';
 import MDBCardUp from './components/pro/CardUp';
+import MDBChip from './components/pro/Chip';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
@@ -273,6 +275,7 @@ export {
   ButtonFixed,
   ButtonFixedItem,
   CardUp,
+  Chip,
   CollapseHeader,
   FlippingCard,
   InputFile,
@@ -372,6 +375,7 @@ export {
   MDBBtnFixed,
   MDBBtnFixedItem,
   MDBCardUp,
+  MDBChip,
   MDBCollapseHeader,
   MDBFlippingCard,
   MDBFileInput,
