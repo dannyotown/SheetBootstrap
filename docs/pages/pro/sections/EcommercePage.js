@@ -1,46 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, CardFooter, Fa, Tooltip, Badge, Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Button } from 'mdbreact';
+import { Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, CardFooter, Fa, Tooltip, Badge, Carousel, CarouselInner, CarouselItem, Button } from 'mdbreact';
 
 class EcommercePage extends Component {
-  constructor(props) {
-    super(props);
-    this.next = this.next.bind(this);
-    this.prev = this.prev.bind(this);
-    this.state = {
-      activeItem: 1,
-      length: 3,
-      slide: true
-    };
-  }
-
-  next() {
-    let nextItem = this.state.activeItem + 1;
-    if(nextItem > this.state.length) {
-      this.setState({ activeItem: 1 });
-    } else {
-      this.setState({ activeItem: nextItem });
-    }
-  }
-
-  prev() {
-    let prevItem = this.state.activeItem - 1;
-    if(prevItem < 1) {
-      this.setState({ activeItem: this.state.length });
-    } else {
-      this.setState({ activeItem: prevItem });
-    }
-  }
-
-  goToIndex(item) {
-    if (this.state.activeItem !== item) {
-      this.setState({
-        activeItem: item
-      });
-    }
-  }
-
+  
   render() {
-    const { activeItem, length, slide } = this.state;
     return(
       <Container>
         <section className="text-center my-5">
@@ -436,19 +399,12 @@ class EcommercePage extends Component {
           <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
           <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
           <Carousel
-            multiItem
-            slide={this.state.slide}
-            activeItem={this.state.activeItem}
-            next={this.next}>
-            <div className="controls-top">
-              <CarouselControl iconLeft className="btn-floating" direction="prev" role="button" onClick={() => { this.prev(); }} />
-              <CarouselControl iconRight className="btn-floating" direction="next" role="button" onClick={() => { this.next(); }} />
-            </div>
-            <CarouselIndicators>
-              <CarouselIndicator active={activeItem === 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
-              <CarouselIndicator active={activeItem === 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
-              <CarouselIndicator active={activeItem === 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
-            </CarouselIndicators>
+            activeItem={1}
+            length={3}
+            slide={true}
+            showControls={true}
+            showIndicators={true}
+            multiItem>
             <CarouselInner>
               <Row>
                 <CarouselItem itemId="1">
