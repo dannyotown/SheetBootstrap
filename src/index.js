@@ -71,6 +71,8 @@ import Avatar from './components/pro/Avatar';
 import ButtonFixed from './components/pro/ButtonFixed';
 import ButtonFixedItem from './components/pro/ButtonFixedItem';
 import CardUp from './components/pro/CardUp';
+import Chip from './components/pro/Chip';
+import ChipsInput from './components/pro/ChipsInput';
 import CollapseHeader from './components/pro/CollapseHeader';
 import DataTable from './components/pro/DataTable';
 import FlippingCard from './components/pro/FlippingCard';
@@ -173,6 +175,8 @@ import MDBAvatar from './components/pro/Avatar';
 import MDBBtnFixed from './components/pro/ButtonFixed';
 import MDBBtnFixedItem from './components/pro/ButtonFixedItem';
 import MDBCardUp from './components/pro/CardUp';
+import MDBChip from './components/pro/Chip';
+import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBDataTable from './components/pro/DataTable';
 import MDBFlippingCard from './components/pro/FlippingCard';
@@ -275,6 +279,8 @@ export {
   ButtonFixed,
   ButtonFixedItem,
   CardUp,
+  Chip,
+  ChipsInput,
   CollapseHeader,
   DataTable,
   FlippingCard,
@@ -375,6 +381,8 @@ export {
   MDBBtnFixed,
   MDBBtnFixedItem,
   MDBCardUp,
+  MDBChip,
+  MDBChipsInput,
   MDBCollapseHeader,
   MDBDataTable,
   MDBFlippingCard,

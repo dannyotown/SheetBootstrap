@@ -1,39 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Card, CardUp, Avatar, CardBody, Fa, Carousel, CarouselInner, CarouselItem, CarouselControl, Testimonial, TestimonialControl } from 'mdbreact';
+import { Container, Row, Col, Card, CardUp, Avatar, CardBody, Fa, Carousel, CarouselInner, CarouselItem, Testimonial, TestimonialControl } from 'mdbreact';
 
 class TestimonialsPage extends Component {
 
-  constructor(props) {
-    super(props);
-    this.next = this.next.bind(this);
-    this.prev = this.prev.bind(this);
-    this.state = {
-      activeItem: 1,
-      maxLength: 3
-    };
-  }
-
-  next() {
-    let nextItem = this.state.activeItem + 1;
-    if(nextItem > this.state.maxLength) {
-      this.setState({ activeItem: 1 });
-    } else {
-      this.setState({ activeItem: nextItem });
-    }
-  }
-
-  prev() {
-    let prevItem = this.state.activeItem - 1;
-    if(prevItem < 1) {
-      this.setState({ activeItem: this.state.maxLength });
-    } else {
-      this.setState({ activeItem: prevItem });
-    }
-  }
-
   render() {
-    const { activeItem } = this.state;
-
     return(
       <Container>
         <section className="text-center my-5">
@@ -92,7 +62,12 @@ class TestimonialsPage extends Component {
 
           <h2 className="h1-responsive font-weight-bold my-5">Testimonials v.2</h2>
 
-          <Carousel testimonial interval={false} activeItem={this.state.activeItem} next={this.next} className="no-flex">
+          <Carousel
+            activeItem={1}
+            length={3}
+            testimonial
+            interval={false}
+            className="no-flex">
             <CarouselInner>
               <CarouselItem itemId="1">
                 <Testimonial>
@@ -146,8 +121,8 @@ class TestimonialsPage extends Component {
                 </Testimonial>
               </CarouselItem>
             </CarouselInner>
-            <TestimonialControl direction="prev" role="button" onClick={() => { this.prev(); }} />
-            <TestimonialControl direction="next" role="button" onClick={() => { this.next(); }} />
+            <TestimonialControl direction="prev" role="button" />
+            <TestimonialControl direction="next" role="button" />
           </Carousel>
 
         </section>
