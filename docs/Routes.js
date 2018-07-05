@@ -73,6 +73,7 @@ import FormsPagePro from './pages/pro/FormsPage';
 import CardsPagePro from'./pages/pro/CardsPage';
 import SearchPagePro from './pages/pro/SearchPage';
 import FooterPagePro from './pages/pro/FooterPage';
+import TablePagePro from './pages/pro/TablePage';
 
 class Routes extends React.Component {
   render() {
@@ -135,6 +136,7 @@ class Routes extends React.Component {
         <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route path='/components/pro/search' component={SearchPagePro} />
         <Route path='/components/pro/footer' component={FooterPagePro} />
+        <Route path='/css/pro/table' component={TablePagePro} />
         {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />

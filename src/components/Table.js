@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-
 class Table extends React.Component {
 
   render() {
@@ -20,18 +19,17 @@ class Table extends React.Component {
       ...attributes
     } = this.props;
 
-
     const classes  = classNames(
       'table',
-      small ? 'table-sm' : false,
-      bordered ? 'table-bordered' : false,
-      striped ? 'table-striped' : false,
-      hover ? 'table-hover' : false,
+      small && 'table-sm',
+      bordered && 'table-bordered',
+      striped && 'table-striped',
+      hover && 'table-hover',
       className
     );
 
     const wrapperClasses = classNames(
-      responsive ? 'table-responsive' : false,
+      responsive && 'table-responsive',
       responsiveSm && 'table-responsive-sm',
       responsiveMd && 'table-responsive-md',
       responsiveLg && 'table-responsive-lg',
