@@ -74,6 +74,7 @@ import CardUp from './components/pro/CardUp';
 import Chip from './components/pro/Chip';
 import ChipsInput from './components/pro/ChipsInput';
 import CollapseHeader from './components/pro/CollapseHeader';
+import DataTable from './components/pro/DataTable';
 import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
@@ -177,6 +178,7 @@ import MDBCardUp from './components/pro/CardUp';
 import MDBChip from './components/pro/Chip';
 import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
+import MDBDataTable from './components/pro/DataTable';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
 import MDBRangeInput from './components/pro/InputRange';
@@ -280,6 +282,7 @@ export {
   Chip,
   ChipsInput,
   CollapseHeader,
+  DataTable,
   FlippingCard,
   InputFile,
   InputRange,
@@ -381,6 +384,7 @@ export {
   MDBChip,
   MDBChipsInput,
   MDBCollapseHeader,
+  MDBDataTable,
   MDBFlippingCard,
   MDBFileInput,
   MDBRangeInput,
