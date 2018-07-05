@@ -5,7 +5,7 @@ import classNames from 'classnames';
 class TestimonialControl extends Component {
 
   render() {
- 
+
     let {
       direction,
       text,
@@ -64,3 +64,4 @@ TestimonialControl.defaultProps = {
 };
 
 export default TestimonialControl;
+export { TestimonialControl as MDBTestimonialControl };

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 class Pagination extends Component {
 
   render() {
- 
+
     const {
       children,
       className,
@@ -37,3 +37,4 @@ Pagination.defaultProps = {
 };
 
 export default Pagination;
+export { Pagination as MDBPagination };

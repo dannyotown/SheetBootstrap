@@ -162,5 +162,6 @@ SideNav.defaultProps = {
 };
 
 export default SideNav;
+export { SideNav as MDBSideNav };
 
 

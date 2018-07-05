@@ -80,3 +80,5 @@ InputFile.defaultProps = {
 };
 
 export default InputFile;
+export { InputFile as MDBFileInput };
+

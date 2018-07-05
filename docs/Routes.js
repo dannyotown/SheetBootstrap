@@ -38,6 +38,7 @@ import SearchPage from './pages/SearchPage';
 import AutocompletePage from './pages/pro/AutocompletePage';
 import ButtonPagePro from './pages/pro/ButtonPage';
 import ChartsPagePro from './pages/pro/ChartsPage';
+import ChipsPage from './pages/pro/ChipsPage';
 import InputPagePro from './pages/pro/InputPage';
 import CollapsePagePro from './pages/pro/CollapsePage';
 import ScrollBarPage from './pages/pro/ScrollBarPage';
@@ -116,6 +117,7 @@ class Routes extends React.Component {
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
         <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
+        <Route path='/components/pro/chips' component={ChipsPage} />
         <Route path='/components/pro/input' component={InputPagePro} />
         <Route path='/advanced/pro/sidenav' component={SideNavPage} />
         <Route path='/advanced/pro/select' component={SelectPage} />

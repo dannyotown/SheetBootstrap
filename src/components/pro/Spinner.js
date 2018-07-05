@@ -147,3 +147,4 @@ Spinner.defaultProps = {
 };
 
 export default Spinner;
+export { Spinner as MDBSpinner };

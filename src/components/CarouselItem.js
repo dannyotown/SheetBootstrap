@@ -21,7 +21,7 @@ class CarouselItem extends Component {
       className
     );
 
-    let slideIndex = this.context.activeItem - itemId; 
+    let slideIndex = this.context.activeItem - itemId;
     let style = {};
 
     if (this.context.slide) {
@@ -69,3 +69,4 @@ CarouselItem.contextTypes = {
 };
 
 export default CarouselItem;
+export { CarouselItem as MDBCarouselItem };

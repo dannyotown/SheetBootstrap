@@ -4,7 +4,7 @@
   "author": "MDBootstrap",
   "repository": "https://git.mdbootstrap.com/mdb/react/re-pro",
   "main": "dist/mdbreact.js",
-  "license": "Custom License (Read license.pdf file)",
+  "license": "SEE LICENSE IN <license.pdf>",
   "files": [
     "dist/*"
   ],

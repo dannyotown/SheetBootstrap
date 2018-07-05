@@ -83,3 +83,5 @@ Waves.propTypes = {
 };
 
 export default Waves;
+export { Waves as MDBWaves };
+

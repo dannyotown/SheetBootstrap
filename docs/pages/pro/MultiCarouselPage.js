@@ -1,64 +1,19 @@
 import React, { Component } from 'react';
-import { Carousel, CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, Button } from 'mdbreact';
+import { CarouselControl, Carousel, CarouselInner, CarouselItem, Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, Button } from 'mdbreact';
 
 class MultiCarouselPage extends Component {
-  constructor(props) {
-    super(props);
-    this.next = this.next.bind(this);
-    this.prev = this.prev.bind(this);
-    this.state = {
-      activeItem: 1,
-      length: 3,
-      slide: true
-    };
-  }
-
-  next() {
-    let nextItem = this.state.activeItem + 1;
-    if(nextItem > this.state.length) {
-      this.setState({ activeItem: 1 });
-    } else {
-      this.setState({ activeItem: nextItem });
-    }
-  }
-
-  prev() {
-    let prevItem = this.state.activeItem - 1;
-    if(prevItem < 1) {
-      this.setState({ activeItem: this.state.length });
-    } else {
-      this.setState({ activeItem: prevItem });
-    }
-  }
-
-  goToIndex(item) {
-    if (this.state.activeItem !== item) {
-      this.setState({
-        activeItem: item
-      });
-    }
-  }
 
   render(){
-    const { activeItem, length, slide } = this.state;
     return(
       <Container>
         <h4 className="mt-5 mb-2">Multi-item Carousel</h4>
-        <Carousel 
-          multiItem
-          slide={this.state.slide}
-          activeItem={this.state.activeItem}
-          length={this.state.length}
-          next={this.next}>
-          <div className="controls-top">
-            <CarouselControl iconLeft className="btn-floating" direction="prev" role="button" onClick={() => { this.prev(); }} />
-            <CarouselControl iconRight className="btn-floating" direction="next" role="button" onClick={() => { this.next(); }} />
-          </div>
-          <CarouselIndicators>
-            <CarouselIndicator active={activeItem === 1 ? true : false} onClick={() => { this.goToIndex(1); }}></CarouselIndicator>
-            <CarouselIndicator active={activeItem === 2 ? true : false} onClick={() => { this.goToIndex(2); }}></CarouselIndicator>
-            <CarouselIndicator active={activeItem === 3 ? true : false} onClick={() => { this.goToIndex(3); }}></CarouselIndicator>
-          </CarouselIndicators>
+        <Carousel
+          activeItem={1}
+          length={3}
+          slide={true}
+          showControls={true}
+          showIndicators={true}
+          multiItem >
           <CarouselInner>
             <Row>
               <CarouselItem itemId="1">

@@ -53,3 +53,4 @@ CardFooter.defaultProps = {
 };
 
 export default CardFooter;
+export { CardFooter as MDBCardFooter };
