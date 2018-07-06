@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from './DataTablePagination';
+import filterFactory, { textFilter } from './DataTableFilter';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './DataTable.css';
 
@@ -53,9 +54,19 @@ class DataTable extends React.Component {
       paginationTotalRenderer: customTotal
     });
 
+    function findSearch(element) {
+      return element = 'search';
+    }
+
+    columns.forEach(function(entry) {
+      if(entry.search) {
+        entry.filter = textFilter();
+      }
+    });
+
     return (
-      <div className={wrapperClasses}>
-        <BootstrapTable keyField={keyField} data={data} columns={columns} {...attributes} className={classes} striped={striped} hover={hover} pagination={pagination} />
+      <div className={wrapperClasses} style={{'position': 'relative'}}>
+        <BootstrapTable keyField={keyField} data={data} columns={columns} {...attributes} className={classes} striped={striped} hover={hover} pagination={pagination} filter={ filterFactory() } />
       </div>
     );
   }

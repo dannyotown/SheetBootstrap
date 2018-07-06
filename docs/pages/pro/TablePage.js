@@ -17,7 +17,8 @@ const columns = [{
 }, {
   dataField: 'name',
   text: 'Product Name',
-  sort: true
+  sort: true,
+  search: true
 }, {
   dataField: 'price',
   text: 'Product Price',
@@ -31,7 +32,7 @@ const config = {
   lastPageText: 'Last',
   alwaysShowAllBtns: true,
   showTotal: true,
-  hideSizePerPage: false
+  hideSizePerPage: false,
 };
 
 const TablePagePro = (props) => {
@@ -44,12 +45,11 @@ const TablePagePro = (props) => {
               Table Sort
             </CardHeader>
             <CardBody>
-              <DataTable keyField='id' data={data} columns={columns} config={config} striped />
+              <DataTable keyField='id' data={data} columns={columns} config={config} striped search />
             </CardBody>
           </Card>
         </Col>
       </Row>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </Container>
   );
 };
