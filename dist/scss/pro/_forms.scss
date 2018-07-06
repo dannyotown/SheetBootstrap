@@ -8,12 +8,12 @@
 
 %base-radio-checkbox-label {
   position: relative;
-  padding-left: $base-radio-checkbox-label-pl;
+  padding-left: 35px;
   cursor: pointer;
   display: inline-block;
-  height: $base-radio-checkbox-label-height;
-  line-height: $base-radio-checkbox-label-line-height;
-  font-size: $base-radio-checkbox-label-font-size;
+  height: 25px;
+  line-height: 25px;
+  font-size: 1rem;
 }
 
 .form-header {

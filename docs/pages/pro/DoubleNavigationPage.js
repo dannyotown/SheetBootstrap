@@ -15,7 +15,6 @@ constructor(props) {
         collapsed: false,
     };
 this.onClick = this.onClick.bind(this);
-this.toggle = this.toggle.bind(this);
 this.onClick0 = this.onClick0.bind(this);
 this.onClick1 = this.onClick1.bind(this);
 this.onClick2 = this.onClick2.bind(this);
@@ -106,12 +105,6 @@ onClick(){
     });
 }
 
-toggle() {
-    this.setState({
-        dropdownOpen: !this.state.dropdownOpen
-    });
-}
-
 render() {
   const isOpenWithButtonA = this.state.toggleStateA;
   const divstyle = {width: "50%", display: "inline-block"}
@@ -167,7 +160,7 @@ render() {
                     <NavLink to="#!"><Fa icon="user" className="d-inline-inline"/>  <div className="d-none d-md-inline">Account</div></NavLink>
                 </NavItem>
                 <NavItem>
-                  <Dropdown isOpen={this.state.dropdownOpen} toggle={()=>"baba"} onMouseEnter={this.toggle} onMouseLeave={this.toggle}>
+                  <Dropdown>
                     <DropdownToggle nav caret> <div className="d-none d-md-inline">Dropdown</div></DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem href="#!">Action</DropdownItem>
@@ -183,6 +176,6 @@ render() {
         </Router>
     );
   }
-};
+}
 
 export default TestPage;

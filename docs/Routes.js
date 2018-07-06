@@ -33,8 +33,8 @@ import HoverPage from './pages/HoverPage';
 import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
 import SearchPage from './pages/SearchPage';
-
 // PRO
+import MaterialDropdownPage from './pages/pro/DropdownPage';
 import AutocompletePage from './pages/pro/AutocompletePage';
 import ButtonPagePro from './pages/pro/ButtonPage';
 import ChartsPagePro from './pages/pro/ChartsPage';
@@ -113,6 +113,7 @@ class Routes extends React.Component {
         <Route path='/components/panels' component={PanelPage} />
         <Route path='/components/search' component={SearchPage} />
         {/* PRO */}
+        <Route path='/components/pro/dropdown' component={MaterialDropdownPage} />
         <Route path='/components/pro/autocomplete' component={AutocompletePage} />
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />

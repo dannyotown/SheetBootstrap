@@ -26,6 +26,7 @@ import Container from './components/Container';
 import Dropdown from './components/Dropdown';
 import DropdownItem from './components/DropdownItem';
 import DropdownMenu from './components/DropdownMenu';
+import DropdownMenuComponent from './components/DropdownMenuComponent';
 import DropdownToggle from './components/DropdownToggle';
 import EdgeHeader from './components/EdgeHeader';
 import Fa from './components/Fa';
@@ -73,6 +74,7 @@ import ButtonFixedItem from './components/pro/ButtonFixedItem';
 import CardUp from './components/pro/CardUp';
 import Chip from './components/pro/Chip';
 import CollapseHeader from './components/pro/CollapseHeader';
+import DropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
 import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
@@ -128,6 +130,7 @@ import MDBContainer from './components/Container';
 import MDBDropdown from './components/Dropdown';
 import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
+import MDBDropdownMenuComponent from './components/DropdownMenuComponent';
 import MDBDropdownToggle from './components/DropdownToggle';
 import MDBEdgeHeader from './components/EdgeHeader';
 import MDBIcon from './components/Fa';
@@ -175,6 +178,7 @@ import MDBBtnFixedItem from './components/pro/ButtonFixedItem';
 import MDBCardUp from './components/pro/CardUp';
 import MDBChip from './components/pro/Chip';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
+import MDBDropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
 import MDBRangeInput from './components/pro/InputRange';
@@ -231,6 +235,7 @@ export {
   Dropdown,
   DropdownItem,
   DropdownMenu,
+  DropdownMenuComponent,
   DropdownToggle,
   EdgeHeader,
   Fa,
@@ -277,6 +282,7 @@ export {
   CardUp,
   Chip,
   CollapseHeader,
+  DropdownMenuProComponent,
   FlippingCard,
   InputFile,
   InputRange,
@@ -331,6 +337,7 @@ export {
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,
+  MDBDropdownMenuComponent,
   MDBDropdownToggle,
   MDBEdgeHeader,
   MDBIcon,
@@ -377,6 +384,7 @@ export {
   MDBCardUp,
   MDBChip,
   MDBCollapseHeader,
+  MDBDropdownMenuProComponent,
   MDBFlippingCard,
   MDBFileInput,
   MDBRangeInput,

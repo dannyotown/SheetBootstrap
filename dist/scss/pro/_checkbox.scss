@@ -1,6 +1,5 @@
 // Checkbox
-.form-check-input[type="checkbox"],
-label.btn input[type="checkbox"] {
+[type="checkbox"] {
   @extend %hide-radio-checkbox;
   + label {
     @extend %base-radio-checkbox-label;
