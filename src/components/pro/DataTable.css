@@ -1,3 +1,7 @@
+.react-bootstrap-table {
+  padding-top: 65px;
+}
+
 .react-bootstrap-table .caret {
   display: inline-block;
   width: 0;
@@ -37,4 +41,22 @@
 
 .react-bootstrap-table-pagination-total {
   display: block;
+}
+
+.react-bootstrap-table .md-form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  width: 200px;
+}
+
+.react-bootstrap-table-pagination > * {
+  position: inherit;
+}
+
+.react-bs-table-sizePerPage-dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

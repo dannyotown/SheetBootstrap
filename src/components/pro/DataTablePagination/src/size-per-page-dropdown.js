@@ -2,7 +2,7 @@ import React from 'react';
 import cs from 'classnames';
 import PropTypes from 'prop-types';
 import SizePerPageOption from './size-per-page-option';
-import { Select, SelectInput, SelectOptions } from '../../../../';
+import { MDBSelect, MDBSelectInput, MDBSelectDropdown } from '../../../../';
 
 const sizePerPageDefaultClass = 'react-bs-table-sizePerPage-dropdown';
 
@@ -76,9 +76,9 @@ class SizePerPageDropDown extends React.Component {
         className={ dropdownClasses }
       >
         Show entries
-        <Select>
-          <SelectInput value={this.state.value}></SelectInput>
-          <SelectOptions>
+        <MDBSelect>
+          <MDBSelectInput value={this.state.value}></MDBSelectInput>
+          <MDBSelectDropdown>
             {
               options.map(option => (
               <SizePerPageOption
@@ -89,8 +89,8 @@ class SizePerPageDropDown extends React.Component {
               />
               ))
             }
-          </SelectOptions>
-        </Select>
+          </MDBSelectDropdown>
+        </MDBSelect>
       </span>
     );
   };
