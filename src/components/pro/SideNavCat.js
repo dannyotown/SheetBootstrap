@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Collapse from '../Collapse';
 import Waves from '../Waves';
-// require('./SideNav.css');
 
 class SideNavCat extends React.Component {
   constructor(props) {
