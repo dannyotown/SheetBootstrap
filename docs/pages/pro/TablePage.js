@@ -50,7 +50,6 @@ const TablePagePro = (props) => {
           </Card>
         </Col>
       </Row>
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </Container>
   );
 };
