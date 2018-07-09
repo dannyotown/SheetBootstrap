@@ -123,7 +123,7 @@ class InputPage extends React.Component {
 
         <h2 className="title mb-5"><strong>File input</strong></h2>
         <h4 className="mt-5 mb-3">Basic example</h4>
-        <InputFile getFileList = { this.fileInputHandler }></InputFile>
+        <InputFile getValue = { this.fileInputHandler }></InputFile>
 
         <h4 className="mt-5 mb-3">Multiple files</h4>
         <InputFile multiple btnColor="info" btn-size="sm"></InputFile>

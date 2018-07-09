@@ -29,7 +29,7 @@ class InputFile extends React.Component {
 
   onChangeHandler = (e) => {
     this.fileChange(e.target.files);
-    this.props.getFileList && this.props.getFileList(e.target.files);
+    this.props.getValue && this.props.getValue(e.target.files);
   }
 
   render() {
