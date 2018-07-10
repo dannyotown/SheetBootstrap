@@ -7,7 +7,7 @@ for (let i = 1; i <= 5; i++) {
     'id': i,
     'name': 'Item name ' + i,
     'price': Math.round(Math.random()*10000)/100,
-    'remove': '<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>'
+    'remove': '<span className="table-remove"><button type="button" className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>'
   })
 }
 
@@ -45,7 +45,7 @@ const TableSort = (props) => {
               Table Editable
             </CardHeader>
             <CardBody>
-              <DataTable keyField='id' data={data} columns={columns} config={config} striped editable />
+              <DataTable keyField='id' data={data} columns={columns} config={config} striped editable pagination />
             </CardBody>
           </Card>
         </Col>

@@ -45,7 +45,7 @@ const TableSort = (props) => {
               Table Sort
             </CardHeader>
             <CardBody>
-              <DataTable keyField='id' data={data} columns={columns} config={config} striped search />
+              <DataTable keyField='id' data={data} columns={columns} config={config} striped search pagination />
             </CardBody>
           </Card>
         </Col>

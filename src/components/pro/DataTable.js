@@ -41,6 +41,7 @@ class DataTable extends React.Component {
       striped,
       hover,
       editable,
+      pagination,
       responsive,
       responsiveSm,
       responsiveMd,
@@ -68,7 +69,7 @@ class DataTable extends React.Component {
       </span>
     );
 
-    const pagination = paginationFactory({
+    const paginationConfig = paginationFactory({
       prePageText: config.prePageText || 'Previous',
       nextPageText: config.nextPageText || 'Next',
       firstPageText: config.firstPageText || 'First',
@@ -79,6 +80,14 @@ class DataTable extends React.Component {
       paginationTotalRenderer: customTotal
     });
 
+    let tableProps = {}
+  
+    if (this.props.pagination) {
+      tableProps = {
+        pagination: paginationConfig
+      }
+    }
+
     columns.forEach(function(entry) {
       if(entry.search) {
         entry.filter = textFilter();
@@ -88,7 +97,7 @@ class DataTable extends React.Component {
     return (
       <div className={wrapperClasses} style={{'position': 'relative'}}>
         { editable && <span onClick={ this.addRow } className="table-add float-right mb-3 mr-2"><a href="#!" className="text-success"><i className="fa fa-plus fa-2x" aria-hidden="true"></i></a></span> }
-        <BootstrapTable keyField={keyField} data={this.state.data} columns={columns} {...attributes} className={classes} striped={striped} hover={hover} pagination={pagination} filter={ filterFactory() } />
+        <BootstrapTable keyField={keyField} data={this.state.data} columns={columns} {...attributes} className={classes} striped={striped} hover={hover} {...tableProps} filter={ filterFactory() } />
       </div>
     );
   }
@@ -105,7 +114,8 @@ DataTable.propTypes = {
   responsiveLg: PropTypes.bool,
   responsiveXl: PropTypes.bool,
   config: PropTypes.object,
-  editable: PropTypes.bool
+  editable: PropTypes.bool,
+  pagination: PropTypes.bool
 };
 
 export default DataTable;
