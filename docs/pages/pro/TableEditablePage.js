@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card, CardHeader, CardBody, DataTable } from 'mdbreact';
+import { Container, Row, Col, Card, CardHeader, CardBody, TableEditable } from 'mdbreact';
 
 const data = [];
 for (let i = 1; i <= 5; i++) {
@@ -7,7 +7,7 @@ for (let i = 1; i <= 5; i++) {
     'id': i,
     'name': 'Item name ' + i,
     'price': Math.round(Math.random()*10000)/100,
-    'remove': '<span className="table-remove"><button type="button" className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>'
+    'remove': true
   })
 }
 
@@ -25,16 +25,6 @@ const columns = [{
   text: 'Remove'
 }];
 
-const config = {
-  prePageText: 'Previous',
-  nextPageText: 'Next',
-  firstPageText: 'First',
-  lastPageText: 'Last',
-  alwaysShowAllBtns: true,
-  showTotal: false,
-  hideSizePerPage: true,
-};
-
 const TableSort = (props) => {
   return(
     <Container className="mt-3">
@@ -45,7 +35,7 @@ const TableSort = (props) => {
               Table Editable
             </CardHeader>
             <CardBody>
-              <DataTable keyField='id' data={data} columns={columns} config={config} striped editable pagination />
+              <TableEditable data={data} striped />
             </CardBody>
           </Card>
         </Col>

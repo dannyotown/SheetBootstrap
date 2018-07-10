@@ -97,6 +97,7 @@ import SelectInput from './components/pro/SelectInput';
 import SelectOptions from './components/pro/SelectOptions';
 import SelectOption from './components/pro/SelectOption';
 import Spinner from './components/pro/Spinner';
+import TableEditable from './components/pro/TableEditable';
 import TabPane from './components/pro/TabPane';
 import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
@@ -203,6 +204,7 @@ import MDBSelectInput from './components/pro/SelectInput';
 import MDBSelectOptions from './components/pro/SelectOptions';
 import MDBSelectOption from './components/pro/SelectOption';
 import MDBSpinner from './components/pro/Spinner';
+import MDBTableEditable from './components/pro/TableEditable';
 import MDBTabPane from './components/pro/TabPane';
 import MDBTabContent from './components/pro/TabContent';
 import MDBSticky from './components/pro/Sticky';
@@ -309,6 +311,7 @@ export {
   SelectOptions,
   SelectOption,
   Spinner,
+  TableEditable,
   TabPane,
   TabContent,
   Sticky,
@@ -413,6 +416,7 @@ export {
   MDBSelectOptions,
   MDBSelectOption,
   MDBSpinner,
+  MDBTableEditable,
   MDBTabPane,
   MDBTabContent,
   MDBSticky,
