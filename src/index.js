@@ -200,7 +200,7 @@ import MDBSideNavLink from './components/pro/SideNavLink';
 import MDBSideNavNav from './components/pro/SideNavNav';
 import MDBSelect from './components/pro/Select';
 import MDBSelectInput from './components/pro/SelectInput';
-import MDBSelectDropdown from './components/pro/SelectOptions';
+import MDBSelectOptions from './components/pro/SelectOptions';
 import MDBSelectOption from './components/pro/SelectOption';
 import MDBSpinner from './components/pro/Spinner';
 import MDBTabPane from './components/pro/TabPane';
@@ -410,7 +410,7 @@ export {
   MDBSideNavNav,
   MDBSelect,
   MDBSelectInput,
-  MDBSelectDropdown,
+  MDBSelectOptions,
   MDBSelectOption,
   MDBSpinner,
   MDBTabPane,

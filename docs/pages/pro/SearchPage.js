@@ -12,10 +12,8 @@ class SearchPagePro extends React.Component {
     };
     this.handleTogglerClick = this.handleTogglerClick.bind(this);
     this.handleNavbarClick = this.handleNavbarClick.bind(this);
-    this.optionClick = this.optionClick.bind(this);
-    this.optionClick2 = this.optionClick2.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.otherDropdownsClose = this.otherDropdownsClose.bind(this);
+    this.getValueOfSelectOne = this.getValueOfSelectOne.bind(this);
+    this.getValueOfSelectTwo = this.getValueOfSelectTwo.bind(this);
   }
 
   handleTogglerClick(){
@@ -30,54 +28,13 @@ class SearchPagePro extends React.Component {
     });
   }
 
-  optionClick(value) {
-    if (value.constructor === Array) {
-      value = value.join(', ');
-    }
-    this.setState({value: value});
+  // You can get select values and do whatever you want with them
+  getValueOfSelectOne(value) {
+    this.setState({ value: value });
   }
 
-  optionClick2(value) {
-    if (value.constructor === Array) {
-      value = value.join(', ');
-    }
-    this.setState({value2: value});
-  }
-
-  onClick(e) {
-    // check if select is multiple
-    if (e.target.dataset.multiple === 'true') {
-      return;
-    }
-    if (e.target.classList.contains('form-control')) {
-      return;
-    }
-
-    if (e.target.classList.contains('select-dropdown')) {
-      this.otherDropdownsClose();
-      if (e.target.nextElementSibling) {
-        e.target.nextElementSibling.classList.add('fadeIn');
-      }
-    } else {
-      this.otherDropdownsClose();
-    }
-  }
-
-  otherDropdownsClose() {
-    let dropdowns = document.querySelectorAll('.dropdown-content');
-    for (let i = 0; i < dropdowns.length; i++) {
-      if (dropdowns[i].classList.contains('fadeIn')) {
-        dropdowns[i].classList.remove('fadeIn');
-      }
-    }
-  }
-
-  componentDidMount() {
-    document.addEventListener('click', this.onClick);
-  }
-  
-  componentWillUnmount() {
-    document.removeEventListener('click', this.onClick);
+  getValueOfSelectTwo(value) {
+    this.setState({ value2: value });
   }
 
   render() {
@@ -142,28 +99,28 @@ class SearchPagePro extends React.Component {
             </Collapse>
           </Navbar>
           <h3 className="mt-5">Search within select</h3>
-          <Select>
-            <SelectInput value={this.state.value}></SelectInput>
+          <Select getValue={this.getValueOfSelectOne}>
+            <SelectInput selected="Choose your option"></SelectInput>
             <SelectOptions search>
               <SelectOption disabled>Choose your option</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick}>Option nr 1</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick}>Option nr 2</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick}>Option nr 3</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick}>Option nr 4</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick}>Option nr 5</SelectOption>
+              <SelectOption>Option nr 1</SelectOption>
+              <SelectOption>Option nr 2</SelectOption>
+              <SelectOption>Option nr 3</SelectOption>
+              <SelectOption>Option nr 4</SelectOption>
+              <SelectOption>Option nr 5</SelectOption>
             </SelectOptions>
           </Select>
           <label>Example label</label>
           <h3 className="mt-5">Search within multiselect</h3>
-          <Select multiple>
-            <SelectInput value={this.state.value2}></SelectInput>
+          <Select multiple getValue={this.getValueOfSelectTwo}>
+            <SelectInput selected="Choose your option"></SelectInput>
             <SelectOptions search>
               <SelectOption disabled>Choose your option</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick2}>Option nr 1</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick2}>Option nr 2</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick2}>Option nr 3</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick2}>Option nr 4</SelectOption>
-              <SelectOption triggerOptionClick={this.optionClick2}>Option nr 5</SelectOption>
+              <SelectOption>Option nr 1</SelectOption>
+              <SelectOption>Option nr 2</SelectOption>
+              <SelectOption>Option nr 3</SelectOption>
+              <SelectOption>Option nr 4</SelectOption>
+              <SelectOption>Option nr 5</SelectOption>
             </SelectOptions>
           </Select>
           <label>Example label</label>

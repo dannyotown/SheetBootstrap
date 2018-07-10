@@ -14,8 +14,10 @@ class Select extends React.Component {
     document.addEventListener('click', this.onClick);
   }
 
-  componentDidUpdate() {
-    (typeof this.props.getValue == 'function') && this.props.getValue(this.state.selectValue);
+  componentDidUpdate(props, state) {
+    if(state.selectValue !== this.state.selectValue && typeof this.props.getValue == 'function') {
+      this.props.getValue(this.state.selectValue);
+    }
   }
 
   componentWillUnmount() {
