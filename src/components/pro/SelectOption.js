@@ -26,12 +26,12 @@ class Option extends React.Component {
 
       if(this.state.multiple) {
         value = [];
+        // iterate throught child nodes options
+        Array.prototype.forEach.call(options, option => option.classList.contains('active') && value.push(option.textContent));
+        
         if(value.length === 0) {
           value = 'Choode your option';
         }
-
-        // iterate throught child nodes options
-        Array.prototype.forEach.call(options, option => option.classList.contains('active') && value.push(option.textContent));
 
         if(selectedOption.classList.contains('active')) {
           selectedOption.classList.remove('active');

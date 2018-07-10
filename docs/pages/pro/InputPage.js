@@ -9,7 +9,8 @@ class InputPage extends React.Component {
       radio2: false,
       radio3: false,
       checkbox: true,
-      switch: true
+      switch: true,
+      fileInput: ''
     }
     this.onClick1 = this.onClick1.bind(this);
     this.onClick2 = this.onClick2.bind(this);
@@ -22,6 +23,10 @@ class InputPage extends React.Component {
     this.onClick9 = this.onClick9.bind(this);
     this.handleCheckboxChange = this.handleCheckboxChange.bind(this);
     this.handleSwitchChange = this.handleSwitchChange.bind(this);
+  }
+
+  fileInputHandler = (files) => {
+    console.log(files)
   }
 
   onClick1() {
@@ -118,13 +123,13 @@ class InputPage extends React.Component {
 
         <h2 className="title mb-5"><strong>File input</strong></h2>
         <h4 className="mt-5 mb-3">Basic example</h4>
-        <InputFile></InputFile>
+        <InputFile getValue = { this.fileInputHandler }></InputFile>
 
         <h4 className="mt-5 mb-3">Multiple files</h4>
         <InputFile multiple btnColor="info" btn-size="sm"></InputFile>
 
         <hr className="my-5" />
-        
+
         <h2 className="title mb-5"><strong>Range</strong></h2>
         <InputRange min={0} max={100} value={50}></InputRange>
 

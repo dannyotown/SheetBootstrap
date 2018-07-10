@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CarouselControl, CarouselIndicators, CarouselIndicator } from 'mdbreact';
+import { CarouselControl, CarouselIndicators, CarouselIndicator } from '../';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './Carousel.css';

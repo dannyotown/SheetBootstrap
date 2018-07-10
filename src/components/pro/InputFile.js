@@ -27,6 +27,11 @@ class InputFile extends React.Component {
     }
   }
 
+  onChangeHandler = (e) => {
+    this.fileChange(e.target.files);
+    this.props.getValue && this.props.getValue(e.target.files);
+  }
+
   render() {
     const {
       className,
@@ -54,7 +59,7 @@ class InputFile extends React.Component {
         <div className="file-field md-form">
           <div className={btnClass}>
             <span>{this.props.btnTitle}</span>
-            <input multiple={this.props.multiple} onChange={(e) => this.fileChange(e.target.files)} type="file" />
+            <input multiple={this.props.multiple} onChange={this.onChangeHandler} type="file" />
           </div>
           <div className="file-path-wrapper">
             <input className={inputFieldClass} type="text" placeholder={this.state.files ? this.state.files : this.props.textFieldTitle} />
