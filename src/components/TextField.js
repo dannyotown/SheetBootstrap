@@ -58,7 +58,7 @@ class TextField extends React.Component {
       this.setState({ isTouched: true });
     }
     // execute callback
-    let fn = this.props.onBlur;
+    let fn = this.props.onFocus;
     fn && fn(ev);
   }
 
