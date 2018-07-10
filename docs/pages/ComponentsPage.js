@@ -72,9 +72,6 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/pro/buttons">Buttons <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/components/pro/dropdown">MaterialDropdown <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
                   <NavLink to="/components/pro/cards">Cards <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
@@ -88,6 +85,9 @@ class ComponentsPage extends React.Component {
                 </li>
                 <li>
                   <NavLink to="/components/pro/input">Input <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/dropdown">Material Dropdown <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/components/pro/progress">Progress <Fa icon="angle-right" /></NavLink>
