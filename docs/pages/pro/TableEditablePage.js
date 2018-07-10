@@ -2,27 +2,27 @@ import React from 'react';
 import { Container, Row, Col, Card, CardHeader, CardBody, DataTable } from 'mdbreact';
 
 const data = [];
-for (let i = 1; i <= 50; i++) {
+for (let i = 1; i <= 5; i++) {
   data.push({
     'id': i,
     'name': 'Item name ' + i,
-    'price': Math.round(Math.random()*10000)/100
+    'price': Math.round(Math.random()*10000)/100,
+    'remove': '<span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>'
   })
 }
 
 const columns = [{
   dataField: 'id',
-  text: 'Product ID',
-  sort: true
+  text: 'Product ID'
 }, {
   dataField: 'name',
-  text: 'Product Name',
-  sort: true,
-  search: true
+  text: 'Product Name'
 }, {
   dataField: 'price',
-  text: 'Product Price',
-  sort: true
+  text: 'Product Price'
+}, {
+  dataField: 'remove',
+  text: 'Remove'
 }];
 
 const config = {
@@ -31,21 +31,21 @@ const config = {
   firstPageText: 'First',
   lastPageText: 'Last',
   alwaysShowAllBtns: true,
-  showTotal: true,
-  hideSizePerPage: false,
+  showTotal: false,
+  hideSizePerPage: true,
 };
 
-const TablePagePro = (props) => {
+const TableSort = (props) => {
   return(
     <Container className="mt-3">
       <Row className="py-3">
         <Col md="12">
           <Card>
             <CardHeader tag="h3" className="text-center font-weight-bold text-uppercase py-4">
-              Table Sort
+              Table Editable
             </CardHeader>
             <CardBody>
-              <DataTable keyField='id' data={data} columns={columns} config={config} striped search />
+              <DataTable keyField='id' data={data} columns={columns} config={config} striped editable />
             </CardBody>
           </Card>
         </Col>
@@ -54,4 +54,4 @@ const TablePagePro = (props) => {
   );
 };
 
-export default TablePagePro;
+export default TableSort;
