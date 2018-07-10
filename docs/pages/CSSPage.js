@@ -32,7 +32,10 @@ class CSSPage extends React.Component {
                   <NavLink to="/css/pro/double">Double Navigation <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
-                  <NavLink to="/css/pro/table">Data Table <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/css/pro/tablesort">Table Sort <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/css/pro/tableeditable">Table Editable <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>
             </Jumbotron>

@@ -74,7 +74,8 @@ import FormsPagePro from './pages/pro/FormsPage';
 import CardsPagePro from'./pages/pro/CardsPage';
 import SearchPagePro from './pages/pro/SearchPage';
 import FooterPagePro from './pages/pro/FooterPage';
-import TablePagePro from './pages/pro/TablePage';
+import TableSort from './pages/pro/TableSortPage';
+import TableEditable from './pages/pro/TableEditablePage';
 
 class Routes extends React.Component {
   render() {
@@ -139,7 +140,8 @@ class Routes extends React.Component {
         <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route path='/components/pro/search' component={SearchPagePro} />
         <Route path='/components/pro/footer' component={FooterPagePro} />
-        <Route path='/css/pro/table' component={TablePagePro} />
+        <Route path='/css/pro/tablesort' component={TableSort} />
+        <Route path='/css/pro/tableeditable' component={TableEditable} />
         {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
