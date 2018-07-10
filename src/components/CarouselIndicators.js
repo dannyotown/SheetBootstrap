@@ -25,5 +25,15 @@ class CarouselIndicators extends Component {
   }
 }
 
+CarouselIndicators.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string
+};
+
+CarouselIndicators.defaultProps = {
+  children: 'div',
+  className: ''
+};
+
 export default CarouselIndicators;
 export { CarouselIndicators as MDBCarouselIndicators };
