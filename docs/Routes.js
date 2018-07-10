@@ -33,6 +33,8 @@ import HoverPage from './pages/HoverPage';
 import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
 import SearchPage from './pages/SearchPage';
+import ValidationPage from './pages/ValidationPage';
+
 // PRO
 import MaterialDropdownPage from './pages/pro/DropdownPage';
 import AutocompletePage from './pages/pro/AutocompletePage';
@@ -114,6 +116,7 @@ class Routes extends React.Component {
         <Route path='/advanced/charts' component={ChartsPage} />
         <Route path='/components/panels' component={PanelPage} />
         <Route path='/components/search' component={SearchPage} />
+        <Route path='/components/validation' component={ValidationPage} />
         {/* PRO */}
         <Route path='/components/pro/dropdown' component={MaterialDropdownPage} />
         <Route path='/components/pro/autocomplete' component={AutocompletePage} />

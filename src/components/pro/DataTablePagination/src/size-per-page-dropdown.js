@@ -1,7 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
 import PropTypes from 'prop-types';
-import SizePerPageOption from './size-per-page-option';
 import { MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption } from '../../../../';
 
 const sizePerPageDefaultClass = 'react-bs-table-sizePerPage-dropdown';
@@ -32,17 +31,20 @@ class SizePerPageDropDown extends React.Component {
       >
         Show entries
         <MDBSelect>
-          <MDBSelectInput selected="Choose size"></MDBSelectInput>
+          <MDBSelectInput selected="10"></MDBSelectInput>
           <MDBSelectOptions>
-            <MDBSelectOption disabled>Choose size</MDBSelectOption>
             {
               options.map(option => (
-                <SizePerPageOption
-                  { ...option }
-                  key={ option.text }
-                  onSizePerPageChange={ onSizePerPageChange }
-                  triggerOptionClick= { this.optionClick }
-                />
+                <MDBSelectOption
+                  key={option.text}
+                  data-page={option.page}
+                  onMouseDown={ (e) => {
+                    e.preventDefault();
+                    onSizePerPageChange(option.page);
+                  } }
+                >
+                  { option.text }
+                </MDBSelectOption>
               ))
             }
           </MDBSelectOptions>
