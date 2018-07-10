@@ -113,7 +113,7 @@ Option.defaultProps = {
   disabled: false,
   icon: '',
   triggerOptionClick: () => {}
-}
+};
 
 Option.contextTypes = {
   triggerOptionChange: PropTypes.func.isRequired,
