@@ -31,7 +31,6 @@ CarouselIndicators.propTypes = {
 };
 
 CarouselIndicators.defaultProps = {
-  children: 'div',
   className: ''
 };
 

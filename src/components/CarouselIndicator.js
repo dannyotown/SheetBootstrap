@@ -39,7 +39,6 @@ CarouselIndicator.propTypes = {
 
 CarouselIndicator.defaultProps = {
   alt: 'Carousel thumbnail',
-  children: 'div',
   className: '',
   img: ''
 };
