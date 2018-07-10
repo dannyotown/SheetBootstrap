@@ -26,10 +26,12 @@ class Option extends React.Component {
 
       if(this.state.multiple) {
         value = [];
-        Array.prototype.forEach.call(options, option => option.classList.contains('active') && value.push(option.textContent));
-        if (value.length === 0) {
-          value = "Choose your option";
+        if(value.length === 0) {
+          value = 'Choode your option';
         }
+
+        // iterate throught child nodes options
+        Array.prototype.forEach.call(options, option => option.classList.contains('active') && value.push(option.textContent));
 
         if(selectedOption.classList.contains('active')) {
           selectedOption.classList.remove('active');
@@ -105,10 +107,18 @@ Option.propTypes = {
   triggerOptionClick: PropTypes.func
 };
 
+Option.defaultProps = {
+  children: 'span',
+  className: '',
+  disabled: false,
+  icon: '',
+  triggerOptionClick: () => {}
+}
+
 Option.contextTypes = {
   triggerOptionChange: PropTypes.func.isRequired,
   multiple: PropTypes.bool
-}
+};
 
 export default Option;
 export { Option as MDBOption };
