@@ -16,10 +16,6 @@ class DataTable extends React.Component {
     this.addRow = this.addRow.bind(this);
   }
 
-  componentDidMount = () => {
-    console.log(this.state.data);
-  };
-
   addRow() {
     let newData = JSON.parse(JSON.stringify(this.state.data));
     let newDataLength = newData.length;
@@ -55,7 +51,7 @@ class DataTable extends React.Component {
     );
 
     const wrapperClasses = classNames(
-      editable && 'table-editable',
+      editable && 'table-editable text-center',
       responsive && 'table-responsive',
       responsiveSm && 'table-responsive-sm',
       responsiveMd && 'table-responsive-md',
