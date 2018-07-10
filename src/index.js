@@ -26,6 +26,7 @@ import Container from './components/Container';
 import Dropdown from './components/Dropdown';
 import DropdownItem from './components/DropdownItem';
 import DropdownMenu from './components/DropdownMenu';
+import DropdownMenuComponent from './components/DropdownMenuComponent';
 import DropdownToggle from './components/DropdownToggle';
 import EdgeHeader from './components/EdgeHeader';
 import Fa from './components/Fa';
@@ -74,6 +75,7 @@ import CardUp from './components/pro/CardUp';
 import Chip from './components/pro/Chip';
 import ChipsInput from './components/pro/ChipsInput';
 import CollapseHeader from './components/pro/CollapseHeader';
+import DropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
 import DataTable from './components/pro/DataTable';
 import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
@@ -130,6 +132,7 @@ import MDBContainer from './components/Container';
 import MDBDropdown from './components/Dropdown';
 import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
+import MDBDropdownMenuComponent from './components/DropdownMenuComponent';
 import MDBDropdownToggle from './components/DropdownToggle';
 import MDBEdgeHeader from './components/EdgeHeader';
 import MDBIcon from './components/Fa';
@@ -178,6 +181,7 @@ import MDBCardUp from './components/pro/CardUp';
 import MDBChip from './components/pro/Chip';
 import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
+import MDBDropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
 import MDBDataTable from './components/pro/DataTable';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
@@ -196,7 +200,7 @@ import MDBSideNavLink from './components/pro/SideNavLink';
 import MDBSideNavNav from './components/pro/SideNavNav';
 import MDBSelect from './components/pro/Select';
 import MDBSelectInput from './components/pro/SelectInput';
-import MDBSelectDropdown from './components/pro/SelectOptions';
+import MDBSelectOptions from './components/pro/SelectOptions';
 import MDBSelectOption from './components/pro/SelectOption';
 import MDBSpinner from './components/pro/Spinner';
 import MDBTabPane from './components/pro/TabPane';
@@ -235,6 +239,7 @@ export {
   Dropdown,
   DropdownItem,
   DropdownMenu,
+  DropdownMenuComponent,
   DropdownToggle,
   EdgeHeader,
   Fa,
@@ -282,6 +287,7 @@ export {
   Chip,
   ChipsInput,
   CollapseHeader,
+  DropdownMenuProComponent,
   DataTable,
   FlippingCard,
   InputFile,
@@ -337,6 +343,7 @@ export {
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,
+  MDBDropdownMenuComponent,
   MDBDropdownToggle,
   MDBEdgeHeader,
   MDBIcon,
@@ -384,6 +391,7 @@ export {
   MDBChip,
   MDBChipsInput,
   MDBCollapseHeader,
+  MDBDropdownMenuProComponent,
   MDBDataTable,
   MDBFlippingCard,
   MDBFileInput,
@@ -402,7 +410,7 @@ export {
   MDBSideNavNav,
   MDBSelect,
   MDBSelectInput,
-  MDBSelectDropdown,
+  MDBSelectOptions,
   MDBSelectOption,
   MDBSpinner,
   MDBTabPane,

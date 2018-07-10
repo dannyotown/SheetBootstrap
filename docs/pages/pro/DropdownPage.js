@@ -2,15 +2,16 @@ import React from 'react';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
 
 class DropdownPage extends React.Component {
+
   render() {
     return (
       <div className="container" style={{marginTop: '100px'}}>
-        <h2>Basic example</h2>
+        <h2>Material Dropdowns</h2>
         <Dropdown>
-          <DropdownToggle caret color="primary">
+          <DropdownToggle caret  color="primary">
             Material dropdown
           </DropdownToggle>
-          <DropdownMenu basic>
+          <DropdownMenu>
             <DropdownItem href="#">Action</DropdownItem>
             <DropdownItem href="#">Another Action</DropdownItem>
             <DropdownItem href="#">Something else here</DropdownItem>
@@ -21,7 +22,7 @@ class DropdownPage extends React.Component {
           <DropdownToggle caret  color="danger">
             Material dropdown
           </DropdownToggle>
-          <DropdownMenu basic>
+          <DropdownMenu>
             <DropdownItem>Action</DropdownItem>
             <DropdownItem>Another Action</DropdownItem>
             <DropdownItem>Something else here</DropdownItem>
@@ -32,7 +33,7 @@ class DropdownPage extends React.Component {
           <DropdownToggle caret  color="success">
             Material dropdown
           </DropdownToggle>
-          <DropdownMenu basic>
+          <DropdownMenu>
             <DropdownItem>Action</DropdownItem>
             <DropdownItem>Another Action</DropdownItem>
             <DropdownItem>Something else here</DropdownItem>
@@ -45,7 +46,7 @@ class DropdownPage extends React.Component {
           <DropdownToggle caret>
             Large Button
           </DropdownToggle>
-          <DropdownMenu basic>
+          <DropdownMenu>
             <DropdownItem>Action</DropdownItem>
             <DropdownItem>Another Action</DropdownItem>
             <DropdownItem >Something else here</DropdownItem>
@@ -57,7 +58,7 @@ class DropdownPage extends React.Component {
           <DropdownToggle caret  color="primary">
             Small Button
           </DropdownToggle>
-          <DropdownMenu basic>
+          <DropdownMenu>
             <DropdownItem>Action</DropdownItem>
             <DropdownItem>Another Action</DropdownItem>
             <DropdownItem>Something else here</DropdownItem>
@@ -71,7 +72,7 @@ class DropdownPage extends React.Component {
           <DropdownToggle caret color="primary">
             Dropup
           </DropdownToggle>
-          <DropdownMenu basic>
+          <DropdownMenu>
             <DropdownItem>Action</DropdownItem>
             <DropdownItem>Another Action</DropdownItem>
             <DropdownItem>Something else here</DropdownItem>
@@ -85,7 +86,7 @@ class DropdownPage extends React.Component {
           <DropdownToggle caret color="primary">
             This dropdown&apos;s menu is right-aligned
           </DropdownToggle>
-          <DropdownMenu right basic>
+          <DropdownMenu right>
             <DropdownItem>Action</DropdownItem>
             <DropdownItem>Another Action</DropdownItem>
             <DropdownItem>Something else here</DropdownItem>
@@ -97,7 +98,7 @@ class DropdownPage extends React.Component {
           <DropdownToggle caret color="primary">
             Dropdown
           </DropdownToggle>
-          <DropdownMenu basic>
+          <DropdownMenu>
             <DropdownItem header>Dropdown header</DropdownItem>
             <DropdownItem>Action</DropdownItem>
             <DropdownItem>Another Action</DropdownItem>
@@ -110,7 +111,7 @@ class DropdownPage extends React.Component {
           <DropdownToggle caret color="primary">
             Dropdown
           </DropdownToggle>
-          <DropdownMenu basic>
+          <DropdownMenu>
             <DropdownItem>Action</DropdownItem>
             <DropdownItem>Another Action</DropdownItem>
             <DropdownItem>Something else here</DropdownItem>
@@ -124,7 +125,7 @@ class DropdownPage extends React.Component {
           <DropdownToggle caret color="primary">
             Dropdown
           </DropdownToggle>
-          <DropdownMenu basic>
+          <DropdownMenu>
             <DropdownItem>Regular link</DropdownItem>
             <DropdownItem disabled href="#">Disabled link</DropdownItem>
             <DropdownItem href="#">Another link</DropdownItem>

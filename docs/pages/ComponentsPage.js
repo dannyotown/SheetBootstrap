@@ -90,6 +90,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/pro/input">Input <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/pro/dropdown">Material Dropdown <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/pro/progress">Progress <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
