@@ -105,7 +105,6 @@ import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
 import Testimonial from './components/pro/Testimonial';
-import TestimonialControl from './components/pro/TestimonialControl';
 
 // MDB FREE
 import MDBBadge from './components/Badge';
@@ -214,7 +213,6 @@ import MDBTabContent from './components/pro/TabContent';
 import MDBSticky from './components/pro/Sticky';
 import MDBStickyContent from './components/pro/StickyContainer';
 import MDBTestimonial from './components/pro/Testimonial';
-import MDBTestimonialControl from './components/pro/TestimonialControl';
 
 export {
   // FREE
@@ -323,7 +321,6 @@ export {
   Sticky,
   StickyContainer,
   Testimonial,
-  TestimonialControl,
   // MDB FREE
   MDBBadge,
   MDBBreadcrumb,
@@ -430,5 +427,4 @@ export {
   MDBSticky,
   MDBStickyContent,
   MDBTestimonial,
-  MDBTestimonialControl
 };

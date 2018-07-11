@@ -4,7 +4,6 @@ import  {Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask, Con
 class CarouselPage extends Component {
 
   render(){
-
     return(
       <Container>
         <h4 className="mt-5 mb-2">Basic example</h4>

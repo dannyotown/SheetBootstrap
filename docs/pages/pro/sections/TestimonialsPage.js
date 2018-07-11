@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Card, CardUp, Avatar, CardBody, Fa, Carousel, CarouselInner, CarouselItem, Testimonial, TestimonialControl } from 'mdbreact';
+import { Container, Row, Col, Card, CardUp, Avatar, CardBody, Fa, Carousel, CarouselInner, CarouselItem, Testimonial } from 'mdbreact';
 
 class TestimonialsPage extends Component {
 
@@ -67,6 +67,7 @@ class TestimonialsPage extends Component {
             length={3}
             testimonial
             interval={false}
+            showIndicators={false}
             className="no-flex">
             <CarouselInner>
               <CarouselItem itemId="1">
@@ -92,7 +93,7 @@ class TestimonialsPage extends Component {
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" className="rounded-circle img-fluid" alt="Second sample avatar image"/>
                   </Avatar>
                   <p>
-                    <Fa icon="quote-left"></Fa> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore. 
+                    <Fa icon="quote-left"></Fa> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.
                   </p>
                   <h4 className="font-weight-bold">Maria Kate</h4>
                   <h6 className="font-weight-bold my-3">Photographer at Studio LA</h6>
@@ -121,8 +122,6 @@ class TestimonialsPage extends Component {
                 </Testimonial>
               </CarouselItem>
             </CarouselInner>
-            <TestimonialControl direction="prev" role="button" />
-            <TestimonialControl direction="next" role="button" />
           </Carousel>
 
         </section>
