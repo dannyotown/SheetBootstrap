@@ -143,8 +143,8 @@ class Routes extends React.Component {
         <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route path='/components/pro/search' component={SearchPagePro} />
         <Route path='/components/pro/footer' component={FooterPagePro} />
-        <Route path='/css/pro/tablesort' component={TableSort} />
-        <Route path='/css/pro/tableeditable' component={TableEditable} />
+        <Route path='/advanced/pro/tablesort' component={TableSort} />
+        <Route path='/advanced/pro/tableeditable' component={TableEditable} />
         {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
