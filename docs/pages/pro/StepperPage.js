@@ -22,13 +22,16 @@ class StepperPage extends React.Component {
   }
 
   handleNextPrevClick = (a) => (param) => (e) => {
-    this.setState({['formActivePanel' + a] : param});
+    this.setState({
+      ['formActivePanel' + a] : param,
+      ['formActivePanel' + a + 'Changed']: true
+  });
   }
-  
+
   handleSubmission = () => {
     alert('Form submitted!');
   }
-  
+
   calculateAutofocus = (a) => {
     if (this.state['formActivePanel'+a+'Changed']) {
       return true
@@ -220,7 +223,7 @@ class StepperPage extends React.Component {
                 </Row>
               </form>
 
-          </CardBody> 
+          </CardBody>
         </Card>
 
         <hr className="my-5"/>
@@ -240,7 +243,7 @@ class StepperPage extends React.Component {
               </Col>
 
               <Col md="7">
-{ this.state.formActivePanel3 == 1  && 
+{ this.state.formActivePanel3 == 1  &&
                 (<Col md="12">
                   <h3 className="font-weight-bold pl-0 my-4">
                     <strong>Basic Information</strong></h3>
