@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CarouselControl, Carousel, CarouselInner, CarouselItem, Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, Button } from 'mdbreact';
+import { Carousel, CarouselInner, CarouselItem, Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, Button } from 'mdbreact';
 
 class MultiCarouselPage extends Component {
 
