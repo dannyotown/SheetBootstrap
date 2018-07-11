@@ -1,29 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Card, CardHeader, CardBody, TableEditable } from 'mdbreact';
 
-const data = [];
-for (let i = 1; i <= 5; i++) {
-  data.push({
-    'id': i,
-    'name': 'Item name ' + i,
-    'price': Math.round(Math.random()*10000)/100,
-    'remove': true
-  })
-}
-
-const columns = [{
-  dataField: 'id',
-  text: 'Product ID'
-}, {
-  dataField: 'name',
-  text: 'Product Name'
-}, {
-  dataField: 'price',
-  text: 'Product Price'
-}, {
-  dataField: 'remove',
-  text: 'Remove'
-}];
+const data = [
+  ['Aurelia Vega', 30, 'Deepends', 'Spain', 'Madrid'],
+  ['Guerra Cortez', 45, 'Insectus', 'USA', 'San Francisco'],
+  ['Guadalupe House', 26, 'Isotronic', 'Germany', 'Frankfurt am Main'],
+  ['Elisa Gallagher', 31, 'Portica', 'United Kingdom', 'London']
+];
 
 const TableSort = (props) => {
   return(
@@ -35,7 +18,7 @@ const TableSort = (props) => {
               Table Editable
             </CardHeader>
             <CardBody>
-              <TableEditable data={data} striped />
+              <TableEditable data={data} striped bordered />
             </CardBody>
           </Card>
         </Col>

@@ -10,17 +10,21 @@ class TableEditable extends React.Component {
       data: this.props.data
     }
     this.addRow = this.addRow.bind(this);
+    this.removeRow = this.removeRow.bind(this);
   }
 
   addRow() {
     let newData = JSON.parse(JSON.stringify(this.state.data));
     let newDataLength = newData.length;
     let newRow = JSON.parse(JSON.stringify(newData[newDataLength - 1]));
-    newRow[this.props.keyField] = newRow[this.props.keyField] + 1;
     newData.push(newRow);
     this.setState({
       data: newData
     })
+  }
+
+  removeRow(index) {
+    console.log('Remove row nr ' + index);
   }
 
   render() {
@@ -58,11 +62,26 @@ class TableEditable extends React.Component {
     );
 
     return (
-      <div className={wrapperClasses} style={{'position': 'relative'}}>
+      <div className={wrapperClasses}>
         <span onClick={ this.addRow } className="table-add float-right mb-3 mr-2"><a href="#!" className="text-success"><i className="fa fa-plus fa-2x" aria-hidden="true"></i></a></span>
         <table {...attributes} className={classes}>
           <tbody>
-            <tr><td>1</td></tr>
+            {this.state.data.map((tr, i) => {
+              return (
+                <tr key={i}>
+                  { tr.map((td, j) => {
+                    return (
+                      <td key={j}>
+                        { td }
+                      </td>
+                    );
+                  })}
+                  <td>
+                    <span onClick={() => this.removeRow(i)} className="table-remove"><button type="button" className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
