@@ -74,4 +74,4 @@ Options.propTypes = {
 };
 
 export default Options;
-export { Options as MDBSelectDropdown };
+export { Options as MDBSelectOptions };

@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import './Carousel.css';
 
 class Carousel extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -14,6 +13,8 @@ class Carousel extends Component {
       slide: this.props.slide,
       srcArray: []
     };
+
+    this.carouselRef = React.createRef();
   }
 
   restartInterval = () => {
@@ -26,30 +27,31 @@ class Carousel extends Component {
   next = () => {
     let nextItem = this.state.activeItem + 1;
     if(nextItem > this.state.length) {
-      this.setState({ activeItem: 1 });
+      this.setState({ ...this.state,  activeItem: 1 });
     } else {
-      this.setState({ activeItem: nextItem });
+      this.setState({ ...this.state, activeItem: nextItem });
     }
-    this.restartInterval()
+    this.restartInterval();
   }
 
   prev = () => {
     let prevItem = this.state.activeItem - 1;
     if(prevItem < 1) {
-      this.setState({ activeItem: this.state.length });
+      this.setState({ ...this.state, activeItem: this.state.length });
     } else {
-      this.setState({ activeItem: prevItem });
+      this.setState({ ...this.state, activeItem: prevItem });
     }
-    this.restartInterval()
+    this.restartInterval();
   }
 
   goToIndex(item) {
     if (this.state.activeItem !== item) {
       this.setState({
+        ...this.state,
         activeItem: item
       });
     }
-    this.restartInterval()
+    this.restartInterval();
   }
 
   componentDidMount = () => {
@@ -57,17 +59,12 @@ class Carousel extends Component {
       return;
     }
     this.cycleInterval = setInterval(this.next, this.props.interval);
-    // console.log(this.props.children.props.children.length)
 
     // get images src atr
     if(this.props.thumbnails){
-      const CarouselItemsArray = this.props.children.props.children;
-      const srcArray = [];
-      CarouselItemsArray.map(CarouselItem => {
-          let src = CarouselItem.props.children.props.src
-        srcArray.push(src)
-      })
-      this.setState({ ...this.state, srcArray: srcArray });
+      const CarouselItemsArray = this.carouselRef.current.querySelectorAll('.carousel-item > img');
+      const srcArray = Array.prototype.map.call(CarouselItemsArray, item => item.src);
+      this.setState({ ...this.state, srcArray });
     }
   }
 
@@ -116,11 +113,11 @@ class Carousel extends Component {
 
     const CarouselIndicatorsArray = [];
     for(let i = 1; i <= this.state.length; i++){
-      CarouselIndicatorsArray.push(<CarouselIndicator img={thumbnails ? this.state.srcArray[i - 1] : null} key={i} active={this.state.activeItem === i ? true : false} onClick={() => { this.goToIndex(i); }}></CarouselIndicator>)
+      CarouselIndicatorsArray.push(<CarouselIndicator img={thumbnails ? this.state.srcArray[i - 1] : null} key={i} active={this.state.activeItem === i ? true : false} onClick={() => { this.goToIndex(i); }}></CarouselIndicator>);
     }
 
     return (
-      <Tag {...attributes} className={classes} aria-label={ariaLabel}>
+      <Tag ref={this.carouselRef} {...attributes} className={classes} aria-label={ariaLabel}>
         {(this.props.showControls && this.props.multiItem) && (
           <div className="controls-top">
             <CarouselControl iconLeft className="btn-floating" direction="prev" role="button" onClick={this.prev}/>
@@ -153,8 +150,8 @@ Carousel.propTypes = {
   testimonial: PropTypes.bool,
   showControls: PropTypes.bool,
   showIndicators: PropTypes.bool,
-  length: PropTypes.number,
-
+  slide: PropTypes.bool,
+  length: PropTypes.number
 };
 
 Carousel.defaultProps = {

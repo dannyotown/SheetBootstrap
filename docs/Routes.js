@@ -33,8 +33,10 @@ import HoverPage from './pages/HoverPage';
 import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
 import SearchPage from './pages/SearchPage';
+import ValidationPage from './pages/ValidationPage';
 
 // PRO
+import MaterialDropdownPage from './pages/pro/DropdownPage';
 import AutocompletePage from './pages/pro/AutocompletePage';
 import ButtonPagePro from './pages/pro/ButtonPage';
 import ChartsPagePro from './pages/pro/ChartsPage';
@@ -75,7 +77,8 @@ import FormsPagePro from './pages/pro/FormsPage';
 import CardsPagePro from'./pages/pro/CardsPage';
 import SearchPagePro from './pages/pro/SearchPage';
 import FooterPagePro from './pages/pro/FooterPage';
-import TablePagePro from './pages/pro/TablePage';
+import TableSort from './pages/pro/TableSortPage';
+import TableEditable from './pages/pro/TableEditablePage';
 
 class Routes extends React.Component {
   render() {
@@ -114,7 +117,9 @@ class Routes extends React.Component {
         <Route path='/advanced/charts' component={ChartsPage} />
         <Route path='/components/panels' component={PanelPage} />
         <Route path='/components/search' component={SearchPage} />
+        <Route path='/components/validation' component={ValidationPage} />
         {/* PRO */}
+        <Route path='/components/pro/dropdown' component={MaterialDropdownPage} />
         <Route path='/components/pro/autocomplete' component={AutocompletePage} />
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
@@ -141,6 +146,8 @@ class Routes extends React.Component {
         <Route path='/components/pro/footer' component={FooterPagePro} />
         <Route path='/css/pro/table' component={TablePagePro} />
         <Route path='/components/pro/stepper' component={StepperPage} />
+        <Route path='/css/pro/tablesort' component={TableSort} />
+        <Route path='/css/pro/tableeditable' component={TableEditable} />
         {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />

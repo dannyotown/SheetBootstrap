@@ -26,6 +26,7 @@ import Container from './components/Container';
 import Dropdown from './components/Dropdown';
 import DropdownItem from './components/DropdownItem';
 import DropdownMenu from './components/DropdownMenu';
+import DropdownMenuComponent from './components/DropdownMenuComponent';
 import DropdownToggle from './components/DropdownToggle';
 import EdgeHeader from './components/EdgeHeader';
 import Fa from './components/Fa';
@@ -74,6 +75,7 @@ import CardUp from './components/pro/CardUp';
 import Chip from './components/pro/Chip';
 import ChipsInput from './components/pro/ChipsInput';
 import CollapseHeader from './components/pro/CollapseHeader';
+import DropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
 import DataTable from './components/pro/DataTable';
 import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
@@ -95,8 +97,12 @@ import SelectInput from './components/pro/SelectInput';
 import SelectOptions from './components/pro/SelectOptions';
 import SelectOption from './components/pro/SelectOption';
 import Spinner from './components/pro/Spinner';
+<<<<<<< HEAD
 import Step from './components/pro/Step';
 import Stepper from './components/pro/Stepper';
+=======
+import TableEditable from './components/pro/TableEditable';
+>>>>>>> 070ba59d0a3d5665292b02b057b9b7266743d1ac
 import TabPane from './components/pro/TabPane';
 import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
@@ -132,6 +138,7 @@ import MDBContainer from './components/Container';
 import MDBDropdown from './components/Dropdown';
 import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
+import MDBDropdownMenuComponent from './components/DropdownMenuComponent';
 import MDBDropdownToggle from './components/DropdownToggle';
 import MDBEdgeHeader from './components/EdgeHeader';
 import MDBIcon from './components/Fa';
@@ -180,6 +187,7 @@ import MDBCardUp from './components/pro/CardUp';
 import MDBChip from './components/pro/Chip';
 import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
+import MDBDropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
 import MDBDataTable from './components/pro/DataTable';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
@@ -198,11 +206,12 @@ import MDBSideNavLink from './components/pro/SideNavLink';
 import MDBSideNavNav from './components/pro/SideNavNav';
 import MDBSelect from './components/pro/Select';
 import MDBSelectInput from './components/pro/SelectInput';
-import MDBSelectDropdown from './components/pro/SelectOptions';
+import MDBSelectOptions from './components/pro/SelectOptions';
 import MDBSelectOption from './components/pro/SelectOption';
 import MDBSpinner from './components/pro/Spinner';
 import MDBStep from './components/pro/Step';
 import MDBStepper from './components/pro/Stepper';
+import MDBTableEditable from './components/pro/TableEditable';
 import MDBTabPane from './components/pro/TabPane';
 import MDBTabContent from './components/pro/TabContent';
 import MDBSticky from './components/pro/Sticky';
@@ -239,6 +248,7 @@ export {
   Dropdown,
   DropdownItem,
   DropdownMenu,
+  DropdownMenuComponent,
   DropdownToggle,
   EdgeHeader,
   Fa,
@@ -286,6 +296,7 @@ export {
   Chip,
   ChipsInput,
   CollapseHeader,
+  DropdownMenuProComponent,
   DataTable,
   FlippingCard,
   InputFile,
@@ -307,8 +318,12 @@ export {
   SelectOptions,
   SelectOption,
   Spinner,
+<<<<<<< HEAD
   Step,
   Stepper,
+=======
+  TableEditable,
+>>>>>>> 070ba59d0a3d5665292b02b057b9b7266743d1ac
   TabPane,
   TabContent,
   Sticky,
@@ -343,6 +358,7 @@ export {
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,
+  MDBDropdownMenuComponent,
   MDBDropdownToggle,
   MDBEdgeHeader,
   MDBIcon,
@@ -390,6 +406,7 @@ export {
   MDBChip,
   MDBChipsInput,
   MDBCollapseHeader,
+  MDBDropdownMenuProComponent,
   MDBDataTable,
   MDBFlippingCard,
   MDBFileInput,
@@ -408,9 +425,10 @@ export {
   MDBSideNavNav,
   MDBSelect,
   MDBSelectInput,
-  MDBSelectDropdown,
+  MDBSelectOptions,
   MDBSelectOption,
   MDBSpinner,
+  MDBTableEditable,
   MDBTabPane,
   MDBTabContent,
   MDBStep,
