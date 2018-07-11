@@ -97,13 +97,14 @@ import SelectInput from './components/pro/SelectInput';
 import SelectOptions from './components/pro/SelectOptions';
 import SelectOption from './components/pro/SelectOption';
 import Spinner from './components/pro/Spinner';
+import Step from './components/pro/Step';
+import Stepper from './components/pro/Stepper';
 import TableEditable from './components/pro/TableEditable';
 import TabPane from './components/pro/TabPane';
 import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
 import Testimonial from './components/pro/Testimonial';
-import TestimonialControl from './components/pro/TestimonialControl';
 
 // MDB FREE
 import MDBBadge from './components/Badge';
@@ -204,13 +205,14 @@ import MDBSelectInput from './components/pro/SelectInput';
 import MDBSelectOptions from './components/pro/SelectOptions';
 import MDBSelectOption from './components/pro/SelectOption';
 import MDBSpinner from './components/pro/Spinner';
+import MDBStep from './components/pro/Step';
+import MDBStepper from './components/pro/Stepper';
 import MDBTableEditable from './components/pro/TableEditable';
 import MDBTabPane from './components/pro/TabPane';
 import MDBTabContent from './components/pro/TabContent';
 import MDBSticky from './components/pro/Sticky';
 import MDBStickyContent from './components/pro/StickyContainer';
 import MDBTestimonial from './components/pro/Testimonial';
-import MDBTestimonialControl from './components/pro/TestimonialControl';
 
 export {
   // FREE
@@ -311,13 +313,14 @@ export {
   SelectOptions,
   SelectOption,
   Spinner,
+  Step,
+  Stepper,
   TableEditable,
   TabPane,
   TabContent,
   Sticky,
   StickyContainer,
   Testimonial,
-  TestimonialControl,
   // MDB FREE
   MDBBadge,
   MDBBreadcrumb,
@@ -419,8 +422,9 @@ export {
   MDBTableEditable,
   MDBTabPane,
   MDBTabContent,
+  MDBStep,
+  MDBStepper,
   MDBSticky,
   MDBStickyContent,
   MDBTestimonial,
-  MDBTestimonialControl
 };

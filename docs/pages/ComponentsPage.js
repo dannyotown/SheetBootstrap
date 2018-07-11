@@ -102,6 +102,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/pro/socialbuttons">Social Buttons <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/pro/stepper">Stepper <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/pro/tabs">Tabs <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>

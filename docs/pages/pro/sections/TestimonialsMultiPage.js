@@ -9,12 +9,11 @@ class TestimonialsMultiPage extends Component {
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold my-5">Testimonials v.4</h2>
           <Row>
-            <Carousel 
+            <Carousel
               activeItem={1}
               length={3}
               slide={true}
-              showControls={true}
-              showIndicators={true}
+              showControls={false}
               multiItem
               testimonial>
               <CarouselInner>
