@@ -95,6 +95,8 @@ import SelectInput from './components/pro/SelectInput';
 import SelectOptions from './components/pro/SelectOptions';
 import SelectOption from './components/pro/SelectOption';
 import Spinner from './components/pro/Spinner';
+import Step from './components/pro/Step';
+import Stepper from './components/pro/Stepper';
 import TabPane from './components/pro/TabPane';
 import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
@@ -199,6 +201,8 @@ import MDBSelectInput from './components/pro/SelectInput';
 import MDBSelectDropdown from './components/pro/SelectOptions';
 import MDBSelectOption from './components/pro/SelectOption';
 import MDBSpinner from './components/pro/Spinner';
+import MDBStep from './components/pro/Step';
+import MDBStepper from './components/pro/Stepper';
 import MDBTabPane from './components/pro/TabPane';
 import MDBTabContent from './components/pro/TabContent';
 import MDBSticky from './components/pro/Sticky';
@@ -303,6 +307,8 @@ export {
   SelectOptions,
   SelectOption,
   Spinner,
+  Step,
+  Stepper,
   TabPane,
   TabContent,
   Sticky,
@@ -407,6 +413,8 @@ export {
   MDBSpinner,
   MDBTabPane,
   MDBTabContent,
+  MDBStep,
+  MDBStepper,
   MDBSticky,
   MDBStickyContent,
   MDBTestimonial,
