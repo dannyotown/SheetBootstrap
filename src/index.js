@@ -97,12 +97,9 @@ import SelectInput from './components/pro/SelectInput';
 import SelectOptions from './components/pro/SelectOptions';
 import SelectOption from './components/pro/SelectOption';
 import Spinner from './components/pro/Spinner';
-<<<<<<< HEAD
 import Step from './components/pro/Step';
 import Stepper from './components/pro/Stepper';
-=======
 import TableEditable from './components/pro/TableEditable';
->>>>>>> 070ba59d0a3d5665292b02b057b9b7266743d1ac
 import TabPane from './components/pro/TabPane';
 import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
@@ -318,12 +315,9 @@ export {
   SelectOptions,
   SelectOption,
   Spinner,
-<<<<<<< HEAD
   Step,
   Stepper,
-=======
   TableEditable,
->>>>>>> 070ba59d0a3d5665292b02b057b9b7266743d1ac
   TabPane,
   TabContent,
   Sticky,
