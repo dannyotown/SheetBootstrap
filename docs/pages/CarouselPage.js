@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  { CarouselCaption, CarouselInner, CarouselItem, View, Mask, Container } from 'mdbreact';
+import  {Carousel, CarouselCaption, CarouselInner, CarouselItem, View, Mask, Container } from 'mdbreact';
 
 class CarouselPage extends Component {
 

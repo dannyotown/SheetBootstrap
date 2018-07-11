@@ -27,9 +27,9 @@ class Carousel extends Component {
   next = () => {
     let nextItem = this.state.activeItem + 1;
     if(nextItem > this.state.length) {
-      this.setState({ activeItem: 1 });
+      this.setState({ ...this.state,  activeItem: 1 });
     } else {
-      this.setState({ activeItem: nextItem });
+      this.setState({ ...this.state, activeItem: nextItem });
     }
     this.restartInterval();
   }
@@ -37,9 +37,9 @@ class Carousel extends Component {
   prev = () => {
     let prevItem = this.state.activeItem - 1;
     if(prevItem < 1) {
-      this.setState({ activeItem: this.state.length });
+      this.setState({ ...this.state, activeItem: this.state.length });
     } else {
-      this.setState({ activeItem: prevItem });
+      this.setState({ ...this.state, activeItem: prevItem });
     }
     this.restartInterval();
   }
@@ -47,6 +47,7 @@ class Carousel extends Component {
   goToIndex(item) {
     if (this.state.activeItem !== item) {
       this.setState({
+        ...this.state,
         activeItem: item
       });
     }
@@ -63,7 +64,7 @@ class Carousel extends Component {
     if(this.props.thumbnails){
       const CarouselItemsArray = this.carouselRef.current.querySelectorAll('.carousel-item > img');
       const srcArray = Array.prototype.map.call(CarouselItemsArray, item => item.src);
-      this.setState({ srcArray });
+      this.setState({ ...this.state, srcArray });
     }
   }
 
