@@ -1,6 +1,10 @@
 import React from 'react';
 import { Container, Row, Col, Card, CardHeader, CardBody, TableEditable } from 'mdbreact';
 
+const columns = [
+  'Person Name', 'Age', 'Company Name', 'Country', 'City', 'Sort', 'Remove'
+];
+
 const data = [
   ['Aurelia Vega', 30, 'Deepends', 'Spain', 'Madrid'],
   ['Guerra Cortez', 45, 'Insectus', 'USA', 'San Francisco'],
@@ -18,7 +22,7 @@ const TableSort = (props) => {
               Table Editable
             </CardHeader>
             <CardBody>
-              <TableEditable data={data} striped bordered />
+              <TableEditable data={data} columns={columns} striped bordered />
             </CardBody>
           </Card>
         </Col>
