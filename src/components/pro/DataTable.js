@@ -13,22 +13,6 @@ class DataTable extends React.Component {
     this.state = {
       data: this.props.data
     }
-    this.addRow = this.addRow.bind(this);
-  }
-
-  componentDidMount = () => {
-    console.log(this.state.data);
-  };
-
-  addRow() {
-    let newData = JSON.parse(JSON.stringify(this.state.data));
-    let newDataLength = newData.length;
-    let newRow = JSON.parse(JSON.stringify(newData[newDataLength - 1]));
-    newRow[this.props.keyField] = newRow[this.props.keyField] + 1;
-    newData.push(newRow);
-    this.setState({
-      data: newData
-    })
   }
 
   render() {
@@ -40,7 +24,6 @@ class DataTable extends React.Component {
       config,
       striped,
       hover,
-      editable,
       pagination,
       responsive,
       responsiveSm,
@@ -55,7 +38,6 @@ class DataTable extends React.Component {
     );
 
     const wrapperClasses = classNames(
-      editable && 'table-editable',
       responsive && 'table-responsive',
       responsiveSm && 'table-responsive-sm',
       responsiveMd && 'table-responsive-md',
@@ -96,7 +78,6 @@ class DataTable extends React.Component {
 
     return (
       <div className={wrapperClasses} style={{'position': 'relative'}}>
-        { editable && <span onClick={ this.addRow } className="table-add float-right mb-3 mr-2"><a href="#!" className="text-success"><i className="fa fa-plus fa-2x" aria-hidden="true"></i></a></span> }
         <BootstrapTable keyField={keyField} data={this.state.data} columns={columns} {...attributes} className={classes} striped={striped} hover={hover} {...tableProps} filter={ filterFactory() } />
       </div>
     );
@@ -114,7 +95,6 @@ DataTable.propTypes = {
   responsiveLg: PropTypes.bool,
   responsiveXl: PropTypes.bool,
   config: PropTypes.object,
-  editable: PropTypes.bool,
   pagination: PropTypes.bool
 };
 

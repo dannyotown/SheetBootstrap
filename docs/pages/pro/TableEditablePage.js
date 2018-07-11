@@ -1,39 +1,12 @@
 import React from 'react';
-import { Container, Row, Col, Card, CardHeader, CardBody, DataTable } from 'mdbreact';
+import { Container, Row, Col, Card, CardHeader, CardBody, TableEditable } from 'mdbreact';
 
-const data = [];
-for (let i = 1; i <= 5; i++) {
-  data.push({
-    'id': i,
-    'name': 'Item name ' + i,
-    'price': Math.round(Math.random()*10000)/100,
-    'remove': '<span className="table-remove"><button type="button" className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>'
-  })
-}
-
-const columns = [{
-  dataField: 'id',
-  text: 'Product ID'
-}, {
-  dataField: 'name',
-  text: 'Product Name'
-}, {
-  dataField: 'price',
-  text: 'Product Price'
-}, {
-  dataField: 'remove',
-  text: 'Remove'
-}];
-
-const config = {
-  prePageText: 'Previous',
-  nextPageText: 'Next',
-  firstPageText: 'First',
-  lastPageText: 'Last',
-  alwaysShowAllBtns: true,
-  showTotal: false,
-  hideSizePerPage: true,
-};
+const data = [
+  ['Aurelia Vega', 30, 'Deepends', 'Spain', 'Madrid'],
+  ['Guerra Cortez', 45, 'Insectus', 'USA', 'San Francisco'],
+  ['Guadalupe House', 26, 'Isotronic', 'Germany', 'Frankfurt am Main'],
+  ['Elisa Gallagher', 31, 'Portica', 'United Kingdom', 'London']
+];
 
 const TableSort = (props) => {
   return(
@@ -45,7 +18,7 @@ const TableSort = (props) => {
               Table Editable
             </CardHeader>
             <CardBody>
-              <DataTable keyField='id' data={data} columns={columns} config={config} striped editable pagination />
+              <TableEditable data={data} striped bordered />
             </CardBody>
           </Card>
         </Col>

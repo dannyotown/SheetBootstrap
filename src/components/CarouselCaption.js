@@ -34,7 +34,7 @@ CarouselCaption.propTypes = {
 };
 
 CarouselCaption.defaultProps = {
-  tag: 'div'
+  // tag: 'div'
 };
 
 export default CarouselCaption;

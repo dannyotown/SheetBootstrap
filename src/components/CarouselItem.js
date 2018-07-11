@@ -29,16 +29,16 @@ class CarouselItem extends Component {
         style = {
           position: 'absolute',
           left: '100%'
-        }
+        };
       } else if (slideIndex > 0) {
         style = {
           position: 'absolute',
           left: '-100%'
-        }
+        };
       } else {
         style = {
           left: '0'
-        }
+        };
       }
     }
 

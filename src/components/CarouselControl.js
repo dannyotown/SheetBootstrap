@@ -43,7 +43,7 @@ class Control extends Component {
             <span className={caretClasses} aria-hidden="true"></span>
             <span className="sr-only">Previous</span>
           </div>
-         )}
+        )}
       </Tag>
     );
   }
