@@ -70,8 +70,10 @@ class TableEditable extends React.Component {
     })
   };
 
-  onInput(trIndex, tdIndex) {
-    console.log(trIndex, tdIndex);
+  onInput(trIndex, tdIndex, e) {
+    let value = e.target.innerText;
+    this.state.data[trIndex][tdIndex] = value;
+    console.log(this.state.data);
   }
 
   render() {
@@ -130,7 +132,7 @@ class TableEditable extends React.Component {
                 <tr key={i}>
                   { tr.map((td, j) => {
                     return (
-                      <td key={j} contentEditable suppressContentEditableWarning="true" onInput={() => this.onInput(i, j)}>
+                      <td key={j} contentEditable suppressContentEditableWarning="true" onInput={(e) => this.onInput(i, j, e)}>
                         { td }
                       </td>
                     );
