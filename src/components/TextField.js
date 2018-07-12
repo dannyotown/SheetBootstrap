@@ -54,10 +54,10 @@ class TextField extends React.Component {
 
   onFocus(ev) {
     // ignore if event is a window blur
-    if (document.activeElement === this.inputElRef) {
+    // if (document.activeElement === this.inputElRef) {
       this.setState({ isTouched: true });
-    }
-    // execute callback
+    // }
+            // execute callback
     let fn = this.props.onFocus;
     fn && fn(ev);
   }
