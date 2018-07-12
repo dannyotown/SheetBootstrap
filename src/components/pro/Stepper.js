@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'mdbreact';
 import classNames from 'classnames';
 import './Stepper.css';
 

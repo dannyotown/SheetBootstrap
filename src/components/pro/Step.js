@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Tooltip, Waves } from 'mdbreact';
+import Tooltip from '../Tooltip';
+import Waves from '../Waves';
 
 class Step extends React.Component {
   constructor(props) {
