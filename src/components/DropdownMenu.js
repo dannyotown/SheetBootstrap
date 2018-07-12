@@ -2,8 +2,8 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Popper } from 'react-popper';
-import { DropdownMenuComponent } from 'mdbreact';
-import { DropdownMenuProComponent } from 'mdbreact';
+import DropdownMenuComponent from './DropdownMenuComponent';
+import DropdownMenuProComponent from './pro/DropdownMenuProComponent';
 
 const noFlipModifier = { flip: { enabled: false } };
 
