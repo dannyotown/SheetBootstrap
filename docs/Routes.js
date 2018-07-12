@@ -33,6 +33,8 @@ import HoverPage from './pages/HoverPage';
 import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
 import SearchPage from './pages/SearchPage';
+import ValidationPage from './pages/ValidationPage';
+
 // PRO
 import MaterialDropdownPage from './pages/pro/DropdownPage';
 import AutocompletePage from './pages/pro/AutocompletePage';
@@ -66,6 +68,7 @@ import ProjectsPage from './pages/pro/sections/ProjectsPage';
 import FeaturesPage from './pages/pro/sections/FeaturesPage';
 import ContactPage from './pages/pro/sections/ContactPage';
 import SocialButtonsPage from './pages/pro/SocialButtonsPage';
+import StepperPage from './pages/pro/StepperPage';
 import BlogPage from './pages/pro/sections/BlogPage';
 import TeamPage from'./pages/pro/sections/TeamPage';
 import MagazinePage from'./pages/pro/sections/MagazinePage';
@@ -74,7 +77,8 @@ import FormsPagePro from './pages/pro/FormsPage';
 import CardsPagePro from'./pages/pro/CardsPage';
 import SearchPagePro from './pages/pro/SearchPage';
 import FooterPagePro from './pages/pro/FooterPage';
-import TablePagePro from './pages/pro/TablePage';
+import TableSort from './pages/pro/TableSortPage';
+import TableEditable from './pages/pro/TableEditablePage';
 
 class Routes extends React.Component {
   render() {
@@ -113,6 +117,7 @@ class Routes extends React.Component {
         <Route path='/advanced/charts' component={ChartsPage} />
         <Route path='/components/panels' component={PanelPage} />
         <Route path='/components/search' component={SearchPage} />
+        <Route path='/components/validation' component={ValidationPage} />
         {/* PRO */}
         <Route path='/components/pro/dropdown' component={MaterialDropdownPage} />
         <Route path='/components/pro/autocomplete' component={AutocompletePage} />
@@ -139,7 +144,9 @@ class Routes extends React.Component {
         <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route path='/components/pro/search' component={SearchPagePro} />
         <Route path='/components/pro/footer' component={FooterPagePro} />
-        <Route path='/css/pro/table' component={TablePagePro} />
+        <Route path='/advanced/pro/tablesort' component={TableSort} />
+        <Route path='/advanced/pro/tableeditable' component={TableEditable} />
+        <Route path='/components/pro/stepper' component={StepperPage} />
         {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />

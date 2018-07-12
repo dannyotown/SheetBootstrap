@@ -2,12 +2,16 @@
 // Advanced tables
 .table {
   a {
-    margin-left: 1rem;
+    margin-right: $advanced-table-a-mr !important;
   }
   fieldset {
-    margin-bottom: 0;
+    &.form-check {
+      margin-bottom: 0;
+    }
     label {
-      height: 8px;
+      &.form-check-label {
+        height: $advanced-table-fieldset-label-height;
+      }
     }
   }
 }
@@ -21,23 +25,6 @@
   td {
     vertical-align: middle;
   }
-}
-
-// hide default radio / checkbox
-%hide-radio-checkbox {
-  position: absolute;
-  left: -9999px;
-  visibility: hidden;
-}
-
-%base-radio-checkbox-label {
-  position: relative;
-  padding-left: 35px;
-  cursor: pointer;
-  display: inline-block;
-  height: 25px;
-  line-height: 25px;
-  font-size: 1rem;
 }
 
 .streak {

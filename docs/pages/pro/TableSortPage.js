@@ -35,7 +35,7 @@ const config = {
   hideSizePerPage: false,
 };
 
-const TablePagePro = (props) => {
+const TableSort = (props) => {
   return(
     <Container className="mt-3">
       <Row className="py-3">
@@ -45,7 +45,7 @@ const TablePagePro = (props) => {
               Table Sort
             </CardHeader>
             <CardBody>
-              <DataTable keyField='id' data={data} columns={columns} config={config} striped search />
+              <DataTable keyField='id' data={data} columns={columns} config={config} striped search pagination />
             </CardBody>
           </Card>
         </Col>
@@ -54,4 +54,4 @@ const TablePagePro = (props) => {
   );
 };
 
-export default TablePagePro;
+export default TableSort;

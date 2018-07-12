@@ -14,22 +14,37 @@ class Control extends Component {
       tag: Tag,
       iconLeft,
       iconRight,
+      dark,
       ...attributes
     } = this.props;
 
-    const classes = classNames(
-      'carousel-control-' + direction,
-      className
-    );
-
-    const caretClasses = classNames(
-      'carousel-control-' + direction + '-icon'
-    );
+    let classes, caretClasses;
 
     if(direction === 'prev') {
       text = 'Previous';
     } else if(direction === 'next') {
       text = 'Next';
+    }
+
+    if(!dark){
+      classes = classNames(
+        'carousel-control-' + direction,
+        className
+      );
+      caretClasses = classNames(
+        'carousel-control-' + direction + '-icon'
+      );
+    } else {
+      const arrow = direction === "prev" ? "left" : "right"
+      classes = classNames(
+        'carousel-item-' + direction,
+        arrow,
+        'carousel-control',
+        className
+      );
+      caretClasses = classNames(
+        'icon-' + direction
+      );
     }
 
     return (
@@ -43,7 +58,7 @@ class Control extends Component {
             <span className={caretClasses} aria-hidden="true"></span>
             <span className="sr-only">Previous</span>
           </div>
-         )}
+        )}
       </Tag>
     );
   }
@@ -56,7 +71,8 @@ Control.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
   iconLeft: PropTypes.bool,
-  iconRight: PropTypes.bool
+  iconRight: PropTypes.bool,
+  dark: PropTypes.bool,
 };
 
 Control.defaultProps = {

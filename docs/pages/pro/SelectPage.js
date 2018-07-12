@@ -2,11 +2,10 @@ import React from 'react';
 import { Select, SelectInput, SelectOptions, SelectOption } from 'mdbreact';
 
 class SelectPage extends React.Component {
+  // build function for your selects, and pass it as getValue property to reed the select's value
   getValueOfSelectOne = (value) => {
     console.log(value);
   }
-
-  // build function for your selects, and pass it as getValue property to reed the select's value
   getValueOfSelectTwo = (value) => {
     console.log(value);
   }

@@ -26,13 +26,6 @@ class Option extends React.Component {
 
       if(this.state.multiple) {
         value = [];
-        // iterate throught child nodes options
-        Array.prototype.forEach.call(options, option => option.classList.contains('active') && value.push(option.textContent));
-        
-        if(value.length === 0) {
-          value = 'Choode your option';
-        }
-
         if(selectedOption.classList.contains('active')) {
           selectedOption.classList.remove('active');
           this.setState({ checked: false });
@@ -40,6 +33,13 @@ class Option extends React.Component {
         else {
           selectedOption.classList.add('active');
           this.setState({checked: true});
+        }
+
+        // iterate throught child nodes options and add checked to arr
+        Array.prototype.forEach.call(options, option => option.classList.contains('active') && value.push(option.textContent));
+        
+        if(value.length === 0) {
+          value = 'Choode your option';
         }
       } 
       else {
@@ -113,7 +113,7 @@ Option.defaultProps = {
   disabled: false,
   icon: '',
   triggerOptionClick: () => {}
-}
+};
 
 Option.contextTypes = {
   triggerOptionChange: PropTypes.func.isRequired,
@@ -121,5 +121,5 @@ Option.contextTypes = {
 };
 
 export default Option;
-export { Option as MDBOption };
+export { Option as MDBSelectOption };
 

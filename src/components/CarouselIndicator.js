@@ -29,8 +29,18 @@ class CarouselIndicator extends Component {
   }
 }
 
+CarouselIndicator.propTypes = {
+  active: PropTypes.bool.isRequired,
+  alt: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  img: PropTypes.string
+};
+
 CarouselIndicator.defaultProps = {
-  alt: 'Carousel thumbnail'
+  alt: 'Carousel thumbnail',
+  className: '',
+  img: ''
 };
 
 export default CarouselIndicator;
