@@ -12,7 +12,7 @@ const data = [
   ['Elisa Gallagher', 31, 'Portica', 'United Kingdom', 'London']
 ];
 
-const TableEditable = (props) => {
+const TableEditablePage = (props) => {
   return(
     <Container className="mt-3">
       <Row className="py-3">
@@ -31,4 +31,4 @@ const TableEditable = (props) => {
   );
 };
 
-export default TableEditable;
+export default TableEditablePage;
