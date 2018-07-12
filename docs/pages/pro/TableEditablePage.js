@@ -12,7 +12,7 @@ const data = [
   ['Elisa Gallagher', 31, 'Portica', 'United Kingdom', 'London']
 ];
 
-const TableSort = (props) => {
+const TableEditable = (props) => {
   return(
     <Container className="mt-3">
       <Row className="py-3">
@@ -31,4 +31,4 @@ const TableSort = (props) => {
   );
 };
 
-export default TableSort;
+export default TableEditable;

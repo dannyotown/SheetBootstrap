@@ -3181,6 +3181,7 @@ var Button = function (_React$Component) {
       var _props = this.props,
           active = _props.active,
           block = _props.block,
+          circle = _props.circle,
           className = _props.className,
           color = _props.color,
           outline = _props.outline,
@@ -3195,9 +3196,9 @@ var Button = function (_React$Component) {
           action = _props.action,
           Tag = _props.tag,
           innerRef = _props.innerRef,
-          attributes = _objectWithoutProperties(_props, ['active', 'block', 'className', 'color', 'outline', 'size', 'rounded', 'gradient', 'floating', 'flat', 'role', 'type', 'social', 'action', 'tag', 'innerRef']);
+          attributes = _objectWithoutProperties(_props, ['active', 'block', 'circle', 'className', 'color', 'outline', 'size', 'rounded', 'gradient', 'floating', 'flat', 'role', 'type', 'social', 'action', 'tag', 'innerRef']);
 
-      var classes = (0, _classnames2.default)(floating ? 'btn-floating' : 'btn', flat ? 'btn-flat' : gradient ? gradient + '-gradient' : 'btn' + (outline ? '-outline' : '') + '-' + color, size ? 'btn-' + size : false, rounded ? 'btn-rounded' : false, block ? 'btn-block' : false, social ? 'btn-' + social : false, action ? 'btn-action' : false, 'Ripple-parent', className, { active: active, disabled: this.props.disabled });
+      var classes = (0, _classnames2.default)(floating ? 'btn-floating' : 'btn', flat ? 'btn-flat' : gradient ? gradient + '-gradient' : 'btn' + (outline ? '-outline' : '') + '-' + color, size ? 'btn-' + size : false, rounded ? 'btn-rounded' : false, circle && 'btn-circle', block ? 'btn-block' : false, social ? 'btn-' + social : false, action ? 'btn-action' : false, 'Ripple-parent', className, { active: active, disabled: this.props.disabled });
 
       if (attributes.href && Tag === 'button') {
         Tag = 'a';
@@ -3238,6 +3239,7 @@ Button.propTypes = {
   disabled: _propTypes2.default.bool,
   outline: _propTypes2.default.bool,
   rounded: _propTypes2.default.bool,
+  circle: _propTypes2.default.bool,
   floating: _propTypes2.default.bool,
   flat: _propTypes2.default.bool,
   innerRef: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
