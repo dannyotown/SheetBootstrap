@@ -1,9 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { Popper } from 'react-popper';
-
-const noFlipModifier = { flip: { enabled: false } };
 
 const DropdownMenuComponent = (props) => {
   const { d_tag, d_tabIndex, d_role, d_attributes, d_aria, d_classes, d_key, children } = props;
