@@ -59,6 +59,12 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/pro/sticky">Sticky Content <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/advanced/pro/tableeditable">Table Editable <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/pro/tablesort">Table Sort <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/advanced/pro/timepicker">Time picker <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>

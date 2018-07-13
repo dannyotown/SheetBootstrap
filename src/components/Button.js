@@ -37,6 +37,7 @@ class Button extends React.Component {
     let {
       active,
       block,
+      circle,
       className,
       color,
       outline,
@@ -49,6 +50,7 @@ class Button extends React.Component {
       type,
       social,
       action,
+      circle,
       tag: Tag,
       innerRef,
       ...attributes
@@ -59,9 +61,11 @@ class Button extends React.Component {
       flat ? 'btn-flat' : gradient ? `${gradient}-gradient` : `btn${outline ? '-outline' : ''}-${color}`,
       size ? `btn-${size}` : false,
       rounded ? 'btn-rounded' : false,
+      circle && 'btn-circle',
       block ? 'btn-block' : false,
       social ? 'btn-' + social : false,
       action ? 'btn-action' : false,
+      circle && 'btn-circle',
       'Ripple-parent',
       className,
       { active, disabled: this.props.disabled }
@@ -104,6 +108,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   outline: PropTypes.bool,
   rounded: PropTypes.bool,
+  circle: PropTypes.bool,
   floating: PropTypes.bool,
   flat: PropTypes.bool,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),

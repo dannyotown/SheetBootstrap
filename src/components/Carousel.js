@@ -105,9 +105,9 @@ class Carousel extends Component {
     const classes = classNames(
       'carousel',
       'carousel-fade',
-      this.props.multiItem ? 'carousel-multi-item' : '',
-      this.props.thumbnails ? 'carousel-thumbnails' : '',
-      this.props.testimonial ? 'testimonial-carousel' : '',
+      multiItem ? 'carousel-multi-item' : '',
+      thumbnails ? 'carousel-thumbnails' : '',
+      testimonial ? 'testimonial-carousel' : '',
       className
     );
 
@@ -118,21 +118,21 @@ class Carousel extends Component {
 
     return (
       <Tag ref={this.carouselRef} {...attributes} className={classes} aria-label={ariaLabel}>
-        {(this.props.showControls && this.props.multiItem) && (
+        {(showControls && multiItem) && (
           <div className="controls-top">
-            <CarouselControl iconLeft className="btn-floating" direction="prev" role="button" onClick={this.prev}/>
-            <CarouselControl iconRight className="btn-floating" direction="next" role="button" onClick={this.next}/>
+            <CarouselControl dark={testimonial ? true : false} iconLeft className="btn-floating" direction="prev" role="button" onClick={this.prev}/>
+            <CarouselControl dark={testimonial ? true : false} iconRight className="btn-floating" direction="next" role="button" onClick={this.next}/>
           </div>
         )}
         {children}
-        {(this.props.showControls && !this.props.multiItem) && (
+        {(showControls && !multiItem) && (
           <React.Fragment>
-            <CarouselControl direction="prev" role="button" onClick={this.prev} />
-            <CarouselControl direction="next" role="button" onClick={this.next} />
+            <CarouselControl dark={testimonial ? true : false} direction="prev" role="button" onClick={this.prev} />
+            <CarouselControl dark={testimonial ? true : false} direction="next" role="button" onClick={this.next} />
           </React.Fragment>
         )}
         <CarouselIndicators>
-          {this.props.showIndicators && CarouselIndicatorsArray}
+          {showIndicators && CarouselIndicatorsArray}
         </CarouselIndicators>
       </Tag>
     );
@@ -151,7 +151,7 @@ Carousel.propTypes = {
   showControls: PropTypes.bool,
   showIndicators: PropTypes.bool,
   slide: PropTypes.bool,
-  length: PropTypes.number
+  length: PropTypes.number,
 };
 
 Carousel.defaultProps = {
