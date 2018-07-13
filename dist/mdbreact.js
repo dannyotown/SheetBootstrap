@@ -205,7 +205,7 @@ var Waves = function (_React$Component) {
   _createClass(Waves, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'Ripple ' + (this.props.outline || this.props.flat ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : ''), style: {
+      return _react2.default.createElement('div', { className: 'Ripple ' + (this.props.outline || this.props.flat || this.props.dark ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : ''), style: {
           top: this.state.top + 'px',
           left: this.state.left + 'px',
           width: this.state.width + 'px',
@@ -4374,9 +4374,9 @@ var TextField = function (_React$Component) {
     key: 'onFocus',
     value: function onFocus(ev) {
       // ignore if event is a window blur
-      if (document.activeElement === this.inputElRef) {
-        this.setState({ isTouched: true });
-      }
+      // if (document.activeElement === this.inputElRef) {
+      this.setState({ isTouched: true });
+      // }
       // execute callback
       var fn = this.props.onFocus;
       fn && fn(ev);
@@ -6906,15 +6906,16 @@ var Badge = function (_React$Component) {
     key: 'render',
     value: function render() {
       var _props = this.props,
+          Tag = _props.tag,
           className = _props.className,
           children = _props.children,
           color = _props.color,
           pill = _props.pill,
-          attributes = _objectWithoutProperties(_props, ['className', 'children', 'color', 'pill']);
+          attributes = _objectWithoutProperties(_props, ['tag', 'className', 'children', 'color', 'pill']);
 
       var classes = (0, _classnames2.default)('badge', color, 'badge-' + color, pill ? 'badge-pill' : false, className);
       return _react2.default.createElement(
-        'span',
+        Tag,
         _extends({}, attributes, { className: classes }),
         this.props.children
       );
@@ -6925,6 +6926,7 @@ var Badge = function (_React$Component) {
 }(_react2.default.Component);
 
 Badge.defaultProps = {
+  tag: 'span',
   color: 'default',
   pill: false
 };
