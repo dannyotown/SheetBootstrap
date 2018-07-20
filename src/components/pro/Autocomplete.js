@@ -220,3 +220,5 @@ Autocomplete.defaultProps = {
 };
 
 export default Autocomplete;
+export { Autocomplete as MDBAutocomplete };
+

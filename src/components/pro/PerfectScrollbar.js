@@ -19,7 +19,7 @@ const handlerNameByEvent = {
 };
 Object.freeze(handlerNameByEvent);
 
-export default class ScrollBar extends Component {
+class ScrollBar extends Component {
     constructor(props) {
         super(props);
 
@@ -101,3 +101,6 @@ ScrollBar.propTypes = {
     onXReachStart: PropTypes.func,
     onXReachEnd: PropTypes.func,
 };
+
+export default ScrollBar;
+export { ScrollBar as MDBScrollbar };

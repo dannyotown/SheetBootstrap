@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Collapse from '../Collapse';
 import Waves from '../Waves';
-require('./SideNav.css');
 
 class SideNavCat extends React.Component {
   constructor(props) {
@@ -67,7 +66,7 @@ class SideNavCat extends React.Component {
         <Waves cursorPos = { this.state.cursorPos } />
         </a>
         <Collapse isOpen = {isOpen}>
-          <div className = "collapsible-body">
+          <div className = "collapsible-body" style={{display: 'block'}}>
             <ul>
               {children}
             </ul>
@@ -93,3 +92,4 @@ SideNavCat.defaultProps = {
 };
 
 export default SideNavCat;
+export { SideNavCat as MDBSideNavCat };

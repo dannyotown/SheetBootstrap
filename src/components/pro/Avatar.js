@@ -41,3 +41,5 @@ Avatar.defaultProps = {
 };
 
 export default Avatar;
+export { Avatar as MDBAvatar };
+

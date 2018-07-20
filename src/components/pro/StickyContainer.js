@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import raf from "raf";
 
-export default class Container extends PureComponent {
+class Container extends PureComponent {
   static childContextTypes = {
     subscribe: PropTypes.func,
     unsubscribe: PropTypes.func,
@@ -84,3 +84,6 @@ export default class Container extends PureComponent {
     );
   }
 }
+
+export default Container;
+export { Container as MDBStickyContent };

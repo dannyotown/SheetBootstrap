@@ -64,6 +64,9 @@ class ComponentsPage extends React.Component {
                 <li>
                   <NavLink to="/components/tooltips">Tooltips <Fa icon="angle-right" /></NavLink>
                 </li>
+                <li>
+                  <NavLink to="/components/validation">Validation <Fa icon="angle-right" /></NavLink>
+                </li>
                 <h6 className="mt-3 grey-text">PRO </h6>
                 <li>
                   <NavLink to="/components/pro/autocomplete">Autocomplete <Fa icon="angle-right" /></NavLink>
@@ -75,6 +78,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/pro/cards">Cards <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/pro/chips">Chips <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/pro/forms">Forms <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
@@ -84,6 +90,9 @@ class ComponentsPage extends React.Component {
                   <NavLink to="/components/pro/input">Input <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/components/pro/dropdown">Material Dropdown <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/components/pro/progress">Progress <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
@@ -91,6 +100,9 @@ class ComponentsPage extends React.Component {
                 </li>
                 <li>
                   <NavLink to="/components/pro/socialbuttons">Social Buttons <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/components/pro/stepper">Stepper <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/components/pro/tabs">Tabs <Fa icon="angle-right" /></NavLink>

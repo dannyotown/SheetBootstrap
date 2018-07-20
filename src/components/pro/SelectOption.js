@@ -4,62 +4,56 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 class Option extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       multiple: false,
-      checked: false,
-    }
-    this.selectOption = this.selectOption.bind(this);
-  }
+      checked: false
+    };
 
-  selectOption() {
-    if(!this.props.disabled) {
-      let selectedOption = ReactDOM.findDOMNode(this);
-      let value = selectedOption.children[0].textContent;
-      if(this.props.icon) {
-        value = selectedOption.children[1].textContent;
-      }
-      let options = selectedOption.parentNode.children;
-
-      if(this.state.multiple) {
-        let value = [];
-        if (selectedOption.classList.contains('active')) {
-          selectedOption.classList.remove('active');
-          this.setState({checked: false});
-          for (let i = 0; i < options.length; i++) {
-            if (options[i].classList.contains('active')) {
-              value.push(options[i].textContent);
-            }
-          }
-          if (value.length === 0) {
-            value = "Choose your option";
-          }
-          this.props.triggerOptionClick(value);
-        } else {
-          selectedOption.classList.add('active');
-          this.setState({checked: true});
-          for (let i = 0; i < options.length; i++) {
-            if (options[i].classList.contains('active')) {
-              value.push(options[i].textContent);
-            }
-          }
-          this.props.triggerOptionClick(value);
-        }
-      } else {
-        for (let i = 0; i < options.length; i++) {
-          options[i].classList.remove('active');
-        }
-        selectedOption.classList.add('active');
-        this.props.triggerOptionClick(value);
-      }
-    }
+    this.optionRef = React.createRef();
   }
 
   componentDidMount() {
-    let Select = ReactDOM.findDOMNode(this).parentNode.parentNode;
-    if (Select.dataset.multiple === 'true') {
-      this.setState({multiple: true});
+    this.setState({ multiple: this.context.multiple });
+  }
+  
+  selectOption = (e) => {
+    if(!this.props.disabled) {
+      let selectedOption = this.optionRef.current;
+      let value;
+      let options = selectedOption.parentNode.children;
+
+      if(this.state.multiple) {
+        value = [];
+        if(selectedOption.classList.contains('active')) {
+          selectedOption.classList.remove('active');
+          this.setState({ checked: false });
+        } 
+        else {
+          selectedOption.classList.add('active');
+          this.setState({checked: true});
+        }
+
+        // iterate throught child nodes options and add checked to arr
+        Array.prototype.forEach.call(options, option => option.classList.contains('active') && value.push(option.textContent));
+        
+        if(value.length === 0) {
+          value = 'Choode your option';
+        }
+      } 
+      else {
+        Array.prototype.forEach.call(selectedOption.children, child => {
+          if(child.nodeName == 'SPAN') {
+            value = child.textContent;
+          }
+        });
+
+        Array.prototype.forEach.call(options, option => option.classList.remove('active'));
+        selectedOption.classList.add('active');
+      }
+
+      this.context.triggerOptionChange(value);
     }
   }
 
@@ -81,22 +75,26 @@ class Option extends React.Component {
     let input = null;
     let label = null;
     if (this.state.multiple) {
-      if (!this.props.disabled) {
-        input = <input type="checkbox" checked={this.state.checked}  />;
+      if (!disabled) {
+        input = <input type="checkbox" className="form-check-input" checked={this.state.checked}  />;
         label = <label style={{height: '10px'}} data-multiple={this.state.multiple}></label>;
       } else {
-        input = <input type="checkbox" disabled />;
+        input = <input type="checkbox" className="form-check-input" disabled />;
         label = <label style={{height: '10px'}} data-multiple={this.state.multiple}></label>;
       }
     }
 
-    let img = null;
-    if (this.props.icon) {
-      img = <img src={this.props.icon} alt="icon" className="rounded-circle" />;
-    }
-
     return (
-      <li {...attributes} data-multiple={this.state.multiple} className={classes} onClick={this.selectOption}>{img}<span data-multiple={this.state.multiple} className="filtrable">{input}{label}{children}</span></li>
+      <li ref={this.optionRef} {...attributes} data-multiple={this.state.multiple} className={classes} onClick={this.selectOption}>
+        {
+          icon && <img src={this.props.icon} alt="icon" className="rounded-circle" />
+        }
+        <span data-multiple={this.state.multiple} className="filtrable">
+          {input}
+          {label}
+          {children}
+        </span>
+      </li>
     );
   }
 }
@@ -109,4 +107,19 @@ Option.propTypes = {
   triggerOptionClick: PropTypes.func
 };
 
+Option.defaultProps = {
+  children: 'span',
+  className: '',
+  disabled: false,
+  icon: '',
+  triggerOptionClick: () => {}
+};
+
+Option.contextTypes = {
+  triggerOptionChange: PropTypes.func.isRequired,
+  multiple: PropTypes.bool
+};
+
 export default Option;
+export { Option as MDBSelectOption };
+

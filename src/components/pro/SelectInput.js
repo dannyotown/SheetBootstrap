@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 class SelectInput extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
   }
 
+  componentDidMount() {
+    this.context.triggerOptionChange(this.props.selected);
+  }
+  
   render() {
     const {
       className,
@@ -20,7 +24,7 @@ class SelectInput extends React.Component {
       className
     );
     return (
-      <input type="text" readOnly value={value} {...attributes} className={classes}/>
+      <input type="text" readOnly value={this.context.selectValue} {...attributes} className={classes} onClick={this.handleClick} />
     );
   }
 }
@@ -28,7 +32,22 @@ class SelectInput extends React.Component {
 SelectInput.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  value: PropTypes.string,
+  selected: PropTypes.string,
+  value: PropTypes.string
+};
+
+SelectInput.defaultProps = {
+  children: 'div',
+  className: '',
+  selected: 'Choose your option',
+  value: ''
+};
+
+SelectInput.contextTypes = {
+  selectValue: PropTypes.string.isRequired,
+  triggerOptionChange: PropTypes.func.isRequired,
+  multiple: PropTypes.bool
 };
 
 export default SelectInput;
+export { SelectInput as MDBSelectInput };

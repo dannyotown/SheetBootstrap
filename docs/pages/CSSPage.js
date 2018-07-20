@@ -29,7 +29,7 @@ class CSSPage extends React.Component {
                 </li>
                 <h6 className="mt-3 grey-text">PRO </h6>
                 <li>
-                  <NavLink to="/css/pro/double"> Double Navigation  <Fa icon="angle-right" /></NavLink>
+                  <NavLink to="/css/pro/double">Double Navigation <Fa icon="angle-right" /></NavLink>
                 </li>
               </ul>
             </Jumbotron>

@@ -1,39 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Card, CardUp, Avatar, CardBody, Fa, Carousel, CarouselInner, CarouselItem, CarouselControl, Testimonial, TestimonialControl } from 'mdbreact';
+import { Container, Row, Col, Card, CardUp, Avatar, CardBody, Fa, Carousel, CarouselInner, CarouselItem, Testimonial } from 'mdbreact';
 
 class TestimonialsPage extends Component {
 
-  constructor(props) {
-    super(props);
-    this.next = this.next.bind(this);
-    this.prev = this.prev.bind(this);
-    this.state = {
-      activeItem: 1,
-      maxLength: 3
-    };
-  }
-
-  next() {
-    let nextItem = this.state.activeItem + 1;
-    if(nextItem > this.state.maxLength) {
-      this.setState({ activeItem: 1 });
-    } else {
-      this.setState({ activeItem: nextItem });
-    }
-  }
-
-  prev() {
-    let prevItem = this.state.activeItem - 1;
-    if(prevItem < 1) {
-      this.setState({ activeItem: this.state.maxLength });
-    } else {
-      this.setState({ activeItem: prevItem });
-    }
-  }
-
   render() {
-    const { activeItem } = this.state;
-
     return(
       <Container>
         <section className="text-center my-5">
@@ -92,7 +62,13 @@ class TestimonialsPage extends Component {
 
           <h2 className="h1-responsive font-weight-bold my-5">Testimonials v.2</h2>
 
-          <Carousel testimonial interval={false} activeItem={this.state.activeItem} next={this.next} className="no-flex">
+          <Carousel
+            activeItem={1}
+            length={3}
+            testimonial
+            interval={false}
+            showIndicators={false}
+            className="no-flex">
             <CarouselInner>
               <CarouselItem itemId="1">
                 <Testimonial>
@@ -117,7 +93,7 @@ class TestimonialsPage extends Component {
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" className="rounded-circle img-fluid" alt="Second sample avatar image"/>
                   </Avatar>
                   <p>
-                    <Fa icon="quote-left"></Fa> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore. 
+                    <Fa icon="quote-left"></Fa> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.
                   </p>
                   <h4 className="font-weight-bold">Maria Kate</h4>
                   <h6 className="font-weight-bold my-3">Photographer at Studio LA</h6>
@@ -146,8 +122,6 @@ class TestimonialsPage extends Component {
                 </Testimonial>
               </CarouselItem>
             </CarouselInner>
-            <TestimonialControl direction="prev" role="button" onClick={() => { this.prev(); }} />
-            <TestimonialControl direction="next" role="button" onClick={() => { this.next(); }} />
           </Carousel>
 
         </section>

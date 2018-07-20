@@ -33,3 +33,4 @@ Testimonial.defaultProps = {
 };
 
 export default Testimonial;
+export { Testimonial as MDBTestimonial };

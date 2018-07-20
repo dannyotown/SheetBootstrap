@@ -12,7 +12,7 @@ class Options extends React.Component {
     super(props);
     this.search = this.search.bind(this);
   }
-  
+
   search(value, options) {
     options.forEach(function(option) {
       let optionValue = option.children[0].innerText.toLowerCase();
@@ -55,7 +55,7 @@ class Options extends React.Component {
       'fadeElement',
       className
     );
-    
+
     let autocomplete = null;
     if(this.props.search) {
       autocomplete =  <div className="mx-2"><Autocomplete data = {data} label="Search" id="input" search={this.search} /></div>;
@@ -74,3 +74,4 @@ Options.propTypes = {
 };
 
 export default Options;
+export { Options as MDBSelectOptions };
