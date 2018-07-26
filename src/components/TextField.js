@@ -8,7 +8,7 @@ class TextField extends React.Component {
     super(props);
 
     let value = props.value;
-    let innerValue = value || props.defaultValue;
+    let innerValue = value || props.default;
 
     if (innerValue === undefined) innerValue = '';
 
@@ -54,10 +54,10 @@ class TextField extends React.Component {
 
   onFocus(ev) {
     // ignore if event is a window blur
-    if (document.activeElement === this.inputElRef) {
+    // if (document.activeElement === this.inputElRef) {
       this.setState({ isTouched: true });
-    }
-    // execute callback
+    // }
+            // execute callback
     let fn = this.props.onFocus;
     fn && fn(ev);
   }
@@ -198,7 +198,7 @@ TextField.propTypes = {
   id: PropTypes.string,
   hint: PropTypes.string,
   value: PropTypes.string,
-  defaultValue: PropTypes.string,
+  default: PropTypes.string,
   error: PropTypes.string,
   success: PropTypes.string,
   label: PropTypes.string,

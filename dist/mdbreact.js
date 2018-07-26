@@ -205,7 +205,7 @@ var Waves = function (_React$Component) {
   _createClass(Waves, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'Ripple ' + (this.props.outline || this.props.flat ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : ''), style: {
+      return _react2.default.createElement('div', { className: 'Ripple ' + (this.props.outline || this.props.flat || this.props.dark ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : ''), style: {
           top: this.state.top + 'px',
           left: this.state.left + 'px',
           width: this.state.width + 'px',
@@ -3181,6 +3181,7 @@ var Button = function (_React$Component) {
       var _props = this.props,
           active = _props.active,
           block = _props.block,
+          circle = _props.circle,
           className = _props.className,
           color = _props.color,
           outline = _props.outline,
@@ -3195,9 +3196,9 @@ var Button = function (_React$Component) {
           action = _props.action,
           Tag = _props.tag,
           innerRef = _props.innerRef,
-          attributes = _objectWithoutProperties(_props, ['active', 'block', 'className', 'color', 'outline', 'size', 'rounded', 'gradient', 'floating', 'flat', 'role', 'type', 'social', 'action', 'tag', 'innerRef']);
+          attributes = _objectWithoutProperties(_props, ['active', 'block', 'circle', 'className', 'color', 'outline', 'size', 'rounded', 'gradient', 'floating', 'flat', 'role', 'type', 'social', 'action', 'tag', 'innerRef']);
 
-      var classes = (0, _classnames2.default)(floating ? 'btn-floating' : 'btn', flat ? 'btn-flat' : gradient ? gradient + '-gradient' : 'btn' + (outline ? '-outline' : '') + '-' + color, size ? 'btn-' + size : false, rounded ? 'btn-rounded' : false, block ? 'btn-block' : false, social ? 'btn-' + social : false, action ? 'btn-action' : false, 'Ripple-parent', className, { active: active, disabled: this.props.disabled });
+      var classes = (0, _classnames2.default)(floating ? 'btn-floating' : 'btn', flat ? 'btn-flat' : gradient ? gradient + '-gradient' : 'btn' + (outline ? '-outline' : '') + '-' + color, size ? 'btn-' + size : false, rounded ? 'btn-rounded' : false, circle && 'btn-circle', block ? 'btn-block' : false, social ? 'btn-' + social : false, action ? 'btn-action' : false, 'Ripple-parent', className, { active: active, disabled: this.props.disabled });
 
       if (attributes.href && Tag === 'button') {
         Tag = 'a';
@@ -3238,6 +3239,7 @@ Button.propTypes = {
   disabled: _propTypes2.default.bool,
   outline: _propTypes2.default.bool,
   rounded: _propTypes2.default.bool,
+  circle: _propTypes2.default.bool,
   floating: _propTypes2.default.bool,
   flat: _propTypes2.default.bool,
   innerRef: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
@@ -4372,9 +4374,9 @@ var TextField = function (_React$Component) {
     key: 'onFocus',
     value: function onFocus(ev) {
       // ignore if event is a window blur
-      if (document.activeElement === this.inputElRef) {
-        this.setState({ isTouched: true });
-      }
+      // if (document.activeElement === this.inputElRef) {
+      this.setState({ isTouched: true });
+      // }
       // execute callback
       var fn = this.props.onFocus;
       fn && fn(ev);
@@ -6904,15 +6906,16 @@ var Badge = function (_React$Component) {
     key: 'render',
     value: function render() {
       var _props = this.props,
+          Tag = _props.tag,
           className = _props.className,
           children = _props.children,
           color = _props.color,
           pill = _props.pill,
-          attributes = _objectWithoutProperties(_props, ['className', 'children', 'color', 'pill']);
+          attributes = _objectWithoutProperties(_props, ['tag', 'className', 'children', 'color', 'pill']);
 
       var classes = (0, _classnames2.default)('badge', color, 'badge-' + color, pill ? 'badge-pill' : false, className);
       return _react2.default.createElement(
-        'span',
+        Tag,
         _extends({}, attributes, { className: classes }),
         this.props.children
       );
@@ -6923,6 +6926,7 @@ var Badge = function (_React$Component) {
 }(_react2.default.Component);
 
 Badge.defaultProps = {
+  tag: 'span',
   color: 'default',
   pill: false
 };
