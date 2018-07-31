@@ -13,14 +13,20 @@ class Button extends React.Component {
   }
 
   handleClick(e){
-    // Get Cursor Position
-    e.preventDefault();
-    let cursorPos = {
-      top: e.clientY,
-      left: e.clientX,
-      time: Date.now()
-    };
-    this.setState({ cursorPos: cursorPos });
+    if (!this.props.disabled) {
+      // Waves - Get Cursor Position
+      let cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      this.setState({ cursorPos: cursorPos });
+      // do the passed in callback:
+      if (this.props.onClick) {
+      this.props.onClick(e);
+      }
+      e.stopPropagation();
+    }
   }
 
   onClick(e) {
@@ -50,7 +56,6 @@ class Button extends React.Component {
       type,
       social,
       action,
-      circle,
       tag: Tag,
       innerRef,
       ...attributes
@@ -65,7 +70,6 @@ class Button extends React.Component {
       block ? 'btn-block' : false,
       social ? 'btn-' + social : false,
       action ? 'btn-action' : false,
-      circle && 'btn-circle',
       'Ripple-parent',
       className,
       { active, disabled: this.props.disabled }

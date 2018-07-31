@@ -11,21 +11,25 @@ class StepperPage extends React.Component {
       formActivePanel2Changed: false,
       formActivePanel3: 1,
       formActivePanel3Changed: false
+<<<<<<< HEAD
     }
+=======
+    };
+>>>>>>> a04dbc886bf714e8049e2d86d252d81b035ffc95
   }
 
   swapFormActive = (a) => (param) => (e) => {
     this.setState({
       ['formActivePanel' + a]: param,
       ['formActivePanel' + a + 'Changed']: true
-     });
+    });
   }
 
   handleNextPrevClick = (a) => (param) => (e) => {
     this.setState({
       ['formActivePanel' + a] : param,
       ['formActivePanel' + a + 'Changed']: true
-  });
+    });
   }
 
   handleSubmission = () => {
@@ -34,7 +38,7 @@ class StepperPage extends React.Component {
 
   calculateAutofocus = (a) => {
     if (this.state['formActivePanel'+a+'Changed']) {
-      return true
+      return true;
     }
   }
 
@@ -133,7 +137,11 @@ class StepperPage extends React.Component {
 
                 <form action="" method="post">
                   <Row>
+<<<<<<< HEAD
 { this.state.formActivePanel1 === 1  &&
+=======
+                    { this.state.formActivePanel1 === 1  &&
+>>>>>>> a04dbc886bf714e8049e2d86d252d81b035ffc95
                     (<Col md="12">
                       <h3 className="font-weight-bold pl-0 my-4"><strong>Step 1</strong></h3>
                       <Input label="First Name" className="mt-3"
@@ -143,7 +151,11 @@ class StepperPage extends React.Component {
                       <Input  label="Address" type="textarea" rows="2"/>
                       <Button color="indigo" rounded className="float-right" onClick={this.handleNextPrevClick(1)(2)}>next</Button>
                     </Col>)}
+<<<<<<< HEAD
 { this.state.formActivePanel1 === 2  &&
+=======
+                    { this.state.formActivePanel1 === 2  &&
+>>>>>>> a04dbc886bf714e8049e2d86d252d81b035ffc95
                     (<Col md="12">
                       <h3 className="font-weight-bold pl-0 my-4"><strong>Step 2</strong></h3>
                       <Input label="Company Name" className="mt-4"
@@ -153,7 +165,11 @@ class StepperPage extends React.Component {
                       <Button color="indigo" rounded className="float-left" onClick={this.handleNextPrevClick(1)(1)}>previous</Button>
                       <Button color="indigo" rounded className="float-right" onClick={this.handleNextPrevClick(1)(3)}>next</Button>
                     </Col>)}
+<<<<<<< HEAD
 { this.state.formActivePanel1 === 3  &&
+=======
+                    { this.state.formActivePanel1 === 3  &&
+>>>>>>> a04dbc886bf714e8049e2d86d252d81b035ffc95
                     (<Col md="12">
                       <h3 className="font-weight-bold pl-0 my-4"><strong>Step 3</strong></h3>
                       <Button color="indigo" rounded className="float-left" onClick={this.handleNextPrevClick(1)(2)} autoFocus={this.calculateAutofocus(1)}>previous</Button>
@@ -285,7 +301,7 @@ class StepperPage extends React.Component {
         </Card>
       </Container>
     );
-  };
+  }
 }
 
 export default StepperPage;
