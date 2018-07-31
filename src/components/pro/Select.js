@@ -37,10 +37,10 @@ class Select extends React.Component {
     this.setState({ selectValue: option });
   }
 
-  // close all select dropdown (unless it has multiple property)
+  // close all select dropdown (unless it has multiple property or search input)
   // open nieghbour ul of clicked input
   onClick = (e) => {
-    if (e.target.dataset.multiple === 'true') return;
+    if (e.target.dataset.multiple === 'true' || e.target.dataset.search === 'true') return;
     this.closeDropdowns();
     e.target.nextElementSibling && e.target.nextElementSibling.classList.add('fadeIn');
   }

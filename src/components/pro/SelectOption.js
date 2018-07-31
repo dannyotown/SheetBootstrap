@@ -39,7 +39,7 @@ class Option extends React.Component {
         Array.prototype.forEach.call(options, option => option.classList.contains('active') && value.push(option.textContent));
         
         if(value.length === 0) {
-          value = 'Choode your option';
+          value = 'Choose your option';
         }
       } 
       else {
