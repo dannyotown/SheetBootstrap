@@ -18,13 +18,6 @@ class TextField extends React.Component {
       isPristine: true
     };
 
-    // warn if value defined but onChange is not
-    if (value !== undefined && !props.onChange) {
-      console.log('You provided a `value` prop to a form field ' +
-        'without an `OnChange` handler. Please see React documentation on ' +
-        'controlled components');
-    }
-
     this.onBlur = this.onBlur.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onFocus = this.onFocus.bind(this);
@@ -33,7 +26,6 @@ class TextField extends React.Component {
 
 
   componentDidMount() {
-
   }
 
   componentWillReceiveProps(nextProps) {
@@ -73,10 +65,15 @@ class TextField extends React.Component {
     // execute callback
     let fn = this.props.onChange;
     fn && fn(ev);
+    this.props.getValue && this.props.getValue(ev.target.value);
   }
   triggerFocus() {
     // hack to enable IE10 pointer-events shim
     this.inputElRef.focus();
+  }
+
+  getValueHandler() {
+    return this.state.innerValue;
   }
 
   render() {
@@ -85,6 +82,7 @@ class TextField extends React.Component {
       containerClass,
       size,
       group,
+      getValue,
       className,
       type,
       el,
@@ -210,12 +208,14 @@ TextField.propTypes = {
   className: PropTypes.string,
   containerClass: PropTypes.string,
   filled: PropTypes.bool,
-  gap: PropTypes.bool
+  gap: PropTypes.bool,
+  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
 };
 TextField.defaultProps = {
   tag: 'input',
   type: 'text',
-  hint: null
+  hint: null,
+  getValue: false
 };
 
 export default TextField;

@@ -15,8 +15,9 @@ class InputSwitch extends React.Component {
     this.setState({value: this.props.checked})
   }
 
-  handleChange() {
+  handleChange(event) {
     this.setState({value: !this.state.value});
+    this.props.getValue && this.props.getValue(event.target.checked);
   }
 
   render() {
@@ -24,6 +25,7 @@ class InputSwitch extends React.Component {
       className,
       checked,
       disabled,
+      getValue,
       ...attributes
     } = this.props;
 
@@ -35,7 +37,7 @@ class InputSwitch extends React.Component {
       <div {...attributes} className={classes}>
         <label>
           Off
-          <input disabled={this.props.disabled} value={this.state.value} checked={this.state.value} onChange={this.handleChange} type="checkbox" />
+          <input disabled={this.props.disabled} value={this.state.value} checked={this.state.value} onChange={(event) => this.handleChange(event)} type="checkbox" />
           <span className="lever"></span>
           On
         </label>
@@ -47,11 +49,13 @@ class InputSwitch extends React.Component {
 InputSwitch.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  checked: PropTypes.bool
+  checked: PropTypes.bool,
+  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
 };
 
 InputSwitch.defaultProps = {
-  checked: false
+  checked: false,
+  getValue: false
 };
 
 export default InputSwitch;
