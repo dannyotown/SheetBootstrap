@@ -1,11 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import './Stepper.css';
 
 class Stepper extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
 
   render() {
@@ -14,8 +15,8 @@ class Stepper extends React.Component {
       tag: Tag,
       vertical,
       form,
-      icon,
-    } = this.props
+      icon
+    } = this.props;
 
     const stepperClass = classNames(
       form ? 'steps-form' : (icon && vertical) ? 'steps-form-3' : (icon && !vertical) ? 'steps-form-2' : 'stepper',
@@ -25,32 +26,45 @@ class Stepper extends React.Component {
 
     const wrapperFix = classNames(
       form ? 'steps-row' : (icon && vertical) ? 'steps-row-3 d-flex justify-content-between' : (icon && !vertical) ? 'steps-row-2 d-flex justify-content-between' : null
-    )
+    );
 
     // wrapper shim in case this.props.form
     let stepper;
     if (form || icon) {
-      stepper = (<div className={stepperClass}>
-                  <div className={wrapperFix}>
-                    {this.props.children}
-                  </div>
-                </div>)
+      stepper = (
+        <div className={stepperClass}>
+          <div className={wrapperFix}>
+            {this.props.children}
+          </div>
+        </div>
+      );
     } else {
-      stepper = (<ul className={stepperClass}>
-                  {this.props.children}
-                </ul>)
+      stepper = (
+        <ul className={stepperClass}>
+          {this.props.children}
+        </ul>
+      );
     }
 
     return(
       stepper
     );
-  };
+  }
 }
+
+Stepper.propTypes = {
+  tag: PropTypes.string,
+  vertical: PropTypes.bool,
+  form: PropTypes.bool,
+  icon: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string
+};
 
 Stepper.defaultProps = {
   tag: 'ul',
   form: false
-}
+};
 
 export default Stepper;
-export { Stepper as MDBStepper }
+export { Stepper as MDBStepper };
