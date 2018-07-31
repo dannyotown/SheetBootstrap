@@ -73,12 +73,16 @@ class InputPage extends React.Component {
     this.setState({switch: !this.state.switch});
   }
 
+  handleChange = (value) => {
+    console.log(value)
+  }
+
   render () {
     return (
       <Container className="mt-5">
         <h2 className="title mb-5"><strong>Checkboxes</strong></h2>
         <h4 className="mt-5 mb-3">Basic examples</h4>
-        <Input label="Classic checkbox" checked={this.state.checkbox} onChange={this.handleCheckboxChange} type="checkbox" id="checkbox" />
+        <Input getValue={ this.handleChange } value="Classic checkbox"  label="Classic checkbox" checked={this.state.checkbox} onChange={ this.handleCheckboxChange } type="checkbox" id="checkbox" />
         <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox2" />
 
         <h4 className="mt-5 mb-3">Disabled checkboxes</h4>
@@ -87,7 +91,7 @@ class InputPage extends React.Component {
 
         <h4 className="mt-5 mb-3">Inline checkboxes</h4>
           <FormInline>
-            <Input label="Classic checkbox" type="checkbox" id="checkbox5" />
+            <Input label="Classic checkbox" type="checkbox" value="coś tam" onChange={this.handleCheckboxChange} id="checkbox5" />
             <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox6" />
             <Input label="Classic checkbox" type="checkbox" id="checkbox7" />
           </FormInline>
@@ -96,7 +100,7 @@ class InputPage extends React.Component {
 
         <h2 className="title mb-5"><strong>Radio buttons</strong></h2>
         <h4 className="mt-5 mb-3">Basic examples</h4>
-        <Input onClick={this.onClick1} checked={this.state.radio === 1 ? true : false} label="Option 1" type="radio" id="radio1" />
+        <Input getValue={ this.handleChange } value="Option 1" onClick={this.onClick1} checked={this.state.radio === 1 ? true : false} label="Option 1" type="radio" id="radio1" />
         <Input onClick={this.onClick2} checked={this.state.radio === 2 ? true : false} label="Option 2" type="radio" id="radio2" />
         <Input onClick={this.onClick3} checked={this.state.radio === 3 ? true : false} label="Option 3" type="radio" id="radio3" />
 
@@ -115,7 +119,7 @@ class InputPage extends React.Component {
         <hr className="my-5" />
 
         <h2 className="title mb-5"><strong>Switch</strong></h2>
-        <InputSwitch checked={this.state.switch} onChange={this.handleSwitchChange}></InputSwitch>
+        <InputSwitch getValue={ this.handleChange } checked={this.state.switch} onChange={this.handleSwitchChange}></InputSwitch>
         <h4 className="mt-5 mb-3">Disabled</h4>
         <InputSwitch disabled></InputSwitch>
 
@@ -126,12 +130,12 @@ class InputPage extends React.Component {
         <InputFile getValue = { this.fileInputHandler }></InputFile>
 
         <h4 className="mt-5 mb-3">Multiple files</h4>
-        <InputFile multiple btnColor="info" btn-size="sm"></InputFile>
+        <InputFile getValue = { this.fileInputHandler } multiple btnColor="info" btn-size="sm"></InputFile>
 
         <hr className="my-5" />
 
         <h2 className="title mb-5"><strong>Range</strong></h2>
-        <InputRange min={0} max={100} value={50}></InputRange>
+        <InputRange getValue={ this.handleChange } min={0} max={100} value={50}></InputRange>
 
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       </Container>

@@ -35,6 +35,7 @@ class InputRange extends React.Component {
   rangeChange(e) {
     let newValue = e.target.value;
     this.setState({value: newValue, leftPosition: oneStep * newValue - oneStep * this.props.min});
+    this.props.getValue && this.props.getValue(e.target.value);
   }
 
   rangeFocus() {
@@ -53,6 +54,7 @@ class InputRange extends React.Component {
       min,
       max,
       value,
+      getValue,
       ...attributes
     } = this.props;
 
@@ -80,13 +82,15 @@ InputRange.propTypes = {
   className: PropTypes.string,
   min: PropTypes.number,
   max: PropTypes.number,
-  value: PropTypes.number
+  value: PropTypes.number,
+  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
 };
 
 InputRange.defaultProps = {
   min: 0,
   max: 100,
-  value: 50
+  value: 50,
+  getValue: false
 };
 
 export default InputRange;
