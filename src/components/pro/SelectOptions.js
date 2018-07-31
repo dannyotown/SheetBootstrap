@@ -58,7 +58,7 @@ class Options extends React.Component {
 
     let autocomplete = null;
     if(this.props.search) {
-      autocomplete =  <div className="mx-2"><Autocomplete data = {data} label="Search" id="input" search={this.search} /></div>;
+      autocomplete =  <div className="mx-2"><Autocomplete data = {data} label="Search" id="input" search={this.search} data-search="true" /></div>;
     }
 
     return (
