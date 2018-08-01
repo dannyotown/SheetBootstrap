@@ -3,10 +3,7 @@ import { Select, SelectInput, SelectOptions, SelectOption } from 'mdbreact';
 
 class SelectPage extends React.Component {
   // build function for your selects, and pass it as getValue property to reed the select's value
-  getValueOfSelectOne = (value) => {
-    console.log(value);
-  }
-  getValueOfSelectTwo = (value) => {
+  getValueOfSelect = (value) => {
     console.log(value);
   }
 
@@ -17,7 +14,7 @@ class SelectPage extends React.Component {
         <div className="row">
           <div className="col-md-6">
 
-            <Select getValue={this.getValueOfSelectOne}>
+            <Select getValue={this.getValueOfSelect}>
               <SelectInput selected="Choose your option"></SelectInput>
               <SelectOptions>
                 <SelectOption disabled>Choose your option</SelectOption>
@@ -36,15 +33,15 @@ class SelectPage extends React.Component {
         <div className="row">
           <div className="col-md-6">
 
-            <Select multiple getValue={this.getValueOfSelectTwo}>
+            <Select getValue={this.getValueOfSelect} multiple>
               <SelectInput selected="Choose your option"></SelectInput>
               <SelectOptions>
                 <SelectOption disabled>Choose your option</SelectOption>
-                <SelectOption>Option nr 1</SelectOption>
-                <SelectOption>Option nr 2</SelectOption>
-                <SelectOption>Option nr 3</SelectOption>
-                <SelectOption>Option nr 4</SelectOption>
-                <SelectOption>Option nr 5</SelectOption>
+                <SelectOption value="value nr 1">Option nr 1</SelectOption>
+                <SelectOption value="value nr 2">Option nr 2</SelectOption>
+                <SelectOption value="value nr 3">Option nr 3</SelectOption>
+                <SelectOption value="value nr 4">Option nr 4</SelectOption>
+                <SelectOption value="value nr 5">Option nr 5</SelectOption>
               </SelectOptions>
             </Select>
             <label>Example label</label>
@@ -55,15 +52,15 @@ class SelectPage extends React.Component {
         <div className="row">
           <div className="col-md-6">
 
-            <Select color="primary">
+            <Select getValue={this.getValueOfSelect} color="primary">
               <SelectInput selected="Choose your option"></SelectInput>
               <SelectOptions>
                 <SelectOption disabled>Choose your option</SelectOption>
-                <SelectOption>Option nr 1</SelectOption>
-                <SelectOption>Option nr 2</SelectOption>
-                <SelectOption>Option nr 3</SelectOption>
-                <SelectOption>Option nr 4</SelectOption>
-                <SelectOption>Option nr 5</SelectOption>
+                <SelectOption value="value nr 1">Option nr 1</SelectOption>
+                <SelectOption value="value nr 2">Option nr 2</SelectOption>
+                <SelectOption value="value nr 3">Option nr 3</SelectOption>
+                <SelectOption value="value nr 4">Option nr 4</SelectOption>
+                <SelectOption value="value nr 5">Option nr 5</SelectOption>
               </SelectOptions>
             </Select>
             <label>Blue select</label>
@@ -74,13 +71,13 @@ class SelectPage extends React.Component {
         <div className="row">
           <div className="col-md-6">
 
-            <Select>
+            <Select getValue={this.getValueOfSelect}>
               <SelectInput selected="Choose your option"></SelectInput>
               <SelectOptions>
                 <SelectOption disabled>Choose your option</SelectOption>
-                <SelectOption icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg">Option nr 1</SelectOption>
-                <SelectOption icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg">Option nr 2</SelectOption>
-                <SelectOption icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg">Option nr 3</SelectOption>
+                <SelectOption value="User nr 1" icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg">Option nr 1</SelectOption>
+                <SelectOption value="User nr 2" icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg">Option nr 2</SelectOption>
+                <SelectOption value="User nr 3" icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg">Option nr 3</SelectOption>
               </SelectOptions>
             </Select>
             <label>Example label</label>
@@ -91,7 +88,7 @@ class SelectPage extends React.Component {
         <div className="row">
           <div className="col-md-6">
 
-            <Select>
+            <Select getValue={this.getValueOfSelect}>
               <SelectInput selected="Choose your option"></SelectInput>
               <SelectOptions>
                 <SelectOption disabled>team 1</SelectOption>
