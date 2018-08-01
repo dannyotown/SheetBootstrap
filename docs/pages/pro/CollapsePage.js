@@ -9,8 +9,7 @@ class CollapsePage extends Component {
     };
   }
 
-  onClick = (number) => {
-    return () => {
+  onClick = number => () => {
       let state = '';
       if(this.state.accordion !== number) {
         state = number;
@@ -19,8 +18,8 @@ class CollapsePage extends Component {
       }
       this.setState({
         accordion: state});
-    }
   }
+
 
   render() {
     const {accordion} = this.state;
