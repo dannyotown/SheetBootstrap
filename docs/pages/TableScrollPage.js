@@ -71,8 +71,8 @@ const TablePage = (props) => {
         <Col md="12">
           <Card>
             <CardBody>
-              <h2 className="h2-responsive pb-4">Always responsive</h2>
-              <Table responsive>
+              <h2 className="h2-responsive pb-4">Static table vertical scroll</h2>
+              <Table scrollY>
                 <TableHead columns={data.columns}/>
                 <TableBody rows={data.rows} />
               </Table>
