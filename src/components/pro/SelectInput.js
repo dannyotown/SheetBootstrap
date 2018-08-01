@@ -10,7 +10,7 @@ class SelectInput extends React.Component {
   componentDidMount() {
     this.context.triggerOptionChange(this.props.selected);
   }
-  
+
   render() {
     const {
       className,
@@ -24,7 +24,7 @@ class SelectInput extends React.Component {
       className
     );
     return (
-      <input type="text" readOnly value={this.context.selectValue} {...attributes} className={classes} onClick={this.handleClick} />
+      <input type="text" readOnly value={ this.context.selectText ? this.context.selectText : this.props.selected  } {...attributes} className={classes} />
     );
   }
 }
@@ -44,7 +44,7 @@ SelectInput.defaultProps = {
 };
 
 SelectInput.contextTypes = {
-  selectValue: PropTypes.string.isRequired,
+  selectText: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   triggerOptionChange: PropTypes.func.isRequired,
   multiple: PropTypes.bool
 };

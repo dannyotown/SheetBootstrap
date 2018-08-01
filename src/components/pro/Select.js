@@ -6,10 +6,10 @@ class Select extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectValue: ''
+      selectText: ''
     };
   }
-  
+
   componentDidMount() {
     document.addEventListener('click', this.onClick);
   }
@@ -26,21 +26,21 @@ class Select extends React.Component {
 
   getChildContext() {
     return {
-      selectValue: this.state.selectValue,
+      selectText: this.state.selectText,
       triggerOptionChange: this.triggerOptionChange,
       multiple: this.props.multiple
     }
   }
 
-  triggerOptionChange = (option) => {
-    (Array.isArray(option)) && (option = option.join(', '));
-    this.setState({ selectValue: option });
+  triggerOptionChange = (value, text) => {
+    (Array.isArray(text)) && (text = text.join(', '));
+    this.setState({ ...this.state, selectValue: value, selectText: text });
   }
 
-  // close all select dropdown (unless it has multiple property)
+  // close all select dropdown (unless it has multiple property or search input)
   // open nieghbour ul of clicked input
   onClick = (e) => {
-    if (e.target.dataset.multiple === 'true') return;
+    if (e.target.dataset.multiple === 'true' || e.target.dataset.search === 'true') return;
     this.closeDropdowns();
     e.target.nextElementSibling && e.target.nextElementSibling.classList.add('fadeIn');
   }
@@ -67,7 +67,7 @@ class Select extends React.Component {
     );
 
     return (
-      <div {...attributes} data-color={color} data-multiple={multiple} value={this.state.selectValue} className={classes}>
+      <div { ...attributes } data-color={ color } data-multiple={ multiple }  onChange={ this.onChangeHandler } className={ classes }>
         <span className="caret">▼</span>
         {children}
       </div>
@@ -94,7 +94,7 @@ Select.defaultProps = {
 };
 
 Select.childContextTypes = {
-  selectValue: PropTypes.string.isRequired,
+  selectText: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   triggerOptionChange: PropTypes.func.isRequired,
   multiple: PropTypes.bool
 };

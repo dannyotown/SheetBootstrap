@@ -50,7 +50,7 @@ class AlertPage extends Component {
         <button className='btn btn-danger'
           onClick={this.notify('error')}>Error
         </button>
-        <ToastContainer 
+        <ToastContainer
           hideProgressBar={true}
           newestOnTop={true}
           autoClose={5000}
