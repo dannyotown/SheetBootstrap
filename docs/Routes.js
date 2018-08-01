@@ -8,6 +8,7 @@ import CSSPage from './pages/CSSPage';
 import TablePage from './pages/TablePage';
 import TableResponsivePage from './pages/TableResponsivePage';
 import TableScrollPage from './pages/TableScrollPage';
+import TableStylesPage from './pages/TableStylesPage';
 import BadgePage from './pages/BadgePage';
 import BreadcrumbPage from './pages/BreadcrumbPage';
 import FaPage from './pages/FaPage';
@@ -94,6 +95,7 @@ class Routes extends React.Component {
         <Route exact path='/components' component={ComponentsPage} />
         <Route path='/css/table-responsive' component={TableResponsivePage} />
         <Route path='/css/table-scroll' component={TableScrollPage} />
+        <Route path='/css/table-styles' component={TableStylesPage} />
         <Route path='/components/badge' component={BadgePage} />
         <Route path='/components/breadcrumb' component={BreadcrumbPage} />
         <Route path='/components/media' component={MediaPage} />
