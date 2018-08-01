@@ -56,7 +56,7 @@ Stepper.propTypes = {
   tag: PropTypes.string,
   vertical: PropTypes.bool,
   form: PropTypes.bool,
-  icon: PropTypes.string,
+  icon: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string
 };
