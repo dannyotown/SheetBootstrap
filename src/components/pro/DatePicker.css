@@ -1,0 +1,14 @@
+.MuiButtonBase-root-113 .material-icons {
+  content: " ";
+  border-top: .5em solid transparent;
+  border-bottom: .5em solid transparent;
+  border-right: .75em solid #676767;
+  width: 0;
+  height: 0;
+  display: block;
+  margin: 0 auto;
+}
+
+.MuiButtonBase-root-113:last-child .material-icons{
+  transform: rotate(180deg);
+}

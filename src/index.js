@@ -184,6 +184,7 @@ import MDBChip from './components/pro/Chip';
 import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBDropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
+import MDBDatePicker from './components/pro/DatePicker';
 import MDBDataTable from './components/pro/DataTable';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
@@ -397,6 +398,7 @@ export {
   MDBChip,
   MDBChipsInput,
   MDBCollapseHeader,
+  MDBDatePicker,
   MDBDropdownMenuProComponent,
   MDBDataTable,
   MDBFlippingCard,
