@@ -4,6 +4,23 @@ import classNames from 'classnames';
 
 
 class SideNavNav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state={
+      accordion: null
+    }
+  }
+
+  onClick = number => () => {
+    let state = '';
+    if(this.state.accordion !== number) {
+      state = number;
+    } else {
+      state = null;
+    }
+    this.setState({
+      accordion: state});
+  }
 
   render() {
     const {
@@ -13,18 +30,28 @@ class SideNavNav extends React.Component {
       ...attributes
     } = this.props;
 
+    const { accordion } = this.state;
+
     const classes = classNames(
       'collapsible',
       'collapsible-accordion',
       className
     );
 
+    // const sideNavCats = this.props.children;
 
+    const modified = React.Children.map(this.props.children, (child, i) =>{
+      const updatedChild = React.cloneElement(child, {
+        onClick: this.onClick(i),
+        isOpen: accordion == i
+      });
+      return updatedChild
+    })
 
     return (
       <li>
         <Tag {...attributes} className={classes} >
-            {children}
+            {modified}
         </Tag>
       </li>
     );
