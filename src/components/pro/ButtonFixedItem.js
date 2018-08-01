@@ -29,10 +29,6 @@ class ButtonFixed extends React.Component {
       e.preventDefault();
       return;
     }
-
-    if (this.props.onClick) {
-      this.props.onClick(e);
-    }
   }
 
   render() {

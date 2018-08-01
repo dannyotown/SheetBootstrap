@@ -23,6 +23,7 @@ import CarouselIndicator from './components/CarouselIndicator';
 import Col from './components/Col';
 import Collapse from './components/Collapse';
 import Container from './components/Container';
+import DataTable from './components/DataTable';
 import Dropdown from './components/Dropdown';
 import DropdownItem from './components/DropdownItem';
 import DropdownMenu from './components/DropdownMenu';
@@ -62,6 +63,8 @@ import Progress from './components/Progress';
 import Waves from './components/Waves';
 import Row from './components/Row';
 import Table from './components/Table';
+import TableBody from './components/TableBody';
+import TableHead from './components/TableHead';
 import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
@@ -76,7 +79,6 @@ import Chip from './components/pro/Chip';
 import ChipsInput from './components/pro/ChipsInput';
 import CollapseHeader from './components/pro/CollapseHeader';
 import DropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
-import DataTable from './components/pro/DataTable';
 import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
@@ -131,6 +133,7 @@ import MDBCarouselIndicator from './components/CarouselIndicator';
 import MDBCol from './components/Col';
 import MDBCollapse from './components/Collapse';
 import MDBContainer from './components/Container';
+import MDBDataTable from './components/DataTable';
 import MDBDropdown from './components/Dropdown';
 import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
@@ -170,6 +173,8 @@ import MDBProgress from './components/Progress';
 import MDBWaves from './components/Waves';
 import MDBRow from './components/Row';
 import MDBTable from './components/Table';
+import MDBTableBody from './components/TableBody';
+import MDBTableHead from './components/TableHead';
 import MDBTextarea from './components/TextField';
 import MDBTooltip from './components/Tooltip';
 import MDBView from './components/View';
@@ -185,7 +190,6 @@ import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBDropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
 import MDBDatePicker from './components/pro/DatePicker';
-import MDBDataTable from './components/pro/DataTable';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
 import MDBRangeInput from './components/pro/InputRange';
@@ -241,6 +245,7 @@ export {
   Col,
   Collapse,
   Container,
+  DataTable,
   Dropdown,
   DropdownItem,
   DropdownMenu,
@@ -280,6 +285,8 @@ export {
   Waves,
   Row,
   Table,
+  TableBody,
+  TableHead,
   TextField,
   Tooltip,
   View,
@@ -293,7 +300,6 @@ export {
   ChipsInput,
   CollapseHeader,
   DropdownMenuProComponent,
-  DataTable,
   FlippingCard,
   InputFile,
   InputRange,
@@ -347,6 +353,7 @@ export {
   MDBCol,
   MDBCollapse,
   MDBContainer,
+  MDBDataTable,
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,
@@ -386,6 +393,8 @@ export {
   MDBWaves,
   MDBRow,
   MDBTable,
+  MDBTableBody,
+  MDBTableHead,
   MDBTextarea,
   MDBTooltip,
   MDBView,
@@ -400,7 +409,6 @@ export {
   MDBCollapseHeader,
   MDBDatePicker,
   MDBDropdownMenuProComponent,
-  MDBDataTable,
   MDBFlippingCard,
   MDBFileInput,
   MDBRangeInput,
@@ -428,5 +436,5 @@ export {
   MDBStepper,
   MDBSticky,
   MDBStickyContent,
-  MDBTestimonial,
+  MDBTestimonial
 };
