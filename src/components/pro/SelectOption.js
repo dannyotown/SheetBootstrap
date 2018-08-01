@@ -8,7 +8,7 @@ class Option extends React.Component {
     super(props, context);
     this.state = {
       multiple: false,
-      checked: false
+      checked: false,
     };
 
     this.optionRef = React.createRef();
@@ -17,43 +17,49 @@ class Option extends React.Component {
   componentDidMount() {
     this.setState({ multiple: this.context.multiple });
   }
-  
+
   selectOption = (e) => {
     if(!this.props.disabled) {
       let selectedOption = this.optionRef.current;
-      let value;
+      let value = [];
+      let text;
       let options = selectedOption.parentNode.children;
 
+
       if(this.state.multiple) {
-        value = [];
+        text = [];
         if(selectedOption.classList.contains('active')) {
           selectedOption.classList.remove('active');
           this.setState({ checked: false });
-        } 
+        }
         else {
           selectedOption.classList.add('active');
           this.setState({checked: true});
         }
 
         // iterate throught child nodes options and add checked to arr
-        Array.prototype.forEach.call(options, option => option.classList.contains('active') && value.push(option.textContent));
-        
-        if(value.length === 0) {
-          value = 'Choose your option';
-        }
-      } 
-      else {
-        Array.prototype.forEach.call(selectedOption.children, child => {
-          if(child.nodeName == 'SPAN') {
-            value = child.textContent;
+        Array.from(options).forEach(option => {
+          if(option.classList.contains('active')){
+            text.push(option.textContent);
+            option.getElementsByTagName("input")[0].value ? value.push(option.getElementsByTagName("input")[0].value) : value.push(option.textContent);
           }
         });
 
-        Array.prototype.forEach.call(options, option => option.classList.remove('active'));
+        if(text.length === 0) {
+          text = 'Choose your option';
+        }
+      }
+      else {
+        Array.from(selectedOption.children).forEach(child => {
+          if(child.nodeName == 'SPAN') {
+            text = child.textContent;
+            this.props.value ? value.push(this.props.value) : value.push(child.textContent);
+          }
+        });
+        Array.from(options).forEach(option => option.classList.remove('active'));
         selectedOption.classList.add('active');
       }
-
-      this.context.triggerOptionChange(value);
+      this.context.triggerOptionChange(value, text);
     }
   }
 
@@ -76,7 +82,7 @@ class Option extends React.Component {
     let label = null;
     if (this.state.multiple) {
       if (!disabled) {
-        input = <input type="checkbox" className="form-check-input" checked={this.state.checked}  />;
+        input = <input type="checkbox" value={this.props.value} className="form-check-input" checked={this.state.checked}  />;
         label = <label style={{height: '10px'}} data-multiple={this.state.multiple}></label>;
       } else {
         input = <input type="checkbox" className="form-check-input" disabled />;

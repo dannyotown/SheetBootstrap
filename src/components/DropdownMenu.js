@@ -54,7 +54,7 @@ class DropdownMenu extends Component {
     }
     else {
       return (
-        <DropdownMenuComponent 
+        <DropdownMenuComponent
           d_tag={Tag}
           d_tabIndex="-1"
           d_role="menu"
