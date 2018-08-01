@@ -27,6 +27,9 @@ class CSSPage extends React.Component {
                 <li>
                   <NavLink to="/css/table">Table <Fa icon="angle-right" /></NavLink>
                 </li>
+                <li>
+                  <NavLink to="/css/table-responsive">Table Responsive <Fa icon="angle-right" /></NavLink>
+                </li>
                 <h6 className="mt-3 grey-text">PRO </h6>
                 <li>
                   <NavLink to="/css/pro/double">Double Navigation <Fa icon="angle-right" /></NavLink>

@@ -24,7 +24,7 @@ class SelectInput extends React.Component {
       className
     );
     return (
-      <input type="text" readOnly value={ this.context.selectText ? this.context.selectText : this.props.selected  } {...attributes} className={classes} onClick={this.handleClick} />
+      <input type="text" readOnly value={ this.context.selectText ? this.context.selectText : this.props.selected  } {...attributes} className={classes} />
     );
   }
 }

@@ -1,13 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import BootstrapTable from 'react-bootstrap-table-next';
-import paginationFactory from './DataTablePagination';
-import filterFactory, { textFilter } from './DataTableFilter';
-import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import './DataTable.css';
+import { Table } from 'mdbreact';
 
-class DataTable extends React.Component {
+class DataTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,8 +73,13 @@ class DataTable extends React.Component {
     });
 
     return (
-      <div className={wrapperClasses} style={{'position': 'relative'}}>
-        <BootstrapTable keyField={keyField} data={this.state.data} columns={columns} {...attributes} className={classes} striped={striped} hover={hover} {...tableProps} filter={ filterFactory() } />
+      <div>
+        <Table>
+          <thead>
+          </thead>
+          <tbody>
+          </tbody>
+        </Table>
       </div>
     );
   }
