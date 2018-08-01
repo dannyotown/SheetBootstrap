@@ -13,9 +13,6 @@ class SideNav extends React.Component {
       showOverlay: false,
       cursorPos: {}
     }
-    this.updatePredicate = this.updatePredicate.bind(this);
-    this.handleOverlayClick = this.handleOverlayClick.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -29,21 +26,8 @@ class SideNav extends React.Component {
     window.addEventListener("resize", this.updatePredicate);
   }
 
-  componentWillUnmount() {
-    if (this.props.fixed) {
-      return
-    }
-    window.removeEventListener("resize", this.updatePredicate);
-  }
-
-  updatePredicate() {
-    if (!this.props.hidden) {
-      this.setState({ isThere: window.innerWidth > this.props.breakWidth })
-    }
-  }
-
-  componentWillReceiveProps(NextProps) {
-    if (this.props.isOpenWithButton !== NextProps.isOpenWithButton) {
+  componentDidUpdate(prevProps) {
+    if (prevProps.triggerOpening !== this.props.triggerOpening) {
       this.setState({
         isThere: true,
         showOverlay: true
@@ -51,14 +35,27 @@ class SideNav extends React.Component {
     }
   }
 
-  handleOverlayClick(){
+  componentWillUnmount() {
+    if (this.props.fixed) {
+      return
+    }
+    window.removeEventListener("resize", this.updatePredicate);
+  }
+
+  updatePredicate = () =>  {
+    if (!this.props.hidden) {
+      this.setState({ isThere: window.innerWidth > this.props.breakWidth })
+    }
+  }
+
+  handleOverlayClick = () => {
     this.setState({
       isThere: false,
       showOverlay: false
     });
   }
 
-  handleClick(e){
+  handleClick =(e) => {
     if (!this.props.disabled) {
       // Waves - Get Cursor Position
       let cursorPos = {
@@ -89,7 +86,7 @@ class SideNav extends React.Component {
       breakWidth,
       hidden,
       right,
-      isOpenWithButton,
+      triggerOpening,
       key,
       ...attributes
     } = this.props;
@@ -151,7 +148,7 @@ SideNav.propTypes = {
   href: PropTypes.string,
   src: PropTypes.string,
   breakWidth: PropTypes.number,
-  isOpenWithButton: PropTypes.bool,
+  triggerOpening: PropTypes.bool,
   bg: PropTypes.string
 };
 
