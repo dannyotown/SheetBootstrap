@@ -24,6 +24,7 @@ import Col from './components/Col';
 import Collapse from './components/Collapse';
 import Container from './components/Container';
 import DataTable from './components/DataTable';
+import DataTableHead from './components/DataTableHead';
 import Dropdown from './components/Dropdown';
 import DropdownItem from './components/DropdownItem';
 import DropdownMenu from './components/DropdownMenu';
@@ -134,6 +135,7 @@ import MDBCol from './components/Col';
 import MDBCollapse from './components/Collapse';
 import MDBContainer from './components/Container';
 import MDBDataTable from './components/DataTable';
+import MDBDataTableHead from './components/DataTableHead';
 import MDBDropdown from './components/Dropdown';
 import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
@@ -246,6 +248,7 @@ export {
   Collapse,
   Container,
   DataTable,
+  DataTableHead,
   Dropdown,
   DropdownItem,
   DropdownMenu,
@@ -354,6 +357,7 @@ export {
   MDBCollapse,
   MDBContainer,
   MDBDataTable,
+  MDBDataTableHead,
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,

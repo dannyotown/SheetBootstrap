@@ -1,102 +1,198 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Table } from 'mdbreact';
+import { Table, TableBody, DataTableHead } from 'mdbreact';
 
 class DataTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: this.props.data
-    }
+      columns: props.data.columns,
+      entries: 10,
+      rows: props.data.rows,
+      filteredRows: [],
+      rowsToDisplay: [],
+      search: ''
+    };
+  }
+
+  componentDidMount() {
+    this.filterRowsToDisplay();
+  }
+
+  handleSort = (field, sort) => {
+    this.setState((prevState) => {
+      sort === 'asc' 
+        ? prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1))
+        : prevState.rows.sort((a, b) => (a[field] > b[field] ? -1 : 1));
+      prevState.columns[prevState.columns.findIndex(column => column.field === field)].sort = sort === 'asc' ? 'desc' : 'asc';
+      return {
+        rows: prevState.rows,
+        columns: prevState.columns
+      };
+    },
+    () => this.filterRowsToDisplay());
+  }
+
+  handleEntriesChange = (e) => {
+    this.setState({ entries: e.target.value }, () => this.filterRowsToDisplay());
+  }
+
+  handleSearchChange = (e) => {
+    this.setState({ search: e.target.value }, () => this.filterRowsToDisplay());
+  }
+
+  filterRowsToDisplay = () => {
+    this.setState((prevState) => {
+      const filteredRows = prevState.rows.filter(row => {
+        for(let key in row) {
+          if(Object.prototype.hasOwnProperty.call(row, key)) {
+            const stringValue = row[key].toString();
+            if(stringValue.toLowerCase().match(this.state.search.toLowerCase())) return true;
+          }
+        }
+        return false;
+      });
+      
+      return { filteredRows };
+    },
+    () => this.sliceRowsToDisplay());
+  }
+
+  sliceRowsToDisplay = () => {
+    this.setState((prevState) => {
+      return {
+        rowsToDisplay: prevState.filteredRows.slice(0, this.state.entries)
+      };
+    });
   }
 
   render() {
     const {
-      className,
-      keyField,
+      autoWidth,
+      bordered,
+      borderless,
+      btn,
+      children,
+      dark,
       data,
-      columns,
-      config,
-      striped,
+      fixed,
       hover,
-      pagination,
+      maxHeight,
       responsive,
       responsiveSm,
       responsiveMd,
       responsiveLg,
       responsiveXl,
+      scrollY,
+      small,
+      striped,
+      tbodyColor,
+      tbodyTextWhite,
+      theadColor,
+      theadTextWhite,
       ...attributes
     } = this.props;
 
-    const classes = classNames(
-      className
-    );
-
-    const wrapperClasses = classNames(
-      responsive && 'table-responsive',
-      responsiveSm && 'table-responsive-sm',
-      responsiveMd && 'table-responsive-md',
-      responsiveLg && 'table-responsive-lg',
-      responsiveXl && 'table-responsive-xl'
-    );
-
-    const customTotal = (from, to, size) => (
-      <span className="react-bootstrap-table-pagination-total">
-        Showing { from } to { to + 1 } of { size } entries
-      </span>
-    );
-
-    const paginationConfig = paginationFactory({
-      prePageText: config.prePageText || 'Previous',
-      nextPageText: config.nextPageText || 'Next',
-      firstPageText: config.firstPageText || 'First',
-      lastPageText: config.lastPageText || 'Last',
-      alwaysShowAllBtns: typeof config.alwaysShowAllBtns !== 'undefined' && config.alwaysShowAllBtns,
-      showTotal: typeof config.showTotal !== 'undefined' && config.showTotal,
-      hideSizePerPage: typeof config.hideSizePerPage !== 'undefined' && config.hideSizePerPage,
-      paginationTotalRenderer: customTotal
-    });
-
-    let tableProps = {}
-  
-    if (this.props.pagination) {
-      tableProps = {
-        pagination: paginationConfig
-      }
-    }
-
-    columns.forEach(function(entry) {
-      if(entry.search) {
-        entry.filter = textFilter();
-      }
-    });
+    const entries = [10, 25, 50, 100];
 
     return (
-      <div>
-        <Table>
-          <thead>
-          </thead>
-          <tbody>
-          </tbody>
-        </Table>
+      <div className="dataTables_wrapper dt-bootstrap4">
+        <div className="row">
+          <div className="col-sm-12 col-md-6">
+            <div className="dataTables_length bs-select">
+              <label>
+                Show <select 
+                  value={this.state.entries} 
+                  onChange={this.handleEntriesChange} 
+                  className="custom-select custom-select-sm form-control form-control-sm"
+                >
+                  {
+                    entries.map(entry => <option key={entry} value={entry}>{entry}</option>)
+                  }  
+                </select> entries
+              </label>
+            </div>
+          </div>
+          <div className="col-sm-12 col-md-6">
+            <div className="dataTables_filter">
+              <label>
+                Search <input 
+                  value={this.state.search}
+                  onChange={this.handleSearchChange}
+                  type="search" 
+                  className="form-control form-control-sm" 
+                  placeholder="Search" 
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-12">
+            <Table
+              autoWidth={autoWidth}
+              bordered={bordered}
+              borderless={borderless}
+              btn={btn}
+              dark={dark}
+              fixed={fixed}
+              hover={hover}
+              maxHeight={maxHeight}
+              responsive={responsive}
+              responsiveSm={responsiveSm}
+              responsiveMd={responsiveMd}
+              responsiveLg={responsiveLg}
+              responsiveXl={responsiveXl}
+              scrollY={scrollY}
+              small={small}
+              striped={striped}
+              className="dataTable"
+              {...attributes}
+            >
+              <DataTableHead
+                color={theadColor}
+                textWhite={theadTextWhite}
+                columns={this.state.columns}
+                handleSort={this.handleSort}
+              />
+              <TableBody
+                color={tbodyColor}
+                textWhite={tbodyTextWhite}
+                rows={this.state.rowsToDisplay}
+              />
+              {children}
+            </Table>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 DataTable.propTypes = {
-  className: PropTypes.string,
-  striped: PropTypes.bool,
-  hover: PropTypes.bool,
+  autoWidth: PropTypes.bool,
+  bordered: PropTypes.bool,
+  borderless: PropTypes.bool,
+  btn: PropTypes.bool,
   children: PropTypes.node,
+  dark: PropTypes.bool,
+  data: PropTypes.object,
+  fixed: PropTypes.bool,
+  hover: PropTypes.bool,
+  maxHeight: PropTypes.number,
   responsive: PropTypes.bool,
   responsiveSm: PropTypes.bool,
   responsiveMd: PropTypes.bool,
   responsiveLg: PropTypes.bool,
   responsiveXl: PropTypes.bool,
-  config: PropTypes.object,
-  pagination: PropTypes.bool
+  scrollY: PropTypes.bool,
+  small: PropTypes.bool,
+  striped: PropTypes.bool,
+  theadColor: PropTypes.string,
+  theadTextWhite: PropTypes.bool,
+  tbodyColor: PropTypes.string,
+  tbodyTextWhite: PropTypes.bool
 };
 
 export default DataTable;

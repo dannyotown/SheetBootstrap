@@ -11,7 +11,7 @@ const TableBody = (props) => {
   } = props;
 
   const classes = classNames(
-    (color !== 'dark' && color !== 'light') ? color : `thead-${color}`,
+    color,
     {
       'text-white' : textWhite
     }
