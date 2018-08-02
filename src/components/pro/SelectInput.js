@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import selectContextHOC   from './SelectContext';
 
 class SelectInput extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
 
   componentDidMount() {
-    this.context.triggerOptionChange(this.props.selected);
+    this.props.context.triggerOptionChange(this.props.selected);
   }
 
   render() {
@@ -16,6 +14,8 @@ class SelectInput extends React.Component {
       className,
       children,
       value,
+      context,
+      selected,
       ...attributes
     } = this.props;
 
@@ -24,7 +24,7 @@ class SelectInput extends React.Component {
       className
     );
     return (
-      <input type="text" readOnly value={ this.context.selectText ? this.context.selectText : this.props.selected  } {...attributes} className={classes} />
+      <input type="text" readOnly value={ context.state.selectText ? context.state.selectText : selected  } {...attributes} className={classes} />
     );
   }
 }
@@ -43,11 +43,5 @@ SelectInput.defaultProps = {
   value: ''
 };
 
-SelectInput.contextTypes = {
-  selectText: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  triggerOptionChange: PropTypes.func.isRequired,
-  multiple: PropTypes.bool
-};
-
-export default SelectInput;
+export default SelectInput = selectContextHOC(SelectInput);
 export { SelectInput as MDBSelectInput };
