@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Row, Col, Card, CardBody, Input, Table, TableBody, TableHead  } from 'mdbreact';
+import { Button, Container, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, CardHeader, Input, Table, TableBody, TableHead  } from 'mdbreact';
 
 const TablePage = (props) => {
   const columns= [
@@ -178,6 +178,93 @@ const TablePage = (props) => {
     ]
   };
 
+  const data_panel = {
+    columns: [
+      {
+        'label': <Input label=" " type="checkbox" id="checkbox5" />,
+        'field': 'check',
+        'sort': 'asc'
+      },
+      {
+        'label': 'First Name',
+        'field': 'first',
+        'sort': 'asc'
+      },
+      {
+        'label': 'Last Name',
+        'field': 'last',
+        'sort': 'asc'
+      },
+      {
+        'label': 'Username',
+        'field': 'username',
+        'sort': 'asc'
+      },
+      {
+        'label': 'Username',
+        'field': 'username2',
+        'sort': 'asc'
+      },
+      {
+        'label': 'Username',
+        'field': 'username3',
+        'sort': 'asc'
+      },
+      {
+        'label': 'Username',
+        'field': 'username4',
+        'sort': 'asc'
+      }
+    ],
+    rows: [
+      {
+        'check': <Input label=" " type="checkbox" id="checkbox6" />,
+        'first': 'Mark',
+        'last': 'Otto',
+        'username': '@mdo',
+        'username2': 'Mark',
+        'username3': 'Otto',
+        'username4': '@mdo'
+      },
+      {
+        'check': <Input label=" " type="checkbox" id="checkbox7" />,
+        'first': 'Jacob',
+        'last': 'Thornton',
+        'username': '@fat',
+        'username2': 'Jacob',
+        'username3': 'Thornton',
+        'username4': '@fat'
+      },
+      {
+        'check': <Input label=" " type="checkbox" id="checkbox8" />,
+        'first': 'Larry',
+        'last': 'the Bird',
+        'username': '@twitter',
+        'username2': 'Larry',
+        'username3': 'the Bird',
+        'username4': '@twitter'
+      },
+      {
+        'check': <Input label=" " type="checkbox" id="checkbox9" />,
+        'first': 'Paul',
+        'last': 'Topolski',
+        'username': '@P_Topolski',
+        'username2': 'Paul',
+        'username3': 'Topolski',
+        'username4': '@P_Topolski'
+      },
+      {
+        'check': <Input label=" " type="checkbox" id="checkbox10" />,
+        'first': 'Larry',
+        'last': 'the Bird',
+        'username': '@twitter',
+        'username2': 'Larry',
+        'username3': 'the Bird',
+        'username4': '@twitter'
+      }
+    ]
+  };
+
   return(
     <Container className="mt-3">
       <Row className="py-3">
@@ -244,6 +331,41 @@ const TablePage = (props) => {
               <Table btn fixed>
                 <TableHead columns={data_icons.columns} />
                 <TableBody rows={data_icons.rows} />
+              </Table>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+      
+      <Row className="py-3">
+        <Col md="12">
+          <Card narrow>
+            <CardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+              <div>
+                <Button outline rounded size="sm" color="white" className="px-2">
+                  <i className="fa fa-th-large mt-0"></i>
+                </Button>
+                <Button outline rounded size="sm" color="white" className="px-2">
+                  <i className="fa fa-columns mt-0"></i>
+                </Button>
+              </div>
+              <a href="#" className="white-text mx-3">Table name</a>
+              <div>
+                <Button outline rounded size="sm" color="white" className="px-2">
+                  <i className="fa fa-pencil mt-0"></i>
+                </Button>
+                <Button outline rounded size="sm" color="white" className="px-2">
+                  <i className="fa fa-remove mt-0"></i>
+                </Button>
+                <Button outline rounded size="sm" color="white" className="px-2">
+                  <i className="fa fa-info-circle mt-0"></i>
+                </Button>
+              </div>
+            </CardHeader>
+            <CardBody cascade>
+              <Table btn fixed>
+                <TableHead columns={data_panel.columns} />
+                <TableBody rows={data_panel.rows} />
               </Table>
             </CardBody>
           </Card>
