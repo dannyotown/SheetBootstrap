@@ -1,11 +1,11 @@
 import React from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import selectContextHOC   from './SelectContext';
 
 class Option extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       multiple: false,
       checked: false,
@@ -15,7 +15,7 @@ class Option extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ multiple: this.context.multiple });
+    this.setState({ multiple: this.props.context.multiple });
   }
 
   selectOption = (e) => {
@@ -59,7 +59,7 @@ class Option extends React.Component {
         Array.from(options).forEach(option => option.classList.remove('active'));
         selectedOption.classList.add('active');
       }
-      this.context.triggerOptionChange(value, text);
+      this.props.context.triggerOptionChange(value, text);
     }
   }
 
@@ -121,11 +121,6 @@ Option.defaultProps = {
   triggerOptionClick: () => {}
 };
 
-Option.contextTypes = {
-  triggerOptionChange: PropTypes.func.isRequired,
-  multiple: PropTypes.bool
-};
-
-export default Option;
+export default Option = selectContextHOC(Option);
 export { Option as MDBSelectOption };
 
