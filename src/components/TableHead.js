@@ -28,11 +28,7 @@ const TableHead = (props) => {
 
 TableHead.propTypes = {
   color: PropTypes.string,
-  columns: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string,
-    field: PropTypes.string,
-    sort: PropTypes.string
-  })),
+  columns: PropTypes.arrayOf(PropTypes.object),
   textWhite: PropTypes.bool
 };
 

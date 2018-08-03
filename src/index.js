@@ -25,6 +25,9 @@ import Col from './components/Col';
 import Collapse from './components/Collapse';
 import Container from './components/Container';
 import DataTable from './components/DataTable';
+import DataTableHead from './components/DataTableHead';
+let DataTableSelect = require('./components/DataTableSelect').default;
+let DataTableInput = require('./components/DataTableInput').default;
 import Dropdown from './components/Dropdown';
 import DropdownItem from './components/DropdownItem';
 import DropdownMenu from './components/DropdownMenu';
@@ -108,6 +111,8 @@ import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
 import Testimonial from './components/pro/Testimonial';
+DataTableSelect = require('./components/pro/DataTableSelect').default;
+DataTableInput = require('./components/pro/DataTableInput').default;
 
 // MDB FREE
 import MDBBadge from './components/Badge';
@@ -135,6 +140,9 @@ import MDBCol from './components/Col';
 import MDBCollapse from './components/Collapse';
 import MDBContainer from './components/Container';
 import MDBDataTable from './components/DataTable';
+import MDBDataTableHead from './components/DataTableHead';
+let MDBDataTableSelect = require('./components/DataTableSelect').default;
+let MDBDataTableInput = require('./components/DataTableInput').default;
 import MDBDropdown from './components/Dropdown';
 import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
@@ -191,6 +199,8 @@ import MDBChip from './components/pro/Chip';
 import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBDropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
+import MDBDatePicker from './components/pro/DatePicker';
+import MDBTimePicker from './components/pro/TimePicker';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
 import MDBRangeInput from './components/pro/InputRange';
@@ -219,6 +229,8 @@ import MDBTabContent from './components/pro/TabContent';
 import MDBSticky from './components/pro/Sticky';
 import MDBStickyContent from './components/pro/StickyContainer';
 import MDBTestimonial from './components/pro/Testimonial';
+MDBDataTableSelect = require('./components/pro/DataTableSelect').default;
+MDBDataTableInput = require('./components/pro/DataTableInput').default;
 
 export {
   // FREE
@@ -248,6 +260,9 @@ export {
   Collapse,
   Container,
   DataTable,
+  DataTableHead,
+  DataTableInput,
+  DataTableSelect,
   Dropdown,
   DropdownItem,
   DropdownMenu,
@@ -356,6 +371,9 @@ export {
   MDBCollapse,
   MDBContainer,
   MDBDataTable,
+  MDBDataTableHead,
+  MDBDataTableInput,
+  MDBDataTableSelect,
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,
@@ -409,6 +427,8 @@ export {
   MDBChip,
   MDBChipsInput,
   MDBCollapseHeader,
+  MDBDatePicker,
+  MDBTimePicker,
   MDBDropdownMenuProComponent,
   MDBFlippingCard,
   MDBFileInput,

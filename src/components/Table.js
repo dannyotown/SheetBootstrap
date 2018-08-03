@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import './Table.css';
 
 class Table extends React.Component {
 
@@ -15,11 +16,13 @@ class Table extends React.Component {
       fixed,
       theadColor,
       hover,
+      maxHeight,
       responsive,
       responsiveSm,
       responsiveMd,
       responsiveLg,
       responsiveXl,
+      scrollY,
       small,
       striped,
       className,
@@ -53,8 +56,12 @@ class Table extends React.Component {
       }
     );
 
+    const wrapperStyles = {
+      maxHeight: maxHeight ? `${maxHeight}px` : null
+    };
+
     return (
-      <div className={wrapperClasses}>
+      <div className={wrapperClasses} style={wrapperStyles}>
         <table {...attributes} className={tableClasses}>{children}</table>
       </div>
     );
@@ -71,11 +78,13 @@ Table.propTypes = {
   fixed: PropTypes.bool,
   theadColor: PropTypes.string,
   hover: PropTypes.bool,
+  maxHeight: PropTypes.number,
   responsive: PropTypes.bool,
   responsiveSm: PropTypes.bool,
   responsiveMd: PropTypes.bool,
   responsiveLg: PropTypes.bool,
   responsiveXl: PropTypes.bool,
+  scrollY: PropTypes.bool,
   small: PropTypes.bool,
   striped: PropTypes.bool,
   className: PropTypes.string

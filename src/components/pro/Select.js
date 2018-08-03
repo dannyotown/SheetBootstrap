@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+export const SelectContext = React.createContext();
 
 class Select extends React.Component {
   constructor(props) {
@@ -24,13 +25,6 @@ class Select extends React.Component {
     document.removeEventListener('click', this.onClick);
   }
 
-  getChildContext() {
-    return {
-      selectText: this.state.selectText,
-      triggerOptionChange: this.triggerOptionChange,
-      multiple: this.props.multiple
-    }
-  }
 
   triggerOptionChange = (value, text) => {
     (Array.isArray(text)) && (text = text.join(', '));
@@ -67,10 +61,16 @@ class Select extends React.Component {
     );
 
     return (
-      <div { ...attributes } data-color={ color } data-multiple={ multiple }  onChange={ this.onChangeHandler } className={ classes }>
-        <span className="caret">▼</span>
-        {children}
-      </div>
+      <SelectContext.Provider value={{
+        state: this.state,
+        multiple: this.props.multiple,
+        triggerOptionChange: this.triggerOptionChange
+      }}>
+        <div { ...attributes } data-color={ color } data-multiple={ multiple }  className={ classes } >
+          <span className="caret">▼</span>
+          {children}
+        </div>
+      </SelectContext.Provider>
     );
   }
 }
@@ -91,12 +91,6 @@ Select.defaultProps = {
   getValue: () => {},
   multiple: false,
   value: ''
-};
-
-Select.childContextTypes = {
-  selectText: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-  triggerOptionChange: PropTypes.func.isRequired,
-  multiple: PropTypes.bool
 };
 
 export default Select;
