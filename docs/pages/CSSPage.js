@@ -13,6 +13,9 @@ class CSSPage extends React.Component {
               <ul className="list-unstyled example-components-list">
                 <h6 className="mt-3 grey-text">FREE </h6>
                 <li>
+                  <NavLink to="/css/animations">Animation <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/css/hover">Hover effects <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>

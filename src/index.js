@@ -1,4 +1,5 @@
 // FREE
+import Animation from './components/Animation';
 import Badge from './components/Badge';
 import Breadcrumb from './components/Breadcrumb';
 import BreadcrumbItem from './components/BreadcrumbItem';
@@ -180,6 +181,7 @@ import MDBTooltip from './components/Tooltip';
 import MDBView from './components/View';
 
 // MDB PRO
+import MDBAnimation from './components/Animation';
 import MDBAutocomplete from './components/pro/Autocomplete';
 import MDBAvatar from './components/pro/Avatar';
 import MDBBtnFixed from './components/pro/ButtonFixed';
@@ -220,6 +222,7 @@ import MDBTestimonial from './components/pro/Testimonial';
 
 export {
   // FREE
+  Animation,
   Badge,
   Breadcrumb,
   BreadcrumbItem,
