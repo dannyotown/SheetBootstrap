@@ -20,7 +20,7 @@ const TableBody = (props) => {
   return (
     <tbody {...attributes} className={classes}>
       { 
-        rows.map((row, index) => 
+        rows && rows.map((row, index) => 
           <tr key={index}>
             {
               Object.keys(row).map((key, index, array) => {

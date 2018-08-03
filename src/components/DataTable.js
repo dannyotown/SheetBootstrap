@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Table, TableBody, DataTableHead, DataTableInput, DataTableSelect } from 'mdbreact';
+import { Table, TableBody, DataTableHead, DataTableInput, DataTableSelect, Pagination, PageLink, PageItem } from 'mdbreact';
 
 class DataTable extends Component {
   constructor(props) {
@@ -10,19 +10,35 @@ class DataTable extends Component {
       columns: props.data.columns,
       entries: 10,
       rows: props.data.rows,
-      filteredRows: [],
-      rowsToDisplay: [],
+      filteredRows: props.data.rows,
+      pages: [],
+      activePage: 0,
       search: ''
     };
+
+    this.paginateRowsInitialy();
   }
 
-  componentDidMount() {
-    this.filterRowsToDisplay();
+  paginateRowsInitialy = () => {
+    // findout how many pages there are need to be, then slice rows into pages
+    const pagesAmount = Math.ceil(this.state.rows.length / this.state.entries);
+    for(let i=1; i<=pagesAmount; i++) {
+      const pageEndIndex = i*this.state.entries;
+      this.state.pages.push(this.state.rows.slice(pageEndIndex-this.state.entries, pageEndIndex));
+    }
   }
-
+  
+  handleEntriesChange = (value) => {
+    this.setState({ entries: Array.isArray(value) ? value[0] : value }, () => this.paginateRows());
+  }
+  
+  handleSearchChange = (e) => {
+    this.setState({ search: e.target.value }, () => this.filterRows());
+  }
+  
   handleSort = (field, sort) => {
     this.setState((prevState) => {
-      sort === 'asc' 
+      sort === 'asc'
         ? prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1))
         : prevState.rows.sort((a, b) => (a[field] > b[field] ? -1 : 1));
       prevState.columns[prevState.columns.findIndex(column => column.field === field)].sort = sort === 'asc' ? 'desc' : 'asc';
@@ -31,40 +47,41 @@ class DataTable extends Component {
         columns: prevState.columns
       };
     },
-    () => this.filterRowsToDisplay());
+    () => this.filterRows());
   }
-
-  handleEntriesChange = (value) => {
-    this.setState({ entries: Array.isArray(value) ? value[0] : value }, () => this.filterRowsToDisplay());
-  }
-
-  handleSearchChange = (e) => {
-    this.setState({ search: e.target.value }, () => this.filterRowsToDisplay());
-  }
-
-  filterRowsToDisplay = () => {
+  
+  filterRows = () => {
     this.setState((prevState) => {
       const filteredRows = prevState.rows.filter(row => {
-        for(let key in row) {
-          if(Object.prototype.hasOwnProperty.call(row, key)) {
+        for (let key in row) {
+          if (Object.prototype.hasOwnProperty.call(row, key)) {
             const stringValue = row[key].toString();
-            if(stringValue.toLowerCase().match(this.state.search.toLowerCase())) return true;
+            if (stringValue.toLowerCase().match(this.state.search.toLowerCase())) return true;
           }
         }
         return false;
       });
-      
-      return { filteredRows };
+      return { filteredRows, activePage: 0 };
     },
-    () => this.sliceRowsToDisplay());
+    () => this.paginateRows());
   }
 
-  sliceRowsToDisplay = () => {
+  paginateRows = () => {
+    // findout how many pages there are need to be, then slice rows into pages
+    const pagesAmount = Math.ceil(this.state.filteredRows.length / this.state.entries);
     this.setState((prevState) => {
-      return {
-        rowsToDisplay: prevState.filteredRows.slice(0, this.state.entries)
-      };
+      prevState.pages = [];
+      for(let i=1; i<=pagesAmount; i++) {
+        const pageEndIndex = i*prevState.entries;
+        prevState.pages.push(prevState.filteredRows.slice(pageEndIndex-prevState.entries, pageEndIndex));
+      }
+      prevState.activePage = prevState.activePage < prevState.pages.length ? prevState.activePage : prevState.pages.length-11;
+      return {...prevState};
     });
+  }
+
+  changeActivePage = (page) => {
+    this.setState({ activePage: page });
   }
 
   render() {
@@ -94,21 +111,30 @@ class DataTable extends Component {
       ...attributes
     } = this.props;
 
-    const entries = [10, 25, 50, 100];
+    const {
+      columns,
+      entries,
+      filteredRows,
+      pages,
+      activePage,
+      search
+    } = this.state;
+
+    const entriesArr = [10, 25, 50, 100];
 
     return (
       <div className="dataTables_wrapper dt-bootstrap4">
         <div className="row">
           <div className="col-sm-12 col-md-6">
-            <DataTableSelect 
-              value={this.state.entries}
+            <DataTableSelect
+              value={entries}
               onChange={this.handleEntriesChange}
-              entries={entries}
+              entries={entriesArr}
             />
           </div>
           <div className="col-sm-12 col-md-6">
-            <DataTableInput 
-              value={this.state.search}
+            <DataTableInput
+              value={search}
               onChange={this.handleSearchChange}
             />
           </div>
@@ -138,16 +164,58 @@ class DataTable extends Component {
               <DataTableHead
                 color={theadColor}
                 textWhite={theadTextWhite}
-                columns={this.state.columns}
+                columns={columns}
                 handleSort={this.handleSort}
               />
               <TableBody
                 color={tbodyColor}
                 textWhite={tbodyTextWhite}
-                rows={this.state.rowsToDisplay}
+                rows={pages[activePage]}
               />
               {children}
             </Table>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-12 col-md-5">
+            <div className="dataTables_info" role="status" aria-live="polite">
+              Showing {activePage > 0 ? activePage*entries+1 : activePage+1} to {pages.length-1 > activePage ? pages[activePage].length*(activePage+1) : filteredRows.length} of {filteredRows.length} entries
+            </div>
+          </div>
+          <div className="col-sm-12 col-md-7">
+            <div className="dataTables_paginate">
+              <Pagination>
+                <PageItem 
+                  disabled={activePage === 0}
+                >
+                  <PageLink className="page-link" aria-label="Previous" 
+                    onClick={() => this.changeActivePage(activePage-1)}
+                  >
+                    <span>Previous</span>
+                  </PageLink>
+                </PageItem>
+                { 
+                  pages.map((page, index) =>
+                    <PageItem key={index} active={index === activePage}>
+                      <PageLink className="page-link"
+                        onClick={() => this.changeActivePage(index)}
+                      >
+                        {index + 1} {index === activePage && <span className="sr-only">(current)</span>}
+                      </PageLink>
+                    </PageItem>
+                  )   
+                }
+                <PageItem
+                  disabled={activePage === pages.length-1}
+                >
+                  <PageLink className="page-link" aria-label="Next"
+                    onClick={() => this.changeActivePage(activePage+1)}
+                  >
+                    <span>Next</span>
+                  </PageLink>
+                </PageItem>
+              </Pagination>
+            </div>
           </div>
         </div>
       </div>
