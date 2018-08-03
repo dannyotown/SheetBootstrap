@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
 
 // FREE
+import AnimationPage from './pages/AnimationPage';
 import HomePage from './pages/HomePage';
 import ButtonPage from './pages/ButtonPage';
 import CSSPage from './pages/CSSPage';
@@ -87,6 +88,7 @@ class Routes extends React.Component {
     return (
       <Switch>
         {/* FREE */}
+        <Route path='/css/animations' component={AnimationPage} />
         <Route exact path='/' component={HomePage} />
         <Route exact path='/css' component={CSSPage} />
         <Route exact path='/css/table' component={TablePage} />
