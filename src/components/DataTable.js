@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Table, TableBody, DataTableHead } from 'mdbreact';
+import { Table, TableBody, DataTableHead, DataTableInput, DataTableSelect } from 'mdbreact';
 
 class DataTable extends Component {
   constructor(props) {
@@ -34,8 +34,8 @@ class DataTable extends Component {
     () => this.filterRowsToDisplay());
   }
 
-  handleEntriesChange = (e) => {
-    this.setState({ entries: e.target.value }, () => this.filterRowsToDisplay());
+  handleEntriesChange = (value) => {
+    this.setState({ entries: Array.isArray(value) ? value[0] : value }, () => this.filterRowsToDisplay());
   }
 
   handleSearchChange = (e) => {
@@ -100,32 +100,17 @@ class DataTable extends Component {
       <div className="dataTables_wrapper dt-bootstrap4">
         <div className="row">
           <div className="col-sm-12 col-md-6">
-            <div className="dataTables_length bs-select">
-              <label>
-                Show <select 
-                  value={this.state.entries} 
-                  onChange={this.handleEntriesChange} 
-                  className="custom-select custom-select-sm form-control form-control-sm"
-                >
-                  {
-                    entries.map(entry => <option key={entry} value={entry}>{entry}</option>)
-                  }  
-                </select> entries
-              </label>
-            </div>
+            <DataTableSelect 
+              value={this.state.entries}
+              onChange={this.handleEntriesChange}
+              entries={entries}
+            />
           </div>
           <div className="col-sm-12 col-md-6">
-            <div className="dataTables_filter">
-              <label>
-                Search <input 
-                  value={this.state.search}
-                  onChange={this.handleSearchChange}
-                  type="search" 
-                  className="form-control form-control-sm" 
-                  placeholder="Search" 
-                />
-              </label>
-            </div>
+            <DataTableInput 
+              value={this.state.search}
+              onChange={this.handleSearchChange}
+            />
           </div>
         </div>
         <div className="row">
