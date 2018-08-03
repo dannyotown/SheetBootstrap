@@ -11,7 +11,7 @@ const TableBody = (props) => {
   } = props;
 
   const classes = classNames(
-    (color !== 'dark' && color !== 'light') ? color : `thead-${color}`,
+    color,
     {
       'text-white' : textWhite
     }
@@ -20,7 +20,7 @@ const TableBody = (props) => {
   return (
     <tbody {...attributes} className={classes}>
       { 
-        rows.map((row, index) => 
+        rows && rows.map((row, index) => 
           <tr key={index}>
             {
               Object.keys(row).map((key, index, array) => {

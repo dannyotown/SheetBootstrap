@@ -7,13 +7,8 @@ class TextField extends React.Component {
   constructor(props) {
     super(props);
 
-    let value = props.value;
-    let innerValue = value || props.default;
-
-    if (innerValue === undefined) innerValue = '';
-
     this.state = {
-      innerValue: innerValue,
+      innerValue: props.value || props.default || '',
       isTouched: false,
       isPristine: true
     };
@@ -28,10 +23,12 @@ class TextField extends React.Component {
   componentDidMount() {
   }
 
-  componentWillReceiveProps(nextProps) {
-    // update innerValue when new value is received to handle programmatic
-    // changes to input box
-    if ('value' in nextProps) this.setState({ innerValue: nextProps.value });
+  static getDerivedStateFromProps(nextProps, prevState){
+    if (nextProps.value) {
+      return { ...prevState, innerValue: nextProps.value }
+    } else {
+      return null;
+    }
   }
 
   onBlur(ev) {
