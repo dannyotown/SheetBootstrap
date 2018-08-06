@@ -19,8 +19,6 @@ class Animation extends Component {
     if (this.props.reveal) {
       window.addEventListener("scroll", this.updatePredicate);
     }
-    console.log("document.innerHeight");
-    console.log(document.documentElement.offsetHeight);
   }
   componentWillUnmount() {
     if (this.props.reveal) {
@@ -39,7 +37,6 @@ class Animation extends Component {
     windowHeight + scroll - 100 > this.getOffset(this.elemRef.current) + this.elemRef.current.clientHeight && scroll < this.getOffset(this.elemRef.current) + this.elemRef.current.clientHeight ||
     windowHeight + scroll == docHeight && this.getOffset(this.elemRef.current) + 100 > docHeight) {
       // if the predicate is true, change state
-      console.log("isVisible: true")
       this.setState({
         isVisible: true
       })
@@ -49,7 +46,6 @@ class Animation extends Component {
         return
       } else {
       // if it wasn't, hide
-        console.log("isVisible: false")
         this.setState({
           isVisible: false,
           revealed: true
@@ -60,33 +56,27 @@ class Animation extends Component {
 
   // React Animation Event hooks:
   handleStart = (e) => {
-    console.log("animation has begun");
     this.setState({
       countIterations: this.state.countIterations+1
     })
     if (this.props.onAnimationStart) {
       this.props.onAnimationStart();
     }
-    console.log(this.state.countIterations);
   }
 
   handleIteration = (e) => {
-    console.log("animation iteration");
-    console.log(this.state.countIterations);
-    this.setState({
-      countIterations: this.state.countIterations+1
-    })
+    if (this.props.onAnimationIteration) {
+      this.setState({
+        countIterations: this.state.countIterations+1
+      })
+      this.props.onAnimationIteration();
+    }
   }
 
   handleEnd = (e) => {
-    console.log("animation has ended");
     this.setState({
       countIterations: this.state.countIterations+1
     })
-    console.log(this.state.countIterations);
-    if (this.props.count == this.state.countIterations) {
-      console.log("well, now it is done for sure");
-    }
     if (this.props.onAnimationEnd && (this.props.count == this.state.countIterations)) {
       this.props.onAnimationEnd()
     }
