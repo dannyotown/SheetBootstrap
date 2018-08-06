@@ -1,4 +1,5 @@
 // FREE
+import Animation from './components/Animation';
 import Badge from './components/Badge';
 import Breadcrumb from './components/Breadcrumb';
 import BreadcrumbItem from './components/BreadcrumbItem';
@@ -190,6 +191,7 @@ import MDBTooltip from './components/Tooltip';
 import MDBView from './components/View';
 
 // MDB PRO
+import MDBAnimation from './components/Animation';
 import MDBAutocomplete from './components/pro/Autocomplete';
 import MDBAvatar from './components/pro/Avatar';
 import MDBBtnFixed from './components/pro/ButtonFixed';
@@ -200,6 +202,7 @@ import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBDropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
 import MDBDatePicker from './components/pro/DatePicker';
+import MDBTimePicker from './components/pro/TimePicker';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
 import MDBRangeInput from './components/pro/InputRange';
@@ -233,6 +236,7 @@ MDBDataTableInput = require('./components/pro/DataTableInput').default;
 
 export {
   // FREE
+  Animation,
   Badge,
   Breadcrumb,
   BreadcrumbItem,
@@ -428,6 +432,7 @@ export {
   MDBChipsInput,
   MDBCollapseHeader,
   MDBDatePicker,
+  MDBTimePicker,
   MDBDropdownMenuProComponent,
   MDBFlippingCard,
   MDBFileInput,
