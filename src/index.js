@@ -68,6 +68,7 @@ import Row from './components/Row';
 import Table from './components/Table';
 import TableBody from './components/TableBody';
 import TableHead from './components/TableHead';
+import TableFoot from './components/TableFoot';
 import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
@@ -183,6 +184,7 @@ import MDBRow from './components/Row';
 import MDBTable from './components/Table';
 import MDBTableBody from './components/TableBody';
 import MDBTableHead from './components/TableHead';
+import MDBTableFoot from './components/TableFoot';
 import MDBTextarea from './components/TextField';
 import MDBTooltip from './components/Tooltip';
 import MDBView from './components/View';
@@ -300,6 +302,7 @@ export {
   Table,
   TableBody,
   TableHead,
+  TableFoot,
   TextField,
   Tooltip,
   View,
@@ -411,6 +414,7 @@ export {
   MDBTable,
   MDBTableBody,
   MDBTableHead,
+  MDBTableFoot,
   MDBTextarea,
   MDBTooltip,
   MDBView,

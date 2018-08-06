@@ -57,7 +57,7 @@ class Table extends React.Component {
     );
 
     const wrapperStyles = {
-      maxHeight: maxHeight ? `${maxHeight}px` : null
+      maxHeight: maxHeight ? `${maxHeight}` : null
     };
 
     return (
@@ -78,7 +78,7 @@ Table.propTypes = {
   fixed: PropTypes.bool,
   theadColor: PropTypes.string,
   hover: PropTypes.bool,
-  maxHeight: PropTypes.number,
+  maxHeight: PropTypes.string,
   responsive: PropTypes.bool,
   responsiveSm: PropTypes.bool,
   responsiveMd: PropTypes.bool,

@@ -1,22 +1,31 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Table, TableBody, DataTableHead, DataTableInput, DataTableSelect, Pagination, PageLink, PageItem } from 'mdbreact';
+import { Table, TableBody, DataTableHead, DataTableInput, DataTableSelect, TableFoot, Pagination, PageLink, PageItem } from 'mdbreact';
 
 class DataTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      activePage: 0,
       columns: props.data.columns,
       entries: 10,
-      rows: props.data.rows,
       filteredRows: props.data.rows,
       pages: [],
-      activePage: 0,
+      rows: props.data.rows,
       search: ''
     };
 
-    this.paginateRowsInitialy();
+    if(this.props.paging) {
+      this.paginateRowsInitialy();
+    }
+    else {
+      this.state.pages.push(this.state.rows);
+    }
+  }
+
+  componentDidMount() {
+    this.props.order.length && this.handleSort(this.props.order[0], this.props.order[1]);
   }
 
   paginateRowsInitialy = () => {
@@ -38,9 +47,17 @@ class DataTable extends Component {
   
   handleSort = (field, sort) => {
     this.setState((prevState) => {
-      sort === 'asc'
-        ? prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1))
-        : prevState.rows.sort((a, b) => (a[field] > b[field] ? -1 : 1));
+      // run default block if there is no key 'sort'
+      switch (sort) {
+      case 'asc':
+        prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1));
+        break;
+      case 'desc':
+        prevState.rows.sort((a, b) => (a[field] > b[field] ? -1 : 1));
+        break;
+      default:
+        prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1));
+      }
       prevState.columns[prevState.columns.findIndex(column => column.field === field)].sort = sort === 'asc' ? 'desc' : 'asc';
       return {
         rows: prevState.rows,
@@ -71,17 +88,28 @@ class DataTable extends Component {
     const pagesAmount = Math.ceil(this.state.filteredRows.length / this.state.entries);
     this.setState((prevState) => {
       prevState.pages = [];
-      for(let i=1; i<=pagesAmount; i++) {
-        const pageEndIndex = i*prevState.entries;
-        prevState.pages.push(prevState.filteredRows.slice(pageEndIndex-prevState.entries, pageEndIndex));
+      if (this.props.paging) {
+        for(let i=1; i<=pagesAmount; i++) {
+          const pageEndIndex = i*prevState.entries;
+          prevState.pages.push(prevState.filteredRows.slice(pageEndIndex-prevState.entries, pageEndIndex));
+        }
+        prevState.activePage = prevState.activePage < prevState.pages.length ? prevState.activePage : prevState.pages.length-11;
       }
-      prevState.activePage = prevState.activePage < prevState.pages.length ? prevState.activePage : prevState.pages.length-11;
+      else {
+        prevState.pages.push(prevState.filteredRows);
+        prevState.activePage = 0;
+      }
+
       return {...prevState};
     });
   }
 
   changeActivePage = (page) => {
     this.setState({ activePage: page });
+  }
+
+  handleTableBodyScroll = (e) => {
+    console.log(e);
   }
 
   render() {
@@ -95,14 +123,20 @@ class DataTable extends Component {
       data,
       fixed,
       hover,
+      info,
       maxHeight,
+      order,
+      paging,
       responsive,
       responsiveSm,
       responsiveMd,
       responsiveLg,
       responsiveXl,
+      searching,
+      scrollX,
       scrollY,
       small,
+      sortable,
       striped,
       tbodyColor,
       tbodyTextWhite,
@@ -126,98 +160,193 @@ class DataTable extends Component {
       <div className="dataTables_wrapper dt-bootstrap4">
         <div className="row">
           <div className="col-sm-12 col-md-6">
-            <DataTableSelect
-              value={entries}
-              onChange={this.handleEntriesChange}
-              entries={entriesArr}
-            />
+            {
+              paging &&
+              <DataTableSelect
+                value={entries}
+                onChange={this.handleEntriesChange}
+                entries={entriesArr}
+              />
+            }
           </div>
           <div className="col-sm-12 col-md-6">
-            <DataTableInput
-              value={search}
-              onChange={this.handleSearchChange}
-            />
+            {
+              searching && 
+              <DataTableInput
+                value={search}
+                onChange={this.handleSearchChange}
+              />
+            }
           </div>
         </div>
-        <div className="row">
-          <div className="col-sm-12">
-            <Table
-              autoWidth={autoWidth}
-              bordered={bordered}
-              borderless={borderless}
-              btn={btn}
-              dark={dark}
-              fixed={fixed}
-              hover={hover}
-              maxHeight={maxHeight}
-              responsive={responsive}
-              responsiveSm={responsiveSm}
-              responsiveMd={responsiveMd}
-              responsiveLg={responsiveLg}
-              responsiveXl={responsiveXl}
-              scrollY={scrollY}
-              small={small}
-              striped={striped}
-              className="dataTable"
-              {...attributes}
-            >
-              <DataTableHead
-                color={theadColor}
-                textWhite={theadTextWhite}
-                columns={columns}
-                handleSort={this.handleSort}
-              />
-              <TableBody
-                color={tbodyColor}
-                textWhite={tbodyTextWhite}
-                rows={pages[activePage]}
-              />
-              {children}
-            </Table>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-12 col-md-5">
-            <div className="dataTables_info" role="status" aria-live="polite">
-              Showing {activePage > 0 ? activePage*entries+1 : activePage+1} to {pages.length-1 > activePage ? pages[activePage].length*(activePage+1) : filteredRows.length} of {filteredRows.length} entries
+        {
+          (!scrollY && !scrollX) &&
+          <div className="row">
+            <div className="col-sm-12">
+              <Table
+                autoWidth={autoWidth}
+                bordered={bordered}
+                borderless={borderless}
+                btn={btn}
+                dark={dark}
+                fixed={fixed}
+                hover={hover}
+                responsive={responsive}
+                responsiveSm={responsiveSm}
+                responsiveMd={responsiveMd}
+                responsiveLg={responsiveLg}
+                responsiveXl={responsiveXl}
+                small={small}
+                striped={striped}
+                className="dataTable"
+                {...attributes}
+              >
+                <DataTableHead
+                  color={theadColor}
+                  textWhite={theadTextWhite}
+                  columns={columns}
+                  handleSort={this.handleSort}
+                  scrollY={scrollY}
+                  sortable={sortable}
+                />
+                <TableBody
+                  color={tbodyColor}
+                  textWhite={tbodyTextWhite}
+                  rows={pages[activePage]}
+                />
+                <TableFoot
+                  color={theadColor}
+                  textWhite={theadTextWhite}
+                  columns={columns}
+                />
+                {children}
+              </Table>
             </div>
           </div>
-          <div className="col-sm-12 col-md-7">
-            <div className="dataTables_paginate">
-              <Pagination>
-                <PageItem 
-                  disabled={activePage === 0}
-                >
-                  <PageLink className="page-link" aria-label="Previous" 
-                    onClick={() => this.changeActivePage(activePage-1)}
-                  >
-                    <span>Previous</span>
-                  </PageLink>
-                </PageItem>
-                { 
-                  pages.map((page, index) =>
-                    <PageItem key={index} active={index === activePage}>
-                      <PageLink className="page-link"
-                        onClick={() => this.changeActivePage(index)}
-                      >
-                        {index + 1} {index === activePage && <span className="sr-only">(current)</span>}
-                      </PageLink>
-                    </PageItem>
-                  )   
-                }
-                <PageItem
-                  disabled={activePage === pages.length-1}
-                >
-                  <PageLink className="page-link" aria-label="Next"
-                    onClick={() => this.changeActivePage(activePage+1)}
-                  >
-                    <span>Next</span>
-                  </PageLink>
-                </PageItem>
-              </Pagination>
+        }
+        {
+          (scrollY || scrollX) &&
+          <div className="row">
+            <div className="col-sm-12">
+              <div className="dataTables_scroll" /*style={{ overflowX: `${scrollX ? 'scroll' : 'hidden'}` }}*/>
+                <div className="dataTables_scrollHead" style={{ overflow: 'hidden' }}>
+                  <div className="dataTables_scrollHeadInner" style={{ boxSizing: 'content-box', paddingRight: '15px', minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr)+'px' : 'auto'}` }}>
+                    <Table
+                      autoWidth={autoWidth}
+                      bordered={bordered}
+                      borderless={borderless}
+                      btn={btn}
+                      dark={dark}
+                      fixed={fixed}
+                      hover={hover}
+                      responsive={responsive}
+                      responsiveSm={responsiveSm}
+                      responsiveMd={responsiveMd}
+                      responsiveLg={responsiveLg}
+                      responsiveXl={responsiveXl}
+                      small={small}
+                      striped={striped}
+                      className="dataTable"
+                      {...attributes}
+                    >
+                      <DataTableHead
+                        color={theadColor}
+                        textWhite={theadTextWhite}
+                        columns={columns}
+                        handleSort={this.handleSort}
+                        scrollX={scrollX}
+                        scrollY={scrollY}
+                        sortable={sortable}
+                      />
+                    </Table>
+                  </div>
+                </div>
+
+                <div className="dataTable_scrollBody" style={{ overflow: 'auto' }} onScroll={this.handleTableBodyScroll}>
+                  <Table
+                    style={{ minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr)+'px' : 'auto'}` }}
+                    autoWidth={autoWidth}
+                    bordered={bordered}
+                    borderless={borderless}
+                    btn={btn}
+                    dark={dark}
+                    fixed={fixed}
+                    hover={hover}
+                    maxHeight={maxHeight}
+                    responsive={responsive}
+                    responsiveSm={responsiveSm}
+                    responsiveMd={responsiveMd}
+                    responsiveLg={responsiveLg}
+                    responsiveXl={responsiveXl}
+                    scrollY={scrollY}
+                    small={small}
+                    striped={striped}
+                    className="dataTable"
+                    {...attributes}
+                  > 
+                    <colgroup>
+                      {columns.map(col => <col key={col.field} style={{ width: `${col.width}px` || 'auto', minWidth: `${col.width}px` || 'auto' }} />)}
+                    </colgroup>
+                    <TableBody
+                      color={tbodyColor}
+                      textWhite={tbodyTextWhite}
+                      rows={pages[activePage]}
+                    />
+                    {children}
+                  </Table>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        }
+        {
+          paging &&
+          <div className="row">
+            <div className="col-sm-12 col-md-5">
+              {
+                info &&
+                <div className="dataTables_info" role="status" aria-live="polite">
+                  Showing {activePage > 0 ? activePage * entries + 1 : activePage + 1} to {pages.length - 1 > activePage ? pages[activePage].length * (activePage + 1) : filteredRows.length} of {filteredRows.length} entries
+                </div>
+              }
+            </div>
+            <div className="col-sm-12 col-md-7">
+              <div className="dataTables_paginate">
+                <Pagination>
+                  <PageItem
+                    disabled={activePage === 0}
+                  >
+                    <PageLink className="page-link" aria-label="Previous"
+                      onClick={() => this.changeActivePage(activePage - 1)}
+                    >
+                      <span>Previous</span>
+                    </PageLink>
+                  </PageItem>
+                  {
+                    pages.map((page, index) =>
+                      <PageItem key={index} active={index === activePage}>
+                        <PageLink className="page-link"
+                          onClick={() => this.changeActivePage(index)}
+                        >
+                          {index + 1} {index === activePage && <span className="sr-only">(current)</span>}
+                        </PageLink>
+                      </PageItem>
+                    )
+                  }
+                  <PageItem
+                    disabled={activePage === pages.length - 1}
+                  >
+                    <PageLink className="page-link" aria-label="Next"
+                      onClick={() => this.changeActivePage(activePage + 1)}
+                    >
+                      <span>Next</span>
+                    </PageLink>
+                  </PageItem>
+                </Pagination>
+              </div>
+            </div>
+          </div>
+        }
       </div>
     );
   }
@@ -233,19 +362,54 @@ DataTable.propTypes = {
   data: PropTypes.object,
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
-  maxHeight: PropTypes.number,
+  info: PropTypes.bool,
+  maxHeight: PropTypes.string,
+  order: PropTypes.arrayOf(PropTypes.string),
+  paging: PropTypes.bool,
   responsive: PropTypes.bool,
   responsiveSm: PropTypes.bool,
   responsiveMd: PropTypes.bool,
   responsiveLg: PropTypes.bool,
   responsiveXl: PropTypes.bool,
+  searching: PropTypes.bool,
+  scrollX: PropTypes.bool,
   scrollY: PropTypes.bool,
+  sortable: PropTypes.bool,
   small: PropTypes.bool,
   striped: PropTypes.bool,
   theadColor: PropTypes.string,
   theadTextWhite: PropTypes.bool,
   tbodyColor: PropTypes.string,
   tbodyTextWhite: PropTypes.bool
+};
+
+DataTable.defaultProps = {
+  autoWidth: false,
+  bordered: false,
+  borderless: false,
+  btn: false,
+  dark: false,
+  data: {},
+  fixed: false,
+  hover: false,
+  info: true,
+  order: [],
+  paging: true,
+  responsive: false,
+  responsiveSm: false,
+  responsiveMd: false,
+  responsiveLg: false,
+  responsiveXl: false,
+  searching: true,
+  scrollX: false,
+  scrollY: false,
+  sortable: true,
+  small: false,
+  striped: false,
+  theadColor: '',
+  theadTextWhite: false,
+  tbodyColor: '',
+  tbodyTextWhite: false
 };
 
 export default DataTable;
