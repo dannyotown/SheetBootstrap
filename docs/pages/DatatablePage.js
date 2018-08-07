@@ -512,7 +512,7 @@ const DatatablePage = () => {
                 striped 
                 bordered
                 hover
-                data={data} 
+                data="https://my-json-server.typicode.com/Rotarepmi/exjson/db"
               />
             </CardBody>
           </Card>
