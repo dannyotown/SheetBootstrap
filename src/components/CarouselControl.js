@@ -14,11 +14,10 @@ class Control extends Component {
       tag: Tag,
       iconLeft,
       iconRight,
-      dark,
+      testimonial,
+      multiItem,
       ...attributes
     } = this.props;
-
-    let classes, caretClasses;
 
     if(direction === 'prev') {
       text = 'Previous';
@@ -26,15 +25,16 @@ class Control extends Component {
       text = 'Next';
     }
 
-    if(!dark){
-      classes = classNames(
-        'carousel-control-' + direction,
-        className
-      );
-      caretClasses = classNames(
-        'carousel-control-' + direction + '-icon'
-      );
-    } else {
+    let classes = classNames(
+      'carousel-control-' + direction,
+      className
+    );
+
+    let caretClasses = classNames(
+      'carousel-control-' + direction + '-icon'
+    );
+
+    if (testimonial) {
       const arrow = direction === "prev" ? "left" : "right"
       classes = classNames(
         'carousel-item-' + direction,
@@ -47,6 +47,12 @@ class Control extends Component {
       );
     }
 
+    if (multiItem) {
+      classes = classNames(
+        'btn-floating'
+      );
+    }
+
     return (
       <Tag className={classes} data-slide={direction} onClick={onClick}>
         {this.props.iconLeft ? (
@@ -56,7 +62,7 @@ class Control extends Component {
         ) : (
           <div>
             <span className={caretClasses} aria-hidden="true"></span>
-            <span className="sr-only">Previous</span>
+            <span className="sr-only">{this.props.text}</span>
           </div>
         )}
       </Tag>
@@ -72,7 +78,8 @@ Control.propTypes = {
   className: PropTypes.string,
   iconLeft: PropTypes.bool,
   iconRight: PropTypes.bool,
-  dark: PropTypes.bool,
+  testimonial: PropTypes.bool,
+  multiItem: PropTypes.bool
 };
 
 Control.defaultProps = {
