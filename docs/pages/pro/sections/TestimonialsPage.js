@@ -89,7 +89,7 @@ class TestimonialsPage extends Component {
               </CarouselItem>
               <CarouselItem itemId="2">
                 <Testimonial>
-                  <Avatar className="mx-auto">
+                  <Avatar className="mx-auto mb-4">
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" className="rounded-circle img-fluid" alt="Second sample avatar image"/>
                   </Avatar>
                   <p>
@@ -106,7 +106,7 @@ class TestimonialsPage extends Component {
               </CarouselItem>
               <CarouselItem itemId="3">
                 <Testimonial>
-                  <Avatar className="mx-auto">
+                  <Avatar className="mx-auto mb-4">
                     <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" className="rounded-circle img-fluid" alt="Third sample avatar image"/>
                   </Avatar>
                   <p>
