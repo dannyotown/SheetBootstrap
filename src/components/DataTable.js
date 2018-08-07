@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-// import { Table, TableBody, DataTableHead, DataTableInput, DataTableSelect, TableFoot, Pagination, PageLink, PageItem } from 'mdbreact';
+// import { DataTableSearch, DataTableEntries, DataTableTable, DataTableTableScroll, DataTableInfo, DataTablePagination } from 'mdbreact';
 
 class DataTable extends Component {
   constructor(props) {
@@ -152,7 +151,8 @@ class DataTable extends Component {
       filteredRows,
       pages,
       activePage,
-      search
+      search,
+      translateScrollHead
     } = this.state;
 
     const entriesArr = [10, 25, 50, 100];
@@ -160,192 +160,98 @@ class DataTable extends Component {
     return (
       <div className="dataTables_wrapper dt-bootstrap4">
         <div className="row">
-          <div className="col-sm-12 col-md-6">
-            {
-              paging &&
-              <DataTableSelect
-                value={entries}
-                onChange={this.handleEntriesChange}
-                entries={entriesArr}
-              />
-            }
-          </div>
-          <div className="col-sm-12 col-md-6">
-            {
-              searching &&
-              <DataTableInput
-                value={search}
-                onChange={this.handleSearchChange}
-              />
-            }
-          </div>
+          <DataTableEntries
+            paging={paging}
+            entries={entries}
+            handleEntriesChange={this.handleEntriesChange}
+            entriesArr={entriesArr}
+          />
+          <DataTableSearch
+            handleSearchChange={this.handleSearchChange}
+            search={search}
+            searching={searching}
+          />
         </div>
         {
           (!scrollY && !scrollX) &&
           <div className="row">
-            <div className="col-sm-12">
-              <Table
-                autoWidth={autoWidth}
-                bordered={bordered}
-                borderless={borderless}
-                btn={btn}
-                dark={dark}
-                fixed={fixed}
-                hover={hover}
-                responsive={responsive}
-                responsiveSm={responsiveSm}
-                responsiveMd={responsiveMd}
-                responsiveLg={responsiveLg}
-                responsiveXl={responsiveXl}
-                small={small}
-                striped={striped}
-                className="dataTable"
-                {...attributes}
-              >
-                <DataTableHead
-                  color={theadColor}
-                  textWhite={theadTextWhite}
-                  columns={columns}
-                  handleSort={this.handleSort}
-                  scrollY={scrollY}
-                  sortable={sortable}
-                />
-                <TableBody
-                  color={tbodyColor}
-                  textWhite={tbodyTextWhite}
-                  rows={pages[activePage]}
-                />
-                <TableFoot
-                  color={theadColor}
-                  textWhite={theadTextWhite}
-                  columns={columns}
-                />
-                {children}
-              </Table>
-            </div>
+            <DataTableTable
+              autoWidth={autoWidth}
+              bordered={bordered}
+              borderless={borderless}
+              btn={btn}
+              dark={dark}
+              fixed={fixed}
+              hover={hover}
+              responsive={responsive}
+              responsiveSm={responsiveSm}
+              responsiveMd={responsiveMd}
+              responsiveLg={responsiveLg}
+              responsiveXl={responsiveXl}
+              small={small}
+              striped={striped}
+              theadColor={theadColor}
+              theadTextWhite={theadTextWhite}
+              columns={columns}
+              handleSort={this.handleSort}
+              sortable={sortable}
+              tbodyColor={tbodyColor}
+              tbodyTextWhite={tbodyTextWhite}
+              rows={pages[activePage]}
+              {...attributes}
+            />
           </div>
         }
         {
           (scrollY || scrollX) &&
           <div className="row">
-            <div className="col-sm-12">
-              <div className="dataTables_scroll">
-                <div className="dataTables_scrollHead" style={{ overflow: 'hidden' }}>
-                  <div className="dataTables_scrollHeadInner" style={{ position: 'relative', transform: `translateX(-${this.state.translateScrollHead}px)`, boxSizing: 'content-box', paddingRight: '15px', minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr)+'px' : 'auto'}` }}>
-                    <Table
-                      autoWidth={autoWidth}
-                      bordered={bordered}
-                      borderless={borderless}
-                      btn={btn}
-                      dark={dark}
-                      fixed={fixed}
-                      hover={hover}
-                      responsive={responsive}
-                      responsiveSm={responsiveSm}
-                      responsiveMd={responsiveMd}
-                      responsiveLg={responsiveLg}
-                      responsiveXl={responsiveXl}
-                      small={small}
-                      striped={striped}
-                      className="dataTable"
-                      {...attributes}
-                    >
-                      <DataTableHead
-                        color={theadColor}
-                        textWhite={theadTextWhite}
-                        columns={columns}
-                        handleSort={this.handleSort}
-                        scrollX={scrollX}
-                        scrollY={scrollY}
-                        sortable={sortable}
-                      />
-                    </Table>
-                  </div>
-                </div>
-
-                <div className="dataTable_scrollBody" style={{ overflow: 'auto' }} onScroll={this.handleTableBodyScroll}>
-                  <Table
-                    style={{ minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr)+'px' : 'auto'}` }}
-                    autoWidth={autoWidth}
-                    bordered={bordered}
-                    borderless={borderless}
-                    btn={btn}
-                    dark={dark}
-                    fixed={fixed}
-                    hover={hover}
-                    maxHeight={maxHeight}
-                    responsive={responsive}
-                    responsiveSm={responsiveSm}
-                    responsiveMd={responsiveMd}
-                    responsiveLg={responsiveLg}
-                    responsiveXl={responsiveXl}
-                    scrollY={scrollY}
-                    small={small}
-                    striped={striped}
-                    className="dataTable"
-                    {...attributes}
-                  >
-                    <colgroup>
-                      {columns.map(col => <col key={col.field} style={{ width: `${col.width}px` || 'auto', minWidth: `${col.width}px` || 'auto' }} />)}
-                    </colgroup>
-                    <TableBody
-                      color={tbodyColor}
-                      textWhite={tbodyTextWhite}
-                      rows={pages[activePage]}
-                    />
-                    {children}
-                  </Table>
-                </div>
-              </div>
-            </div>
+            <DataTableTableScroll
+              autoWidth={autoWidth}
+              bordered={bordered}
+              borderless={borderless}
+              btn={btn}
+              dark={dark}
+              fixed={fixed}
+              handleTableBodyScroll={this.handleTableBodyScroll}
+              hover={hover}
+              maxHeight={maxHeight}
+              responsive={responsive}
+              responsiveSm={responsiveSm}
+              responsiveMd={responsiveMd}
+              responsiveLg={responsiveLg}
+              responsiveXl={responsiveXl}
+              scrollX={scrollX}
+              scrollY={scrollY}
+              small={small}
+              striped={striped}
+              theadColor={theadColor}
+              theadTextWhite={theadTextWhite}
+              columns={columns}
+              handleSort={this.handleSort}
+              sortable={sortable}
+              tbodyColor={tbodyColor}
+              tbodyTextWhite={tbodyTextWhite}
+              rows={pages[activePage]}
+              translateScrollHead={translateScrollHead}
+              {...attributes}
+            />
           </div>
         }
         {
           paging &&
           <div className="row">
-            <div className="col-sm-12 col-md-5">
-              {
-                info &&
-                <div className="dataTables_info" role="status" aria-live="polite">
-                  Showing {activePage > 0 ? activePage * entries + 1 : activePage + 1} to {pages.length - 1 > activePage ? pages[activePage].length * (activePage + 1) : filteredRows.length} of {filteredRows.length} entries
-                </div>
-              }
-            </div>
-            <div className="col-sm-12 col-md-7">
-              <div className="dataTables_paginate">
-                <Pagination>
-                  <PageItem
-                    disabled={activePage === 0}
-                  >
-                    <PageLink className="page-link" aria-label="Previous"
-                      onClick={() => this.changeActivePage(activePage - 1)}
-                    >
-                      <span>Previous</span>
-                    </PageLink>
-                  </PageItem>
-                  {
-                    pages.map((page, index) =>
-                      <PageItem key={index} active={index === activePage}>
-                        <PageLink className="page-link"
-                          onClick={() => this.changeActivePage(index)}
-                        >
-                          {index + 1} {index === activePage && <span className="sr-only">(current)</span>}
-                        </PageLink>
-                      </PageItem>
-                    )
-                  }
-                  <PageItem
-                    disabled={activePage === pages.length - 1}
-                  >
-                    <PageLink className="page-link" aria-label="Next"
-                      onClick={() => this.changeActivePage(activePage + 1)}
-                    >
-                      <span>Next</span>
-                    </PageLink>
-                  </PageItem>
-                </Pagination>
-              </div>
-            </div>
+            <DataTableInfo
+              activePage={activePage}
+              entries={entries}
+              filteredRows={filteredRows}
+              info={info}
+              pages={pages}
+            />
+            <DataTablePagination
+              activePage={activePage}
+              changeActivePage={this.changeActivePage}
+              pages={pages}
+            />
           </div>
         }
       </div>
