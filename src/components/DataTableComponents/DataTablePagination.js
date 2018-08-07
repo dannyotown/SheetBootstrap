@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Pagination, PageItem, PageLink } from 'mdbreact';
+import Pagination from '../Pagination';
+import PageItem from '../PageItem';
+import PageLink from '../PageLink';
 
 const DataTablePagination = (props) => {
   const {

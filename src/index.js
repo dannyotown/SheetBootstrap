@@ -25,15 +25,6 @@ import Col from './components/Col';
 import Collapse from './components/Collapse';
 import Container from './components/Container';
 import DataTable from './components/DataTable';
-import DataTableHead from './components/DataTableComponents/DataTableHead';
-import DataTableEntries from './components/DataTableComponents/DataTableEntries';
-import DataTableSearch from './components/DataTableComponents/DataTableSearch';
-import DataTableTable from './components/DataTableComponents/DataTableTable';
-import DataTableTableScroll from './components/DataTableComponents/DataTableTableScroll';
-import DataTableInfo from './components/DataTableComponents/DataTableInfo';
-import DataTablePagination from './components/DataTableComponents/DataTablePagination';
-let DataTableSelect = require('./components/DataTableComponents/DataTableSelect').default;
-let DataTableInput = require('./components/DataTableComponents/DataTableInput').default;
 let Dropdown = require('./components/Dropdown').default;
 import DropdownItem from './components/DropdownItem';
 import DropdownMenu from './components/DropdownMenu';
@@ -118,8 +109,6 @@ import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
 import Testimonial from './components/pro/Testimonial';
-DataTableSelect = require('./components/pro/DataTableSelect').default;
-DataTableInput = require('./components/pro/DataTableInput').default;
 
 // MDB FREE
 import MDBBadge from './components/Badge';
@@ -147,15 +136,6 @@ import MDBCol from './components/Col';
 import MDBCollapse from './components/Collapse';
 import MDBContainer from './components/Container';
 import MDBDataTable from './components/DataTable';
-import MDBDataTableHead from './components/DataTableComponents/DataTableHead';
-import MDBDataTableEntries from './components/DataTableComponents/DataTableEntries';
-import MDBDataTableSearch from './components/DataTableComponents/DataTableSearch';
-import MDBDataTableTable from './components/DataTableComponents/DataTableTable';
-import MDBDataTableTableScroll from './components/DataTableComponents/DataTableTableScroll';
-import MDBDataTableInfo from './components/DataTableComponents/DataTableInfo';
-import MDBDataTablePagination from './components/DataTableComponents/DataTablePagination';
-let MDBDataTableSelect = require('./components/DataTableComponents/DataTableSelect').default;
-let MDBDataTableInput = require('./components/DataTableComponents/DataTableInput').default;
 let MDBDropdown = require('./components/Dropdown').default;
 import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
@@ -243,8 +223,6 @@ import MDBTabContent from './components/pro/TabContent';
 import MDBSticky from './components/pro/Sticky';
 import MDBStickyContent from './components/pro/StickyContainer';
 import MDBTestimonial from './components/pro/Testimonial';
-MDBDataTableSelect = require('./components/pro/DataTableSelect').default;
-MDBDataTableInput = require('./components/pro/DataTableInput').default;
 
 export {
   // FREE
@@ -274,15 +252,6 @@ export {
   Collapse,
   Container,
   DataTable,
-  DataTableHead,
-  DataTableEntries,
-  DataTableSearch,
-  DataTableTable,
-  DataTableTableScroll,
-  DataTableInfo,
-  DataTablePagination,
-  DataTableInput,
-  DataTableSelect,
   Dropdown,
   DropdownItem,
   DropdownMenu,
@@ -392,15 +361,6 @@ export {
   MDBCollapse,
   MDBContainer,
   MDBDataTable,
-  MDBDataTableHead,
-  MDBDataTableEntries,
-  MDBDataTableSearch,
-  MDBDataTableTable,
-  MDBDataTableTableScroll,
-  MDBDataTableInfo,
-  MDBDataTablePagination,
-  MDBDataTableInput,
-  MDBDataTableSelect,
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,

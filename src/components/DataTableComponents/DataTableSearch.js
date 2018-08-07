@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DataTableInput } from 'mdbreact';
+let DataTableInput; 
+try {
+  DataTableInput = require('../pro/DataTableInput').default;
+}
+catch (err) {
+  DataTableInput = require('./DataTableInput').default;
+}
 
 const DataTableSearch = (props) => {
   const {
