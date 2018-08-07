@@ -8,7 +8,6 @@ class Control extends Component {
 
     let {
       direction,
-      text,
       className,
       onClick,
       tag: Tag,
@@ -18,6 +17,8 @@ class Control extends Component {
       multiItem,
       ...attributes
     } = this.props;
+
+    let text;
 
     if(direction === 'prev') {
       text = 'Previous';
@@ -62,7 +63,7 @@ class Control extends Component {
         ) : (
           <div>
             <span className={caretClasses} aria-hidden="true"></span>
-            <span className="sr-only">{this.props.text}</span>
+            <span className="sr-only">{text}</span>
           </div>
         )}
       </Tag>
@@ -72,7 +73,6 @@ class Control extends Component {
 
 Control.propTypes = {
   onClick: PropTypes.any,
-  text: PropTypes.string,
   direction: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
