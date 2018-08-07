@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { DataTableSearch, DataTableEntries, DataTableTable, DataTableTableScroll, DataTableInfo } from 'mdbreact';
-import DataTablePagination from './DataTableComponents/DataTablePagination';
+import { DataTableSearch, DataTableEntries, DataTableTable, DataTableTableScroll, DataTableInfo, DataTablePagination } from 'mdbreact';
 
 class DataTable extends Component {
   constructor(props) {
