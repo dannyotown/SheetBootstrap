@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 import Table from '../Table';
 import DataTableHead from './DataTableHead';
 import TableBody from '../TableBody';
 import TableFoot from '../TableFoot';
+=======
+// import { Table, DataTableHead, TableBody, TableFoot } from 'mdbreact';
+>>>>>>> 3605f24aa7240d37018b2a18b6c3d9eba69047c8
 
 const DataTableTable = (props) => {
   const {

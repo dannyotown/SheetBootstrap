@@ -25,10 +25,23 @@ import Col from './components/Col';
 import Collapse from './components/Collapse';
 import Container from './components/Container';
 import DataTable from './components/DataTable';
+<<<<<<< HEAD
 let Dropdown = require('./components/Dropdown').default;
+=======
+import Dropdown from './components/Dropdown';
+import DataTableHead from './components/DataTableComponents/DataTableHead';
+import DataTableEntries from './components/DataTableComponents/DataTableEntries';
+import DataTableSearch from './components/DataTableComponents/DataTableSearch';
+import DataTableTable from './components/DataTableComponents/DataTableTable';
+import DataTableTableScroll from './components/DataTableComponents/DataTableTableScroll';
+import DataTableInfo from './components/DataTableComponents/DataTableInfo';
+import DataTablePagination from './components/DataTableComponents/DataTablePagination';
+let DataTableSelect = require('./components/DataTableComponents/DataTableSelect').default;
+let DataTableInput = require('./components/DataTableComponents/DataTableInput').default;
+>>>>>>> 3605f24aa7240d37018b2a18b6c3d9eba69047c8
 import DropdownItem from './components/DropdownItem';
 import DropdownMenu from './components/DropdownMenu';
-import DropdownMenuComponent from './components/DropdownMenuComponent';
+let DropdownMenuComponent = require('./components/DropdownMenuComponent').default;
 import DropdownToggle from './components/DropdownToggle';
 import EdgeHeader from './components/EdgeHeader';
 import Fa from './components/Fa';
@@ -80,7 +93,7 @@ import CardUp from './components/pro/CardUp';
 import Chip from './components/pro/Chip';
 import ChipsInput from './components/pro/ChipsInput';
 import CollapseHeader from './components/pro/CollapseHeader';
-import DropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
+DropdownMenuComponent = require('./components/pro/DropdownMenuProComponent').default;
 import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
@@ -136,10 +149,23 @@ import MDBCol from './components/Col';
 import MDBCollapse from './components/Collapse';
 import MDBContainer from './components/Container';
 import MDBDataTable from './components/DataTable';
+<<<<<<< HEAD
 let MDBDropdown = require('./components/Dropdown').default;
+=======
+import MDBDataTableHead from './components/DataTableComponents/DataTableHead';
+import MDBDataTableEntries from './components/DataTableComponents/DataTableEntries';
+import MDBDataTableSearch from './components/DataTableComponents/DataTableSearch';
+import MDBDataTableTable from './components/DataTableComponents/DataTableTable';
+import MDBDataTableTableScroll from './components/DataTableComponents/DataTableTableScroll';
+import MDBDataTableInfo from './components/DataTableComponents/DataTableInfo';
+import MDBDataTablePagination from './components/DataTableComponents/DataTablePagination';
+let MDBDataTableSelect = require('./components/DataTableComponents/DataTableSelect').default;
+let MDBDataTableInput = require('./components/DataTableComponents/DataTableInput').default;
+import MDBDropdown from './components/Dropdown';
+>>>>>>> 3605f24aa7240d37018b2a18b6c3d9eba69047c8
 import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
-import MDBDropdownMenuComponent from './components/DropdownMenuComponent';
+let MDBDropdownMenuComponent = require('./components/DropdownMenuComponent').default;
 import MDBDropdownToggle from './components/DropdownToggle';
 import MDBEdgeHeader from './components/EdgeHeader';
 import MDBIcon from './components/Fa';
@@ -192,7 +218,7 @@ import MDBCardUp from './components/pro/CardUp';
 import MDBChip from './components/pro/Chip';
 import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
-import MDBDropdownMenuProComponent from './components/pro/DropdownMenuProComponent';
+MDBDropdownMenuComponent = require('./components/pro/DropdownMenuProComponent').default;
 import MDBDatePicker from './components/pro/DatePicker';
 import MDBTimePicker from './components/pro/TimePicker';
 import MDBFlippingCard from './components/pro/FlippingCard';
@@ -306,7 +332,6 @@ export {
   Chip,
   ChipsInput,
   CollapseHeader,
-  DropdownMenuProComponent,
   FlippingCard,
   InputFile,
   InputRange,
@@ -417,7 +442,6 @@ export {
   MDBCollapseHeader,
   MDBDatePicker,
   MDBTimePicker,
-  MDBDropdownMenuProComponent,
   MDBFlippingCard,
   MDBFileInput,
   MDBRangeInput,

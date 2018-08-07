@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+<<<<<<< HEAD
 let DataTableSelect;
 try {
   DataTableSelect = require('../pro/DataTableSelect').default;
@@ -7,6 +8,9 @@ try {
 catch (err) {
   DataTableSelect = require('./DataTableSelect').default;
 }
+=======
+// import { DataTableSelect } from 'mdbreact';
+>>>>>>> 3605f24aa7240d37018b2a18b6c3d9eba69047c8
 
 const DataTableEntries = (props) => {
   const {
