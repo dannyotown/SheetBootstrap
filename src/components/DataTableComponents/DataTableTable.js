@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
 import Table from '../Table';
 import DataTableHead from './DataTableHead';
 import TableBody from '../TableBody';
 import TableFoot from '../TableFoot';
-=======
-// import { Table, DataTableHead, TableBody, TableFoot } from 'mdbreact';
->>>>>>> 3605f24aa7240d37018b2a18b6c3d9eba69047c8
 
 const DataTableTable = (props) => {
   const {
@@ -85,7 +81,6 @@ DataTableTable.propTypes = {
   bordered: PropTypes.bool.isRequired,
   borderless: PropTypes.bool.isRequired,
   btn: PropTypes.bool.isRequired,
-  columns: PropTypes.arrayOf(PropTypes.object).isRequired,
   dark: PropTypes.bool.isRequired,
   fixed: PropTypes.bool.isRequired,
   hover: PropTypes.bool.isRequired,
@@ -95,7 +90,6 @@ DataTableTable.propTypes = {
   responsiveMd: PropTypes.bool.isRequired,
   responsiveLg: PropTypes.bool.isRequired,
   responsiveXl: PropTypes.bool.isRequired,
-  rows: PropTypes.arrayOf(PropTypes.object).isRequired,
   sortable: PropTypes.bool.isRequired,
   small: PropTypes.bool.isRequired,
   striped: PropTypes.bool.isRequired,
@@ -103,6 +97,8 @@ DataTableTable.propTypes = {
   theadTextWhite: PropTypes.bool.isRequired,
   tbodyColor: PropTypes.string.isRequired,
   tbodyTextWhite: PropTypes.bool.isRequired,
+  columns: PropTypes.arrayOf(PropTypes.object),
+  rows: PropTypes.arrayOf(PropTypes.object),
   children: PropTypes.node
 };
 

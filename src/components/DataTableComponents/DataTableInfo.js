@@ -9,7 +9,7 @@ const DataTableInfo = (props) => {
     info,
     pages
   } = props;
-
+  
   return (
     <div className="col-sm-12 col-md-5">
       {

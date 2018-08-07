@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Select, SelectInput, SelectOptions, SelectOption } from 'mdbreact';
+import Select from './Select';
+import SelectInput from './SelectInput';
+import SelectOptions from './SelectOptions';
+import SelectOption from './SelectOption';
 
 const DataTableSelect = ({ value, onChange, entries }) => (
   <div className="dataTables_length d-flex flex-row">

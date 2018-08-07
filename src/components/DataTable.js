@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-<<<<<<< HEAD
 import DataTableTable from './DataTableComponents/DataTableTable';
 import DataTableTableScroll from './DataTableComponents/DataTableTableScroll';
 import DataTableEntries from './DataTableComponents/DataTableEntries';
 import DataTableSearch from './DataTableComponents/DataTableSearch';
 import DataTableInfo from './DataTableComponents/DataTableInfo';
 import DataTablePagination from './DataTableComponents/DataTablePagination';
-=======
-// import { DataTableSearch, DataTableEntries, DataTableTable, DataTableTableScroll, DataTableInfo, DataTablePagination } from 'mdbreact';
->>>>>>> 3605f24aa7240d37018b2a18b6c3d9eba69047c8
 
 class DataTable extends Component {
   constructor(props) {
@@ -102,7 +98,7 @@ class DataTable extends Component {
           const pageEndIndex = i*prevState.entries;
           prevState.pages.push(prevState.filteredRows.slice(pageEndIndex-prevState.entries, pageEndIndex));
         }
-        prevState.activePage = prevState.activePage < prevState.pages.length ? prevState.activePage : prevState.pages.length-11;
+        prevState.activePage = prevState.activePage < prevState.pages.length ? prevState.activePage : prevState.pages.length-1;
       }
       else {
         prevState.pages.push(prevState.filteredRows);

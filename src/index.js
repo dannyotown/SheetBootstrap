@@ -25,20 +25,7 @@ import Col from './components/Col';
 import Collapse from './components/Collapse';
 import Container from './components/Container';
 import DataTable from './components/DataTable';
-<<<<<<< HEAD
 let Dropdown = require('./components/Dropdown').default;
-=======
-import Dropdown from './components/Dropdown';
-import DataTableHead from './components/DataTableComponents/DataTableHead';
-import DataTableEntries from './components/DataTableComponents/DataTableEntries';
-import DataTableSearch from './components/DataTableComponents/DataTableSearch';
-import DataTableTable from './components/DataTableComponents/DataTableTable';
-import DataTableTableScroll from './components/DataTableComponents/DataTableTableScroll';
-import DataTableInfo from './components/DataTableComponents/DataTableInfo';
-import DataTablePagination from './components/DataTableComponents/DataTablePagination';
-let DataTableSelect = require('./components/DataTableComponents/DataTableSelect').default;
-let DataTableInput = require('./components/DataTableComponents/DataTableInput').default;
->>>>>>> 3605f24aa7240d37018b2a18b6c3d9eba69047c8
 import DropdownItem from './components/DropdownItem';
 import DropdownMenu from './components/DropdownMenu';
 let DropdownMenuComponent = require('./components/DropdownMenuComponent').default;
@@ -149,20 +136,7 @@ import MDBCol from './components/Col';
 import MDBCollapse from './components/Collapse';
 import MDBContainer from './components/Container';
 import MDBDataTable from './components/DataTable';
-<<<<<<< HEAD
 let MDBDropdown = require('./components/Dropdown').default;
-=======
-import MDBDataTableHead from './components/DataTableComponents/DataTableHead';
-import MDBDataTableEntries from './components/DataTableComponents/DataTableEntries';
-import MDBDataTableSearch from './components/DataTableComponents/DataTableSearch';
-import MDBDataTableTable from './components/DataTableComponents/DataTableTable';
-import MDBDataTableTableScroll from './components/DataTableComponents/DataTableTableScroll';
-import MDBDataTableInfo from './components/DataTableComponents/DataTableInfo';
-import MDBDataTablePagination from './components/DataTableComponents/DataTablePagination';
-let MDBDataTableSelect = require('./components/DataTableComponents/DataTableSelect').default;
-let MDBDataTableInput = require('./components/DataTableComponents/DataTableInput').default;
-import MDBDropdown from './components/Dropdown';
->>>>>>> 3605f24aa7240d37018b2a18b6c3d9eba69047c8
 import MDBDropdownItem from './components/DropdownItem';
 import MDBDropdownMenu from './components/DropdownMenu';
 let MDBDropdownMenuComponent = require('./components/DropdownMenuComponent').default;
