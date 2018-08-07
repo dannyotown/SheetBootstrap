@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Select, SelectInput, SelectOptions, SelectOption } from 'mdbreact';
+import Select from './Select';
+import SelectInput from './SelectInput';
+import SelectOptions from './SelectOptions';
+import SelectOption from './SelectOption';
 
 const DataTableSelect = ({ value, onChange, entries }) => (
   <div className="dataTables_length d-flex flex-row">
@@ -10,7 +13,7 @@ const DataTableSelect = ({ value, onChange, entries }) => (
       <SelectOptions>
         {
           entries.map((entry, index) => <SelectOption checked={index === 0} key={entry} value={entry}>{entry}</SelectOption>)
-        } 
+        }
       </SelectOptions>
     </Select>
   </div>

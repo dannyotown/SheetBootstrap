@@ -7,32 +7,38 @@ const DatatablePage = () => {
       {
         label: 'Name',
         field: 'name',
-        sort: 'asc'
+        sort: 'asc',
+        width: 150
       },
       {
         label: 'Position',
         field: 'position',
-        sort: 'asc'
+        sort: 'asc',
+        width: 270
       },
       {
         label: 'Office',
         field: 'office',
-        sort: 'asc'
+        sort: 'asc',
+        width: 200
       },
       {
         label: 'Age',
         field: 'age',
-        sort: 'asc'
+        sort: 'asc',
+        width: 100
       },
       {
         label: 'Start date',
         field: 'date',
-        sort: 'asc'
+        sort: 'asc',
+        width: 150
       },
       {
         label: 'Salary',
         field: 'salary',
-        sort: 'asc'
+        sort: 'asc',
+        width: 100
       }
     ],
     rows: [
@@ -506,6 +512,163 @@ const DatatablePage = () => {
                 striped 
                 bordered
                 hover
+                data={data} 
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="py-3">
+        <Col md="12">
+          <Card>
+            <CardBody>
+              <h2 className="h2-responsive pb-4">Info off</h2>
+              <DataTable 
+                striped 
+                bordered
+                hover
+                info={false}
+                data={data} 
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="py-3">
+        <Col md="12">
+          <Card>
+            <CardBody>
+              <h2 className="h2-responsive pb-4">Sortable off</h2>
+              <DataTable 
+                striped 
+                bordered
+                hover
+                sortable={false}
+                data={data} 
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="py-3">
+        <Col md="12">
+          <Card>
+            <CardBody>
+              <h2 className="h2-responsive pb-4">Initial order</h2>
+              <DataTable 
+                striped 
+                bordered
+                hover
+                order={['age', 'desc']}
+                data={data} 
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="py-3">
+        <Col md="12">
+          <Card>
+            <CardBody>
+              <h2 className="h2-responsive pb-4">Searching off</h2>
+              <DataTable 
+                striped 
+                bordered
+                hover
+                searching={false}
+                data={data} 
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="py-3">
+        <Col md="12">
+          <Card>
+            <CardBody>
+              <h2 className="h2-responsive pb-4">Paging off</h2>
+              <DataTable 
+                striped 
+                bordered
+                hover
+                paging={false}
+                data={data} 
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="py-3">
+        <Col md="12">
+          <Card>
+            <CardBody>
+              <h2 className="h2-responsive pb-4">ScrollY</h2>
+              <DataTable 
+                striped 
+                bordered
+                hover
+                scrollY
+                maxHeight='300px'
+                data={data} 
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="py-3">
+        <Col md="12">
+          <Card>
+            <CardBody>
+              <h2 className="h2-responsive pb-4">ScrollY dynamic height</h2>
+              <DataTable 
+                striped 
+                bordered
+                hover
+                scrollY
+                maxHeight='50vh'
+                data={data} 
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="py-3">
+        <Col md="12">
+          <Card>
+            <CardBody>
+              <h2 className="h2-responsive pb-4">scrollX</h2>
+              <DataTable 
+                striped 
+                bordered
+                hover
+                scrollX
+                data={data} 
+              />
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="py-3">
+        <Col md="12">
+          <Card>
+            <CardBody>
+              <h2 className="h2-responsive pb-4">scroll X and Y</h2>
+              <DataTable 
+                striped 
+                bordered
+                hover
+                scrollX
+                scrollY
+                maxHeight='300xp'
                 data={data} 
               />
             </CardBody>

@@ -1,22 +1,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { Table, TableBody, DataTableHead, DataTableInput, DataTableSelect, Pagination, PageLink, PageItem } from 'mdbreact';
+import DataTableTable from './DataTableComponents/DataTableTable';
+import DataTableTableScroll from './DataTableComponents/DataTableTableScroll';
+import DataTableEntries from './DataTableComponents/DataTableEntries';
+import DataTableSearch from './DataTableComponents/DataTableSearch';
+import DataTableInfo from './DataTableComponents/DataTableInfo';
+import DataTablePagination from './DataTableComponents/DataTablePagination';
 
 class DataTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      activePage: 0,
       columns: props.data.columns,
       entries: 10,
-      rows: props.data.rows,
       filteredRows: props.data.rows,
       pages: [],
-      activePage: 0,
-      search: ''
+      rows: props.data.rows,
+      search: '',
+      translateScrollHead: 0
     };
 
-    this.paginateRowsInitialy();
+    if(this.props.paging) {
+      this.paginateRowsInitialy();
+    }
+    else {
+      this.state.pages.push(this.state.rows);
+    }
+  }
+
+  componentDidMount() {
+    this.props.order.length && this.handleSort(this.props.order[0], this.props.order[1]);
   }
 
   paginateRowsInitialy = () => {
@@ -27,20 +41,28 @@ class DataTable extends Component {
       this.state.pages.push(this.state.rows.slice(pageEndIndex-this.state.entries, pageEndIndex));
     }
   }
-  
+
   handleEntriesChange = (value) => {
     this.setState({ entries: Array.isArray(value) ? value[0] : value }, () => this.paginateRows());
   }
-  
+
   handleSearchChange = (e) => {
     this.setState({ search: e.target.value }, () => this.filterRows());
   }
-  
+
   handleSort = (field, sort) => {
     this.setState((prevState) => {
-      sort === 'asc'
-        ? prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1))
-        : prevState.rows.sort((a, b) => (a[field] > b[field] ? -1 : 1));
+      // run default block if there is no key 'sort'
+      switch (sort) {
+      case 'asc':
+        prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1));
+        break;
+      case 'desc':
+        prevState.rows.sort((a, b) => (a[field] > b[field] ? -1 : 1));
+        break;
+      default:
+        prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1));
+      }
       prevState.columns[prevState.columns.findIndex(column => column.field === field)].sort = sort === 'asc' ? 'desc' : 'asc';
       return {
         rows: prevState.rows,
@@ -49,7 +71,7 @@ class DataTable extends Component {
     },
     () => this.filterRows());
   }
-  
+
   filterRows = () => {
     this.setState((prevState) => {
       const filteredRows = prevState.rows.filter(row => {
@@ -71,17 +93,28 @@ class DataTable extends Component {
     const pagesAmount = Math.ceil(this.state.filteredRows.length / this.state.entries);
     this.setState((prevState) => {
       prevState.pages = [];
-      for(let i=1; i<=pagesAmount; i++) {
-        const pageEndIndex = i*prevState.entries;
-        prevState.pages.push(prevState.filteredRows.slice(pageEndIndex-prevState.entries, pageEndIndex));
+      if (this.props.paging) {
+        for(let i=1; i<=pagesAmount; i++) {
+          const pageEndIndex = i*prevState.entries;
+          prevState.pages.push(prevState.filteredRows.slice(pageEndIndex-prevState.entries, pageEndIndex));
+        }
+        prevState.activePage = prevState.activePage < prevState.pages.length ? prevState.activePage : prevState.pages.length-1;
       }
-      prevState.activePage = prevState.activePage < prevState.pages.length ? prevState.activePage : prevState.pages.length-11;
+      else {
+        prevState.pages.push(prevState.filteredRows);
+        prevState.activePage = 0;
+      }
+
       return {...prevState};
     });
   }
 
   changeActivePage = (page) => {
     this.setState({ activePage: page });
+  }
+
+  handleTableBodyScroll = (e) => {
+    this.setState({ translateScrollHead: e.target.scrollLeft });
   }
 
   render() {
@@ -95,14 +128,20 @@ class DataTable extends Component {
       data,
       fixed,
       hover,
+      info,
       maxHeight,
+      order,
+      paging,
       responsive,
       responsiveSm,
       responsiveMd,
       responsiveLg,
       responsiveXl,
+      searching,
+      scrollX,
       scrollY,
       small,
+      sortable,
       striped,
       tbodyColor,
       tbodyTextWhite,
@@ -117,7 +156,8 @@ class DataTable extends Component {
       filteredRows,
       pages,
       activePage,
-      search
+      search,
+      translateScrollHead
     } = this.state;
 
     const entriesArr = [10, 25, 50, 100];
@@ -125,23 +165,22 @@ class DataTable extends Component {
     return (
       <div className="dataTables_wrapper dt-bootstrap4">
         <div className="row">
-          <div className="col-sm-12 col-md-6">
-            <DataTableSelect
-              value={entries}
-              onChange={this.handleEntriesChange}
-              entries={entriesArr}
-            />
-          </div>
-          <div className="col-sm-12 col-md-6">
-            <DataTableInput
-              value={search}
-              onChange={this.handleSearchChange}
-            />
-          </div>
+          <DataTableEntries
+            paging={paging}
+            entries={entries}
+            handleEntriesChange={this.handleEntriesChange}
+            entriesArr={entriesArr}
+          />
+          <DataTableSearch
+            handleSearchChange={this.handleSearchChange}
+            search={search}
+            searching={searching}
+          />
         </div>
-        <div className="row">
-          <div className="col-sm-12">
-            <Table
+        {
+          (!scrollY && !scrollX) &&
+          <div className="row">
+            <DataTableTable
               autoWidth={autoWidth}
               bordered={bordered}
               borderless={borderless}
@@ -149,75 +188,77 @@ class DataTable extends Component {
               dark={dark}
               fixed={fixed}
               hover={hover}
+              responsive={responsive}
+              responsiveSm={responsiveSm}
+              responsiveMd={responsiveMd}
+              responsiveLg={responsiveLg}
+              responsiveXl={responsiveXl}
+              small={small}
+              striped={striped}
+              theadColor={theadColor}
+              theadTextWhite={theadTextWhite}
+              columns={columns}
+              handleSort={this.handleSort}
+              sortable={sortable}
+              tbodyColor={tbodyColor}
+              tbodyTextWhite={tbodyTextWhite}
+              rows={pages[activePage]}
+              {...attributes}
+            />
+          </div>
+        }
+        {
+          (scrollY || scrollX) &&
+          <div className="row">
+            <DataTableTableScroll
+              autoWidth={autoWidth}
+              bordered={bordered}
+              borderless={borderless}
+              btn={btn}
+              dark={dark}
+              fixed={fixed}
+              handleTableBodyScroll={this.handleTableBodyScroll}
+              hover={hover}
               maxHeight={maxHeight}
               responsive={responsive}
               responsiveSm={responsiveSm}
               responsiveMd={responsiveMd}
               responsiveLg={responsiveLg}
               responsiveXl={responsiveXl}
+              scrollX={scrollX}
               scrollY={scrollY}
               small={small}
               striped={striped}
-              className="dataTable"
+              theadColor={theadColor}
+              theadTextWhite={theadTextWhite}
+              columns={columns}
+              handleSort={this.handleSort}
+              sortable={sortable}
+              tbodyColor={tbodyColor}
+              tbodyTextWhite={tbodyTextWhite}
+              rows={pages[activePage]}
+              translateScrollHead={translateScrollHead}
               {...attributes}
-            >
-              <DataTableHead
-                color={theadColor}
-                textWhite={theadTextWhite}
-                columns={columns}
-                handleSort={this.handleSort}
-              />
-              <TableBody
-                color={tbodyColor}
-                textWhite={tbodyTextWhite}
-                rows={pages[activePage]}
-              />
-              {children}
-            </Table>
+            />
           </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-12 col-md-5">
-            <div className="dataTables_info" role="status" aria-live="polite">
-              Showing {activePage > 0 ? activePage*entries+1 : activePage+1} to {pages.length-1 > activePage ? pages[activePage].length*(activePage+1) : filteredRows.length} of {filteredRows.length} entries
-            </div>
+        }
+        {
+          paging &&
+          <div className="row">
+            <DataTableInfo
+              activePage={activePage}
+              entries={entries}
+              filteredRows={filteredRows}
+              info={info}
+              pages={pages}
+            />
+            <DataTablePagination
+              activePage={activePage}
+              changeActivePage={this.changeActivePage}
+              pages={pages}
+            />
           </div>
-          <div className="col-sm-12 col-md-7">
-            <div className="dataTables_paginate">
-              <Pagination>
-                <PageItem 
-                  disabled={activePage === 0}
-                >
-                  <PageLink className="page-link" aria-label="Previous" 
-                    onClick={() => this.changeActivePage(activePage-1)}
-                  >
-                    <span>Previous</span>
-                  </PageLink>
-                </PageItem>
-                { 
-                  pages.map((page, index) =>
-                    <PageItem key={index} active={index === activePage}>
-                      <PageLink className="page-link"
-                        onClick={() => this.changeActivePage(index)}
-                      >
-                        {index + 1} {index === activePage && <span className="sr-only">(current)</span>}
-                      </PageLink>
-                    </PageItem>
-                  )   
-                }
-                <PageItem
-                  disabled={activePage === pages.length-1}
-                >
-                  <PageLink className="page-link" aria-label="Next"
-                    onClick={() => this.changeActivePage(activePage+1)}
-                  >
-                    <span>Next</span>
-                  </PageLink>
-                </PageItem>
-              </Pagination>
-            </div>
-          </div>
-        </div>
+        }
       </div>
     );
   }
@@ -233,19 +274,54 @@ DataTable.propTypes = {
   data: PropTypes.object,
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
-  maxHeight: PropTypes.number,
+  info: PropTypes.bool,
+  maxHeight: PropTypes.string,
+  order: PropTypes.arrayOf(PropTypes.string),
+  paging: PropTypes.bool,
   responsive: PropTypes.bool,
   responsiveSm: PropTypes.bool,
   responsiveMd: PropTypes.bool,
   responsiveLg: PropTypes.bool,
   responsiveXl: PropTypes.bool,
+  searching: PropTypes.bool,
+  scrollX: PropTypes.bool,
   scrollY: PropTypes.bool,
+  sortable: PropTypes.bool,
   small: PropTypes.bool,
   striped: PropTypes.bool,
   theadColor: PropTypes.string,
   theadTextWhite: PropTypes.bool,
   tbodyColor: PropTypes.string,
   tbodyTextWhite: PropTypes.bool
+};
+
+DataTable.defaultProps = {
+  autoWidth: false,
+  bordered: false,
+  borderless: false,
+  btn: false,
+  dark: false,
+  data: {},
+  fixed: false,
+  hover: false,
+  info: true,
+  order: [],
+  paging: true,
+  responsive: false,
+  responsiveSm: false,
+  responsiveMd: false,
+  responsiveLg: false,
+  responsiveXl: false,
+  searching: true,
+  scrollX: false,
+  scrollY: false,
+  sortable: true,
+  small: false,
+  striped: false,
+  theadColor: '',
+  theadTextWhite: false,
+  tbodyColor: '',
+  tbodyTextWhite: false
 };
 
 export default DataTable;
