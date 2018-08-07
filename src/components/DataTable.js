@@ -13,7 +13,8 @@ class DataTable extends Component {
       filteredRows: props.data.rows,
       pages: [],
       rows: props.data.rows,
-      search: ''
+      search: '',
+      translateScrollHead: 0
     };
 
     if(this.props.paging) {
@@ -109,7 +110,7 @@ class DataTable extends Component {
   }
 
   handleTableBodyScroll = (e) => {
-    console.log(e);
+    this.setState({ translateScrollHead: e.target.scrollLeft });
   }
 
   render() {
@@ -228,9 +229,9 @@ class DataTable extends Component {
           (scrollY || scrollX) &&
           <div className="row">
             <div className="col-sm-12">
-              <div className="dataTables_scroll" /*style={{ overflowX: `${scrollX ? 'scroll' : 'hidden'}` }}*/>
+              <div className="dataTables_scroll">
                 <div className="dataTables_scrollHead" style={{ overflow: 'hidden' }}>
-                  <div className="dataTables_scrollHeadInner" style={{ boxSizing: 'content-box', paddingRight: '15px', minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr)+'px' : 'auto'}` }}>
+                  <div className="dataTables_scrollHeadInner" style={{ position: 'relative', transform: `translateX(-${this.state.translateScrollHead}px)`, boxSizing: 'content-box', paddingRight: '15px', minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr)+'px' : 'auto'}` }}>
                     <Table
                       autoWidth={autoWidth}
                       bordered={bordered}
