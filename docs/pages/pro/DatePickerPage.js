@@ -9,7 +9,7 @@ class DatePickerPage extends React.Component  {
   render() {
     return(
       <Container className="mt-5">
-        <MDBDatePicker getValue={this.getPickerValue} value={new Date(2018,4,12)} />
+        <MDBDatePicker getValue={this.getPickerValue} />
       </Container>
     );
   }

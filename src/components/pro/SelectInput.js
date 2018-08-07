@@ -32,7 +32,7 @@ class SelectInput extends React.Component {
 SelectInput.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  selected: PropTypes.string,
+  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.string
 };
 

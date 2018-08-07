@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Row, Col, Card, CardBody, CardImage, CardText, CardTitle, CardHeader, Input, Table, TableBody, TableHead  } from 'mdbreact';
+import { Button, Container, Row, Col, Card, CardBody, CardHeader, Input, Table, TableBody, TableHead  } from 'mdbreact';
 
 const TablePage = (props) => {
   const columns= [
