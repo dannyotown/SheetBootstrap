@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import { Popper } from 'react-popper';
 let DropdownMenuComponent;
 try {
-  DropdownMenuComponent = require('./pro/DropdownMenu-ProComponent').default;
-} catch (err) {
+  DropdownMenuComponent = require('./pro/DropdownMenuProComponent').default;
+} catch(err) {
   DropdownMenuComponent = require('./DropdownMenuComponent').default;
 }
 
