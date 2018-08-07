@@ -17,7 +17,7 @@ const DropdownMenuProComponent = (props) => {
       leave={{ opacity: 0, scale: 0.9 }}
     >
       {
-        isOpen && 
+        isOpen &&
         <Tag
           tabIndex={d_tabIndex}
           role={d_role}
@@ -27,7 +27,7 @@ const DropdownMenuProComponent = (props) => {
           key={d_key}
         >
           {children}
-        </Tag> 
+        </Tag>
       }
     </Transition>
   );

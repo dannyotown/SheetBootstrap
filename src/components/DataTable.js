@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Table, TableBody, DataTableHead, DataTableInput, DataTableSelect, TableFoot, Pagination, PageLink, PageItem } from 'mdbreact';
+// import { Table, TableBody, DataTableHead, DataTableInput, DataTableSelect, TableFoot, Pagination, PageLink, PageItem } from 'mdbreact';
 
 class DataTable extends Component {
   constructor(props) {
@@ -37,15 +37,15 @@ class DataTable extends Component {
       this.state.pages.push(this.state.rows.slice(pageEndIndex-this.state.entries, pageEndIndex));
     }
   }
-  
+
   handleEntriesChange = (value) => {
     this.setState({ entries: Array.isArray(value) ? value[0] : value }, () => this.paginateRows());
   }
-  
+
   handleSearchChange = (e) => {
     this.setState({ search: e.target.value }, () => this.filterRows());
   }
-  
+
   handleSort = (field, sort) => {
     this.setState((prevState) => {
       // run default block if there is no key 'sort'
@@ -67,7 +67,7 @@ class DataTable extends Component {
     },
     () => this.filterRows());
   }
-  
+
   filterRows = () => {
     this.setState((prevState) => {
       const filteredRows = prevState.rows.filter(row => {
@@ -172,7 +172,7 @@ class DataTable extends Component {
           </div>
           <div className="col-sm-12 col-md-6">
             {
-              searching && 
+              searching &&
               <DataTableInput
                 value={search}
                 onChange={this.handleSearchChange}
@@ -284,7 +284,7 @@ class DataTable extends Component {
                     striped={striped}
                     className="dataTable"
                     {...attributes}
-                  > 
+                  >
                     <colgroup>
                       {columns.map(col => <col key={col.field} style={{ width: `${col.width}px` || 'auto', minWidth: `${col.width}px` || 'auto' }} />)}
                     </colgroup>
