@@ -12,11 +12,11 @@ class DataTable extends Component {
     super(props);
     this.state = {
       activePage: 0,
-      columns: props.data.columns,
+      columns: props.data.columns || [],
       entries: 10,
-      filteredRows: props.data.rows,
+      filteredRows: props.data.rows || [],
       pages: [],
-      rows: props.data.rows,
+      rows: props.data.rows || [],
       search: '',
       translateScrollHead: 0
     };
@@ -30,8 +30,23 @@ class DataTable extends Component {
   }
 
   componentDidMount() {
+    if (typeof this.props.data === 'string') {
+      fetch(this.props.data)
+        .then(res => res.json())
+        .then(json => {
+          this.setState({
+            columns: json.columns,
+            filteredRows: json.rows,
+            rows: json.rows
+          },
+          () => this.paginateRows());
+        })
+        .catch(err => console.log(err));
+    }
+
     this.props.order.length && this.handleSort(this.props.order[0], this.props.order[1]);
   }
+
 
   paginateRowsInitialy = () => {
     // findout how many pages there are need to be, then slice rows into pages
@@ -98,7 +113,7 @@ class DataTable extends Component {
           const pageEndIndex = i*prevState.entries;
           prevState.pages.push(prevState.filteredRows.slice(pageEndIndex-prevState.entries, pageEndIndex));
         }
-        prevState.activePage = prevState.activePage < prevState.pages.length ? prevState.activePage : prevState.pages.length-1;
+        prevState.activePage = (prevState.activePage < prevState.pages.length || prevState.activePage == 0) ? prevState.activePage : prevState.pages.length-1;
       }
       else {
         prevState.pages.push(prevState.filteredRows);
@@ -271,7 +286,10 @@ DataTable.propTypes = {
   btn: PropTypes.bool,
   children: PropTypes.node,
   dark: PropTypes.bool,
-  data: PropTypes.object,
+  data: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ]),
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
   info: PropTypes.bool,
