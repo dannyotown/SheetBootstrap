@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 const TableHead = (props) => {
   const {
+    children,
     color,
     columns,
     textWhite,
@@ -22,11 +23,13 @@ const TableHead = (props) => {
       <tr>
         { columns.map(col => <th key={col.field} className={col.hasOwnProperty('minimal') ? `th-${col.minimal}` : ''}>{col.label}</th>) }
       </tr>
+      {children}
     </thead>
   );
 };
 
 TableHead.propTypes = {
+  children: PropTypes.node,
   color: PropTypes.string,
   columns: PropTypes.arrayOf(PropTypes.object),
   textWhite: PropTypes.bool

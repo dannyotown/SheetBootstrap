@@ -4,6 +4,7 @@ import classNames from 'classnames';
 
 const TableBody = (props) => {
   const {
+    children,
     color,
     rows,
     textWhite,
@@ -35,11 +36,13 @@ const TableBody = (props) => {
           </tr>
         ) 
       }
+      {children}
     </tbody>
   );
 };
 
 TableBody.propTypes = {
+  children: PropTypes.node,
   color: PropTypes.string,
   rows: PropTypes.arrayOf(PropTypes.object),
   textWhite: PropTypes.bool

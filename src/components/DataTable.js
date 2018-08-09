@@ -98,6 +98,10 @@ class DataTable extends Component {
         }
         return false;
       });
+      if (filteredRows.length == 0) filteredRows.push({
+        message: 'No matching records found',
+        colspan: prevState.columns.length
+      });
       return { filteredRows, activePage: 0 };
     },
     () => this.paginateRows());

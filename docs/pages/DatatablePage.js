@@ -669,7 +669,7 @@ const DatatablePage = () => {
                 scrollX
                 scrollY
                 maxHeight='300xp'
-                data={data} 
+                data="https://my-json-server.typicode.com/Rotarepmi/exjson/db" 
               />
             </CardBody>
           </Card>

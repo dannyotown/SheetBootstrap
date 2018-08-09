@@ -41,7 +41,7 @@ const DataTableTableScroll = (props) => {
     <div className="col-sm-12">
       <div className="dataTables_scroll">
         <div className="dataTables_scrollHead" style={{ overflow: 'hidden' }}>
-          <div className="dataTables_scrollHeadInner" style={{ position: 'relative', transform: `translateX(-${translateScrollHead}px)`, boxSizing: 'content-box', paddingRight: '15px', minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr) + 'px' : 'auto'}` }}>
+          <div className="dataTables_scrollHeadInner" style={{ position: 'relative', transform: `translateX(-${translateScrollHead}px)`, boxSizing: 'content-box', paddingRight: '15px', minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr, 0) + 'px' : 'auto'}` }}>
             <Table
               autoWidth={autoWidth}
               bordered={bordered}
@@ -75,7 +75,7 @@ const DataTableTableScroll = (props) => {
 
         <div className="dataTable_scrollBody" style={{ overflow: 'auto' }} onScroll={handleTableBodyScroll}>
           <Table
-            style={{ minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr) + 'px' : 'auto'}` }}
+            style={{ minWidth: `${scrollX ? columns.map(col => col.width).reduce((prev, curr) => prev + curr, 0) + 'px' : 'auto'}` }}
             autoWidth={autoWidth}
             bordered={bordered}
             borderless={borderless}
