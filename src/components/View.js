@@ -51,7 +51,7 @@ class View extends React.Component {
         backgroundImage: 'url(' + this.props.src + ')',
         backgroundSize: 'cover',
         width: '100%',
-        height: '100%'
+        height: '100vh'
       }
     }
 
