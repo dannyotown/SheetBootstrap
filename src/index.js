@@ -70,7 +70,7 @@ import TableFoot from './components/TableFoot';
 import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
-
+import { toast, ToastContainer, cssTransition} from 'react-toastify';
 // PRO
 import Autocomplete from './components/pro/Autocomplete';
 import Avatar from './components/pro/Avatar';
@@ -299,6 +299,9 @@ export {
   TextField,
   Tooltip,
   View,
+  toast,
+  ToastContainer,
+  cssTransition,
   // PRO
   Autocomplete,
   Avatar,
