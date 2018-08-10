@@ -145,6 +145,7 @@ class DataTable extends Component {
       children,
       dark,
       data,
+      exportToCSV,
       fixed,
       hover,
       info,
@@ -180,6 +181,11 @@ class DataTable extends Component {
     } = this.state;
 
     const entriesArr = [10, 25, 50, 100];
+
+    let ExportToCsvBtn;
+    if(exportToCSV) {
+      ExportToCsvBtn = require('./pro/ExportToCSV').default;
+    }
 
     return (
       <div className="dataTables_wrapper dt-bootstrap4">
@@ -278,6 +284,18 @@ class DataTable extends Component {
             />
           </div>
         }
+        {
+          exportToCSV &&
+          <div className="row justify-content-end">
+            <ExportToCsvBtn
+              columns={columns}
+              data={pages}
+              color="primary"
+            >
+              Download CSV
+            </ExportToCsvBtn>
+          </div>
+        }
       </div>
     );
   }
@@ -294,6 +312,7 @@ DataTable.propTypes = {
     PropTypes.object,
     PropTypes.string
   ]),
+  exportToCSV: PropTypes.bool,
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
   info: PropTypes.bool,

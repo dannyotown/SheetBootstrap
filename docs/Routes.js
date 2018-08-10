@@ -15,6 +15,7 @@ import BreadcrumbPage from './pages/BreadcrumbPage';
 import FaPage from './pages/FaPage';
 import ComponentsPage from './pages/ComponentsPage';
 import DatatablePage from './pages/DatatablePage';
+import DatatableApiPage from './pages/DatatableApiPage';
 import ModalPage from './pages/ModalPage';
 import AdvancedPage from './pages/AdvancedPage';
 import ProgressPage from './pages/ProgressPage';
@@ -82,8 +83,8 @@ import FormsPagePro from './pages/pro/FormsPage';
 import CardsPagePro from'./pages/pro/CardsPage';
 import SearchPagePro from './pages/pro/SearchPage';
 import FooterPagePro from './pages/pro/FooterPage';
-import TableSort from './pages/pro/TableSortPage';
 import TableEditable from './pages/pro/TableEditablePage';
+import DatatableCsvPage from './pages/pro/DatatableCsvPage'
 
 class Routes extends React.Component {
   render() {
@@ -128,6 +129,7 @@ class Routes extends React.Component {
         <Route path='/components/search' component={SearchPage} />
         <Route path='/components/validation' component={ValidationPage} />
         <Route path='/advanced/datatable' component={DatatablePage} />
+        <Route path='/advanced/datatable-api' component={DatatableApiPage} />
         {/* PRO */}
         <Route path='/components/pro/dropdown' component={MaterialDropdownPage} />
         <Route path='/components/pro/autocomplete' component={AutocompletePage} />
@@ -154,9 +156,9 @@ class Routes extends React.Component {
         <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route path='/components/pro/search' component={SearchPagePro} />
         <Route path='/components/pro/footer' component={FooterPagePro} />
-        <Route path='/advanced/pro/tablesort' component={TableSort} />
         <Route path='/advanced/pro/tableeditable' component={TableEditable} />
         <Route path='/components/pro/stepper' component={StepperPage} />
+        <Route path='/advanced/datatable-csv' component={DatatableCsvPage} />
         {/* PRO SECTIONS */}
         <Route path='/sections' component={SectionsPage} />
         <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
