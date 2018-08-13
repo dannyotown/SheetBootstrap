@@ -52,7 +52,12 @@ class Autocomplete extends Component {
     );
   }
 
-  getSuggestionValue = suggestion => suggestion;
+  getSuggestionValue = suggestion => {
+    if (this.props.getValue) {
+      this.props.getValue(suggestion);
+    }
+    return suggestion;
+  }
 
   renderSuggestion = suggestion => (
     <div>
@@ -112,6 +117,7 @@ class Autocomplete extends Component {
       clearClass,
       id,
       search,
+      getValue,
       ...attributes
     } = this.props;
 
