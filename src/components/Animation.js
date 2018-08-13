@@ -111,8 +111,8 @@ class Animation extends Component {
     const {isVisible, revealed} = this.state;
 
     let styleObject = {
-      animationDuration: duration + 's',
-      animationDelay: delay + 's',
+      animationDuration: duration,
+      animationDelay: delay,
       animationIterationCount: infinite? false : count,
       visibility: isVisible ? 'visible' : 'hidden',
       animationName: type
@@ -151,7 +151,8 @@ Animation.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
   type: PropTypes.string,
-  delay: PropTypes.number,
+  delay: PropTypes.string,
+  count: PropTypes.number,
   onAnimationEnd: PropTypes.func,
   onAnimationStart: PropTypes.func,
 
