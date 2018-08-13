@@ -20,9 +20,12 @@ const TableHead = (props) => {
 
   return (
     <thead {...attributes} className={classes}>
-      <tr>
-        { columns.map(col => <th key={col.field} className={col.hasOwnProperty('minimal') ? `th-${col.minimal}` : ''}>{col.label}</th>) }
-      </tr>
+      {
+        columns &&
+        <tr>
+          { columns.map(col => <th key={col.field} className={col.hasOwnProperty('minimal') ? `th-${col.minimal}` : ''}>{col.label}</th>) }
+        </tr>
+      }
       {children}
     </thead>
   );
