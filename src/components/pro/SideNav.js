@@ -53,6 +53,9 @@ class SideNav extends React.Component {
       isThere: false,
       showOverlay: false
     });
+    if (this.props.onOverlayClick) {
+      this.props.onOverlayClick();
+    }
   }
 
   handleClick =(e) => {
@@ -88,6 +91,7 @@ class SideNav extends React.Component {
       right,
       triggerOpening,
       key,
+      onOverlayClick,
       ...attributes
     } = this.props;
 
