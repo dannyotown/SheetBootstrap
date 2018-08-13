@@ -80,6 +80,7 @@ import CardUp from './components/pro/CardUp';
 import Chip from './components/pro/Chip';
 import ChipsInput from './components/pro/ChipsInput';
 import CollapseHeader from './components/pro/CollapseHeader';
+import ExportToCSV from './components/pro/ExportToCSV';
 DropdownMenuComponent = require('./components/pro/DropdownMenuProComponent').default;
 import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
@@ -194,6 +195,7 @@ import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
 MDBDropdownMenuComponent = require('./components/pro/DropdownMenuProComponent').default;
 import MDBDatePicker from './components/pro/DatePicker';
+import MDBExportToCSV from './components/pro/ExportToCSV';
 import MDBTimePicker from './components/pro/TimePicker';
 import MDBFlippingCard from './components/pro/FlippingCard';
 import MDBFileInput from './components/pro/InputFile';
@@ -309,6 +311,7 @@ export {
   Chip,
   ChipsInput,
   CollapseHeader,
+  ExportToCSV,
   FlippingCard,
   InputFile,
   InputRange,
@@ -417,6 +420,7 @@ export {
   MDBChip,
   MDBChipsInput,
   MDBCollapseHeader,
+  MDBExportToCSV,
   MDBDatePicker,
   MDBTimePicker,
   MDBFlippingCard,

@@ -512,7 +512,7 @@ const DatatablePage = () => {
                 striped 
                 bordered
                 hover
-                data="https://my-json-server.typicode.com/Rotarepmi/exjson/db"
+                data={data}
               />
             </CardBody>
           </Card>
@@ -669,7 +669,7 @@ const DatatablePage = () => {
                 scrollX
                 scrollY
                 maxHeight='300xp'
-                data="https://my-json-server.typicode.com/Rotarepmi/exjson/db" 
+                data={data}
               />
             </CardBody>
           </Card>

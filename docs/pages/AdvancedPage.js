@@ -25,6 +25,9 @@ class AdvancedPage extends React.Component {
                   <NavLink to="/advanced/datatable">Datatable <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
+                  <NavLink to="/advanced/datatable-api">Datatable - data from API <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
                   <NavLink to="/advanced/modal">Modal <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
@@ -36,6 +39,9 @@ class AdvancedPage extends React.Component {
                 </li>
                 <li>
                   <NavLink to="/advanced/pro/collapse">Accordion <Fa icon="angle-right" /></NavLink>
+                </li>
+                <li>
+                  <NavLink to="/advanced/datatable-csv">Datatable - export to CSV <Fa icon="angle-right" /></NavLink>
                 </li>
                 <li>
                   <NavLink to="/advanced/pro/datepicker">Date picker <Fa icon="angle-right" /></NavLink>
