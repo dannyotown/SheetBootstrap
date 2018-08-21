@@ -18,11 +18,11 @@ class SelectPage extends React.Component {
               <SelectInput selected="Choose your option"></SelectInput>
               <SelectOptions>
                 <SelectOption disabled>Choose your option</SelectOption>
-                <SelectOption checked>Option nr 1</SelectOption>
+                <SelectOption>Option nr 1</SelectOption>
                 <SelectOption>Option nr 2</SelectOption>
                 <SelectOption>Option nr 3</SelectOption>
                 <SelectOption>Option nr 4</SelectOption>
-                <SelectOption>Option nr 5</SelectOption>
+                <SelectOption selected>Option nr 5</SelectOption>
               </SelectOptions>
             </Select>
             <label>Example label</label>
@@ -36,11 +36,11 @@ class SelectPage extends React.Component {
             <Select getValue={this.getValueOfSelect} multiple>
               <MDBSelectInput selected="Choose your option"></MDBSelectInput>
               <SelectOptions>
-                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                <SelectOption disabled>Choose your option</SelectOption>
                 <SelectOption value="value nr 1">Option nr 1</SelectOption>
-                <SelectOption value="value nr 2">Option nr 2</SelectOption>
+                <SelectOption selected value="value nr 2">Option nr 2</SelectOption>
                 <SelectOption value="value nr 3">Option nr 3</SelectOption>
-                <SelectOption value="value nr 4">Option nr 4</SelectOption>
+                <SelectOption selected value="value nr 4">Option nr 4</SelectOption>
                 <SelectOption value="value nr 5">Option nr 5</SelectOption>
               </SelectOptions>
             </Select>

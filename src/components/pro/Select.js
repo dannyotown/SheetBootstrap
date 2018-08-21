@@ -7,7 +7,8 @@ class Select extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectText: ''
+      selectText: '',
+      selectValue: ''
     };
   }
 

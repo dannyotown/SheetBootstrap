@@ -7,24 +7,29 @@ class Option extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      multiple: false,
-      checked: false,
+      multiple: this.props.context.multiple || false,
+      checked: this.props.selected || false,
     };
-
     this.optionRef = React.createRef();
   }
 
   componentDidMount() {
-    this.setState({ multiple: this.props.context.multiple });
+    if(!this.state.multiple){
+      this.state.checked && this.optionRef.current.click();
+    } else {
+      if(!this.props.disabled){
+        !this.state.checked && this.optionRef.current.classList.add('active');
+        this.selectOption();
+      }
+    }
   }
 
-  selectOption = (e) => {
+  selectOption = () => {
     if(!this.props.disabled) {
       let selectedOption = this.optionRef.current;
       let value = [];
       let text;
       let options = selectedOption.parentNode.children;
-
 
       if(this.state.multiple) {
         text = [];
@@ -53,7 +58,7 @@ class Option extends React.Component {
         Array.from(selectedOption.children).forEach(child => {
           if(child.nodeName == 'SPAN') {
             text = child.textContent;
-            this.props.value ? value.push(this.props.value) : value.push(child.textContent);
+            this.props.value ? value.push(this.props.value) : value.push(text);
           }
         });
         Array.from(options).forEach(option => option.classList.remove('active'));
@@ -82,7 +87,7 @@ class Option extends React.Component {
     let label = null;
     if (this.state.multiple) {
       if (!disabled) {
-        input = <input type="checkbox" value={this.props.value} className="form-check-input" checked={this.state.checked}  />;
+        input = <input type="checkbox" value={this.props.value} onChange={() => false} className="form-check-input" checked={this.state.checked} />;
         label = <label style={{height: '10px'}} data-multiple={this.state.multiple}></label>;
       } else {
         input = <input type="checkbox" className="form-check-input" disabled />;
