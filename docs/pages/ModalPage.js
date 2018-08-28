@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, Popover, PopoverBody, PopoverHeader, Tooltip, Row, Col, Input } from 'mdbreact';
+import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, Popover, PopoverBody, PopoverHeader, Tooltip, Row, Col, Input, Fa } from 'mdbreact';
 
 
 class ModalPage extends React.Component {
@@ -38,7 +38,13 @@ class ModalPage extends React.Component {
   render() {
     return (
       <Container>
-        <h4 className="mt-4">Basic example</h4>
+        <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>Modal</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/modals/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
         <Button color="danger" onClick={() => this.toggle(1)} >Modal</Button>
         <Modal isOpen={this.state.modal1} toggle={() => this.toggle(1)}>
           <ModalHeader toggle={() => this.toggle(1)}>Modal title</ModalHeader>

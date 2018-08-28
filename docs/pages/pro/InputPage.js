@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Input, FormInline, InputSwitch, InputFile, InputRange } from 'mdbreact';
+import { Container, Input, FormInline, InputSwitch, InputFile, InputRange, Fa, Row } from 'mdbreact';
 
 class InputPage extends React.Component {
   constructor(props) {
@@ -80,64 +80,73 @@ class InputPage extends React.Component {
   render () {
     return (
       <Container className="mt-5">
-        <h2 className="title mb-5"><strong>Checkboxes</strong></h2>
-        <h4 className="mt-5 mb-3">Basic examples</h4>
-        <Input getValue={ this.handleChange } value="Classic checkbox"  label="Classic checkbox" checked={this.state.checkbox} onChange={ this.handleCheckboxChange } type="checkbox" id="checkbox" />
-        <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox2" />
+        <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>Inputs</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/inputs/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
+        <Container className="mt-5">
+          <h2 className="title mb-5"><strong>Checkboxes</strong></h2>
+          <h4 className="mt-5 mb-3">Basic examples</h4>
+          <Input getValue={ this.handleChange } value="Classic checkbox"  label="Classic checkbox" checked={this.state.checkbox} onChange={ this.handleCheckboxChange } type="checkbox" id="checkbox" />
+          <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox2" />
 
-        <h4 className="mt-5 mb-3">Disabled checkboxes</h4>
-        <Input label="Classic checkbox" disabled type="checkbox" id="checkbox3" />
-        <Input label="Filled-in checkbox" filled disabled type="checkbox" id="checkbox4" />
+          <h4 className="mt-5 mb-3">Disabled checkboxes</h4>
+          <Input label="Classic checkbox" disabled type="checkbox" id="checkbox3" />
+          <Input label="Filled-in checkbox" filled disabled type="checkbox" id="checkbox4" />
 
-        <h4 className="mt-5 mb-3">Inline checkboxes</h4>
+          <h4 className="mt-5 mb-3">Inline checkboxes</h4>
+            <FormInline>
+              <Input label="Classic checkbox" type="checkbox" value="coś tam" onChange={this.handleCheckboxChange} id="checkbox5" />
+              <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox6" />
+              <Input label="Classic checkbox" type="checkbox" id="checkbox7" />
+            </FormInline>
+
+          <hr className="my-5" />
+
+          <h2 className="title mb-5"><strong>Radio buttons</strong></h2>
+          <h4 className="mt-5 mb-3">Basic examples</h4>
+          <Input getValue={ this.handleChange } value="Option 1" onClick={this.onClick1} checked={this.state.radio === 1 ? true : false} label="Option 1" type="radio" id="radio1" />
+          <Input onClick={this.onClick2} checked={this.state.radio === 2 ? true : false} label="Option 2" type="radio" id="radio2" />
+          <Input onClick={this.onClick3} checked={this.state.radio === 3 ? true : false} label="Option 3" type="radio" id="radio3" />
+
+          <h4 className="mt-5 mb-3">Radio buttons with gap</h4>
+          <Input gap onClick={this.onClick4} checked={this.state.radio2 === 4 ? true : false} label="Option 1" type="radio" id="radio4" />
+          <Input gap onClick={this.onClick5} checked={this.state.radio2 === 5 ? true : false} label="Option 2" type="radio" id="radio5" />
+          <Input gap onClick={this.onClick6} checked={this.state.radio2 === 6 ? true : false} label="Option 3" type="radio" id="radio6" />
+
+          <h4 className="mt-5 mb-3">Inline radio buttons</h4>
           <FormInline>
-            <Input label="Classic checkbox" type="checkbox" value="coś tam" onChange={this.handleCheckboxChange} id="checkbox5" />
-            <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox6" />
-            <Input label="Classic checkbox" type="checkbox" id="checkbox7" />
+            <Input onClick={this.onClick7} checked={this.state.radio3 === 7 ? true : false} label="Option 1" type="radio" id="radio7" />
+            <Input onClick={this.onClick8} checked={this.state.radio3 === 8 ? true : false} label="Option 2" type="radio" id="radio8" />
+            <Input onClick={this.onClick9} checked={this.state.radio3 === 9 ? true : false} label="Option 3" type="radio" id="radio9" />
           </FormInline>
 
-        <hr className="my-5" />
+          <hr className="my-5" />
 
-        <h2 className="title mb-5"><strong>Radio buttons</strong></h2>
-        <h4 className="mt-5 mb-3">Basic examples</h4>
-        <Input getValue={ this.handleChange } value="Option 1" onClick={this.onClick1} checked={this.state.radio === 1 ? true : false} label="Option 1" type="radio" id="radio1" />
-        <Input onClick={this.onClick2} checked={this.state.radio === 2 ? true : false} label="Option 2" type="radio" id="radio2" />
-        <Input onClick={this.onClick3} checked={this.state.radio === 3 ? true : false} label="Option 3" type="radio" id="radio3" />
+          <h2 className="title mb-5"><strong>Switch</strong></h2>
+          <InputSwitch getValue={ this.handleChange } checked={this.state.switch} onChange={this.handleSwitchChange}></InputSwitch>
+          <h4 className="mt-5 mb-3">Disabled</h4>
+          <InputSwitch disabled></InputSwitch>
 
-        <h4 className="mt-5 mb-3">Radio buttons with gap</h4>
-        <Input gap onClick={this.onClick4} checked={this.state.radio2 === 4 ? true : false} label="Option 1" type="radio" id="radio4" />
-        <Input gap onClick={this.onClick5} checked={this.state.radio2 === 5 ? true : false} label="Option 2" type="radio" id="radio5" />
-        <Input gap onClick={this.onClick6} checked={this.state.radio2 === 6 ? true : false} label="Option 3" type="radio" id="radio6" />
+          <hr className="my-5" />
 
-        <h4 className="mt-5 mb-3">Inline radio buttons</h4>
-        <FormInline>
-          <Input onClick={this.onClick7} checked={this.state.radio3 === 7 ? true : false} label="Option 1" type="radio" id="radio7" />
-          <Input onClick={this.onClick8} checked={this.state.radio3 === 8 ? true : false} label="Option 2" type="radio" id="radio8" />
-          <Input onClick={this.onClick9} checked={this.state.radio3 === 9 ? true : false} label="Option 3" type="radio" id="radio9" />
-        </FormInline>
+          <h2 className="title mb-5"><strong>File input</strong></h2>
+          <h4 className="mt-5 mb-3">Basic example</h4>
+          <InputFile getValue = { this.fileInputHandler }></InputFile>
 
-        <hr className="my-5" />
+          <h4 className="mt-5 mb-3">Multiple files</h4>
+          <InputFile getValue = { this.fileInputHandler } multiple btnColor="info" btn-size="sm"></InputFile>
 
-        <h2 className="title mb-5"><strong>Switch</strong></h2>
-        <InputSwitch getValue={ this.handleChange } checked={this.state.switch} onChange={this.handleSwitchChange}></InputSwitch>
-        <h4 className="mt-5 mb-3">Disabled</h4>
-        <InputSwitch disabled></InputSwitch>
+          <hr className="my-5" />
 
-        <hr className="my-5" />
+          <h2 className="title mb-5"><strong>Range</strong></h2>
+          <InputRange getValue={ this.handleChange } min={0} max={100} value={50}></InputRange>
 
-        <h2 className="title mb-5"><strong>File input</strong></h2>
-        <h4 className="mt-5 mb-3">Basic example</h4>
-        <InputFile getValue = { this.fileInputHandler }></InputFile>
-
-        <h4 className="mt-5 mb-3">Multiple files</h4>
-        <InputFile getValue = { this.fileInputHandler } multiple btnColor="info" btn-size="sm"></InputFile>
-
-        <hr className="my-5" />
-
-        <h2 className="title mb-5"><strong>Range</strong></h2>
-        <InputRange getValue={ this.handleChange } min={0} max={100} value={50}></InputRange>
-
-        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </Container>
       </Container>
     );
   }

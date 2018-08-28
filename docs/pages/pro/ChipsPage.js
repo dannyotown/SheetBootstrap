@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Chip, Card, ChipsInput } from 'mdbreact';
+import { Container, Col, Chip, Card, ChipsInput, Row, Fa } from 'mdbreact';
 
 class ChipsPage extends React.Component {
   constructor(props) {
@@ -82,6 +82,14 @@ class ChipsPage extends React.Component {
     } = this.state;
 
     return (
+    <Container>
+        <Row className="align-items-center mt-5">
+            <h4 className="grey-text" style={{margin: "0px"}}>
+              <strong>Chips</strong>
+            </h4>
+            <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/badges/#chips-avatars"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
         <Container>
           <h2 className="my-3">Chips with avatars</h2>
 
@@ -188,6 +196,7 @@ class ChipsPage extends React.Component {
             <ChipsInput chips={['Tag 1', 'Tag 2', 'Tag 3']}/>
           </Card>
         </Container>
+      </Container>
     );
   }
 };

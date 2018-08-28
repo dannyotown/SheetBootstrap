@@ -7,11 +7,13 @@ const MagazinePage = () =>  {
 
   return(
     <Container style={{maxWidth: '80%'}}>
-
-      <h2 className="title pt-4 mt-5">
-        <strong>Magazine newsfeed v.1 </strong>
-      </h2>
-
+      <Row className="align-items-center mt-5">
+        <h4 className="grey-text" style={{margin: "0px"}}>
+          <strong>Magazine Sections</strong>
+        </h4>
+        <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/sections/magazine/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+      </Row>
+      <hr className="mb-5" />
       <Card className="my-5 px-5 mx-auto" style={{fontWeight: 300, maxWidth: '90%'}}>
         <CardBody style={{paddingTop:0}}>
           <h2 className="h1-responsive font-weight-bold my-5 text-center">Section title</h2>

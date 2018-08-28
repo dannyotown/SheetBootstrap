@@ -72,6 +72,14 @@ class TabsPage extends React.Component {
   render() {
     return (
       <Router>
+      <Container>
+        <Row className="align-items-center mt-5">
+            <h4 className="grey-text" style={{margin: "0px"}}>
+              <strong>Tabs</strong>
+            </h4>
+            <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/tabs/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
         <Container className="mt-4">
           <Row>
             <Col md="12">
@@ -347,6 +355,7 @@ class TabsPage extends React.Component {
               </div>
             </Col>
           </Row>
+        </Container>
         </Container>
       </Router>
     );

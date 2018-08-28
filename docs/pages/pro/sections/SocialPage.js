@@ -46,7 +46,13 @@ class SocialPage extends Component {
   render() {
     return(
       <Container style={{maxWidth: '80%'}}>
-
+        <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>Social Sections</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/sections/social/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
         <h2 className="title pt-4 mt-5">
           <strong>Social newsfeed v.1 </strong>
         </h2>

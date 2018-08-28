@@ -1,6 +1,6 @@
 import React from 'react';
 import { Line, Chart } from 'react-chartjs-2';
-import { Container, Row, Col, Fa } from 'mdbreact';
+import { Container, Row, Fa } from 'mdbreact';
 
 // Line chart
 const data = {
@@ -63,7 +63,7 @@ class ChartsPage extends React.Component {
       },
       options: {
           responsive: true
-      }   
+      }
     });
     // Bar chart
     var ctxB = document.getElementById("barChart").getContext('2d');
@@ -119,7 +119,7 @@ class ChartsPage extends React.Component {
       },
       options: {
           responsive: true
-      }    
+      }
     });
     // Pie chart
     var ctxP = document.getElementById("pieChart").getContext('2d');
@@ -137,7 +137,7 @@ class ChartsPage extends React.Component {
         },
         options: {
             responsive: true
-        }    
+        }
     });
     //doughnut
     var ctxD = document.getElementById("doughnutChart").getContext('2d');
@@ -155,30 +155,35 @@ class ChartsPage extends React.Component {
         },
         options: {
             responsive: true
-        }    
+        }
     });
   }
   render() {
     return (
-      <div style={{marginTop: '100px'}}>
-        <Container>
-          <h3>Line chart</h3>
-          <Line data={data} />
-          <h3 className="mt-5">Radar chart</h3>
-          <canvas id="radarChart"></canvas>
-          <h3 className="mt-5">Bar chart</h3>
-          <canvas id="barChart"></canvas>
-          <h3 className="mt-5">Polar Area Chart</h3>
-          <canvas id="polarChart"></canvas>
-          <h3 className="mt-5">Pie Chart</h3>
-          <canvas id="pieChart"></canvas>
-          <h3 className="mt-5">Doughnut Chart</h3>
-          <canvas id="doughnutChart"></canvas>
-        </Container>
-      </div>
+      <Container>
+        <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>Charts</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/charts/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
+        <h3>Line chart</h3>
+        <Line data={data} />
+        <h3 className="mt-5">Radar chart</h3>
+        <canvas id="radarChart"></canvas>
+        <h3 className="mt-5">Bar chart</h3>
+        <canvas id="barChart"></canvas>
+        <h3 className="mt-5">Polar Area Chart</h3>
+        <canvas id="polarChart"></canvas>
+        <h3 className="mt-5">Pie Chart</h3>
+        <canvas id="pieChart"></canvas>
+        <h3 className="mt-5">Doughnut Chart</h3>
+        <canvas id="doughnutChart"></canvas>
+      </Container>
     );
   }
- 
+
 };
 
 export default ChartsPage;

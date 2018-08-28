@@ -1,6 +1,5 @@
 import React from 'react';
-const NavLink = require('react-router-dom').NavLink;
-import { Container, Row, Col, Jumbotron, Badge, Fa } from 'mdbreact';
+import { Container, Row, Col, Jumbotron, Fa, NavItem, NavLink } from 'mdbreact';
 
 
 class ComponentsPage extends React.Component {
@@ -13,100 +12,110 @@ class ComponentsPage extends React.Component {
               <h1><Fa icon="cubes" className="grey-text" /> Components</h1>
               <ul className="list-unstyled example-components-list">
                 <h6 className="mt-3 grey-text">FREE </h6>
-                <li>
-                  <NavLink to="/components/alert">Alert <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/badge">Badge <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/breadcrumb">Breadcrumb <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/buttons">Buttons <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/cards">Cards <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/dropdown">Dropdown <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/footer">Footer <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/forms">Forms <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/input">Input <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/list-group">List group <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/media">Media <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/panels">Panels <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pagination">Pagination <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/popover">Popover <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/progress">Progress <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/search">Search <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/tooltips">Tooltips <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/validation">Validation <Fa icon="angle-right" /></NavLink>
-                </li>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/alert">
+                    <h5 className="justify-content-between d-flex align-items-center">Alert<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/badge">
+                    <h5 className="justify-content-between d-flex align-items-center">Badge<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/buttons">
+                    <h5 className="justify-content-between d-flex align-items-center">Buttons<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/cards">
+                    <h5 className="justify-content-between d-flex align-items-center">Cards<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/dropdown">
+                    <h5 className="justify-content-between d-flex align-items-center">Dropdown<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/list-group">
+                    <h5 className="justify-content-between d-flex align-items-center">List group<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/media">
+                    <h5 className="justify-content-between d-flex align-items-center">Media<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/panels">
+                    <h5 className="justify-content-between d-flex align-items-center">Panels<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pagination">
+                    <h5 className="justify-content-between d-flex align-items-center">Pagination<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/progress">
+                    <h5 className="justify-content-between d-flex align-items-center">Progress<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/search">
+                    <h5 className="justify-content-between d-flex align-items-center">Search<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+
+
                 <h6 className="mt-3 grey-text">PRO </h6>
-                <li>
-                  <NavLink to="/components/pro/autocomplete">Autocomplete <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/buttons">Buttons <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/cards">Cards <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/chips">Chips <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/forms">Forms <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/footer">Footer <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/input">Input <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/dropdown">Material Dropdown <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/progress">Progress <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/search">Search <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/socialbuttons">Social Buttons <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/stepper">Stepper <Fa icon="angle-right" /></NavLink>
-                </li>
-                <li>
-                  <NavLink to="/components/pro/tabs">Tabs <Fa icon="angle-right" /></NavLink>
-                </li>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pro/buttons">
+                    <h5 className="justify-content-between d-flex align-items-center">Buttons<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pro/cards">
+                    <h5 className="justify-content-between d-flex align-items-center">Cards<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pro/chips">
+                    <h5 className="justify-content-between d-flex align-items-center">Chips<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pro/dropdown">
+                    <h5 className="justify-content-between d-flex align-items-center">Material Dropdown<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pro/progress">
+                    <h5 className="justify-content-between d-flex align-items-center">Progress<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pro/search">
+                    <h5 className="justify-content-between d-flex align-items-center">Search<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pro/socialbuttons">
+                    <h5 className="justify-content-between d-flex align-items-center">Social Buttons<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pro/stepper">
+                    <h5 className="justify-content-between d-flex align-items-center">Stepper<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
+                <NavItem tag="li" className="list-group-item list-group-item-action">
+                  <NavLink to="/components/pro/tabs">
+                    <h5 className="justify-content-between d-flex align-items-center">Tabs<Fa icon="angle-right" /></h5>
+                  </NavLink>
+                </NavItem>
               </ul>
             </Jumbotron>
           </Col>

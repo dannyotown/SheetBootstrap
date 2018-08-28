@@ -5,6 +5,13 @@ class ContactPage extends Component {
   render() {
     return(
       <Container>
+        <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>Contact Sections</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/sections/contact/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
 
         <section className="my-5">
           <h2 className="h1-responsive font-weight-bold text-center my-5">Contact us</h2>
@@ -119,7 +126,7 @@ class ContactPage extends Component {
                   <p>contact@example.com</p>
                 </li>
               </ul>
-            </Col>              
+            </Col>
           </Row>
         </section>
 
