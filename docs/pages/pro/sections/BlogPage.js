@@ -4,9 +4,13 @@ import { Container, Row, Col, Card, CardBody, Mask, Fa, View, Button} from 'mdbr
 const BlogPage = () =>  {
   return(
     <Container>
-      <h2 className="title text-center text-md-left pt-4 mt-5">
-        <strong>Blog listing v.1 </strong>
-      </h2>
+      <Row className="align-items-center mt-5">
+        <h4 className="grey-text" style={{margin: "0px"}}>
+          <strong>Blog Sections</strong>
+        </h4>
+        <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/sections/blog/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+      </Row>
+      <hr className="mb-5" />
       <Card className="my-5 px-5 pb-5">
       <CardBody>
         <h2 className="h1-responsive font-weight-bold text-center my-5">Recent posts</h2>
@@ -64,7 +68,7 @@ const BlogPage = () =>  {
         </Row>
       </CardBody>
       </Card>
- 
+
       <h2 className="title text-center text-md-left pt-4 mt-5">
         <strong>Blog listing v.2 </strong>
       </h2>

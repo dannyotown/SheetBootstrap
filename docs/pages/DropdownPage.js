@@ -1,10 +1,18 @@
 import React from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'mdbreact';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Row, Container, Fa } from 'mdbreact';
 
 class DropdownPage extends React.Component {
   render() {
     return (
-      <div className="container" style={{marginTop: '100px'}}>
+    <Container>
+      <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>Dropdown</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/dropdowns/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+      </Row>
+      <hr className="mb-5" />
+      <div className="container">
         <h2>Basic example</h2>
         <Dropdown>
           <DropdownToggle caret color="primary">
@@ -131,6 +139,7 @@ class DropdownPage extends React.Component {
           </DropdownMenu>
         </Dropdown>
       </div>
+    </Container>
     );
   }
 }

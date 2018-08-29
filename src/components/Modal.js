@@ -335,7 +335,7 @@ class Modal extends React.Component {
         )}
         {isOpen && backdrop && (
           <div
-            className={mapToCssModules(classNames('modal-backdrop', 'show', backdropClassName), cssModule)} onClick={console.log("click")}
+            className={mapToCssModules(classNames('modal-backdrop', 'show', backdropClassName), cssModule)}
           />
         )}
       </div>

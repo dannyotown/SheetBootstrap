@@ -5,13 +5,20 @@ class ProjectsPage extends Component {
   render() {
     return(
       <Container>
+        <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>Project Sections</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/sections/projects/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
 
         <section className="text-center my-5">
 
           <h2 className="h1-responsive font-weight-bold my-5">Our best projects</h2>
           <p className="grey-text w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit est laborum.</p>
 
-          
+
           <Row className="text-center">
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
               <View className="overlay rounded z-depth-1" waves>
@@ -62,7 +69,7 @@ class ProjectsPage extends Component {
           <h2 className="h1-responsive font-weight-bold my-5">Our best projects</h2>
           <p className="grey-text w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit est laborum.</p>
 
-          
+
           <Row className="d-flex justify-content-center">
             <Col md="6" xl="5" className="mb-4">
               <View className="overlay rounded z-depth-2" waves>
@@ -196,7 +203,7 @@ class ProjectsPage extends Component {
             </Col>
             <Col lg="5">
               <img src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg" alt="Sample project image" className="img-fluid rounded z-depth-1"/>
-            </Col>             
+            </Col>
           </Row>
 
         </section>
