@@ -39,6 +39,7 @@ class Button extends React.Component {
       circle,
       className,
       color,
+      download,
       outline,
       size,
       rounded,
@@ -82,6 +83,7 @@ class Button extends React.Component {
         onMouseDown={ this.handleClick }
         onTouchStart={ this.handleClick }
         {...attributes}
+        download={download}
       >
         {this.props.children}
         {this.props.disabled ? false : <Waves cursorPos={ this.state.cursorPos } outline={outline} flat={flat} />}
