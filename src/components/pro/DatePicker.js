@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+
 /* eslint-disable */
 import MomentUtils from 'material-ui-pickers/utils/moment-utils';
 import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
 import DatePicker from 'material-ui-pickers/DatePicker';
+
+import './DatePicker.css';
 
 export default class MDBDatePicker extends Component {
   state = {
@@ -47,7 +50,7 @@ export default class MDBDatePicker extends Component {
       <Tag className={classes}>
         <MuiPickersUtilsProvider utils={MomentUtils}>
             <DatePicker
-              {...attributes} 
+              {...attributes}
               showTodayButton
               format="DD MMMM, YYYY"
               value={selectedDate}
