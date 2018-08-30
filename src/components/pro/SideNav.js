@@ -92,6 +92,7 @@ class SideNav extends React.Component {
       triggerOpening,
       key,
       onOverlayClick,
+      mask,
       ...attributes
     } = this.props;
 
@@ -126,6 +127,7 @@ class SideNav extends React.Component {
           }
           {children}
         </ul>
+        {mask && <div className={`sidenav-bg mask-${mask}`}></div>}
       </Tag>
     );
 
@@ -153,7 +155,8 @@ SideNav.propTypes = {
   src: PropTypes.string,
   breakWidth: PropTypes.number,
   triggerOpening: PropTypes.bool,
-  bg: PropTypes.string
+  bg: PropTypes.string,
+  mask: PropTypes.string
 };
 
 SideNav.defaultProps = {
