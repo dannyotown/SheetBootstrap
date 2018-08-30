@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataTable, Container, Row, Col, Card, CardBody, ExportToCSV, Fa } from 'mdbreact';
+import { DataTable, Container, Row, Col, Card, CardBody, Fa } from 'mdbreact';
 
 const DatatableCsvPage = () => {
   const data = {
