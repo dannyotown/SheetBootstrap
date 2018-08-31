@@ -21,7 +21,7 @@ class SelectPage extends React.Component {
         <div className="row">
           <div className="col-md-6">
 
-            <Select getValue={this.getValueOfSelect}>
+            <Select getValue={this.getValueOfSelect} getTextContent={this.getValueOfSelect}>
               <SelectInput selected="Choose your option"></SelectInput>
               <SelectOptions>
                 <SelectOption disabled>Choose your option</SelectOption>
@@ -40,7 +40,7 @@ class SelectPage extends React.Component {
         <div className="row">
           <div className="col-md-6">
 
-            <Select getValue={this.getValueOfSelect} multiple>
+            <Select getValue={this.getValueOfSelect} getTextContent={this.getValueOfSelect} multiple>
               <MDBSelectInput selected="Choose your option"></MDBSelectInput>
               <SelectOptions>
                 <SelectOption disabled>Choose your option</SelectOption>

@@ -19,13 +19,13 @@ class Select extends React.Component {
   componentDidUpdate(props, state) {
     if(state.selectValue !== this.state.selectValue && typeof this.props.getValue == 'function') {
       this.props.getValue(this.state.selectValue);
+      this.props.getTextContent(this.state.selectText);
     }
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.onClick);
   }
-
 
   triggerOptionChange = (value, text) => {
     (Array.isArray(text)) && (text = text.join(', '));
@@ -51,6 +51,7 @@ class Select extends React.Component {
       children,
       multiple,
       color,
+      getTextContent,
       getValue,
       ...attributes
     } = this.props;
@@ -80,6 +81,7 @@ Select.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.string,
+  getTextContent: PropTypes.func,
   getValue: PropTypes.func,
   multiple: PropTypes.bool,
   value: PropTypes.string
@@ -89,6 +91,7 @@ Select.defaultProps = {
   children: 'div',
   className: '',
   color: '',
+  getTextContent: () => {},
   getValue: () => {},
   multiple: false,
   value: ''
