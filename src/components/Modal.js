@@ -13,6 +13,7 @@ import {
 } from './utils';
 
 const propTypes = {
+  id: PropTypes.string,
   isOpen: PropTypes.bool,
   autoFocus: PropTypes.bool,
   size: PropTypes.string,
@@ -73,6 +74,13 @@ const defaultProps = {
 class Modal extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      transform: '',
+      grabPointX: null,
+      grabPointY: null,
+      dragging: false
+    };
+    this.modalRef = React.createRef();
 
     this.originalBodyPadding = null;
     this.isBodyOverflowing = false;
@@ -93,6 +101,41 @@ class Modal extends React.Component {
     }
   }
 
+  onDragStart = (e) => {
+    const boundingClientRect = this.modalRef.current.getBoundingClientRect();
+    this.setState({
+      grabPointX: boundingClientRect.left - e.clientX,
+      grabPointY: boundingClientRect.top - e.clientY,
+      dragging: true
+    });
+  };
+
+  onDrag = (e) => {
+    if (this.state.dragging) {
+      var posX = e.clientX + this.state.grabPointX - 200;
+      var posY = e.clientY + this.state.grabPointY;
+      console.log(e.clientX, this.state.grabPointX, posX);
+      
+      if (posX < 0) {
+        posX = 0;
+      }
+
+      if (posY < 0) {
+        posY = 0;
+      }
+
+      this.setState({
+        transform: 'translateX(' + posX + 'px) translateY(' + posY + 'px)'
+      });
+    }
+  };
+
+  onDragEnd = () => {
+    this.setState({
+      dragging: false
+    });
+  };
+
   componentDidUpdate(prevProps) {
     if (this.props.isOpen !== prevProps.isOpen) {
       // handle portal events/dom updates
@@ -111,6 +154,10 @@ class Modal extends React.Component {
   }
 
   onOpened() {
+    this.modalRef.current.addEventListener('mousedown', this.onDragStart, false);
+    document.addEventListener('mousemove', this.onDrag, false);
+    document.addEventListener('mouseup', this.onDragEnd, false);
+    
     if (this.props.onOpened) {
       this.props.onOpened();
     }
@@ -118,6 +165,9 @@ class Modal extends React.Component {
 
   onClosed() {
     this.destroy();
+    document.removeEventListener('mouseup', this.inDragEnd);
+    document.removeEventListener('mousemove', this.onDrag);
+
     if (this.props.onClosed) {
       this.props.onClosed();
     }
@@ -219,6 +269,8 @@ class Modal extends React.Component {
         {...attributes}
       >
         <div
+          style={{transform: this.state.transform, position: 'fixed', top: 0, left: 0}}
+          ref={this.modalRef}
           className={mapToCssModules(
             classNames('modal-content', this.props.contentClassName),
             this.props.cssModule
