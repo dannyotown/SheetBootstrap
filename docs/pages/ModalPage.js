@@ -35,6 +35,22 @@ class ModalPage extends React.Component {
     });
   }
 
+  showFunction = () => {
+    alert("This event is fired just before the modal is open.");
+  }
+
+  hideFunction = () => {
+    alert("This event is fired just before the modal is hidden.");
+  }
+
+  shownFunction = () => {
+    alert("This event is fired after the modal is shown.");
+  }
+
+  hiddenFunction = () => {
+    alert("This event is fired after the modal is closed.");
+  }
+
   render() {
     return (
       <Container>
@@ -46,7 +62,13 @@ class ModalPage extends React.Component {
         </Row>
         <hr className="mb-5" />
         <Button color="danger" onClick={() => this.toggle(1)} >Modal</Button>
-        <Modal isOpen={this.state.modal1} toggle={() => this.toggle(1)}>
+        <Modal 
+          hiddenModal={this.hiddenFunction}
+          hideModal={this.hideFunction}
+          showModal={this.showFunction}
+          isOpen={this.state.modal1}
+          toggle={() => this.toggle(1)}
+          >
           <ModalHeader toggle={() => this.toggle(1)}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

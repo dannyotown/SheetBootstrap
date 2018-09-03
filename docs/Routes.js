@@ -22,6 +22,8 @@ import ComponentsPage from './pages/ComponentsPage';
 import DatatablePage from './pages/DatatablePage';
 import DatatableApiPage from './pages/DatatableApiPage';
 import ModalPage from './pages/ModalPage';
+import ModalFormPage from './pages/ModalFormPage';
+import ModalExamplesPage from './pages/ModalExamplesPage';
 import AdvancedPage from './pages/AdvancedPage';
 import ProgressPage from './pages/ProgressPage';
 import InputPage from './pages/InputPage';
@@ -91,6 +93,8 @@ import SearchPagePro from './pages/pro/SearchPage';
 import FooterPagePro from './pages/pro/FooterPage';
 import TableEditable from './pages/pro/TableEditablePage';
 import DatatableCsvPage from './pages/pro/DatatableCsvPage'
+import ModalFormProPage from './pages/pro/ModalFormPage';
+
 
 class Routes extends React.Component {
   render() {
@@ -131,6 +135,8 @@ class Routes extends React.Component {
         <Route path='/advanced/tooltips' component={TooltipsPage} />
         <Route path='/navigation/footer' component={FooterPage} />
         <Route path='/modals/modal' component={ModalPage} />
+        <Route path='/modals/modal-form' component={ModalFormPage} />
+        <Route path='/modals/modal-examples' component={ModalExamplesPage} />
         <Route path='/advanced/carousel' component={CarouselPage} />
         <Route path='/advanced/collapse' component={CollapsePage} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
@@ -172,6 +178,7 @@ class Routes extends React.Component {
         <Route path='/tables/pro/tableeditable' component={TableEditable} />
         <Route path='/components/pro/stepper' component={StepperPage} />
         <Route path='/tables/pro/datatable-csv' component={DatatableCsvPage} />
+        <Route path='/modals/pro/modal-form' component={ModalFormProPage} />
         {/* PRO SECTIONS */}
         <Route path='/sections/testimonials' component={TestimonialsPage} />
         <Route path='/sections/testimonialsMulti' component={TestimonialsMultiPage} />

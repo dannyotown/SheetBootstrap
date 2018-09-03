@@ -13,6 +13,10 @@ import {
 } from './utils';
 
 const propTypes = {
+  showModal: PropTypes.func,
+  hideModal: PropTypes.func,
+  hiddenModal:PropTypes.func,
+  animation: PropTypes.string,
   isOpen: PropTypes.bool,
   autoFocus: PropTypes.bool,
   size: PropTypes.string,
@@ -121,6 +125,7 @@ class Modal extends React.Component {
     if (this.props.onClosed) {
       this.props.onClosed();
     }
+    this.props.hiddenModal && this.props.hiddenModal();
   }
 
   handleEscape(e) {
@@ -145,6 +150,16 @@ class Modal extends React.Component {
     }
 
     return this.props.modalTransitionTimeout > 0;
+  }
+
+  hasAnimation() {
+    if(this.props.animation) {
+      return this.props.animation;
+    } else if(this.props.position){
+      return this.props.position.split("-").slice(-1)[0];
+    } else {
+      return 'top';
+    }
   }
 
   togglePortal() {
@@ -178,10 +193,12 @@ class Modal extends React.Component {
   }
 
   hide() {
+    this.props.hideModal && this.props.hideModal();
     this.renderIntoSubtree();
   }
 
   show() {
+    this.props.showModal && this.props.showModal();
     const classes = document.body.className;
     this._element = document.createElement('div');
     this._element.setAttribute('tabindex', '-1');
@@ -203,7 +220,6 @@ class Modal extends React.Component {
 
   renderModalDialog() {
     const attributes = omit(this.props, propsToOmit);
-
     return (
       <div
         className={mapToCssModules(classNames('modal-dialog', this.props.className, {
@@ -241,6 +257,7 @@ class Modal extends React.Component {
     if (this._focus) {
       this._focus = false;
     }
+
   }
 
   renderChildren() {
@@ -291,7 +308,7 @@ class Modal extends React.Component {
                   : modalTransitionTimeout
               }
               cssModule={cssModule}
-              className={mapToCssModules(classNames('modal', modalClassName), cssModule)}
+              className={mapToCssModules(classNames('modal', this.hasAnimation(), modalClassName), cssModule)}
               {...modalAttributes}
             >
               {this.renderModalDialog()}
