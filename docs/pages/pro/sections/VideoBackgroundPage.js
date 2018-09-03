@@ -8,26 +8,16 @@ class VideoBackgroundPage extends React.Component {
   constructor(props) {
     super(props),
     this.state = {
-      collapse : false
-    }
-    this.onClick = this.onClick.bind(this);
-    this.handleNavbarClick = this.handleNavbarClick.bind(this);
+      collapseID: ''
+    };
   }
 
-  onClick(){
-    this.setState({
-        collapse: !this.state.collapse,
-    });
-  }
+  toggleCollapse = collapseID => () =>
+    this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
 
-  handleNavbarClick(){
-    this.setState({
-      collapse: false
-    });
-  }
-  render(){
-  const navStyle = { marginTop: '4rem'}
-  const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>
+  render() {
+    const navStyle = { marginTop: '4rem' }
+    const overlay = <div id="sidenav-overlay" style={{ backgroundColor: 'transparent' }} onClick={this.toggleCollapse('navbarCollapse')} />
     return (
       <div id="videobackground">
         <Router>
@@ -37,8 +27,8 @@ class VideoBackgroundPage extends React.Component {
                 <NavbarBrand>
                   <span className="white-text">Navbar</span>
                 </NavbarBrand>
-                <NavbarToggler onClick = { this.onClick } />
-                <Collapse isOpen = {this.state.collapse} navbar>
+                <NavbarToggler onClick={this.toggleCollapse('navbarCollapse')} />
+                <Collapse id='navbarCollapse' isOpen={this.state.collapseID} navbar>
                   <NavbarNav left>
                     <NavItem>
                       <NavLink to="#!">Home</NavLink>
@@ -82,22 +72,22 @@ class VideoBackgroundPage extends React.Component {
                 </Collapse>
               </Container>
             </Navbar>
-          { this.state.collapse && overlay}
+            {this.state.collapseID && overlay}
           </div>
         </Router>
 
         <View>
           <video className="video-intro" poster="https://mdbootstrap.com/img/Photos/Others/background.jpg" playsInline autoPlay muted="" loop>
-            <source src="https://mdbootstrap.com/img/video/animation.mp4" type="video/mp4"/>
+            <source src="https://mdbootstrap.com/img/video/animation.mp4" type="video/mp4" />
           </video>
           <Mask className="d-flex justify-content-center align-items-center gradient">
             <Container className="px-md-3 px-sm-0">
               <Row>
                 <Col md="12" className="mb-4 white-text text-center">
-                    <h3 className="display-3 font-weight-bold mb-0 pt-md-5">Creative Agency </h3>
-                    <hr className="hr-light my-4 w-75"/>
-                    <h4 className="subtext-header mt-2 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit deleniti consequuntur nihil.</h4>
-                    <Button outline rounded color="white"><Fa icon="home"/> Visit us</Button>
+                  <h3 className="display-3 font-weight-bold mb-0 pt-md-5">Creative Agency </h3>
+                  <hr className="hr-light my-4 w-75" />
+                  <h4 className="subtext-header mt-2 mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit deleniti consequuntur nihil.</h4>
+                  <Button outline rounded color="white"><Fa icon="home" /> Visit us</Button>
                 </Col>
               </Row>
             </Container>

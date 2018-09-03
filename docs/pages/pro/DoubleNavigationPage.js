@@ -6,13 +6,10 @@ class DoubleNavigationPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      collapse: false,
-      dropdownOpen: false,
       toggleStateA: false,
       breakWidth: 1300,
       windowWidth: 0
     };
-    this.onClick = this.onClick.bind(this);
     this.handleToggleClickA = this.handleToggleClickA.bind(this);
   }
 
@@ -32,12 +29,6 @@ class DoubleNavigationPage extends React.Component {
   handleToggleClickA() {
     this.setState({
       toggleStateA: !this.state.toggleStateA
-    });
-  }
-
-  onClick() {
-    this.setState({
-      collapse: !this.state.collapse
     });
   }
 
@@ -65,19 +56,19 @@ class DoubleNavigationPage extends React.Component {
             </li>
             <Input type="text" default="Search" style={{ color: '#fff', padding: '8px 10px 8px 30px', boxSizing: 'border-box'}} />
             <SideNavNav>
-              <SideNavCat name="Submit blog" icon="chevron-right">
+              <SideNavCat name="Submit blog" id="submit-blog-cat" icon="chevron-right">
                 <SideNavItem>Submit listing</SideNavItem>
                 <SideNavItem>Registration form</SideNavItem>
               </SideNavCat>
-              <SideNavCat name="Instruction" icon="hand-pointer-o">
+              <SideNavCat name="Instruction" id="instruction-cat" icon="hand-pointer-o">
                 <SideNavItem>For bloggers</SideNavItem>
                 <SideNavItem>For authors</SideNavItem>
               </SideNavCat>
-              <SideNavCat name="About" icon="eye">
+              <SideNavCat name="About" id="about-cat" icon="eye">
                 <SideNavItem>Instruction</SideNavItem>
                 <SideNavItem>Monthly meetings</SideNavItem>
               </SideNavCat>
-              <SideNavCat name="Contact me" icon="envelope-o">
+              <SideNavCat name="Contact me" id="contact-me-cat" icon="envelope-o">
                 <SideNavItem>FAQ</SideNavItem>
                 <SideNavItem>Write a message</SideNavItem>
               </SideNavCat>

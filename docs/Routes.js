@@ -45,6 +45,7 @@ import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
 import SearchPage from './pages/SearchPage';
 import ValidationPage from './pages/ValidationPage';
+import NavbarPage from './pages/NavbarPage';
 
 // PRO
 import MaterialDropdownPage from './pages/pro/DropdownPage';
@@ -113,6 +114,7 @@ class Routes extends React.Component {
         <Route path='/tables/table-styles' component={TableStylesPage} />
         <Route path='/components/badge' component={BadgePage} />
         <Route path='/navigation/breadcrumb' component={BreadcrumbPage} />
+        <Route path='/navigation/navbar' component={NavbarPage} />
         <Route path='/components/media' component={MediaPage} />
         <Route path='/forms/input' component={InputPage} />
         <Route path='/components/alert' component={AlertPage} />

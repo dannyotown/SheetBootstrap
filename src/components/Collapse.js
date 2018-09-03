@@ -20,15 +20,16 @@ class Collapse extends Component {
     super(props);
 
     this.state = {
-      collapse: props.isOpen ? SHOWN : HIDDEN,
+      id: props.id,
+      collapse: HIDDEN,
       height: null
     };
     this.element = null;
   }
 
-  componentWillReceiveProps(nextProps) {
-    const willOpen = nextProps.isOpen;
-    const collapse = this.state.collapse;
+  componentDidUpdate(prevProps, prevState) {
+    const willOpen = this.props.isOpen === prevState.id;
+    const collapse = prevState.collapse;
 
     if (willOpen && collapse === HIDDEN) {
       // will open
@@ -60,10 +61,7 @@ class Collapse extends Component {
         });
       }, this.getDelay('hide'));
     }
-    // else: do nothing.
-  }
 
-  componentDidUpdate(prevProps, prevState) {
     if (this.state.collapse === SHOWN &&
         prevState &&
         prevState.collapse !== SHOWN) {
@@ -145,7 +143,8 @@ class Collapse extends Component {
 }
 
 Collapse.propTypes = {
-  isOpen: PropTypes.bool,
+  isOpen: PropTypes.string,
+  id: PropTypes.string,
   className: PropTypes.node,
   children: PropTypes.node,
   navbar: PropTypes.bool,
@@ -158,7 +157,7 @@ Collapse.propTypes = {
 };
 
 Collapse.defaultProps = {
-  isOpen: false,
+  isOpen: '',
   delay: DEFAULT_DELAYS,
   onOpened: () => {},
   onClosed: () => {}

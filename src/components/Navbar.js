@@ -59,6 +59,7 @@ class Navbar extends Component {
       scrollingNavbarOffset,
       tag: Tag,
       double,
+      transparent,
       ...attributes
     } = this.props;
 
@@ -71,7 +72,7 @@ class Navbar extends Component {
       getExpandClass(expand),
       (scrolling || scrollingNavbarOffset) ? 'scrolling-navbar' : '',
       this.state.isCollapsed ? 'top-nav-collapse' : '',
-      color ? color : '',
+      color ? transparent ? this.state.isCollapsed ? color : '' : color : '',
       double ? 'double-nav': '',
       className
     );
@@ -85,6 +86,7 @@ class Navbar extends Component {
 Navbar.propTypes = {
   light: PropTypes.bool,
   dark: PropTypes.bool,
+  double: PropTypes.bool,
   fixed: PropTypes.string,
   sticky: PropTypes.string,
   scrolling: PropTypes.bool,

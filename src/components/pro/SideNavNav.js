@@ -8,7 +8,7 @@ class SideNavNav extends React.Component {
     super(props);
     this.state={
       accordion: null
-    }
+    };
   }
 
   onClick = number => () => {
@@ -38,20 +38,18 @@ class SideNavNav extends React.Component {
       className
     );
 
-    // const sideNavCats = this.props.children;
-
-    const modified = React.Children.map(this.props.children, (child, i) =>{
+    const modified = React.Children.map(this.props.children, (child, i) => {
       const updatedChild = React.cloneElement(child, {
         onClick: this.onClick(i),
         isOpen: accordion == i
       });
-      return updatedChild
-    })
+      return updatedChild;
+    });
 
     return (
       <li>
         <Tag {...attributes} className={classes} >
-            {modified}
+          {modified}
         </Tag>
       </li>
     );
@@ -61,8 +59,7 @@ class SideNavNav extends React.Component {
 SideNavNav.propTypes = {
   children: PropTypes.node,
   tag: PropTypes.string,
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
 SideNavNav.defaultProps = {
