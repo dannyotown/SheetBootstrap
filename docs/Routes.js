@@ -23,6 +23,7 @@ import DatatablePage from './pages/DatatablePage';
 import DatatableApiPage from './pages/DatatableApiPage';
 import ModalPage from './pages/ModalPage';
 import ModalFormPage from './pages/ModalFormPage';
+import ModalExamplesPage from './pages/ModalExamplesPage';
 import AdvancedPage from './pages/AdvancedPage';
 import ProgressPage from './pages/ProgressPage';
 import InputPage from './pages/InputPage';
@@ -133,6 +134,7 @@ class Routes extends React.Component {
         <Route path='/navigation/footer' component={FooterPage} />
         <Route path='/modals/modal' component={ModalPage} />
         <Route path='/modals/modal-form' component={ModalFormPage} />
+        <Route path='/modals/modal-examples' component={ModalExamplesPage} />
         <Route path='/advanced/carousel' component={CarouselPage} />
         <Route path='/advanced/collapse' component={CollapsePage} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
