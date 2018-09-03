@@ -10,7 +10,6 @@ class DoubleNavigationPage extends React.Component {
       breakWidth: 1300,
       windowWidth: 0
     };
-    this.handleToggleClickA = this.handleToggleClickA.bind(this);
   }
 
   componentDidMount() {
@@ -26,7 +25,7 @@ class DoubleNavigationPage extends React.Component {
     windowWidth: window.innerWidth
   });
 
-  handleToggleClickA() {
+  handleToggleClickA = () => {
     this.setState({
       toggleStateA: !this.state.toggleStateA
     });
