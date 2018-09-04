@@ -19,7 +19,7 @@ class ModalPage extends React.Component {
       modal11: false,
       modal12: false,
       modal13: false,
-      accordion: false
+      accordion: 1
 
     };
   }
@@ -89,7 +89,7 @@ class ModalPage extends React.Component {
         <h4 className="mt-4">Modal Discount</h4>
         <Row>
           <Button onClick={() => this.toggle(3)}>Launch Modal</Button>
-          <Modal className="modal-notify modal-danger text-white" side position="bottom-right" backdrop={false}  isOpen={this.state.modal3} toggle={() => this.toggle(3)} >
+          <Modal size="lg" className="modal-notify modal-danger text-white" side position="bottom-right" backdrop={false}  isOpen={this.state.modal3} toggle={() => this.toggle(3)} >
             <ModalHeader tag="p" toggle={() => this.toggle(3)}>
               Discount offer: <strong>10% off</strong>
             </ModalHeader>
@@ -162,7 +162,7 @@ class ModalPage extends React.Component {
         <h4 className="mt-4">Modal Confirm delete</h4>
         <Row>
           <Button onClick={() => this.toggle(6)}>Launch Modal</Button>
-          <Modal className="modal-notify modal-danger text-white" size="sm" side position="top-right" backdrop={false}  isOpen={this.state.modal6} toggle={() => this.toggle(6)} >
+          <Modal modalStyle="danger" className="text-white" size="sm" side position="top-right" backdrop={false}  isOpen={this.state.modal6} toggle={() => this.toggle(6)} >
             <ModalHeader className="text-center" titleClass="w-100" tag="p" toggle={() => this.toggle(6)}>
               Are you sure?
             </ModalHeader>

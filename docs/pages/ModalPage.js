@@ -62,10 +62,10 @@ class ModalPage extends React.Component {
         </Row>
         <hr className="mb-5" />
         <Button color="danger" onClick={() => this.toggle(1)} >Modal</Button>
-        <Modal 
-          hiddenModal={this.hiddenFunction}
-          hideModal={this.hideFunction}
-          showModal={this.showFunction}
+        <Modal
+          // hiddenModal={this.hiddenFunction}
+          // hideModal={this.hideFunction}
+          // showModal={this.showFunction}
           isOpen={this.state.modal1}
           toggle={() => this.toggle(1)}
           >

@@ -285,6 +285,9 @@ class AutocompletePage extends React.Component {
     })
   }
 
+  logValue = (value) => {
+    console.log(value);
+  }
   render() {
     const smallStyle = { fontSize: '0.8rem'}
     return (
@@ -305,6 +308,7 @@ class AutocompletePage extends React.Component {
             clear
             clearClass="grey-text" id="input"
             className="mx-auto"
+            getValue={this.logValue}
           />
 
         </section>

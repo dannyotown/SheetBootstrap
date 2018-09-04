@@ -57,7 +57,8 @@ const propTypes = {
   modalTransitionAppearTimeout: PropTypes.number,
   modalTransitionEnterTimeout: PropTypes.number,
   modalTransitionLeaveTimeout: PropTypes.number,
-  cascading: PropTypes.bool
+  cascading: PropTypes.bool,
+  modalStyle: PropTypes.string
 };
 
 const propsToOmit = Object.keys(propTypes);
@@ -229,7 +230,8 @@ class Modal extends React.Component {
           [`modal-frame`]: this.props.frame,
           [`modal-dialog-centered`]: this.props.centered,
           [`modal-${this.props.position}`]: this.props.position,
-          ['cascading-modal']: this.props.cascading
+          ['cascading-modal']: this.props.cascading,
+          [`modal-notify white-text modal-${this.props.modalStyle}`]: this.props.modalStyle
         }), this.props.cssModule)}
         role="document"
         {...attributes}
@@ -272,7 +274,8 @@ class Modal extends React.Component {
       backdropTransitionTimeout,
       role,
       labelledBy,
-      cascading
+      cascading,
+      modalStyle
     } = this.props;
 
     const modalAttributes = {
