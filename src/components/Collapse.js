@@ -30,13 +30,15 @@ class Collapse extends Component {
   }
   
   componentDidUpdate(prevProps, prevState) {
-    const willOpen = this.props.isOpen === prevState.id;
     const collapse = prevState.collapse;
+    const willOpen = typeof this.props.isOpen !== 'boolean' 
+      ? this.props.isOpen === prevState.id 
+      : this.props.isOpen;
 
     if(willOpen && this.state.collapse === HIDDEN) {
       this.openCollapse();
     }
-    else if(collapse === SHOWN) {
+    else if(!willOpen && collapse === SHOWN) {
       this.closeCollapse();
     }
   }

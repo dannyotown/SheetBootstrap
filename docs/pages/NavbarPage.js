@@ -14,7 +14,6 @@ class NavbarPage extends React.Component {
     this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
 
   render() {
-    const overlay = <div id="sidenav-overlay" style={{ backgroundColor: 'transparent' }} onClick={this.toggleCollapse('navbarCollapse')} />;
     return (
       <Container>
         <Row className="align-items-center mt-5">
@@ -147,7 +146,6 @@ class NavbarPage extends React.Component {
                 </Collapse>
               </Container>
             </Navbar>
-            {this.state.collapseID && overlay}
           </div>
         </Router>
       </Container>
