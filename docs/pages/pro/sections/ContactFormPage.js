@@ -8,38 +8,27 @@ class ContactFormPage extends React.Component {
   constructor(props) {
     super(props),
     this.state = {
-      collapse : false
-    }
-    this.onClick = this.onClick.bind(this);
-    this.handleNavbarClick = this.handleNavbarClick.bind(this);
+      collapseID: ''
+    };
   }
 
-  onClick(){
-    this.setState({
-      collapse: !this.state.collapse,
-    });
-  }
-
-  handleNavbarClick(){
-    this.setState({
-      collapse: false
-    });
-  }
+  toggleCollapse = collapseID => () =>
+    this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
 
   render(){
   const navStyle = { marginTop: '4rem'}
-  const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleNavbarClick}/>
+  const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.toggleCollapse('navbarCollapse')} />;
     return (
       <div id="contactformpage">
         <Router>
           <div>
-            <Navbar style={navStyle} dark expand="md" fixed="top" scrolling>
+            <Navbar style={navStyle} color="deep-purple darken-4" dark expand="md" fixed="top" scrolling transparent>
               <Container>
                 <NavbarBrand>
                   <strong className="white-text">MDB</strong>
                 </NavbarBrand>
-                <NavbarToggler onClick = { this.onClick } />
-                <Collapse isOpen = {this.state.collapse} navbar>
+                <NavbarToggler onClick={this.toggleCollapse('navbarCollapse')} />
+                <Collapse id="navbarCollapse" isOpen={this.state.collapseID} navbar>
                   <NavbarNav left>
                     <NavItem active>
                       <NavLink to="#!">Home</NavLink>
@@ -63,7 +52,7 @@ class ContactFormPage extends React.Component {
                 </Collapse>
               </Container>
             </Navbar>
-          { this.state.collapse && overlay}
+            { this.state.collapseID && overlay}
           </div>
         </Router>
 

@@ -54,7 +54,7 @@ class AdvancedPage extends React.Component {
                 <NavLink className="list-group-item list-group-item-action" to="/advanced/pro/thumbnailscarousel">
                   <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">Thumbnails Carousel<Fa icon="angle-right" /></h5>
                 </NavLink>
-                <NavLink className="list-group-item list-group-item-action" to="/advanced/pro/thumbnailscarousel">
+                <NavLink className="list-group-item list-group-item-action" to="/advanced/pro/timepicker">
                   <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">Time picker<Fa icon="angle-right" /></h5>
                 </NavLink>
               </ul>
