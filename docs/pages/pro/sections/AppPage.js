@@ -7,17 +7,21 @@ import './AppPage.css'
 class AppPage extends React.Component {
   constructor(props) {
     super(props),
-    this.state = {
-      collapseID: ''
-    }
+    this.state ={
+      collapsed: false,
+    };
+    this.handleTogglerClick = this.handleTogglerClick.bind(this);
   }
 
-  toggleCollapse = collapseID => () =>
-    this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
+  handleTogglerClick(){
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
 
   render() {
     const navStyle = { marginTop: '4rem' }
-    const overlay = <div id="sidenav-overlay" style={{ backgroundColor: 'transparent' }} onClick={this.toggleCollapse('navbarCollapse')} />;
+    const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleTogglerClick}/>
     return (
       <div id="apppage">
         <Router>
@@ -27,8 +31,9 @@ class AppPage extends React.Component {
                 <NavbarBrand>
                   <strong className="white-text">MDB</strong>
                 </NavbarBrand>
-                <NavbarToggler onClick={this.toggleCollapse('navbarCollapse')} />
-                <Collapse id="navbarCollapse" isOpen={this.state.collapseID} navbar>
+                <NavbarToggler onClick={this.handleTogglerClick}/>
+                <Collapse isOpen={this.state.collapsed} navbar>
+
                   <NavbarNav left>
                     <NavItem active>
                       <NavLink to="#!">Home</NavLink>
@@ -52,7 +57,7 @@ class AppPage extends React.Component {
                 </Collapse>
               </Container>
             </Navbar>
-            {this.state.collapseID && overlay}
+            { this.state.collapsed && overlay}
           </div>
         </Router>
         <View>

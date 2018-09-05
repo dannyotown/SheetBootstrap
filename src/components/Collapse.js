@@ -7,18 +7,14 @@ const SHOWN = 'SHOWN';
 const HIDE = 'HIDE';
 const HIDDEN = 'HIDDEN';
 
-
-
 const DEFAULT_DELAYS = {
   show: 350,
   hide: 350
 };
 
-
 class Collapse extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       id: props.id,
       collapse: HIDDEN,
@@ -27,56 +23,58 @@ class Collapse extends Component {
     this.element = null;
   }
 
+  componentDidMount() {
+    if(this.props.isOpen === this.state.id && this.state.collapse === HIDDEN) {
+      this.openCollapse();
+    }
+  }
+  
   componentDidUpdate(prevProps, prevState) {
-    const willOpen = this.props.isOpen === prevState.id;
     const collapse = prevState.collapse;
+    const willOpen = typeof this.props.isOpen !== 'boolean' 
+      ? this.props.isOpen === prevState.id 
+      : this.props.isOpen;
 
-    if (willOpen && collapse === HIDDEN) {
-      // will open
-      this.setState({ collapse: SHOW }, () => {
-        // the height transition will work after class "collapsing" applied
-        this.setState({ height: this.getHeight() });
-        this.transitionTag = setTimeout(() => {
-          this.setState({
-            collapse: SHOWN,
-            height: null
-          });
-        }, this.getDelay('show'));
-      });
-    } else if (!willOpen && collapse === SHOWN) {
-      // will hide
-      this.setState({ height: this.getHeight() }, () => {
-        this.setState({
-          collapse: HIDE,
-          height: this.getHeight()
-        }, () => {
-          this.setState({ height: 0 });
-        });
-      });
-
-      this.transitionTag = setTimeout(() => {
-        this.setState({
-          collapse: HIDDEN,
-          height: null
-        });
-      }, this.getDelay('hide'));
+    if(willOpen && this.state.collapse === HIDDEN) {
+      this.openCollapse();
     }
-
-    if (this.state.collapse === SHOWN &&
-        prevState &&
-        prevState.collapse !== SHOWN) {
-      this.props.onOpened();
-    }
-
-    if (this.state.collapse === HIDDEN &&
-        prevState &&
-        prevState.collapse !== HIDDEN) {
-      this.props.onClosed();
+    else if(!willOpen && collapse === SHOWN) {
+      this.closeCollapse();
     }
   }
 
   componentWillUnmount() {
     clearTimeout(this.transitionTag);
+  }
+
+  openCollapse = () => {
+    this.setState({ collapse: SHOW }, () => {
+      this.setState({ height: this.getHeight() });
+      this.transitionTag = setTimeout(() => {
+        this.setState({
+          collapse: SHOWN,
+          height: null
+        }, this.props.onOpened());
+      }, this.getDelay('show'));
+    });
+  }
+
+  closeCollapse = () => {
+    this.setState({ height: this.getHeight() }, () => {
+      this.setState({
+        collapse: HIDE,
+        height: this.getHeight()
+      }, () => {
+        this.setState({ height: 0 });
+      });
+    });
+
+    this.transitionTag = setTimeout(() => {
+      this.setState({
+        collapse: HIDDEN,
+        height: null
+      }, this.props.onClosed());
+    }, this.getDelay('hide'));
   }
 
   getDelay(key) {
