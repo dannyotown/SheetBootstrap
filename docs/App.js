@@ -16,6 +16,8 @@ class App extends Component {
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
 
+  closeCollapse = collapseID => () => this.state.collapseID === collapseID && this.setState({ collapseID: '' });
+
   render() {
     const collapsed = this.state.collapsed;
     const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.toggleCollapse('mainNavbarCollapse')} />
@@ -30,32 +32,32 @@ class App extends Component {
             <Collapse id='mainNavbarCollapse' isOpen={this.state.collapseID} navbar>
               <NavbarNav right>
                 <NavItem>
-                  <NavLink exact activeClassName="active" to="/" onClick={this.toggleCollapse('mainNavbarCollapse')}>Home</NavLink>
+                  <NavLink exact activeClassName="active" to="/" onClick={this.closeCollapse('mainNavbarCollapse')}>Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink activeClassName="active" onClick={this.toggleCollapse('mainNavbarCollapse')} to="/css">CSS</NavLink>
+                  <NavLink activeClassName="active" onClick={this.closeCollapse('mainNavbarCollapse')} to="/css">CSS</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink activeClassName="active" onClick={this.toggleCollapse('mainNavbarCollapse')} to="/components">Components</NavLink>
+                  <NavLink activeClassName="active" onClick={this.closeCollapse('mainNavbarCollapse')} to="/components">Components</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink activeClassName="active" onClick={this.toggleCollapse('mainNavbarCollapse')} to="/advanced">Advanced</NavLink>
+                  <NavLink activeClassName="active" onClick={this.closeCollapse('mainNavbarCollapse')} to="/advanced">Advanced</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink activeClassName="active" onClick={this.toggleCollapse('mainNavbarCollapse')} to="/navigation">Navigation</NavLink>
+                  <NavLink activeClassName="active" onClick={this.closeCollapse('mainNavbarCollapse')} to="/navigation">Navigation</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink activeClassName="active" onClick={this.toggleCollapse('mainNavbarCollapse')} to="/forms">Forms</NavLink>
+                  <NavLink activeClassName="active" onClick={this.closeCollapse('mainNavbarCollapse')} to="/forms">Forms</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink activeClassName="active" onClick={this.toggleCollapse('mainNavbarCollapse')} to="/tables">Tables</NavLink>
+                  <NavLink activeClassName="active" onClick={this.closeCollapse('mainNavbarCollapse')} to="/tables">Tables</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink activeClassName="active" onClick={this.toggleCollapse('mainNavbarCollapse')} to="/modals">Modals</NavLink>
+                  <NavLink activeClassName="active" onClick={this.closeCollapse('mainNavbarCollapse')} to="/modals">Modals</NavLink>
                 </NavItem>
                 {/* PRO */}
                 <NavItem>
-                  <NavLink activeClassName="active" onClick={this.toggleCollapse('mainNavbarCollapse')} to="/sections">Sections</NavLink>
+                  <NavLink activeClassName="active" onClick={this.closeCollapse('mainNavbarCollapse')} to="/sections">Sections</NavLink>
                 </NavItem>
               </NavbarNav>
             </Collapse>
