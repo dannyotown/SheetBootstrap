@@ -141,7 +141,7 @@ class Collapse extends Component {
 }
 
 Collapse.propTypes = {
-  isOpen: PropTypes.string,
+  isOpen: PropTypes.oneOfType([PropTypes.string, PropTypes.boolean]),
   id: PropTypes.string,
   className: PropTypes.node,
   children: PropTypes.node,
