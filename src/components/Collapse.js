@@ -24,7 +24,7 @@ class Collapse extends Component {
   }
 
   componentDidMount() {
-    if(this.props.isOpen === this.state.id && this.state.collapse === HIDDEN) {
+    if((this.props.isOpen === this.state.id || this.props.isOpen === true) && this.state.collapse === HIDDEN) {
       this.openCollapse();
     }
   }
@@ -141,7 +141,7 @@ class Collapse extends Component {
 }
 
 Collapse.propTypes = {
-  isOpen: PropTypes.oneOfType([PropTypes.string, PropTypes.boolean]),
+  isOpen: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   id: PropTypes.string,
   className: PropTypes.node,
   children: PropTypes.node,
