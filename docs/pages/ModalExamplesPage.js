@@ -20,7 +20,6 @@ class ModalPage extends React.Component {
       modal12: false,
       modal13: false,
       accordion: 1
-
     };
   }
 
@@ -30,8 +29,6 @@ class ModalPage extends React.Component {
       [modalNumber]: !this.state[modalNumber]
     });
   }
-
-
 
   onClick = number => () => {
       let state;
