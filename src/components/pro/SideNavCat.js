@@ -8,12 +8,21 @@ class SideNavCat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cursorPos: {}
+      cursorPos: {},
+      isOpenID: ''
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e){
+  componentDidUpdate(prevProps) {
+    if(prevProps.isOpen !== this.props.isOpen) {
+      this.setState({
+        isOpenID: (this.props.isOpen ? this.props.id : '')
+      });
+    }
+  } 
+
+  handleClick(e, id){
     if (!this.props.disabled) {
       // Waves - Get Cursor Position
       let cursorPos = {
@@ -24,7 +33,7 @@ class SideNavCat extends React.Component {
       this.setState({ cursorPos: cursorPos });
       // do the passed in callback:
       if (this.props.onClick) {
-      this.props.onClick(e);
+        this.props.onClick(id);
       }
       e.stopPropagation();
     }
@@ -40,6 +49,8 @@ class SideNavCat extends React.Component {
       onClick,
       disabled,
       isOpen,
+      isOpenID,
+      id,
       ...attributes
     } = this.props;
 
@@ -55,17 +66,17 @@ class SideNavCat extends React.Component {
     return (
       <Tag>
         <a className = { classes }
-           onClick = { this.handleClick }
-           {...attributes}
+          onClick = {(e) => this.handleClick(e, id)}
+          {...attributes}
         >
           { icon &&
             <i className = { "fa fa-" + icon }>&nbsp;</i>
           }
           {name}
           <i className = "fa fa-angle-down rotate-icon"></i>
-        <Waves cursorPos = { this.state.cursorPos } />
+          <Waves cursorPos = { this.state.cursorPos } />
         </a>
-        <Collapse isOpen = {isOpen}>
+        <Collapse id={id} isOpen={this.state.isOpenID}>
           <div className = "collapsible-body" style={{display: 'block'}}>
             <ul>
               {children}
@@ -79,12 +90,15 @@ class SideNavCat extends React.Component {
 
 SideNavCat.propTypes = {
   children: PropTypes.node,
-  tag: PropTypes.string,
   className: PropTypes.string,
-  name: PropTypes.string,
+  disabled: PropTypes.bool,
   icon: PropTypes.string,
-  toggle: PropTypes.func,
+  id: PropTypes.string,
   isOpen: PropTypes.bool,
+  isOpenID: PropTypes.string,
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  tag: PropTypes.string
 };
 
 SideNavCat.defaultProps = {

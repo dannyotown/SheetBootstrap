@@ -1,6 +1,11 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
 
+import NavigationPage from './pages/NavigationPage';
+import FormsNavPage from './pages/FormsNavPage';
+import TablesNavPage from './pages/TablesNavPage';
+import ModalsNavPage from './pages/ModalsNavPage';
+
 // FREE
 import AnimationPage from './pages/AnimationPage';
 import HomePage from './pages/HomePage';
@@ -17,6 +22,8 @@ import ComponentsPage from './pages/ComponentsPage';
 import DatatablePage from './pages/DatatablePage';
 import DatatableApiPage from './pages/DatatableApiPage';
 import ModalPage from './pages/ModalPage';
+import ModalFormPage from './pages/ModalFormPage';
+import ModalExamplesPage from './pages/ModalExamplesPage';
 import AdvancedPage from './pages/AdvancedPage';
 import ProgressPage from './pages/ProgressPage';
 import InputPage from './pages/InputPage';
@@ -40,6 +47,7 @@ import FormsPage from './pages/FormsPage';
 import ChartsPage from './pages/ChartsPage';
 import SearchPage from './pages/SearchPage';
 import ValidationPage from './pages/ValidationPage';
+import NavbarPage from './pages/NavbarPage';
 
 // PRO
 import MaterialDropdownPage from './pages/pro/DropdownPage';
@@ -85,39 +93,50 @@ import SearchPagePro from './pages/pro/SearchPage';
 import FooterPagePro from './pages/pro/FooterPage';
 import TableEditable from './pages/pro/TableEditablePage';
 import DatatableCsvPage from './pages/pro/DatatableCsvPage'
+import ModalFormProPage from './pages/pro/ModalFormPage';
+
 
 class Routes extends React.Component {
   render() {
     return (
       <Switch>
-        {/* FREE */}
-        <Route path='/css/animations' component={AnimationPage} />
         <Route exact path='/' component={HomePage} />
         <Route exact path='/css' component={CSSPage} />
-        <Route exact path='/css/table' component={TablePage} />
         <Route exact path='/components' component={ComponentsPage} />
-        <Route path='/css/table-responsive' component={TableResponsivePage} />
-        <Route path='/css/table-scroll' component={TableScrollPage} />
-        <Route path='/css/table-styles' component={TableStylesPage} />
+        <Route exact path='/advanced' component={AdvancedPage} />
+        <Route exact path='/navigation' component={NavigationPage} />
+        <Route exact path='/forms' component={FormsNavPage} />
+        <Route exact path='/tables' component={TablesNavPage} />
+        <Route exact path='/modals' component={ModalsNavPage} />
+        <Route exact path='/sections' component={SectionsPage} />
+
+        {/* FREE */}
+        <Route path='/css/animations' component={AnimationPage} />
+        <Route exact path='/tables/table' component={TablePage} />
+        <Route path='/tables/table-responsive' component={TableResponsivePage} />
+        <Route path='/tables/table-scroll' component={TableScrollPage} />
+        <Route path='/tables/table-styles' component={TableStylesPage} />
         <Route path='/components/badge' component={BadgePage} />
-        <Route path='/components/breadcrumb' component={BreadcrumbPage} />
+        <Route path='/navigation/breadcrumb' component={BreadcrumbPage} />
+        <Route path='/navigation/navbar' component={NavbarPage} />
         <Route path='/components/media' component={MediaPage} />
-        <Route path='/components/input' component={InputPage} />
+        <Route path='/forms/input' component={InputPage} />
         <Route path='/components/alert' component={AlertPage} />
         <Route path='/components/dropdown' component={DropdownPage} />
         <Route path='/css/icons' component={FaPage} />
         <Route path='/css/jumbotron' component={JumbotronPage} />
         <Route path='/components/cards' component={CardsPage} />
         <Route path='/components/buttons' component={ButtonPage} />
-        <Route path='/components/forms' component={FormsPage} />
+        <Route path='/forms/forms' component={FormsPage} />
         <Route path='/components/progress' component={ProgressPage} />
-        <Route path='/components/popover' component={PopoverPage} />
+        <Route path='/advanced/popover' component={PopoverPage} />
         <Route path='/components/pagination' component={PaginationPage} />
         <Route path='/components/list-group' component={ListGroupPage} />
-        <Route path='/components/tooltips' component={TooltipsPage} />
-        <Route path='/components/footer' component={FooterPage} />
-        <Route exact path='/advanced' component={AdvancedPage} />
-        <Route path='/advanced/modal' component={ModalPage} />
+        <Route path='/advanced/tooltips' component={TooltipsPage} />
+        <Route path='/navigation/footer' component={FooterPage} />
+        <Route path='/modals/modal' component={ModalPage} />
+        <Route path='/modals/modal-form' component={ModalFormPage} />
+        <Route path='/modals/modal-examples' component={ModalExamplesPage} />
         <Route path='/advanced/carousel' component={CarouselPage} />
         <Route path='/advanced/collapse' component={CollapsePage} />
         <Route path='/advanced/videocarousel' component={VideoCarouselPage} />
@@ -127,54 +146,54 @@ class Routes extends React.Component {
         <Route path='/advanced/charts' component={ChartsPage} />
         <Route path='/components/panels' component={PanelPage} />
         <Route path='/components/search' component={SearchPage} />
-        <Route path='/components/validation' component={ValidationPage} />
-        <Route path='/advanced/datatable' component={DatatablePage} />
-        <Route path='/advanced/datatable-api' component={DatatableApiPage} />
+        <Route path='/forms/validation' component={ValidationPage} />
+        <Route path='/tables/datatable' component={DatatablePage} />
+        <Route path='/tables/datatable-api' component={DatatableApiPage} />
         {/* PRO */}
         <Route path='/components/pro/dropdown' component={MaterialDropdownPage} />
-        <Route path='/components/pro/autocomplete' component={AutocompletePage} />
+        <Route path='/forms/pro/autocomplete' component={AutocompletePage} />
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
         <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
         <Route path='/components/pro/chips' component={ChipsPage} />
-        <Route path='/components/pro/input' component={InputPagePro} />
-        <Route path='/advanced/pro/sidenav' component={SideNavPage} />
-        <Route path='/advanced/pro/select' component={SelectPage} />
+        <Route path='/forms/pro/input' component={InputPagePro} />
+        <Route path='/navigation/pro/sidenav' component={SideNavPage} />
+        <Route path='/forms/pro/select' component={SelectPage} />
         <Route path='/advanced/pro/datepicker' component={DatePickerPage} />
         <Route path='/advanced/pro/timepicker' component={TimePickerPage} />
         <Route path='/advanced/pro/lightbox' component={LightboxPage} />
         <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
         <Route path='/components/pro/progress' component={ProgressPagePro} />
         <Route path='/advanced/pro/scrollbar' component={ScrollBarPage} />
-        <Route path='/advanced/pro/scrollspy' component={ScrollSpyPage} />
+        <Route path='/navigation/pro/scrollspy' component={ScrollSpyPage} />
         <Route path='/advanced/pro/sticky' component={StickyPage} />
         <Route path='/components/pro/tabs' component={TabsPage} />
         <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />
-        <Route path='/css/pro/double' component={DoubleNavigationPage} />
+        <Route path='/navigation/pro/double' component={DoubleNavigationPage} />
         <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
-        <Route path='/components/pro/forms' component={FormsPagePro} />
+        <Route path='/forms/pro/forms' component={FormsPagePro} />
         <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route path='/components/pro/search' component={SearchPagePro} />
-        <Route path='/components/pro/footer' component={FooterPagePro} />
-        <Route path='/advanced/pro/tableeditable' component={TableEditable} />
+        <Route path='/navigation/pro/footer' component={FooterPagePro} />
+        <Route path='/tables/pro/tableeditable' component={TableEditable} />
         <Route path='/components/pro/stepper' component={StepperPage} />
-        <Route path='/advanced/datatable-csv' component={DatatableCsvPage} />
+        <Route path='/tables/pro/datatable-csv' component={DatatableCsvPage} />
+        <Route path='/modals/pro/modal-form' component={ModalFormProPage} />
         {/* PRO SECTIONS */}
-        <Route path='/sections' component={SectionsPage} />
-        <Route path='/pro/sections/testimonials' component={TestimonialsPage} />
-        <Route path='/pro/sections/testimonialsMulti' component={TestimonialsMultiPage} />
-        <Route path='/pro/sections/ecommerce' component={EcommercePage} />
-        <Route path='/pro/sections/app' component={AppPage} />
-        <Route path='/pro/sections/contactform' component={ContactFormPage} />
-        <Route path='/pro/sections/classicform' component={ClassicFormPage} />
-        <Route path='/pro/sections/videobackground' component={VideoBackgroundPage} />
-        <Route path='/pro/sections/projects' component={ProjectsPage} />
-        <Route path='/pro/sections/features' component={FeaturesPage} />
-        <Route path='/pro/sections/contact' component={ContactPage} />
-        <Route path='/pro/sections/blog' component={BlogPage} />
-        <Route path='/pro/sections/team' component={TeamPage} />
-        <Route path='/pro/sections/magazine' component={MagazinePage} />
-        <Route path='/pro/sections/social' component={SocialPage} />
+        <Route path='/sections/testimonials' component={TestimonialsPage} />
+        <Route path='/sections/testimonialsMulti' component={TestimonialsMultiPage} />
+        <Route path='/sections/ecommerce' component={EcommercePage} />
+        <Route path='/sections/app' component={AppPage} />
+        <Route path='/sections/contactform' component={ContactFormPage} />
+        <Route path='/sections/classicform' component={ClassicFormPage} />
+        <Route path='/sections/videobackground' component={VideoBackgroundPage} />
+        <Route path='/sections/projects' component={ProjectsPage} />
+        <Route path='/sections/features' component={FeaturesPage} />
+        <Route path='/sections/contact' component={ContactPage} />
+        <Route path='/sections/blog' component={BlogPage} />
+        <Route path='/sections/team' component={TeamPage} />
+        <Route path='/sections/magazine' component={MagazinePage} />
+        <Route path='/sections/social' component={SocialPage} />
         <Route render = { function() {
           return <h1>Not Found</h1>;
         }} />

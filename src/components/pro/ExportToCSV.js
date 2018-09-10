@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
-import { CSVLink } from 'react-csv';
+import Button from './../Button';
 import Waves from './../Waves';
 import classNames from 'classnames';
 
@@ -10,52 +10,45 @@ class ExportToCSV extends Component {
     this.state = {
       columns: this.props.columns,
       data: this.props.data,
-      computedData: [],
-      headers: [],
-      cursorPos: {}
+      href: ''
     };
   }
 
   componentDidMount() {
-    this.computeData();
+    this.computeDataToLink();
   }
-
+  
   componentDidUpdate(prevProps, prevState) {
     if(prevState.data != this.props.data || prevState.columns != this.props.columns) {
       this.setState({ 
         columns: this.props.columns, 
         data: this.props.data 
-      });
-      this.computeData();
+      },
+      this.computeDataToLink()
+      );
     }
   }
 
-  computeData = () => {
-    this.setState((prevState) => ({
-      computedData: [].concat.apply([], prevState.data),
-      headers: prevState.columns.map(col => ({label: col.label, key: col.field}))
+  computeDataToLink = () => {
+    this.setState(prevState => ({
+      href: encodeURI(
+        'data:text/csv;charset=utf-8,' +
+        [
+          prevState.columns.map(col => col.field).join(','),
+          [].concat.apply([], prevState.data).map(row => Object.values(row).join(',')).join('\n')
+        ].join('\n')
+      )
     }));
   }
 
-  handleClick = (e) => {
-    // Waves - Get Cursor Position
-    let cursorPos = {
-      top: e.clientY,
-      left: e.clientX,
-      time: Date.now()
-    };
-    this.setState({ cursorPos: cursorPos });
-    e.stopPropagation();
-  }
-
   render() {
-    const {
-      children,
+    let {
       active,
       block,
       circle,
       className,
       color,
+      children,
       outline,
       size,
       rounded,
@@ -65,31 +58,27 @@ class ExportToCSV extends Component {
       ...attributes
     } = this.props;
 
-    const classes = classNames(
-      floating ? 'btn-floating' : 'btn',
-      flat ? 'btn-flat' : gradient ? `${gradient}-gradient` : `btn${outline ? '-outline' : ''}-${color}`,
-      size ? `btn-${size}` : false,
-      rounded ? 'btn-rounded' : false,
-      circle && 'btn-circle',
-      block ? 'btn-block' : false,
-      'Ripple-parent',
-      className,
-      { active, disabled: this.props.disabled }
-    );
-
     return (
-      <CSVLink
-        data={this.state.computedData}
-        headers={this.state.headers}
-        filename={'table.csv'}
-        className={classes}
-        target="_blank"
-        onTouchStart={this.handleClick}
+      <Button
+        active={active}
+        block={block}
+        circle={circle}
+        className={className}
+        color={color}
+        outline={outline}
+        size={size}
+        rounded={rounded}
+        gradient={gradient}
+        floating={floating}
+        flat={flat}
+        role="button"
+        type="link"
         {...attributes}
+        href={this.state.href}
+        download="export.csv"
       >
         {children}
-        <Waves cursorPos={this.state.cursorPos} outline={outline} flat={flat} />
-      </CSVLink>
+      </Button>
     );
   }
 }

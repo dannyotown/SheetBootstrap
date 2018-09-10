@@ -285,11 +285,20 @@ class AutocompletePage extends React.Component {
     })
   }
 
+  logValue = (value) => {
+    console.log(value);
+  }
   render() {
     const smallStyle = { fontSize: '0.8rem'}
     return (
       <Container>
-        <h2 className="mt-5">Basic example</h2>
+        <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>Autocomplete</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/autocomplete/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
         <section style={{paddingLeft: 200, paddingRight: 200}}>
 
           <Autocomplete
@@ -299,12 +308,10 @@ class AutocompletePage extends React.Component {
             clear
             clearClass="grey-text" id="input"
             className="mx-auto"
+            getValue={this.logValue}
           />
 
         </section>
-
-        <h2 className="mt-5">Autocomplete within form</h2>
-
         <Row>
           <Col md="9" lg="7" xl="5" className="mx-auto mt-3">
             <Card>
@@ -331,8 +338,6 @@ class AutocompletePage extends React.Component {
             </Card>
           </Col>
         </Row>
-
-        <h2 className="mt-5">Autocomplete within modal</h2>
 
         <div className="text-center mt-3">
           <Button onClick={this.toggleModal} rounded className="mx-auto">launch modal contact</Button>

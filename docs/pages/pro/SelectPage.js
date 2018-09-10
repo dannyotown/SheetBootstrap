@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, SelectInput, MDBSelectInput, SelectOptions, MDBSelectOption, SelectOption } from 'mdbreact';
+import { Select, SelectInput, MDBSelectInput, SelectOptions, MDBSelectOption, SelectOption, Row, Fa, Container } from 'mdbreact';
 
 class SelectPage extends React.Component {
   // build function for your selects, and pass it as getValue property to reed the select's value
@@ -9,20 +9,27 @@ class SelectPage extends React.Component {
 
   render() {
     return(
-      <div className="container mt-5 primary-text">
+      <Container>
+        <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>Select</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/select/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
         <h4 className="my-4 indigo-text"><strong>Basic example</strong></h4>
         <div className="row">
           <div className="col-md-6">
 
-            <Select getValue={this.getValueOfSelect}>
+            <Select getValue={this.getValueOfSelect} getTextContent={this.getValueOfSelect}>
               <SelectInput selected="Choose your option"></SelectInput>
               <SelectOptions>
                 <SelectOption disabled>Choose your option</SelectOption>
-                <SelectOption checked>Option nr 1</SelectOption>
+                <SelectOption>Option nr 1</SelectOption>
                 <SelectOption>Option nr 2</SelectOption>
                 <SelectOption>Option nr 3</SelectOption>
                 <SelectOption>Option nr 4</SelectOption>
-                <SelectOption>Option nr 5</SelectOption>
+                <SelectOption selected>Option nr 5</SelectOption>
               </SelectOptions>
             </Select>
             <label>Example label</label>
@@ -33,14 +40,14 @@ class SelectPage extends React.Component {
         <div className="row">
           <div className="col-md-6">
 
-            <Select getValue={this.getValueOfSelect} multiple>
+            <Select getValue={this.getValueOfSelect} getTextContent={this.getValueOfSelect} multiple>
               <MDBSelectInput selected="Choose your option"></MDBSelectInput>
               <SelectOptions>
-                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                <SelectOption disabled>Choose your option</SelectOption>
                 <SelectOption value="value nr 1">Option nr 1</SelectOption>
-                <SelectOption value="value nr 2">Option nr 2</SelectOption>
+                <SelectOption selected value="value nr 2">Option nr 2</SelectOption>
                 <SelectOption value="value nr 3">Option nr 3</SelectOption>
-                <SelectOption value="value nr 4">Option nr 4</SelectOption>
+                <SelectOption selected value="value nr 4">Option nr 4</SelectOption>
                 <SelectOption value="value nr 5">Option nr 5</SelectOption>
               </SelectOptions>
             </Select>
@@ -104,7 +111,7 @@ class SelectPage extends React.Component {
           </div>
         </div>
         <br/><br/><br/><br/><br/>
-      </div>
+      </Container>
     );
   }
 }

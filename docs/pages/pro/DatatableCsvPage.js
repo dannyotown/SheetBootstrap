@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataTable, Container, Row, Col, Card, CardBody, ExportToCSV } from 'mdbreact';
+import { DataTable, Container, Row, Col, Card, CardBody, Fa } from 'mdbreact';
 
 const DatatableCsvPage = () => {
   const data = {
@@ -503,13 +503,20 @@ const DatatableCsvPage = () => {
 
   return (
     <Container className="mt-3">
+      <Row className="align-items-center mt-5">
+        <h4 className="grey-text" style={{margin: "0px"}}>
+          <strong>Datatable</strong>
+        </h4>
+        <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/content/datatables/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+      </Row>
+      <hr className="mb-5" />
       <Row className="py-3">
         <Col md="12">
           <Card>
             <CardBody>
               <h2 className="h2-responsive pb-4">Datatable CSV Export</h2>
-              <DataTable 
-                striped 
+              <DataTable
+                striped
                 bordered
                 hover
                 data={data}

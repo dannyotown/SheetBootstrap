@@ -24,7 +24,7 @@
   transition: background .5s ease-in-out,padding .5s ease-in-out;
 }
 
-.top-nav-collapse {
+#classicformpage .top-nav-collapse {
   background: #424f95 !important;
 }
 

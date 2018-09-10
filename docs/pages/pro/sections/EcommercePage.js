@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, CardFooter, Fa, Tooltip, Badge, Carousel, CarouselInner, CarouselItem, Button } from 'mdbreact';
 
 class EcommercePage extends Component {
-  
+
   render() {
     return(
       <Container>
+        <Row className="align-items-center mt-5">
+          <h4 className="grey-text" style={{margin: "0px"}}>
+            <strong>eCommerce Sections</strong>
+          </h4>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/sections/e-commerce/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+        </Row>
+        <hr className="mb-5" />
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
           <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
@@ -393,7 +400,7 @@ class EcommercePage extends Component {
               </Card>
             </Col>
           </Row>
-        </section>     
+        </section>
 
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
@@ -587,7 +594,7 @@ class EcommercePage extends Component {
               </Row>
             </CarouselInner>
           </Carousel>
-        </section>   
+        </section>
 
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
@@ -788,7 +795,7 @@ class EcommercePage extends Component {
           <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
           <Row>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <Card>        
+              <Card>
                 <CardBody>
                   <h5 className="mb-4">Basic plan</h5>
                   <div className="d-flex justify-content-center">
@@ -803,7 +810,7 @@ class EcommercePage extends Component {
               </Card>
             </Col>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <Card className="purple-gradient">        
+              <Card className="purple-gradient">
                 <CardBody className="white-text">
                   <h5 className="mb-4">Premium plan</h5>
                   <div className="d-flex justify-content-center">
@@ -818,7 +825,7 @@ class EcommercePage extends Component {
               </Card>
             </Col>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <Card>        
+              <Card>
                 <CardBody>
                   <h5 className="mb-4">Advanced plan</h5>
                   <div className="d-flex justify-content-center">
@@ -841,7 +848,7 @@ class EcommercePage extends Component {
           <p className="grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
           <Row>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <Card>        
+              <Card>
                 <CardBody>
                   <h5 className="mb-4">Basic plan</h5>
                   <div className="d-flex justify-content-center">
@@ -856,7 +863,7 @@ class EcommercePage extends Component {
               </Card>
             </Col>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <Card className="indigo">        
+              <Card className="indigo">
                 <CardBody className="white-text">
                   <h5 className="mb-4">Premium plan</h5>
                   <div className="d-flex justify-content-center">
@@ -871,7 +878,7 @@ class EcommercePage extends Component {
               </Card>
             </Col>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <Card>        
+              <Card>
                 <CardBody>
                   <h5 className="mb-4">Advanced plan</h5>
                   <div className="d-flex justify-content-center">
