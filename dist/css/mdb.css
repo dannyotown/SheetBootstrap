@@ -10158,7 +10158,7 @@ button.mdb-autocomplete-clear {
     color: #626262; }
 
 .accordion-gradient-bcg {
-  background: linear-gradient(to 45deg, rgba(234, 21, 129, 0.6), rgba(10, 23, 187, 0.6) 100%); }
+  background: linear-gradient(45deg, rgba(234, 21, 129, 0.6), rgba(10, 23, 187, 0.6) 100%); }
 
 .accordion.md-accordion.accordion-1 p, .accordion.md-accordion.accordion-2 p, .accordion.md-accordion.accordion-3 p, .accordion.md-accordion.accordion-4 p, .accordion.md-accordion.accordion-5 p {
   font-size: 1rem; }
