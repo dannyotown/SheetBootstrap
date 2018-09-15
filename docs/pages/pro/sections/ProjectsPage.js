@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, View, Mask, CardBody, Button, Fa, Card } from 'mdbreact';
+import DocsLink from '../../DocsLink';
 
 class ProjectsPage extends Component {
   render() {
     return(
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Project Sections</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/sections/projects/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
-
+        <DocsLink title="Project Sections" href="https://mdbootstrap.com/react/sections/projects/" />
         <section className="text-center my-5">
 
           <h2 className="h1-responsive font-weight-bold my-5">Our best projects</h2>

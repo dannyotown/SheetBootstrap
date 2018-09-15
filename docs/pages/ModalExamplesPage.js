@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, Row, Input, Fa, Badge, Col, Table, TableBody, TableHead, Select, SelectOption, SelectOptions, SelectInput, CollapseHeader, Card, Collapse, CardBody, Carousel, CarouselInner, CarouselItem } from 'mdbreact';
 import './ModalExamplesPage.css';
+import DocsLink from './DocsLink';
 
 class ModalPage extends React.Component {
   constructor(props) {
@@ -47,13 +48,7 @@ class ModalPage extends React.Component {
     let { accordion } = this.state;
     return (
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Modal Templates & Examples</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/modals/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Modal Templates & Examples" href="https://mdbootstrap.com/react/advanced/modals/" />
         <h4 className="mt-4">Modal Cookies</h4>
         <Row>
           <Button onClick={() => this.toggle(1)}>Launch Modal</Button>

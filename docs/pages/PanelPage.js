@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem, CardHeader, CardFooter, Button, Col, Row, Nav, NavItem, NavLink, CardGroup, Jumbotron, Fa, Container } from 'mdbreact';
+import DocsLink from './DocsLink';
 
 function PanelPage() {
 
   const panelStyle={width: '22rem', marginTop: '1rem'}
   return(
     <Container>
-      <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Panels</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/panels/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-      </Row>
-      <hr className="mb-5" />
+      <DocsLink title="Panels" href="https://mdbootstrap.com/react/components/panels/" />
       <section className="m-5">
         <h2 className="mt-5">Basic example</h2>
         <Card className="card-body" style={panelStyle}>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Collapse, Card, CardBody, CollapseHeader, Row, Fa } from 'mdbreact';
+import { Container, Collapse, Card, CardBody, CollapseHeader } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class CollapsePage extends Component {
   constructor(props) {
@@ -16,13 +17,7 @@ class CollapsePage extends Component {
     const {collapseID} = this.state;
     return (
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Accordion PRO</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/collapse/#accordion"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Accordion PRO" href="https://mdbootstrap.com/react/advanced/collapse/#accordion" />
         <Container className="md-accordion mt-5">
           <Card className="mt-3">
             <CollapseHeader onClick={this.toggleCollapse('collapse1')}>Collapsible Group Item #1

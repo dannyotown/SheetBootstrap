@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, Fa } from 'mdbreact';
+import { Container, Row, Col } from 'mdbreact';
 import Lightbox from 'react-image-lightbox';
+import DocsLink from '../DocsLink';
 
 const images = [
   'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg',
@@ -40,13 +41,7 @@ class LightboxPage extends React.Component  {
     const { photoIndex, isOpen } = this.state;
     return(
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Multi-item Carousel</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/lightbox/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Lightbox" href="https://mdbootstrap.com/react/advanced/lightbox/" />
         <Container className="mt-5">
           <div className="mdb-lightbox no-margin">
             <Row>

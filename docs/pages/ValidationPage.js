@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Fa } from 'mdbreact';
+import { Container, Row, Col } from 'mdbreact';
+import DocsLink from './DocsLink';
 
 class FormsPage extends React.Component  {
 
@@ -24,13 +25,7 @@ class FormsPage extends React.Component  {
   render() {
     return(
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Form Validation</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/form-validation/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Form Validation" href="https://mdbootstrap.com/react/components/form-validation/" />
         <Row>
           <Col md="">
             <form className='needs-validation' onSubmit={this.submitHandler} noValidate>

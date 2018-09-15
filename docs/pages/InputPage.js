@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, InputNumeric, FormInline, Button, Container, Row, Col, Fa } from 'mdbreact';
+import DocsLink from './DocsLink';
 
 class InputPage extends React.Component {
   constructor(props) {
@@ -26,13 +27,7 @@ class InputPage extends React.Component {
   render() {
     return (
       <Container className="mt-5">
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Inputs</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/inputs/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Inputs" href="https://mdbootstrap.com/react/components/inputs/" />
         <Container style={{textAlign: 'initial'}}>
           <div>
 

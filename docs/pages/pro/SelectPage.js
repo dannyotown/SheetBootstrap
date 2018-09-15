@@ -1,5 +1,6 @@
 import React from 'react';
-import { Select, SelectInput, MDBSelectInput, SelectOptions, MDBSelectOption, SelectOption, Row, Fa, Container } from 'mdbreact';
+import { Select, SelectInput, MDBSelectInput, SelectOptions, SelectOption, Container } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class SelectPage extends React.Component {
   // build function for your selects, and pass it as getValue property to reed the select's value
@@ -10,17 +11,10 @@ class SelectPage extends React.Component {
   render() {
     return(
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Select</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/select/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Select" href="https://mdbootstrap.com/react/advanced/select/" />
         <h4 className="my-4 indigo-text"><strong>Basic example</strong></h4>
         <div className="row">
           <div className="col-md-6">
-
             <Select getValue={this.getValueOfSelect} getTextContent={this.getValueOfSelect}>
               <SelectInput selected="Choose your option"></SelectInput>
               <SelectOptions>
@@ -33,7 +27,6 @@ class SelectPage extends React.Component {
               </SelectOptions>
             </Select>
             <label>Example label</label>
-
           </div>
         </div>
         <h4 className="my-4 teal-text"><strong>Multiple select</strong></h4>

@@ -94,6 +94,7 @@ import FooterPagePro from './pages/pro/FooterPage';
 import TableEditable from './pages/pro/TableEditablePage';
 import DatatableCsvPage from './pages/pro/DatatableCsvPage'
 import ModalFormProPage from './pages/pro/ModalFormPage';
+import HabmburgerMenuPage from './pages/pro/HabmburgerMenuPage'
 
 
 class Routes extends React.Component {
@@ -166,6 +167,7 @@ class Routes extends React.Component {
         <Route path='/components/pro/progress' component={ProgressPagePro} />
         <Route path='/advanced/pro/scrollbar' component={ScrollBarPage} />
         <Route path='/navigation/pro/scrollspy' component={ScrollSpyPage} />
+        <Route path='/navigation/pro/hamburger-menu' component={HabmburgerMenuPage} />
         <Route path='/advanced/pro/sticky' component={StickyPage} />
         <Route path='/components/pro/tabs' component={TabsPage} />
         <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />

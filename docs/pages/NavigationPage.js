@@ -28,6 +28,9 @@ class ComponentsPage extends React.Component {
                 <NavLink className="list-group-item list-group-item-action" to="/navigation/pro/footer">
                   <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">Footer<Fa icon="angle-right" /></h5>
                 </NavLink>
+                <NavLink className="list-group-item list-group-item-action" to="/navigation/pro/hamburger-menu">
+                  <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">Hamburger Menu<Fa icon="angle-right" /></h5>
+                </NavLink>
                 <NavLink className="list-group-item list-group-item-action" to="/navigation/pro/scrollspy">
                   <h5 style={{margin: "0"}} className="justify-content-between d-flex align-items-center">ScrollSpy<Fa icon="angle-right" /></h5>
                 </NavLink>

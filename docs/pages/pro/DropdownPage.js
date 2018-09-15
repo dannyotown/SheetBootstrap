@@ -1,18 +1,13 @@
 import React from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container, Row, Fa } from 'mdbreact';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class DropdownPage extends React.Component {
 
   render() {
     return (
     <Container>
-      <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Material Dropdowns</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/dropdowns/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-      </Row>
-      <hr className="mb-5" />
+      <DocsLink title="Material Dropdowns" href="https://mdbootstrap.com/react/components/dropdowns/" />
       <div className="container">
         <Dropdown>
           <DropdownToggle caret  color="primary">

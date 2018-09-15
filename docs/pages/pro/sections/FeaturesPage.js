@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Fa, Button } from 'mdbreact';
+import DocsLink from '../../DocsLink';
 
 class FeaturesPage extends Component {
   render() {
     return(
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Features Sections</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/sections/features/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
-
+        <DocsLink title="Features Sections" href="https://mdbootstrap.com/react/sections/features/" />
         <section className="text-center my-5">
-
           <h2 className="h1-responsive font-weight-bold my-5">Why is it so great?</h2>
           <p className="lead grey-text w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-
           <Row>
             <Col md="4">
               <Fa icon="area-chart" size="3x" className="red-text"/>

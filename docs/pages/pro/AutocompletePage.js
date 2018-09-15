@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Autocomplete, Row, Col, Input, Button, Card, CardBody, Modal, ModalHeader, ModalBody, ModalFooter, Fa } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 const states = [
   "Alabama",
@@ -292,15 +293,8 @@ class AutocompletePage extends React.Component {
     const smallStyle = { fontSize: '0.8rem'}
     return (
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Autocomplete</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/autocomplete/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Autocomplete" href="https://mdbootstrap.com/react/advanced/autocomplete/" />
         <section style={{paddingLeft: 200, paddingRight: 200}}>
-
           <Autocomplete
             data = {states}
             label="Choose your favorite state"

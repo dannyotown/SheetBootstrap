@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col, Card, CardBody, Mask, Fa, View, Badge} from 'mdbreact';
+import DocsLink from '../../DocsLink';
 
 const MagazinePage = () =>  {
 
@@ -7,13 +8,7 @@ const MagazinePage = () =>  {
 
   return(
     <Container style={{maxWidth: '80%'}}>
-      <Row className="align-items-center mt-5">
-        <h4 className="grey-text" style={{margin: "0px"}}>
-          <strong>Magazine Sections</strong>
-        </h4>
-        <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/sections/magazine/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-      </Row>
-      <hr className="mb-5" />
+      <DocsLink title="Magazine Sections" href="https://mdbootstrap.com/react/sections/magazine/" />
       <Card className="my-5 px-5 mx-auto" style={{fontWeight: 300, maxWidth: '90%'}}>
         <CardBody style={{paddingTop:0}}>
           <h2 className="h1-responsive font-weight-bold my-5 text-center">Section title</h2>

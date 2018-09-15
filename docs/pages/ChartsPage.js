@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line, Bar, Radar, Pie, Doughnut, Polar } from 'react-chartjs-2';
-import { Container, Row, Fa } from 'mdbreact';
+import { Container } from 'mdbreact';
+import DocsLink from './DocsLink';
 
 // LineChart
 const dataLine = {
@@ -136,12 +137,7 @@ class ChartsPage extends React.Component {
   render() {
     return (
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Charts</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/charts/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
+        <DocsLink title="Charts" href="https://mdbootstrap.com/react/advanced/charts/" />
         <div>
           <h3 className="mt-5">Line chart</h3>
           <Line data={dataLine} options={{responsive: true }} />

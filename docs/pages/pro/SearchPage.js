@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Container, FormInline, Button, Navbar, NavbarBrand, Collapse, NavbarToggler, NavbarNav, NavItem, NavLink, Fa, Select, SelectInput, SelectOptions, SelectOption, Row  } from 'mdbreact';
+import { Container, FormInline, Button, Navbar, NavbarBrand, Collapse, NavbarToggler, NavbarNav, NavItem, NavLink, Fa, Select, SelectInput, SelectOptions, SelectOption } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class SearchPagePro extends React.Component {
   constructor(props) {
@@ -41,13 +42,7 @@ class SearchPagePro extends React.Component {
     return (
       <Router>
         <Container>
-          <Row className="align-items-center mt-5">
-            <h4 className="grey-text" style={{margin: "0px"}}>
-              <strong>Search</strong>
-            </h4>
-            <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/search/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-          </Row>
-          <hr className="mb-5" />
+          <DocsLink title="Search" href="https://mdbootstrap.com/react/components/search/" />
           <FormInline className="md-form mr-auto mb-4">
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
             <Button gradient="aqua" rounded size="sm" type="submit" className="mr-auto">Search</Button>

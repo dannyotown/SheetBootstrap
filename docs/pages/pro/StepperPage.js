@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Stepper, Step, Fa, Button, Card, CardBody, Input } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class StepperPage extends React.Component {
   constructor(props) {
@@ -41,13 +42,7 @@ class StepperPage extends React.Component {
   render() {
     return(
       <Container>
-        <Row className="align-items-center mt-5">
-            <h4 className="grey-text" style={{margin: "0px"}}>
-              <strong>Steppers</strong>
-            </h4>
-            <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/steppers/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Steppers" href="https://mdbootstrap.com/react/components/steppers/" />
         <Container className="mt-5">
           <h2>Horizontal stepper</h2>
           <Stepper>

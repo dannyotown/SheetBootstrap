@@ -1,18 +1,13 @@
 import React from 'react';
 import { CirclePie } from 'salad-ui.chart';
 import { Container, Row, Col, Fa } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class ChartsPagePro extends React.Component {
   render() {
     return (
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Minimalist charts</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/charts/#usage-minimalist"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Minimalist charts" href="https://mdbootstrap.com/react/advanced/charts/#usage-minimalist" />
         <div style={{marginTop: '100px'}}>
           <Container>
             <Row className="text-center">

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Fa, ButtonFixed, ButtonFixedItem, Container, Row } from 'mdbreact';
+import { Button, Fa, ButtonFixed, ButtonFixedItem, Container } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class ButtonPage extends React.Component {
  constructor(props) {
@@ -22,13 +23,7 @@ class ButtonPage extends React.Component {
   render() {
     return(
       <Container>
-        <Row className="align-items-center mt-5">
-            <h4 className="grey-text" style={{margin: "0px"}}>
-              <strong>Buttons</strong>
-            </h4>
-            <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/buttons/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Buttons" href="https://mdbootstrap.com/react/components/buttons/" />
         <div className="container-fluid text-center mt-5">
           <section id="top-section">
             <Button rounded>Rounded Default</Button>

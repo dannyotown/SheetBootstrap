@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Col, Chip, Card, ChipsInput, Row, Fa } from 'mdbreact';
+import { Container, Chip, Card, ChipsInput } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class ChipsPage extends React.Component {
   constructor(props) {
@@ -82,14 +83,8 @@ class ChipsPage extends React.Component {
     } = this.state;
 
     return (
-    <Container>
-        <Row className="align-items-center mt-5">
-            <h4 className="grey-text" style={{margin: "0px"}}>
-              <strong>Chips</strong>
-            </h4>
-            <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/badges/#chips-avatars"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+      <Container>
+        <DocsLink title="Chips" href="https://mdbootstrap.com/react/components/badges/#chips-avatars" />
         <Container>
           <h2 className="my-3">Chips with avatars</h2>
 

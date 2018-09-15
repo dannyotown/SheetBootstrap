@@ -1,18 +1,11 @@
 import React from 'react';
-import { Media, Row, Fa, Container } from 'mdbreact';
-
-
+import { Media, Container } from 'mdbreact';
+import DocsLink from './DocsLink';
 
 const MediaPage = (props) => {
   return(
   <Container>
-    <Row className="align-items-center mt-5">
-        <h4 className="grey-text" style={{margin: "0px"}}>
-          <strong>Media Object</strong>
-        </h4>
-        <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/layout/media/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-    </Row>
-    <hr className="mb-5" />
+    <DocsLink title="Media Object" href="https://mdbootstrap.com/react/layout/media/" />
     <div className="container-fluid mt-4">
       <div className="">
         <Media>

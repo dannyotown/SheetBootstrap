@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import './alerts.css';
-import { Container, Fa, Row } from 'mdbreact';
+import { Container } from 'mdbreact';
+import DocsLink from './DocsLink';
 
 const AlertPage = () =>  {
 
@@ -31,13 +32,7 @@ const AlertPage = () =>  {
 
   return (
     <Container>
-      <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Alerts</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-      </Row>
-      <hr className="mb-5" />
+      <DocsLink title="Alerts" href="https://mdbootstrap.com/react/components/alerts/" />
       <div>
         <button className='btn btn-info'
           onClick={notify('info')}>Info

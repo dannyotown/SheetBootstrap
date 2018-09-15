@@ -71,6 +71,8 @@ import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
 import { toast, ToastContainer, cssTransition} from 'react-toastify';
+import HamburgerButton from './components/HamburgerButton';
+
 // PRO
 import Autocomplete from './components/pro/Autocomplete';
 import Avatar from './components/pro/Avatar';
@@ -302,6 +304,7 @@ export {
   toast,
   ToastContainer,
   cssTransition,
+  HamburgerButton,
   // PRO
   Autocomplete,
   Avatar,

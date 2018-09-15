@@ -1,5 +1,6 @@
 import React from 'react';
-import { Sticky, StickyContainer, Container, Row, Fa } from 'mdbreact';
+import { Sticky, StickyContainer, Container } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class StickyPage extends React.Component {
   render() {
@@ -11,13 +12,7 @@ class StickyPage extends React.Component {
     const article = { width: '458px', padding: '0 20px', borderLeft: '1px solid #ccc', borderRight: '1px solid #ccc',float: 'left'}
     return(
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Sticky</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/react-sticky/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Sticky" href="https://mdbootstrap.com/react/advanced/react-sticky/" />
         <div style={wrapper} className="mt-4">
         <div style={background}>
           <div style={mainWrapper}>

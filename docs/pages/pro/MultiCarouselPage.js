@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import { Carousel, CarouselInner, CarouselItem, Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, Button, Fa } from 'mdbreact';
+import { Carousel, CarouselInner, CarouselItem, Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, Button } from 'mdbreact';
+import DocsLink from '../DocsLink';
 
 class MultiCarouselPage extends Component {
 
   render(){
     return(
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Multi-item Carousel</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/carousel/#multi-item"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Multi-item Carousel" href="https://mdbootstrap.com/react/advanced/carousel/#multi-item" />
         <Carousel
           activeItem={1}
           length={3}

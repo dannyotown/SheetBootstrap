@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, Popover, PopoverBody, PopoverHeader, Tooltip, Row, Col, Input, Fa } from 'mdbreact';
-
+import DocsLink from './DocsLink';
 
 class ModalPage extends React.Component {
   constructor(props) {
@@ -54,11 +54,12 @@ class ModalPage extends React.Component {
   render() {
     return (
       <Container>
+        <DocsLink title="Modal" href="https://mdbootstrap.com/react/advanced/modals/" />
         <Row className="align-items-center mt-5">
           <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Modal</strong>
+            <strong></strong>
           </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/modals/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
+          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href=""><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
         </Row>
         <hr className="mb-5" />
         <Button color="danger" onClick={() => this.toggle(1)} >Modal</Button>

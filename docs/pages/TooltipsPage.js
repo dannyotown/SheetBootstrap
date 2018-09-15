@@ -1,21 +1,13 @@
 import React from 'react';
-import { Tooltip, Container, Row, Fa } from 'mdbreact';
-
+import { Tooltip, Container } from 'mdbreact';
+import DocsLink from './DocsLink';
 
 class TooltipsPage extends React.Component {
-
-
   render() {
     const style = {display: 'inline-block', maxWidth: '50vh'}
     return (
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Tooltips</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/tooltips/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink title="Tooltips" href="https://mdbootstrap.com/react/advanced/tooltips/" />
         <div className="m-5 text-center">
           <Tooltip
             placement="top"
