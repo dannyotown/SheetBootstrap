@@ -9,9 +9,6 @@ class HamburgerButton extends React.Component {
         checked: this.props.isOpen || false
     }
 
-    checkHandler = () => {
-console.log('saljdnasnd')    }
-  
     render() {
     let {
         id,
@@ -26,8 +23,8 @@ console.log('saljdnasnd')    }
     );
 
     return (
-        <React.Fragment >
-            <input type="checkbox"  className="hamburger-button__checkbox" id={id} />
+        <React.Fragment>
+            <input type="checkbox" defaultChecked={this.state.checked} onChange={this.props.onClick} className="hamburger-button__checkbox" id={id} />
             <label id="nav-icon1" className="hamburger-button__button" htmlFor={id}>
                 <span style={{background: color}}></span>
                 <span style={{background: color}}></span>
@@ -39,7 +36,7 @@ console.log('saljdnasnd')    }
 }
 
 HamburgerButton.propTypes = {
-id: PropTypes.string,   
+id: PropTypes.string,
   color: PropTypes.string,
   className: PropTypes.string
 };

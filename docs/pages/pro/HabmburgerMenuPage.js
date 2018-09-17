@@ -7,6 +7,9 @@ class NavbarPage extends React.Component {
   constructor(props) {
     super(props),
     this.state = {
+      collapse1: false,
+      collapse2: true,
+      collapse3: false,
       collapseID: ''
     };
   }
@@ -15,10 +18,17 @@ class NavbarPage extends React.Component {
     this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
   }
 
+  toggleSingleCollapse = collapseId => {
+    this.setState({
+      ...this.state,
+      [collapseId]: !this.state[collapseId]
+    })
+  }
+
   render() {
     return (
       <Container>
-        <DocsLink title="Hamburger Menu" href="https://mdbootstrap.com/react/components/navbar/" />          
+        <DocsLink title="Hamburger Menu" href="https://mdbootstrap.com/react/components/navbar/" />
         <Router>
           <div style={{height: '1200px'}}>
             <Navbar color="amber lighten-4" style={{marginTop: '20px'}} light>
@@ -26,10 +36,8 @@ class NavbarPage extends React.Component {
                 <NavbarBrand>
                  Navbar
                 </NavbarBrand>
-                <NavbarToggler tag="button" onClick={this.toggleCollapse('navbarCollapse17')}>
-                  <HamburgerButton color="#d3531a"  id="hamburger1" />
-                </NavbarToggler>
-                <Collapse id="navbarCollapse17" isOpen={this.state.collapseID} navbar>
+                <HamburgerButton color="#d3531a" id="hamburger1" onClick={() => this.toggleSingleCollapse('collapse1')} />
+                <Collapse isOpen={this.state.collapse1} navbar>
                   <NavbarNav left>
                     <NavItem active>
                       <NavLink to="#!">Home</NavLink>
@@ -50,10 +58,8 @@ class NavbarPage extends React.Component {
                 <NavbarBrand className="white-text">
                  Navbar
                 </NavbarBrand>
-                <NavbarToggler tag="button" onClick={this.toggleCollapse('navbarCollapse18')}>
-                  <HamburgerButton isOpen={this.state.isOpen} id="hamburger2" />
-                </NavbarToggler>
-                <Collapse id="navbarCollapse18" isOpen={this.state.collapseID} navbar>
+                <HamburgerButton onClick={() => this.toggleSingleCollapse('collapse2')} isOpen={true} id="hamburger2" />
+                <Collapse isOpen={this.state.collapse2} navbar>
                   <NavbarNav left>
                     <NavItem active>
                       <NavLink to="#!">Home</NavLink>
@@ -74,10 +80,8 @@ class NavbarPage extends React.Component {
                 <NavbarBrand className="white-text">
                  Navbar
                 </NavbarBrand>
-                <NavbarToggler tag="button" onClick={this.toggleCollapse('navbarCollapse19')}>
-                  <HamburgerButton id="hamburger3" />
-                </NavbarToggler>
-                <Collapse id="navbarCollapse19" isOpen={this.state.collapseID} navbar>
+                <HamburgerButton onClick={() => this.toggleSingleCollapse('collapse3')}  id="hamburger3" />
+                <Collapse isOpen={this.state.collapse3} navbar>
                   <NavbarNav left>
                     <NavItem active>
                       <NavLink to="#!">Home</NavLink>
@@ -321,7 +325,7 @@ class NavbarPage extends React.Component {
                 <NavbarToggler tag="button" className="peach-gradient" onClick={this.toggleCollapse('navbarCollapse12')}>
                   <span className="white-text">
                     <Fa icon="bars" />
-                  </span> 
+                  </span>
                 </NavbarToggler>
                 <Collapse id="navbarCollapse12" isOpen={this.state.collapseID} navbar>
                   <NavbarNav left>
@@ -347,7 +351,7 @@ class NavbarPage extends React.Component {
                 <NavbarToggler tag="button" className="aqua-gradient" onClick={this.toggleCollapse('navbarCollapse13')}>
                   <span className="white-text">
                     <Fa icon="bars" />
-                  </span> 
+                  </span>
                 </NavbarToggler>
                 <Collapse id="navbarCollapse13" isOpen={this.state.collapseID} navbar>
                   <NavbarNav left>
@@ -373,7 +377,7 @@ class NavbarPage extends React.Component {
                 <NavbarToggler tag="button" className="purple-gradient" onClick={this.toggleCollapse('navbarCollapse14')}>
                   <span className="white-text">
                     <Fa icon="bars" />
-                  </span> 
+                  </span>
                 </NavbarToggler>
                 <Collapse id="navbarCollapse14" isOpen={this.state.collapseID} navbar>
                   <NavbarNav left>
@@ -399,7 +403,7 @@ class NavbarPage extends React.Component {
                 <NavbarToggler tag="button" className="blue-gradient" onClick={this.toggleCollapse('navbarCollapse15')}>
                   <span className="white-text">
                     <Fa icon="bars" />
-                  </span> 
+                  </span>
                 </NavbarToggler>
                 <Collapse id="navbarCollapse15" isOpen={this.state.collapseID} navbar>
                   <NavbarNav left>
@@ -416,7 +420,7 @@ class NavbarPage extends React.Component {
                 </Collapse>
               </Container>
             </Navbar>
-            
+
           </div>
         </Router>
       </Container>
