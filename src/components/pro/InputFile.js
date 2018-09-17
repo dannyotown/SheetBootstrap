@@ -7,7 +7,7 @@ class InputFile extends React.Component {
     super(props);
     this.state = {
       files: false
-    }
+    };
     this.fileChange = this.fileChange.bind(this);
   }
 
@@ -38,8 +38,7 @@ class InputFile extends React.Component {
       btnTitle,
       btnColor,
       textFieldTitle,
-      multiple,
-      ...attributes
+      multiple
     } = this.props;
 
     const btnClass = classNames(
@@ -58,11 +57,11 @@ class InputFile extends React.Component {
       <form>
         <div className="file-field md-form">
           <div className={btnClass}>
-            <span>{this.props.btnTitle}</span>
-            <input multiple={this.props.multiple} onChange={this.onChangeHandler} type="file" />
+            <span>{btnTitle}</span>
+            <input multiple={multiple} onChange={this.onChangeHandler} type="file" />
           </div>
           <div className="file-path-wrapper">
-            <input className={inputFieldClass} type="text" placeholder={this.state.files ? this.state.files : this.props.textFieldTitle} />
+            <input className={inputFieldClass} type="text" placeholder={this.state.files ? this.state.files : textFieldTitle} />
           </div>
         </div>
       </form>
@@ -79,9 +78,9 @@ InputFile.propTypes = {
 };
 
 InputFile.defaultProps = {
-  btnTitle: "Choose file",
-  textFieldTitle: "Upload your file",
-  btnColor: "primary"
+  btnTitle: 'Choose file',
+  textFieldTitle: 'Upload your file',
+  btnColor: 'primary'
 };
 
 export default InputFile;

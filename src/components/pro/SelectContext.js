@@ -15,6 +15,6 @@ const selectContextHOC = Component =>
         </SelectContext.Consumer>
       );
     }
-}
+  };
 
 export default selectContextHOC;

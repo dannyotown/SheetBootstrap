@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, browserHistory } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import NavigationPage from './pages/NavigationPage';
 import FormsNavPage from './pages/FormsNavPage';
@@ -92,9 +92,9 @@ import CardsPagePro from'./pages/pro/CardsPage';
 import SearchPagePro from './pages/pro/SearchPage';
 import FooterPagePro from './pages/pro/FooterPage';
 import TableEditable from './pages/pro/TableEditablePage';
-import DatatableCsvPage from './pages/pro/DatatableCsvPage'
+import DatatableCsvPage from './pages/pro/DatatableCsvPage';
 import ModalFormProPage from './pages/pro/ModalFormPage';
-import HabmburgerMenuPage from './pages/pro/HabmburgerMenuPage'
+import HabmburgerMenuPage from './pages/pro/HabmburgerMenuPage';
 
 
 class Routes extends React.Component {

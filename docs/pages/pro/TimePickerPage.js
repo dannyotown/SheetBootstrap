@@ -15,6 +15,6 @@ class TimePickerPage extends React.Component  {
       </Container>
     );
   }
-};
+}
 
 export default TimePickerPage;

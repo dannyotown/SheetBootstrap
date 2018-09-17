@@ -23,7 +23,7 @@ class TabContent extends React.Component {
       activeItemId: this.state.activeItem
     };
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (this.state.activeItem !== nextProps.activeItem) {
       this.setState({
         activeItem: nextProps.activeItem
@@ -33,8 +33,7 @@ class TabContent extends React.Component {
 
   render() {
     const {
-      className,
-      tabId
+      className
     } = this.props;
 
     const attributes = omit(this.props, Object.keys(propTypes));

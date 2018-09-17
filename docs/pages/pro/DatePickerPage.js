@@ -12,9 +12,9 @@ class DatePickerPage extends React.Component  {
       <Container>
         <DocsLink title="Date Picker" href="https://mdbootstrap.com/react/advanced/datepicker/" />
         <MDBDatePicker getValue={this.getPickerValue} />
-       </Container>
+      </Container>
     );
   }
-};
+}
 
 export default DatePickerPage;

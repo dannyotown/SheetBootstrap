@@ -1,27 +1,24 @@
-import React from 'react';
+  import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Fa, Button, View, Container, FormInline } from 'mdbreact';
-import './AppPage.css'
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Button, View, Container, FormInline } from 'mdbreact';
+import './AppPage.css';
 
 
 class AppPage extends React.Component {
-  constructor(props) {
-    super(props),
-    this.state ={
-      collapsed: false,
-    };
-    this.handleTogglerClick = this.handleTogglerClick.bind(this);
+
+  state = {
+    collapsed: false
   }
 
-  handleTogglerClick(){
+  handleTogglerClick = () => {
     this.setState({
       collapsed: !this.state.collapsed
     });
   }
 
   render() {
-    const navStyle = { marginTop: '4rem' }
-    const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleTogglerClick}/>
+    const navStyle = { marginTop: '4rem' };
+    const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.handleTogglerClick}/>;
     return (
       <div id="apppage">
         <Router>
@@ -74,7 +71,7 @@ class AppPage extends React.Component {
                   <Button outline color="white">Learn More</Button>
                 </div>
                 <Col md="6" xl="5" className="mt-xl-5">
-                  <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" className="img-fluid" />
+                  <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png" alt="" className="img-fluid" />
                 </Col>
               </Row>
             </Container>
@@ -93,6 +90,6 @@ class AppPage extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default AppPage;

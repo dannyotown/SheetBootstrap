@@ -70,7 +70,7 @@ class SideNavCat extends React.Component {
           {...attributes}
         >
           { icon &&
-            <i className = { "fa fa-" + icon }>&nbsp;</i>
+            <i className = { 'fa fa-' + icon }>&nbsp;</i>
           }
           {name}
           <i className = "fa fa-angle-down rotate-icon"></i>
@@ -102,7 +102,7 @@ SideNavCat.propTypes = {
 };
 
 SideNavCat.defaultProps = {
-  tag: 'li',
+  tag: 'li'
 };
 
 export default SideNavCat;

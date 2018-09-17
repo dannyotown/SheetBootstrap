@@ -7,15 +7,15 @@ const ProgressPage = (props) => {
     <Container>
       <DocsLink title="Progress Bar" href="https://mdbootstrap.com/react/components/progress-bars/" />
       <div className="container-fluid text-center">
-          <div className="col-3">
-            <Spinner green small />
-          </div>
-          <div className="col-4">
-            <Spinner yellow />
-          </div>
-          <div className="col-5">
-            <Spinner crazy big multicolor />
-          </div>
+        <div className="col-3">
+          <Spinner green small />
+        </div>
+        <div className="col-4">
+          <Spinner yellow />
+        </div>
+        <div className="col-5">
+          <Spinner crazy big multicolor />
+        </div>
       </div>
     </Container>
   );

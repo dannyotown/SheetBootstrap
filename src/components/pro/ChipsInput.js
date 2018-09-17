@@ -10,7 +10,7 @@ class ChipsInput extends Component {
       chipsList: this.props.chips,
       inputValue: '',
       isTouched: false,
-      isReadyToDelete: false,
+      isReadyToDelete: false
     };
     this.inputRef = React.createRef();
   }
@@ -18,7 +18,7 @@ class ChipsInput extends Component {
   handleClick =() => {
     this.setState({
       isTouched: true
-    })
+    });
     this.inputRef.current.focus();
   }
 
@@ -26,7 +26,7 @@ class ChipsInput extends Component {
     this.setState({
       inputValue: e.target.value,
       isReadyToDelete: false
-    })
+    });
   }
 
   handleEnter = (e) => {
@@ -34,49 +34,49 @@ class ChipsInput extends Component {
     const newChipString = this.inputRef.current.value;
 
     // 2) upon pressing Enter:
-    if (e.which == 13) {
+    if (e.which === 13) {
 
       // 3) if the string is empty or consists only of spaces: return
       if (/^ *$/.test(newChipString)) {
-        return
+        return;
       }
 
       // 3.5) of the string is already in the array, delete input value and return
       if (this.state.chipsList.includes(newChipString)) {
         this.setState({
           inputValue: ''
-        })
-        return
+        });
+        return;
       }
 
       // 4) else: add the input value to the array and reset it on input:
       this.setState({
         inputValue: '',
         chipsList: [...this.state.chipsList, newChipString]
-      })
+      });
     }
 
     // 5) in case the keyboard events caused the input to be empty, prepare to delete chips:
-    if ( this.state.inputValue == '') {
+    if ( this.state.inputValue === '') {
       this.setState({
         isReadyToDelete: true
-      })
+      });
     }
   }
 
   handleBackspace = (e) => {
     // 1) if the input is already empty (is ready to delete chips) and Backspace is pressed:
-    if (this.state.isReadyToDelete && e.which == 8) {
+    if (this.state.isReadyToDelete && e.which === 8) {
       // 2) grab the array
-      const array = this.state.chipsList
+      const array = this.state.chipsList;
 
       // 3) delete its last element
-      const popTheArray = array.pop();
+      // const popTheArray = array.pop();
 
       // 4) and update the state with the new array.
       this.setState({
         chipsList: array
-      })
+      });
     }
   }
 
@@ -93,14 +93,14 @@ class ChipsInput extends Component {
 
     // 4) update state with the new chips list.
     this.setState({
-        chipsList: currentChipsList
-    })
+      chipsList: currentChipsList
+    });
   }
 
   handleOutsideClick = () => {
     this.setState({
       isTouched: false
-    })
+    });
   }
 
   render() {
@@ -122,24 +122,24 @@ class ChipsInput extends Component {
     const renderedChips = this.state.chipsList.map((chip)=>{
       return (
         <Chip close
-              handleClose={this.handleClose(chip)}
-              key={chip.toString()}
-              size={chipSize}
-              bgColor={chipColor}
-              text={chipText}
-              gradient={chipGradient}
-              waves={chipWaves}
-            >
-            {chip}
+          handleClose={this.handleClose(chip)}
+          key={chip.toString()}
+          size={chipSize}
+          bgColor={chipColor}
+          text={chipText}
+          gradient={chipGradient}
+          waves={chipWaves}
+        >
+          {chip}
         </Chip>
-      )
-    })
+      );
+    });
 
     let calculatePlaceholder;
     if (this.state.chipsList.length < 1) {
       calculatePlaceholder = placeholder;
     } else {
-      calculatePlaceholder = secondaryPlaceholder
+      calculatePlaceholder = secondaryPlaceholder;
     }
 
     const classes = classNames(
@@ -150,21 +150,21 @@ class ChipsInput extends Component {
 
     return (
       <Tag {...attributes}
-          className={classes}
-          onClick = {this.handleClick}
-          onKeyUp = {this.handleBackspace}
-          >
-            {renderedChips}
-          <input
-            className="input"
-            type = "text"
-            placeholder = {calculatePlaceholder}
-            ref = {this.inputRef}
-            onKeyUp = {this.handleEnter}
-            value = {this.state.inputValue}
-            onChange = {this.handleChange}
-            onBlur = {this.handleOutsideClick}
-          />
+        className={classes}
+        onClick = {this.handleClick}
+        onKeyUp = {this.handleBackspace}
+      >
+        {renderedChips}
+        <input
+          className="input"
+          type = "text"
+          placeholder = {calculatePlaceholder}
+          ref = {this.inputRef}
+          onKeyUp = {this.handleEnter}
+          value = {this.state.inputValue}
+          onChange = {this.handleChange}
+          onBlur = {this.handleOutsideClick}
+        />
       </Tag>
     );
   }
@@ -178,12 +178,12 @@ ChipsInput.propTypes = {
   chipSize: PropTypes.string,
   chipColor: PropTypes.string,
   chipText: PropTypes.string,
-  chipGradient: PropTypes.string,
+  chipGradient: PropTypes.string
 };
 
 ChipsInput.defaultProps = {
   tag: 'div',
-  chips: [],
+  chips: []
 };
 
 export default ChipsInput;

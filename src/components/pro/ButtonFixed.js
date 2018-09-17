@@ -69,17 +69,17 @@ class ButtonFixed extends React.Component {
 
     return (
       <div
-      className={buttonFixedClasses}
-      ref={innerRef}
-      style={{bottom: '45px', right: '24px'}}
-      {...attributes}
+        className={buttonFixedClasses}
+        ref={innerRef}
+        style={{bottom: '45px', right: '24px'}}
+        {...attributes}
       >
         <a
-        href={this.props.topSection ? this.props.topSection : '#'}
-        className={classes}
-        onClick={this.onClick}
-        onMouseDown={ this.handleClick.bind(this) }
-        onTouchStart={ this.handleClick.bind(this) } >
+          href={this.props.topSection ? this.props.topSection : '#'}
+          className={classes}
+          onClick={this.onClick}
+          onMouseDown={ this.handleClick.bind(this) }
+          onTouchStart={ this.handleClick.bind(this) } >
           <Fa icon={this.props.icon} />
           {this.props.disabled ? false : <Waves cursorPos={ this.state.cursorPos } outline={outline} flat={flat} />}
         </a>

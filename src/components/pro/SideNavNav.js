@@ -41,7 +41,7 @@ class SideNavNav extends React.Component {
     const modified = React.Children.map(this.props.children, (child, i) => {
       const updatedChild = React.cloneElement(child, {
         onClick: this.onClick(i),
-        isOpen: accordion == i
+        isOpen: accordion === i
       });
       return updatedChild;
     });
@@ -63,7 +63,7 @@ SideNavNav.propTypes = {
 };
 
 SideNavNav.defaultProps = {
-  tag: 'ul',
+  tag: 'ul'
 };
 
 export default SideNavNav;

@@ -33,7 +33,7 @@ class LightboxPage extends React.Component  {
 
     this.state = {
       photoIndex: 0,
-      isOpen: false,
+      isOpen: false
     };
   }
 
@@ -101,12 +101,12 @@ class LightboxPage extends React.Component  {
               onCloseRequest={() => this.setState({ isOpen: false })}
               onMovePrevRequest={() =>
                 this.setState({
-                  photoIndex: (photoIndex + images.length - 1) % images.length,
+                  photoIndex: (photoIndex + images.length - 1) % images.length
                 })
               }
               onMoveNextRequest={() =>
                 this.setState({
-                  photoIndex: (photoIndex + 1) % images.length,
+                  photoIndex: (photoIndex + 1) % images.length
                 })
               }
             />
@@ -115,6 +115,6 @@ class LightboxPage extends React.Component  {
       </Container>
     );
   }
-};
+}
 
 export default LightboxPage;

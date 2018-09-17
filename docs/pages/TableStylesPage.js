@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Row, Col, Card, CardBody, CardHeader, Input, Table, TableBody, TableHead, Fa  } from 'mdbreact';
+import { Button, Container, Row, Col, Card, CardBody, CardHeader, Input, Table, TableBody, TableHead } from 'mdbreact';
 import DocsLink from './DocsLink';
 
 const TablePage = (props) => {
@@ -351,7 +351,7 @@ const TablePage = (props) => {
                   <i className="fa fa-columns mt-0"></i>
                 </Button>
               </div>
-              <a href="#" className="white-text mx-3">Table name</a>
+              <a href="#!" className="white-text mx-3">Table name</a>
               <div>
                 <Button outline rounded size="sm" color="white" className="px-2">
                   <i className="fa fa-pencil mt-0"></i>

@@ -17,7 +17,7 @@ class Select extends React.Component {
   }
 
   componentDidUpdate(props, state) {
-    if(state.selectValue !== this.state.selectValue && typeof this.props.getValue == 'function') {
+    if(state.selectValue !== this.state.selectValue && typeof this.props.getValue === 'function') {
       this.props.getValue(this.state.selectValue);
       this.props.getTextContent(this.state.selectText);
     }

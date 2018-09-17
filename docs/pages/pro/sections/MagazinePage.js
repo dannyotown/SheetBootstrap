@@ -4,7 +4,7 @@ import DocsLink from '../../DocsLink';
 
 const MagazinePage = () =>  {
 
-  const newsStyle={borderBottom: '1px solid #e0e0e0', marginBottom: '1.5rem'}
+  const newsStyle={borderBottom: '1px solid #e0e0e0', marginBottom: '1.5rem'};
 
   return(
     <Container style={{maxWidth: '80%'}}>
@@ -17,7 +17,7 @@ const MagazinePage = () =>  {
             <Col lg="6" md="12">
               <div style={newsStyle}>
                 <View hover rounded className="z-depth-1-half mb-4">
-                  <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg" alt="Sample image"/>
+                  <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg" alt=""/>
                   <a>
                     <Mask overlay="white-slight" className="waves-light"/>
                   </a>
@@ -34,7 +34,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/photo8.jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/photo8.jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -56,7 +56,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/54.jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/54.jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -78,7 +78,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -101,7 +101,7 @@ const MagazinePage = () =>  {
             <Col lg="6" md="12">
               <div style={newsStyle}>
                 <View hover rounded className="z-depth-1-half mb-4">
-                  <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg" alt="Sample image"/>
+                  <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg" alt="" />
                   <a>
                     <Mask overlay="white-slight" className="waves-light"/>
                   </a>
@@ -118,7 +118,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -140,7 +140,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/48.jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/48.jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -162,7 +162,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(56).jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(56).jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -196,7 +196,7 @@ const MagazinePage = () =>  {
             <Col md="12" lg="6">
               <div className="mb-4">
                 <View hover rounded className="z-depth-1-half mb-4">
-                  <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Slides/1.jpg" alt="Sample image"/>
+                  <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Slides/1.jpg" alt="" />
                   <a>
                     <Mask overlay="white-slight" className="waves-light"/>
                   </a>
@@ -215,7 +215,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(29).jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(29).jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -237,7 +237,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -259,7 +259,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/87.jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/87.jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -281,7 +281,7 @@ const MagazinePage = () =>  {
                 <Row>
                   <Col md="3">
                     <View hover rounded className="z-depth-1-half mb-4">
-                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg" alt="Sample image"/>
+                      <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg" alt="" />
                       <a>
                         <Mask overlay="white-slight" className="waves-light"/>
                       </a>
@@ -316,7 +316,7 @@ const MagazinePage = () =>  {
 
             <Col md="12" lg="4" className="mb-lg-0 mb-5">
               <View hover rounded className="z-depth-1-half mb-4">
-                <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg" alt="Sample image"/>
+                <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg" alt="" />
                 <a>
                   <Mask overlay="white-slight" className="waves-light"/>
                 </a>
@@ -360,7 +360,7 @@ const MagazinePage = () =>  {
 
             <Col md="12" lg="4" className="mb-lg-0 mb-5">
               <View hover rounded className="z-depth-1-half mb-4">
-                <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg" alt="Sample image"/>
+                <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg" alt="" />
                 <a>
                   <Mask overlay="white-slight" className="waves-light"/>
                 </a>
@@ -404,7 +404,7 @@ const MagazinePage = () =>  {
 
             <Col md="12" lg="4" className="mb-lg-0 mb-5">
               <View hover rounded className="z-depth-1-half mb-4">
-                <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg" alt="Sample image"/>
+                <img className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg" alt="" />
                 <a>
                   <Mask overlay="white-slight" className="waves-light"/>
                 </a>
@@ -450,6 +450,6 @@ const MagazinePage = () =>  {
       </Card>
     </Container>
   );
-}
+};
 
 export default MagazinePage;

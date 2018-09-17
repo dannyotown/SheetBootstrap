@@ -6,38 +6,36 @@ import './HamburgerToggler.css';
 class HamburgerToggler extends React.Component {
 
     state={
-        checked: this.props.isOpen || false
+      checked: this.props.isOpen || false
     }
 
     render() {
-    let {
+      let {
         id,
-        isOpen,
         color,
+        className
+      } = this.props;
+
+      const classes = classNames(
+        'hamburger-button__button',
         className,
-        ...attributes
-    } = this.props;
+      );
 
-    const classes = classNames(
-      "hamburger-button__button",
-      className,
-    );
-
-    return (
+      return (
         <React.Fragment>
-            <input type="checkbox" defaultChecked={this.state.checked} onChange={this.props.onClick} className="hamburger-button__checkbox" id={id} />
-            <label id="nav-icon1" className={classes} htmlFor={id}>
-                <span style={{background: color}}></span>
-                <span style={{background: color}}></span>
-                <span style={{background: color}}></span>
-            </label>
+          <input type="checkbox" defaultChecked={this.state.checked} onChange={this.props.onClick} className="hamburger-button__checkbox" id={id} />
+          <label id="nav-icon1" className={classes} htmlFor={id}>
+            <span style={{background: color}}></span>
+            <span style={{background: color}}></span>
+            <span style={{background: color}}></span>
+          </label>
         </React.Fragment>
-    );
-  }
+      );
+    }
 }
 
 HamburgerToggler.propTypes = {
-id: PropTypes.string,
+  id: PropTypes.string,
   color: PropTypes.string,
   className: PropTypes.string
 };

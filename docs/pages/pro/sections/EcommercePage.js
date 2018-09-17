@@ -1067,7 +1067,7 @@ class EcommercePage extends Component {
 
       </Container>
     );
-  };
+  }
 }
 
 export default EcommercePage;

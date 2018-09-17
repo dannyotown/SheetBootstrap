@@ -1,23 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Fa, Button, View, Container } from 'mdbreact';
-import './VideoBackgroundPage.css'
+import './VideoBackgroundPage.css';
 
 
 class VideoBackgroundPage extends React.Component {
-  constructor(props) {
-    super(props),
-    this.state = {
-      collapseID: ''
-    };
+  state = {
+    collapseID: ''
   }
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
 
   render() {
-    const navStyle = { marginTop: '4rem' }
-    const overlay = <div id="sidenav-overlay" style={{ backgroundColor: 'transparent' }} onClick={this.toggleCollapse('navbarCollapse')} />
+    const navStyle = { marginTop: '4rem' };
+    const overlay = <div id="sidenav-overlay" style={{ backgroundColor: 'transparent' }} onClick={this.toggleCollapse('navbarCollapse')} />;
     return (
       <div id="videobackground">
         <Router>
@@ -106,6 +103,6 @@ class VideoBackgroundPage extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default VideoBackgroundPage;

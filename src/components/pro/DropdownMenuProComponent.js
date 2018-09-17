@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { Popper } from 'react-popper';
 import Transition from 'react-motion-ui-pack';
-
-const noFlipModifier = { flip: { enabled: false } };
 
 const DropdownMenuProComponent = (props) => {
   const { isOpen, d_tag, d_tabIndex, d_role, d_attributes, d_aria, d_classes, d_key, children } = props;

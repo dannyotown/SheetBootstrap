@@ -1,23 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Fa, Button, View, Container, Card, CardBody, Input, FormInline } from 'mdbreact';
-import './ClassicFormPage.css'
+import './ClassicFormPage.css';
 
 
 class ClassicFormPage extends React.Component {
-  constructor(props) {
-    super(props),
-    this.state = {
-      collapseID: ''
-    }
+
+  state = {
+    collapseID: ''
   }
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
 
   render(){
-  const navStyle = { marginTop: '4rem'}
-  const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.toggleCollapse('navbarCollapse')}/>
+    const navStyle = { marginTop: '4rem'};
+    const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.toggleCollapse('navbarCollapse')}/>;
     return (
       <div id="classicformpage">
         <Router>
@@ -52,7 +50,7 @@ class ClassicFormPage extends React.Component {
                 </Collapse>
               </Container>
             </Navbar>
-          { this.state.collapseID && overlay}
+            { this.state.collapseID && overlay}
           </div>
         </Router>
 
@@ -109,6 +107,6 @@ class ClassicFormPage extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default ClassicFormPage;

@@ -12,34 +12,34 @@ class SideNavPage extends React.Component {
     };
   }
 
-// Slide out buttons event handlers
+  // Slide out buttons event handlers
   handleToggleClickA = () => {
     this.setState({
       isLeftOpen: !this.state.isLeftOpen
-    })
+    });
   }
   handleToggleClickB = () => {
     this.setState({
       isRightOpen: !this.state.isRightOpen
-    })
+    });
   }
 
   render() {
     // Because the toggling buttons are nearly identical, we create a function to render them:
     const createButton = (onClick, side) => {
-      return <div style={{width: "50%", textAlign: "center"}}>
-              <a href="#!" onClick={onClick} key={'toggleThe'+side+'SideNav'}><Fa icon="bars" size="5x"></Fa></a>
-              </div>
-    }
+      return <div style={{width: '50%', textAlign: 'center'}}>
+        <a href="#!" onClick={onClick} key={'toggleThe'+side+'SideNav'}><Fa icon="bars" size="5x"></Fa></a>
+      </div>;
+    };
 
     return (
       <Router>
         <Container>
           <DocsLink title="Sidenav" href="https://mdbootstrap.com/react/advanced/sidenav/" />
           {/* the buttons toggling visibility of SideNavs: */}
-          <Row style={{height: "80vh", alignItems: "center"}} >
-              {createButton(this.handleToggleClickA, "Left")}
-              {createButton(this.handleToggleClickB, "Right")}
+          <Row style={{height: '80vh', alignItems: 'center'}} >
+            {createButton(this.handleToggleClickA, 'Left')}
+            {createButton(this.handleToggleClickB, 'Right')}
           </Row>
 
           {/* the left SideNav: */}
@@ -54,21 +54,21 @@ class SideNavPage extends React.Component {
             </li>
             <SideNavNav>
               <SideNavCat name="Submit blog" icon="chevron-right">
-                  <SideNavLink>Submit listing</SideNavLink>
-                  <SideNavLink>Registration form</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="Instruction" icon="hand-pointer-o" href="#">
-                  <SideNavLink>For bloggers</SideNavLink>
-                  <SideNavLink>For authors</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="About" icon="eye">
-                  <SideNavLink>Instruction</SideNavLink>
-                  <SideNavLink>Monthly meetings</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="Contact me" icon="envelope-o">
-                  <SideNavLink>FAQ</SideNavLink>
-                  <SideNavLink>Write a message</SideNavLink>
-                </SideNavCat>
+                <SideNavLink>Submit listing</SideNavLink>
+                <SideNavLink>Registration form</SideNavLink>
+              </SideNavCat>
+              <SideNavCat name="Instruction" icon="hand-pointer-o" href="#">
+                <SideNavLink>For bloggers</SideNavLink>
+                <SideNavLink>For authors</SideNavLink>
+              </SideNavCat>
+              <SideNavCat name="About" icon="eye">
+                <SideNavLink>Instruction</SideNavLink>
+                <SideNavLink>Monthly meetings</SideNavLink>
+              </SideNavCat>
+              <SideNavCat name="Contact me" icon="envelope-o">
+                <SideNavLink>FAQ</SideNavLink>
+                <SideNavLink>Write a message</SideNavLink>
+              </SideNavCat>
             </SideNavNav>
           </SideNav>
 
@@ -84,21 +84,21 @@ class SideNavPage extends React.Component {
             </li>
             <SideNavNav>
               <SideNavCat name="Submit blog" icon="chevron-right" >
-                  <SideNavLink className="active">Submit listing</SideNavLink>
-                  <SideNavLink>Registration form</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="Instruction" icon="hand-pointer-o">
-                  <SideNavLink>For bloggers</SideNavLink>
-                  <SideNavLink>For authors</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="About" icon="eye">
-                  <SideNavLink>Instruction</SideNavLink>
-                  <SideNavLink>Monthly meetings</SideNavLink>
-                </SideNavCat>
-                <SideNavCat name="Contact me" icon="envelope-o">
-                  <SideNavLink>FAQ</SideNavLink>
-                  <SideNavLink>Write a message</SideNavLink>
-                </SideNavCat>
+                <SideNavLink className="active">Submit listing</SideNavLink>
+                <SideNavLink>Registration form</SideNavLink>
+              </SideNavCat>
+              <SideNavCat name="Instruction" icon="hand-pointer-o">
+                <SideNavLink>For bloggers</SideNavLink>
+                <SideNavLink>For authors</SideNavLink>
+              </SideNavCat>
+              <SideNavCat name="About" icon="eye">
+                <SideNavLink>Instruction</SideNavLink>
+                <SideNavLink>Monthly meetings</SideNavLink>
+              </SideNavCat>
+              <SideNavCat name="Contact me" icon="envelope-o">
+                <SideNavLink>FAQ</SideNavLink>
+                <SideNavLink>Write a message</SideNavLink>
+              </SideNavCat>
             </SideNavNav>
           </SideNav>
 

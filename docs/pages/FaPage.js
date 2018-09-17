@@ -1,5 +1,5 @@
 import React from 'react';
-import { Fa, Container, Row } from 'mdbreact';
+import { Fa, Container } from 'mdbreact';
 import DocsLink from './DocsLink';
 
 

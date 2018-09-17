@@ -23,7 +23,7 @@ class SideNavItem extends React.Component {
       this.setState({ cursorPos: cursorPos });
       // do the passed in callback:
       if (this.props.onClick) {
-      this.props.onClick(e);
+        this.props.onClick(e);
       }
       e.stopPropagation();
     }
@@ -64,11 +64,11 @@ SideNavItem.propTypes = {
   href: PropTypes.string,
   tag: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 SideNavItem.defaultProps = {
-  tag: 'li',
+  tag: 'li'
 };
 
 export default SideNavItem;

@@ -116,6 +116,6 @@ class DoubleNavigationPage extends React.Component {
       </Router>
     );
   }
-};
+}
 
 export default DoubleNavigationPage;

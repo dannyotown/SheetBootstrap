@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Input, Button, Fa, Card, CardBody, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
+import { Container, Row, Col, Input, Button, Fa, Card, CardBody, Modal, ModalBody, ModalFooter } from 'mdbreact';
 import DocsLink from './DocsLink';
 
 class FormsPage extends React.Component  {
@@ -7,7 +7,7 @@ class FormsPage extends React.Component  {
     super(props);
     this.state = {
       modal: false
-    }
+    };
     this.toggle = this.toggle.bind(this);
   }
 
@@ -219,6 +219,6 @@ class FormsPage extends React.Component  {
       </Container>
     );
   }
-};
+}
 
 export default FormsPage;

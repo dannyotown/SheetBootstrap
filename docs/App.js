@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, Footer, NavLink } from 'mdbreact';
+import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, Collapse, NavItem, Footer, NavLink } from 'mdbreact';
 import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 
@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       collapseID: ''
-    }
+    };
   }
 
   toggleCollapse = collapseID => () =>
@@ -19,8 +19,7 @@ class App extends Component {
   closeCollapse = collapseID => () => this.state.collapseID === collapseID && this.setState({ collapseID: '' });
 
   render() {
-    const collapsed = this.state.collapsed;
-    const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.toggleCollapse('mainNavbarCollapse')} />
+    const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.toggleCollapse('mainNavbarCollapse')} />;
     return (
       <Router>
         <div className="flyout">

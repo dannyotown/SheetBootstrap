@@ -1,17 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Container, Fa, HamburgerToggler } from 'mdbreact';
 import DocsLink from '../DocsLink';
 
-class NavbarPage extends React.Component {
-  constructor(props) {
-    super(props),
-    this.state = {
-      collapse1: false,
-      collapse2: true,
-      collapse3: false,
-      collapseID: ''
-    };
+class NavbarPage extends Component {
+
+  state = {
+    collapse1: false,
+    collapse2: true,
+    collapse3: false,
+    collapseID: ''
   }
 
   toggleCollapse = collapseID => () => {
@@ -22,7 +20,7 @@ class NavbarPage extends React.Component {
     this.setState({
       ...this.state,
       [collapseId]: !this.state[collapseId]
-    })
+    });
   }
 
   render() {
@@ -426,6 +424,6 @@ class NavbarPage extends React.Component {
       </Container>
     );
   }
-};
+}
 
 export default NavbarPage;

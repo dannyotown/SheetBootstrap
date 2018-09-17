@@ -3,7 +3,7 @@ import { Button, Fa, ButtonFixed, ButtonFixedItem, Container } from 'mdbreact';
 import DocsLink from '../DocsLink';
 
 class ButtonPage extends React.Component {
- constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       buttonStyle: {transform: 'scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)', opacity: '0' }
@@ -13,11 +13,11 @@ class ButtonPage extends React.Component {
   }
 
   onHover() {
-    this.setState({buttonStyle: {transform: 'scaleY(1) scaleX(1) translateY(0) translateX(0)', opacity: '1' }})
+    this.setState({buttonStyle: {transform: 'scaleY(1) scaleX(1) translateY(0) translateX(0)', opacity: '1' }});
   }
 
   onMouseLeave() {
-    this.setState({buttonStyle: {transform: 'scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)', opacity: '0' }})
+    this.setState({buttonStyle: {transform: 'scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)', opacity: '0' }});
   }
 
   render() {
@@ -53,7 +53,7 @@ class ButtonPage extends React.Component {
             <Button tag="a" floating gradient="peach"><Fa icon="leaf" /></Button>
             <Button tag="a" floating gradient="blue"><Fa icon="star" /></Button>
           </section>
-          <section style={{height: "1000px"}}>
+          <section style={{height: '1000px'}}>
             <ButtonFixed onMouseEnter={this.onHover} onMouseLeave={this.onMouseLeave} floating size="lg" color="red" icon="pencil" style={{bottom: '45px', right: '24px'}}>
               <ButtonFixedItem buttonStyle={this.state.buttonStyle} color="red" icon="star"></ButtonFixedItem>
               <ButtonFixedItem buttonStyle={this.state.buttonStyle} color="yellow" icon="user"></ButtonFixedItem>
@@ -64,7 +64,7 @@ class ButtonPage extends React.Component {
         </div>
       </Container>
     );
-  };
+  }
 }
 
 export default ButtonPage;

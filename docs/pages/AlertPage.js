@@ -9,26 +9,28 @@ const AlertPage = () =>  {
   const notify = (type) => {
     return () => {
       switch (type) {
-        case 'info':
+      case 'info':
         toast.info('Info message', {
-          "closeButton": false,
+          'closeButton': false
         });
         break;
-        case 'success':
+      case 'success':
         toast.success('Success message', {
-          position: "top-left"
+          position: 'top-left'
 
         });
         break;
-        case 'warning':
+      case 'warning':
         toast.warn('Warning message');
         break;
-        case 'error':
+      case 'error':
         toast.error('Error message');
         break;
+      default:
+        toast.error('Error message');
       }
     };
-  }
+  };
 
   return (
     <Container>
@@ -58,7 +60,7 @@ const AlertPage = () =>  {
     </Container>
 
   );
-}
+};
 
 
 export default AlertPage;

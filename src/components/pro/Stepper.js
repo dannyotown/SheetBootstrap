@@ -12,7 +12,6 @@ class Stepper extends React.Component {
   render() {
 
     const {
-      tag: Tag,
       vertical,
       form,
       icon
@@ -53,7 +52,6 @@ class Stepper extends React.Component {
 }
 
 Stepper.propTypes = {
-  tag: PropTypes.string,
   vertical: PropTypes.bool,
   form: PropTypes.bool,
   icon: PropTypes.bool,
@@ -62,7 +60,6 @@ Stepper.propTypes = {
 };
 
 Stepper.defaultProps = {
-  tag: 'ul',
   form: false
 };
 

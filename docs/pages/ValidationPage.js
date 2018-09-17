@@ -19,7 +19,7 @@ class FormsPage extends React.Component  {
   }
 
   changeHandler = (event) => {
-    this.setState({...this.state, [event.target.name]: event.target.value})
+    this.setState({...this.state, [event.target.name]: event.target.value});
   }
 
   render() {
@@ -29,55 +29,55 @@ class FormsPage extends React.Component  {
         <Row>
           <Col md="">
             <form className='needs-validation' onSubmit={this.submitHandler} noValidate>
-            <Row>
+              <Row>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterNameEx" className="grey-text">First name</label>
+                  <input value={this.state.fname} name='fname' onChange={this.changeHandler} type="text" id="defaultFormRegisterNameEx" className="form-control" placeholder="First name" required/>
+                  <div className="valid-feedback">Looks good!</div>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterEmailEx2" className="grey-text">Last name</label>
+                  <input value={this.state.lname} name='lname' onChange={this.changeHandler} type="text" id="defaultFormRegisterEmailEx2" className="form-control" placeholder="Last name" required/>
+                  <div className="valid-feedback">Looks good!</div>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterConfirmEx3" className="grey-text">Email</label>
+                  <input value={this.state.email} onChange={this.changeHandler} type="email" id="defaultFormRegisterConfirmEx3" className="form-control" name='email' placeholder="Your Email address"/>
+                  <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+              </Row>
+              <Row>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">City</label>
+                  <input value={this.state.city} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='city' placeholder="City" required/>
+                  <div className="invalid-feedback">Please provide a valid city.</div>
+                  <div className="valid-feedback">Looks good!</div>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">State</label>
+                  <input value={this.state.state} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='state' placeholder="State" required/>
+                  <div className="invalid-feedback">Please provide a valid state.</div>
+                  <div className="valid-feedback">Looks good!</div>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">Zip</label>
+                  <input value={this.state.zip} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='zip' placeholder="Zip" required/>
+                  <div className="invalid-feedback">Please provide a valid zip.</div>
+                  <div className="valid-feedback">Looks good!</div>
+                </div>
+              </Row>
               <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterNameEx" className="grey-text">First name</label>
-                <input value={this.state.fname} name='fname' onChange={this.changeHandler} type="text" id="defaultFormRegisterNameEx" className="form-control" placeholder="First name" required/>
-                <div className="valid-feedback">Looks good!</div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterEmailEx2" className="grey-text">Last name</label>
-                <input value={this.state.lname} name='lname' onChange={this.changeHandler} type="text" id="defaultFormRegisterEmailEx2" className="form-control" placeholder="Last name" required/>
-                <div className="valid-feedback">Looks good!</div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterConfirmEx3" className="grey-text">Email</label>
-                <input value={this.state.email} onChange={this.changeHandler} type="email" id="defaultFormRegisterConfirmEx3" className="form-control" name='email' placeholder="Your Email address"/>
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-            </Row>
-            <Row>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">City</label>
-                <input value={this.state.city} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='city' placeholder="City" required/>
-                <div className="invalid-feedback">Please provide a valid city.</div>
-                <div className="valid-feedback">Looks good!</div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">State</label>
-                <input value={this.state.state} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='state' placeholder="State" required/>
-                <div className="invalid-feedback">Please provide a valid state.</div>
-                <div className="valid-feedback">Looks good!</div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">Zip</label>
-                <input value={this.state.zip} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='zip' placeholder="Zip" required/>
-                <div className="invalid-feedback">Please provide a valid zip.</div>
-                <div className="valid-feedback">Looks good!</div>
-              </div>
-            </Row>
-            <div className="col-md-4 mb-3">
-              <div className="form-check pl-0">
-                <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
-                <label className="form-check-label" htmlFor="invalidCheck">
+                <div className="form-check pl-0">
+                  <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required />
+                  <label className="form-check-label" htmlFor="invalidCheck">
                   Agree to terms and conditions
-                </label>
-                <div className="invalid-feedback">
+                  </label>
+                  <div className="invalid-feedback">
                   You must agree before submitting.
+                  </div>
                 </div>
               </div>
-            </div>
-            <button className="btn btn-unique" type="submit">Submit Form</button>
+              <button className="btn btn-unique" type="submit">Submit Form</button>
             </form>
           </Col>
         </Row>
@@ -125,50 +125,50 @@ class FormsPage extends React.Component  {
         <Row className="mt-6">
           <Col md="">
             <form className='needs-validation' onSubmit={this.submitHandler} noValidate>
-            <Row>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterNameEx" className="grey-text">First name</label>
-                <input value={this.state.fname} name='fname' onChange={this.changeHandler} type="text" id="defaultFormRegisterNameEx" className="form-control" placeholder="First name" required/>
-                <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterEmailEx2" className="grey-text">Last name</label>
-                <input value={this.state.lname} name='lname' onChange={this.changeHandler} type="text" id="defaultFormRegisterEmailEx2" className="form-control" placeholder="Last name" required/>
-                <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterConfirmEx3" className="grey-text">Email</label>
-                <input value={this.state.email} onChange={this.changeHandler} type="email" id="defaultFormRegisterConfirmEx3" className="form-control" name='email' placeholder="Your Email address"/>
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-            </Row>
-            <Row>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">City</label>
-                <input value={this.state.city} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='city' placeholder="City" required/>
-                <div style={{top: 'auto'}} className="invalid-tooltip">Please provide a valid city.</div>
-                <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">State</label>
-                <input value={this.state.state} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='state' placeholder="State" required/>
-                <div style={{top: 'auto'}} className="invalid-tooltip">Please provide a valid state.</div>
-                <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
-              </div>
-              <div className="col-md-4 mb-3">
-                <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">Zip</label>
-                <input value={this.state.zip} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='zip' placeholder="Zip" required/>
-                <div style={{top: 'auto'}} className="invalid-tooltip">Please provide a valid zip.</div>
-                <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
-              </div>
-            </Row>
-            <button className="btn btn-unique" type="submit">Submit Form</button>
+              <Row>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterNameEx" className="grey-text">First name</label>
+                  <input value={this.state.fname} name='fname' onChange={this.changeHandler} type="text" id="defaultFormRegisterNameEx" className="form-control" placeholder="First name" required/>
+                  <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterEmailEx2" className="grey-text">Last name</label>
+                  <input value={this.state.lname} name='lname' onChange={this.changeHandler} type="text" id="defaultFormRegisterEmailEx2" className="form-control" placeholder="Last name" required/>
+                  <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterConfirmEx3" className="grey-text">Email</label>
+                  <input value={this.state.email} onChange={this.changeHandler} type="email" id="defaultFormRegisterConfirmEx3" className="form-control" name='email' placeholder="Your Email address"/>
+                  <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+              </Row>
+              <Row>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">City</label>
+                  <input value={this.state.city} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='city' placeholder="City" required/>
+                  <div style={{top: 'auto'}} className="invalid-tooltip">Please provide a valid city.</div>
+                  <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">State</label>
+                  <input value={this.state.state} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='state' placeholder="State" required/>
+                  <div style={{top: 'auto'}} className="invalid-tooltip">Please provide a valid state.</div>
+                  <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
+                </div>
+                <div className="col-md-4 mb-3">
+                  <label htmlFor="defaultFormRegisterPasswordEx4" className="grey-text">Zip</label>
+                  <input value={this.state.zip} onChange={this.changeHandler} type="text" id="defaultFormRegisterPasswordEx4" className="form-control" name='zip' placeholder="Zip" required/>
+                  <div style={{top: 'auto'}} className="invalid-tooltip">Please provide a valid zip.</div>
+                  <div style={{top: 'auto'}} className="valid-tooltip">Looks good!</div>
+                </div>
+              </Row>
+              <button className="btn btn-unique" type="submit">Submit Form</button>
             </form>
           </Col>
         </Row>
       </Container>
     );
   }
-};
+}
 
 export default FormsPage;

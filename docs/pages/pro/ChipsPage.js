@@ -45,7 +45,7 @@ class ChipsPage extends React.Component {
   handleCloseHere = (param) => (e) => {
     this.setState({
       ['show'+param]: false
-    })
+    });
   }
 
   render() {
@@ -194,6 +194,6 @@ class ChipsPage extends React.Component {
       </Container>
     );
   }
-};
+}
 
 export default ChipsPage;

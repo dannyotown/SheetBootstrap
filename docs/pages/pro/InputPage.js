@@ -12,7 +12,7 @@ class InputPage extends React.Component {
       checkbox: true,
       switch: true,
       fileInput: ''
-    }
+    };
     this.onClick1 = this.onClick1.bind(this);
     this.onClick2 = this.onClick2.bind(this);
     this.onClick3 = this.onClick3.bind(this);
@@ -27,7 +27,7 @@ class InputPage extends React.Component {
   }
 
   fileInputHandler = (files) => {
-    console.log(files)
+    console.log(files);
   }
 
   onClick1() {
@@ -75,7 +75,7 @@ class InputPage extends React.Component {
   }
 
   handleChange = (value) => {
-    console.log(value)
+    console.log(value);
   }
 
   render () {
@@ -93,11 +93,11 @@ class InputPage extends React.Component {
           <Input label="Filled-in checkbox" filled disabled type="checkbox" id="checkbox4" />
 
           <h4 className="mt-5 mb-3">Inline checkboxes</h4>
-            <FormInline>
-              <Input label="Classic checkbox" type="checkbox" value="coś tam" onChange={this.handleCheckboxChange} id="checkbox5" />
-              <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox6" />
-              <Input label="Classic checkbox" type="checkbox" id="checkbox7" />
-            </FormInline>
+          <FormInline>
+            <Input label="Classic checkbox" type="checkbox" value="coś tam" onChange={this.handleCheckboxChange} id="checkbox5" />
+            <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox6" />
+            <Input label="Classic checkbox" type="checkbox" id="checkbox7" />
+          </FormInline>
 
           <hr className="my-5" />
 

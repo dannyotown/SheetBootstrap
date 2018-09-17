@@ -101,7 +101,7 @@ const TablePage = (props) => {
       {
         label: '#',
         field: 'id',
-        sort: 'asc',
+        sort: 'asc'
       },
       {
         label: 'Name',

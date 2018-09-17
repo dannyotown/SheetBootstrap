@@ -10,52 +10,7 @@ class Spinner extends Component {
 
       const theSpinnerItself = (
         <div>
-            <div className="spinner-layer spinner-blue">
-              <div className="circle-clipper left">
-                <div className="circle"></div>
-              </div><div className="gap-patch">
-                <div className="circle"></div>
-              </div><div className="circle-clipper right">
-                <div className="circle"></div>
-              </div>
-            </div>
-
-            <div className="spinner-layer spinner-red">
-              <div className="circle-clipper left">
-                <div className="circle"></div>
-              </div><div className="gap-patch">
-                <div className="circle"></div>
-              </div><div className="circle-clipper right">
-                <div className="circle"></div>
-              </div>
-            </div>
-
-            <div className="spinner-layer spinner-yellow">
-              <div className="circle-clipper left">
-                <div className="circle"></div>
-              </div><div className="gap-patch">
-                <div className="circle"></div>
-              </div><div className="circle-clipper right">
-                <div className="circle"></div>
-              </div>
-            </div>
-
-            <div className="spinner-layer spinner-green">
-              <div className="circle-clipper left">
-                <div className="circle"></div>
-              </div><div className="gap-patch">
-                <div className="circle"></div>
-              </div><div className="circle-clipper right">
-                <div className="circle"></div>
-              </div>
-            </div>
-          </div>
-      );
-    return theSpinnerItself;
-
-    } else {
-      const theSpinnerItself = (
-        <div className={spinnerClasses}>
+          <div className="spinner-layer spinner-blue">
             <div className="circle-clipper left">
               <div className="circle"></div>
             </div><div className="gap-patch">
@@ -64,31 +19,67 @@ class Spinner extends Component {
               <div className="circle"></div>
             </div>
           </div>
-    )
-    return theSpinnerItself;
-  };
-  };
+
+          <div className="spinner-layer spinner-red">
+            <div className="circle-clipper left">
+              <div className="circle"></div>
+            </div><div className="gap-patch">
+              <div className="circle"></div>
+            </div><div className="circle-clipper right">
+              <div className="circle"></div>
+            </div>
+          </div>
+
+          <div className="spinner-layer spinner-yellow">
+            <div className="circle-clipper left">
+              <div className="circle"></div>
+            </div><div className="gap-patch">
+              <div className="circle"></div>
+            </div><div className="circle-clipper right">
+              <div className="circle"></div>
+            </div>
+          </div>
+
+          <div className="spinner-layer spinner-green">
+            <div className="circle-clipper left">
+              <div className="circle"></div>
+            </div><div className="gap-patch">
+              <div className="circle"></div>
+            </div><div className="circle-clipper right">
+              <div className="circle"></div>
+            </div>
+          </div>
+        </div>
+      );
+      return theSpinnerItself;
+
+    } else {
+      const theSpinnerItself = (
+        <div className={spinnerClasses}>
+          <div className="circle-clipper left">
+            <div className="circle"></div>
+          </div><div className="gap-patch">
+            <div className="circle"></div>
+          </div><div className="circle-clipper right">
+            <div className="circle"></div>
+          </div>
+        </div>
+      );
+      return theSpinnerItself;
+    }
+  }
 
 
   render() {
 
     const {
       className,
-      tag: Tag,
       big,
       small,
-      crazy,
       red,
       green,
-      yellow,
-      blue,
-      multicolor,
-      ...attributes
+      yellow
     } = this.props;
-
-    const classes = classNames(
-      className
-    );
 
     const wrapperClasses = classNames(
       'preloader-wrapper',
@@ -119,11 +110,11 @@ class Spinner extends Component {
         </div>
       );
     } else {
-    return (
-      <div className={wrapperClasses}>
-        {this.theChosenColorSpinner(spinnerClasses)}
-    </div>
-);
+      return (
+        <div className={wrapperClasses}>
+          {this.theChosenColorSpinner(spinnerClasses)}
+        </div>
+      );
 
     }
 
@@ -131,7 +122,6 @@ class Spinner extends Component {
 }
 
 Spinner.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
   big: PropTypes.bool,
   small: PropTypes.bool,

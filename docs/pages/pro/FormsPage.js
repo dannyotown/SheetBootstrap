@@ -19,7 +19,7 @@ class FormsPage extends React.Component  {
                   </div>
                   <Input label="Your email" group type="email" validate error="wrong" success="right"/>
                   <Input label="Your password" group type="password" validate containerClass="mb-0"/>
-                  <p className="font-small blue-text d-flex justify-content-end pb-3">Forgot <a href="#" className="blue-text ml-1"> Password?</a></p>
+                  <p className="font-small blue-text d-flex justify-content-end pb-3">Forgot <a href="#!" className="blue-text ml-1"> Password?</a></p>
                   <div className="text-center mb-3">
                     <Button type="button" gradient="blue" rounded className="btn-block z-depth-1a">Sign in</Button>
                   </div>
@@ -31,7 +31,7 @@ class FormsPage extends React.Component  {
                   </div>
                 </CardBody>
                 <ModalFooter className="mx-5 pt-3 mb-1">
-                  <p className="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" className="blue-text ml-1"> Sign Up</a></p>
+                  <p className="font-small grey-text d-flex justify-content-end">Not a member? <a href="#!" className="blue-text ml-1"> Sign Up</a></p>
                 </ModalFooter>
               </Card>
             </Col>
@@ -56,7 +56,7 @@ class FormsPage extends React.Component  {
                 <CardBody className="mx-4 mt-4">
                   <Input label="Your email" group type="text" validate />
                   <Input label="Your password" group type="password" validate containerClass="mb-0"/>
-                  <p className="font-small grey-text d-flex justify-content-end">Forgot <a href="#" className="dark-grey-text ml-1 font-weight-bold"> Password?</a></p>
+                  <p className="font-small grey-text d-flex justify-content-end">Forgot <a href="#!" className="dark-grey-text ml-1 font-weight-bold"> Password?</a></p>
                   <Row className="d-flex align-items-center mb-4 mt-5">
                     <Col md="5" className="d-flex align-items-start">
                       <div className="text-center">
@@ -64,7 +64,7 @@ class FormsPage extends React.Component  {
                       </div>
                     </Col>
                     <Col md="7" className="d-flex justify-content-end">
-                      <p className="font-small grey-text mt-3">Don't have an account? <a href="#" className="dark-grey-text ml-1 font-weight-bold"> Sign up</a></p>
+                      <p className="font-small grey-text mt-3">Don't have an account? <a href="#!" className="dark-grey-text ml-1 font-weight-bold"> Sign up</a></p>
                     </Col>
                   </Row>
                 </CardBody>
@@ -87,7 +87,7 @@ class FormsPage extends React.Component  {
                   <div className="md-form pb-3">
                     <div className="form-check my-4">
                       <input className="form-check-input" type="checkbox" id="defaultCheck12" />
-                      <label htmlFor="defaultCheck12" className="grey-text">Accept the<a href="#" className="blue-text"> Terms and Conditions</a></label>
+                      <label htmlFor="defaultCheck12" className="grey-text">Accept the<a href="#!" className="blue-text"> Terms and Conditions</a></label>
                     </div>
                   </div>
                   <Row className="d-flex align-items-center mb-4">
@@ -95,7 +95,7 @@ class FormsPage extends React.Component  {
                       <button type="button" className="btn btn-pink btn-block btn-rounded z-depth-1">Sign up</button>
                     </Col>
                     <Col md="6">
-                      <p className="font-small grey-text d-flex justify-content-end">Have an account? <a href="#" className="blue-text ml-1"> Log in</a></p>
+                      <p className="font-small grey-text d-flex justify-content-end">Have an account? <a href="#!" className="blue-text ml-1"> Log in</a></p>
                     </Col>
                   </Row>
                 </CardBody>
@@ -128,7 +128,7 @@ class FormsPage extends React.Component  {
                   <div className="md-form pb-3">
                     <div className="form-check my-4">
                       <input className="form-check-input" type="checkbox" value="" id="defaultCheck17" />
-                      <label className="form-check-label white-text" htmlFor="defaultCheck17">Accept the<a href="#" className="green-text font-weight-bold"> Terms and Conditions</a></label>
+                      <label className="form-check-label white-text" htmlFor="defaultCheck17">Accept the<a href="#!" className="green-text font-weight-bold"> Terms and Conditions</a></label>
                     </div>
                   </div>
                   <Row className="d-flex align-items-center mb-4">
@@ -137,7 +137,7 @@ class FormsPage extends React.Component  {
                     </div>
                   </Row>
                   <Col md="12">
-                    <p className="font-small white-text d-flex justify-content-end">Have an account? <a href="#" className="green-text ml-1 font-weight-bold"> Log in</a></p>
+                    <p className="font-small white-text d-flex justify-content-end">Have an account? <a href="#!" className="green-text ml-1 font-weight-bold"> Log in</a></p>
                   </Col>
                 </div>
               </Card>
@@ -158,11 +158,11 @@ class FormsPage extends React.Component  {
                 <CardBody className="mx-4 mt-4">
                   <Input label="Your email" group type="text" validate />
                   <Input label="Your password" group type="password" validate containerClass="mb-0"/>
-                  <p className="font-small grey-text d-flex justify-content-end">Forgot <a href="#" className="dark-grey-text font-weight-bold ml-1"> Password?</a></p>
+                  <p className="font-small grey-text d-flex justify-content-end">Forgot <a href="#!" className="dark-grey-text font-weight-bold ml-1"> Password?</a></p>
                   <div className="text-center mb-4 mt-5">
                     <Button color="danger" type="button" className="btn-block z-depth-2">Log in</Button>
                   </div>
-                  <p className="font-small grey-text d-flex justify-content-center">Don't have an account? <a href="#" className="dark-grey-text font-weight-bold ml-1"> Sign up</a></p>
+                  <p className="font-small grey-text d-flex justify-content-center">Don't have an account? <a href="#!" className="dark-grey-text font-weight-bold ml-1"> Sign up</a></p>
                 </CardBody>
               </Card>
             </Col>
@@ -171,6 +171,6 @@ class FormsPage extends React.Component  {
       </Container>
     );
   }
-};
+}
 
 export default FormsPage;

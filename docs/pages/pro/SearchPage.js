@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Container, FormInline, Button, Navbar, NavbarBrand, Collapse, NavbarToggler, NavbarNav, NavItem, NavLink, Fa, Select, SelectInput, SelectOptions, SelectOption } from 'mdbreact';
+import { Container, FormInline, Button, Navbar, NavbarBrand, Collapse, NavbarToggler, NavbarNav, NavItem, NavLink, Select, SelectInput, SelectOptions, SelectOption } from 'mdbreact';
 import DocsLink from '../DocsLink';
 
 class SearchPagePro extends React.Component {
@@ -8,8 +8,8 @@ class SearchPagePro extends React.Component {
     super(props);
     this.state ={
       collapsed: false,
-      value: "Choose your option",
-      value2: "Choose your option"
+      value: 'Choose your option',
+      value2: 'Choose your option'
     };
     this.handleTogglerClick = this.handleTogglerClick.bind(this);
     this.handleNavbarClick = this.handleNavbarClick.bind(this);

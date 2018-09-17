@@ -61,9 +61,9 @@ class Chip extends Component {
 
     return (
       <Tag {...attributes}
-          className={classes}
-          onMouseDown={ this.handleClick.bind(this) }
-          onTouchStart={ this.handleClick.bind(this) }>
+        className={classes}
+        onMouseDown={ this.handleClick.bind(this) }
+        onTouchStart={ this.handleClick.bind(this) }>
         {src && <img src={src} alt={alt}/>}
         {this.props.children}
         {waves && <Waves cursorPos={ this.state.cursorPos }/>}

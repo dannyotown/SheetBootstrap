@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Autosuggest from 'react-autosuggest';
@@ -20,7 +20,7 @@ const theme = {
   sectionContainer:         'react-autosuggest__section-container',
   sectionContainerFirst:    'react-autosuggest__section-container--first',
   sectionTitle:             'react-autosuggest__section-title'
-}
+};
 
 class Autocomplete extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class Autocomplete extends Component {
     this.state = {
       value: '',
       suggestions: [],
-      isTouched: false,
+      isTouched: false
     };
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -68,7 +68,7 @@ class Autocomplete extends Component {
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
-    })
+    });
     if(this.props.search) {
       this.props.search(newValue, ReactDOM.findDOMNode(this).parentNode.parentNode.querySelectorAll('li'));
     }
@@ -91,12 +91,12 @@ class Autocomplete extends Component {
   handleClear() {
     this.setState({
       value: ''
-    })
+    });
   }
 
   triggerFocus() {
-     const input = document.getElementById(this.props.id);
-     input.focus();
+    const input = document.getElementById(this.props.id);
+    input.focus();
   }
 
   render() {
@@ -153,24 +153,24 @@ class Autocomplete extends Component {
     );
     const clearClassFix = classNames(
       clearClass
-    )
+    );
 
     const isclearVisible = () => {
-      let hiddenOrNot = "hidden"
+      let hiddenOrNot = 'hidden';
       if (this.state.value) {
-        hiddenOrNot = "visible";
+        hiddenOrNot = 'visible';
       }
       return hiddenOrNot;
-    }
+    };
     const clearStyleFix = {
-      position: "absolute",
+      position: 'absolute',
       zIndex: 2,
-      top: ".85rem",
+      top: '.85rem',
       right: 0,
-      border: "none",
-      background: "0 0",
-      visibility: isclearVisible(),
-    }
+      border: 'none',
+      background: '0 0',
+      visibility: isclearVisible()
+    };
 
     // Here our magic happens:
 
@@ -181,8 +181,8 @@ class Autocomplete extends Component {
           {...inputProps}
           {...attributes}
           onFocus={(ev, val) => {
-          this.onClick();
-          inputProps.onFocus(ev, val);}}
+            this.onClick();
+            inputProps.onFocus(ev, val);}}
         />
         <label htmlFor={id} id={`label for ${id}`}
           onClick={this.triggerFocus}
@@ -190,7 +190,7 @@ class Autocomplete extends Component {
         >{label}</label>
         { clear &&
         <Fa icon="close" onClick={this.handleClear} style={clearStyleFix}
-        className={clearClassFix}/>}
+          className={clearClassFix}/>}
       </div>
     );
 

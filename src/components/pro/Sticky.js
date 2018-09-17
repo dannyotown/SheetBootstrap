@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 class Sticky extends Component {
   static propTypes = {
@@ -30,10 +30,10 @@ class Sticky extends Component {
     style: {}
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     if (!this.context.subscribe)
       throw new TypeError(
-        "Expected Sticky to be mounted within StickyContainer"
+        'Expected Sticky to be mounted within StickyContainer'
       );
 
     this.context.subscribe(this.handleContainerEvent);
@@ -85,19 +85,19 @@ class Sticky extends Component {
     const style = !isSticky
       ? {}
       : {
-          position: "fixed",
-          top:
+        position: 'fixed',
+        top:
             bottomDifference > 0
               ? this.props.relative
                 ? parent.offsetTop - parent.offsetParent.scrollTop
                 : 0
               : bottomDifference,
-          left: placeholderClientRect.left,
-          width: placeholderClientRect.width
-        };
+        left: placeholderClientRect.left,
+        width: placeholderClientRect.width
+      };
 
     if (!this.props.disableHardwareAcceleration) {
-      style.transform = "translateZ(0)";
+      style.transform = 'translateZ(0)';
     }
 
     this.setState({

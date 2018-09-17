@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mask, View, Container, Row, Col, Fa } from 'mdbreact';
+import { Mask, View, Container, Row, Col } from 'mdbreact';
 import DocsLink from './DocsLink';
 
 class MasksPage extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 require('./InputRange.css');
@@ -18,14 +18,14 @@ class InputRange extends React.Component {
       thumbTop: '10px',
       thumbMarginLeft: '-6px',
       input: 'input'
-    }
+    };
     this.rangeChange = this.rangeChange.bind(this);
     this.rangeFocus = this.rangeFocus.bind(this);
     this.rangeMouseLeave = this.rangeMouseLeave.bind(this);
   }
 
   componentDidMount() {
-    this.setState({value: this.props.value})
+    this.setState({value: this.props.value});
     let input = ReactDOM.findDOMNode(this.refs.input);
     let inputWidth = input.offsetWidth;
     oneStep = inputWidth / (this.props.max - this.props.min);
@@ -52,10 +52,7 @@ class InputRange extends React.Component {
     const {
       className,
       min,
-      max,
-      value,
-      getValue,
-      ...attributes
+      max
     } = this.props;
 
     const inputClass = classNames(
@@ -69,7 +66,7 @@ class InputRange extends React.Component {
 
     return (
       <form className="range-field">
-        <input className={inputClass} min={this.props.min} max={this.props.max} value={this.state.value} ref={this.state.input} type="range" onChange={this.rangeChange} onFocus={this.rangeFocus} onMouseLeave={this.rangeMouseLeave}/>
+        <input className={inputClass} min={min} max={max} value={this.state.value} ref={this.state.input} type="range" onChange={this.rangeChange} onFocus={this.rangeFocus} onMouseLeave={this.rangeMouseLeave}/>
         <span className={thumbClass} style={{left: this.state.leftPosition, height: this.state.thumbHeight, width: this.state.thumbWidth, top: this.state.thumbTop, marginLeft: this.state.thumbMarginLeft}}>
           <span className="value">{this.state.value}</span>
         </span>

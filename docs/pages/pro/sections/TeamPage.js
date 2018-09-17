@@ -238,6 +238,6 @@ const TeamPage = () =>  {
       </Card>
     </Container>
   );
-}
+};
 
 export default TeamPage;

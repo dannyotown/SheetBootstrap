@@ -26,7 +26,7 @@ class SocialPage extends Component {
               <div className="mdb-feed">
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -44,7 +44,7 @@ class SocialPage extends Component {
 
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -52,8 +52,8 @@ class SocialPage extends Component {
                       <div className="date">4 hours ago</div>
                     </div>
                     <div className="added-images">
-                      <img src="https://mdbootstrap.com/img/Photos/Others/images/71.jpg" className="z-depth-1 rounded mb-md-0 mb-2" />
-                      <img src="https://mdbootstrap.com/img/Photos/Others/images/74.jpg" className="z-depth-1 rounded" />
+                      <img src="https://mdbootstrap.com/img/Photos/Others/images/71.jpg" alt="" className="z-depth-1 rounded mb-md-0 mb-2" />
+                      <img src="https://mdbootstrap.com/img/Photos/Others/images/74.jpg" alt="" className="z-depth-1 rounded" />
                     </div>
                     <div className="feed-footer">
                       <a className="like">
@@ -66,7 +66,7 @@ class SocialPage extends Component {
 
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9)-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9)-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -84,7 +84,7 @@ class SocialPage extends Component {
 
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -103,7 +103,7 @@ class SocialPage extends Component {
 
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20)-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20)-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -111,8 +111,8 @@ class SocialPage extends Component {
                       <div className="date">3 days ago</div>
                     </div>
                     <div className="added-images">
-                      <img src="https://mdbootstrap.com/img/Photos/Others/images/29.jpg" className="z-depth-1 rounded mb-md-0 mb-2" />
-                      <img src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg" className="z-depth-1 rounded" />
+                      <img src="https://mdbootstrap.com/img/Photos/Others/images/29.jpg" alt="" className="z-depth-1 rounded mb-md-0 mb-2" />
+                      <img src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg" alt="" className="z-depth-1 rounded" />
                     </div>
                     <div className="feed-footer">
                       <a className="like">
@@ -137,7 +137,7 @@ class SocialPage extends Component {
               <div className="mdb-feed">
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -173,7 +173,7 @@ class SocialPage extends Component {
 
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -181,8 +181,8 @@ class SocialPage extends Component {
                       <div className="date">4 hours ago</div>
                     </div>
                     <div className="added-images">
-                      <img src="https://mdbootstrap.com/img/Photos/Others/images/50.jpg" className="z-depth-1 rounded mb-md-0 mb-2" />
-                      <img src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg" className="z-depth-1 rounded" />
+                      <img src="https://mdbootstrap.com/img/Photos/Others/images/50.jpg" alt="" className="z-depth-1 rounded mb-md-0 mb-2" />
+                      <img src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg" alt="" className="z-depth-1 rounded" />
                     </div>
                     <div className="feed-footer">
                       <div className="d-flex">
@@ -213,7 +213,7 @@ class SocialPage extends Component {
 
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9)-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9)-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -249,7 +249,7 @@ class SocialPage extends Component {
 
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -286,7 +286,7 @@ class SocialPage extends Component {
 
                 <div className="news">
                   <div className="label">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20)-mini.jpg" className="rounded-circle z-depth-1-half" />
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20)-mini.jpg" alt="" className="rounded-circle z-depth-1-half" />
                   </div>
                   <div className="excerpt">
                     <div className="brief">
@@ -294,8 +294,8 @@ class SocialPage extends Component {
                       <div className="date">3 days ago</div>
                     </div>
                     <div className="added-images">
-                      <img src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg" className="z-depth-1 rounded mb-md-0 mb-2" />
-                      <img src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg" className="z-depth-1 rounded" />
+                      <img src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg" alt="" className="z-depth-1 rounded mb-md-0 mb-2" />
+                      <img src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg" alt="" className="z-depth-1 rounded" />
                     </div>
                     <div className="feed-footer">
                       <div className="d-flex">
@@ -355,10 +355,10 @@ class SocialPage extends Component {
               <CardBody>
                 <div className="content">
                   <div className="right-side-meta">14 h</div>
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" className="rounded-circle avatar-img z-depth-1-half" />Kate
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(17)-mini.jpg" alt="" className="rounded-circle avatar-img z-depth-1-half" />Kate
                 </div>
               </CardBody>
-              <CardImage top src="https://mdbootstrap.com/img/Photos/Others/girl1.jpg" alt="Card image cap" />
+              <CardImage top src="https://mdbootstrap.com/img/Photos/Others/girl1.jpg" alt="" />
               <CardBody>
                 <div className="social-meta">
                   <p>Another great adventure! </p>
@@ -381,11 +381,11 @@ class SocialPage extends Component {
               <CardBody>
                 <div className="content">
                   <div className="right-side-meta">2 h</div>
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" className="rounded-circle avatar-img z-depth-1-half" />Tony
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" alt="" className="rounded-circle avatar-img z-depth-1-half" />Tony
                 </div>
               </CardBody>
               <div className="embed-responsive embed-responsive-1by1">
-                <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/37pwbUp8t1I" allowFullScreen></iframe>
+                <iframe className="embed-responsive-item" title="This is a unique title" src="https://www.youtube.com/embed/37pwbUp8t1I" alt="" allowFullScreen></iframe>
               </div>
               <CardBody>
                 <div className="social-meta">

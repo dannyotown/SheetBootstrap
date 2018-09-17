@@ -7,12 +7,12 @@ class InputSwitch extends React.Component {
     super(props);
     this.state = {
       value: false
-    }
+    };
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    this.setState({value: this.props.checked})
+    this.setState({value: this.props.checked});
   }
 
   handleChange(event) {

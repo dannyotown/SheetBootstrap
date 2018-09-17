@@ -8,7 +8,7 @@ class TableEditable extends React.Component {
     super(props);
     this.state = {
       data: this.props.data
-    }
+    };
     this.addRow = this.addRow.bind(this);
     this.removeRow = this.removeRow.bind(this);
     this.move = this.move.bind(this);
@@ -24,7 +24,7 @@ class TableEditable extends React.Component {
     newData.push(newRow);
     this.setState({
       data: newData
-    })
+    });
   }
 
   removeRow(index) {
@@ -32,48 +32,65 @@ class TableEditable extends React.Component {
     let newData = JSON.parse(JSON.stringify(this.state.data));
     this.setState({
       data: newData
-    })
+    });
   }
 
   move(arr, old_index, new_index) {
     while (old_index < 0) {
-        old_index += arr.length;
+      old_index += arr.length;
     }
     while (new_index < 0) {
-        new_index += arr.length;
+      new_index += arr.length;
     }
     if (new_index >= arr.length) {
-        var k = new_index - arr.length;
-        while ((k--) + 1) {
-            arr.push(undefined);
-        }
+      var k = new_index - arr.length;
+      while ((k--) + 1) {
+        arr.push(undefined);
+      }
     }
-     arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);  
-   return arr;
+    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+    return arr;
   }
 
   moveUp(index) {
-    if (index == 0) return;
+    if (index === 0) return;
     let newData = JSON.parse(JSON.stringify(this.state.data));
     this.move(newData, index, index - 1);
     this.setState({
       data: newData
-    })
+    });
   }
 
   moveDown(index) {
-    if (index == this.state.data.length - 1) return;
+    if (index === this.state.data.length - 1) return;
     let newData = JSON.parse(JSON.stringify(this.state.data));
     this.move(newData, index, index + 1);
     this.setState({
       data: newData
-    })
-  };
+    });
+  }
 
   onInput(trIndex, tdIndex, e) {
     let value = e.target.innerText;
-    this.state.data[trIndex][tdIndex] = value;
-    console.log(this.state.data);
+    let newData = [...this.state.data];
+
+    newData = newData.map((item, index) => {
+
+        if(index !== trIndex){
+          return item;
+        }
+
+        return item.map((tdItem, index) => {
+
+          if(index !== tdIndex){
+            return tdItem;
+          }
+
+          return tdItem = value;
+        })
+    });
+
+    this.setState({...this.state, data: newData })
   }
 
   render() {
@@ -113,7 +130,7 @@ class TableEditable extends React.Component {
 
     return (
       <div className={wrapperClasses}>
-        <span onClick={ this.addRow } className="table-add float-right mb-3 mr-2"><a href="#!" className="text-success"><i className="fa fa-plus fa-2x" aria-hidden="true"></i></a></span>
+        <span onClick={ this.addRow } className="table-add float-right mb-3 mr-2"><a href="#!" className="text-success"><i className="fa fa-plus fa-2x"></i></a></span>
         <table {...attributes} className={classes}>
           <thead>
             <tr>
@@ -138,8 +155,8 @@ class TableEditable extends React.Component {
                     );
                   })}
                   <td>
-                    <span onClick={() => this.moveUp(i)} className="table-up"><a href="#!" className="indigo-text"><i className="fa fa-long-arrow-up" aria-hidden="true"></i></a></span>
-                    <span onClick={() => this.moveDown(i)} className="table-down"><a href="#!" className="indigo-text"><i className="fa fa-long-arrow-down" aria-hidden="true"></i></a></span>
+                    <span onClick={() => this.moveUp(i)} className="table-up"><a href="#!" className="indigo-text"><i className="fa fa-long-arrow-up"></i></a></span>
+                    <span onClick={() => this.moveDown(i)} className="table-down"><a href="#!" className="indigo-text"><i className="fa fa-long-arrow-down"></i></a></span>
                   </td>
                   <td>
                     <span onClick={() => this.removeRow(i)} className="table-remove"><button type="button" className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>

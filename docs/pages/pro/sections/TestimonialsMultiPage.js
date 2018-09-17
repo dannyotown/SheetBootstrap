@@ -23,7 +23,7 @@ class TestimonialsMultiPage extends Component {
                   <Col md="4">
                     <Testimonial>
                       <Avatar className="mx-auto">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg" className="rounded-circle img-fluid"/>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg" alt="" className="rounded-circle img-fluid"/>
                       </Avatar>
                       <h4 className="font-weight-bold mt-4">Anna Deynah</h4>
                       <h6 className="blue-text font-weight-bold my-3">Web Designer</h6>
@@ -40,7 +40,7 @@ class TestimonialsMultiPage extends Component {
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Testimonial>
                       <Avatar className="mx-auto">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" className="rounded-circle img-fluid"/>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" alt="" className="rounded-circle img-fluid"/>
                       </Avatar>
                       <h4 className="font-weight-bold mt-4">John Doe</h4>
                       <h6 className="blue-text font-weight-bold my-3">Web Developer</h6>
@@ -57,7 +57,7 @@ class TestimonialsMultiPage extends Component {
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Testimonial>
                       <Avatar className="mx-auto">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" className="rounded-circle img-fluid"/>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" alt="" className="rounded-circle img-fluid"/>
                       </Avatar>
                       <h4 className="font-weight-bold mt-4">Abbey Clark</h4>
                       <h6 className="blue-text font-weight-bold my-3">Photographer</h6>
@@ -76,7 +76,7 @@ class TestimonialsMultiPage extends Component {
                   <Col md="4">
                     <Testimonial>
                       <Avatar className="mx-auto">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(4).jpg" className="rounded-circle img-fluid"/>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(4).jpg" alt="" className="rounded-circle img-fluid"/>
                       </Avatar>
                       <h4 className="font-weight-bold mt-4">Blake Dabney</h4>
                       <h6 className="blue-text font-weight-bold my-3">Web Designer</h6>
@@ -93,7 +93,7 @@ class TestimonialsMultiPage extends Component {
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Testimonial>
                       <Avatar className="mx-auto">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(6).jpg" className="rounded-circle img-fluid"/>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(6).jpg" alt="" className="rounded-circle img-fluid"/>
                       </Avatar>
                       <h4 className="font-weight-bold mt-4">Andrea Clay</h4>
                       <h6 className="blue-text font-weight-bold my-3">Front-end developer</h6>
@@ -110,7 +110,7 @@ class TestimonialsMultiPage extends Component {
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Testimonial>
                       <Avatar className="mx-auto">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(7).jpg" className="rounded-circle img-fluid"/>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(7).jpg" alt="" className="rounded-circle img-fluid"/>
                       </Avatar>
                       <h4 className="font-weight-bold mt-4">Cami Gosse</h4>
                       <h6 className="blue-text font-weight-bold my-3">Phtographer</h6>
@@ -129,7 +129,7 @@ class TestimonialsMultiPage extends Component {
                   <Col md="4">
                     <Testimonial>
                       <Avatar className="mx-auto">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" className="rounded-circle img-fluid"/>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" alt="" className="rounded-circle img-fluid"/>
                       </Avatar>
                       <h4 className="font-weight-bold mt-4">Bobby Haley</h4>
                       <h6 className="blue-text font-weight-bold my-3">Web Developer</h6>
@@ -146,7 +146,7 @@ class TestimonialsMultiPage extends Component {
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Testimonial>
                       <Avatar className="mx-auto">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" className="rounded-circle img-fluid"/>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="" className="rounded-circle img-fluid"/>
                       </Avatar>
                       <h4 className="font-weight-bold mt-4">Elisa Janson</h4>
                       <h6 className="blue-text font-weight-bold my-3">Marketer</h6>
@@ -163,7 +163,7 @@ class TestimonialsMultiPage extends Component {
                   <Col md="4" className="clearfix d-none d-md-block">
                     <Testimonial>
                       <Avatar className="mx-auto">
-                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" className="rounded-circle img-fluid"/>
+                        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" alt="" className="rounded-circle img-fluid"/>
                       </Avatar>
                       <h4 className="font-weight-bold mt-4">Rob Jacobs</h4>
                       <h6 className="blue-text font-weight-bold my-3">Front-end developer</h6>

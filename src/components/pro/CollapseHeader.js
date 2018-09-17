@@ -18,7 +18,7 @@ class CollapseHeader extends React.Component {
     );
     return (
       <div {...attributes} className={classes} style={{cursor: 'pointer'}}>
-        <a href="#">
+        <a href="#!">
           <Tag className="mb-0">{children}</Tag>
         </a>
       </div>

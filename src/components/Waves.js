@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 require('./Waves.css');
@@ -35,7 +35,6 @@ class Waves extends React.Component {
     let $ripple = ReactDOM.findDOMNode(this);
     let $button = $ripple.parentNode;
 
-    let buttonStyle = window.getComputedStyle($button);
     let buttonPos = $button.getBoundingClientRect();
 
     let buttonWidth = $button.offsetWidth;
@@ -56,7 +55,7 @@ class Waves extends React.Component {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     let cursorPos = nextProps.cursorPos;
 
     // Prevent Component duplicates do ripple effect at the same time

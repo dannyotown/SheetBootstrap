@@ -4,11 +4,9 @@ import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collap
 import DocsLink from './DocsLink';
 
 class NavbarPage extends React.Component {
-  constructor(props) {
-    super(props),
-    this.state = {
-      collapseID: ''
-    };
+
+  state = {
+    collapseID: ''
   }
 
   toggleCollapse = collapseID => () =>
@@ -17,7 +15,7 @@ class NavbarPage extends React.Component {
   render() {
     return (
       <Container>
-        <DocsLink title="Navbar" href="https://mdbootstrap.com/react/components/navbar/" />     
+        <DocsLink title="Navbar" href="https://mdbootstrap.com/react/components/navbar/" />
         <Router>
           <div style={{height: '1200px'}}>
             <Navbar color="primary-color" style={{marginTop: '20px'}} dark expand="md" scrolling transparent>
@@ -145,6 +143,6 @@ class NavbarPage extends React.Component {
       </Container>
     );
   }
-};
+}
 
 export default NavbarPage;

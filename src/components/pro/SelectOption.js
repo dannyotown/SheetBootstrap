@@ -8,7 +8,7 @@ class Option extends React.Component {
     super(props);
     this.state = {
       multiple: this.props.context.multiple || false,
-      checked: this.props.selected || false,
+      checked: this.props.selected || false
     };
     this.optionRef = React.createRef();
   }
@@ -46,7 +46,7 @@ class Option extends React.Component {
         Array.from(options).forEach(option => {
           if(option.classList.contains('active')){
             text.push(option.textContent);
-            option.getElementsByTagName("input")[0].value ? value.push(option.getElementsByTagName("input")[0].value) : value.push(option.textContent);
+            option.getElementsByTagName('input')[0].value ? value.push(option.getElementsByTagName('input')[0].value) : value.push(option.textContent);
           }
         });
 
@@ -56,7 +56,7 @@ class Option extends React.Component {
       }
       else {
         Array.from(selectedOption.children).forEach(child => {
-          if(child.nodeName == 'SPAN') {
+          if(child.nodeName === 'SPAN') {
             text = child.textContent;
             this.props.value ? value.push(this.props.value) : value.push(text);
           }

@@ -9,7 +9,7 @@ class ScrollSpyPage extends React.Component  {
     super(props);
     this.state = {
       active: 1
-    }
+    };
     this.handleScroll = this.handleScroll.bind(this);
   }
 
@@ -78,6 +78,6 @@ class ScrollSpyPage extends React.Component  {
       </Container>
     );
   }
-};
+}
 
 export default ScrollSpyPage;

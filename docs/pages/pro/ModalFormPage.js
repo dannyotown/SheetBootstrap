@@ -15,7 +15,7 @@ class ModalPage extends React.Component {
   }
 
   toggle(nr) {
-    let modalNumber = 'modal' + nr
+    let modalNumber = 'modal' + nr;
     this.setState({
       [modalNumber]: !this.state[modalNumber]
     });
@@ -38,14 +38,14 @@ class ModalPage extends React.Component {
         <Row>
           <Button rounded onClick={() => this.toggle(1)}>Launch Modal Login/Register</Button>
           <Modal className="form-cascading" isOpen={this.state.modal1} toggle={() => this.toggle(1)} >
-            <Nav tabs className="md-tabs nav-justified tabs-2 light-blue darken-3" style={{margin: "-1.5rem 1rem 0 1rem"}}>
+            <Nav tabs className="md-tabs nav-justified tabs-2 light-blue darken-3" style={{margin: '-1.5rem 1rem 0 1rem'}}>
               <NavItem>
-                <NavLink className={this.state.activeItem == 1 ? "active" : ""} to="#" onClick={() => { this.toggleTab('1') }} >
+                <NavLink className={this.state.activeItem === 1 ? 'active' : ''} to="#" onClick={() => { this.toggleTab('1'); }} >
                   <Fa icon="user" className="mr-1" />Login
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className={this.state.activeItem == 2 ? "active" : ""} to="#" onClick={() => { this.toggleTab('2') }} >
+                <NavLink className={this.state.activeItem === 2 ? 'active' : ''} to="#" onClick={() => { this.toggleTab('2'); }} >
                   <Fa icon="user-plus" className="mr-1" />Register
                 </NavLink>
               </NavItem>
@@ -60,10 +60,10 @@ class ModalPage extends React.Component {
                 </ModalBody>
                 <ModalFooter className="justify-content-center mx-3">
                   <Button className="mb-4" color="info" onClick={() => this.toggle(3)}>LOG IN <Fa icon="sign-in" className="ml-1" /></Button>
-                  <Row className="w-100 justify-content-start pt-4" style={{borderTop: "1px solid #e9ecef"}}>
+                  <Row className="w-100 justify-content-start pt-4" style={{borderTop: '1px solid #e9ecef'}}>
                     <div id="options">
-                      <p className="font-small grey-text">Not a member? <span class="blue-text ml-1" onClick={() => { this.toggleTab('2') }}>Sign Up</span></p>
-                      <p className="font-small grey-text">Forgot <span class="blue-text ml-1">password?</span></p>
+                      <p className="font-small grey-text">Not a member? <span className="blue-text ml-1" onClick={() => { this.toggleTab('2'); }}>Sign Up</span></p>
+                      <p className="font-small grey-text">Forgot <span className="blue-text ml-1">password?</span></p>
                     </div>
                     <Button outline color="info" onClick={() => this.toggle(1)}>CLOSE</Button>
                   </Row>
@@ -79,9 +79,9 @@ class ModalPage extends React.Component {
                 </ModalBody>
                 <ModalFooter className="justify-content-center mx-3">
                   <Button className="mb-4" color="info" onClick={() => this.toggle(3)}>SIGN UP<Fa icon="sign-in" className="ml-1" /></Button>
-                  <Row className="w-100 justify-content-start pt-4" style={{borderTop: "1px solid #e9ecef"}}>
+                  <Row className="w-100 justify-content-start pt-4" style={{borderTop: '1px solid #e9ecef'}}>
                     <div id="options">
-                      <p className="font-small grey-text">Already have an account?<span class="blue-text ml-1" onClick={() => { this.toggleTab('1') }}>Log in</span></p>
+                      <p className="font-small grey-text">Already have an account?<span className="blue-text ml-1" onClick={() => { this.toggleTab('1'); }}>Log in</span></p>
                     </div>
                     <Button outline color="info" onClick={() => this.toggle(1)}>CLOSE</Button>
                   </Row>
@@ -99,22 +99,22 @@ class ModalPage extends React.Component {
             <ModalHeader className="text-center" titleClass="w-100 font-weight-bold my-3" toggle={() => this.toggle(2)}>Sign in</ModalHeader>
             <ModalBody className="mx-3">
               <form className=" mx-3 grey-text">
-                  <Input label="Your email" group type="email" validate />
-                  <Input label="Your password" group type="password" validate/>
-                  <p class="font-small blue-text text-right">Forgot password?</p>
+                <Input label="Your email" group type="email" validate />
+                <Input label="Your password" group type="password" validate/>
+                <p className="font-small blue-text text-right">Forgot password?</p>
               </form>
             </ModalBody>
             <ModalFooter className="justify-content-center mx-4">
-                <Button block rounded gradient="blue" onClick={() => this.toggle(2)}>SIGN IN</Button>
-                <p className="font-small dark-grey-text my-4">or Sign in with:</p>
-                <Row className="py-3">
-                  <Button rounded color="white" className="mr-md-3"><Fa icon="facebook" className="text-center blue-text" /></Button>
-                  <Button rounded color="white" className="mr-md-3"><Fa icon="twitter" className="text-center blue-text" /></Button>
-                  <Button rounded color="white" className="mr-md-3"><Fa icon="google-plus" className="text-center blue-text" /></Button>
-                </Row>
-                <Row className="mx-5 w-100 py-3 justify-content-end" style={{borderTop: "1px solid #e9ecef"}}>
-                  <p className="font-small grey-text">Not a member? <span class="blue-text ml-1"> Sign Up</span></p>
-                </Row>
+              <Button block rounded gradient="blue" onClick={() => this.toggle(2)}>SIGN IN</Button>
+              <p className="font-small dark-grey-text my-4">or Sign in with:</p>
+              <Row className="py-3">
+                <Button rounded color="white" className="mr-md-3"><Fa icon="facebook" className="text-center blue-text" /></Button>
+                <Button rounded color="white" className="mr-md-3"><Fa icon="twitter" className="text-center blue-text" /></Button>
+                <Button rounded color="white" className="mr-md-3"><Fa icon="google-plus" className="text-center blue-text" /></Button>
+              </Row>
+              <Row className="mx-5 w-100 py-3 justify-content-end" style={{borderTop: '1px solid #e9ecef'}}>
+                <p className="font-small grey-text">Not a member? <span className="blue-text ml-1"> Sign Up</span></p>
+              </Row>
             </ModalFooter>
           </Modal>
         </Row>
@@ -129,10 +129,10 @@ class ModalPage extends React.Component {
               </ModalHeader>
               <ModalBody>
                 <form className="mx-3 grey-text">
-                    <Input label="Your email" group type="email" validate />
-                    <Input label="Your password" group type="password" validate/>
-                    <input className="form-check-input" type="checkbox" id="modalFormDarkCheckbox"></input>
-                    <label htmlFor="modalFormDarkCheckbox" className="white-text form-check-label">Accept the<span className="green-text font-weight-bold"> Terms and Conditions</span></label>
+                  <Input label="Your email" group type="email" validate />
+                  <Input label="Your password" group type="password" validate/>
+                  <input className="form-check-input" type="checkbox" id="modalFormDarkCheckbox"></input>
+                  <label htmlFor="modalFormDarkCheckbox" className="white-text form-check-label">Accept the<span className="green-text font-weight-bold"> Terms and Conditions</span></label>
                 </form>
               </ModalBody>
               <ModalFooter className="justify-content-center">

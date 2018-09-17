@@ -31,7 +31,7 @@ Avatar.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
   round: PropTypes.bool,
-  circle: PropTypes.bool,
+  circle: PropTypes.bool
 };
 
 Avatar.defaultProps = {

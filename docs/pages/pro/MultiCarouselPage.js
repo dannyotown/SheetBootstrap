@@ -20,7 +20,7 @@ class MultiCarouselPage extends Component {
               <CarouselItem itemId="1">
                 <Col md="4">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" />
+                    <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
                       <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
@@ -30,7 +30,7 @@ class MultiCarouselPage extends Component {
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" />
+                    <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
                       <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
@@ -40,7 +40,7 @@ class MultiCarouselPage extends Component {
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" />
+                    <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
                       <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
@@ -52,7 +52,7 @@ class MultiCarouselPage extends Component {
               <CarouselItem itemId="2">
                 <Col md="4">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(60).jpg" />
+                    <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(60).jpg" />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
                       <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
@@ -62,7 +62,7 @@ class MultiCarouselPage extends Component {
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg" />
+                    <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg" />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
                       <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
@@ -72,7 +72,7 @@ class MultiCarouselPage extends Component {
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(48).jpg" />
+                    <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(48).jpg" />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
                       <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
@@ -84,7 +84,7 @@ class MultiCarouselPage extends Component {
               <CarouselItem itemId="3">
                 <Col md="4">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg" />
+                    <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg" />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
                       <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
@@ -94,7 +94,7 @@ class MultiCarouselPage extends Component {
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg" />
+                    <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg" />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
                       <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
@@ -104,7 +104,7 @@ class MultiCarouselPage extends Component {
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(41).jpg" />
+                    <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(41).jpg" />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
                       <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>

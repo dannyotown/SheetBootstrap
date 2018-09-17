@@ -19,7 +19,7 @@ class TestimonialsPage extends Component {
               <Card testimonial>
                 <CardUp color="info"></CardUp>
                 <Avatar className="mx-auto white">
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" className="rounded-circle img-fluid"/>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg" alt="" className="rounded-circle img-fluid"/>
                 </Avatar>
                 <CardBody>
                   <h4 className="font-weight-bold mb-4">John Doe</h4>
@@ -32,7 +32,7 @@ class TestimonialsPage extends Component {
               <Card testimonial>
                 <CardUp gradient="blue"></CardUp>
                 <Avatar className="mx-auto white">
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" className="rounded-circle img-fluid"/>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" alt="" className="rounded-circle img-fluid"/>
                 </Avatar>
                 <CardBody>
                   <h4 className="font-weight-bold mb-4">Anna Aston</h4>
@@ -45,7 +45,7 @@ class TestimonialsPage extends Component {
               <Card testimonial>
                 <CardUp className="indigo"></CardUp>
                 <Avatar className="mx-auto white">
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" className="rounded-circle img-fluid"/>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="" className="rounded-circle img-fluid"/>
                 </Avatar>
                 <CardBody>
                   <h4 className="font-weight-bold mb-4">Maria Kate</h4>
@@ -75,7 +75,7 @@ class TestimonialsPage extends Component {
               <CarouselItem itemId="1">
                 <Testimonial>
                   <Avatar className="mx-auto mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" className="rounded-circle img-fluid" alt="First sample avatar image"/>
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" className="rounded-circle img-fluid" alt="" />
                   </Avatar>
                   <p>
                     <Fa icon="quote-left"></Fa> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat ad velit ab. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore cum accusamus eveniet molestias voluptatum inventore laboriosam labore sit, aspernatur praesentium iste impedit quidem dolor veniam.
@@ -92,7 +92,7 @@ class TestimonialsPage extends Component {
               <CarouselItem itemId="2">
                 <Testimonial>
                   <Avatar className="mx-auto mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" className="rounded-circle img-fluid" alt="Second sample avatar image"/>
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg" className="rounded-circle img-fluid" alt="" />
                   </Avatar>
                   <p>
                     <Fa icon="quote-left"></Fa> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore.
@@ -109,7 +109,7 @@ class TestimonialsPage extends Component {
               <CarouselItem itemId="3">
                 <Testimonial>
                   <Avatar className="mx-auto mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" className="rounded-circle img-fluid" alt="Third sample avatar image"/>
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg" className="rounded-circle img-fluid" alt="" />
                   </Avatar>
                   <p>
                     <Fa icon="quote-left"></Fa> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
@@ -137,7 +137,7 @@ class TestimonialsPage extends Component {
             <Col md="4" className="mb-md-0 mb-5">
               <Testimonial>
                 <Avatar className="mx-auto">
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(1).jpg" className="rounded-circle z-depth-1 img-fluid"/>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(1).jpg" alt="" className="rounded-circle z-depth-1 img-fluid"/>
                 </Avatar>
                 <h4 className="font-weight-bold dark-grey-text mt-4">Anna Deynah</h4>
                 <h6 className="font-weight-bold blue-text my-3">Web Designer</h6>
@@ -155,7 +155,7 @@ class TestimonialsPage extends Component {
             <Col md="4" className="mb-md-0 mb-5">
               <Testimonial>
                 <Avatar className="mx-auto">
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" className="rounded-circle z-depth-1 img-fluid"/>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg" alt="" className="rounded-circle z-depth-1 img-fluid"/>
                 </Avatar>
                 <h4 className="font-weight-bold dark-grey-text mt-4">John Doe</h4>
                 <h6 className="font-weight-bold blue-text my-3">Web Developer</h6>
@@ -173,7 +173,7 @@ class TestimonialsPage extends Component {
             <Col md="4">
               <Testimonial>
                 <Avatar className="mx-auto">
-                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" className="rounded-circle z-depth-1 img-fluid"/>
+                  <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="" className="rounded-circle z-depth-1 img-fluid"/>
                 </Avatar>
                 <h4 className="font-weight-bold dark-grey-text mt-4">Maria Kate</h4>
                 <h6 className="font-weight-bold blue-text my-3">Photographer</h6>
@@ -195,7 +195,7 @@ class TestimonialsPage extends Component {
 
       </Container>
     );
-  };
+  }
 }
 
 export default TestimonialsPage;

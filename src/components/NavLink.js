@@ -48,12 +48,12 @@ class NavLink extends Component {
 
     return (
       <Link className={classes}
-            onClick={this.onClick}
-            onMouseDown={ this.handleClick }
-            onTouchStart={ this.handleClick }
-            to={to}
-            activeClassName = {activeClassName}
-            {...attributes}
+        onClick={this.onClick}
+        onMouseDown={ this.handleClick }
+        onTouchStart={ this.handleClick }
+        to={to}
+        activeClassName = {activeClassName}
+        {...attributes}
       >
         {children}
         {this.props.disabled ? false : <Waves cursorPos={ this.state.cursorPos } />}

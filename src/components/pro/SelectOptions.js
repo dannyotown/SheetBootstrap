@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Autocomplete from './Autocomplete';
@@ -17,11 +17,11 @@ class Options extends React.Component {
     options.forEach(function(option) {
       let optionValue = option.children[0].innerText.toLowerCase();
       if(!optionValue.includes(value)) {
-        option.style.display = "none";
+        option.style.display = 'none';
       } else {
-        option.style.display = "block";
+        option.style.display = 'block';
       }
-    })
+    });
   }
 
   componentDidMount() {
@@ -29,7 +29,7 @@ class Options extends React.Component {
       let options = ReactDOM.findDOMNode(this).querySelectorAll('li');
       options.forEach(function(option) {
         data.push(option.children[0].innerHTML);
-      })
+      });
     }
   }
 
@@ -40,14 +40,6 @@ class Options extends React.Component {
       search,
       ...attributes
     } = this.props;
-
-    const options = [
-      'Option nr 1',
-      'Option nr 2',
-      'Option nr 3',
-      'Option nr 4',
-      'Option nr 5'
-    ]
 
     const classes = classNames(
       'dropdown-content',

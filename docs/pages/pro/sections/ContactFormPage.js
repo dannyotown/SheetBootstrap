@@ -1,23 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Fa, Button, View, Container, FormInline, Card, CardBody, Input } from 'mdbreact';
-import './ContactFormPage.css'
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Mask, Row, Col, Button, View, Container, FormInline, Card, CardBody, Input } from 'mdbreact';
+import './ContactFormPage.css';
 
 
 class ContactFormPage extends React.Component {
-  constructor(props) {
-    super(props),
-    this.state = {
-      collapseID: ''
-    };
+
+  state = {
+    collapseID: ''
   }
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({ collapseID: (prevState.collapseID !== collapseID ? collapseID : '') }));
 
   render(){
-  const navStyle = { marginTop: '4rem'}
-  const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.toggleCollapse('navbarCollapse')} />;
+    const navStyle = { marginTop: '4rem'};
+    const overlay = <div id="sidenav-overlay" style={{backgroundColor: 'transparent'}} onClick={this.toggleCollapse('navbarCollapse')} />;
     return (
       <div id="contactformpage">
         <Router>
@@ -101,6 +99,6 @@ class ContactFormPage extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default ContactFormPage;

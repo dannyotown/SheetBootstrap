@@ -30,6 +30,6 @@ class ChartsPagePro extends React.Component {
     );
   }
 
-};
+}
 
 export default ChartsPagePro;

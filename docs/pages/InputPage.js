@@ -1,12 +1,12 @@
 import React from 'react';
-import { Input, InputNumeric, FormInline, Button, Container, Row, Col, Fa } from 'mdbreact';
+import { Input, InputNumeric, FormInline, Button, Container, Row, Col } from 'mdbreact';
 import DocsLink from './DocsLink';
 
 class InputPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "John Doe",
+      value: 'John Doe'
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -195,10 +195,10 @@ class InputPage extends React.Component {
                 <div className="col-auto">
                   <label className="sr-only" htmlFor="inlineFormInputGroup">Username</label>
                   <div className="input-group mb-2">
-                      <div className="input-group-prepend">
-                          <div className="input-group-text">@</div>
-                      </div>
-                      <input type="text" className="form-control py-0" id="inlineFormInputGroup" placeholder="Username" />
+                    <div className="input-group-prepend">
+                      <div className="input-group-text">@</div>
+                    </div>
+                    <input type="text" className="form-control py-0" id="inlineFormInputGroup" placeholder="Username" />
                   </div>
                 </div>
                 <div className="col-auto">

@@ -85,7 +85,7 @@ class FeaturesPage extends Component {
 
           <Row>
             <Col lg="5" className="text-center text-lg-left">
-              <img  className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/screens-section.jpg" alt="Sample image" />
+              <img  className="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/screens-section.jpg" alt="" />
             </Col>
             <Col lg="7">
               <Row className="mb-3">
@@ -156,7 +156,7 @@ class FeaturesPage extends Component {
               </Row>
             </Col>
             <Col md="4" className="text-name">
-              <img className="img-fluid" src="https://mdbootstrap.com/img/Mockups/Transparent/Small/iphone-portfolio1.png" alt="Sample image" />
+              <img className="img-fluid" src="https://mdbootstrap.com/img/Mockups/Transparent/Small/iphone-portfolio1.png" alt="" />
             </Col>
             <Col md="4">
               <Row className="mb-3">
@@ -194,7 +194,7 @@ class FeaturesPage extends Component {
 
       </Container>
     );
-  };
+  }
 }
 
 export default FeaturesPage;

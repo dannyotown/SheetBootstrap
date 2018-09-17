@@ -1,8 +1,6 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
 import Button from './../Button';
-import Waves from './../Waves';
-import classNames from 'classnames';
 
 class ExportToCSV extends Component {
   constructor(props) {
@@ -17,12 +15,12 @@ class ExportToCSV extends Component {
   componentDidMount() {
     this.computeDataToLink();
   }
-  
+
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.data != this.props.data || prevState.columns != this.props.columns) {
-      this.setState({ 
-        columns: this.props.columns, 
-        data: this.props.data 
+    if(prevState.data !== this.props.data || prevState.columns !== this.props.columns) {
+      this.setState({
+        columns: this.props.columns,
+        data: this.props.data
       },
       this.computeDataToLink()
       );

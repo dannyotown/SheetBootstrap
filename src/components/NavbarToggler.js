@@ -27,7 +27,7 @@ class NavbarToggler extends Component {
       <Tag {...attributes} className={classes}>
         {children ? children :  
           image ? <span className='navbar-toggler-icon' style={{backgroundImage: `url("${image}")`}} /> : 
-                  <span className='navbar-toggler-icon' /> }
+            <span className='navbar-toggler-icon' /> }
       </Tag>
     );
   }

@@ -5,18 +5,18 @@ import DocsLink from '../DocsLink';
 class ScrollBarPage extends React.Component  {
 
   render() {
-    const outerContainerStyle = {width: '800px', height: '400px'}
+    const outerContainerStyle = {width: '800px', height: '400px'};
     return(
       <Container>
         <DocsLink title="ScrollBar" href="https://mdbootstrap.com/react/" />
         <Container style={outerContainerStyle} className="mt-5">
           <PerfectScrollbar className="scrollbar-primary">
-            <img src="https://mdbootstrap.com/img/Photos/Others/img%20(51).jpg"/>
+            <img alt="" src="https://mdbootstrap.com/img/Photos/Others/img%20(51).jpg"/>
           </PerfectScrollbar>
         </Container>
       </Container>
     );
   }
-};
+}
 
 export default ScrollBarPage;

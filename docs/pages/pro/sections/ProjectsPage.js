@@ -16,7 +16,7 @@ class ProjectsPage extends Component {
           <Row className="text-center">
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
               <View className="overlay rounded z-depth-1" waves>
-                <img src="https://mdbootstrap.com/img/Photos/Others/images/58.jpg" alt="sample photo" className="img-fluid"/>
+                <img src="https://mdbootstrap.com/img/Photos/Others/images/58.jpg" alt="" className="img-fluid"/>
                 <a>
                   <Mask overlay="white-slight"/>
                 </a>
@@ -29,7 +29,7 @@ class ProjectsPage extends Component {
             </Col>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
               <View className="overlay rounded z-depth-1" waves>
-                <img src="https://mdbootstrap.com/img/Photos/Others/project4.jpg" alt="sample photo" className="img-fluid"/>
+                <img src="https://mdbootstrap.com/img/Photos/Others/project4.jpg" alt="" className="img-fluid"/>
                 <a>
                   <Mask overlay="white-slight"/>
                 </a>
@@ -42,7 +42,7 @@ class ProjectsPage extends Component {
             </Col>
             <Col lg="4" md="12" className="mb-lg-0 mb-4">
               <View className="overlay rounded z-depth-1" waves>
-                <img src="https://mdbootstrap.com/img/Photos/Others/images/88.jpg" alt="sample photo" className="img-fluid"/>
+                <img src="https://mdbootstrap.com/img/Photos/Others/images/88.jpg" alt="" className="img-fluid"/>
                 <a>
                   <Mask overlay="white-slight"/>
                 </a>
@@ -67,7 +67,7 @@ class ProjectsPage extends Component {
           <Row className="d-flex justify-content-center">
             <Col md="6" xl="5" className="mb-4">
               <View className="overlay rounded z-depth-2" waves>
-                <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.jpg" alt="sample photo" className="img-fluid"/>
+                <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.jpg" alt="" className="img-fluid"/>
                 <a>
                   <Mask overlay="white-slight"/>
                 </a>
@@ -81,7 +81,7 @@ class ProjectsPage extends Component {
             </Col>
             <Col md="6" xl="5" className="mb-4">
               <View className="overlay rounded z-depth-2" waves>
-                <img src="https://mdbootstrap.com/img/Photos/Others/images/19.jpg" alt="sample photo" className="img-fluid"/>
+                <img src="https://mdbootstrap.com/img/Photos/Others/images/19.jpg" alt="" className="img-fluid"/>
                 <a>
                   <Mask overlay="white-slight"/>
                 </a>
@@ -95,7 +95,7 @@ class ProjectsPage extends Component {
             </Col>
             <Col md="6" xl="5" className="mb-4">
               <View className="overlay rounded z-depth-2" waves>
-                <img src="https://mdbootstrap.com/img/Photos/Others/images/48.jpg" alt="sample photo" className="img-fluid"/>
+                <img src="https://mdbootstrap.com/img/Photos/Others/images/48.jpg" alt="" className="img-fluid"/>
                 <a>
                   <Mask overlay="white-slight"/>
                 </a>
@@ -109,7 +109,7 @@ class ProjectsPage extends Component {
             </Col>
             <Col md="6" xl="5" className="mb-4">
               <View className="overlay rounded z-depth-2" waves>
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (56).jpg" alt="sample photo" className="img-fluid"/>
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (56).jpg" alt="" className="img-fluid"/>
                 <a>
                   <Mask overlay="white-slight"/>
                 </a>
@@ -132,7 +132,7 @@ class ProjectsPage extends Component {
 
           <Row>
             <Col lg="5" className="mb-lg-0 mb-5">
-              <img src="https://mdbootstrap.com/img/Photos/Others/images/83.jpg" alt="Sample project image" className="img-fluid rounded z-depth-1" />
+              <img src="https://mdbootstrap.com/img/Photos/Others/images/83.jpg" alt="" className="img-fluid rounded z-depth-1" />
             </Col>
             <Col lg="7">
               <Row className="mb-3">
@@ -196,7 +196,7 @@ class ProjectsPage extends Component {
               </Row>
             </Col>
             <Col lg="5">
-              <img src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg" alt="Sample project image" className="img-fluid rounded z-depth-1"/>
+              <img src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg" alt="" className="img-fluid rounded z-depth-1"/>
             </Col>
           </Row>
 
@@ -262,7 +262,7 @@ class ProjectsPage extends Component {
 
       </Container>
     );
-  };
+  }
 }
 
 export default ProjectsPage;

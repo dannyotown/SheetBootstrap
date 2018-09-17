@@ -4,7 +4,7 @@ import DocsLink from './DocsLink';
 
 class TooltipsPage extends React.Component {
   render() {
-    const style = {display: 'inline-block', maxWidth: '50vh'}
+    const style = {display: 'inline-block', maxWidth: '50vh'};
     return (
       <Container>
         <DocsLink title="Tooltips" href="https://mdbootstrap.com/react/advanced/tooltips/" />
@@ -18,24 +18,24 @@ class TooltipsPage extends React.Component {
               Tooltip on top
           </Tooltip>
           <div style={style} className="text-right">
-          <Tooltip
-            placement="left"
-            componentClass="btn btn-primary"
-            tag="div"
-            component="button"
-            tooltipContent="Tooltip on left">
+            <Tooltip
+              placement="left"
+              componentClass="btn btn-primary"
+              tag="div"
+              component="button"
+              tooltipContent="Tooltip on left">
               Tooltip on left
-          </Tooltip>
+            </Tooltip>
           </div>
           <div style={style} className="text-left">
-          <Tooltip
-            placement="right"
-            componentClass="btn btn-primary"
-            tag="div"
-            component="button"
-            tooltipContent="Tooltip on right">
+            <Tooltip
+              placement="right"
+              componentClass="btn btn-primary"
+              tag="div"
+              component="button"
+              tooltipContent="Tooltip on right">
               Tooltip on right
-          </Tooltip>
+            </Tooltip>
           </div>
           <Tooltip
             placement="bottom"

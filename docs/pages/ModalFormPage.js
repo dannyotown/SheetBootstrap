@@ -10,13 +10,12 @@ class ModalPage extends React.Component {
       modal2: false,
       modal3: false,
       modal4: false,
-      modal5: false,
-      modal5: false,
+      modal5: false
     };
   }
 
   toggle(nr) {
-    let modalNumber = 'modal' + nr
+    let modalNumber = 'modal' + nr;
     this.setState({
       [modalNumber]: !this.state[modalNumber]
     });
@@ -33,8 +32,8 @@ class ModalPage extends React.Component {
             <ModalHeader className="text-center" titleClass="w-100 font-weight-bold" toggle={() => this.toggle(1)}>Sign in</ModalHeader>
             <ModalBody>
               <form className="mx-3 grey-text">
-                  <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
-                  <Input label="Type your password" icon="lock" group type="password" validate/>
+                <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
+                <Input label="Type your password" icon="lock" group type="password" validate/>
               </form>
             </ModalBody>
             <ModalFooter className="justify-content-center">

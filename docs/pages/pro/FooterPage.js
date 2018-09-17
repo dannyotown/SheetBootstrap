@@ -19,52 +19,52 @@ class FooterPagePro extends React.Component {
               <Col md="2">
                 <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">Links</h5>
                 <ul className="list-unstyled">
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
+                  <li><a href="#!">Link 1</a></li>
+                  <li><a href="#!">Link 2</a></li>
+                  <li><a href="#!">Link 3</a></li>
+                  <li><a href="#!">Link 4</a></li>
                 </ul>
               </Col>
               <hr className="clearfix w-100 d-md-none"/>
               <Col md="2">
                 <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">Links</h5>
                 <ul className="list-unstyled">
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
+                  <li><a href="#!">Link 1</a></li>
+                  <li><a href="#!">Link 2</a></li>
+                  <li><a href="#!">Link 3</a></li>
+                  <li><a href="#!">Link 4</a></li>
                 </ul>
               </Col>
               <hr className="clearfix w-100 d-md-none"/>
               <Col md="2">
                 <h5 className="text-uppercase mb-4 mt-3 font-weight-bold">Links</h5>
                 <ul className="list-unstyled">
-                    <li><a href="#!">Link 1</a></li>
-                    <li><a href="#!">Link 2</a></li>
-                    <li><a href="#!">Link 3</a></li>
-                    <li><a href="#!">Link 4</a></li>
+                  <li><a href="#!">Link 1</a></li>
+                  <li><a href="#!">Link 2</a></li>
+                  <li><a href="#!">Link 3</a></li>
+                  <li><a href="#!">Link 4</a></li>
                 </ul>
               </Col>
             </Row>
           </Container>
           <hr/>
           <div className="text-center py-3">
-              <ul className="list-unstyled list-inline mb-0">
-                  <li className="list-inline-item">
-                      <h5 className="mb-1">Register for free</h5>
-                  </li>
-                  <li className="list-inline-item"><a href="#!" className="btn btn-danger btn-rounded">Sign up!</a></li>
-              </ul>
+            <ul className="list-unstyled list-inline mb-0">
+              <li className="list-inline-item">
+                <h5 className="mb-1">Register for free</h5>
+              </li>
+              <li className="list-inline-item"><a href="#!" className="btn btn-danger btn-rounded">Sign up!</a></li>
+            </ul>
           </div>
           <hr/>
           <div className="text-center">
-              <ul className="list-unstyled list-inline">
-                  <li className="list-inline-item"><a className="btn-floating btn-sm btn-fb mx-1"><i className="fa fa-facebook"> </i></a></li>
-                  <li className="list-inline-item"><a className="btn-floating btn-sm btn-tw mx-1"><i className="fa fa-twitter"> </i></a></li>
-                  <li className="list-inline-item"><a className="btn-floating btn-sm btn-gplus mx-1"><i className="fa fa-google-plus"> </i></a></li>
-                  <li className="list-inline-item"><a className="btn-floating btn-sm btn-li mx-1"><i className="fa fa-linkedin"> </i></a></li>
-                  <li className="list-inline-item"><a className="btn-floating btn-sm btn-dribbble mx-1"><i className="fa fa-dribbble"> </i></a></li>
-              </ul>
+            <ul className="list-unstyled list-inline">
+              <li className="list-inline-item"><a className="btn-floating btn-sm btn-fb mx-1"><i className="fa fa-facebook"> </i></a></li>
+              <li className="list-inline-item"><a className="btn-floating btn-sm btn-tw mx-1"><i className="fa fa-twitter"> </i></a></li>
+              <li className="list-inline-item"><a className="btn-floating btn-sm btn-gplus mx-1"><i className="fa fa-google-plus"> </i></a></li>
+              <li className="list-inline-item"><a className="btn-floating btn-sm btn-li mx-1"><i className="fa fa-linkedin"> </i></a></li>
+              <li className="list-inline-item"><a className="btn-floating btn-sm btn-dribbble mx-1"><i className="fa fa-dribbble"> </i></a></li>
+            </ul>
           </div>
           <div className="footer-copyright text-center py-3">
             <Container fluid>
@@ -92,34 +92,34 @@ class FooterPagePro extends React.Component {
           <Container className="mt-5 mb-4 text-center text-md-left">
             <Row className="mt-3">
               <Col md="3" lg="4" xl="3" className="mb-4">
-                  <h6 className="text-uppercase font-weight-bold"><strong>Company name</strong></h6>
-                  <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
-                  <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
+                <h6 className="text-uppercase font-weight-bold"><strong>Company name</strong></h6>
+                <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
+                <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
                       amet, consectetur adipisicing elit.</p>
               </Col>
               <Col md="2" lg="2" xl="2" className="mb-4">
-                  <h6 className="text-uppercase font-weight-bold"><strong>Products</strong></h6>
-                  <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
-                  <p><a href="#!">MDBootstrap</a></p>
-                  <p><a href="#!">MDWordPress</a></p>
-                  <p><a href="#!">BrandFlow</a></p>
-                  <p><a href="#!">Bootstrap Angular</a></p>
+                <h6 className="text-uppercase font-weight-bold"><strong>Products</strong></h6>
+                <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
+                <p><a href="#!">MDBootstrap</a></p>
+                <p><a href="#!">MDWordPress</a></p>
+                <p><a href="#!">BrandFlow</a></p>
+                <p><a href="#!">Bootstrap Angular</a></p>
               </Col>
               <Col md="3" lg="2" xl="2" className="mb-4">
-                  <h6 className="text-uppercase font-weight-bold"><strong>Useful links</strong></h6>
-                  <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
-                  <p><a href="#!">Your Account</a></p>
-                  <p><a href="#!">Become an Affiliate</a></p>
-                  <p><a href="#!">Shipping Rates</a></p>
-                  <p><a href="#!">Help</a></p>
+                <h6 className="text-uppercase font-weight-bold"><strong>Useful links</strong></h6>
+                <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
+                <p><a href="#!">Your Account</a></p>
+                <p><a href="#!">Become an Affiliate</a></p>
+                <p><a href="#!">Shipping Rates</a></p>
+                <p><a href="#!">Help</a></p>
               </Col>
               <Col md="4" lg="3" xl="3" className="mb-4">
-                  <h6 className="text-uppercase font-weight-bold"><strong>Contact</strong></h6>
-                  <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
-                  <p><i className="fa fa-home mr-3"></i> New York, NY 10012, US</p>
-                  <p><i className="fa fa-envelope mr-3"></i> info@example.com</p>
-                  <p><i className="fa fa-phone mr-3"></i> + 01 234 567 88</p>
-                  <p><i className="fa fa-print mr-3"></i> + 01 234 567 89</p>
+                <h6 className="text-uppercase font-weight-bold"><strong>Contact</strong></h6>
+                <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
+                <p><i className="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+                <p><i className="fa fa-envelope mr-3"></i> info@example.com</p>
+                <p><i className="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+                <p><i className="fa fa-print mr-3"></i> + 01 234 567 89</p>
               </Col>
             </Row>
           </Container>
@@ -149,34 +149,34 @@ class FooterPagePro extends React.Component {
           <Container className="mt-5 mb-4 text-center text-md-left">
             <Row className="mt-3">
               <Col md="3" lg="4" xl="3" className="mb-4 dark-grey-text">
-                  <h6 className="text-uppercase font-weight-bold"><strong>Company name</strong></h6>
-                  <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
-                  <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
+                <h6 className="text-uppercase font-weight-bold"><strong>Company name</strong></h6>
+                <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
+                <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
                       amet, consectetur adipisicing elit.</p>
               </Col>
               <Col md="2" lg="2" xl="2" className="mb-4 dark-grey-text">
-                  <h6 className="text-uppercase font-weight-bold"><strong>Products</strong></h6>
-                  <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
-                  <p><a href="#!" className="dark-grey-text">MDBootstrap</a></p>
-                  <p><a href="#!" className="dark-grey-text">MDWordPress</a></p>
-                  <p><a href="#!" className="dark-grey-text">BrandFlow</a></p>
-                  <p><a href="#!" className="dark-grey-text">Bootstrap Angular</a></p>
+                <h6 className="text-uppercase font-weight-bold"><strong>Products</strong></h6>
+                <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
+                <p><a href="#!" className="dark-grey-text">MDBootstrap</a></p>
+                <p><a href="#!" className="dark-grey-text">MDWordPress</a></p>
+                <p><a href="#!" className="dark-grey-text">BrandFlow</a></p>
+                <p><a href="#!" className="dark-grey-text">Bootstrap Angular</a></p>
               </Col>
               <Col md="3" lg="2" xl="2" className="mb-4 dark-grey-text">
-                  <h6 className="text-uppercase font-weight-bold"><strong>Useful links</strong></h6>
-                  <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
-                  <p><a href="#!" className="dark-grey-text">Your Account</a></p>
-                  <p><a href="#!" className="dark-grey-text">Become an Affiliate</a></p>
-                  <p><a href="#!" className="dark-grey-text">Shipping Rates</a></p>
-                  <p><a href="#!" className="dark-grey-text">Help</a></p>
+                <h6 className="text-uppercase font-weight-bold"><strong>Useful links</strong></h6>
+                <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
+                <p><a href="#!" className="dark-grey-text">Your Account</a></p>
+                <p><a href="#!" className="dark-grey-text">Become an Affiliate</a></p>
+                <p><a href="#!" className="dark-grey-text">Shipping Rates</a></p>
+                <p><a href="#!" className="dark-grey-text">Help</a></p>
               </Col>
               <Col md="4" lg="3" xl="3" className="mb-4 dark-grey-text">
-                  <h6 className="text-uppercase font-weight-bold"><strong>Contact</strong></h6>
-                  <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
-                  <p><i className="fa fa-home mr-3"></i> New York, NY 10012, US</p>
-                  <p><i className="fa fa-envelope mr-3"></i> info@example.com</p>
-                  <p><i className="fa fa-phone mr-3"></i> + 01 234 567 88</p>
-                  <p><i className="fa fa-print mr-3"></i> + 01 234 567 89</p>
+                <h6 className="text-uppercase font-weight-bold"><strong>Contact</strong></h6>
+                <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{width: '60px'}}/>
+                <p><i className="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+                <p><i className="fa fa-envelope mr-3"></i> info@example.com</p>
+                <p><i className="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+                <p><i className="fa fa-print mr-3"></i> + 01 234 567 89</p>
               </Col>
             </Row>
           </Container>
@@ -289,12 +289,12 @@ class FooterPagePro extends React.Component {
             <Row className="pb-3">
               <Col md="12">
                 <div className="mb-5 flex-center">
-                    <a className="fb-ic"><i className="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
-                    <a className="tw-ic"><i className="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
-                    <a className="gplus-ic"><i className="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
-                    <a className="li-ic"><i className="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
-                    <a className="ins-ic"><i className="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
-                    <a className="pin-ic"><i className="fa fa-pinterest fa-lg white-text"> </i></a>
+                  <a className="fb-ic"><i className="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
+                  <a className="tw-ic"><i className="fa fa-twitter fa-lg white-text mr-md-4"> </i></a>
+                  <a className="gplus-ic"><i className="fa fa-google-plus fa-lg white-text mr-md-4"> </i></a>
+                  <a className="li-ic"><i className="fa fa-linkedin fa-lg white-text mr-md-4"> </i></a>
+                  <a className="ins-ic"><i className="fa fa-instagram fa-lg white-text mr-md-4"> </i></a>
+                  <a className="pin-ic"><i className="fa fa-pinterest fa-lg white-text"> </i></a>
                 </div>
               </Col>
             </Row>
