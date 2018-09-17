@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Container, Fa, HamburgerButton } from 'mdbreact';
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, Container, Fa, HamburgerToggler } from 'mdbreact';
 import DocsLink from '../DocsLink';
 
 class NavbarPage extends React.Component {
@@ -36,7 +36,7 @@ class NavbarPage extends React.Component {
                 <NavbarBrand>
                  Navbar
                 </NavbarBrand>
-                <HamburgerButton color="#d3531a" id="hamburger1" onClick={() => this.toggleSingleCollapse('collapse1')} />
+                <HamburgerToggler color="#d3531a" id="hamburger1" onClick={() => this.toggleSingleCollapse('collapse1')} />
                 <Collapse isOpen={this.state.collapse1} navbar>
                   <NavbarNav left>
                     <NavItem active>
@@ -58,7 +58,7 @@ class NavbarPage extends React.Component {
                 <NavbarBrand className="white-text">
                  Navbar
                 </NavbarBrand>
-                <HamburgerButton onClick={() => this.toggleSingleCollapse('collapse2')} isOpen={true} id="hamburger2" />
+                <HamburgerToggler onClick={() => this.toggleSingleCollapse('collapse2')} isOpen={true} id="hamburger2" />
                 <Collapse isOpen={this.state.collapse2} navbar>
                   <NavbarNav left>
                     <NavItem active>
@@ -80,7 +80,7 @@ class NavbarPage extends React.Component {
                 <NavbarBrand className="white-text">
                  Navbar
                 </NavbarBrand>
-                <HamburgerButton onClick={() => this.toggleSingleCollapse('collapse3')}  id="hamburger3" />
+                <HamburgerToggler onClick={() => this.toggleSingleCollapse('collapse3')}  id="hamburger3" />
                 <Collapse isOpen={this.state.collapse3} navbar>
                   <NavbarNav left>
                     <NavItem active>

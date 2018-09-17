@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './HamburgerButton.css';
+import './HamburgerToggler.css';
 
-class HamburgerButton extends React.Component {
+class HamburgerToggler extends React.Component {
 
     state={
         checked: this.props.isOpen || false
@@ -19,13 +19,14 @@ class HamburgerButton extends React.Component {
     } = this.props;
 
     const classes = classNames(
+      "hamburger-button__button",
       className,
     );
 
     return (
         <React.Fragment>
             <input type="checkbox" defaultChecked={this.state.checked} onChange={this.props.onClick} className="hamburger-button__checkbox" id={id} />
-            <label id="nav-icon1" className="hamburger-button__button" htmlFor={id}>
+            <label id="nav-icon1" className={classes} htmlFor={id}>
                 <span style={{background: color}}></span>
                 <span style={{background: color}}></span>
                 <span style={{background: color}}></span>
@@ -35,11 +36,11 @@ class HamburgerButton extends React.Component {
   }
 }
 
-HamburgerButton.propTypes = {
+HamburgerToggler.propTypes = {
 id: PropTypes.string,
   color: PropTypes.string,
   className: PropTypes.string
 };
 
-export default HamburgerButton;
-export { HamburgerButton as MDBHamburgerBtn };
+export default HamburgerToggler;
+export { HamburgerToggler as MDBHamburgerToggler };
