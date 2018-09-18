@@ -34,10 +34,10 @@ class Animation extends Component {
     const docHeight = document.documentElement.offsetHeight;
 
     if (
-      windowHeight + scroll - 100 > this.getOffset(this.elemRef.current) &&
-      scroll < this.getOffset(this.elemRef.current) ||
-    windowHeight + scroll - 100 > this.getOffset(this.elemRef.current) + this.elemRef.current.clientHeight && scroll < this.getOffset(this.elemRef.current) + this.elemRef.current.clientHeight ||
-    windowHeight + scroll === docHeight && this.getOffset(this.elemRef.current) + 100 > docHeight) {
+      (windowHeight + scroll - 100 > this.getOffset(this.elemRef.current) &&
+      scroll < this.getOffset(this.elemRef.current)) ||
+      (windowHeight + scroll - 100 > this.getOffset(this.elemRef.current) + this.elemRef.current.clientHeight && scroll < this.getOffset(this.elemRef.current) + this.elemRef.current.clientHeight) ||
+      (windowHeight + scroll === docHeight && this.getOffset(this.elemRef.current) + 100 > docHeight)) {
       // if the predicate is true, change state
       this.setState({
         isVisible: true
