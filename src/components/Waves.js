@@ -6,31 +6,30 @@ require('./Waves.css');
 
 class Waves extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       animate: false,
       width: 0,
       height: 0,
       top: 0,
-      left: 0
+      left: 0,
+      cursorPos: props.cursorPos
     };
   }
 
-  render () {
-    return (
-      <div className={'Ripple ' + (this.props.outline || this.props.flat || this.props.dark ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : '')} style={{
-        top: this.state.top+'px',
-        left: this.state.left+'px',
-        width: this.state.width+'px',
-        height: this.state.height+'px'
-      }}></div>
-    );
+  componentDidUpdate(prevProps, prevState) {
+    if(prevState.cursorPos.time !== this.props.cursorPos.time) {
+      if(prevState.animate) {
+        this.setState({ animate: false, cursorPos: this.props.cursorPos }, () => {
+          this.reppling();
+        });
+      }
+      else this.reppling();
+    }
   }
-
-
-  reppling(cursorPos){
-
+  
+  reppling() {
     // Get the element
     let $ripple = ReactDOM.findDOMNode(this);
     let $button = $ripple.parentNode;
@@ -50,27 +49,24 @@ class Waves extends React.Component {
       animate: true,
       width: rippleWidthShouldBe,
       height: rippleWidthShouldBe,
-      top: cursorPos.top - buttonPos.top - centerize,
-      left: cursorPos.left - buttonPos.left - centerize
+      top: this.state.cursorPos.top - buttonPos.top - centerize,
+      left: this.state.cursorPos.left - buttonPos.left - centerize
     });
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    let cursorPos = nextProps.cursorPos;
-
-    // Prevent Component duplicates do ripple effect at the same time
-    if(cursorPos.time !== this.props.cursorPos.time){
-      // If Has Animated, set state to "false" First
-      if(this.state.animate){
-        this.setState({ animate: false }, () => {
-          this.reppling(cursorPos);
-        });
-      }
-      // else, Do Reppling
-      else this.reppling(cursorPos);
-    }
+  render () {
+    return (
+      <div 
+        className={'Ripple ' + (this.props.outline || this.props.flat || this.props.dark ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : '')}
+        style={{
+          top: this.state.top+'px',
+          left: this.state.left+'px',
+          width: this.state.width+'px',
+          height: this.state.height+'px'
+        }}
+      ></div>
+    );
   }
-
 }
 
 Waves.propTypes = {
