@@ -23,7 +23,7 @@ class TextField extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState){
-    if (nextProps.value) {
+    if (nextProps.value !== prevState.value) {
       return { ...prevState, innerValue: nextProps.value };
     } else {
       return null;
