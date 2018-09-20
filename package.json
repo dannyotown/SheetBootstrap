@@ -26,7 +26,8 @@
     "react-popper": "^0.7.5",
     "react-router-dom": "^4.2.0",
     "react-toastify": "^3.2.2",
-    "react-transition-group": "^1.2.1"
+    "react-transition-group": "^1.2.1",
+    "react-image-lightbox": "^4.6.0"
   },
   "scripts": {
     "build": "yarn run sass-compile && webpack",
@@ -66,7 +67,6 @@
     "node-sass": "^4.9.2",
     "prop-types": "^15.6.0",
     "react-chartjs-2": "^2.7.0",
-    "react-image-lightbox": "^4.6.0",
     "react-scripts": "^1.1.4",
     "salad-ui.chart": "^1.1.55",
     "sass-loader": "^7.0.3",

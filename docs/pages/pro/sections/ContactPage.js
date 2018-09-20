@@ -160,7 +160,7 @@ class ContactPage extends Component {
                     <Col md="12">
                       <div className="md-form mb-0">
                         <Input type="textarea" id="form-contact-message" label="Your message"/>
-                        <Button tag="a" floating color="blue" size="lg">
+                        <Button rounded color="blue">
                           <Fa icon="send-o"/>
                         </Button>
                       </div>
