@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, Popover, PopoverBody, PopoverHeader, Tooltip, Row, Col, Input, Fa } from 'mdbreact';
+import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter, Popover, PopoverBody, PopoverHeader, Tooltip, Row, Col, Input } from 'mdbreact';
 import DocsLink from './DocsLink';
 
 class ModalPage extends React.Component {
@@ -55,13 +55,6 @@ class ModalPage extends React.Component {
     return (
       <Container>
         <DocsLink title="Modal" href="https://mdbootstrap.com/react/advanced/modals/" />
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: '0px'}}>
-            <strong></strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href=""><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
         <Button color="danger" onClick={() => this.toggle(1)} >Modal</Button>
         <Modal
           // hiddenModal={this.hiddenFunction}
