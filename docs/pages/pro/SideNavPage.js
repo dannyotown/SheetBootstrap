@@ -53,19 +53,19 @@ class SideNavPage extends React.Component {
               </ul>
             </li>
             <SideNavNav>
-              <SideNavCat name="Submit blog" icon="chevron-right">
+              <SideNavCat name="Submit blog" id="submit-blog" icon="chevron-right">
                 <SideNavLink>Submit listing</SideNavLink>
                 <SideNavLink>Registration form</SideNavLink>
               </SideNavCat>
-              <SideNavCat name="Instruction" icon="hand-pointer-o" href="#">
+              <SideNavCat name="Instruction" id="instruction" icon="hand-pointer-o" href="#">
                 <SideNavLink>For bloggers</SideNavLink>
                 <SideNavLink>For authors</SideNavLink>
               </SideNavCat>
-              <SideNavCat name="About" icon="eye">
+              <SideNavCat name="About" id="about" icon="eye">
                 <SideNavLink>Instruction</SideNavLink>
                 <SideNavLink>Monthly meetings</SideNavLink>
               </SideNavCat>
-              <SideNavCat name="Contact me" icon="envelope-o">
+              <SideNavCat name="Contact me" id="contact-me" icon="envelope-o">
                 <SideNavLink>FAQ</SideNavLink>
                 <SideNavLink>Write a message</SideNavLink>
               </SideNavCat>
@@ -83,19 +83,19 @@ class SideNavPage extends React.Component {
               </ul>
             </li>
             <SideNavNav>
-              <SideNavCat name="Submit blog" icon="chevron-right" >
+              <SideNavCat name="Submit blog" id="submit-blog2" icon="chevron-right" >
                 <SideNavLink className="active">Submit listing</SideNavLink>
                 <SideNavLink>Registration form</SideNavLink>
               </SideNavCat>
-              <SideNavCat name="Instruction" icon="hand-pointer-o">
+              <SideNavCat name="Instruction" id="instruction2" icon="hand-pointer-o">
                 <SideNavLink>For bloggers</SideNavLink>
                 <SideNavLink>For authors</SideNavLink>
               </SideNavCat>
-              <SideNavCat name="About" icon="eye">
+              <SideNavCat name="About" id="about2" icon="eye">
                 <SideNavLink>Instruction</SideNavLink>
                 <SideNavLink>Monthly meetings</SideNavLink>
               </SideNavCat>
-              <SideNavCat name="Contact me" icon="envelope-o">
+              <SideNavCat name="Contact me" id="contact-me2" icon="envelope-o">
                 <SideNavLink>FAQ</SideNavLink>
                 <SideNavLink>Write a message</SideNavLink>
               </SideNavCat>
