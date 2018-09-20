@@ -57,7 +57,7 @@ class Select extends React.Component {
     } = this.props;
 
     const classes = classNames(
-      'select-wrapper',
+      'select-wrapper md-form',
       this.props.color ? 'colorful-select dropdown-' + this.props.color : '',
       className
     );
