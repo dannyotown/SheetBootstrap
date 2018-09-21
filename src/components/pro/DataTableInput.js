@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const DataTableInput = ({ value, onChange }) => (
-  <div className="dataTables_filter md-form mt-0">
+  <div className="dataTables_filter md-form">
     <input
       value={value}
       onChange={onChange}

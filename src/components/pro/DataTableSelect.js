@@ -7,7 +7,7 @@ import SelectOption from './SelectOption';
 
 const DataTableSelect = ({ value, onChange, entries }) => (
   <div className="dataTables_length d-flex flex-row">
-    <label className="mt-1">Show entries</label>
+    <label className="mt-4">Show entries</label>
     <Select getValue={onChange}>
       <SelectInput selected={value}></SelectInput>
       <SelectOptions>
