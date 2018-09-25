@@ -4,85 +4,66 @@ import classNames from 'classnames';
 import './DataTable.css';
 
 class TableEditable extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: this.props.data
-    };
-    this.addRow = this.addRow.bind(this);
-    this.removeRow = this.removeRow.bind(this);
-    this.move = this.move.bind(this);
-    this.moveUp = this.moveUp.bind(this);
-    this.moveDown = this.moveDown.bind(this);
-    this.onInput = this.onInput.bind(this);
+  state = {
+    data: []
   }
 
-  addRow() {
-    let newData = JSON.parse(JSON.stringify(this.state.data));
-    let newDataLength = newData.length;
-    let newRow = JSON.parse(JSON.stringify(newData[newDataLength - 1]));
+  componentDidMount = () => {
+    this.props.data && this.setState({ ...this.state, data: this.props.data });
+  }
+
+  addRow = () => {
+    let newData = [...this.state.data];
+    let newRow = [];
+    this.props.columns.forEach( () => {
+      newRow.push('');
+    });
     newData.push(newRow);
-    this.setState({
-      data: newData
-    });
+
+    this.setState({ ...this.state.data, data: newData });
   }
 
-  removeRow(index) {
-    this.state.data.splice(index, 1);
-    let newData = JSON.parse(JSON.stringify(this.state.data));
-    this.setState({
-      data: newData
-    });
+  removeRow = (index) => {
+    let newData = [...this.state.data]
+    newData = [...newData.slice(0, index), ...newData.slice(index + 1 )];
+    this.setState({...this.state, data: newData})
   }
 
-  move(arr, old_index, new_index) {
-    while (old_index < 0) {
-      old_index += arr.length;
-    }
-    while (new_index < 0) {
-      new_index += arr.length;
-    }
-    if (new_index >= arr.length) {
-      var k = new_index - arr.length;
-      while ((k--) + 1) {
-        arr.push(undefined);
-      }
-    }
-    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-    return arr;
-  }
-
-  moveUp(index) {
+  decreaseIndex = (index) => {
     if (index === 0) return;
-    let newData = JSON.parse(JSON.stringify(this.state.data));
-    this.move(newData, index, index - 1);
-    this.setState({
-      data: newData
-    });
+    let newData = this.changeArrayOrder(index, index - 1);
+    this.setState({ ...this.state, data: newData });
   }
 
-  moveDown(index) {
+  increaseIndex = (index) => {
     if (index === this.state.data.length - 1) return;
-    let newData = JSON.parse(JSON.stringify(this.state.data));
-    this.move(newData, index, index + 1);
-    this.setState({
-      data: newData
-    });
+    let newData = this.changeArrayOrder(index, index + 1);
+    this.setState({ ...this.state, data: newData });
   }
 
-  onInput(trIndex, tdIndex, e) {
+  changeArrayOrder = (oldIndex, newIndex, array = [...this.state.data] ) => {
+    let newArray = array;
+    const oldIndexValue = [...newArray[oldIndex]]
+    const newIndexValue = [...newArray[newIndex]]
+    newArray.splice(oldIndex, 1, newIndexValue);
+    newArray.splice(newIndex, 1, oldIndexValue);
+    return newArray
+  }
+
+  onBlurHandler = (trIndex, tdIndex, e) => {
+
     let value = e.target.innerText;
     let newData = [...this.state.data];
 
     newData = newData.map((item, index) => {
 
-        if(index !== trIndex){
+        if (index !== trIndex){
           return item;
         }
 
         return item.map((tdItem, index) => {
 
-          if(index !== tdIndex){
+          if (index !== tdIndex){
             return tdItem;
           }
 
@@ -134,32 +115,38 @@ class TableEditable extends React.Component {
         <table {...attributes} className={classes}>
           <thead>
             <tr>
-              {this.props.columns.map((th, i) => {
+              {this.props.columns && this.props.columns.map((th, i) => {
                 return (
                   <th key={i}>
                     { th }
                   </th>
                 );
               })}
+              <th>
+                Sort
+              </th>
+              <th>
+                Delete
+              </th>
             </tr>
           </thead>
           <tbody>
-            {this.state.data.map((tr, i) => {
+            {this.state.data.map((tr, trIndex) => {
               return (
-                <tr key={i}>
-                  { tr.map((td, j) => {
+                <tr key={trIndex}>
+                  { tr.map((td, tdIndex) => {
                     return (
-                      <td key={j} contentEditable suppressContentEditableWarning="true" onInput={(e) => this.onInput(i, j, e)}>
+                      <td key={tdIndex} contentEditable suppressContentEditableWarning="true" onBlur={(e) => this.onBlurHandler(trIndex, tdIndex, e)}>
                         { td }
                       </td>
                     );
                   })}
                   <td>
-                    <span onClick={() => this.moveUp(i)} className="table-up"><a href="#!" className="indigo-text"><i className="fa fa-long-arrow-up"></i></a></span>
-                    <span onClick={() => this.moveDown(i)} className="table-down"><a href="#!" className="indigo-text"><i className="fa fa-long-arrow-down"></i></a></span>
+                    <span onClick={() => this.decreaseIndex(trIndex)} className="table-up"><a href="#!" className="indigo-text"><i className="fa fa-long-arrow-up"></i></a></span>
+                    <span onClick={() => this.increaseIndex(trIndex)} className="table-down"><a href="#!" className="indigo-text"><i className="fa fa-long-arrow-down"></i></a></span>
                   </td>
                   <td>
-                    <span onClick={() => this.removeRow(i)} className="table-remove"><button type="button" className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                    <span onClick={() => this.removeRow(trIndex)} className="table-remove"><button type="button" className="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
                   </td>
                 </tr>
               );
