@@ -1,17 +1,25 @@
-import React from 'react';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container } from 'mdbreact';
-import DocsLink from '../DocsLink';
+import React from "react";
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  Container
+} from "mdbreact";
+import DocsLink from "../DocsLink";
 
 class DropdownPage extends React.Component {
-
   render() {
     return (
       <Container>
-        <DocsLink title="Material Dropdowns" href="https://mdbootstrap.com/react/components/dropdowns/" />
+        <DocsLink
+          title="Material Dropdowns"
+          href="https://mdbootstrap.com/react/components/dropdowns/"
+        />
         <div className="container">
           <Dropdown>
-            <DropdownToggle caret  color="primary">
-            Material dropdown
+            <DropdownToggle caret color="primary">
+              Material dropdown
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem href="#">Action</DropdownItem>
@@ -21,8 +29,8 @@ class DropdownPage extends React.Component {
             </DropdownMenu>
           </Dropdown>
           <Dropdown>
-            <DropdownToggle caret  color="danger">
-            Material dropdown
+            <DropdownToggle caret color="danger">
+              Material dropdown
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem>Action</DropdownItem>
@@ -32,8 +40,8 @@ class DropdownPage extends React.Component {
             </DropdownMenu>
           </Dropdown>
           <Dropdown>
-            <DropdownToggle caret  color="success">
-            Material dropdown
+            <DropdownToggle caret color="success">
+              Material dropdown
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem>Action</DropdownItem>
@@ -45,26 +53,24 @@ class DropdownPage extends React.Component {
           <br />
           <h2>Sizing</h2>
           <Dropdown size="lg">
-            <DropdownToggle caret>
-            Large Button
-            </DropdownToggle>
+            <DropdownToggle caret>Large Button</DropdownToggle>
             <DropdownMenu>
               <DropdownItem>Action</DropdownItem>
               <DropdownItem>Another Action</DropdownItem>
-              <DropdownItem >Something else here</DropdownItem>
-              <DropdownItem divider/>
+              <DropdownItem>Something else here</DropdownItem>
+              <DropdownItem divider />
               <DropdownItem>Separated link</DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <Dropdown size="sm">
-            <DropdownToggle caret  color="primary">
-            Small Button
+            <DropdownToggle caret color="primary">
+              Small Button
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem>Action</DropdownItem>
               <DropdownItem>Another Action</DropdownItem>
               <DropdownItem>Something else here</DropdownItem>
-              <DropdownItem divider/>
+              <DropdownItem divider />
               <DropdownItem>Separated link</DropdownItem>
             </DropdownMenu>
           </Dropdown>
@@ -72,13 +78,13 @@ class DropdownPage extends React.Component {
           <h2>Dropup variation</h2>
           <Dropdown dropup>
             <DropdownToggle caret color="primary">
-            Dropup
+              Dropup
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem>Action</DropdownItem>
               <DropdownItem>Another Action</DropdownItem>
               <DropdownItem>Something else here</DropdownItem>
-              <DropdownItem divider/>
+              <DropdownItem divider />
               <DropdownItem>Separated link</DropdownItem>
             </DropdownMenu>
           </Dropdown>
@@ -86,7 +92,7 @@ class DropdownPage extends React.Component {
           <h2>Alignment</h2>
           <Dropdown>
             <DropdownToggle caret color="primary">
-            This dropdown&apos;s menu is right-aligned
+              This dropdown&apos;s menu is right-aligned
             </DropdownToggle>
             <DropdownMenu right>
               <DropdownItem>Action</DropdownItem>
@@ -98,7 +104,7 @@ class DropdownPage extends React.Component {
           <h2>Menu headers</h2>
           <Dropdown>
             <DropdownToggle caret color="primary">
-            Dropdown
+              Dropdown
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem header>Dropdown header</DropdownItem>
@@ -111,13 +117,13 @@ class DropdownPage extends React.Component {
           <h2>Menu dividers</h2>
           <Dropdown>
             <DropdownToggle caret color="primary">
-            Dropdown
+              Dropdown
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem>Action</DropdownItem>
               <DropdownItem>Another Action</DropdownItem>
               <DropdownItem>Something else here</DropdownItem>
-              <DropdownItem divider/>
+              <DropdownItem divider />
               <DropdownItem>Separated link</DropdownItem>
             </DropdownMenu>
           </Dropdown>
@@ -125,11 +131,13 @@ class DropdownPage extends React.Component {
           <h2>Disabled menu items</h2>
           <Dropdown>
             <DropdownToggle caret color="primary">
-            Dropdown
+              Dropdown
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem>Regular link</DropdownItem>
-              <DropdownItem disabled href="#">Disabled link</DropdownItem>
+              <DropdownItem disabled href="#">
+                Disabled link
+              </DropdownItem>
               <DropdownItem href="#">Another link</DropdownItem>
             </DropdownMenu>
           </Dropdown>

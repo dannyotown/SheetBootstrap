@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-require('./InputRange.css');
+import React from "react";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+require("./InputRange.css");
 
-let oneStep = '';
+let oneStep = "";
 
 class InputRange extends React.Component {
   constructor(props) {
@@ -15,9 +15,9 @@ class InputRange extends React.Component {
       thumbActive: false,
       thumbHeight: 0,
       thumbWidth: 0,
-      thumbTop: '10px',
-      thumbMarginLeft: '-6px',
-      input: 'input'
+      thumbTop: "10px",
+      thumbMarginLeft: "-6px",
+      input: "input"
     };
     this.rangeChange = this.rangeChange.bind(this);
     this.rangeFocus = this.rangeFocus.bind(this);
@@ -25,49 +25,79 @@ class InputRange extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({value: this.props.value});
+    this.setState({ value: this.props.value });
     let input = ReactDOM.findDOMNode(this.refs.input);
     let inputWidth = input.offsetWidth;
     oneStep = inputWidth / (this.props.max - this.props.min);
-    this.setState({leftPosition: oneStep * this.props.value - oneStep * this.props.min});
+    this.setState({
+      leftPosition: oneStep * this.props.value - oneStep * this.props.min
+    });
   }
 
   rangeChange(e) {
     let newValue = e.target.value;
-    this.setState({value: newValue, leftPosition: oneStep * newValue - oneStep * this.props.min});
+    this.setState({
+      value: newValue,
+      leftPosition: oneStep * newValue - oneStep * this.props.min
+    });
     this.props.getValue && this.props.getValue(e.target.value);
   }
 
   rangeFocus() {
-    this.setState({thumbActive: true, thumbHeight: '30px', thumbWidth: '30px', thumbTop: '-20px', thumbMarginLeft: '-15px'});
+    this.setState({
+      thumbActive: true,
+      thumbHeight: "30px",
+      thumbWidth: "30px",
+      thumbTop: "-20px",
+      thumbMarginLeft: "-15px"
+    });
   }
 
   rangeMouseLeave() {
     let input = ReactDOM.findDOMNode(this.refs.input);
     input.blur();
-    this.setState({thumbActive: false, thumbHeight: 0, thumbWidth: 0, thumbTop: '10px', thumbMarginLeft: '-6px'});
+    this.setState({
+      thumbActive: false,
+      thumbHeight: 0,
+      thumbWidth: 0,
+      thumbTop: "10px",
+      thumbMarginLeft: "-6px"
+    });
   }
 
   render() {
-    const {
-      className,
-      min,
-      max
-    } = this.props;
+    const { className, min, max } = this.props;
 
-    const inputClass = classNames(
-      className
-    );
+    const inputClass = classNames(className);
 
     const thumbClass = classNames(
-      'thumb',
-      this.state.thumbActive ? 'active' : false
+      "thumb",
+      this.state.thumbActive ? "active" : false
     );
 
     return (
       <form className="range-field">
-        <input className={inputClass} min={min} max={max} value={this.state.value} ref={this.state.input} type="range" onChange={this.rangeChange} onFocus={this.rangeFocus} onMouseLeave={this.rangeMouseLeave}/>
-        <span className={thumbClass} style={{left: this.state.leftPosition, height: this.state.thumbHeight, width: this.state.thumbWidth, top: this.state.thumbTop, marginLeft: this.state.thumbMarginLeft}}>
+        <input
+          className={inputClass}
+          min={min}
+          max={max}
+          value={this.state.value}
+          ref={this.state.input}
+          type="range"
+          onChange={this.rangeChange}
+          onFocus={this.rangeFocus}
+          onMouseLeave={this.rangeMouseLeave}
+        />
+        <span
+          className={thumbClass}
+          style={{
+            left: this.state.leftPosition,
+            height: this.state.thumbHeight,
+            width: this.state.thumbWidth,
+            top: this.state.thumbTop,
+            marginLeft: this.state.thumbMarginLeft
+          }}
+        >
           <span className="value">{this.state.value}</span>
         </span>
       </form>
@@ -92,4 +122,3 @@ InputRange.defaultProps = {
 
 export default InputRange;
 export { InputRange as MDBRangeInput };
-

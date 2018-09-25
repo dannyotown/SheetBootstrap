@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import raf from 'raf';
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import raf from "raf";
 
 class Container extends PureComponent {
   static childContextTypes = {
@@ -18,13 +18,13 @@ class Container extends PureComponent {
   }
 
   events = [
-    'resize',
-    'scroll',
-    'touchstart',
-    'touchmove',
-    'touchend',
-    'pageshow',
-    'load'
+    "resize",
+    "scroll",
+    "touchstart",
+    "touchmove",
+    "touchend",
+    "pageshow",
+    "load"
   ];
 
   subscribers = [];

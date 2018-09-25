@@ -1,9 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Transition from 'react-motion-ui-pack';
+import React from "react";
+import PropTypes from "prop-types";
+import Transition from "react-motion-ui-pack";
 
-const DropdownMenuProComponent = (props) => {
-  const { isOpen, d_tag, d_tabIndex, d_role, d_attributes, d_aria, d_classes, d_key, children } = props;
+const DropdownMenuProComponent = props => {
+  const {
+    isOpen,
+    d_tag,
+    d_tabIndex,
+    d_role,
+    d_attributes,
+    d_aria,
+    d_classes,
+    d_key,
+    children
+  } = props;
   const Tag = d_tag;
 
   return (
@@ -12,8 +22,7 @@ const DropdownMenuProComponent = (props) => {
       enter={{ opacity: 1, scale: 1 }}
       leave={{ opacity: 0, scale: 0.9 }}
     >
-      {
-        isOpen &&
+      {isOpen && (
         <Tag
           tabIndex={d_tabIndex}
           role={d_role}
@@ -24,7 +33,7 @@ const DropdownMenuProComponent = (props) => {
         >
           {children}
         </Tag>
-      }
+      )}
     </Transition>
   );
 };
@@ -42,7 +51,7 @@ DropdownMenuProComponent.propTypes = {
 };
 
 DropdownMenuProComponent.defaultProps = {
-  d_classes: ''
+  d_classes: ""
 };
 
 export default DropdownMenuProComponent;

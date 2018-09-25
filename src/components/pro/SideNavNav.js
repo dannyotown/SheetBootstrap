@@ -1,40 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class SideNavNav extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       accordion: null
     };
   }
 
   onClick = number => () => {
-    let state = '';
-    if(this.state.accordion !== number) {
+    let state = "";
+    if (this.state.accordion !== number) {
       state = number;
     } else {
       state = null;
     }
     this.setState({
-      accordion: state});
-  }
+      accordion: state
+    });
+  };
 
   render() {
-    const {
-      tag: Tag,
-      children,
-      className,
-      ...attributes
-    } = this.props;
+    const { tag: Tag, children, className, ...attributes } = this.props;
 
     const { accordion } = this.state;
 
     const classes = classNames(
-      'collapsible',
-      'collapsible-accordion',
+      "collapsible",
+      "collapsible-accordion",
       className
     );
 
@@ -48,7 +43,7 @@ class SideNavNav extends React.Component {
 
     return (
       <li>
-        <Tag {...attributes} className={classes} >
+        <Tag {...attributes} className={classes}>
           {modified}
         </Tag>
       </li>
@@ -63,10 +58,8 @@ SideNavNav.propTypes = {
 };
 
 SideNavNav.defaultProps = {
-  tag: 'ul'
+  tag: "ul"
 };
 
 export default SideNavNav;
 export { SideNavNav as MDBSideNavNav };
-
-

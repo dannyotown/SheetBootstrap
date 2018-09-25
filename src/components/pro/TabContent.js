@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { omit } from '../utils';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import { omit } from "../utils";
 
 const propTypes = {
   activeItem: PropTypes.any,
@@ -10,7 +10,6 @@ const propTypes = {
 };
 
 class TabContent extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -25,24 +24,18 @@ class TabContent extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    return (prevState.activeItem !== nextProps.activeItem) ? { activeItem: nextProps.activeItem } : null;
+    return prevState.activeItem !== nextProps.activeItem
+      ? { activeItem: nextProps.activeItem }
+      : null;
   }
 
   render() {
-    const {
-      className
-    } = this.props;
+    const { className } = this.props;
 
     const attributes = omit(this.props, Object.keys(propTypes));
 
-    const classes = classNames(
-      'tab-content',
-      className
-    );
-    return (
-      <div {...attributes} className={classes} />
-
-    );
+    const classes = classNames("tab-content", className);
+    return <div {...attributes} className={classes} />;
   }
 }
 
@@ -54,4 +47,3 @@ TabContent.propTypes = propTypes;
 
 export default TabContent;
 export { TabContent as MDBTabContent };
-

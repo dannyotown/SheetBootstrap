@@ -1,28 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Collapse from '../Collapse';
-import Waves from '../Waves';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Collapse from "../Collapse";
+import Waves from "../Waves";
 
 class SideNavCat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       cursorPos: {},
-      isOpenID: ''
+      isOpenID: ""
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidUpdate(prevProps) {
-    if(prevProps.isOpen !== this.props.isOpen) {
+    if (prevProps.isOpen !== this.props.isOpen) {
       this.setState({
-        isOpenID: (this.props.isOpen ? this.props.id : '')
+        isOpenID: this.props.isOpen ? this.props.id : ""
       });
     }
-  } 
+  }
 
-  handleClick(e, id){
+  handleClick(e, id) {
     if (!this.props.disabled) {
       // Waves - Get Cursor Position
       let cursorPos = {
@@ -55,32 +55,29 @@ class SideNavCat extends React.Component {
     } = this.props;
 
     const classes = classNames(
-      'collapsible-header',
-      'Ripple-parent',
-      'arrow-r',
-      isOpen && 'active',
-      disabled && 'disabled',
+      "collapsible-header",
+      "Ripple-parent",
+      "arrow-r",
+      isOpen && "active",
+      disabled && "disabled",
       className
     );
 
     return (
       <Tag>
-        <a className = { classes }
-          onClick = {(e) => this.handleClick(e, id)}
+        <a
+          className={classes}
+          onClick={e => this.handleClick(e, id)}
           {...attributes}
         >
-          { icon &&
-            <i className = { 'fa fa-' + icon }>&nbsp;</i>
-          }
+          {icon && <i className={"fa fa-" + icon}>&nbsp;</i>}
           {name}
-          <i className = "fa fa-angle-down rotate-icon"></i>
-          <Waves cursorPos = { this.state.cursorPos } />
+          <i className="fa fa-angle-down rotate-icon" />
+          <Waves cursorPos={this.state.cursorPos} />
         </a>
         <Collapse id={id} isOpen={this.state.isOpenID}>
-          <div className = "collapsible-body" style={{display: 'block'}}>
-            <ul>
-              {children}
-            </ul>
+          <div className="collapsible-body" style={{ display: "block" }}>
+            <ul>{children}</ul>
           </div>
         </Collapse>
       </Tag>
@@ -102,7 +99,7 @@ SideNavCat.propTypes = {
 };
 
 SideNavCat.defaultProps = {
-  tag: 'li'
+  tag: "li"
 };
 
 export default SideNavCat;

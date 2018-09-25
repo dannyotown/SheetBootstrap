@@ -1,20 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Fa from '../Fa';
-import Waves from '../Waves';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Fa from "../Fa";
+import Waves from "../Waves";
 
 class ButtonFixed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       cursorPos: {},
-      buttonStyle: { transform: 'scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)', opacity: '0' }
+      buttonStyle: {
+        transform: "scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)",
+        opacity: "0"
+      }
     };
     this.onClick = this.onClick.bind(this);
   }
 
-  handleClick(e){
+  handleClick(e) {
     // Get Cursor Position
     let cursorPos = {
       top: e.clientY,
@@ -52,23 +55,40 @@ class ButtonFixed extends React.Component {
     } = this.props;
 
     const classes = classNames(
-      'btn-floating',
+      "btn-floating",
       color ? color : false,
-      'Ripple-parent',
+      "Ripple-parent",
       className
     );
 
     return (
-      <li><a {...attributes} style={this.props.buttonStyle} onClick={this.onClick} onMouseDown={ this.handleClick.bind(this) } onTouchStart={ this.handleClick.bind(this) } className={classes}>
-        <Fa icon={this.props.icon} />
-        {this.props.disabled ? false : <Waves cursorPos={ this.state.cursorPos } outline={outline} flat={flat} />}
-      </a></li>
+      <li>
+        <a
+          {...attributes}
+          style={this.props.buttonStyle}
+          onClick={this.onClick}
+          onMouseDown={this.handleClick.bind(this)}
+          onTouchStart={this.handleClick.bind(this)}
+          className={classes}
+        >
+          <Fa icon={this.props.icon} />
+          {this.props.disabled ? (
+            false
+          ) : (
+            <Waves
+              cursorPos={this.state.cursorPos}
+              outline={outline}
+              flat={flat}
+            />
+          )}
+        </a>
+      </li>
     );
   }
 }
 
 ButtonFixed.defaultProps = {
-  color: 'default'
+  color: "default"
 };
 
 ButtonFixed.propTypes = {

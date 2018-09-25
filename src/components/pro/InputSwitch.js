@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class InputSwitch extends React.Component {
   constructor(props) {
@@ -12,11 +12,11 @@ class InputSwitch extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({value: this.props.checked});
+    this.setState({ value: this.props.checked });
   }
 
   handleChange(event) {
-    this.setState({value: !this.state.value});
+    this.setState({ value: !this.state.value });
     this.props.getValue && this.props.getValue(event.target.checked);
   }
 
@@ -29,16 +29,19 @@ class InputSwitch extends React.Component {
       ...attributes
     } = this.props;
 
-    const classes = classNames(
-      'switch',
-      className
-    );
+    const classes = classNames("switch", className);
     return (
       <div {...attributes} className={classes}>
         <label>
           Off
-          <input disabled={this.props.disabled} value={this.state.value} checked={this.state.value} onChange={(event) => this.handleChange(event)} type="checkbox" />
-          <span className="lever"></span>
+          <input
+            disabled={this.props.disabled}
+            value={this.state.value}
+            checked={this.state.value}
+            onChange={event => this.handleChange(event)}
+            type="checkbox"
+          />
+          <span className="lever" />
           On
         </label>
       </div>
@@ -60,4 +63,3 @@ InputSwitch.defaultProps = {
 
 export default InputSwitch;
 export { InputSwitch as MDBSwitch };
-

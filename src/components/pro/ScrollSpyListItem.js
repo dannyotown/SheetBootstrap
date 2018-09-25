@@ -1,26 +1,22 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class ScrollSpyListItem extends Component {
-
   render() {
-    const {
-      className,
-      children,
-      active,
-      ...attributes
-    } = this.props;
+    const { className, children, active, ...attributes } = this.props;
 
     const classes = classNames(
-      'nav-link ',
-      active ? 'active' : false,
+      "nav-link ",
+      active ? "active" : false,
       className
     );
 
     return (
       <li className="nav-item">
-        <a {...attributes} className={classes} role="tab">{children}</a>
+        <a {...attributes} className={classes} role="tab">
+          {children}
+        </a>
       </li>
     );
   }

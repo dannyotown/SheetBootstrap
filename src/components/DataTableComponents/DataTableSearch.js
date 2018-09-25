@@ -1,29 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-let DataTableInput; 
+import React from "react";
+import PropTypes from "prop-types";
+let DataTableInput;
 try {
-  DataTableInput = require('../pro/DataTableInput').default;
-}
-catch (err) {
-  DataTableInput = require('./DataTableInput').default;
+  DataTableInput = require("../pro/DataTableInput").default;
+} catch (err) {
+  DataTableInput = require("./DataTableInput").default;
 }
 
-const DataTableSearch = (props) => {
-  const {
-    handleSearchChange,
-    search,
-    searching
-  } = props;
+const DataTableSearch = props => {
+  const { handleSearchChange, search, searching } = props;
 
   return (
     <div className="col-sm-12 col-md-6">
-      {
-        searching &&
-        <DataTableInput
-          value={search}
-          onChange={handleSearchChange}
-        />
-      }
+      {searching && (
+        <DataTableInput value={search} onChange={handleSearchChange} />
+      )}
     </div>
   );
 };

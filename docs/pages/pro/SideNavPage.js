@@ -1,12 +1,20 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Fa, SideNavCat, SideNavNav, SideNav, SideNavLink, Container, Row } from 'mdbreact';
-import DocsLink from '../DocsLink';
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import {
+  Fa,
+  SideNavCat,
+  SideNavNav,
+  SideNav,
+  SideNavLink,
+  Container,
+  Row
+} from "mdbreact";
+import DocsLink from "../DocsLink";
 
 class SideNavPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state ={
+    this.state = {
       isLeftOpen: false,
       isRightOpen: false
     };
@@ -17,47 +25,85 @@ class SideNavPage extends React.Component {
     this.setState({
       isLeftOpen: !this.state.isLeftOpen
     });
-  }
+  };
   handleToggleClickB = () => {
     this.setState({
       isRightOpen: !this.state.isRightOpen
     });
-  }
+  };
 
   render() {
     // Because the toggling buttons are nearly identical, we create a function to render them:
     const createButton = (onClick, side) => {
-      return <div style={{width: '50%', textAlign: 'center'}}>
-        <a href="#!" onClick={onClick} key={'toggleThe'+side+'SideNav'}><Fa icon="bars" size="5x"></Fa></a>
-      </div>;
+      return (
+        <div style={{ width: "50%", textAlign: "center" }}>
+          <a href="#!" onClick={onClick} key={"toggleThe" + side + "SideNav"}>
+            <Fa icon="bars" size="5x" />
+          </a>
+        </div>
+      );
     };
 
     return (
       <Router>
         <Container>
-          <DocsLink title="Sidenav" href="https://mdbootstrap.com/react/advanced/sidenav/" />
+          <DocsLink
+            title="Sidenav"
+            href="https://mdbootstrap.com/react/advanced/sidenav/"
+          />
           {/* the buttons toggling visibility of SideNavs: */}
-          <Row style={{height: '80vh', alignItems: 'center'}} >
-            {createButton(this.handleToggleClickA, 'Left')}
-            {createButton(this.handleToggleClickB, 'Right')}
+          <Row style={{ height: "80vh", alignItems: "center" }}>
+            {createButton(this.handleToggleClickA, "Left")}
+            {createButton(this.handleToggleClickB, "Right")}
           </Row>
 
           {/* the left SideNav: */}
-          <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" hidden triggerOpening={this.state.isLeftOpen} breakWidth={1300} className="deep-purple darken-4">
+          <SideNav
+            logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
+            hidden
+            triggerOpening={this.state.isLeftOpen}
+            breakWidth={1300}
+            className="deep-purple darken-4"
+          >
             <li>
               <ul className="social">
-                <li><a href="#!"><Fa icon="facebook"></Fa></a></li>
-                <li><a href="#!"><Fa icon="pinterest"></Fa></a></li>
-                <li><a href="#!"><Fa icon="google-plus"></Fa></a></li>
-                <li><a href="#!"><Fa icon="twitter"></Fa></a></li>
+                <li>
+                  <a href="#!">
+                    <Fa icon="facebook" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <Fa icon="pinterest" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <Fa icon="google-plus" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <Fa icon="twitter" />
+                  </a>
+                </li>
               </ul>
             </li>
             <SideNavNav>
-              <SideNavCat name="Submit blog" id="submit-blog" icon="chevron-right">
+              <SideNavCat
+                name="Submit blog"
+                id="submit-blog"
+                icon="chevron-right"
+              >
                 <SideNavLink>Submit listing</SideNavLink>
                 <SideNavLink>Registration form</SideNavLink>
               </SideNavCat>
-              <SideNavCat name="Instruction" id="instruction" icon="hand-pointer-o" href="#">
+              <SideNavCat
+                name="Instruction"
+                id="instruction"
+                icon="hand-pointer-o"
+                href="#"
+              >
                 <SideNavLink>For bloggers</SideNavLink>
                 <SideNavLink>For authors</SideNavLink>
               </SideNavCat>
@@ -73,21 +119,52 @@ class SideNavPage extends React.Component {
           </SideNav>
 
           {/* the right SideNav: */}
-          <SideNav logo="https://mdbootstrap.com/img/logo/mdb-transparent.png" hidden triggerOpening={this.state.isRightOpen} className="side-nav-light" right breakWidth={1300}>
+          <SideNav
+            logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
+            hidden
+            triggerOpening={this.state.isRightOpen}
+            className="side-nav-light"
+            right
+            breakWidth={1300}
+          >
             <li>
               <ul className="social">
-                <li><a href="#!"><Fa icon="facebook"></Fa></a></li>
-                <li><a href="#!"><Fa icon="pinterest"></Fa></a></li>
-                <li><a href="#!"><Fa icon="google-plus"></Fa></a></li>
-                <li><a href="#!"><Fa icon="twitter"></Fa></a></li>
+                <li>
+                  <a href="#!">
+                    <Fa icon="facebook" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <Fa icon="pinterest" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <Fa icon="google-plus" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <Fa icon="twitter" />
+                  </a>
+                </li>
               </ul>
             </li>
             <SideNavNav>
-              <SideNavCat name="Submit blog" id="submit-blog2" icon="chevron-right" >
+              <SideNavCat
+                name="Submit blog"
+                id="submit-blog2"
+                icon="chevron-right"
+              >
                 <SideNavLink className="active">Submit listing</SideNavLink>
                 <SideNavLink>Registration form</SideNavLink>
               </SideNavCat>
-              <SideNavCat name="Instruction" id="instruction2" icon="hand-pointer-o">
+              <SideNavCat
+                name="Instruction"
+                id="instruction2"
+                icon="hand-pointer-o"
+              >
                 <SideNavLink>For bloggers</SideNavLink>
                 <SideNavLink>For authors</SideNavLink>
               </SideNavCat>
@@ -101,7 +178,6 @@ class SideNavPage extends React.Component {
               </SideNavCat>
             </SideNavNav>
           </SideNav>
-
         </Container>
       </Router>
     );
