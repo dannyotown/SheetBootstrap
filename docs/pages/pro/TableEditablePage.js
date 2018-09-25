@@ -3,8 +3,7 @@ import { Container, Row, Col, Card, CardHeader, CardBody, TableEditable } from '
 import DocsLink from '../DocsLink';
 
 const columns = [
-  'Person Name', 'Age', 'Company Name', 'Country', 'City', 'Sort', 'Remove'
-];
+  'Person Name', 'Age', 'Company Name', 'Country', 'City'];
 
 const data = [
   ['Aurelia Vega', 30, 'Deepends', 'Spain', 'Madrid'],
@@ -12,6 +11,8 @@ const data = [
   ['Guadalupe House', 26, 'Isotronic', 'Germany', 'Frankfurt am Main'],
   ['Elisa Gallagher', 31, 'Portica', 'United Kingdom', 'London']
 ];
+
+
 
 const TableEditablePage = (props) => {
   return(
