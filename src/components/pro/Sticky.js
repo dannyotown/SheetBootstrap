@@ -30,7 +30,7 @@ class Sticky extends Component {
     style: {}
   };
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     if (!this.context.subscribe)
       throw new TypeError(
         'Expected Sticky to be mounted within StickyContainer'
