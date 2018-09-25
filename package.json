@@ -32,7 +32,7 @@
   "scripts": {
     "build": "yarn run sass-compile && webpack",
     "sass-compile": "node-sass dist/scss -o dist/css",
-    "webpack": "webpack-dev-server --config ./webpack.dev.config.js --watch --open",
+    "webpack": "concurrently \"webpack-dev-server --config ./webpack.dev.config.js --watch\" \"yarn run test --watch\"",
     "start": "yarn run sass-compile && concurrently --kill-others \"yarn run sass-compile --watch\" \"yarn run webpack\"",
     "test": "eslint ./ --fix"
   },
