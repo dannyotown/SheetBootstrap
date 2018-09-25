@@ -11,3 +11,8 @@
   font-size: 0.6rem;
   padding: 0.5rem 1.6rem;
 }
+
+.btn-floating.btn.btn-sm,
+.btn-floating.btn.btn-lg{
+  padding: 0;
+}

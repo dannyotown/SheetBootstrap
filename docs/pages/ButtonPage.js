@@ -7,8 +7,7 @@ const ButtonPage = (props) => {
     <Container>
       <DocsLink title="Buttons" href="https://mdbootstrap.com/react/components/buttons/" />
       <div className="container-fluid text-center">
-        <div className="">
-
+        <div>
           <Button disabled color="primary">Primary disabled</Button>
           <Button disabled href="#" color="primary">Primary href disabled</Button>
           <Button active href="https://www.mdbootstrap.com" target="_blank" color="primary">Primary href target blank</Button>
@@ -99,7 +98,7 @@ const ButtonPage = (props) => {
             Default
           </Button>
         </div>
-        <div className="">
+        <div>
           <ButtonGroup vertical>
             <Button>Left</Button>
             <Button>Middle</Button>
