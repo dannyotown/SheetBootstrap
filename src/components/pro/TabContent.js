@@ -23,12 +23,9 @@ class TabContent extends React.Component {
       activeItemId: this.state.activeItem
     };
   }
-  UNSAFE_componentWillReceiveProps(nextProps) {
-    if (this.state.activeItem !== nextProps.activeItem) {
-      this.setState({
-        activeItem: nextProps.activeItem
-      });
-    }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return (prevState.activeItem !== nextProps.activeItem) ? { activeItem: nextProps.activeItem } : null;
   }
 
   render() {
