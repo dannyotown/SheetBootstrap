@@ -1,16 +1,19 @@
-import React from 'react';
-import { MDBTimePicker, Container } from 'mdbreact';
-import DocsLink from '../DocsLink';
+import React from "react";
+import { MDBTimePicker, Container } from "mdbreact";
+import DocsLink from "../DocsLink";
 
-class TimePickerPage extends React.Component  {
-  getPickerValue = (value) => {
+class TimePickerPage extends React.Component {
+  getPickerValue = value => {
     console.log(value);
-  }
+  };
 
   render() {
-    return(
+    return (
       <Container>
-        <DocsLink title="Time Picker" href="https://mdbootstrap.com/react/advanced/time-picker/" />
+        <DocsLink
+          title="Time Picker"
+          href="https://mdbootstrap.com/react/advanced/time-picker/"
+        />
         <MDBTimePicker clearable getValue={this.getPickerValue} />
       </Container>
     );

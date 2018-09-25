@@ -1,25 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class Testimonial extends Component {
-
   render() {
+    const { className, tag: Tag, ...attributes } = this.props;
 
-    const {
-      className,
-      tag: Tag,
-      ...attributes
-    } = this.props;
+    const classes = classNames("testimonial", className);
 
-    const classes = classNames(
-      'testimonial',
-      className
-    );
-
-    return (
-      <Tag {...attributes} className={classes} />
-    );
+    return <Tag {...attributes} className={classes} />;
   }
 }
 
@@ -29,7 +18,7 @@ Testimonial.propTypes = {
 };
 
 Testimonial.defaultProps = {
-  tag: 'div'
+  tag: "div"
 };
 
 export default Testimonial;

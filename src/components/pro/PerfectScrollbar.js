@@ -1,21 +1,20 @@
-import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-import PerfectScrollbar from 'perfect-scrollbar';
+import React, { Component } from "react";
+import { PropTypes } from "prop-types";
+import PerfectScrollbar from "perfect-scrollbar";
 
-require('./PerfectScrollbar.css');
-
+require("./PerfectScrollbar.css");
 
 const handlerNameByEvent = {
-  'ps-scroll-y': 'onScrollY',
-  'ps-scroll-x': 'onScrollX',
-  'ps-scroll-up': 'onScrollUp',
-  'ps-scroll-down': 'onScrollDown',
-  'ps-scroll-left': 'onScrollLeft',
-  'ps-scroll-right': 'onScrollRight',
-  'ps-y-reach-start': 'onYReachStart',
-  'ps-y-reach-end': 'onYReachEnd',
-  'ps-x-reach-start': 'onXReachStart',
-  'ps-x-reach-end': 'onXReachEnd'
+  "ps-scroll-y": "onScrollY",
+  "ps-scroll-x": "onScrollX",
+  "ps-scroll-up": "onScrollUp",
+  "ps-scroll-down": "onScrollDown",
+  "ps-scroll-left": "onScrollLeft",
+  "ps-scroll-right": "onScrollRight",
+  "ps-y-reach-start": "onYReachStart",
+  "ps-y-reach-end": "onYReachEnd",
+  "ps-x-reach-start": "onXReachStart",
+  "ps-x-reach-end": "onXReachEnd"
 };
 Object.freeze(handlerNameByEvent);
 
@@ -29,7 +28,7 @@ class ScrollBar extends Component {
   componentDidMount() {
     this._ps = new PerfectScrollbar(this._container, this.props.option);
     // hook up events
-    Object.keys(handlerNameByEvent).forEach((key) => {
+    Object.keys(handlerNameByEvent).forEach(key => {
       const callback = this.props[handlerNameByEvent[key]];
       if (callback) {
         const handler = () => callback(this._container);
@@ -53,26 +52,26 @@ class ScrollBar extends Component {
     this._ps = null;
   }
 
-    handleRef = (ref) => {
-      this._container = ref;
-      this.props.containerRef(ref);
-    }
+  handleRef = ref => {
+    this._container = ref;
+    this.props.containerRef(ref);
+  };
 
-    render() {
-      const { children, className } = this.props;
+  render() {
+    const { children, className } = this.props;
 
-      return (
-        <div className={`scrollbar-container ${className}`} ref={this.handleRef}>
-          {children}
-        </div>
-      );
-    }
+    return (
+      <div className={`scrollbar-container ${className}`} ref={this.handleRef}>
+        {children}
+      </div>
+    );
+  }
 }
 
 ScrollBar.defaultProps = {
-  className: '',
+  className: "",
   option: undefined,
-  containerRef: () => { },
+  containerRef: () => {},
   onScrollY: undefined,
   onScrollX: undefined,
   onScrollUp: undefined,

@@ -1,10 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const DataTableInput = ({ value, onChange }) => (
   <div className="dataTables_filter">
     <label>
-      Search <input
+      Search{" "}
+      <input
         value={value}
         onChange={onChange}
         type="search"

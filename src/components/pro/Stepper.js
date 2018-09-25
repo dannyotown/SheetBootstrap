@@ -1,7 +1,7 @@
-import React from 'react';
-import classNames from 'classnames';
-import PropTypes from 'prop-types';
-import './Stepper.css';
+import React from "react";
+import classNames from "classnames";
+import PropTypes from "prop-types";
+import "./Stepper.css";
 
 class Stepper extends React.Component {
   constructor(props) {
@@ -10,21 +10,32 @@ class Stepper extends React.Component {
   }
 
   render() {
-
-    const {
-      vertical,
-      form,
-      icon
-    } = this.props;
+    const { vertical, form, icon } = this.props;
 
     const stepperClass = classNames(
-      form ? 'steps-form' : (icon && vertical) ? 'steps-form-3' : (icon && !vertical) ? 'steps-form-2' : 'stepper',
-      (vertical && !icon) ? 'stepper-vertical' : (form || icon) ? null : 'stepper-horizontal',
+      form
+        ? "steps-form"
+        : icon && vertical
+          ? "steps-form-3"
+          : icon && !vertical
+            ? "steps-form-2"
+            : "stepper",
+      vertical && !icon
+        ? "stepper-vertical"
+        : form || icon
+          ? null
+          : "stepper-horizontal",
       this.props.className
     );
 
     const wrapperFix = classNames(
-      form ? 'steps-row' : (icon && vertical) ? 'steps-row-3 d-flex justify-content-between' : (icon && !vertical) ? 'steps-row-2 d-flex justify-content-between' : null
+      form
+        ? "steps-row"
+        : icon && vertical
+          ? "steps-row-3 d-flex justify-content-between"
+          : icon && !vertical
+            ? "steps-row-2 d-flex justify-content-between"
+            : null
     );
 
     // wrapper shim in case this.props.form
@@ -32,22 +43,14 @@ class Stepper extends React.Component {
     if (form || icon) {
       stepper = (
         <div className={stepperClass}>
-          <div className={wrapperFix}>
-            {this.props.children}
-          </div>
+          <div className={wrapperFix}>{this.props.children}</div>
         </div>
       );
     } else {
-      stepper = (
-        <ul className={stepperClass}>
-          {this.props.children}
-        </ul>
-      );
+      stepper = <ul className={stepperClass}>{this.props.children}</ul>;
     }
 
-    return(
-      stepper
-    );
+    return stepper;
   }
 }
 

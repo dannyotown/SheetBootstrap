@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class CollapseHeader extends React.Component {
   render() {
@@ -12,12 +12,9 @@ class CollapseHeader extends React.Component {
       ...attributes
     } = this.props;
 
-    const classes = classNames(
-      'card-header',
-      className
-    );
+    const classes = classNames("card-header", className);
     return (
-      <div {...attributes} className={classes} style={{cursor: 'pointer'}}>
+      <div {...attributes} className={classes} style={{ cursor: "pointer" }}>
         <a href="#!">
           <Tag className="mb-0">{children}</Tag>
         </a>
@@ -27,7 +24,7 @@ class CollapseHeader extends React.Component {
 }
 
 CollapseHeader.defaultProps = {
-  tag: 'h5'
+  tag: "h5"
 };
 
 CollapseHeader.propTypes = {
@@ -39,4 +36,3 @@ CollapseHeader.propTypes = {
 
 export default CollapseHeader;
 export { CollapseHeader as MDBCollapseHeader };
-

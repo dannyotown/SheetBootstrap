@@ -1,25 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class TabPane extends React.Component {
-
   render() {
-    const {
-      className,
-      tabId,
-      ...attributes
-    } = this.props;
+    const { className, tabId, ...attributes } = this.props;
 
     const classes = classNames(
-      'tab-pane',
+      "tab-pane",
       { active: tabId === this.context.activeItemId },
       className
     );
-    return (
-      <div {...attributes} className={classes} role="tabpanel"/>
-
-    );
+    return <div {...attributes} className={classes} role="tabpanel" />;
   }
 }
 
