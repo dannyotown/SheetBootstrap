@@ -18,7 +18,8 @@ class DataTable extends Component {
       pages: [],
       rows: props.data.rows || [],
       search: "",
-      translateScrollHead: 0
+      translateScrollHead: 0,
+      order: props.order || []
     };
 
     if (this.props.paging) {
@@ -30,24 +31,46 @@ class DataTable extends Component {
 
   componentDidMount() {
     if (typeof this.props.data === "string") {
-      fetch(this.props.data)
-        .then(res => res.json())
-        .then(json => {
-          this.setState(
-            {
-              columns: json.columns,
-              filteredRows: json.rows,
-              rows: json.rows
-            },
-            () => this.paginateRows()
-          );
-        })
-        .catch(err => console.log(err));
+      this.fetchData(this.props.data);
     }
 
-    this.props.order.length &&
-      this.handleSort(this.props.order[0], this.props.order[1]);
+    this.state.order.length &&
+      this.handleSort(this.state.order[0], this.state.order[1]);
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.data !== this.props.data) {
+      if (typeof this.props.data === "string") {
+        this.fetchData(this.props.data);
+      } else {
+        this.setState({
+          columns: this.props.data.columns,
+          filteredRows: this.props.data.rows,
+          rows: this.props.data.rows
+        });
+      }
+    }
+
+    if (
+      prevState.pages !== this.state.pages ||
+      prevState.rows !== this.state.rows
+    ) {
+      this.paginateRows();
+    }
+  }
+
+  fetchData = link => {
+    fetch(link)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          columns: json.columns,
+          filteredRows: json.rows,
+          rows: json.rows
+        });
+      })
+      .catch(err => console.log(err));
+  };
 
   paginateRowsInitialy = () => {
     // findout how many pages there are need to be, then slice rows into pages
