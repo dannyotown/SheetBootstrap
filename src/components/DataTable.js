@@ -44,9 +44,9 @@ class DataTable extends Component {
         this.fetchData(this.props.data);
       } else {
         this.setState({
-          columns: this.props.data.columns,
-          filteredRows: this.props.data.rows,
-          rows: this.props.data.rows
+          columns: this.props.data.columns || [],
+          filteredRows: this.props.data.rows || [],
+          rows: this.props.data.rows || []
         });
       }
     }
