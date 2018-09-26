@@ -193,19 +193,23 @@ class DataTable extends Component {
       children,
       dark,
       data,
+      entriesLabel,
       exportToCSV,
       fixed,
       hover,
       info,
+      infoLabel,
       maxHeight,
       order,
       paging,
+      paginationLabel,
       responsive,
       responsiveSm,
       responsiveMd,
       responsiveLg,
       responsiveXl,
       searching,
+      searchLabel,
       scrollX,
       scrollY,
       small,
@@ -249,11 +253,13 @@ class DataTable extends Component {
             entries={entries}
             handleEntriesChange={this.handleEntriesChange}
             entriesArr={entriesArr}
+            label={entriesLabel}
           />
           <DataTableSearch
             handleSearchChange={this.handleSearchChange}
             search={search}
             searching={searching}
+            label={searchLabel}
           />
         </div>
         {!scrollY &&
@@ -328,11 +334,13 @@ class DataTable extends Component {
               filteredRows={filteredRows}
               info={info}
               pages={pages}
+              label={infoLabel}
             />
             <DataTablePagination
               activePage={activePage}
               changeActivePage={this.changeActivePage}
               pages={pages}
+              label={paginationLabel}
             />
           </div>
         )}
@@ -356,19 +364,23 @@ DataTable.propTypes = {
   children: PropTypes.node,
   dark: PropTypes.bool,
   data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  entriesLabel: PropTypes.string,
   exportToCSV: PropTypes.bool,
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
   info: PropTypes.bool,
+  infoLabel: PropTypes.arrayOf(PropTypes.string),
   maxHeight: PropTypes.string,
   order: PropTypes.arrayOf(PropTypes.string),
   paging: PropTypes.bool,
+  paginationLabel: PropTypes.arrayOf(PropTypes.string),
   responsive: PropTypes.bool,
   responsiveSm: PropTypes.bool,
   responsiveMd: PropTypes.bool,
   responsiveLg: PropTypes.bool,
   responsiveXl: PropTypes.bool,
   searching: PropTypes.bool,
+  searchLabel: PropTypes.string,
   scrollX: PropTypes.bool,
   scrollY: PropTypes.bool,
   sortable: PropTypes.bool,

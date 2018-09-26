@@ -5,7 +5,7 @@ import PageItem from "../PageItem";
 import PageLink from "../PageLink";
 
 const DataTablePagination = props => {
-  const { activePage, changeActivePage, pages } = props;
+  const { activePage, changeActivePage, pages, label } = props;
 
   return (
     <div className="col-sm-12 col-md-7">
@@ -14,10 +14,10 @@ const DataTablePagination = props => {
           <PageItem disabled={activePage === 0}>
             <PageLink
               className="page-link"
-              aria-label="Previous"
+              aria-label={label[0]}
               onClick={() => changeActivePage(activePage - 1)}
             >
-              <span>Previous</span>
+              <span>{label[0]}</span>
             </PageLink>
           </PageItem>
           {pages.map((page, index) => (
@@ -36,10 +36,10 @@ const DataTablePagination = props => {
           <PageItem disabled={activePage === pages.length - 1}>
             <PageLink
               className="page-link"
-              aria-label="Next"
+              aria-label={label[1]}
               onClick={() => changeActivePage(activePage + 1)}
             >
-              <span>Next</span>
+              <span>{label[1]}</span>
             </PageLink>
           </PageItem>
         </Pagination>
@@ -51,7 +51,12 @@ const DataTablePagination = props => {
 DataTablePagination.propTypes = {
   activePage: PropTypes.number.isRequired,
   changeActivePage: PropTypes.func.isRequired,
-  pages: PropTypes.array.isRequired
+  pages: PropTypes.array.isRequired,
+  label: PropTypes.arrayOf(PropTypes.string)
+};
+
+DataTablePagination.defaultProps = {
+  label: ["Previous", "Next"]
 };
 
 export default DataTablePagination;
