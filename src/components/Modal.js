@@ -13,14 +13,10 @@ import {
 } from "./utils";
 
 const propTypes = {
-<<<<<<< HEAD
-  id: PropTypes.string,
-=======
   showModal: PropTypes.func,
   hideModal: PropTypes.func,
   hiddenModal: PropTypes.func,
   animation: PropTypes.string,
->>>>>>> 9fc64134430051a4d0c89eae85aa5f138bdc399e
   isOpen: PropTypes.bool,
   autoFocus: PropTypes.bool,
   size: PropTypes.string,
@@ -77,7 +73,7 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      transform: '',
+      transform: "",
       grabPointX: null,
       grabPointY: null,
       dragging: false
@@ -103,7 +99,7 @@ class Modal extends React.Component {
     }
   }
 
-  onDragStart = (e) => {
+  onDragStart = e => {
     const boundingClientRect = this.modalRef.current.getBoundingClientRect();
     this.setState({
       grabPointX: boundingClientRect.left - e.clientX,
@@ -112,12 +108,12 @@ class Modal extends React.Component {
     });
   };
 
-  onDrag = (e) => {
+  onDrag = e => {
     if (this.state.dragging) {
       var posX = e.clientX + this.state.grabPointX - 200;
       var posY = e.clientY + this.state.grabPointY;
       console.log(e.clientX, this.state.grabPointX, posX);
-      
+
       if (posX < 0) {
         posX = 0;
       }
@@ -127,7 +123,7 @@ class Modal extends React.Component {
       }
 
       this.setState({
-        transform: 'translateX(' + posX + 'px) translateY(' + posY + 'px)'
+        transform: "translateX(" + posX + "px) translateY(" + posY + "px)"
       });
     }
   };
@@ -156,10 +152,14 @@ class Modal extends React.Component {
   }
 
   onOpened() {
-    this.modalRef.current.addEventListener('mousedown', this.onDragStart, false);
-    document.addEventListener('mousemove', this.onDrag, false);
-    document.addEventListener('mouseup', this.onDragEnd, false);
-    
+    this.modalRef.current.addEventListener(
+      "mousedown",
+      this.onDragStart,
+      false
+    );
+    document.addEventListener("mousemove", this.onDrag, false);
+    document.addEventListener("mouseup", this.onDragEnd, false);
+
     if (this.props.onOpened) {
       this.props.onOpened();
     }
@@ -167,8 +167,8 @@ class Modal extends React.Component {
 
   onClosed() {
     this.destroy();
-    document.removeEventListener('mouseup', this.inDragEnd);
-    document.removeEventListener('mousemove', this.onDrag);
+    document.removeEventListener("mouseup", this.inDragEnd);
+    document.removeEventListener("mousemove", this.onDrag);
 
     if (this.props.onClosed) {
       this.props.onClosed();
@@ -294,7 +294,12 @@ class Modal extends React.Component {
         {...attributes}
       >
         <div
-          style={{transform: this.state.transform, position: 'fixed', top: 0, left: 0}}
+          style={{
+            transform: this.state.transform,
+            position: "fixed",
+            top: 0,
+            left: 0
+          }}
           ref={this.modalRef}
           className={mapToCssModules(
             classNames("modal-content", this.props.contentClassName),

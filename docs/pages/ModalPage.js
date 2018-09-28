@@ -68,17 +68,6 @@ class ModalPage extends React.Component {
   render() {
     return (
       <Container>
-<<<<<<< HEAD
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Modal</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/modals/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
-        <Button color="danger" onClick={() => this.toggle(1)} >Modal</Button>
-        <Modal id="draggableModal" isOpen={this.state.modal1} toggle={() => this.toggle(1)}>
-=======
         <DocsLink
           title="Modal"
           href="https://mdbootstrap.com/react/advanced/modals/"
@@ -93,7 +82,6 @@ class ModalPage extends React.Component {
           isOpen={this.state.modal1}
           toggle={() => this.toggle(1)}
         >
->>>>>>> 9fc64134430051a4d0c89eae85aa5f138bdc399e
           <ModalHeader toggle={() => this.toggle(1)}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
