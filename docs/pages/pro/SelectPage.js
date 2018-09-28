@@ -5,14 +5,50 @@ import {
   MDBSelectInput,
   SelectOptions,
   SelectOption,
-  Container
+  Container,
+  MdbSelect
 } from "mdbreact";
 import DocsLink from "../DocsLink";
 
 class SelectPage extends React.Component {
+  state = {
+    options: [
+      {
+        checked: false,
+        disabled: false,
+        icon: null,
+        value: "one"
+      },
+      {
+        checked: false,
+        disabled: false,
+        icon: null,
+        value: "two"
+      },
+      {
+        checked: true,
+        disabled: false,
+        icon: null,
+        value: "three"
+      },
+      {
+        checked: false,
+        disabled: false,
+        icon: null,
+        value: "four"
+      }
+    ]
+  };
+
   // build function for your selects, and pass it as getValue property to reed the select's value
   getValueOfSelect = value => {
     console.log(value);
+  };
+
+  remove = () => {
+    this.setState({
+      options: this.state.options.slice(0, -1)
+    });
   };
 
   render() {
@@ -25,6 +61,21 @@ class SelectPage extends React.Component {
         <h4 className="my-4 indigo-text">
           <strong>Basic example</strong>
         </h4>
+        <div className="row">
+          <div className="col-md-6">
+            {/* testing mdbselect */}
+            <MdbSelect
+              multiple
+              color="primary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              selected="Yolo"
+            />
+            <label>New mdbSelect</label>
+            <button onClick={this.remove}>Remove</button>
+          </div>
+        </div>
         <div className="row">
           <div className="col-md-6">
             <Select
