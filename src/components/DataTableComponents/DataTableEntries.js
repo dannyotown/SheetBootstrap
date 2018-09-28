@@ -8,7 +8,7 @@ try {
 }
 
 const DataTableEntries = props => {
-  const { handleEntriesChange, entries, entriesArr, paging } = props;
+  const { handleEntriesChange, entries, entriesArr, paging, label } = props;
 
   return (
     <div className="col-sm-12 col-md-6">
@@ -17,6 +17,7 @@ const DataTableEntries = props => {
           value={entries}
           onChange={handleEntriesChange}
           entries={entriesArr}
+          label={label}
         />
       )}
     </div>
@@ -27,7 +28,8 @@ DataTableEntries.propTypes = {
   handleEntriesChange: PropTypes.func.isRequired,
   entries: PropTypes.number.isRequired,
   entriesArr: PropTypes.arrayOf(PropTypes.number).isRequired,
-  paging: PropTypes.bool.isRequired
+  paging: PropTypes.bool.isRequired,
+  label: PropTypes.string
 };
 
 export default DataTableEntries;

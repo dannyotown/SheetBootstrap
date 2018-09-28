@@ -5,9 +5,9 @@ import SelectInput from "./SelectInput";
 import SelectOptions from "./SelectOptions";
 import SelectOption from "./SelectOption";
 
-const DataTableSelect = ({ value, onChange, entries }) => (
+const DataTableSelect = ({ value, onChange, entries, label }) => (
   <div className="dataTables_length d-flex flex-row">
-    <label className="mt-4">Show entries</label>
+    <label className="mt-4">{label || "Show entries"}</label>
     <Select getValue={onChange}>
       <SelectInput selected={value} />
       <SelectOptions>
@@ -24,7 +24,8 @@ const DataTableSelect = ({ value, onChange, entries }) => (
 DataTableSelect.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.number),
   onChange: PropTypes.func,
-  value: PropTypes.number
+  value: PropTypes.number,
+  label: PropTypes.string
 };
 
 export default DataTableSelect;
