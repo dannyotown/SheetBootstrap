@@ -109,6 +109,8 @@ import TabContent from "./components/pro/TabContent";
 import Sticky from "./components/pro/Sticky";
 import StickyContainer from "./components/pro/StickyContainer";
 import Testimonial from "./components/pro/Testimonial";
+import Timeline from "./components/pro/Timeline";
+import TimelineStep from "./components/pro/TimelineStep";
 
 // MDB FREE
 import MDBBadge from "./components/Badge";
@@ -221,6 +223,9 @@ import MDBTabContent from "./components/pro/TabContent";
 import MDBSticky from "./components/pro/Sticky";
 import MDBStickyContent from "./components/pro/StickyContainer";
 import MDBTestimonial from "./components/pro/Testimonial";
+import MDBTimeline from "./components/pro/Timeline";
+import MDBTimelineStep from "./components/pro/TimelineStep";
+
 let Dropdown = require("./components/Dropdown").default;
 let DropdownMenuComponent = require("./components/DropdownMenuComponent")
   .default;
@@ -347,6 +352,8 @@ export {
   Sticky,
   StickyContainer,
   Testimonial,
+  Timeline,
+  TimelineStep,
   // MDB FREE
   MDBBadge,
   MDBBreadcrumb,
@@ -457,5 +464,7 @@ export {
   MDBStepper,
   MDBSticky,
   MDBStickyContent,
-  MDBTestimonial
+  MDBTestimonial,
+  MDBTimeline,
+  MDBTimelineStep
 };

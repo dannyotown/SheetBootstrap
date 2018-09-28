@@ -95,6 +95,7 @@ import TableEditable from "./pages/pro/TableEditablePage";
 import DatatableCsvPage from "./pages/pro/DatatableCsvPage";
 import ModalFormProPage from "./pages/pro/ModalFormPage";
 import HabmburgerMenuPage from "./pages/pro/HabmburgerMenuPage";
+import TimelinePage from "./pages/pro/TimelinePage";
 
 class Routes extends React.Component {
   render() {
@@ -172,6 +173,7 @@ class Routes extends React.Component {
           path="/advanced/pro/multicarousel"
           component={MultiCarouselPage}
         />
+        <Route path="/advanced/pro/timeline" component={TimelinePage} />
         <Route path="/components/pro/progress" component={ProgressPagePro} />
         <Route path="/advanced/pro/scrollbar" component={ScrollBarPage} />
         <Route path="/navigation/pro/scrollspy" component={ScrollSpyPage} />
