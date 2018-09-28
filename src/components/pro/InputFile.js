@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class InputFile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       files: false
-    }
+    };
     this.fileChange = this.fileChange.bind(this);
   }
 
@@ -18,19 +18,19 @@ class InputFile extends React.Component {
         for (let i = 0; i < files.length; i++) {
           filesNames.push(files[i].name);
         }
-        this.setState({files: filesNames});
+        this.setState({ files: filesNames });
       } else {
-        this.setState({files: files[0].name});
+        this.setState({ files: files[0].name });
       }
     } else {
-      this.setState({files: false});
+      this.setState({ files: false });
     }
   }
 
-  onChangeHandler = (e) => {
+  onChangeHandler = e => {
     this.fileChange(e.target.files);
     this.props.getValue && this.props.getValue(e.target.files);
-  }
+  };
 
   render() {
     const {
@@ -38,31 +38,38 @@ class InputFile extends React.Component {
       btnTitle,
       btnColor,
       textFieldTitle,
-      multiple,
-      ...attributes
+      multiple
     } = this.props;
 
     const btnClass = classNames(
-      'btn',
-      'btn-' + btnColor,
-      'btn-sm',
-      'float-left'
+      "btn",
+      "btn-" + btnColor,
+      "btn-sm",
+      "float-left"
     );
 
     const inputFieldClass = classNames(
-      'file-path validate',
-      this.state.files ? 'valid' : false,
+      "file-path validate",
+      this.state.files ? "valid" : false,
       className
     );
     return (
       <form>
         <div className="file-field md-form">
           <div className={btnClass}>
-            <span>{this.props.btnTitle}</span>
-            <input multiple={this.props.multiple} onChange={this.onChangeHandler} type="file" />
+            <span>{btnTitle}</span>
+            <input
+              multiple={multiple}
+              onChange={this.onChangeHandler}
+              type="file"
+            />
           </div>
           <div className="file-path-wrapper">
-            <input className={inputFieldClass} type="text" placeholder={this.state.files ? this.state.files : this.props.textFieldTitle} />
+            <input
+              className={inputFieldClass}
+              type="text"
+              placeholder={this.state.files ? this.state.files : textFieldTitle}
+            />
           </div>
         </div>
       </form>
@@ -86,4 +93,3 @@ InputFile.defaultProps = {
 
 export default InputFile;
 export { InputFile as MDBFileInput };
-

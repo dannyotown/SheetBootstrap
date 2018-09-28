@@ -1,54 +1,83 @@
-import React, { Component } from 'react';
-import { Carousel, CarouselInner, CarouselItem, Container, Row, Col, Card, CardImage, CardBody, CardTitle, CardText, Button, Fa } from 'mdbreact';
+import React, { Component } from "react";
+import {
+  Carousel,
+  CarouselInner,
+  CarouselItem,
+  Container,
+  Row,
+  Col,
+  Card,
+  CardImage,
+  CardBody,
+  CardTitle,
+  CardText,
+  Button
+} from "mdbreact";
+import DocsLink from "../DocsLink";
 
 class MultiCarouselPage extends Component {
-
-  render(){
-    return(
+  render() {
+    return (
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Multi-item Carousel</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/carousel/#multi-item"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink
+          title="Multi-item Carousel"
+          href="https://mdbootstrap.com/react/advanced/carousel/#multi-item"
+        />
         <Carousel
           activeItem={1}
           length={3}
           slide={true}
           showControls={true}
           showIndicators={true}
-          multiItem >
+          multiItem
+        >
           <CarouselInner>
             <Row>
               <CarouselItem itemId="1">
                 <Col md="4">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg" />
+                    <CardImage
+                      className="img-fluid"
+                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                    />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
-                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                      <CardText>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </CardText>
                       <Button color="primary">Button</Button>
                     </CardBody>
                   </Card>
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" />
+                    <CardImage
+                      className="img-fluid"
+                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                    />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
-                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                      <CardText>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </CardText>
                       <Button color="primary">Button</Button>
                     </CardBody>
                   </Card>
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" />
+                    <CardImage
+                      className="img-fluid"
+                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+                    />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
-                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                      <CardText>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </CardText>
                       <Button color="primary">Button</Button>
                     </CardBody>
                   </Card>
@@ -57,30 +86,48 @@ class MultiCarouselPage extends Component {
               <CarouselItem itemId="2">
                 <Col md="4">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(60).jpg" />
+                    <CardImage
+                      className="img-fluid"
+                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(60).jpg"
+                    />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
-                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                      <CardText>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </CardText>
                       <Button color="primary">Button</Button>
                     </CardBody>
                   </Card>
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg" />
+                    <CardImage
+                      className="img-fluid"
+                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(47).jpg"
+                    />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
-                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                      <CardText>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </CardText>
                       <Button color="primary">Button</Button>
                     </CardBody>
                   </Card>
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(48).jpg" />
+                    <CardImage
+                      className="img-fluid"
+                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(48).jpg"
+                    />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
-                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                      <CardText>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </CardText>
                       <Button color="primary">Button</Button>
                     </CardBody>
                   </Card>
@@ -89,30 +136,48 @@ class MultiCarouselPage extends Component {
               <CarouselItem itemId="3">
                 <Col md="4">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg" />
+                    <CardImage
+                      className="img-fluid"
+                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(53).jpg"
+                    />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
-                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                      <CardText>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </CardText>
                       <Button color="primary">Button</Button>
                     </CardBody>
                   </Card>
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg" />
+                    <CardImage
+                      className="img-fluid"
+                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg"
+                    />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
-                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                      <CardText>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </CardText>
                       <Button color="primary">Button</Button>
                     </CardBody>
                   </Card>
                 </Col>
                 <Col md="4" className="clearfix d-none d-md-block">
                   <Card className="mb-2">
-                  <CardImage className="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(41).jpg" />
+                    <CardImage
+                      className="img-fluid"
+                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(41).jpg"
+                    />
                     <CardBody>
                       <CardTitle>Card title</CardTitle>
-                      <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+                      <CardText>
+                        Some quick example text to build on the card title and
+                        make up the bulk of the card's content.
+                      </CardText>
                       <Button color="primary">Button</Button>
                     </CardBody>
                   </Card>

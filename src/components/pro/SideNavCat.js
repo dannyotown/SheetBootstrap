@@ -1,19 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Collapse from '../Collapse';
-import Waves from '../Waves';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Collapse from "../Collapse";
+import Waves from "../Waves";
 
 class SideNavCat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cursorPos: {}
+      cursorPos: {},
+      isOpenID: ""
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e){
+  componentDidUpdate(prevProps) {
+    if (prevProps.isOpen !== this.props.isOpen) {
+      this.setState({
+        isOpenID: this.props.isOpen ? this.props.id : ""
+      });
+    }
+  }
+
+  handleClick(e, id) {
     if (!this.props.disabled) {
       // Waves - Get Cursor Position
       let cursorPos = {
@@ -24,7 +33,7 @@ class SideNavCat extends React.Component {
       this.setState({ cursorPos: cursorPos });
       // do the passed in callback:
       if (this.props.onClick) {
-      this.props.onClick(e);
+        this.props.onClick(id);
       }
       e.stopPropagation();
     }
@@ -40,36 +49,35 @@ class SideNavCat extends React.Component {
       onClick,
       disabled,
       isOpen,
+      isOpenID,
+      id,
       ...attributes
     } = this.props;
 
     const classes = classNames(
-      'collapsible-header',
-      'Ripple-parent',
-      'arrow-r',
-      isOpen && 'active',
-      disabled && 'disabled',
+      "collapsible-header",
+      "Ripple-parent",
+      "arrow-r",
+      isOpen && "active",
+      disabled && "disabled",
       className
     );
 
     return (
       <Tag>
-        <a className = { classes }
-           onClick = { this.handleClick }
-           {...attributes}
+        <a
+          className={classes}
+          onClick={e => this.handleClick(e, id)}
+          {...attributes}
         >
-          { icon &&
-            <i className = { "fa fa-" + icon }>&nbsp;</i>
-          }
+          {icon && <i className={"fa fa-" + icon}>&nbsp;</i>}
           {name}
-          <i className = "fa fa-angle-down rotate-icon"></i>
-        <Waves cursorPos = { this.state.cursorPos } />
+          <i className="fa fa-angle-down rotate-icon" />
+          <Waves cursorPos={this.state.cursorPos} />
         </a>
-        <Collapse isOpen = {isOpen}>
-          <div className = "collapsible-body" style={{display: 'block'}}>
-            <ul>
-              {children}
-            </ul>
+        <Collapse id={id} isOpen={this.state.isOpenID}>
+          <div className="collapsible-body" style={{ display: "block" }}>
+            <ul>{children}</ul>
           </div>
         </Collapse>
       </Tag>
@@ -79,16 +87,19 @@ class SideNavCat extends React.Component {
 
 SideNavCat.propTypes = {
   children: PropTypes.node,
-  tag: PropTypes.string,
   className: PropTypes.string,
-  name: PropTypes.string,
+  disabled: PropTypes.bool,
   icon: PropTypes.string,
-  toggle: PropTypes.func,
+  id: PropTypes.string,
   isOpen: PropTypes.bool,
+  isOpenID: PropTypes.string,
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  tag: PropTypes.string
 };
 
 SideNavCat.defaultProps = {
-  tag: 'li',
+  tag: "li"
 };
 
 export default SideNavCat;

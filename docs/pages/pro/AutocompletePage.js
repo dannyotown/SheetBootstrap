@@ -1,5 +1,20 @@
-import React from 'react';
-import { Container, Autocomplete, Row, Col, Input, Button, Card, CardBody, Modal, ModalHeader, ModalBody, ModalFooter, Fa } from 'mdbreact';
+import React from "react";
+import {
+  Container,
+  Autocomplete,
+  Row,
+  Col,
+  Input,
+  Button,
+  Card,
+  CardBody,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Fa
+} from "mdbreact";
+import DocsLink from "../DocsLink";
 
 const states = [
   "Alabama",
@@ -268,101 +283,185 @@ const subjects = [
 
 class AutocompletePage extends React.Component {
   constructor(props) {
-    super(props)
-    this.state={
+    super(props);
+    this.state = {
       modal: false
-    }
+    };
     this.toggleModal = this.toggleModal.bind(this);
   }
   toggleModal() {
     this.setState({
       modal: !this.state.modal
-    })
+    });
   }
   handleModalClearClick() {
     this.setState({
       modal: false
-    })
+    });
   }
 
+  logValue = value => {
+    console.log(value);
+  };
   render() {
-    const smallStyle = { fontSize: '0.8rem'}
+    const smallStyle = { fontSize: "0.8rem" };
     return (
       <Container>
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Autocomplete</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/advanced/autocomplete/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
-        <section style={{paddingLeft: 200, paddingRight: 200}}>
-
+        <DocsLink
+          title="Autocomplete"
+          href="https://mdbootstrap.com/react/advanced/autocomplete/"
+        />
+        <section style={{ paddingLeft: 200, paddingRight: 200 }}>
           <Autocomplete
-            data = {states}
+            data={states}
             label="Choose your favorite state"
             icon="heart"
             clear
-            clearClass="grey-text" id="input"
+            clearClass="grey-text"
+            id="input"
             className="mx-auto"
+            getValue={this.logValue}
           />
-
         </section>
         <Row>
           <Col md="9" lg="7" xl="5" className="mx-auto mt-3">
             <Card>
               <CardBody className="mx-4">
                 <div className="text-center">
-                  <h3 className="dark-grey-text mb-5"><strong>Sign in</strong></h3>
+                  <h3 className="dark-grey-text mb-5">
+                    <strong>Sign in</strong>
+                  </h3>
                 </div>
-                <Input label="Your email" group type="email" validate error="wrong" success="right"/>
-                <Input label="Your password" group type="password" validate containerClass="mb-0"/>
-                <Autocomplete label="Your country" clear data={countries} clearClass="grey-text"/>
+                <Input
+                  label="Your email"
+                  group
+                  type="email"
+                  validate
+                  error="wrong"
+                  success="right"
+                />
+                <Input
+                  label="Your password"
+                  group
+                  type="password"
+                  validate
+                  containerClass="mb-0"
+                />
+                <Autocomplete
+                  label="Your country"
+                  clear
+                  data={countries}
+                  clearClass="grey-text"
+                />
                 <div className="text-center pt-3 mb-3">
-                  <Button type="button" gradient="blue" rounded className="btn-block z-depth-1a">Sign in</Button>
+                  <Button
+                    type="button"
+                    gradient="blue"
+                    rounded
+                    className="btn-block z-depth-1a"
+                  >
+                    Sign in
+                  </Button>
                 </div>
-                <p className="dark-grey-text text-right d-flex justify-content-center mb-3 pt-2" style={smallStyle}> or Sign up with:</p>
+                <p
+                  className="dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"
+                  style={smallStyle}
+                >
+                  {" "}
+                  or Sign up with:
+                </p>
                 <div className="row my-3 d-flex justify-content-center">
-                  <Button type="button" color="white" rounded className="mr-md-3 z-depth-1a"><Fa icon="facebook" className="blue-text text-center" /></Button>
-                  <Button type="button" color="white" rounded className="mr-md-3 z-depth-1a"><Fa icon="twitter" className="blue-text" /></Button>
-                  <Button type="button" color="white" rounded className="z-depth-1a"><Fa icon="google-plus" className="blue-text" /></Button>
+                  <Button
+                    type="button"
+                    color="white"
+                    rounded
+                    className="mr-md-3 z-depth-1a"
+                  >
+                    <Fa icon="facebook" className="blue-text text-center" />
+                  </Button>
+                  <Button
+                    type="button"
+                    color="white"
+                    rounded
+                    className="mr-md-3 z-depth-1a"
+                  >
+                    <Fa icon="twitter" className="blue-text" />
+                  </Button>
+                  <Button
+                    type="button"
+                    color="white"
+                    rounded
+                    className="z-depth-1a"
+                  >
+                    <Fa icon="google-plus" className="blue-text" />
+                  </Button>
                 </div>
               </CardBody>
               <ModalFooter className="mx-5 pt-3 mb-1">
-                <p className="grey-text d-flex justify-content-end" style={smallStyle}>Already a member? <a href="#" className="blue-text ml-1"> Sign In</a></p>
+                <p
+                  className="grey-text d-flex justify-content-end"
+                  style={smallStyle}
+                >
+                  Already a member?{" "}
+                  <a href="#!" className="blue-text ml-1">
+                    {" "}
+                    Sign In
+                  </a>
+                </p>
               </ModalFooter>
             </Card>
           </Col>
         </Row>
 
         <div className="text-center mt-3">
-          <Button onClick={this.toggleModal} rounded className="mx-auto">launch modal contact</Button>
-          <Modal isOpen={this.state.modal} toggle={this.toggle} size="md" cascading>
-          <ModalHeader
-          titleClass="d-inline title"
-          className="text-center light-blue darken-3 white-text">
-            <Fa icon="pencil"
-             />Contact From
-            <Fa icon="close"
-             className="float-right"
-              onClick={this.handleModalClearClick.bind(this)}
-                  /></ModalHeader>
-          <ModalBody>
-            <Input label="Your name" icon="envelope" iconClass="dark-grey"/>
-            <Input label="Your email" icon="lock" iconClass="dark-grey"/>
-            <Autocomplete label="Subject" icon="tag" data={subjects} clear/>
-            <Input label="Your message" type="textarea" rows="2" icon="pencil" iconClass="dark-grey"/>
-            <div className="text-center mt-1-half">
-              <Button color="info" className="mb-2"
-              onClick={this.handleModalClearClick.bind(this)}>send<Fa icon="send" className="ml-1"/></Button>
-            </div>
-          </ModalBody>
-        </Modal>
+          <Button onClick={this.toggleModal} rounded className="mx-auto">
+            launch modal contact
+          </Button>
+          <Modal
+            isOpen={this.state.modal}
+            toggle={this.toggle}
+            size="md"
+            cascading
+          >
+            <ModalHeader
+              titleClass="d-inline title"
+              className="text-center light-blue darken-3 white-text"
+            >
+              <Fa icon="pencil" />
+              Contact From
+              <Fa
+                icon="close"
+                className="float-right"
+                onClick={this.handleModalClearClick.bind(this)}
+              />
+            </ModalHeader>
+            <ModalBody>
+              <Input label="Your name" icon="envelope" iconClass="dark-grey" />
+              <Input label="Your email" icon="lock" iconClass="dark-grey" />
+              <Autocomplete label="Subject" icon="tag" data={subjects} clear />
+              <Input
+                label="Your message"
+                type="textarea"
+                rows="2"
+                icon="pencil"
+                iconClass="dark-grey"
+              />
+              <div className="text-center mt-1-half">
+                <Button
+                  color="info"
+                  className="mb-2"
+                  onClick={this.handleModalClearClick.bind(this)}
+                >
+                  send
+                  <Fa icon="send" className="ml-1" />
+                </Button>
+              </div>
+            </ModalBody>
+          </Modal>
         </div>
       </Container>
     );
   }
 }
-
 
 export default AutocompletePage;

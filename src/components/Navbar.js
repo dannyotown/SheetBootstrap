@@ -1,52 +1,48 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-
-const getExpandClass = (expand) => {
+const getExpandClass = expand => {
   if (expand === false) {
     return false;
-  } else if (expand === true || expand === 'xs') {
-    return 'navbar-expand';
+  } else if (expand === true || expand === "xs") {
+    return "navbar-expand";
   }
 
   return `navbar-expand-${expand}`;
 };
 
 class Navbar extends Component {
-
   constructor(props, refs) {
     super(props, refs);
     this.state = {
-      isCollapsed: false,
+      isCollapsed: false
     };
     this.refs = {};
   }
 
-  handleScroll() {
+  handleScroll = () => {
     const scrollingNavbarOffset = this.props.scrollingNavbarOffset || 50;
-    if(window.pageYOffset > scrollingNavbarOffset) {
-      this.setState({isCollapsed: true});
+    if (window.pageYOffset > scrollingNavbarOffset) {
+      this.setState({ isCollapsed: true });
     } else {
-      this.setState({isCollapsed: false});
+      this.setState({ isCollapsed: false });
     }
-  }
+  };
 
   componentDidMount() {
-    if(this.props.scrolling || this.props.scrollingNavbarOffset) {
-      window.addEventListener('scroll', this.handleScroll.bind(this));
+    if (this.props.scrolling || this.props.scrollingNavbarOffset) {
+      window.addEventListener("scroll", this.handleScroll);
     }
   }
 
   componentWillUnmount() {
-    if(this.props.scrolling || this.props.scrollingNavbarOffset) {
-      window.removeEventListener('scroll', this.handleScroll.bind(this));
+    if (this.props.scrolling || this.props.scrollingNavbarOffset) {
+      window.removeEventListener("scroll", this.handleScroll);
     }
   }
 
   render() {
-
     const {
       expand,
       light,
@@ -59,32 +55,38 @@ class Navbar extends Component {
       scrollingNavbarOffset,
       tag: Tag,
       double,
+      transparent,
       ...attributes
     } = this.props;
 
     let classes = classNames(
-      'navbar',
-      light ? 'navbar-light' : '',
-      dark ? 'navbar-dark' : '',
-      sticky ? 'sticky-' + sticky : '',
-      fixed ? 'fixed-' + fixed : '',
+      "navbar",
+      light ? "navbar-light" : "",
+      dark ? "navbar-dark" : "",
+      sticky ? "sticky-" + sticky : "",
+      fixed ? "fixed-" + fixed : "",
       getExpandClass(expand),
-      (scrolling || scrollingNavbarOffset) ? 'scrolling-navbar' : '',
-      this.state.isCollapsed ? 'top-nav-collapse' : '',
-      color ? color : '',
-      double ? 'double-nav': '',
+      scrolling || scrollingNavbarOffset ? "scrolling-navbar" : "",
+      this.state.isCollapsed ? "top-nav-collapse" : "",
+      color
+        ? transparent
+          ? this.state.isCollapsed
+            ? color
+            : ""
+          : color
+        : "",
+      double ? "double-nav" : "",
       className
     );
 
-    return (
-      <Tag {...attributes} className={classes} role="navigation" />
-    );
+    return <Tag {...attributes} className={classes} role="navigation" />;
   }
 }
 
 Navbar.propTypes = {
   light: PropTypes.bool,
   dark: PropTypes.bool,
+  double: PropTypes.bool,
   fixed: PropTypes.string,
   sticky: PropTypes.string,
   scrolling: PropTypes.bool,
@@ -92,11 +94,12 @@ Navbar.propTypes = {
   color: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
+  expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  transparent: PropTypes.bool
 };
 
 Navbar.defaultProps = {
-  tag: 'nav',
+  tag: "nav",
   expand: false,
   scrolling: false
 };

@@ -1,5 +1,13 @@
-import React from 'react';
-import { Container, Input, FormInline, InputSwitch, InputFile, InputRange, Fa, Row } from 'mdbreact';
+import React from "react";
+import {
+  Container,
+  Input,
+  FormInline,
+  InputSwitch,
+  InputFile,
+  InputRange
+} from "mdbreact";
+import DocsLink from "../DocsLink";
 
 class InputPage extends React.Component {
   constructor(props) {
@@ -10,8 +18,8 @@ class InputPage extends React.Component {
       radio3: false,
       checkbox: true,
       switch: true,
-      fileInput: ''
-    }
+      fileInput: ""
+    };
     this.onClick1 = this.onClick1.bind(this);
     this.onClick2 = this.onClick2.bind(this);
     this.onClick3 = this.onClick3.bind(this);
@@ -25,127 +33,251 @@ class InputPage extends React.Component {
     this.handleSwitchChange = this.handleSwitchChange.bind(this);
   }
 
-  fileInputHandler = (files) => {
-    console.log(files)
-  }
+  fileInputHandler = files => {
+    console.log(files);
+  };
 
   onClick1() {
-    this.setState({radio: 1});
+    this.setState({ radio: 1 });
   }
 
   onClick2() {
-    this.setState({radio: 2});
+    this.setState({ radio: 2 });
   }
 
   onClick3() {
-    this.setState({radio: 3});
+    this.setState({ radio: 3 });
   }
 
   onClick4() {
-    this.setState({radio2: 4});
+    this.setState({ radio2: 4 });
   }
 
   onClick5() {
-    this.setState({radio2: 5});
+    this.setState({ radio2: 5 });
   }
 
   onClick6() {
-    this.setState({radio2: 6});
+    this.setState({ radio2: 6 });
   }
 
   onClick7() {
-    this.setState({radio3: 7});
+    this.setState({ radio3: 7 });
   }
 
   onClick8() {
-    this.setState({radio3: 8});
+    this.setState({ radio3: 8 });
   }
 
   onClick9() {
-    this.setState({radio3: 9});
+    this.setState({ radio3: 9 });
   }
 
   handleCheckboxChange() {
-    this.setState({checkbox: !this.state.checkbox});
+    this.setState({ checkbox: !this.state.checkbox });
   }
 
   handleSwitchChange() {
-    this.setState({switch: !this.state.switch});
+    this.setState({ switch: !this.state.switch });
   }
 
-  handleChange = (value) => {
-    console.log(value)
-  }
+  handleChange = value => {
+    console.log(value);
+  };
 
-  render () {
+  render() {
     return (
       <Container className="mt-5">
-        <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Inputs</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/inputs/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-        </Row>
-        <hr className="mb-5" />
+        <DocsLink
+          title="Inputs"
+          href="https://mdbootstrap.com/react/components/inputs/"
+        />
         <Container className="mt-5">
-          <h2 className="title mb-5"><strong>Checkboxes</strong></h2>
+          <h2 className="title mb-5">
+            <strong>Checkboxes</strong>
+          </h2>
           <h4 className="mt-5 mb-3">Basic examples</h4>
-          <Input getValue={ this.handleChange } value="Classic checkbox"  label="Classic checkbox" checked={this.state.checkbox} onChange={ this.handleCheckboxChange } type="checkbox" id="checkbox" />
-          <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox2" />
+          <Input
+            getValue={this.handleChange}
+            value="Classic checkbox"
+            label="Classic checkbox"
+            checked={this.state.checkbox}
+            onChange={this.handleCheckboxChange}
+            type="checkbox"
+            id="checkbox"
+          />
+          <Input
+            label="Filled-in checkbox"
+            filled
+            type="checkbox"
+            id="checkbox2"
+          />
 
           <h4 className="mt-5 mb-3">Disabled checkboxes</h4>
-          <Input label="Classic checkbox" disabled type="checkbox" id="checkbox3" />
-          <Input label="Filled-in checkbox" filled disabled type="checkbox" id="checkbox4" />
+          <Input
+            label="Classic checkbox"
+            disabled
+            type="checkbox"
+            id="checkbox3"
+          />
+          <Input
+            label="Filled-in checkbox"
+            filled
+            disabled
+            type="checkbox"
+            id="checkbox4"
+          />
 
           <h4 className="mt-5 mb-3">Inline checkboxes</h4>
-            <FormInline>
-              <Input label="Classic checkbox" type="checkbox" value="coś tam" onChange={this.handleCheckboxChange} id="checkbox5" />
-              <Input label="Filled-in checkbox" filled type="checkbox" id="checkbox6" />
-              <Input label="Classic checkbox" type="checkbox" id="checkbox7" />
-            </FormInline>
-
-          <hr className="my-5" />
-
-          <h2 className="title mb-5"><strong>Radio buttons</strong></h2>
-          <h4 className="mt-5 mb-3">Basic examples</h4>
-          <Input getValue={ this.handleChange } value="Option 1" onClick={this.onClick1} checked={this.state.radio === 1 ? true : false} label="Option 1" type="radio" id="radio1" />
-          <Input onClick={this.onClick2} checked={this.state.radio === 2 ? true : false} label="Option 2" type="radio" id="radio2" />
-          <Input onClick={this.onClick3} checked={this.state.radio === 3 ? true : false} label="Option 3" type="radio" id="radio3" />
-
-          <h4 className="mt-5 mb-3">Radio buttons with gap</h4>
-          <Input gap onClick={this.onClick4} checked={this.state.radio2 === 4 ? true : false} label="Option 1" type="radio" id="radio4" />
-          <Input gap onClick={this.onClick5} checked={this.state.radio2 === 5 ? true : false} label="Option 2" type="radio" id="radio5" />
-          <Input gap onClick={this.onClick6} checked={this.state.radio2 === 6 ? true : false} label="Option 3" type="radio" id="radio6" />
-
-          <h4 className="mt-5 mb-3">Inline radio buttons</h4>
           <FormInline>
-            <Input onClick={this.onClick7} checked={this.state.radio3 === 7 ? true : false} label="Option 1" type="radio" id="radio7" />
-            <Input onClick={this.onClick8} checked={this.state.radio3 === 8 ? true : false} label="Option 2" type="radio" id="radio8" />
-            <Input onClick={this.onClick9} checked={this.state.radio3 === 9 ? true : false} label="Option 3" type="radio" id="radio9" />
+            <Input
+              label="Classic checkbox"
+              type="checkbox"
+              value="coś tam"
+              onChange={this.handleCheckboxChange}
+              id="checkbox5"
+            />
+            <Input
+              label="Filled-in checkbox"
+              filled
+              type="checkbox"
+              id="checkbox6"
+            />
+            <Input label="Classic checkbox" type="checkbox" id="checkbox7" />
           </FormInline>
 
           <hr className="my-5" />
 
-          <h2 className="title mb-5"><strong>Switch</strong></h2>
-          <InputSwitch getValue={ this.handleChange } checked={this.state.switch} onChange={this.handleSwitchChange}></InputSwitch>
-          <h4 className="mt-5 mb-3">Disabled</h4>
-          <InputSwitch disabled></InputSwitch>
+          <h2 className="title mb-5">
+            <strong>Radio buttons</strong>
+          </h2>
+          <h4 className="mt-5 mb-3">Basic examples</h4>
+          <Input
+            getValue={this.handleChange}
+            value="Option 1"
+            onClick={this.onClick1}
+            checked={this.state.radio === 1 ? true : false}
+            label="Option 1"
+            type="radio"
+            id="radio1"
+          />
+          <Input
+            onClick={this.onClick2}
+            checked={this.state.radio === 2 ? true : false}
+            label="Option 2"
+            type="radio"
+            id="radio2"
+          />
+          <Input
+            onClick={this.onClick3}
+            checked={this.state.radio === 3 ? true : false}
+            label="Option 3"
+            type="radio"
+            id="radio3"
+          />
+
+          <h4 className="mt-5 mb-3">Radio buttons with gap</h4>
+          <Input
+            gap
+            onClick={this.onClick4}
+            checked={this.state.radio2 === 4 ? true : false}
+            label="Option 1"
+            type="radio"
+            id="radio4"
+          />
+          <Input
+            gap
+            onClick={this.onClick5}
+            checked={this.state.radio2 === 5 ? true : false}
+            label="Option 2"
+            type="radio"
+            id="radio5"
+          />
+          <Input
+            gap
+            onClick={this.onClick6}
+            checked={this.state.radio2 === 6 ? true : false}
+            label="Option 3"
+            type="radio"
+            id="radio6"
+          />
+
+          <h4 className="mt-5 mb-3">Inline radio buttons</h4>
+          <FormInline>
+            <Input
+              onClick={this.onClick7}
+              checked={this.state.radio3 === 7 ? true : false}
+              label="Option 1"
+              type="radio"
+              id="radio7"
+            />
+            <Input
+              onClick={this.onClick8}
+              checked={this.state.radio3 === 8 ? true : false}
+              label="Option 2"
+              type="radio"
+              id="radio8"
+            />
+            <Input
+              onClick={this.onClick9}
+              checked={this.state.radio3 === 9 ? true : false}
+              label="Option 3"
+              type="radio"
+              id="radio9"
+            />
+          </FormInline>
 
           <hr className="my-5" />
 
-          <h2 className="title mb-5"><strong>File input</strong></h2>
+          <h2 className="title mb-5">
+            <strong>Switch</strong>
+          </h2>
+          <InputSwitch
+            getValue={this.handleChange}
+            checked={this.state.switch}
+            onChange={this.handleSwitchChange}
+          />
+          <h4 className="mt-5 mb-3">Disabled</h4>
+          <InputSwitch disabled />
+
+          <hr className="my-5" />
+
+          <h2 className="title mb-5">
+            <strong>File input</strong>
+          </h2>
           <h4 className="mt-5 mb-3">Basic example</h4>
-          <InputFile getValue = { this.fileInputHandler }></InputFile>
+          <InputFile getValue={this.fileInputHandler} />
 
           <h4 className="mt-5 mb-3">Multiple files</h4>
-          <InputFile getValue = { this.fileInputHandler } multiple btnColor="info" btn-size="sm"></InputFile>
+          <InputFile
+            getValue={this.fileInputHandler}
+            multiple
+            btnColor="info"
+            btn-size="sm"
+          />
 
           <hr className="my-5" />
 
-          <h2 className="title mb-5"><strong>Range</strong></h2>
-          <InputRange getValue={ this.handleChange } min={0} max={100} value={50}></InputRange>
+          <h2 className="title mb-5">
+            <strong>Range</strong>
+          </h2>
+          <InputRange
+            getValue={this.handleChange}
+            min={0}
+            max={100}
+            value={50}
+          />
 
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
         </Container>
       </Container>
     );

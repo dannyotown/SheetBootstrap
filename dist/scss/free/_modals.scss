@@ -62,13 +62,13 @@ body {
       .md-tabs {
         box-shadow: $z-depth-1;
         margin: $cascading-modal-tabs-margin-top $cascading-modal-tabs-margin-x 0 $cascading-modal-tabs-margin-x;
-        display: flex;
-        li {
-          flex: 1;
-          a {
-            text-align: center;
-          }
-        }
+      	display: flex;
+      	li {
+      	  flex: 1;
+      	  a {
+      	    text-align: center;
+      	  }
+      	}
       }
       .tab-content {
         padding: $cascading-modal-tabs-padding-top 0 0 0;
@@ -231,6 +231,7 @@ body {
       display: flex;
       margin: 0;
       width: $modal-width;
+      min-height: 100%;
       height: auto;
       min-height: 100%;
       top: 0;

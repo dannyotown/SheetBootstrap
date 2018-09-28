@@ -1,57 +1,50 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class SideNavNav extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       accordion: null
-    }
+    };
   }
 
   onClick = number => () => {
-    let state = '';
-    if(this.state.accordion !== number) {
+    let state = "";
+    if (this.state.accordion !== number) {
       state = number;
     } else {
       state = null;
     }
     this.setState({
-      accordion: state});
-  }
+      accordion: state
+    });
+  };
 
   render() {
-    const {
-      tag: Tag,
-      children,
-      className,
-      ...attributes
-    } = this.props;
+    const { tag: Tag, children, className, ...attributes } = this.props;
 
     const { accordion } = this.state;
 
     const classes = classNames(
-      'collapsible',
-      'collapsible-accordion',
+      "collapsible",
+      "collapsible-accordion",
       className
     );
 
-    // const sideNavCats = this.props.children;
-
-    const modified = React.Children.map(this.props.children, (child, i) =>{
+    const modified = React.Children.map(this.props.children, (child, i) => {
       const updatedChild = React.cloneElement(child, {
         onClick: this.onClick(i),
-        isOpen: accordion == i
+        isOpen: accordion === i
       });
-      return updatedChild
-    })
+      return updatedChild;
+    });
 
     return (
       <li>
-        <Tag {...attributes} className={classes} >
-            {modified}
+        <Tag {...attributes} className={classes}>
+          {modified}
         </Tag>
       </li>
     );
@@ -61,15 +54,12 @@ class SideNavNav extends React.Component {
 SideNavNav.propTypes = {
   children: PropTypes.node,
   tag: PropTypes.string,
-  className: PropTypes.string,
-
+  className: PropTypes.string
 };
 
 SideNavNav.defaultProps = {
-  tag: 'ul',
+  tag: "ul"
 };
 
 export default SideNavNav;
 export { SideNavNav as MDBSideNavNav };
-
-

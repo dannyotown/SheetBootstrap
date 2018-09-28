@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Waves from '../Waves';
-const Link = require('react-router-dom').NavLink;
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Waves from "../Waves";
+const Link = require("react-router-dom").NavLink;
 
 class SideNavItem extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class SideNavItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e){
+  handleClick(e) {
     if (!this.props.disabled) {
       // Waves - Get Cursor Position
       let cursorPos = {
@@ -24,7 +24,7 @@ class SideNavItem extends React.Component {
       this.setState({ cursorPos: cursorPos });
       // do the passed in callback:
       if (this.props.onClick) {
-      this.props.onClick(e);
+        this.props.onClick(e);
       }
       e.stopPropagation();
     }
@@ -40,20 +40,18 @@ class SideNavItem extends React.Component {
       ...attributes
     } = this.props;
 
-    const classes = classNames(
-      'Ripple-parent',
-      className
-    );
+    const classes = classNames("Ripple-parent", className);
 
     return (
-      <Link className={classes}
-            ref={innerRef}
-            onClick={this.handleClick}
-            to={to}
-            {...attributes}
+      <Link
+        className={classes}
+        ref={innerRef}
+        onClick={this.handleClick}
+        to={to}
+        {...attributes}
       >
         {children}
-        <Waves cursorPos={ this.state.cursorPos } />
+        <Waves cursorPos={this.state.cursorPos} />
       </Link>
     );
   }
@@ -64,14 +62,12 @@ SideNavItem.propTypes = {
   href: PropTypes.string,
   tag: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 SideNavItem.defaultProps = {
-  to: '#'
+  to: "#"
 };
 
 export default SideNavItem;
 export { SideNavItem as MDBSideNavItem };
-
-

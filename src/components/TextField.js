@@ -1,14 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Fa from './Fa';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class TextField extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      innerValue: props.value || props.default || '',
+      innerValue: props.value || props.default || "",
       isTouched: false,
       isPristine: true
     };
@@ -19,13 +18,11 @@ class TextField extends React.Component {
     this.triggerFocus = this.triggerFocus.bind(this);
   }
 
+  componentDidMount() {}
 
-  componentDidMount() {
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState){
-    if (nextProps.value) {
-      return { ...prevState, innerValue: nextProps.value }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.value !== prevState.value) {
+      return { ...prevState, innerValue: nextProps.value };
     } else {
       return null;
     }
@@ -44,15 +41,15 @@ class TextField extends React.Component {
   onFocus(ev) {
     // ignore if event is a window blur
     // if (document.activeElement === this.inputElRef) {
-      this.setState({ isTouched: true });
+    this.setState({ isTouched: true });
     // }
-            // execute callback
+    // execute callback
     let fn = this.props.onFocus;
     fn && fn(ev);
   }
 
   onChange(ev) {
-    if(this.props.type !== 'checkbox' && this.props.type !== 'radio') {
+    if (this.props.type !== "checkbox" && this.props.type !== "radio") {
       this.setState({
         innerValue: ev.target.value,
         isPristine: false
@@ -74,7 +71,6 @@ class TextField extends React.Component {
   }
 
   render() {
-
     const {
       containerClass,
       size,
@@ -100,23 +96,23 @@ class TextField extends React.Component {
       ...attributes
     } = this.props;
 
-    let isNotEmpty = Boolean(this.state.innerValue) || hint || this.state.isTouched;
+    let isNotEmpty =
+      Boolean(this.state.innerValue) || hint || this.state.isTouched;
 
-
-    const inputType = type === 'input';
-    const textareaInput = type === 'textarea';
+    const inputType = type === "input";
+    const textareaInput = type === "textarea";
     //we set selectro input or textarea
-    let Tag = textareaInput ? type : 'input';
+    let Tag = textareaInput ? type : "input";
 
-    let formControlClass = 'form-control';
+    let formControlClass = "form-control";
 
     if (textareaInput) {
-      formControlClass = 'md-textarea form-control';
+      formControlClass = "md-textarea form-control";
     } else if (inputType) {
-      formControlClass = 'form-control';
+      formControlClass = "form-control";
     }
 
-    if (Tag === 'input') {
+    if (Tag === "input") {
       attributes.type = type;
     }
 
@@ -127,54 +123,67 @@ class TextField extends React.Component {
     const classes = classNames(
       formControlClass,
       size ? `form-control-${size}` : false,
-      validate ? 'validate' : false,
-      filled ? 'filled-in' : false,
-      gap ? 'with-gap' : false,
-      type === 'checkbox' ? gap ? false : 'form-check-input' : false,
-      type === 'radio' ? 'form-check-input' : false,
+      validate ? "validate" : false,
+      filled ? "filled-in" : false,
+      gap ? "with-gap" : false,
+      type === "checkbox" ? (gap ? false : "form-check-input") : false,
+      type === "radio" ? "form-check-input" : false,
       className
     );
 
     const containerClassFix = classNames(
-      type === 'checkbox' || type === 'radio' ? 'form-check my-3' : 'md-form',
-      group ? 'form-group' : false,
+      type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form",
+      group ? "form-group" : false,
       size ? `form-${size}` : false,
       containerClass
     );
 
     const iconClassFix = classNames(
-      'fa',
+      "fa",
       icon ? `fa-${icon}` : false,
-      isNotEmpty ? 'active' : false,
+      isNotEmpty ? "active" : false,
       size ? `fa-${size}` : false,
       iconClass,
-      'prefix'
+      "prefix"
     );
 
     const labelClassFix = classNames(
-      isNotEmpty ? 'active' : false,
-      disabled ? 'disabled' : false,
-      type === 'checkbox' ? 'form-check-label mr-5' : false,
-      type === 'radio' ? 'form-check-label mr-5' : false,
+      isNotEmpty ? "active" : false,
+      disabled ? "disabled" : false,
+      type === "checkbox" ? "form-check-label mr-5" : false,
+      type === "radio" ? "form-check-label mr-5" : false,
       labelClass
     );
 
     return (
       <div className={containerClassFix}>
-
-        {icon ? <i className={iconClassFix}></i> : false}
+        {icon ? <i className={iconClassFix} /> : false}
         <Tag
           {...attributes}
           id={id}
           className={classes}
-          ref={el => { this.inputElRef = el; }}
+          ref={el => {
+            this.inputElRef = el;
+          }}
           value={this.state.innerValue}
           placeholder={hint}
           onBlur={this.onBlur}
           onChange={this.onChange}
           onFocus={this.onFocus}
         />
-        {label ? <label className={labelClassFix} htmlFor={id} data-error={error} data-success={success} onClick={this.triggerFocus}>{label}</label> : false }
+        {label ? (
+          <label
+            className={labelClassFix}
+            htmlFor={id}
+            data-error={error}
+            data-success={success}
+            onClick={this.triggerFocus}
+          >
+            {label}
+          </label>
+        ) : (
+          false
+        )}
       </div>
     );
   }
@@ -206,11 +215,11 @@ TextField.propTypes = {
   containerClass: PropTypes.string,
   filled: PropTypes.bool,
   gap: PropTypes.bool,
-  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
 };
 TextField.defaultProps = {
-  tag: 'input',
-  type: 'text',
+  tag: "input",
+  type: "text",
   hint: null,
   getValue: false
 };

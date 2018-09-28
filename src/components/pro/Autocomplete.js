@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
-import ReactDOM, { findDOMNode } from 'react-dom';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Autosuggest from 'react-autosuggest';
-import Fa from '../Fa';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Autosuggest from "react-autosuggest";
+import Fa from "../Fa";
 
 const theme = {
-  container:                'md-form',
-  containerOpen:            'react-autosuggest__container--open',
-  input:                    'mdb-autocomplete form-control',
-  inputOpen:                'react-autosuggest__input--open',
-  inputFocused:             'react-autosuggest__input--focused',
-  suggestionsContainer:     'react-autosuggest__suggestions-container',
-  suggestionsContainerOpen: 'react-autosuggest__suggestions-container--open',
-  suggestionsList:          'mdb-autocomplete-wrap',
-  suggestion:               'react-autosuggest__suggestion',
-  suggestionFirst:          'react-autosuggest__suggestion--first',
-  suggestionHighlighted:    'react-autosuggest__suggestion--highlighted',
-  sectionContainer:         'react-autosuggest__section-container',
-  sectionContainerFirst:    'react-autosuggest__section-container--first',
-  sectionTitle:             'react-autosuggest__section-title'
-}
+  container: "md-form",
+  containerOpen: "react-autosuggest__container--open",
+  input: "mdb-autocomplete form-control",
+  inputOpen: "react-autosuggest__input--open",
+  inputFocused: "react-autosuggest__input--focused",
+  suggestionsContainer: "react-autosuggest__suggestions-container",
+  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
+  suggestionsList: "mdb-autocomplete-wrap",
+  suggestion: "react-autosuggest__suggestion",
+  suggestionFirst: "react-autosuggest__suggestion--first",
+  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
+  sectionContainer: "react-autosuggest__section-container",
+  sectionContainerFirst: "react-autosuggest__section-container--first",
+  sectionTitle: "react-autosuggest__section-title"
+};
 
 class Autocomplete extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: "",
       suggestions: [],
-      isTouched: false,
+      isTouched: false
     };
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -38,48 +38,49 @@ class Autocomplete extends Component {
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
-    if (this.props.search) { return; }
+    if (this.props.search) {
+      return;
+    }
     this.setState({
       suggestions: this.getSuggestions(value)
     });
   };
 
-  getSuggestions = (value) => {
+  getSuggestions = value => {
     const inputValue = value.toLowerCase();
     const inputLength = inputValue.length;
-    return inputLength === 0 ? [] : this.props.data.filter(data =>
-      data.toLowerCase().includes(inputValue)
-    );
-  }
+    return inputLength === 0
+      ? []
+      : this.props.data.filter(data => data.toLowerCase().includes(inputValue));
+  };
 
   getSuggestionValue = suggestion => {
     if (this.props.getValue) {
       this.props.getValue(suggestion);
     }
     return suggestion;
-  }
+  };
 
-  renderSuggestion = suggestion => (
-    <div>
-      {suggestion}
-    </div>
-  );
+  renderSuggestion = suggestion => <div>{suggestion}</div>;
 
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue
-    })
-    if(this.props.search) {
-      this.props.search(newValue, ReactDOM.findDOMNode(this).parentNode.parentNode.querySelectorAll('li'));
+    });
+    if (this.props.search) {
+      this.props.search(
+        newValue,
+        ReactDOM.findDOMNode(this).parentNode.parentNode.querySelectorAll("li")
+      );
     }
   };
 
-  onClick (ev) {
+  onClick(ev) {
     this.setState({ isTouched: true });
   }
 
-  blurCallback (ev) {
-    this.setState({  isTouched: false });
+  blurCallback(ev) {
+    this.setState({ isTouched: false });
   }
 
   onSuggestionsClearRequested = () => {
@@ -90,17 +91,16 @@ class Autocomplete extends Component {
 
   handleClear() {
     this.setState({
-      value: ''
-    })
+      value: ""
+    });
   }
 
   triggerFocus() {
-     const input = document.getElementById(this.props.id);
-     input.focus();
+    const input = document.getElementById(this.props.id);
+    input.focus();
   }
 
   render() {
-
     const { value, suggestions } = this.state;
 
     const {
@@ -136,32 +136,30 @@ class Autocomplete extends Component {
       id: this.props.id
     };
 
-
     // the main variable for classFixes
-    let isNotEmpty = Boolean(this.state.value) || placeholder || this.state.isTouched;
+    let isNotEmpty =
+      Boolean(this.state.value) || placeholder || this.state.isTouched;
 
     // classFixes:
     const labelClassFix = classNames(
-      isNotEmpty && 'active',
-      disabled && 'disabled',
+      isNotEmpty && "active",
+      disabled && "disabled",
       labelClass
     );
     const iconClassFix = classNames(
-      'prefix',
-      this.state.isTouched && 'active',
-      iconClass,
+      "prefix",
+      this.state.isTouched && "active",
+      iconClass
     );
-    const clearClassFix = classNames(
-      clearClass
-    )
+    const clearClassFix = classNames(clearClass);
 
     const isclearVisible = () => {
-      let hiddenOrNot = "hidden"
+      let hiddenOrNot = "hidden";
       if (this.state.value) {
         hiddenOrNot = "visible";
       }
       return hiddenOrNot;
-    }
+    };
     const clearStyleFix = {
       position: "absolute",
       zIndex: 2,
@@ -169,28 +167,41 @@ class Autocomplete extends Component {
       right: 0,
       border: "none",
       background: "0 0",
-      visibility: isclearVisible(),
-    }
+      visibility: isclearVisible()
+    };
 
     // Here our magic happens:
 
     const renderInputComponent = inputProps => (
       <div>
-        {icon && <Fa icon={icon} size={iconSize} className={iconClassFix}/>}
-        <input type="text" id={id} className="form-control"
+        {icon && <Fa icon={icon} size={iconSize} className={iconClassFix} />}
+        <input
+          type="text"
+          id={id}
+          className="form-control"
           {...inputProps}
           {...attributes}
           onFocus={(ev, val) => {
-          this.onClick();
-          inputProps.onFocus(ev, val);}}
+            this.onClick();
+            inputProps.onFocus(ev, val);
+          }}
         />
-        <label htmlFor={id} id={`label for ${id}`}
+        <label
+          htmlFor={id}
+          id={`label for ${id}`}
           onClick={this.triggerFocus}
           className={labelClassFix}
-        >{label}</label>
-        { clear &&
-        <Fa icon="close" onClick={this.handleClear} style={clearStyleFix}
-        className={clearClassFix}/>}
+        >
+          {label}
+        </label>
+        {clear && (
+          <Fa
+            icon="close"
+            onClick={this.handleClear}
+            style={clearStyleFix}
+            className={clearClassFix}
+          />
+        )}
       </div>
     );
 
@@ -210,7 +221,6 @@ class Autocomplete extends Component {
         focusInputOnSuggestionClick={false}
         {...attributes}
       />
-
     );
   }
 }
@@ -221,10 +231,9 @@ Autocomplete.propTypes = {
 };
 
 Autocomplete.defaultProps = {
-  id: 'autocomplete-1',
+  id: "autocomplete-1",
   clear: true
 };
 
 export default Autocomplete;
 export { Autocomplete as MDBAutocomplete };
-

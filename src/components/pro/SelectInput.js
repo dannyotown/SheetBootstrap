@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import selectContextHOC   from './SelectContext';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import selectContextHOC from "./SelectContext";
 
 class SelectInput extends React.Component {
-
   componentDidMount() {
     this.props.context.triggerOptionChange(this.props.selected);
   }
@@ -19,12 +18,15 @@ class SelectInput extends React.Component {
       ...attributes
     } = this.props;
 
-    const classes = classNames(
-      'select-dropdown',
-      className
-    );
+    const classes = classNames("select-dropdown", className);
     return (
-      <input type="text" readOnly value={ context.state.selectText ? context.state.selectText : selected  } {...attributes} className={classes} />
+      <input
+        type="text"
+        readOnly
+        value={context.state.selectText ? context.state.selectText : selected}
+        {...attributes}
+        className={classes}
+      />
     );
   }
 }
@@ -37,11 +39,11 @@ SelectInput.propTypes = {
 };
 
 SelectInput.defaultProps = {
-  children: 'div',
-  className: '',
-  selected: 'Choose your option',
-  value: ''
+  children: "div",
+  className: "",
+  selected: "Choose your option",
+  value: ""
 };
 
-export default SelectInput = selectContextHOC(SelectInput);
+export default (SelectInput = selectContextHOC(SelectInput));
 export { SelectInput as MDBSelectInput };

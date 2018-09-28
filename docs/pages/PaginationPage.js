@@ -1,19 +1,17 @@
-import React from 'react';
-import { Pagination, PageItem, PageLink, Container, Row, Fa } from 'mdbreact';
+import React from "react";
+import { Pagination, PageItem, PageLink, Container } from "mdbreact";
+import DocsLink from "./DocsLink";
 
-const PaginationPage = (props) => {
-  return(
+const PaginationPage = props => {
+  return (
     <Container>
-      <Row className="align-items-center mt-5">
-          <h4 className="grey-text" style={{margin: "0px"}}>
-            <strong>Pagination</strong>
-          </h4>
-          <a className="border grey-text px-2 border-light rounded ml-2" target="_blank"  href="https://mdbootstrap.com/react/components/pagination/"><Fa icon="graduation-cap" className="mr-2"/>Docs</a>
-      </Row>
-      <hr className="mb-5" />
+      <DocsLink
+        title="Pagination"
+        href="https://mdbootstrap.com/react/components/pagination/"
+      />
       <div className="container">
         <div className="row mt-5">
-          <div className="col" style={{ maxWidth: '23rem' }}>
+          <div className="col" style={{ maxWidth: "23rem" }}>
             <Pagination>
               <PageItem disabled>
                 <PageLink className="page-link" aria-label="Previous">
@@ -27,24 +25,16 @@ const PaginationPage = (props) => {
                 </PageLink>
               </PageItem>
               <PageItem>
-                <PageLink className="page-link">
-                  2
-                </PageLink>
+                <PageLink className="page-link">2</PageLink>
               </PageItem>
               <PageItem>
-                <PageLink className="page-link">
-                  3
-                </PageLink>
+                <PageLink className="page-link">3</PageLink>
               </PageItem>
               <PageItem>
-                <PageLink className="page-link">
-                  4
-                </PageLink>
+                <PageLink className="page-link">4</PageLink>
               </PageItem>
               <PageItem>
-                <PageLink className="page-link">
-                  5
-                </PageLink>
+                <PageLink className="page-link">5</PageLink>
               </PageItem>
             </Pagination>
           </div>

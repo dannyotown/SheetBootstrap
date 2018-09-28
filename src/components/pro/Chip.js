@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Waves from '../Waves';
-import './Chip.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Waves from "../Waves";
+import "./Chip.css";
 
 class Chip extends Component {
   constructor(props) {
@@ -11,10 +11,9 @@ class Chip extends Component {
       cursorPos: {}
     };
     this.handleCloseClick = this.handleCloseClick.bind(this);
-
   }
 
-  handleClick(e){
+  handleClick(e) {
     // Get Cursor Position
     e.stopPropagation();
     e.preventDefault();
@@ -27,13 +26,12 @@ class Chip extends Component {
   }
 
   handleCloseClick(e) {
-    if (this.props.handleClose){
+    if (this.props.handleClose) {
       this.props.handleClose(e);
     }
   }
 
   render() {
-
     const {
       className,
       tag: Tag,
@@ -50,25 +48,28 @@ class Chip extends Component {
     } = this.props;
 
     const classes = classNames(
-      'chip',
-      size && 'chip-' + size,
+      "chip",
+      size && "chip-" + size,
       bgColor && bgColor,
-      text && text + '-text',
-      gradient && gradient + '-gradient',
-      waves && 'Ripple-parent',
+      text && text + "-text",
+      gradient && gradient + "-gradient",
+      waves && "Ripple-parent",
       className
     );
 
     return (
-      <Tag {...attributes}
-          className={classes}
-          onMouseDown={ this.handleClick.bind(this) }
-          onTouchStart={ this.handleClick.bind(this) }>
-        {src && <img src={src} alt={alt}/>}
+      <Tag
+        {...attributes}
+        className={classes}
+        onMouseDown={this.handleClick.bind(this)}
+        onTouchStart={this.handleClick.bind(this)}
+      >
+        {src && <img src={src} alt={alt} />}
         {this.props.children}
-        {waves && <Waves cursorPos={ this.state.cursorPos }/>}
-        {close && <i className="fa fa-times close"
-          onClick={this.handleCloseClick }/>}
+        {waves && <Waves cursorPos={this.state.cursorPos} />}
+        {close && (
+          <i className="fa fa-times close" onClick={this.handleCloseClick} />
+        )}
       </Tag>
     );
   }
@@ -88,7 +89,7 @@ Chip.propTypes = {
 };
 
 Chip.defaultProps = {
-  tag: 'div'
+  tag: "div"
 };
 
 export default Chip;

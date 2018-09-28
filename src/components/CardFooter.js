@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 class CardFooter extends Component {
-
   render() {
-
     const {
       className,
       tag: Tag,
@@ -19,25 +17,26 @@ class CardFooter extends Component {
     } = this.props;
 
     const classes = classNames(
-      'card-footer',
+      "card-footer",
       color && color,
       text && text,
-      (color && !text) && ' white-text',
-      border && 'border-' + border,
-      transparent && 'bg-transparent',
-      muted && 'text-muted',
+      color && !text && " white-text",
+      border && "border-" + border,
+      transparent && "bg-transparent",
+      muted && "text-muted",
       className
     );
 
-    let component = <Tag {...attributes} className={classes} />
+    let component = <Tag {...attributes} className={classes} />;
 
     if (small) {
-      component = (<Tag {...attributes} className={classes} >
-              <small> {this.props.children} </small>
-            </Tag>
-          )
+      component = (
+        <Tag {...attributes} className={classes}>
+          <small> {this.props.children} </small>
+        </Tag>
+      );
     }
-    return component
+    return component;
   }
 }
 
@@ -49,11 +48,11 @@ CardFooter.propTypes = {
   border: PropTypes.string,
   transparent: PropTypes.bool,
   small: PropTypes.bool,
-  muted: PropTypes.bool,
+  muted: PropTypes.bool
 };
 
 CardFooter.defaultProps = {
-  tag: 'div'
+  tag: "div"
 };
 
 export default CardFooter;

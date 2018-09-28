@@ -22,7 +22,7 @@ label.btn input[type="checkbox"] {
 
   // Checkbox feature
   + label:before,
-  &:not(.filled-in) + label:after {
+   &:not(.filled-in) + label:after {
     content: '';
     position: absolute;
     top: 0;
