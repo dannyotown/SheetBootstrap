@@ -2,7 +2,7 @@
 
 # React Bootstrap with Material Design
 
-[![npm version](https://badge.fury.io/js/angular-bootstrap-md.svg)](https://badge.fury.io/js/angular-bootstrap-md)
+[![npm version](https://badge.fury.io/js/mdbreact.svg)](https://badge.fury.io/js/mdbreact)
 
 Built with React and Bootstrap 4. Absolutely no jQuery.
 
@@ -21,13 +21,10 @@ All fully responsive. All compatible with different browsers.
 [![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2888%29.jpg)](https://mdbootstrap.com/angular/)
 [![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2876%29.jpg)](https://mdbootstrap.com/angular/)
 [![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2873%29.jpg)](https://mdbootstrap.com/angular/)
-[![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2874%29.jpg)](https://mdbootstrap.com/angular/)
-[![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2881%29.jpg)](https://mdbootstrap.com/angular/)
-[![Material Design for Bootstrap](https://mdbootstrap.com/img/Mockups/Lightbox/Original/img%20%2875%29.jpg)](https://mdbootstrap.com/angular/)
 
 # Version:
 
-- MDBReact 4.8.1
+- MDBReact 4.8.0
 - React 16.5.2
 
 # Quick start
