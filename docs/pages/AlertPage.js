@@ -1,7 +1,6 @@
 import React from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast, ToastContainer, Container } from "mdbreact";
 import "./alerts.css";
-import { Container } from "mdbreact";
 import DocsLink from "./DocsLink";
 
 const AlertPage = () => {
@@ -9,7 +8,7 @@ const AlertPage = () => {
     return () => {
       switch (type) {
         case "info":
-          toast.info("Info message", {
+          toast.info("Loooool", {
             closeButton: false
           });
           break;
