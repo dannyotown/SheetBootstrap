@@ -48,6 +48,7 @@ import ChartsPage from "./pages/ChartsPage";
 import SearchPage from "./pages/SearchPage";
 import ValidationPage from "./pages/ValidationPage";
 import NavbarPage from "./pages/NavbarPage";
+import IframePage from "./pages/IframePage";
 
 // PRO
 import MaterialDropdownPage from "./pages/pro/DropdownPage";
@@ -153,6 +154,7 @@ class Routes extends React.Component {
         <Route path="/forms/validation" component={ValidationPage} />
         <Route path="/tables/datatable" component={DatatablePage} />
         <Route path="/tables/datatable-api" component={DatatableApiPage} />
+        <Route path="/components/iframe" component={IframePage} />
         {/* PRO */}
         <Route
           path="/components/pro/dropdown"
