@@ -37,7 +37,6 @@ class MdbSelect extends Component {
       }
     }
 
-    // TODO: UPDATE LIST WHEN OPTION IS REMOVED
     if (this.props.options !== prevProps.options) {
       this.setState(
         {
