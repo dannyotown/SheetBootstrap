@@ -15,6 +15,32 @@
   background-color: #d32f2f;
 }
 
+#timelineColorful .stepper.timeline li.timeline-inverted {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+#timelineColorful .stepper.timeline li.timeline-inverted .step-content {
+  float: right;
+}
+
+#timelineColorful .stepper.timeline li.timeline-inverted .step-content:before {
+  border-left-width: 0;
+  border-right-width: 15px;
+  left: -15px;
+  right: auto;
+}
+
+#timelineColorful .stepper.timeline li.timeline-inverted .step-content:after {
+  border-left-width: 0;
+  border-right-width: 14px;
+  left: -14px;
+  right: auto;
+}
+
+
 /* #timelineImages */
 
 #timelineImages .stepper.timeline li a {
