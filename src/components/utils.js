@@ -180,3 +180,16 @@ export const keyCodes = {
   up: 38,
   down: 40
 };
+
+export const returnAttributes = attributes => {
+  const newAttributesObject = Object.keys(attributes).reduce(
+    (previousValue, currentElement) => {
+      if (attributes[currentElement])
+        previousValue[currentElement] = attributes[currentElement];
+      return previousValue;
+    },
+    {}
+  );
+
+  return newAttributesObject;
+};
