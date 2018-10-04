@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CSSTransition } from "react-transition-group";
+import Transition from "react-motion-ui-pack";
 
 const DropdownMenuProComponent = props => {
   const {
@@ -17,24 +17,24 @@ const DropdownMenuProComponent = props => {
   const Tag = d_tag;
 
   return (
-    <CSSTransition
-      in={isOpen}
-      appear={isOpen}
-      classNames="popover"
-      unmountOnExit
-      timeout={{ enter: 300, exit: 300 }}
+    <Transition
+      component={false}
+      enter={{ opacity: 1, scale: 1 }}
+      leave={{ opacity: 0, scale: 0.9 }}
     >
-      <Tag
-        tabIndex={d_tabIndex}
-        role={d_role}
-        {...d_attributes}
-        aria-hidden={d_aria}
-        className={d_classes}
-        key={d_key}
-      >
-        {children}
-      </Tag>
-    </CSSTransition>
+      {isOpen && (
+        <Tag
+          tabIndex={d_tabIndex}
+          role={d_role}
+          {...d_attributes}
+          aria-hidden={d_aria}
+          className={d_classes}
+          key={d_key}
+        >
+          {children}
+        </Tag>
+      )}
+    </Transition>
   );
 };
 

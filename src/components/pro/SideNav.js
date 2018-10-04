@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { CSSTransition } from "react-transition-group";
-import "../Transitions.css";
+import Transition from "react-motion-ui-pack";
 import Waves from "../Waves";
 
 class SideNav extends React.Component {
@@ -111,6 +110,7 @@ class SideNav extends React.Component {
         key="overlay"
       />
     );
+    const translateX = right ? 300 : -300;
 
     const sidenav = (
       <Tag
@@ -146,14 +146,14 @@ class SideNav extends React.Component {
 
     return (
       <div>
-        <CSSTransition
-          timeout={{ enter: 300, exit: 300 }}
-          classNames={right ? "right-side-slide" : "side-slide"}
-          in={isThere}
+        <Transition
+          component={false}
+          enter={{ opacity: 1, translateX: 0 }}
+          leave={{ opacity: 0.2, translateX: translateX }}
         >
-          {sidenav}
-        </CSSTransition>
-        {showOverlay & isThere && overlay}
+          {isThere && sidenav}
+        </Transition>
+        {showOverlay && overlay}
       </div>
     );
   }

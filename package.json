@@ -27,7 +27,7 @@
     "react-popper": "^0.7.5",
     "react-router-dom": "^4.2.0",
     "react-toastify": "^3.2.2",
-    "react-transition-group": "^2.5.0"
+    "react-transition-group": "^1.2.1"
   },
   "scripts": {
     "build": "yarn run sass-compile && webpack",
@@ -77,6 +77,7 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "react-motion-ui-pack": "^0.10.3"
   }
 }

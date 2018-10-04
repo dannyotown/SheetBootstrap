@@ -3,8 +3,7 @@ import { Manager, Target, Popper, Arrow } from "react-popper";
 import { findDOMNode } from "react-dom";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-import "./Transitions.css";
-import { CSSTransition } from "react-transition-group";
+import Transition from "react-motion-ui-pack";
 import outy from "outy";
 
 class Popover extends React.Component {
@@ -93,26 +92,26 @@ class Popover extends React.Component {
         >
           {popoverBody}
         </Target>
-        <CSSTransition
-          in={this.state.isOpen}
-          appear={this.state.isOpen}
-          classNames="popover"
-          unmountOnExit
-          timeout={{ enter: 300, exit: 300 }}
+        <Transition
+          component={false}
+          enter={{ opacity: 1, scale: 1 }}
+          leave={{ opacity: 0, scale: 0.9 }}
         >
-          <Popper
-            key="popover"
-            component={componentPopover}
-            innerRef={c => {
-              this.popper = findDOMNode(c);
-            }}
-            placement={placement}
-            className={popoverClasses}
-          >
-            {children}
-            <Arrow className={arrowClasses} />
-          </Popper>
-        </CSSTransition>
+          {this.state.isOpen && (
+            <Popper
+              key="popover"
+              component={componentPopover}
+              innerRef={c => {
+                this.popper = findDOMNode(c);
+              }}
+              placement={placement}
+              className={popoverClasses}
+            >
+              {children}
+              <Arrow className={arrowClasses} />
+            </Popper>
+          )}
+        </Transition>
       </Manager>
     );
   }
