@@ -58,7 +58,7 @@ class Iframe extends Component {
     const classes = classNames("embed-responsive-item", className);
     const wrapperClasses = classNames(
       !(height || width) && "embed-responsive",
-      ratio && `embed-responsive-${ratio}`,
+      ratio ? `embed-responsive-${ratio}` : `embed-responsive-16by9`,
       className
     );
 
