@@ -1,28 +1,52 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+
+import ControlledSelectInput from "./ControlledSelect/ControlledSelectInput";
+import ControlledSelectOptions from "./ControlledSelect/ControlledSelectOptions";
 export const SelectContext = React.createContext();
 
 class Select extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectText: "",
-      selectValue: ""
+      selectValue: [],
+      selectTextContent: "",
+      options: this.props.options || []
     };
   }
 
   componentDidMount() {
     document.addEventListener("click", this.onClick);
+    if (this.state.options.length) {
+      this.renderPreselectedOptions();
+    }
   }
 
-  componentDidUpdate(props, state) {
-    if (
-      state.selectValue !== this.state.selectValue &&
-      typeof this.props.getValue === "function"
-    ) {
-      this.props.getValue(this.state.selectValue);
-      this.props.getTextContent(this.state.selectText);
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.selectValue !== this.state.selectValue) {
+      if (typeof this.props.getValue === "function") {
+        this.props.getValue(this.state.selectValue);
+      }
+
+      if (typeof this.props.getTextContent === "function") {
+        this.props.getTextContent(this.state.selectTextContent);
+      }
+
+      if (this.state.selectValue.length === 0 && this.props.selected) {
+        this.setState({
+          selectTextContent: this.props.selected
+        });
+      }
+    }
+
+    if (this.props.options !== prevProps.options) {
+      this.setState(
+        {
+          options: this.props.options
+        },
+        this.renderPreselectedOptions
+      );
     }
   }
 
@@ -30,9 +54,23 @@ class Select extends React.Component {
     document.removeEventListener("click", this.onClick);
   }
 
+  renderPreselectedOptions = () => {
+    const preselected = this.state.options
+      .filter(option => option.checked)
+      .map(option => option.value);
+    this.setState({
+      selectValue: preselected,
+      selectTextContent: preselected.join(", ")
+    });
+  };
+
   triggerOptionChange = (value, text) => {
     Array.isArray(text) && (text = text.join(", "));
-    this.setState({ ...this.state, selectValue: value, selectText: text });
+    this.setState({
+      ...this.state,
+      selectValue: value,
+      selectTextContent: text
+    });
   };
 
   // close all select dropdown (unless it has multiple property or search input)
@@ -57,14 +95,61 @@ class Select extends React.Component {
     );
   };
 
-  render() {
+  selectOneOption = value => {
+    this.setState(prevState => {
+      let options = [...prevState.options];
+      const optionIndex = options.findIndex(option => option.value === value);
+      options[optionIndex].checked = true;
+
+      options.forEach(
+        (option, index) =>
+          index !== optionIndex ? (option.checked = false) : false
+      );
+
+      return {
+        selectValue: [options[optionIndex].value],
+        selectTextContent: options[optionIndex].value,
+        options
+      };
+    });
+  };
+
+  selectMultipleOptions = value => {
+    this.setState(prevState => {
+      let options = [...prevState.options];
+      const optionIndex = options.findIndex(option => option.value === value);
+      options[optionIndex].checked = !prevState.options[optionIndex].checked;
+
+      let checkedOptions = options
+        .filter(option => option.checked)
+        .map(option => option.value);
+
+      return {
+        selectValue: checkedOptions,
+        selectTextContent: checkedOptions.join(", "),
+        options
+      };
+    });
+  };
+
+  selectOption = value => {
+    if (this.props.multiple) {
+      this.selectMultipleOptions(value);
+    } else {
+      this.selectOneOption(value);
+    }
+  };
+
+  returnComponentContent = () => {
     const {
       className,
-      children,
-      multiple,
       color,
+      children,
       getTextContent,
       getValue,
+      multiple,
+      search,
+      selected,
       ...attributes
     } = this.props;
 
@@ -74,14 +159,8 @@ class Select extends React.Component {
       className
     );
 
-    return (
-      <SelectContext.Provider
-        value={{
-          state: this.state,
-          multiple: this.props.multiple,
-          triggerOptionChange: this.triggerOptionChange
-        }}
-      >
+    if (this.state.options.length) {
+      return (
         <div
           {...attributes}
           data-color={color}
@@ -89,10 +168,41 @@ class Select extends React.Component {
           className={classes}
         >
           <span className="caret">▼</span>
-          {children}
+          <ControlledSelectInput value={this.state.selectTextContent} />
+          <ControlledSelectOptions
+            multiple={multiple}
+            options={this.state.options}
+            search={search}
+            selected={selected}
+            selectOption={this.selectOption}
+          />
         </div>
-      </SelectContext.Provider>
-    );
+      );
+    } else if (this.props.children) {
+      return (
+        <SelectContext.Provider
+          value={{
+            state: this.state,
+            multiple: this.props.multiple,
+            triggerOptionChange: this.triggerOptionChange
+          }}
+        >
+          <div
+            {...attributes}
+            data-color={color}
+            data-multiple={multiple}
+            className={classes}
+          >
+            <span className="caret">▼</span>
+            {children}
+          </div>
+        </SelectContext.Provider>
+      );
+    }
+  };
+
+  render() {
+    return this.returnComponentContent();
   }
 }
 
@@ -103,17 +213,17 @@ Select.propTypes = {
   getTextContent: PropTypes.func,
   getValue: PropTypes.func,
   multiple: PropTypes.bool,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      checked: PropTypes.bool,
+      disabled: PropTypes.bool,
+      icon: PropTypes.string,
+      value: PropTypes.string
+    })
+  ),
+  search: PropTypes.bool,
+  selected: PropTypes.string,
   value: PropTypes.string
-};
-
-Select.defaultProps = {
-  children: "div",
-  className: "",
-  color: "",
-  getTextContent: () => {},
-  getValue: () => {},
-  multiple: false,
-  value: ""
 };
 
 export default Select;
