@@ -1,12 +1,12 @@
 import React from "react";
 import {
+  Button,
   Select,
   SelectInput,
   MDBSelectInput,
   SelectOptions,
   SelectOption,
-  Container,
-  MdbSelect
+  Container
 } from "mdbreact";
 import DocsLink from "../DocsLink";
 
@@ -17,25 +17,25 @@ class SelectPage extends React.Component {
         checked: false,
         disabled: false,
         icon: null,
-        value: "one"
+        value: "Option one"
       },
       {
         checked: false,
         disabled: false,
         icon: null,
-        value: "two"
+        value: "Option two"
       },
       {
         checked: true,
         disabled: false,
         icon: null,
-        value: "three"
+        value: "Option three"
       },
       {
         checked: false,
         disabled: false,
         icon: null,
-        value: "four"
+        value: "Option four"
       }
     ]
   };
@@ -61,21 +61,6 @@ class SelectPage extends React.Component {
         <h4 className="my-4 indigo-text">
           <strong>Basic example</strong>
         </h4>
-        <div className="row">
-          <div className="col-md-6">
-            {/* testing mdbselect */}
-            <MdbSelect
-              multiple
-              color="primary"
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.options}
-              selected="Yolo"
-            />
-            <label>New mdbSelect</label>
-            <button onClick={this.remove}>Remove</button>
-          </div>
-        </div>
         <div className="row">
           <div className="col-md-6">
             <Select
@@ -190,6 +175,25 @@ class SelectPage extends React.Component {
               </SelectOptions>
             </Select>
             <label>Example label</label>
+          </div>
+        </div>
+        <h4 className="my-4 deep-default-text">
+          <strong>Alternative Select without markup</strong>
+        </h4>
+        <div className="row">
+          <div className="col-md-6">
+            <Select
+              multiple
+              color="primary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              selected="Choose option"
+            />
+            <label>Select with Objects</label>
+          </div>
+          <div className="col-md-6">
+            <Button onClick={this.remove}>Remove option</Button>
           </div>
         </div>
         <br />

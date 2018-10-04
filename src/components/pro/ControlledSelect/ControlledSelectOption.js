@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-class MdbSelectOption extends Component {
+class ControlledSelectOption extends Component {
   render() {
     const {
       checked,
@@ -43,7 +43,7 @@ class MdbSelectOption extends Component {
   }
 }
 
-MdbSelectOption.propTypes = {
+ControlledSelectOption.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   icon: PropTypes.string,
@@ -52,4 +52,4 @@ MdbSelectOption.propTypes = {
   value: PropTypes.string
 };
 
-export default MdbSelectOption;
+export default ControlledSelectOption;

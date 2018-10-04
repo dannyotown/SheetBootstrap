@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const MdbSelectInput = ({ value }) => (
+const ControlledSelectInput = ({ value }) => (
   <input type="text" readOnly value={value} className="select-dropdown" />
 );
 
-MdbSelectInput.propTypes = {
+ControlledSelectInput.propTypes = {
   value: PropTypes.string
 };
 
-export default MdbSelectInput;
+export default ControlledSelectInput;

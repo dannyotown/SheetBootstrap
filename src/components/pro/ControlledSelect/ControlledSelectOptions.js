@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import Autocomplete from "./../Autocomplete";
-import MdbSelectOption from "./MdbSelectOption";
+import Autocomplete from "../Autocomplete";
+import ControlledSelectOption from "./ControlledSelectOption";
 
-class MdbSelectOptions extends Component {
+class ControlledSelectOptions extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,14 +52,14 @@ class MdbSelectOptions extends Component {
             data-search="true"
           />
         )}
-        <MdbSelectOption
+        <ControlledSelectOption
           checked={false}
           disabled={true}
           icon={null}
           value={selected}
         />
         {this.state.filteredOptions.map((option, index) => (
-          <MdbSelectOption
+          <ControlledSelectOption
             key={`${option.value}-${index}`}
             checked={option.checked}
             disabled={option.disabled}
@@ -74,7 +74,7 @@ class MdbSelectOptions extends Component {
   }
 }
 
-MdbSelectOptions.propTypes = {
+ControlledSelectOptions.propTypes = {
   multiple: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -89,4 +89,4 @@ MdbSelectOptions.propTypes = {
   selectOption: PropTypes.func
 };
 
-export default MdbSelectOptions;
+export default ControlledSelectOptions;

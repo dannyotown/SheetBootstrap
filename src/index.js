@@ -225,8 +225,6 @@ import MDBStickyContent from "./components/pro/StickyContainer";
 import MDBTestimonial from "./components/pro/Testimonial";
 import MDBTimeline from "./components/pro/Timeline";
 import MDBTimelineStep from "./components/pro/TimelineStep";
-
-import MdbSelect from "./components/pro/MdbSelect/MdbSelect";
 let Dropdown = require("./components/Dropdown").default;
 let DropdownMenuComponent = require("./components/DropdownMenuComponent")
   .default;
@@ -467,6 +465,5 @@ export {
   MDBStickyContent,
   MDBTestimonial,
   MDBTimeline,
-  MDBTimelineStep,
-  MdbSelect
+  MDBTimelineStep
 };
