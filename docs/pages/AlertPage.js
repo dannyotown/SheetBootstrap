@@ -8,7 +8,7 @@ const AlertPage = () => {
     return () => {
       switch (type) {
         case "info":
-          toast.info("Loooool", {
+          toast.info("Info message", {
             closeButton: false
           });
           break;

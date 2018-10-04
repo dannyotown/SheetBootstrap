@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Button,
   Select,
   SelectInput,
   MDBSelectInput,
@@ -10,9 +11,44 @@ import {
 import DocsLink from "../DocsLink";
 
 class SelectPage extends React.Component {
+  state = {
+    options: [
+      {
+        checked: false,
+        disabled: false,
+        icon: null,
+        value: "Option one"
+      },
+      {
+        checked: false,
+        disabled: false,
+        icon: null,
+        value: "Option two"
+      },
+      {
+        checked: true,
+        disabled: false,
+        icon: null,
+        value: "Option three"
+      },
+      {
+        checked: false,
+        disabled: false,
+        icon: null,
+        value: "Option four"
+      }
+    ]
+  };
+
   // build function for your selects, and pass it as getValue property to reed the select's value
   getValueOfSelect = value => {
     console.log(value);
+  };
+
+  remove = () => {
+    this.setState({
+      options: this.state.options.slice(0, -1)
+    });
   };
 
   render() {
@@ -139,6 +175,25 @@ class SelectPage extends React.Component {
               </SelectOptions>
             </Select>
             <label>Example label</label>
+          </div>
+        </div>
+        <h4 className="my-4 deep-default-text">
+          <strong>Alternative Select without markup</strong>
+        </h4>
+        <div className="row">
+          <div className="col-md-6">
+            <Select
+              multiple
+              color="primary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              selected="Choose option"
+            />
+            <label>Select with Objects</label>
+          </div>
+          <div className="col-md-6">
+            <Button onClick={this.remove}>Remove option</Button>
           </div>
         </div>
         <br />
