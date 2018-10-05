@@ -66,7 +66,6 @@ class Select extends React.Component {
 
   triggerOptionChange = (value, text) => {
     Array.isArray(text) && (text = text.join(", "));
-    console.log("wooohooo", value);
     this.setState({
       selectValue: value,
       selectTextContent: text
