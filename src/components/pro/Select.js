@@ -158,7 +158,7 @@ class Select extends React.Component {
       className
     );
 
-    if (this.state.options.length) {
+    if (!this.props.children) {
       return (
         <div
           {...attributes}
@@ -177,7 +177,7 @@ class Select extends React.Component {
           />
         </div>
       );
-    } else if (this.props.children) {
+    } else {
       return (
         <SelectContext.Provider
           value={{
