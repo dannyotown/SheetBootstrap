@@ -9,10 +9,16 @@ class Button extends React.Component {
     this.state = {
       cursorPos: {}
     };
-    this.onClick = this.onClick.bind(this);
   }
 
   handleClick = e => {
+    e.stopPropagation();
+
+    if (this.props.disabled) {
+      e.preventDefault();
+      return;
+    }
+
     if (!this.props.disabled) {
       // Waves - Get Cursor Position
       let cursorPos = {
@@ -21,16 +27,8 @@ class Button extends React.Component {
         time: Date.now()
       };
       this.setState({ cursorPos: cursorPos });
-      e.stopPropagation();
     }
   };
-
-  onClick(e) {
-    if (this.props.disabled) {
-      e.preventDefault();
-      return;
-    }
-  }
 
   render() {
     let {
@@ -85,7 +83,6 @@ class Button extends React.Component {
         role={Tag === "a" && !role ? "button" : role}
         className={classes}
         ref={innerRef}
-        onClick={this.onClick}
         onMouseDown={this.handleClick}
         onTouchStart={this.handleClick}
         {...attributes}
