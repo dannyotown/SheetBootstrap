@@ -41,7 +41,7 @@ import ListGroup from "./components/ListGroup";
 import ListGroupItem from "./components/ListGroupItem";
 import Mask from "./components/Mask";
 import Media from "./components/Media";
-import Modal from "./components/Modal";
+import Modal from "./components/ModalNew";
 import ModalBody from "./components/ModalBody";
 import ModalFooter from "./components/ModalFooter";
 import ModalHeader from "./components/ModalHeader";

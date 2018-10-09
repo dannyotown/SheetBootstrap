@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   Container,
   Button,
@@ -17,13 +17,28 @@ import {
 } from "mdbreact";
 import DocsLink from "./DocsLink";
 
-class ModalPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal1: false
-    };
-  }
+class ModalPage extends Component {
+  state = {
+    modal1: false,
+    modal2: false,
+    modal3: false,
+    modal4: false,
+    modal5: false,
+    modal6: false,
+    modal7: false,
+    modal8: false,
+    modal9: false,
+    modal10: false,
+    modal11: false,
+    modal12: false,
+    modal13: false,
+    modal14: false,
+    modal15: false,
+    modal16: false,
+    modal17: false,
+    backdrop: false,
+    mailAddress: "@mdo"
+  };
 
   toggle(nr) {
     let modalNumber = "modal" + nr;
@@ -57,30 +72,12 @@ class ModalPage extends React.Component {
           href="https://mdbootstrap.com/react/advanced/modals/"
         />
 
-        <ModalNew isOpen={this.state.modal1}>
-          <ModalHeader onClick={() => this.toggle(1)}>Modal title</ModalHeader>
-          <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={() => this.toggle(1)} color="secondary">
-              Close
-            </Button>
-            <Button onClick={() => this.toggle(1)} color="primary">
-              Save changes
-            </Button>
-          </ModalFooter>
-        </ModalNew>
-
-        <Button onClick={() => this.toggle(1)}>New Modal</Button>
-
         <Button color="danger" onClick={() => this.toggle(1)}>
           Modal
         </Button>
+
         <Modal
+          isOpen={this.state.modal1}
           // hiddenModal={this.hiddenFunction}
           // hideModal={this.hideFunction}
           // showModal={this.showFunction}

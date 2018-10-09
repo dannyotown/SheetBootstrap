@@ -1,18 +1,19 @@
 import React, { Component, Fragment } from "react";
-import ReactDOM from "react-dom";
+import classNames from "classnames";
 import { Transition } from "react-transition-group";
 
 class ModalNew extends Component {
-  // dodaje do body klase modal-open
-  // tworze nowy element html na końcu elementu body (bęðzie portalem do którego wyrenderuje modala)
-  // przez propsy toggle zmieniam state ( isOpen )
-
   // propsy są zmieniane również poprzez klinięcie backdop
-
   // TODO: this.props.keyboard
   // TODO: focused
+  // sprawdzić czy można usunąć animacje ( klasa fade / classnames )
+  // handleescape
 
-  modalPortal = document.createElement("div");
+  // dodać propsa fade, zeby kontolować transition
+  // show modal. hide, hidden, shown events
+  // this.props.backdrop
+
+  // sprawdić czy istnieje modal-root
 
   state = {
     isOpen: false
@@ -20,39 +21,81 @@ class ModalNew extends Component {
 
   componentDidMount = () => {
     document.body.classList.add("modal-open");
-    this.modalPortal.classList.add("modal-root");
-    document.body.appendChild(this.modalPortal);
   };
 
   componentWillUnmount = () => {
     document.body.classList.remove("modal-open");
-    document.body.removeChild(this.modalPortal);
   };
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.isOpen !== this.props.isOpen) {
+  componentDidUpdate = (prevProps, prevState) => {
+    if (
+      prevProps.isOpen !== this.props.isOpen ||
+      prevState.isOpen !== this.props.isOpen
+    ) {
       this.setState({ isOpen: this.props.isOpen });
     }
-  }
+  };
 
-  // handleEscape = e => {
-  //   // sprawdzić numer klawisza
-  //   // if (this.props.keyboard && e.keyCode === 27 && this.props.toggle) {
-  //   if (e.keyCode === 27) {
-  //     this.setState({ isOpen: false });
-  //   }
-  // };
+  handleBackdropClick = e => {
+    const container = document.getElementsByClassName("modal-content")[0];
+
+    if (!container.contains(e.target)) {
+      this.props.toggle();
+    }
+  };
 
   render() {
-    const { children } = this.props;
-    return ReactDOM.createPortal(
+    const {
+      children,
+      className,
+      size,
+      side,
+      fullHeight,
+      frame,
+      centered,
+      position,
+      cascading,
+      modalStyle,
+      animation
+    } = this.props;
+
+    const modalDialogClasses = classNames(
+      "modal-dialog",
+      className,
+      size && `modal-${size}`,
+      side && `modal-side`,
+      fullHeight && `modal-full-height`,
+      frame && `modal-frame`,
+      centered && `modal-dialog-centered`,
+      position && `modal-${this.props.position}`,
+      cascading && `cascading-modal`,
+      modalStyle && `modal-notify white-text modal-${this.props.modalStyle}`,
+      animation
+        ? animation
+        : position
+          ? this.props.position.split("-").slice(-1)[0]
+          : `top`
+    );
+
+    return (
       <Fragment>
+        <Transition
+          timeout={(1, 300)}
+          in={this.state.isOpen}
+          mountOnEnter
+          unmountOnExit
+          onEntered={node => node.classList.add("show")}
+          onExit={node => node.classList.remove("show")}
+        >
+          <div className="modal-backdrop fade" />
+        </Transition>
         <Transition
           timeout={300}
           in={this.state.isOpen}
           mountOnEnter
           unmountOnExit
           appear={true}
+          onClick={this.handleBackdropClick}
           onEntered={node => node.classList.add("show")}
           onExit={node => node.classList.remove("show")}
         >
@@ -65,23 +108,12 @@ class ModalNew extends Component {
             aria-labelledby="exampleModalLabel"
             aria-modal="true"
           >
-            <div className="modal-dialog" role="document">
+            <div className={modalDialogClasses} role="document">
               <div className="modal-content">{children}</div>
             </div>
           </div>
         </Transition>
-        <Transition
-          timeout={(1, 300)}
-          in={this.state.isOpen}
-          mountOnEnter
-          unmountOnExit
-          onEntered={node => node.classList.add("show")}
-          onExit={node => node.classList.remove("show")}
-        >
-          <div className="modal-backdrop fade" />
-        </Transition>
-      </Fragment>,
-      this.modalPortal
+      </Fragment>
     );
   }
 }
