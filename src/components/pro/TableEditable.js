@@ -128,29 +128,25 @@ class TableEditable extends React.Component {
     return (
       <div className={wrapperClasses}>
         <span onClick={this.addRow} className="table-add float-right mb-3 mr-2">
-          {" "}
           <a href="#!" className="text-success">
-            {" "}
             <i className="fa fa-plus fa-2x"> </i>
-          </a>{" "}
-        </span>{" "}
+          </a>
+        </span>
         <table {...attributes} className={classes}>
           <thead>
             <tr>
-              {" "}
               {this.props.columns &&
                 this.props.columns.map((th, i) => {
-                  return <th key={i}> {th} </th>;
-                })}{" "}
-              <th>Sort </th> <th>Delete </th>{" "}
-            </tr>{" "}
-          </thead>{" "}
+                  return <th key={i}>{th}</th>;
+                })}
+              <th>Sort </th>
+              <th>Delete </th>
+            </tr>
+          </thead>
           <tbody>
-            {" "}
             {this.state.data.map((tr, trIndex) => {
               return (
                 <tr key={trIndex}>
-                  {" "}
                   {tr.map((td, tdIndex) => {
                     return (
                       <td
@@ -159,53 +155,46 @@ class TableEditable extends React.Component {
                         suppressContentEditableWarning="true"
                         onBlur={e => this.onBlurHandler(trIndex, tdIndex, e)}
                       >
-                        {" "}
-                        {td}{" "}
+                        {td}
                       </td>
                     );
-                  })}{" "}
+                  })}
                   <td>
                     <span
                       onClick={() => this.decreaseIndex(trIndex)}
                       className="table-up"
                     >
-                      {" "}
                       <a href="#!" className="indigo-text">
-                        {" "}
                         <i className="fa fa-long-arrow-up"> </i>
-                      </a>{" "}
-                    </span>{" "}
+                      </a>
+                    </span>
                     <span
                       onClick={() => this.increaseIndex(trIndex)}
                       className="table-down"
                     >
-                      {" "}
                       <a href="#!" className="indigo-text">
-                        {" "}
                         <i className="fa fa-long-arrow-down"> </i>
-                      </a>{" "}
-                    </span>{" "}
-                  </td>{" "}
+                      </a>
+                    </span>
+                  </td>
                   <td>
                     <span
                       onClick={() => this.removeRow(trIndex)}
                       className="table-remove"
                     >
-                      {" "}
                       <button
                         type="button"
                         className="btn btn-danger btn-rounded btn-sm my-0"
                       >
-                        {" "}
-                        Remove{" "}
+                        Remove
                       </button>
                     </span>
-                  </td>{" "}
+                  </td>
                 </tr>
               );
-            })}{" "}
-          </tbody>{" "}
-        </table>{" "}
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }

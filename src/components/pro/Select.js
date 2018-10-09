@@ -67,7 +67,6 @@ class Select extends React.Component {
   triggerOptionChange = (value, text) => {
     Array.isArray(text) && (text = text.join(", "));
     this.setState({
-      ...this.state,
       selectValue: value,
       selectTextContent: text
     });
@@ -159,7 +158,7 @@ class Select extends React.Component {
       className
     );
 
-    if (this.state.options.length) {
+    if (!this.props.children) {
       return (
         <div
           {...attributes}
@@ -178,7 +177,7 @@ class Select extends React.Component {
           />
         </div>
       );
-    } else if (this.props.children) {
+    } else {
       return (
         <SelectContext.Provider
           value={{
