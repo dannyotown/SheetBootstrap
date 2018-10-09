@@ -71,6 +71,7 @@ import View from "./components/View";
 import { toast, ToastContainer, cssTransition } from "react-toastify";
 import HamburgerToggler from "./components/HamburgerToggler";
 import Iframe from "./components/Iframe";
+import ModalNew from "./components/ModalNew";
 
 // PRO
 import Autocomplete from "./components/pro/Autocomplete";
@@ -315,6 +316,7 @@ export {
   cssTransition,
   HamburgerToggler,
   Iframe,
+  ModalNew,
   // PRO
   Autocomplete,
   Avatar,

@@ -27,7 +27,7 @@
     "react-popper": "^0.7.5",
     "react-router-dom": "^4.2.0",
     "react-toastify": "^3.2.2",
-    "react-transition-group": "^1.2.1"
+    "react-transition-group": "^2.5.0"
   },
   "scripts": {
     "build": "yarn run sass-compile && webpack",
@@ -70,6 +70,7 @@
     "prettier": "^1.14.3",
     "prop-types": "^15.6.0",
     "react-chartjs-2": "^2.7.0",
+    "react-motion-ui-pack": "^0.10.3",
     "react-scripts": "^1.1.4",
     "salad-ui.chart": "^1.1.55",
     "sass-loader": "^7.0.3",
@@ -77,7 +78,6 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4",
-    "react-motion-ui-pack": "^0.10.3"
+    "webpack-dev-server": "^3.1.4"
   }
 }
