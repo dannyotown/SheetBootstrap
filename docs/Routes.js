@@ -58,6 +58,7 @@ import MaterialDropdownPage from "./pages/pro/DropdownPage";
 import AutocompletePage from "./pages/pro/AutocompletePage";
 import ButtonPagePro from "./pages/pro/ButtonPage";
 import ChartsPagePro from "./pages/pro/ChartsPage";
+import ChatPage from "./pages/pro/ChatPage";
 import ChipsPage from "./pages/pro/ChipsPage";
 import InputPagePro from "./pages/pro/InputPage";
 import CollapsePagePro from "./pages/pro/CollapsePage";
@@ -159,6 +160,7 @@ class Routes extends React.Component {
         <Route path="/tables/datatable-api" component={DatatableApiPage} />
         <Route path="/addons/iframe" component={IframePage} />
         {/* PRO */}
+        <Route path="/addons/pro/chat" component={ChatPage} />
         <Route
           path="/components/pro/dropdown"
           component={MaterialDropdownPage}

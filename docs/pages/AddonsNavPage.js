@@ -29,6 +29,18 @@ class ComponentsPage extends React.Component {
                 <h6 className="mt-3 grey-text">PRO </h6>
                 <NavLink
                   className="list-group-item list-group-item-action"
+                  to="/addons/pro/chat"
+                >
+                  <h5
+                    style={{ margin: "0" }}
+                    className="justify-content-between d-flex align-items-center"
+                  >
+                    Chat
+                    <Fa icon="angle-right" />
+                  </h5>
+                </NavLink>
+                <NavLink
+                  className="list-group-item list-group-item-action"
                   to="/addons/pro/timeline"
                 >
                   <h5
