@@ -184,18 +184,6 @@ class AdvancedPage extends React.Component {
                 </NavLink>
                 <NavLink
                   className="list-group-item list-group-item-action"
-                  to="/advanced/pro/timeline"
-                >
-                  <h5
-                    style={{ margin: "0" }}
-                    className="justify-content-between d-flex align-items-center"
-                  >
-                    Timeline
-                    <Fa icon="angle-right" />
-                  </h5>
-                </NavLink>
-                <NavLink
-                  className="list-group-item list-group-item-action"
                   to="/advanced/pro/timepicker"
                 >
                   <h5

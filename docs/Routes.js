@@ -1,10 +1,13 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import NavigationPage from "./pages/NavigationPage";
+import NavigationNavPage from "./pages/NavigationNavPage";
 import FormsNavPage from "./pages/FormsNavPage";
 import TablesNavPage from "./pages/TablesNavPage";
+import AddonsNavPage from "./pages/AddonsNavPage";
 import ModalsNavPage from "./pages/ModalsNavPage";
+import AdvancedNavPage from "./pages/AdvancedNavPage";
+import ComponentsNavPage from "./pages/ComponentsNavPage";
 
 // FREE
 import AnimationPage from "./pages/AnimationPage";
@@ -18,13 +21,11 @@ import TableStylesPage from "./pages/TableStylesPage";
 import BadgePage from "./pages/BadgePage";
 import BreadcrumbPage from "./pages/BreadcrumbPage";
 import FaPage from "./pages/FaPage";
-import ComponentsPage from "./pages/ComponentsPage";
 import DatatablePage from "./pages/DatatablePage";
 import DatatableApiPage from "./pages/DatatableApiPage";
 import ModalPage from "./pages/ModalPage";
 import ModalFormPage from "./pages/ModalFormPage";
 import ModalExamplesPage from "./pages/ModalExamplesPage";
-import AdvancedPage from "./pages/AdvancedPage";
 import ProgressPage from "./pages/ProgressPage";
 import InputPage from "./pages/InputPage";
 import MediaPage from "./pages/MediaPage";
@@ -51,6 +52,8 @@ import NavbarPage from "./pages/NavbarPage";
 import IframePage from "./pages/IframePage";
 
 // PRO
+import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
+
 import MaterialDropdownPage from "./pages/pro/DropdownPage";
 import AutocompletePage from "./pages/pro/AutocompletePage";
 import ButtonPagePro from "./pages/pro/ButtonPage";
@@ -71,7 +74,6 @@ import MultiCarouselPage from "./pages/pro/MultiCarouselPage";
 import ProgressPagePro from "./pages/pro/ProgressPage";
 import TabsPage from "./pages/pro/TabsPage";
 import ThumbnailsCarousel from "./pages/pro/ThumbnailsCarousel";
-import SectionsPage from "./pages/pro/sections/SectionsPage";
 import TestimonialsPage from "./pages/pro/sections/TestimonialsPage";
 import TestimonialsMultiPage from "./pages/pro/sections/TestimonialsMultiPage";
 import EcommercePage from "./pages/pro/sections/EcommercePage";
@@ -104,13 +106,14 @@ class Routes extends React.Component {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/css" component={CSSPage} />
-        <Route exact path="/components" component={ComponentsPage} />
-        <Route exact path="/advanced" component={AdvancedPage} />
-        <Route exact path="/navigation" component={NavigationPage} />
+        <Route exact path="/components" component={ComponentsNavPage} />
+        <Route exact path="/advanced" component={AdvancedNavPage} />
+        <Route exact path="/navigation" component={NavigationNavPage} />
         <Route exact path="/forms" component={FormsNavPage} />
         <Route exact path="/tables" component={TablesNavPage} />
         <Route exact path="/modals" component={ModalsNavPage} />
-        <Route exact path="/sections" component={SectionsPage} />
+        <Route exact path="/addons" component={AddonsNavPage} />
+        <Route exact path="/sections" component={SectionsNavPage} />
 
         {/* FREE */}
         <Route path="/css/animations" component={AnimationPage} />
@@ -154,14 +157,14 @@ class Routes extends React.Component {
         <Route path="/forms/validation" component={ValidationPage} />
         <Route path="/tables/datatable" component={DatatablePage} />
         <Route path="/tables/datatable-api" component={DatatableApiPage} />
-        <Route path="/components/iframe" component={IframePage} />
+        <Route path="/addons/iframe" component={IframePage} />
         {/* PRO */}
         <Route
           path="/components/pro/dropdown"
           component={MaterialDropdownPage}
         />
-        <Route path="/forms/pro/autocomplete" component={AutocompletePage} />
         <Route path="/advanced/pro/charts" component={ChartsPagePro} />
+        <Route path="/forms/pro/autocomplete" component={AutocompletePage} />
         <Route path="/components/pro/buttons" component={ButtonPagePro} />
         <Route path="/advanced/pro/collapse" component={CollapsePagePro} />
         <Route path="/components/pro/chips" component={ChipsPage} />
@@ -175,7 +178,7 @@ class Routes extends React.Component {
           path="/advanced/pro/multicarousel"
           component={MultiCarouselPage}
         />
-        <Route path="/advanced/pro/timeline" component={TimelinePage} />
+        <Route path="/addons/pro/timeline" component={TimelinePage} />
         <Route path="/components/pro/progress" component={ProgressPagePro} />
         <Route path="/advanced/pro/scrollbar" component={ScrollBarPage} />
         <Route path="/navigation/pro/scrollspy" component={ScrollSpyPage} />

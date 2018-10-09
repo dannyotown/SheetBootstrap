@@ -75,18 +75,6 @@ class ComponentsPage extends React.Component {
                 </NavLink>
                 <NavLink
                   className="list-group-item list-group-item-action"
-                  to="/components/iframe"
-                >
-                  <h5
-                    style={{ margin: "0" }}
-                    className="justify-content-between d-flex align-items-center"
-                  >
-                    Iframe
-                    <Fa icon="angle-right" />
-                  </h5>
-                </NavLink>
-                <NavLink
-                  className="list-group-item list-group-item-action"
                   to="/components/list-group"
                 >
                   <h5
