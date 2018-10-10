@@ -1,49 +1,57 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBCard, MDBCardBody, MDBRow, MDBCol } from "mdbreact";
+import {
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBRow,
+  MDBCol,
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBAvatar
+} from "mdbreact";
 import DocsLink from "./../DocsLink";
 import "./ChatPage.css";
 
 class ChatPage extends Component {
   render() {
     return (
-      <MDBContainer className="text-center">
+      <MDBContainer>
         <DocsLink
           title="Chat"
           href="https://mdbootstrap.com/react/addons/chat/"
         />
-        <MDBCard className="card grey lighten-3 chat-room">
-          <div className="card-body">
-            <div className="row px-lg-2 px-2">
-              <div className="col-md-6 col-xl-4 px-0">
-                <h6 className="font-weight-bold mb-3 text-center text-lg-left">
-                  Member
-                </h6>
-                <div className="white z-depth-1 px-3 pt-3 pb-0">
-                  <ul className="list-unstyled friend-list">
-                    <li className="active grey lighten-3 p-2">
-                      <a href="#" className="d-flex justify-content-between">
-                        <img
-                          src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8"
-                          alt="avatar"
-                          className="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1"
-                        />
-                        <div className="text-small">
-                          <strong>John Doe</strong>
-                          <p className="last-message text-muted">
-                            Hello, Are you there?
-                          </p>
-                        </div>
-                        <div className="chat-footer">
-                          <p className="text-smaller text-muted mb-0">
-                            Just now
-                          </p>
-                          <span className="badge badge-danger float-right">
-                            1
-                          </span>
-                        </div>
-                      </a>
-                    </li>
-                    <li className="p-2">
+        <MDBCard className="grey lighten-3 chat-room">
+          <MDBCardBody>
+            <MDBRow className="px-lg-2 px-2">
+              <MDBCol md={6} xl={4} className="px-0">
+                <h6 className="font-weight-bold mb-3 text-lg-left">Member</h6>
+                <div className="white z-depth-1 p-3">
+                  <MDBListGroup className="list-unstyled friend-list">
+                    <MDBListGroupItem
+                      href="#"
+                      className="d-flex justify-content-between active p-2"
+                    >
+                      <MDBAvatar
+                        tag="img"
+                        src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8"
+                        alt="avatar"
+                        circle
+                        className="mr-2 z-depth-1"
+                      />
+                      <div className="text-small">
+                        <strong>John Doe</strong>
+                        <p className="last-message text-muted">
+                          Hello, Are you there?
+                        </p>
+                      </div>
+                      <div className="chat-footer">
+                        <p className="text-smaller text-muted mb-0">Just now</p>
+                        <span className="badge badge-danger float-right">
+                          1
+                        </span>
+                      </div>
+                    </MDBListGroupItem>
+                    <MDBListGroupItem className="p-2">
                       <a href="#" className="d-flex justify-content-between">
                         <img
                           src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1"
@@ -68,8 +76,8 @@ class ChatPage extends Component {
                           </span>
                         </div>
                       </a>
-                    </li>
-                    <li className="p-2">
+                    </MDBListGroupItem>
+                    <MDBListGroupItem className="p-2">
                       <a href="#" className="d-flex justify-content-between">
                         <img
                           src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2"
@@ -94,8 +102,8 @@ class ChatPage extends Component {
                           </span>
                         </div>
                       </a>
-                    </li>
-                    <li className="p-2">
+                    </MDBListGroupItem>
+                    <MDBListGroupItem className="p-2">
                       <a href="#" className="d-flex justify-content-between">
                         <img
                           src="https://mdbootstrap.com/img/Photos/Avatars/avatar-3"
@@ -120,8 +128,8 @@ class ChatPage extends Component {
                           </span>
                         </div>
                       </a>
-                    </li>
-                    <li className="p-2">
+                    </MDBListGroupItem>
+                    <MDBListGroupItem className="p-2">
                       <a href="#" className="d-flex justify-content-between">
                         <img
                           src="https://mdbootstrap.com/img/Photos/Avatars/avatar-4"
@@ -146,8 +154,8 @@ class ChatPage extends Component {
                           </span>
                         </div>
                       </a>
-                    </li>
-                    <li className="p-2">
+                    </MDBListGroupItem>
+                    <MDBListGroupItem className="p-2">
                       <a href="#" className="d-flex justify-content-between">
                         <img
                           src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5"
@@ -172,8 +180,8 @@ class ChatPage extends Component {
                           </span>
                         </div>
                       </a>
-                    </li>
-                    <li className="p-2">
+                    </MDBListGroupItem>
+                    <MDBListGroupItem className="p-2">
                       <a href="#" className="d-flex justify-content-between">
                         <img
                           src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6"
@@ -195,10 +203,10 @@ class ChatPage extends Component {
                           </span>
                         </div>
                       </a>
-                    </li>
-                  </ul>
+                    </MDBListGroupItem>
+                  </MDBListGroup>
                 </div>
-              </div>
+              </MDBCol>
               <div className="col-md-6 col-xl-8 pl-md-3 px-lg-auto px-0">
                 <div className="chat-message">
                   <ul className="list-unstyled chat">
@@ -283,9 +291,11 @@ class ChatPage extends Component {
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
+            </MDBRow>
+          </MDBCardBody>
         </MDBCard>
+
+        <hr className="my-5" />
       </MDBContainer>
     );
   }

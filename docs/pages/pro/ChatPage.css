@@ -2,26 +2,32 @@
   height: auto;
 }
 
-.card.chat-room .friend-list li {
+.chat-room .friend-list .list-group-item {
+  border: none;
   border-bottom: 1px solid #e0e0e0;
 }
-.card.chat-room .friend-list li:last-of-type {
+
+.chat-room .friend-list .list-group-item:last-of-type {
   border-bottom: none;
 }
 
-.card.chat-room img.rounded-circle {
+.chat-room .friend-list .list-group-item.active {
+  background-color: #eeeeee;
+}
+
+.chat-room img.rounded-circle {
   border-radius: 50%;
 }
 
-.card.chat-room img.avatar {
+.chat-room .avatar {
   height: 3rem;
   width: 3rem;
 }
 
-.card.chat-room .text-small {
+.chat-room .text-small {
   font-size: 0.95rem;
 }
 
-.card.chat-room .text-smaller {
+.chat-room .text-smaller {
   font-size: 0.75rem;
 }
