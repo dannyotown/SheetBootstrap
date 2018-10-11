@@ -1,22 +1,15 @@
-.basic-textarea textarea {
-  height: auto;
-}
-
 .chat-room .friend-list .list-group-item {
-  border: none;
-  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 0;
+  border: 0;
+  border-bottom: 1px solid;
 }
 
 .chat-room .friend-list .list-group-item:last-of-type {
-  border-bottom: none;
+  border-bottom: 0;
 }
 
 .chat-room .friend-list .list-group-item.active {
   background-color: #eeeeee;
-}
-
-.chat-room img.rounded-circle {
-  border-radius: 50%;
 }
 
 .chat-room .avatar {
@@ -24,10 +17,6 @@
   width: 3rem;
 }
 
-.chat-room .text-small {
-  font-size: 0.95rem;
-}
-
-.chat-room .text-smaller {
-  font-size: 0.75rem;
+.chat-room .chat-message:nth-of-type(even) {
+  flex-direction: row-reverse;
 }
