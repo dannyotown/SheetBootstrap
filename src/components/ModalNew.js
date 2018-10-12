@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from "react";
 import classNames from "classnames";
+import { returnAttributes } from "./utils";
 import { Transition } from "react-transition-group";
 
 class ModalNew extends Component {
-  // TODO: this.props.keyboard, focused, handleescape, proptypes
-
-  // backdrop, zmapować atrybuty
+  //autoFocus, sprawdzić pozostałe propsy, proptypes
 
   state = {
     isOpen: false
@@ -34,6 +33,7 @@ class ModalNew extends Component {
     }
 
     node.classList.add("show");
+    node.focus();
 
     if (type === "modal") {
       this.props.showModal && this.props.showModal();
@@ -64,6 +64,13 @@ class ModalNew extends Component {
     }
   };
 
+  handleEscape = e => {
+    if (e.keyCode === 27) {
+      e.preventDefault();
+      this.props.toggle();
+    }
+  };
+
   render() {
     const {
       children,
@@ -80,7 +87,10 @@ class ModalNew extends Component {
       modalStyle,
       wrapClassName,
       animation,
-      fade
+      fade,
+      tabIndex,
+      role,
+      id
     } = this.props;
 
     const timeout = fade ? 300 : 0;
@@ -112,6 +122,15 @@ class ModalNew extends Component {
       backdropClassName
     );
 
+    const modalAttributes = returnAttributes({
+      style: { display: "block" },
+      id: id || undefined,
+      tabIndex: tabIndex,
+      role: role,
+      "aria-hidden": "true",
+      "data-backdrop": "false"
+    });
+
     return (
       <Fragment>
         {backdrop && (
@@ -138,13 +157,10 @@ class ModalNew extends Component {
           onExit={node => this.handleOnExit("modal", node)}
         >
           <div
-            style={{ display: "block" }}
+            ref={elem => (this.modalDialog = elem)}
             onKeyUp={this.handleEscape}
             className={wrapperClasses}
-            id="basicExampleModal"
-            tabIndex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-modal="true"
+            {...modalAttributes}
           >
             <div className={modalDialogClasses} role="document">
               <div className="modal-content">{children}</div>
@@ -158,7 +174,14 @@ class ModalNew extends Component {
 
 ModalNew.defaultProps = {
   backdrop: true,
-  fade: true
+  fade: true,
+  isOpen: false,
+  autoFocus: true,
+  role: "dialog",
+  zIndex: 1050,
+  modalTransitionTimeout: 300,
+  backdropTransitionTimeout: 150,
+  tabIndex: "-1"
 };
 
 export default ModalNew;
