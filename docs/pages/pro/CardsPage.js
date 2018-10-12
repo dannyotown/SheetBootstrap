@@ -292,6 +292,60 @@ class FlippingCardPage extends React.Component {
               </FlippingCard>
             </Col>
           </Row>
+
+          <hr className="my-5" />
+          <h2>Action button and footer</h2>
+
+          <Row>
+            <Col style={colStyle}>
+              <Card cascade>
+                <CardImage
+                  cascade
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg"
+                />
+                <Button
+                  floating
+                  tag="a"
+                  className="ml-auto mr-4 lighten-3 mdb-color"
+                  action
+                >
+                  <Fa icon="chevron-right" />
+                </Button>
+                <CardBody cascade>
+                  <CardTitle>Card title</CardTitle>
+                  <CardText>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </CardText>
+                </CardBody>
+                <div className="rounded-bottom mdb-color lighten-3 text-center pt-3">
+                  <ul className="list-unstyled list-inline font-small">
+                    <li className="list-inline-item pr-2 white-text">
+                      <Fa icon="clock-o" /> 05/10/2015
+                    </li>
+                    <li className="list-inline-item pr-2">
+                      <a href="#" className="white-text">
+                        <Fa icon="comments-o" />
+                        12
+                      </a>
+                    </li>
+                    <li className="list-inline-item pr-2">
+                      <a href="#" className="white-text">
+                        <Fa icon="facebook"> </Fa>
+                        21
+                      </a>
+                    </li>
+                    <li className="list-inline-item">
+                      <a href="#" className="white-text">
+                        <Fa icon="twitter"> </Fa>5
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </Card>
+            </Col>
+          </Row>
         </Container>
       </Container>
     );
