@@ -325,19 +325,19 @@ class FlippingCardPage extends React.Component {
                       <Fa icon="clock-o" /> 05/10/2015
                     </li>
                     <li className="list-inline-item pr-2">
-                      <a href="#" className="white-text">
+                      <a href="" className="white-text">
                         <Fa icon="comments-o" />
                         12
                       </a>
                     </li>
                     <li className="list-inline-item pr-2">
-                      <a href="#" className="white-text">
+                      <a href="" className="white-text">
                         <Fa icon="facebook"> </Fa>
                         21
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a href="#" className="white-text">
+                      <a href="" className="white-text">
                         <Fa icon="twitter"> </Fa>5
                       </a>
                     </li>
