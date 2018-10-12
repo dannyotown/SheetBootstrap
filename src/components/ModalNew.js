@@ -8,12 +8,17 @@ class ModalNew extends Component {
   // TODO: focused
   // sprawdzić czy można usunąć animacje ( klasa fade / classnames )
   // handleescape
+  // proptypes
 
   // dodać propsa fade, zeby kontolować transition
   // show modal. hide, hidden, shown events
   // this.props.backdrop
 
   // sprawdić czy istnieje modal-root
+
+  // DONE
+  // size , side, fluid, animation, wrapClassName, hideModal, showModal, hiddenModal
+  // TODO: shownModal, zacommitować
 
   state = {
     isOpen: false
@@ -36,6 +41,20 @@ class ModalNew extends Component {
     }
   };
 
+  handleOnEntered = node => {
+    node.classList.add("show");
+    this.props.showModal && this.props.showModal();
+  };
+
+  handleOnExit = node => {
+    node.classList.remove("show");
+    this.props.hideModal && this.props.hideModal();
+  };
+
+  handleOnExited = node => {
+    this.props.hiddenModal && this.props.hiddenModal();
+  };
+
   handleBackdropClick = e => {
     const container = document.getElementsByClassName("modal-content")[0];
 
@@ -56,6 +75,7 @@ class ModalNew extends Component {
       position,
       cascading,
       modalStyle,
+      wrapClassName,
       animation
     } = this.props;
 
@@ -69,12 +89,14 @@ class ModalNew extends Component {
       centered && `modal-dialog-centered`,
       position && `modal-${this.props.position}`,
       cascading && `cascading-modal`,
-      modalStyle && `modal-notify white-text modal-${this.props.modalStyle}`,
-      animation
-        ? animation
-        : position
-          ? this.props.position.split("-").slice(-1)[0]
-          : `top`
+      modalStyle && `modal-notify white-text modal-${this.props.modalStyle}`
+    );
+
+    const wrapperClasses = classNames(
+      "modal",
+      "fade",
+      wrapClassName,
+      animation || (position && position.split("-").slice(-1)[0]) || "top"
     );
 
     return (
@@ -86,6 +108,7 @@ class ModalNew extends Component {
           unmountOnExit
           onEntered={node => node.classList.add("show")}
           onExit={node => node.classList.remove("show")}
+          onExited={this.handleOnExited}
         >
           <div className="modal-backdrop fade" />
         </Transition>
@@ -96,13 +119,13 @@ class ModalNew extends Component {
           unmountOnExit
           appear={true}
           onClick={this.handleBackdropClick}
-          onEntered={node => node.classList.add("show")}
-          onExit={node => node.classList.remove("show")}
+          onEntered={this.handleOnEntered}
+          onExit={this.handleOnExit}
         >
           <div
             style={{ display: "block" }}
             onKeyUp={this.handleEscape}
-            className="modal fade"
+            className={wrapperClasses}
             id="basicExampleModal"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"

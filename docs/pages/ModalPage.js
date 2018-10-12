@@ -36,6 +36,7 @@ class ModalPage extends Component {
     modal15: false,
     modal16: false,
     modal17: false,
+    modal18: false,
     backdrop: false,
     mailAddress: "@mdo"
   };
@@ -56,10 +57,6 @@ class ModalPage extends Component {
     alert("This event is fired just before the modal is hidden.");
   };
 
-  shownFunction = () => {
-    alert("This event is fired after the modal is shown.");
-  };
-
   hiddenFunction = () => {
     alert("This event is fired after the modal is closed.");
   };
@@ -72,18 +69,11 @@ class ModalPage extends Component {
           href="https://mdbootstrap.com/react/advanced/modals/"
         />
 
+        <h4 className="mt-4">Basic example</h4>
         <Button color="danger" onClick={() => this.toggle(1)}>
           Modal
         </Button>
-
-        <Modal
-          isOpen={this.state.modal1}
-          // hiddenModal={this.hiddenFunction}
-          // hideModal={this.hideFunction}
-          // showModal={this.showFunction}
-          // isOpen={this.state.modal1}
-          toggle={() => this.toggle(1)}
-        >
+        <Modal isOpen={this.state.modal1} toggle={() => this.toggle(1)}>
           <ModalHeader toggle={() => this.toggle(1)}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -535,6 +525,31 @@ class ModalPage extends Component {
               Close
             </Button>{" "}
             <Button color="primary">Send message</Button>
+          </ModalFooter>
+        </Modal>
+        <h4 className="mt-4">Modal Events</h4>
+        <Button color="warning" onClick={() => this.toggle(18)}>
+          Modal events
+        </Button>
+        <Modal
+          isOpen={this.state.modal18}
+          toggle={() => this.toggle(18)}
+          hideModal={this.hideFunction}
+          hiddenModal={this.hiddenFunction}
+          showModal={this.showFunction}
+        >
+          <ModalHeader toggle={() => this.toggle(18)}>Modal title</ModalHeader>
+          <ModalBody>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </ModalBody>
+          <ModalFooter>
+            <Button color="secondary" onClick={() => this.toggle(18)}>
+              Close
+            </Button>
+            <Button color="primary">Save changes</Button>
           </ModalFooter>
         </Modal>
       </Container>
