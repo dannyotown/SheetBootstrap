@@ -73,7 +73,11 @@ class ModalPage extends Component {
         <Button color="danger" onClick={() => this.toggle(1)}>
           Modal
         </Button>
-        <Modal isOpen={this.state.modal1} toggle={() => this.toggle(1)}>
+        <Modal
+          fade={false}
+          isOpen={this.state.modal1}
+          toggle={() => this.toggle(1)}
+        >
           <ModalHeader toggle={() => this.toggle(1)}>Modal title</ModalHeader>
           <ModalBody>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do

@@ -10,15 +10,13 @@ class ModalNew extends Component {
   // handleescape
   // proptypes
 
-  // dodać propsa fade, zeby kontolować transition
-  // show modal. hide, hidden, shown events
   // this.props.backdrop
 
   // sprawdić czy istnieje modal-root
 
   // DONE
-  // size , side, fluid, animation, wrapClassName, hideModal, showModal, hiddenModal
-  // TODO: shownModal, zacommitować
+  // size , side, fluid, animation, wrapClassName, hideModal, showModal, hiddenModal, dodać propsa fade, zeby kontolować transition
+  // TODO:
 
   state = {
     isOpen: false
@@ -41,14 +39,28 @@ class ModalNew extends Component {
     }
   };
 
-  handleOnEntered = node => {
+  handleOnEntered = (type, node) => {
+    if (type === "backdrop" && this.props.fade === false) {
+      return;
+    }
+
     node.classList.add("show");
-    this.props.showModal && this.props.showModal();
+
+    if (type === "modal") {
+      this.props.showModal && this.props.showModal();
+    }
   };
 
-  handleOnExit = node => {
+  handleOnExit = (type, node) => {
+    if (type === "backdrop" && this.props.fade === false) {
+      return;
+    }
+
     node.classList.remove("show");
-    this.props.hideModal && this.props.hideModal();
+
+    if (type === "modal") {
+      this.props.hideModal && this.props.hideModal();
+    }
   };
 
   handleOnExited = node => {
@@ -67,6 +79,7 @@ class ModalNew extends Component {
     const {
       children,
       className,
+      backdropClassName,
       size,
       side,
       fullHeight,
@@ -76,8 +89,11 @@ class ModalNew extends Component {
       cascading,
       modalStyle,
       wrapClassName,
-      animation
+      animation,
+      fade
     } = this.props;
+
+    const timeout = fade ? 300 : 0;
 
     const modalDialogClasses = classNames(
       "modal-dialog",
@@ -94,33 +110,40 @@ class ModalNew extends Component {
 
     const wrapperClasses = classNames(
       "modal",
-      "fade",
+      fade && `fade`,
       wrapClassName,
-      animation || (position && position.split("-").slice(-1)[0]) || "top"
+      fade &&
+        (animation || (position && position.split("-").slice(-1)[0]) || "top")
+    );
+
+    const backdropClasses = classNames(
+      "modal-backdrop",
+      fade ? "fade" : "show",
+      backdropClassName
     );
 
     return (
       <Fragment>
         <Transition
-          timeout={(1, 300)}
+          timeout={timeout}
           in={this.state.isOpen}
           mountOnEnter
           unmountOnExit
-          onEntered={node => node.classList.add("show")}
-          onExit={node => node.classList.remove("show")}
+          onEntered={node => this.handleOnEntered("backdrop", node)}
+          onExit={node => this.handleOnExit("backdrop", node)}
           onExited={this.handleOnExited}
         >
-          <div className="modal-backdrop fade" />
+          <div className={backdropClasses} />
         </Transition>
         <Transition
-          timeout={300}
+          timeout={timeout}
           in={this.state.isOpen}
           mountOnEnter
           unmountOnExit
           appear={true}
           onClick={this.handleBackdropClick}
-          onEntered={this.handleOnEntered}
-          onExit={this.handleOnExit}
+          onEntered={node => this.handleOnEntered("modal", node)}
+          onExit={node => this.handleOnExit("modal", node)}
         >
           <div
             style={{ display: "block" }}
@@ -140,5 +163,9 @@ class ModalNew extends Component {
     );
   }
 }
+
+ModalNew.defaultProps = {
+  fade: true
+};
 
 export default ModalNew;
