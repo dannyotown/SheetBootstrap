@@ -3,20 +3,9 @@ import classNames from "classnames";
 import { Transition } from "react-transition-group";
 
 class ModalNew extends Component {
-  // propsy są zmieniane również poprzez klinięcie backdop
-  // TODO: this.props.keyboard
-  // TODO: focused
-  // sprawdzić czy można usunąć animacje ( klasa fade / classnames )
-  // handleescape
-  // proptypes
+  // TODO: this.props.keyboard, focused, handleescape, proptypes
 
-  // this.props.backdrop
-
-  // sprawdić czy istnieje modal-root
-
-  // DONE
-  // size , side, fluid, animation, wrapClassName, hideModal, showModal, hiddenModal, dodać propsa fade, zeby kontolować transition
-  // TODO:
+  // backdrop, zmapować atrybuty
 
   state = {
     isOpen: false
@@ -79,6 +68,7 @@ class ModalNew extends Component {
     const {
       children,
       className,
+      backdrop,
       backdropClassName,
       size,
       side,
@@ -124,17 +114,19 @@ class ModalNew extends Component {
 
     return (
       <Fragment>
-        <Transition
-          timeout={timeout}
-          in={this.state.isOpen}
-          mountOnEnter
-          unmountOnExit
-          onEntered={node => this.handleOnEntered("backdrop", node)}
-          onExit={node => this.handleOnExit("backdrop", node)}
-          onExited={this.handleOnExited}
-        >
-          <div className={backdropClasses} />
-        </Transition>
+        {backdrop && (
+          <Transition
+            timeout={timeout}
+            in={this.state.isOpen}
+            mountOnEnter
+            unmountOnExit
+            onEntered={node => this.handleOnEntered("backdrop", node)}
+            onExit={node => this.handleOnExit("backdrop", node)}
+            onExited={this.handleOnExited}
+          >
+            <div className={backdropClasses} />
+          </Transition>
+        )}
         <Transition
           timeout={timeout}
           in={this.state.isOpen}
@@ -165,6 +157,7 @@ class ModalNew extends Component {
 }
 
 ModalNew.defaultProps = {
+  backdrop: true,
   fade: true
 };
 

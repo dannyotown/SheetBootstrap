@@ -74,7 +74,7 @@ class ModalPage extends Component {
           Modal
         </Button>
         <Modal
-          fade={false}
+          backdrop={false}
           isOpen={this.state.modal1}
           toggle={() => this.toggle(1)}
         >
