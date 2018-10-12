@@ -10,7 +10,8 @@ import {
   MDBAvatar,
   MDBBadge,
   MDBIcon,
-  MDBBtn
+  MDBBtn,
+  MDBScrollbar
 } from "mdbreact";
 import DocsLink from "./../DocsLink";
 import "./ChatPage.css";
@@ -102,7 +103,179 @@ class ChatPage extends Component {
         {
           author: "Brad Pitt",
           avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
-          when: "12 min ago",
+          when: "14 mins ago",
+          message:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ],
+      friendsToScroll: [
+        {
+          name: "John Doe",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8",
+          message: "Hello, Are you there?",
+          when: "Just now",
+          toRespond: 1,
+          seen: false,
+          active: true
+        },
+        {
+          name: "Danny Smith",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1",
+          when: "5 min ago",
+          toRespond: 0,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Alex Steward",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2",
+          when: "Yesterday",
+          toRespond: 0,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Ashley Olsen",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3",
+          when: "Yesterday",
+          toRespond: 0,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Kate Moss",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4",
+          when: "Yesterday",
+          toRespond: 0,
+          seen: true,
+          active: false
+        },
+        {
+          name: "Lara Croft",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          when: "Yesterday",
+          toRespond: 0,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Brad Pitt",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          when: "5 min ago",
+          toRespond: 0,
+          seen: true,
+          active: false
+        },
+        {
+          name: "John Doeno",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8",
+          message: "Hello, Are you there?",
+          when: "Just now",
+          toRespond: 1,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Danny Smithy",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1",
+          when: "5 min ago",
+          toRespond: 0,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Alex Stewardo",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2",
+          when: "Yesterday",
+          toRespond: 0,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Marta Olsen",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3",
+          when: "Yesterday",
+          toRespond: 0,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Kate Boss",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4",
+          when: "Yesterday",
+          toRespond: 0,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Tomb Rider",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          when: "Yesterday",
+          toRespond: 0,
+          seen: false,
+          active: false
+        },
+        {
+          name: "Bradley Scott",
+          message: "Lorem ipsum dolor sit",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          when: "5 min ago",
+          toRespond: 0,
+          seen: true,
+          active: false
+        }
+      ],
+      messagesToScroll: [
+        {
+          author: "Brad Pitt",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          when: "12 mins ago",
+          message:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          author: "Lara Croft",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          when: "13 mins ago",
+          message:
+            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+        },
+        {
+          author: "Brad Pitt",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          when: "14 mins ago",
+          message:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          author: "Brad Pitt",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          when: "15 mins ago",
+          message:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+          author: "Lara Croft",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          when: "16 mins ago",
+          message:
+            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+        },
+        {
+          author: "Brad Pitt",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          when: "17 mins ago",
           message:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
@@ -117,6 +290,7 @@ class ChatPage extends Component {
           title="Chat"
           href="https://mdbootstrap.com/react/addons/chat/"
         />
+        <h3>Basic chat</h3>
         <MDBCard className="grey lighten-3 chat-room">
           <MDBCardBody>
             <MDBRow className="px-lg-2 px-2">
@@ -177,6 +351,69 @@ class ChatPage extends Component {
         </MDBCard>
 
         <hr className="my-5" />
+
+        <h3>Chat with scrollbar</h3>
+
+        <MDBCard className="grey lighten-3 chat-room">
+          <MDBCardBody>
+            <MDBRow className="px-lg-2 px-2">
+              <MDBCol md="6" xl="4" className="px-0 scrollable-friends-list">
+                <h6 className="font-weight-bold mb-3 text-lg-left">Member</h6>
+                <MDBScrollbar>
+                  <div className="white z-depth-1 p-3">
+                    <MDBListGroup className="friend-list">
+                      {this.state.friendsToScroll.map(friend => (
+                        <Friend
+                          key={friend.name}
+                          name={friend.name}
+                          avatar={friend.avatar}
+                          message={friend.message}
+                          when={friend.when}
+                          toRespond={friend.toRespond}
+                          seen={friend.seen}
+                          active={friend.active}
+                        />
+                      ))}
+                    </MDBListGroup>
+                  </div>
+                </MDBScrollbar>
+              </MDBCol>
+              <MDBCol md="6" xl="8" className="pl-md-3 px-lg-auto">
+                <div className="scrollable-chat">
+                  <MDBScrollbar>
+                    <MDBListGroup className="list-unstyled pl-3 pr-3">
+                      {this.state.messagesToScroll.map(message => (
+                        <ChatMessage
+                          key={message.author + message.when}
+                          author={message.author}
+                          avatar={message.avatar}
+                          when={message.when}
+                          message={message.message}
+                        />
+                      ))}
+                    </MDBListGroup>
+                  </MDBScrollbar>
+                </div>
+                <div className="form-group basic-textarea">
+                  <textarea
+                    className="form-control pl-2 my-0"
+                    id="exampleFormControlTextarea2"
+                    rows="3"
+                    placeholder="Type your message here..."
+                  />
+                  <MDBBtn
+                    color="info"
+                    rounded
+                    size="sm"
+                    className="float-right mt-4"
+                  >
+                    Send
+                  </MDBBtn>
+                </div>
+              </MDBCol>
+            </MDBRow>
+          </MDBCardBody>
+        </MDBCard>
       </MDBContainer>
     );
   }
