@@ -34,11 +34,14 @@ class SideNavNav extends React.Component {
     );
 
     const modified = React.Children.map(this.props.children, (child, i) => {
-      const updatedChild = React.cloneElement(child, {
-        onClick: this.onClick(i),
-        isOpen: accordion === i
-      });
-      return updatedChild;
+      if (child.type.name === "SideNavCat") {
+        return React.cloneElement(child, {
+          onClick: this.onClick(i),
+          isOpen: accordion === i
+        });
+      } else {
+        return child;
+      }
     });
 
     return (
