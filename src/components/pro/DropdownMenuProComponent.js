@@ -35,17 +35,6 @@ const DropdownMenuProComponent = props => {
         {children}
       </Tag>
     </CSSTransition>
-    <Tag
-      tabIndex={d_tabIndex}
-      role={d_role}
-      {...d_attributes}
-      aria-hidden={d_aria}
-      className={d_classes}
-      key={d_key}
-    >
-      {children}
-    </Tag>
-    </CSSTransition >
   );
 };
 

@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const config = {
   mode: "development",
@@ -48,7 +50,8 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "public/index.html"
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 };
 
