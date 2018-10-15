@@ -30,7 +30,6 @@ import DropdownMenu from "./components/DropdownMenu";
 import DropdownToggle from "./components/DropdownToggle";
 import EdgeHeader from "./components/EdgeHeader";
 import Fa from "./components/Fa";
-import Fade from "./components/Fade";
 import FormInline from "./components/FormInline";
 import Footer from "./components/Footer";
 import FreeBird from "./components/FreeBird";
@@ -41,7 +40,7 @@ import ListGroup from "./components/ListGroup";
 import ListGroupItem from "./components/ListGroupItem";
 import Mask from "./components/Mask";
 import Media from "./components/Media";
-import Modal from "./components/ModalNew";
+import Modal from "./components/Modal";
 import ModalBody from "./components/ModalBody";
 import ModalFooter from "./components/ModalFooter";
 import ModalHeader from "./components/ModalHeader";
@@ -71,7 +70,6 @@ import View from "./components/View";
 import { toast, ToastContainer, cssTransition } from "react-toastify";
 import HamburgerToggler from "./components/HamburgerToggler";
 import Iframe from "./components/Iframe";
-import ModalNew from "./components/ModalNew";
 
 // PRO
 import Autocomplete from "./components/pro/Autocomplete";
@@ -145,7 +143,6 @@ import MDBDropdownMenu from "./components/DropdownMenu";
 import MDBDropdownToggle from "./components/DropdownToggle";
 import MDBEdgeHeader from "./components/EdgeHeader";
 import MDBIcon from "./components/Fa";
-import MDBFade from "./components/Fade";
 import MDBFormInline from "./components/FormInline";
 import MDBFooter from "./components/Footer";
 import MDBFreeBird from "./components/FreeBird";
@@ -273,7 +270,6 @@ export {
   DropdownToggle,
   EdgeHeader,
   Fa,
-  Fade,
   FormInline,
   Footer,
   FreeBird,
@@ -316,7 +312,6 @@ export {
   cssTransition,
   HamburgerToggler,
   Iframe,
-  ModalNew,
   // PRO
   Autocomplete,
   Avatar,
@@ -390,7 +385,6 @@ export {
   MDBDropdownToggle,
   MDBEdgeHeader,
   MDBIcon,
-  MDBFade,
   MDBFormInline,
   MDBFooter,
   MDBFreeBird,

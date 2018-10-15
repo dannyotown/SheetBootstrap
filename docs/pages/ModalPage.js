@@ -12,8 +12,7 @@ import {
   Tooltip,
   Row,
   Col,
-  Input,
-  ModalNew
+  Input
 } from "mdbreact";
 import DocsLink from "./DocsLink";
 
@@ -44,7 +43,6 @@ class ModalPage extends Component {
   toggle(nr) {
     let modalNumber = "modal" + nr;
     this.setState({
-      ...this.state,
       [modalNumber]: !this.state[modalNumber]
     });
   }
