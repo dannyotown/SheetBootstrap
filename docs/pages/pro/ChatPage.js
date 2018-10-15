@@ -299,16 +299,7 @@ class ChatPage extends Component {
                 <div className="white z-depth-1 p-3">
                   <MDBListGroup className="friend-list">
                     {this.state.friends.map(friend => (
-                      <Friend
-                        key={friend.name}
-                        name={friend.name}
-                        avatar={friend.avatar}
-                        message={friend.message}
-                        when={friend.when}
-                        toRespond={friend.toRespond}
-                        seen={friend.seen}
-                        active={friend.active}
-                      />
+                      <Friend key={friend.name} friend={friend} />
                     ))}
                   </MDBListGroup>
                 </div>
@@ -319,10 +310,7 @@ class ChatPage extends Component {
                     {this.state.messages.map(message => (
                       <ChatMessage
                         key={message.author + message.when}
-                        author={message.author}
-                        avatar={message.avatar}
-                        when={message.when}
-                        message={message.message}
+                        message={message}
                       />
                     ))}
                     <li>
@@ -363,16 +351,7 @@ class ChatPage extends Component {
                   <div className="white z-depth-1 p-3">
                     <MDBListGroup className="friend-list">
                       {this.state.friendsToScroll.map(friend => (
-                        <Friend
-                          key={friend.name}
-                          name={friend.name}
-                          avatar={friend.avatar}
-                          message={friend.message}
-                          when={friend.when}
-                          toRespond={friend.toRespond}
-                          seen={friend.seen}
-                          active={friend.active}
-                        />
+                        <Friend key={friend.name} friend={friend} />
                       ))}
                     </MDBListGroup>
                   </div>
@@ -385,10 +364,7 @@ class ChatPage extends Component {
                       {this.state.messagesToScroll.map(message => (
                         <ChatMessage
                           key={message.author + message.when}
-                          author={message.author}
-                          avatar={message.avatar}
-                          when={message.when}
-                          message={message.message}
+                          message={message}
                         />
                       ))}
                     </MDBListGroup>
@@ -419,9 +395,11 @@ class ChatPage extends Component {
   }
 }
 
-const Friend = ({ name, avatar, message, when, toRespond, seen, active }) => (
+const Friend = ({
+  friend: { name, avatar, message, when, toRespond, seen, active }
+}) => (
   <MDBListGroupItem
-    href="#"
+    href="#!"
     className="d-flex justify-content-between p-2 border-light"
     style={{ backgroundColor: active ? "#eeeeee" : "" }}
   >
@@ -457,7 +435,7 @@ const Friend = ({ name, avatar, message, when, toRespond, seen, active }) => (
   </MDBListGroupItem>
 );
 
-const ChatMessage = ({ author, avatar, when, message }) => (
+const ChatMessage = ({ message: { author, avatar, when, message } }) => (
   <li className="chat-message d-flex justify-content-between mb-4">
     <MDBAvatar
       tag="img"
