@@ -187,6 +187,38 @@ module.exports = function(env) {
           commonjs: "react-popper",
           amd: "react-popper"
         }
+      },
+      {
+        "salad-ui.chart": {
+          root: "salad-ui.chart",
+          commonjs2: "salad-ui.chart",
+          commonjs: "salad-ui.chart",
+          amd: "salad-ui.chart"
+        }
+      },
+      {
+        "chart.js": {
+          root: "chart.js",
+          commonjs2: "chart.js",
+          commonjs: "chart.js",
+          amd: "chart.js"
+        }
+      },
+      {
+        "react-chartjs-2": {
+          root: "react-chartjs-2",
+          commonjs2: "react-chartjs-2",
+          commonjs: "react-chartjs-2",
+          amd: "react-chartjs-2"
+        }
+      },
+      {
+        "react-image-lightbox": {
+          root: "react-image-lightbox",
+          commonjs2: "react-image-lightbox",
+          commonjs: "react-image-lightbox",
+          amd: "react-image-lightbox"
+        }
       }
     ],
     module: {
