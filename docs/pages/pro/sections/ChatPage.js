@@ -15,7 +15,7 @@ class ChatPage extends Component {
                 <div className="white z-depth-1 px-3 pt-3 pb-0">
                   <ul className="list-unstyled friend-list">
                     <li className="active grey lighten-3 p-2">
-                      <a href="#" class="d-flex justify-content-between">
+                      <a href="#!" class="d-flex justify-content-between">
                         <img
                           src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8"
                           alt="avatar"
