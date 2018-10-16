@@ -121,13 +121,13 @@ class FormsPage extends React.Component {
                     </h3>
                   </Row>
                   <Row className="mt-2 mb-3 d-flex justify-content-center">
-                    <a className="fa-lg p-2 m-2 fb-ic">
+                    <a href="#!" className="fa-lg p-2 m-2 fb-ic">
                       <Fa className="fa fa-facebook white-text fa-lg" />
                     </a>
-                    <a className="fa-lg p-2 m-2 tw-ic">
+                    <a href="#!" className="fa-lg p-2 m-2 tw-ic">
                       <Fa className="fa fa-twitter white-text fa-lg" />
                     </a>
-                    <a className="fa-lg p-2 m-2 gplus-ic">
+                    <a href="#!" className="fa-lg p-2 m-2 gplus-ic">
                       <Fa className="fa fa-google-plus white-text fa-lg" />
                     </a>
                   </Row>
@@ -142,12 +142,11 @@ class FormsPage extends React.Component {
                     containerClass="mb-0"
                   />
                   <p className="font-small grey-text d-flex justify-content-end">
-                    Forgot{" "}
+                    Forgot
                     <a
                       href="#!"
                       className="dark-grey-text ml-1 font-weight-bold"
                     >
-                      {" "}
                       Password?
                     </a>
                   </p>
@@ -166,12 +165,12 @@ class FormsPage extends React.Component {
                     </Col>
                     <Col md="7" className="d-flex justify-content-end">
                       <p className="font-small grey-text mt-3">
-                        Don't have an account?{" "}
+                        Don't have an account?
                         <a
                           href="#!"
                           className="dark-grey-text ml-1 font-weight-bold"
                         >
-                          {" "}
+
                           Sign up
                         </a>
                       </p>
@@ -223,9 +222,9 @@ class FormsPage extends React.Component {
                     </Col>
                     <Col md="6">
                       <p className="font-small grey-text d-flex justify-content-end">
-                        Have an account?{" "}
+                        Have an account?
                         <a href="#!" className="blue-text ml-1">
-                          {" "}
+
                           Log in
                         </a>
                       </p>
@@ -239,13 +238,13 @@ class FormsPage extends React.Component {
                     </p>
                   </Row>
                   <Row className="mt-2 mb-3 d-flex justify-content-center">
-                    <a className="fa-lg p-2 m-2 fb-ic">
+                    <a href="#!" className="fa-lg p-2 m-2 fb-ic">
                       <Fa className="fa fa-facebook white-text fa-lg"> </Fa>
                     </a>
-                    <a className="fa-lg p-2 m-2 tw-ic">
+                    <a href="#!" className="fa-lg p-2 m-2 tw-ic">
                       <Fa className="fa fa-twitter white-text fa-lg"> </Fa>
                     </a>
-                    <a className="fa-lg p-2 m-2 gplus-ic">
+                    <a href="#!" className="fa-lg p-2 m-2 gplus-ic">
                       <Fa className="fa fa-google-plus white-text fa-lg"> </Fa>
                     </a>
                   </Row>
@@ -271,7 +270,7 @@ class FormsPage extends React.Component {
                   <div className="text-center">
                     <h3 className="white-text mb-5 mt-4 font-weight-bold">
                       <strong>SIGN</strong>{" "}
-                      <a className="green-text font-weight-bold">
+                      <a href="#!" className="green-text font-weight-bold">
                         <strong> UP</strong>
                       </a>
                     </h3>
@@ -292,7 +291,6 @@ class FormsPage extends React.Component {
                       >
                         Accept the
                         <a href="#!" className="green-text font-weight-bold">
-                          {" "}
                           Terms and Conditions
                         </a>
                       </label>
@@ -312,9 +310,8 @@ class FormsPage extends React.Component {
                   </Row>
                   <Col md="12">
                     <p className="font-small white-text d-flex justify-content-end">
-                      Have an account?{" "}
+                      Have an account?
                       <a href="#!" className="green-text ml-1 font-weight-bold">
-                        {" "}
                         Log in
                       </a>
                     </p>
@@ -347,12 +344,11 @@ class FormsPage extends React.Component {
                     containerClass="mb-0"
                   />
                   <p className="font-small grey-text d-flex justify-content-end">
-                    Forgot{" "}
+                    Forgot
                     <a
                       href="#!"
                       className="dark-grey-text font-weight-bold ml-1"
                     >
-                      {" "}
                       Password?
                     </a>
                   </p>
@@ -366,12 +362,11 @@ class FormsPage extends React.Component {
                     </Button>
                   </div>
                   <p className="font-small grey-text d-flex justify-content-center">
-                    Don't have an account?{" "}
+                    Don't have an account?
                     <a
                       href="#!"
                       className="dark-grey-text font-weight-bold ml-1"
                     >
-                      {" "}
                       Sign up
                     </a>
                   </p>

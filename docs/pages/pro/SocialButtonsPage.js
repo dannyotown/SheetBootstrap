@@ -272,46 +272,46 @@ const SocialButtonsPage = props => {
         </Button>
         <span className="counter">22</span>
         <h4 className="mt-4">Social Icons</h4>
-        <a className="fb-ic mr-3">
+        <a href="#!" className="fb-ic mr-3">
           <Fa icon="facebook" />
         </a>
-        <a className="tw-ic mr-3">
+        <a href="#!" className="tw-ic mr-3">
           <Fa icon="twitter" />
         </a>
-        <a className="gplus-ic mr-3">
+        <a href="#!" className="gplus-ic mr-3">
           <Fa icon="google-plus" />
         </a>
-        <a className="li-ic mr-3">
+        <a href="#!" className="li-ic mr-3">
           <Fa icon="linkedin" />
         </a>
-        <a className="ins-ic mr-3">
+        <a href="#!" className="ins-ic mr-3">
           <Fa icon="instagram" />
         </a>
-        <a className="pin-ic mr-3">
+        <a href="#!" className="pin-ic mr-3">
           <Fa icon="pinterest" />
         </a>
-        <a className="yt-ic mr-3">
+        <a href="#!" className="yt-ic mr-3">
           <Fa icon="youtube" />
         </a>
-        <a className="vk-ic mr-3">
+        <a href="#!" className="vk-ic mr-3">
           <Fa icon="vk" />
         </a>
-        <a className="so-ic mr-3">
+        <a href="#!" className="so-ic mr-3">
           <Fa icon="stack-overflow" />
         </a>
-        <a className="slack-ic mr-3">
+        <a href="#!" className="slack-ic mr-3">
           <Fa icon="slack" />
         </a>
-        <a className="git-ic mr-3">
+        <a href="#!" className="git-ic mr-3">
           <Fa icon="github" />
         </a>
-        <a className="comm-ic mr-3">
+        <a href="#!" className="comm-ic mr-3">
           <Fa icon="comments" />
         </a>
-        <a className="email-ic mr-3">
+        <a href="#!" className="email-ic mr-3">
           <Fa icon="envelope-o" />
         </a>
-        <a className="dribbble-ic mr-3">
+        <a href="#!" className="dribbble-ic mr-3">
           <Fa icon="dribbble" />
         </a>
       </Container>

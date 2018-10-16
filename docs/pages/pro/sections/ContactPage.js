@@ -287,17 +287,17 @@ class ContactPage extends Component {
                   <hr className="hr-light my-4" />
                   <ul className="list-inline text-center list-unstyled">
                     <li className="list-inline-item">
-                      <a className="p-2 fa-lg w-ic">
+                      <a href="#!" className="p-2 fa-lg w-ic">
                         <Fa icon="twitter" />
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a className="p-2 fa-lg w-ic">
+                      <a href="#!" className="p-2 fa-lg w-ic">
                         <Fa icon="linkedin" />
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a className="p-2 fa-lg w-ic">
+                      <a href="#!" className="p-2 fa-lg w-ic">
                         <Fa icon="instagram" />
                       </a>
                     </li>
