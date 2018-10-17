@@ -47,12 +47,12 @@ class EcommercePage extends Component {
                   overlay="white-slight"
                 />
                 <CardBody cascade className="text-center">
-                  <a href="" className="grey-text">
+                  <a href="#!" className="grey-text">
                     <h5>Denim</h5>
                   </a>
                   <CardTitle>
                     <strong>
-                      <a href="">Denim trousers</a>
+                      <a href="#!">Denim trousers</a>
                     </strong>
                   </CardTitle>
                   <ul className="rating">
@@ -117,12 +117,12 @@ class EcommercePage extends Component {
                   overlay="white-slight"
                 />
                 <CardBody cascade className="text-center">
-                  <a href="" className="grey-text">
+                  <a href="#!" className="grey-text">
                     <h5>Shoes</h5>
                   </a>
                   <CardTitle>
                     <strong>
-                      <a href="">High heels</a>
+                      <a href="#!">High heels</a>
                     </strong>
                   </CardTitle>
                   <ul className="rating">
@@ -186,12 +186,12 @@ class EcommercePage extends Component {
                   overlay="white-slight"
                 />
                 <CardBody cascade className="text-center">
-                  <a href="" className="grey-text">
+                  <a href="#!" className="grey-text">
                     <h5>Outwear</h5>
                   </a>
                   <CardTitle>
                     <strong>
-                      <a href="">Brown coat</a>
+                      <a href="#!">Brown coat</a>
                     </strong>
                   </CardTitle>
                   <ul className="rating">
@@ -255,12 +255,12 @@ class EcommercePage extends Component {
                   overlay="white-slight"
                 />
                 <CardBody cascade className="text-center">
-                  <a href="" className="grey-text">
+                  <a href="#!" className="grey-text">
                     <h5>Blouses</h5>
                   </a>
                   <CardTitle>
                     <strong>
-                      <a href="">Shirt</a>
+                      <a href="#!">Shirt</a>
                     </strong>
                   </CardTitle>
                   <ul className="rating">
@@ -337,12 +337,12 @@ class EcommercePage extends Component {
                   alt="sample photo"
                 />
                 <CardBody cascade className="text-center">
-                  <a href="" className="text-muted">
+                  <a href="#!" className="text-muted">
                     <h5>Camera</h5>
                   </a>
                   <CardTitle>
                     <strong>
-                      <a href="">GoPro</a>
+                      <a href="#!">GoPro</a>
                     </strong>
                   </CardTitle>
                   <CardText>
@@ -382,12 +382,12 @@ class EcommercePage extends Component {
                   alt="sample photo"
                 />
                 <CardBody cascade className="text-center">
-                  <a href="" className="text-muted">
+                  <a href="#!" className="text-muted">
                     <h5>Photography</h5>
                   </a>
                   <CardTitle>
                     <strong>
-                      <a href="">Camera</a>
+                      <a href="#!">Camera</a>
                     </strong>
                   </CardTitle>
                   <CardText>
@@ -427,12 +427,12 @@ class EcommercePage extends Component {
                   alt="sample photo"
                 />
                 <CardBody cascade className="text-center">
-                  <a href="" className="text-muted">
+                  <a href="#!" className="text-muted">
                     <h5>Smartphone</h5>
                   </a>
                   <CardTitle>
                     <strong>
-                      <a href="">iPhone 6S</a>
+                      <a href="#!">iPhone 6S</a>
                     </strong>
                   </CardTitle>
                   <CardText>
@@ -485,12 +485,12 @@ class EcommercePage extends Component {
                   overlay="white-slight"
                 />
                 <CardBody className="text-center">
-                  <a href="" className="grey-text">
+                  <a href="#!" className="grey-text">
                     <h5>Shirt</h5>
                   </a>
                   <h5>
                     <strong>
-                      <a href="" className="dark-grey-text">
+                      <a href="#!" className="dark-grey-text">
                         Denim shirt{" "}
                         <Badge pill color="danger">
                           NEW
@@ -513,12 +513,12 @@ class EcommercePage extends Component {
                   overlay="white-slight"
                 />
                 <CardBody className="text-center">
-                  <a href="" className="grey-text">
+                  <a href="#!" className="grey-text">
                     <h5>Sport wear</h5>
                   </a>
                   <h5>
                     <strong>
-                      <a href="" className="dark-grey-text">
+                      <a href="#!" className="dark-grey-text">
                         Sweatshirt
                       </a>
                     </strong>
@@ -538,12 +538,12 @@ class EcommercePage extends Component {
                   overlay="white-slight"
                 />
                 <CardBody className="text-center">
-                  <a href="" className="grey-text">
+                  <a href="#!" className="grey-text">
                     <h5>Sport wear</h5>
                   </a>
                   <h5>
                     <strong>
-                      <a href="" className="dark-grey-text">
+                      <a href="#!" className="dark-grey-text">
                         Grey blouse{" "}
                         <Badge pill color="primary">
                           BEST
@@ -566,12 +566,12 @@ class EcommercePage extends Component {
                   overlay="white-slight"
                 />
                 <CardBody className="text-center">
-                  <a href="" className="grey-text">
+                  <a href="#!" className="grey-text">
                     <h5>Outwear</h5>
                   </a>
                   <h5>
                     <strong>
-                      <a href="" className="dark-grey-text">
+                      <a href="#!" className="dark-grey-text">
                         Black jacket
                       </a>
                     </strong>
@@ -604,7 +604,7 @@ class EcommercePage extends Component {
                     alt=""
                   />
                   <div className="stripe dark">
-                    <a>
+                    <a href="#!">
                       <p>
                         Red trousers <Fa icon="angle-right" />
                       </p>
@@ -622,7 +622,7 @@ class EcommercePage extends Component {
                     alt=""
                   />
                   <div className="stripe dark">
-                    <a>
+                    <a href="#!">
                       <p>
                         Sweatshirt <Fa icon="angle-right" />
                       </p>
@@ -640,7 +640,7 @@ class EcommercePage extends Component {
                     alt=""
                   />
                   <div className="stripe dark">
-                    <a>
+                    <a href="#!">
                       <p>
                         Accessories <Fa icon="angle-right" />
                       </p>
@@ -658,7 +658,7 @@ class EcommercePage extends Component {
                     alt=""
                   />
                   <div className="stripe dark">
-                    <a>
+                    <a href="#!">
                       <p>
                         Sweatshirt <Fa icon="angle-right" />
                       </p>
@@ -699,12 +699,12 @@ class EcommercePage extends Component {
                         alt="sample photo"
                       />
                       <CardBody cascade>
-                        <a href="" className="text-muted">
+                        <a href="#!" className="text-muted">
                           <h5>Shoes</h5>
                         </a>
                         <CardTitle>
                           <strong>
-                            <a href="">Leather boots</a>
+                            <a href="#!">Leather boots</a>
                           </strong>
                         </CardTitle>
                         <CardText>
@@ -742,12 +742,12 @@ class EcommercePage extends Component {
                         alt="sample photo"
                       />
                       <CardBody cascade>
-                        <a href="" className="text-muted">
+                        <a href="#!" className="text-muted">
                           <h5>Jeans</h5>
                         </a>
                         <CardTitle>
                           <strong>
-                            <a href="">Slim jeans</a>
+                            <a href="#!">Slim jeans</a>
                           </strong>
                         </CardTitle>
                         <CardText>
@@ -785,12 +785,12 @@ class EcommercePage extends Component {
                         alt="sample photo"
                       />
                       <CardBody cascade>
-                        <a href="" className="text-muted">
+                        <a href="#!" className="text-muted">
                           <h5>Shorts</h5>
                         </a>
                         <CardTitle>
                           <strong>
-                            <a href="">Denim shorts</a>
+                            <a href="#!">Denim shorts</a>
                           </strong>
                         </CardTitle>
                         <CardText>
@@ -830,12 +830,12 @@ class EcommercePage extends Component {
                         alt="sample photo"
                       />
                       <CardBody cascade>
-                        <a href="" className="text-muted">
+                        <a href="#!" className="text-muted">
                           <h5>Shoes</h5>
                         </a>
                         <CardTitle>
                           <strong>
-                            <a href="">Leather boots</a>
+                            <a href="#!">Leather boots</a>
                           </strong>
                         </CardTitle>
                         <CardText>
@@ -873,12 +873,12 @@ class EcommercePage extends Component {
                         alt="sample photo"
                       />
                       <CardBody cascade>
-                        <a href="" className="text-muted">
+                        <a href="#!" className="text-muted">
                           <h5>Jeans</h5>
                         </a>
                         <CardTitle>
                           <strong>
-                            <a href="">Slim jeans</a>
+                            <a href="#!">Slim jeans</a>
                           </strong>
                         </CardTitle>
                         <CardText>
@@ -916,12 +916,12 @@ class EcommercePage extends Component {
                         alt="sample photo"
                       />
                       <CardBody cascade>
-                        <a href="" className="text-muted">
+                        <a href="#!" className="text-muted">
                           <h5>Shorts</h5>
                         </a>
                         <CardTitle>
                           <strong>
-                            <a href="">Denim shorts</a>
+                            <a href="#!">Denim shorts</a>
                           </strong>
                         </CardTitle>
                         <CardText>
@@ -961,12 +961,12 @@ class EcommercePage extends Component {
                         alt="sample photo"
                       />
                       <CardBody cascade>
-                        <a href="" className="text-muted">
+                        <a href="#!" className="text-muted">
                           <h5>Shoes</h5>
                         </a>
                         <CardTitle>
                           <strong>
-                            <a href="">Leather boots</a>
+                            <a href="#!">Leather boots</a>
                           </strong>
                         </CardTitle>
                         <CardText>
@@ -1004,12 +1004,12 @@ class EcommercePage extends Component {
                         alt="sample photo"
                       />
                       <CardBody cascade>
-                        <a href="" className="text-muted">
+                        <a href="#!" className="text-muted">
                           <h5>Jeans</h5>
                         </a>
                         <CardTitle>
                           <strong>
-                            <a href="">Slim jeans</a>
+                            <a href="#!">Slim jeans</a>
                           </strong>
                         </CardTitle>
                         <CardText>
@@ -1047,12 +1047,12 @@ class EcommercePage extends Component {
                         alt="sample photo"
                       />
                       <CardBody cascade>
-                        <a href="" className="text-muted">
+                        <a href="#!" className="text-muted">
                           <h5>Shorts</h5>
                         </a>
                         <CardTitle>
                           <strong>
-                            <a href="">Denim shorts</a>
+                            <a href="#!">Denim shorts</a>
                           </strong>
                         </CardTitle>
                         <CardText>

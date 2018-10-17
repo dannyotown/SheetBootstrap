@@ -46,13 +46,13 @@ const TeamPage = () => {
                 consectetur, adipisci sed quia non numquam modi tempora eius.
               </p>
               <ul className="list-unstyled mb-0">
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="facebook" className="blue-text" />
                 </a>
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="twitter" className="blue-text" />
                 </a>
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="instagram" className="blue-text" />
                 </a>
               </ul>
@@ -72,10 +72,10 @@ const TeamPage = () => {
                 ipsa accusantium doloremque rem laudantium totam aperiam.
               </p>
               <ul className="list-unstyled mb-0">
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="facebook" className="blue-text" />
                 </a>
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="instagram" className="blue-text" />
                 </a>
               </ul>
@@ -95,13 +95,13 @@ const TeamPage = () => {
                 qui officia deserunt mollit anim est fugiat nulla id eu laborum.
               </p>
               <ul className="list-unstyled mb-0">
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="facebook" className="blue-text" />
                 </a>
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="instagram" className="blue-text" />
                 </a>
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="dribbble" className="blue-text" />
                 </a>
               </ul>
@@ -122,10 +122,10 @@ const TeamPage = () => {
                 voluptatibus aut.
               </p>
               <ul className="list-unstyled mb-0">
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="facebook" className="blue-text" />
                 </a>
-                <a className="p-2 fa-lg">
+                <a href="#!" className="p-2 fa-lg">
                   <Fa icon="github" className="blue-text" />
                 </a>
               </ul>
@@ -259,13 +259,13 @@ const TeamPage = () => {
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
                   eos id officiis hic tenetur.
                 </p>
-                <a className="p-2 fa-lg fb-ic">
+                <a href="#!" className="p-2 fa-lg fb-ic">
                   <Fa icon="facebook" />
                 </a>
-                <a className="p-2 fa-lg tw-ic">
+                <a href="#!" className="p-2 fa-lg tw-ic">
                   <Fa icon="twitter" />
                 </a>
-                <a className="p-2 fa-lg dribbble-ic">
+                <a href="#!" className="p-2 fa-lg dribbble-ic">
                   <Fa icon="dribbble" />
                 </a>
               </Col>
@@ -289,13 +289,13 @@ const TeamPage = () => {
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
                   eos id officiis hic tenetur.
                 </p>
-                <a className="p-2 fa-lg fb-ic">
+                <a href="#!" className="p-2 fa-lg fb-ic">
                   <Fa icon="facebook" />
                 </a>
-                <a className="p-2 fa-lg yt-ic">
+                <a href="#!" className="p-2 fa-lg yt-ic">
                   <Fa icon="youtube" />
                 </a>
-                <a className="p-2 fa-lg ins-ic">
+                <a href="#!" className="p-2 fa-lg ins-ic">
                   <Fa icon="instagram" />
                 </a>
               </Col>
@@ -319,13 +319,13 @@ const TeamPage = () => {
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
                   eos id officiis hic tenetur.
                 </p>
-                <a className="p-2 fa-lg fb-ic">
+                <a href="#!" className="p-2 fa-lg fb-ic">
                   <Fa icon="facebook" />
                 </a>
-                <a className="p-2 fa-lg tw-ic">
+                <a href="#!" className="p-2 fa-lg tw-ic">
                   <Fa icon="twitter" />
                 </a>
-                <a className="p-2 fa-lg github-ic">
+                <a href="#!" className="p-2 fa-lg github-ic">
                   <Fa icon="github" />
                 </a>
               </Col>
@@ -349,13 +349,13 @@ const TeamPage = () => {
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
                   eos id officiis hic tenetur.
                 </p>
-                <a className="p-2 fa-lg gplus-ic">
+                <a href="#!" className="p-2 fa-lg gplus-ic">
                   <Fa icon="google-plus" />
                 </a>
-                <a className="p-2 fa-lg li-ic">
+                <a href="#!" className="p-2 fa-lg li-ic">
                   <Fa icon="linkedin" />
                 </a>
-                <a className="p-2 fa-lg email-ic">
+                <a href="#!" className="p-2 fa-lg email-ic">
                   <Fa icon="envelope" />
                 </a>
               </Col>

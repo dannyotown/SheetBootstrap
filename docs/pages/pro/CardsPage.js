@@ -49,7 +49,10 @@ class FlippingCardPage extends React.Component {
                   alt="Card image cap"
                 />
                 <CardBody>
-                  <a className="activator waves-effect waves-light mr-4">
+                  <a
+                    href="#!"
+                    className="activator waves-effect waves-light mr-4"
+                  >
                     <Fa icon="share-alt" />
                   </a>
                   <CardTitle>Card Title</CardTitle>
@@ -80,7 +83,10 @@ class FlippingCardPage extends React.Component {
                   alt="Card image cap"
                 />
                 <CardBody className="elegant-color white-text rounded-bottom">
-                  <a className="activator waves-effect waves-light mr-4">
+                  <a
+                    href="#!"
+                    className="activator waves-effect waves-light mr-4"
+                  >
                     <Fa icon="share-alt" />
                   </a>
                   <CardTitle>Card Title</CardTitle>
@@ -239,6 +245,7 @@ class FlippingCardPage extends React.Component {
                     <h4 className="font-weight-bold mb-3">Marie Johnson</h4>
                     <p className="font-weight-bold blue-text">Web developer</p>
                     <a
+                      href="#!"
                       className="rotate-btn"
                       data-card="card-1"
                       onClick={this.handleFlipping}
@@ -260,27 +267,28 @@ class FlippingCardPage extends React.Component {
                     <hr />
                     <ul className="list-inline py-2">
                       <li className="list-inline-item">
-                        <a className="p-2 fa-lg fb-ic">
+                        <a href="#!" className="p-2 fa-lg fb-ic">
                           <Fa icon="facebook" />
                         </a>
                       </li>
                       <li className="list-inline-item">
-                        <a className="p-2 fa-lg tw-ic">
+                        <a href="#!" className="p-2 fa-lg tw-ic">
                           <Fa icon="twitter" />
                         </a>
                       </li>
                       <li className="list-inline-item">
-                        <a className="p-2 fa-lg gplus-ic">
+                        <a href="#!" className="p-2 fa-lg gplus-ic">
                           <Fa icon="google-plus" />
                         </a>
                       </li>
                       <li className="list-inline-item">
-                        <a className="p-2 fa-lg li-ic">
+                        <a href="#!" className="p-2 fa-lg li-ic">
                           <Fa icon="linkedin" />
                         </a>
                       </li>
                     </ul>
                     <a
+                      href="#!"
                       className="rotate-btn"
                       data-card="card-1"
                       onClick={this.handleFlipping}
@@ -307,7 +315,7 @@ class FlippingCardPage extends React.Component {
                 <Button
                   floating
                   tag="a"
-                  className="ml-auto mr-4 lighten-3 mdb-color"
+                  className="ml-auto mr-4 lighten-3 mdb-coalor"
                   action
                 >
                   <Fa icon="chevron-right" />
@@ -325,19 +333,19 @@ class FlippingCardPage extends React.Component {
                       <Fa icon="clock-o" /> 05/10/2015
                     </li>
                     <li className="list-inline-item pr-2">
-                      <a href="" className="white-text">
+                      <a href="#!" className="white-text">
                         <Fa icon="comments-o" />
                         12
                       </a>
                     </li>
                     <li className="list-inline-item pr-2">
-                      <a href="" className="white-text">
+                      <a href="#!" className="white-text">
                         <Fa icon="facebook"> </Fa>
                         21
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a href="" className="white-text">
+                      <a href="#!" className="white-text">
                         <Fa icon="twitter"> </Fa>5
                       </a>
                     </li>

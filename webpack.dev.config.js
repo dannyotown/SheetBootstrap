@@ -1,7 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
 
 const config = {
   mode: "development",
@@ -21,7 +19,7 @@ const config = {
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"]
+        use: ["babel-loader"]
       },
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader" },
@@ -45,13 +43,15 @@ const config = {
     ]
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    open: true,
+    compress: true,
+    port: 9000
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "public/index.html"
-    }),
-    new BundleAnalyzerPlugin()
+    })
   ]
 };
 

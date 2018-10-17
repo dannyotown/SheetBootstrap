@@ -38,13 +38,13 @@ const BlogPage = () => {
                   src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg"
                   alt=""
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
             </Col>
             <Col lg="7">
-              <a className="green-text">
+              <a href="#!" className="green-text">
                 <h6 className="font-weight-bold mb-3">
                   <Fa icon="cutlery" className="pr-2" />
                   Food
@@ -60,8 +60,8 @@ const BlogPage = () => {
                 officiis debitis.
               </p>
               <p>
-                by{" "}
-                <a>
+                by
+                <a href="#!">
                   <strong>Carine Fox</strong>
                 </a>
                 , 19/08/2018
@@ -74,7 +74,7 @@ const BlogPage = () => {
           <hr className="my-5" />
           <Row>
             <Col lg="7">
-              <a className="pink-text">
+              <a href="#!" className="pink-text">
                 <h6 className="font-weight-bold mb-3">
                   <Fa icon="image" className="pr-2" />
                   Lifestyle
@@ -90,8 +90,8 @@ const BlogPage = () => {
                 non provident.
               </p>
               <p>
-                by{" "}
-                <a>
+                by
+                <a href="#!">
                   <strong>Carine Fox</strong>
                 </a>
                 , 14/08/2018
@@ -111,7 +111,7 @@ const BlogPage = () => {
                   src="https://mdbootstrap.com/img/Photos/Others/img%20(34).jpg"
                   alt=""
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
@@ -126,13 +126,13 @@ const BlogPage = () => {
                   src="https://mdbootstrap.com/img/Photos/Others/img (28).jpg"
                   alt=""
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
             </Col>
             <Col lg="7">
-              <a className="indigo-text">
+              <a href="#!" className="indigo-text">
                 <h6 className="font-weight-bold mb-3">
                   <Fa icon="suitcase" className="pr-2" />
                   Food
@@ -148,8 +148,8 @@ const BlogPage = () => {
                 sit amet.
               </p>
               <p>
-                by{" "}
-                <a>
+                by
+                <a href="#!">
                   <strong>Carine Fox</strong>
                 </a>
                 , 11/08/2018
@@ -186,7 +186,7 @@ const BlogPage = () => {
                 />
                 <Mask overlay="white-slight" />
               </View>
-              <a className="pink-text">
+              <a href="#!" className="pink-text">
                 <h6 className="font-weight-bold mb-3">
                   <Fa icon="map" className="pr-2" />
                   Adventure
@@ -196,7 +196,7 @@ const BlogPage = () => {
                 <strong>Title of the news</strong>
               </h4>
               <p>
-                by <a className="font-weight-bold">Billy Forester</a>,
+                by <a href="#!" className="font-weight-bold">Billy Forester</a>,
                 15/07/2018
               </p>
               <p className="dark-grey-text">
@@ -217,7 +217,7 @@ const BlogPage = () => {
                 />
                 <Mask overlay="white-slight" />
               </View>
-              <a className="deep-orange-text">
+              <a href="#!" className="deep-orange-text">
                 <h6 className="font-weight-bold mb-3">
                   <Fa icon="graduation-cap" className="pr-2" />
                   Education
@@ -227,7 +227,7 @@ const BlogPage = () => {
                 <strong>Title of the news</strong>
               </h4>
               <p>
-                by <a className="font-weight-bold">Billy Forester</a>,
+                by <a href="#!" className="font-weight-bold">Billy Forester</a>,
                 13/07/2018
               </p>
               <p className="dark-grey-text">
@@ -247,7 +247,7 @@ const BlogPage = () => {
                 />
                 <Mask overlay="white-slight" />
               </View>
-              <a className="blue-text">
+              <a href="#!" className="blue-text">
                 <h6 className="font-weight-bold mb-3">
                   <Fa icon="fire" className="pr-2" />
                   Culture
@@ -257,7 +257,7 @@ const BlogPage = () => {
                 <strong>Title of the news</strong>
               </h4>
               <p>
-                by <a className="font-weight-bold">Billy Forester</a>,
+                by <a href="#!" className="font-weight-bold">Billy Forester</a>,
                 11/07/2018
               </p>
               <p className="dark-grey-text">
@@ -294,7 +294,7 @@ const BlogPage = () => {
                   src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
                   alt=""
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
@@ -311,7 +311,7 @@ const BlogPage = () => {
                 aut rerum.
               </p>
               <p>
-                by <a className="font-weight-bold">Jessica Clark</a>, 19/04/2018
+                by <a href="#!" className="font-weight-bold">Jessica Clark</a>, 19/04/2018
               </p>
               <Button color="primary" size="md">
                 Read More
@@ -327,7 +327,7 @@ const BlogPage = () => {
                   src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg"
                   alt=""
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
@@ -344,7 +344,7 @@ const BlogPage = () => {
                 fuga.
               </p>
               <p>
-                by <a className="font-weight-bold">Jessica Clark</a>, 16/04/2018
+                by <a href="#!" className="font-weight-bold">Jessica Clark</a>, 16/04/2018
               </p>
               <Button color="primary" size="md">
                 Read More
@@ -360,7 +360,7 @@ const BlogPage = () => {
                   src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg"
                   alt=""
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
@@ -376,7 +376,7 @@ const BlogPage = () => {
                 ipsum quia dolor sit amet, psam voluptatem quia consectetur.
               </p>
               <p>
-                by <a className="font-weight-bold">Jessica Clark</a>, 12/04/2018
+                by <a href="#!" className="font-weight-bold">Jessica Clark</a>, 12/04/2018
               </p>
               <Button color="primary" size="md">
                 Read More
@@ -404,11 +404,11 @@ const BlogPage = () => {
                 </View>
                 <CardBody cascade className="text-center">
                   <h2 className="font-weight-bold">
-                    <a>Title of the news</a>
+                    <a href="#!">Title of the news</a>
                   </h2>
                   <p>
-                    Written by{" "}
-                    <a>
+                    Written by
+                    <a href="#!">
                       <strong>Abby Madison</strong>
                     </a>
                     , 26/08/2018
@@ -471,11 +471,11 @@ const BlogPage = () => {
                 </View>
                 <CardBody cascade className="text-center">
                   <h2 className="font-weight-bold">
-                    <a>Title of the news</a>
+                    <a href="#!">Title of the news</a>
                   </h2>
                   <p>
-                    Written by{" "}
-                    <a>
+                    Written by
+                    <a href="#!">
                       <strong>Abby Madison</strong>
                     </a>
                     , 21/08/2018

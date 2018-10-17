@@ -39,7 +39,7 @@ class ProjectsPage extends Component {
                   alt=""
                   className="img-fluid"
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
@@ -61,7 +61,7 @@ class ProjectsPage extends Component {
                   alt=""
                   className="img-fluid"
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
@@ -83,7 +83,7 @@ class ProjectsPage extends Component {
                   alt=""
                   className="img-fluid"
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
@@ -120,12 +120,12 @@ class ProjectsPage extends Component {
                   alt=""
                   className="img-fluid"
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
               <CardBody className="pb-0">
-                <a href="" className="green-text">
+                <a href="#!" className="green-text">
                   <h5 className="font-weight-bold mt-2 mb-3">
                     <Fa icon="line-chart" className="pr-2" />
                     Marketing
@@ -149,12 +149,12 @@ class ProjectsPage extends Component {
                   alt=""
                   className="img-fluid"
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
               <CardBody className="pb-0">
-                <a href="" className="blue-text">
+                <a href="#!" className="blue-text">
                   <h5 className="font-weight-bold mt-2 mb-3">
                     <Fa icon="eye" className="pr-2" />
                     Entertainment
@@ -178,12 +178,12 @@ class ProjectsPage extends Component {
                   alt=""
                   className="img-fluid"
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
               <CardBody className="pb-0">
-                <a href="" className="brown-text">
+                <a href="#!" className="brown-text">
                   <h5 className="font-weight-bold mt-2 mb-3">
                     <Fa icon="camera" className="pr-2" />
                     Travel
@@ -207,12 +207,12 @@ class ProjectsPage extends Component {
                   alt=""
                   className="img-fluid"
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" />
                 </a>
               </View>
               <CardBody className="pb-0">
-                <a href="" className="cyan-text">
+                <a href="#!" className="cyan-text">
                   <h5 className="font-weight-bold mt-2 mb-3">
                     <Fa icon="phone" className="pr-2" />
                     Technology

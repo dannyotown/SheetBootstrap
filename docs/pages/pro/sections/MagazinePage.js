@@ -47,12 +47,12 @@ const MagazinePage = () => {
                     src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg"
                     alt=""
                   />
-                  <a>
+                  <a href="#!">
                     <Mask overlay="white-slight" className="waves-light" />
                   </a>
                 </View>
                 <div className="d-flex justify-content-between">
-                  <a className="light-blue-text">
+                  <a href="#!" className="light-blue-text">
                     <h6 className="font-weight-bold">
                       <Fa icon="plane" className="pr-2" />
                       Travels
@@ -64,7 +64,7 @@ const MagazinePage = () => {
                   </p>
                 </div>
                 <h3 className="font-weight-bold dark-grey-text mb-3 p-0">
-                  <a>Title of the news</a>
+                  <a href="#!">Title of the news</a>
                 </h3>
                 <p className="dark-grey-text">
                   Nam libero tempore, cum soluta nobis est eligendi optio cumque
@@ -83,7 +83,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Others/photo8.jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -94,12 +94,12 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -116,7 +116,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Others/images/54.jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -127,12 +127,12 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           Soluta nobis est eligendi optio cumque nihil impedit
                           quo minus
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -149,7 +149,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -160,11 +160,11 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           Voluptatem accusantium doloremque
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -181,12 +181,12 @@ const MagazinePage = () => {
                     src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg"
                     alt=""
                   />
-                  <a>
+                  <a href="#!">
                     <Mask overlay="white-slight" className="waves-light" />
                   </a>
                 </View>
                 <div className="d-flex justify-content-between">
-                  <a className="pink-text">
+                  <a href="#!" className="pink-text">
                     <h6 className="font-weight-bold">
                       <Fa icon="home" className="pr-2" />
                       Lifestyle
@@ -198,7 +198,7 @@ const MagazinePage = () => {
                   </p>
                 </div>
                 <h3 className="font-weight-bold dark-grey-text mb-3 p-0">
-                  <a>Title of the news</a>
+                  <a href="#!">Title of the news</a>
                 </h3>
                 <p className="dark-grey-text">
                   Sed ut perspiciatis unde voluptatem omnis iste natus error sit
@@ -217,7 +217,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -228,11 +228,11 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           Itaque earum rerum hic tenetur a sapiente delectus
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -249,7 +249,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Others/images/48.jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -260,12 +260,12 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           Soluta nobis est eligendi optio cumque nihil impedit
                           quo minus
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -282,7 +282,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(56).jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -293,11 +293,11 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           Maiores alias consequatur aut perferendis
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -336,12 +336,12 @@ const MagazinePage = () => {
                     src="https://mdbootstrap.com/img/Photos/Slides/1.jpg"
                     alt=""
                   />
-                  <a>
+                  <a href="#!">
                     <Mask overlay="white-slight" className="waves-light" />
                   </a>
                 </View>
                 <div className="d-flex justify-content-between">
-                  <a className="deep-orange-text">
+                  <a href="#!" className="deep-orange-text">
                     <h6 className="font-weight-bold">
                       <Fa icon="cutlery" className="pr-2" />
                       Culinary
@@ -353,7 +353,7 @@ const MagazinePage = () => {
                   </p>
                 </div>
                 <h3 className="font-weight-bold dark-grey-text mb-3 p-0">
-                  <a>Title of the news</a>
+                  <a href="#!">Title of the news</a>
                 </h3>
                 <p className="dark-grey-text mb-lg-0 mb-md-5 mb-4">
                   Sed ut perspiciatis unde voluptatem omnis iste natus error sit
@@ -375,7 +375,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Others/img%20(29).jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -386,12 +386,12 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           At vero eos et accusamus et iusto odio dignissimos
                           ducimus qui blanditiis
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -408,7 +408,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -419,11 +419,11 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           Itaque earum rerum hic tenetur a sapiente delectus
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -440,7 +440,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Others/images/87.jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -451,12 +451,12 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           Soluta nobis est eligendi optio cumque nihil impedit
                           quo minus
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -473,7 +473,7 @@ const MagazinePage = () => {
                         src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg"
                         alt=""
                       />
-                      <a>
+                      <a href="#!">
                         <Mask overlay="white-slight" className="waves-light" />
                       </a>
                     </View>
@@ -484,11 +484,11 @@ const MagazinePage = () => {
                     </p>
                     <div className="d-flex justify-content-between">
                       <Col size="11" className="text-truncate pl-0 mb-3">
-                        <a className="dark-grey-text">
+                        <a href="#!" className="dark-grey-text">
                           Duis aute irure dolor in reprehenderit in voluptate
                         </a>
                       </Col>
-                      <a>
+                      <a href="#!">
                         <Fa icon="angle-double-right" />
                       </a>
                     </div>
@@ -526,13 +526,13 @@ const MagazinePage = () => {
                   src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg"
                   alt=""
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" className="waves-light" />
                 </a>
               </View>
               <Row className="mb-3">
                 <Col size="12">
-                  <a>
+                  <a href="#!">
                     <Badge color="pink">
                       <Fa icon="camera" className="pr-2" aria-hidden="true" />
                       Adventure
@@ -542,41 +542,43 @@ const MagazinePage = () => {
               </Row>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a className="font-weight-bold">This is title of the news</a>
+                  <a href="#!" className="font-weight-bold">
+                    This is title of the news
+                  </a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>24 Food Swaps That Slash Calories.</a>
+                  <a href="#!">24 Food Swaps That Slash Calories.</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>How to Make a Beet Cocktail?</a>
+                  <a href="#!">How to Make a Beet Cocktail?</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>8 Sneaky Reasons You're Always Hungry.</a>
+                  <a href="#!">8 Sneaky Reasons You're Always Hungry.</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between mb-4">
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>5 Pressure Cooker Recipes You Need to Try.</a>
+                  <a href="#!">5 Pressure Cooker Recipes You Need to Try.</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
@@ -589,13 +591,13 @@ const MagazinePage = () => {
                   src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg"
                   alt=""
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" className="waves-light" />
                 </a>
               </View>
               <Row className="mb-3">
                 <Col size="12">
-                  <a>
+                  <a href="#!">
                     <Badge color="deep-orange">
                       <Fa icon="plane" className="pr-2" aria-hidden="true" />
                       Travel
@@ -605,41 +607,43 @@ const MagazinePage = () => {
               </Row>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a className="font-weight-bold">This is title of the news</a>
+                  <a href="#!" className="font-weight-bold">
+                    This is title of the news
+                  </a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>Trends in the blogosphere for 2018.</a>
+                  <a href="#!">Trends in the blogosphere for 2018.</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>Where can you eat the best lunch in Warsaw?</a>
+                  <a href="#!">Where can you eat the best lunch in Warsaw?</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>What camera is worth taking for holidays?</a>
+                  <a href="#!">What camera is worth taking for holidays?</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between mb-4">
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>Why should you visit Lisbon?</a>
+                  <a href="#!">Why should you visit Lisbon?</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
@@ -652,13 +656,13 @@ const MagazinePage = () => {
                   src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg"
                   alt=""
                 />
-                <a>
+                <a href="#!">
                   <Mask overlay="white-slight" className="waves-light" />
                 </a>
               </View>
               <Row className="mb-3">
                 <Col size="12">
-                  <a>
+                  <a href="#!">
                     <Badge color="success">
                       <Fa icon="leaf" className="pr-2" aria-hidden="true" />
                       Nature
@@ -668,41 +672,45 @@ const MagazinePage = () => {
               </Row>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a className="font-weight-bold">This is title of the news</a>
+                  <a href="#!" className="font-weight-bold">
+                    This is title of the news
+                  </a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>How to recognize the footsteps of wild animals?</a>
+                  <a href="#!">
+                    How to recognize the footsteps of wild animals?
+                  </a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>National Parks in Poland.</a>
+                  <a href="#!">National Parks in Poland.</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>Traveling without littering the planet.</a>
+                  <a href="#!">Traveling without littering the planet.</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between mb-4">
                 <Col size="11" className="text-truncate pl-0 mb-3">
-                  <a>How to protect rainforests?</a>
+                  <a href="#!">How to protect rainforests?</a>
                 </Col>
-                <a>
+                <a href="#!">
                   <Fa icon="angle-double-right" />
                 </a>
               </div>
