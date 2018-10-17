@@ -20,9 +20,9 @@ export default class MDBDatePicker extends Component {
     }
     this.setState({ selectedDate: newDate });
   }
-
-  componentDidUpdate() {
-    if(this.props.getValue) {
+  
+  componentDidUpdate(prevProps, prevState) {
+    if(this.props.getValue && prevState.selectedDate !== this.state.selectedDate) {
       this.props.getValue(this.state.selectedDate);
     }
   }
