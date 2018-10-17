@@ -127,13 +127,13 @@ class ClassicFormPage extends React.Component {
                         <Button color="indigo">Sign Up</Button>
                         <hr className="hr-light" />
                         <div className="text-center d-flex justify-content-center white-label">
-                          <a className="p-2 m-2">
+                          <a href="#!" className="p-2 m-2">
                             <Fa icon="twitter" className="white-text" />
                           </a>
-                          <a className="p-2 m-2">
+                          <a href="#!" className="p-2 m-2">
                             <Fa icon="linkedin" className="white-text" />
                           </a>
-                          <a className="p-2 m-2">
+                          <a href="#!" className="p-2 m-2">
                             <Fa icon="instagram" className="white-text" />
                           </a>
                         </div>

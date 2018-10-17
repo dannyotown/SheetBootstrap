@@ -105,27 +105,27 @@ class FooterPagePro extends React.Component {
           <div className="text-center">
             <ul className="list-unstyled list-inline">
               <li className="list-inline-item">
-                <a className="btn-floating btn-sm btn-fb mx-1">
+                <a href="#!" className="btn-floating btn-sm btn-fb mx-1">
                   <i className="fa fa-facebook"> </i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a className="btn-floating btn-sm btn-tw mx-1">
+                <a href="#!" className="btn-floating btn-sm btn-tw mx-1">
                   <i className="fa fa-twitter"> </i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a className="btn-floating btn-sm btn-gplus mx-1">
+                <a href="#!" className="btn-floating btn-sm btn-gplus mx-1">
                   <i className="fa fa-google-plus"> </i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a className="btn-floating btn-sm btn-li mx-1">
+                <a href="#!" className="btn-floating btn-sm btn-li mx-1">
                   <i className="fa fa-linkedin"> </i>
                 </a>
               </li>
               <li className="list-inline-item">
-                <a className="btn-floating btn-sm btn-dribbble mx-1">
+                <a href="#!" className="btn-floating btn-sm btn-dribbble mx-1">
                   <i className="fa fa-dribbble"> </i>
                 </a>
               </li>
@@ -155,19 +155,19 @@ class FooterPagePro extends React.Component {
                   </h6>
                 </Col>
                 <Col md="6" lg="7" className="text-center text-md-right">
-                  <a className="fb-ic ml-0">
+                  <a href="#!" className="fb-ic ml-0">
                     <i className="fa fa-facebook white-text mr-lg-4"> </i>
                   </a>
-                  <a className="tw-ic">
+                  <a href="#!" className="tw-ic">
                     <i className="fa fa-twitter white-text mr-lg-4"> </i>
                   </a>
-                  <a className="gplus-ic">
+                  <a href="#!" className="gplus-ic">
                     <i className="fa fa-google-plus white-text mr-lg-4"> </i>
                   </a>
-                  <a className="li-ic">
+                  <a href="#!" className="li-ic">
                     <i className="fa fa-linkedin white-text mr-lg-4"> </i>
                   </a>
-                  <a className="ins-ic">
+                  <a href="#!" className="ins-ic">
                     <i className="fa fa-instagram white-text mr-lg-4"> </i>
                   </a>
                 </Col>
@@ -279,19 +279,19 @@ class FooterPagePro extends React.Component {
                   </h6>
                 </Col>
                 <Col md="6" lg="7" className="text-center text-md-right">
-                  <a className="fb-ic ml-0">
+                  <a href="#!" className="fb-ic ml-0">
                     <i className="fa fa-facebook white-text mr-lg-4"> </i>
                   </a>
-                  <a className="tw-ic">
+                  <a href="#!" className="tw-ic">
                     <i className="fa fa-twitter white-text mr-lg-4"> </i>
                   </a>
-                  <a className="gplus-ic">
+                  <a href="#!" className="gplus-ic">
                     <i className="fa fa-google-plus white-text mr-lg-4"> </i>
                   </a>
-                  <a className="li-ic">
+                  <a href="#!" className="li-ic">
                     <i className="fa fa-linkedin white-text mr-lg-4"> </i>
                   </a>
-                  <a className="ins-ic">
+                  <a href="#!" className="ins-ic">
                     <i className="fa fa-instagram white-text mr-lg-4"> </i>
                   </a>
                 </Col>
@@ -407,32 +407,32 @@ class FooterPagePro extends React.Component {
             <Row>
               <Col md="12" className="py-5">
                 <div className="mb-5 flex-center">
-                  <a className="fb-ic">
+                  <a href="#!" className="fb-ic">
                     <i className="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x">
                       {" "}
                     </i>
                   </a>
-                  <a className="tw-ic">
+                  <a href="#!" className="tw-ic">
                     <i className="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x">
                       {" "}
                     </i>
                   </a>
-                  <a className="gplus-ic">
+                  <a href="#!" className="gplus-ic">
                     <i className="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x">
                       {" "}
                     </i>
                   </a>
-                  <a className="li-ic">
+                  <a href="#!" className="li-ic">
                     <i className="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x">
                       {" "}
                     </i>
                   </a>
-                  <a className="ins-ic">
+                  <a href="#!" className="ins-ic">
                     <i className="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x">
                       {" "}
                     </i>
                   </a>
-                  <a className="pin-ic">
+                  <a href="#!" className="pin-ic">
                     <i className="fa fa-pinterest fa-lg white-text fa-2x"> </i>
                   </a>
                 </div>
@@ -526,22 +526,22 @@ class FooterPagePro extends React.Component {
                 <div className="text-center text-md-right">
                   <ul className="list-unstyled list-inline">
                     <li className="list-inline-item">
-                      <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                      <a href="#!" className="btn-floating btn-sm rgba-white-slight mx-1">
                         <i className="fa fa-facebook" />
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                      <a href="#!" className="btn-floating btn-sm rgba-white-slight mx-1">
                         <i className="fa fa-twitter" />
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                      <a href="#!" className="btn-floating btn-sm rgba-white-slight mx-1">
                         <i className="fa fa-google-plus" />
                       </a>
                     </li>
                     <li className="list-inline-item">
-                      <a className="btn-floating btn-sm rgba-white-slight mx-1">
+                      <a href="#!" className="btn-floating btn-sm rgba-white-slight mx-1">
                         <i className="fa fa-linkedin" />
                       </a>
                     </li>
@@ -600,26 +600,26 @@ class FooterPagePro extends React.Component {
             <Row className="pb-3">
               <Col md="12">
                 <div className="mb-5 flex-center">
-                  <a className="fb-ic">
+                  <a href="#!" className="fb-ic">
                     <i className="fa fa-facebook fa-lg white-text mr-md-4"> </i>
                   </a>
-                  <a className="tw-ic">
+                  <a href="#!" className="tw-ic">
                     <i className="fa fa-twitter fa-lg white-text mr-md-4"> </i>
                   </a>
-                  <a className="gplus-ic">
+                  <a href="#!" className="gplus-ic">
                     <i className="fa fa-google-plus fa-lg white-text mr-md-4">
-                      {" "}
+
                     </i>
                   </a>
-                  <a className="li-ic">
+                  <a href="#!" className="li-ic">
                     <i className="fa fa-linkedin fa-lg white-text mr-md-4"> </i>
                   </a>
-                  <a className="ins-ic">
+                  <a  href="#!" className="ins-ic">
                     <i className="fa fa-instagram fa-lg white-text mr-md-4">
-                      {" "}
+
                     </i>
                   </a>
-                  <a className="pin-ic">
+                  <a href="#!" className="pin-ic">
                     <i className="fa fa-pinterest fa-lg white-text"> </i>
                   </a>
                 </div>
@@ -692,16 +692,16 @@ class FooterPagePro extends React.Component {
                   Follow us
                 </h5>
                 <div className="mt-2 ">
-                  <a type="button" className="btn-floating btn-small btn-fb">
+                  <a href="#!" type="button" className="btn-floating btn-small btn-fb">
                     <i className="fa fa-facebook" />
                   </a>
-                  <a type="button" className="btn-floating btn-small btn-tw">
+                  <a href="#!" type="button" className="btn-floating btn-small btn-tw">
                     <i className="fa fa-twitter" />
                   </a>
-                  <a type="button" className="btn-floating btn-small btn-gplus">
+                  <a href="#!" type="button" className="btn-floating btn-small btn-gplus">
                     <i className="fa fa-google-plus" />
                   </a>
-                  <a
+                  <a href="#!"
                     type="button"
                     className="btn-floating btn-small btn-dribbble"
                   >

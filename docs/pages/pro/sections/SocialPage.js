@@ -58,11 +58,14 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">John Doe</a> added you as a friend
+                      <a href="#!" className="name">
+                        John Doe
+                      </a>{" "}
+                      added you as a friend
                       <div className="date">1 hour ago</div>
                     </div>
                     <div className="feed-footer">
-                      <a className="like">
+                      <a href="#!" className="like">
                         <Fa icon="heart" />
                         <span>5 likes</span>
                       </a>
@@ -80,8 +83,10 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">Anna Smith</a> added{" "}
-                      <a>2 new illustrations</a>
+                      <a href="#!" className="name">
+                        Anna Smith
+                      </a>
+                      added <a href="#!">2 new illustrations</a>
                       <div className="date">4 hours ago</div>
                     </div>
                     <div className="added-images">
@@ -97,7 +102,7 @@ class SocialPage extends Component {
                       />
                     </div>
                     <div className="feed-footer">
-                      <a className="like">
+                      <a href="#!" className="like">
                         <Fa icon="heart" />
                         <span>18 likes</span>
                       </a>
@@ -115,11 +120,16 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">Danny Moore</a> added you as a friend
-                      <div className="date">7 hours ago</div>
+                      <a href="#!" className="name">
+                        Danny Moore
+                      </a>{" "}
+                      added you as a friend
+                      <div href="#!" className="date">
+                        7 hours ago
+                      </div>
                     </div>
                     <div className="feed-footer">
-                      <a className="like">
+                      <a href="#!" className="like">
                         <Fa icon="heart" />
                         <span>11 likes</span>
                       </a>
@@ -137,7 +147,10 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">Lili Rose</a> posted on her page
+                      <a href="#!" className="name">
+                        Lili Rose
+                      </a>{" "}
+                      posted on her page
                       <div className="date">2 days ago</div>
                     </div>
                     <div className="added-text">
@@ -147,7 +160,7 @@ class SocialPage extends Component {
                       voluptate.
                     </div>
                     <div className="feed-footer">
-                      <a className="like">
+                      <a href="#!" className="like">
                         <Fa icon="heart" />
                         <span>7 likes</span>
                       </a>
@@ -165,8 +178,10 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">Kate Harrison</a> added{" "}
-                      <a> 2 new photos</a> of you
+                      <a href="#!" className="name">
+                        Kate Harrison
+                      </a>{" "}
+                      added <a href="#!"> 2 new photos</a> of you
                       <div className="date">3 days ago</div>
                     </div>
                     <div className="added-images">
@@ -182,7 +197,7 @@ class SocialPage extends Component {
                       />
                     </div>
                     <div className="feed-footer">
-                      <a className="like">
+                      <a href="#!" className="like">
                         <Fa icon="heart" />
                         <span>53 likes</span>
                       </a>
@@ -214,24 +229,28 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">John Doe</a> added you as a friend
+                      <a href="#!" className="name">
+                        John Doe
+                      </a>{" "}
+                      added you as a friend
                       <div className="date">1 hour ago</div>
                     </div>
                     <div className="feed-footer">
                       <div className="d-flex">
                         <a
+                          href="#!"
                           className="comment"
                           aria-expanded="false"
                           aria-controls="collapseExample-1"
                           onClick={this.toggleCollapse("collapseExample-1")}
                         >
-                          Comment{" "}
-                        </a>{" "}
-                        &middot;{" "}
+                          Comment
+                        </a>
+                        &middot;
                         <span>
-                          <a> 7 </a>
+                          <a href="#!"> 7 </a>
                         </span>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             tag="span"
                             placement="top"
@@ -240,7 +259,7 @@ class SocialPage extends Component {
                             <Fa icon="thumbs-up" />
                           </Tooltip>
                         </a>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             placement="top"
                             tooltipContent="I don't like it"
@@ -279,8 +298,10 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">Anna Smith</a> added{" "}
-                      <a>2 new illustrations</a>
+                      <a href="#!" className="name">
+                        Anna Smith
+                      </a>
+                      added <a href="#!">2 new illustrations</a>
                       <div className="date">4 hours ago</div>
                     </div>
                     <div className="added-images">
@@ -298,18 +319,19 @@ class SocialPage extends Component {
                     <div className="feed-footer">
                       <div className="d-flex">
                         <a
+                          href="#!"
                           className="comment"
                           aria-expanded="false"
                           aria-controls="collapseExample-2"
                           onClick={this.toggleCollapse("collapseExample-2")}
                         >
-                          Comment{" "}
-                        </a>{" "}
-                        &middot;{" "}
+                          Comment
+                        </a>
+                        &middot;
                         <span>
-                          <a> 31 </a>
+                          <a href="#!"> 31 </a>
                         </span>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             tag="span"
                             placement="top"
@@ -318,7 +340,7 @@ class SocialPage extends Component {
                             <Fa icon="thumbs-up" />
                           </Tooltip>
                         </a>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             placement="top"
                             tooltipContent="I don't like it"
@@ -357,24 +379,28 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">Danny Moore</a> added you as a friend
+                      <a href="#!" className="name">
+                        Danny Moore
+                      </a>
+                      added you as a friend
                       <div className="date">7 hours ago</div>
                     </div>
                     <div className="feed-footer">
                       <div className="d-flex">
                         <a
+                          href="#!"
                           className="comment"
                           aria-expanded="false"
                           aria-controls="collapseExample-3"
                           onClick={this.toggleCollapse("collapseExample-3")}
                         >
-                          Comment{" "}
-                        </a>{" "}
-                        &middot;{" "}
+                          Comment
+                        </a>
+                        &middot;
                         <span>
-                          <a> 12 </a>
+                          <a href="#!"> 12 </a>
                         </span>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             tag="span"
                             placement="top"
@@ -383,7 +409,7 @@ class SocialPage extends Component {
                             <Fa icon="thumbs-up" />
                           </Tooltip>
                         </a>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             placement="top"
                             tooltipContent="I don't like it"
@@ -422,7 +448,10 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">Lili Rose</a> posted on her page
+                      <a href="#!" className="name">
+                        Lili Rose
+                      </a>
+                      posted on her page
                       <div className="date">2 days ago</div>
                     </div>
                     <div className="added-text">
@@ -434,18 +463,19 @@ class SocialPage extends Component {
                     <div className="feed-footer">
                       <div className="d-flex">
                         <a
+                          href="#!"
                           className="comment"
                           aria-expanded="false"
                           aria-controls="collapseExample-4"
                           onClick={this.toggleCollapse("collapseExample-4")}
                         >
-                          Comment{" "}
-                        </a>{" "}
-                        &middot;{" "}
+                          Comment
+                        </a>
+                        &middot;
                         <span>
-                          <a> 25 </a>
+                          <a href="#!"> 25 </a>
                         </span>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             tag="span"
                             placement="top"
@@ -454,7 +484,7 @@ class SocialPage extends Component {
                             <Fa icon="thumbs-up" />
                           </Tooltip>
                         </a>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             placement="top"
                             tooltipContent="I don't like it"
@@ -493,8 +523,10 @@ class SocialPage extends Component {
                   </div>
                   <div className="excerpt">
                     <div className="brief">
-                      <a className="name">Kate Harrison</a> added{" "}
-                      <a> 2 new photos</a> of you
+                      <a href="#!" className="name">
+                        Kate Harrison
+                      </a>
+                      added <a href="#!"> 2 new photos</a> of you
                       <div className="date">3 days ago</div>
                     </div>
                     <div className="added-images">
@@ -512,18 +544,19 @@ class SocialPage extends Component {
                     <div className="feed-footer">
                       <div className="d-flex">
                         <a
+                          href="#!"
                           className="comment"
                           aria-expanded="false"
                           aria-controls="collapseExample-5"
                           onClick={this.toggleCollapse("collapseExample-5")}
                         >
-                          Comment{" "}
-                        </a>{" "}
-                        &middot;{" "}
+                          Comment
+                        </a>
+                        &middot;
                         <span>
-                          <a> 47 </a>
+                          <a href="#!"> 47 </a>
                         </span>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             tag="span"
                             placement="top"
@@ -532,7 +565,7 @@ class SocialPage extends Component {
                             <Fa icon="thumbs-up" />
                           </Tooltip>
                         </a>
-                        <a className="thumbs">
+                        <a href="#!" className="thumbs">
                           <Tooltip
                             placement="top"
                             tooltipContent="I don't like it"
@@ -578,12 +611,14 @@ class SocialPage extends Component {
               />
               <CardBody>
                 <CardTitle>
-                  <a className="title-one">Clara</a>
+                  <a href="#!" className="title-one">
+                    Clara
+                  </a>
                 </CardTitle>
                 <p className="card-meta">Joined in 2013</p>
                 <CardText>Clara is an photographer living in Madrid.</CardText>
                 <hr />
-                <a className="card-meta">
+                <a href="#!" className="card-meta">
                   <span>
                     <Fa icon="user" />
                     22 Friends
@@ -695,20 +730,22 @@ class SocialPage extends Component {
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg"
                     alt="Card image cap"
                   />
-                  <a>
+                  <a href="#!">
                     <Mask overlay="white-slight" />
                   </a>
                 </View>
                 <CardBody>
-                  <a>
+                  <a href="#!">
                     <CardTitle>Anna</CardTitle>
                   </a>
-                  <a className="card-meta">Friends</a>
+                  <a href="#!" className="card-meta">
+                    Friends
+                  </a>
                   <CardText>
                     Anna is a web designer living in New York.
                   </CardText>
                   <hr />
-                  <a className="card-meta">
+                  <a href="#!" className="card-meta">
                     <span>
                       <Fa icon="user" />
                       83 Friends
@@ -725,18 +762,20 @@ class SocialPage extends Component {
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg"
                     alt="Card image cap"
                   />
-                  <a>
+                  <a href="#!">
                     <Mask overlay="white-slight" />
                   </a>
                 </View>
                 <CardBody>
-                  <a>
+                  <a href="#!">
                     <CardTitle>John</CardTitle>
                   </a>
-                  <a className="card-meta">Coworker</a>
+                  <a href="#!" className="card-meta">
+                    Coworker
+                  </a>
                   <CardText>John is a copywriter living in Seattle.</CardText>
                   <hr />
-                  <a className="card-meta">
+                  <a href="#!" className="card-meta">
                     <span>
                       <Fa icon="user" />
                       48 Friends
@@ -753,18 +792,20 @@ class SocialPage extends Component {
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(28).jpg"
                     alt="Card image cap"
                   />
-                  <a>
+                  <a href="#!">
                     <Mask overlay="white-slight" />
                   </a>
                 </View>
                 <CardBody>
-                  <a>
+                  <a href="#!">
                     <CardTitle>Sara</CardTitle>
                   </a>
-                  <a className="card-meta">Coworker</a>
+                  <a href="#!" className="card-meta">
+                    Coworker
+                  </a>
                   <CardText>Sara is a video maker living in Tokyo.</CardText>
                   <hr />
-                  <a className="card-meta">
+                  <a href="#!" className="card-meta">
                     <span>
                       <Fa icon="user" />
                       127 Friends
