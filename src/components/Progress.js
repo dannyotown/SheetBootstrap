@@ -16,7 +16,7 @@ class Progress extends React.Component {
       ...attributes
     } = this.props;
 
-    const percent = (value.Number() / max.Number()) * 100;
+    const percent = (parseInt(value, 10) / parseInt(max, 10)) * 100;
 
     const progressClasses = classNames("progress", className);
 
