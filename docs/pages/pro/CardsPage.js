@@ -220,7 +220,7 @@ class FlippingCardPage extends React.Component {
           <h2>Flipping card</h2>
 
           <Row>
-            <Col>
+            <Col style={{ minHeight: '26rem' }}>
               <FlippingCard
                 flipped={this.state.flipped}
                 className="text-center h-100 w-100"
