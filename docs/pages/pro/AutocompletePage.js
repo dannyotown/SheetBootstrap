@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   Container,
   Autocomplete,
@@ -281,19 +281,17 @@ const subjects = [
   "More in Managing Your Orders"
 ];
 
-class AutocompletePage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false
-    };
-    this.toggleModal = this.toggleModal.bind(this);
-  }
-  toggleModal() {
+class AutocompletePage extends Component {
+  state = {
+    modal: false
+  };
+
+  toggle = () => {
     this.setState({
       modal: !this.state.modal
     });
-  }
+  };
+
   handleModalClearClick() {
     this.setState({
       modal: false
@@ -414,7 +412,7 @@ class AutocompletePage extends React.Component {
         </Row>
 
         <div className="text-center mt-3">
-          <Button onClick={this.toggleModal} rounded className="mx-auto">
+          <Button onClick={this.toggle} rounded className="mx-auto">
             launch modal contact
           </Button>
           <Modal
@@ -436,9 +434,9 @@ class AutocompletePage extends React.Component {
               />
             </ModalHeader>
             <ModalBody>
-              <Input label="Your name" icon="envelope" iconClass="dark-grey" />
-              <Input label="Your email" icon="lock" iconClass="dark-grey" />
-              <Autocomplete label="Subject" icon="tag" data={subjects} clear />
+              <Input label="Your name"  />
+              <Input label="Your email"  iconClass="dark-grey" />
+              <Autocomplete label="Subject"  data={subjects} clear />
               <Input
                 label="Your message"
                 type="textarea"

@@ -71,7 +71,7 @@ class Modal extends Component {
       backdrop,
       backdropClassName,
       contentClassName,
-      modalClassName,
+      className,
       size,
       side,
       fullHeight,
@@ -92,7 +92,7 @@ class Modal extends Component {
 
     const modalDialogClasses = classNames(
       "modal-dialog",
-      modalClassName,
+      className,
       size && `modal-${size}`,
       side && `modal-side`,
       fullHeight && `modal-full-height`,
@@ -198,7 +198,7 @@ Modal.propTypes = {
   frame: PropTypes.bool,
   centered: PropTypes.bool,
   position: PropTypes.string,
-  cascading: PropTypes.string,
+  cascading: PropTypes.bool,
   modalStyle: PropTypes.string,
   wrapClassName: PropTypes.string,
   animation: PropTypes.string,
