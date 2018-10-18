@@ -294,7 +294,7 @@ class ChatPage extends Component {
         <MDBCard className="grey lighten-3 chat-room">
           <MDBCardBody>
             <MDBRow className="px-lg-2 px-2">
-              <MDBCol md="6" xl="4" className="px-0">
+              <MDBCol md="6" xl="4" className="px-0 mb-2 mb-md-0">
                 <h6 className="font-weight-bold mb-3 text-lg-left">Member</h6>
                 <div className="white z-depth-1 p-3">
                   <MDBListGroup className="friend-list">
@@ -304,7 +304,7 @@ class ChatPage extends Component {
                   </MDBListGroup>
                 </div>
               </MDBCol>
-              <MDBCol md="6" xl="8" className="pl-md-3 px-lg-auto">
+              <MDBCol md="6" xl="8" className="pl-md-3 px-lg-auto mt-2 mt-md-0">
                 <MDBRow>
                   <MDBListGroup className="list-unstyled pl-3">
                     {this.state.messages.map(message => (
@@ -345,7 +345,7 @@ class ChatPage extends Component {
         <MDBCard className="grey lighten-3 chat-room">
           <MDBCardBody>
             <MDBRow className="px-lg-2 px-2">
-              <MDBCol md="6" xl="4" className="px-0 scrollable-friends-list">
+              <MDBCol md="6" xl="4" className="px-0 mb-4 mb-md-0 scrollable-friends-list">
                 <h6 className="font-weight-bold mb-3 text-lg-left">Member</h6>
                 <MDBScrollbar>
                   <div className="white z-depth-1 p-3">
@@ -357,7 +357,7 @@ class ChatPage extends Component {
                   </div>
                 </MDBScrollbar>
               </MDBCol>
-              <MDBCol md="6" xl="8" className="pl-md-3 px-lg-auto">
+              <MDBCol md="6" xl="8" className="pl-md-3 mt-4 mt-md-0 px-lg-auto">
                 <div className="scrollable-chat">
                   <MDBScrollbar>
                     <MDBListGroup className="list-unstyled pl-3 pr-3">
