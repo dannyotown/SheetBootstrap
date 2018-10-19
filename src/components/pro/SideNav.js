@@ -153,7 +153,7 @@ class SideNav extends React.Component {
         >
           {sidenav}
         </CSSTransition>
-        {showOverlay & isThere && overlay}
+        {showOverlay && isThere && overlay}
       </div>
     );
   }

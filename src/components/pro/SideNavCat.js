@@ -14,6 +14,8 @@ class SideNavCat extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  static displayName = "SideNavCat";
+
   componentDidUpdate(prevProps) {
     if (prevProps.isOpen !== this.props.isOpen) {
       this.setState({

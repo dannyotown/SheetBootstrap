@@ -34,7 +34,7 @@ class SideNavNav extends React.Component {
     );
 
     const modified = React.Children.map(this.props.children, (child, i) => {
-      if (child.type.name === "SideNavCat") {
+      if (child.type.displayName === "SideNavCat") {
         return React.cloneElement(child, {
           onClick: this.onClick(i),
           isOpen: accordion === i
