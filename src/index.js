@@ -111,6 +111,7 @@ import StickyContainer from "./components/pro/StickyContainer";
 import Testimonial from "./components/pro/Testimonial";
 import Timeline from "./components/pro/Timeline";
 import TimelineStep from "./components/pro/TimelineStep";
+import TimePicker from './components/pro/TimePicker/TimePicker';
 
 // MDB FREE
 import MDBBadge from "./components/Badge";
@@ -193,7 +194,7 @@ import MDBChipsInput from "./components/pro/ChipsInput";
 import MDBCollapseHeader from "./components/pro/CollapseHeader";
 import MDBDatePicker from "./components/pro/DatePicker";
 import MDBExportToCSV from "./components/pro/ExportToCSV";
-import MDBTimePicker from "./components/pro/TimePicker";
+import MDBTimePicker from "./components/pro/TimePicker/TimePicker";
 import MDBFlippingCard from "./components/pro/FlippingCard";
 import MDBFileInput from "./components/pro/InputFile";
 import MDBRangeInput from "./components/pro/InputRange";
@@ -352,6 +353,7 @@ export {
   Testimonial,
   Timeline,
   TimelineStep,
+  TimePicker,
   // MDB FREE
   MDBBadge,
   MDBBreadcrumb,
