@@ -218,22 +218,29 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 
 class TimePickerClock extends Component {
-  state = {
-    format: 12,
-    max: 12,
-    min: 1,
-    scrollable: true,
-    rotate: 30, 
-    size: 270,
-    step: 1,
-    value: 12,
-    count: 0,
-    innerRadius: 0,
-    outerRadius: 0,
-    degrees: 360,
-    displayedValue: 12,
-    inputValue: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      format: 12,
+      max: 12,
+      min: 1,
+      scrollable: true,
+      rotate: 30, 
+      size: 270,
+      step: 1,
+      value: 12,
+      count: 0,
+      radius: 360,
+      innerRadius: 0,
+      outerRadius: 0,
+      degreesPerUnit: 1,
+      degrees: 360,
+      displayedValue: 12,
+      inputValue: null
+    };
+
+    this.clockRef = React.createRef();
+  }
 
   componentDidMount() {
     const radius = this.state.size / 2;
@@ -246,6 +253,7 @@ class TimePickerClock extends Component {
       radius,
       innerRadius: radius - 4,
       outerRadius: radius - Math.max(radius * 0.4, 48),
+      degreesPerUnit,
       degrees: degreesPerUnit * Math.PI / 180,
       displayedValue: this.state.inputValue === null ? this.state.min : this.state.inputValue
     });
@@ -254,7 +262,7 @@ class TimePickerClock extends Component {
   wheel = (e) => {
     e.preventDefault();
     const value = this.state.displayedValue + Math.sign(e.wheelDelta || 1);
-    this.state.update(((value - this.state.min + this.state.count) % this.state.count) + this.state.min);
+    this.update(((value - this.state.min + this.state.count) % this.state.count) + this.state.min);
   };
 
   handScale = (value) => {
@@ -269,20 +277,20 @@ class TimePickerClock extends Component {
     const children = [];
 
     for (let value = this.state.min; value <= this.state.max; value += this.state.step) {
-      const classes = {
-        active: value === this.state.displayedValue,
-        disabled: !this.isAllowed(value)
-      };
+      const classes = classNames(
+        value === this.state.displayedValue && 'active',
+        !this.isAllowed(value) && 'disabled'
+      );
 
-      children.push(React.createElement(
-        'span',
-        {
-          className: classNames(classes, value === this.state.inputValue ? this.state.computedColor : null),
-          style: this.getTransform(value),
-          key: value
-        },
-        value
-      ));
+      children.push(
+        <span
+          className={classes}
+          style={this.getTransform(value)}
+          key={value}
+        >
+          {value}
+        </span>
+      );
     }
 
     return children;
@@ -325,34 +333,32 @@ class TimePickerClock extends Component {
 
   onMouseUp = () => {
     this.setState({ isDragging: false });
-    this.isAllowed(this.state.inputValue) && this.state.$emit('change', this.state.inputValue);
   };
 
   onDragMove = (e) => {
     e.preventDefault();
     if (!this.state.isDragging && e.type !== 'click') return;
 
-    const { width, top, left } = this.state.$refs.clock.getBoundingClientRect();
+    const { width, top, left } = this.clockRef.current.getBoundingClientRect();
     const { clientX, clientY } = 'touches' in e ? e.touches[0] : e;
     const center = { x: width / 2, y: -width / 2 };
     const coords = { x: clientX - left, y: top - clientY };
-    const handAngle = Math.round(this.state.angle(center, coords) - this.state.rotate + 360) % 360;
-    const insideClick = this.state.double && this.state.euclidean(center, coords) < ((this.state.outerRadius + this.state.innerRadius) / 2) - 16;
+    const handAngle = Math.round(this.angle(center, coords) - this.state.rotate + 360) % 360;
+    const insideClick = this.state.double && this.euclidean(center, coords) < ((this.state.outerRadius + this.state.innerRadius) / 2) - 16;
     const value = Math.round(handAngle / this.state.degreesPerUnit) +
       this.state.min + (insideClick ? this.state.roundCount : 0);
 
     // Necessary to fix edge case when selecting left part of max value
     if (handAngle >= (360 - (this.state.degreesPerUnit / 2))) {
-      this.state.update(insideClick ? this.state.max : this.state.min);
+      this.update(insideClick ? this.state.max : this.state.min);
     } else {
-      this.state.update(value);
+      this.update(value);
     }
   };
 
   update = (value) => {
     if (this.state.inputValue !== value && this.isAllowed(value)) {
-      this.state.inputValue = value;
-      this.state.$emit('input', value);
+      this.setState({ inputValue: value });
     }
   };
 
@@ -364,7 +370,7 @@ class TimePickerClock extends Component {
   };
 
   angle = (center, p1) => {
-    const value = 2 * Math.atan2(p1.y - center.y - this.state.euclidean(center, p1), p1.x - center.x);
+    const value = 2 * Math.atan2(p1.y - center.y - this.euclidean(center, p1), p1.x - center.x);
     return Math.abs(value * 180 / Math.PI);
   };
 
@@ -385,6 +391,7 @@ class TimePickerClock extends Component {
         onTouchEnd={this.onMouseUp}
         onMouseMove={this.onDragMove}
         onTouchMove={this.onDragMove}
+        ref={this.clockRef}
       >
        {
          this.genHand()
