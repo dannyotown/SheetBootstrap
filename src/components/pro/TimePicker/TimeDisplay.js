@@ -13,21 +13,21 @@ const TimeDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChange, hou
   );
 
   return (
-    <div class="picker__date-display">
-      <div class="clockpicker-display">
-        <div class="clockpicker-display-column">
+    <div className="picker__date-display">
+      <div className="clockpicker-display">
+        <div className="clockpicker-display-column">
           <span 
             className={hourClasses}
             onClick={() => handleModeChange('h')}
-          >{{ hours }}</span>:<span 
+          >{hours}</span>:<span 
             className={minuteClasses}
             onClick={() => handleModeChange('m')}  
-          >{{ minutes }}</span>
+          >{minutes}</span>
         </div>
         {
           hoursFormat === 12 &&
           <div className="clockpicker-display-column clockpicker-display-am-pm">
-            <div className="clockpicker-span-am-pm">{{ dayTime }}</div>
+            <div className="clockpicker-span-am-pm">{dayTime}</div>
           </div>
         }
       </div>

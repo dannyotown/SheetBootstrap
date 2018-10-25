@@ -1,16 +1,14 @@
-
 import React from 'react';
 import TimePickerClock from './TimePickerClock';
 
 const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, onHoursChange, onMinutesChange, unitsMode }) => {
   return (
-    <div class="picker__calendar-container">
-      <div class="clockpicker-plate">
+    <div className="picker__calendar-container">
+      <div className="clockpicker-plate">
         {
           unitsMode === 'h' 
           ? (
-            <TimePickerClock 
-              v-if="unitsMode === 'h'" 
+            <TimePickerClock
               min={1} 
               max={hoursFormat} 
               step={1}
@@ -18,7 +16,6 @@ const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, onHoursChange, o
               color={color}
               scrollable={true}
               value={hours}
-              ref="clock"
               double={hoursFormat === 24}
               onChange={onHoursChange}
             />
@@ -32,7 +29,6 @@ const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, onHoursChange, o
               color={color}
               scrollable={true}
               value={minutes}
-              ref="clock"
               onChange={onMinutesChange}
             />
           )

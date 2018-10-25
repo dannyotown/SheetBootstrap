@@ -15,7 +15,14 @@ class TimePicker extends Component {
     minutes: 0,
     pickerDialogOpen: false ,
     unitsMode: 'h',
-    value: null
+    value: ''
+  }
+
+  componentDidMount() {
+    this.setState({
+      computedHours: this.computeTimeNumber(this.state.hours),
+      computedMinutes: this.computeTimeNumber(this.state.minutes)
+    });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -40,7 +47,7 @@ class TimePicker extends Component {
 
   handleHoursChange = (hours) => this.setState({ hours });
 
-  handleDoneClicked = () => {
+  handleDoneClick = () => {
     this.setState({ 
       value: this.state.hoursFormat === 12 
       ? `${this.state.computedHours}:${this.state.computedMinutes}${this.state.dayTime}` 
@@ -83,7 +90,7 @@ class TimePicker extends Component {
     );
 
     return (
-      <div class="md-form">
+      <div className="md-form">
         <input 
           type="text" 
           placeholder={placeholder} 
@@ -91,8 +98,9 @@ class TimePicker extends Component {
           className={inputClasses}
           value={value} 
           onClick={this.handlePickerDialogOpen}
+          readOnly
         />
-        <label for={id} className="active">{label}</label>
+        <label htmlFor={id} className="active">{label}</label>
         
         { 
           pickerDialogOpen && 
@@ -123,7 +131,7 @@ class TimePicker extends Component {
                       hoursFormat === 12 &&
                       <ClockpickerAmPmBlock handleDayTimeChange={this.handleDayTimeChange} />
                     }
-                    <ClockpickerFooter handleDoneClicked={this.handleDoneClicked} />
+                    <ClockpickerFooter handleDoneClick={this.handleDoneClick} />
                   </div>
                 </div>
               </div>
