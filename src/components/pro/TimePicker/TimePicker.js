@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import './clock.css';
 import TimeDisplay from './TimeDisplay';
 import ClockpickerPlate from './ClockpickerPlate';
 import ClockpickerAmPmBlock from './ClockpickerAmPmBlock';
