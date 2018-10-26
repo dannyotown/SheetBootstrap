@@ -35,7 +35,7 @@ class TimePickerClock extends Component {
       isDragging: false,
       innerRadius: 120,
       outerRadius: 266,
-      value: 0
+      value: this.props.value
     };
 
     this.clockRef = React.createRef();
@@ -140,25 +140,24 @@ class TimePickerClock extends Component {
 
     const center = { x: width / 2, y: -width / 2 };
     const coords = { x: clientX - left, y: top - clientY };
-    const handAngle = Math.round(this.getHandAngle(center, coords) + 360) % 360;
+    const aproximateHandValue = Math.round(this.getHandAngle(center, coords) + 360) % 360;
     const insideClick = this.state.double && this.euclidean(center, coords) < ((this.state.outerRadius + this.state.innerRadius) / 2) - 16;
-    const value = Math.round((handAngle - this.props.rotate) / this.state.degreesPerUnit) + this.props.min + (insideClick ? this.state.digitsInRound : 0);
+    const value = Math.round((aproximateHandValue - this.props.rotate) / this.state.degreesPerUnit) + this.props.min + (insideClick ? this.state.digitsInRound : 0);
     const handScale = this.getHandScale(value);
-    
-    this.setState({ handAngle, handScale });
+    const handAngle = this.props.rotate + (this.state.degreesPerUnit * (value - this.props.min));
 
-    if (handAngle >= (360 - (this.state.degreesPerUnit / 2))) {
-      this.updateValue(insideClick ? this.props.max : this.props.min);
-    } else {
-      this.updateValue(value);
+    if(this.state.value !== value) {
+      if (handAngle >= (360 - (this.state.degreesPerUnit / 2))) {
+        this.updateValue(insideClick ? this.props.max : this.props.min, handAngle, handScale);
+      } else {
+        this.updateValue(value, handAngle, handScale);
+      }
     }
   };
 
-  updateValue = (value) => {
-    if(this.state.value !== value) {
-      this.setState({ value });
+  updateValue = (value, handAngle, handScale) => {
+      this.setState({ value, handAngle, handScale });
       this.props.handleChange(value);
-    }
   };
 
   render() {
