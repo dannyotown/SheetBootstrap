@@ -1,69 +1,97 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import ClockHand from './ClockHand';
+
+const propTypes = {
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  rotate: PropTypes.number.isRequired,
+  step: PropTypes.number.isRequired,
+  allowedValues: PropTypes.arrayOf(PropTypes.number),
+  color: PropTypes.string,
+  double: PropTypes.bool,
+  size: PropTypes.number,
+  value: PropTypes.number
+};
+
+const defaultProps = {
+  allowedValues: [],
+  color: 'priamry',
+  double: false,
+  size: 270,
+  value: 0
+};
 
 class TimePickerClock extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      format: 12,
-      max: 12,
-      min: 1,
-      scrollable: true,
-      rotate: 30, 
-      size: 270,
-      step: 1,
-      value: 12,
-      count: 0,
-      radius: 360,
-      innerRadius: 0,
-      outerRadius: 0,
-      degreesPerUnit: 1,
-      degrees: 360,
-      displayedValue: 12,
-      inputValue: null
+      clockRadius: 135,
+      degrees: 30,
+      digitsInRound: 12,
+      degreesPerUnit: 30,
+      isDragging: false,
+      innerRadius: 120,
+      outerRadius: 266,
+      value: 0
     };
 
     this.clockRef = React.createRef();
   }
 
   componentDidMount() {
-    const radius = this.state.size / 2;
-    const count = this.state.max - this.state.min + 1;
-    const roundCount = this.state.double ? (count / 2) : count;
-    const degreesPerUnit = 360 / roundCount;
+    const { size, max, min, double } = this.props;
+
+    const clockRadius = size / 2;
+    const digitsAmount = max - min + 1;
+    const digitsInRound = double ? (digitsAmount / 2) : digitsAmount;
+    const degreesPerUnit = 360 / digitsInRound;
+    const outerRadius = clockRadius - 4;
+    const innerRadius = clockRadius - Math.max(clockRadius * 0.4, 48); // cant be lower than 48
+    const degrees = degreesPerUnit * Math.PI / 180;
+    const handScale = this.getHandScale(this.props.value);
+    console.log(handScale)
+    const handAngle = this.props.rotate + (degreesPerUnit * (this.props.value - this.props.min));
 
     this.setState({ 
-      count,
-      radius,
-      innerRadius: radius - 4,
-      outerRadius: radius - Math.max(radius * 0.4, 48),
+      clockRadius,
+      degrees,
       degreesPerUnit,
-      degrees: degreesPerUnit * Math.PI / 180,
-      displayedValue: this.state.inputValue === null ? this.state.min : this.state.inputValue
+      digitsInRound,
+      handAngle,
+      handScale,
+      innerRadius,
+      outerRadius
     });
   }
-
-  wheel = (e) => {
-    e.preventDefault();
-    const value = this.state.displayedValue + Math.sign(e.wheelDelta || 1);
-    this.update(((value - this.state.min + this.state.count) % this.state.count) + this.state.min);
+  
+  getHandScale = (value) => {
+    return this.props.double && (value - this.props.min >= this.state.digitsInRound) ? (this.state.innerRadius / this.state.clockRadius) : (this.state.outerRadius / this.state.clockRadius);
+  };
+  
+  getHandAngle = (center, p1) => {
+    const value = 2 * Math.atan2(p1.y - center.y - this.euclidean(center, p1), p1.x - center.x);
+    return Math.abs(value * 180 / Math.PI);
   };
 
-  handScale = (value) => {
-    return this.state.double && (value - this.state.min >= this.state.roundCount) ? (this.state.innerRadius / this.state.radius) : (this.state.outerRadius / this.state.radius);
+  euclidean = (p0, p1) => {
+    const dx = p1.x - p0.x;
+    const dy = p1.y - p0.y;
+
+    return Math.sqrt((dx * dx) + (dy * dy));
   };
 
-  isAllowed = (value) => {
-    return !this.state.allowedValues || this.state.allowedValues(value);
-  };
+  isValueAllowed = (value) => this.props.allowedValues.length ? this.props.allowedValues.find(item => item === value) : true;
 
-  genValues = () => {
+  genClockDigits = () => {
     const children = [];
 
-    for (let value = this.state.min; value <= this.state.max; value += this.state.step) {
+    for (let value = this.props.min; value <= this.props.max; value += this.props.step) {
       const classes = classNames(
-        value === this.state.displayedValue && 'active',
-        !this.isAllowed(value) && 'disabled'
+        value === this.state.value && 'active',
+        !this.isValueAllowed(value) && 'disabled'
       );
 
       children.push(
@@ -80,31 +108,23 @@ class TimePickerClock extends Component {
     return children;
   };
 
-  genHand = () => {
-    const scale = `scaleY(${this.handScale(this.state.displayedValue)})`;
-    const angle = this.state.rotate + (this.state.degreesPerUnit * (this.state.displayedValue - this.state.min));
-
-    return <div className="time-picker-clock__hand" style={{ transform: `rotate(${angle}deg) ${scale}`}}></div>
-  };
-
-  getTransform = (i) => {
-    const { x, y } = this.getPosition(i);
+  getTransform = (value) => {
+    const { x, y } = this.getPosition(value);
     return { transform: `translate(${x}px, ${y}px)` };
   };
 
   getPosition = (value) => {
-    const radius = (this.state.radius - 24) * this.handScale(value);
-    const rotateRadians = this.state.rotate * Math.PI / 180;
+    const radius = (this.state.clockRadius - 24) * this.getHandScale(value);
+    const rotateRadians = this.props.rotate * Math.PI / 180;
     return {
-      x: Math.round(Math.sin(((value - this.state.min) * this.state.degrees) + rotateRadians) * radius),
-      y: Math.round(-Math.cos(((value - this.state.min) * this.state.degrees) + rotateRadians) * radius)
+      x: Math.round(Math.sin(((value - this.props.min) * this.state.degrees) + rotateRadians) * radius),
+      y: Math.round(-Math.cos(((value - this.props.min) * this.state.degrees) + rotateRadians) * radius)
     };
   };
 
   onMouseDown = (e) => {
     e.preventDefault();
     this.setState({ isDragging: true });
-    this.onDragMove(e);
   };
 
   onMouseUp = () => {
@@ -117,37 +137,28 @@ class TimePickerClock extends Component {
 
     const { width, top, left } = this.clockRef.current.getBoundingClientRect();
     const { clientX, clientY } = 'touches' in e ? e.touches[0] : e;
+
     const center = { x: width / 2, y: -width / 2 };
     const coords = { x: clientX - left, y: top - clientY };
-    const handAngle = Math.round(this.angle(center, coords) - this.state.rotate + 360) % 360;
+    const handAngle = Math.round(this.getHandAngle(center, coords) + 360) % 360;
     const insideClick = this.state.double && this.euclidean(center, coords) < ((this.state.outerRadius + this.state.innerRadius) / 2) - 16;
-    const value = Math.round(handAngle / this.state.degreesPerUnit) +
-      this.state.min + (insideClick ? this.state.roundCount : 0);
+    const value = Math.round((handAngle - this.props.rotate) / this.state.degreesPerUnit) + this.props.min + (insideClick ? this.state.digitsInRound : 0);
+    const handScale = this.getHandScale(value);
+    
+    this.setState({ handAngle, handScale });
 
-    // Necessary to fix edge case when selecting left part of max value
     if (handAngle >= (360 - (this.state.degreesPerUnit / 2))) {
-      this.update(insideClick ? this.state.max : this.state.min);
+      this.updateValue(insideClick ? this.props.max : this.props.min);
     } else {
-      this.update(value);
+      this.updateValue(value);
     }
   };
 
-  update = (value) => {
-    if (this.state.inputValue !== value && this.isAllowed(value)) {
-      this.setState({ inputValue: value });
+  updateValue = (value) => {
+    if(this.state.value !== value) {
+      this.setState({ value });
+      this.props.handleChange(value);
     }
-  };
-
-  euclidean = (p0, p1) => {
-    const dx = p1.x - p0.x;
-    const dy = p1.y - p0.y;
-
-    return Math.sqrt((dx * dx) + (dy * dy));
-  };
-
-  angle = (center, p1) => {
-    const value = 2 * Math.atan2(p1.y - center.y - this.euclidean(center, p1), p1.x - center.x);
-    return Math.abs(value * 180 / Math.PI);
   };
 
   render() {
@@ -159,25 +170,26 @@ class TimePickerClock extends Component {
     return (
       <div
         className={classes}
-        style={{ height: `${this.state.size}px`, width: `${this.state.size}px` }}
+        style={{ height: `${this.props.size}px`, width: `${this.props.size}px` }}
         onMouseDown={this.onMouseDown}
         onMouseUp={this.onMouseUp}
-        onMouseLeave={() => (this.isDragging && this.onMouseUp())}
+        onMouseLeave={() => (this.state.isDragging && this.onMouseUp())}
         onTouchStart={this.onMouseDown}
         onTouchEnd={this.onMouseUp}
         onMouseMove={this.onDragMove}
         onTouchMove={this.onDragMove}
         ref={this.clockRef}
       >
-       {
-         this.genHand()
-       } 
-       {
-         this.genValues()
-       }
+        <ClockHand angle={this.state.handAngle} scale={this.state.handScale} />
+        {
+          this.genClockDigits()
+        }
       </div>
     );
   }
 }
+
+TimePickerClock.propTypes = propTypes;
+TimePickerClock.defaultProps = defaultProps;
 
 export default TimePickerClock;
