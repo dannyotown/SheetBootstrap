@@ -224,8 +224,8 @@ module.exports = function (env) {
     ],
     module: {
       rules: [
-        { test: /\.(js)$/, exclude: /node_modules/, use: "babel-loader" },
-        { test: /\.(jsx)$/, exclude: /node_modules/, use: "babel-loader" },
+        { test: /\.(js)$/, use: "babel-loader" },
+        { test: /\.(jsx)$/, use: "babel-loader" },
         { test: /\.css$/, use: ["style-loader", "css-loader"] },
         { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader" },
         {
@@ -259,3 +259,7 @@ module.exports = function (env) {
 
   return config;
 };
+
+
+
+
