@@ -35,8 +35,7 @@
     "react-popper": "^0.7.5",
     "react-router-dom": "^4.2.0",
     "react-toastify": "^3.2.2",
-    "react-transition-group": "^2.5.0",
-    "salad-ui.chart": "^1.1.55"
+    "react-transition-group": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",

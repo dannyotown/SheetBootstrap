@@ -96,6 +96,7 @@ import SideNavCat from "./components/pro/SideNavCat";
 import SideNavItem from "./components/pro/SideNavItem";
 import SideNavLink from "./components/pro/SideNavLink";
 import SideNavNav from "./components/pro/SideNavNav";
+import SimpleChart from './components/pro/SimpleChart';
 import Select from "./components/pro/Select";
 import SelectInput from "./components/pro/SelectInput";
 import SelectOptions from "./components/pro/SelectOptions";
@@ -209,6 +210,7 @@ import MDBSideNavCat from "./components/pro/SideNavCat";
 import MDBSideNavItem from "./components/pro/SideNavItem";
 import MDBSideNavLink from "./components/pro/SideNavLink";
 import MDBSideNavNav from "./components/pro/SideNavNav";
+import MDBSimpleChart from './components/pro/SimpleChart';
 import MDBSelect from "./components/pro/Select";
 import MDBSelectInput from "./components/pro/SelectInput";
 import MDBSelectOptions from "./components/pro/SelectOptions";
@@ -337,6 +339,7 @@ export {
   SideNavItem,
   SideNavLink,
   SideNavNav,
+  SimpleChart,
   Select,
   SelectInput,
   SelectOptions,
@@ -449,6 +452,7 @@ export {
   MDBSideNavItem,
   MDBSideNavLink,
   MDBSideNavNav,
+  MDBSimpleChart,
   MDBSelect,
   MDBSelectInput,
   MDBSelectOptions,
