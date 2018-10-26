@@ -14,7 +14,7 @@ class TimePickerPage extends React.Component {
           title="Time Picker"
           href="https://mdbootstrap.com/react/advanced/time-picker/"
         />
-        <MDBTimePicker clearable getValue={this.getPickerValue} />
+        <MDBTimePicker clearable hours={12} getValue={this.getPickerValue} />
       </Container>
     );
   }
