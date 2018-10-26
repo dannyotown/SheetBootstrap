@@ -28,11 +28,11 @@ class TimePicker extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(prevState.minutes !== this.state.minutes) {
-      this.setState({ minutes: this.computeTimeNumber(this.state.minutes) });
+      this.setState({ computedMinutes: this.computeTimeNumber(this.state.minutes) });
     }
 
     if(prevState.hours !== this.state.hours) {
-      this.setState({ hours: this.computeTimeNumber(this.state.hours) });
+      this.setState({ computedHours: this.computeTimeNumber(this.state.hours) });
     }
   }
   
