@@ -10,24 +10,24 @@ const BreadcrumbPage = props => {
         href="https://mdbootstrap.com/react/components/breadcrumb/"
       />
       <div className="container-fluid text-center">
-        <Breadcrumb>
-          <BreadcrumbItem active>Home</BreadcrumbItem>
-        </Breadcrumb>
-        <Breadcrumb>
-          <BreadcrumbItem>
-            <a href="#!">Home</a>
-          </BreadcrumbItem>
+
+        <Breadcrumb light color="default">
+          <BreadcrumbItem>Home</BreadcrumbItem>
           <BreadcrumbItem active>Library</BreadcrumbItem>
         </Breadcrumb>
-        <Breadcrumb>
-          <BreadcrumbItem>
-            <a href="#!">Home</a>
-          </BreadcrumbItem>
-          <BreadcrumbItem>
-            <a href="#!">Library</a>
-          </BreadcrumbItem>
+
+        <Breadcrumb light color="primary">
+          <BreadcrumbItem>Home</BreadcrumbItem>
+          <BreadcrumbItem  active>Library</BreadcrumbItem>
+        </Breadcrumb>
+
+
+        <Breadcrumb light color="secondary">
+          <BreadcrumbItem>Home</BreadcrumbItem>
+          <BreadcrumbItem>Library</BreadcrumbItem>
           <BreadcrumbItem active>Data</BreadcrumbItem>
         </Breadcrumb>
+
       </div>
     </Container>
   );
