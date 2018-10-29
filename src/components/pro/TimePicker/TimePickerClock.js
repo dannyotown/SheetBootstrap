@@ -35,14 +35,25 @@ class TimePickerClock extends Component {
       isDragging: false,
       innerRadius: 120,
       outerRadius: 266,
-      value: this.props.value
+      value: 0
     };
 
     this.clockRef = React.createRef();
   }
 
   componentDidMount() {
-    const { size, max, min, double } = this.props;
+    this.buildComponentState();
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.max !== this.props.max) {
+      this.buildComponentState();
+    }
+  }
+  
+
+  buildComponentState = () => {
+    const { size, max, min, double, value } = this.props;
 
     const clockRadius = size / 2;
     const digitsAmount = max - min + 1;
@@ -52,7 +63,6 @@ class TimePickerClock extends Component {
     const innerRadius = clockRadius - Math.max(clockRadius * 0.4, 48); // cant be lower than 48
     const degrees = degreesPerUnit * Math.PI / 180;
     const handScale = this.getHandScale(this.props.value);
-    console.log(handScale)
     const handAngle = this.props.rotate + (degreesPerUnit * (this.props.value - this.props.min));
 
     this.setState({ 
@@ -63,8 +73,9 @@ class TimePickerClock extends Component {
       handAngle,
       handScale,
       innerRadius,
-      outerRadius
-    });
+      outerRadius,
+      value
+    }, console.log(this.state));
   }
   
   getHandScale = (value) => {
