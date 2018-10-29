@@ -1,5 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TimePickerClock from './TimePickerClock';
+
+const propTypes = {
+  color: PropTypes.string.isRequired,
+  hoursFormat: PropTypes.number.isRequired,
+  hours: PropTypes.number.isRequired,
+  minutes: PropTypes.number.isRequired,
+  handleHoursChange: PropTypes.func.isRequired,
+  handleMinutesChange: PropTypes.func.isRequired,
+  unitsMode: PropTypes.string.isRequired
+};
 
 const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, handleHoursChange, handleMinutesChange, unitsMode }) => {
   return (
@@ -37,5 +48,7 @@ const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, handleHoursChang
     </div>
   );
 }
+
+ClockpickerPlate.propTypes = propTypes;
 
 export default ClockpickerPlate;

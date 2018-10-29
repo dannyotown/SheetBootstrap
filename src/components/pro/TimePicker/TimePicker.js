@@ -9,6 +9,7 @@ import ClockpickerAmPmBlock from './ClockpickerAmPmBlock';
 import ClockpickerFooter from './ClockpickerFooter';
 
 const propTypes = {
+  allowedValues: PropTypes.arrayOf(PropTypes.number),
   id: PropTypes.string.isRequired,
   clearable: PropTypes.bool,
   color: PropTypes.string,
@@ -21,6 +22,7 @@ const propTypes = {
 };
 
 const defaultProps = {
+  allowedValues: [],
   clearable: false,
   color: 'primary',
   getValue: () => {},
@@ -32,21 +34,19 @@ const defaultProps = {
 };
 
 class TimePicker extends Component {
-  state = {
-    clearable: this.props.clearable,
-    color: this.props.color,
-    computedHours: '',
-    computedMinutes: '',
-    dayTime: 'am',
-    hours: this.props.hours,
-    hoursFormat: this.props.hoursFormat,
-    id: this.props.id,
-    label: this.props.label,
-    minutes: this.props.minutes,
-    placeholder: this.props.placeholder,
-    pickerDialogOpen: false,
-    unitsMode: 'h',
-    value: ''
+  constructor(props) {
+    super(props);
+    this.state = {
+      allowedValues: [],
+      computedHours: '',
+      computedMinutes: '',
+      dayTime: 'am',
+      hours: this.props.hours,
+      minutes: this.props.minutes,
+      pickerDialogOpen: false,
+      unitsMode: 'h',
+      value: ''
+    };
   }
 
   componentDidMount() {
@@ -68,7 +68,7 @@ class TimePicker extends Component {
 
   setInputText = () => {
     this.setState({ 
-      value: this.state.hoursFormat === 12 
+      value: this.props.hoursFormat === 12 
       ? `${this.state.computedHours}:${this.state.computedMinutes}${this.state.dayTime}` 
       : `${this.state.computedHours}:${this.state.computedMinutes}`,
       unitsMode: 'h'  
@@ -94,21 +94,24 @@ class TimePicker extends Component {
 
   render() {
     const {
-      clearable,
-      color,
       computedHours,
       computedMinutes,
       dayTime,
       hours,
-      hoursFormat,
-      id,
-      label,
       minutes,
-      placeholder,
       pickerDialogOpen,
       unitsMode,
       value
     } = this.state;
+
+    const {
+      clearable,
+      color,
+      hoursFormat,
+      id,
+      label,
+      placeholder
+    } = this.props;
 
     const inputClasses = classNames(
       "form-control",

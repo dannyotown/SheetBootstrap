@@ -8,7 +8,7 @@ const propTypes = {
   dayTime: PropTypes.string.isRequired,
   unitsMode: PropTypes.string.isRequired,
   handleModeChange: PropTypes.func.isRequired,
-  hoursFormat: PropTypes.string.isRequired
+  hoursFormat: PropTypes.number.isRequired
 };
 
 const TimeDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChange, hoursFormat }) => {
