@@ -46,7 +46,7 @@ const config = {
     historyApiFallback: true,
     open: true,
     compress: true,
-    port: 9000
+    port: 8080
   },
   plugins: [
     new HtmlWebpackPlugin({

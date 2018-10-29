@@ -1,6 +1,5 @@
 import React from "react";
-import { CirclePie } from "salad-ui.chart";
-import { Container, Row, Col, Fa } from "mdbreact";
+import { Container, Row, Col, Fa, MDBSimpleChart } from "mdbreact";
 import DocsLink from "../DocsLink";
 
 class ChartsPagePro extends React.Component {
@@ -15,13 +14,14 @@ class ChartsPagePro extends React.Component {
           <Container>
             <Row className="text-center">
               <Col sm="4">
-                <CirclePie
+                <MDBSimpleChart
                   width={100}
                   height={100}
                   strokeWidth={3}
                   percent={56}
                   strokeColor="#4FB64E"
-                />
+                  >
+                </MDBSimpleChart>
                 <h6 className="mt-2">
                   <span className="label green p-1 white-text">
                     Sales <Fa icon="arrow-circle-up" />
@@ -29,7 +29,7 @@ class ChartsPagePro extends React.Component {
                 </h6>
               </Col>
               <Col sm="4">
-                <CirclePie
+                <MDBSimpleChart
                   width={100}
                   height={100}
                   strokeWidth={3}
@@ -43,7 +43,7 @@ class ChartsPagePro extends React.Component {
                 </h6>
               </Col>
               <Col sm="4">
-                <CirclePie
+                <MDBSimpleChart
                   width={100}
                   height={100}
                   strokeWidth={3}
