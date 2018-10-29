@@ -9,25 +9,25 @@ const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, handleHoursChang
           unitsMode === 'h' 
           ? (
             <TimePickerClock
-              min={1} 
-              max={hoursFormat} 
-              step={1}
-              rotate={30} 
               color={color}
-              value={hours}
               double={hoursFormat === 24}
               handleChange={handleHoursChange}
+              min={1} 
+              max={12} 
+              step={1}
+              rotate={30} 
+              value={hours}
             />
           )
           : (
             <TimePickerClock
+              color={color}
+              handleChange={handleMinutesChange}
               min={0} 
               max={59} 
               step={5}
               rotate={0} 
-              color={color}
               value={minutes}
-              handleChange={handleMinutesChange}
             />
           )
         }

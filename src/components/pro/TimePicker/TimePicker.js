@@ -119,14 +119,14 @@ class TimePicker extends Component {
                       hoursFormat={hoursFormat} 
                     />
                     <ClockpickerPlate
+                      color={color}
                       handleMinutesChange={this.handleMinutesChange} 
                       handleHoursChange={this.handleHoursChange} 
                       handleModeChange={this.handleModeChange} 
                       hours={hours}
+                      hoursFormat={hoursFormat} 
                       minutes={minutes}
                       unitsMode={unitsMode} 
-                      color={color} 
-                      hoursFormat={hoursFormat} 
                     />
                     {
                       hoursFormat === 12 &&
