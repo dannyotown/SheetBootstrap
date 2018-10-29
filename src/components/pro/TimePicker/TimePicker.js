@@ -165,7 +165,7 @@ class TimePicker extends Component {
                     />
                     {
                       hoursFormat === 12 &&
-                      <ClockpickerAmPmBlock handleDayTimeChange={this.handleDayTimeChange} />
+                      <ClockpickerAmPmBlock dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
                     }
                     <ClockpickerFooter handleDoneClick={this.handleDoneClick} />
                   </div>
