@@ -92,6 +92,13 @@ class TimePicker extends Component {
     this.handlePickerDialogOpen();
   }
 
+  handleClearClick = () => {
+    this.handleHoursChange(this.props.hours);
+    this.handleMinutesChange(this.props.minutes);
+    this.handleModeChange('h');
+    this.handleDayTimeChange('am');
+  }
+
   render() {
     const {
       computedHours,
@@ -167,7 +174,7 @@ class TimePicker extends Component {
                       hoursFormat === 12 &&
                       <ClockpickerAmPmBlock dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
                     }
-                    <ClockpickerFooter handleDoneClick={this.handleDoneClick} />
+                    <ClockpickerFooter clearable handleClearClick={this.handleClearClick} handleDoneClick={this.handleDoneClick} />
                   </div>
                 </div>
               </div>
