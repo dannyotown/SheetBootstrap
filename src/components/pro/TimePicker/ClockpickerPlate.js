@@ -9,10 +9,11 @@ const propTypes = {
   minutes: PropTypes.number.isRequired,
   handleHoursChange: PropTypes.func.isRequired,
   handleMinutesChange: PropTypes.func.isRequired,
+  startFromInner: PropTypes.bool.isRequired,
   unitsMode: PropTypes.string.isRequired
 };
 
-const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, handleHoursChange, handleMinutesChange, unitsMode }) => {
+const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, handleHoursChange, handleMinutesChange, startFromInner, unitsMode }) => {
   return (
     <div className="picker__calendar-container">
       <div className="clockpicker-plate">
@@ -28,6 +29,7 @@ const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, handleHoursChang
               max={hoursFormat} 
               step={1}
               rotate={30} 
+              startFromInner={startFromInner}
               value={hours}
             />
           )
@@ -39,6 +41,7 @@ const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, handleHoursChang
               max={59} 
               step={5}
               rotate={0} 
+              startFromInner={startFromInner}
               value={minutes}
             />
           )

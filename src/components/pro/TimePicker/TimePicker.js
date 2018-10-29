@@ -18,7 +18,8 @@ const propTypes = {
   hoursFormat: PropTypes.number,
   label: PropTypes.string,
   minutes: PropTypes.number,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  startFromInner: PropTypes.bool
 };
 
 const defaultProps = {
@@ -30,7 +31,8 @@ const defaultProps = {
   hoursFormat: 12,
   label: '',
   minutes: 0,
-  placeholder: ''
+  placeholder: '',
+  startFromInner: true
 };
 
 class TimePicker extends Component {
@@ -75,7 +77,10 @@ class TimePicker extends Component {
     });
   }
   
-  computeTimeNumber = (number) => number < 10 ? `0${number.toString()}` : `${number.toString()}`;
+  computeTimeNumber = (number) => {
+    number = (this.state.unitsMode === 'h' && number === 24) ? 0 : number; 
+    return number < 10 ? `0${number.toString()}` : `${number.toString()}`;
+  }
 
   handlePickerDialogOpen = () => this.setState({ pickerDialogOpen: !this.state.pickerDialogOpen });
 
@@ -117,7 +122,8 @@ class TimePicker extends Component {
       hoursFormat,
       id,
       label,
-      placeholder
+      placeholder,
+      startFromInner
     } = this.props;
 
     const inputClasses = classNames(
@@ -168,6 +174,7 @@ class TimePicker extends Component {
                       hours={hours}
                       hoursFormat={hoursFormat} 
                       minutes={minutes}
+                      startFromInner={startFromInner}
                       unitsMode={unitsMode} 
                     />
                     {
