@@ -174,7 +174,7 @@ class TimePicker extends Component {
                       hoursFormat === 12 &&
                       <ClockpickerAmPmBlock dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
                     }
-                    <ClockpickerFooter clearable handleClearClick={this.handleClearClick} handleDoneClick={this.handleDoneClick} />
+                    <ClockpickerFooter clearable={clearable} handleClearClick={this.handleClearClick} handleDoneClick={this.handleDoneClick} />
                   </div>
                 </div>
               </div>
