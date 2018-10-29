@@ -1,5 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+const propTypes = {
+  hours: PropTypes.string.isRequired,
+  minutes: PropTypes.string.isRequired,
+  dayTime: PropTypes.string.isRequired,
+  unitsMode: PropTypes.string.isRequired,
+  handleModeChange: PropTypes.func.isRequired,
+  hoursFormat: PropTypes.string.isRequired
+};
 
 const TimeDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChange, hoursFormat }) => {
   const hourClasses = classNames(
@@ -34,5 +44,7 @@ const TimeDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChange, hou
     </div>
   );
 }
+
+TimeDisplay.propTypes = propTypes;
 
 export default TimeDisplay;
