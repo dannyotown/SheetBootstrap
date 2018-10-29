@@ -12,6 +12,7 @@ const propTypes = {
   allowedValues: PropTypes.arrayOf(PropTypes.number),
   color: PropTypes.string,
   double: PropTypes.bool,
+  hoursFormat: PropTypes.number,
   size: PropTypes.number,
   value: PropTypes.number
 };
@@ -20,6 +21,7 @@ const defaultProps = {
   allowedValues: [],
   color: 'priamry',
   double: false,
+  hoursFormat: 12,
   size: 270,
   value: 0
 };
@@ -48,14 +50,14 @@ class TimePickerClock extends Component {
   }
   
   componentDidUpdate(prevProps, prevState) {
-    if(prevProps.max !== this.props.max) {
+    if(prevProps !== this.props) {
       this.buildComponentState();
     }
   }
   
 
   buildComponentState = () => {
-    const { size, max, min, double, value } = this.props;
+    const { size, max, min, double, rotate, value } = this.props;
 
     const clockRadius = size / 2;
     const digitsAmount = max - min + 1;
@@ -64,8 +66,8 @@ class TimePickerClock extends Component {
     const outerRadius = clockRadius - 4;
     const innerRadius = clockRadius - Math.max(clockRadius * 0.4, 48); // cant be lower than 48
     const degrees = degreesPerUnit * Math.PI / 180;
-    const handScale = this.getHandScale(this.props.value);
-    const handAngle = this.props.rotate + (degreesPerUnit * (this.props.value - this.props.min));
+    const handScale = this.getHandScale(value);
+    const handAngle = rotate + (degreesPerUnit * (value - min));
 
     this.setState({ 
       clockRadius,
@@ -167,7 +169,7 @@ class TimePickerClock extends Component {
 
   updateValue = (value, handAngle, handScale) => {
     this.setState({ value, handAngle, handScale });
-    
+
     if(this.props.double) {
       this.props.handleChange(value === 24 ? 0 : value);
     }

@@ -1,20 +1,50 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
 import './clock.css';
 import TimeDisplay from './TimeDisplay';
 import ClockpickerPlate from './ClockpickerPlate';
 import ClockpickerAmPmBlock from './ClockpickerAmPmBlock';
 import ClockpickerFooter from './ClockpickerFooter';
 
+const propTypes = {
+  id: PropTypes.string.isRequired,
+  clearable: PropTypes.bool,
+  color: PropTypes.string,
+  getValue: PropTypes.func,
+  hours: PropTypes.number,
+  hoursFormat: PropTypes.number,
+  label: PropTypes.string,
+  minutes: PropTypes.number,
+  placeholder: PropTypes.string
+};
+
+const defaultProps = {
+  clearable: false,
+  color: 'primary',
+  getValue: () => {},
+  hours: 12,
+  hoursFormat: 12,
+  label: '',
+  minutes: 0,
+  placeholder: ''
+};
+
 class TimePicker extends Component {
   state = {
+    clearable: this.props.clearable,
+    color: this.props.color,
     computedHours: '',
     computedMinutes: '',
     dayTime: 'am',
-    hours: 12,
-    hoursFormat: 12,
-    minutes: 0,
-    pickerDialogOpen: false ,
+    hours: this.props.hours,
+    hoursFormat: this.props.hoursFormat,
+    id: this.props.id,
+    label: this.props.label,
+    minutes: this.props.minutes,
+    placeholder: this.props.placeholder,
+    pickerDialogOpen: false,
     unitsMode: 'h',
     value: ''
   }
@@ -23,7 +53,7 @@ class TimePicker extends Component {
     this.setState({
       computedHours: this.computeTimeNumber(this.state.hours),
       computedMinutes: this.computeTimeNumber(this.state.minutes)
-    });
+    }, () => this.setInputText());
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -34,6 +64,15 @@ class TimePicker extends Component {
     if(prevState.hours !== this.state.hours) {
       this.setState({ computedHours: this.computeTimeNumber(this.state.hours) });
     }
+  }
+
+  setInputText = () => {
+    this.setState({ 
+      value: this.state.hoursFormat === 12 
+      ? `${this.state.computedHours}:${this.state.computedMinutes}${this.state.dayTime}` 
+      : `${this.state.computedHours}:${this.state.computedMinutes}`,
+      unitsMode: 'h'  
+    });
   }
   
   computeTimeNumber = (number) => number < 10 ? `0${number.toString()}` : `${number.toString()}`;
@@ -49,34 +88,27 @@ class TimePicker extends Component {
   handleHoursChange = (hours) => this.setState({ hours });
 
   handleDoneClick = () => {
-    this.setState({ 
-      value: this.state.hoursFormat === 12 
-      ? `${this.state.computedHours}:${this.state.computedMinutes}${this.state.dayTime}` 
-      : `${this.state.computedHours}:${this.state.computedMinutes}`,
-      unitsMode: 'h'  
-    });
+    this.setInputText();
     this.handlePickerDialogOpen();
   }
 
   render() {
     const {
+      clearable,
+      color,
       computedHours,
       computedMinutes,
       dayTime,
       hours,
       hoursFormat,
+      id,
+      label,
       minutes,
+      placeholder,
       pickerDialogOpen,
       unitsMode,
       value
     } = this.state;
-
-    const {
-      color,
-      id,
-      label,
-      placeholder
-    } = this.props;
 
     const inputClasses = classNames(
       "form-control",
@@ -143,5 +175,8 @@ class TimePicker extends Component {
     );
   }
 }
+
+TimePicker.propTypes = propTypes;
+TimePicker.defaultProps = defaultProps;
 
 export default TimePicker;
