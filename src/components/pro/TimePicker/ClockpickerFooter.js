@@ -1,20 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from './../../Button';
 
 const propTypes = {
+  cancelable: PropTypes.bool.isRequired,
+  cancelText: PropTypes.string.isRequired,
   clearable: PropTypes.bool.isRequired,
+  clearText: PropTypes.string.isRequired,
+  doneText: PropTypes.string.isRequired,
+  handleCancelClick: PropTypes.func.isRequired,
   handleClearClick: PropTypes.func.isRequired,
   handleDoneClick: PropTypes.func.isRequired
 };
 
-const ClockpickerFooter = ({ clearable, handleClearClick, handleDoneClick }) => {
+const ClockpickerFooter = ({ cancelable, cancelText, clearable, clearText, doneText, handleCancelClick, handleClearClick, handleDoneClick }) => {
   return (
-    <div className="picker__footer d-flex justify-content-between">
+    <div className="picker__footer">
       {
         clearable &&
-        <button type="button" className="btn btn-flat clockpicker-button" tabIndex="0" onClick={handleClearClick}>Clear</button>
+        <Button flat className="clockpicker-button" tabIndex="0" onClick={handleClearClick}>{clearText}</Button>
       }
-      <button type="button" className="btn btn-flat clockpicker-button" tabIndex="0" onClick={handleDoneClick}>Done</button>
+      {
+        cancelable &&
+        <Button flat className="clockpicker-button" tabIndex="0" onClick={handleCancelClick}>{cancelText}</Button>
+      }
+      <Button flat className="clockpicker-button" tabIndex="0" onClick={handleDoneClick}>{doneText}</Button>
     </div>
   );
 }

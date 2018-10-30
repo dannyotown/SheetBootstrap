@@ -9,10 +9,14 @@ import ClockpickerAmPmBlock from './ClockpickerAmPmBlock';
 import ClockpickerFooter from './ClockpickerFooter';
 
 const propTypes = {
-  allowedValues: PropTypes.arrayOf(PropTypes.number),
   id: PropTypes.string.isRequired,
+  allowedValues: PropTypes.arrayOf(PropTypes.number),
+  cancelable: PropTypes.bool,
+  cancelText: PropTypes.string,
   clearable: PropTypes.bool,
+  clearText: PropTypes.string,
   color: PropTypes.string,
+  doneText: PropTypes.string,
   getValue: PropTypes.func,
   hours: PropTypes.number,
   hoursFormat: PropTypes.number,
@@ -24,8 +28,12 @@ const propTypes = {
 
 const defaultProps = {
   allowedValues: [],
+  cancelable: false,
+  cancelText: 'Cancel',
   clearable: false,
+  clearText: 'Clear',
   color: 'primary',
+  doneText: 'Done',
   getValue: () => {},
   hours: 12,
   hoursFormat: 12,
@@ -118,6 +126,13 @@ class TimePicker extends Component {
     this.handleDayTimeChange('am');
   }
 
+  handleCancelClick = () => {
+    this.handleHoursChange(this.props.hours);
+    this.handleMinutesChange(this.props.minutes);
+    this.handleModeChange('h');
+    this.handleDayTimeChange('am');
+  }
+
   render() {
     const {
       computedHours,
@@ -131,8 +146,12 @@ class TimePicker extends Component {
     } = this.state;
 
     const {
+      cancelable,
+      cancelText,
       clearable,
+      clearText,
       color,
+      doneText,
       hoursFormat,
       id,
       label,
@@ -195,7 +214,15 @@ class TimePicker extends Component {
                       hoursFormat === 12 &&
                       <ClockpickerAmPmBlock dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
                     }
-                    <ClockpickerFooter clearable={clearable} handleClearClick={this.handleClearClick} handleDoneClick={this.handleDoneClick} />
+                    <ClockpickerFooter 
+                      cancelText={cancelText}
+                      clearText={clearText}
+                      doneText={doneText}
+                      cancelable={cancelable}
+                      clearable={clearable} 
+                      handleCancelClick={this.handleCancelClick} 
+                      handleClearClick={this.handleClearClick} 
+                      handleDoneClick={this.handleDoneClick} />
                   </div>
                 </div>
               </div>

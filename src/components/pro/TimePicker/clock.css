@@ -114,3 +114,8 @@
 .time-picker-clock > span > span.disabled {
   pointer-events: none;
 }
+
+.picker__footer .clockpicker-button {
+  padding-left: 10px;
+  padding-right: 10px;
+}
