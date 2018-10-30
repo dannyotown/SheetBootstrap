@@ -13,7 +13,6 @@ const propTypes = {
   allowedValues: PropTypes.arrayOf(PropTypes.number),
   color: PropTypes.string,
   double: PropTypes.bool,
-  hoursFormat: PropTypes.number,
   size: PropTypes.number,
   value: PropTypes.number
 };
@@ -22,7 +21,6 @@ const defaultProps = {
   allowedValues: [],
   color: 'priamry',
   double: false,
-  hoursFormat: 12,
   size: 270,
   value: 0
 };
@@ -168,7 +166,10 @@ class TimePickerClock extends Component {
     const center = { x: width / 2, y: -width / 2 };
     const coords = { x: clientX - left, y: top - clientY };
 
-    const value = Math.round((this.getAngle(center, coords) - this.props.rotate) / this.state.degreesPerUnit) + this.props.min + (isOnInner() ? this.state.digitsInRound : 0);
+    const exactHandAngle = this.getAngle(center, coords);
+    const computedExactHandAngle = this.props.min > 0 ? exactHandAngle <= (this.state.degreesPerUnit / 2) ? 360 : exactHandAngle : exactHandAngle;
+    console.log(exactHandAngle, computedExactHandAngle);
+    const value = Math.round((computedExactHandAngle - this.props.rotate) / this.state.degreesPerUnit) + this.props.min + (isOnInner() ? this.state.digitsInRound : 0);
     const handAngle = this.props.rotate + (this.state.degreesPerUnit * (value - this.props.min));
     const handScale = this.getScale(value);
     

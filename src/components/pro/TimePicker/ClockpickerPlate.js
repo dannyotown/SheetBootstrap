@@ -24,7 +24,6 @@ const ClockpickerPlate = ({ color, hoursFormat, hours, minutes, handleHoursChang
               color={color}
               double={hoursFormat === 24}
               handleChange={handleHoursChange}
-              hoursFormat={hoursFormat}
               min={1} 
               max={hoursFormat} 
               step={1}
