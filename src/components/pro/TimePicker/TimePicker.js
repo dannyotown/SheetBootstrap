@@ -66,6 +66,10 @@ class TimePicker extends Component {
     if(prevState.hours !== this.state.hours) {
       this.setState({ computedHours: this.computeTimeNumber(this.state.hours) });
     }
+
+    if(prevState.value !== this.state.value) {
+      this.props.getValue(this.state.value);
+    }
   }
 
   setInputText = () => {
