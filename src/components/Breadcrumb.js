@@ -1,17 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { getColorClass } from "./utils";
 
 class Breadcrumb extends React.Component {
   render() {
-    const { className, ...attributes } = this.props;
+    const { className, color , light, ...attributes } = this.props;
 
-    const classes = classNames("breadcrumb", className);
+    let classes = classNames(
+      "breadcrumb",
+      light && "white-text",
+      color && getColorClass(color),
+      className
+    );
 
     return (
-      <ol {...attributes} className={classes}>
-        {this.props.children}
-      </ol>
+      <nav>
+        <ol {...attributes} className={classes}>
+          {this.props.children}
+        </ol>
+      </nav>
     );
   }
 }
