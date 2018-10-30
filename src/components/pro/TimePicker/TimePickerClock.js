@@ -63,7 +63,6 @@ class TimePickerClock extends Component {
     const outerRadius = clockRadius - 4;
     const innerRadius = clockRadius - Math.max(clockRadius * 0.2, 40); // cant be lower than 40
     const degrees = degreesPerUnit * Math.PI / 180;
-    // const handScale = this.getScale(value);
     const handAngle = rotate + (degreesPerUnit * (value - min));
 
     this.setState({ 
@@ -226,7 +225,7 @@ class TimePickerClock extends Component {
         onClick={this.onDragMove}
         ref={this.clockRef}
       >
-        <ClockHand angle={this.state.handAngle} scale={this.state.handScale} />
+        <ClockHand color={this.props.color} angle={this.state.handAngle} scale={this.state.handScale} />
         {
           this.genClockDigits()
         }
