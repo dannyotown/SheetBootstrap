@@ -159,7 +159,9 @@ class TimePickerClock extends Component {
     e.preventDefault();
     if (!this.state.isDragging && e.type !== 'click') return;
     
-    const isOnInner = () => this.props.double && (this.euclidean(center, coords) > ((this.state.outerRadius + this.state.innerRadius) / 2) - 16);
+    const isOnInner = () => this.props.double && this.props.startFromInner 
+    ? (this.euclidean(center, coords) > ((this.state.outerRadius + this.state.innerRadius) / 2) - 16) 
+    : (this.euclidean(center, coords) < ((this.state.outerRadius + this.state.innerRadius) / 2) - 16);
 
     const { width, top, left } = this.clockRef.current.getBoundingClientRect();
     const { clientX, clientY } = 'touches' in e ? e.touches[0] : e;
@@ -171,7 +173,7 @@ class TimePickerClock extends Component {
     const value = Math.round((computedExactHandAngle - this.props.rotate) / this.state.degreesPerUnit) + this.props.min + (isOnInner() ? this.state.digitsInRound : 0);
     const handAngle = this.props.rotate + (this.state.degreesPerUnit * (value - this.props.min));
     const handScale = this.getScale(value);
-    
+
     if(this.state.value !== value && this.isValueAllowed(value)) {
       this.updateValue(value, handAngle, handScale);     
     }
