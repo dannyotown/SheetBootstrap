@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import TimpiePickerClockHand from './TimpiePickerClockHand';
 
 const propTypes = {
+  className: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   max: PropTypes.number.isRequired,
   min: PropTypes.number.isRequired,
@@ -156,6 +157,7 @@ class TimePickerClock extends Component {
 
     for (let value = this.props.min; value <= this.props.max; value += this.props.step) {
       const classes = classNames(
+        'clockpicker-tick',
         value === this.state.value && 'active',
         !this.isValueAllowed(value) && 'disabled'
       );
@@ -207,7 +209,9 @@ class TimePickerClock extends Component {
 
   render() {
     const classes = classNames(
-      "time-picker-clock",
+      'time-picker-clock',
+      'clockpicker-dial',
+      this.props.className,
       this.state.value === null && 'time-picker-clock--indeterminate'
     );
     

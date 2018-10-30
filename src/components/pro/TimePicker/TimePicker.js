@@ -171,6 +171,16 @@ class TimePicker extends Component {
       pickerDialogOpen && "picker--opened"
     );
 
+    const hoursClasses = classNames(
+      "clockpicker-hours",
+      unitsMode !== "h" && "clockpicker-dial-out"
+    );
+
+    const minutesClasses = classNames(
+      "clockpicker-minutes",
+      unitsMode !== "m" && "clockpicker-dial-out"
+    );
+
     return (
       <div className="md-form">
         <input 
@@ -205,6 +215,7 @@ class TimePicker extends Component {
                           unitsMode === 'h' 
                           ? (
                             <TimePickerClock
+                              className={hoursClasses}
                               color={color}
                               double={hoursFormat === 24}
                               handleChange={this.handleHoursChange}
@@ -218,6 +229,7 @@ class TimePicker extends Component {
                           )
                           : (
                             <TimePickerClock
+                              className={minutesClasses}
                               color={color}
                               handleChange={this.handleMinutesChange}
                               min={0} 
