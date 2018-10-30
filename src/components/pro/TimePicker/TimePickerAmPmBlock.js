@@ -7,7 +7,7 @@ const propTypes = {
   handleDayTimeChange: PropTypes.func.isRequired
 }
 
-const ClockpickerAmPmBlock = ({ dayTime, handleDayTimeChange }) => {
+const TimePickerAmPmBlock = ({ dayTime, handleDayTimeChange }) => {
   const classesAM = classNames(
     'btn-floating', 'btn-flat', 'clockpicker-button', 'am-button',
     dayTime === 'am' && 'active'
@@ -26,6 +26,6 @@ const ClockpickerAmPmBlock = ({ dayTime, handleDayTimeChange }) => {
   );
 }
 
-ClockpickerAmPmBlock.propTypes = propTypes;
+TimePickerAmPmBlock.propTypes = propTypes;
 
-export default ClockpickerAmPmBlock;
+export default TimePickerAmPmBlock;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './../../Button';
+import Button from '../../Button';
 
 const propTypes = {
   cancelable: PropTypes.bool.isRequired,
@@ -13,7 +13,7 @@ const propTypes = {
   handleDoneClick: PropTypes.func.isRequired
 };
 
-const ClockpickerFooter = ({ cancelable, cancelText, clearable, clearText, doneText, handleCancelClick, handleClearClick, handleDoneClick }) => {
+const TimePickerFooter = ({ cancelable, cancelText, clearable, clearText, doneText, handleCancelClick, handleClearClick, handleDoneClick }) => {
   return (
     <div className="picker__footer">
       {
@@ -29,6 +29,6 @@ const ClockpickerFooter = ({ cancelable, cancelText, clearable, clearText, doneT
   );
 }
 
-ClockpickerFooter.propTypes = propTypes;
+TimePickerFooter.propTypes = propTypes;
 
-export default ClockpickerFooter;
+export default TimePickerFooter;

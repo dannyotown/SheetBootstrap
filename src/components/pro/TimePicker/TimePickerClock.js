@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import ClockHand from './ClockHand';
+import TimpiePickerClockHand from './TimpiePickerClockHand';
 
 const propTypes = {
   handleChange: PropTypes.func.isRequired,
@@ -225,7 +225,7 @@ class TimePickerClock extends Component {
         onClick={this.onDragMove}
         ref={this.clockRef}
       >
-        <ClockHand color={this.props.color} angle={this.state.handAngle} scale={this.state.handScale} />
+        <TimpiePickerClockHand color={this.props.color} angle={this.state.handAngle} scale={this.state.handScale} />
         {
           this.genClockDigits()
         }

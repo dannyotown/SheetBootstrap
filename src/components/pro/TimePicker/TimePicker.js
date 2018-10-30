@@ -3,10 +3,10 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 import './clock.css';
-import TimeDisplay from './TimeDisplay';
-import ClockpickerPlate from './ClockpickerPlate';
-import ClockpickerAmPmBlock from './ClockpickerAmPmBlock';
-import ClockpickerFooter from './ClockpickerFooter';
+import TimePickerDisplay from './TimePickerDisplay';
+import TimePickerClock from './TimePickerClock';
+import TimePickerAmPmBlock from './TimePickerAmPmBlock';
+import TimePickerFooter from './TimePickerFooter';
 
 const propTypes = {
   id: PropTypes.string.isRequired,
@@ -191,7 +191,7 @@ class TimePicker extends Component {
               <div className="picker__frame">
                 <div className="picker__wrap">
                   <div className="picker__box">
-                    <TimeDisplay 
+                    <TimePickerDisplay 
                       hours={computedHours}
                       minutes={computedMinutes} 
                       dayTime={dayTime} 
@@ -199,22 +199,44 @@ class TimePicker extends Component {
                       handleModeChange={this.handleModeChange} 
                       hoursFormat={hoursFormat} 
                     />
-                    <ClockpickerPlate
-                      color={color}
-                      handleMinutesChange={this.handleMinutesChange} 
-                      handleHoursChange={this.handleHoursChange} 
-                      handleModeChange={this.handleModeChange} 
-                      hours={hours}
-                      hoursFormat={hoursFormat} 
-                      minutes={minutes}
-                      startFromInner={startFromInner}
-                      unitsMode={unitsMode} 
-                    />
+                    <div className="picker__calendar-container">
+                      <div className="clockpicker-plate">
+                        {
+                          unitsMode === 'h' 
+                          ? (
+                            <TimePickerClock
+                              color={color}
+                              double={hoursFormat === 24}
+                              handleChange={this.handleHoursChange}
+                              min={1} 
+                              max={hoursFormat} 
+                              step={1}
+                              rotate={30} 
+                              startFromInner={startFromInner}
+                              value={hours}
+                            />
+                          )
+                          : (
+                            <TimePickerClock
+                              color={color}
+                              handleChange={this.handleMinutesChange}
+                              min={0} 
+                              max={59} 
+                              step={5}
+                              rotate={0} 
+                              startFromInner={startFromInner}
+                              value={minutes}
+                            />
+                          )
+                        }
+
+                      </div>
+                    </div>
                     {
                       hoursFormat === 12 &&
-                      <ClockpickerAmPmBlock dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
+                      <TimePickerAmPmBlock dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
                     }
-                    <ClockpickerFooter 
+                    <TimePickerFooter 
                       cancelText={cancelText}
                       clearText={clearText}
                       doneText={doneText}

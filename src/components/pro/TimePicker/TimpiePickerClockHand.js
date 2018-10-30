@@ -8,7 +8,7 @@ const propTypes = {
   scale: PropTypes.number.isRequired
 };
 
-const ClockHand = ({ angle, color, scale }) => {
+const TimpiePickerClockHand = ({ angle, color, scale }) => {
   const classes = classNames(
     'time-picker-clock__hand',
     color
@@ -19,6 +19,6 @@ const ClockHand = ({ angle, color, scale }) => {
   );
 }
 
-ClockHand.propTypes = propTypes;
+TimpiePickerClockHand.propTypes = propTypes;
 
-export default ClockHand;
+export default TimpiePickerClockHand;

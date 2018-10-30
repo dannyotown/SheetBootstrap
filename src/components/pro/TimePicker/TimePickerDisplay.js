@@ -11,7 +11,7 @@ const propTypes = {
   hoursFormat: PropTypes.number.isRequired
 };
 
-const TimeDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChange, hoursFormat }) => {
+const TimePickerDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChange, hoursFormat }) => {
   const hourClasses = classNames(
     'clockpicker-span-hours',
     unitsMode === 'h' && 'text-primary'
@@ -45,6 +45,6 @@ const TimeDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChange, hou
   );
 }
 
-TimeDisplay.propTypes = propTypes;
+TimePickerDisplay.propTypes = propTypes;
 
-export default TimeDisplay;
+export default TimePickerDisplay;
