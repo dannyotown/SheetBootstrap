@@ -73,17 +73,27 @@ class TimePicker extends Component {
   }
 
   setInputText = () => {
-    this.setState({ 
-      value: this.props.hoursFormat === 12 
+    let value = '';
+
+    if(this.state.hours !== null && this.state.minutes !== null) {
+      value = this.props.hoursFormat === 12 
       ? `${this.state.computedHours}:${this.state.computedMinutes}${this.state.dayTime}` 
-      : `${this.state.computedHours}:${this.state.computedMinutes}`,
+      : `${this.state.computedHours}:${this.state.computedMinutes}`;
+    }
+
+    this.setState({
+      value, 
       unitsMode: 'h'  
     });
   }
   
   computeTimeNumber = (number) => {
-    number = (this.state.unitsMode === 'h' && number === 24) ? 0 : number; 
-    return number < 10 ? `0${number.toString()}` : `${number.toString()}`;
+    if(number !== null) {
+      number = (this.state.unitsMode === 'h' && number === 24) ? 0 : number; 
+      return number < 10 ? `0${number.toString()}` : `${number.toString()}`;
+    }
+
+    return '';
   }
 
   handlePickerDialogOpen = () => this.setState({ pickerDialogOpen: !this.state.pickerDialogOpen });
@@ -102,8 +112,8 @@ class TimePicker extends Component {
   }
 
   handleClearClick = () => {
-    this.handleHoursChange(this.props.hours);
-    this.handleMinutesChange(this.props.minutes);
+    this.handleHoursChange(null);
+    this.handleMinutesChange(null);
     this.handleModeChange('h');
     this.handleDayTimeChange('am');
   }

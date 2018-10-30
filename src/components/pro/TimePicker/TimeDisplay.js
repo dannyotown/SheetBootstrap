@@ -29,10 +29,10 @@ const TimeDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChange, hou
           <span 
             className={hourClasses}
             onClick={() => handleModeChange('h')}
-          >{hours}</span>:<span 
+          >{hours !== '' ? hours : "--"}</span>:<span 
             className={minuteClasses}
             onClick={() => handleModeChange('m')}  
-          >{minutes}</span>
+          >{minutes !== '' ? minutes : "--"}</span>
         </div>
         {
           hoursFormat === 12 &&
