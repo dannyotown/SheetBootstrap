@@ -168,7 +168,6 @@ class TimePickerClock extends Component {
 
     const exactHandAngle = this.getAngle(center, coords);
     const computedExactHandAngle = this.props.min > 0 ? exactHandAngle <= (this.state.degreesPerUnit / 2) ? 360 : exactHandAngle : exactHandAngle;
-    console.log(exactHandAngle, computedExactHandAngle);
     const value = Math.round((computedExactHandAngle - this.props.rotate) / this.state.degreesPerUnit) + this.props.min + (isOnInner() ? this.state.digitsInRound : 0);
     const handAngle = this.props.rotate + (this.state.degreesPerUnit * (value - this.props.min));
     const handScale = this.getScale(value);
