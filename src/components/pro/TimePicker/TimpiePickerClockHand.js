@@ -8,14 +8,17 @@ const propTypes = {
   scale: PropTypes.number.isRequired
 };
 
-const TimpiePickerClockHand = ({ angle, color, scale }) => {
+const TimpiePickerClockHand = ({ angle, between, color, scale }) => {
   const classes = classNames(
     'time-picker-clock__hand',
-    color
+    color,
+    between && 'between'
   );
 
   return (
-    <div className={classes} style={{ transform: `rotate(${angle}deg)`, height: `calc((50% - 28px) * ${scale})` }}></div>
+    <div className={classes} style={{ transform: `rotate(${angle}deg)`, height: `calc((50% - 28px) * ${scale})` }}>
+      <div className="time-picker-clock__hand--ring" />
+    </div>
   );
 }
 

@@ -241,13 +241,12 @@ class TimePicker extends Component {
                             />
                           )
                         }
-
                       </div>
+                      {
+                        hoursFormat === 12 &&
+                        <TimePickerAmPmBlock dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
+                      }
                     </div>
-                    {
-                      hoursFormat === 12 &&
-                      <TimePickerAmPmBlock dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
-                    }
                     <TimePickerFooter 
                       cancelText={cancelText}
                       clearText={clearText}
@@ -256,7 +255,8 @@ class TimePicker extends Component {
                       clearable={clearable} 
                       handleCancelClick={this.handleCancelClick} 
                       handleClearClick={this.handleClearClick} 
-                      handleDoneClick={this.handleDoneClick} />
+                      handleDoneClick={this.handleDoneClick} 
+                    />
                   </div>
                 </div>
               </div>

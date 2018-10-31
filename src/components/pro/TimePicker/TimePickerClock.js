@@ -229,7 +229,12 @@ class TimePickerClock extends Component {
         onClick={this.onDragMove}
         ref={this.clockRef}
       >
-        <TimpiePickerClockHand color={this.props.color} angle={this.state.handAngle} scale={this.state.handScale} />
+        <TimpiePickerClockHand 
+          between={this.state.value % this.props.step !== 0} 
+          color={this.props.color} 
+          angle={this.state.handAngle} 
+          scale={this.state.handScale} 
+        />
         {
           this.genClockDigits()
         }

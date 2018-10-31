@@ -14,7 +14,7 @@ const TimePickerAmPmBlock = ({ dayTime, handleDayTimeChange }) => {
   );
 
   const classesPM = classNames(
-    'btn-floating', 'btn-flat', 'clockpicker-button', 'am-button',
+    'btn-floating', 'btn-flat', 'clockpicker-button', 'pm-button',
     dayTime === 'pm' && 'active'
   );
 
