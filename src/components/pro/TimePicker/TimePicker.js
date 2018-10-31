@@ -85,7 +85,7 @@ class TimePicker extends Component {
 
     if(this.state.hours !== null && this.state.minutes !== null) {
       value = this.props.hoursFormat === 12 
-      ? `${this.state.computedHours}:${this.state.computedMinutes}${this.state.dayTime}` 
+      ? `${this.state.computedHours}:${this.state.computedMinutes}${this.state.dayTime.toUpperCase()}` 
       : `${this.state.computedHours}:${this.state.computedMinutes}`;
     }
 

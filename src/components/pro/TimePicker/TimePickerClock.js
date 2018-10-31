@@ -218,7 +218,7 @@ class TimePickerClock extends Component {
     return (
       <div
         className={classes}
-        style={{ height: `${this.props.size}px`, width: `${this.props.size}px` }}
+        style={{ height: `${this.props.size}px`, width: `${this.props.size}px`, visibility: 'visible' }}
         onMouseDown={this.onMouseDown}
         onMouseUp={this.onMouseUp}
         onMouseLeave={() => (this.state.isDragging && this.onMouseUp())}

@@ -37,7 +37,7 @@ const TimePickerDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChang
         {
           hoursFormat === 12 &&
           <div className="clockpicker-display-column clockpicker-display-am-pm">
-            <div className="clockpicker-span-am-pm">{dayTime}</div>
+            <div className="clockpicker-span-am-pm">{dayTime.toUpperCase()}</div>
           </div>
         }
       </div>
