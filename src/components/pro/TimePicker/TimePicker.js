@@ -15,7 +15,7 @@ const propTypes = {
   cancelText: PropTypes.string,
   clearable: PropTypes.bool,
   clearText: PropTypes.string,
-  closeOnCancel: PropTypes.boolean,
+  closeOnCancel: PropTypes.bool,
   color: PropTypes.string,
   doneText: PropTypes.string,
   getValue: PropTypes.func,
@@ -116,6 +116,12 @@ class TimePicker extends Component {
 
   handleHoursChange = (hours) => this.setState({ hours });
 
+  handleBackdropClick = (e) => {
+    if(e.target.classList.value === 'picker__holder') {
+      this.handlePickerDialogOpen();
+    }
+  }
+
   handleDoneClick = () => {
     this.setInputText();
     this.handlePickerDialogOpen();
@@ -203,7 +209,7 @@ class TimePicker extends Component {
         { 
           pickerDialogOpen && 
           <div className={clockClasses} >
-            <div className="picker__holder">
+            <div className="picker__holder" onClick={this.handleBackdropClick}>
               <div className="picker__frame">
                 <div className="picker__wrap">
                   <div className="picker__box">
