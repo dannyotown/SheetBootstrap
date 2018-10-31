@@ -165,7 +165,12 @@ class TimePickerClock extends Component {
       children.push(
         <span
           className={classes}
-          style={this.transformPosition(value)}
+          style={Object.assign(this.transformPosition(value), { 
+            fontSize: (
+              !this.props.double 
+              ? '140%' 
+              : this.props.startFromInner ? value <= 12 ? '120%' : '100%' : value > 12 ? '120%' : '100%')
+          })}
           key={value}
         >
           {this.props.max > 24 ? this.computeTimeNumber(value) : value === 24 ? '00' : value}

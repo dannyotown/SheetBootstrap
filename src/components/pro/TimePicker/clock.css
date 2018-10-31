@@ -34,7 +34,7 @@
   background-color: rgba(0,150,136,.25);
 }
 
-.time-picker-clock__hand--ring {
+.time-picker-clock__hand.between .time-picker-clock__hand--ring {
   background-color: rgba(0,150,136,.25);
   border-color: inherit;
   border-radius: 100%;
