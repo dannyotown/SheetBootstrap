@@ -12,16 +12,20 @@ const propTypes = {
   step: PropTypes.number.isRequired,
   startFromInner: PropTypes.bool.isRequired,
   allowedValues: PropTypes.arrayOf(PropTypes.number),
+  autoSwitch: PropTypes.bool,
   color: PropTypes.string,
   double: PropTypes.bool,
+  handleModeChange: PropTypes.func,
   size: PropTypes.number,
   value: PropTypes.number
 };
 
 const defaultProps = {
   allowedValues: [],
+  autoSwitch: false,
   color: 'priamry',
   double: false,
+  handleModeChange: () => {},
   size: 270,
   value: 0
 };
@@ -188,6 +192,10 @@ class TimePickerClock extends Component {
 
   onMouseUp = () => {
     this.setState({ isDragging: false });
+
+    if(this.props.autoSwitch) {
+      this.props.handleModeChange('m');
+    }
   };
 
   onDragMove = (e) => {

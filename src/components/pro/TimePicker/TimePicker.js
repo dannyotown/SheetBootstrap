@@ -11,6 +11,7 @@ import TimePickerFooter from './TimePickerFooter';
 const propTypes = {
   id: PropTypes.string.isRequired,
   allowedValues: PropTypes.arrayOf(PropTypes.number),
+  autoSwitch: PropTypes.bool,
   cancelable: PropTypes.bool,
   cancelText: PropTypes.string,
   clearable: PropTypes.bool,
@@ -29,6 +30,7 @@ const propTypes = {
 
 const defaultProps = {
   allowedValues: [],
+  autoSwitch: true,
   cancelable: false,
   cancelText: 'Cancel',
   clearable: false,
@@ -114,7 +116,9 @@ class TimePicker extends Component {
 
   handleMinutesChange = (minutes) => this.setState({ minutes });
 
-  handleHoursChange = (hours) => this.setState({ hours });
+  handleHoursChange = (hours) => {
+    this.setState({ hours });
+  }
 
   handleBackdropClick = (e) => {
     if(e.target.classList.value === 'picker__holder') {
@@ -158,6 +162,7 @@ class TimePicker extends Component {
     } = this.state;
 
     const {
+      autoSwitch,
       cancelable,
       cancelText,
       clearable,
@@ -227,10 +232,12 @@ class TimePicker extends Component {
                           unitsMode === 'h' 
                           ? (
                             <TimePickerClock
+                              autoSwitch={autoSwitch}
                               className={hoursClasses}
                               color={color}
                               double={hoursFormat === 24}
                               handleChange={this.handleHoursChange}
+                              handleModeChange={this.handleModeChange}
                               min={1} 
                               max={hoursFormat} 
                               step={1}
