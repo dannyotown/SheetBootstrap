@@ -4,14 +4,14 @@ import classNames from "classnames";
 
 /* eslint-disable */
 import MomentUtils from 'material-ui-pickers/utils/moment-utils';
-import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import DatePicker from 'material-ui-pickers/DatePicker';
+import { MuiPickersUtilsProvider } from 'material-ui-pickers';
+import { DatePicker } from 'material-ui-pickers';
 import moment from 'moment';
 
 import './DatePicker.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
-export default class MDBDatePicker extends Component {
+class MDBDatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -174,3 +174,5 @@ MDBDatePicker.defaultProps = {
   value: new Date(),
   getValue: () => {}
 };
+
+export default MDBDatePicker;
