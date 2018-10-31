@@ -15,6 +15,7 @@ const propTypes = {
   cancelText: PropTypes.string,
   clearable: PropTypes.bool,
   clearText: PropTypes.string,
+  closeOnCancel: PropTypes.boolean,
   color: PropTypes.string,
   doneText: PropTypes.string,
   getValue: PropTypes.func,
@@ -32,6 +33,7 @@ const defaultProps = {
   cancelText: 'Cancel',
   clearable: false,
   clearText: 'Clear',
+  closeOnCancel: false,
   color: 'primary',
   doneText: 'Done',
   getValue: () => {},
@@ -131,6 +133,10 @@ class TimePicker extends Component {
     this.handleMinutesChange(this.props.minutes);
     this.handleModeChange('h');
     this.handleDayTimeChange('am');
+
+    if(this.props.closeOnCancel) {
+      this.handlePickerDialogOpen();
+    }
   }
 
   render() {
