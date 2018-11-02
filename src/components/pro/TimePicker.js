@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 /* eslint-disable */
+import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 import MomentUtils from 'material-ui-pickers/utils/moment-utils';
-import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
-import TimePicker from 'material-ui-pickers/TimePicker';
+import { TimePicker } from 'material-ui-pickers';
 
-export default class MDBDatePicker extends Component {
+ class MDBDatePicker extends Component {
   state = {
     selectedDate: this.props.value
   }
@@ -20,7 +20,7 @@ export default class MDBDatePicker extends Component {
     }
     this.setState({ selectedDate: newDate });
   }
-  
+
   componentDidUpdate(prevProps, prevState) {
     if(this.props.getValue && prevState.selectedDate !== this.state.selectedDate) {
       this.props.getValue(this.state.selectedDate);
@@ -47,7 +47,7 @@ export default class MDBDatePicker extends Component {
       <Tag className={classes}>
         <MuiPickersUtilsProvider utils={MomentUtils}>
             <TimePicker
-              {...attributes} 
+              {...attributes}
               value={selectedDate}
               onChange={this.handleDateChange}
             />
@@ -69,3 +69,5 @@ MDBDatePicker.defaultProps = {
   value: new Date(),
   getValue: () => {}
 };
+
+export default MDBDatePicker;

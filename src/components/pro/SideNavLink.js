@@ -4,7 +4,7 @@ import classNames from "classnames";
 import Waves from "../Waves";
 const Link = require("react-router-dom").NavLink;
 
-class SideNavItem extends React.Component {
+class SideNavLink extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -57,7 +57,7 @@ class SideNavItem extends React.Component {
   }
 }
 
-SideNavItem.propTypes = {
+SideNavLink.propTypes = {
   children: PropTypes.node,
   href: PropTypes.string,
   tag: PropTypes.string,
@@ -65,9 +65,9 @@ SideNavItem.propTypes = {
   className: PropTypes.string
 };
 
-SideNavItem.defaultProps = {
+SideNavLink.defaultProps = {
   to: "#"
 };
 
-export default SideNavItem;
-export { SideNavItem as MDBSideNavItem };
+export default SideNavLink;
+export { SideNavLink as MDBSideNavLink };

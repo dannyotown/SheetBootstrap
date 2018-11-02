@@ -115,118 +115,118 @@ import TimelineStep from "./components/pro/TimelineStep";
 import TimePicker from './components/pro/TimePicker/TimePicker';
 
 // MDB FREE
-import MDBBadge from "./components/Badge";
-import MDBBreadcrumb from "./components/Breadcrumb";
-import MDBBreadcrumbItem from "./components/BreadcrumbItem";
-import MDBBtn from "./components/Button";
-import MDBBtnGroup from "./components/ButtonGroup";
-import MDBBtnToolbar from "./components/ButtonToolbar";
-import MDBCard from "./components/Card";
-import MDBCardBody from "./components/CardBody";
-import MDBCardFooter from "./components/CardFooter";
-import MDBCardGroup from "./components/CardGroup";
-import MDBCardHeader from "./components/CardHeader";
-import MDBCardImage from "./components/CardImage";
-import MDBCardText from "./components/CardText";
-import MDBCardTitle from "./components/CardTitle";
-import MDBCarousel from "./components/Carousel";
-import MDBCarouselCaption from "./components/CarouselCaption";
-import MDBCarouselControl from "./components/CarouselControl";
-import MDBCarouselInner from "./components/CarouselInner";
-import MDBCarouselItem from "./components/CarouselItem";
-import MDBCarouselIndicators from "./components/CarouselIndicators";
-import MDBCarouselIndicator from "./components/CarouselIndicator";
-import MDBCol from "./components/Col";
-import MDBCollapse from "./components/Collapse";
-import MDBContainer from "./components/Container";
-import MDBDataTable from "./components/DataTable";
-import MDBDropdownItem from "./components/DropdownItem";
-import MDBDropdownMenu from "./components/DropdownMenu";
-import MDBDropdownToggle from "./components/DropdownToggle";
-import MDBEdgeHeader from "./components/EdgeHeader";
-import MDBIcon from "./components/Fa";
-import MDBFormInline from "./components/FormInline";
-import MDBFooter from "./components/Footer";
-import MDBFreeBird from "./components/FreeBird";
-import MDBInput from "./components/Input";
-import MDBInputSelect from "./components/InputNumeric";
-import MDBJumbotron from "./components/Jumbotron";
-import MDBListGroup from "./components/ListGroup";
-import MDBListGroupItem from "./components/ListGroupItem";
-import MDBMask from "./components/Mask";
-import MDBMedia from "./components/Media";
-import MDBModal from "./components/Modal";
-import MDBModalBody from "./components/ModalBody";
-import MDBModalFooter from "./components/ModalFooter";
-import MDBModalHeader from "./components/ModalHeader";
-import MDBNav from "./components/Nav";
-import MDBNavbar from "./components/Navbar";
-import MDBNavbarBrand from "./components/NavbarBrand";
-import MDBNavbarNav from "./components/NavbarNav";
-import MDBNavbarToggler from "./components/NavbarToggler";
-import MDBNavItem from "./components/NavItem";
-import MDBNavLink from "./components/NavLink";
-import MDBPagination from "./components/Pagination";
-import MDBPageItem from "./components/PageItem";
-import MDBPageNav from "./components/PageLink";
-import MDBPopover from "./components/Popover";
-import MDBPopoverBody from "./components/PopoverBody";
-import MDBPopoverHeader from "./components/PopoverHeader";
-import MDBProgress from "./components/Progress";
-import MDBWaves from "./components/Waves";
-import MDBRow from "./components/Row";
-import MDBTable from "./components/Table";
-import MDBTableBody from "./components/TableBody";
-import MDBTableHead from "./components/TableHead";
-import MDBTableFoot from "./components/TableFoot";
-import MDBTextarea from "./components/TextField";
-import MDBTooltip from "./components/Tooltip";
-import MDBView from "./components/View";
+import {MDBBadge} from "./components/Badge";
+import {MDBBreadcrumb} from "./components/Breadcrumb";
+import {MDBBreadcrumbItem} from "./components/BreadcrumbItem";
+import {MDBBtn} from "./components/Button";
+import {MDBBtnGroup} from "./components/ButtonGroup";
+import {MDBBtnToolbar} from "./components/ButtonToolbar";
+import {MDBCard} from "./components/Card";
+import {MDBCardBody} from "./components/CardBody";
+import {MDBCardFooter} from "./components/CardFooter";
+import {MDBCardGroup} from "./components/CardGroup";
+import {MDBCardHeader} from "./components/CardHeader";
+import {MDBCardImage} from "./components/CardImage";
+import {MDBCardText} from "./components/CardText";
+import {MDBCardTitle} from "./components/CardTitle";
+import {MDBCarousel} from "./components/Carousel";
+import {MDBCarouselCaption} from "./components/CarouselCaption";
+import {MDBControl} from "./components/CarouselControl";
+import {MDBCarouselInner} from "./components/CarouselInner";
+import {MDBCarouselItem} from "./components/CarouselItem";
+import {MDBCarouselIndicators} from "./components/CarouselIndicators";
+import {MDBCarouselIndicator} from "./components/CarouselIndicator";
+import {MDBCol} from "./components/Col";
+import {MDBCollapse} from "./components/Collapse";
+import {MDBContainer} from "./components/Container";
+import {MDBDataTable} from "./components/DataTable";
+import {MDBDropdownItem} from "./components/DropdownItem";
+import {MDBDropdownMenu} from "./components/DropdownMenu";
+import {MDBDropdownToggle} from "./components/DropdownToggle";
+import {MDBEdgeHeader} from "./components/EdgeHeader";
+import {MDBIcon} from "./components/Fa";
+import {MDBFormInline} from "./components/FormInline";
+import {MDBFooter} from "./components/Footer";
+import {MDBFreeBird} from "./components/FreeBird";
+import {MDBInput} from "./components/Input";
+import {MDBInputSelect} from "./components/InputNumeric";
+import {MDBJumbotron} from "./components/Jumbotron";
+import {MDBListGroup} from "./components/ListGroup";
+import {MDBListGroupItem} from "./components/ListGroupItem";
+import {MDBMask} from "./components/Mask";
+import {MDBMedia} from "./components/Media";
+import {MDBModal} from "./components/Modal";
+import {MDBModalBody} from "./components/ModalBody";
+import {MDBModalFooter} from "./components/ModalFooter";
+import {MDBModalHeader} from "./components/ModalHeader";
+import {MDBNav} from "./components/Nav";
+import {MDBNavbar} from "./components/Navbar";
+import {MDBNavbarBrand} from "./components/NavbarBrand";
+import {MDBNavbarNav} from "./components/NavbarNav";
+import {MDBNavbarToggler} from "./components/NavbarToggler";
+import {MDBNavItem} from "./components/NavItem";
+import {MDBNavLink} from "./components/NavLink";
+import {MDBPagination} from "./components/Pagination";
+import {MDBPageItem} from "./components/PageItem";
+import {MDBPageNav} from "./components/PageLink";
+import {MDBPopover} from "./components/Popover";
+import {MDBPopoverBody} from "./components/PopoverBody";
+import {MDBPopoverHeader} from "./components/PopoverHeader";
+import {MDBProgress} from "./components/Progress";
+import {MDBWaves} from "./components/Waves";
+import {MDBRow} from "./components/Row";
+import {MDBTable} from "./components/Table";
+import {MDBTableBody} from "./components/TableBody";
+import {MDBTableHead} from "./components/TableHead";
+import {MDBTableFoot} from "./components/TableFoot";
+import {MDBTextarea} from "./components/TextField";
+import {MDBTooltip} from "./components/Tooltip";
+import {MDBView} from "./components/View";
 
 // MDB PRO
-// import MDBAnimation from './components/Animation';
-import MDBAutocomplete from "./components/pro/Autocomplete";
-import MDBAvatar from "./components/pro/Avatar";
-import MDBBtnFixed from "./components/pro/ButtonFixed";
-import MDBBtnFixedItem from "./components/pro/ButtonFixedItem";
-import MDBCardUp from "./components/pro/CardUp";
-import MDBChip from "./components/pro/Chip";
-import MDBChipsInput from "./components/pro/ChipsInput";
-import MDBCollapseHeader from "./components/pro/CollapseHeader";
+// import {MDBAnimation} from './components/Animation';
+import {MDBAutocomplete} from "./components/pro/Autocomplete";
+import {MDBAvatar} from "./components/pro/Avatar";
+import {MDBBtnFixed} from "./components/pro/ButtonFixed";
+import {MDBBtnFixedItem} from "./components/pro/ButtonFixedItem";
+import {MDBCardUp} from "./components/pro/CardUp";
+import {MDBChip} from "./components/pro/Chip";
+import {MDBChipsInput} from "./components/pro/ChipsInput";
+import {MDBCollapseHeader} from "./components/pro/CollapseHeader";
 import MDBDatePicker from "./components/pro/DatePicker";
-import MDBExportToCSV from "./components/pro/ExportToCSV";
-import MDBTimePicker from "./components/pro/TimePicker/TimePicker";
-import MDBFlippingCard from "./components/pro/FlippingCard";
-import MDBFileInput from "./components/pro/InputFile";
-import MDBRangeInput from "./components/pro/InputRange";
-import MDBSwitch from "./components/pro/InputSwitch";
-import MDBLightboxStyles from "./components/pro/Lightbox.css";
-import MDBScrollbar from "./components/pro/PerfectScrollbar";
-import MDBScrollspyBox from "./components/pro/ScrollSpyBox";
-import MDBScrollspyList from "./components/pro/ScrollSpyList";
-import MDBScrollspyListItem from "./components/pro/ScrollSpyListItem";
-import MDBScrollspyText from "./components/pro/ScrollSpyText";
-import MDBSideNav from "./components/pro/SideNav";
-import MDBSideNavCat from "./components/pro/SideNavCat";
-import MDBSideNavItem from "./components/pro/SideNavItem";
-import MDBSideNavLink from "./components/pro/SideNavLink";
-import MDBSideNavNav from "./components/pro/SideNavNav";
-import MDBSimpleChart from './components/pro/SimpleChart';
-import MDBSelect from "./components/pro/Select";
-import MDBSelectInput from "./components/pro/SelectInput";
-import MDBSelectOptions from "./components/pro/SelectOptions";
-import MDBSelectOption from "./components/pro/SelectOption";
-import MDBSpinner from "./components/pro/Spinner";
-import MDBStep from "./components/pro/Step";
-import MDBStepper from "./components/pro/Stepper";
-import MDBTableEditable from "./components/pro/TableEditable";
-import MDBTabPane from "./components/pro/TabPane";
-import MDBTabContent from "./components/pro/TabContent";
-import MDBSticky from "./components/pro/Sticky";
-import MDBStickyContent from "./components/pro/StickyContainer";
-import MDBTestimonial from "./components/pro/Testimonial";
-import MDBTimeline from "./components/pro/Timeline";
-import MDBTimelineStep from "./components/pro/TimelineStep";
+import {MDBExportToCSV} from "./components/pro/ExportToCSV";
+import MDBTimePicker from "./components/pro/TimePicker";
+import {MDBRotatingCard} from "./components/pro/FlippingCard";
+import {MDBFileInput} from "./components/pro/InputFile";
+import {MDBRangeInput} from "./components/pro/InputRange";
+import {MDBSwitch} from "./components/pro/InputSwitch";
+import {MDBLightboxStyles} from "./components/pro/Lightbox.css";
+import {MDBScrollbar} from "./components/pro/PerfectScrollbar";
+import {MDBScrollspyBox} from "./components/pro/ScrollSpyBox";
+import {MDBScrollspyList} from "./components/pro/ScrollSpyList";
+import {MDBScrollspyListItem} from "./components/pro/ScrollSpyListItem";
+import {MDBScrollspyText} from "./components/pro/ScrollSpyText";
+import {MDBSideNav} from "./components/pro/SideNav";
+import {MDBSideNavCat} from "./components/pro/SideNavCat";
+import {MDBSideNavItem} from "./components/pro/SideNavItem";
+import {MDBSideNavLink} from "./components/pro/SideNavLink";
+import {MDBSideNavNav} from "./components/pro/SideNavNav";
+import {MDBSimpleChart} from './components/pro/SimpleChart';
+import {MDBSelect} from "./components/pro/Select";
+import {MDBSelectInput} from "./components/pro/SelectInput";
+import {MDBSelectOptions} from "./components/pro/SelectOptions";
+import {MDBSelectOption} from "./components/pro/SelectOption";
+import {MDBSpinner} from "./components/pro/Spinner";
+import {MDBStep} from "./components/pro/Step";
+import {MDBStepper} from "./components/pro/Stepper";
+import {MDBTableEditable} from "./components/pro/TableEditable";
+import {MDBTabPane} from "./components/pro/TabPane";
+import {MDBTabContent} from "./components/pro/TabContent";
+import {MDBSticky} from "./components/pro/Sticky";
+import {MDBStickyContent} from "./components/pro/StickyContainer";
+import {MDBTestimonial} from "./components/pro/Testimonial";
+import {MDBTimeline} from "./components/pro/Timeline";
+import {MDBTimelineStep} from "./components/pro/TimelineStep";
 let Dropdown = require("./components/Dropdown").default;
 let DropdownMenuComponent = require("./components/DropdownMenuComponent")
   .default;
@@ -238,7 +238,7 @@ let MDBDropdownMenuComponent = require("./components/DropdownMenuComponent")
 MDBDropdownMenuComponent = require("./components/pro/DropdownMenuProComponent")
   .default;
 
-export {
+export  {
   // FREE
   Animation,
   Badge,
@@ -374,7 +374,7 @@ export {
   MDBCardTitle,
   MDBCarousel,
   MDBCarouselCaption,
-  MDBCarouselControl,
+  MDBControl,
   MDBCarouselInner,
   MDBCarouselItem,
   MDBCarouselIndicators,
@@ -439,7 +439,7 @@ export {
   MDBExportToCSV,
   MDBDatePicker,
   MDBTimePicker,
-  MDBFlippingCard,
+  MDBRotatingCard,
   MDBFileInput,
   MDBRangeInput,
   MDBSwitch,
