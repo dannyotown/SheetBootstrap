@@ -31,11 +31,11 @@
   position: absolute;
   will-change: transform;
   z-index: 1;
-  background-color: rgba(0,150,136,.25);
+  background-color: rgba(0, 150, 136, 0.25);
 }
 
 .time-picker-clock__hand.between .time-picker-clock__hand--ring {
-  background-color: rgba(0,150,136,.25);
+  background-color: rgba(0, 150, 136, 0.25);
   border-color: inherit;
   border-radius: 100%;
   width: 2.5rem;
@@ -48,7 +48,7 @@
 }
 
 .time-picker-clock__hand.between .time-picker-clock__hand--ring:before {
-  background-color: rgba(0,77,64,.75);
+  background-color: rgba(0, 77, 64, 0.75);
   border-color: inherit;
   border-radius: 100%;
   width: 10px;
@@ -68,7 +68,7 @@
   top: 100%;
   left: 50%;
   border-radius: 50%;
-  background-color: rgba(0,77,64,.75);
+  background-color: rgba(0, 77, 64, 0.75);
   opacity: 0.75;
   transform: translate(-50%, -50%);
 }

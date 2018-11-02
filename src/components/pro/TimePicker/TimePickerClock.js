@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+
 import TimpiePickerClockHand from './TimpiePickerClockHand';
 
 const propTypes = {
@@ -57,7 +58,7 @@ class TimePickerClock extends Component {
     if(prevProps.max !== this.props.max || prevProps.min !== this.props.min || this.state.value !== this.props.value) {
       this.buildComponentState();
     }
-  }
+   }
   
   buildComponentState = () => {
     const { size, max, min, double, rotate, value } = this.props;
@@ -70,7 +71,7 @@ class TimePickerClock extends Component {
     const degrees = degreesPerUnit * Math.PI / 180;
     const handAngle = rotate + (degreesPerUnit * (value - min));
 
-    this.setState({ 
+    this.setState({
       clockRadius,
       degrees,
       degreesPerUnit,
