@@ -195,7 +195,7 @@ import {MDBChipsInput} from "./components/pro/ChipsInput";
 import {MDBCollapseHeader} from "./components/pro/CollapseHeader";
 import MDBDatePicker from "./components/pro/DatePicker";
 import {MDBExportToCSV} from "./components/pro/ExportToCSV";
-import MDBTimePicker from "./components/pro/TimePicker";
+import {MDBTimePicker} from "./components/pro/TimePicker/TimePicker";
 import {MDBRotatingCard} from "./components/pro/FlippingCard";
 import {MDBFileInput} from "./components/pro/InputFile";
 import {MDBRangeInput} from "./components/pro/InputRange";

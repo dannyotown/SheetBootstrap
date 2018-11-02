@@ -291,3 +291,4 @@ TimePicker.propTypes = propTypes;
 TimePicker.defaultProps = defaultProps;
 
 export default TimePicker;
+export { TimePicker as MDBTimePicker };
