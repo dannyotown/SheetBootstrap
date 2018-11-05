@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBBreadcrumb, MDBBreadcrumbItem, Container } from "mdbreact";
+import { MDBBreadcrumb, MDBBreadcrumbItem, Container, MDBNavbar, MDBNavbarNav, MDBNavItem } from "mdbreact";
 import DocsLink from "./DocsLink";
 
 const BreadcrumbPage = props => {
@@ -104,6 +104,30 @@ const BreadcrumbPage = props => {
           <MDBBreadcrumbItem appendIcon active>Data</MDBBreadcrumbItem>
         </MDBBreadcrumb>
       </div>
+
+      <MDBNavbar
+        color="indigo"
+        style={{ marginTop: "20px" }}
+        dark
+      >
+        <span className="navbar-toggler-icon" />
+        <MDBNavbarNav left>
+          <MDBBreadcrumb color="indigo">
+            <MDBBreadcrumbItem>Home</MDBBreadcrumbItem>
+            <MDBBreadcrumbItem active>Library</MDBBreadcrumbItem>
+          </MDBBreadcrumb>
+        </MDBNavbarNav>
+        <MDBNavbarNav right>
+          <MDBNavItem>
+              <input
+                className="form-control form-control-sm ml-3 w-75"
+                type="text"
+                placeholder="Search"
+                aria-label="Search"
+              />
+          </MDBNavItem>
+        </MDBNavbarNav>
+      </MDBNavbar>
     </Container>
   );
 };
