@@ -7,7 +7,7 @@ const BreadcrumbPage = props => {
     <Container>
       <DocsLink
         title="Breadcrumb"
-        href="https://mdbootstrap.com/react/components/breadcrumb/"
+        href="https://mdbootstrap.com/docs/react/navigation/breadcrumb/"
       />
       <div className="container-fluid text-center">
 
