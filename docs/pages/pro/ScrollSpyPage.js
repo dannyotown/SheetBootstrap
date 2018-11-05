@@ -50,7 +50,7 @@ class ScrollSpyPage extends React.Component {
       <Container className="mt-5">
         <DocsLink
           title="ScrollSpy"
-          href="https://mdbootstrap.com/react/advanced/scrollspy/"
+          href="https://mdbootstrap.com/docs/react/navigation/scrollspy/"
         />
         <ScrollSpyBox>
           <ScrollSpyList color="red">

@@ -8,7 +8,7 @@ class FeaturesPage extends Component {
       <Container>
         <DocsLink
           title="Features Sections"
-          href="https://mdbootstrap.com/react/sections/features/"
+          href="https://mdbootstrap.com/docs/react/sections/features/"
         />
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold my-5">

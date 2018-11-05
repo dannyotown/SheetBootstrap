@@ -8,7 +8,7 @@ class ChartsPagePro extends React.Component {
       <Container>
         <DocsLink
           title="Minimalist charts"
-          href="https://mdbootstrap.com/react/advanced/charts/#usage-minimalist"
+          href="https://mdbootstrap.com/docs/react/advanced/charts/#usage-minimalist"
         />
         <div style={{ marginTop: "100px" }}>
           <Container>

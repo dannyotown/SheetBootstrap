@@ -21,7 +21,7 @@ class MultiCarouselPage extends Component {
       <Container>
         <DocsLink
           title="Multi-item Carousel"
-          href="https://mdbootstrap.com/react/advanced/carousel/#multi-item"
+          href="https://mdbootstrap.com/docs/react/advanced/carousel/#multi-item"
         />
         <Carousel
           activeItem={1}

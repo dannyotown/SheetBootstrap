@@ -21,7 +21,7 @@ class TestimonialsPage extends Component {
       <Container>
         <DocsLink
           title="Testimonials"
-          href="https://mdbootstrap.com/sections/testimonials-sections/"
+          href="https://mdbootstrap.com/docs/react/sections/testimonials/"
         />
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold my-5">

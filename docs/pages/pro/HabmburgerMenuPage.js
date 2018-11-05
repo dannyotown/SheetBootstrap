@@ -40,7 +40,7 @@ class NavbarPage extends Component {
       <Container>
         <DocsLink
           title="Hamburger Menu"
-          href="https://mdbootstrap.com/react/components/navbar/"
+          href="https://mdbootstrap.com/docs/react/navigation/navbar/"
         />
         <Router>
           <div style={{ height: "1200px" }}>

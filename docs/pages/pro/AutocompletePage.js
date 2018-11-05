@@ -307,7 +307,7 @@ class AutocompletePage extends Component {
       <Container>
         <DocsLink
           title="Autocomplete"
-          href="https://mdbootstrap.com/react/advanced/autocomplete/"
+          href="https://mdbootstrap.com/docs/react/forms/autocomplete/"
         />
         <section style={{ paddingLeft: 200, paddingRight: 200 }}>
           <Autocomplete

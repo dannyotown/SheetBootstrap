@@ -17,7 +17,7 @@ const BlogPage = () => {
     <Container>
       <DocsLink
         title="Blog Sections"
-        href="https://mdbootstrap.com/react/sections/blog/"
+        href="https://mdbootstrap.com/docs/react/sections/blog/"
       />
       <Card className="my-5 px-5 pb-5">
         <CardBody>

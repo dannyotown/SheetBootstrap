@@ -7,7 +7,7 @@ class ScrollBarPage extends React.Component {
     const outerContainerStyle = { width: "800px", height: "400px" };
     return (
       <Container>
-        <DocsLink title="ScrollBar" href="https://mdbootstrap.com/react/" />
+        <DocsLink title="ScrollBar" href="https://mdbootstrap.com/docs/react/" />
         <Container style={outerContainerStyle} className="mt-5">
           <PerfectScrollbar className="scrollbar-primary">
             <img
