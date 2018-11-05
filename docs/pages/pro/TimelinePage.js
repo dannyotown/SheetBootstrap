@@ -8,7 +8,7 @@ const TimelinePage = () => {
     <Container>
       <DocsLink
         title="Timeline"
-        href="https://mdbootstrap.com/react/addons/timeline/"
+        href="https://mdbootstrap.com/plugins/react/timeline/"
       />
       <Container className="mt-5">
         <section id="basic">

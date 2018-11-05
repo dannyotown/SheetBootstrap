@@ -24,7 +24,7 @@ const TableEditablePage = props => {
     <Container className="mt-3">
       <DocsLink
         title="Table Editable"
-        href="https://mdbootstrap.com/react/content/table-editable/"
+        href="https://mdbootstrap.com/docs/react/tables/editable/"
       />
       <Row className="py-3">
         <Col md="12">

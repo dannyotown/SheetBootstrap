@@ -22,7 +22,7 @@ const MagazinePage = () => {
     <Container style={{ maxWidth: "80%" }}>
       <DocsLink
         title="Magazine Sections"
-        href="https://mdbootstrap.com/react/sections/magazine/"
+        href="https://mdbootstrap.com/docs/react/sections/magazine/"
       />
       <Card
         className="my-5 px-5 mx-auto"

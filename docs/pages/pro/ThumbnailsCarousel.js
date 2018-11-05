@@ -8,7 +8,7 @@ class ThumbnailsCarouselPage extends Component {
       <Container>
         <DocsLink
           title="Thumbnails Carousel"
-          href="https://mdbootstrap.com/react/advanced/carousel/#thumbnails"
+          href="https://mdbootstrap.com/docs/react/advanced/carousel/#thumbnails"
         />
         <Carousel
           activeItem={1}

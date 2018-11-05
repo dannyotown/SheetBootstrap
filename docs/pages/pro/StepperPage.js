@@ -55,7 +55,7 @@ class StepperPage extends React.Component {
       <Container>
         <DocsLink
           title="Steppers"
-          href="https://mdbootstrap.com/react/components/steppers/"
+          href="https://mdbootstrap.com/docs/react/components/stepper/"
         />
         <Container className="mt-5">
           <h2>Horizontal stepper</h2>

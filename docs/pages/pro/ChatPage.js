@@ -288,7 +288,7 @@ class ChatPage extends Component {
       <MDBContainer>
         <DocsLink
           title="Chat"
-          href="https://mdbootstrap.com/react/addons/chat/"
+          href="https://mdbootstrap.com/plugins/react/chat/"
         />
         <h3>Basic chat</h3>
         <MDBCard className="grey lighten-3 chat-room">

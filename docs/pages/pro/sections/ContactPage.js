@@ -17,7 +17,7 @@ class ContactPage extends Component {
       <Container>
         <DocsLink
           title="Contact Sections"
-          href="https://mdbootstrap.com/react/sections/contact/"
+          href="https://mdbootstrap.com/docs/react/sections/contact/"
         />
         <section className="my-5">
           <h2 className="h1-responsive font-weight-bold text-center my-5">

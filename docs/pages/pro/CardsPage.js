@@ -33,7 +33,7 @@ class FlippingCardPage extends React.Component {
       <Container>
         <DocsLink
           title="Cards"
-          href="https://mdbootstrap.com/react/components/cards/"
+          href="https://mdbootstrap.com/docs/react/components/cards/"
         />
         <Container>
           <h2>Stylish cards</h2>

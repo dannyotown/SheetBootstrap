@@ -25,7 +25,7 @@ class EcommercePage extends Component {
       <Container>
         <DocsLink
           title="eCommerce Sections"
-          href="https://mdbootstrap.com/react/sections/e-commerce/"
+          href="https://mdbootstrap.com/docs/react/sections/e-commerce/"
         />
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold text-center my-5">

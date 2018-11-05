@@ -16,7 +16,7 @@ const TeamPage = () => {
     <Container>
       <DocsLink
         title="Team"
-        href="https://mdbootstrap.com/sections/team-sections/"
+        href="https://mdbootstrap.com/docs/react/sections/team/"
       />
       <h2 className="title text-center text-md-left pt-4 mt-5">
         <strong>Team v.1 </strong>

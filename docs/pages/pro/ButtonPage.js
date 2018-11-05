@@ -38,7 +38,7 @@ class ButtonPage extends React.Component {
       <Container>
         <DocsLink
           title="Buttons"
-          href="https://mdbootstrap.com/react/components/buttons/"
+          href="https://mdbootstrap.com/docs/react/components/buttons/"
         />
         <div className="container-fluid text-center mt-5">
           <section id="top-section">

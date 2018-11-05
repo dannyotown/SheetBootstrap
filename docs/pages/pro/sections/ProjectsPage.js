@@ -18,7 +18,7 @@ class ProjectsPage extends Component {
       <Container>
         <DocsLink
           title="Project Sections"
-          href="https://mdbootstrap.com/react/sections/projects/"
+          href="https://mdbootstrap.com/docs/react/sections/projects/"
         />
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold my-5">

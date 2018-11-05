@@ -49,7 +49,7 @@ class SideNavPage extends React.Component {
         <Container>
           <DocsLink
             title="Sidenav"
-            href="https://mdbootstrap.com/react/advanced/sidenav/"
+            href="https://mdbootstrap.com/docs/react/navigation/sidenav/"
           />
           {/* the buttons toggling visibility of SideNavs: */}
           <Row style={{ height: "80vh", alignItems: "center" }}>

@@ -21,7 +21,7 @@ class CollapsePage extends Component {
       <Container>
         <DocsLink
           title="Accordion PRO"
-          href="https://mdbootstrap.com/react/advanced/collapse/#accordion"
+          href="https://mdbootstrap.com/docs/react/advanced/collapse/#accordion"
         />
         <Container className="md-accordion mt-5">
           <Card className="mt-3">

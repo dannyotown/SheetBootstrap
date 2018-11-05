@@ -19,7 +19,7 @@ class FormsPage extends React.Component {
       <Container className="mt-5">
         <DocsLink
           title="Forms"
-          href="https://mdbootstrap.com/react/components/forms/"
+          href="https://mdbootstrap.com/docs/react/forms/basic/"
         />
         <section className="form-elegant">
           <h2 className="mb-5">Form elegant</h2>

@@ -36,7 +36,7 @@ class SocialPage extends Component {
       <Container style={{ maxWidth: "80%" }}>
         <DocsLink
           title="Social Sections"
-          href="https://mdbootstrap.com/react/sections/social/"
+          href="https://mdbootstrap.com/docs/react/sections/social/"
         />
         <h2 className="title pt-4 mt-5">
           <strong>Social newsfeed v.1 </strong>

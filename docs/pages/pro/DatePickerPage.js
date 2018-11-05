@@ -17,7 +17,7 @@ class DatePickerPage extends React.Component {
       <Container>
         <DocsLink
           title="Date Picker"
-          href="https://mdbootstrap.com/react/advanced/datepicker/"
+          href="https://mdbootstrap.com/docs/react/forms/date-picker/"
         />
         <MDBDatePicker getValue={this.getPickerValue} />
       </Container>

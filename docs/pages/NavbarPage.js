@@ -28,7 +28,7 @@ class NavbarPage extends React.Component {
       <Container>
         <DocsLink
           title="Navbar"
-          href="https://mdbootstrap.com/react/components/navbar/"
+          href="https://mdbootstrap.com/docs/react/navigation/navbar/"
         />
         <Router>
           <div style={{ height: "1200px" }}>

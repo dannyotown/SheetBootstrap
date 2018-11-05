@@ -9,7 +9,7 @@ class SearchPage extends React.Component {
       <Container>
         <DocsLink
           title="Search"
-          href="https://mdbootstrap.com/react/components/search/"
+          href="https://mdbootstrap.com/docs/react/forms/search/"
         />
         <Row>
           <Col md="6">
