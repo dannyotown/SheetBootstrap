@@ -6,7 +6,7 @@
 
 Built with React and Bootstrap 4. Absolutely no jQuery.
 
-400+ material UI elements, 600+ material icons, 74 CSS animations, TypeScript modules, SASS files and many more.
+400+ material UI elements, 600+ material icons, 74 CSS animations, SASS files and many more.
 
 All fully responsive. All compatible with different browsers.
 
@@ -24,7 +24,7 @@ All fully responsive. All compatible with different browsers.
 
 # Version:
 
-- MDBReact 4.8.2
+- MDBReact 4.8.3
 - React 16.5.2
 
 # Quick start
