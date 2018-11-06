@@ -178,7 +178,6 @@ class DoubleNavigationPage extends React.Component {
               <NavItem>
                 <Dropdown>
                   <DropdownToggle nav caret>
-                    {" "}
                     <div className="d-none d-md-inline">Dropdown</div>
                   </DropdownToggle>
                   <DropdownMenu right>
