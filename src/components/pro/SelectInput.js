@@ -4,10 +4,6 @@ import classNames from "classnames";
 import selectContextHOC from "./SelectContext";
 
 class SelectInput extends React.Component {
-  componentDidMount() {
-    this.props.context.triggerOptionChange(this.props.selected);
-  }
-
   render() {
     const {
       className,
