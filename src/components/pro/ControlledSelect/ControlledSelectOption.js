@@ -1,46 +1,35 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-class ControlledSelectOption extends Component {
-  render() {
-    const {
-      checked,
-      disabled,
-      icon,
-      multiple,
-      selectOption,
-      value
-    } = this.props;
+const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOption, value }) => {
+  const classes = classNames(disabled && "disabled", checked && "active");
 
-    const classes = classNames(disabled && "disabled", checked && "active");
-
-    return (
-      <li
-        data-multiple={multiple}
-        className={classes}
-        onClick={() => selectOption(value)}
-      >
-        {icon && <img src={icon} alt="" className="rounded-circle" />}
-        <span data-multiple={multiple} className="filtrable">
-          {multiple && (
-            <React.Fragment>
-              <input
-                type="checkbox"
-                value={value}
-                className="form-check-input"
-                checked={checked}
-                disabled={disabled}
-                onChange={() => {}}
-              />
-              <label style={{ height: "10px" }} data-multiple={multiple} />
-            </React.Fragment>
-          )}
-          {value}
-        </span>
-      </li>
-    );
-  }
+  return (
+    <li
+      data-multiple={multiple}
+      className={classes}
+      onClick={() => selectOption(value)}
+    >
+      {icon && <img src={icon} alt="" className="rounded-circle" />}
+      <span data-multiple={multiple} className="filtrable">
+        {multiple && (
+          <React.Fragment>
+            <input
+              type="checkbox"
+              value={value}
+              className="form-check-input"
+              checked={checked}
+              disabled={disabled}
+              onChange={() => {}}
+            />
+            <label style={{ height: "10px" }} data-multiple={multiple} />
+          </React.Fragment>
+        )}
+        {value}
+      </span>
+    </li>
+  );
 }
 
 ControlledSelectOption.propTypes = {
