@@ -383,6 +383,11 @@ class NavbarPage extends React.Component {
               </NavbarNav>
             </Collapse>
           </Navbar>
+          <Navbar color="unique-color-dark" style={{marginTop: "20px"}} dark>
+            <NavbarBrand href="#">
+                <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="" />
+            </NavbarBrand>
+          </Navbar>
         </div>
       </Container>
     );
