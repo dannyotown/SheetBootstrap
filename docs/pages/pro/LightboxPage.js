@@ -44,7 +44,7 @@ class LightboxPage extends React.Component {
       <Container>
         <DocsLink
           title="Lightbox"
-          href="https://mdbootstrap.com/react/advanced/lightbox/"
+          href="https://mdbootstrap.com/docs/react/advanced/lightbox/"
         />
         <Container className="mt-5">
           <div className="mdb-lightbox no-margin">

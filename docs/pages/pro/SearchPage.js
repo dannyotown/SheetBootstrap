@@ -55,7 +55,7 @@ class SearchPagePro extends React.Component {
         <Container>
           <DocsLink
             title="Search"
-            href="https://mdbootstrap.com/react/components/search/"
+            href="https://mdbootstrap.com/docs/react/forms/search/"
           />
           <FormInline className="md-form mr-auto mb-4">
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />

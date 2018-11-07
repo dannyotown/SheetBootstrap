@@ -7,7 +7,7 @@ const SocialButtonsPage = props => {
     <Container>
       <DocsLink
         title="Social Buttons"
-        href="https://mdbootstrap.com/react/components/buttons/"
+        href="https://mdbootstrap.com/docs/react/components/buttons/"
       />
       <Container>
         <h4 className="mt-4">Full name social button</h4>

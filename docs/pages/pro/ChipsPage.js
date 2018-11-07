@@ -89,7 +89,7 @@ class ChipsPage extends React.Component {
       <Container>
         <DocsLink
           title="Chips"
-          href="https://mdbootstrap.com/react/components/badges/#chips-avatars"
+          href="https://mdbootstrap.com/docs/react/components/badges/#chips-avatars"
         />
         <Container>
           <h2 className="my-3">Chips with avatars</h2>

@@ -31,7 +31,7 @@ class StickyPage extends React.Component {
       <Container>
         <DocsLink
           title="Sticky"
-          href="https://mdbootstrap.com/react/advanced/react-sticky/"
+          href="https://mdbootstrap.com/docs/react/advanced/sticky/"
         />
         <div style={wrapper} className="mt-4">
           <div style={background}>

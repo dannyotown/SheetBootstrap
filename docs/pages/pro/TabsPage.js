@@ -89,7 +89,7 @@ class TabsPage extends React.Component {
         <Container>
           <DocsLink
             title="Tabs"
-            href="https://mdbootstrap.com/react/advanced/tabs/"
+            href="https://mdbootstrap.com/docs/react/components/tabs/"
           />
           <Container className="mt-4">
             <Row>

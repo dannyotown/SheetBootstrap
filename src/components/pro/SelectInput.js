@@ -3,50 +3,33 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import selectContextHOC from "./SelectContext";
 
-class SelectInput extends React.Component {
-  componentDidMount() {
-    this.props.context.triggerOptionChange(this.props.selected);
-  }
+let SelectInput = ({ attributes, className, context, selected }) => {
+  const classes = classNames("select-dropdown", className);
 
-  render() {
-    const {
-      className,
-      children,
-      value,
-      context,
-      selected,
-      ...attributes
-    } = this.props;
-
-    const classes = classNames("select-dropdown", className);
-    return (
-      <input
-        type="text"
-        readOnly
-        value={
-          context.state.selectTextContent
-            ? context.state.selectTextContent
-            : selected
-        }
-        {...attributes}
-        className={classes}
-      />
-    );
-  }
+  return (
+    <input
+      type="text"
+      readOnly
+      value={
+        context.state.selectTextContent
+          ? context.state.selectTextContent
+          : selected
+      }
+      {...attributes}
+      className={classes}
+    />
+  );
 }
 
 SelectInput.propTypes = {
-  children: PropTypes.node,
+  context: PropTypes.object.isRequired,
   className: PropTypes.string,
-  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  value: PropTypes.string
+  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 SelectInput.defaultProps = {
-  children: "div",
   className: "",
-  selected: "Choose your option",
-  value: ""
+  selected: "Choose your option"
 };
 
 export default (SelectInput = selectContextHOC(SelectInput));

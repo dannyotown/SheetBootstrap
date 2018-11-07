@@ -18,7 +18,7 @@ class TestimonialsMultiPage extends Component {
       <Container>
         <DocsLink
           title="Testimonials"
-          href="https://mdbootstrap.com/sections/testimonials-sections/#v-4"
+          href="https://mdbootstrap.com/docs/react/sections/testimonials/#v-4"
         />
         <section className="text-center my-5">
           <h2 className="h1-responsive font-weight-bold my-5">

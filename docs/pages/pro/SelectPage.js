@@ -56,7 +56,7 @@ class SelectPage extends React.Component {
       <Container>
         <DocsLink
           title="Select"
-          href="https://mdbootstrap.com/react/advanced/select/"
+          href="https://mdbootstrap.com/docs/react/forms/select/"
         />
         <h4 className="my-4 indigo-text">
           <strong>Basic example</strong>
