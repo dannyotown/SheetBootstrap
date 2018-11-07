@@ -19,7 +19,7 @@ class TimePickerPage extends React.Component {
             <MDBTimePicker id="timePicker" label="24hrs format" closeOnCancel cancelable clearable hours={12} minutes={30} hoursFormat={24} getValue={this.getPickerValue} />
           </Col>
           <Col md="3">
-            <MDBTimePicker id="timePicker" label="12 hrs format" hours={12} minutes={30} hoursFormat={12} getValue={this.getPickerValue} />
+            <MDBTimePicker id="timePicker" label="12 hrs format" color="default" hours={12} minutes={30} hoursFormat={12} getValue={this.getPickerValue} />
           </Col>
         </Row>
       </Container>

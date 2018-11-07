@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 const propTypes = {
+  color: PropTypes.string.isRequired,
   hours: PropTypes.string.isRequired,
   minutes: PropTypes.string.isRequired,
   dayTime: PropTypes.string.isRequired,
@@ -11,7 +12,12 @@ const propTypes = {
   hoursFormat: PropTypes.number.isRequired
 };
 
-const TimePickerDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChange, hoursFormat }) => {
+const TimePickerDisplay = ({ color, hours, minutes, dayTime, unitsMode, handleModeChange, hoursFormat }) => {
+  const displayClasses = classNames(
+    'picker__date-display',
+    `btn-${color}`
+  );
+  
   const hourClasses = classNames(
     'clockpicker-span-hours',
     unitsMode === 'h' && 'text-primary'
@@ -23,7 +29,7 @@ const TimePickerDisplay = ({ hours, minutes, dayTime, unitsMode, handleModeChang
   );
 
   return (
-    <div className="picker__date-display">
+    <div className={displayClasses}>
       <div className="clockpicker-display">
         <div className="clockpicker-display-column">
           <span 
