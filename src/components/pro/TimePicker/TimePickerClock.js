@@ -177,6 +177,8 @@ class TimePickerClock extends Component {
               : this.props.startFromInner ? value <= 12 ? '120%' : '100%' : value > 12 ? '120%' : '100%')
           })}
           key={value}
+          onMouseDown={(e) => this.onMouseDown(e, value)}
+          onTouchStart={(e) => this.onMouseDown(e, value)}
         >
           {this.props.max > 24 ? this.computeTimeNumber(value) : value === 24 ? '00' : value}
         </span>
@@ -186,17 +188,23 @@ class TimePickerClock extends Component {
     return children;
   };
 
-  onMouseDown = (e) => {
+  onMouseDown = (e, value) => {
     e.preventDefault();
     this.setState({ isDragging: true });
+
+    const handAngle = this.props.rotate + (this.state.degreesPerUnit * (value - this.props.min));
+    const handScale = this.getScale(value);
+
+    if(this.state.value !== value && this.isValueAllowed(value)) {
+      this.updateValue(value, handAngle, handScale);     
+    }
   };
 
-  onMouseUp = () => {
+  onMouseUp = (e) => {
+    e.preventDefault();
     this.setState({ isDragging: false });
 
-    if(this.props.autoSwitch) {
-      this.props.handleModeChange('m');
-    }
+    if(this.props.autoSwitch) this.props.handleModeChange('m');
   };
 
   onDragMove = (e) => {
@@ -212,13 +220,13 @@ class TimePickerClock extends Component {
     const handScale = this.getScale(value);
 
     if(this.state.value !== value && this.isValueAllowed(value)) {
-      this.updateValue(value, handAngle, handScale);     
+      this.updateValue(value, handAngle, handScale);
     }
   };
 
   updateValue = (value, handAngle, handScale) => {
-    this.setState({ value, handAngle, handScale });
     this.props.handleChange(value);
+    this.setState({ value, handAngle, handScale });
   };
 
   render() {
@@ -240,7 +248,6 @@ class TimePickerClock extends Component {
         onTouchEnd={this.onMouseUp}
         onMouseMove={this.onDragMove}
         onTouchMove={this.onDragMove}
-        onClick={this.onDragMove}
         ref={this.clockRef}
       >
         <TimpiePickerClockHand 

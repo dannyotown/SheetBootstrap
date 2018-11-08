@@ -162,6 +162,7 @@ class TimePicker extends Component {
     } = this.state;
 
     const {
+      allowedValues,
       autoSwitch,
       cancelable,
       cancelText,
@@ -219,6 +220,7 @@ class TimePicker extends Component {
                 <div className="picker__wrap">
                   <div className="picker__box">
                     <TimePickerDisplay 
+                      color={color}
                       hours={computedHours}
                       minutes={computedMinutes} 
                       dayTime={dayTime} 
@@ -232,6 +234,7 @@ class TimePicker extends Component {
                           unitsMode === 'h' 
                           ? (
                             <TimePickerClock
+                              allowedValues={allowedValues}
                               autoSwitch={autoSwitch}
                               className={hoursClasses}
                               color={color}
@@ -263,7 +266,7 @@ class TimePicker extends Component {
                       </div>
                       {
                         hoursFormat === 12 &&
-                        <TimePickerAmPmBlock dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
+                        <TimePickerAmPmBlock color={color} dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
                       }
                     </div>
                     <TimePickerFooter 
