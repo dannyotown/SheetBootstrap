@@ -162,6 +162,7 @@ class TimePicker extends Component {
     } = this.state;
 
     const {
+      allowedValues,
       autoSwitch,
       cancelable,
       cancelText,
@@ -233,6 +234,7 @@ class TimePicker extends Component {
                           unitsMode === 'h' 
                           ? (
                             <TimePickerClock
+                              allowedValues={allowedValues}
                               autoSwitch={autoSwitch}
                               className={hoursClasses}
                               color={color}
