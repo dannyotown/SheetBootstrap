@@ -56,6 +56,14 @@ module.exports = function (env) {
         }
       },
       {
+        "@date-io/moment": {
+          root: "@date-io/moment",
+          commonjs2: "@date-io/moment",
+          commonjs: "@date-io/moment",
+          amd: "@date-io/moment"
+        }
+      },
+      {
         "prop-types": {
           root: "PropTypes",
           commonjs2: "prop-types",
