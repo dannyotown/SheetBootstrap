@@ -65,7 +65,7 @@
 @import "free/steppers";
 @import "free/loader";
 // Free addons
-// @import "addons/datatables";
+@import "addons/datatables";
 
 // PRO
 @import "pro/variables";
@@ -121,10 +121,10 @@
 @import "pro/sections/contacts";
 
 // Pro addons
-// @import "addons-pro/steppers";
-// @import "addons-pro/timeline";
-// @import "addons-pro/cards-extended";
-// @import "addons-pro/chat";
+@import "addons-pro/steppers";
+@import "addons-pro/timeline";
+@import "addons-pro/cards-extended";
+@import "addons-pro/chat";
 
 // Your custom styles
 @import "custom-styles";
