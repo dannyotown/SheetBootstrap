@@ -66,9 +66,14 @@ class InputRange extends React.Component {
   }
 
   render() {
-    const { className, min, max } = this.props;
+    const { className, formClassName, min, max } = this.props;
 
     const inputClass = classNames(className);
+
+    const formClass = classNames(
+      "range-field",
+      formClassName
+    );
 
     const thumbClass = classNames(
       "thumb",
@@ -76,7 +81,7 @@ class InputRange extends React.Component {
     );
 
     return (
-      <form className="range-field">
+      <form className={formClass}>
         <input
           className={inputClass}
           min={min}

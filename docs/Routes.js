@@ -100,6 +100,7 @@ import DatatableCsvPage from "./pages/pro/DatatableCsvPage";
 import ModalFormProPage from "./pages/pro/ModalFormPage";
 import HabmburgerMenuPage from "./pages/pro/HabmburgerMenuPage";
 import TimelinePage from "./pages/pro/TimelinePage";
+import SliderPage from "./pages/pro/SliderPage";
 
 class Routes extends React.Component {
   render() {
@@ -176,6 +177,7 @@ class Routes extends React.Component {
         <Route path="/advanced/pro/datepicker" component={DatePickerPage} />
         <Route path="/advanced/pro/timepicker" component={TimePickerPage} />
         <Route path="/advanced/pro/lightbox" component={LightboxPage} />
+        <Route path="/forms/pro/slider" component={SliderPage} />
         <Route
           path="/advanced/pro/multicarousel"
           component={MultiCarouselPage}
