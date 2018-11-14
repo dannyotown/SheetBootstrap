@@ -11,7 +11,7 @@ const AlertPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/alerts/"
       />
 
-      <Alert />
+      <Alert color="danger" />
     </Container>
   );
 };
