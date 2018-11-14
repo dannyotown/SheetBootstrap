@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from 'mdbreact';
+import { Container, Alert } from 'mdbreact';
 import DocsLink from "./DocsLink";
 
 const AlertPage = () => {
@@ -11,6 +11,7 @@ const AlertPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/alerts/"
       />
 
+      <Alert />
     </Container>
   );
 };
