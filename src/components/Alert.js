@@ -10,19 +10,29 @@ class Alert extends Component {
     const {
       className,
       color,
-      children
+      children,
+      dismiss
     } = this.props;
 
     const alertClasses = classNames(
       "alert",
       color && `alert-${color}`,
       className,
-
     );
+
+    let closeBtn;
+
+    if(dismiss){
+      closeBtn = (
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>)
+    }
 
    return (
       <div className={alertClasses} role="alert">
         {children}
+        {closeBtn && closeBtn}
       </div>
     );
   }
