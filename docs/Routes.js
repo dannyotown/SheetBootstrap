@@ -11,6 +11,7 @@ import ComponentsNavPage from "./pages/ComponentsNavPage";
 
 // FREE
 import AnimationPage from "./pages/AnimationPage";
+import AlertPage from "./pages/AlertPage";
 import HomePage from "./pages/HomePage";
 import ButtonPage from "./pages/ButtonPage";
 import CSSPage from "./pages/CSSPage";
@@ -160,6 +161,7 @@ class Routes extends React.Component {
         <Route path="/tables/datatable" component={DatatablePage} />
         <Route path="/tables/datatable-api" component={DatatableApiPage} />
         <Route path="/addons/iframe" component={IframePage} />
+        <Route path="/advanced/alerts" component={AlertPage} />
         {/* PRO */}
         <Route path="/addons/pro/chat" component={ChatPage} />
         <Route
