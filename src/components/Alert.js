@@ -35,29 +35,39 @@ class Alert extends Component {
       className,
     );
 
-    let closeBtn;
+    let alertComponent;
 
     if(dismiss){
-      closeBtn = (
-        <button onClick={this.closeAlert} type="button" className="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
+      alertComponent =  (
+        <Transition
+          in={this.state.isOpen}
+          timeout={150}
+          unmountOnExit
+          onExit={node => this.handleOnExit(node)}
+          onExited={node => this.handleOnExited(node)}
+        >
+          <div className={alertClasses} role="alert">
+            {children}
+            <button onClick={this.closeAlert} type="button" className="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </Transition>
       );
+
+    } else {
+
+      alertComponent = (
+        <div className={alertClasses} role="alert">
+          {children}
+        </div>
+      );
+
     }
 
    return (
-    <Transition
-      in={this.state.isOpen}
-      timeout={150}
-      unmountOnExit
-      onExit={node => this.handleOnExit(node)}
-      onExited={node => this.handleOnExited(node)}
-    >
-      <div className={alertClasses} role="alert">
-        {children}
-        {closeBtn && closeBtn}
-      </div>
-    </Transition>
+      alertComponent
     );
   }
 }
