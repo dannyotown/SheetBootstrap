@@ -4,20 +4,25 @@ import classNames from "classnames";
 require("./InputRange.css");
 
 class InputRange extends React.Component {
-  state = {
-    value: false,
-    leftPosition: false,
-    thumbActive: false,
-    thumbHeight: 0,
-    thumbWidth: 0,
-    thumbTop: "10px",
-    thumbMarginLeft: "-6px",
-    input: "input",
-    oneStep: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: false,
+      leftPosition: false,
+      thumbActive: false,
+      thumbHeight: 0,
+      thumbWidth: 0,
+      thumbTop: "10px",
+      thumbMarginLeft: "-6px",
+      input: "input",
+      oneStep: ""
+    };
+
+    this.inputRef = React.createRef();
+  }
 
   componentDidMount = () => {
-    let input = this.refs.input;
+    let input = this.inputRef.current;
     let inputWidth = input.offsetWidth;
     const oneStep = inputWidth / (this.props.max - this.props.min);
     this.setState({
@@ -48,7 +53,7 @@ class InputRange extends React.Component {
   };
 
   rangeMouseLeave = () => {
-    let input = this.refs.input;
+    let input = this.inputRef.current;
     input.blur();
     this.setState({
       thumbActive: false,
@@ -74,11 +79,11 @@ class InputRange extends React.Component {
     return (
       <form className={formClass}>
         <input
+          ref={this.inputRef}
           className={inputClass}
           min={min}
           max={max}
           value={this.state.value}
-          ref={this.state.input}
           type="range"
           onChange={this.rangeChange}
           onFocus={this.rangeFocus}
