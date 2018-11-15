@@ -5,12 +5,12 @@ import { Transition } from "react-transition-group";
 
 class Alert extends Component {
 
-
   render() {
 
     const {
       className,
-      color
+      color,
+      children
     } = this.props;
 
     const alertClasses = classNames(
@@ -20,10 +20,9 @@ class Alert extends Component {
 
     );
 
-
    return (
       <div className={alertClasses} role="alert">
-        A simple primary alert—check it out!
+        {children}
       </div>
     );
   }
