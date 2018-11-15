@@ -11,7 +11,7 @@ const AlertPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/alerts/"
       />
 
-      <Alert color="danger" dismiss>
+      <Alert color="danger" dismiss onClose={()=> alert('onClose event')} onClosed={()=> alert('onClosed event')}>
         Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
       </Alert>
     </Container>
