@@ -30,7 +30,7 @@ import ProgressPage from "./pages/ProgressPage";
 import InputPage from "./pages/InputPage";
 import MediaPage from "./pages/MediaPage";
 import JumbotronPage from "./pages/JumbotronPage";
-import AlertPage from "./pages/AlertPage";
+import NotificationPage from "./pages/NotificationPage";
 import CardsPage from "./pages/CardsPage";
 import PaginationPage from "./pages/PaginationPage";
 import PopoverPage from "./pages/PopoverPage";
@@ -100,6 +100,7 @@ import DatatableCsvPage from "./pages/pro/DatatableCsvPage";
 import ModalFormProPage from "./pages/pro/ModalFormPage";
 import HabmburgerMenuPage from "./pages/pro/HabmburgerMenuPage";
 import TimelinePage from "./pages/pro/TimelinePage";
+import SliderPage from "./pages/pro/SliderPage";
 
 class Routes extends React.Component {
   render() {
@@ -130,7 +131,7 @@ class Routes extends React.Component {
         <Route path="/navigation/navbar" component={NavbarPage} />
         <Route path="/components/media" component={MediaPage} />
         <Route path="/forms/input" component={InputPage} />
-        <Route path="/components/alert" component={AlertPage} />
+        <Route path="/addons/pro/notification" component={NotificationPage} />
         <Route path="/components/dropdown" component={DropdownPage} />
         <Route path="/css/icons" component={FaPage} />
         <Route path="/css/jumbotron" component={JumbotronPage} />
@@ -176,6 +177,7 @@ class Routes extends React.Component {
         <Route path="/advanced/pro/datepicker" component={DatePickerPage} />
         <Route path="/advanced/pro/timepicker" component={TimePickerPage} />
         <Route path="/advanced/pro/lightbox" component={LightboxPage} />
+        <Route path="/forms/pro/slider" component={SliderPage} />
         <Route
           path="/advanced/pro/multicarousel"
           component={MultiCarouselPage}

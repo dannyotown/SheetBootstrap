@@ -3,7 +3,7 @@ import { toast, ToastContainer, Container } from "mdbreact";
 import "./alerts.css";
 import DocsLink from "./DocsLink";
 
-const AlertPage = () => {
+const NotificationPage = () => {
   const notify = type => {
     return () => {
       switch (type) {
@@ -32,8 +32,8 @@ const AlertPage = () => {
   return (
     <Container>
       <DocsLink
-        title="Alerts"
-        href="https://mdbootstrap.com/docs/react/components/alerts/"
+        title="Notifications"
+        href="https://mdbootstrap.com/docs/react/addons/notification/"
       />
       <div>
         <button className="btn btn-info" onClick={notify("info")}>
@@ -61,4 +61,4 @@ const AlertPage = () => {
   );
 };
 
-export default AlertPage;
+export default NotificationPage;
