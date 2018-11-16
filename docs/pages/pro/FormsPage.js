@@ -8,7 +8,8 @@ import {
   MDBIcon,
   MDBCard,
   MDBCardBody,
-  MDBModalFooter
+  MDBModalFooter,
+  MDBCardHeader
 } from "mdbreact";
 import DocsLink from "../DocsLink";
 import "./Forms.css";
@@ -22,7 +23,111 @@ class FormsPage extends React.Component {
           href="https://mdbootstrap.com/docs/react/forms/basic/"
         />
         <section className="form-elegant">
-          <h2 className="mb-5">Form elegant</h2>
+          <h2 className="mb-5">A gradient login form</h2>
+          <MDBRow>
+            <MDBCol md="5">
+              <MDBCard>
+                <MDBCardBody>
+                  <MDBCardHeader className="form-header warm-flame-gradient rounded">
+                    <h3 className="my-3">
+                      <MDBIcon icon="lock" /> Login:
+                    </h3>
+                  </MDBCardHeader>
+                  <label
+                    htmlFor="defaultFormEmailEx"
+                    className="grey-text font-weight-light"
+                  >
+                    Your email
+                  </label>
+                  <input
+                    type="email"
+                    id="defaultFormEmailEx"
+                    className="form-control"
+                  />
+
+                  <label
+                    htmlFor="defaultFormPasswordEx"
+                    className="grey-text font-weight-light"
+                  >
+                    Your password
+                  </label>
+                  <input
+                    type="password"
+                    id="defaultFormPasswordEx"
+                    className="form-control"
+                  />
+
+                  <div className="text-center mt-4">
+                    <MDBBtn color="deep-orange" className="mb-3" type="submit">
+                      Login
+                    </MDBBtn>
+                  </div>
+
+                  <MDBModalFooter>
+                    <div className="font-weight-light">
+                      <p>Not a member? Sign Up</p>
+                      <p>Forgot Password?</p>
+                    </div>
+                  </MDBModalFooter>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </section>
+        <section className="form-elegant my-5">
+          <MDBRow>
+            <MDBCol md="5">
+              <MDBCard>
+                <MDBCardBody>
+                  <MDBCardHeader className="form-header deep-blue-gradient rounded">
+                    <h3 className="my-3">
+                      <MDBIcon icon="lock" /> Login:
+                    </h3>
+                  </MDBCardHeader>
+                  <form>
+                    <div className="grey-text">
+                      <MDBInput
+                        label="Type your email"
+                        icon="envelope"
+                        group
+                        type="email"
+                        validate
+                        error="wrong"
+                        success="right"
+                      />
+                      <MDBInput
+                        label="Type your password"
+                        icon="lock"
+                        group
+                        type="password"
+                        validate
+                      />
+                    </div>
+
+                  <div className="text-center mt-4">
+                    <MDBBtn
+                      color="light-blue"
+                      className="mb-3"
+                      type="submit"
+                    >
+                      Login
+                    </MDBBtn>
+                  </div>
+                  </form>
+                  <MDBModalFooter>
+                    <div className="font-weight-light">
+                      <p>Not a member? Sign Up</p>
+                      <p>Forgot Password?</p>
+                    </div>
+                  </MDBModalFooter>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </section>
+        <hr className="my-5" />
+        <section className="form-elegant">
+          <h2 className="my-5">Form elegant</h2>
           <MDBRow>
             <MDBCol md="5">
               <MDBCard>
@@ -50,7 +155,6 @@ class FormsPage extends React.Component {
                   <p className="font-small blue-text d-flex justify-content-end pb-3">
                     Forgot
                     <a href="#!" className="blue-text ml-1">
-
                       Password?
                     </a>
                   </p>
@@ -65,7 +169,6 @@ class FormsPage extends React.Component {
                     </MDBBtn>
                   </div>
                   <p className="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2">
-
                     or Sign in with:
                   </p>
                   <div className="row my-3 d-flex justify-content-center">
@@ -75,7 +178,10 @@ class FormsPage extends React.Component {
                       rounded
                       className="mr-md-3 z-depth-1a"
                     >
-                      <MDBIcon icon="facebook" className="blue-text text-center" />
+                      <MDBIcon
+                        icon="facebook"
+                        className="blue-text text-center"
+                      />
                     </MDBBtn>
                     <MDBBtn
                       type="button"
@@ -99,7 +205,6 @@ class FormsPage extends React.Component {
                   <p className="font-small grey-text d-flex justify-content-end">
                     Not a member?
                     <a href="#!" className="blue-text ml-1">
-
                       Sign Up
                     </a>
                   </p>
@@ -170,7 +275,6 @@ class FormsPage extends React.Component {
                           href="#!"
                           className="dark-grey-text ml-1 font-weight-bold"
                         >
-
                           Sign up
                         </a>
                       </p>
@@ -194,7 +298,12 @@ class FormsPage extends React.Component {
                     </h3>
                   </div>
                   <MDBInput label="Your email" group type="text" validate />
-                  <MDBInput label="Your password" group type="password" validate />
+                  <MDBInput
+                    label="Your password"
+                    group
+                    type="password"
+                    validate
+                  />
                   <div className="md-form pb-3">
                     <div className="form-check my-4">
                       <input
@@ -205,7 +314,6 @@ class FormsPage extends React.Component {
                       <label htmlFor="defaultCheck12" className="grey-text">
                         Accept the
                         <a href="#!" className="blue-text">
-
                           Terms and Conditions
                         </a>
                       </label>
@@ -224,7 +332,6 @@ class FormsPage extends React.Component {
                       <p className="font-small grey-text d-flex justify-content-end">
                         Have an account?
                         <a href="#!" className="blue-text ml-1">
-
                           Log in
                         </a>
                       </p>
@@ -239,13 +346,19 @@ class FormsPage extends React.Component {
                   </MDBRow>
                   <MDBRow className="mt-2 mb-3 d-flex justify-content-center">
                     <a href="#!" className="fa-lg p-2 m-2 fb-ic">
-                      <MDBIcon className="fa fa-facebook white-text fa-lg"> </MDBIcon>
+                      <MDBIcon className="fa fa-facebook white-text fa-lg">
+                        {" "}
+                      </MDBIcon>
                     </a>
                     <a href="#!" className="fa-lg p-2 m-2 tw-ic">
-                      <MDBIcon className="fa fa-twitter white-text fa-lg"> </MDBIcon>
+                      <MDBIcon className="fa fa-twitter white-text fa-lg">
+                        {" "}
+                      </MDBIcon>
                     </a>
                     <a href="#!" className="fa-lg p-2 m-2 gplus-ic">
-                      <MDBIcon className="fa fa-google-plus white-text fa-lg"> </MDBIcon>
+                      <MDBIcon className="fa fa-google-plus white-text fa-lg">
+                        {" "}
+                      </MDBIcon>
                     </a>
                   </MDBRow>
                 </div>
@@ -276,7 +389,12 @@ class FormsPage extends React.Component {
                     </h3>
                   </div>
                   <MDBInput label="Your email" group type="text" validate />
-                  <MDBInput label="Your password" group type="password" validate />
+                  <MDBInput
+                    label="Your password"
+                    group
+                    type="password"
+                    validate
+                  />
                   <div className="md-form pb-3">
                     <div className="form-check my-4">
                       <input
