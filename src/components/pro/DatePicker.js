@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 /* eslint-disable */
-import MomentUtils from 'material-ui-pickers/utils/moment-utils';
+import MomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 import { DatePicker } from 'material-ui-pickers';
 import moment from 'moment';
@@ -16,7 +16,9 @@ class MDBDatePicker extends Component {
     super(props);
     this.state = {
       selectedDate: props.value,
-      muiTheme: createMuiTheme(props.theme)
+      muiTheme: createMuiTheme({...props.theme, typography: {
+        useNextVariants: true,
+      }})
     }
   }
 

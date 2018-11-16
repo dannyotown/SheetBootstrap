@@ -41,6 +41,18 @@ class ComponentsPage extends React.Component {
                 </NavLink>
                 <NavLink
                   className="list-group-item list-group-item-action"
+                  to="/addons/pro/notification"
+                >
+                  <h5
+                    style={{ margin: "0" }}
+                    className="justify-content-between d-flex align-items-center"
+                  >
+                    Notifications
+                    <Fa icon="angle-right" />
+                  </h5>
+                </NavLink>
+                <NavLink
+                  className="list-group-item list-group-item-action"
                   to="/addons/pro/timeline"
                 >
                   <h5

@@ -1,10 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 require("./InputRange.css");
-
-let oneStep = "";
 
 class InputRange extends React.Component {
   constructor(props) {
@@ -17,33 +14,35 @@ class InputRange extends React.Component {
       thumbWidth: 0,
       thumbTop: "10px",
       thumbMarginLeft: "-6px",
-      input: "input"
+      input: "input",
+      oneStep: ""
     };
-    this.rangeChange = this.rangeChange.bind(this);
-    this.rangeFocus = this.rangeFocus.bind(this);
-    this.rangeMouseLeave = this.rangeMouseLeave.bind(this);
+
+    this.inputRef = React.createRef();
   }
 
-  componentDidMount() {
-    this.setState({ value: this.props.value });
-    let input = ReactDOM.findDOMNode(this.refs.input);
+  componentDidMount = () => {
+    let input = this.inputRef.current;
     let inputWidth = input.offsetWidth;
-    oneStep = inputWidth / (this.props.max - this.props.min);
+    const oneStep = inputWidth / (this.props.max - this.props.min);
     this.setState({
-      leftPosition: oneStep * this.props.value - oneStep * this.props.min
+      value: this.props.value,
+      leftPosition: oneStep * this.props.value - oneStep * this.props.min,
+      oneStep
     });
-  }
+  };
 
-  rangeChange(e) {
+  rangeChange = e => {
     let newValue = e.target.value;
     this.setState({
       value: newValue,
-      leftPosition: oneStep * newValue - oneStep * this.props.min
+      leftPosition:
+        this.state.oneStep * newValue - this.state.oneStep * this.props.min
     });
     this.props.getValue && this.props.getValue(e.target.value);
-  }
+  };
 
-  rangeFocus() {
+  rangeFocus = () => {
     this.setState({
       thumbActive: true,
       thumbHeight: "30px",
@@ -51,10 +50,10 @@ class InputRange extends React.Component {
       thumbTop: "-20px",
       thumbMarginLeft: "-15px"
     });
-  }
+  };
 
-  rangeMouseLeave() {
-    let input = ReactDOM.findDOMNode(this.refs.input);
+  rangeMouseLeave = () => {
+    let input = this.inputRef.current;
     input.blur();
     this.setState({
       thumbActive: false,
@@ -63,12 +62,14 @@ class InputRange extends React.Component {
       thumbTop: "10px",
       thumbMarginLeft: "-6px"
     });
-  }
+  };
 
   render() {
-    const { className, min, max } = this.props;
+    const { className, formClassName, min, max } = this.props;
 
     const inputClass = classNames(className);
+
+    const formClass = classNames("range-field", formClassName);
 
     const thumbClass = classNames(
       "thumb",
@@ -76,13 +77,13 @@ class InputRange extends React.Component {
     );
 
     return (
-      <form className="range-field">
+      <form className={formClass}>
         <input
+          ref={this.inputRef}
           className={inputClass}
           min={min}
           max={max}
           value={this.state.value}
-          ref={this.state.input}
           type="range"
           onChange={this.rangeChange}
           onFocus={this.rangeFocus}
