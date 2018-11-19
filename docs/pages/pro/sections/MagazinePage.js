@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  Mask,
-  Fa,
-  View,
-  Badge
-} from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBBadge } from "mdbreact";
 import DocsLink from "../../DocsLink";
 
 const MagazinePage = () => {
@@ -19,16 +9,16 @@ const MagazinePage = () => {
   };
 
   return (
-    <Container style={{ maxWidth: "80%" }}>
+    <MDBContainer style={{ maxWidth: "80%" }}>
       <DocsLink
         title="Magazine Sections"
         href="https://mdbootstrap.com/docs/react/sections/magazine/"
       />
-      <Card
+      <MDBCard
         className="my-5 px-5 mx-auto"
         style={{ fontWeight: 300, maxWidth: "90%" }}
       >
-        <CardBody style={{ paddingTop: 0 }}>
+        <MDBCardBody style={{ paddingTop: 0 }}>
           <h2 className="h1-responsive font-weight-bold my-5 text-center">
             Section title
           </h2>
@@ -38,28 +28,28 @@ const MagazinePage = () => {
             cupidatat non proident, sunt in culpa qui officia deserunt mollit id
             laborum.
           </p>
-          <Row>
-            <Col lg="6" md="12">
+          <MDBRow>
+            <MDBCol lg="6" md="12">
               <div style={newsStyle}>
-                <View hover rounded className="z-depth-1-half mb-4">
+                <MDBView hover rounded className="z-depth-1-half mb-4">
                   <img
                     className="img-fluid"
                     src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg"
                     alt=""
                   />
                   <a href="#!">
-                    <Mask overlay="white-slight" className="waves-light" />
+                    <MDBMask overlay="white-slight" className="waves-light" />
                   </a>
-                </View>
+                </MDBView>
                 <div className="d-flex justify-content-between">
                   <a href="#!" className="light-blue-text">
                     <h6 className="font-weight-bold">
-                      <Fa icon="plane" className="pr-2" />
+                      <MDBIcon icon="plane" className="pr-2" />
                       Travels
                     </h6>
                   </a>
                   <p className="font-weight-bold dark-grey-text">
-                    <Fa icon="clock-o" className="pr-2" />
+                    <MDBIcon icon="clock-o" className="pr-2" />
                     20/08/2018
                   </p>
                 </div>
@@ -75,125 +65,125 @@ const MagazinePage = () => {
               </div>
 
               <div style={newsStyle}>
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Others/photo8.jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       19/08/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
 
               <div style={newsStyle}>
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Others/images/54.jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       18/08/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           Soluta nobis est eligendi optio cumque nihil impedit
                           quo minus
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
 
               <div className="mb-4">
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       17/08/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           Voluptatem accusantium doloremque
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
-            </Col>
+            </MDBCol>
 
-            <Col lg="6" md="12">
+            <MDBCol lg="6" md="12">
               <div style={newsStyle}>
-                <View hover rounded className="z-depth-1-half mb-4">
+                <MDBView hover rounded className="z-depth-1-half mb-4">
                   <img
                     className="img-fluid"
                     src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg"
                     alt=""
                   />
                   <a href="#!">
-                    <Mask overlay="white-slight" className="waves-light" />
+                    <MDBMask overlay="white-slight" className="waves-light" />
                   </a>
-                </View>
+                </MDBView>
                 <div className="d-flex justify-content-between">
                   <a href="#!" className="pink-text">
                     <h6 className="font-weight-bold">
-                      <Fa icon="home" className="pr-2" />
+                      <MDBIcon icon="home" className="pr-2" />
                       Lifestyle
                     </h6>
                   </a>
                   <p className="font-weight-bold dark-grey-text">
-                    <Fa icon="clock-o" className="pr-2" />
+                    <MDBIcon icon="clock-o" className="pr-2" />
                     24/08/2018
                   </p>
                 </div>
@@ -209,115 +199,115 @@ const MagazinePage = () => {
               </div>
 
               <div style={newsStyle}>
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       23/08/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           Itaque earum rerum hic tenetur a sapiente delectus
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
 
               <div style={newsStyle}>
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Others/images/48.jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       22/08/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           Soluta nobis est eligendi optio cumque nihil impedit
                           quo minus
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
 
               <div className="mb-4">
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(56).jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       21/08/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           Maiores alias consequatur aut perferendis
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
 
       <h2 className="title pt-4 mt-5">
         <strong>Magazine newsfeed v.2 </strong>
       </h2>
 
-      <Card
+      <MDBCard
         className="my-5 px-5 mx-auto"
         style={{ fontWeight: 300, maxWidth: "90%" }}
       >
-        <CardBody style={{ paddingTop: 0 }}>
+        <MDBCardBody style={{ paddingTop: 0 }}>
           <h2 className="h1-responsive font-weight-bold my-5 text-center">
             Section title
           </h2>
@@ -327,28 +317,28 @@ const MagazinePage = () => {
             cupidatat non proident, sunt in culpa qui officia deserunt mollit id
             laborum.
           </p>
-          <Row>
-            <Col md="12" lg="6">
+          <MDBRow>
+            <MDBCol md="12" lg="6">
               <div className="mb-4">
-                <View hover rounded className="z-depth-1-half mb-4">
+                <MDBView hover rounded className="z-depth-1-half mb-4">
                   <img
                     className="img-fluid"
                     src="https://mdbootstrap.com/img/Photos/Slides/1.jpg"
                     alt=""
                   />
                   <a href="#!">
-                    <Mask overlay="white-slight" className="waves-light" />
+                    <MDBMask overlay="white-slight" className="waves-light" />
                   </a>
-                </View>
+                </MDBView>
                 <div className="d-flex justify-content-between">
                   <a href="#!" className="deep-orange-text">
                     <h6 className="font-weight-bold">
-                      <Fa icon="cutlery" className="pr-2" />
+                      <MDBIcon icon="cutlery" className="pr-2" />
                       Culinary
                     </h6>
                   </a>
                   <p className="font-weight-bold dark-grey-text">
-                    <Fa icon="clock-o" className="pr-2" />
+                    <MDBIcon icon="clock-o" className="pr-2" />
                     27/02/2018
                   </p>
                 </div>
@@ -363,152 +353,152 @@ const MagazinePage = () => {
                   reprehenderit in voluptate velit esse cillum dolore eu fugiat.
                 </p>
               </div>
-            </Col>
+            </MDBCol>
 
-            <Col md="12" lg="6">
+            <MDBCol md="12" lg="6">
               <div style={newsStyle}>
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Others/img%20(29).jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       26/02/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           At vero eos et accusamus et iusto odio dignissimos
                           ducimus qui blanditiis
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
 
               <div style={newsStyle}>
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       25/02/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           Itaque earum rerum hic tenetur a sapiente delectus
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
 
               <div style={newsStyle}>
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Others/images/87.jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       24/03/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           Soluta nobis est eligendi optio cumque nihil impedit
                           quo minus
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
 
               <div className="mb-4">
-                <Row>
-                  <Col md="3">
-                    <View hover rounded className="z-depth-1-half mb-4">
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBView hover rounded className="z-depth-1-half mb-4">
                       <img
                         className="img-fluid"
                         src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg"
                         alt=""
                       />
                       <a href="#!">
-                        <Mask overlay="white-slight" className="waves-light" />
+                        <MDBMask overlay="white-slight" className="waves-light" />
                       </a>
-                    </View>
-                  </Col>
-                  <Col md="9">
+                    </MDBView>
+                  </MDBCol>
+                  <MDBCol md="9">
                     <p className="font-weight-bold dark-grey-text">
                       23/02/2018
                     </p>
                     <div className="d-flex justify-content-between">
-                      <Col size="11" className="text-truncate pl-0 mb-3">
+                      <MDBCol size="11" className="text-truncate pl-0 mb-3">
                         <a href="#!" className="dark-grey-text">
                           Duis aute irure dolor in reprehenderit in voluptate
                         </a>
-                      </Col>
+                      </MDBCol>
                       <a href="#!">
-                        <Fa icon="angle-double-right" />
+                        <MDBIcon icon="angle-double-right" />
                       </a>
                     </div>
-                  </Col>
-                </Row>
+                  </MDBCol>
+                </MDBRow>
               </div>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
 
       <h2 className="title pt-4 mt-5">
         <strong>Magazine newsfeed v.3 </strong>
       </h2>
 
-      <Card
+      <MDBCard
         className="my-5 px-5 mx-auto"
         style={{ fontWeight: 300, maxWidth: "90%" }}
       >
-        <CardBody style={{ paddingTop: 0 }}>
+        <MDBCardBody style={{ paddingTop: 0 }}>
           <h2 className="h1-responsive font-weight-bold my-5 text-center">
             Section title
           </h2>
@@ -518,207 +508,207 @@ const MagazinePage = () => {
             cupidatat non proident, sunt in culpa qui officia deserunt mollit id
             laborum.
           </p>
-          <Row>
-            <Col md="12" lg="4" className="mb-lg-0 mb-5">
-              <View hover rounded className="z-depth-1-half mb-4">
+          <MDBRow>
+            <MDBCol md="12" lg="4" className="mb-lg-0 mb-5">
+              <MDBView hover rounded className="z-depth-1-half mb-4">
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/images/86.jpg"
                   alt=""
                 />
                 <a href="#!">
-                  <Mask overlay="white-slight" className="waves-light" />
+                  <MDBMask overlay="white-slight" className="waves-light" />
                 </a>
-              </View>
-              <Row className="mb-3">
-                <Col size="12">
+              </MDBView>
+              <MDBRow className="mb-3">
+                <MDBCol size="12">
                   <a href="#!">
-                    <Badge color="pink">
-                      <Fa icon="camera" className="pr-2" aria-hidden="true" />
+                    <MDBBadge color="pink">
+                      <MDBIcon icon="camera" className="pr-2" aria-hidden="true" />
                       Adventure
-                    </Badge>
+                    </MDBBadge>
                   </a>
-                </Col>
-              </Row>
+                </MDBCol>
+              </MDBRow>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!" className="font-weight-bold">
                     This is title of the news
                   </a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">24 Food Swaps That Slash Calories.</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">How to Make a Beet Cocktail?</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">8 Sneaky Reasons You're Always Hungry.</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between mb-4">
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">5 Pressure Cooker Recipes You Need to Try.</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
-            </Col>
+            </MDBCol>
 
-            <Col md="12" lg="4" className="mb-lg-0 mb-5">
-              <View hover rounded className="z-depth-1-half mb-4">
+            <MDBCol md="12" lg="4" className="mb-lg-0 mb-5">
+              <MDBView hover rounded className="z-depth-1-half mb-4">
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg"
                   alt=""
                 />
                 <a href="#!">
-                  <Mask overlay="white-slight" className="waves-light" />
+                  <MDBMask overlay="white-slight" className="waves-light" />
                 </a>
-              </View>
-              <Row className="mb-3">
-                <Col size="12">
+              </MDBView>
+              <MDBRow className="mb-3">
+                <MDBCol size="12">
                   <a href="#!">
-                    <Badge color="deep-orange">
-                      <Fa icon="plane" className="pr-2" aria-hidden="true" />
+                    <MDBBadge color="deep-orange">
+                      <MDBIcon icon="plane" className="pr-2" aria-hidden="true" />
                       Travel
-                    </Badge>
+                    </MDBBadge>
                   </a>
-                </Col>
-              </Row>
+                </MDBCol>
+              </MDBRow>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!" className="font-weight-bold">
                     This is title of the news
                   </a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">Trends in the blogosphere for 2018.</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">Where can you eat the best lunch in Warsaw?</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">What camera is worth taking for holidays?</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between mb-4">
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">Why should you visit Lisbon?</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
-            </Col>
+            </MDBCol>
 
-            <Col md="12" lg="4" className="mb-lg-0 mb-5">
-              <View hover rounded className="z-depth-1-half mb-4">
+            <MDBCol md="12" lg="4" className="mb-lg-0 mb-5">
+              <MDBView hover rounded className="z-depth-1-half mb-4">
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg"
                   alt=""
                 />
                 <a href="#!">
-                  <Mask overlay="white-slight" className="waves-light" />
+                  <MDBMask overlay="white-slight" className="waves-light" />
                 </a>
-              </View>
-              <Row className="mb-3">
-                <Col size="12">
+              </MDBView>
+              <MDBRow className="mb-3">
+                <MDBCol size="12">
                   <a href="#!">
-                    <Badge color="success">
-                      <Fa icon="leaf" className="pr-2" aria-hidden="true" />
+                    <MDBBadge color="success">
+                      <MDBIcon icon="leaf" className="pr-2" aria-hidden="true" />
                       Nature
-                    </Badge>
+                    </MDBBadge>
                   </a>
-                </Col>
-              </Row>
+                </MDBCol>
+              </MDBRow>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!" className="font-weight-bold">
                     This is title of the news
                   </a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">
                     How to recognize the footsteps of wild animals?
                   </a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">National Parks in Poland.</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between" style={newsStyle}>
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">Traveling without littering the planet.</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
               <div className="d-flex justify-content-between mb-4">
-                <Col size="11" className="text-truncate pl-0 mb-3">
+                <MDBCol size="11" className="text-truncate pl-0 mb-3">
                   <a href="#!">How to protect rainforests?</a>
-                </Col>
+                </MDBCol>
                 <a href="#!">
-                  <Fa icon="angle-double-right" />
+                  <MDBIcon icon="angle-double-right" />
                 </a>
               </div>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
-    </Container>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
+    </MDBContainer>
   );
 };
 
