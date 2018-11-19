@@ -1,39 +1,20 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  Mask,
-  Fa,
-  View,
-  Tooltip,
-  Collapse,
-  Input,
-  CardImage,
-  CardTitle,
-  CardText,
-  Button
-} from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBTooltip, MDBCollapse, MDBInput, MDBCardImage,   MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
 import DocsLink from "../../DocsLink";
 
 class SocialPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapseID: ""
-    };
+  state = {
+    collapseID: ""
   }
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
-    }));
+  }));
 
   render() {
     return (
-      <Container style={{ maxWidth: "80%" }}>
+      <MDBContainer style={{ maxWidth: "80%" }}>
         <DocsLink
           title="Social Sections"
           href="https://mdbootstrap.com/docs/react/sections/social/"
@@ -41,12 +22,12 @@ class SocialPage extends Component {
         <h2 className="title pt-4 mt-5">
           <strong>Social newsfeed v.1 </strong>
         </h2>
-        <Card
+        <MDBCard
           className="my-5 px-5 pt-4"
           style={{ fontWeight: 300, maxWidth: 600 }}
         >
-          <CardBody className="py-0">
-            <Row>
+          <MDBCardBody className="py-0">
+            <MDBRow>
               <div className="mdb-feed">
                 <div className="news">
                   <div className="label">
@@ -60,13 +41,12 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         John Doe
-                      </a>{" "}
-                      added you as a friend
+                      </a> added you as a friend
                       <div className="date">1 hour ago</div>
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <Fa icon="heart" />
+                        <MDBIcon icon="heart" />
                         <span>5 likes</span>
                       </a>
                     </div>
@@ -85,8 +65,7 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         Anna Smith
-                      </a>
-                      added <a href="#!">2 new illustrations</a>
+                      </a> added <a href="#!">2 new illustrations</a>
                       <div className="date">4 hours ago</div>
                     </div>
                     <div className="added-images">
@@ -103,7 +82,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <Fa icon="heart" />
+                        <MDBIcon icon="heart" />
                         <span>18 likes</span>
                       </a>
                     </div>
@@ -122,15 +101,14 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         Danny Moore
-                      </a>{" "}
-                      added you as a friend
+                      </a> added you as a friend
                       <div href="#!" className="date">
                         7 hours ago
                       </div>
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <Fa icon="heart" />
+                        <MDBIcon icon="heart" />
                         <span>11 likes</span>
                       </a>
                     </div>
@@ -149,8 +127,7 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         Lili Rose
-                      </a>{" "}
-                      posted on her page
+                      </a> posted on her page
                       <div className="date">2 days ago</div>
                     </div>
                     <div className="added-text">
@@ -161,7 +138,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <Fa icon="heart" />
+                        <MDBIcon icon="heart" />
                         <span>7 likes</span>
                       </a>
                     </div>
@@ -180,8 +157,7 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         Kate Harrison
-                      </a>{" "}
-                      added <a href="#!"> 2 new photos</a> of you
+                      </a> added <a href="#!"> 2 new photos</a> of you
                       <div className="date">3 days ago</div>
                     </div>
                     <div className="added-images">
@@ -198,26 +174,26 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <Fa icon="heart" />
+                        <MDBIcon icon="heart" />
                         <span>53 likes</span>
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-            </Row>
-          </CardBody>
-        </Card>
+            </MDBRow>
+          </MDBCardBody>
+        </MDBCard>
 
         <h2 className="title pt-4 mt-5">
           <strong>Social newsfeed v.2 </strong>
         </h2>
-        <Card
+        <MDBCard
           className="my-5 px-5 pt-4"
           style={{ fontWeight: 300, maxWidth: 600 }}
         >
-          <CardBody className="py-0">
-            <Row>
+          <MDBCardBody className="py-0">
+            <MDBRow>
               <div className="mdb-feed">
                 <div className="news">
                   <div className="label">
@@ -231,8 +207,7 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         John Doe
-                      </a>{" "}
-                      added you as a friend
+                      </a> added you as a friend
                       <div className="date">1 hour ago</div>
                     </div>
                     <div className="feed-footer">
@@ -251,39 +226,39 @@ class SocialPage extends Component {
                           <a href="#!"> 7 </a>
                         </span>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             tag="span"
                             placement="top"
                             tooltipContent="I like it"
                           >
-                            <Fa icon="thumbs-up" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-up" />
+                          </MDBTooltip>
                         </a>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             placement="top"
                             tooltipContent="I don't like it"
                           >
-                            <Fa icon="thumbs-down" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-down" />
+                          </MDBTooltip>
                         </a>
                       </div>
-                      <Collapse
+                      <MDBCollapse
                         id="collapseExample-1"
                         isOpen={this.state.collapseID}
                       >
-                        <Card className="card-body mt-1">
-                          <Input type="textarea" label="Add comment" />
+                        <MDBCard className="card-body mt-1">
+                          <MDBInput type="textarea" label="Add comment" />
                           <div className="d-flex justify-content-end">
-                            <Button flat onClick={this.click1}>
+                            <MDBBtn flat onClick={this.click1}>
                               Cancel
-                            </Button>
-                            <Button color="primary" onClick={this.click1}>
+                            </MDBBtn>
+                            <MDBBtn color="primary" onClick={this.click1}>
                               Reply
-                            </Button>
+                            </MDBBtn>
                           </div>
-                        </Card>
-                      </Collapse>
+                        </MDBCard>
+                      </MDBCollapse>
                     </div>
                   </div>
                 </div>
@@ -300,8 +275,7 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         Anna Smith
-                      </a>
-                      added <a href="#!">2 new illustrations</a>
+                      </a> added <a href="#!"> 2 new illustrations</a>
                       <div className="date">4 hours ago</div>
                     </div>
                     <div className="added-images">
@@ -332,39 +306,39 @@ class SocialPage extends Component {
                           <a href="#!"> 31 </a>
                         </span>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             tag="span"
                             placement="top"
                             tooltipContent="I like it"
                           >
-                            <Fa icon="thumbs-up" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-up" />
+                          </MDBTooltip>
                         </a>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             placement="top"
                             tooltipContent="I don't like it"
                           >
-                            <Fa icon="thumbs-down" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-down" />
+                          </MDBTooltip>
                         </a>
                       </div>
-                      <Collapse
+                      <MDBCollapse
                         id="collapseExample-2"
                         isOpen={this.state.collapseID}
                       >
-                        <Card className="card-body mt-1">
-                          <Input type="textarea" label="Add comment" />
+                        <MDBCard className="card-body mt-1">
+                          <MDBInput type="textarea" label="Add comment" />
                           <div className="d-flex justify-content-end">
-                            <Button flat onClick={this.click2}>
+                            <MDBBtn flat onClick={this.click2}>
                               Cancel
-                            </Button>
-                            <Button color="primary" onClick={this.click2}>
+                            </MDBBtn>
+                            <MDBBtn color="primary" onClick={this.click2}>
                               Reply
-                            </Button>
+                            </MDBBtn>
                           </div>
-                        </Card>
-                      </Collapse>
+                        </MDBCard>
+                      </MDBCollapse>
                     </div>
                   </div>
                 </div>
@@ -381,8 +355,7 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         Danny Moore
-                      </a>
-                      added you as a friend
+                      </a> added you as a friend
                       <div className="date">7 hours ago</div>
                     </div>
                     <div className="feed-footer">
@@ -401,39 +374,39 @@ class SocialPage extends Component {
                           <a href="#!"> 12 </a>
                         </span>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             tag="span"
                             placement="top"
                             tooltipContent="I like it"
                           >
-                            <Fa icon="thumbs-up" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-up" />
+                          </MDBTooltip>
                         </a>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             placement="top"
                             tooltipContent="I don't like it"
                           >
-                            <Fa icon="thumbs-down" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-down" />
+                          </MDBTooltip>
                         </a>
                       </div>
-                      <Collapse
+                      <MDBCollapse
                         id="collapseExample-3"
                         isOpen={this.state.collapseID}
                       >
-                        <Card className="card-body mt-1">
-                          <Input type="textarea" label="Add comment" />
+                        <MDBCard className="card-body mt-1">
+                          <MDBInput type="textarea" label="Add comment" />
                           <div className="d-flex justify-content-end">
-                            <Button flat onClick={this.click3}>
+                            <MDBBtn flat onClick={this.click3}>
                               Cancel
-                            </Button>
-                            <Button color="primary" onClick={this.click3}>
+                            </MDBBtn>
+                            <MDBBtn color="primary" onClick={this.click3}>
                               Reply
-                            </Button>
+                            </MDBBtn>
                           </div>
-                        </Card>
-                      </Collapse>
+                        </MDBCard>
+                      </MDBCollapse>
                     </div>
                   </div>
                 </div>
@@ -450,8 +423,7 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         Lili Rose
-                      </a>
-                      posted on her page
+                      </a> posted on her page
                       <div className="date">2 days ago</div>
                     </div>
                     <div className="added-text">
@@ -476,39 +448,39 @@ class SocialPage extends Component {
                           <a href="#!"> 25 </a>
                         </span>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             tag="span"
                             placement="top"
                             tooltipContent="I like it"
                           >
-                            <Fa icon="thumbs-up" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-up" />
+                          </MDBTooltip>
                         </a>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             placement="top"
                             tooltipContent="I don't like it"
                           >
-                            <Fa icon="thumbs-down" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-down" />
+                          </MDBTooltip>
                         </a>
                       </div>
-                      <Collapse
+                      <MDBCollapse
                         id="collapseExample-4"
                         isOpen={this.state.collapseID}
                       >
-                        <Card className="card-body mt-1">
-                          <Input type="textarea" label="Add comment" />
+                        <MDBCard className="card-body mt-1">
+                          <MDBInput type="textarea" label="Add comment" />
                           <div className="d-flex justify-content-end">
-                            <Button flat onClick={this.click4}>
+                            <MDBBtn flat onClick={this.click4}>
                               Cancel
-                            </Button>
-                            <Button color="primary" onClick={this.click4}>
+                            </MDBBtn>
+                            <MDBBtn color="primary" onClick={this.click4}>
                               Reply
-                            </Button>
+                            </MDBBtn>
                           </div>
-                        </Card>
-                      </Collapse>
+                        </MDBCard>
+                      </MDBCollapse>
                     </div>
                   </div>
                 </div>
@@ -525,8 +497,7 @@ class SocialPage extends Component {
                     <div className="brief">
                       <a href="#!" className="name">
                         Kate Harrison
-                      </a>
-                      added <a href="#!"> 2 new photos</a> of you
+                      </a> added <a href="#!"> 2 new photos</a> of you
                       <div className="date">3 days ago</div>
                     </div>
                     <div className="added-images">
@@ -557,85 +528,85 @@ class SocialPage extends Component {
                           <a href="#!"> 47 </a>
                         </span>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             tag="span"
                             placement="top"
                             tooltipContent="I like it"
                           >
-                            <Fa icon="thumbs-up" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-up" />
+                          </MDBTooltip>
                         </a>
                         <a href="#!" className="thumbs">
-                          <Tooltip
+                          <MDBTooltip
                             placement="top"
                             tooltipContent="I don't like it"
                           >
-                            <Fa icon="thumbs-down" />
-                          </Tooltip>
+                            <MDBIcon icon="thumbs-down" />
+                          </MDBTooltip>
                         </a>
                       </div>
-                      <Collapse
+                      <MDBCollapse
                         id="collapseExample-5"
                         isOpen={this.state.collapseID}
                       >
-                        <Card className="card-body mt-1">
-                          <Input type="textarea" label="Add comment" />
+                        <MDBCard className="card-body mt-1">
+                          <MDBInput type="textarea" label="Add comment" />
                           <div className="d-flex justify-content-end">
-                            <Button flat onClick={this.click5}>
+                            <MDBBtn flat onClick={this.click5}>
                               Cancel
-                            </Button>
-                            <Button color="primary" onClick={this.click5}>
+                            </MDBBtn>
+                            <MDBBtn color="primary" onClick={this.click5}>
                               Reply
-                            </Button>
+                            </MDBBtn>
                           </div>
-                        </Card>
-                      </Collapse>
+                        </MDBCard>
+                      </MDBCollapse>
                     </div>
                   </div>
                 </div>
               </div>
-            </Row>
-          </CardBody>
-        </Card>
+            </MDBRow>
+          </MDBCardBody>
+        </MDBCard>
 
         <h2 className="title pt-4">
           <strong>Personal card </strong>
         </h2>
-        <Row>
-          <Col md="6" lg="4">
-            <Card personal className="my-5">
-              <CardImage
+        <MDBRow>
+          <MDBCol md="6" lg="4">
+            <MDBCard personal className="my-5">
+              <MDBCardImage
                 top
                 src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg"
-                alt="Card image cap"
+                alt="MDBCard image cap"
               />
-              <CardBody>
-                <CardTitle>
+              <MDBCardBody>
+                <MDBCardTitle>
                   <a href="#!" className="title-one">
                     Clara
                   </a>
-                </CardTitle>
+                </MDBCardTitle>
                 <p className="card-meta">Joined in 2013</p>
-                <CardText>Clara is an photographer living in Madrid.</CardText>
+                <MDBCardText>Clara is an photographer living in Madrid.</MDBCardText>
                 <hr />
                 <a href="#!" className="card-meta">
                   <span>
-                    <Fa icon="user" />
+                    <MDBIcon icon="user" />
                     22 Friends
                   </span>
                 </a>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
 
         <h2 className="title pt-4">
           <strong>Social news card</strong>
         </h2>
-        <Row>
-          <Col md="6" lg="4">
-            <Card news className="my-5">
-              <CardBody>
+        <MDBRow>
+          <MDBCol md="6" lg="4">
+            <MDBCard news className="my-5">
+              <MDBCardBody>
                 <div className="content">
                   <div className="right-side-meta">14 h</div>
                   <img
@@ -645,38 +616,38 @@ class SocialPage extends Component {
                   />
                   Kate
                 </div>
-              </CardBody>
-              <CardImage
+              </MDBCardBody>
+              <MDBCardImage
                 top
                 src="https://mdbootstrap.com/img/Photos/Others/girl1.jpg"
                 alt=""
               />
-              <CardBody>
+              <MDBCardBody>
                 <div className="social-meta">
                   <p>Another great adventure! </p>
                   <span>
-                    <Fa icon="heart-o" />
+                    <MDBIcon icon="heart-o" />
                     25 likes
                   </span>
                   <p>
-                    <Fa icon="comment" />
+                    <MDBIcon icon="comment" />
                     13 comments
                   </p>
                 </div>
                 <hr />
-                <Input icon="heart-o" hint="Add Comment..." />
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
+                <MDBInput icon="heart-o" hint="Add Comment..." />
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
 
         <h2 className="title pt-4">
           <strong>Social card with video</strong>
         </h2>
-        <Row>
-          <Col md="6" lg="4">
-            <Card news className="my-5">
-              <CardBody>
+        <MDBRow>
+          <MDBCol md="6" lg="4">
+            <MDBCard news className="my-5">
+              <MDBCardBody>
                 <div className="content">
                   <div className="right-side-meta">2 h</div>
                   <img
@@ -686,7 +657,7 @@ class SocialPage extends Component {
                   />
                   Tony
                 </div>
-              </CardBody>
+              </MDBCardBody>
               <div className="embed-responsive embed-responsive-1by1">
                 <iframe
                   className="embed-responsive-item"
@@ -696,128 +667,128 @@ class SocialPage extends Component {
                   allowFullScreen
                 />
               </div>
-              <CardBody>
+              <MDBCardBody>
                 <div className="social-meta">
                   <p className="blue-text">
                     #awesome #bboy #battle #breaking #cool
                   </p>
                   <span>
-                    <Fa icon="heart-o" />
+                    <MDBIcon icon="heart-o" />
                     265 likes
                   </span>
                   <p>
-                    <Fa icon="comment" />
+                    <MDBIcon icon="comment" />
                     89 comments
                   </p>
                 </div>
                 <hr />
-                <Input icon="heart-o" hint="Add Comment..." />
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
+                <MDBInput icon="heart-o" hint="Add Comment..." />
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
 
         <h2 className="title pt-4">
           <strong>Group of personal cards</strong>
         </h2>
-        <Row>
-          <Col md="12">
+        <MDBRow>
+          <MDBCol md="12">
             <div className="card-group my-5">
-              <Card personal className="mb-md-0 mb-4">
-                <View hover>
-                  <CardImage
+              <MDBCard personal className="mb-md-0 mb-4">
+                <MDBView hover>
+                  <MDBCardImage
                     top
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg"
-                    alt="Card image cap"
+                    alt="MDBCard image cap"
                   />
                   <a href="#!">
-                    <Mask overlay="white-slight" />
+                    <MDBMask overlay="white-slight" />
                   </a>
-                </View>
-                <CardBody>
+                </MDBView>
+                <MDBCardBody>
                   <a href="#!">
-                    <CardTitle>Anna</CardTitle>
+                    <MDBCardTitle>Anna</MDBCardTitle>
                   </a>
                   <a href="#!" className="card-meta">
                     Friends
                   </a>
-                  <CardText>
+                  <MDBCardText>
                     Anna is a web designer living in New York.
-                  </CardText>
+                  </MDBCardText>
                   <hr />
                   <a href="#!" className="card-meta">
                     <span>
-                      <Fa icon="user" />
+                      <MDBIcon icon="user" />
                       83 Friends
                     </span>
                   </a>
                   <p className="card-meta float-right">Joined in 2012</p>
-                </CardBody>
-              </Card>
+                </MDBCardBody>
+              </MDBCard>
 
-              <Card personal className="mb-md-0 mb-4">
-                <View hover>
-                  <CardImage
+              <MDBCard personal className="mb-md-0 mb-4">
+                <MDBView hover>
+                  <MDBCardImage
                     top
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg"
-                    alt="Card image cap"
+                    alt="MDBCard image cap"
                   />
                   <a href="#!">
-                    <Mask overlay="white-slight" />
+                    <MDBMask overlay="white-slight" />
                   </a>
-                </View>
-                <CardBody>
+                </MDBView>
+                <MDBCardBody>
                   <a href="#!">
-                    <CardTitle>John</CardTitle>
+                    <MDBCardTitle>John</MDBCardTitle>
                   </a>
                   <a href="#!" className="card-meta">
                     Coworker
                   </a>
-                  <CardText>John is a copywriter living in Seattle.</CardText>
+                  <MDBCardText>John is a copywriter living in Seattle.</MDBCardText>
                   <hr />
                   <a href="#!" className="card-meta">
                     <span>
-                      <Fa icon="user" />
+                      <MDBIcon icon="user" />
                       48 Friends
                     </span>
                   </a>
                   <p className="card-meta float-right">Joined in 2015</p>
-                </CardBody>
-              </Card>
+                </MDBCardBody>
+              </MDBCard>
 
-              <Card personal className="mb-md-0 mb-4">
-                <View hover>
-                  <CardImage
+              <MDBCard personal className="mb-md-0 mb-4">
+                <MDBView hover>
+                  <MDBCardImage
                     top
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(28).jpg"
-                    alt="Card image cap"
+                    alt="MDBCard image cap"
                   />
                   <a href="#!">
-                    <Mask overlay="white-slight" />
+                    <MDBMask overlay="white-slight" />
                   </a>
-                </View>
-                <CardBody>
+                </MDBView>
+                <MDBCardBody>
                   <a href="#!">
-                    <CardTitle>Sara</CardTitle>
+                    <MDBCardTitle>Sara</MDBCardTitle>
                   </a>
                   <a href="#!" className="card-meta">
                     Coworker
                   </a>
-                  <CardText>Sara is a video maker living in Tokyo.</CardText>
+                  <MDBCardText>Sara is a video maker living in Tokyo.</MDBCardText>
                   <hr />
                   <a href="#!" className="card-meta">
                     <span>
-                      <Fa icon="user" />
+                      <MDBIcon icon="user" />
                       127 Friends
                     </span>
                   </a>
                   <p className="card-meta float-right">Joined in 2014</p>
-                </CardBody>
-              </Card>
+                </MDBCardBody>
+              </MDBCard>
             </div>
-          </Col>
-        </Row>
-      </Container>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
     );
   }
 }
