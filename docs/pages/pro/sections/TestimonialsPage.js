@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardUp,
-  Avatar,
-  CardBody,
-  Fa,
-  Carousel,
-  CarouselInner,
-  CarouselItem,
-  Testimonial
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardUp,
+  MDBAvatar,
+  MDBCardBody,
+  MDBIcon,
+  MDBCarousel,
+  MDBCarouselInner,
+  MDBCarouselItem,
+  MDBTestimonial
 } from "mdbreact";
 import DocsLink from "../../DocsLink";
 
 class TestimonialsPage extends Component {
   render() {
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Testimonials"
           href="https://mdbootstrap.com/docs/react/sections/testimonials/"
@@ -33,39 +33,39 @@ class TestimonialsPage extends Component {
             totam voluptas nostrum quisquam eum porro a pariatur veniam.
           </p>
 
-          <Row>
-            <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <Card testimonial>
-                <CardUp color="info" />
-                <Avatar className="mx-auto white">
+          <MDBRow>
+            <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+              <MDBCard testimonial>
+                <MDBCardUp color="info" />
+                <MDBAvatar className="mx-auto white">
                   <img
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg"
                     alt=""
                     className="rounded-circle img-fluid"
                   />
-                </Avatar>
-                <CardBody>
+                </MDBAvatar>
+                <MDBCardBody>
                   <h4 className="font-weight-bold mb-4">John Doe</h4>
                   <hr />
                   <p className="dark-grey-text mt-4">
-                    <Fa icon="quote-left" className="pr-2" />
+                    <MDBIcon icon="quote-left" className="pr-2" />
                     Lorem ipsum dolor sit amet eos adipisci, consectetur
                     adipisicing elit.
                   </p>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col lg="4" md="6" className="mb-lg-0 mb-4">
-              <Card testimonial>
-                <CardUp gradient="blue" />
-                <Avatar className="mx-auto white">
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol lg="4" md="6" className="mb-lg-0 mb-4">
+              <MDBCard testimonial>
+                <MDBCardUp gradient="blue" />
+                <MDBAvatar className="mx-auto white">
                   <img
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg"
                     alt=""
                     className="rounded-circle img-fluid"
                   />
-                </Avatar>
-                <CardBody>
+                </MDBAvatar>
+                <MDBCardBody>
                   <h4 className="font-weight-bold mb-4">Anna Aston</h4>
                   <hr />
                   <p className="dark-grey-text mt-4">
@@ -73,20 +73,20 @@ class TestimonialsPage extends Component {
                     Neque cupiditate assumenda in maiores repudiandae mollitia
                     architecto.
                   </p>
-                </CardBody>
-              </Card>
-            </Col>
-            <Col lg="4" md="6" className="mb-lg-0 mb-4">
-              <Card testimonial>
-                <CardUp className="indigo" />
-                <Avatar className="mx-auto white">
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+            <MDBCol lg="4" md="6" className="mb-lg-0 mb-4">
+              <MDBCard testimonial>
+                <MDBCardUp className="indigo" />
+                <MDBAvatar className="mx-auto white">
                   <img
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg"
                     alt=""
                     className="rounded-circle img-fluid"
                   />
-                </Avatar>
-                <CardBody>
+                </MDBAvatar>
+                <MDBCardBody>
                   <h4 className="font-weight-bold mb-4">Maria Kate</h4>
                   <hr />
                   <p className="dark-grey-text mt-4">
@@ -94,10 +94,10 @@ class TestimonialsPage extends Component {
                     Delectus impedit saepe officiis ab aliquam repellat rem unde
                     ducimus.
                   </p>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
         </section>
 
         <section className="text-center my-5">
@@ -105,7 +105,7 @@ class TestimonialsPage extends Component {
             Testimonials v.2
           </h2>
 
-          <Carousel
+          <MDBCarousel
             activeItem={1}
             length={3}
             testimonial
@@ -113,18 +113,18 @@ class TestimonialsPage extends Component {
             showIndicators={false}
             className="no-flex"
           >
-            <CarouselInner>
-              <CarouselItem itemId="1">
-                <Testimonial>
-                  <Avatar className="mx-auto mb-4">
+            <MDBCarouselInner>
+              <MDBCarouselItem itemId="1">
+                <MDBTestimonial>
+                  <MDBAvatar className="mx-auto mb-4">
                     <img
                       src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
                       className="rounded-circle img-fluid"
                       alt=""
                     />
-                  </Avatar>
+                  </MDBAvatar>
                   <p>
-                    <Fa icon="quote-left" /> Lorem ipsum dolor sit amet,
+                    <MDBIcon icon="quote-left" /> Lorem ipsum dolor sit amet,
                     consectetur adipisicing elit. Quod eos id officiis hic
                     tenetur quae quaerat ad velit ab. Lorem ipsum dolor sit
                     amet, consectetur adipisicing elit. Dolore cum accusamus
@@ -136,34 +136,24 @@ class TestimonialsPage extends Component {
                   <h6 className="font-weight-bold my-3">
                     Founder at ET Company
                   </h6>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star-half-full" className="blue-text">
-                    {" "}
-                  </Fa>
-                </Testimonial>
-              </CarouselItem>
-              <CarouselItem itemId="2">
-                <Testimonial>
-                  <Avatar className="mx-auto mb-4">
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star-half-full" className="blue-text" />
+                </MDBTestimonial>
+              </MDBCarouselItem>
+              <MDBCarouselItem itemId="2">
+                <MDBTestimonial>
+                  <MDBAvatar className="mx-auto mb-4">
                     <img
                       src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
                       className="rounded-circle img-fluid"
                       alt=""
                     />
-                  </Avatar>
+                  </MDBAvatar>
                   <p>
-                    <Fa icon="quote-left" /> Nemo enim ipsam voluptatem quia
+                    <MDBIcon icon="quote-left" /> Nemo enim ipsam voluptatem quia
                     voluptas sit aspernatur aut odit aut fugit, sed quia
                     consequuntur magni dolores eos qui ratione voluptatem sequi
                     nesciunt. Neque porro quisquam est, qui dolorem ipsum quia
@@ -174,34 +164,24 @@ class TestimonialsPage extends Component {
                   <h6 className="font-weight-bold my-3">
                     Photographer at Studio LA
                   </h6>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                </Testimonial>
-              </CarouselItem>
-              <CarouselItem itemId="3">
-                <Testimonial>
-                  <Avatar className="mx-auto mb-4">
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                </MDBTestimonial>
+              </MDBCarouselItem>
+              <MDBCarouselItem itemId="3">
+                <MDBTestimonial>
+                  <MDBAvatar className="mx-auto mb-4">
                     <img
                       src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg"
                       className="rounded-circle img-fluid"
                       alt=""
                     />
-                  </Avatar>
+                  </MDBAvatar>
                   <p>
-                    <Fa icon="quote-left" /> Duis aute irure dolor in
+                    <MDBIcon icon="quote-left" /> Duis aute irure dolor in
                     reprehenderit in voluptate velit esse cillum dolore eu
                     fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                     proident, sunt in culpa qui officia deserunt mollit anim id
@@ -212,25 +192,15 @@ class TestimonialsPage extends Component {
                   <h6 className="font-weight-bold my-3">
                     Front-end Developer in NY
                   </h6>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star" className="blue-text">
-                    {" "}
-                  </Fa>
-                  <Fa icon="star-o" className="blue-text">
-                    {" "}
-                  </Fa>
-                </Testimonial>
-              </CarouselItem>
-            </CarouselInner>
-          </Carousel>
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star" className="blue-text" />
+                  <MDBIcon icon="star-o" className="blue-text" />
+                </MDBTestimonial>
+              </MDBCarouselItem>
+            </MDBCarouselInner>
+          </MDBCarousel>
         </section>
 
         <section className="team-section text-center my-5">
@@ -243,16 +213,16 @@ class TestimonialsPage extends Component {
             totam voluptas nostrum quisquam eum porro a pariatur veniam.
           </p>
 
-          <Row className="text-center">
-            <Col md="4" className="mb-md-0 mb-5">
-              <Testimonial>
-                <Avatar className="mx-auto">
+          <MDBRow className="text-center">
+            <MDBCol md="4" className="mb-md-0 mb-5">
+              <MDBTestimonial>
+                <MDBAvatar className="mx-auto">
                   <img
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(1).jpg"
                     alt=""
                     className="rounded-circle z-depth-1 img-fluid"
                   />
-                </Avatar>
+                </MDBAvatar>
                 <h4 className="font-weight-bold dark-grey-text mt-4">
                   Anna Deynah
                 </h4>
@@ -260,29 +230,29 @@ class TestimonialsPage extends Component {
                   Web Designer
                 </h6>
                 <p className="font-weight-normal dark-grey-text">
-                  <Fa className="fa fa-quote-left pr-2" />
+                  <MDBIcon className="fa fa-quote-left pr-2" />
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
                   eos id officiis hic tenetur quae quaerat ad velit ab hic
                   tenetur.
                 </p>
                 <div className="orange-text">
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star-half-full"> </Fa>
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star-half-full" />
                 </div>
-              </Testimonial>
-            </Col>
-            <Col md="4" className="mb-md-0 mb-5">
-              <Testimonial>
-                <Avatar className="mx-auto">
+              </MDBTestimonial>
+            </MDBCol>
+            <MDBCol md="4" className="mb-md-0 mb-5">
+              <MDBTestimonial>
+                <MDBAvatar className="mx-auto">
                   <img
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg"
                     alt=""
                     className="rounded-circle z-depth-1 img-fluid"
                   />
-                </Avatar>
+                </MDBAvatar>
                 <h4 className="font-weight-bold dark-grey-text mt-4">
                   John Doe
                 </h4>
@@ -290,28 +260,28 @@ class TestimonialsPage extends Component {
                   Web Developer
                 </h6>
                 <p className="font-weight-normal dark-grey-text">
-                  <Fa className="fa fa-quote-left pr-2" />
+                  <MDBIcon className="fa fa-quote-left pr-2" />
                   Ut enim ad minima veniam, quis nostrum exercitationem ullam
                   corporis suscipit laboriosam, nisi ut aliquid commodi.
                 </p>
                 <div className="orange-text">
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
                 </div>
-              </Testimonial>
-            </Col>
-            <Col md="4">
-              <Testimonial>
-                <Avatar className="mx-auto">
+              </MDBTestimonial>
+            </MDBCol>
+            <MDBCol md="4">
+              <MDBTestimonial>
+                <MDBAvatar className="mx-auto">
                   <img
                     src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg"
                     alt=""
                     className="rounded-circle z-depth-1 img-fluid"
                   />
-                </Avatar>
+                </MDBAvatar>
                 <h4 className="font-weight-bold dark-grey-text mt-4">
                   Maria Kate
                 </h4>
@@ -319,22 +289,22 @@ class TestimonialsPage extends Component {
                   Photographer
                 </h6>
                 <p className="font-weight-normal dark-grey-text">
-                  <Fa className="fa fa-quote-left pr-2" />
+                  <MDBIcon className="fa fa-quote-left pr-2" />
                   At vero eos et accusamus et iusto odio dignissimos ducimus qui
                   blanditiis praesentium voluptatum deleniti atque corrupti.
                 </p>
                 <div className="orange-text">
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star"> </Fa>
-                  <Fa icon="star-o"> </Fa>
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star" />
+                  <MDBIcon icon="star-o" />
                 </div>
-              </Testimonial>
-            </Col>
-          </Row>
+              </MDBTestimonial>
+            </MDBCol>
+          </MDBRow>
         </section>
-      </Container>
+      </MDBContainer>
     );
   }
 }
