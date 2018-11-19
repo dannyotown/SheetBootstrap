@@ -1,19 +1,10 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  Avatar,
-  Fa,
-  Button
-} from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBAvatar, MDBIcon, MDBBtn } from "mdbreact";
 import DocsLink from "../../DocsLink";
 
 const TeamPage = () => {
   return (
-    <Container>
+    <MDBContainer>
       <DocsLink
         title="Team"
         href="https://mdbootstrap.com/docs/react/sections/team/"
@@ -21,8 +12,8 @@ const TeamPage = () => {
       <h2 className="title text-center text-md-left pt-4 mt-5">
         <strong>Team v.1 </strong>
       </h2>
-      <Card className="my-5 px-5 pb-5 text-center">
-        <CardBody>
+      <MDBCard className="my-5 px-5 pb-5 text-center">
+        <MDBCardBody>
           <h2 className="h1-responsive font-weight-bold my-5">
             Our amazing team
           </h2>
@@ -31,9 +22,9 @@ const TeamPage = () => {
             error amet numquam iure provident voluptate esse quasi, veritatis
             totam voluptas nostrum quisquam eum porro a pariatur veniam.
           </p>
-          <Row>
-            <Col lg="3" md="6" className="mb-lg-0 mb-5">
-              <Avatar
+          <MDBRow>
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+              <MDBAvatar
                 tag="img"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg"
                 className="rounded-circle z-depth-1 img-fluid"
@@ -47,19 +38,19 @@ const TeamPage = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="facebook" className="blue-text" />
+                  <MDBIcon icon="facebook" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="twitter" className="blue-text" />
+                  <MDBIcon icon="twitter" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="instagram" className="blue-text" />
+                  <MDBIcon icon="instagram" className="blue-text" />
                 </a>
               </ul>
-            </Col>
+            </MDBCol>
 
-            <Col lg="3" md="6" className="mb-lg-0 mb-5">
-              <Avatar
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+              <MDBAvatar
                 tag="img"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg"
                 className="rounded-circle z-depth-1 img-fluid"
@@ -73,16 +64,16 @@ const TeamPage = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="facebook" className="blue-text" />
+                  <MDBIcon icon="facebook" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="instagram" className="blue-text" />
+                  <MDBIcon icon="instagram" className="blue-text" />
                 </a>
               </ul>
-            </Col>
+            </MDBCol>
 
-            <Col lg="3" md="6" className="mb-lg-0 mb-5">
-              <Avatar
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+              <MDBAvatar
                 tag="img"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
                 className="rounded-circle z-depth-1 img-fluid"
@@ -96,19 +87,19 @@ const TeamPage = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="facebook" className="blue-text" />
+                  <MDBIcon icon="facebook" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="instagram" className="blue-text" />
+                  <MDBIcon icon="instagram" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="dribbble" className="blue-text" />
+                  <MDBIcon icon="dribbble" className="blue-text" />
                 </a>
               </ul>
-            </Col>
+            </MDBCol>
 
-            <Col lg="3" md="6" className="mb-lg-0 mb-5">
-              <Avatar
+            <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+              <MDBAvatar
                 tag="img"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
                 className="rounded-circle z-depth-1 img-fluid"
@@ -123,22 +114,22 @@ const TeamPage = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="facebook" className="blue-text" />
+                  <MDBIcon icon="facebook" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <Fa icon="github" className="blue-text" />
+                  <MDBIcon icon="github" className="blue-text" />
                 </a>
               </ul>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
 
       <h2 className="title text-center text-md-left pt-4 mt-5">
         <strong>Team v.2 </strong>
       </h2>
-      <Card className="my-5 px-1 pb-5 text-center">
-        <CardBody>
+      <MDBCard className="my-5 px-1 pb-5 text-center">
+        <MDBCardBody>
           <h2 className="h1-responsive font-weight-bold my-5">
             Our amazing team
           </h2>
@@ -147,9 +138,9 @@ const TeamPage = () => {
             error amet numquam iure provident voluptate esse quasi, veritatis
             totam voluptas nostrum quisquam eum porro a pariatur veniam.
           </p>
-          <Row>
-            <Col md="4" className="mb-md-0 mb-5">
-              <Avatar
+          <MDBRow>
+            <MDBCol md="4" className="mb-md-0 mb-5">
+              <MDBAvatar
                 tag="img"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg"
                 className="rounded z-depth-1-half img-fluid"
@@ -159,24 +150,24 @@ const TeamPage = () => {
                 Maria Kate
               </h4>
               <h6 className="text-uppercase grey-text mb-3">Photographer</h6>
-              <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-fb">
-                <Fa icon="facebook" />
-              </Button>
-              <Button
+              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-fb">
+                <MDBIcon icon="facebook" />
+              </MDBBtn>
+              <MDBBtn
                 tag="a"
                 floating
                 size="sm"
                 className="mx-1 mb-0 btn-dribbble"
               >
-                <Fa icon="dribbble" />
-              </Button>
-              <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-tw">
-                <Fa icon="twitter" />
-              </Button>
-            </Col>
+                <MDBIcon icon="dribbble" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-tw">
+                <MDBIcon icon="twitter" />
+              </MDBBtn>
+            </MDBCol>
 
-            <Col md="4" className="mb-md-0 mb-5">
-              <Avatar
+            <MDBCol md="4" className="mb-md-0 mb-5">
+              <MDBAvatar
                 tag="img"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg"
                 className="rounded z-depth-1-half img-fluid"
@@ -186,24 +177,24 @@ const TeamPage = () => {
               <h6 className="text-uppercase grey-text mb-3">
                 Front-end Developer
               </h6>
-              <Button
+              <MDBBtn
                 tag="a"
                 floating
                 size="sm"
                 className="mx-1 mb-0 btn-email"
               >
-                <Fa icon="envelope" />
-              </Button>
-              <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-fb">
-                <Fa icon="facebook" />
-              </Button>
-              <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-git">
-                <Fa icon="github" />
-              </Button>
-            </Col>
+                <MDBIcon icon="envelope" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-fb">
+                <MDBIcon icon="facebook" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-git">
+                <MDBIcon icon="github" />
+              </MDBBtn>
+            </MDBCol>
 
-            <Col md="4" className="mb-md-0 mb-5">
-              <Avatar
+            <MDBCol md="4" className="mb-md-0 mb-5">
+              <MDBAvatar
                 tag="img"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
                 className="rounded z-depth-1-half img-fluid"
@@ -213,25 +204,25 @@ const TeamPage = () => {
                 Sarah Melyah
               </h4>
               <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
-              <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-li">
-                <Fa icon="linkedin" />
-              </Button>
-              <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-tw">
-                <Fa icon="twitter" />
-              </Button>
-              <Button tag="a" floating size="sm" className="mx-1 mb-0 btn-pin">
-                <Fa icon="pinterest" />
-              </Button>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
+              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-li">
+                <MDBIcon icon="linkedin" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-tw">
+                <MDBIcon icon="twitter" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-pin">
+                <MDBIcon icon="pinterest" />
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
 
       <h2 className="title text-center text-md-left pt-4 mt-5">
         <strong>Team v.3 </strong>
       </h2>
-      <Card className="my-5 px-5 pb-1 text-center">
-        <CardBody>
+      <MDBCard className="my-5 px-5 pb-1 text-center">
+        <MDBCardBody>
           <h2 className="h1-responsive font-weight-bold my-5">
             Our amazing team
           </h2>
@@ -240,17 +231,17 @@ const TeamPage = () => {
             error amet numquam iure provident voluptate esse quasi, veritatis
             totam voluptas nostrum quisquam eum porro a pariatur veniam.
           </p>
-          <Row className="text-md-left">
-            <Col lg="6" md="12" className="mb-5">
-              <Col md="4" lg="6" className="float-left">
-                <Avatar
+          <MDBRow className="text-md-left">
+            <MDBCol lg="6" md="12" className="mb-5">
+              <MDBCol md="4" lg="6" className="float-left">
+                <MDBAvatar
                   src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
                   className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid"
                   tag="img"
                   alt="Sample avatar"
                 />
-              </Col>
-              <Col md="8" lg="6" className="float-right">
+              </MDBCol>
+              <MDBCol md="8" lg="6" className="float-right">
                 <h4 className="font-weight-bold mb-3">John Doe</h4>
                 <h6 className="font-weight-bold grey-text mb-3">
                   Web Designer
@@ -260,27 +251,27 @@ const TeamPage = () => {
                   eos id officiis hic tenetur.
                 </p>
                 <a href="#!" className="p-2 fa-lg fb-ic">
-                  <Fa icon="facebook" />
+                  <MDBIcon icon="facebook" />
                 </a>
                 <a href="#!" className="p-2 fa-lg tw-ic">
-                  <Fa icon="twitter" />
+                  <MDBIcon icon="twitter" />
                 </a>
                 <a href="#!" className="p-2 fa-lg dribbble-ic">
-                  <Fa icon="dribbble" />
+                  <MDBIcon icon="dribbble" />
                 </a>
-              </Col>
-            </Col>
+              </MDBCol>
+            </MDBCol>
 
-            <Col lg="6" md="12" className="mb-5">
-              <Col md="4" lg="6" className="float-left">
-                <Avatar
+            <MDBCol lg="6" md="12" className="mb-5">
+              <MDBCol md="4" lg="6" className="float-left">
+                <MDBAvatar
                   src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg"
                   className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid"
                   tag="img"
                   alt="Sample avatar"
                 />
-              </Col>
-              <Col md="8" lg="6" className="float-right">
+              </MDBCol>
+              <MDBCol md="8" lg="6" className="float-right">
                 <h4 className="font-weight-bold mb-3">Maria Kate</h4>
                 <h6 className="font-weight-bold grey-text mb-3">
                   Photographer
@@ -290,27 +281,27 @@ const TeamPage = () => {
                   eos id officiis hic tenetur.
                 </p>
                 <a href="#!" className="p-2 fa-lg fb-ic">
-                  <Fa icon="facebook" />
+                  <MDBIcon icon="facebook" />
                 </a>
                 <a href="#!" className="p-2 fa-lg yt-ic">
-                  <Fa icon="youtube" />
+                  <MDBIcon icon="youtube" />
                 </a>
                 <a href="#!" className="p-2 fa-lg ins-ic">
-                  <Fa icon="instagram" />
+                  <MDBIcon icon="instagram" />
                 </a>
-              </Col>
-            </Col>
+              </MDBCol>
+            </MDBCol>
 
-            <Col lg="6" md="12" className="mb-5">
-              <Col md="4" lg="6" className="float-left">
-                <Avatar
+            <MDBCol lg="6" md="12" className="mb-5">
+              <MDBCol md="4" lg="6" className="float-left">
+                <MDBAvatar
                   src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg"
                   className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid"
                   tag="img"
                   alt="Sample avatar"
                 />
-              </Col>
-              <Col md="8" lg="6" className="float-right">
+              </MDBCol>
+              <MDBCol md="8" lg="6" className="float-right">
                 <h4 className="font-weight-bold mb-3">Anna Deynah</h4>
                 <h6 className="font-weight-bold grey-text mb-3">
                   Web Developer
@@ -320,27 +311,27 @@ const TeamPage = () => {
                   eos id officiis hic tenetur.
                 </p>
                 <a href="#!" className="p-2 fa-lg fb-ic">
-                  <Fa icon="facebook" />
+                  <MDBIcon icon="facebook" />
                 </a>
                 <a href="#!" className="p-2 fa-lg tw-ic">
-                  <Fa icon="twitter" />
+                  <MDBIcon icon="twitter" />
                 </a>
                 <a href="#!" className="p-2 fa-lg github-ic">
-                  <Fa icon="github" />
+                  <MDBIcon icon="github" />
                 </a>
-              </Col>
-            </Col>
+              </MDBCol>
+            </MDBCol>
 
-            <Col lg="6" md="12" className="mb-5">
-              <Col md="4" lg="6" className="float-left">
-                <Avatar
+            <MDBCol lg="6" md="12" className="mb-5">
+              <MDBCol md="4" lg="6" className="float-left">
+                <MDBAvatar
                   src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg"
                   className="mx-auto mb-md-0 mb-4 rounded z-depth-1 img-fluid"
                   tag="img"
                   alt="Sample avatar"
                 />
-              </Col>
-              <Col md="8" lg="6" className="float-right">
+              </MDBCol>
+              <MDBCol md="8" lg="6" className="float-right">
                 <h4 className="font-weight-bold mb-3">Sarah Melyah</h4>
                 <h6 className="font-weight-bold grey-text mb-3">
                   Front-end Developer
@@ -350,20 +341,20 @@ const TeamPage = () => {
                   eos id officiis hic tenetur.
                 </p>
                 <a href="#!" className="p-2 fa-lg gplus-ic">
-                  <Fa icon="google-plus" />
+                  <MDBIcon icon="google-plus" />
                 </a>
                 <a href="#!" className="p-2 fa-lg li-ic">
-                  <Fa icon="linkedin" />
+                  <MDBIcon icon="linkedin" />
                 </a>
                 <a href="#!" className="p-2 fa-lg email-ic">
-                  <Fa icon="envelope" />
+                  <MDBIcon icon="envelope" />
                 </a>
-              </Col>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
-    </Container>
+              </MDBCol>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
+    </MDBContainer>
   );
 };
 
