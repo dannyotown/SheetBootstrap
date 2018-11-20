@@ -1,21 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarNav,
-  NavItem,
-  NavLink,
-  NavbarToggler,
-  Collapse,
-  Mask,
-  Row,
-  Col,
-  Button,
-  View,
-  Container,
-  FormInline
-} from "mdbreact";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol, MDBBtn,   MDBView, MDBContainer, MDBFormInline } from "mdbreact";
 import "./AppPage.css";
 
 class AppPage extends React.Component {
@@ -42,7 +27,7 @@ class AppPage extends React.Component {
       <div id="apppage">
         <Router>
           <div>
-            <Navbar
+            <MDBNavbar
               color="primary-color"
               style={navStyle}
               dark
@@ -51,26 +36,26 @@ class AppPage extends React.Component {
               scrolling
               transparent
             >
-              <Container>
-                <NavbarBrand>
+              <MDBContainer>
+                <MDBNavbarBrand>
                   <strong className="white-text">MDB</strong>
-                </NavbarBrand>
-                <NavbarToggler onClick={this.handleTogglerClick} />
-                <Collapse isOpen={this.state.collapsed} navbar>
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                  <NavbarNav right>
-                    <NavItem>
-                      <FormInline waves>
+                </MDBNavbarBrand>
+                <MDBNavbarToggler onClick={this.handleTogglerClick} />
+                <MDBCollapse isOpen={this.state.collapsed} navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                  <MDBNavbarNav right>
+                    <MDBNavItem>
+                      <MDBFormInline waves>
                         <div className="md-form my-0">
                           <input
                             className="form-control mr-sm-2"
@@ -79,19 +64,19 @@ class AppPage extends React.Component {
                             aria-label="Search"
                           />
                         </div>
-                      </FormInline>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                      </MDBFormInline>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
             {this.state.collapsed && overlay}
           </div>
         </Router>
-        <View>
-          <Mask className="d-flex justify-content-center align-items-center gradient">
-            <Container>
-              <Row>
+        <MDBView>
+          <MDBMask className="d-flex justify-content-center align-items-center gradient">
+            <MDBContainer>
+              <MDBRow>
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="h1-responsive font-weight-bold mt-sm-5">
                     Make purchases with our app{" "}
@@ -103,26 +88,26 @@ class AppPage extends React.Component {
                     veniam sapiente, fugiat! Commodi sequi non animi ea dolor
                     molestiae iste.
                   </h6>
-                  <Button color="white">Download</Button>
-                  <Button outline color="white">
+                  <MDBBtn color="white">Download</MDBBtn>
+                  <MDBBtn outline color="white">
                     Learn More
-                  </Button>
+                  </MDBBtn>
                 </div>
-                <Col md="6" xl="5" className="mt-xl-5">
+                <MDBCol md="6" xl="5" className="mt-xl-5">
                   <img
                     src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png"
                     alt=""
                     className="img-fluid"
                   />
-                </Col>
-              </Row>
-            </Container>
-          </Mask>
-        </View>
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBMask>
+        </MDBView>
 
-        <Container>
-          <Row className="py-5">
-            <Col md="12" className="text-center">
+        <MDBContainer>
+          <MDBRow className="py-5">
+            <MDBCol md="12" className="text-center">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -132,9 +117,9 @@ class AppPage extends React.Component {
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
-            </Col>
-          </Row>
-        </Container>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
       </div>
     );
   }
