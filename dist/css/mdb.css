@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * Material Design for Bootstrap 4
- * Version: MDB PRO 4.5.13
+ * Version: MDB PRO 4.5.14
  *
  *
  * Copyright: Material Design for Bootstrap
@@ -12,7 +12,7 @@
  *
  * Documentation: https://mdbootstrap.com/
  *
- * Getting started: https://mdbootstrap.com/getting-started/
+ * Getting started: https://mdbootstrap.com/docs/jquery/getting-started/download/
  *
  * Tutorials: https://mdbootstrap.com/education/bootstrap/
  *
@@ -5999,7 +5999,7 @@ ul.stepper {
 
 /*
  * MDBootstrap integration with Datatables
- * Learn more: https://mdbootstrap.com/content/bootstrap-datatables/
+ * Learn more: https://mdbootstrap.com/docs/jquery/tables/datatables/
  * About MDBootstrap: https://mdbootstrap.com/
  *
  * This combined file was created by the DataTables downloader builder:
@@ -8345,6 +8345,17 @@ label.btn input[type="radio"]:disabled:checked + span:after {
   background-color: rgba(0, 0, 0, 0.46);
   border-color: #BDBDBD; }
 
+.form-check-input[type="radio"]:checked + label:after .disabled-material,
+label.btn input[type="radio"]:checked + label:after .disabled-material {
+  background-color: rgba(66, 133, 244, 0.2); }
+
+.md-disabled::after {
+  background-color: rgba(66, 133, 244, 0.5) !important;
+  border-color: rgba(66, 133, 244, 0.2) !important; }
+
+.md-disabled::before {
+  border-color: rgba(66, 133, 244, 0.25) !important; }
+
 /* Remove default checkbox */
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
@@ -8736,6 +8747,9 @@ select {
 .dropdown-ins .search-wrap input:focus {
   border-bottom: 1px solid #2e5e86;
   box-shadow: 0 1px 0 0 #2e5e86; }
+
+.md-dropdown li.disabled.active {
+  background-color: transparent !important; }
 
 .switch label {
   cursor: pointer; }
@@ -14337,8 +14351,7 @@ ul.stepper .md-form .validate {
       float: right; } }
   .timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content:before {
     position: absolute;
-    top: 26px;
-    right: -15px;
+    top: 15px;
     display: inline-block;
     border-top: 15px solid transparent;
     border-left: 15px solid #e0e0e0;
@@ -14359,8 +14372,7 @@ ul.stepper .md-form .validate {
         right: auto; } }
   .timeline-main .stepper.stepper-vertical.timeline.timeline-simple li .step-content:after {
     position: absolute;
-    top: 27px;
-    right: -14px;
+    top: 15px;
     display: inline-block;
     border-top: 14px solid transparent;
     border-left: 14px solid #fff;
