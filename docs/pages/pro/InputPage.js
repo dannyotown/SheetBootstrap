@@ -236,6 +236,8 @@ class InputPage extends React.Component {
             getValue={this.handleChange}
             checked={this.state.switch}
             onChange={this.handleSwitchChange}
+            labelLeft="No"
+            labelRight="Yes"
           />
           <h4 className="mt-5 mb-3">Disabled</h4>
           <InputSwitch disabled />
