@@ -7,7 +7,7 @@ class ScrollSpyList extends Component {
     const { className, children, color, ...attributes } = this.props;
 
     const classes = classNames(
-      "nav nav-tabs horizontal-spy",
+      "nav md-tabs horizontal-spy",
       color ? color : false,
       className
     );
