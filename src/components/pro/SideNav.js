@@ -9,19 +9,13 @@ class SideNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isThere: false,
+      isOpen: false,
       showOverlay: false,
       cursorPos: {}
     };
   }
 
   componentDidMount() {
-    if (this.props.fixed) {
-      this.setState({
-        isThere: true
-      });
-      return;
-    }
     this.updatePredicate();
     window.addEventListener("resize", this.updatePredicate);
   }
@@ -29,28 +23,25 @@ class SideNav extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.triggerOpening !== this.props.triggerOpening) {
       this.setState({
-        isThere: true,
-        showOverlay: true
+        isOpen: !this.state.isOpen,
+        showOverlay: !this.state.showOverlay
       });
     }
   }
 
   componentWillUnmount() {
-    if (this.props.fixed) {
-      return;
-    }
     window.removeEventListener("resize", this.updatePredicate);
   }
 
   updatePredicate = () => {
     if (!this.props.hidden) {
-      this.setState({ isThere: window.innerWidth > this.props.breakWidth });
+      this.setState({ isOpen: window.innerWidth > this.props.breakWidth });
     }
   };
 
   handleOverlayClick = () => {
     this.setState({
-      isThere: false,
+      isOpen: false,
       showOverlay: false
     });
     if (this.props.onOverlayClick) {
@@ -71,7 +62,6 @@ class SideNav extends React.Component {
       if (this.props.onClick) {
         this.props.onClick(e);
       }
-      e.stopPropagation();
     }
     e.stopPropagation();
   };
@@ -95,7 +85,7 @@ class SideNav extends React.Component {
       ...attributes
     } = this.props;
 
-    let { isThere, showOverlay } = this.state;
+    let { isOpen, showOverlay } = this.state;
 
     const classes = classNames(
       "side-nav",
@@ -149,11 +139,11 @@ class SideNav extends React.Component {
         <CSSTransition
           timeout={{ enter: 300, exit: 300 }}
           classNames={right ? "right-side-slide" : "side-slide"}
-          in={isThere}
+          in={isOpen}
         >
           {sidenav}
         </CSSTransition>
-        {showOverlay && isThere && overlay}
+        {showOverlay && isOpen && overlay}
       </div>
     );
   }
