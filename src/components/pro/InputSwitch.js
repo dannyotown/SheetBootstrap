@@ -26,6 +26,8 @@ class InputSwitch extends React.Component {
       checked,
       disabled,
       getValue,
+      labelLeft,
+      labelRight,
       ...attributes
     } = this.props;
 
@@ -33,7 +35,7 @@ class InputSwitch extends React.Component {
     return (
       <div {...attributes} className={classes}>
         <label>
-          Off
+          {labelLeft}
           <input
             disabled={this.props.disabled}
             value={this.state.value}
@@ -42,7 +44,7 @@ class InputSwitch extends React.Component {
             type="checkbox"
           />
           <span className="lever" />
-          On
+          {labelRight}
         </label>
       </div>
     );
@@ -53,12 +55,17 @@ InputSwitch.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   checked: PropTypes.bool,
-  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
+  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  labelLeft: PropTypes.string,
+  labelRight: PropTypes.string
+
 };
 
 InputSwitch.defaultProps = {
   checked: false,
-  getValue: false
+  getValue: false,
+  labelLeft: "On",
+  labelRight: "Off"
 };
 
 export default InputSwitch;
