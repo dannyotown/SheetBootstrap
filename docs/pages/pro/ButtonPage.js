@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Fa, ButtonFixed, ButtonFixedItem, Container } from "mdbreact";
+import { MDBBtn, MDBIcon, MDBBtnFixed, MDBBtnFixedItem, MDBContainer } from "mdbreact";
 import DocsLink from "../DocsLink";
 
 class ButtonPage extends React.Component {
@@ -35,74 +35,74 @@ class ButtonPage extends React.Component {
 
   render() {
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Buttons"
           href="https://mdbootstrap.com/docs/react/components/buttons/"
         />
         <div className="container-fluid text-center mt-5">
           <section id="top-section">
-            <Button rounded>Rounded Default</Button>
-            <Button color="primary" rounded>
+            <MDBBtn rounded>Rounded Default</MDBBtn>
+            <MDBBtn color="primary" rounded>
               Rounded Primary
-            </Button>
-            <Button color="secondary" rounded>
+            </MDBBtn>
+            <MDBBtn color="secondary" rounded>
               Rounded Secondary
-            </Button>
-            <Button color="success" rounded>
+            </MDBBtn>
+            <MDBBtn color="success" rounded>
               Rounded Success
-            </Button>
-            <Button color="info" rounded>
+            </MDBBtn>
+            <MDBBtn color="info" rounded>
               Rounded Info
-            </Button>
-            <Button color="warning" rounded>
+            </MDBBtn>
+            <MDBBtn color="warning" rounded>
               Rounded Warning
-            </Button>
+            </MDBBtn>
           </section>
           <section>
-            <Button rounded gradient="peach">
+            <MDBBtn rounded gradient="peach">
               Gradient Peach
-            </Button>
-            <Button rounded gradient="purple">
+            </MDBBtn>
+            <MDBBtn rounded gradient="purple">
               Gradient Purple
-            </Button>
-            <Button rounded gradient="blue">
+            </MDBBtn>
+            <MDBBtn rounded gradient="blue">
               Gradient Blue
-            </Button>
-            <Button rounded gradient="aqua">
+            </MDBBtn>
+            <MDBBtn rounded gradient="aqua">
               Gradient Aqua
-            </Button>
+            </MDBBtn>
           </section>
           <section>
-            <Button flat>Flat Button</Button>
+            <MDBBtn flat>Flat MDBBtn</MDBBtn>
           </section>
           <section>
-            <Button rounded outline>
+            <MDBBtn rounded outline>
               Rounded Outline Default
-            </Button>
-            <Button color="primary" rounded outline>
+            </MDBBtn>
+            <MDBBtn color="primary" rounded outline>
               Rounded Outline Primary
-            </Button>
-            <Button color="secondary" rounded outline>
+            </MDBBtn>
+            <MDBBtn color="secondary" rounded outline>
               Rounded Outline Secondary
-            </Button>
-            <Button color="success" rounded outline>
+            </MDBBtn>
+            <MDBBtn color="success" rounded outline>
               Rounded Outline Success
-            </Button>
+            </MDBBtn>
           </section>
           <section>
-            <Button tag="a" floating gradient="purple">
-              <Fa icon="bolt" />
-            </Button>
-            <Button tag="a" floating gradient="peach">
-              <Fa icon="leaf" />
-            </Button>
-            <Button tag="a" floating gradient="blue">
-              <Fa icon="star" />
-            </Button>
+            <MDBBtn tag="a" floating gradient="purple">
+              <MDBIcon icon="bolt" />
+            </MDBBtn>
+            <MDBBtn tag="a" floating gradient="peach">
+              <MDBIcon icon="leaf" />
+            </MDBBtn>
+            <MDBBtn tag="a" floating gradient="blue">
+              <MDBIcon icon="star" />
+            </MDBBtn>
           </section>
           <section style={{ height: "1000px" }}>
-            <ButtonFixed
+            <MDBBtnFixed
               onMouseEnter={this.onHover}
               onMouseLeave={this.onMouseLeave}
               floating
@@ -111,30 +111,30 @@ class ButtonPage extends React.Component {
               icon="pencil"
               style={{ bottom: "45px", right: "24px" }}
             >
-              <ButtonFixedItem
+              <MDBBtnFixedItem
                 buttonStyle={this.state.buttonStyle}
                 color="red"
                 icon="star"
               />
-              <ButtonFixedItem
+              <MDBBtnFixedItem
                 buttonStyle={this.state.buttonStyle}
                 color="yellow"
                 icon="user"
               />
-              <ButtonFixedItem
+              <MDBBtnFixedItem
                 buttonStyle={this.state.buttonStyle}
                 color="green"
                 icon="envelope"
               />
-              <ButtonFixedItem
+              <MDBBtnFixedItem
                 buttonStyle={this.state.buttonStyle}
                 color="blue"
                 icon="shopping-cart"
               />
-            </ButtonFixed>
+            </MDBBtnFixed>
           </section>
         </div>
-      </Container>
+      </MDBContainer>
     );
   }
 }
