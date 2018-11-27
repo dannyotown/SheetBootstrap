@@ -1,10 +1,10 @@
 import React from "react";
-import { ListGroup, ListGroupItem, Badge, Container } from "mdbreact";
+import { MDBListGroup, MDBListGroupItem, MDBBadge, MDBContainer } from "mdbreact";
 import DocsLink from "./DocsLink";
 
 const ListGroupPage = props => {
   return (
-    <Container>
+    <MDBContainer>
       <DocsLink
         title="List Group"
         href="https://mdbootstrap.com/docs/react/components/list-group/"
@@ -12,34 +12,34 @@ const ListGroupPage = props => {
       <div className="container">
         <div className="row mt-5">
           <div className="col" style={{ maxWidth: "23rem" }}>
-            <ListGroup>
-              <ListGroupItem
+            <MDBListGroup>
+              <MDBListGroupItem
                 href="#"
                 className="d-flex justify-content-between align-items-center"
               >
-                Link <Badge pill>14</Badge>
-              </ListGroupItem>
-              <ListGroupItem
+                Link <MDBBadge pill>14</MDBBadge>
+              </MDBListGroupItem>
+              <MDBListGroupItem
                 active
                 href="#"
                 className="d-flex justify-content-between align-items-center"
               >
-                Active in <Badge pill>2</Badge>
-              </ListGroupItem>
-              <ListGroupItem className="d-flex justify-content-between align-items-center">
-                Not link <Badge pill>1</Badge>
-              </ListGroupItem>
-              <ListGroupItem
+                Active in <MDBBadge pill>2</MDBBadge>
+              </MDBListGroupItem>
+              <MDBListGroupItem className="d-flex justify-content-between align-items-center">
+                Not link <MDBBadge pill>1</MDBBadge>
+              </MDBListGroupItem>
+              <MDBListGroupItem
                 active
                 className="d-flex justify-content-between align-items-center"
               >
-                Not link, but active <Badge pill>1</Badge>
-              </ListGroupItem>
-            </ListGroup>
+                Not link, but active <MDBBadge pill>1</MDBBadge>
+              </MDBListGroupItem>
+            </MDBListGroup>
           </div>
         </div>
       </div>
-    </Container>
+    </MDBContainer>
   );
 };
 
