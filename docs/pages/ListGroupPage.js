@@ -18,13 +18,13 @@ const ListGroupPage = props => {
           </MDBListGroup>
 
           <MDBListGroup className="my-4 mx-4" style={{ width: "22rem" }}>
-            <MDBListGroupItem primary>Cras justo odio</MDBListGroupItem>
-            <MDBListGroupItem secondary>Dapibus ac facilisis in</MDBListGroupItem>
-            <MDBListGroupItem danger>Morbi leo risus</MDBListGroupItem>
-            <MDBListGroupItem warning>Porta ac consectetur ac</MDBListGroupItem>
-            <MDBListGroupItem info>Vestibulum at eros</MDBListGroupItem>
-            <MDBListGroupItem light>Vestibulum at eros</MDBListGroupItem>
-            <MDBListGroupItem dark>Vestibulum at eros</MDBListGroupItem>
+            <MDBListGroupItem color="primary">Cras justo odio</MDBListGroupItem>
+            <MDBListGroupItem color="secondary">Dapibus ac facilisis in</MDBListGroupItem>
+            <MDBListGroupItem color="danger">Morbi leo risus</MDBListGroupItem>
+            <MDBListGroupItem color="warning">Porta ac consectetur ac</MDBListGroupItem>
+            <MDBListGroupItem color="info">Vestibulum at eros</MDBListGroupItem>
+            <MDBListGroupItem color="light">Vestibulum at eros</MDBListGroupItem>
+            <MDBListGroupItem color="dark">Vestibulum at eros</MDBListGroupItem>
           </MDBListGroup>
 
           <MDBListGroup className="my-4 mx-4" style={{ width: "22rem" }}>
@@ -82,6 +82,3 @@ const ListGroupPage = props => {
 };
 
 export default ListGroupPage;
-
-
-
