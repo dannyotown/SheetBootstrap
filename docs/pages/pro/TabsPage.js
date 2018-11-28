@@ -6,61 +6,60 @@ import classnames from "classnames";
 
 class TabsPage extends React.Component {
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      activeItem: "1",
-      activeItemPills: "1",
-      activeItemVerticalPills: "1",
-      activeItemOuterTabs: "1",
-      activeItemInnerPills: "1",
-      activeItemClassicTabs1: "1",
-      activeItemClassicTabs2: "1"
-    };
+  state = {
+    activeItem: "1",
+    activeItemPills: "1",
+    activeItemVerticalPills: "1",
+    activeItemOuterTabs: "1",
+    activeItemInnerPills: "1",
+    activeItemClassicTabs1: "1",
+    activeItemClassicTabs2: "1"
   }
 
-  toggle(tab) {
+  toggle = (tab) => {
     if (this.state.activeItem !== tab) {
       this.setState({
         activeItem: tab
       });
     }
   }
-  togglePills(tab) {
+
+  togglePills = (tab) => {
     if (this.state.activePills !== tab) {
       this.setState({
         activeItemPills: tab
       });
     }
   }
-  toggleVerticalPills(tab) {
+  toggleVerticalPills = (tab) => {
     if (this.state.activeItem3 !== tab) {
       this.setState({
         activeItemVerticalPills: tab
       });
     }
   }
-  toggleClassicTabs1(tab) {
+  toggleClassicTabs1 = (tab) => {
     if (this.state.activeItemClassicTabs1 !== tab) {
       this.setState({
         activeItemClassicTabs1: tab
       });
     }
   }
-  toggleClassicTabs2(tab) {
+  toggleClassicTabs2 = (tab) => {
     if (this.state.activeItemClassicTabs2 !== tab) {
       this.setState({
         activeItemClassicTabs2: tab
       });
     }
   }
-  toggleOuterTabs(tab) {
+  toggleOuterTabs = (tab) => {
     if (this.state.activeItemOuterTabs2 !== tab) {
       this.setState({
         activeItemOuterTabs: tab
       });
     }
   }
-  toggleInnerPills(tab) {
+  toggleInnerPills = (tab) => {
     if (this.state.activeItemInnerPills !== tab) {
       this.setState({
         activeItemInnerPills: tab
