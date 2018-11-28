@@ -1,26 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  CardBody,
-  CardTitle,
-  CardText,
-  TabPane,
-  TabContent,
-  Nav,
-  NavItem,
-  NavLink,
-  Fa
-} from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCardBody, MDBCardTitle, MDBCardText, MDBTabPane,   MDBTabContent, MDBNav, MDBNavItem, MDBNavLink, MDBIcon } from "mdbreact";
 import DocsLink from "../DocsLink";
 import classnames from "classnames";
 
 class TabsPage extends React.Component {
-  constructor(props) {
-    super(props);
 
     this.toggle = this.toggle.bind(this);
     this.state = {
