@@ -68,19 +68,18 @@ class SideNav extends React.Component {
 
   render() {
     const {
-      tag: Tag,
-      logo,
       bg,
-      href,
+      breakWidth,
       children,
       className,
-      breakWidth,
       hidden,
+      href,
+      logo,
+      mask,
+      onOverlayClick,
       right,
       triggerOpening,
-      key,
-      onOverlayClick,
-      mask,
+      tag: Tag,
       ...attributes
     } = this.props;
 
@@ -96,7 +95,6 @@ class SideNav extends React.Component {
       <div
         id="sidenav-overlay"
         onClick={this.handleOverlayClick}
-        key="overlay"
       />
     );
 
@@ -105,7 +103,6 @@ class SideNav extends React.Component {
         {...attributes}
         className={classes}
         style={{ backgroundImage: `url(${bg}` }}
-        key="{key}"
       >
         <ul className="custom-scrollbar list-unstyled">
           {logo && (
@@ -148,21 +145,32 @@ class SideNav extends React.Component {
 }
 
 SideNav.propTypes = {
-  children: PropTypes.node,
-  tag: PropTypes.string,
-  className: PropTypes.string,
-  href: PropTypes.string,
-  src: PropTypes.string,
-  breakWidth: PropTypes.number,
-  triggerOpening: PropTypes.bool,
   bg: PropTypes.string,
-  mask: PropTypes.string
+  breakWidth: PropTypes.number,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  hidden: PropTypes.bool,
+  href: PropTypes.string,
+  logo: PropTypes.string,
+  mask: PropTypes.string,
+  onOverlayClick: PropTypes.func,
+  right: PropTypes.bool,
+  triggerOpening: PropTypes.bool,
+  tag: PropTypes.string
 };
 
 SideNav.defaultProps = {
-  tag: "div",
+  bg: '',
+  breakWidth: 1400,
+  className: '',
+  hidden: false,
   href: "#",
-  breakWidth: 1400
+  logo: '',
+  mask: '',
+  onOverlayClick: () => { },
+  right: false,
+  triggerOpening: false,
+  tag: "div"
 };
 
 export default SideNav;
