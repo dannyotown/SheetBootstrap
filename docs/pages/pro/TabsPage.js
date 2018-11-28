@@ -69,18 +69,18 @@ class TabsPage extends React.Component {
   render() {
     return (
       <Router>
-        <Container>
+        <MDBContainer>
           <DocsLink
             title="Tabs"
             href="https://mdbootstrap.com/docs/react/components/tabs/"
           />
-          <Container className="mt-4">
-            <Row>
-              <Col md="12">
+          <MDBContainer className="mt-4">
+            <MDBRow>
+              <MDBCol md="12">
                 <h2>Basic</h2>
-                <Nav tabs className="nav-justified">
-                  <NavItem>
-                    <NavLink
+                <MDBNav tabs className="nav-justified">
+                  <MDBNavItem>
+                    <MDBNavLink
                       to="#"
                       className={classnames({
                         active: this.state.activeItem === "1"
@@ -90,11 +90,11 @@ class TabsPage extends React.Component {
                       }}
                       role="tab"
                     >
-                      <Fa icon="user" /> Profile
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
+                      <MDBIcon icon="user" /> Profile
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
                       to="#"
                       className={classnames({
                         active: this.state.activeItem === "2"
@@ -105,10 +105,10 @@ class TabsPage extends React.Component {
                       role="tab"
                     >
                       Follow
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
                       to="#"
                       className={classnames({
                         active: this.state.activeItem === "3"
@@ -119,11 +119,11 @@ class TabsPage extends React.Component {
                       role="tab"
                     >
                       Contact
-                    </NavLink>
-                  </NavItem>
-                </Nav>
-                <TabContent className="card" activeItem={this.state.activeItem}>
-                  <TabPane tabId="1" role="tabpanel">
+                    </MDBNavLink>
+                  </MDBNavItem>
+                </MDBNav>
+                <MDBTabContent className="card" activeItem={this.state.activeItem}>
+                  <MDBTabPane tabId="1" role="tabpanel">
                     <p className="mt-2">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Nihil odit magnam minima, soluta doloribus reiciendis
@@ -131,8 +131,8 @@ class TabsPage extends React.Component {
                       pariatur. Tempora, placeat ratione porro voluptate odit
                       minima.
                     </p>
-                  </TabPane>
-                  <TabPane tabId="2" role="tabpanel">
+                  </MDBTabPane>
+                  <MDBTabPane tabId="2" role="tabpanel">
                     <p className="mt-2">
                       Quisquam aperiam, pariatur. Tempora, placeat ratione porro
                       voluptate odit minima. Lorem ipsum dolor sit amet,
@@ -147,8 +147,8 @@ class TabsPage extends React.Component {
                       soluta doloribus reiciendis molestiae placeat unde eos
                       molestias.
                     </p>
-                  </TabPane>
-                  <TabPane tabId="3" role="tabpanel">
+                  </MDBTabPane>
+                  <MDBTabPane tabId="3" role="tabpanel">
                     <p className="mt-2">
                       Quisquam aperiam, pariatur. Tempora, placeat ratione porro
                       voluptate odit minima. Lorem ipsum dolor sit amet,
@@ -156,13 +156,13 @@ class TabsPage extends React.Component {
                       soluta doloribus reiciendis molestiae placeat unde eos
                       molestias.
                     </p>
-                  </TabPane>
-                </TabContent>
+                  </MDBTabPane>
+                </MDBTabContent>
 
                 <h2 className="mt-5">Pills</h2>
-                <Nav pills color="secondary" className="nav-justified ">
-                  <NavItem>
-                    <NavLink
+                <MDBNav pills color="secondary" className="nav-justified ">
+                  <MDBNavItem>
+                    <MDBNavLink
                       to="#"
                       className={classnames({
                         active: this.state.activeItemPills === "1"
@@ -172,10 +172,10 @@ class TabsPage extends React.Component {
                       }}
                     >
                       Active
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
                       to="#"
                       className={classnames({
                         active: this.state.activeItemPills === "2"
@@ -185,10 +185,10 @@ class TabsPage extends React.Component {
                       }}
                     >
                       Link
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
                       to="#"
                       className={classnames({
                         active: this.state.activeItemPills === "3"
@@ -198,10 +198,10 @@ class TabsPage extends React.Component {
                       }}
                     >
                       Link
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
                       to="#"
                       className={classnames({
                         active: this.state.activeItemPills === "4"
@@ -211,11 +211,11 @@ class TabsPage extends React.Component {
                       }}
                     >
                       Help
-                    </NavLink>
-                  </NavItem>
-                </Nav>
-                <TabContent activeItem={this.state.activeItemPills}>
-                  <TabPane tabId="1">
+                    </MDBNavLink>
+                  </MDBNavItem>
+                </MDBNav>
+                <MDBTabContent activeItem={this.state.activeItemPills}>
+                  <MDBTabPane tabId="1">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Nihil odit magnam minima, soluta doloribus reiciendis
@@ -223,8 +223,8 @@ class TabsPage extends React.Component {
                       pariatur. Tempora, placeat ratione porro voluptate odit
                       minima.
                     </p>
-                  </TabPane>
-                  <TabPane tabId="2">
+                  </MDBTabPane>
+                  <MDBTabPane tabId="2">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Nihil odit magnam minima, soluta doloribus reiciendis
@@ -232,8 +232,8 @@ class TabsPage extends React.Component {
                       pariatur. Tempora, placeat ratione porro voluptate odit
                       minima.
                     </p>
-                  </TabPane>
-                  <TabPane tabId="3">
+                  </MDBTabPane>
+                  <MDBTabPane tabId="3">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Nihil odit magnam minima, soluta doloribus reiciendis
@@ -248,8 +248,8 @@ class TabsPage extends React.Component {
                       pariatur. Tempora, placeat ratione porro voluptate odit
                       minima.
                     </p>
-                  </TabPane>
-                  <TabPane tabId="4">
+                  </MDBTabPane>
+                  <MDBTabPane tabId="4">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                       Nihil odit magnam minima, soluta doloribus reiciendis
@@ -257,15 +257,15 @@ class TabsPage extends React.Component {
                       pariatur. Tempora, placeat ratione porro voluptate odit
                       minima.
                     </p>
-                  </TabPane>
-                </TabContent>
+                  </MDBTabPane>
+                </MDBTabContent>
 
                 <h2 className="mt-5">Vertical Pills</h2>
-                <Row>
-                  <Col md="3">
-                    <Nav pills color="primary" className="flex-column">
-                      <NavItem>
-                        <NavLink
+                <MDBRow>
+                  <MDBCol md="3">
+                    <MDBNav pills color="primary" className="flex-column">
+                      <MDBNavItem>
+                        <MDBNavLink
                           to="#"
                           className={classnames({
                             active: this.state.activeItemVerticalPills === "1"
@@ -274,11 +274,11 @@ class TabsPage extends React.Component {
                             this.toggleVerticalPills("1");
                           }}
                         >
-                          Downloads <Fa icon="download" className="ml-2" />
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
+                          Downloads <MDBIcon icon="download" className="ml-2" />
+                        </MDBNavLink>
+                      </MDBNavItem>
+                      <MDBNavItem>
+                        <MDBNavLink
                           to="#"
                           className={classnames({
                             active: this.state.activeItemVerticalPills === "2"
@@ -288,11 +288,11 @@ class TabsPage extends React.Component {
                           }}
                         >
                           Orders & invoices
-                          <Fa icon="file-text" className="ml-2" />
-                        </NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink
+                          <MDBIcon icon="file-text" className="ml-2" />
+                        </MDBNavLink>
+                      </MDBNavItem>
+                      <MDBNavItem>
+                        <MDBNavLink
                           to="#"
                           className={classnames({
                             active: this.state.activeItemVerticalPills === "3"
@@ -302,46 +302,46 @@ class TabsPage extends React.Component {
                           }}
                         >
                           Billing Details
-                          <Fa icon="address-card" className="ml-2" />
-                        </NavLink>
-                      </NavItem>
-                    </Nav>
-                  </Col>
-                  <Col md="9">
-                    <TabContent activeItem={this.state.activeItemVerticalPills}>
-                      <TabPane tabId="1">
-                        <CardBody>
-                          <CardTitle>Downloads</CardTitle>
-                          <CardText>Completely legal</CardText>
-                        </CardBody>
-                      </TabPane>
-                      <TabPane tabId="2">
-                        <CardBody>
-                          <CardTitle>Orders & Invoices</CardTitle>
-                          <CardText>
+                          <MDBIcon icon="address-card" className="ml-2" />
+                        </MDBNavLink>
+                      </MDBNavItem>
+                    </MDBNav>
+                  </MDBCol>
+                  <MDBCol md="9">
+                    <MDBTabContent activeItem={this.state.activeItemVerticalPills}>
+                      <MDBTabPane tabId="1">
+                        <MDBCardBody>
+                          <MDBCardTitle>Downloads</MDBCardTitle>
+                          <MDBCardText>Completely legal</MDBCardText>
+                        </MDBCardBody>
+                      </MDBTabPane>
+                      <MDBTabPane tabId="2">
+                        <MDBCardBody>
+                          <MDBCardTitle>Orders & Invoices</MDBCardTitle>
+                          <MDBCardText>
                             "Hello? Is it me you're looking for?"
-                          </CardText>
-                        </CardBody>
-                      </TabPane>
-                      <TabPane tabId="3">
-                        <CardBody>
-                          <CardTitle>Billing Details</CardTitle>
-                          <CardText>
+                          </MDBCardText>
+                        </MDBCardBody>
+                      </MDBTabPane>
+                      <MDBTabPane tabId="3">
+                        <MDBCardBody>
+                          <MDBCardTitle>Billing Details</MDBCardTitle>
+                          <MDBCardText>
                             Time to pay{" "}
-                            <Button className="ml-3" color="primary">
+                            <MDBBtn className="ml-3" color="primary">
                               pay
-                            </Button>
-                          </CardText>
-                        </CardBody>
-                      </TabPane>
-                    </TabContent>
-                  </Col>
-                </Row>
+                            </MDBBtn>
+                          </MDBCardText>
+                        </MDBCardBody>
+                      </MDBTabPane>
+                    </MDBTabContent>
+                  </MDBCol>
+                </MDBRow>
 
                 <h2 className="mt-5">Pills within the tabs</h2>
-                <Nav tabs className="nav-justified" color="indigo">
-                  <NavItem>
-                    <NavLink
+                <MDBNav tabs className="nav-justified" color="indigo">
+                  <MDBNavItem>
+                    <MDBNavLink
                       to="#"
                       className={classnames({
                         active: this.state.activeItemOuterTabs === "1"
@@ -351,11 +351,11 @@ class TabsPage extends React.Component {
                       }}
                       role="tab"
                     >
-                      <Fa icon="user" /> Profile
-                    </NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
+                      <MDBIcon icon="user" /> Profile
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
                       to="#"
                       className={classnames({
                         active: this.state.activeItemOuterTabs === "2"
@@ -365,20 +365,20 @@ class TabsPage extends React.Component {
                       }}
                       role="tab"
                     >
-                      <Fa icon="heart" /> Follow
-                    </NavLink>
-                  </NavItem>
-                </Nav>
-                <TabContent
+                      <MDBIcon icon="heart" /> Follow
+                    </MDBNavLink>
+                  </MDBNavItem>
+                </MDBNav>
+                <MDBTabContent
                   className="card"
                   activeItem={this.state.activeItemOuterTabs}
                 >
-                  <TabPane tabId="1" role="tabpanel">
-                    <Row>
-                      <Col md="3">
-                        <Nav pills color="primary" className="flex-column">
-                          <NavItem>
-                            <NavLink
+                  <MDBTabPane tabId="1" role="tabpanel">
+                    <MDBRow>
+                      <MDBCol md="3">
+                        <MDBNav pills color="primary" className="flex-column">
+                          <MDBNavItem>
+                            <MDBNavLink
                               to="#"
                               className={classnames({
                                 active: this.state.activeItemInnerPills === "1"
@@ -387,11 +387,11 @@ class TabsPage extends React.Component {
                                 this.toggleInnerPills("1");
                               }}
                             >
-                              Downloads <Fa icon="download" className="ml-2" />
-                            </NavLink>
-                          </NavItem>
-                          <NavItem>
-                            <NavLink
+                              Downloads <MDBIcon icon="download" className="ml-2" />
+                            </MDBNavLink>
+                          </MDBNavItem>
+                          <MDBNavItem>
+                            <MDBNavLink
                               to="#"
                               className={classnames({
                                 active: this.state.activeItemInnerPills === "2"
@@ -401,11 +401,11 @@ class TabsPage extends React.Component {
                               }}
                             >
                               Orders & invoices
-                              <Fa icon="file-text" className="ml-2" />
-                            </NavLink>
-                          </NavItem>
-                          <NavItem>
-                            <NavLink
+                              <MDBIcon icon="file-text" className="ml-2" />
+                            </MDBNavLink>
+                          </MDBNavItem>
+                          <MDBNavItem>
+                            <MDBNavLink
                               to="#"
                               className={classnames({
                                 active: this.state.activeItemInnerPills === "3"
@@ -415,76 +415,76 @@ class TabsPage extends React.Component {
                               }}
                             >
                               Billing Details
-                              <Fa icon="address-card" className="ml-2" />
-                            </NavLink>
-                          </NavItem>
-                        </Nav>
-                      </Col>
-                      <Col md="9">
-                        <TabContent
+                              <MDBIcon icon="address-card" className="ml-2" />
+                            </MDBNavLink>
+                          </MDBNavItem>
+                        </MDBNav>
+                      </MDBCol>
+                      <MDBCol md="9">
+                        <MDBTabContent
                           activeItem={this.state.activeItemInnerPills}
                         >
-                          <TabPane tabId="1">
-                            <CardBody>
-                              <CardTitle>Downloads</CardTitle>
-                              <CardText>Completely legal</CardText>
-                            </CardBody>
-                          </TabPane>
-                          <TabPane tabId="2">
-                            <CardBody>
-                              <CardTitle>Orders & Invoices</CardTitle>
-                              <CardText>
+                          <MDBTabPane tabId="1">
+                            <MDBCardBody>
+                              <MDBCardTitle>Downloads</MDBCardTitle>
+                              <MDBCardText>Completely legal</MDBCardText>
+                            </MDBCardBody>
+                          </MDBTabPane>
+                          <MDBTabPane tabId="2">
+                            <MDBCardBody>
+                              <MDBCardTitle>Orders & Invoices</MDBCardTitle>
+                              <MDBCardText>
                                 "Hello? Is it me you're looking for?"
-                              </CardText>
-                            </CardBody>
-                          </TabPane>
-                          <TabPane tabId="3">
-                            <CardBody>
-                              <CardTitle>Billing Details</CardTitle>
-                              <CardText>
+                              </MDBCardText>
+                            </MDBCardBody>
+                          </MDBTabPane>
+                          <MDBTabPane tabId="3">
+                            <MDBCardBody>
+                              <MDBCardTitle>Billing Details</MDBCardTitle>
+                              <MDBCardText>
                                 Time to pay{" "}
-                                <Button className="ml-3" color="secondary">
+                                <MDBBtn className="ml-3" color="secondary">
                                   pay
-                                </Button>
-                              </CardText>
-                            </CardBody>
-                          </TabPane>
-                        </TabContent>
-                      </Col>
-                    </Row>
-                  </TabPane>
-                  <TabPane tabId="2" role="tabpanel">
-                    <Row>
-                      <Col md="6">
-                        <CardBody>
-                          <CardTitle>Special Title Treatment</CardTitle>
-                          <CardText>
+                                </MDBBtn>
+                              </MDBCardText>
+                            </MDBCardBody>
+                          </MDBTabPane>
+                        </MDBTabContent>
+                      </MDBCol>
+                    </MDBRow>
+                  </MDBTabPane>
+                  <MDBTabPane tabId="2" role="tabpanel">
+                    <MDBRow>
+                      <MDBCol md="6">
+                        <MDBCardBody>
+                          <MDBCardTitle>Special Title Treatment</MDBCardTitle>
+                          <MDBCardText>
                             With supporting text below as a natural lead-in to
                             additional content.
-                          </CardText>
-                          <Button>Go somewhere</Button>
-                        </CardBody>
-                      </Col>
-                      <Col md="6">
-                        <CardBody>
-                          <CardTitle>Special Title Treatment</CardTitle>
-                          <CardText>
+                          </MDBCardText>
+                          <MDBBtn>Go somewhere</MDBBtn>
+                        </MDBCardBody>
+                      </MDBCol>
+                      <MDBCol md="6">
+                        <MDBCardBody>
+                          <MDBCardTitle>Special Title Treatment</MDBCardTitle>
+                          <MDBCardText>
                             With supporting text below as a natural lead-in to
                             additional content.
-                          </CardText>
-                          <Button>Go somewhere</Button>
-                        </CardBody>
-                      </Col>
-                    </Row>
-                  </TabPane>
-                </TabContent>
+                          </MDBCardText>
+                          <MDBBtn>Go somewhere</MDBBtn>
+                        </MDBCardBody>
+                      </MDBCol>
+                    </MDBRow>
+                  </MDBTabPane>
+                </MDBTabContent>
 
                 <h2 className="mt-5">Classic tabs</h2>
 
                 <div className="classic-tabs">
-                  <Nav classicTabs color="cyan">
-                    <NavItem>
-                      <NavLink
+                  <MDBNav classicTabs color="cyan">
+                    <MDBNavItem>
+                      <MDBNavLink
                         to="#"
                         className={classnames({
                           active: this.state.activeItemClassicTabs1 === "1"
@@ -494,10 +494,10 @@ class TabsPage extends React.Component {
                         }}
                       >
                         Profile
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
                         to="#"
                         className={classnames({
                           active: this.state.activeItemClassicTabs1 === "2"
@@ -507,10 +507,10 @@ class TabsPage extends React.Component {
                         }}
                       >
                         Follow
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
                         to="#"
                         className={classnames({
                           active: this.state.activeItemClassicTabs1 === "3"
@@ -520,10 +520,10 @@ class TabsPage extends React.Component {
                         }}
                       >
                         Contact
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
                         to="#"
                         className={classnames({
                           active: this.state.activeItemClassicTabs1 === "4"
@@ -533,14 +533,14 @@ class TabsPage extends React.Component {
                         }}
                       >
                         Be Awesome
-                      </NavLink>
-                    </NavItem>
-                  </Nav>
-                  <TabContent
+                      </MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNav>
+                  <MDBTabContent
                     className="card"
                     activeItem={this.state.activeItemClassicTabs1}
                   >
-                    <TabPane tabId="1">
+                    <MDBTabPane tabId="1">
                       <p>
                         Quisquam aperiam, pariatur. Tempora, placeat ratione
                         porro voluptate odit minima. Lorem ipsum dolor sit amet,
@@ -548,8 +548,8 @@ class TabsPage extends React.Component {
                         soluta doloribus reiciendis molestiae placeat unde eos
                         molestias.
                       </p>
-                    </TabPane>
-                    <TabPane tabId="2">
+                    </MDBTabPane>
+                    <MDBTabPane tabId="2">
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Nihil odit magnam minima, soluta doloribus
@@ -557,8 +557,8 @@ class TabsPage extends React.Component {
                         Quisquam aperiam, pariatur. Tempora, placeat ratione
                         porro voluptate odit minima.
                       </p>
-                    </TabPane>
-                    <TabPane tabId="3">
+                    </MDBTabPane>
+                    <MDBTabPane tabId="3">
                       <p>
                         Quisquam aperiam, pariatur. Tempora, placeat ratione
                         porro voluptate odit minima. Lorem ipsum dolor sit amet,
@@ -566,8 +566,8 @@ class TabsPage extends React.Component {
                         soluta doloribus reiciendis molestiae placeat unde eos
                         molestias.
                       </p>
-                    </TabPane>
-                    <TabPane tabId="4">
+                    </MDBTabPane>
+                    <MDBTabPane tabId="4">
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Nihil odit magnam minima, soluta doloribus
@@ -575,14 +575,14 @@ class TabsPage extends React.Component {
                         Quisquam aperiam, pariatur. Tempora, placeat ratione
                         porro voluptate odit minima.
                       </p>
-                    </TabPane>
-                  </TabContent>
+                    </MDBTabPane>
+                  </MDBTabContent>
                 </div>
 
                 <div className="classic-tabs">
-                  <Nav classicTabs color="orange" className="mt-5">
-                    <NavItem>
-                      <NavLink
+                  <MDBNav classicTabs color="orange" className="mt-5">
+                    <MDBNavItem>
+                      <MDBNavLink
                         to="#"
                         className={classnames({
                           active: this.state.activeItemClassicTabs2 === "1"
@@ -591,13 +591,13 @@ class TabsPage extends React.Component {
                           this.toggleClassicTabs2("1");
                         }}
                       >
-                        <Fa icon="user" size="2x" />
+                        <MDBIcon icon="user" size="2x" />
                         <br />
                         Profile
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
                         to="#"
                         className={classnames({
                           active: this.state.activeItemClassicTabs2 === "2"
@@ -606,13 +606,13 @@ class TabsPage extends React.Component {
                           this.toggleClassicTabs2("2");
                         }}
                       >
-                        <Fa icon="heart" size="2x" />
+                        <MDBIcon icon="heart" size="2x" />
                         <br />
                         Follow
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
                         to="#"
                         className={classnames({
                           active: this.state.activeItemClassicTabs2 === "3"
@@ -621,13 +621,13 @@ class TabsPage extends React.Component {
                           this.toggleClassicTabs2("3");
                         }}
                       >
-                        <Fa icon="envelope" size="2x" />
+                        <MDBIcon icon="envelope" size="2x" />
                         <br />
                         Contact
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
                         to="#"
                         className={classnames({
                           active: this.state.activeItemClassicTabs2 === "4"
@@ -636,17 +636,17 @@ class TabsPage extends React.Component {
                           this.toggleClassicTabs2("4");
                         }}
                       >
-                        <Fa icon="star" size="2x" />
+                        <MDBIcon icon="star" size="2x" />
                         <br />
                         Be Awesome
-                      </NavLink>
-                    </NavItem>
-                  </Nav>
-                  <TabContent
+                      </MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNav>
+                  <MDBTabContent
                     className="card mb-5"
                     activeItem={this.state.activeItemClassicTabs2}
                   >
-                    <TabPane tabId="1">
+                    <MDBTabPane tabId="1">
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Nihil odit magnam minima, soluta doloribus
@@ -654,8 +654,8 @@ class TabsPage extends React.Component {
                         Quisquam aperiam, pariatur. Tempora, placeat ratione
                         porro voluptate odit minima.
                       </p>
-                    </TabPane>
-                    <TabPane tabId="2">
+                    </MDBTabPane>
+                    <MDBTabPane tabId="2">
                       <p>
                         Quisquam aperiam, pariatur. Tempora, placeat ratione
                         porro voluptate odit minima. Lorem ipsum dolor sit amet,
@@ -663,8 +663,8 @@ class TabsPage extends React.Component {
                         soluta doloribus reiciendis molestiae placeat unde eos
                         molestias.
                       </p>
-                    </TabPane>
-                    <TabPane tabId="3">
+                    </MDBTabPane>
+                    <MDBTabPane tabId="3">
                       <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Nihil odit magnam minima, soluta doloribus
@@ -672,8 +672,8 @@ class TabsPage extends React.Component {
                         Quisquam aperiam, pariatur. Tempora, placeat ratione
                         porro voluptate odit minima.
                       </p>
-                    </TabPane>
-                    <TabPane tabId="4">
+                    </MDBTabPane>
+                    <MDBTabPane tabId="4">
                       <p>
                         Quisquam aperiam, pariatur. Tempora, placeat ratione
                         porro voluptate odit minima. Lorem ipsum dolor sit amet,
@@ -681,13 +681,13 @@ class TabsPage extends React.Component {
                         soluta doloribus reiciendis molestiae placeat unde eos
                         molestias.
                       </p>
-                    </TabPane>
-                  </TabContent>
+                    </MDBTabPane>
+                  </MDBTabContent>
                 </div>
-              </Col>
-            </Row>
-          </Container>
-        </Container>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+        </MDBContainer>
       </Router>
     );
   }
