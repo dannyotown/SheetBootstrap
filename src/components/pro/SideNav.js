@@ -69,7 +69,6 @@ class SideNav extends React.Component {
   render() {
     const {
       tag: Tag,
-      fixed,
       logo,
       bg,
       href,
@@ -89,7 +88,6 @@ class SideNav extends React.Component {
 
     const classes = classNames(
       "side-nav",
-      fixed && "fixed",
       right && "right-aligned",
       className
     );
