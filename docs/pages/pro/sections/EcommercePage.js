@@ -1777,7 +1777,7 @@ const EcommercePage = () =>  {
                 </h4>
               </div>
               <MDBCardBody className="striped purple-striped card-background px-5">
-                <h2 className="my-4 pb-3 h1">100$</h2>
+                <h2 className="my-4 pb-3 h1">$100</h2>
                 <ul>
                   <li>
                     <p>
