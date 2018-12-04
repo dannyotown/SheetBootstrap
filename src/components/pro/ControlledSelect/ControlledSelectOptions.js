@@ -33,7 +33,7 @@ class ControlledSelectOptions extends Component {
   };
 
   render() {
-    const { multiple, options, search, selected, selectOption } = this.props;
+    const { multiple, options, search, searchLabel, searchId, selected, selectOption } = this.props;
 
     const classes = classNames(
       "dropdown-content",
@@ -46,8 +46,8 @@ class ControlledSelectOptions extends Component {
         {search && (
           <Autocomplete
             data={options}
-            label="Search"
-            id="input"
+            label={searchLabel}
+            id={searchId}
             search={this.search}
             data-search="true"
           />
@@ -75,6 +75,8 @@ class ControlledSelectOptions extends Component {
 }
 
 ControlledSelectOptions.propTypes = {
+  selected: PropTypes.string.isRequired,
+  selectOption: PropTypes.func.isRequired,
   multiple: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -85,8 +87,16 @@ ControlledSelectOptions.propTypes = {
     })
   ),
   search: PropTypes.bool,
-  selected: PropTypes.string,
-  selectOption: PropTypes.func
+  searchLabel: PropTypes.string,
+  searchId: PropTypes.string
+};
+
+ControlledSelectOptions.defaultProps = {
+  multiple: false,
+  options: [],
+  search: false,
+  searchLabel: "Search",
+  searchId: "selectSearchInput"
 };
 
 export default ControlledSelectOptions;

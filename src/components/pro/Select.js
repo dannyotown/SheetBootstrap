@@ -148,6 +148,8 @@ class Select extends React.Component {
       getValue,
       multiple,
       search,
+      searchLabel,
+      searchId,
       selected,
       ...attributes
     } = this.props;
@@ -172,6 +174,7 @@ class Select extends React.Component {
             multiple={multiple}
             options={this.state.options}
             search={search}
+            searchLabel={searchLabel}
             selected={selected}
             selectOption={this.selectOption}
           />
@@ -221,8 +224,9 @@ Select.propTypes = {
     })
   ),
   search: PropTypes.bool,
-  selected: PropTypes.string,
-  value: PropTypes.string
+  searchLabel: PropTypes.string,
+  searchId: PropTypes.string,
+  selected: PropTypes.string
 };
 
 export default Select;
