@@ -32,6 +32,8 @@ class Select extends React.Component {
       if (typeof this.props.getTextContent === "function") {
         this.props.getTextContent(this.state.selectTextContent);
       }
+
+      
     }
 
     if (this.props.options !== prevProps.options) {
@@ -54,7 +56,7 @@ class Select extends React.Component {
       .map(option => option.value);
     this.setState({
       selectValue: preselected,
-      selectTextContent: preselected.join(", ")
+      selectTextContent: (preselected.length ? preselected.join(", ") : this.props.selected)
     });
   };
 
