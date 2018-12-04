@@ -32,12 +32,6 @@ class Select extends React.Component {
       if (typeof this.props.getTextContent === "function") {
         this.props.getTextContent(this.state.selectTextContent);
       }
-
-      if (this.state.selectValue.length === 0 && this.props.selected) {
-        this.setState({
-          selectTextContent: this.props.selected
-        });
-      }
     }
 
     if (this.props.options !== prevProps.options) {
@@ -118,14 +112,14 @@ class Select extends React.Component {
       let options = [...prevState.options];
       const optionIndex = options.findIndex(option => option.value === value);
       options[optionIndex].checked = !prevState.options[optionIndex].checked;
-
+      
       let checkedOptions = options
         .filter(option => option.checked)
         .map(option => option.value);
 
       return {
         selectValue: checkedOptions,
-        selectTextContent: checkedOptions.join(", "),
+        selectTextContent: (checkedOptions.length ? checkedOptions.join(", ") : this.props.selected),
         options
       };
     });
