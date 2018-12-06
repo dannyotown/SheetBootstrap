@@ -7,7 +7,8 @@ import {
   SideNav,
   SideNavLink,
   Container,
-  Row
+  Row,
+  MDBIcon
 } from "mdbreact";
 import DocsLink from "../DocsLink";
 
@@ -90,6 +91,7 @@ class SideNavPage extends React.Component {
               </ul>
             </li>
             <SideNavNav>
+              <SideNavLink to="/other-page" topLevel><MDBIcon icon="pencil" />Submit listing</SideNavLink>
               <SideNavCat
                 name="Submit blog"
                 id="submit-blog"

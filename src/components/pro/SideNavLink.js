@@ -37,13 +37,17 @@ class SideNavLink extends React.Component {
       to,
       className,
       innerRef,
+      topLevel,
       ...attributes
     } = this.props;
 
-    const classes = classNames("Ripple-parent", className);
+    const classes = classNames(
+      "Ripple-parent",
+      topLevel && "collapsible-header",
+      className
+    );
 
-    return (
-      <Link
+    const sideNavLink = (<Link
         className={classes}
         ref={innerRef}
         onClick={this.handleClick}
@@ -52,8 +56,10 @@ class SideNavLink extends React.Component {
       >
         {children}
         <Waves cursorPos={this.state.cursorPos} />
-      </Link>
-    );
+      </Link>);
+
+    return (topLevel ? <li> {sideNavLink}</li> : sideNavLink)
+
   }
 }
 
@@ -62,11 +68,13 @@ SideNavLink.propTypes = {
   href: PropTypes.string,
   tag: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  className: PropTypes.string,
+  topLevel: PropTypes.bool
 };
 
 SideNavLink.defaultProps = {
-  to: "#"
+  to: "#",
+  topLevel: false
 };
 
 export default SideNavLink;
