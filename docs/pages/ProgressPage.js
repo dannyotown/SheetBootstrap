@@ -1,5 +1,5 @@
 import React from "react";
-import { Progress, Container } from "mdbreact";
+import { MDBProgress, Container } from "mdbreact";
 import DocsLink from "./DocsLink";
 
 const ProgressPage = props => {
@@ -11,47 +11,47 @@ const ProgressPage = props => {
       />
       <div className="container-fluid">
         <p>Material design</p>
-        <Progress material value={100} />
-        <Progress material value={75} color="success" />
-        <Progress material value={50} color="danger" />
-        <Progress material value={25} color="warning" />
-        <Progress material animated value={100} />
-        <Progress material value={75} animated color="success" />
-        <Progress material value={50} animated color="danger" />
-        <Progress material value={25} animated color="warning" />
+        <MDBProgress material value={100} />
+        <MDBProgress material value={75} color="success" />
+        <MDBProgress material value={50} color="danger" />
+        <MDBProgress material value={25} color="warning" />
+        <MDBProgress material animated value={100} />
+        <MDBProgress material value={75} animated color="success" />
+        <MDBProgress material value={50} animated color="danger" />
+        <MDBProgress material value={25} animated color="warning" />
 
         <hr />
         <p>Basic design</p>
-        <Progress value={100} />
+        <MDBProgress value={100} />
         <br />
-        <Progress value={75} color="success" />
+        <MDBProgress value={75} color="success" />
         <br />
-        <Progress value={50} color="danger" />
+        <MDBProgress value={50} color="danger" />
         <br />
-        <Progress value={25} color="warning" />
+        <MDBProgress value={25} color="warning" />
         <br />
-        <Progress animated value={100} />
+        <MDBProgress animated value={100} />
         <br />
-        <Progress value={75} animated color="success" />
+        <MDBProgress value={75} animated color="success" />
         <br />
-        <Progress value={50} animated color="danger" />
+        <MDBProgress value={50} animated color="danger" />
         <br />
-        <Progress value={25} animated color="warning" />
+        <MDBProgress value={25} animated color="warning" />
         <br />
         <hr />
         <p>Material with text</p>
-        <Progress material value={100}>
+        <MDBProgress material value={100}>
           You did it!
-          </Progress>
-        <Progress material striped value={75} color="success">
+        </MDBProgress>
+        <MDBProgress material striped value={75} color="success">
           Almost there
-          </Progress>
-        <Progress material value={50} color="danger">
+        </MDBProgress>
+        <MDBProgress material value={50} color="danger">
           Cool
-          </Progress>
-        <Progress material striped value={25} color="warning">
+        </MDBProgress>
+        <MDBProgress material striped value={25} color="warning">
           Wow!
-        </Progress>
+        </MDBProgress>
       </div>
     </Container>
 

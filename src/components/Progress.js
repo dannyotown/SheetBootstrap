@@ -65,13 +65,13 @@ Progress.defaultProps = {
   animated: false,
   barClassName: "",
   className: "",
-  color: "",
+  color: "indigo",
   height: "",
   material: false,
   max: 100,
   min: 0,
   preloader: false,
-  stripped: false,
+  striped: false,
   wrapperStyle: {},
   value: 0
 };
