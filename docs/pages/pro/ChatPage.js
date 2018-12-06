@@ -23,7 +23,7 @@ class ChatPage extends Component {
       friends: [
         {
           name: "John Doe",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg",
           message: "Hello, Are you there?",
           when: "Just now",
           toRespond: 1,
@@ -33,7 +33,7 @@ class ChatPage extends Component {
         {
           name: "Danny Smith",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg",
           when: "5 min ago",
           toRespond: 0,
           seen: false,
@@ -42,7 +42,7 @@ class ChatPage extends Component {
         {
           name: "Alex Steward",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -51,7 +51,7 @@ class ChatPage extends Component {
         {
           name: "Ashley Olsen",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -60,7 +60,7 @@ class ChatPage extends Component {
         {
           name: "Kate Moss",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -69,7 +69,7 @@ class ChatPage extends Component {
         {
           name: "Lara Croft",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -78,7 +78,7 @@ class ChatPage extends Component {
         {
           name: "Brad Pitt",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
           when: "5 min ago",
           toRespond: 0,
           seen: true,
@@ -88,21 +88,21 @@ class ChatPage extends Component {
       messages: [
         {
           author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
           when: "12 mins ago",
           message:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
           author: "Lara Croft",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
           when: "13 mins ago",
           message:
             " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
         },
         {
           author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
           when: "14 mins ago",
           message:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -111,7 +111,7 @@ class ChatPage extends Component {
       friendsToScroll: [
         {
           name: "John Doe",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg",
           message: "Hello, Are you there?",
           when: "Just now",
           toRespond: 1,
@@ -121,7 +121,7 @@ class ChatPage extends Component {
         {
           name: "Danny Smith",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg",
           when: "5 min ago",
           toRespond: 0,
           seen: false,
@@ -130,7 +130,7 @@ class ChatPage extends Component {
         {
           name: "Alex Steward",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -139,7 +139,7 @@ class ChatPage extends Component {
         {
           name: "Ashley Olsen",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -148,7 +148,7 @@ class ChatPage extends Component {
         {
           name: "Kate Moss",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: true,
@@ -157,7 +157,7 @@ class ChatPage extends Component {
         {
           name: "Lara Croft",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -166,7 +166,7 @@ class ChatPage extends Component {
         {
           name: "Brad Pitt",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
           when: "5 min ago",
           toRespond: 0,
           seen: true,
@@ -174,7 +174,7 @@ class ChatPage extends Component {
         },
         {
           name: "John Doeno",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg",
           message: "Hello, Are you there?",
           when: "Just now",
           toRespond: 1,
@@ -184,7 +184,7 @@ class ChatPage extends Component {
         {
           name: "Danny Smithy",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg",
           when: "5 min ago",
           toRespond: 0,
           seen: false,
@@ -193,7 +193,7 @@ class ChatPage extends Component {
         {
           name: "Alex Stewardo",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -202,7 +202,7 @@ class ChatPage extends Component {
         {
           name: "Marta Olsen",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -211,7 +211,7 @@ class ChatPage extends Component {
         {
           name: "Kate Boss",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -220,7 +220,7 @@ class ChatPage extends Component {
         {
           name: "Tomb Rider",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
           when: "Yesterday",
           toRespond: 0,
           seen: false,
@@ -229,7 +229,7 @@ class ChatPage extends Component {
         {
           name: "Bradley Scott",
           message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
           when: "5 min ago",
           toRespond: 0,
           seen: true,
@@ -239,42 +239,42 @@ class ChatPage extends Component {
       messagesToScroll: [
         {
           author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
           when: "12 mins ago",
           message:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
           author: "Lara Croft",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
           when: "13 mins ago",
           message:
             " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
         },
         {
           author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
           when: "14 mins ago",
           message:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
           author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
           when: "15 mins ago",
           message:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         },
         {
           author: "Lara Croft",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
           when: "16 mins ago",
           message:
             " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
         },
         {
           author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6",
+          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
           when: "17 mins ago",
           message:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
