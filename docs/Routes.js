@@ -73,7 +73,7 @@ import TimePickerPage from "./pages/pro/TimePickerPage";
 import StickyPage from "./pages/pro/StickyPage";
 import LightboxPage from "./pages/pro/LightboxPage";
 import MultiCarouselPage from "./pages/pro/MultiCarouselPage";
-import ProgressPagePro from "./pages/pro/ProgressPage";
+import SpinnerPage from "./pages/pro/SpinnerPage";
 import TabsPage from "./pages/pro/TabsPage";
 import ThumbnailsCarousel from "./pages/pro/ThumbnailsCarousel";
 import TestimonialsPage from "./pages/pro/sections/TestimonialsPage";
@@ -185,7 +185,7 @@ class Routes extends React.Component {
           component={MultiCarouselPage}
         />
         <Route path="/addons/pro/timeline" component={TimelinePage} />
-        <Route path="/components/pro/progress" component={ProgressPagePro} />
+        <Route path="/components/pro/spinner" component={SpinnerPage} />
         <Route path="/advanced/pro/scrollbar" component={ScrollBarPage} />
         <Route path="/navigation/pro/scrollspy" component={ScrollSpyPage} />
         <Route
