@@ -9,27 +9,52 @@ const ProgressPage = props => {
         title="Progress Bar"
         href="https://mdbootstrap.com/docs/react/components/progress-bar/"
       />
-      <div className="container-fluid text-center">
-        <div className="">
-          <Progress value={100} />
-          <Progress value={0} />
-          <Progress value={25} />
-          <Progress value={75} />
-          <Progress animated color="warning" value={75} />
-          <Progress value="25">25%</Progress>
-          <Progress striped value={50} />
-          <Progress color="success" value="100" striped>
-            You did it!
+      <div className="container-fluid">
+        <p>Material design</p>
+        <Progress material value={100} />
+        <Progress material value={75} color="success" />
+        <Progress material value={50} color="danger" />
+        <Progress material value={25} color="warning" />
+        <Progress material animated value={100} />
+        <Progress material value={75} animated color="success" />
+        <Progress material value={50} animated color="danger" />
+        <Progress material value={25} animated color="warning" />
+
+        <hr />
+        <p>Basic design</p>
+        <Progress value={100} />
+        <br />
+        <Progress value={75} color="success" />
+        <br />
+        <Progress value={50} color="danger" />
+        <br />
+        <Progress value={25} color="warning" />
+        <br />
+        <Progress animated value={100} />
+        <br />
+        <Progress value={75} animated color="success" />
+        <br />
+        <Progress value={50} animated color="danger" />
+        <br />
+        <Progress value={25} animated color="warning" />
+        <br />
+        <hr />
+        <p>Material with text</p>
+        <Progress material value={100}>
+          You did it!
           </Progress>
-          <Progress color="warning" value="30" animated>
-            Wow!
+        <Progress material striped value={75} color="success">
+          Almost there
           </Progress>
-          <Progress color="info" value="25">
-            Cool
+        <Progress material value={50} color="danger">
+          Cool
           </Progress>
-        </div>
+        <Progress material striped value={25} color="warning">
+          Wow!
+        </Progress>
       </div>
     </Container>
+
   );
 };
 
