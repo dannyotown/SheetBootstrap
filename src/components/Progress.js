@@ -2,18 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-const Progress = ({ animated, barClassName, children, className, color, height, material, max, min, striped, wrapperStyle, value, attributes }) => {
+const Progress = ({ animated, barClassName, children, className, color, height, material, max, min, preloader, striped, wrapperStyle, value, attributes }) => {
 
   const percent = ((value - min) / (max-min)) * 100;
 
   const progressClasses = classNames(
     "progress",
     material && "md-progress",
+    preloader && (color ? color+"-color" : "primary-color")+"-dark",
     className
   );
 
   const progressBarClasses = classNames(
-    "progress-bar",
+    preloader ? "indeterminate" : "progress-bar",
     barClassName ? barClassName : null,
     animated ? "progress-bar-animated" : null,
     color ? `bg-${color}` : null,
@@ -54,6 +55,7 @@ Progress.propTypes = {
   material: PropTypes.bool,
   max: PropTypes.number,
   min: PropTypes.number,
+  preloader: PropTypes.bool,
   striped: PropTypes.bool,
   wrapperStyle: PropTypes.object,
   value: PropTypes.number
@@ -68,6 +70,7 @@ Progress.defaultProps = {
   material: false,
   max: 100,
   min: 0,
+  preloader: false,
   stripped: false,
   wrapperStyle: {},
   value: 0
