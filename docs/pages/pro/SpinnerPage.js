@@ -2,12 +2,12 @@ import React from "react";
 import { Spinner, Container } from "mdbreact";
 import DocsLink from "../DocsLink";
 
-const ProgressPage = props => {
+const SpinnerPage = props => {
   return (
     <Container>
       <DocsLink
-        title="Progress Bar"
-        href="https://mdbootstrap.com/docs/react/components/progress-bar/"
+        title="Loader/Spinner"
+        href="https://mdbootstrap.com/docs/react/components/spinners/"
       />
       <div className="container-fluid text-center">
         <div className="col-3">
@@ -24,4 +24,4 @@ const ProgressPage = props => {
   );
 };
 
-export default ProgressPage;
+export default SpinnerPage;

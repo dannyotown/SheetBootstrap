@@ -1,24 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarNav,
-  NavItem,
-  NavLink,
-  NavbarToggler,
-  Collapse,
-  Mask,
-  Row,
-  Col,
-  Button,
-  View,
-  Container,
-  FormInline,
-  Card,
-  CardBody,
-  Input
-} from "mdbreact";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol, MDBBtn,  MDBView, MDBContainer, MDBFormInline, MDBCard, MDBCardBody, MDBInput } from "mdbreact";
 import "./ContactFormPage.css";
 
 class ContactFormPage extends React.Component {
@@ -44,7 +26,7 @@ class ContactFormPage extends React.Component {
       <div id="contactformpage">
         <Router>
           <div>
-            <Navbar
+            <MDBNavbar
               style={navStyle}
               color="deep-purple darken-4"
               dark
@@ -53,32 +35,32 @@ class ContactFormPage extends React.Component {
               scrolling
               transparent
             >
-              <Container>
-                <NavbarBrand>
+              <MDBContainer>
+                <MDBNavbarBrand>
                   <strong className="white-text">MDB</strong>
-                </NavbarBrand>
-                <NavbarToggler
+                </MDBNavbarBrand>
+                <MDBNavbarToggler
                   onClick={this.toggleCollapse("navbarCollapse")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                  <NavbarNav right>
-                    <NavItem>
-                      <FormInline waves>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                  <MDBNavbarNav right>
+                    <MDBNavItem>
+                      <MDBFormInline waves>
                         <div className="md-form my-0">
                           <input
                             className="form-control mr-sm-2"
@@ -87,23 +69,23 @@ class ContactFormPage extends React.Component {
                             aria-label="Search"
                           />
                         </div>
-                      </FormInline>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                      </MDBFormInline>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
             {this.state.collapseID && overlay}
           </div>
         </Router>
 
-        <View>
-          <Mask
+        <MDBView>
+          <MDBMask
             className="d-flex justify-content-center align-items-center"
             overlay="indigo-strong"
           >
-            <Container>
-              <Row>
+            <MDBContainer>
+              <MDBRow>
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="display-4 font-weight-bold">Lorem ipsum </h1>
                   <hr className="hr-light" />
@@ -113,45 +95,45 @@ class ContactFormPage extends React.Component {
                     veniam sapiente, fugiat! Commodi sequi non animi ea dolor
                     molestiae iste.
                   </h6>
-                  <Button outline color="white">
+                  <MDBBtn outline color="white">
                     Learn More
-                  </Button>
+                  </MDBBtn>
                 </div>
-                <Col md="6" xl="5" className="mb-4">
-                  <Card className="dark-grey-text">
-                    <CardBody className="z-depth-2">
+                <MDBCol md="6" xl="5" className="mb-4">
+                  <MDBCard className="dark-grey-text">
+                    <MDBCardBody className="z-depth-2">
                       <h3 className="dark-grey-text text-center">
                         <strong>Write to us:</strong>
                       </h3>
                       <hr />
-                      <Input label="Your name" icon="user" />
-                      <Input label="Your email" icon="envelope" />
-                      <Input
+                      <MDBInput label="Your name" icon="user" />
+                      <MDBInput label="Your email" icon="envelope" />
+                      <MDBInput
                         label="Your message"
                         icon="pencil"
                         type="textarea"
                         rows="3"
                       />
                       <div className="text-center mt-3 black-text">
-                        <Button color="indigo">Send</Button>
+                        <MDBBtn color="indigo">Send</MDBBtn>
                         <hr />
-                        <Input
+                        <MDBInput
                           type="checkbox"
                           id="checkbox"
                           label="Subscribe me to the newsletter"
                         />
                       </div>
-                    </CardBody>
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
-          </Mask>
-        </View>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBMask>
+        </MDBView>
 
-        <Container>
-          <Row className="py-5">
-            <Col md="12" className="text-center">
+        <MDBContainer>
+          <MDBRow className="py-5">
+            <MDBCol md="12" className="text-center">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -161,9 +143,9 @@ class ContactFormPage extends React.Component {
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
-            </Col>
-          </Row>
-        </Container>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
       </div>
     );
   }

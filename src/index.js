@@ -1,5 +1,6 @@
 // FREE
 import Animation from "./components/Animation";
+import Alert from "./components/Alert";
 import Badge from "./components/Badge";
 import Breadcrumb from "./components/Breadcrumb";
 import BreadcrumbItem from "./components/BreadcrumbItem";
@@ -116,6 +117,7 @@ import TimePicker from './components/pro/TimePicker/TimePicker';
 
 // MDB FREE
 import {MDBBadge} from "./components/Badge";
+import {MDBAlert} from "./components/Alert";
 import {MDBBreadcrumb} from "./components/Breadcrumb";
 import {MDBBreadcrumbItem} from "./components/BreadcrumbItem";
 import {MDBBtn} from "./components/Button";
@@ -241,6 +243,7 @@ MDBDropdownMenuComponent = require("./components/pro/DropdownMenuProComponent")
 export  {
   // FREE
   Animation,
+  Alert,
   Badge,
   Breadcrumb,
   BreadcrumbItem,
@@ -359,6 +362,7 @@ export  {
   TimePicker,
   // MDB FREE
   MDBBadge,
+  MDBAlert,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
   MDBBtn,

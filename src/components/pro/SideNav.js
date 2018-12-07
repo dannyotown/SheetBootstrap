@@ -9,19 +9,13 @@ class SideNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isThere: false,
+      isOpen: false,
       showOverlay: false,
       cursorPos: {}
     };
   }
 
   componentDidMount() {
-    if (this.props.fixed) {
-      this.setState({
-        isThere: true
-      });
-      return;
-    }
     this.updatePredicate();
     window.addEventListener("resize", this.updatePredicate);
   }
@@ -29,28 +23,25 @@ class SideNav extends React.Component {
   componentDidUpdate(prevProps) {
     if (prevProps.triggerOpening !== this.props.triggerOpening) {
       this.setState({
-        isThere: true,
-        showOverlay: true
+        isOpen: !this.state.isOpen,
+        showOverlay: !this.state.showOverlay
       });
     }
   }
 
   componentWillUnmount() {
-    if (this.props.fixed) {
-      return;
-    }
     window.removeEventListener("resize", this.updatePredicate);
   }
 
   updatePredicate = () => {
     if (!this.props.hidden) {
-      this.setState({ isThere: window.innerWidth > this.props.breakWidth });
+      this.setState({ isOpen: window.innerWidth > this.props.breakWidth });
     }
   };
 
   handleOverlayClick = () => {
     this.setState({
-      isThere: false,
+      isOpen: false,
       showOverlay: false
     });
     if (this.props.onOverlayClick) {
@@ -71,35 +62,31 @@ class SideNav extends React.Component {
       if (this.props.onClick) {
         this.props.onClick(e);
       }
-      e.stopPropagation();
     }
     e.stopPropagation();
   };
 
   render() {
     const {
-      tag: Tag,
-      fixed,
-      logo,
       bg,
-      href,
+      breakWidth,
       children,
       className,
-      breakWidth,
       hidden,
+      href,
+      logo,
+      mask,
+      onOverlayClick,
       right,
       triggerOpening,
-      key,
-      onOverlayClick,
-      mask,
+      tag: Tag,
       ...attributes
     } = this.props;
 
-    let { isThere, showOverlay } = this.state;
+    let { isOpen, showOverlay } = this.state;
 
     const classes = classNames(
       "side-nav",
-      fixed && "fixed",
       right && "right-aligned",
       className
     );
@@ -108,7 +95,6 @@ class SideNav extends React.Component {
       <div
         id="sidenav-overlay"
         onClick={this.handleOverlayClick}
-        key="overlay"
       />
     );
 
@@ -117,7 +103,6 @@ class SideNav extends React.Component {
         {...attributes}
         className={classes}
         style={{ backgroundImage: `url(${bg}` }}
-        key="{key}"
       >
         <ul className="custom-scrollbar list-unstyled">
           {logo && (
@@ -149,32 +134,43 @@ class SideNav extends React.Component {
         <CSSTransition
           timeout={{ enter: 300, exit: 300 }}
           classNames={right ? "right-side-slide" : "side-slide"}
-          in={isThere}
+          in={isOpen}
         >
           {sidenav}
         </CSSTransition>
-        {showOverlay && isThere && overlay}
+        {showOverlay && isOpen && overlay}
       </div>
     );
   }
 }
 
 SideNav.propTypes = {
-  children: PropTypes.node,
-  tag: PropTypes.string,
-  className: PropTypes.string,
-  href: PropTypes.string,
-  src: PropTypes.string,
-  breakWidth: PropTypes.number,
-  triggerOpening: PropTypes.bool,
   bg: PropTypes.string,
-  mask: PropTypes.string
+  breakWidth: PropTypes.number,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  hidden: PropTypes.bool,
+  href: PropTypes.string,
+  logo: PropTypes.string,
+  mask: PropTypes.string,
+  onOverlayClick: PropTypes.func,
+  right: PropTypes.bool,
+  triggerOpening: PropTypes.bool,
+  tag: PropTypes.string
 };
 
 SideNav.defaultProps = {
-  tag: "div",
+  bg: '',
+  breakWidth: 1400,
+  className: '',
+  hidden: false,
   href: "#",
-  breakWidth: 1400
+  logo: '',
+  mask: '',
+  onOverlayClick: () => { },
+  right: false,
+  triggerOpening: false,
+  tag: "div"
 };
 
 export default SideNav;

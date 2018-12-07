@@ -202,9 +202,16 @@ class TimePickerClock extends Component {
 
   onMouseUp = (e) => {
     e.preventDefault();
-    this.setState({ isDragging: false });
+    if(this.state.isDragging) {
+      this.setState({ isDragging: false });
 
-    if(this.props.autoSwitch) this.props.handleModeChange('m');
+      if(this.props.autoSwitch) this.props.handleModeChange('m');
+    }
+  };
+
+  onMouseLeave = (e) => {
+    e.preventDefault();
+    if(this.state.isDragging) this.setState({ isDragging: false });
   };
 
   onDragMove = (e) => {
@@ -243,7 +250,7 @@ class TimePickerClock extends Component {
         style={{ height: `${this.props.size}px`, width: `${this.props.size}px`, visibility: 'visible' }}
         onMouseDown={this.onMouseDown}
         onMouseUp={this.onMouseUp}
-        onMouseLeave={() => (this.state.isDragging && this.onMouseUp())}
+        onMouseLeave={this.onMouseLeave}
         onTouchStart={this.onMouseDown}
         onTouchEnd={this.onMouseUp}
         onMouseMove={this.onDragMove}

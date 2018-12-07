@@ -15,18 +15,6 @@ class ComponentsPage extends React.Component {
                 <h6 className="mt-3 grey-text">FREE </h6>
                 <NavLink
                   className="list-group-item list-group-item-action"
-                  to="/components/alert"
-                >
-                  <h5
-                    style={{ margin: "0" }}
-                    className="justify-content-between d-flex align-items-center"
-                  >
-                    Alert
-                    <Fa icon="angle-right" />
-                  </h5>
-                </NavLink>
-                <NavLink
-                  className="list-group-item list-group-item-action"
                   to="/components/badge"
                 >
                   <h5
@@ -196,13 +184,13 @@ class ComponentsPage extends React.Component {
                 </NavLink>
                 <NavLink
                   className="list-group-item list-group-item-action"
-                  to="/components/pro/progress"
+                  to="/components/pro/spinner"
                 >
                   <h5
                     style={{ margin: "0" }}
                     className="justify-content-between d-flex align-items-center"
                   >
-                    Progress
+                    Loader/Spinner
                     <Fa icon="angle-right" />
                   </h5>
                 </NavLink>

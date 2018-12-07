@@ -1,25 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarNav,
-  NavItem,
-  NavLink,
-  NavbarToggler,
-  Collapse,
-  Mask,
-  Row,
-  Col,
-  Fa,
-  Button,
-  View,
-  Container,
-  Card,
-  CardBody,
-  Input,
-  FormInline
-} from "mdbreact";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol, MDBIcon,
+  MDBBtn, MDBView, MDBContainer, MDBCard, MDBCardBody, MDBInput, MDBFormInline } from "mdbreact";
 import "./ClassicFormPage.css";
 
 class ClassicFormPage extends React.Component {
@@ -45,33 +27,33 @@ class ClassicFormPage extends React.Component {
       <div id="classicformpage">
         <Router>
           <div>
-            <Navbar style={navStyle} dark expand="md" fixed="top">
-              <Container>
-                <NavbarBrand>
+            <MDBNavbar style={navStyle} dark expand="md" fixed="top">
+              <MDBContainer>
+                <MDBNavbarBrand>
                   <strong className="white-text">MDB</strong>
-                </NavbarBrand>
-                <NavbarToggler
+                </MDBNavbarBrand>
+                <MDBNavbarToggler
                   onClick={this.toggleCollapse("navbarCollapse")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                  <NavbarNav right>
-                    <NavItem>
-                      <FormInline waves>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                  <MDBNavbarNav right>
+                    <MDBNavItem>
+                      <MDBFormInline waves>
                         <div className="md-form my-0">
                           <input
                             className="form-control mr-sm-2"
@@ -80,20 +62,20 @@ class ClassicFormPage extends React.Component {
                             aria-label="Search"
                           />
                         </div>
-                      </FormInline>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                      </MDBFormInline>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
             {this.state.collapseID && overlay}
           </div>
         </Router>
 
-        <View>
-          <Mask className="d-flex justify-content-center align-items-center gradient">
-            <Container>
-              <Row>
+        <MDBView>
+          <MDBMask className="d-flex justify-content-center align-items-center gradient">
+            <MDBContainer>
+              <MDBRow>
                 <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
                   <h1 className="h1-responsive font-weight-bold">
                     Sign up right now!{" "}
@@ -105,50 +87,50 @@ class ClassicFormPage extends React.Component {
                     veniam sapiente, fugiat! Commodi sequi non animi ea dolor
                     molestiae, quisquam iste, maiores. Nulla.
                   </h6>
-                  <Button outline color="white">
+                  <MDBBtn outline color="white">
                     Learn More
-                  </Button>
+                  </MDBBtn>
                 </div>
-                <Col md="6" xl="5" className="mb-4">
-                  <Card id="classic-card">
-                    <CardBody className="z-depth-2 white-text">
+                <MDBCol md="6" xl="5" className="mb-4">
+                  <MDBCard id="classic-card">
+                    <MDBCardBody className="z-depth-2 white-text">
                       <h3 className="text-center">
-                        <Fa icon="user" /> Register:
+                        <MDBIcon icon="user" /> Register:
                       </h3>
                       <hr className="hr-light" />
-                      <Input label="Your name" icon="user" />
-                      <Input label="Your email" icon="envelope" />
-                      <Input
+                      <MDBInput label="Your name" icon="user" />
+                      <MDBInput label="Your email" icon="envelope" />
+                      <MDBInput
                         label="Your password"
                         icon="lock"
                         type="password"
                       />
                       <div className="text-center mt-4 black-text">
-                        <Button color="indigo">Sign Up</Button>
+                        <MDBBtn color="indigo">Sign Up</MDBBtn>
                         <hr className="hr-light" />
                         <div className="text-center d-flex justify-content-center white-label">
                           <a href="#!" className="p-2 m-2">
-                            <Fa icon="twitter" className="white-text" />
+                            <MDBIcon icon="twitter" className="white-text" />
                           </a>
                           <a href="#!" className="p-2 m-2">
-                            <Fa icon="linkedin" className="white-text" />
+                            <MDBIcon icon="linkedin" className="white-text" />
                           </a>
                           <a href="#!" className="p-2 m-2">
-                            <Fa icon="instagram" className="white-text" />
+                            <MDBIcon icon="instagram" className="white-text" />
                           </a>
                         </div>
                       </div>
-                    </CardBody>
-                  </Card>
-                </Col>
-              </Row>
-            </Container>
-          </Mask>
-        </View>
+                    </MDBCardBody>
+                  </MDBCard>
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBMask>
+        </MDBView>
 
-        <Container>
-          <Row className="py-5">
-            <Col md="12" className="text-center">
+        <MDBContainer>
+          <MDBRow className="py-5">
+            <MDBCol md="12" className="text-center">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -158,9 +140,9 @@ class ClassicFormPage extends React.Component {
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
-            </Col>
-          </Row>
-        </Container>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
       </div>
     );
   }

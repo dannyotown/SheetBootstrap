@@ -1,21 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarNav,
-  NavItem,
-  NavLink,
-  NavbarToggler,
-  Collapse,
-  Mask,
-  Row,
-  Col,
-  Fa,
-  Button,
-  View,
-  Container
-} from "mdbreact";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol, MDBIcon,   MDBBtn, MDBView, MDBContainer } from "mdbreact";
 import "./VideoBackgroundPage.css";
 
 class VideoBackgroundPage extends React.Component {
@@ -41,67 +26,67 @@ class VideoBackgroundPage extends React.Component {
       <div id="videobackground">
         <Router>
           <div>
-            <Navbar style={navStyle} dark expand="md" fixed="top">
-              <Container>
-                <NavbarBrand>
-                  <span className="white-text">Navbar</span>
-                </NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar style={navStyle} dark expand="md" fixed="top">
+              <MDBContainer>
+                <MDBNavbarBrand>
+                  <span className="white-text">MDBNavbar</span>
+                </MDBNavbarBrand>
+                <MDBNavbarToggler
                   onClick={this.toggleCollapse("navbarCollapse")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">About</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Features</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Services</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Opinions</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Team</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Contact</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                  <NavbarNav right>
-                    <NavItem>
-                      <NavLink to="!#">
-                        <Fa icon="facebook" />
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="!#">
-                        <Fa icon="twitter" />
-                      </NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="!#">
-                        <Fa icon="instagram" />
-                      </NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">About</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Features</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Services</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Opinions</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Team</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Contact</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                  <MDBNavbarNav right>
+                    <MDBNavItem>
+                      <MDBNavLink to="!#">
+                        <MDBIcon icon="facebook" />
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="!#">
+                        <MDBIcon icon="twitter" />
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="!#">
+                        <MDBIcon icon="instagram" />
+                      </MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
             {this.state.collapseID && overlay}
           </div>
         </Router>
 
-        <View>
+        <MDBView>
           <video
             className="video-intro"
             poster="https://mdbootstrap.com/img/Photos/Others/background.jpg"
@@ -115,10 +100,10 @@ class VideoBackgroundPage extends React.Component {
               type="video/mp4"
             />
           </video>
-          <Mask className="d-flex justify-content-center align-items-center gradient">
-            <Container className="px-md-3 px-sm-0">
-              <Row>
-                <Col md="12" className="mb-4 white-text text-center">
+          <MDBMask className="d-flex justify-content-center align-items-center gradient">
+            <MDBContainer className="px-md-3 px-sm-0">
+              <MDBRow>
+                <MDBCol md="12" className="mb-4 white-text text-center">
                   <h3 className="display-3 font-weight-bold mb-0 pt-md-5">
                     Creative Agency{" "}
                   </h3>
@@ -127,18 +112,18 @@ class VideoBackgroundPage extends React.Component {
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit
                     deleniti consequuntur nihil.
                   </h4>
-                  <Button outline rounded color="white">
-                    <Fa icon="home" /> Visit us
-                  </Button>
-                </Col>
-              </Row>
-            </Container>
-          </Mask>
-        </View>
+                  <MDBBtn outline rounded color="white">
+                    <MDBIcon icon="home" /> Visit us
+                  </MDBBtn>
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBMask>
+        </MDBView>
 
-        <Container>
-          <Row className="pt-5 pb-4">
-            <Col md="12" className="text-center">
+        <MDBContainer>
+          <MDBRow className="pt-5 pb-4">
+            <MDBCol md="12" className="text-center">
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -148,9 +133,9 @@ class VideoBackgroundPage extends React.Component {
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                 sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
-            </Col>
-          </Row>
-        </Container>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
       </div>
     );
   }

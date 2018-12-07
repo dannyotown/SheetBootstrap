@@ -11,6 +11,7 @@ import ComponentsNavPage from "./pages/ComponentsNavPage";
 
 // FREE
 import AnimationPage from "./pages/AnimationPage";
+import AlertPage from "./pages/AlertPage";
 import HomePage from "./pages/HomePage";
 import ButtonPage from "./pages/ButtonPage";
 import CSSPage from "./pages/CSSPage";
@@ -72,7 +73,7 @@ import TimePickerPage from "./pages/pro/TimePickerPage";
 import StickyPage from "./pages/pro/StickyPage";
 import LightboxPage from "./pages/pro/LightboxPage";
 import MultiCarouselPage from "./pages/pro/MultiCarouselPage";
-import ProgressPagePro from "./pages/pro/ProgressPage";
+import SpinnerPage from "./pages/pro/SpinnerPage";
 import TabsPage from "./pages/pro/TabsPage";
 import ThumbnailsCarousel from "./pages/pro/ThumbnailsCarousel";
 import TestimonialsPage from "./pages/pro/sections/TestimonialsPage";
@@ -160,6 +161,7 @@ class Routes extends React.Component {
         <Route path="/tables/datatable" component={DatatablePage} />
         <Route path="/tables/datatable-api" component={DatatableApiPage} />
         <Route path="/addons/iframe" component={IframePage} />
+        <Route path="/advanced/alerts" component={AlertPage} />
         {/* PRO */}
         <Route path="/addons/pro/chat" component={ChatPage} />
         <Route
@@ -183,7 +185,7 @@ class Routes extends React.Component {
           component={MultiCarouselPage}
         />
         <Route path="/addons/pro/timeline" component={TimelinePage} />
-        <Route path="/components/pro/progress" component={ProgressPagePro} />
+        <Route path="/components/pro/spinner" component={SpinnerPage} />
         <Route path="/advanced/pro/scrollbar" component={ScrollBarPage} />
         <Route path="/navigation/pro/scrollspy" component={ScrollSpyPage} />
         <Route

@@ -1,26 +1,16 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardBody,
-  Mask,
-  Fa,
-  View,
-  Button
-} from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBBtn } from "mdbreact";
 import DocsLink from "../../DocsLink";
 
 const BlogPage = () => {
   return (
-    <Container>
+    <MDBContainer>
       <DocsLink
         title="Blog Sections"
         href="https://mdbootstrap.com/docs/react/sections/blog/"
       />
-      <Card className="my-5 px-5 pb-5">
-        <CardBody>
+      <MDBCard className="my-5 px-5 pb-5">
+        <MDBCardBody>
           <h2 className="h1-responsive font-weight-bold text-center my-5">
             Recent posts
           </h2>
@@ -30,23 +20,23 @@ const BlogPage = () => {
             cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
           </p>
-          <Row>
-            <Col lg="5">
-              <View className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
+          <MDBRow>
+            <MDBCol lg="5">
+              <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/img%20(27).jpg"
                   alt=""
                 />
                 <a href="#!">
-                  <Mask overlay="white-slight" />
+                  <MDBMask overlay="white-slight" />
                 </a>
-              </View>
-            </Col>
-            <Col lg="7">
+              </MDBView>
+            </MDBCol>
+            <MDBCol lg="7">
               <a href="#!" className="green-text">
                 <h6 className="font-weight-bold mb-3">
-                  <Fa icon="cutlery" className="pr-2" />
+                  <MDBIcon icon="cutlery" className="pr-2" />
                   Food
                 </h6>
               </a>
@@ -66,17 +56,17 @@ const BlogPage = () => {
                 </a>
                 , 19/08/2018
               </p>
-              <Button color="success" size="md" className="waves-light ">
+              <MDBBtn color="success" size="md" className="waves-light ">
                 Read more
-              </Button>
-            </Col>
-          </Row>
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
           <hr className="my-5" />
-          <Row>
-            <Col lg="7">
+          <MDBRow>
+            <MDBCol lg="7">
               <a href="#!" className="pink-text">
                 <h6 className="font-weight-bold mb-3">
-                  <Fa icon="image" className="pr-2" />
+                  <MDBIcon icon="image" className="pr-2" />
                   Lifestyle
                 </h6>
               </a>
@@ -96,45 +86,45 @@ const BlogPage = () => {
                 </a>
                 , 14/08/2018
               </p>
-              <Button
+              <MDBBtn
                 color="pink"
                 size="md"
                 className="mb-lg-0 mb-4 waves-light"
               >
                 Read more
-              </Button>
-            </Col>
-            <Col lg="5">
-              <View className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
+              </MDBBtn>
+            </MDBCol>
+            <MDBCol lg="5">
+              <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/img%20(34).jpg"
                   alt=""
                 />
                 <a href="#!">
-                  <Mask overlay="white-slight" />
+                  <MDBMask overlay="white-slight" />
                 </a>
-              </View>
-            </Col>
-          </Row>
+              </MDBView>
+            </MDBCol>
+          </MDBRow>
           <hr className="my-5" />
-          <Row>
-            <Col lg="5">
-              <View className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
+          <MDBRow>
+            <MDBCol lg="5">
+              <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/img (28).jpg"
                   alt=""
                 />
                 <a href="#!">
-                  <Mask overlay="white-slight" />
+                  <MDBMask overlay="white-slight" />
                 </a>
-              </View>
-            </Col>
-            <Col lg="7">
+              </MDBView>
+            </MDBCol>
+            <MDBCol lg="7">
               <a href="#!" className="indigo-text">
                 <h6 className="font-weight-bold mb-3">
-                  <Fa icon="suitcase" className="pr-2" />
+                  <MDBIcon icon="suitcase" className="pr-2" />
                   Food
                 </h6>
               </a>
@@ -154,19 +144,19 @@ const BlogPage = () => {
                 </a>
                 , 11/08/2018
               </p>
-              <Button color="indigo" size="md" className="waves-light ">
+              <MDBBtn color="indigo" size="md" className="waves-light ">
                 Read more
-              </Button>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
 
       <h2 className="title text-center text-md-left pt-4 mt-5">
         <strong>Blog listing v.2 </strong>
       </h2>
-      <Card className="my-5 px-5 pb-5">
-        <CardBody className="text-center">
+      <MDBCard className="my-5 px-5 pb-5">
+        <MDBCardBody className="text-center">
           <h2 className="h1-responsive font-weight-bold text-center my-5">
             Recent posts
           </h2>
@@ -176,19 +166,19 @@ const BlogPage = () => {
             cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
           </p>
-          <Row>
-            <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <View hover className="rounded z-depth-2 mb-4" waves>
+          <MDBRow>
+            <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+              <MDBView hover className="rounded z-depth-2 mb-4" waves>
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/images/81.jpg"
                   alt=""
                 />
-                <Mask overlay="white-slight" />
-              </View>
+                <MDBMask overlay="white-slight" />
+              </MDBView>
               <a href="#!" className="pink-text">
                 <h6 className="font-weight-bold mb-3">
-                  <Fa icon="map" className="pr-2" />
+                  <MDBIcon icon="map" className="pr-2" />
                   Adventure
                 </h6>
               </a>
@@ -204,22 +194,22 @@ const BlogPage = () => {
                 nihil impedit quo minus id quod maxime placeat facere possimus
                 voluptas.
               </p>
-              <Button color="pink" rounded size="md">
+              <MDBBtn color="pink" rounded size="md">
                 Read more
-              </Button>
-            </Col>
-            <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <View hover className="rounded z-depth-2 mb-4" waves>
+              </MDBBtn>
+            </MDBCol>
+            <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+              <MDBView hover className="rounded z-depth-2 mb-4" waves>
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
                   alt=""
                 />
-                <Mask overlay="white-slight" />
-              </View>
+                <MDBMask overlay="white-slight" />
+              </MDBView>
               <a href="#!" className="deep-orange-text">
                 <h6 className="font-weight-bold mb-3">
-                  <Fa icon="graduation-cap" className="pr-2" />
+                  <MDBIcon icon="graduation-cap" className="pr-2" />
                   Education
                 </h6>
               </a>
@@ -234,22 +224,22 @@ const BlogPage = () => {
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui
                 blanditiis voluptatum deleniti atque corrupti quos dolores.
               </p>
-              <Button color="deep-orange" rounded size="md">
+              <MDBBtn color="deep-orange" rounded size="md">
                 Read more
-              </Button>
-            </Col>
-            <Col lg="4" md="12" className="mb-lg-0 mb-4">
-              <View hover className="rounded z-depth-2 mb-4" waves>
+              </MDBBtn>
+            </MDBCol>
+            <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+              <MDBView hover className="rounded z-depth-2 mb-4" waves>
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/images/13.jpg"
                   alt=""
                 />
-                <Mask overlay="white-slight" />
-              </View>
+                <MDBMask overlay="white-slight" />
+              </MDBView>
               <a href="#!" className="blue-text">
                 <h6 className="font-weight-bold mb-3">
-                  <Fa icon="fire" className="pr-2" />
+                  <MDBIcon icon="fire" className="pr-2" />
                   Culture
                 </h6>
               </a>
@@ -264,19 +254,19 @@ const BlogPage = () => {
                 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit
                 aut fugit, sed quia consequuntur magni dolores eos qui ratione.
               </p>
-              <Button color="info" rounded size="md">
+              <MDBBtn color="info" rounded size="md">
                 Read more
-              </Button>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
 
       <h2 className="title text-center text-md-left pt-4 mt-5">
         <strong>Blog listing v.3</strong>
       </h2>
-      <Card className="my-5 px-5 pb-5">
-        <CardBody>
+      <MDBCard className="my-5 px-5 pb-5">
+        <MDBCardBody>
           <h2 className="h1-responsive font-weight-bold text-center my-5">
             Recent posts
           </h2>
@@ -286,20 +276,20 @@ const BlogPage = () => {
             cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
           </p>
-          <Row>
-            <Col lg="5" xl="4">
-              <View hover className="rounded z-depth-1-half mb-lg-0 mb-4">
+          <MDBRow>
+            <MDBCol lg="5" xl="4">
+              <MDBView hover className="rounded z-depth-1-half mb-lg-0 mb-4">
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg"
                   alt=""
                 />
                 <a href="#!">
-                  <Mask overlay="white-slight" />
+                  <MDBMask overlay="white-slight" />
                 </a>
-              </View>
-            </Col>
-            <Col lg="7" xl="8">
+              </MDBView>
+            </MDBCol>
+            <MDBCol lg="7" xl="8">
               <h3 className="font-weight-bold mb-3 p-0">
                 <strong>Title of the news</strong>
               </h3>
@@ -313,26 +303,26 @@ const BlogPage = () => {
               <p>
                 by <a href="#!" className="font-weight-bold">Jessica Clark</a>, 19/04/2018
               </p>
-              <Button color="primary" size="md">
+              <MDBBtn color="primary" size="md">
                 Read More
-              </Button>
-            </Col>
-          </Row>
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
           <hr className="my-5" />
-          <Row>
-            <Col lg="5" xl="4">
-              <View hover className="rounded z-depth-1-half mb-lg-0 mb-4">
+          <MDBRow>
+            <MDBCol lg="5" xl="4">
+              <MDBView hover className="rounded z-depth-1-half mb-lg-0 mb-4">
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/images/31.jpg"
                   alt=""
                 />
                 <a href="#!">
-                  <Mask overlay="white-slight" />
+                  <MDBMask overlay="white-slight" />
                 </a>
-              </View>
-            </Col>
-            <Col lg="7" xl="8">
+              </MDBView>
+            </MDBCol>
+            <MDBCol lg="7" xl="8">
               <h3 className="font-weight-bold mb-3 p-0">
                 <strong>Title of the news</strong>
               </h3>
@@ -346,26 +336,26 @@ const BlogPage = () => {
               <p>
                 by <a href="#!" className="font-weight-bold">Jessica Clark</a>, 16/04/2018
               </p>
-              <Button color="primary" size="md">
+              <MDBBtn color="primary" size="md">
                 Read More
-              </Button>
-            </Col>
-          </Row>
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
           <hr className="my-5" />
-          <Row>
-            <Col lg="5" xl="4">
-              <View hover className="rounded z-depth-1-half mb-lg-0 mb-4">
+          <MDBRow>
+            <MDBCol lg="5" xl="4">
+              <MDBView hover className="rounded z-depth-1-half mb-lg-0 mb-4">
                 <img
                   className="img-fluid"
                   src="https://mdbootstrap.com/img/Photos/Others/images/52.jpg"
                   alt=""
                 />
                 <a href="#!">
-                  <Mask overlay="white-slight" />
+                  <MDBMask overlay="white-slight" />
                 </a>
-              </View>
-            </Col>
-            <Col lg="7" xl="8">
+              </MDBView>
+            </MDBCol>
+            <MDBCol lg="7" xl="8">
               <h3 className="font-weight-bold mb-3 p-0">
                 <strong>Title of the news</strong>
               </h3>
@@ -378,31 +368,31 @@ const BlogPage = () => {
               <p>
                 by <a href="#!" className="font-weight-bold">Jessica Clark</a>, 12/04/2018
               </p>
-              <Button color="primary" size="md">
+              <MDBBtn color="primary" size="md">
                 Read More
-              </Button>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
 
       <h2 className="title text-center text-md-left pt-4 mt-5">
         <strong>Blog listing v.4</strong>
       </h2>
-      <Card className="my-5 px-5 pb-5">
-        <CardBody>
-          <Row>
-            <Col md="12">
-              <Card reverse>
-                <View hover cascade waves>
+      <MDBCard className="my-5 px-5 pb-5">
+        <MDBCardBody>
+          <MDBRow>
+            <MDBCol md="12">
+              <MDBCard reverse>
+                <MDBView hover cascade waves>
                   <img
                     src="https://mdbootstrap.com/img/Photos/Slides/img%20(142).jpg"
                     alt=""
                     className="img-fluid"
                   />
-                  <Mask overlay="white-slight" className="waves-light" />
-                </View>
-                <CardBody cascade className="text-center">
+                  <MDBMask overlay="white-slight" className="waves-light" />
+                </MDBView>
+                <MDBCardBody cascade className="text-center">
                   <h2 className="font-weight-bold">
                     <a href="#!">Title of the news</a>
                   </h2>
@@ -413,29 +403,29 @@ const BlogPage = () => {
                     </a>
                     , 26/08/2018
                   </p>
-                  <Button className="btn-fb waves-light">
-                    <Fa icon="facebook" className="pr-2" />
+                  <MDBBtn className="btn-fb waves-light">
+                    <MDBIcon icon="facebook" className="pr-2" />
                     Facebook
-                  </Button>
+                  </MDBBtn>
                   <span className="counter">46</span>
-                  <Button className="btn-tw waves-light">
-                    <Fa icon="twitter" className="pr-2" />
+                  <MDBBtn className="btn-tw waves-light">
+                    <MDBIcon icon="twitter" className="pr-2" />
                     Twitter
-                  </Button>
+                  </MDBBtn>
                   <span className="counter">22</span>
-                  <Button className="btn-gplus waves-light">
-                    <Fa icon="google-plus" className="pr-2" />
+                  <MDBBtn className="btn-gplus waves-light">
+                    <MDBIcon icon="google-plus" className="pr-2" />
                     Google
-                  </Button>
+                  </MDBBtn>
                   <span className="counter">31</span>
-                  <Button color="default" className="waves-light">
-                    <Fa icon="comments" className="pr-2" />
+                  <MDBBtn color="default" className="waves-light">
+                    <MDBIcon icon="comments" className="pr-2" />
                     Comments
-                  </Button>
+                  </MDBBtn>
                   <span className="counter">18</span>
-                </CardBody>
-              </Card>
-              <Container className="mt-5">
+                </MDBCardBody>
+              </MDBCard>
+              <MDBContainer className="mt-5">
                 <p>
                   At vero eos et accusamus et iusto odio dignissimos ducimus qui
                   praesentium voluptatum deleniti atque corrupti quos dolores et
@@ -454,22 +444,22 @@ const BlogPage = () => {
                   necessitatibus saepe eveniet ut et voluptates repudiandae sint
                   et molestiae non recusandae itaque earum rerum.
                 </p>
-              </Container>
-            </Col>
-          </Row>
+              </MDBContainer>
+            </MDBCol>
+          </MDBRow>
           <hr className="mb-5 mt-4" />
-          <Row>
-            <Col md="12">
-              <Card reverse>
-                <View hover cascade waves>
+          <MDBRow>
+            <MDBCol md="12">
+              <MDBCard reverse>
+                <MDBView hover cascade waves>
                   <img
                     src="https://mdbootstrap.com/img/Photos/Slides/img%20(146).jpg"
                     alt=""
                     className="img-fluid"
                   />
-                  <Mask overlay="white-slight" className="waves-light" />
-                </View>
-                <CardBody cascade className="text-center">
+                  <MDBMask overlay="white-slight" className="waves-light" />
+                </MDBView>
+                <MDBCardBody cascade className="text-center">
                   <h2 className="font-weight-bold">
                     <a href="#!">Title of the news</a>
                   </h2>
@@ -480,29 +470,29 @@ const BlogPage = () => {
                     </a>
                     , 21/08/2018
                   </p>
-                  <Button className="btn-fb waves-light">
-                    <Fa icon="facebook" className="pr-2" />
+                  <MDBBtn className="btn-fb waves-light">
+                    <MDBIcon icon="facebook" className="pr-2" />
                     Facebook
-                  </Button>
+                  </MDBBtn>
                   <span className="counter">87</span>
-                  <Button className="btn-tw waves-light">
-                    <Fa icon="twitter" className="pr-2" />
+                  <MDBBtn className="btn-tw waves-light">
+                    <MDBIcon icon="twitter" className="pr-2" />
                     Twitter
-                  </Button>
+                  </MDBBtn>
                   <span className="counter">73</span>
-                  <Button className="btn-gplus waves-light">
-                    <Fa icon="google-plus" className="pr-2" />
+                  <MDBBtn className="btn-gplus waves-light">
+                    <MDBIcon icon="google-plus" className="pr-2" />
                     Google
-                  </Button>
+                  </MDBBtn>
                   <span className="counter">91</span>
-                  <Button color="default" className="waves-light">
-                    <Fa icon="comments" className="pr-2" />
+                  <MDBBtn color="default" className="waves-light">
+                    <MDBIcon icon="comments" className="pr-2" />
                     Comments
-                  </Button>
+                  </MDBBtn>
                   <span className="counter">67</span>
-                </CardBody>
-              </Card>
-              <Container className="mt-5">
+                </MDBCardBody>
+              </MDBCard>
+              <MDBContainer className="mt-5">
                 <p>
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium, totam rem aperiam, eaque
@@ -521,12 +511,12 @@ const BlogPage = () => {
                   reprehenderit qui in ea voluptate velit esse quam nihil
                   molestiae consequatur.
                 </p>
-              </Container>
-            </Col>
-          </Row>
-        </CardBody>
-      </Card>
-    </Container>
+              </MDBContainer>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
+      </MDBCard>
+    </MDBContainer>
   );
 };
 export default BlogPage;

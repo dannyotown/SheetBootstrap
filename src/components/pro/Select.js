@@ -33,11 +33,7 @@ class Select extends React.Component {
         this.props.getTextContent(this.state.selectTextContent);
       }
 
-      if (this.state.selectValue.length === 0 && this.props.selected) {
-        this.setState({
-          selectTextContent: this.props.selected
-        });
-      }
+      
     }
 
     if (this.props.options !== prevProps.options) {
@@ -60,7 +56,7 @@ class Select extends React.Component {
       .map(option => option.value);
     this.setState({
       selectValue: preselected,
-      selectTextContent: preselected.join(", ")
+      selectTextContent: (preselected.length ? preselected.join(", ") : this.props.selected)
     });
   };
 
@@ -118,14 +114,14 @@ class Select extends React.Component {
       let options = [...prevState.options];
       const optionIndex = options.findIndex(option => option.value === value);
       options[optionIndex].checked = !prevState.options[optionIndex].checked;
-
+      
       let checkedOptions = options
         .filter(option => option.checked)
         .map(option => option.value);
 
       return {
         selectValue: checkedOptions,
-        selectTextContent: checkedOptions.join(", "),
+        selectTextContent: (checkedOptions.length ? checkedOptions.join(", ") : this.props.selected),
         options
       };
     });
@@ -148,6 +144,8 @@ class Select extends React.Component {
       getValue,
       multiple,
       search,
+      searchLabel,
+      searchId,
       selected,
       ...attributes
     } = this.props;
@@ -172,6 +170,7 @@ class Select extends React.Component {
             multiple={multiple}
             options={this.state.options}
             search={search}
+            searchLabel={searchLabel}
             selected={selected}
             selectOption={this.selectOption}
           />
@@ -221,8 +220,9 @@ Select.propTypes = {
     })
   ),
   search: PropTypes.bool,
-  selected: PropTypes.string,
-  value: PropTypes.string
+  searchLabel: PropTypes.string,
+  searchId: PropTypes.string,
+  selected: PropTypes.string
 };
 
 export default Select;
