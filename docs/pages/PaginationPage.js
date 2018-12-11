@@ -47,51 +47,51 @@ const PaginationPage = props => {
 
       <MDBRow>
         <MDBCol>
-          <h4 className="title my-5 text-left">Bootstrap MDBPagination</h4>
-          <MDBPagination className="pagination-circle">
+          <h4 className="title my-5 text-left">Bootstrap Pagination</h4>
+          <MDBPagination circle >
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link">
+              <MDBPageNav>
                 <span>First</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem active>
-              <MDBPageNav className="page-link">
+              <MDBPageNav>
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav>
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav>
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav>
                 4
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav>
                 5
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav>
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav>
                 Last
               </MDBPageNav>
             </MDBPageItem>
@@ -102,313 +102,313 @@ const PaginationPage = props => {
       <MDBRow>
         <MDBCol>
           <h4 className="title my-5 text-left">MDBPagination color</h4>
-          <MDBPagination className="pg-blue">
+          <MDBPagination color="blue">
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem active>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 4
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 5
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
           </MDBPagination>
 
-          <MDBPagination className="pg-red">
+          <MDBPagination color="red">
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem active>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 4
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 5
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
           </MDBPagination>
 
-          <MDBPagination className="pg-teal">
+          <MDBPagination color="teal">
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem active>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 4
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 5
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
           </MDBPagination>
 
-          <MDBPagination className="pg-dark">
+          <MDBPagination color="dark">
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem active>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 4
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 5
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
           </MDBPagination>
 
-          <MDBPagination className="pg-bluegrey">
+          <MDBPagination color="bluegrey">
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem active>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 4
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 5
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
           </MDBPagination>
 
-          <MDBPagination className="pg-amber">
+          <MDBPagination color="amber">
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem active>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 4
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 5
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
           </MDBPagination>
 
-          <MDBPagination className="pg-purple">
+          <MDBPagination color="purple">
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem active>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 4
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 5
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
           </MDBPagination>
 
-          <MDBPagination className="pg-darkgrey">
+          <MDBPagination color="darkgrey">
             <MDBPageItem disabled>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem active>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 4
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 5
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
@@ -419,59 +419,59 @@ const PaginationPage = props => {
       <MDBRow>
         <MDBCol>
           <h4 className="title my-5 text-left">Sizing</h4>
-          <MDBPagination className="pagination-lg">
+          <MDBPagination size="lg">
             <MDBPageItem>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
           </MDBPagination>
 
-          <MDBPagination className="pagination-sm">
+          <MDBPagination size="sm">
             <MDBPageItem>
-              <MDBPageNav className="page-link" aria-label="Previous">
+              <MDBPageNav  aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span className="sr-only">Previous</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 1 <span className="sr-only">(current)</span>
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 2
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 3
               </MDBPageNav>
             </MDBPageItem>
             <MDBPageItem>
-              <MDBPageNav className="page-link">
+              <MDBPageNav >
                 &raquo;
               </MDBPageNav>
             </MDBPageItem>
