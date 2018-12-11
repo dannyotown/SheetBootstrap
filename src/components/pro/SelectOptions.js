@@ -34,7 +34,7 @@ class Options extends React.Component {
   }
 
   render() {
-    const { className, children, search, ...attributes } = this.props;
+    const { className, children, search, searchLabel, searchId, ...attributes } = this.props;
 
     const classes = classNames(
       "dropdown-content",
@@ -49,8 +49,8 @@ class Options extends React.Component {
         <div className="mx-2">
           <Autocomplete
             data={data}
-            label="Search"
-            id="input"
+            label={searchLabel}
+            id={searchId}
             search={this.search}
             data-search="true"
           />
@@ -70,7 +70,16 @@ class Options extends React.Component {
 Options.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  search: PropTypes.bool
+  search: PropTypes.bool,
+  searchLabel: PropTypes.string,
+  searchId: PropTypes.string
+};
+
+Options.defaultProps = {
+  className: "",
+  search: false,
+  searchLabel: "Search",
+  searchId: "selectSearchInput"
 };
 
 export default Options;
