@@ -23,7 +23,7 @@ class ScrollSpyPage extends React.Component {
   }
 
   componentDidMount() {
-    let sections = ReactDOM.findDOMNode(this.scrollSpyText.current).getElementsByTagName("h4");
+    let sections = this.scrollSpyText.current.getElementsByTagName("h4");
     this.setState({ sections });
   }
 
@@ -72,7 +72,7 @@ class ScrollSpyPage extends React.Component {
           </MDBScrollspyList>
 
           <MDBTabContent>
-            <MDBScrollspyText onScroll={this.handleScroll} ref={this.scrollSpyText} >
+            <MDBScrollspyText onScroll={this.handleScroll} scrollSpyRef={this.scrollSpyText} >
               <h4 id="section1">section1</h4>
               <p>
                 Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr

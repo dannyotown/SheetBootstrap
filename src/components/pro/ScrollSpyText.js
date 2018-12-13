@@ -19,7 +19,7 @@ class ScrollSpyText extends Component {
 ScrollSpyText.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
-  scrollSpyRef: PropTypes.func
+  scrollSpyRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 
 export default ScrollSpyText;
