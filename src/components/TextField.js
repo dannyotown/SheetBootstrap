@@ -72,6 +72,7 @@ class TextField extends React.Component {
 
   render() {
     const {
+      children,
       containerClass,
       size,
       group,
@@ -185,6 +186,7 @@ class TextField extends React.Component {
         ) : (
           false
         )}
+        {children}
       </div>
     );
   }
