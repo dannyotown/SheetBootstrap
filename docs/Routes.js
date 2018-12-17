@@ -51,6 +51,7 @@ import SearchPage from "./pages/SearchPage";
 import ValidationPage from "./pages/ValidationPage";
 import NavbarPage from "./pages/NavbarPage";
 import IframePage from "./pages/IframePage";
+import EdgeHeaderPage from "./pages/EdgeHeaderPage"
 
 // PRO
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -161,6 +162,7 @@ class Routes extends React.Component {
         <Route path="/tables/datatable" component={DatatablePage} />
         <Route path="/tables/datatable-api" component={DatatableApiPage} />
         <Route path="/addons/iframe" component={IframePage} />
+        <Route path="/addons/edge-header" component={EdgeHeaderPage} />
         <Route path="/advanced/alerts" component={AlertPage} />
         {/* PRO */}
         <Route path="/addons/pro/chat" component={ChatPage} />
