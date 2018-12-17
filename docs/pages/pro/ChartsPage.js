@@ -1,19 +1,19 @@
 import React from "react";
-import { Container, Row, Col, Fa, MDBSimpleChart } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBSimpleChart } from "mdbreact";
 import DocsLink from "../DocsLink";
 
 class ChartsPagePro extends React.Component {
   render() {
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Minimalist charts"
           href="https://mdbootstrap.com/docs/react/advanced/charts/#usage-minimalist"
         />
         <div style={{ marginTop: "100px" }}>
-          <Container>
-            <Row className="text-center">
-              <Col sm="4">
+          <MDBContainer>
+            <MDBRow className="text-center">
+              <MDBCol sm="4">
                 <MDBSimpleChart
                   width={100}
                   height={100}
@@ -24,11 +24,11 @@ class ChartsPagePro extends React.Component {
                 </MDBSimpleChart>
                 <h6 className="mt-2">
                   <span className="label green p-1 white-text">
-                    Sales <Fa icon="arrow-circle-up" />
+                    Sales <MDBIcon icon="arrow-circle-up" />
                   </span>
                 </h6>
-              </Col>
-              <Col sm="4">
+              </MDBCol>
+              <MDBCol sm="4">
                 <MDBSimpleChart
                   width={100}
                   height={100}
@@ -38,11 +38,11 @@ class ChartsPagePro extends React.Component {
                 />
                 <h6 className="mt-2">
                   <span className="label red p-1 white-text">
-                    ROI <Fa icon="arrow-circle-down" />
+                    ROI <MDBIcon icon="arrow-circle-down" />
                   </span>
                 </h6>
-              </Col>
-              <Col sm="4">
+              </MDBCol>
+              <MDBCol sm="4">
                 <MDBSimpleChart
                   width={100}
                   height={100}
@@ -52,14 +52,14 @@ class ChartsPagePro extends React.Component {
                 />
                 <h6 className="mt-2">
                   <span className="label grey p-1 white-text">
-                    Conversion <Fa icon="minus-square" />
+                    Conversion <MDBIcon icon="minus-square" />
                   </span>
                 </h6>
-              </Col>
-            </Row>
-          </Container>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
         </div>
-      </Container>
+      </MDBContainer>
     );
   }
 }
