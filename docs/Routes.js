@@ -102,6 +102,7 @@ import ModalFormProPage from "./pages/pro/ModalFormPage";
 import HabmburgerMenuPage from "./pages/pro/HabmburgerMenuPage";
 import TimelinePage from "./pages/pro/TimelinePage";
 import SliderPage from "./pages/pro/SliderPage";
+import ValidationPagePro from "./pages/pro/ValidationPage";
 
 class Routes extends React.Component {
   render() {
@@ -204,6 +205,7 @@ class Routes extends React.Component {
           component={SocialButtonsPage}
         />
         <Route path="/forms/pro/forms" component={FormsPagePro} />
+        <Route path="/forms/pro/validation" component={ValidationPagePro} />
         <Route path="/components/pro/cards" component={CardsPagePro} />
         <Route path="/components/pro/search" component={SearchPagePro} />
         <Route path="/navigation/pro/footer" component={FooterPagePro} />
