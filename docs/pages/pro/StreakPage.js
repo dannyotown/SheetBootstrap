@@ -1,21 +1,37 @@
-import React from 'react'
+import React from 'react';
+import { MDBStreak, MDBContainer } from 'mdbreact';
+import DocsLink from "../DocsLink";
 
 const StreakPage = () => {
   return (
-    <div className="streak streak-md streak-photo" style="background-image:url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img(115).jpg')">
-      <div className="flex-center white-text rgba-black-light pattern-1">
-        <ul className="mb-0 list-unstyled">
-          <li>
-            <h2 className="h2-responsive"><i className="fa fa-quote-left" aria-hidden="true"></i> The people who are
-          crazy enough to think they can change the world are the ones who do. <i className="fa fa-quote-right"
-                aria-hidden="true"></i></h2>
-          </li>
-          <li className="mb-0">
-            <h5 className="text-center font-italic mb-0">~ Steve Jobs</h5>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <MDBContainer>
+      <DocsLink
+        title="MDBSticky"
+        href="https://mdbootstrap.com/docs/react/advanced/sticky/"
+      />
+      <MDBStreak
+        size="md"
+        by="Steve Jobs"
+        overlayClass="white-text rgba-black-light pattern-1"
+        photo="https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img(115).jpg"
+      >
+        The people who are crazy enough to think they can change the world are the ones who do
+      </MDBStreak>
+      <MDBStreak by="Steve Jobs"  >
+        The people who are
+        crazy enough to think they can change the world are the ones who do.
+      </MDBStreak>
+
+      <MDBStreak
+        by="Garry Winogrand"
+        size="lg"
+        byClass="grey-text font-weight-bold"
+        wrapperClass="blue lighten-4"
+        quoteClass="font-weight-bold">
+         I photograph to see what the world looks like in photographs.
+        </MDBStreak>
+
+    </MDBContainer>
   )
 }
 
