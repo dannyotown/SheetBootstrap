@@ -103,6 +103,8 @@ import ModalFormProPage from "./pages/pro/ModalFormPage";
 import HabmburgerMenuPage from "./pages/pro/HabmburgerMenuPage";
 import TimelinePage from "./pages/pro/TimelinePage";
 import SliderPage from "./pages/pro/SliderPage";
+import StreakPage from "./pages/pro/StreakPage";
+
 
 class Routes extends React.Component {
   render() {
@@ -187,6 +189,7 @@ class Routes extends React.Component {
           component={MultiCarouselPage}
         />
         <Route path="/addons/pro/timeline" component={TimelinePage} />
+        <Route path="/addons/pro/streak" component={StreakPage} />
         <Route path="/components/pro/spinner" component={SpinnerPage} />
         <Route path="/advanced/pro/scrollbar" component={ScrollBarPage} />
         <Route path="/navigation/pro/scrollspy" component={ScrollSpyPage} />
