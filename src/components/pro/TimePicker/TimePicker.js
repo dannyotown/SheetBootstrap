@@ -22,7 +22,11 @@ const propTypes = {
   getValue: PropTypes.func,
   hours: PropTypes.number,
   hoursFormat: PropTypes.number,
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([
+    PropTypes.string, 
+    PropTypes.number, 
+    PropTypes.object
+  ]),
   minutes: PropTypes.number,
   placeholder: PropTypes.string,
   startFromInner: PropTypes.bool
