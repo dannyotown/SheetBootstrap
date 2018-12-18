@@ -105,6 +105,7 @@ import TimelinePage from "./pages/pro/TimelinePage";
 import SliderPage from "./pages/pro/SliderPage";
 import StreakPage from "./pages/pro/StreakPage";
 import ValidationPagePro from "./pages/pro/ValidationPage";
+import FlippingCardsPage from "./pages/pro/FlippingCardsPage";
 
 class Routes extends React.Component {
   render() {
@@ -166,6 +167,7 @@ class Routes extends React.Component {
         <Route path="/addons/iframe" component={IframePage} />
         <Route path="/addons/edge-header" component={EdgeHeaderPage} />
         <Route path="/advanced/alerts" component={AlertPage} />
+        <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
         {/* PRO */}
         <Route path="/addons/pro/chat" component={ChatPage} />
         <Route
