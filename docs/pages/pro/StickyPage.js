@@ -30,8 +30,8 @@ class StickyPage extends React.Component {
     return (
       <MDBContainer>
         <DocsLink
-          title="MDBSticky"
-          href="https://mdbootstrap.com/docs/react/advanced/sticky/"
+          title="Streak"
+          href="https://mdbootstrap.com/plugins/react/streak/"
         />
         <div style={wrapper} className="mt-4">
           <div style={background}>
