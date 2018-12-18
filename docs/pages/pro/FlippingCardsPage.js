@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import {
-  Container,
-  Col,
-  Row,
-  Card,
-  CardUp,
-  CardBody,
-  CardImage,
-  CardTitle,
-  CardText,
-  Avatar,
-  FlippingCard,
-  Fa,
-  Button
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBCard,
+  MDBCardUp,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBCardText,
+  MDBAvatar,
+  MDBRotatingCard,
+  MDBIcon,
+  MDBBtn
 } from "mdbreact";
 import DocsLink from "../DocsLink";
 
@@ -30,34 +30,34 @@ class FlippingCardPage extends Component {
 
   render() {
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Flipping card"
           href="https://mdbootstrap.com/plugins/react/flipping-cards/"
         />
-        <Container>
-          <Row between>
-            <Col style={{ minHeight: '26rem', maxWidth: "22rem" }}>
-              <FlippingCard
+        <MDBContainer>
+          <MDBRow between>
+            <MDBCol style={{ minHeight: '26rem', maxWidth: "22rem" }}>
+              <MDBRotatingCard
                 flipped={this.state.flipped1}
                 className="text-center h-100 w-100"
               >
-                <Card className="face front" >
-                  <CardUp>
+                <MDBCard className="face front" >
+                  <MDBCardUp>
                     <img
                       className="card-img-top"
                       src="https://mdbootstrap.com/img/Photos/Others/photo7.jpg"
                       alt=""
                     />
-                  </CardUp>
-                  <Avatar className="mx-auto white" circle>
+                  </MDBCardUp>
+                  <MDBAvatar className="mx-auto white" circle>
                     <img
                       src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg"
                       alt=""
                       className="rounded-circle"
                     />
-                  </Avatar>
-                  <CardBody>
+                  </MDBAvatar>
+                  <MDBCardBody>
                     <h4 className="font-weight-bold mb-3">Marie Johnson</h4>
                     <p className="font-weight-bold blue-text">Web developer</p>
                     <a
@@ -66,12 +66,12 @@ class FlippingCardPage extends Component {
                       data-card="card-1"
                       onClick={() => this.handleFlipping(1)}
                     >
-                      <Fa icon="repeat" /> Click here to rotate
+                      <MDBIcon icon="repeat" /> Click here to rotate
                     </a>
-                  </CardBody>
-                </Card>
-                <Card className="face back" style={{ height: "400px" }}>
-                  <CardBody>
+                  </MDBCardBody>
+                </MDBCard>
+                <MDBCard className="face back" style={{ height: "400px" }}>
+                  <MDBCardBody>
                     <h4 className="font-weight-bold">About me</h4>
                     <hr />
                     <p>
@@ -84,22 +84,22 @@ class FlippingCardPage extends Component {
                     <ul className="list-inline py-2">
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg fb-ic">
-                          <Fa icon="facebook" />
+                          <MDBIcon icon="facebook" />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg tw-ic">
-                          <Fa icon="twitter" />
+                          <MDBIcon icon="twitter" />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg gplus-ic">
-                          <Fa icon="google-plus" />
+                          <MDBIcon icon="google-plus" />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg li-ic">
-                          <Fa icon="linkedin" />
+                          <MDBIcon icon="linkedin" />
                         </a>
                       </li>
                     </ul>
@@ -109,74 +109,74 @@ class FlippingCardPage extends Component {
                       data-card="card-1"
                       onClick={() => this.handleFlipping(1)}
                     >
-                      <Fa icon="undo" /> Click here to rotate back
+                      <MDBIcon icon="undo" /> Click here to rotate back
                     </a>
-                  </CardBody>
-                </Card>
-              </FlippingCard>
-            </Col>
+                  </MDBCardBody>
+                </MDBCard>
+              </MDBRotatingCard>
+            </MDBCol>
 
 
-            <Col style={{ minHeight: '26rem', maxWidth: "22rem" }}>
-              <FlippingCard
+            <MDBCol style={{ minHeight: '26rem', maxWidth: "22rem" }}>
+              <MDBRotatingCard
                 flipped={this.state.flipped2}
                 className="text-center h-100 w-100"
               >
-                <Card className="face back text-center" >
-                  <CardBody>
-                    <CardTitle className="text-ceter font-weight-bold my-4">Social shares<Fa icon="close rotate-btn text-muted" onClick={() => this.handleFlipping(2)} /></CardTitle>
+                <MDBCard className="face back text-center" >
+                  <MDBCardBody>
+                    <MDBCardTitle className="text-ceter font-weight-bold my-4">Social shares<MDBIcon icon="close rotate-btn text-muted" onClick={() => this.handleFlipping(2)} /></MDBCardTitle>
                     <hr />
                     <div>
-                      <Row center className="flex-wrap">
-                        <Button tag="a" floating social="dribble"><Fa icon="dribbble" /></Button>
-                        <Button tag="a" floating social="slack"><Fa icon="slack" /></Button>
-                        <Button tag="a" floating social="ins"><Fa icon="instagram" /></Button>
-                        <Button tag="a" floating social="pin"><Fa icon="pinterest" /></Button>
-                        <Button tag="a" floating social="tw"><Fa icon="twitter" /></Button>
-                        <Button tag="a" floating social="gplus"><Fa icon="google-plus" /></Button>
-                        <Button tag="a" floating social="git"><Fa icon="github" /></Button>
-                      </Row>
+                      <MDBRow center className="flex-wrap">
+                        <MDBBtn tag="a" floating social="dribble"><MDBIcon icon="dribbble" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="slack"><MDBIcon icon="slack" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="ins"><MDBIcon icon="instagram" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="pin"><MDBIcon icon="pinterest" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="tw"><MDBIcon icon="twitter" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="gplus"><MDBIcon icon="google-plus" /></MDBBtn>
+                        <MDBBtn tag="a" floating social="git"><MDBIcon icon="github" /></MDBBtn>
+                      </MDBRow>
                       <h5 className="font-weight-bold my-4">Join our community</h5>
                     </div>
                     <hr />
-                    <Row center className="flex-wrap">
-                      <Button tag="a" social="fb" className="px-4"><Fa icon="facebook" /></Button>
-                      <Button tag="a" social="tw" className="px-4"><Fa icon="twitter" /></Button>
-                      <Button tag="a" social="li" className="px-4"><Fa icon="linkedin" /></Button>
-                      <Button tag="a" social="ins" className="px-4"><Fa icon="instagram" /></Button>
-                    </Row>
-                  </CardBody>
-                </Card>
-                <Card className="face front" >
-                  <CardImage
+                    <MDBRow center className="flex-wrap">
+                      <MDBBtn tag="a" social="fb" className="px-4"><MDBIcon icon="facebook" /></MDBBtn>
+                      <MDBBtn tag="a" social="tw" className="px-4"><MDBIcon icon="twitter" /></MDBBtn>
+                      <MDBBtn tag="a" social="li" className="px-4"><MDBIcon icon="linkedin" /></MDBBtn>
+                      <MDBBtn tag="a" social="ins" className="px-4"><MDBIcon icon="instagram" /></MDBBtn>
+                    </MDBRow>
+                  </MDBCardBody>
+                </MDBCard>
+                <MDBCard className="face front" >
+                  <MDBCardImage
                     top
                     src="https://mdbootstrap.com/img/Photos/Others/photo5.jpg"
                     overlay="white-slight"
                     hover
                     waves
-                    alt="Card image cap"
+                    alt="MDBCard image cap"
                   />
-                  <CardBody className="text-center">
-                    <CardTitle tag="h4">Card Title<Fa icon="share-alt text-dark float-right" onClick={() => this.handleFlipping(2)} /></CardTitle>
-                    <CardText>
+                  <MDBCardBody className="text-center">
+                    <MDBCardTitle tag="h4">MDBCard Title<MDBIcon icon="share-alt text-dark float-right" onClick={() => this.handleFlipping(2)} /></MDBCardTitle>
+                    <MDBCardText>
                       Some quick example text to build on the card title and make
                       up the bulk of the card&apos;s content.
-                  </CardText>
+                  </MDBCardText>
                     <a
                       href="#!"
                       className="black-text"
                     >
                       <h6 onClick={this.handleFlipping}>
-                        Read more <Fa icon="angle-double-right" />
+                        Read more <MDBIcon icon="angle-double-right" />
                       </h6>
                     </a>
-                  </CardBody>
-                </Card>
-              </FlippingCard>
-            </Col>
-          </Row>
-        </Container>
-      </Container>
+                  </MDBCardBody>
+                </MDBCard>
+              </MDBRotatingCard>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </MDBContainer>
     );
   }
 }
