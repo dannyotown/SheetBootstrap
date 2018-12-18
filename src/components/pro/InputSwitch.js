@@ -56,8 +56,16 @@ InputSwitch.propTypes = {
   disabled: PropTypes.bool,
   checked: PropTypes.bool,
   getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-  labelLeft: PropTypes.string,
-  labelRight: PropTypes.string
+  labelLeft: PropTypes.oneOfType([
+    PropTypes.string, 
+    PropTypes.number, 
+    PropTypes.object
+  ]),
+  labelRight: PropTypes.oneOfType([
+    PropTypes.string, 
+    PropTypes.number, 
+    PropTypes.object
+  ])
 
 };
 

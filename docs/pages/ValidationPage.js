@@ -163,15 +163,15 @@ class FormsPage extends React.Component {
               </MDBCol>
             </MDBRow>
             <MDBCol md="4" className="mb-3">
-              <div className="form-check pl-0">
+              <div className="custom-control custom-checkbox pl-3">
                 <input
-                  className="form-check-input"
+                  className="custom-control-input"
                   type="checkbox"
                   value=""
                   id="invalidCheck"
                   required
                 />
-                <label className="form-check-label" htmlFor="invalidCheck">
+                <label className="custom-control-label" htmlFor="invalidCheck">
                   Agree to terms and conditions
                 </label>
                 <div className="invalid-feedback">

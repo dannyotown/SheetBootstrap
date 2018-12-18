@@ -19,6 +19,7 @@ class DatePickerPage extends React.Component {
           title="Date Picker"
           href="https://mdbootstrap.com/docs/react/forms/date-picker/"
         />
+        <MDBDatePicker clearable value={null} emptyLabel="Select Date" getValue={this.getPickerValue} />
         <MDBDatePicker getValue={this.getPickerValue} />
       </Container>
     );

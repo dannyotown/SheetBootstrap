@@ -5,13 +5,13 @@ import classNames from "classnames";
 /* eslint-disable */
 import MomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider } from 'material-ui-pickers';
-import { DatePicker } from 'material-ui-pickers';
+import { DatePicker as UIDatePicker } from 'material-ui-pickers';
 import moment from 'moment';
 
 import './DatePicker.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
-class MDBDatePicker extends Component {
+class DatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -87,7 +87,7 @@ class MDBDatePicker extends Component {
       <Tag className={classes}>
         <MuiThemeProvider theme={this.state.muiTheme}>
           <MuiPickersUtilsProvider locale={locale} moment={moment} utils={MomentUtils}>
-            <DatePicker
+            <UIDatePicker
               {...attributes}
               adornmentPosition={adornmentPosition}
               allowKeyboardControl={allowKeyboardControl}
@@ -130,7 +130,7 @@ class MDBDatePicker extends Component {
   }
 }
 
-MDBDatePicker.propTypes = {
+DatePicker.propTypes = {
   theme: PropTypes.object,
   adornmentPosition: PropTypes.string,
   allowKeyboardControl: PropTypes.bool,
@@ -170,11 +170,12 @@ MDBDatePicker.propTypes = {
   value: PropTypes.instanceOf(Date)
 };
 
-MDBDatePicker.defaultProps = {
+DatePicker.defaultProps = {
   theme: {},
   tag: 'div',
   value: new Date(),
   getValue: () => {}
 };
 
-export default MDBDatePicker;
+export default DatePicker;
+export { DatePicker as MDBDatePicker };
