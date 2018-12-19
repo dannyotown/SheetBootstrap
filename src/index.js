@@ -81,6 +81,7 @@ import CardUp from "./components/pro/CardUp";
 import Chip from "./components/pro/Chip";
 import ChipsInput from "./components/pro/ChipsInput";
 import CollapseHeader from "./components/pro/CollapseHeader";
+import DatePicker from "./components/pro/DatePicker";
 import ExportToCSV from "./components/pro/ExportToCSV";
 import FlippingCard from "./components/pro/FlippingCard";
 import InputFile from "./components/pro/InputFile";
@@ -195,7 +196,7 @@ import {MDBCardUp} from "./components/pro/CardUp";
 import {MDBChip} from "./components/pro/Chip";
 import {MDBChipsInput} from "./components/pro/ChipsInput";
 import {MDBCollapseHeader} from "./components/pro/CollapseHeader";
-import MDBDatePicker from "./components/pro/DatePicker";
+import {MDBDatePicker} from "./components/pro/DatePicker";
 import {MDBExportToCSV} from "./components/pro/ExportToCSV";
 import {MDBTimePicker} from "./components/pro/TimePicker/TimePicker";
 import {MDBRotatingCard} from "./components/pro/FlippingCard";
@@ -229,6 +230,8 @@ import {MDBStickyContent} from "./components/pro/StickyContainer";
 import {MDBTestimonial} from "./components/pro/Testimonial";
 import {MDBTimeline} from "./components/pro/Timeline";
 import {MDBTimelineStep} from "./components/pro/TimelineStep";
+import MDBStreak from './components/pro/Streak';
+
 let Dropdown = require("./components/Dropdown").default;
 let DropdownMenuComponent = require("./components/DropdownMenuComponent")
   .default;
@@ -327,6 +330,7 @@ export  {
   Chip,
   ChipsInput,
   CollapseHeader,
+  DatePicker,
   ExportToCSV,
   FlippingCard,
   InputFile,
@@ -473,5 +477,6 @@ export  {
   MDBStickyContent,
   MDBTestimonial,
   MDBTimeline,
-  MDBTimelineStep
+  MDBTimelineStep,
+  MDBStreak
 };

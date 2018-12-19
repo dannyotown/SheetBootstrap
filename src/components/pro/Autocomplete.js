@@ -105,19 +105,19 @@ class Autocomplete extends Component {
 
     const {
       className,
-      placeholder,
+      clear,
+      clearClass,
       data,
       disabled,
+      getValue,
+      id,
       label,
       labelClass,
       icon,
-      iconSize,
       iconClass,
-      clear,
-      clearClass,
-      id,
+      iconSize,
+      placeholder,
       search,
-      getValue,
       ...attributes
     } = this.props;
 
@@ -227,12 +227,29 @@ class Autocomplete extends Component {
 
 Autocomplete.propTypes = {
   className: PropTypes.string,
-  icon: PropTypes.string
+  clear: PropTypes.bool,
+  clearClass: PropTypes.string,
+  data: PropTypes.arrayOf(PropTypes.string),
+  disabled: PropTypes.bool,
+  getValue: PropTypes.func,
+  id: PropTypes.string,
+  label: PropTypes.oneOfType([
+    PropTypes.string, 
+    PropTypes.number, 
+    PropTypes.object
+  ]),
+  labelClass: PropTypes.string,
+  icon: PropTypes.string,
+  iconClass: PropTypes.string,
+  iconSize: PropTypes.string,
+  placeholder: PropTypes.string,
+  search: PropTypes.func
 };
 
 Autocomplete.defaultProps = {
   id: "autocomplete-1",
-  clear: true
+  clear: true,
+  disabled: false
 };
 
 export default Autocomplete;

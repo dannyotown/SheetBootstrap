@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOption, value }) => {
+const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOption, text, value }) => {
   const classes = classNames(disabled && "disabled", checked && "active");
 
   return (
@@ -26,7 +26,7 @@ const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOptio
             <label style={{ height: "10px" }} data-multiple={multiple} />
           </React.Fragment>
         )}
-        {value}
+        {text ? text : value}
       </span>
     </li>
   );
@@ -38,6 +38,7 @@ ControlledSelectOption.propTypes = {
   icon: PropTypes.string,
   multiple: PropTypes.bool,
   selectOption: PropTypes.func,
+  text: PropTypes.string,
   value: PropTypes.string
 };
 

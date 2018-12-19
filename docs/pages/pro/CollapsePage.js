@@ -1,31 +1,23 @@
 import React, { Component } from "react";
-import { Container, Collapse, Card, CardBody, CollapseHeader } from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
 
 class CollapsePage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapseID: "collapse3"
-    };
+  state={
+    collapseID: "collapse3"
   }
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
-    }));
+  }));
 
   render() {
     const { collapseID } = this.state;
     return (
-      <Container>
-        <DocsLink
-          title="Accordion PRO"
-          href="https://mdbootstrap.com/docs/react/advanced/collapse/#accordion"
-        />
-        <Container className="md-accordion mt-5">
-          <Card className="mt-3">
-            <CollapseHeader onClick={this.toggleCollapse("collapse1")}>
+      <MDBContainer>
+        <MDBContainer className="md-accordion mt-5">
+          <MDBCard className="mt-3">
+            <MDBCollapseHeader onClick={this.toggleCollapse("collapse1")}>
               Collapsible Group Item #1
               <i
                 className={
@@ -34,9 +26,9 @@ class CollapsePage extends Component {
                     : "fa fa-angle-down"
                 }
               />
-            </CollapseHeader>
-            <Collapse id="collapse1" isOpen={collapseID}>
-              <CardBody>
+            </MDBCollapseHeader>
+            <MDBCollapse id="collapse1" isOpen={collapseID}>
+              <MDBCardBody>
                 Pariatur cliche reprehenderit, enim eiusmod high life accusamus
                 terry richardson ad squid. 3 wolf moon officia aute, non
                 cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
@@ -47,12 +39,12 @@ class CollapsePage extends Component {
                 butcher vice lomo. Leggings occaecat craft beer farm-to-table,
                 raw denim aesthetic synth nesciunt you probably haven&apos;t
                 heard of them accusamus labore sustainable VHS.
-              </CardBody>
-            </Collapse>
-          </Card>
+              </MDBCardBody>
+            </MDBCollapse>
+          </MDBCard>
 
-          <Card>
-            <CollapseHeader onClick={this.toggleCollapse("collapse2")}>
+          <MDBCard>
+            <MDBCollapseHeader onClick={this.toggleCollapse("collapse2")}>
               Collapsible Group Item #2
               <i
                 className={
@@ -61,9 +53,9 @@ class CollapsePage extends Component {
                     : "fa fa-angle-down"
                 }
               />
-            </CollapseHeader>
-            <Collapse id="collapse2" isOpen={collapseID}>
-              <CardBody>
+            </MDBCollapseHeader>
+            <MDBCollapse id="collapse2" isOpen={collapseID}>
+              <MDBCardBody>
                 Anim pariatur cliche reprehenderit, enim eiusmod high life
                 accusamus terry richardson ad squid. 3 wolf moon officia aute,
                 non cupidatat skateboard dolor brunch. Food truck quinoa
@@ -74,12 +66,12 @@ class CollapsePage extends Component {
                 excepteur butcher vice lomo. Leggings occaecat craft beer
                 farm-to-table, raw denim aesthetic synth nesciunt you probably
                 haven&apos;t heard of them accusamus labore sustainable VHS.
-              </CardBody>
-            </Collapse>
-          </Card>
+              </MDBCardBody>
+            </MDBCollapse>
+          </MDBCard>
 
-          <Card>
-            <CollapseHeader onClick={this.toggleCollapse("collapse3")}>
+          <MDBCard>
+            <MDBCollapseHeader onClick={this.toggleCollapse("collapse3")}>
               Collapsible Group Item #3
               <i
                 className={
@@ -88,9 +80,9 @@ class CollapsePage extends Component {
                     : "fa fa-angle-down"
                 }
               />
-            </CollapseHeader>
-            <Collapse id="collapse3" isOpen={collapseID}>
-              <CardBody>
+            </MDBCollapseHeader>
+            <MDBCollapse id="collapse3" isOpen={collapseID}>
+              <MDBCardBody>
                 Anim pariatur cliche reprehenderit, enim eiusmod high life
                 accusamus terry richardson ad squid. 3 wolf moon officia aute,
                 non cupidatat skateboard dolor brunch. Food truck quinoa
@@ -101,11 +93,11 @@ class CollapsePage extends Component {
                 excepteur butcher vice lomo. Leggings occaecat craft beer
                 farm-to-table, raw denim aesthetic synth nesciunt you probably
                 haven&apos;t heard of them accusamus labore sustainable VHS.
-              </CardBody>
-            </Collapse>
-          </Card>
-        </Container>
-      </Container>
+              </MDBCardBody>
+            </MDBCollapse>
+          </MDBCard>
+        </MDBContainer>
+      </MDBContainer>
     );
   }
 }

@@ -77,6 +77,7 @@ class Option extends React.Component {
       disabled,
       icon,
       triggerOptionClick,
+      value,
       ...attributes
     } = this.props;
 
@@ -89,7 +90,7 @@ class Option extends React.Component {
         input = (
           <input
             type="checkbox"
-            value={this.props.value}
+            value={value}
             onChange={() => false}
             className="form-check-input"
             checked={this.state.checked}
@@ -135,18 +136,22 @@ class Option extends React.Component {
 
 Option.propTypes = {
   children: PropTypes.node,
+  checked: PropTypes.bool,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   icon: PropTypes.string,
-  triggerOptionClick: PropTypes.func
+  triggerOptionClick: PropTypes.func,
+  value: PropTypes.any,
 };
 
 Option.defaultProps = {
   children: "span",
+  checked: false,
   className: "",
   disabled: false,
   icon: "",
-  triggerOptionClick: () => {}
+  triggerOptionClick: () => {},
+  value: ""
 };
 
 export default (Option = selectContextHOC(Option));

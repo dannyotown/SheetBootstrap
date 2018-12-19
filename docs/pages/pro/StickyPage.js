@@ -1,5 +1,5 @@
 import React from "react";
-import { Sticky, StickyContainer, Container } from "mdbreact";
+import { MDBSticky, MDBStickyContent, MDBContainer } from "mdbreact";
 import DocsLink from "../DocsLink";
 
 class StickyPage extends React.Component {
@@ -28,23 +28,18 @@ class StickyPage extends React.Component {
       float: "left"
     };
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
-          title="Sticky"
-          href="https://mdbootstrap.com/docs/react/advanced/sticky/"
+          title="Streak"
+          href="https://mdbootstrap.com/plugins/react/streak/"
         />
         <div style={wrapper} className="mt-4">
           <div style={background}>
             <div style={mainWrapper}>
-              <StickyContainer style={{ background: "#fff", height: "465px" }}>
-                <Sticky>
+              <MDBStickyContent style={{ background: "#fff", height: "465px" }}>
+                <MDBSticky>
                   {({
-                    isSticky,
-                    wasSticky,
                     style,
-                    distanceFromTop,
-                    distanceFromBottom,
-                    calculatedHeight
                   }) => {
                     return (
                       <div
@@ -53,13 +48,13 @@ class StickyPage extends React.Component {
                         }}
                       >
                         <div style={headerStyle}>
-                          <h1>Sticky Content demo</h1>
+                          <h1>MDBSticky Content demo</h1>
                           <h4>Scroll down to see the effect</h4>
                         </div>
                       </div>
                     );
                   }}
-                </Sticky>
+                </MDBSticky>
                 <div style={sidebar}>
                   <h2>Static Widget</h2>
                   <p>
@@ -101,7 +96,7 @@ class StickyPage extends React.Component {
                     Etiam interdum luctus eros sed pretium.
                   </p>
                 </div>
-              </StickyContainer>
+              </MDBStickyContent>
               <div style={sidebar}>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
@@ -113,8 +108,8 @@ class StickyPage extends React.Component {
                   interdum luctus eros sed pretium. Proin turpis odio, viverra
                   et tincidunt nec, tincidunt sed nisl.
                 </p>
-                <StickyContainer style={{ height: "2200px" }}>
-                  <Sticky>
+                <MDBStickyContent style={{ height: "2200px" }}>
+                  <MDBSticky>
                     {({
                       isSticky,
                       wasSticky,
@@ -123,7 +118,6 @@ class StickyPage extends React.Component {
                       distanceFromBottom,
                       calculatedHeight
                     }) => {
-                      // console.log({ isSticky, wasSticky, style, distanceFromTop, distanceFromBottom, calculatedHeight });
 
                       return (
                         <div
@@ -132,7 +126,7 @@ class StickyPage extends React.Component {
                           }}
                         >
                           <div style={headerStyle}>
-                            <h2>Sticky Widget</h2>
+                            <h2>MDBSticky Widget</h2>
                             <p>
                               Lorem ipsum dolor sit amet, consectetur adipiscing
                               elit. Etiam interdum luctus eros sed pretium.
@@ -143,7 +137,7 @@ class StickyPage extends React.Component {
                         </div>
                       );
                     }}
-                  </Sticky>
+                  </MDBSticky>
                   <h2 className="mt-3">Static Widget</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -160,7 +154,7 @@ class StickyPage extends React.Component {
                     Etiam interdum luctus eros sed pretium. Proin turpis odio,
                     viverra et tincidunt nec, tincidunt sed nisl.
                   </p>
-                </StickyContainer>
+                </MDBStickyContent>
               </div>
               <div style={article}>
                 <p>
@@ -282,8 +276,8 @@ class StickyPage extends React.Component {
               </div>
 
               <div style={sidebar}>
-                <StickyContainer style={{ height: "2520px" }}>
-                  <Sticky>
+                <MDBStickyContent style={{ height: "2520px" }}>
+                  <MDBSticky>
                     {({
                       isSticky,
                       wasSticky,
@@ -301,7 +295,7 @@ class StickyPage extends React.Component {
                           }}
                         >
                           <div style={headerStyle}>
-                            <h2>Sticky Widget</h2>
+                            <h2>MDBSticky Widget</h2>
                             <p>
                               Lorem ipsum dolor sit amet, consectetur adipiscing
                               elit. Etiam interdum luctus eros sed pretium.
@@ -318,19 +312,19 @@ class StickyPage extends React.Component {
                         </div>
                       );
                     }}
-                  </Sticky>
+                  </MDBSticky>
                   <h2 className="mt-5">Static Widget</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Etiam interdum luctus eros sed pretium. Proin turpis odio,
                     viverra et tincidunt nec, tincidunt sed nisl.
                   </p>
-                </StickyContainer>
+                </MDBStickyContent>
               </div>
             </div>
           </div>
         </div>
-      </Container>
+      </MDBContainer>
     );
   }
 }

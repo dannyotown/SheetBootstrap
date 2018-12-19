@@ -33,7 +33,7 @@ class Select extends React.Component {
         this.props.getTextContent(this.state.selectTextContent);
       }
 
-      
+
     }
 
     if (this.props.options !== prevProps.options) {
@@ -50,15 +50,25 @@ class Select extends React.Component {
     document.removeEventListener("click", this.onClick);
   }
 
-  renderPreselectedOptions = () => {
-    const preselected = this.state.options
+  computeValuesAndText = (options) => {
+    let checkedOptions = options
       .filter(option => option.checked)
-      .map(option => option.value);
-    this.setState({
-      selectValue: preselected,
-      selectTextContent: (preselected.length ? preselected.join(", ") : this.props.selected)
-    });
-  };
+      .map(option => ({
+        value: option.value,
+        text: option.text
+      }));
+
+    let checkedValues = checkedOptions.map(opt => opt.value);
+    let checkedTexts = checkedOptions.map(opt => opt.text ? opt.text : opt.value);
+
+    return {
+      selectValue: checkedValues,
+      selectTextContent: (checkedTexts.length ? checkedTexts.join(", ") : this.props.selected),
+      options
+    };
+  }
+
+  renderPreselectedOptions = () => this.setState(prevState => this.computeValuesAndText([...prevState.options]));
 
   triggerOptionChange = (value, text) => {
     Array.isArray(text) && (text = text.join(", "));
@@ -103,7 +113,7 @@ class Select extends React.Component {
 
       return {
         selectValue: [options[optionIndex].value],
-        selectTextContent: options[optionIndex].value,
+        selectTextContent: options[optionIndex].text,
         options
       };
     });
@@ -114,16 +124,8 @@ class Select extends React.Component {
       let options = [...prevState.options];
       const optionIndex = options.findIndex(option => option.value === value);
       options[optionIndex].checked = !prevState.options[optionIndex].checked;
-      
-      let checkedOptions = options
-        .filter(option => option.checked)
-        .map(option => option.value);
 
-      return {
-        selectValue: checkedOptions,
-        selectTextContent: (checkedOptions.length ? checkedOptions.join(", ") : this.props.selected),
-        options
-      };
+      return this.computeValuesAndText(options);
     });
   };
 
@@ -216,6 +218,7 @@ Select.propTypes = {
       checked: PropTypes.bool,
       disabled: PropTypes.bool,
       icon: PropTypes.string,
+      text: PropTypes.string,
       value: PropTypes.string
     })
   ),

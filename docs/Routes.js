@@ -51,6 +51,7 @@ import SearchPage from "./pages/SearchPage";
 import ValidationPage from "./pages/ValidationPage";
 import NavbarPage from "./pages/NavbarPage";
 import IframePage from "./pages/IframePage";
+import EdgeHeaderPage from "./pages/EdgeHeaderPage"
 
 // PRO
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -102,6 +103,9 @@ import ModalFormProPage from "./pages/pro/ModalFormPage";
 import HabmburgerMenuPage from "./pages/pro/HabmburgerMenuPage";
 import TimelinePage from "./pages/pro/TimelinePage";
 import SliderPage from "./pages/pro/SliderPage";
+import StreakPage from "./pages/pro/StreakPage";
+import ValidationPagePro from "./pages/pro/ValidationPage";
+import FlippingCardsPage from "./pages/pro/FlippingCardsPage";
 
 class Routes extends React.Component {
   render() {
@@ -161,7 +165,9 @@ class Routes extends React.Component {
         <Route path="/tables/datatable" component={DatatablePage} />
         <Route path="/tables/datatable-api" component={DatatableApiPage} />
         <Route path="/addons/iframe" component={IframePage} />
+        <Route path="/addons/edge-header" component={EdgeHeaderPage} />
         <Route path="/advanced/alerts" component={AlertPage} />
+        <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
         {/* PRO */}
         <Route path="/addons/pro/chat" component={ChatPage} />
         <Route
@@ -185,6 +191,7 @@ class Routes extends React.Component {
           component={MultiCarouselPage}
         />
         <Route path="/addons/pro/timeline" component={TimelinePage} />
+        <Route path="/addons/pro/streak" component={StreakPage} />
         <Route path="/components/pro/spinner" component={SpinnerPage} />
         <Route path="/advanced/pro/scrollbar" component={ScrollBarPage} />
         <Route path="/navigation/pro/scrollspy" component={ScrollSpyPage} />
@@ -204,6 +211,7 @@ class Routes extends React.Component {
           component={SocialButtonsPage}
         />
         <Route path="/forms/pro/forms" component={FormsPagePro} />
+        <Route path="/forms/pro/validation" component={ValidationPagePro} />
         <Route path="/components/pro/cards" component={CardsPagePro} />
         <Route path="/components/pro/search" component={SearchPagePro} />
         <Route path="/navigation/pro/footer" component={FooterPagePro} />

@@ -1,163 +1,64 @@
 import React from "react";
-import { Container, Row, Col } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import Lightbox from "react-image-lightbox";
 import DocsLink from "../DocsLink";
 import "./Lightbox.css";
 
-const images = [
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg"
-];
-
-const smallImages = [
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(117).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(98).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(131).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(123).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(118).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(128).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(132).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(115).jpg",
-  "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(133).jpg"
-];
-
 class LightboxPage extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    photoIndex: 0,
+    isOpen: false,
+     images: [
+      'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg',
+      'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg',
+      'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg',
+      'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg',
+      'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg',
+      'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg',
+      'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg',
+      'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg',
+      'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg'
+    ]
+  }
 
-    this.state = {
-      photoIndex: 0,
-      isOpen: false
-    };
+  renderImages = () => {
+    let photoIndex = -1;
+    const { images } = this.state;
+
+    return images.map(imageSrc => {
+      photoIndex++;
+      const privateKey = photoIndex;
+      return (
+      <MDBCol md="4" key={photoIndex}>
+        <figure>
+          <img
+            src={imageSrc}
+            alt="Gallery"
+            className="img-fluid"
+            onClick={() =>
+              this.setState({ photoIndex: privateKey, isOpen: true })
+            }
+          />
+        </figure>
+      </MDBCol>
+      );
+    })
+
   }
 
   render() {
-    const { photoIndex, isOpen } = this.state;
+    const { photoIndex, isOpen, images } = this.state;
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Lightbox"
           href="https://mdbootstrap.com/docs/react/advanced/lightbox/"
         />
-        <Container className="mt-5">
+        <MDBContainer className="mt-5">
           <div className="mdb-lightbox no-margin">
-            <Row>
-              <Col md="4">
-                <figure>
-                  <img
-                    src={smallImages[0]}
-                    alt="Gallery"
-                    className="img-fluid"
-                    onClick={() =>
-                      this.setState({ photoIndex: 0, isOpen: true })
-                    }
-                  />
-                </figure>
-              </Col>
-              <Col md="4">
-                <figure>
-                  <img
-                    src={smallImages[1]}
-                    alt="Gallery"
-                    className="img-fluid"
-                    onClick={() =>
-                      this.setState({ photoIndex: 1, isOpen: true })
-                    }
-                  />
-                </figure>
-              </Col>
-              <Col md="4">
-                <figure>
-                  <img
-                    src={smallImages[2]}
-                    alt="Gallery"
-                    className="img-fluid"
-                    onClick={() =>
-                      this.setState({ photoIndex: 2, isOpen: true })
-                    }
-                  />
-                </figure>
-              </Col>
-              <Col md="4">
-                <figure>
-                  <img
-                    src={smallImages[3]}
-                    alt="Gallery"
-                    className="img-fluid"
-                    onClick={() =>
-                      this.setState({ photoIndex: 3, isOpen: true })
-                    }
-                  />
-                </figure>
-              </Col>
-              <Col md="4">
-                <figure>
-                  <img
-                    src={smallImages[4]}
-                    alt="Gallery"
-                    className="img-fluid"
-                    onClick={() =>
-                      this.setState({ photoIndex: 4, isOpen: true })
-                    }
-                  />
-                </figure>
-              </Col>
-              <Col md="4">
-                <figure>
-                  <img
-                    src={smallImages[5]}
-                    alt="Gallery"
-                    className="img-fluid"
-                    onClick={() =>
-                      this.setState({ photoIndex: 5, isOpen: true })
-                    }
-                  />
-                </figure>
-              </Col>
-              <Col md="4">
-                <figure>
-                  <img
-                    src={smallImages[6]}
-                    alt="Gallery"
-                    className="img-fluid"
-                    onClick={() =>
-                      this.setState({ photoIndex: 6, isOpen: true })
-                    }
-                  />
-                </figure>
-              </Col>
-              <Col md="4">
-                <figure>
-                  <img
-                    src={smallImages[7]}
-                    alt="Gallery"
-                    className="img-fluid"
-                    onClick={() =>
-                      this.setState({ photoIndex: 7, isOpen: true })
-                    }
-                  />
-                </figure>
-              </Col>
-              <Col md="4">
-                <figure>
-                  <img
-                    src={smallImages[8]}
-                    alt="Gallery"
-                    className="img-fluid"
-                    onClick={() =>
-                      this.setState({ photoIndex: 8, isOpen: true })
-                    }
-                  />
-                </figure>
-              </Col>
-            </Row>
+            <MDBRow>
+              {this.renderImages()}
+            </MDBRow>
           </div>
           {isOpen && (
             <Lightbox
@@ -178,8 +79,8 @@ class LightboxPage extends React.Component {
               }
             />
           )}
-        </Container>
-      </Container>
+        </MDBContainer>
+      </MDBContainer>
     );
   }
 }

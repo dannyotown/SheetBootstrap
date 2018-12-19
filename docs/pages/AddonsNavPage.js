@@ -16,6 +16,18 @@ class ComponentsPage extends React.Component {
                 <h6 className="mt-3 grey-text">FREE </h6>
                 <NavLink
                   className="list-group-item list-group-item-action"
+                  to="/addons/edge-header"
+                >
+                  <h5
+                    style={{ margin: "0" }}
+                    className="justify-content-between d-flex align-items-center"
+                  >
+                    Edge Header
+                    <Fa icon="angle-right" />
+                  </h5>
+                </NavLink>
+                <NavLink
+                  className="list-group-item list-group-item-action"
                   to="/addons/iframe"
                 >
                   <h5
@@ -41,6 +53,18 @@ class ComponentsPage extends React.Component {
                 </NavLink>
                 <NavLink
                   className="list-group-item list-group-item-action"
+                  to="/addons/pro/flipping-cards"
+                >
+                  <h5
+                    style={{ margin: "0" }}
+                    className="justify-content-between d-flex align-items-center"
+                  >
+                    Flipping Cards
+                    <Fa icon="angle-right" />
+                  </h5>
+                </NavLink>
+                <NavLink
+                  className="list-group-item list-group-item-action"
                   to="/addons/pro/notification"
                 >
                   <h5
@@ -48,6 +72,18 @@ class ComponentsPage extends React.Component {
                     className="justify-content-between d-flex align-items-center"
                   >
                     Notifications
+                    <Fa icon="angle-right" />
+                  </h5>
+                </NavLink>
+                <NavLink
+                  className="list-group-item list-group-item-action"
+                  to="/addons/pro/streak"
+                >
+                  <h5
+                    style={{ margin: "0" }}
+                    className="justify-content-between d-flex align-items-center"
+                  >
+                    Streak
                     <Fa icon="angle-right" />
                   </h5>
                 </NavLink>

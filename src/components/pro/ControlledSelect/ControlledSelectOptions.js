@@ -83,6 +83,7 @@ ControlledSelectOptions.propTypes = {
       checked: PropTypes.bool,
       disabled: PropTypes.bool,
       icon: PropTypes.string,
+      text: PropTypes.string,
       value: PropTypes.string
     })
   ),
