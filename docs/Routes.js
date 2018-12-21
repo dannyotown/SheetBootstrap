@@ -53,9 +53,8 @@ import NavbarPage from "./pages/NavbarPage";
 import IframePage from "./pages/IframePage";
 import EdgeHeaderPage from "./pages/EdgeHeaderPage"
 
-// PRO
+// PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
-
 import MaterialDropdownPage from "./pages/pro/DropdownPage";
 import AutocompletePage from "./pages/pro/AutocompletePage";
 import ButtonPagePro from "./pages/pro/ButtonPage";
@@ -106,6 +105,7 @@ import SliderPage from "./pages/pro/SliderPage";
 import StreakPage from "./pages/pro/StreakPage";
 import ValidationPagePro from "./pages/pro/ValidationPage";
 import FlippingCardsPage from "./pages/pro/FlippingCardsPage";
+// PRO-END
 
 class Routes extends React.Component {
   render() {
@@ -120,7 +120,6 @@ class Routes extends React.Component {
         <Route exact path="/tables" component={TablesNavPage} />
         <Route exact path="/modals" component={ModalsNavPage} />
         <Route exact path="/addons" component={AddonsNavPage} />
-        <Route exact path="/sections" component={SectionsNavPage} />
 
         {/* FREE */}
         <Route path="/css/animations" component={AnimationPage} />
@@ -168,7 +167,8 @@ class Routes extends React.Component {
         <Route path="/addons/edge-header" component={EdgeHeaderPage} />
         <Route path="/advanced/alerts" component={AlertPage} />
         <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
-        {/* PRO */}
+        {/* PRO-START */}
+        <Route exact path="/sections" component={SectionsNavPage} />
         <Route path="/addons/pro/chat" component={ChatPage} />
         <Route
           path="/components/pro/dropdown"
@@ -219,7 +219,6 @@ class Routes extends React.Component {
         <Route path="/components/pro/stepper" component={StepperPage} />
         <Route path="/tables/pro/datatable-csv" component={DatatableCsvPage} />
         <Route path="/modals/pro/modal-form" component={ModalFormProPage} />
-        {/* PRO SECTIONS */}
         <Route path="/sections/testimonials" component={TestimonialsPage} />
         <Route
           path="/sections/testimonialsMulti"
@@ -240,8 +239,9 @@ class Routes extends React.Component {
         <Route path="/sections/team" component={TeamPage} />
         <Route path="/sections/magazine" component={MagazinePage} />
         <Route path="/sections/social" component={SocialPage} />
+        {/* PRO-END */}
         <Route
-          render={function() {
+          render={function () {
             return <h1>Not Found</h1>;
           }}
         />

@@ -72,7 +72,7 @@ import { toast, ToastContainer, cssTransition } from "react-toastify";
 import HamburgerToggler from "./components/HamburgerToggler";
 import Iframe from "./components/Iframe";
 
-// PRO
+// PRO-START
 import Autocomplete from "./components/pro/Autocomplete";
 import Avatar from "./components/pro/Avatar";
 import ButtonFixed from "./components/pro/ButtonFixed";
@@ -115,6 +115,7 @@ import Testimonial from "./components/pro/Testimonial";
 import Timeline from "./components/pro/Timeline";
 import TimelineStep from "./components/pro/TimelineStep";
 import TimePicker from './components/pro/TimePicker/TimePicker';
+// PRO-END
 
 // MDB FREE
 import {MDBBadge} from "./components/Badge";
@@ -186,7 +187,7 @@ import {MDBTextarea} from "./components/TextField";
 import {MDBTooltip} from "./components/Tooltip";
 import {MDBView} from "./components/View";
 
-// MDB PRO
+// PRO-START
 // import {MDBAnimation} from './components/Animation';
 import {MDBAutocomplete} from "./components/pro/Autocomplete";
 import {MDBAvatar} from "./components/pro/Avatar";
@@ -231,17 +232,25 @@ import {MDBTestimonial} from "./components/pro/Testimonial";
 import {MDBTimeline} from "./components/pro/Timeline";
 import {MDBTimelineStep} from "./components/pro/TimelineStep";
 import MDBStreak from './components/pro/Streak';
+// PRO-END
 
 let Dropdown = require("./components/Dropdown").default;
 let DropdownMenuComponent = require("./components/DropdownMenuComponent")
   .default;
+
+// PRO-START
 DropdownMenuComponent = require("./components/pro/DropdownMenuProComponent")
   .default;
+// PRO-END
+
 let MDBDropdown = require("./components/Dropdown").default;
 let MDBDropdownMenuComponent = require("./components/DropdownMenuComponent")
   .default;
+
+// PRO-END
 MDBDropdownMenuComponent = require("./components/pro/DropdownMenuProComponent")
   .default;
+// PRO-END
 
 export  {
   // FREE
@@ -321,7 +330,7 @@ export  {
   cssTransition,
   HamburgerToggler,
   Iframe,
-  // PRO
+  // PRO-START
   Autocomplete,
   Avatar,
   ButtonFixed,
@@ -364,7 +373,7 @@ export  {
   Timeline,
   TimelineStep,
   TimePicker,
-  // MDB FREE
+  // PRO-END
   MDBBadge,
   MDBAlert,
   MDBBreadcrumb,
@@ -435,7 +444,7 @@ export  {
   MDBTextarea,
   MDBTooltip,
   MDBView,
-  // MDB PRO
+  // PRO-START
   MDBAutocomplete,
   MDBAvatar,
   MDBBtnFixed,
@@ -479,4 +488,5 @@ export  {
   MDBTimeline,
   MDBTimelineStep,
   MDBStreak
+  // PRO-END
 };

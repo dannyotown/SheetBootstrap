@@ -132,7 +132,7 @@ class App extends Component {
                     Addons
                   </NavLink>
                 </NavItem>
-                {/* PRO */}
+                {/* PRO-START */}
                 <NavItem>
                   <NavLink
                     onClick={this.closeCollapse("mainNavbarCollapse")}
@@ -141,6 +141,7 @@ class App extends Component {
                     Sections
                   </NavLink>
                 </NavItem>
+                {/* PRO-END */}
               </NavbarNav>
             </Collapse>
           </Navbar>
