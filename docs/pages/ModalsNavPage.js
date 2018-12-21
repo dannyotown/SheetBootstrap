@@ -50,6 +50,7 @@ class ComponentsPage extends React.Component {
                     <Fa icon="angle-right" />
                   </h5>
                 </NavLink>
+                {/* PRO-START */}
                 <h6 className="mt-3 grey-text">PRO</h6>
                 <NavLink
                   className="list-group-item list-group-item-action"
@@ -63,6 +64,7 @@ class ComponentsPage extends React.Component {
                     <Fa icon="angle-right" />
                   </h5>
                 </NavLink>
+                {/* PRO-END */}
               </ul>
             </Jumbotron>
           </Col>
