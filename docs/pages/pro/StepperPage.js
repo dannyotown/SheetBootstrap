@@ -108,7 +108,7 @@ class StepperPage extends Component {
             <MDBStep className="warning">
               <a href="#!">
                 <span className="circle">
-                  <MDBIcon icon="warning" />
+                  <MDBIcon icon="exclamation-triangle" />
                 </span>
                 <span className="label">Third step</span>
               </a>
@@ -279,17 +279,17 @@ class StepperPage extends Component {
               </h2>
               <MDBStepper icon>
                 <MDBStep
-                  icon="folder-open-o"
+                  icon="folder-open"
                   stepName="Basic Information"
                   onClick={this.swapFormActive(2)(1)}
                 />
                 <MDBStep
-                  icon="pencil"
+                  icon="pencil-alt"
                   stepName="Personal Data"
                   onClick={this.swapFormActive(2)(2)}
                 />
                 <MDBStep
-                  icon="photo"
+                  icon="image"
                   stepName="Terms and Conditions"
                   onClick={this.swapFormActive(2)(3)}
                 />
@@ -431,19 +431,19 @@ class StepperPage extends Component {
                 <MDBCol md="2" className="pl-5 pl-md-0 pb-5">
                   <MDBStepper icon vertical>
                     <MDBStep
-                      icon="folder-open-o"
+                      icon="folder-open"
                       stepName="Basic Information"
                       onClick={this.swapFormActive(3)(1)}
                       vertical
                     />
                     <MDBStep
-                      icon="pencil"
+                      icon="pencil-alt"
                       stepName="Personal Data"
                       onClick={this.swapFormActive(3)(2)}
                       vertical
                     />
                     <MDBStep
-                      icon="photo"
+                      icon="image"
                       stepName="Terms and Conditions"
                       onClick={this.swapFormActive(3)(3)}
                       vertical
