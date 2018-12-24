@@ -102,7 +102,7 @@ class TabsPage extends React.Component {
                     }}
                     role="tab"
                   >
-                    Follow
+                    <MDBIcon icon="heart" /> Follow
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
@@ -116,7 +116,7 @@ class TabsPage extends React.Component {
                     }}
                     role="tab"
                   >
-                    Contact
+                    <MDBIcon icon="envelope" /> Contact
                   </MDBNavLink>
                 </MDBNavItem>
               </MDBNav>
@@ -286,7 +286,7 @@ class TabsPage extends React.Component {
                         }}
                       >
                         Orders & invoices
-                        <MDBIcon icon="file-text" className="ml-2" />
+                        <MDBIcon icon="file-alt" className="ml-2" />
                       </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
@@ -399,7 +399,7 @@ class TabsPage extends React.Component {
                             }}
                           >
                             Orders & invoices
-                            <MDBIcon icon="file-text" className="ml-2" />
+                            <MDBIcon icon="file-alt" className="ml-2" />
                           </MDBNavLink>
                         </MDBNavItem>
                         <MDBNavItem>
