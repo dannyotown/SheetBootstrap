@@ -341,10 +341,10 @@ const ButtonPage = props => {
               </div>
               <div className="btn-toolbar" role="toolbar" >
                 <MDBBtnGroup className="mr-2">
-                  <MDBBtn color="indigo lighten-2"><MDBIcon icon="start" /></MDBBtn>
+                  <MDBBtn color="indigo lighten-2"><MDBIcon icon="hourglass-start" /></MDBBtn>
                   <MDBBtn color="blue lighten-2"><MDBIcon icon="heart" /></MDBBtn>
                   <MDBBtn color="light-blue lighten-2"><MDBIcon icon="user" /></MDBBtn>
-                  <MDBBtn color="cyan lighten-2"><MDBIcon icon="twitter" /></MDBBtn>
+                  <MDBBtn color="cyan lighten-2"><MDBIcon icon="twitter" brand /></MDBBtn>
                 </MDBBtnGroup>
               </div>
             </MDBCol>
