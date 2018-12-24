@@ -65,6 +65,7 @@ class ControlledSelectOptions extends Component {
             disabled={option.disabled}
             multiple={multiple}
             icon={option.icon}
+            text={option.text}
             value={option.value}
             selectOption={selectOption}
           />

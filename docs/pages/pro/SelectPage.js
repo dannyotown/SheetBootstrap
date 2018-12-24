@@ -17,25 +17,29 @@ class SelectPage extends React.Component {
         checked: false,
         disabled: false,
         icon: null,
-        value: "Option one"
+        text: "Option One",
+        value: "1"
       },
       {
         checked: false,
         disabled: false,
         icon: null,
-        value: "Option two"
-      },
-      {
-        checked: true,
-        disabled: false,
-        icon: null,
-        value: "Option three"
+        text: "Option two",
+        value: "2"
       },
       {
         checked: false,
         disabled: false,
         icon: null,
-        value: "Option four"
+        text: "Option three",
+        value: "3"
+      },
+      {
+        checked: false,
+        disabled: false,
+        icon: null,
+        text: "Option four",
+        value: "4"
       }
     ]
   };
