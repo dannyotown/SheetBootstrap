@@ -70,7 +70,7 @@ class HomePage extends React.Component {
               <Row id="categories">
                 <Col md="4" className="mb-5">
                   <Col size="2" md="2" className="float-left">
-                    <Fa icon="css3" className="pink-text" size="2x" />
+                    <Fa icon="css3" brand className="pink-text" size="2x" />
                   </Col>
                   <Col size="10" md="8" lg="10" className="float-right">
                     <h4 className="font-weight-bold">CSS</h4>
@@ -207,7 +207,7 @@ class HomePage extends React.Component {
                 </Col>
                 <Col md="4" className="mb-5">
                   <Col size="2" md="2" className="float-left">
-                    <Fa icon="arrows" className="blue-text" size="2x" />
+                    <Fa icon="arrows-alt" className="blue-text" size="2x" />
                   </Col>
                   <Col size="10" md="8" lg="10" className="float-right">
                     <h4 className="font-weight-bold">EXTENDED</h4>
