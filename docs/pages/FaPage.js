@@ -26,7 +26,7 @@ const FaPage = props => {
           <Fa icon="camera-retro" size="5x" />
         </p>
         <p>
-          <Fa icon="camera-retro" size="5x" />
+          <Fa icon="camera-retro" size="10x" />
         </p>
         <p>
           <Fa icon="quote-left" size="5x" border />
@@ -44,16 +44,10 @@ const FaPage = props => {
           <Fa icon="spinner" size="5x" pulse />
         </p>
         <p>
-          <Fa icon="circle-o-notch" size="5x" spin />
+          <Fa icon="circle-notch" size="5x" spin />
         </p>
         <p>
-          <Fa icon="refresh" size="5x" spin />
-        </p>
-        <p>
-          <Fa icon="circle-o-notch" size="5x" spin fixed />
-        </p>
-        <p>
-          <Fa icon="refresh" size="5x" spin fixed />
+          <Fa icon="sync" size="5x" spin />
         </p>
         <p>
           <Fa icon="camera-retro" size="5x" rotate="90" />
