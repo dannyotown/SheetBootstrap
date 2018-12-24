@@ -167,7 +167,7 @@ class FlippingCardPage extends React.Component {
                 <div className="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
                   <div>
                     <h5 className="pink-text">
-                      <Fa icon="pie-chart" /> Marketing
+                      <Fa icon="chart-pie" /> Marketing
                     </h5>
                     <CardTitle tag="h3" className="pt-2">
                       <strong>This is card title</strong>
@@ -250,7 +250,7 @@ class FlippingCardPage extends React.Component {
                       data-card="card-1"
                       onClick={this.handleFlipping}
                     >
-                      <Fa icon="repeat" /> Click here to rotate
+                      <Fa icon="redo" /> Click here to rotate
                     </a>
                   </CardBody>
                 </Card>
@@ -268,22 +268,22 @@ class FlippingCardPage extends React.Component {
                     <ul className="list-inline py-2">
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg fb-ic">
-                          <Fa icon="facebook" />
+                          <Fa icon="facebook" brand />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg tw-ic">
-                          <Fa icon="twitter" />
+                          <Fa icon="twitter" brand />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg gplus-ic">
-                          <Fa icon="google-plus" />
+                          <Fa icon="google-plus" brand />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg li-ic">
-                          <Fa icon="linkedin" />
+                          <Fa icon="linkedin" brand />
                         </a>
                       </li>
                     </ul>
@@ -330,23 +330,21 @@ class FlippingCardPage extends React.Component {
                 <div className="rounded-bottom mdb-color lighten-3 text-center pt-3">
                   <ul className="list-unstyled list-inline font-small">
                     <li className="list-inline-item pr-2 white-text">
-                      <Fa icon="clock-o" /> 05/10/2015
+                      <Fa icon="clock" /> 05/10/2015
                     </li>
                     <li className="list-inline-item pr-2">
                       <a href="#!" className="white-text">
-                        <Fa icon="comments-o" />
-                        12
+                        <Fa icon="comments" /> 12
                       </a>
                     </li>
                     <li className="list-inline-item pr-2">
                       <a href="#!" className="white-text">
-                        <Fa icon="facebook"> </Fa>
-                        21
+                        <Fa icon="facebook" brand /> 21
                       </a>
                     </li>
                     <li className="list-inline-item">
                       <a href="#!" className="white-text">
-                        <Fa icon="twitter"> </Fa>5
+                        <Fa icon="twitter" brand /> 5
                       </a>
                     </li>
                   </ul>
