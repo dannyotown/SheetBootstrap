@@ -6,14 +6,17 @@ class Fa extends React.Component {
   render() {
     const {
       border,
+      brand,
       className,
       fixed,
       flip,
       icon,
       inverse,
+      light,
       list,
       pull,
       pulse,
+      regular,
       rotate,
       size,
       spin,
@@ -21,9 +24,11 @@ class Fa extends React.Component {
       ...attributes
     } = this.props;
 
+    const iconPrefix = brand ? "fab" : light ? "fal" : regular ? "far" : "fa";
+
     const classes = classNames(
+      iconPrefix,
       list ? "fa-li" : false,
-      "fa",
       icon ? `fa-${icon}` : false,
       size ? `fa-${size}` : false,
       fixed ? "fa-fw" : false,
@@ -43,20 +48,41 @@ class Fa extends React.Component {
 }
 
 Fa.propTypes = {
+  icon: PropTypes.string.isRequired,
   border: PropTypes.bool,
+  brand: PropTypes.bool,
   className: PropTypes.string,
   fixed: PropTypes.bool,
   flip: PropTypes.string,
-  icon: PropTypes.string,
   inverse: PropTypes.string,
+  light: PropTypes.bool,
   list: PropTypes.bool,
   pull: PropTypes.string,
   pulse: PropTypes.bool,
+  regular: PropTypes.bool,
   rotate: PropTypes.string,
   spin: PropTypes.bool,
   size: PropTypes.string,
   stack: PropTypes.string
 };
+
+Fa.defaultProps = {
+  border: false,
+  brand: false,
+  className: "",
+  fixed: false,
+  flip: "", 
+  inverse: "",
+  light: false,
+  list: false,
+  pull: "",
+  pulse: false,
+  regular: false,
+  rotate: "",
+  spin: false,
+  size: "",
+  stack: ""
+}
 
 export default Fa;
 export { Fa as MDBIcon };
