@@ -166,8 +166,8 @@ class Routes extends React.Component {
         <Route path="/addons/iframe" component={IframePage} />
         <Route path="/addons/edge-header" component={EdgeHeaderPage} />
         <Route path="/advanced/alerts" component={AlertPage} />
-        <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
         {/* PRO-START */}
+        <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
         <Route exact path="/sections" component={SectionsNavPage} />
         <Route path="/addons/pro/chat" component={ChatPage} />
         <Route
