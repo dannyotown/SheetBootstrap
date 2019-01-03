@@ -247,7 +247,7 @@ let MDBDropdown = require("./components/Dropdown").default;
 let MDBDropdownMenuComponent = require("./components/DropdownMenuComponent")
   .default;
 
-// PRO-END
+// PRO-START
 MDBDropdownMenuComponent = require("./components/pro/DropdownMenuProComponent")
   .default;
 // PRO-END
