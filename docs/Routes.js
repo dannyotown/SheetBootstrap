@@ -60,6 +60,7 @@ import AutocompletePage from "./pages/pro/AutocompletePage";
 import ButtonPagePro from "./pages/pro/ButtonPage";
 import ChartsPagePro from "./pages/pro/ChartsPage";
 import ChatPage from "./pages/pro/ChatPage";
+import eCommercePage from "./pages/pro/eCommercePage";
 import ChipsPage from "./pages/pro/ChipsPage";
 import InputPagePro from "./pages/pro/InputPage";
 import CollapsePagePro from "./pages/pro/CollapsePage";
@@ -170,6 +171,7 @@ class Routes extends React.Component {
         <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
         <Route exact path="/sections" component={SectionsNavPage} />
         <Route path="/addons/pro/chat" component={ChatPage} />
+        <Route path="/addons/pro/e-commerce-components" component={eCommercePage} />
         <Route
           path="/components/pro/dropdown"
           component={MaterialDropdownPage}
