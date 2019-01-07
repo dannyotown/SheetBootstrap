@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBIcon, MDBBtn, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBNav, MDBNavItem, MDBNavLink, MDBTabPane, MDBTabContent, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions } from "mdbreact";
+import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBIcon, MDBBtn, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBNav, MDBNavItem, MDBNavLink, MDBTabPane, MDBTabContent, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions, MDBCardFooter } from "mdbreact";
 import DocsLink from "../DocsLink";
-import { MDBCardFooter } from "../../../src/components/CardFooter";
 
 class eCommercePage extends Component {
   state={
@@ -103,7 +102,7 @@ class eCommercePage extends Component {
     });
 
     return (
-      <MDBContainer>
+      <MDBContainer className="mb-5">
         <DocsLink
           title="E-commerce components"
           href="https://mdbootstrap.com/plugins/react/e-commerce-components/"
