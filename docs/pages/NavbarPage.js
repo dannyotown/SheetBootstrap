@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Container, Fa } from "mdbreact";
+import { Navbar, NavbarBrand, NavbarNav, NavItem, NavLink, NavbarToggler, Collapse, FormInline, Dropdown, DropdownToggle, DropdownMenu,  DropdownItem, Container, MDBIcon } from "mdbreact";
 
 import DocsLink from "./DocsLink";
 
@@ -287,15 +287,15 @@ class NavbarPage extends React.Component {
               </NavbarNav>
               <NavbarNav right>
                 <NavItem>
-                  <NavLink className="waves-effect waves-light" to="#!"><Fa icon="twitter" /></NavLink>
+                  <NavLink className="waves-effect waves-light" to="#!"><MDBIcon brand icon="twitter" /></NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="waves-effect waves-light" to="#!"><Fa icon="google-plus" /></NavLink>
+                  <NavLink className="waves-effect waves-light" to="#!"><MDBIcon brand icon="google-plus" /></NavLink>
                 </NavItem>
                 <NavItem>
                   <Dropdown>
                     <DropdownToggle nav caret>
-                      <Fa icon="user" />
+                      <MDBIcon icon="user" />
                     </DropdownToggle>
                     <DropdownMenu className="dropdown-default" right>
                       <DropdownItem href="#!">Action</DropdownItem>
@@ -316,15 +316,15 @@ class NavbarPage extends React.Component {
             <Collapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
               <NavbarNav right>
                 <NavItem>
-                  <NavLink className="waves-effect waves-light" to="#!"><Fa icon="envelope" className="mr-1" />Contact</NavLink>
+                  <NavLink className="waves-effect waves-light" to="#!"><MDBIcon icon="envelope" className="mr-1" />Contact</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="waves-effect waves-light" to="#!"><Fa icon="gear" className="mr-1" />Settings</NavLink>
+                  <NavLink className="waves-effect waves-light" to="#!"><MDBIcon icon="cog" className="mr-1" />Settings</NavLink>
                 </NavItem>
                 <NavItem>
                   <Dropdown>
                     <DropdownToggle nav caret>
-                      <Fa icon="user" className="mr-1" />Profile
+                      <MDBIcon icon="user" className="mr-1" />Profile
                     </DropdownToggle>
                     <DropdownMenu className="dropdown-default" right>
                       <DropdownItem href="#!">My account</DropdownItem>
@@ -367,7 +367,7 @@ class NavbarPage extends React.Component {
               </NavbarNav>
               <NavbarNav right>
                 <NavItem>
-                  <NavLink className="waves-effect waves-light d-flex align-items-center" to="#!">1<Fa icon="envelope" className="ml-1" /></NavLink>
+                  <NavLink className="waves-effect waves-light d-flex align-items-center" to="#!">1<MDBIcon icon="envelope" className="ml-1" /></NavLink>
                 </NavItem>
                 <NavItem>
                   <Dropdown>
