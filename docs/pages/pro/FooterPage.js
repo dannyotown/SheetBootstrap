@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
+import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
 import DocsLink from "../DocsLink";
 
 class FooterPagePro extends React.Component {
@@ -106,27 +106,27 @@ class FooterPagePro extends React.Component {
             <ul className="list-unstyled list-inline">
               <li className="list-inline-item">
                 <a href="#!" className="btn-floating btn-sm btn-fb mx-1">
-                  <i className="fa fa-facebook"> </i>
+                  <MDBIcon brand icon="facebook" />
                 </a>
               </li>
               <li className="list-inline-item">
                 <a href="#!" className="btn-floating btn-sm btn-tw mx-1">
-                  <i className="fa fa-twitter"> </i>
+                  <MDBIcon brand icon="twitter" />
                 </a>
               </li>
               <li className="list-inline-item">
                 <a href="#!" className="btn-floating btn-sm btn-gplus mx-1">
-                  <i className="fa fa-google-plus"> </i>
+                  <MDBIcon brand icon="google-plus" />
                 </a>
               </li>
               <li className="list-inline-item">
                 <a href="#!" className="btn-floating btn-sm btn-li mx-1">
-                  <i className="fa fa-linkedin"> </i>
+                  <MDBIcon brand icon="linkedin" />
                 </a>
               </li>
               <li className="list-inline-item">
                 <a href="#!" className="btn-floating btn-sm btn-dribbble mx-1">
-                  <i className="fa fa-dribbble"> </i>
+                  <MDBIcon brand icon="dribbble" />
                 </a>
               </li>
             </ul>
@@ -156,19 +156,19 @@ class FooterPagePro extends React.Component {
                 </MDBCol>
                 <MDBCol md="6" lg="7" className="text-center text-md-right">
                   <a href="#!" className="fb-ic ml-0">
-                    <i className="fa fa-facebook white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="facebook" className="white-text mr-lg-4" />
                   </a>
                   <a href="#!" className="tw-ic">
-                    <i className="fa fa-twitter white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="twitter" className="white-text mr-lg-4" />
                   </a>
                   <a href="#!" className="gplus-ic">
-                    <i className="fa fa-google-plus white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="google-plus" className="white-text mr-lg-4" />
                   </a>
                   <a href="#!" className="li-ic">
-                    <i className="fa fa-linkedin white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="linkedin" className="white-text mr-lg-4" />
                   </a>
                   <a href="#!" className="ins-ic">
-                    <i className="fa fa-instagram white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="instagram" className="white-text mr-lg-4" />
                   </a>
                 </MDBCol>
               </MDBRow>
@@ -241,16 +241,16 @@ class FooterPagePro extends React.Component {
                   style={{ width: "60px" }}
                 />
                 <p>
-                  <i className="fa fa-home mr-3" /> New York, NY 10012, US
+                  <MDBIcon icon="home" className="mr-3" /> New York, NY 10012, US
                 </p>
                 <p>
-                  <i className="fa fa-envelope mr-3" /> info@example.com
+                  <MDBIcon icon="envelope" className="mr-3" /> info@example.com
                 </p>
                 <p>
-                  <i className="fa fa-phone mr-3" /> + 01 234 567 88
+                  <MDBIcon icon="phone" className="mr-3" /> + 01 234 567 88
                 </p>
                 <p>
-                  <i className="fa fa-print mr-3" /> + 01 234 567 89
+                  <MDBIcon icon="print" className="mr-3" /> + 01 234 567 89
                 </p>
               </MDBCol>
             </MDBRow>
@@ -280,19 +280,19 @@ class FooterPagePro extends React.Component {
                 </MDBCol>
                 <MDBCol md="6" lg="7" className="text-center text-md-right">
                   <a href="#!" className="fb-ic ml-0">
-                    <i className="fa fa-facebook white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="facebook" className="white-text mr-lg-4" />
                   </a>
                   <a href="#!" className="tw-ic">
-                    <i className="fa fa-twitter white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="twitter" className="white-text mr-lg-4" />
                   </a>
                   <a href="#!" className="gplus-ic">
-                    <i className="fa fa-google-plus white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="google-plus" className="white-text mr-lg-4" />
                   </a>
                   <a href="#!" className="li-ic">
-                    <i className="fa fa-linkedin white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="linkedin" className="white-text mr-lg-4" />
                   </a>
                   <a href="#!" className="ins-ic">
-                    <i className="fa fa-instagram white-text mr-lg-4"> </i>
+                    <MDBIcon brand icon="instagram" className="white-text mr-lg-4" />
                   </a>
                 </MDBCol>
               </MDBRow>
@@ -381,16 +381,16 @@ class FooterPagePro extends React.Component {
                   style={{ width: "60px" }}
                 />
                 <p>
-                  <i className="fa fa-home mr-3" /> New York, NY 10012, US
+                  <MDBIcon icon="home" className="mr-3" /> New York, NY 10012, US
                 </p>
                 <p>
-                  <i className="fa fa-envelope mr-3" /> info@example.com
+                  <MDBIcon icon="envelope" className="mr-3" /> info@example.com
                 </p>
                 <p>
-                  <i className="fa fa-phone mr-3" /> + 01 234 567 88
+                  <MDBIcon icon="phone" className="mr-3" /> + 01 234 567 88
                 </p>
                 <p>
-                  <i className="fa fa-print mr-3" /> + 01 234 567 89
+                  <MDBIcon icon="print" className="mr-3" /> + 01 234 567 89
                 </p>
               </MDBCol>
             </MDBRow>
@@ -407,33 +407,23 @@ class FooterPagePro extends React.Component {
             <MDBRow>
               <MDBCol md="12" className="py-5">
                 <div className="mb-5 flex-center">
-                  <a href="#!" className="fb-ic">
-                    <i className="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x">
-                      {" "}
-                    </i>
+                  <a href="#!" className="fb-ic ml-0">
+                    <MDBIcon brand icon="facebook" size="2x" className="white-text mr-md-5 mr-3" />
                   </a>
                   <a href="#!" className="tw-ic">
-                    <i className="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x">
-                      {" "}
-                    </i>
+                    <MDBIcon brand icon="twitter" size="2x" className="white-text mr-md-5 mr-3" />
                   </a>
                   <a href="#!" className="gplus-ic">
-                    <i className="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x">
-                      {" "}
-                    </i>
+                    <MDBIcon brand icon="google-plus" size="2x" className="white-text mr-md-5 mr-3" />
                   </a>
                   <a href="#!" className="li-ic">
-                    <i className="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x">
-                      {" "}
-                    </i>
+                    <MDBIcon brand icon="linkedin" size="2x" className="white-text mr-md-5 mr-3" />
                   </a>
                   <a href="#!" className="ins-ic">
-                    <i className="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x">
-                      {" "}
-                    </i>
+                    <MDBIcon brand icon="instagram" size="2x" className="white-text mr-md-5 mr-3" />
                   </a>
                   <a href="#!" className="pin-ic">
-                    <i className="fa fa-pinterest fa-lg white-text fa-2x"> </i>
+                    <MDBIcon brand icon="pinterest" size="2x" className="white-text" />
                   </a>
                 </div>
               </MDBCol>
@@ -501,16 +491,16 @@ class FooterPagePro extends React.Component {
                   Contact
                 </h6>
                 <p>
-                  <i className="fa fa-home mr-3" /> New York, NY 10012, US
+                  <MDBIcon icon="home" className="mr-3" /> New York, NY 10012, US
                 </p>
                 <p>
-                  <i className="fa fa-envelope mr-3" /> info@gmail.com
+                  <MDBIcon icon="envelope" className="mr-3" /> info@example.com
                 </p>
                 <p>
-                  <i className="fa fa-phone mr-3" /> + 01 234 567 88
+                  <MDBIcon icon="phone" className="mr-3" /> + 01 234 567 88
                 </p>
                 <p>
-                  <i className="fa fa-print mr-3" /> + 01 234 567 89
+                  <MDBIcon icon="print" className="mr-3" /> + 01 234 567 89
                 </p>
               </MDBCol>
             </MDBRow>
@@ -527,22 +517,22 @@ class FooterPagePro extends React.Component {
                   <ul className="list-unstyled list-inline">
                     <li className="list-inline-item">
                       <a href="#!" className="btn-floating btn-sm rgba-white-slight mx-1">
-                        <i className="fa fa-facebook" />
+                        <MDBIcon brand icon="facebook" />
                       </a>
                     </li>
                     <li className="list-inline-item">
                       <a href="#!" className="btn-floating btn-sm rgba-white-slight mx-1">
-                        <i className="fa fa-twitter" />
+                        <MDBIcon brand icon="twitter" />
                       </a>
                     </li>
                     <li className="list-inline-item">
                       <a href="#!" className="btn-floating btn-sm rgba-white-slight mx-1">
-                        <i className="fa fa-google-plus" />
+                        <MDBIcon brand icon="google-plus" />
                       </a>
                     </li>
                     <li className="list-inline-item">
                       <a href="#!" className="btn-floating btn-sm rgba-white-slight mx-1">
-                        <i className="fa fa-linkedin" />
+                        <MDBIcon brand icon="linkedin" />
                       </a>
                     </li>
                   </ul>
@@ -601,26 +591,22 @@ class FooterPagePro extends React.Component {
               <MDBCol md="12">
                 <div className="mb-5 flex-center">
                   <a href="#!" className="fb-ic">
-                    <i className="fa fa-facebook fa-lg white-text mr-md-4"> </i>
+                    <MDBIcon brand icon="facebook" size="lg" className="white-text mr-md-4" />
                   </a>
                   <a href="#!" className="tw-ic">
-                    <i className="fa fa-twitter fa-lg white-text mr-md-4"> </i>
+                    <MDBIcon brand icon="twitter" size="lg" className="white-text mr-md-4" />
                   </a>
                   <a href="#!" className="gplus-ic">
-                    <i className="fa fa-google-plus fa-lg white-text mr-md-4">
-
-                    </i>
+                    <MDBIcon brand icon="google-plus" size="lg" className="white-text mr-md-4" />
                   </a>
                   <a href="#!" className="li-ic">
-                    <i className="fa fa-linkedin fa-lg white-text mr-md-4"> </i>
+                    <MDBIcon brand icon="linkedin" size="lg" className="white-text mr-md-4" />
                   </a>
-                  <a  href="#!" className="ins-ic">
-                    <i className="fa fa-instagram fa-lg white-text mr-md-4">
-
-                    </i>
+                  <a href="#!" className="ins-ic">
+                    <MDBIcon brand icon="instagram" size="lg" className="white-text mr-md-4" />
                   </a>
                   <a href="#!" className="pin-ic">
-                    <i className="fa fa-pinterest fa-lg white-text"> </i>
+                    <MDBIcon brand icon="pinterest" size="lg" className="white-text" />
                   </a>
                 </div>
               </MDBCol>
@@ -674,16 +660,16 @@ class FooterPagePro extends React.Component {
                   Address
                 </h5>
                 <p>
-                  <i className="fa fa-home mr-3" /> New York, NY 10012, US
+                  <MDBIcon icon="home" className="mr-3" /> New York, NY 10012, US
                 </p>
                 <p>
-                  <i className="fa fa-envelope mr-3" /> info@example.com
+                  <MDBIcon icon="envelope" className="mr-3" /> info@example.com
                 </p>
                 <p>
-                  <i className="fa fa-phone mr-3" /> + 01 234 567 88
+                  <MDBIcon icon="phone" className="mr-3" /> + 01 234 567 88
                 </p>
                 <p>
-                  <i className="fa fa-print mr-3" /> + 01 234 567 89
+                  <MDBIcon icon="print" className="mr-3" /> + 01 234 567 89
                 </p>
               </MDBCol>
               <hr className="clearfix w-100 d-md-none" />
@@ -693,19 +679,19 @@ class FooterPagePro extends React.Component {
                 </h5>
                 <div className="mt-2 ">
                   <a href="#!" type="button" className="btn-floating btn-small btn-fb">
-                    <i className="fa fa-facebook" />
+                    <MDBIcon brand icon="facebook" />
                   </a>
                   <a href="#!" type="button" className="btn-floating btn-small btn-tw">
-                    <i className="fa fa-twitter" />
+                    <MDBIcon brand icon="twitter" />
                   </a>
                   <a href="#!" type="button" className="btn-floating btn-small btn-gplus">
-                    <i className="fa fa-google-plus" />
+                    <MDBIcon brand icon="google-plus" />
                   </a>
                   <a href="#!"
                     type="button"
                     className="btn-floating btn-small btn-dribbble"
                   >
-                    <i className="fa fa-dribbble" />
+                    <MDBIcon brand icon="dribbble" />
                   </a>
                 </div>
               </MDBCol>
