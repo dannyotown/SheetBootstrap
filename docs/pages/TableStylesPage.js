@@ -311,7 +311,7 @@ const TablePage = props => {
       }
     ]
   };
-
+  // PRO-START
   const data_panel = {
     columns: [
       {
@@ -398,6 +398,7 @@ const TablePage = props => {
       }
     ]
   };
+  // PRO-END
 
   return (
     <Container className="mt-3">
@@ -474,7 +475,7 @@ const TablePage = props => {
           </Card>
         </Col>
       </Row>
-
+      {/* PRO-START */}
       <Row className="py-3">
         <Col md="12">
           <Card narrow>
@@ -541,6 +542,7 @@ const TablePage = props => {
           </Card>
         </Col>
       </Row>
+      {/* PRO-END */}
     </Container>
   );
 };

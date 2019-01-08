@@ -77,7 +77,9 @@ class ModalPage extends React.Component {
   };
 
   render() {
+    // PRO-START
     let { accordion } = this.state;
+    // PRO-END
     return (
       <Container>
         <DocsLink
