@@ -7,13 +7,13 @@ import {
   ModalHeader,
   ModalFooter,
   Row,
-  Input,
   Fa,
   Badge,
   Col,
   Table,
   TableBody,
   TableHead,
+  // PRO-START
   Select,
   SelectOption,
   SelectOptions,
@@ -24,7 +24,9 @@ import {
   CardBody,
   Carousel,
   CarouselInner,
-  CarouselItem
+  CarouselItem,
+  Input
+  // PRO-END
 } from "mdbreact";
 import "./ModalExamplesPage.css";
 import DocsLink from "./DocsLink";
@@ -41,12 +43,14 @@ class ModalPage extends React.Component {
       modal6: false,
       modal7: false,
       modal8: false,
-      modal9: false,
       modal10: false,
       modal11: false,
       modal12: false,
-      modal13: false,
-      accordion: 1
+      // PRO-START
+      accordion: 1,
+      modal9: false,
+      modal13: false
+      // PRO-END
     };
   }
 
@@ -310,7 +314,7 @@ class ModalPage extends React.Component {
             </ModalFooter>
           </Modal>
         </Row>
-
+        {/* PRO-START */}
         <h4 className="mt-4">Modal Poll</h4>
         <Row>
           <Button onClick={() => this.toggle(9)}>Launch Modal</Button>
@@ -361,7 +365,7 @@ class ModalPage extends React.Component {
             </ModalFooter>
           </Modal>
         </Row>
-
+        {/* PRO-END */}
         <h4 className="mt-4">Modal Cart</h4>
         <Row>
           <Button onClick={() => this.toggle(10)}>Launch Modal</Button>
@@ -546,7 +550,7 @@ class ModalPage extends React.Component {
             </ModalFooter>
           </Modal>
         </Row>
-
+        {/* PRO-START */}
         <h4 className="mt-4">Modal Product</h4>
         <Row>
           <Button onClick={() => this.toggle(13)}>Launch Modal</Button>
@@ -718,7 +722,6 @@ class ModalPage extends React.Component {
             </ModalBody>
           </Modal>
         </Row>
-
         <h4 className="mt-4">Modal Social share</h4>
         <Row>
           <Button onClick={() => this.toggle(8)}>Launch Modal</Button>
@@ -782,6 +785,7 @@ class ModalPage extends React.Component {
             </ModalBody>
           </Modal>
         </Row>
+        {/* PRO-END */}
       </Container>
     );
   }
