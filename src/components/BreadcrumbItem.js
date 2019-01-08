@@ -6,7 +6,7 @@ import "./Breadcrumb.css";
 
 const BreadcrumbItem = props => {
 
-  const { active, appendIcon, children, className, bold, iconBrand, icon, iconClassName, iconLight, iconRegular, ...attributes } = props;
+  const { active, appendIcon, children, className, bold, icon, iconBrand, iconClassName, iconLight, iconRegular, ...attributes } = props;
 
   const classes = classNames(
     active ? "active" : false,
@@ -62,12 +62,27 @@ const BreadcrumbItem = props => {
 BreadcrumbItem.propTypes = {
   active: PropTypes.bool,
   appendIcon: PropTypes.bool,
-  bold: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
+  bold: PropTypes.bool,
   icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
   iconClassName: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool
 };
+
+BreadcrumbItem.defaultProps = {
+  active: false,
+  appendIcon: false,
+  className: "",
+  bold: false,
+  icon: "",
+  iconBrand: false, 
+  iconClassName: "",
+  iconLight: false,
+  iconRegular: false
+}
 
 export default BreadcrumbItem;
 export { BreadcrumbItem as MDBBreadcrumbItem };
