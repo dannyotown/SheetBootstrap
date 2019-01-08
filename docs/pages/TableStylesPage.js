@@ -6,11 +6,13 @@ import {
   Col,
   Card,
   CardBody,
-  CardHeader,
-  Input,
   Table,
   TableBody,
-  TableHead
+  TableHead,
+  // PRO-START
+  CardHeader,
+  Input
+  // PRO-END
 } from "mdbreact";
 import DocsLink from "./DocsLink";
 
