@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import Fa from "../Fa";
 
 const DataTableHead = props => {
   const {
@@ -48,7 +49,7 @@ const DataTableHead = props => {
             >
               {col.label}
               {sortable && (
-                <i className="fa fa-sort float-right" aria-hidden="true" />
+                <Fa icon="sort" className="float-right" aria-hidden="true" />
               )}
             </th>
           ))}
