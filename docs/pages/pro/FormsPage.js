@@ -179,6 +179,7 @@ class FormsPage extends React.Component {
                       className="mr-md-3 z-depth-1a"
                     >
                       <MDBIcon
+                        brand 
                         icon="facebook"
                         className="blue-text text-center"
                       />
@@ -189,7 +190,7 @@ class FormsPage extends React.Component {
                       rounded
                       className="mr-md-3 z-depth-1a"
                     >
-                      <MDBIcon icon="twitter" className="blue-text" />
+                      <MDBIcon brand icon="twitter" className="blue-text" />
                     </MDBBtn>
                     <MDBBtn
                       type="button"
@@ -197,7 +198,7 @@ class FormsPage extends React.Component {
                       rounded
                       className="z-depth-1a"
                     >
-                      <MDBIcon icon="google-plus" className="blue-text" />
+                      <MDBIcon brand icon="google-plus" className="blue-text" />
                     </MDBBtn>
                   </div>
                 </MDBCardBody>
@@ -227,13 +228,13 @@ class FormsPage extends React.Component {
                   </MDBRow>
                   <MDBRow className="mt-2 mb-3 d-flex justify-content-center">
                     <a href="#!" className="fa-lg p-2 m-2 fb-ic">
-                      <MDBIcon className="fa fa-facebook white-text fa-lg" />
+                      <MDBIcon brand icon="facebook" size="lg" className="white-text" />
                     </a>
                     <a href="#!" className="fa-lg p-2 m-2 tw-ic">
-                      <MDBIcon className="fa fa-twitter white-text fa-lg" />
+                      <MDBIcon brand icon="twitter" size="lg" className="white-text" />
                     </a>
                     <a href="#!" className="fa-lg p-2 m-2 gplus-ic">
-                      <MDBIcon className="fa fa-google-plus white-text fa-lg" />
+                      <MDBIcon brand icon="google-plus" size="lg" className="white-text" />
                     </a>
                   </MDBRow>
                 </div>
@@ -346,19 +347,13 @@ class FormsPage extends React.Component {
                   </MDBRow>
                   <MDBRow className="mt-2 mb-3 d-flex justify-content-center">
                     <a href="#!" className="fa-lg p-2 m-2 fb-ic">
-                      <MDBIcon className="fa fa-facebook white-text fa-lg">
-                        {" "}
-                      </MDBIcon>
+                      <MDBIcon brand icon="facebook" size="lg" className="white-text " />
                     </a>
                     <a href="#!" className="fa-lg p-2 m-2 tw-ic">
-                      <MDBIcon className="fa fa-twitter white-text fa-lg">
-                        {" "}
-                      </MDBIcon>
+                      <MDBIcon brand icon="twitter" className="white-text" />
                     </a>
                     <a href="#!" className="fa-lg p-2 m-2 gplus-ic">
-                      <MDBIcon className="fa fa-google-plus white-text fa-lg">
-                        {" "}
-                      </MDBIcon>
+                      <MDBIcon brand icon="google-plus" size="lg" className="white-text" />
                     </a>
                   </MDBRow>
                 </div>
