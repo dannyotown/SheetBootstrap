@@ -185,7 +185,7 @@ class HomePage extends React.Component {
                   </Col>
                 </Col>
               </Row>
-              <Row id="categories">
+              <Row id="categories" center>
                 <Col md="4" className="mb-5">
                   <Col size="2" md="2" className="float-left">
                     <Fa icon="window-restore" className="pink-text" size="2x" />
@@ -210,7 +210,7 @@ class HomePage extends React.Component {
                     <Fa icon="arrows" className="blue-text" size="2x" />
                   </Col>
                   <Col size="10" md="8" lg="10" className="float-right">
-                    <h4 className="font-weight-bold">EXTENDED</h4>
+                    <h4 className="font-weight-bold">ADDONS</h4>
                     <p className="grey-text">
                       Google Maps, Social Buttons, Pre-built Contact Forms and
                       Steppers. Find out more about our extended components.
@@ -218,12 +218,13 @@ class HomePage extends React.Component {
                     <NavLink
                       tag="button"
                       className="btn btn-sm indigo lighten-2"
-                      to="/extended"
+                      to="/addons"
                     >
                       Learn more
                     </NavLink>
                   </Col>
                 </Col>
+                {/* PRO-START */}
                 <Col md="4" className="mb-5">
                   <Col size="2" md="2" className="float-left">
                     <Fa icon="th" className="green-text" size="2x" />
@@ -243,6 +244,7 @@ class HomePage extends React.Component {
                     </NavLink>
                   </Col>
                 </Col>
+                {/* PRO-END */}
               </Row>
             </Col>
           </Row>
