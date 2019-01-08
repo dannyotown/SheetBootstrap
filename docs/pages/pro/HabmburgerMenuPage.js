@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import {
-  Navbar,
-  NavbarBrand,
-  NavbarNav,
-  NavItem,
-  NavLink,
-  NavbarToggler,
-  Collapse,
-  Container,
-  Fa,
-  HamburgerToggler
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBContainer,
+  MDBIcon,
+  MDBHamburgerToggler
 } from "mdbreact";
 import DocsLink from "../DocsLink";
 
@@ -37,496 +37,496 @@ class NavbarPage extends Component {
 
   render() {
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Hamburger Menu"
           href="https://mdbootstrap.com/docs/react/navigation/navbar/"
         />
         <Router>
-          <div style={{ height: "1200px" }}>
-            <Navbar color="amber lighten-4" style={{ marginTop: "20px" }} light>
-              <Container>
-                <NavbarBrand>Navbar</NavbarBrand>
-                <HamburgerToggler
+          <div className="pb-5">
+            <MDBNavbar color="amber lighten-4" style={{ marginTop: "20px" }} light>
+              <MDBContainer>
+                <MDBNavbarBrand>Navbar</MDBNavbarBrand>
+                <MDBHamburgerToggler
                   color="#d3531a"
                   id="hamburger1"
                   onClick={() => this.toggleSingleCollapse("collapse1")}
                 />
-                <Collapse isOpen={this.state.collapse1} navbar>
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                <MDBCollapse isOpen={this.state.collapse1} navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="bg-danger" style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <HamburgerToggler
+            <MDBNavbar color="bg-danger" style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBHamburgerToggler
                   onClick={() => this.toggleSingleCollapse("collapse2")}
                   isOpen={true}
                   id="hamburger2"
                 />
-                <Collapse isOpen={this.state.collapse2} navbar>
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                <MDBCollapse isOpen={this.state.collapse2} navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="indigo darken-2" style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <HamburgerToggler
+            <MDBNavbar color="indigo darken-2" style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBHamburgerToggler
                   onClick={() => this.toggleSingleCollapse("collapse3")}
                   id="hamburger3"
                 />
-                <Collapse isOpen={this.state.collapse3} navbar>
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                <MDBCollapse isOpen={this.state.collapse3} navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar style={{ marginTop: "20px" }} light>
-              <Container>
-                <NavbarBrand>Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar style={{ marginTop: "20px" }} light>
+              <MDBContainer>
+                <MDBNavbarBrand>Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="https://mdbootstrap.com/img/svg/hamburger6.svg?color=000"
                   onClick={this.toggleCollapse("navbarCollapse1")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse1"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="bg-primary" style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="bg-primary" style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="/docs/img/svg/arrow_right.svg"
                   onClick={this.toggleCollapse("navbarCollapse2")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse2"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="light-blue lighten-4" style={{ marginTop: "20px" }}>
-              <Container>
-                <NavbarBrand>Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="light-blue lighten-4" style={{ marginTop: "20px" }}>
+              <MDBContainer>
+                <MDBNavbarBrand>Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="https://mdbootstrap.com/img/svg/hamburger2.svg?color=fff"
                   onClick={this.toggleCollapse("navbarCollapse3")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse3"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="pink lighten-4" style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="pink lighten-4" style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="https://mdbootstrap.com/img/svg/hamburger1.svg?color=6a1b9a"
                   onClick={this.toggleCollapse("navbarCollapse5")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse5"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="pink lighten-2" style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="pink lighten-2" style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="https://mdbootstrap.com/img/svg/hamburger7.svg?color=BFE100"
                   onClick={this.toggleCollapse("navbarCollapse6")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse6"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar
+            <MDBNavbar
               color="bg-secondary mb-4"
               style={{ marginTop: "20px" }}
               dark
             >
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <NavbarToggler
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="https://mdbootstrap.com/img/svg/hamburger5.svg?color=f3e5f5"
                   onClick={this.toggleCollapse("navbarCollapse7")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse7"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="bg-success" style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="bg-success" style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="https://mdbootstrap.com/img/svg/hamburger8.svg?color=E3005C"
                   onClick={this.toggleCollapse("navbarCollapse8")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse8"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="bg-info" style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="bg-info" style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="https://mdbootstrap.com/img/svg/hamburger9.svg?color=FF2C00"
                   onClick={this.toggleCollapse("navbarCollapse9")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse9"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="bg-warning " style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="bg-warning " style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="https://mdbootstrap.com/img/svg/hamburger4.svg?color=1729B0"
                   onClick={this.toggleCollapse("navbarCollapse10")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse10"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="bg-danger" style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="bg-danger" style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   image="https://mdbootstrap.com/img/svg/hamburger3.svg?color=00FBD8"
                   onClick={this.toggleCollapse("navbarCollapse11")}
                 />
-                <Collapse
+                <MDBCollapse
                   id="navbarCollapse11"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar
+            <MDBNavbar
               color="orange lighten-4"
               style={{ marginTop: "20px" }}
               light
             >
-              <Container>
-                <NavbarBrand>Navbar</NavbarBrand>
-                <NavbarToggler
+              <MDBContainer>
+                <MDBNavbarBrand>Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   tag="button"
                   className="peach-gradient"
                   onClick={this.toggleCollapse("navbarCollapse12")}
                 >
                   <span className="white-text">
-                    <Fa icon="bars" />
+                    <MDBIcon icon="bars" />
                   </span>
-                </NavbarToggler>
-                <Collapse
+                </MDBNavbarToggler>
+                <MDBCollapse
                   id="navbarCollapse12"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="green lighten-4" style={{ marginTop: "20px" }} light>
-              <Container>
-                <NavbarBrand>Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="green lighten-4" style={{ marginTop: "20px" }} light>
+              <MDBContainer>
+                <MDBNavbarBrand>Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   tag="button"
                   className="aqua-gradient"
                   onClick={this.toggleCollapse("navbarCollapse13")}
                 >
                   <span className="white-text">
-                    <Fa icon="bars" />
+                    <MDBIcon icon="bars" />
                   </span>
-                </NavbarToggler>
-                <Collapse
+                </MDBNavbarToggler>
+                <MDBCollapse
                   id="navbarCollapse13"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar
+            <MDBNavbar
               color="purple lighten-4"
               style={{ marginTop: "20px" }}
               light
             >
-              <Container>
-                <NavbarBrand>Navbar</NavbarBrand>
-                <NavbarToggler
+              <MDBContainer>
+                <MDBNavbarBrand>Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   tag="button"
                   className="purple-gradient"
                   onClick={this.toggleCollapse("navbarCollapse14")}
                 >
                   <span className="white-text">
-                    <Fa icon="bars" />
+                    <MDBIcon icon="bars" />
                   </span>
-                </NavbarToggler>
-                <Collapse
+                </MDBNavbarToggler>
+                <MDBCollapse
                   id="navbarCollapse14"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
 
-            <Navbar color="bg-primary" style={{ marginTop: "20px" }} dark>
-              <Container>
-                <NavbarBrand className="white-text">Navbar</NavbarBrand>
-                <NavbarToggler
+            <MDBNavbar color="bg-primary" style={{ marginTop: "20px" }} dark>
+              <MDBContainer>
+                <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
                   tag="button"
                   className="blue-gradient"
                   onClick={this.toggleCollapse("navbarCollapse15")}
                 >
                   <span className="white-text">
-                    <Fa icon="bars" />
+                    <MDBIcon icon="bars" />
                   </span>
-                </NavbarToggler>
-                <Collapse
+                </MDBNavbarToggler>
+                <MDBCollapse
                   id="navbarCollapse15"
                   isOpen={this.state.collapseID}
                   navbar
                 >
-                  <NavbarNav left>
-                    <NavItem active>
-                      <NavLink to="#!">Home</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Link</NavLink>
-                    </NavItem>
-                    <NavItem>
-                      <NavLink to="#!">Profile</NavLink>
-                    </NavItem>
-                  </NavbarNav>
-                </Collapse>
-              </Container>
-            </Navbar>
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
           </div>
         </Router>
-      </Container>
+      </MDBContainer>
     );
   }
 }
