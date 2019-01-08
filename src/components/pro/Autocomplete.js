@@ -114,7 +114,10 @@ class Autocomplete extends Component {
       label,
       labelClass,
       icon,
+      iconBrand,
       iconClass,
+      iconLight,
+      iconRegular,
       iconSize,
       placeholder,
       search,
@@ -146,11 +149,13 @@ class Autocomplete extends Component {
       disabled && "disabled",
       labelClass
     );
+
     const iconClassFix = classNames(
       "prefix",
       this.state.isTouched && "active",
       iconClass
     );
+
     const clearClassFix = classNames(clearClass);
 
     const isclearVisible = () => {
@@ -160,6 +165,7 @@ class Autocomplete extends Component {
       }
       return hiddenOrNot;
     };
+
     const clearStyleFix = {
       position: "absolute",
       zIndex: 2,
@@ -170,11 +176,19 @@ class Autocomplete extends Component {
       visibility: isclearVisible()
     };
 
-    // Here our magic happens:
-
     const renderInputComponent = inputProps => (
       <div>
-        {icon && <Fa icon={icon} size={iconSize} className={iconClassFix} />}
+        {
+          icon &&
+          <Fa
+            icon={icon}
+            size={iconSize}
+            brand={iconBrand}
+            light={iconLight}
+            regular={iconRegular}
+            className={iconClassFix}
+          />
+        }
         <input
           type="text"
           id={id}
@@ -234,22 +248,38 @@ Autocomplete.propTypes = {
   getValue: PropTypes.func,
   id: PropTypes.string,
   label: PropTypes.oneOfType([
-    PropTypes.string, 
-    PropTypes.number, 
+    PropTypes.string,
+    PropTypes.number,
     PropTypes.object
   ]),
   labelClass: PropTypes.string,
   icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
   iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
   placeholder: PropTypes.string,
   search: PropTypes.func
 };
 
 Autocomplete.defaultProps = {
-  id: "autocomplete-1",
-  clear: true,
-  disabled: false
+  className: "",
+  clear: false,
+  clearClass: "",
+  data: [],
+  disabled: false,
+  getValue: () => {},
+  id: "",
+  label: "",
+  labelClass: "",
+  icon: "",
+  iconBrand: false,
+  iconClass: "",
+  iconLight: false,
+  iconRegular: false,
+  iconSize: "",
+  placeholder: ""
 };
 
 export default Autocomplete;
