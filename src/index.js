@@ -34,6 +34,7 @@ import Fa from "./components/Fa";
 import FormInline from "./components/FormInline";
 import Footer from "./components/Footer";
 import FreeBird from "./components/FreeBird";
+import HamburgerToggler from "./components/HamburgerToggler";
 import Input from "./components/Input";
 import InputNumeric from "./components/InputNumeric";
 import Jumbotron from "./components/Jumbotron";
@@ -69,7 +70,6 @@ import TextField from "./components/TextField";
 import Tooltip from "./components/Tooltip";
 import View from "./components/View";
 import { toast, ToastContainer, cssTransition } from "react-toastify";
-import HamburgerToggler from "./components/HamburgerToggler";
 import Iframe from "./components/Iframe";
 
 // PRO-START
@@ -148,10 +148,11 @@ import {MDBDropdownItem} from "./components/DropdownItem";
 import {MDBDropdownMenu} from "./components/DropdownMenu";
 import {MDBDropdownToggle} from "./components/DropdownToggle";
 import {MDBEdgeHeader} from "./components/EdgeHeader";
-import {MDBIcon} from "./components/Fa";
 import {MDBFormInline} from "./components/FormInline";
 import {MDBFooter} from "./components/Footer";
 import {MDBFreeBird} from "./components/FreeBird";
+import {MDBHamburgerToggler} from "./components/HamburgerToggler";
+import {MDBIcon} from "./components/Fa";
 import {MDBInput} from "./components/Input";
 import {MDBInputSelect} from "./components/InputNumeric";
 import {MDBJumbotron} from "./components/Jumbotron";
@@ -280,6 +281,7 @@ export  {
   Col,
   Collapse,
   Container,
+  cssTransition,
   DataTable,
   Dropdown,
   DropdownItem,
@@ -291,6 +293,7 @@ export  {
   FormInline,
   Footer,
   FreeBird,
+  HamburgerToggler,
   Input,
   InputNumeric,
   Jumbotron,
@@ -327,8 +330,6 @@ export  {
   View,
   toast,
   ToastContainer,
-  cssTransition,
-  HamburgerToggler,
   Iframe,
   // PRO-START
   Autocomplete,
@@ -406,10 +407,11 @@ export  {
   MDBDropdownMenuComponent,
   MDBDropdownToggle,
   MDBEdgeHeader,
-  MDBIcon,
   MDBFormInline,
   MDBFooter,
   MDBFreeBird,
+  MDBHamburgerToggler,
+  MDBIcon,
   MDBInput,
   MDBInputSelect,
   MDBJumbotron,
