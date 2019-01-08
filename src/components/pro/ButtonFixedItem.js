@@ -14,7 +14,6 @@ class ButtonFixed extends React.Component {
         opacity: "0"
       }
     };
-    this.onClick = this.onClick.bind(this);
   }
 
   handleClick(e) {
@@ -27,11 +26,13 @@ class ButtonFixed extends React.Component {
     this.setState({ cursorPos: cursorPos });
   }
 
-  onClick(e) {
+  onClick = e => {
     if (this.props.disabled) {
       e.preventDefault();
       return;
     }
+
+    this.props.onClick && this.props.onClick()
   }
 
   render() {
@@ -55,6 +56,7 @@ class ButtonFixed extends React.Component {
     } = this.props;
 
     const classes = classNames(
+      size && `btn-${size}`,
       "btn-floating",
       color ? color : false,
       "Ripple-parent",
@@ -105,7 +107,7 @@ ButtonFixed.propTypes = {
   flat: PropTypes.bool,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   onClick: PropTypes.func,
-  size: PropTypes.string,
+  size: PropTypes.oneOf(['lg', 'sm']),
   children: PropTypes.node,
   className: PropTypes.string,
   icon: PropTypes.string,
