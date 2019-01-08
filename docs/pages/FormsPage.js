@@ -218,7 +218,7 @@ class FormsPage extends React.Component {
               </div>
               <div className="text-center">
                 <MDBBtn outline color="info">
-                  Send <MDBIcon icon="paper-plane-o" className="ml-1" />
+                  Send <MDBIcon icon="paper-plane" className="ml-1" />
                 </MDBBtn>
               </div>
             </form>
@@ -252,7 +252,7 @@ class FormsPage extends React.Component {
               <div className="text-center mt-4">
                 <button className="btn btn-outline-purple" type="submit">
                   Send
-                  <i className="fa fa-paper-plane-o ml-2" />
+                  <MDBIcon icon="paper-plane" className="ml-2" />
                 </button>
               </div>
             </form>
@@ -301,7 +301,7 @@ class FormsPage extends React.Component {
               </div>
               <div className="text-center">
                 <MDBBtn outline color="secondary">
-                  Send <MDBIcon icon="paper-plane-o" className="ml-1" />
+                  Send <MDBIcon icon="paper-plane" className="ml-1" />
                 </MDBBtn>
               </div>
             </form>
@@ -354,7 +354,7 @@ class FormsPage extends React.Component {
               <div className="text-center mt-4">
                 <button className="btn btn-outline-warning" type="submit">
                   Send
-                  <i className="fa fa-paper-plane-o ml-2" />
+                  <MDBIcon icon="paper-plane" className="ml-2" />
                 </button>
               </div>
             </form>
@@ -444,7 +444,7 @@ class FormsPage extends React.Component {
                   <div className="text-center py-4 mt-3">
                     <button className="btn btn-outline-purple" type="submit">
                       Send
-                      <i className="fa fa-paper-plane-o ml-2" />
+                      <MDBIcon icon="paper-plane" className="ml-2" />
                     </button>
                   </div>
                 </form>
@@ -466,7 +466,7 @@ class FormsPage extends React.Component {
             >
               <div className="modal-header primary-color white-text">
                 <h4 className="title">
-                  <MDBIcon className="fa fa-pencil" /> Contact form
+                  <MDBIcon icon="pencil" /> Contact form
                 </h4>
                 <button type="button" className="close" onClick={this.toggle}>
                   <span aria-hidden="true">×</span>
