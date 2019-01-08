@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import Fa from "./Fa";
 
 class TextField extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class TextField extends React.Component {
     this.triggerFocus = this.triggerFocus.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.value !== prevState.value) {
@@ -91,7 +92,11 @@ class TextField extends React.Component {
       disabled,
       labelClass,
       icon,
+      iconBrand,
       iconClass,
+      iconLight,
+      iconRegular,
+      iconSize,
       filled,
       gap,
       ...attributes
@@ -140,10 +145,7 @@ class TextField extends React.Component {
     );
 
     const iconClassFix = classNames(
-      "fa",
-      icon ? `fa-${icon}` : false,
       isNotEmpty ? "active" : false,
-      size ? `fa-${size}` : false,
       iconClass,
       "prefix"
     );
@@ -158,7 +160,17 @@ class TextField extends React.Component {
 
     return (
       <div className={containerClassFix}>
-        {icon ? <i className={iconClassFix} /> : false}
+        {
+          icon &&
+          <Fa
+            icon={icon}
+            size={iconSize}
+            brand={iconBrand}
+            light={iconLight}
+            regular={iconRegular}
+            className={iconClassFix}
+          />
+        }
         <Tag
           {...attributes}
           id={id}
@@ -184,8 +196,8 @@ class TextField extends React.Component {
             {label}
           </label>
         ) : (
-          false
-        )}
+            false
+          )}
         {children}
       </div>
     );
@@ -209,13 +221,17 @@ TextField.propTypes = {
   error: PropTypes.string,
   success: PropTypes.string,
   label: PropTypes.oneOfType([
-    PropTypes.string, 
-    PropTypes.number, 
+    PropTypes.string,
+    PropTypes.number,
     PropTypes.object
   ]),
   labelClass: PropTypes.string,
   icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
   iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   el: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
