@@ -52,6 +52,7 @@ class SideNavCat extends React.Component {
       iconBrand,
       iconLight,
       iconRegular,
+      iconSize,
       onClick,
       disabled,
       isOpen,
@@ -78,10 +79,12 @@ class SideNavCat extends React.Component {
         >
           {
             icon && 
-            <Fa icon={icon} 
+            <Fa 
+              icon={icon} 
               brand={iconBrand} 
               light={iconLight} 
               regular={iconRegular} 
+              size={iconSize}
               className="mr-2"
             />
           }
@@ -107,6 +110,7 @@ SideNavCat.propTypes = {
   iconBrand: PropTypes.bool,
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
   id: PropTypes.string,
   isOpen: PropTypes.bool,
   isOpenID: PropTypes.string,
@@ -122,6 +126,7 @@ SideNavCat.defaultProps = {
   iconBrand: false, 
   iconLight: false,
   iconRegular: false,
+  iconSize: "",
   id: "",
   isOpen: false, 
   isOpenID: "",
