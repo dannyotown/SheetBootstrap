@@ -137,6 +137,7 @@ const TablePage = props => {
     }
   ];
 
+  // PRO-START
   const data_checkboxes = {
     columns: [
       {
@@ -181,7 +182,7 @@ const TablePage = props => {
       }
     ]
   };
-
+  // PRO-END
   const data_icons = {
     columns: [
       {
@@ -445,7 +446,7 @@ const TablePage = props => {
           </Card>
         </Col>
       </Row>
-
+      {/* PRO-START */}
       <Row className="py-3">
         <Col md="12">
           <Card>
@@ -459,7 +460,7 @@ const TablePage = props => {
           </Card>
         </Col>
       </Row>
-
+      {/* PRO-END */}
       <Row className="py-3">
         <Col md="12">
           <Card>

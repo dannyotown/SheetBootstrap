@@ -310,7 +310,7 @@ class ModalPage extends React.Component {
             </ModalFooter>
           </Modal>
         </Row>
-
+        {/* PRO-START */}
         <h4 className="mt-4">Modal Poll</h4>
         <Row>
           <Button onClick={() => this.toggle(9)}>Launch Modal</Button>
@@ -361,7 +361,7 @@ class ModalPage extends React.Component {
             </ModalFooter>
           </Modal>
         </Row>
-
+        {/* PRO-END */}
         <h4 className="mt-4">Modal Cart</h4>
         <Row>
           <Button onClick={() => this.toggle(10)}>Launch Modal</Button>
@@ -546,7 +546,7 @@ class ModalPage extends React.Component {
             </ModalFooter>
           </Modal>
         </Row>
-
+        {/* PRO-START */}
         <h4 className="mt-4">Modal Product</h4>
         <Row>
           <Button onClick={() => this.toggle(13)}>Launch Modal</Button>
@@ -718,7 +718,6 @@ class ModalPage extends React.Component {
             </ModalBody>
           </Modal>
         </Row>
-
         <h4 className="mt-4">Modal Social share</h4>
         <Row>
           <Button onClick={() => this.toggle(8)}>Launch Modal</Button>
@@ -782,6 +781,7 @@ class ModalPage extends React.Component {
             </ModalBody>
           </Modal>
         </Row>
+        {/* PRO-END */}
       </Container>
     );
   }
