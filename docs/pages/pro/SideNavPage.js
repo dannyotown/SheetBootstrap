@@ -1,13 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import {
-  Fa,
-  SideNavCat,
-  SideNavNav,
-  SideNav,
-  SideNavLink,
-  Container,
-  Row,
+  MDBSideNavCat,
+  MDBSideNavNav,
+  MDBSideNav,
+  MDBSideNavLink,
+  MDBContainer,
+  MDBRow,
   MDBIcon
 } from "mdbreact";
 import DocsLink from "../DocsLink";
@@ -39,7 +38,7 @@ class SideNavPage extends React.Component {
       return (
         <div style={{ width: "50%", textAlign: "center" }}>
           <a href="#!" onClick={onClick} key={"toggleThe" + side + "SideNav"}>
-            <Fa icon="bars" size="5x" />
+            <MDBIcon icon="bars" size="5x" />
           </a>
         </div>
       );
@@ -47,19 +46,19 @@ class SideNavPage extends React.Component {
 
     return (
       <Router>
-        <Container>
+        <MDBContainer>
           <DocsLink
             title="Sidenav"
             href="https://mdbootstrap.com/docs/react/navigation/sidenav/"
           />
           {/* the buttons toggling visibility of SideNavs: */}
-          <Row style={{ height: "80vh", alignItems: "center" }}>
+          <MDBRow style={{ height: "80vh", alignItems: "center" }}>
             {createButton(this.handleToggleClickA, "Left")}
             {createButton(this.handleToggleClickB, "Right")}
-          </Row>
+          </MDBRow>
 
           {/* the left SideNav: */}
-          <SideNav
+          <MDBSideNav
             logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
             hidden
             triggerOpening={this.state.isLeftOpen}
@@ -70,58 +69,58 @@ class SideNavPage extends React.Component {
               <ul className="social">
                 <li>
                   <a href="#!">
-                    <Fa icon="facebook" />
+                    <MDBIcon brand icon="facebook" />
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <Fa icon="pinterest" />
+                    <MDBIcon brand icon="pinterest" />
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <Fa icon="google-plus" />
+                    <MDBIcon brand icon="google-plus" />
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <Fa icon="twitter" />
+                    <MDBIcon brand icon="twitter" />
                   </a>
                 </li>
               </ul>
             </li>
-            <SideNavNav>
-              <SideNavLink to="/other-page" topLevel><MDBIcon icon="pencil" />Submit listing</SideNavLink>
-              <SideNavCat
+            <MDBSideNavNav>
+              <MDBSideNavLink to="/other-page" topLevel><MDBIcon icon="pencil-alt" className="mr-2" />Submit listing</MDBSideNavLink>
+              <MDBSideNavCat
                 name="Submit blog"
                 id="submit-blog"
                 icon="chevron-right"
               >
-                <SideNavLink>Submit listing</SideNavLink>
-                <SideNavLink>Registration form</SideNavLink>
-              </SideNavCat>
-              <SideNavCat
+                <MDBSideNavLink>Submit listing</MDBSideNavLink>
+                <MDBSideNavLink>Registration form</MDBSideNavLink>
+              </MDBSideNavCat>
+              <MDBSideNavCat
                 name="Instruction"
                 id="instruction"
-                icon="hand-pointer-o"
+                icon="hand-pointer"
                 href="#"
               >
-                <SideNavLink>For bloggers</SideNavLink>
-                <SideNavLink>For authors</SideNavLink>
-              </SideNavCat>
-              <SideNavCat name="About" id="about" icon="eye">
-                <SideNavLink>Instruction</SideNavLink>
-                <SideNavLink>Monthly meetings</SideNavLink>
-              </SideNavCat>
-              <SideNavCat name="Contact me" id="contact-me" icon="envelope-o">
-                <SideNavLink>FAQ</SideNavLink>
-                <SideNavLink>Write a message</SideNavLink>
-              </SideNavCat>
-            </SideNavNav>
-          </SideNav>
+                <MDBSideNavLink>For bloggers</MDBSideNavLink>
+                <MDBSideNavLink>For authors</MDBSideNavLink>
+              </MDBSideNavCat>
+              <MDBSideNavCat name="About" id="about" icon="eye">
+                <MDBSideNavLink>Instruction</MDBSideNavLink>
+                <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
+              </MDBSideNavCat>
+              <MDBSideNavCat name="Contact me" id="contact-me" icon="envelope">
+                <MDBSideNavLink>FAQ</MDBSideNavLink>
+                <MDBSideNavLink>Write a message</MDBSideNavLink>
+              </MDBSideNavCat>
+            </MDBSideNavNav>
+          </MDBSideNav>
 
           {/* the right SideNav: */}
-          <SideNav
+          <MDBSideNav
             logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
             hidden
             triggerOpening={this.state.isRightOpen}
@@ -133,54 +132,54 @@ class SideNavPage extends React.Component {
               <ul className="social">
                 <li>
                   <a href="#!">
-                    <Fa icon="facebook" />
+                    <MDBIcon brand icon="facebook" />
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <Fa icon="pinterest" />
+                    <MDBIcon brand icon="pinterest" />
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <Fa icon="google-plus" />
+                    <MDBIcon brand icon="google-plus" />
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <Fa icon="twitter" />
+                    <MDBIcon brand icon="twitter" />
                   </a>
                 </li>
               </ul>
             </li>
-            <SideNavNav>
-              <SideNavCat
+            <MDBSideNavNav>
+              <MDBSideNavCat
                 name="Submit blog"
                 id="submit-blog2"
                 icon="chevron-right"
               >
-                <SideNavLink className="active">Submit listing</SideNavLink>
-                <SideNavLink>Registration form</SideNavLink>
-              </SideNavCat>
-              <SideNavCat
+                <MDBSideNavLink className="active">Submit listing</MDBSideNavLink>
+                <MDBSideNavLink>Registration form</MDBSideNavLink>
+              </MDBSideNavCat>
+              <MDBSideNavCat
                 name="Instruction"
                 id="instruction2"
-                icon="hand-pointer-o"
+                icon="hand-pointer"
               >
-                <SideNavLink>For bloggers</SideNavLink>
-                <SideNavLink>For authors</SideNavLink>
-              </SideNavCat>
-              <SideNavCat name="About" id="about2" icon="eye">
-                <SideNavLink>Instruction</SideNavLink>
-                <SideNavLink>Monthly meetings</SideNavLink>
-              </SideNavCat>
-              <SideNavCat name="Contact me" id="contact-me2" icon="envelope-o">
-                <SideNavLink>FAQ</SideNavLink>
-                <SideNavLink>Write a message</SideNavLink>
-              </SideNavCat>
-            </SideNavNav>
-          </SideNav>
-        </Container>
+                <MDBSideNavLink>For bloggers</MDBSideNavLink>
+                <MDBSideNavLink>For authors</MDBSideNavLink>
+              </MDBSideNavCat>
+              <MDBSideNavCat name="About" id="about2" icon="eye">
+                <MDBSideNavLink>Instruction</MDBSideNavLink>
+                <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
+              </MDBSideNavCat>
+              <MDBSideNavCat name="Contact me" id="contact-me2" icon="envelope">
+                <MDBSideNavLink>FAQ</MDBSideNavLink>
+                <MDBSideNavLink>Write a message</MDBSideNavLink>
+              </MDBSideNavCat>
+            </MDBSideNavNav>
+          </MDBSideNav>
+        </MDBContainer>
       </Router>
     );
   }
