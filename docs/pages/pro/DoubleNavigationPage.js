@@ -1,21 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import {
-  Input,
-  Navbar,
-  NavbarNav,
-  NavItem,
-  NavLink,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Fa,
-  SideNavItem,
-  SideNavCat,
-  SideNavNav,
-  SideNav,
-  Container
+  MDBInput,
+  MDBNavbar,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+  MDBIcon,
+  MDBSideNavItem,
+  MDBSideNavCat,
+  MDBSideNavNav,
+  MDBSideNav,
+  MDBContainer
 } from "mdbreact";
 
 class DoubleNavigationPage extends React.Component {
@@ -66,7 +66,7 @@ class DoubleNavigationPage extends React.Component {
     return (
       <Router>
         <div className="fixed-sn light-blue-skin">
-          <SideNav
+          <MDBSideNav
             logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
             triggerOpening={this.state.toggleStateA}
             breakWidth={this.state.breakWidth}
@@ -77,27 +77,27 @@ class DoubleNavigationPage extends React.Component {
               <ul className="social">
                 <li>
                   <a href="#!">
-                    <Fa icon="facebook" />
+                    <MDBIcon brand icon="facebook" />
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <Fa icon="pinterest" />
+                    <MDBIcon brand icon="pinterest" />
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <Fa icon="google-plus" />
+                    <MDBIcon brand icon="google-plus" />
                   </a>
                 </li>
                 <li>
                   <a href="#!">
-                    <Fa icon="twitter" />
+                    <MDBIcon brand icon="twitter" />
                   </a>
                 </li>
               </ul>
             </li>
-            <Input
+            <MDBInput
               type="text"
               default="Search"
               style={{
@@ -106,40 +106,40 @@ class DoubleNavigationPage extends React.Component {
                 boxSizing: "border-box"
               }}
             />
-            <SideNavNav>
-              <SideNavCat
+            <MDBSideNavNav>
+              <MDBSideNavCat
                 name="Submit blog"
                 id="submit-blog-cat"
                 icon="chevron-right"
               >
-                <SideNavItem>Submit listing</SideNavItem>
-                <SideNavItem>Registration form</SideNavItem>
-              </SideNavCat>
-              <SideNavCat
+                <MDBSideNavItem>Submit listing</MDBSideNavItem>
+                <MDBSideNavItem>Registration form</MDBSideNavItem>
+              </MDBSideNavCat>
+              <MDBSideNavCat
                 name="Instruction"
                 id="instruction-cat"
-                icon="hand-pointer-o"
+                icon="hand-pointer"
               >
-                <SideNavItem>For bloggers</SideNavItem>
-                <SideNavItem>For authors</SideNavItem>
-              </SideNavCat>
-              <SideNavCat name="About" id="about-cat" icon="eye">
-                <SideNavItem>Instruction</SideNavItem>
-                <SideNavItem>Monthly meetings</SideNavItem>
-              </SideNavCat>
-              <SideNavCat
+                <MDBSideNavItem>For bloggers</MDBSideNavItem>
+                <MDBSideNavItem>For authors</MDBSideNavItem>
+              </MDBSideNavCat>
+              <MDBSideNavCat name="About" id="about-cat" icon="eye">
+                <MDBSideNavItem>Instruction</MDBSideNavItem>
+                <MDBSideNavItem>Monthly meetings</MDBSideNavItem>
+              </MDBSideNavCat>
+              <MDBSideNavCat
                 name="Contact me"
                 id="contact-me-cat"
-                icon="envelope-o"
+                icon="envelope"
               >
-                <SideNavItem>FAQ</SideNavItem>
-                <SideNavItem>Write a message</SideNavItem>
-              </SideNavCat>
-            </SideNavNav>
-          </SideNav>
-          <Navbar style={navStyle} double expand="md" fixed="top" scrolling>
-            <NavbarNav left>
-              <NavItem>
+                <MDBSideNavItem>FAQ</MDBSideNavItem>
+                <MDBSideNavItem>Write a message</MDBSideNavItem>
+              </MDBSideNavCat>
+            </MDBSideNavNav>
+          </MDBSideNav>
+          <MDBNavbar style={navStyle} double expand="md" fixed="top" scrolling>
+            <MDBNavbarNav left>
+              <MDBNavItem>
                 <div
                   onClick={this.handleToggleClickA}
                   key="sideNavToggleA"
@@ -149,49 +149,49 @@ class DoubleNavigationPage extends React.Component {
                     verticalAlign: "middle"
                   }}
                 >
-                  <Fa icon="bars" color="white" size="2x" />
+                  <MDBIcon icon="bars" color="white" size="2x" />
                 </div>
-              </NavItem>
-              <NavItem className="d-none d-md-inline" style={{ paddingTop: 5 }}>
+              </MDBNavItem>
+              <MDBNavItem className="d-none d-md-inline" style={{ paddingTop: 5 }}>
                 Material Design for Bootstrap
-              </NavItem>
-            </NavbarNav>
-            <NavbarNav right style={specialCaseNavbarStyles}>
-              <NavItem active>
-                <NavLink to="#!">
-                  <Fa icon="envelope" className="d-inline-inline" />{" "}
+              </MDBNavItem>
+            </MDBNavbarNav>
+            <MDBNavbarNav right style={specialCaseNavbarStyles}>
+              <MDBNavItem active>
+                <MDBNavLink to="#!">
+                  <MDBIcon icon="envelope" className="d-inline-inline" />{" "}
                   <div className="d-none d-md-inline">Contact</div>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="#!">
-                  <Fa icon="comments-o" className="d-inline-inline" />{" "}
+                </MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBNavLink to="#!">
+                  <MDBIcon icon="comments" className="d-inline-inline" />{" "}
                   <div className="d-none d-md-inline">Support</div>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="#!">
-                  <Fa icon="user" className="d-inline-inline" />{" "}
+                </MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBNavLink to="#!">
+                  <MDBIcon icon="user" className="d-inline-inline" />{" "}
                   <div className="d-none d-md-inline">Account</div>
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <Dropdown>
-                  <DropdownToggle nav caret>
+                </MDBNavLink>
+              </MDBNavItem>
+              <MDBNavItem>
+                <MDBDropdown>
+                  <MDBDropdownToggle nav caret>
                     <div className="d-none d-md-inline">Dropdown</div>
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem href="#!">Action</DropdownItem>
-                    <DropdownItem href="#!">Another Action</DropdownItem>
-                    <DropdownItem href="#!">Something else here</DropdownItem>
-                    <DropdownItem href="#!">Something else here</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
-              </NavItem>
-            </NavbarNav>
-          </Navbar>
+                  </MDBDropdownToggle>
+                  <MDBDropdownMenu right>
+                    <MDBDropdownItem href="#!">Action</MDBDropdownItem>
+                    <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
+                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                    <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                  </MDBDropdownMenu>
+                </MDBDropdown>
+              </MDBNavItem>
+            </MDBNavbarNav>
+          </MDBNavbar>
           <main style={mainStyle}>
-            <Container fluid style={{ height: 2000 }} className="mt-5">
+            <MDBContainer fluid style={{ height: 2000 }} className="mt-5">
               <h2>
                 Advanced Double Navigation with fixed SideNav & fixed Navbar:
               </h2>
@@ -201,7 +201,7 @@ class DoubleNavigationPage extends React.Component {
                 2. Fixed Navbar. It will always stay visible on the top, even
                 when you scroll down.
               </h5>
-            </Container>
+            </MDBContainer>
           </main>
         </div>
       </Router>
