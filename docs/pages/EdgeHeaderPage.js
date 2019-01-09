@@ -33,7 +33,7 @@ const EdgeHeaderPage = props => {
                   type="textarea"
                   rows="2"
                   label="Textarea"
-                  icon="pencil"
+                  icon="pencil-alt"
                 />
                 <MDBBtn color="mdb-color" className="text-xs-left">Submit</MDBBtn>
               </form>
