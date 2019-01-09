@@ -446,10 +446,10 @@ const ChatMessage = ({ message: { author, avatar, when, message } }) => (
     />
     <MDBCard>
       <MDBCardBody>
-        <div>
+        <div className="d-flex justify-content-between">
           <strong className="primary-font">{author}</strong>
           <small className="pull-right text-muted">
-            <i className="fa fa-clock-o" /> {when}
+            <MDBIcon icon="clock" /> {when}
           </small>
         </div>
         <hr />
