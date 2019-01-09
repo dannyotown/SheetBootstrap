@@ -27,7 +27,7 @@ class Fa extends React.Component {
       ...attributes
     } = this.props;
 
-    const iconPrefix = (brand || fab) ? "fab" : (light || fal) ? "fal" : (regular || fal) ? "far" : "fa";
+    const iconPrefix = (brand || fab) ? "fab" : (light || fal) ? "fal" : (regular || far) ? "far" : "fa";
 
     const classes = classNames(
       iconPrefix,
