@@ -116,7 +116,7 @@ const ProjectsPage = () =>  {
             <MDBCardBody className="pb-0">
               <a href="#!" className="green-text">
                 <h5 className="font-weight-bold mt-2 mb-3">
-                  <MDBIcon icon="line-chart" className="pr-2" />
+                  <MDBIcon icon="chart-line" className="pr-2" />
                   Marketing
                 </h5>
               </a>
@@ -243,7 +243,7 @@ const ProjectsPage = () =>  {
           <MDBCol lg="7">
             <MDBRow className="mb-3">
               <MDBCol md="1" size="2">
-                <MDBIcon icon="bar-chart" size="2x" className="indigo-text" />
+                <MDBIcon icon="chart-bar" size="2x" className="indigo-text" />
               </MDBCol>
               <MDBCol md="11" size="10">
                 <h5 className="font-weight-bold mb-3">Marketing</h5>
@@ -269,7 +269,7 @@ const ProjectsPage = () =>  {
             </MDBRow>
             <MDBRow className="mb-3">
               <MDBCol md="1" size="2">
-                <MDBIcon icon="smile-o" size="2x" className="blue-text" />
+                <MDBIcon icon="smile" size="2x" className="blue-text" />
               </MDBCol>
               <MDBCol md="11" size="10">
                 <h5 className="font-weight-bold mb-3">Communication</h5>
@@ -313,7 +313,7 @@ const ProjectsPage = () =>  {
             </MDBRow>
             <MDBRow className="mb-3">
               <MDBCol md="1" size="2">
-                <MDBIcon icon="money" size="2x" className="deep-purple-text" />
+                <MDBIcon icon="money-bill-alt" size="2x" className="deep-purple-text" />
               </MDBCol>
               <MDBCol md="11" size="10">
                 <h5 className="font-weight-bold mb-3">Finance</h5>
@@ -388,7 +388,7 @@ const ProjectsPage = () =>  {
               <div className="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4 rounded">
                 <div>
                   <h6 className="pink-text">
-                    <MDBIcon icon="pie-chart" />
+                    <MDBIcon icon="chart-pie" />
                     <strong> Marketing</strong>
                   </h6>
                   <h3 className="py-3 font-weight-bold">
