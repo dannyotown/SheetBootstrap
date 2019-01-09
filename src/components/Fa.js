@@ -8,6 +8,9 @@ class Fa extends React.Component {
       border,
       brand,
       className,
+      fab,
+      fal,
+      far,
       fixed,
       flip,
       icon,
@@ -24,7 +27,7 @@ class Fa extends React.Component {
       ...attributes
     } = this.props;
 
-    const iconPrefix = brand ? "fab" : light ? "fal" : regular ? "far" : "fa";
+    const iconPrefix = (brand || fab) ? "fab" : (light || fal) ? "fal" : (regular || fal) ? "far" : "fa";
 
     const classes = classNames(
       iconPrefix,
@@ -52,6 +55,9 @@ Fa.propTypes = {
   border: PropTypes.bool,
   brand: PropTypes.bool,
   className: PropTypes.string,
+  fab: PropTypes.bool,
+  fal: PropTypes.bool,
+  far: PropTypes.bool,
   fixed: PropTypes.bool,
   flip: PropTypes.string,
   inverse: PropTypes.string,
@@ -70,6 +76,9 @@ Fa.defaultProps = {
   border: false,
   brand: false,
   className: "",
+  fab: false,
+  fal: false,
+  far: false,
   fixed: false,
   flip: "", 
   inverse: "",
