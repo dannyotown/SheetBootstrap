@@ -626,7 +626,7 @@ class SocialPage extends Component {
                 <div className="social-meta">
                   <p>Another great adventure! </p>
                   <span>
-                    <MDBIcon icon="heart-o" />
+                    <MDBIcon icon="heart" />
                     25 likes
                   </span>
                   <p>
@@ -635,7 +635,7 @@ class SocialPage extends Component {
                   </p>
                 </div>
                 <hr />
-                <MDBInput icon="heart-o" hint="Add Comment..." />
+                <MDBInput icon="heart" hint="Add Comment..." />
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -673,7 +673,7 @@ class SocialPage extends Component {
                     #awesome #bboy #battle #breaking #cool
                   </p>
                   <span>
-                    <MDBIcon icon="heart-o" />
+                    <MDBIcon icon="heart" />
                     265 likes
                   </span>
                   <p>
@@ -682,7 +682,7 @@ class SocialPage extends Component {
                   </p>
                 </div>
                 <hr />
-                <MDBInput icon="heart-o" hint="Add Comment..." />
+                <MDBInput icon="heart" hint="Add Comment..." />
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
