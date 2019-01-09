@@ -65,17 +65,17 @@ class VideoBackgroundPage extends React.Component {
                   <MDBNavbarNav right>
                     <MDBNavItem>
                       <MDBNavLink to="!#">
-                        <MDBIcon icon="facebook" />
+                        <MDBIcon fab icon="facebook" />
                       </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
                       <MDBNavLink to="!#">
-                        <MDBIcon icon="twitter" />
+                        <MDBIcon fab icon="twitter" />
                       </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
                       <MDBNavLink to="!#">
-                        <MDBIcon icon="instagram" />
+                        <MDBIcon fab icon="instagram" />
                       </MDBNavLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
