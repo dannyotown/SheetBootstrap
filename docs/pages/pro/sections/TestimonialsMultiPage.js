@@ -47,7 +47,7 @@ const TestimonialsMultiPage = () => {
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
-                      <MDBIcon icon="star-half-full" />
+                      <MDBIcon icon="star-half" />
                     </div>
                   </MDBTestimonial>
                 </MDBCol>
@@ -101,7 +101,7 @@ const TestimonialsMultiPage = () => {
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
-                      <MDBIcon icon="star-o" />
+                      <MDBIcon icon="star" />
                     </div>
                   </MDBTestimonial>
                 </MDBCol>
@@ -130,7 +130,7 @@ const TestimonialsMultiPage = () => {
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
-                      <MDBIcon icon="star-half-full" />
+                      <MDBIcon icon="star-half" />
                     </div>
                   </MDBTestimonial>
                 </MDBCol>
@@ -184,7 +184,7 @@ const TestimonialsMultiPage = () => {
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
-                      <MDBIcon icon="star-o" />
+                      <MDBIcon icon="star" />
                     </div>
                   </MDBTestimonial>
                 </MDBCol>
@@ -240,7 +240,7 @@ const TestimonialsMultiPage = () => {
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
-                      <MDBIcon icon="star-half-full" />
+                      <MDBIcon icon="star-half" />
                     </div>
                   </MDBTestimonial>
                 </MDBCol>
@@ -267,7 +267,7 @@ const TestimonialsMultiPage = () => {
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
                       <MDBIcon icon="star" />
-                      <MDBIcon icon="star-o" />
+                      <MDBIcon icon="star" />
                     </div>
                   </MDBTestimonial>
                 </MDBCol>
