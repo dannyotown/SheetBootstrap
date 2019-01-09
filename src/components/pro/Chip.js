@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import Waves from "../Waves";
 import "./Chip.css";
+import Fa from '../Fa';
 
 class Chip extends Component {
   constructor(props) {
@@ -68,7 +69,7 @@ class Chip extends Component {
         {this.props.children}
         {waves && <Waves cursorPos={this.state.cursorPos} />}
         {close && (
-          <i className="fa fa-times close" onClick={this.handleCloseClick} />
+          <Fa icon="times" className="close" onClick={this.handleCloseClick} />
         )}
       </Tag>
     );
