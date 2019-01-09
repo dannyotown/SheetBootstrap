@@ -50,6 +50,11 @@ class ButtonFixed extends React.Component {
       role,
       type,
       icon,
+      iconBrand,
+      iconClass,
+      iconLight,
+      iconRegular,
+      iconSize,
       innerRef,
       buttonStyle,
       ...attributes
@@ -73,16 +78,26 @@ class ButtonFixed extends React.Component {
           onTouchStart={this.handleClick.bind(this)}
           className={classes}
         >
-          <Fa icon={this.props.icon} />
+          {
+            icon &&
+            <Fa
+              icon={icon}
+              size={iconSize}
+              brand={iconBrand}
+              light={iconLight}
+              regular={iconRegular}
+              className={iconClass}
+            />
+          }
           {this.props.disabled ? (
             false
           ) : (
-            <Waves
-              cursorPos={this.state.cursorPos}
-              outline={outline}
-              flat={flat}
-            />
-          )}
+              <Waves
+                cursorPos={this.state.cursorPos}
+                outline={outline}
+                flat={flat}
+              />
+            )}
         </a>
       </li>
     );
@@ -111,6 +126,11 @@ ButtonFixed.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
   buttonStyle: PropTypes.object
 };
 

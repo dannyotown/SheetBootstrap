@@ -8,6 +8,11 @@ const TimelineStep = props => {
     href,
     color,
     icon,
+    iconBrand,
+    iconClass,
+    iconLight,
+    iconRegular,
+    iconSize,
     className,
     children,
     inverted,
@@ -37,7 +42,17 @@ const TimelineStep = props => {
     <li className={liClasses}>
       <a href={href}>
         <span className={circleClasses}>
-          {icon && <Fa icon={icon} />}
+          {
+            icon &&
+            <Fa
+              icon={icon}
+              size={iconSize}
+              brand={iconBrand}
+              light={iconLight}
+              regular={iconRegular}
+              className={iconClass}
+            />
+          }
           {label}
         </span>
       </a>
@@ -51,8 +66,12 @@ TimelineStep.propTypes = {
   color: PropTypes.string,
   size: PropTypes.string,
   icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
   className: PropTypes.string,
-  iconClass: PropTypes.string
 };
 
 TimelineStep.defaultProps = {
