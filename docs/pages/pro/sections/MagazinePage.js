@@ -49,7 +49,7 @@ const MagazinePage = () => {
                     </h6>
                   </a>
                   <p className="font-weight-bold dark-grey-text">
-                    <MDBIcon icon="clock-o" className="pr-2" />
+                    <MDBIcon icon="clock" className="pr-2" />
                     20/08/2018
                   </p>
                 </div>
@@ -183,7 +183,7 @@ const MagazinePage = () => {
                     </h6>
                   </a>
                   <p className="font-weight-bold dark-grey-text">
-                    <MDBIcon icon="clock-o" className="pr-2" />
+                    <MDBIcon icon="clock" className="pr-2" />
                     24/08/2018
                   </p>
                 </div>
@@ -333,12 +333,12 @@ const MagazinePage = () => {
                 <div className="d-flex justify-content-between">
                   <a href="#!" className="deep-orange-text">
                     <h6 className="font-weight-bold">
-                      <MDBIcon icon="cutlery" className="pr-2" />
+                      <MDBIcon icon="utensils" className="pr-2" />
                       Culinary
                     </h6>
                   </a>
                   <p className="font-weight-bold dark-grey-text">
-                    <MDBIcon icon="clock-o" className="pr-2" />
+                    <MDBIcon icon="clock" className="pr-2" />
                     27/02/2018
                   </p>
                 </div>
