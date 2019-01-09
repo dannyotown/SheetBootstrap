@@ -420,7 +420,7 @@ const Friend = ({
       </p>
       {seen ? (
         <span className="text-muted float-right">
-          <MDBIcon className="fa-check" aria-hidden="true" />
+          <MDBIcon icon="check" aria-hidden="true" />
         </span>
       ) : toRespond ? (
         <MDBBadge color="danger" className="float-right">
@@ -428,7 +428,7 @@ const Friend = ({
         </MDBBadge>
       ) : (
         <span className="text-muted float-right">
-          <MDBIcon className="fa-mail-reply" aria-hidden="true" />
+          <MDBIcon icon="reply" aria-hidden="true" />
         </span>
       )}
     </div>
