@@ -126,7 +126,7 @@ const  TestimonialsPage = () => {
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
-                <MDBIcon icon="star-half-full" className="blue-text" />
+                <MDBIcon icon="star-half" className="blue-text" />
               </MDBTestimonial>
             </MDBCarouselItem>
             <MDBCarouselItem itemId="2">
@@ -182,7 +182,7 @@ const  TestimonialsPage = () => {
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
-                <MDBIcon icon="star-o" className="blue-text" />
+                <MDBIcon icon="star" className="blue-text" />
               </MDBTestimonial>
             </MDBCarouselItem>
           </MDBCarouselInner>
@@ -226,7 +226,7 @@ const  TestimonialsPage = () => {
                 <MDBIcon icon="star" />
                 <MDBIcon icon="star" />
                 <MDBIcon icon="star" />
-                <MDBIcon icon="star-half-full" />
+                <MDBIcon icon="star-half" />
               </div>
             </MDBTestimonial>
           </MDBCol>
@@ -246,7 +246,7 @@ const  TestimonialsPage = () => {
                 Web Developer
               </h6>
               <p className="font-weight-normal dark-grey-text">
-                <MDBIcon className="fa fa-quote-left pr-2" />
+                <MDBIcon icon="quote-left" className="pr-2" />
                 Ut enim ad minima veniam, quis nostrum exercitationem ullam
                 corporis suscipit laboriosam, nisi ut aliquid commodi.
               </p>
@@ -275,7 +275,7 @@ const  TestimonialsPage = () => {
                 Photographer
               </h6>
               <p className="font-weight-normal dark-grey-text">
-                <MDBIcon className="fa fa-quote-left pr-2" />
+                <MDBIcon icon="quote-left" className="pr-2" />
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui
                 blanditiis praesentium voluptatum deleniti atque corrupti.
               </p>
@@ -284,7 +284,7 @@ const  TestimonialsPage = () => {
                 <MDBIcon icon="star" />
                 <MDBIcon icon="star" />
                 <MDBIcon icon="star" />
-                <MDBIcon icon="star-o" />
+                <MDBIcon icon="star" />
               </div>
             </MDBTestimonial>
           </MDBCol>
