@@ -287,7 +287,7 @@ class eCommercePage extends Component {
                   <li><MDBIcon icon="star" /></li>
                   <li><MDBIcon icon="star" /></li>
                   <li><MDBIcon icon="star" /></li>
-                  <li><MDBIcon className="far" icon="star" /></li>
+                  <li><MDBIcon icon="star" /></li>
                 </ul>
                 <MDBCardText>
                   Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe
