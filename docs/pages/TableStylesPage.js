@@ -138,6 +138,7 @@ const TablePage = props => {
     }
   ];
 
+  // PRO-START
   const data_checkboxes = {
     columns: [
       {
@@ -182,7 +183,7 @@ const TablePage = props => {
       }
     ]
   };
-
+  // PRO-END
   const data_icons = {
     columns: [
       {
@@ -323,7 +324,7 @@ const TablePage = props => {
       }
     ]
   };
-
+  // PRO-START
   const data_panel = {
     columns: [
       {
@@ -410,6 +411,7 @@ const TablePage = props => {
       }
     ]
   };
+  // PRO-END
 
   return (
     <MDBContainer className="mt-3">

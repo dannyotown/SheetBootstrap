@@ -184,7 +184,7 @@ class FormsPage extends React.Component {
             </MDBBtn>
           </form>
         </div>
-
+        {/* PRO-START */}
         <hr className="my-5" />
         <h2 className="mb-5">Material example</h2>
         <div>
@@ -303,7 +303,7 @@ class FormsPage extends React.Component {
             </MDBBtn>
           </form>
         </div>
-        
+        {/* PRO-END */}
         <hr className="my-5" />
         <h2 className="mb-5">Browser defualt validation</h2>
         <div>
