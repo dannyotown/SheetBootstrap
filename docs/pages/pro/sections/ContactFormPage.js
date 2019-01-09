@@ -110,7 +110,7 @@ class ContactFormPage extends React.Component {
                       <MDBInput label="Your email" icon="envelope" />
                       <MDBInput
                         label="Your message"
-                        icon="pencil"
+                        icon="pencil-alt"
                         type="textarea"
                         rows="3"
                       />
