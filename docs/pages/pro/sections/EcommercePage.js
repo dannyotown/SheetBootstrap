@@ -51,7 +51,7 @@ const EcommercePage = () =>  {
                     <MDBIcon icon="star" />
                   </li>
                   <li>
-                    <MDBIcon icon="star-o" />
+                    <MDBIcon icon="star" />
                   </li>
                 </ul>
                 <MDBCardText>
@@ -190,7 +190,7 @@ const EcommercePage = () =>  {
                     <MDBIcon icon="star" />
                   </li>
                   <li>
-                    <MDBIcon icon="star-half-full" />
+                    <MDBIcon icon="star-half" />
                   </li>
                 </ul>
                 <MDBCardText>
@@ -259,7 +259,7 @@ const EcommercePage = () =>  {
                     <MDBIcon icon="star" />
                   </li>
                   <li>
-                    <MDBIcon icon="star-o" />
+                    <MDBIcon icon="star" />
                   </li>
                 </ul>
                 <MDBCardText>
@@ -1411,7 +1411,7 @@ const EcommercePage = () =>  {
                 <h5 className="mb-4">Premium plan</h5>
                 <div className="d-flex justify-content-center">
                   <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="group" className="light-blue-text" />
+                    <MDBIcon icon="users" className="white-text" />
                   </div>
                 </div>
                 <h2 className="font-weight-bold my-4">79$</h2>
@@ -1431,7 +1431,7 @@ const EcommercePage = () =>  {
                 <h5 className="mb-4">Advanced plan</h5>
                 <div className="d-flex justify-content-center">
                   <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="bar-chart" className="light-blue-text" />
+                    <MDBIcon icon="chart-bar" className="light-blue-text" />
                   </div>
                 </div>
 
@@ -1486,7 +1486,7 @@ const EcommercePage = () =>  {
                 <h5 className="mb-4">Premium plan</h5>
                 <div className="d-flex justify-content-center">
                   <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="group" className="light-blue-text" />
+                    <MDBIcon icon="users" className="light-blue-text" />
                   </div>
                 </div>
                 <h2 className="font-weight-bold my-4">79$</h2>
@@ -1506,7 +1506,7 @@ const EcommercePage = () =>  {
                 <h5 className="mb-4">Advanced plan</h5>
                 <div className="d-flex justify-content-center">
                   <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="bar-chart" className="indigo-text" />
+                    <MDBIcon icon="chart-bar" className="indigo-text" />
                   </div>
                 </div>
                 <h2 className="font-weight-bold my-4">99$</h2>
