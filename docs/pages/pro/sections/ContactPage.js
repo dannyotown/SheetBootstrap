@@ -59,7 +59,7 @@ const ContactPage = () => {
                 </div>
                 <div className="md-form">
                   <MDBInput
-                    icon="pencil"
+                    icon="pencil-alt"
                     label="Icon Prefix"
                     iconClass="grey-text"
                     type="textarea"
@@ -91,7 +91,7 @@ const ContactPage = () => {
             <MDBRow className="text-center">
               <MDBCol md="4">
                 <MDBBtn tag="a" floating color="blue" className="accent-1">
-                  <MDBIcon icon="map-marker" />
+                  <MDBIcon icon="map-marker-alt" />
                 </MDBBtn>
                 <p>New York, 94126</p>
                 <p className="mb-md-0">United States</p>
@@ -171,7 +171,7 @@ const ContactPage = () => {
           <MDBCol md="3" className="text-center">
             <ul className="list-unstyled mb-0">
               <li>
-                <MDBIcon icon="map-marker" size="2x" className="blue-text" />
+                <MDBIcon icon="map-marker-alt" size="2x" className="blue-text" />
                 <p>San Francisco, CA 94126, USA</p>
               </li>
               <li>
@@ -245,7 +245,7 @@ const ContactPage = () => {
                         label="Your message"
                       />
                       <MDBBtn rounded color="blue">
-                        <MDBIcon icon="send-o" />
+                        <MDBIcon icon="paper-plane" />
                       </MDBBtn>
                     </div>
                   </MDBCol>
@@ -258,7 +258,7 @@ const ContactPage = () => {
                 <ul className="text-lg-left list-unstyled ml-4">
                   <li>
                     <p>
-                      <MDBIcon icon="map-marker" className="pr-2" />
+                      <MDBIcon icon="map-marker-alt" className="pr-2" />
                       New York, 94126 USA
                     </p>
                   </li>
@@ -278,17 +278,17 @@ const ContactPage = () => {
                 <ul className="list-inline text-center list-unstyled">
                   <li className="list-inline-item">
                     <a href="#!" className="p-2 fa-lg w-ic">
-                      <MDBIcon icon="twitter" />
+                      <MDBIcon fab icon="twitter" />
                     </a>
                   </li>
                   <li className="list-inline-item">
                     <a href="#!" className="p-2 fa-lg w-ic">
-                      <MDBIcon icon="linkedin" />
+                      <MDBIcon fab icon="linkedin" />
                     </a>
                   </li>
                   <li className="list-inline-item">
                     <a href="#!" className="p-2 fa-lg w-ic">
-                      <MDBIcon icon="instagram" />
+                      <MDBIcon fab icon="instagram" />
                     </a>
                   </li>
                 </ul>
