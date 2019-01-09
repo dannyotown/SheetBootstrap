@@ -110,13 +110,13 @@ class ClassicFormPage extends React.Component {
                         <hr className="hr-light" />
                         <div className="text-center d-flex justify-content-center white-label">
                           <a href="#!" className="p-2 m-2">
-                            <MDBIcon icon="twitter" className="white-text" />
+                            <MDBIcon fab icon="twitter" className="white-text" />
                           </a>
                           <a href="#!" className="p-2 m-2">
-                            <MDBIcon icon="linkedin" className="white-text" />
+                            <MDBIcon fab icon="linkedin" className="white-text" />
                           </a>
                           <a href="#!" className="p-2 m-2">
-                            <MDBIcon icon="instagram" className="white-text" />
+                            <MDBIcon fab icon="instagram" className="white-text" />
                           </a>
                         </div>
                       </div>
