@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./DataTable.css";
+import Fa from '../Fa';
 
 class TableEditable extends React.Component {
   state = {
@@ -129,7 +130,7 @@ class TableEditable extends React.Component {
       <div className={wrapperClasses}>
         <span onClick={this.addRow} className="table-add float-right mb-3 mr-2">
           <a href="#!" className="text-success">
-            <i className="fa fa-plus fa-2x"> </i>
+            <Fa icon="plus" size="2x" />
           </a>
         </span>
         <table {...attributes} className={classes}>
@@ -165,7 +166,7 @@ class TableEditable extends React.Component {
                       className="table-up"
                     >
                       <a href="#!" className="indigo-text">
-                        <i className="fa fa-long-arrow-up"> </i>
+                        <Fa icon="long-arrow-alt-up" />
                       </a>
                     </span>
                     <span
@@ -173,7 +174,7 @@ class TableEditable extends React.Component {
                       className="table-down"
                     >
                       <a href="#!" className="indigo-text">
-                        <i className="fa fa-long-arrow-down"> </i>
+                        <Fa icon="long-arrow-alt-down" />
                       </a>
                     </span>
                   </td>
