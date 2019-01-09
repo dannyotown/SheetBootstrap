@@ -20,7 +20,7 @@ const FeaturesPage = () => {
         </p>
         <MDBRow>
           <MDBCol md="4">
-            <MDBIcon icon="area-chart" size="3x" className="red-text" />
+            <MDBIcon icon="chart-area" size="3x" className="red-text" />
             <h5 className="font-weight-bold my-4">Analytics</h5>
             <p className="grey-text mb-md-0 mb-5">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -36,7 +36,7 @@ const FeaturesPage = () => {
             </p>
           </MDBCol>
           <MDBCol md="4">
-            <MDBIcon icon="comments-o" size="3x" className="orange-text" />
+            <MDBIcon icon="comments" size="3x" className="orange-text" />
             <h5 className="font-weight-bold my-4">Support</h5>
             <p className="grey-text mb-md-0 mb-5">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -96,7 +96,7 @@ const FeaturesPage = () => {
           <MDBCol md="4" className="md-0 mb-5">
             <MDBRow>
               <MDBCol lg="2" md="3" size="2">
-                <MDBIcon icon="dashboard" size="2x" className="purple-text" />
+                <MDBIcon icon="tachometer-alt" size="2x" className="purple-text" />
               </MDBCol>
               <MDBCol lg="10" md="9" size="10">
                 <h4 className="font-weight-bold">Support</h4>
@@ -135,7 +135,7 @@ const FeaturesPage = () => {
           <MDBCol lg="7">
             <MDBRow className="mb-3">
               <MDBCol size="1">
-                <MDBIcon icon="mail-forward" size="lg" className="indigo-text" />
+                <MDBIcon icon="share" size="lg" className="indigo-text" />
               </MDBCol>
               <MDBCol xl="10" md="11" size="10">
                 <h5 className="font-weight-bold mb-3">Safety</h5>
@@ -148,7 +148,7 @@ const FeaturesPage = () => {
             </MDBRow>
             <MDBRow className="mb-3">
               <MDBCol size="1">
-                <MDBIcon icon="mail-forward" size="lg" className="indigo-text" />
+                <MDBIcon icon="share" size="lg" className="indigo-text" />
               </MDBCol>
               <MDBCol xl="10" md="11" size="10">
                 <h5 className="font-weight-bold mb-3">Technology</h5>
@@ -161,7 +161,7 @@ const FeaturesPage = () => {
             </MDBRow>
             <MDBRow className="mb-3">
               <MDBCol size="1">
-                <MDBIcon icon="mail-forward" size="lg" className="indigo-text" />
+                <MDBIcon icon="share" size="lg" className="indigo-text" />
               </MDBCol>
               <MDBCol xl="10" md="11" size="10">
                 <h5 className="font-weight-bold mb-3">Finance</h5>
@@ -220,7 +220,7 @@ const FeaturesPage = () => {
             </MDBRow>
             <MDBRow className="mb-3">
               <MDBCol size="2">
-                <MDBIcon icon="glass" size="2x" className="deep-purple-text" />
+                <MDBIcon icon="glass-martini" size="2x" className="deep-purple-text" />
               </MDBCol>
               <MDBCol size="10">
                 <h5 className="font-weight-bold mb-3">Relaxing</h5>
@@ -255,7 +255,7 @@ const FeaturesPage = () => {
             </MDBRow>
             <MDBRow className="mb-3">
               <MDBCol size="2">
-                <MDBIcon icon="flash" size="2x" className="deep-purple-text" />
+                <MDBIcon icon="bolt" size="2x" className="deep-purple-text" />
               </MDBCol>
               <MDBCol size="10">
                 <h5 className="font-weight-bold mb-3">Rapid</h5>
