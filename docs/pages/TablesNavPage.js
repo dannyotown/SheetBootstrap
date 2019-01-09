@@ -112,6 +112,18 @@ class ComponentsPage extends React.Component {
                     <Fa icon="angle-right" />
                   </h5>
                 </NavLink>
+                <NavLink
+                  className="list-group-item list-group-item-action"
+                  to="/tables/pro/table-styles"
+                >
+                  <h5
+                    style={{ margin: "0" }}
+                    className="justify-content-between d-flex align-items-center"
+                  >
+                    Table Styles
+                    <Fa icon="angle-right" />
+                  </h5>
+                </NavLink>
                 {/* PRO-END */}
               </ul>
             </Jumbotron>
