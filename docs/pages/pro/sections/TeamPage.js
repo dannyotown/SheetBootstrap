@@ -38,13 +38,13 @@ const TeamPage = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="facebook" className="blue-text" />
+                  <MDBIcon fab icon="facebook" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="twitter" className="blue-text" />
+                  <MDBIcon fab icon="twitter" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="instagram" className="blue-text" />
+                  <MDBIcon fab icon="instagram" className="blue-text" />
                 </a>
               </ul>
             </MDBCol>
@@ -64,10 +64,10 @@ const TeamPage = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="facebook" className="blue-text" />
+                  <MDBIcon fab icon="facebook" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="instagram" className="blue-text" />
+                  <MDBIcon fab icon="instagram" className="blue-text" />
                 </a>
               </ul>
             </MDBCol>
@@ -87,13 +87,13 @@ const TeamPage = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="facebook" className="blue-text" />
+                  <MDBIcon fab icon="facebook" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="instagram" className="blue-text" />
+                  <MDBIcon fab icon="instagram" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="dribbble" className="blue-text" />
+                  <MDBIcon fab icon="dribbble" className="blue-text" />
                 </a>
               </ul>
             </MDBCol>
@@ -114,10 +114,10 @@ const TeamPage = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="facebook" className="blue-text" />
+                  <MDBIcon fab icon="facebook" className="blue-text" />
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon icon="github" className="blue-text" />
+                  <MDBIcon fab icon="github" className="blue-text" />
                 </a>
               </ul>
             </MDBCol>
@@ -151,7 +151,7 @@ const TeamPage = () => {
               </h4>
               <h6 className="text-uppercase grey-text mb-3">Photographer</h6>
               <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-fb">
-                <MDBIcon icon="facebook" />
+                <MDBIcon fab icon="facebook" />
               </MDBBtn>
               <MDBBtn
                 tag="a"
@@ -159,10 +159,10 @@ const TeamPage = () => {
                 size="sm"
                 className="mx-1 mb-0 btn-dribbble"
               >
-                <MDBIcon icon="dribbble" />
+                <MDBIcon fab icon="dribbble" />
               </MDBBtn>
               <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-tw">
-                <MDBIcon icon="twitter" />
+                <MDBIcon fab icon="twitter" />
               </MDBBtn>
             </MDBCol>
 
@@ -186,10 +186,10 @@ const TeamPage = () => {
                 <MDBIcon icon="envelope" />
               </MDBBtn>
               <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-fb">
-                <MDBIcon icon="facebook" />
+                <MDBIcon fab icon="facebook" />
               </MDBBtn>
               <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-git">
-                <MDBIcon icon="github" />
+                <MDBIcon fab icon="github" />
               </MDBBtn>
             </MDBCol>
 
@@ -205,13 +205,13 @@ const TeamPage = () => {
               </h4>
               <h6 className="text-uppercase grey-text mb-3">Web Developer</h6>
               <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-li">
-                <MDBIcon icon="linkedin" />
+                <MDBIcon fab icon="linkedin" />
               </MDBBtn>
               <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-tw">
-                <MDBIcon icon="twitter" />
+                <MDBIcon fab icon="twitter" />
               </MDBBtn>
               <MDBBtn tag="a" floating size="sm" className="mx-1 mb-0 btn-pin">
-                <MDBIcon icon="pinterest" />
+                <MDBIcon fab icon="pinterest" />
               </MDBBtn>
             </MDBCol>
           </MDBRow>
@@ -251,13 +251,13 @@ const TeamPage = () => {
                   eos id officiis hic tenetur.
                 </p>
                 <a href="#!" className="p-2 fa-lg fb-ic">
-                  <MDBIcon icon="facebook" />
+                  <MDBIcon fab icon="facebook" />
                 </a>
                 <a href="#!" className="p-2 fa-lg tw-ic">
-                  <MDBIcon icon="twitter" />
+                  <MDBIcon fab icon="twitter" />
                 </a>
                 <a href="#!" className="p-2 fa-lg dribbble-ic">
-                  <MDBIcon icon="dribbble" />
+                  <MDBIcon fab icon="dribbble" />
                 </a>
               </MDBCol>
             </MDBCol>
@@ -281,13 +281,13 @@ const TeamPage = () => {
                   eos id officiis hic tenetur.
                 </p>
                 <a href="#!" className="p-2 fa-lg fb-ic">
-                  <MDBIcon icon="facebook" />
+                  <MDBIcon fab icon="facebook" />
                 </a>
                 <a href="#!" className="p-2 fa-lg yt-ic">
-                  <MDBIcon icon="youtube" />
+                  <MDBIcon fab icon="youtube" />
                 </a>
                 <a href="#!" className="p-2 fa-lg ins-ic">
-                  <MDBIcon icon="instagram" />
+                  <MDBIcon fab icon="instagram" />
                 </a>
               </MDBCol>
             </MDBCol>
@@ -311,13 +311,13 @@ const TeamPage = () => {
                   eos id officiis hic tenetur.
                 </p>
                 <a href="#!" className="p-2 fa-lg fb-ic">
-                  <MDBIcon icon="facebook" />
+                  <MDBIcon fab icon="facebook" />
                 </a>
                 <a href="#!" className="p-2 fa-lg tw-ic">
-                  <MDBIcon icon="twitter" />
+                  <MDBIcon fab icon="twitter" />
                 </a>
                 <a href="#!" className="p-2 fa-lg github-ic">
-                  <MDBIcon icon="github" />
+                  <MDBIcon fab icon="github" />
                 </a>
               </MDBCol>
             </MDBCol>
@@ -341,10 +341,10 @@ const TeamPage = () => {
                   eos id officiis hic tenetur.
                 </p>
                 <a href="#!" className="p-2 fa-lg gplus-ic">
-                  <MDBIcon icon="google-plus" />
+                  <MDBIcon fab icon="google-plus" />
                 </a>
                 <a href="#!" className="p-2 fa-lg li-ic">
-                  <MDBIcon icon="linkedin" />
+                  <MDBIcon fab icon="linkedin" />
                 </a>
                 <a href="#!" className="p-2 fa-lg email-ic">
                   <MDBIcon icon="envelope" />
