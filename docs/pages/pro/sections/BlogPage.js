@@ -36,7 +36,7 @@ const BlogPage = () => {
             <MDBCol lg="7">
               <a href="#!" className="green-text">
                 <h6 className="font-weight-bold mb-3">
-                  <MDBIcon icon="cutlery" className="pr-2" />
+                  <MDBIcon icon="utensils" className="pr-2" />
                   Food
                 </h6>
               </a>
@@ -50,8 +50,7 @@ const BlogPage = () => {
                 officiis debitis.
               </p>
               <p>
-                by
-                <a href="#!">
+                by <a href="#!">
                   <strong>Carine Fox</strong>
                 </a>
                 , 19/08/2018
@@ -80,8 +79,7 @@ const BlogPage = () => {
                 non provident.
               </p>
               <p>
-                by
-                <a href="#!">
+                by <a href="#!">
                   <strong>Carine Fox</strong>
                 </a>
                 , 14/08/2018
@@ -138,8 +136,7 @@ const BlogPage = () => {
                 sit amet.
               </p>
               <p>
-                by
-                <a href="#!">
+                by <a href="#!">
                   <strong>Carine Fox</strong>
                 </a>
                 , 11/08/2018
@@ -404,22 +401,22 @@ const BlogPage = () => {
                     , 26/08/2018
                   </p>
                   <MDBBtn className="btn-fb waves-light">
-                    <MDBIcon icon="facebook" className="pr-2" />
+                    <MDBIcon fab icon="facebook" className="pr-2" />
                     Facebook
                   </MDBBtn>
                   <span className="counter">46</span>
                   <MDBBtn className="btn-tw waves-light">
-                    <MDBIcon icon="twitter" className="pr-2" />
+                    <MDBIcon fab icon="twitter" className="pr-2" />
                     Twitter
                   </MDBBtn>
                   <span className="counter">22</span>
                   <MDBBtn className="btn-gplus waves-light">
-                    <MDBIcon icon="google-plus" className="pr-2" />
+                    <MDBIcon fab icon="google-plus" className="pr-2" />
                     Google
                   </MDBBtn>
                   <span className="counter">31</span>
                   <MDBBtn color="default" className="waves-light">
-                    <MDBIcon icon="comments" className="pr-2" />
+                    <MDBIcon fab icon="comments" className="pr-2" />
                     Comments
                   </MDBBtn>
                   <span className="counter">18</span>
@@ -471,22 +468,22 @@ const BlogPage = () => {
                     , 21/08/2018
                   </p>
                   <MDBBtn className="btn-fb waves-light">
-                    <MDBIcon icon="facebook" className="pr-2" />
+                    <MDBIcon fab icon="facebook" className="pr-2" />
                     Facebook
                   </MDBBtn>
                   <span className="counter">87</span>
                   <MDBBtn className="btn-tw waves-light">
-                    <MDBIcon icon="twitter" className="pr-2" />
+                    <MDBIcon fab icon="twitter" className="pr-2" />
                     Twitter
                   </MDBBtn>
                   <span className="counter">73</span>
                   <MDBBtn className="btn-gplus waves-light">
-                    <MDBIcon icon="google-plus" className="pr-2" />
+                    <MDBIcon fab icon="google-plus" className="pr-2" />
                     Google
                   </MDBBtn>
                   <span className="counter">91</span>
                   <MDBBtn color="default" className="waves-light">
-                    <MDBIcon icon="comments" className="pr-2" />
+                    <MDBIcon fab icon="comments" className="pr-2" />
                     Comments
                   </MDBBtn>
                   <span className="counter">67</span>
