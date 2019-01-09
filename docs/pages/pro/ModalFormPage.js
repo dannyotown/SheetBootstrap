@@ -120,7 +120,7 @@ class ModalPage extends React.Component {
                     color="info"
                     onClick={() => this.toggle(3)}
                   >
-                    LOG IN <Fa icon="sign-in" className="ml-1" />
+                    LOG IN <Fa icon="sign-in-alt" className="ml-1" />
                   </Button>
                   <Row
                     className="w-100 justify-content-start pt-4"
@@ -183,7 +183,7 @@ class ModalPage extends React.Component {
                     onClick={() => this.toggle(3)}
                   >
                     SIGN UP
-                    <Fa icon="sign-in" className="ml-1" />
+                    <Fa icon="sign-in-alt" className="ml-1" />
                   </Button>
                   <Row
                     className="w-100 justify-content-start pt-4"
@@ -250,13 +250,13 @@ class ModalPage extends React.Component {
               <p className="font-small dark-grey-text my-4">or Sign in with:</p>
               <Row className="py-3">
                 <Button rounded color="white" className="mr-md-3">
-                  <Fa icon="facebook" className="text-center blue-text" />
+                  <Fa fab icon="facebook" className="text-center blue-text" />
                 </Button>
                 <Button rounded color="white" className="mr-md-3">
-                  <Fa icon="twitter" className="text-center blue-text" />
+                  <Fa fab icon="twitter" className="text-center blue-text" />
                 </Button>
                 <Button rounded color="white" className="mr-md-3">
-                  <Fa icon="google-plus" className="text-center blue-text" />
+                  <Fa fab icon="google-plus" className="text-center blue-text" />
                 </Button>
               </Row>
               <Row

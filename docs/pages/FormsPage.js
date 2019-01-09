@@ -296,7 +296,7 @@ class FormsPage extends React.Component {
                   type="textarea"
                   rows="2"
                   label="Your message"
-                  icon="pencil"
+                  icon="pencil-alt"
                 />
               </div>
               <div className="text-center">
@@ -466,55 +466,57 @@ class FormsPage extends React.Component {
             >
               <div className="modal-header primary-color white-text">
                 <h4 className="title">
-                  <MDBIcon icon="pencil" /> Contact form
+                  <MDBIcon icon="pencil-alt" /> Contact form
                 </h4>
                 <button type="button" className="close" onClick={this.toggle}>
                   <span aria-hidden="true">×</span>
                 </button>
               </div>
-              <MDBModalBody className="grey-text">
-                <MDBInput
-                  size="sm"
-                  label="Your name"
-                  icon="user"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                />
-                <MDBInput
-                  size="sm"
-                  label="Your email"
-                  icon="envelope"
-                  group
-                  type="email"
-                  validate
-                  error="wrong"
-                  success="right"
-                />
-                <MDBInput
-                  size="sm"
-                  label="Subject"
-                  icon="tag"
-                  group
-                  type="text"
-                  validate
-                  error="wrong"
-                  success="right"
-                />
-                <MDBInput
-                  size="sm"
-                  type="textarea"
-                  rows="2"
-                  label="Your message"
-                  icon="pencil"
-                />
+              <MDBModalBody>
+                <form className="grey-text">
+                  <MDBInput
+                    size="sm"
+                    label="Your name"
+                    icon="user"
+                    group
+                    type="text"
+                    validate
+                    error="wrong"
+                    success="right"
+                  />
+                  <MDBInput
+                    size="sm"
+                    label="Your email"
+                    icon="envelope"
+                    group
+                    type="email"
+                    validate
+                    error="wrong"
+                    success="right"
+                  />
+                  <MDBInput
+                    size="sm"
+                    label="Subject"
+                    icon="tag"
+                    group
+                    type="text"
+                    validate
+                    error="wrong"
+                    success="right"
+                  />
+                  <MDBInput
+                    size="sm"
+                    type="textarea"
+                    rows="2"
+                    label="Your message"
+                    icon="pencil-alt"
+                  />
+                </form>
               </MDBModalBody>
               <MDBModalFooter>
                 <MDBBtn color="secondary" onClick={this.toggle}>
                   Close
-                </MDBBtn>{" "}
+                </MDBBtn>
                 <MDBBtn color="primary">Save changes</MDBBtn>
               </MDBModalFooter>
             </MDBModal>
