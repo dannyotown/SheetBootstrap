@@ -16,7 +16,7 @@ const TimelinePage = () => {
             <MDBTimelineStep icon="check">
               <h4 className="font-weight-bold">Ut enim ad minim veniam</h4>
               <p className="text-muted mt-3">
-                <i className="fa fa-clock" aria-hidden="true" /> 11 hours ago
+                <MDBIcon icon="clock" aria-hidden="true" /> 11 hours ago
                 via Twitter
               </p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -76,7 +76,7 @@ const TimelinePage = () => {
                 Ut enim ad minim veniam
               </h4>
               <p className="text-muted mt-3 px-4">
-                <i className="fa fa-clock" aria-hidden="true" /> 11 hours ago
+                <MDBIcon icon="clock" aria-hidden="true" /> 11 hours ago
                 via Twitter
               </p>
               <p className="mb-0 px-4 pb-4">
@@ -96,7 +96,7 @@ const TimelinePage = () => {
                 Ut enim ad minim veniam
               </h4>
               <p className="text-muted mt-4 px-4">
-                <i className="fa fa-clock" aria-hidden="true" /> 11 hours ago
+                <MDBIcon icon="clock" aria-hidden="true" /> 11 hours ago
                 via Twitter
               </p>
               <p className="mb-0 px-4 pb-4">
@@ -130,7 +130,7 @@ const TimelinePage = () => {
                 Ut enim ad minim veniam
               </h4>
               <p className="text-muted mt-4 px-4">
-                <i className="fa fa-clock" aria-hidden="true" /> 11 hours ago
+                <MDBIcon icon="clock" aria-hidden="true" /> 11 hours ago
                 via Twitter
               </p>
               <p className="mb-0 px-4 pb-4">

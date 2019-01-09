@@ -55,7 +55,7 @@ const  TestimonialsPage = () => {
                 <h4 className="font-weight-bold mb-4">Anna Aston</h4>
                 <hr />
                 <p className="dark-grey-text mt-4">
-                  <i className="fa fa-quote-left pr-2" />
+                  <MDBIcon icon="quote-left" className="pr-2" />
                   Neque cupiditate assumenda in maiores repudiandae mollitia
                   architecto.
                 </p>
@@ -76,7 +76,7 @@ const  TestimonialsPage = () => {
                 <h4 className="font-weight-bold mb-4">Maria Kate</h4>
                 <hr />
                 <p className="dark-grey-text mt-4">
-                  <i className="fa fa-quote-left pr-2" />
+                  <MDBIcon icon="quote-left" className="pr-2" />
                   Delectus impedit saepe officiis ab aliquam repellat rem unde
                   ducimus.
                 </p>
