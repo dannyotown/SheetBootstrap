@@ -66,7 +66,7 @@ class FlippingCardPage extends Component {
                       data-card="card-1"
                       onClick={() => this.handleFlipping(1)}
                     >
-                      <MDBIcon icon="repeat" /> Click here to rotate
+                      <MDBIcon icon="redo" /> Click here to rotate
                     </a>
                   </MDBCardBody>
                 </MDBCard>
@@ -84,22 +84,22 @@ class FlippingCardPage extends Component {
                     <ul className="list-inline py-2">
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg fb-ic">
-                          <MDBIcon icon="facebook" />
+                          <MDBIcon fab icon="facebook" />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg tw-ic">
-                          <MDBIcon icon="twitter" />
+                          <MDBIcon fab icon="twitter" />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg gplus-ic">
-                          <MDBIcon icon="google-plus" />
+                          <MDBIcon fab icon="google-plus" />
                         </a>
                       </li>
                       <li className="list-inline-item">
                         <a href="#!" className="p-2 fa-lg li-ic">
-                          <MDBIcon icon="linkedin" />
+                          <MDBIcon fab icon="linkedin" />
                         </a>
                       </li>
                     </ul>
