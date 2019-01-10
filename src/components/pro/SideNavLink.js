@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import Waves from "../Waves";
-const Link = require("react-router-dom").NavLink;
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Waves from '../Waves';
+import { NavLink as Link } from 'react-router-dom';
 
 class SideNavLink extends React.Component {
   constructor(props) {
@@ -42,12 +42,13 @@ class SideNavLink extends React.Component {
     } = this.props;
 
     const classes = classNames(
-      "Ripple-parent",
-      topLevel && "collapsible-header",
+      'Ripple-parent',
+      topLevel && 'collapsible-header',
       className
     );
 
-    const sideNavLink = (<Link
+    const sideNavLink = (
+      <Link
         className={classes}
         ref={innerRef}
         onClick={this.handleClick}
@@ -56,10 +57,10 @@ class SideNavLink extends React.Component {
       >
         {children}
         <Waves cursorPos={this.state.cursorPos} />
-      </Link>);
+      </Link>
+    );
 
-    return (topLevel ? <li> {sideNavLink}</li> : sideNavLink)
-
+    return topLevel ? <li> {sideNavLink}</li> : sideNavLink;
   }
 }
 
@@ -73,7 +74,7 @@ SideNavLink.propTypes = {
 };
 
 SideNavLink.defaultProps = {
-  to: "#",
+  to: '#',
   topLevel: false
 };
 

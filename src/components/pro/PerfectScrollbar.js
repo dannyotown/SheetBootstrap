@@ -1,20 +1,19 @@
-import React, { Component } from "react";
-import { PropTypes } from "prop-types";
-import PerfectScrollbar from "perfect-scrollbar";
-
-require("./PerfectScrollbar.css");
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+import PerfectScrollbar from 'perfect-scrollbar';
+import './PerfectScrollbar.css';
 
 const handlerNameByEvent = {
-  "ps-scroll-y": "onScrollY",
-  "ps-scroll-x": "onScrollX",
-  "ps-scroll-up": "onScrollUp",
-  "ps-scroll-down": "onScrollDown",
-  "ps-scroll-left": "onScrollLeft",
-  "ps-scroll-right": "onScrollRight",
-  "ps-y-reach-start": "onYReachStart",
-  "ps-y-reach-end": "onYReachEnd",
-  "ps-x-reach-start": "onXReachStart",
-  "ps-x-reach-end": "onXReachEnd"
+  'ps-scroll-y': 'onScrollY',
+  'ps-scroll-x': 'onScrollX',
+  'ps-scroll-up': 'onScrollUp',
+  'ps-scroll-down': 'onScrollDown',
+  'ps-scroll-left': 'onScrollLeft',
+  'ps-scroll-right': 'onScrollRight',
+  'ps-y-reach-start': 'onYReachStart',
+  'ps-y-reach-end': 'onYReachEnd',
+  'ps-x-reach-start': 'onXReachStart',
+  'ps-x-reach-end': 'onXReachEnd'
 };
 Object.freeze(handlerNameByEvent);
 
@@ -69,7 +68,7 @@ class ScrollBar extends Component {
 }
 
 ScrollBar.defaultProps = {
-  className: "",
+  className: '',
   option: undefined,
   containerRef: () => {},
   onScrollY: undefined,
