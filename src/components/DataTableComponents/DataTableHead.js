@@ -48,7 +48,7 @@ const DataTableHead = props => {
               }
             >
               {col.label}
-              {sortable && (
+              {sortable && col.sort !== 'disabled' && (
                 <Fa icon="sort" className="float-right" aria-hidden="true" />
               )}
             </th>

@@ -94,29 +94,32 @@ class DataTable extends Component {
   };
 
   handleSort = (field, sort) => {
-    this.setState(
-      prevState => {
-        // run default block if there is no key 'sort'
-        switch (sort) {
-          case "asc":
-            prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1));
-            break;
-          case "desc":
-            prevState.rows.sort((a, b) => (a[field] > b[field] ? -1 : 1));
-            break;
-          default:
-            prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1));
-        }
-        prevState.columns[
-          prevState.columns.findIndex(column => column.field === field)
-        ].sort = sort === "asc" ? "desc" : "asc";
-        return {
-          rows: prevState.rows,
-          columns: prevState.columns
-        };
-      },
-      () => this.filterRows()
-    );
+    if(sort !== "disabled") {
+      this.setState(
+        prevState => {
+          // asc by default 
+          switch (sort) {
+            case "desc":
+              prevState.rows.sort((a, b) => (a[field] > b[field] ? -1 : 1));
+              break;
+            default:
+              prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1));
+          }
+      
+          prevState.columns[
+            prevState.columns.findIndex(column => column.field === field)
+          ].sort = sort === "asc" ? "desc" : "asc";
+  
+          return {
+            rows: prevState.rows,
+            columns: prevState.columns
+          };
+        },
+        () => this.filterRows()
+      );
+    }
+
+    else return;
   };
 
   filterRows = () => {

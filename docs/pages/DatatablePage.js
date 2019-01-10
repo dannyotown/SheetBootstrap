@@ -8,7 +8,7 @@ const DatatablePage = () => {
       {
         label: "Name",
         field: "name",
-        sort: "asc",
+        sort: "disabled",
         width: 150
       },
       {
