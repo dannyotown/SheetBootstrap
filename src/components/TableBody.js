@@ -10,7 +10,7 @@ const TableBody = props => {
   });
 
   return (
-    <tbody {...attributes} className={classes}>
+    <tbody {...attributes} className={classes || undefined}>
       {rows &&
         rows.map((row, index) => (
           <tr key={index}>
