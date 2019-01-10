@@ -13,7 +13,7 @@ class DataTable extends Component {
     this.state = {
       activePage: 0,
       columns: props.data.columns || [],
-      entries: 10,
+      entries: props.entries,
       filteredRows: props.data.rows || [],
       pages: [],
       rows: props.data.rows || [],
@@ -196,6 +196,7 @@ class DataTable extends Component {
       children,
       dark,
       data,
+      entriesOptions,
       entriesLabel,
       exportToCSV,
       fixed,
@@ -235,8 +236,6 @@ class DataTable extends Component {
       translateScrollHead
     } = this.state;
 
-    const entriesArr = [10, 25, 50, 100];
-
     let ExportToCsvBtn;
     if (exportToCSV) {
       try {
@@ -255,7 +254,7 @@ class DataTable extends Component {
             paging={paging}
             entries={entries}
             handleEntriesChange={this.handleEntriesChange}
-            entriesArr={entriesArr}
+            entriesArr={entriesOptions}
             label={entriesLabel}
           />
           <DataTableSearch
@@ -367,7 +366,12 @@ DataTable.propTypes = {
   children: PropTypes.node,
   dark: PropTypes.bool,
   data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  entriesLabel: PropTypes.string,
+  entriesLabel: PropTypes.oneOfType([
+    PropTypes.string, 
+    PropTypes.number, 
+    PropTypes.object
+  ]),
+  entriesOptions: PropTypes.arrayOf(PropTypes.number),
   exportToCSV: PropTypes.bool,
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
@@ -402,17 +406,24 @@ DataTable.defaultProps = {
   btn: false,
   dark: false,
   data: {},
+  entries: 10,
+  entriesLabel: "Show entries",
+  entriesOptions: [10, 20, 50, 100],
+  exportToCSV: false,
   fixed: false,
   hover: false,
   info: true,
+  infoLabel: ["Showing", "to", "of", "entries"],
   order: [],
   paging: true,
+  paginationLabel: ["Previous", "Next"],
   responsive: false,
   responsiveSm: false,
   responsiveMd: false,
   responsiveLg: false,
   responsiveXl: false,
   searching: true,
+  searchLabel: "Search",
   scrollX: false,
   scrollY: false,
   sortable: true,
