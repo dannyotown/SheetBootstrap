@@ -3,36 +3,33 @@ import { DataTable, Container, Row, Col, Card, CardBody } from "mdbreact";
 import DocsLink from "./DocsLink";
 
 const DatatablePage = () => {
-  const data = {
+  const data = () => ({
     columns: [
       {
         label: "Name",
         field: "name",
-        sort: "disabled",
         width: 150
       },
       {
         label: "Position",
         field: "position",
-        sort: "asc",
         width: 270
       },
       {
         label: "Office",
         field: "office",
-        sort: "asc",
         width: 200
       },
       {
         label: "Age",
         field: "age",
-        sort: "asc",
+        sort: "desc",
         width: 100
       },
       {
         label: "Start date",
         field: "date",
-        sort: "asc",
+        sort: "disabled",
         width: 150
       },
       {
@@ -500,7 +497,7 @@ const DatatablePage = () => {
         salary: "$112"
       }
     ]
-  };
+  });
 
   return (
     <Container className="mt-3">
@@ -512,7 +509,7 @@ const DatatablePage = () => {
         <Col md="12">
           <Card>
             <CardBody>
-              <DataTable striped bordered hover data={data} />
+              <DataTable striped bordered hover data={new data()} />
             </CardBody>
           </Card>
         </Col>
@@ -523,7 +520,7 @@ const DatatablePage = () => {
           <Card>
             <CardBody>
               <h2 className="h2-responsive pb-4">Info off</h2>
-              <DataTable striped bordered hover info={false} data={data} />
+              <DataTable striped bordered hover info={false} data={new data()} />
             </CardBody>
           </Card>
         </Col>
@@ -534,7 +531,7 @@ const DatatablePage = () => {
           <Card>
             <CardBody>
               <h2 className="h2-responsive pb-4">Sortable off</h2>
-              <DataTable striped bordered hover sortable={false} data={data} />
+              <DataTable striped bordered hover sortable={false} data={new data()} />
             </CardBody>
           </Card>
         </Col>
@@ -550,7 +547,7 @@ const DatatablePage = () => {
                 bordered
                 hover
                 order={["age", "desc"]}
-                data={data}
+                data={new data()}
               />
             </CardBody>
           </Card>
@@ -562,7 +559,7 @@ const DatatablePage = () => {
           <Card>
             <CardBody>
               <h2 className="h2-responsive pb-4">Searching off</h2>
-              <DataTable striped bordered hover searching={false} data={data} />
+              <DataTable striped bordered hover searching={false} data={new data()} />
             </CardBody>
           </Card>
         </Col>
@@ -573,7 +570,7 @@ const DatatablePage = () => {
           <Card>
             <CardBody>
               <h2 className="h2-responsive pb-4">Paging off</h2>
-              <DataTable striped bordered hover paging={false} data={data} />
+              <DataTable striped bordered hover paging={false} data={new data()} />
             </CardBody>
           </Card>
         </Col>
@@ -590,7 +587,7 @@ const DatatablePage = () => {
                 hover
                 scrollY
                 maxHeight="300px"
-                data={data}
+                data={new data()}
               />
             </CardBody>
           </Card>
@@ -608,7 +605,7 @@ const DatatablePage = () => {
                 hover
                 scrollY
                 maxHeight="50vh"
-                data={data}
+                data={new data()}
               />
             </CardBody>
           </Card>
@@ -620,7 +617,7 @@ const DatatablePage = () => {
           <Card>
             <CardBody>
               <h2 className="h2-responsive pb-4">scrollX</h2>
-              <DataTable striped bordered hover scrollX data={data} />
+              <DataTable striped bordered hover scrollX data={new data()} />
             </CardBody>
           </Card>
         </Col>
@@ -638,7 +635,7 @@ const DatatablePage = () => {
                 scrollX
                 scrollY
                 maxHeight="300xp"
-                data={data}
+                data={new data()}
               />
             </CardBody>
           </Card>
