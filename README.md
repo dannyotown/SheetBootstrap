@@ -58,11 +58,7 @@ Now you can navigate to our documentation (http://mdbootstrap.com/docs/react/), 
 - Import style files into the src/index.js before the App.js file:
 
 ```javascript
-<<<<<<< HEAD
 import "@fortawesome/fontawesome-free/css/all.min.css";
-=======
-import "@fortawesome/fontawesome-free/css/all.min.css";;
->>>>>>> 37e89db7a05ad8c31cc6f6a8e8569fc3588b707a
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 ```
