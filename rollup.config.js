@@ -3,19 +3,21 @@ import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
+import url from "rollup-plugin-url"
+import autoExternal from 'rollup-plugin-auto-external';
 
 const plugins = [
+  autoExternal(),
   babel({
-    exclude: 'node_modules/**' // only transpile our source code
+    exclude: 'node_modules/**'
   }),
   postcss({
-    extract: true
+    extract: false   // do not generate additional css file
   }),
   resolve(), // so Rollup can find `ms`
   commonjs({
     include: ['node_modules/**'],
     exclude: [
-      // 'node_modules/**'
       'node_modules/process-es6/**'
     ],
     namedExports: {
@@ -57,33 +59,17 @@ const plugins = [
       'node_modules/@material-ui/core/Modal/index.js': ['ModalManager'],
       'node_modules/react-toastify/lib/index.js': ['cssTransition']
     }
-  }) // so Rollup can convert `ms` to an ES module
+  }),
+  url({
+    include: [/\.ttf(\?v=\d+\.\d+\.\d+)?$/, /\.svg(\?v=\d+\.\d+\.\d+)?$/, /\.png(\?v=\d+\.\d+\.\d+)?$/, /\.gif(\?v=\d+\.\d+\.\d+)?$/],
+    emitFiles: true
+  })
 ];
 
-const external = [
-  'classnames',
-  '@date-io/moment',
-  'material-ui-pickers',
-  'moment',
-  'outy',
-  'perfect-scrollbar',
-  'raf',
-  'react',
-  'react-autosuggest',
-  'react-dom',
-  'react-numeric-input',
-  'react-popper',
-  'react-router-dom',
-  'react-toastify',
-  'react-transition-group',
-  'prop-types',
-  '@material-ui/core'
-];
 
 export default [
   {
     input: 'src/index.js',
-    external,
     plugins,
     output: [
       {
