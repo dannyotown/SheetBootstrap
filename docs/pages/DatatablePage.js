@@ -8,7 +8,11 @@ const DatatablePage = () => {
       {
         label: "Name",
         field: "name",
-        width: 150
+        width: 150,
+        attributes: {
+          "aria-controls": "DataTable",
+          "aria-label": "Name"
+        }
       },
       {
         label: "Position",

@@ -11,15 +11,12 @@ const DataTableHead = props => {
     scrollX,
     scrollY,
     sortable,
-    textWhite,
-    ...attributes
+    textWhite
   } = props;
 
   const theadClasses = classNames(
-    color !== "dark" && color !== "light" ? color : `thead-${color}`,
-    {
-      "text-white": textWhite
-    }
+    color && (color !== "dark" && color !== "light" ? color : `thead-${color}`),
+    textWhite && "text-white"
   );
 
   return (
@@ -37,15 +34,16 @@ const DataTableHead = props => {
           ))}
         </colgroup>
       )}
-      <thead {...attributes} className={theadClasses}>
+      <thead className={theadClasses || undefined}>
         <tr>
           {columns.map(col => (
             <th
               onClick={() => sortable && handleSort(col.field, col.sort)}
               key={col.field}
               className={
-                col.hasOwnProperty("minimal") ? `th-${col.minimal}` : ""
+                col.hasOwnProperty("minimal") ? `th-${col.minimal}` : undefined
               }
+              {...col.attributes}
             >
               {col.label}
               {sortable && col.sort !== 'disabled' && (
