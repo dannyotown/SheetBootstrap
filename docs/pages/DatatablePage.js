@@ -513,7 +513,7 @@ const DatatablePage = () => {
         <Col md="12">
           <Card>
             <CardBody>
-              <DataTable striped bordered hover entriesOptions={[15, 20, 25]} entries={15} data={new data()} />
+              <DataTable striped bordered hover entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4} data={new data()} />
             </CardBody>
           </Card>
         </Col>

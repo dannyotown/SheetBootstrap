@@ -205,6 +205,7 @@ class DataTable extends Component {
       infoLabel,
       maxHeight,
       order,
+      pagesAmount,
       paging,
       paginationLabel,
       responsive,
@@ -342,6 +343,7 @@ class DataTable extends Component {
               activePage={activePage}
               changeActivePage={this.changeActivePage}
               pages={pages}
+              pagesAmount={pagesAmount}
               label={paginationLabel}
             />
           </div>
@@ -379,6 +381,7 @@ DataTable.propTypes = {
   infoLabel: PropTypes.arrayOf(PropTypes.string),
   maxHeight: PropTypes.string,
   order: PropTypes.arrayOf(PropTypes.string),
+  pagesAmount: PropTypes.number,
   paging: PropTypes.bool,
   paginationLabel: PropTypes.arrayOf(PropTypes.string),
   responsive: PropTypes.bool,
@@ -415,6 +418,7 @@ DataTable.defaultProps = {
   info: true,
   infoLabel: ["Showing", "to", "of", "entries"],
   order: [],
+  pagesAmount: 8,
   paging: true,
   paginationLabel: ["Previous", "Next"],
   responsive: false,
