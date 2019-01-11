@@ -16,7 +16,7 @@ const CSSPage = () => {
               <MenuLink to="/css/animations" title="Animation" />
               <MenuLink to="/css/hover" title="Hover effects" />
               <MenuLink to="/css/icons" title="Icons" />
-              <MenuLink to="/css/jumbotron" title="MDBJumbotron" />
+              <MenuLink to="/css/jumbotron" title="Jumbotron" />
               <MenuLink to="/css/masks" title="Masks"  />
             </ul>
           </MDBJumbotron>
