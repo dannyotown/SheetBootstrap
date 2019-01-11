@@ -1,8 +1,8 @@
-import React from "react";
-import { Container, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
-import DocsLink from "./DocsLink";
+import React, { Component } from "react";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
+import DocsLink from "./../components/docsLink";
 
-class FormsPage extends React.Component {
+class ValidationPage extends Component {
   state = {
     fname: "Mark",
     lname: "Otto",
@@ -23,7 +23,7 @@ class FormsPage extends React.Component {
 
   render() {
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Form Validation"
           href="https://mdbootstrap.com/docs/react/forms/validation/"
@@ -635,9 +635,9 @@ class FormsPage extends React.Component {
             </form>
           </MDBCol>
         </MDBRow>
-      </Container>
+      </MDBContainer>
     );
   }
 }
 
-export default FormsPage;
+export default ValidationPage;
