@@ -1,10 +1,10 @@
 import React from "react";
-import { MDBBreadcrumb, MDBBreadcrumbItem, Container, MDBNavbar, MDBNavbarNav, MDBNavItem } from "mdbreact";
-import DocsLink from "./DocsLink";
+import { MDBBreadcrumb, MDBBreadcrumbItem, MDBContainer, MDBNavbar, MDBNavbarNav, MDBNavItem } from "mdbreact";
+import DocsLink from "./../components/docsLink";
 
 const BreadcrumbPage = props => {
   return (
-    <Container>
+    <MDBContainer>
       <DocsLink
         title="Breadcrumb"
         href="https://mdbootstrap.com/docs/react/navigation/breadcrumb/"
@@ -128,7 +128,7 @@ const BreadcrumbPage = props => {
           </MDBNavItem>
         </MDBNavbarNav>
       </MDBNavbar>
-    </Container>
+    </MDBContainer>
   );
 };
 
