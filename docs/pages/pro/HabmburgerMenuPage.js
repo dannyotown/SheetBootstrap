@@ -1,20 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBContainer,
-  MDBIcon,
-  MDBHamburgerToggler
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,   MDBContainer, MDBIcon, MDBHamburgerToggler } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
-class NavbarPage extends Component {
+class HabmburgerMenuPage extends Component {
   state = {
     collapse1: false,
     collapse2: true,
@@ -28,7 +17,7 @@ class NavbarPage extends Component {
     }));
   };
 
-  toggleSingleCollapse = collapseId => {
+  toggleSingleCollapse = collapseId => () => {
     this.setState({
       ...this.state,
       [collapseId]: !this.state[collapseId]
@@ -50,7 +39,7 @@ class NavbarPage extends Component {
                 <MDBHamburgerToggler
                   color="#d3531a"
                   id="hamburger1"
-                  onClick={() => this.toggleSingleCollapse("collapse1")}
+                  onClick={this.toggleSingleCollapse("collapse1")}
                 />
                 <MDBCollapse isOpen={this.state.collapse1} navbar>
                   <MDBNavbarNav left>
@@ -72,7 +61,7 @@ class NavbarPage extends Component {
               <MDBContainer>
                 <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
                 <MDBHamburgerToggler
-                  onClick={() => this.toggleSingleCollapse("collapse2")}
+                  onClick={this.toggleSingleCollapse("collapse2")}
                   isOpen={true}
                   id="hamburger2"
                 />
@@ -96,7 +85,7 @@ class NavbarPage extends Component {
               <MDBContainer>
                 <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
                 <MDBHamburgerToggler
-                  onClick={() => this.toggleSingleCollapse("collapse3")}
+                  onClick={this.toggleSingleCollapse("collapse3")}
                   id="hamburger3"
                 />
                 <MDBCollapse isOpen={this.state.collapse3} navbar>
@@ -146,7 +135,6 @@ class NavbarPage extends Component {
               <MDBContainer>
                 <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
                 <MDBNavbarToggler
-                  image="/docs/img/svg/arrow_right.svg"
                   onClick={this.toggleCollapse("navbarCollapse2")}
                 />
                 <MDBCollapse
@@ -531,4 +519,4 @@ class NavbarPage extends Component {
   }
 }
 
-export default NavbarPage;
+export default HabmburgerMenuPage;
