@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBIcon, MDBBtn, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBNav, MDBNavItem, MDBNavLink, MDBTabPane, MDBTabContent, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions, MDBCardFooter } from "mdbreact";
-import DocsLink from "../DocsLink";
+import DocsLink from "./../../components/docsLink";
 
 class eCommercePage extends Component {
   state={
