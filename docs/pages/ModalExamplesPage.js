@@ -1,60 +1,45 @@
-import React from "react";
-import {
-  Container,
-  Button,
-  Modal,
-  ModalBody,
-  ModalHeader,
-  ModalFooter,
-  Row,
-  Fa,
-  Badge,
-  Col,
-  Table,
-  TableBody,
-  TableHead,
+import React, { Component } from "react";
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBRow, MDBIcon,   MDBBadge, MDBCol, MDBTable, MDBTableBody, MDBTableHead,
   // PRO-START
-  Select,
-  SelectOption,
-  SelectOptions,
-  SelectInput,
-  CollapseHeader,
-  Card,
-  Collapse,
-  CardBody,
-  Carousel,
-  CarouselInner,
-  CarouselItem,
-  Input
+  MDBSelect,
+  MDBSelectOption,
+  MDBSelectOptions,
+  MDBSelectInput,
+  MDBCollapseHeader,
+  MDBCard,
+  MDBCollapse,
+  MDBCardBody,
+  MDBCarousel,
+  MDBCarouselInner,
+  MDBCarouselItem,
+  MDBInput
   // PRO-END
 } from "mdbreact";
 import "./ModalExamplesPage.css";
-import DocsLink from "./DocsLink";
+import DocsLink from "./../components/docsLink";
 
-class ModalPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal1: false,
-      modal2: false,
-      modal3: false,
-      modal4: false,
-      modal5: false,
-      modal6: false,
-      modal7: false,
-      modal8: false,
-      modal10: false,
-      modal11: false,
-      modal12: false,
-      // PRO-START
-      accordion: 1,
-      modal9: false,
-      modal13: false
-      // PRO-END
-    };
+class ModalExamplesPage extends Component {
+
+  state = {
+    modal1: false,
+    modal2: false,
+    modal3: false,
+    modal4: false,
+    modal5: false,
+    modal6: false,
+    modal7: false,
+    modal8: false,
+    modal10: false,
+    modal11: false,
+    modal12: false,
+    // PRO-START
+    accordion: 1,
+    modal9: false,
+    modal13: false
+    // PRO-END
   }
 
-  toggle(nr) {
+  toggle = nr => () => {
     let modalNumber = "modal" + nr;
     this.setState({
       ...this.state,
@@ -81,93 +66,93 @@ class ModalPage extends React.Component {
     let { accordion } = this.state;
     // PRO-END
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Modal Templates & Examples"
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
         <h4 className="mt-4">Modal Cookies</h4>
-        <Row>
-          <Button onClick={() => this.toggle(1)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(1)}>Launch Modal</MDBBtn>
+          <MDBModal
             position="top"
             backdrop={false}
             frame
             isOpen={this.state.modal1}
-            toggle={() => this.toggle(1)}
+            toggle={this.toggle(1)}
           >
-            <ModalBody>
-              <Row className="justify-content-center align-items-center">
+            <MDBModalBody>
+              <MDBRow className="justify-content-center align-items-center">
                 <p className="pt-3 pr-2">
                   We use cookies to improve your website experience
                 </p>
-                <Button color="primary" onClick={() => this.toggle(1)}>
+                <MDBBtn color="primary" onClick={this.toggle(1)}>
                   Learn more
-                  <Fa icon="book" className="ml-1" />
-                </Button>
-                <Button color="primary" outline onClick={() => this.toggle(1)}>
+                  <MDBIcon icon="book" className="ml-1" />
+                </MDBBtn>
+                <MDBBtn color="primary" outline onClick={this.toggle(1)}>
                   Ok, thanks
-                </Button>
-              </Row>
-            </ModalBody>
-          </Modal>
-        </Row>
+                </MDBBtn>
+              </MDBRow>
+            </MDBModalBody>
+          </MDBModal>
+        </MDBRow>
 
         <h4 className="mt-4">Modal Coupon</h4>
-        <Row>
-          <Button onClick={() => this.toggle(2)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(2)}>Launch Modal</MDBBtn>
+          <MDBModal
             position="bottom"
             backdrop={false}
             frame
             isOpen={this.state.modal2}
-            toggle={() => this.toggle(2)}
+            toggle={this.toggle(2)}
           >
-            <ModalBody>
-              <Row className="justify-content-center align-items-center">
+            <MDBModalBody>
+              <MDBRow className="justify-content-center align-items-center">
                 <h3>
-                  <Badge color="success">v52gs1</Badge>
+                  <MDBBadge color="success">v52gs1</MDBBadge>
                 </h3>
                 <p className="pt-3 mx-4">
                   We have a gift for you! Use this code to get a{" "}
                   <strong>10% discount</strong>.
                 </p>
-                <Button color="success" onClick={() => this.toggle(2)}>
+                <MDBBtn color="success" onClick={this.toggle(2)}>
                   Learn more
-                  <Fa icon="book" className="ml-1" />
-                </Button>
-                <Button color="success" outline onClick={() => this.toggle(2)}>
+                  <MDBIcon icon="book" className="ml-1" />
+                </MDBBtn>
+                <MDBBtn color="success" outline onClick={this.toggle(2)}>
                   No, thanks
-                </Button>
-              </Row>
-            </ModalBody>
-          </Modal>
-        </Row>
+                </MDBBtn>
+              </MDBRow>
+            </MDBModalBody>
+          </MDBModal>
+        </MDBRow>
 
         <h4 className="mt-4">Modal Discount</h4>
-        <Row>
-          <Button onClick={() => this.toggle(3)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(3)}>Launch Modal</MDBBtn>
+          <MDBModal
             size="lg"
             className="modal-notify modal-danger text-white"
             side
             position="bottom-right"
             backdrop={false}
             isOpen={this.state.modal3}
-            toggle={() => this.toggle(3)}
+            toggle={this.toggle(3)}
           >
-            <ModalHeader tag="p" toggle={() => this.toggle(3)}>
+            <MDBModalHeader tag="p" toggle={this.toggle(3)}>
               Discount offer: <strong>10% off</strong>
-            </ModalHeader>
-            <ModalBody>
-              <Row>
-                <Col
+            </MDBModalHeader>
+            <MDBModalBody>
+              <MDBRow>
+                <MDBCol
                   size="3"
                   className="d-flex justify-content-center align-items-center"
                 >
-                  <Fa size="4x" icon="gift" className="ml-1" />
-                </Col>
-                <Col size="9">
+                  <MDBIcon size="4x" icon="gift" className="ml-1" />
+                </MDBCol>
+                <MDBCol size="9">
                   <p>
                     Sharing is caring. Therefore, from time to time we like to
                     give our visitors small gifts. Today is one of those days.
@@ -179,113 +164,113 @@ class ModalPage extends React.Component {
                     </strong>
                   </p>
                   <h3>
-                    <Badge color="danger">v52gs1</Badge>
+                    <MDBBadge color="danger">v52gs1</MDBBadge>
                   </h3>
-                </Col>
-              </Row>
-            </ModalBody>
-            <ModalFooter className="justify-content-center">
-              <Button color="danger" onClick={() => this.toggle(3)}>
+                </MDBCol>
+              </MDBRow>
+            </MDBModalBody>
+            <MDBModalFooter className="justify-content-center">
+              <MDBBtn color="danger" onClick={this.toggle(3)}>
                 Get it now
-                <Fa icon="diamond" className="ml-1 white-text" />
-              </Button>
-              <Button color="danger" outline onClick={() => this.toggle(3)}>
+                <MDBIcon icon="diamond" className="ml-1 white-text" />
+              </MDBBtn>
+              <MDBBtn color="danger" outline onClick={this.toggle(3)}>
                 No, thanks
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </Row>
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </MDBRow>
 
         <h4 className="mt-4">Modal Related content</h4>
-        <Row>
-          <Button onClick={() => this.toggle(4)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(4)}>Launch Modal</MDBBtn>
+          <MDBModal
             className="modal-notify modal-info text-white"
             side
             position="bottom-right"
             backdrop={false}
             isOpen={this.state.modal4}
-            toggle={() => this.toggle(4)}
+            toggle={this.toggle(4)}
           >
-            <ModalHeader tag="p" toggle={() => this.toggle(4)}>
+            <MDBModalHeader tag="p" toggle={this.toggle(4)}>
               Related article
-            </ModalHeader>
-            <ModalBody>
-              <Row>
-                <Col size="5">
+            </MDBModalHeader>
+            <MDBModalBody>
+              <MDBRow>
+                <MDBCol size="5">
                   <img
                     src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(55).jpg"
                     className="img-fluid"
                     alt=""
                   />
-                </Col>
-                <Col size="7">
+                </MDBCol>
+                <MDBCol size="7">
                   <p>
                     <strong>My travel to paradise</strong>
                   </p>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit...
                   </p>
-                  <Button
+                  <MDBBtn
                     color="primary"
                     size="md"
                     outline
-                    onClick={() => this.toggle(4)}
+                    onClick={this.toggle(4)}
                   >
                     Read more
-                  </Button>
-                </Col>
-              </Row>
-            </ModalBody>
-          </Modal>
-        </Row>
+                  </MDBBtn>
+                </MDBCol>
+              </MDBRow>
+            </MDBModalBody>
+          </MDBModal>
+        </MDBRow>
 
         <h4 className="mt-4">Modal Abandoned cart</h4>
-        <Row>
-          <Button onClick={() => this.toggle(5)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(5)}>Launch Modal</MDBBtn>
+          <MDBModal
             className="modal-notify modal-info text-white"
             side
             position="top-right"
             backdrop={false}
             isOpen={this.state.modal5}
-            toggle={() => this.toggle(5)}
+            toggle={this.toggle(5)}
           >
-            <ModalHeader tag="p" toggle={() => this.toggle(5)}>
+            <MDBModalHeader tag="p" toggle={this.toggle(5)}>
               Product in the cart
-            </ModalHeader>
-            <ModalBody>
-              <Row>
-                <Col
+            </MDBModalHeader>
+            <MDBModalBody>
+              <MDBRow>
+                <MDBCol
                   size="3"
                   className="d-flex justify-content-center align-items-center"
                 >
-                  <Fa size="4x" icon="shopping-cart" className="ml-1" />
-                </Col>
-                <Col size="9">
+                  <MDBIcon size="4x" icon="shopping-cart" className="ml-1" />
+                </MDBCol>
+                <MDBCol size="9">
                   <p>Do you need more time to make a purchase decision?</p>
                   <p>
                     No pressure, your product will be waiting for you in the
                     cart.
                   </p>
-                </Col>
-              </Row>
-            </ModalBody>
-            <ModalFooter className="justify-content-center">
-              <Button color="primary" onClick={() => this.toggle(5)}>
+                </MDBCol>
+              </MDBRow>
+            </MDBModalBody>
+            <MDBModalFooter className="justify-content-center">
+              <MDBBtn color="primary" onClick={this.toggle(5)}>
                 Go to cart
-              </Button>
-              <Button color="primary" outline onClick={() => this.toggle(5)}>
+              </MDBBtn>
+              <MDBBtn color="primary" outline onClick={this.toggle(5)}>
                 Cancel
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </Row>
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </MDBRow>
 
         <h4 className="mt-4">Modal Confirm delete</h4>
-        <Row>
-          <Button onClick={() => this.toggle(6)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(6)}>Launch Modal</MDBBtn>
+          <MDBModal
             modalStyle="danger"
             className="text-white"
             size="sm"
@@ -293,46 +278,46 @@ class ModalPage extends React.Component {
             position="top-right"
             backdrop={false}
             isOpen={this.state.modal6}
-            toggle={() => this.toggle(6)}
+            toggle={this.toggle(6)}
           >
-            <ModalHeader
+            <MDBModalHeader
               className="text-center"
               titleClass="w-100"
               tag="p"
-              toggle={() => this.toggle(6)}
+              toggle={this.toggle(6)}
             >
               Are you sure?
-            </ModalHeader>
-            <ModalBody className="text-center">
-              <Fa icon="times" size="4x" className="animated rotateIn" />
-            </ModalBody>
-            <ModalFooter className="justify-content-center">
-              <Button color="danger" onClick={() => this.toggle(6)}>
+            </MDBModalHeader>
+            <MDBModalBody className="text-center">
+              <MDBIcon icon="times" size="4x" className="animated rotateIn" />
+            </MDBModalBody>
+            <MDBModalFooter className="justify-content-center">
+              <MDBBtn color="danger" onClick={this.toggle(6)}>
                 Yes
-              </Button>
-              <Button color="danger" outline onClick={() => this.toggle(6)}>
+              </MDBBtn>
+              <MDBBtn color="danger" outline onClick={this.toggle(6)}>
                 No
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </Row>
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </MDBRow>
         {/* PRO-START */}
         <h4 className="mt-4">Modal Poll</h4>
-        <Row>
-          <Button onClick={() => this.toggle(9)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(9)}>Launch Modal</MDBBtn>
+          <MDBModal
             fullHeight
             position="right"
             backdrop={false}
             className="modal-notify modal-info text-white"
             isOpen={this.state.modal9}
-            toggle={() => this.toggle(9)}
+            toggle={this.toggle(9)}
           >
-            <ModalHeader tag="p" toggle={() => this.toggle(9)}>
+            <MDBModalHeader tag="p" toggle={this.toggle(9)}>
               Feedback request
-            </ModalHeader>
-            <ModalBody className="text-center">
-              <Fa
+            </MDBModalHeader>
+            <MDBModalBody className="text-center">
+              <MDBIcon
                 icon="file-text-o"
                 size="4x"
                 className="animated rotateIn mb-3"
@@ -346,50 +331,50 @@ class ModalPage extends React.Component {
               {/* Radio */}
               <p className="mb-3">Your rating</p>
               <div className="text-left">
-                <Input label="Very good" type="radio" id="radio1" />
-                <Input label="Good" type="radio" id="radio2" />
-                <Input label="Mediocre" type="radio" id="radio3" />
-                <Input label="Bad" type="radio" id="radio4" />
-                <Input label="Very bad" type="radio" id="radio5" />
+                <MDBInput label="Very good" type="radio" id="radio1" />
+                <MDBInput label="Good" type="radio" id="radio2" />
+                <MDBInput label="Mediocre" type="radio" id="radio3" />
+                <MDBInput label="Bad" type="radio" id="radio4" />
+                <MDBInput label="Very bad" type="radio" id="radio5" />
               </div>
               {/* Textarea */}
               <p className="mb-3">What could we improve?</p>
-              <Input label="Your message" type="textarea" id="radio1" />
-            </ModalBody>
-            <ModalFooter className="justify-content-center">
-              <Button color="primary" onClick={() => this.toggle(9)}>
+              <MDBInput label="Your message" type="textarea" id="radio1" />
+            </MDBModalBody>
+            <MDBModalFooter className="justify-content-center">
+              <MDBBtn color="primary" onClick={this.toggle(9)}>
                 Send
-                <Fa icon="paper-plane" className="ml-1" />
-              </Button>
-              <Button color="primary" outline onClick={() => this.toggle(9)}>
+                <MDBIcon icon="paper-plane" className="ml-1" />
+              </MDBBtn>
+              <MDBBtn color="primary" outline onClick={this.toggle(9)}>
                 Calcel
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </Row>
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </MDBRow>
         {/* PRO-END */}
         <h4 className="mt-4">Modal Cart</h4>
-        <Row>
-          <Button onClick={() => this.toggle(10)}>Launch Modal</Button>
-          <Modal isOpen={this.state.modal10} toggle={() => this.toggle(10)}>
-            <ModalHeader toggle={() => this.toggle(10)}>Your cart</ModalHeader>
-            <ModalBody>
-              <Table striped>
-                <TableHead>
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(10)}>Launch Modal</MDBBtn>
+          <MDBModal isOpen={this.state.modal10} toggle={this.toggle(10)}>
+            <MDBModalHeader toggle={this.toggle(10)}>Your cart</MDBModalHeader>
+            <MDBModalBody>
+              <MDBTable striped>
+                <MDBTableHead>
                   <tr>
                     <th />
                     <th>Product name</th>
                     <th>Price</th>
                     <th>Remove</th>
                   </tr>
-                </TableHead>
-                <TableBody>
+                </MDBTableHead>
+                <MDBTableBody>
                   <tr>
                     <td>1</td>
                     <td>Product 1</td>
                     <td>$100</td>
                     <td>
-                      <Fa icon="remove" />
+                      <MDBIcon icon="remove" />
                     </td>
                   </tr>
                   <tr>
@@ -397,7 +382,7 @@ class ModalPage extends React.Component {
                     <td>Product 2</td>
                     <td>1 340$</td>
                     <td>
-                      <Fa icon="remove" />
+                      <MDBIcon icon="remove" />
                     </td>
                   </tr>
                   <tr>
@@ -405,7 +390,7 @@ class ModalPage extends React.Component {
                     <td>Product 3</td>
                     <td>30$</td>
                     <td>
-                      <Fa icon="remove" />
+                      <MDBIcon icon="remove" />
                     </td>
                   </tr>
                   <tr>
@@ -418,58 +403,58 @@ class ModalPage extends React.Component {
                     </td>
                     <td />
                   </tr>
-                </TableBody>
-              </Table>
-            </ModalBody>
-            <ModalFooter className="justify-content-end">
-              <Button color="primary" outline onClick={() => this.toggle(10)}>
+                </MDBTableBody>
+              </MDBTable>
+            </MDBModalBody>
+            <MDBModalFooter className="justify-content-end">
+              <MDBBtn color="primary" outline onClick={this.toggle(10)}>
                 Close
-              </Button>
-              <Button color="primary" onClick={() => this.toggle(10)}>
+              </MDBBtn>
+              <MDBBtn color="primary" onClick={this.toggle(10)}>
                 Checkout
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </Row>
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </MDBRow>
 
         <h4 className="mt-4">Modal Push</h4>
-        <Row>
-          <Button onClick={() => this.toggle(7)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(7)}>Launch Modal</MDBBtn>
+          <MDBModal
             className="modal-notify modal-info text-white"
             isOpen={this.state.modal7}
-            toggle={() => this.toggle(7)}
+            toggle={this.toggle(7)}
           >
-            <ModalHeader className="text-center" titleClass="w-100" tag="p">
+            <MDBModalHeader className="text-center" titleClass="w-100" tag="p">
               Be always up to date
-            </ModalHeader>
-            <ModalBody className="text-center">
-              <Fa icon="bell" size="4x" className="animated rotateIn mb-4" />
+            </MDBModalHeader>
+            <MDBModalBody className="text-center">
+              <MDBIcon icon="bell" size="4x" className="animated rotateIn mb-4" />
               <p>
                 Do you want to receive the push notification about the newest
                 posts?
               </p>
-            </ModalBody>
-            <ModalFooter className="justify-content-center">
-              <Button color="primary" onClick={() => this.toggle(7)}>
+            </MDBModalBody>
+            <MDBModalFooter className="justify-content-center">
+              <MDBBtn color="primary" onClick={this.toggle(7)}>
                 Yes
-              </Button>
-              <Button color="primary" outline onClick={() => this.toggle(7)}>
+              </MDBBtn>
+              <MDBBtn color="primary" outline onClick={this.toggle(7)}>
                 No
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </Row>
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </MDBRow>
 
         <h4 className="mt-4">Modal YouTube</h4>
-        <Row>
-          <Button onClick={() => this.toggle(11)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(11)}>Launch Modal</MDBBtn>
+          <MDBModal
             size="lg"
             isOpen={this.state.modal11}
-            toggle={() => this.toggle(11)}
+            toggle={this.toggle(11)}
           >
-            <ModalBody className="mb-0 p-0">
+            <MDBModalBody className="mb-0 p-0">
               <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                 <iframe
                   className="embed-responsive-item"
@@ -478,44 +463,44 @@ class ModalPage extends React.Component {
                   allowFullScreen
                 />
               </div>
-            </ModalBody>
-            <ModalFooter className="justify-content-center">
+            </MDBModalBody>
+            <MDBModalFooter className="justify-content-center">
               <span className="mr-4">Spread the word!</span>
-              <Button tag="a" size="sm" floating social="fb">
-                <Fa icon="facebook" />
-              </Button>
-              <Button tag="a" size="sm" floating social="tw">
-                <Fa icon="twitter" />
-              </Button>
-              <Button tag="a" size="sm" floating social="gplus">
-                <Fa icon="google-plus" />
-              </Button>
-              <Button tag="a" size="sm" floating social="li">
-                <Fa icon="linkedin" />
-              </Button>
-              <Button
+              <MDBBtn tag="a" size="sm" floating social="fb">
+                <MDBIcon icon="facebook" />
+              </MDBBtn>
+              <MDBBtn tag="a" size="sm" floating social="tw">
+                <MDBIcon icon="twitter" />
+              </MDBBtn>
+              <MDBBtn tag="a" size="sm" floating social="gplus">
+                <MDBIcon icon="google-plus" />
+              </MDBBtn>
+              <MDBBtn tag="a" size="sm" floating social="li">
+                <MDBIcon icon="linkedin" />
+              </MDBBtn>
+              <MDBBtn
                 color="primary"
                 outline
                 rounded
                 size="md"
                 className="ml-4"
-                onClick={() => this.toggle(11)}
+                onClick={this.toggle(11)}
               >
                 Close
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </Row>
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </MDBRow>
 
         <h4 className="mt-4">Modal Vimeo</h4>
-        <Row>
-          <Button onClick={() => this.toggle(12)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(12)}>Launch Modal</MDBBtn>
+          <MDBModal
             size="lg"
             isOpen={this.state.modal12}
-            toggle={() => this.toggle(12)}
+            toggle={this.toggle(12)}
           >
-            <ModalBody className="mb-0 p-0">
+            <MDBModalBody className="mb-0 p-0">
               <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                 <iframe
                   className="embed-responsive-item"
@@ -524,47 +509,47 @@ class ModalPage extends React.Component {
                   allowFullScreen
                 />
               </div>
-            </ModalBody>
-            <ModalFooter className="justify-content-center">
+            </MDBModalBody>
+            <MDBModalFooter className="justify-content-center">
               <span className="mr-4">Spread the word!</span>
-              <Button tag="a" size="sm" floating social="fb">
-                <Fa icon="facebook" />
-              </Button>
-              <Button tag="a" size="sm" floating social="tw">
-                <Fa icon="twitter" />
-              </Button>
-              <Button tag="a" size="sm" floating social="gplus">
-                <Fa icon="google-plus" />
-              </Button>
-              <Button tag="a" size="sm" floating social="li">
-                <Fa icon="linkedin" />
-              </Button>
-              <Button
+              <MDBBtn tag="a" size="sm" floating social="fb">
+                <MDBIcon icon="facebook" />
+              </MDBBtn>
+              <MDBBtn tag="a" size="sm" floating social="tw">
+                <MDBIcon icon="twitter" />
+              </MDBBtn>
+              <MDBBtn tag="a" size="sm" floating social="gplus">
+                <MDBIcon icon="google-plus" />
+              </MDBBtn>
+              <MDBBtn tag="a" size="sm" floating social="li">
+                <MDBIcon icon="linkedin" />
+              </MDBBtn>
+              <MDBBtn
                 color="primary"
                 outline
                 rounded
                 size="md"
                 className="ml-4"
-                onClick={() => this.toggle(12)}
+                onClick={this.toggle(12)}
               >
                 Close
-              </Button>
-            </ModalFooter>
-          </Modal>
-        </Row>
+              </MDBBtn>
+            </MDBModalFooter>
+          </MDBModal>
+        </MDBRow>
         {/* PRO-START */}
         <h4 className="mt-4">Modal Product</h4>
-        <Row>
-          <Button onClick={() => this.toggle(13)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(13)}>Launch Modal</MDBBtn>
+          <MDBModal
             size="lg"
             isOpen={this.state.modal13}
-            toggle={() => this.toggle(13)}
+            toggle={this.toggle(13)}
           >
-            <ModalBody className="d-flex">
-              <Col size="5" lg="5">
+            <MDBModalBody className="d-flex">
+              <MDBCol size="5" lg="5">
                 {/* Carrousel */}
-                <Carousel
+                <MDBCarousel
                   activeItem={1}
                   length={3}
                   showControls={true}
@@ -572,32 +557,32 @@ class ModalPage extends React.Component {
                   thumbnails
                   className="z-depth-1"
                 >
-                  <CarouselInner>
-                    <CarouselItem itemId="1">
+                  <MDBCarouselInner>
+                    <MDBCarouselItem itemId="1">
                       <img
                         className="d-block w-100"
                         src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(23).jpg"
                         alt="First slide"
                       />
-                    </CarouselItem>
-                    <CarouselItem itemId="2">
+                    </MDBCarouselItem>
+                    <MDBCarouselItem itemId="2">
                       <img
                         className="d-block w-100"
                         src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(24).jpg"
                         alt="Second slide"
                       />
-                    </CarouselItem>
-                    <CarouselItem itemId="3">
+                    </MDBCarouselItem>
+                    <MDBCarouselItem itemId="3">
                       <img
                         className="d-block w-100"
                         src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(25).jpg"
                         alt="Third slide"
                       />
-                    </CarouselItem>
-                  </CarouselInner>
-                </Carousel>
-              </Col>
-              <Col size="7" lg="7">
+                    </MDBCarouselItem>
+                  </MDBCarouselInner>
+                </MDBCarousel>
+              </MDBCol>
+              <MDBCol size="7" lg="7">
                 <h2 className="h2-responsive product-name">
                   <strong>Product Name</strong>
                 </h2>
@@ -613,8 +598,8 @@ class ModalPage extends React.Component {
                 </h4>
                 {/* Accordion wrapper */}
                 <div className="my-4">
-                  <Card>
-                    <CollapseHeader onClick={this.onClick(1)}>
+                  <MDBCard>
+                    <MDBCollapseHeader onClick={this.onClick(1)}>
                       Description
                       <i
                         className={
@@ -624,18 +609,18 @@ class ModalPage extends React.Component {
                             : "fa fa-angle-down")
                         }
                       />
-                    </CollapseHeader>
-                    <Collapse isOpen={accordion === 1}>
-                      <CardBody>
+                    </MDBCollapseHeader>
+                    <MDBCollapse isOpen={accordion === 1}>
+                      <MDBCardBody>
                         Anim pariatur cliche reprehenderit, enim eiusmod high
                         life accusamus terry richardson ad squid. 3 wolf moon
                         officia aute, non cupidatat skateboard dolor brunch.
                         Food truck quinoa nesciunt laborum eiusmod.
-                      </CardBody>
-                    </Collapse>
-                  </Card>
-                  <Card>
-                    <CollapseHeader onClick={this.onClick(2)}>
+                      </MDBCardBody>
+                    </MDBCollapse>
+                  </MDBCard>
+                  <MDBCard>
+                    <MDBCollapseHeader onClick={this.onClick(2)}>
                       Details
                       <i
                         className={
@@ -645,18 +630,18 @@ class ModalPage extends React.Component {
                             : "fa fa-angle-down")
                         }
                       />
-                    </CollapseHeader>
-                    <Collapse isOpen={accordion === 2}>
-                      <CardBody>
+                    </MDBCollapseHeader>
+                    <MDBCollapse isOpen={accordion === 2}>
+                      <MDBCardBody>
                         Anim pariatur cliche reprehenderit, enim eiusmod high
                         life accusamus terry richardson ad squid. 3 wolf moon
                         officia aute, non cupidatat skateboard dolor brunch.
                         Food truck quinoa nesciunt laborum eiusmod.
-                      </CardBody>
-                    </Collapse>
-                  </Card>
-                  <Card>
-                    <CollapseHeader onClick={this.onClick(3)}>
+                      </MDBCardBody>
+                    </MDBCollapse>
+                  </MDBCard>
+                  <MDBCard>
+                    <MDBCollapseHeader onClick={this.onClick(3)}>
                       Shipping
                       <i
                         className={
@@ -666,131 +651,131 @@ class ModalPage extends React.Component {
                             : "fa fa-angle-down")
                         }
                       />
-                    </CollapseHeader>
-                    <Collapse isOpen={accordion === 3}>
-                      <CardBody>
+                    </MDBCollapseHeader>
+                    <MDBCollapse isOpen={accordion === 3}>
+                      <MDBCardBody>
                         Anim pariatur cliche reprehenderit, enim eiusmod high
                         life accusamus terry richardson ad squid. 3 wolf moon
                         officia aute, non cupidatat skateboard dolor brunch.
                         Food truck quinoa nesciunt laborum eiusmod.
-                      </CardBody>
-                    </Collapse>
-                  </Card>
+                      </MDBCardBody>
+                    </MDBCollapse>
+                  </MDBCard>
                 </div>
-                <Row>
-                  <Col size="6">
-                    <Select>
-                      <SelectInput />
-                      <SelectOptions>
-                        <SelectOption disabled>Choose your option</SelectOption>
-                        <SelectOption>White</SelectOption>
-                        <SelectOption>Black</SelectOption>
-                        <SelectOption>Pink</SelectOption>
-                      </SelectOptions>
-                    </Select>
-                    <label>Select color</label>
-                  </Col>
-                  <Col size="6">
-                    <Select>
-                      <SelectInput />
-                      <SelectOptions>
-                        <SelectOption disabled>Choose your option</SelectOption>
-                        <SelectOption>White</SelectOption>
-                        <SelectOption>Black</SelectOption>
-                        <SelectOption>Pink</SelectOption>
-                      </SelectOptions>
-                    </Select>
-                    <label>Select size</label>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center">
-                  <Button
+                <MDBRow>
+                  <MDBCol size="6">
+                    <MDBSelect>
+                      <MDBSelectInput />
+                      <MDBSelectOptions>
+                        <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                        <MDBSelectOption>White</MDBSelectOption>
+                        <MDBSelectOption>Black</MDBSelectOption>
+                        <MDBSelectOption>Pink</MDBSelectOption>
+                      </MDBSelectOptions>
+                    </MDBSelect>
+                    <label>MDBSelect color</label>
+                  </MDBCol>
+                  <MDBCol size="6">
+                    <MDBSelect>
+                      <MDBSelectInput />
+                      <MDBSelectOptions>
+                        <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                        <MDBSelectOption>White</MDBSelectOption>
+                        <MDBSelectOption>Black</MDBSelectOption>
+                        <MDBSelectOption>Pink</MDBSelectOption>
+                      </MDBSelectOptions>
+                    </MDBSelect>
+                    <label>MDBSelect size</label>
+                  </MDBCol>
+                </MDBRow>
+                <MDBRow className="justify-content-center">
+                  <MDBBtn
                     color="secondary"
                     className="ml-4"
-                    onClick={() => this.toggle(13)}
+                    onClick={this.toggle(13)}
                   >
                     Close
-                  </Button>
-                  <Button
+                  </MDBBtn>
+                  <MDBBtn
                     color="primary"
                     className="ml-4"
-                    onClick={() => this.toggle(13)}
+                    onClick={this.toggle(13)}
                   >
                     Add to Cart
-                    <Fa icon="cart-plus" className="ml-2" />
-                  </Button>
-                </Row>
-              </Col>
-            </ModalBody>
-          </Modal>
-        </Row>
+                    <MDBIcon icon="cart-plus" className="ml-2" />
+                  </MDBBtn>
+                </MDBRow>
+              </MDBCol>
+            </MDBModalBody>
+          </MDBModal>
+        </MDBRow>
         <h4 className="mt-4">Modal Social share</h4>
-        <Row>
-          <Button onClick={() => this.toggle(8)}>Launch Modal</Button>
-          <Modal
+        <MDBRow>
+          <MDBBtn onClick={this.toggle(8)}>Launch Modal</MDBBtn>
+          <MDBModal
             cascading
             isOpen={this.state.modal8}
-            toggle={() => this.toggle(8)}
+            toggle={this.toggle(8)}
           >
-            <ModalHeader
+            <MDBModalHeader
               className="text-center text-white light-blue darken-3"
               titleClass="w-100"
               tag="h5"
-              toggle={() => this.toggle(8)}
+              toggle={this.toggle(8)}
             >
-              <Fa icon="users" className="text-white mr-2" />
+              <MDBIcon icon="users" className="text-white mr-2" />
               Spreed the word!
-            </ModalHeader>
-            <ModalBody className="text-center">
-              <Button tag="a" floating social="fb">
-                <Fa icon="facebook" />
-              </Button>
-              <Button tag="a" floating social="tw">
-                <Fa icon="twitter" />
-              </Button>
-              <Button tag="a" floating social="gplus">
-                <Fa icon="google-plus" />
-              </Button>
-              <Button tag="a" floating social="li">
-                <Fa icon="linkedin" />
-              </Button>
-              <Button tag="a" floating social="ins">
-                <Fa icon="instagram" />
-              </Button>
-              <Button tag="a" floating social="pin">
-                <Fa icon="pinterest" />
-              </Button>
-              <Button tag="a" floating social="yt">
-                <Fa icon="youtube" />
-              </Button>
-              <Button tag="a" floating social="dribble">
-                <Fa icon="dribbble" />
-              </Button>
-              <Button tag="a" floating social="vk">
-                <Fa icon="vk" />
-              </Button>
-              <Button tag="a" floating social="so">
-                <Fa icon="stack-overflow" />
-              </Button>
-              <Button tag="a" floating social="slack">
-                <Fa icon="slack" />
-              </Button>
-              <Button tag="a" floating social="git">
-                <Fa icon="github" />
-              </Button>
-              <Button tag="a" floating social="comm">
-                <Fa icon="comments" />
-              </Button>
-              <Button tag="a" floating social="email">
-                <Fa icon="envelope" />
-              </Button>
-            </ModalBody>
-          </Modal>
-        </Row>
+            </MDBModalHeader>
+            <MDBModalBody className="text-center">
+              <MDBBtn tag="a" floating social="fb">
+                <MDBIcon icon="facebook" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="tw">
+                <MDBIcon icon="twitter" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="gplus">
+                <MDBIcon icon="google-plus" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="li">
+                <MDBIcon icon="linkedin" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="ins">
+                <MDBIcon icon="instagram" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="pin">
+                <MDBIcon icon="pinterest" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="yt">
+                <MDBIcon icon="youtube" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="dribble">
+                <MDBIcon icon="dribbble" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="vk">
+                <MDBIcon icon="vk" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="so">
+                <MDBIcon icon="stack-overflow" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="slack">
+                <MDBIcon icon="slack" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="git">
+                <MDBIcon icon="github" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="comm">
+                <MDBIcon icon="comments" />
+              </MDBBtn>
+              <MDBBtn tag="a" floating social="email">
+                <MDBIcon icon="envelope" />
+              </MDBBtn>
+            </MDBModalBody>
+          </MDBModal>
+        </MDBRow>
         {/* PRO-END */}
-      </Container>
+      </MDBContainer>
     );
   }
 }
 
-export default ModalPage;
+export default ModalExamplesPage;
