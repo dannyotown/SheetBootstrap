@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBStepper, MDBStep, MDBIcon, MDBBtn, MDBCard, MDBCardBody, MDBInput } from "mdbreact";
-import DocsLink from "../DocsLink";
+import DocsLink from "../../components/docsLink";
 
 class StepperPage extends Component {
 
