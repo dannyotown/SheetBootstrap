@@ -187,7 +187,8 @@ import {MDBTableHead} from "./components/TableHead";
 import {MDBTableFoot} from "./components/TableFoot";
 import {MDBTextarea} from "./components/TextField";
 import {MDBTooltip} from "./components/Tooltip";
-import {MDBView} from "./components/View";
+import { MDBView } from "./components/View";
+import {MDBIframe} from "./components/Iframe";
 
 // PRO-START
 import {MDBAutocomplete} from "./components/pro/Autocomplete";
@@ -375,6 +376,7 @@ export  {
   TimelineStep,
   TimePicker,
   // PRO-END
+  MDBIframe,
   MDBAnimation,
   MDBBadge,
   MDBAlert,
