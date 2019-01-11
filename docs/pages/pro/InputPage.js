@@ -27,7 +27,7 @@ class InputPage extends Component {
   }
 
   handleSwitchChange = () => {
-    this.setState({ switchInput: !this.state.switch });
+    this.setState({ switchInput: !this.state.switchInput });
   }
 
   handleChange = value => {
@@ -35,7 +35,7 @@ class InputPage extends Component {
   };
 
   render() {
-    const { radioSet1, radioSet2, radioSet3, checkbox } = this.state;
+    const { radioSet1, radioSet2, radioSet3, checkbox, switchInput } = this.state;
     return (
       <MDBContainer className="mt-5">
         <DocsLink
@@ -184,7 +184,7 @@ class InputPage extends Component {
           </h2>
           <MDBSwitch
             getValue={this.handleChange}
-            checked={switch}
+            checked={switchInput}
             onChange={this.handleSwitchChange}
             labelLeft="No"
             labelRight="Yes"

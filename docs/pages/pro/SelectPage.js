@@ -1,16 +1,8 @@
-import React from "react";
-import {
-  Button,
-  Select,
-  SelectInput,
-  MDBSelectInput,
-  SelectOptions,
-  SelectOption,
-  Container
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import React, { Component } from "react";
+import { MDBBtn, MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption, MDBContainer } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
-class SelectPage extends React.Component {
+class SelectPage extends Component {
   state = {
     options: [
       {
@@ -57,7 +49,7 @@ class SelectPage extends React.Component {
 
   render() {
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Select"
           href="https://mdbootstrap.com/docs/react/forms/select/"
@@ -67,20 +59,20 @@ class SelectPage extends React.Component {
         </h4>
         <div className="row">
           <div className="col-md-6">
-            <Select
+            <MDBSelect
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
             >
-              <SelectInput selected="Choose your option" />
-              <SelectOptions>
-                <SelectOption disabled>Choose your option</SelectOption>
-                <SelectOption>Option nr 1</SelectOption>
-                <SelectOption>Option nr 2</SelectOption>
-                <SelectOption>Option nr 3</SelectOption>
-                <SelectOption>Option nr 4</SelectOption>
-                <SelectOption selected>Option nr 5</SelectOption>
-              </SelectOptions>
-            </Select>
+              <MDBSelectInput selected="Choose your option" />
+              <MDBSelectOptions>
+                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                <MDBSelectOption>Option nr 1</MDBSelectOption>
+                <MDBSelectOption>Option nr 2</MDBSelectOption>
+                <MDBSelectOption>Option nr 3</MDBSelectOption>
+                <MDBSelectOption>Option nr 4</MDBSelectOption>
+                <MDBSelectOption selected>Option nr 5</MDBSelectOption>
+              </MDBSelectOptions>
+            </MDBSelect>
             <label>Example label</label>
           </div>
         </div>
@@ -89,25 +81,25 @@ class SelectPage extends React.Component {
         </h4>
         <div className="row">
           <div className="col-md-6">
-            <Select
+            <MDBSelect
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
               multiple
             >
               <MDBSelectInput selected="Choose your option" />
-              <SelectOptions>
-                <SelectOption disabled>Choose your option</SelectOption>
-                <SelectOption value="value nr 1">Option nr 1</SelectOption>
-                <SelectOption selected value="value nr 2">
+              <MDBSelectOptions>
+                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                <MDBSelectOption value="value nr 1">Option nr 1</MDBSelectOption>
+                <MDBSelectOption selected value="value nr 2">
                   Option nr 2
-                </SelectOption>
-                <SelectOption value="value nr 3">Option nr 3</SelectOption>
-                <SelectOption selected value="value nr 4">
+                </MDBSelectOption>
+                <MDBSelectOption value="value nr 3">Option nr 3</MDBSelectOption>
+                <MDBSelectOption selected value="value nr 4">
                   Option nr 4
-                </SelectOption>
-                <SelectOption value="value nr 5">Option nr 5</SelectOption>
-              </SelectOptions>
-            </Select>
+                </MDBSelectOption>
+                <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
+              </MDBSelectOptions>
+            </MDBSelect>
             <label>Example label</label>
           </div>
         </div>
@@ -116,49 +108,49 @@ class SelectPage extends React.Component {
         </h4>
         <div className="row">
           <div className="col-md-6">
-            <Select getValue={this.getValueOfSelect} color="primary">
-              <SelectInput selected="Choose your option" />
-              <SelectOptions>
-                <SelectOption disabled>Choose your option</SelectOption>
-                <SelectOption value="value nr 1">Option nr 1</SelectOption>
-                <SelectOption value="value nr 2">Option nr 2</SelectOption>
-                <SelectOption value="value nr 3">Option nr 3</SelectOption>
-                <SelectOption value="value nr 4">Option nr 4</SelectOption>
-                <SelectOption value="value nr 5">Option nr 5</SelectOption>
-              </SelectOptions>
-            </Select>
+            <MDBSelect getValue={this.getValueOfSelect} color="primary">
+              <MDBSelectInput selected="Choose your option" />
+              <MDBSelectOptions>
+                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                <MDBSelectOption value="value nr 1">Option nr 1</MDBSelectOption>
+                <MDBSelectOption value="value nr 2">Option nr 2</MDBSelectOption>
+                <MDBSelectOption value="value nr 3">Option nr 3</MDBSelectOption>
+                <MDBSelectOption value="value nr 4">Option nr 4</MDBSelectOption>
+                <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
+              </MDBSelectOptions>
+            </MDBSelect>
             <label>Blue select</label>
           </div>
         </div>
         <h4 className="my-4 blue-grey-text">
-          <strong>Select with icons</strong>
+          <strong>MDBSelect with icons</strong>
         </h4>
         <div className="row">
           <div className="col-md-6">
-            <Select getValue={this.getValueOfSelect}>
-              <SelectInput selected="Choose your option" />
-              <SelectOptions>
-                <SelectOption disabled>Choose your option</SelectOption>
-                <SelectOption
+            <MDBSelect getValue={this.getValueOfSelect}>
+              <MDBSelectInput selected="Choose your option" />
+              <MDBSelectOptions>
+                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                <MDBSelectOption
                   value="User nr 1"
                   icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg"
                 >
                   Option nr 1
-                </SelectOption>
-                <SelectOption
+                </MDBSelectOption>
+                <MDBSelectOption
                   value="User nr 2"
                   icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
                 >
                   Option nr 2
-                </SelectOption>
-                <SelectOption
+                </MDBSelectOption>
+                <MDBSelectOption
                   value="User nr 3"
                   icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg"
                 >
                   Option nr 3
-                </SelectOption>
-              </SelectOptions>
-            </Select>
+                </MDBSelectOption>
+              </MDBSelectOptions>
+            </MDBSelect>
             <label>Example label</label>
           </div>
         </div>
@@ -167,26 +159,26 @@ class SelectPage extends React.Component {
         </h4>
         <div className="row">
           <div className="col-md-6">
-            <Select getValue={this.getValueOfSelect}>
-              <SelectInput selected="Choose your option" />
-              <SelectOptions>
-                <SelectOption disabled>team 1</SelectOption>
-                <SelectOption>Option nr 1</SelectOption>
-                <SelectOption>Option nr 2</SelectOption>
-                <SelectOption disabled>team 2</SelectOption>
-                <SelectOption>Option nr 3</SelectOption>
-                <SelectOption>Option nr 4</SelectOption>
-              </SelectOptions>
-            </Select>
+            <MDBSelect getValue={this.getValueOfSelect}>
+              <MDBSelectInput selected="Choose your option" />
+              <MDBSelectOptions>
+                <MDBSelectOption disabled>team 1</MDBSelectOption>
+                <MDBSelectOption>Option nr 1</MDBSelectOption>
+                <MDBSelectOption>Option nr 2</MDBSelectOption>
+                <MDBSelectOption disabled>team 2</MDBSelectOption>
+                <MDBSelectOption>Option nr 3</MDBSelectOption>
+                <MDBSelectOption>Option nr 4</MDBSelectOption>
+              </MDBSelectOptions>
+            </MDBSelect>
             <label>Example label</label>
           </div>
         </div>
         <h4 className="my-4 deep-default-text">
-          <strong>Alternative Select without markup</strong>
+          <strong>Alternative MDBSelect without markup</strong>
         </h4>
         <div className="row">
           <div className="col-md-6">
-            <Select
+            <MDBSelect
               multiple
               color="primary"
               getValue={this.getValueOfSelect}
@@ -194,18 +186,13 @@ class SelectPage extends React.Component {
               options={this.state.options}
               selected="Choose option"
             />
-            <label>Select with Objects</label>
+            <label>MDBSelect with Objects</label>
           </div>
           <div className="col-md-6">
-            <Button onClick={this.remove}>Remove option</Button>
+            <MDBBtn onClick={this.remove}>Remove option</MDBBtn>
           </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-      </Container>
+      </MDBContainer>
     );
   }
 }
