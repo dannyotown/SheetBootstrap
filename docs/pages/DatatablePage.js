@@ -3,6 +3,10 @@ import { DataTable, Container, Row, Col, Card, CardBody } from "mdbreact";
 import DocsLink from "./DocsLink";
 
 const DatatablePage = () => {
+  function testClickEvent(param) {
+    console.log(param);
+  }
+
   const data = () => ({
     columns: [
       {
@@ -50,7 +54,8 @@ const DatatablePage = () => {
         office: "Edinburgh",
         age: "61",
         date: "2011/04/25",
-        salary: "$320"
+        salary: "$320",
+        clickEvent: () => testClickEvent(1)
       },
       {
         name: "Garrett Winters",
