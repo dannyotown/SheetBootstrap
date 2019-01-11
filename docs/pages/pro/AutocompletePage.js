@@ -1,20 +1,6 @@
 import React, { Component } from "react";
-import {
-  MDBContainer,
-  MDBAutocomplete,
-  MDBRow,
-  MDBCol,
-  MDBInput,
-  MDBBtn,
-  MDBCard,
-  MDBCardBody,
-  MDBModal,
-  MDBModalHeader,
-  MDBModalBody,
-  MDBModalFooter,
-  MDBIcon
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBAutocomplete, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody, MDBModal,   MDBModalHeader, MDBModalBody, MDBModalFooter, MDBIcon } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
 const states = [
   "Alabama",
@@ -292,7 +278,7 @@ class AutocompletePage extends Component {
     });
   };
 
-  handleModalClearClick() {
+  handleModalClearClick = () => {
     this.setState({
       modal: false
     });
@@ -301,6 +287,7 @@ class AutocompletePage extends Component {
   logValue = value => {
     console.log(value);
   };
+
   render() {
     const smallStyle = { fontSize: "0.8rem" };
     return (
@@ -365,7 +352,7 @@ class AutocompletePage extends Component {
                   className="dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"
                   style={smallStyle}
                 >
-                  {" "}
+
                   or Sign up with:
                 </p>
                 <div className="row my-3 d-flex justify-content-center">
@@ -375,7 +362,7 @@ class AutocompletePage extends Component {
                     rounded
                     className="mr-md-3 z-depth-1a"
                   >
-                    <MDBIcon brand icon="facebook" className="blue-text" />
+                    <MDBIcon fab icon="facebook" className="blue-text" />
                   </MDBBtn>
                   <MDBBtn
                     type="button"
@@ -383,7 +370,7 @@ class AutocompletePage extends Component {
                     rounded
                     className="mr-md-3 z-depth-1a"
                   >
-                    <MDBIcon brand icon="twitter" className="blue-text" />
+                    <MDBIcon fab icon="twitter" className="blue-text" />
                   </MDBBtn>
                   <MDBBtn
                     type="button"
@@ -391,7 +378,7 @@ class AutocompletePage extends Component {
                     rounded
                     className="z-depth-1a"
                   >
-                    <MDBIcon brand icon="google-plus" className="blue-text" />
+                    <MDBIcon fab icon="google-plus" className="blue-text" />
                   </MDBBtn>
                 </div>
               </MDBCardBody>
@@ -400,9 +387,9 @@ class AutocompletePage extends Component {
                   className="grey-text d-flex justify-content-end"
                   style={smallStyle}
                 >
-                  Already a member?{" "}
+                  Already a member?
                   <a href="#!" className="blue-text ml-1">
-                    {" "}
+
                     Sign In
                   </a>
                 </p>
@@ -430,7 +417,7 @@ class AutocompletePage extends Component {
               <MDBIcon
                 icon="close"
                 className="float-right"
-                onClick={this.handleModalClearClick.bind(this)}
+                onClick={this.handleModalClearClick}
               />
             </MDBModalHeader>
             <MDBModalBody>
@@ -441,7 +428,7 @@ class AutocompletePage extends Component {
                 label="Your message"
                 type="textarea"
                 rows="2"
-                icon="pencil"
+                icon="pencil-alt"
                 iconClass="dark-grey"
               />
               <div className="text-center mt-1-half">
