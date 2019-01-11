@@ -17,10 +17,7 @@ const BadgePage = props => {
             Heading <MDBBadge color="primary">primary</MDBBadge>
           </h2>
           <h3>
-            Heading{" "}
-            <MDBBadge pill color="success">
-              success pill
-            </MDBBadge>
+            Heading <MDBBadge pill color="success">success pill</MDBBadge>
           </h3>
           <h4>
             Heading <MDBBadge color="info">info</MDBBadge>
