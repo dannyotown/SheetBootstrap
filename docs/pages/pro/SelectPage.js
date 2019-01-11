@@ -95,7 +95,7 @@ class SelectPage extends React.Component {
               multiple
             >
               <MDBSelectInput selected="Choose your option" />
-              <SelectOptions>
+              <SelectOptions search>
                 <SelectOption disabled>Choose your option</SelectOption>
                 <SelectOption value="value nr 1">Option nr 1</SelectOption>
                 <SelectOption selected value="value nr 2">
@@ -187,6 +187,7 @@ class SelectPage extends React.Component {
         <div className="row">
           <div className="col-md-6">
             <Select
+              search
               multiple
               color="primary"
               getValue={this.getValueOfSelect}

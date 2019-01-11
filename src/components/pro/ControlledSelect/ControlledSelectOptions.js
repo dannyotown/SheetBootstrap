@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import Autocomplete from "../Autocomplete";
+import Input from "../../Input";
 import ControlledSelectOption from "./ControlledSelectOption";
 
 class ControlledSelectOptions extends Component {
@@ -25,9 +25,14 @@ class ControlledSelectOptions extends Component {
   }
 
   search = value => {
-    const filteredOptions = this.state.options.filter(option =>
-      option.value.toLowerCase().match(value.toLowerCase())
-    );
+    const filteredOptions = this.state.options.filter(option => {
+      if(option.text) {
+        return option.text.toLowerCase().match(value.toLowerCase())
+      }
+      else {
+        return option.value.toLowerCase().match(value.toLowerCase())
+      }
+    });
 
     this.setState({ filteredOptions });
   };
@@ -44,11 +49,10 @@ class ControlledSelectOptions extends Component {
     return (
       <ul className={classes}>
         {search && (
-          <Autocomplete
-            data={options}
+          <Input
             label={searchLabel}
             id={searchId}
-            search={this.search}
+            getValue={this.search}
             data-search="true"
           />
         )}
