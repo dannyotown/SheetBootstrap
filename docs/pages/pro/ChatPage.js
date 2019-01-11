@@ -1,287 +1,271 @@
 import React, { Component } from "react";
-import {
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBRow,
-  MDBCol,
-  MDBListGroup,
-  MDBListGroupItem,
-  MDBAvatar,
-  MDBBadge,
-  MDBIcon,
-  MDBBtn,
-  MDBScrollbar
-} from "mdbreact";
-import DocsLink from "./../DocsLink";
-import "./ChatPage.css";
+import { MDBContainer, MDBCard, MDBCardBody, MDBRow, MDBCol, MDBListGroup, MDBListGroupItem, MDBAvatar,  MDBBadge, MDBIcon, MDBBtn, MDBScrollbar } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
 class ChatPage extends Component {
-  constructor() {
-    super();
-    this.state = {
-      friends: [
-        {
-          name: "John Doe",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg",
-          message: "Hello, Are you there?",
-          when: "Just now",
-          toRespond: 1,
-          seen: false,
-          active: true
-        },
-        {
-          name: "Danny Smith",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg",
-          when: "5 min ago",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Alex Steward",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Ashley Olsen",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Kate Moss",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Lara Croft",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Brad Pitt",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
-          when: "5 min ago",
-          toRespond: 0,
-          seen: true,
-          active: false
-        }
-      ],
-      messages: [
-        {
-          author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
-          when: "12 mins ago",
-          message:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          author: "Lara Croft",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
-          when: "13 mins ago",
-          message:
-            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
-        },
-        {
-          author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
-          when: "14 mins ago",
-          message:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }
-      ],
-      friendsToScroll: [
-        {
-          name: "John Doe",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg",
-          message: "Hello, Are you there?",
-          when: "Just now",
-          toRespond: 1,
-          seen: false,
-          active: true
-        },
-        {
-          name: "Danny Smith",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg",
-          when: "5 min ago",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Alex Steward",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Ashley Olsen",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Kate Moss",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: true,
-          active: false
-        },
-        {
-          name: "Lara Croft",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Brad Pitt",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
-          when: "5 min ago",
-          toRespond: 0,
-          seen: true,
-          active: false
-        },
-        {
-          name: "John Doeno",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg",
-          message: "Hello, Are you there?",
-          when: "Just now",
-          toRespond: 1,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Danny Smithy",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg",
-          when: "5 min ago",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Alex Stewardo",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Marta Olsen",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Kate Boss",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Tomb Rider",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
-          when: "Yesterday",
-          toRespond: 0,
-          seen: false,
-          active: false
-        },
-        {
-          name: "Bradley Scott",
-          message: "Lorem ipsum dolor sit",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
-          when: "5 min ago",
-          toRespond: 0,
-          seen: true,
-          active: false
-        }
-      ],
-      messagesToScroll: [
-        {
-          author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
-          when: "12 mins ago",
-          message:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          author: "Lara Croft",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
-          when: "13 mins ago",
-          message:
-            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
-        },
-        {
-          author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
-          when: "14 mins ago",
-          message:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
-          when: "15 mins ago",
-          message:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        },
-        {
-          author: "Lara Croft",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
-          when: "16 mins ago",
-          message:
-            " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
-        },
-        {
-          author: "Brad Pitt",
-          avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
-          when: "17 mins ago",
-          message:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        }
-      ]
-    };
-  }
+
+  state = {
+    friends: [
+      {
+        name: "John Doe",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg",
+        message: "Hello, Are you there?",
+        when: "Just now",
+        toRespond: 1,
+        seen: false,
+        active: true
+      },
+      {
+        name: "Danny Smith",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg",
+        when: "5 min ago",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Alex Steward",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Ashley Olsen",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Kate Moss",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Lara Croft",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Brad Pitt",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
+        when: "5 min ago",
+        toRespond: 0,
+        seen: true,
+        active: false
+      }
+    ],
+    messages: [
+      {
+        author: "Brad Pitt",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
+        when: "12 mins ago",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        author: "Lara Croft",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
+        when: "13 mins ago",
+        message:
+          " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+      },
+      {
+        author: "Brad Pitt",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
+        when: "14 mins ago",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ],
+    friendsToScroll: [
+      {
+        name: "John Doe",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg",
+        message: "Hello, Are you there?",
+        when: "Just now",
+        toRespond: 1,
+        seen: false,
+        active: true
+      },
+      {
+        name: "Danny Smith",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg",
+        when: "5 min ago",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Alex Steward",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Ashley Olsen",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Kate Moss",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: true,
+        active: false
+      },
+      {
+        name: "Lara Croft",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Brad Pitt",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
+        when: "5 min ago",
+        toRespond: 0,
+        seen: true,
+        active: false
+      },
+      {
+        name: "John Doeno",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg",
+        message: "Hello, Are you there?",
+        when: "Just now",
+        toRespond: 1,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Danny Smithy",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg",
+        when: "5 min ago",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Alex Stewardo",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Marta Olsen",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Kate Boss",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-4.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Tomb Rider",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
+        when: "Yesterday",
+        toRespond: 0,
+        seen: false,
+        active: false
+      },
+      {
+        name: "Bradley Scott",
+        message: "Lorem ipsum dolor sit",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
+        when: "5 min ago",
+        toRespond: 0,
+        seen: true,
+        active: false
+      }
+    ],
+    messagesToScroll: [
+      {
+        author: "Brad Pitt",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
+        when: "12 mins ago",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        author: "Lara Croft",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
+        when: "13 mins ago",
+        message:
+          " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+      },
+      {
+        author: "Brad Pitt",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
+        when: "14 mins ago",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        author: "Brad Pitt",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
+        when: "15 mins ago",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        author: "Lara Croft",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg",
+        when: "16 mins ago",
+        message:
+          " Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
+      },
+      {
+        author: "Brad Pitt",
+        avatar: "https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg",
+        when: "17 mins ago",
+        message:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ]
+  };
 
   render() {
     return (
