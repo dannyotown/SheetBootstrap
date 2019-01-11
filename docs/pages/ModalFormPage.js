@@ -1,30 +1,17 @@
-import React from "react";
-import {
-  MDBContainer,
-  MDBBtn,
-  MDBModal,
-  MDBModalBody,
-  MDBModalHeader,
-  MDBModalFooter,
-  MDBRow,
-  MDBInput,
-  MDBIcon
-} from "mdbreact";
-import DocsLink from "./DocsLink";
+import React, { Component } from "react";
+import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBRow, MDBInput,  MDBIcon } from "mdbreact";
+import DocsLink from "./../components/docsLink";
 
-class ModalPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal1: false,
-      modal2: false,
-      modal3: false,
-      modal4: false,
-      modal5: false
-    };
+class ModalFormPage extends Component {
+  state = {
+    modal1: false,
+    modal2: false,
+    modal3: false,
+    modal4: false,
+    modal5: false
   }
 
-  toggle(nr) {
+  toggle = nr => () =>  {
     let modalNumber = "modal" + nr;
     this.setState({
       [modalNumber]: !this.state[modalNumber]
@@ -40,14 +27,14 @@ class ModalPage extends React.Component {
         />
         <h4 className="mt-4">Simple modal login</h4>
         <MDBRow>
-          <MDBBtn rounded onClick={() => this.toggle(1)}>
+          <MDBBtn rounded onClick={this.toggle(1)}>
             Launch Modal Login Form
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal1} toggle={() => this.toggle(1)}>
+          <MDBModal isOpen={this.state.modal1} toggle={this.toggle(1)}>
             <MDBModalHeader
               className="text-center"
               titleClass="w-100 font-weight-bold"
-              toggle={() => this.toggle(1)}
+              toggle={this.toggle(1)}
             >
               Sign in
             </MDBModalHeader>
@@ -72,21 +59,21 @@ class ModalPage extends React.Component {
               </form>
             </MDBModalBody>
             <MDBModalFooter className="justify-content-center">
-              <MDBBtn onClick={() => this.toggle(1)}>Login</MDBBtn>
+              <MDBBtn onClick={this.toggle(1)}>Login</MDBBtn>
             </MDBModalFooter>
           </MDBModal>
         </MDBRow>
 
         <h4 className="mt-4">Simple modal register</h4>
         <MDBRow>
-          <MDBBtn rounded onClick={() => this.toggle(2)}>
+          <MDBBtn rounded onClick={this.toggle(2)}>
             Launch Modal Register Form
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal2} toggle={() => this.toggle(2)}>
+          <MDBModal isOpen={this.state.modal2} toggle={this.toggle(2)}>
             <MDBModalHeader
               className="text-center"
               titleClass="w-100 font-weight-bold"
-              toggle={() => this.toggle(2)}
+              toggle={this.toggle(2)}
             >
               Sign in
             </MDBModalHeader>
@@ -120,7 +107,7 @@ class ModalPage extends React.Component {
               </form>
             </MDBModalBody>
             <MDBModalFooter className="justify-content-center">
-              <MDBBtn color="deep-orange" onClick={() => this.toggle(2)}>
+              <MDBBtn color="deep-orange" onClick={this.toggle(2)}>
                 SIGN UP
               </MDBBtn>
             </MDBModalFooter>
@@ -129,14 +116,14 @@ class ModalPage extends React.Component {
 
         <h4 className="mt-4">Simple modal subscription</h4>
         <MDBRow>
-          <MDBBtn rounded onClick={() => this.toggle(3)}>
+          <MDBBtn rounded onClick={this.toggle(3)}>
             Launch Modal subscription Form
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal3} toggle={() => this.toggle(3)}>
+          <MDBModal isOpen={this.state.modal3} toggle={this.toggle(3)}>
             <MDBModalHeader
               className="text-center"
               titleClass="w-100 font-weight-bold"
-              toggle={() => this.toggle(3)}
+              toggle={this.toggle(3)}
             >
               Subscribe
             </MDBModalHeader>
@@ -161,7 +148,7 @@ class ModalPage extends React.Component {
               </form>
             </MDBModalBody>
             <MDBModalFooter className="justify-content-center">
-              <MDBBtn color="indigo" onClick={() => this.toggle(3)}>
+              <MDBBtn color="indigo" onClick={this.toggle(3)}>
                 Send
                 <MDBIcon icon="paper-plane" className="ml-2" />
               </MDBBtn>
@@ -171,14 +158,14 @@ class ModalPage extends React.Component {
 
         <h4 className="mt-4">Simple modal contact</h4>
         <MDBRow>
-          <MDBBtn rounded onClick={() => this.toggle(4)}>
+          <MDBBtn rounded onClick={this.toggle(4)}>
             Launch Modal Contact Form
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal4} toggle={() => this.toggle(4)}>
+          <MDBModal isOpen={this.state.modal4} toggle={this.toggle(4)}>
             <MDBModalHeader
               className="text-center"
               titleClass="w-100 font-weight-bold"
-              toggle={() => this.toggle(4)}
+              toggle={this.toggle(4)}
             >
               Write to us
             </MDBModalHeader>
@@ -210,7 +197,7 @@ class ModalPage extends React.Component {
               </form>
             </MDBModalBody>
             <MDBModalFooter className="justify-content-center">
-              <MDBBtn color="unique" onClick={() => this.toggle(4)}>
+              <MDBBtn color="unique" onClick={this.toggle(4)}>
                 Send
                 <MDBIcon icon="paper-plane" className="ml-2" />
               </MDBBtn>
@@ -220,7 +207,7 @@ class ModalPage extends React.Component {
 
         <h4 className="mt-4">Modal with avatar</h4>
         <MDBRow>
-          <MDBBtn rounded onClick={() => this.toggle(5)}>
+          <MDBBtn rounded onClick={this.toggle(5)}>
             Launch Modal Login With Avatar
           </MDBBtn>
           <MDBModal
@@ -228,7 +215,7 @@ class ModalPage extends React.Component {
             cascading
             className="modal-avatar"
             isOpen={this.state.modal5}
-            toggle={() => this.toggle(5)}
+            toggle={this.toggle(5)}
           >
             <MDBModalHeader className="mx-auto">
               <img
@@ -244,7 +231,7 @@ class ModalPage extends React.Component {
               </form>
             </MDBModalBody>
             <MDBModalFooter className="justify-content-center">
-              <MDBBtn color="cyan" onClick={() => this.toggle(5)}>
+              <MDBBtn color="cyan" onClick={this.toggle(5)}>
                 Login
                 <MDBIcon icon="sign-in-alt" className="ml-2" />
               </MDBBtn>
@@ -254,18 +241,18 @@ class ModalPage extends React.Component {
 
         <h4 className="mt-4">Subscription modal with orange header</h4>
         <MDBRow>
-          <MDBBtn rounded onClick={() => this.toggle(6)}>
+          <MDBBtn rounded onClick={this.toggle(6)}>
             Launch Modal Subscription
           </MDBBtn>
           <MDBModal
             className="modal-notify modal-warning white-text"
             isOpen={this.state.modal6}
-            toggle={() => this.toggle(6)}
+            toggle={this.toggle(6)}
           >
             <MDBModalHeader
               className="text-center"
               titleClass="w-100 font-weight-bold"
-              toggle={() => this.toggle(6)}
+              toggle={this.toggle(6)}
             >
               Subscribe
             </MDBModalHeader>
@@ -294,7 +281,7 @@ class ModalPage extends React.Component {
               </form>
             </MDBModalBody>
             <MDBModalFooter className="justify-content-center">
-              <MDBBtn color="warning" outline onClick={() => this.toggle(6)}>
+              <MDBBtn color="warning" outline onClick={this.toggle(6)}>
                 Send
                 <MDBIcon icon="paper-plane" className="ml-2" />
               </MDBBtn>
@@ -306,4 +293,4 @@ class ModalPage extends React.Component {
   }
 }
 
-export default ModalPage;
+export default ModalFormPage;
