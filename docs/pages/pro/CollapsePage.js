@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
-class CollapsePage extends Component {
+class AccordionPage extends Component {
   state={
     collapseID: "collapse3"
   }
@@ -15,6 +16,10 @@ class CollapsePage extends Component {
     const { collapseID } = this.state;
     return (
       <MDBContainer>
+        <DocsLink
+          title="Accordion"
+          href="https://mdbootstrap.com/docs/react/advanced/accordion/"
+        />
         <MDBContainer className="md-accordion mt-5">
           <MDBCard className="mt-3">
             <MDBCollapseHeader onClick={this.toggleCollapse("collapse1")}>
@@ -102,4 +107,4 @@ class CollapsePage extends Component {
   }
 }
 
-export default CollapsePage;
+export default AccordionPage;
