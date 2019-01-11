@@ -118,6 +118,7 @@ import TimePicker from './components/pro/TimePicker/TimePicker';
 // PRO-END
 
 // MDB FREE
+import { MDBAnimation } from './components/Animation';
 import {MDBBadge} from "./components/Badge";
 import {MDBAlert} from "./components/Alert";
 import {MDBBreadcrumb} from "./components/Breadcrumb";
@@ -189,7 +190,6 @@ import {MDBTooltip} from "./components/Tooltip";
 import {MDBView} from "./components/View";
 
 // PRO-START
-// import {MDBAnimation} from './components/Animation';
 import {MDBAutocomplete} from "./components/pro/Autocomplete";
 import {MDBAvatar} from "./components/pro/Avatar";
 import {MDBBtnFixed} from "./components/pro/ButtonFixed";
@@ -375,6 +375,7 @@ export  {
   TimelineStep,
   TimePicker,
   // PRO-END
+  MDBAnimation,
   MDBBadge,
   MDBAlert,
   MDBBreadcrumb,
