@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBBadge } from "mdbreact";
-import DocsLink from "../../DocsLink";
+import DocsLink from "../../../components/docsLink";
 
 const MagazinePage = () => {
   const newsStyle = {

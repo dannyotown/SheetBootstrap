@@ -63,7 +63,7 @@ class eCommercePage extends Component {
     ]
   }
 
-  togglePills = tab => {
+  togglePills = tab => () => {
     if (this.state.activePill !== tab) {
       this.setState({
         activePill: tab
@@ -376,7 +376,7 @@ class eCommercePage extends Component {
                         <MDBNavLink
                           to="#"
                           className={activePill === "1" ? "active" : ""}
-                          onClick={() => this.togglePills("1")}
+                          onClick={this.togglePills("1")}
                         >
                           <strong>1. Billing</strong>
                         </MDBNavLink>
@@ -385,7 +385,7 @@ class eCommercePage extends Component {
                         <MDBNavLink
                           to="#"
                           className={activePill === "2" ? "active" : ""}
-                          onClick={() => this.togglePills("2")}
+                          onClick={this.togglePills("2")}
                         >
                           <strong>2. Addons</strong>
                         </MDBNavLink>
@@ -394,7 +394,7 @@ class eCommercePage extends Component {
                         <MDBNavLink
                           to="#"
                           className={activePill === "3" ? "active" : ""}
-                          onClick={() => this.togglePills("3")}
+                          onClick={this.togglePills("3")}
                         >
                           <strong>3. Payment</strong>
                         </MDBNavLink>

@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from "mdbreact";
-import DocsLink from "../../DocsLink";
+import DocsLink from "../../../components/docsLink";
 
 const FeaturesPage = () => {
   return (
