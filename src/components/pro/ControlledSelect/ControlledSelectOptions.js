@@ -38,7 +38,7 @@ class ControlledSelectOptions extends Component {
   };
 
   render() {
-    const { multiple, options, search, searchLabel, searchId, selected, selectOption } = this.props;
+    const { multiple, search, searchLabel, searchId, selected, selectOption } = this.props;
 
     const classes = classNames(
       "dropdown-content",
