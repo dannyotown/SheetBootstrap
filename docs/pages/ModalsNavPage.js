@@ -21,6 +21,7 @@ const ModalsNavPage = () => {
               {/* PRO-START */}
               <h6 className="mt-3 grey-text">PRO</h6>
               <MenuLink to="/modals/pro/modal-form" title="Modal Form" />
+              <MenuLink to="/modals/pro/modal-examples" title="Modal Templates & Examples" />
               {/* PRO-END */}
             </ul>
           </MDBJumbotron>
