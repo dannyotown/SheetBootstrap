@@ -7,7 +7,7 @@ class Input extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      innerValue: props.value || "",
+      innerValue: props.value || props.valueDefault,
       isFocused: false,
       isPristine: true
     };
@@ -74,6 +74,7 @@ class Input extends React.Component {
       inputRef,
       filled,
       gap,
+      valueDefault,
       ...attributes
     } = this.props;
 
@@ -201,7 +202,8 @@ Input.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   type: PropTypes.string,
   validate: PropTypes.bool,
-  value: PropTypes.string
+  value: PropTypes.string,
+  valueDefault: PropTypes.string
 };
 
 Input.defaultProps = {
@@ -226,7 +228,8 @@ Input.defaultProps = {
   success: "",
   tag: "input",
   type: "text",
-  validate: false
+  validate: false,
+  valueDefault: ""
 };
 
 export default Input;
