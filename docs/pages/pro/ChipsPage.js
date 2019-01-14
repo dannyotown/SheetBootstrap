@@ -1,45 +1,43 @@
-import React from "react";
-import { Container, Chip, Card, ChipsInput } from "mdbreact";
-import DocsLink from "../DocsLink";
+import React, { Component } from "react";
+import { MDBContainer, MDBChip, MDBCard, MDBChipsInput } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
-class ChipsPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // No avatars:
-      show1: true,
-      show2: true,
-      show3: true,
-      show4: true,
-      show5: true,
-      show6: true,
+class ChipsPage extends Component {
 
-      show7: true,
-      show8: true,
-      show9: true,
-      show10: true,
-      show11: true,
-      show12: true,
+  state = {
+    // No avatars:
+    show1: true,
+    show2: true,
+    show3: true,
+    show4: true,
+    show5: true,
+    show6: true,
 
-      // Named Chips:
-      show13: true,
-      show14: true,
-      show15: true,
-      show16: true,
-      show17: true,
+    show7: true,
+    show8: true,
+    show9: true,
+    show10: true,
+    show11: true,
+    show12: true,
 
-      // Dates Chips:
-      show18: true,
-      show19: true,
-      show20: true,
-      show21: true,
+    // Named Chips:
+    show13: true,
+    show14: true,
+    show15: true,
+    show16: true,
+    show17: true,
 
-      // Gradient Chips:
-      show22: true,
-      show23: true,
-      show24: true,
-      show25: true
-    };
+    // Dates Chips:
+    show18: true,
+    show19: true,
+    show20: true,
+    show21: true,
+
+    // Gradient Chips:
+    show22: true,
+    show23: true,
+    show24: true,
+    show25: true
   }
 
   handleCloseHere = param => e => {
@@ -86,224 +84,219 @@ class ChipsPage extends React.Component {
     } = this.state;
 
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Chips"
           href="https://mdbootstrap.com/docs/react/components/badges/#chips-avatars"
         />
-        <Container>
+        <MDBContainer>
           <h2 className="my-3">Chips with avatars</h2>
 
-          <Card style={cardStyle}>
+          <MDBCard style={cardStyle}>
             <div style={chipsRowStyle1}>
-              <Chip
+              <MDBChip
                 src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg"
                 alt="Contact Person"
                 waves
               >
-                {" "}
-                John Doe{" "}
-              </Chip>
-              <Chip
+
+                John Doe
+              </MDBChip>
+              <MDBChip
                 size="md"
                 src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg"
                 alt="Contact Person"
                 waves
               >
-                {" "}
-                Anna Smith{" "}
-              </Chip>
-              <Chip
+
+                Anna Smith
+              </MDBChip>
+              <MDBChip
                 size="lg"
                 src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
                 alt="Contact Person"
                 waves
               >
-                {" "}
-                Lara Lim{" "}
-              </Chip>
+
+                Lara Lim
+              </MDBChip>
             </div>
             <div style={chipsRowStyle2}>
-              <Chip
+              <MDBChip
                 src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
                 alt="Contact Person"
                 bgColor="light-blue lighten-4"
                 waves
               >
-                {" "}
-                Tom Dark{" "}
-              </Chip>
-              <Chip
+
+                Tom Dark
+              </MDBChip>
+              <MDBChip
                 size="md"
                 src="https://mdbootstrap.com/img/Photos/Avatars/avatar-12.jpg"
                 alt="Contact Person"
                 bgColor="light-blue lighten-4"
                 waves
               >
-                {" "}
-                Kate Horwitz{" "}
-              </Chip>
-              <Chip
+
+                Kate Horwitz
+              </MDBChip>
+              <MDBChip
                 size="lg"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img(27).jpg"
                 alt="Contact Person"
                 bgColor="light-blue lighten-4"
                 waves
               >
-                {" "}
-                Danny Clark{" "}
-              </Chip>
+
+                Danny Clark
+              </MDBChip>
             </div>
-          </Card>
+          </MDBCard>
 
           <hr className="my-5" />
           <h2 className="mb-4">Chips without avatars</h2>
 
-          <Card style={cardStyle}>
+          <MDBCard style={cardStyle}>
             <div style={chipsRowStyle1}>
               {show1 && (
-                <Chip waves close handleClose={this.handleCloseHere(1)}>
-                  {" "}
-                  Tag 1{" "}
-                </Chip>
+                <MDBChip waves close handleClose={this.handleCloseHere(1)}>
+
+                  Tag 1
+                </MDBChip>
               )}
               {show2 && (
-                <Chip waves close handleClose={this.handleCloseHere(2)}>
-                  {" "}
-                  Tag 2{" "}
-                </Chip>
+                <MDBChip waves close handleClose={this.handleCloseHere(2)}>
+
+                  Tag 2
+                </MDBChip>
               )}
               {show3 && (
-                <Chip waves close handleClose={this.handleCloseHere(3)}>
-                  {" "}
-                  Tag 3{" "}
-                </Chip>
+                <MDBChip waves close handleClose={this.handleCloseHere(3)}>
+
+                  Tag 3
+                </MDBChip>
               )}
               {show4 && (
-                <Chip waves close handleClose={this.handleCloseHere(4)}>
-                  {" "}
-                  Tag 4{" "}
-                </Chip>
+                <MDBChip waves close handleClose={this.handleCloseHere(4)}>
+
+                  Tag 4
+                </MDBChip>
               )}
               {show5 && (
-                <Chip waves close handleClose={this.handleCloseHere(5)}>
-                  {" "}
-                  Tag 5{" "}
-                </Chip>
+                <MDBChip waves close handleClose={this.handleCloseHere(5)}>
+
+                  Tag 5
+                </MDBChip>
               )}
               {show6 && (
-                <Chip waves close handleClose={this.handleCloseHere(6)}>
-                  {" "}
-                  Tag 6{" "}
-                </Chip>
+                <MDBChip waves close handleClose={this.handleCloseHere(6)}>
+
+                  Tag 6
+                </MDBChip>
               )}
             </div>
 
             <div style={chipsRowStyle2}>
               {show7 && (
-                <Chip
+                <MDBChip
                   waves
                   bgColor="pink lighten-4"
                   close
                   handleClose={this.handleCloseHere(7)}
                 >
-                  {" "}
-                  Tag 220{" "}
-                </Chip>
+
+                  Tag 220
+                </MDBChip>
               )}
               {show8 && (
-                <Chip
+                <MDBChip
                   waves
                   bgColor="pink lighten-4"
                   close
                   handleClose={this.handleCloseHere(8)}
                 >
-                  {" "}
-                  Tag 219{" "}
-                </Chip>
+
+                  Tag 219
+                </MDBChip>
               )}
               {show9 && (
-                <Chip
+                <MDBChip
                   waves
                   bgColor="pink lighten-4"
                   close
                   handleClose={this.handleCloseHere(9)}
                 >
-                  {" "}
-                  Tag 218{" "}
-                </Chip>
+
+                  Tag 218
+                </MDBChip>
               )}
               {show10 && (
-                <Chip
+                <MDBChip
                   waves
                   bgColor="pink lighten-4"
                   close
                   handleClose={this.handleCloseHere(10)}
                 >
-                  {" "}
-                  Tag 217{" "}
-                </Chip>
+                  Tag 217
+                </MDBChip>
               )}
               {show11 && (
-                <Chip
+                <MDBChip
                   waves
                   bgColor="pink lighten-4"
                   close
                   handleClose={this.handleCloseHere(11)}
                 >
-                  {" "}
-                  Tag 216{" "}
-                </Chip>
+                  Tag 216
+                </MDBChip>
               )}
               {show12 && (
-                <Chip
+                <MDBChip
                   waves
                   bgColor="pink lighten-4"
                   close
                   handleClose={this.handleCloseHere(12)}
                 >
-                  {" "}
-                  Tag 215{" "}
-                </Chip>
+                  Tag 215
+                </MDBChip>
               )}
             </div>
-          </Card>
+          </MDBCard>
 
           <hr className="my-5" />
           <h2 className="mb-4">Chips with various colors</h2>
 
-          <Card style={cardStyle}>
+          <MDBCard style={cardStyle}>
             <div className="mb-4">
-              <Chip
+              <MDBChip
                 src="https://mdbootstrap.com/img/Photos/Avatars/img(7).jpg"
                 alt="Contact Person"
                 bgColor="blue lighten-4"
                 waves
               >
-                {" "}
-                Caroline Smith{" "}
-              </Chip>
-              <Chip
+                Caroline Smith
+              </MDBChip>
+              <MDBChip
                 src="https://mdbootstrap.com/img/Photos/Avatars/img(3).jpg"
                 alt="Contact Person"
                 bgColor="purple lighten-4"
                 waves
               >
-                {" "}
-                Adam Grey{" "}
-              </Chip>
-              <Chip
+                Adam Grey
+              </MDBChip>
+              <MDBChip
                 src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
                 alt="Contact Person"
                 bgColor="amber lighten-3"
                 waves
               >
-                {" "}
-                Danny Moor{" "}
-              </Chip>
+
+                Danny Moor
+              </MDBChip>
             </div>
             <div className="mb-4">
-              <Chip
+              <MDBChip
                 size="md"
                 src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
                 alt="Contact Person"
@@ -311,10 +304,10 @@ class ChipsPage extends React.Component {
                 text="white"
                 waves
               >
-                {" "}
-                Daisy Sun{" "}
-              </Chip>
-              <Chip
+
+                Daisy Sun
+              </MDBChip>
+              <MDBChip
                 size="md"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img(28).jpg"
                 alt="Contact Person"
@@ -322,10 +315,10 @@ class ChipsPage extends React.Component {
                 text="white"
                 waves
               >
-                {" "}
-                Martha Lores{" "}
-              </Chip>
-              <Chip
+
+                Martha Lores
+              </MDBChip>
+              <MDBChip
                 size="md"
                 src="https://mdbootstrap.com/img/Photos/Avatars/avatar-12.jpg"
                 alt="Contact Person"
@@ -333,12 +326,12 @@ class ChipsPage extends React.Component {
                 text="white"
                 waves
               >
-                {" "}
-                Alexandra Deyn{" "}
-              </Chip>
+
+                Alexandra Deyn
+              </MDBChip>
             </div>
             <div className="mb-4">
-              <Chip
+              <MDBChip
                 size="lg"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img(27).jpg"
                 alt="Contact Person"
@@ -346,10 +339,10 @@ class ChipsPage extends React.Component {
                 text="white"
                 waves
               >
-                {" "}
-                Olaf Horwitz{" "}
-              </Chip>
-              <Chip
+
+                Olaf Horwitz
+              </MDBChip>
+              <MDBChip
                 size="lg"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img(30).jpg"
                 alt="Contact Person"
@@ -357,10 +350,10 @@ class ChipsPage extends React.Component {
                 text="white"
                 waves
               >
-                {" "}
-                Mary-Kate Dare{" "}
-              </Chip>
-              <Chip
+
+                Mary-Kate Dare
+              </MDBChip>
+              <MDBChip
                 size="lg"
                 src="https://mdbootstrap.com/img/Photos/Avatars/img(21).jpg"
                 alt="Contact Person"
@@ -368,75 +361,75 @@ class ChipsPage extends React.Component {
                 text="white"
                 waves
               >
-                {" "}
-                The Sylvester{" "}
-              </Chip>
+
+                The Sylvester
+              </MDBChip>
             </div>
             <div className="mb-4">
               {show13 && (
-                <Chip
+                <MDBChip
                   bgColor="teal lighten-2"
                   text="white"
                   close
                   waves
                   handleClose={this.handleCloseHere(13)}
                 >
-                  {" "}
-                  Martha{" "}
-                </Chip>
+
+                  Martha
+                </MDBChip>
               )}
               {show14 && (
-                <Chip
+                <MDBChip
                   bgColor="pink lighten-2"
                   text="white"
                   close
                   waves
                   handleClose={this.handleCloseHere(14)}
                 >
-                  {" "}
-                  Agnes{" "}
-                </Chip>
+
+                  Agnes
+                </MDBChip>
               )}
               {show15 && (
-                <Chip
+                <MDBChip
                   bgColor="light-blue lighten-2"
                   text="white"
                   close
                   waves
                   handleClose={this.handleCloseHere(15)}
                 >
-                  {" "}
-                  Caroline{" "}
-                </Chip>
+
+                  Caroline
+                </MDBChip>
               )}
               {show16 && (
-                <Chip
+                <MDBChip
                   bgColor="purple lighten-2"
                   text="white"
                   close
                   waves
                   handleClose={this.handleCloseHere(16)}
                 >
-                  {" "}
-                  Elisa{" "}
-                </Chip>
+
+                  Elisa
+                </MDBChip>
               )}
               {show17 && (
-                <Chip
+                <MDBChip
                   bgColor="mdb-color lighten-2"
                   text="white"
                   close
                   waves
                   handleClose={this.handleCloseHere(17)}
                 >
-                  {" "}
-                  Francesca{" "}
-                </Chip>
+
+                  Francesca
+                </MDBChip>
               )}
             </div>
             <div className="mb-4">
               {show18 && (
-                <Chip
+                <MDBChip
                   size="md"
                   bgColor="red lighten-4"
                   text="red"
@@ -444,12 +437,12 @@ class ChipsPage extends React.Component {
                   waves
                   handleClose={this.handleCloseHere(18)}
                 >
-                  {" "}
-                  25.09.2017{" "}
-                </Chip>
+
+                  25.09.2017
+                </MDBChip>
               )}
               {show19 && (
-                <Chip
+                <MDBChip
                   size="md"
                   bgColor="indigo lighten-4"
                   text="indigo"
@@ -457,12 +450,12 @@ class ChipsPage extends React.Component {
                   waves
                   handleClose={this.handleCloseHere(19)}
                 >
-                  {" "}
-                  24.08.2016{" "}
-                </Chip>
+
+                  24.08.2016
+                </MDBChip>
               )}
               {show20 && (
-                <Chip
+                <MDBChip
                   size="md"
                   bgColor="cyan lighten-4"
                   text="cyan"
@@ -470,12 +463,12 @@ class ChipsPage extends React.Component {
                   waves
                   handleClose={this.handleCloseHere(20)}
                 >
-                  {" "}
-                  23.07.2015{" "}
-                </Chip>
+
+                  23.07.2015
+                </MDBChip>
               )}
               {show21 && (
-                <Chip
+                <MDBChip
                   size="md"
                   bgColor="deep-purple lighten-4"
                   text="deep-purple"
@@ -483,14 +476,14 @@ class ChipsPage extends React.Component {
                   waves
                   handleClose={this.handleCloseHere(21)}
                 >
-                  {" "}
-                  22.06.2014{" "}
-                </Chip>
+
+                  22.06.2014
+                </MDBChip>
               )}
             </div>
             <div className="mb-4">
               {show22 && (
-                <Chip
+                <MDBChip
                   size="lg"
                   gradient="aqua"
                   text="white"
@@ -498,12 +491,12 @@ class ChipsPage extends React.Component {
                   waves
                   handleClose={this.handleCloseHere(22)}
                 >
-                  {" "}
-                  Aqua gradient{" "}
-                </Chip>
+
+                  Aqua gradient
+                </MDBChip>
               )}
               {show23 && (
-                <Chip
+                <MDBChip
                   size="lg"
                   gradient="peach"
                   text="white"
@@ -511,12 +504,12 @@ class ChipsPage extends React.Component {
                   waves
                   handleClose={this.handleCloseHere(23)}
                 >
-                  {" "}
-                  Peach gradient{" "}
-                </Chip>
+
+                  Peach gradient
+                </MDBChip>
               )}
               {show24 && (
-                <Chip
+                <MDBChip
                   size="lg"
                   gradient="purple"
                   text="white"
@@ -524,12 +517,12 @@ class ChipsPage extends React.Component {
                   waves
                   handleClose={this.handleCloseHere(24)}
                 >
-                  {" "}
-                  Purple gradient{" "}
-                </Chip>
+
+                  Purple gradient
+                </MDBChip>
               )}
               {show25 && (
-                <Chip
+                <MDBChip
                   size="lg"
                   gradient="blue"
                   text="white"
@@ -537,21 +530,21 @@ class ChipsPage extends React.Component {
                   waves
                   handleClose={this.handleCloseHere(25)}
                 >
-                  {" "}
-                  Blue gradient{" "}
-                </Chip>
+
+                  Blue gradient
+                </MDBChip>
               )}
             </div>
-          </Card>
+          </MDBCard>
 
           <hr className="my-5" />
           <h2 className="mb-4">Chips input</h2>
-          <Card style={cardStyle}>
-            <ChipsInput placeholder="+Tag" secondaryPlaceholder="Enter a tag" />
-            <ChipsInput chips={["Tag 1", "Tag 2", "Tag 3"]} />
-          </Card>
-        </Container>
-      </Container>
+          <MDBCard style={cardStyle}>
+            <MDBChipsInput placeholder="+Tag" secondaryPlaceholder="Enter a tag" />
+            <MDBChipsInput chips={["Tag 1", "Tag 2", "Tag 3"]} />
+          </MDBCard>
+        </MDBContainer>
+      </MDBContainer>
     );
   }
 }

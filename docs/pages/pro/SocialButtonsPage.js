@@ -1,321 +1,321 @@
 import React from "react";
-import { Container, Button, Fa } from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBBtn, MDBIcon } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
 const SocialButtonsPage = props => {
   return (
-    <Container>
+    <MDBContainer>
       <DocsLink
         title="Social Buttons"
         href="https://mdbootstrap.com/docs/react/components/buttons/"
       />
-      <Container>
+      <MDBContainer>
         <h4 className="mt-4">Full name social button</h4>
-        <Button social="fb">
-          <Fa brand icon="facebook" className="pr-1" /> Facebook
-        </Button>
-        <Button social="tw">
-          <Fa brand icon="twitter" className="pr-1" /> Twitter
-        </Button>
-        <Button social="gplus">
-          <Fa brand icon="google-plus" className="pr-1" /> Google +
-        </Button>
-        <Button social="li">
-          <Fa brand icon="linkedin" className="pr-1" /> Linkedin
-        </Button>
-        <Button social="ins">
-          <Fa brand icon="instagram" className="pr-1" /> Instagram
-        </Button>
-        <Button social="pin">
-          <Fa brand icon="pinterest" className="pr-1" /> Pinterest
-        </Button>
-        <Button social="yt">
-          <Fa brand icon="youtube" className="pr-1" /> Youtube
-        </Button>
-        <Button social="vk">
-          <Fa brand icon="vk" className="pr-1" /> Vkontakte
-        </Button>
-        <Button social="so">
-          <Fa brand icon="stack-overflow" className="pr-1" /> Stack Overflow
-        </Button>
-        <Button social="slack">
-          <Fa brand icon="slack" className="pr-1" /> Slack
-        </Button>
-        <Button social="git">
-          <Fa brand icon="github" className="pr-1" /> Github
-        </Button>
-        <Button social="comm">
-          <Fa icon="comments" className="pr-1" /> Comments
-        </Button>
-        <Button social="email">
-          <Fa icon="envelope" className="pr-1" /> Email
-        </Button>
-        <Button social="dribbble">
-          <Fa brand icon="dribbble" className="pr-1" /> Dribbble
-        </Button>
+        <MDBBtn social="fb">
+          <MDBIcon brand icon="facebook" className="pr-1" /> Facebook
+        </MDBBtn>
+        <MDBBtn social="tw">
+          <MDBIcon brand icon="twitter" className="pr-1" /> Twitter
+        </MDBBtn>
+        <MDBBtn social="gplus">
+          <MDBIcon brand icon="google-plus" className="pr-1" /> Google +
+        </MDBBtn>
+        <MDBBtn social="li">
+          <MDBIcon brand icon="linkedin" className="pr-1" /> Linkedin
+        </MDBBtn>
+        <MDBBtn social="ins">
+          <MDBIcon brand icon="instagram" className="pr-1" /> Instagram
+        </MDBBtn>
+        <MDBBtn social="pin">
+          <MDBIcon brand icon="pinterest" className="pr-1" /> Pinterest
+        </MDBBtn>
+        <MDBBtn social="yt">
+          <MDBIcon brand icon="youtube" className="pr-1" /> Youtube
+        </MDBBtn>
+        <MDBBtn social="vk">
+          <MDBIcon brand icon="vk" className="pr-1" /> Vkontakte
+        </MDBBtn>
+        <MDBBtn social="so">
+          <MDBIcon brand icon="stack-overflow" className="pr-1" /> Stack Overflow
+        </MDBBtn>
+        <MDBBtn social="slack">
+          <MDBIcon brand icon="slack" className="pr-1" /> Slack
+        </MDBBtn>
+        <MDBBtn social="git">
+          <MDBIcon brand icon="github" className="pr-1" /> Github
+        </MDBBtn>
+        <MDBBtn social="comm">
+          <MDBIcon icon="comments" className="pr-1" /> Comments
+        </MDBBtn>
+        <MDBBtn social="email">
+          <MDBIcon icon="envelope" className="pr-1" /> Email
+        </MDBBtn>
+        <MDBBtn social="dribbble">
+          <MDBIcon brand icon="dribbble" className="pr-1" /> Dribbble
+        </MDBBtn>
         <h4 className="mt-4">Large button</h4>
-        <Button social="fb" size="lg">
-          <Fa brand icon="facebook" className="pr-1" /> Facebook
-        </Button>
+        <MDBBtn social="fb" size="lg">
+          <MDBIcon brand icon="facebook" className="pr-1" /> Facebook
+        </MDBBtn>
         <h4 className="mt-4">Simple social button</h4>
-        <Button social="fb">
-          <Fa brand icon="facebook" />
-        </Button>
-        <Button social="tw">
-          <Fa brand icon="twitter" />
-        </Button>
-        <Button social="gplus">
-          <Fa brand icon="google-plus" />
-        </Button>
-        <Button social="li">
-          <Fa brand icon="linkedin" />
-        </Button>
-        <Button social="ins">
-          <Fa brand icon="instagram" />
-        </Button>
-        <Button social="pin">
-          <Fa brand icon="pinterest" />
-        </Button>
-        <Button social="yt">
-          <Fa brand icon="youtube" />
-        </Button>
-        <Button social="vk">
-          <Fa brand icon="vk" />
-        </Button>
-        <Button social="so">
-          <Fa brand icon="stack-overflow" />
-        </Button>
-        <Button social="slack">
-          <Fa brand icon="slack" />
-        </Button>
-        <Button social="git">
-          <Fa brand icon="github" />
-        </Button>
-        <Button social="comm">
-          <Fa icon="comments" />
-        </Button>
-        <Button social="email">
-          <Fa icon="envelope" />
-        </Button>
-        <Button social="dribbble">
-          <Fa brand icon="dribbble" />
-        </Button>
+        <MDBBtn social="fb">
+          <MDBIcon brand icon="facebook" />
+        </MDBBtn>
+        <MDBBtn social="tw">
+          <MDBIcon brand icon="twitter" />
+        </MDBBtn>
+        <MDBBtn social="gplus">
+          <MDBIcon brand icon="google-plus" />
+        </MDBBtn>
+        <MDBBtn social="li">
+          <MDBIcon brand icon="linkedin" />
+        </MDBBtn>
+        <MDBBtn social="ins">
+          <MDBIcon brand icon="instagram" />
+        </MDBBtn>
+        <MDBBtn social="pin">
+          <MDBIcon brand icon="pinterest" />
+        </MDBBtn>
+        <MDBBtn social="yt">
+          <MDBIcon brand icon="youtube" />
+        </MDBBtn>
+        <MDBBtn social="vk">
+          <MDBIcon brand icon="vk" />
+        </MDBBtn>
+        <MDBBtn social="so">
+          <MDBIcon brand icon="stack-overflow" />
+        </MDBBtn>
+        <MDBBtn social="slack">
+          <MDBIcon brand icon="slack" />
+        </MDBBtn>
+        <MDBBtn social="git">
+          <MDBIcon brand icon="github" />
+        </MDBBtn>
+        <MDBBtn social="comm">
+          <MDBIcon icon="comments" />
+        </MDBBtn>
+        <MDBBtn social="email">
+          <MDBIcon icon="envelope" />
+        </MDBBtn>
+        <MDBBtn social="dribbble">
+          <MDBIcon brand icon="dribbble" />
+        </MDBBtn>
         <h4 className="mt-4">Large button</h4>
-        <Button social="fb" size="lg">
-          <Fa brand icon="facebook" />
-        </Button>
+        <MDBBtn social="fb" size="lg">
+          <MDBIcon brand icon="facebook" />
+        </MDBBtn>
         <h4 className="mt-4">Floating social buttons</h4>
-        <Button size="lg" tag="a" floating social="fb">
-          <Fa brand icon="facebook" />
-        </Button>
-        <Button size="lg" tag="a" floating social="tw">
-          <Fa brand icon="twitter" />
-        </Button>
-        <Button size="lg" tag="a" floating social="gplus">
-          <Fa brand icon="google-plus" />
-        </Button>
-        <Button size="lg" tag="a" floating social="li">
-          <Fa brand icon="linkedin" />
-        </Button>
-        <Button size="lg" tag="a" floating social="ins">
-          <Fa brand icon="instagram" />
-        </Button>
-        <Button size="lg" tag="a" floating social="pin">
-          <Fa brand icon="pinterest" />
-        </Button>
-        <Button size="lg" tag="a" floating social="yt">
-          <Fa brand icon="youtube" />
-        </Button>
-        <Button size="lg" tag="a" floating social="vk">
-          <Fa brand icon="vk" />
-        </Button>
-        <Button size="lg" tag="a" floating social="so">
-          <Fa brand icon="stack-overflow" />
-        </Button>
-        <Button size="lg" tag="a" floating social="slack">
-          <Fa brand icon="slack" />
-        </Button>
-        <Button size="lg" tag="a" floating social="git">
-          <Fa brand icon="github" />
-        </Button>
-        <Button size="lg" tag="a" floating social="comm">
-          <Fa icon="comments" />
-        </Button>
-        <Button size="lg" tag="a" floating social="email">
-          <Fa icon="envelope" />
-        </Button>
-        <Button size="lg" tag="a" floating social="dribbble">
-          <Fa brand icon="dribbble" />
-        </Button>
+        <MDBBtn size="lg" tag="a" floating social="fb">
+          <MDBIcon brand icon="facebook" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="tw">
+          <MDBIcon brand icon="twitter" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="gplus">
+          <MDBIcon brand icon="google-plus" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="li">
+          <MDBIcon brand icon="linkedin" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="ins">
+          <MDBIcon brand icon="instagram" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="pin">
+          <MDBIcon brand icon="pinterest" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="yt">
+          <MDBIcon brand icon="youtube" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="vk">
+          <MDBIcon brand icon="vk" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="so">
+          <MDBIcon brand icon="stack-overflow" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="slack">
+          <MDBIcon brand icon="slack" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="git">
+          <MDBIcon brand icon="github" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="comm">
+          <MDBIcon icon="comments" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="email">
+          <MDBIcon icon="envelope" />
+        </MDBBtn>
+        <MDBBtn size="lg" tag="a" floating social="dribbble">
+          <MDBIcon brand icon="dribbble" />
+        </MDBBtn>
         <h4 className="mt-4">Sizes</h4>
-        <Button size="lg" tag="a" floating social="fb">
-          <Fa brand icon="facebook" />
-        </Button>
-        <Button tag="a" floating social="fb">
-          <Fa brand icon="facebook" />
-        </Button>
-        <Button size="sm" tag="a" floating social="fb">
-          <Fa brand icon="facebook" />
-        </Button>
+        <MDBBtn size="lg" tag="a" floating social="fb">
+          <MDBIcon brand icon="facebook" />
+        </MDBBtn>
+        <MDBBtn tag="a" floating social="fb">
+          <MDBIcon brand icon="facebook" />
+        </MDBBtn>
+        <MDBBtn size="sm" tag="a" floating social="fb">
+          <MDBIcon brand icon="facebook" />
+        </MDBBtn>
         <h4 className="mt-4">Full name social counters</h4>
-        <Button social="fb">
-          <Fa brand icon="facebook" className="pr-1" /> Facebook
-        </Button>
+        <MDBBtn social="fb">
+          <MDBIcon brand icon="facebook" className="pr-1" /> Facebook
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="tw">
-          <Fa brand icon="twitter" className="pr-1" /> Twitter
-        </Button>
+        <MDBBtn social="tw">
+          <MDBIcon brand icon="twitter" className="pr-1" /> Twitter
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="gplus">
-          <Fa brand icon="google-plus" className="pr-1" /> Google +
-        </Button>
+        <MDBBtn social="gplus">
+          <MDBIcon brand icon="google-plus" className="pr-1" /> Google +
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="li">
-          <Fa brand icon="linkedin" className="pr-1" /> Linkedin
-        </Button>
+        <MDBBtn social="li">
+          <MDBIcon brand icon="linkedin" className="pr-1" /> Linkedin
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="ins">
-          <Fa brand icon="instagram" className="pr-1" /> Instagram
-        </Button>
+        <MDBBtn social="ins">
+          <MDBIcon brand icon="instagram" className="pr-1" /> Instagram
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="pin">
-          <Fa brand icon="pinterest" className="pr-1" /> Pinterest
-        </Button>
+        <MDBBtn social="pin">
+          <MDBIcon brand icon="pinterest" className="pr-1" /> Pinterest
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="yt">
-          <Fa brand icon="youtube" className="pr-1" /> Youtube
-        </Button>
+        <MDBBtn social="yt">
+          <MDBIcon brand icon="youtube" className="pr-1" /> Youtube
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="vk">
-          <Fa brand icon="vk" className="pr-1" /> Vkontakte
-        </Button>
+        <MDBBtn social="vk">
+          <MDBIcon brand icon="vk" className="pr-1" /> Vkontakte
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="so">
-          <Fa brand icon="stack-overflow" className="pr-1" /> Stack Overflow
-        </Button>
+        <MDBBtn social="so">
+          <MDBIcon brand icon="stack-overflow" className="pr-1" /> Stack Overflow
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="slack">
-          <Fa brand icon="slack" className="pr-1" /> Slack
-        </Button>
+        <MDBBtn social="slack">
+          <MDBIcon brand icon="slack" className="pr-1" /> Slack
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="git">
-          <Fa brand icon="github" className="pr-1" /> Github
-        </Button>
+        <MDBBtn social="git">
+          <MDBIcon brand icon="github" className="pr-1" /> Github
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="comm">
-          <Fa icon="comments" className="pr-1" /> Comments
-        </Button>
+        <MDBBtn social="comm">
+          <MDBIcon icon="comments" className="pr-1" /> Comments
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="email">
-          <Fa icon="envelope" className="pr-1" /> Email
-        </Button>
+        <MDBBtn social="email">
+          <MDBIcon icon="envelope" className="pr-1" /> Email
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button social="dribbble">
-          <Fa brand icon="dribbble" className="pr-1" /> Dribbble
-        </Button>
+        <MDBBtn social="dribbble">
+          <MDBIcon brand icon="dribbble" className="pr-1" /> Dribbble
+        </MDBBtn>
         <span className="counter">22</span>
         <h4 className="mt-4">Simple social counters </h4>
-        <Button size="lg" social="fb">
-          <Fa brand icon="facebook" />
-        </Button>
+        <MDBBtn size="lg" social="fb">
+          <MDBIcon brand icon="facebook" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="tw">
-          <Fa brand icon="twitter" />
-        </Button>
+        <MDBBtn size="lg" social="tw">
+          <MDBIcon brand icon="twitter" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="gplus">
-          <Fa brand icon="google-plus" />
-        </Button>
+        <MDBBtn size="lg" social="gplus">
+          <MDBIcon brand icon="google-plus" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="li">
-          <Fa brand icon="linkedin" />
-        </Button>
+        <MDBBtn size="lg" social="li">
+          <MDBIcon brand icon="linkedin" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="ins">
-          <Fa brand icon="instagram" />
-        </Button>
+        <MDBBtn size="lg" social="ins">
+          <MDBIcon brand icon="instagram" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="pin">
-          <Fa brand icon="pinterest" />
-        </Button>
+        <MDBBtn size="lg" social="pin">
+          <MDBIcon brand icon="pinterest" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="yt">
-          <Fa brand icon="youtube" />
-        </Button>
+        <MDBBtn size="lg" social="yt">
+          <MDBIcon brand icon="youtube" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="vk">
-          <Fa brand icon="vk" />
-        </Button>
+        <MDBBtn size="lg" social="vk">
+          <MDBIcon brand icon="vk" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="so">
-          <Fa brand icon="stack-overflow" />
-        </Button>
+        <MDBBtn size="lg" social="so">
+          <MDBIcon brand icon="stack-overflow" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="slack">
-          <Fa brand icon="slack" />
-        </Button>
+        <MDBBtn size="lg" social="slack">
+          <MDBIcon brand icon="slack" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="git">
-          <Fa brand icon="github" />
-        </Button>
+        <MDBBtn size="lg" social="git">
+          <MDBIcon brand icon="github" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="comm">
-          <Fa icon="comments" />
-        </Button>
+        <MDBBtn size="lg" social="comm">
+          <MDBIcon icon="comments" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="email">
-          <Fa icon="envelope" />
-        </Button>
+        <MDBBtn size="lg" social="email">
+          <MDBIcon icon="envelope" />
+        </MDBBtn>
         <span className="counter">22</span>
-        <Button size="lg" social="dribbble">
-          <Fa brand icon="dribbble" />
-        </Button>
+        <MDBBtn size="lg" social="dribbble">
+          <MDBIcon brand icon="dribbble" />
+        </MDBBtn>
         <span className="counter">22</span>
         <h4 className="mt-4">Social brand icons</h4>
         <a href="#!" className="fb-ic mr-3">
-          <Fa brand icon="facebook" />
+          <MDBIcon brand icon="facebook" />
         </a>
         <a href="#!" className="tw-ic mr-3">
-          <Fa brand icon="twitter" />
+          <MDBIcon brand icon="twitter" />
         </a>
         <a href="#!" className="gplus-ic mr-3">
-          <Fa brand icon="google-plus" />
+          <MDBIcon brand icon="google-plus" />
         </a>
         <a href="#!" className="li-ic mr-3">
-          <Fa brand icon="linkedin" />
+          <MDBIcon brand icon="linkedin" />
         </a>
         <a href="#!" className="ins-ic mr-3">
-          <Fa brand icon="instagram" />
+          <MDBIcon brand icon="instagram" />
         </a>
         <a href="#!" className="pin-ic mr-3">
-          <Fa brand icon="pinterest" />
+          <MDBIcon brand icon="pinterest" />
         </a>
         <a href="#!" className="yt-ic mr-3">
-          <Fa brand icon="youtube" />
+          <MDBIcon brand icon="youtube" />
         </a>
         <a href="#!" className="vk-ic mr-3">
-          <Fa brand icon="vk" />
+          <MDBIcon brand icon="vk" />
         </a>
         <a href="#!" className="so-ic mr-3">
-          <Fa brand icon="stack-overflow" />
+          <MDBIcon brand icon="stack-overflow" />
         </a>
         <a href="#!" className="slack-ic mr-3">
-          <Fa brand icon="slack" />
+          <MDBIcon brand icon="slack" />
         </a>
         <a href="#!" className="git-ic mr-3">
-          <Fa brand icon="github" />
+          <MDBIcon brand icon="github" />
         </a>
         <a href="#!" className="comm-ic mr-3">
-          <Fa icon="comments" />
+          <MDBIcon icon="comments" />
         </a>
         <a href="#!" className="email-ic mr-3">
-          <Fa icon="envelope" />
+          <MDBIcon icon="envelope" />
         </a>
         <a href="#!" className="dribbble-ic mr-3">
-          <Fa brand icon="dribbble" />
+          <MDBIcon brand icon="dribbble" />
         </a>
-      </Container>
-    </Container>
+      </MDBContainer>
+    </MDBContainer>
   );
 };
 

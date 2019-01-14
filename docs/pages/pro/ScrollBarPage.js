@@ -1,24 +1,22 @@
 import React from "react";
-import { Container, PerfectScrollbar } from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBScrollbar } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
-class ScrollBarPage extends React.Component {
-  render() {
-    const outerContainerStyle = { width: "800px", height: "400px" };
-    return (
-      <Container>
-        <DocsLink title="ScrollBar" href="https://mdbootstrap.com/docs/react/" />
-        <Container style={outerContainerStyle} className="mt-5">
-          <PerfectScrollbar className="scrollbar-primary">
-            <img
-              alt=""
-              src="https://mdbootstrap.com/img/Photos/Others/img%20(51).jpg"
-            />
-          </PerfectScrollbar>
-        </Container>
-      </Container>
-    );
-  }
+const ScrollBarPage = () => {
+  const outerContainerStyle = { width: "800px", height: "400px" };
+  return (
+    <MDBContainer>
+      <DocsLink title="ScrollBar" href="https://mdbootstrap.com/docs/react/" />
+      <MDBContainer style={outerContainerStyle} className="mt-5">
+        <MDBScrollbar className="scrollbar-primary">
+          <img
+            alt=""
+            src="https://mdbootstrap.com/img/Photos/Others/img%20(51).jpg"
+          />
+        </MDBScrollbar>
+      </MDBContainer>
+    </MDBContainer>
+  );
 }
 
 export default ScrollBarPage;

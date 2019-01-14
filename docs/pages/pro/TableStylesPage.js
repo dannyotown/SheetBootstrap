@@ -1,21 +1,8 @@
 import React from "react";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBCardHeader,
-  MDBInput,
-  MDBTable,
-  MDBTableBody,
-  MDBTableHead,
-  MDBIcon
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardHeader, MDBInput, MDBTable,   MDBTableBody, MDBTableHead, MDBIcon } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
-const TablePage = () => {
+const TableStylesPage = () => {
   const data_checkboxes = {
     columns: [
       {
@@ -238,4 +225,4 @@ const TablePage = () => {
   );
 };
 
-export default TablePage;
+export default TableStylesPage;

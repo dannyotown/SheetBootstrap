@@ -1,13 +1,13 @@
 import React from 'react';
 import { MDBStreak, MDBContainer } from 'mdbreact';
-import DocsLink from "../DocsLink";
+import DocsLink from "./../../components/docsLink";
 
 const StreakPage = () => {
   return (
     <MDBContainer>
       <DocsLink
-        title="MDBSticky"
-        href="https://mdbootstrap.com/docs/react/advanced/sticky/"
+        title="Streak"
+        href="https://mdbootstrap.com/plugins/react/streak/"
       />
       <MDBStreak
         size="md"

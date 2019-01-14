@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import Lightbox from "react-image-lightbox";
-import DocsLink from "../DocsLink";
+import DocsLink from "./../../components/docsLink";
 import "./Lightbox.css";
 
-class LightboxPage extends React.Component {
+class LightboxPage extends Component {
+
   state = {
     photoIndex: 0,
     isOpen: false,

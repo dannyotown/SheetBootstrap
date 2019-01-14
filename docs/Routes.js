@@ -107,6 +107,7 @@ import StreakPage from "./pages/pro/StreakPage";
 import ValidationPagePro from "./pages/pro/ValidationPage";
 import FlippingCardsPage from "./pages/pro/FlippingCardsPage";
 import TableStylesPagePro from "./pages/pro/TableStylesPage";
+import ModalExamplesProPage from "./pages/pro/ModalExamplesPage";
 // PRO-END
 
 class Routes extends React.Component {
@@ -223,6 +224,7 @@ class Routes extends React.Component {
         <Route path="/components/pro/stepper" component={StepperPage} />
         <Route path="/tables/pro/datatable-csv" component={DatatableCsvPage} />
         <Route path="/modals/pro/modal-form" component={ModalFormProPage} />
+        <Route path="/modals/pro/modal-examples" component={ModalExamplesProPage} />
         <Route path="/sections/testimonials" component={TestimonialsPage} />
         <Route
           path="/sections/testimonialsMulti"

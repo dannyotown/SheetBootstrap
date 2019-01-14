@@ -1,20 +1,16 @@
-import React from "react";
-import { MDBDatePicker, Container } from "mdbreact";
-import DocsLink from "../DocsLink";
+import React, { Component } from "react";
+import { MDBDatePicker, MDBContainer } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
-// import moment from 'moment';
-// import 'moment/locale/pl';
+class DatePickerPage extends Component {
 
-// moment.locale('pl');
-
-class DatePickerPage extends React.Component {
   getPickerValue = value => {
     console.log(value);
   };
 
   render() {
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Date Picker"
           href="https://mdbootstrap.com/docs/react/forms/date-picker/"
@@ -35,7 +31,7 @@ class DatePickerPage extends React.Component {
           }}
         />
         <MDBDatePicker getValue={this.getPickerValue} />
-      </Container>
+      </MDBContainer>
     );
   }
 }

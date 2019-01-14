@@ -21,7 +21,7 @@ class Col extends Component {
 
     const classes = classNames(
       size && "col-" + size,
-      xs && "col-" + xs,
+      xs && "col-xs-" + xs,
       sm && "col-sm-" + sm,
       md && "col-md-" + md,
       lg && "col-lg-" + lg,

@@ -1,39 +1,20 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  MDBInput,
-  MDBNavbar,
-  MDBNavbarNav,
-  MDBNavItem,
-  MDBNavLink,
-  MDBDropdown,
-  MDBDropdownToggle,
-  MDBDropdownMenu,
-  MDBDropdownItem,
-  MDBIcon,
-  MDBSideNavItem,
-  MDBSideNavCat,
-  MDBSideNavNav,
-  MDBSideNav,
-  MDBContainer
-} from "mdbreact";
+import { MDBInput, MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBDropdown, MDBDropdownToggle,  MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBSideNavItem, MDBSideNavCat, MDBSideNavNav, MDBSideNav,   MDBContainer } from "mdbreact";
 
-class DoubleNavigationPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      toggleStateA: false,
-      breakWidth: 1300,
-      windowWidth: 0
-    };
+class DoubleNavigationPage extends Component {
+  state = {
+    toggleStateA: false,
+    breakWidth: 1300,
+    windowWidth: 0
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.handleResize();
     window.addEventListener("resize", this.handleResize);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     window.removeEventListener("resize", this.handleResize);
   }
 

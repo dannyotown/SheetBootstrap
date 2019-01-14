@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
-import DocsLink from "./../DocsLink";
+import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
 class FormsPage extends React.Component {
   state = {
@@ -23,7 +23,7 @@ class FormsPage extends React.Component {
 
   render() {
     return (
-      <Container>
+      <MDBContainer>
         <DocsLink
           title="Form Validation"
           href="https://mdbootstrap.com/docs/react/forms/validation/"
@@ -145,7 +145,7 @@ class FormsPage extends React.Component {
             </MDBBtn>
           </form>
         </div>
-        
+
         <hr className="my-5" />
         <h2 className="mb-5">Browser defualt validation</h2>
         <div>
@@ -249,7 +249,7 @@ class FormsPage extends React.Component {
                   Example invalid feedback text
                 </div>
               </MDBInput>
-              
+
               <MDBInput
                 type="radio"
                 id="customControlValidation2"
@@ -263,7 +263,7 @@ class FormsPage extends React.Component {
                 id="customControlValidation3"
                 name="radio-stacked"
                 required
-                label="Or toggle this other custom radio"                  
+                label="Or toggle this other custom radio"
               >
                 <div className="invalid-feedback">
                   More example invalid feedback text
@@ -310,7 +310,7 @@ class FormsPage extends React.Component {
                   >
                     <div style={{ top: "auto" }} className="valid-tooltip">
                       Looks good!
-                    </div>                  
+                    </div>
                   </MDBInput>
                 </MDBCol>
                 <MDBCol md="4">
@@ -390,7 +390,7 @@ class FormsPage extends React.Component {
             </form>
           </MDBCol>
         </MDBRow>
-      </Container>
+      </MDBContainer>
     );
   }
 }

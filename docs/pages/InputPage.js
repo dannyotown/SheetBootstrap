@@ -1,25 +1,13 @@
-import React from "react";
-import {
-  MDBInput,
-  MDBInputSelect,
-  MDBFormInline,
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol
-} from "mdbreact";
-import DocsLink from "./DocsLink";
+import React, { Component } from "react";
+import { MDBInput, MDBInputSelect, MDBFormInline, MDBBtn, MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import DocsLink from "./../components/docsLink";
 
-class InputPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: "John Doe"
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
+class InputPage extends Component {
+  state = {
+    value: "John Doe"
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     alert("MDBInput value: " + this.state.value);
     event.preventDefault();
   }

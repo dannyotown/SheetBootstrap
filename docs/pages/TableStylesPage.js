@@ -1,19 +1,8 @@
 import React from "react";
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBTable,
-  MDBTableBody,
-  MDBTableHead,
-  MDBIcon
-} from "mdbreact";
-import DocsLink from "./DocsLink";
+import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBTable, MDBTableBody, MDBTableHead,   MDBIcon } from "mdbreact";
+import DocsLink from "./../components/docsLink";
 
-const TablePage = props => {
+const TableStylesPage = props => {
   const columns = [
     {
       label: "#",
@@ -276,7 +265,7 @@ const TablePage = props => {
       }
     ]
   };
-  
+
   return (
     <MDBContainer className="mt-3">
       <DocsLink
@@ -342,4 +331,4 @@ const TablePage = props => {
   );
 };
 
-export default TablePage;
+export default TableStylesPage;

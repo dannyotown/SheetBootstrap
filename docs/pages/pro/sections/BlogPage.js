@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBBtn } from "mdbreact";
-import DocsLink from "../../DocsLink";
+import DocsLink from "../../../components/docsLink";
 
 const BlogPage = () => {
   return (

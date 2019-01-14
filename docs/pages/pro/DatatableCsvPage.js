@@ -1,6 +1,6 @@
 import React from "react";
-import { DataTable, Container, Row, Col, Card, CardBody } from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBDataTable, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
 const DatatableCsvPage = () => {
   const data = {
@@ -503,22 +503,22 @@ const DatatableCsvPage = () => {
   };
 
   return (
-    <Container className="mt-3">
+    <MDBContainer className="mt-3">
       <DocsLink
         title="Datatable"
         href="https://mdbootstrap.com/docs/react/tables/datatables/"
       />
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">Datatable CSV Export</h2>
-              <DataTable striped bordered hover data={data} exportToCSV />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+              <MDBDataTable striped bordered hover data={data} exportToCSV />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
   );
 };
 

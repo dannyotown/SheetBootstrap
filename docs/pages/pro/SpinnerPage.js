@@ -1,26 +1,26 @@
 import React from "react";
-import { Spinner, Container } from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBSpinner, MDBContainer, MDBCol } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
 const SpinnerPage = props => {
   return (
-    <Container>
+    <MDBContainer>
       <DocsLink
         title="Loader/Spinner"
         href="https://mdbootstrap.com/docs/react/components/spinners/"
       />
       <div className="container-fluid text-center">
-        <div className="col-3">
-          <Spinner green small />
-        </div>
-        <div className="col-4">
-          <Spinner yellow />
-        </div>
-        <div className="col-5">
-          <Spinner crazy big multicolor />
-        </div>
+        <MDBCol size="3">
+          <MDBSpinner green small />
+        </MDBCol>
+        <MDBCol size="4">
+          <MDBSpinner yellow />
+        </MDBCol>
+        <MDBCol size="5">
+          <MDBSpinner crazy big multicolor />
+        </MDBCol>
       </div>
-    </Container>
+    </MDBContainer>
   );
 };
 

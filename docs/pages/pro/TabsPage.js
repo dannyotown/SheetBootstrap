@@ -1,9 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBCardBody, MDBCardTitle, MDBCardText, MDBTabPane,   MDBTabContent, MDBNav, MDBNavItem, MDBNavLink, MDBIcon } from "mdbreact";
-import DocsLink from "../DocsLink";
-import classnames from "classnames";
+import DocsLink from "../../components/docsLink";
 
-class TabsPage extends React.Component {
+class TabsPage extends Component {
 
   state = {
     activeItem: "1",
@@ -15,7 +14,7 @@ class TabsPage extends React.Component {
     activeItemClassicTabs2: "1"
   }
 
-  toggle = (tab) => {
+  toggle = tab => e => {
     if (this.state.activeItem !== tab) {
       this.setState({
         activeItem: tab
@@ -23,48 +22,53 @@ class TabsPage extends React.Component {
     }
   }
 
-  togglePills = (tab) => {
+  togglePills = tab => e => {
     if (this.state.activePills !== tab) {
       this.setState({
         activeItemPills: tab
       });
     }
   }
-  toggleVerticalPills = (tab) => {
+
+  toggleVerticalPills = tab => e => {
     if (this.state.activeItem3 !== tab) {
       this.setState({
         activeItemVerticalPills: tab
       });
     }
   }
-  toggleClassicTabs1 = (tab) => {
+  toggleClassicTabs1 = tab => e => {
     if (this.state.activeItemClassicTabs1 !== tab) {
       this.setState({
         activeItemClassicTabs1: tab
       });
     }
   }
-  toggleClassicTabs2 = (tab) => {
+
+  toggleClassicTabs2 = tab => e => {
     if (this.state.activeItemClassicTabs2 !== tab) {
       this.setState({
         activeItemClassicTabs2: tab
       });
     }
   }
-  toggleOuterTabs = (tab) => {
+
+  toggleOuterTabs = tab => e => {
     if (this.state.activeItemOuterTabs2 !== tab) {
       this.setState({
         activeItemOuterTabs: tab
       });
     }
   }
-  toggleInnerPills = (tab) => {
+
+  toggleInnerPills = tab => e => {
     if (this.state.activeItemInnerPills !== tab) {
       this.setState({
         activeItemInnerPills: tab
       });
     }
   }
+
   render() {
     return (
       <MDBContainer>
@@ -80,12 +84,8 @@ class TabsPage extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={classnames({
-                      active: this.state.activeItem === "1"
-                    })}
-                    onClick={() => {
-                      this.toggle("1");
-                    }}
+                    className={this.state.activeItem === "1" && "active"}
+                    onClick={this.toggle("1")}
                     role="tab"
                   >
                     <MDBIcon icon="user" /> Profile
@@ -94,12 +94,8 @@ class TabsPage extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={classnames({
-                      active: this.state.activeItem === "2"
-                    })}
-                    onClick={() => {
-                      this.toggle("2");
-                    }}
+                    className={this.state.activeItem === "2" && "active"}
+                    onClick={this.toggle("2")}
                     role="tab"
                   >
                     <MDBIcon icon="heart" /> Follow
@@ -108,12 +104,8 @@ class TabsPage extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={classnames({
-                      active: this.state.activeItem === "3"
-                    })}
-                    onClick={() => {
-                      this.toggle("3");
-                    }}
+                    className={this.state.activeItem === "3" && "active"}
+                    onClick={this.toggle("3")}
                     role="tab"
                   >
                     <MDBIcon icon="envelope" /> Contact
@@ -162,12 +154,8 @@ class TabsPage extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={classnames({
-                      active: this.state.activeItemPills === "1"
-                    })}
-                    onClick={() => {
-                      this.togglePills("1");
-                    }}
+                    className={this.state.activeItemPills === "1" && "active"}
+                    onClick={this.togglePills("1")}
                   >
                     Active
                   </MDBNavLink>
@@ -175,12 +163,8 @@ class TabsPage extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={classnames({
-                      active: this.state.activeItemPills === "2"
-                    })}
-                    onClick={() => {
-                      this.togglePills("2");
-                    }}
+                    className={this.state.activeItemPills === "2" && "active"}
+                    onClick={this.togglePills("2")}
                   >
                     Link
                   </MDBNavLink>
@@ -188,12 +172,8 @@ class TabsPage extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={classnames({
-                      active: this.state.activeItemPills === "3"
-                    })}
-                    onClick={() => {
-                      this.togglePills("3");
-                    }}
+                    className={this.state.activeItemPills === "3" && "active"}
+                    onClick={this.togglePills("3")}
                   >
                     Link
                   </MDBNavLink>
@@ -201,12 +181,8 @@ class TabsPage extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={classnames({
-                      active: this.state.activeItemPills === "4"
-                    })}
-                    onClick={() => {
-                      this.togglePills("4");
-                    }}
+                    className={this.state.activeItemPills === "4" && "active"}
+                    onClick={this.togglePills("4")}
                   >
                     Help
                   </MDBNavLink>
@@ -265,12 +241,8 @@ class TabsPage extends React.Component {
                     <MDBNavItem>
                       <MDBNavLink
                         to="#"
-                        className={classnames({
-                          active: this.state.activeItemVerticalPills === "1"
-                        })}
-                        onClick={() => {
-                          this.toggleVerticalPills("1");
-                        }}
+                        className={this.state.activeItemVerticalPills === "1" && "active"}
+                        onClick={this.toggleVerticalPills("1")}
                       >
                         Downloads <MDBIcon icon="download" className="ml-2" />
                       </MDBNavLink>
@@ -278,12 +250,8 @@ class TabsPage extends React.Component {
                     <MDBNavItem>
                       <MDBNavLink
                         to="#"
-                        className={classnames({
-                          active: this.state.activeItemVerticalPills === "2"
-                        })}
-                        onClick={() => {
-                          this.toggleVerticalPills("2");
-                        }}
+                        className={this.state.activeItemVerticalPills === "2" && "active"}
+                        onClick={this.toggleVerticalPills("2")}
                       >
                         Orders & invoices
                         <MDBIcon icon="file-alt" className="ml-2" />
@@ -292,12 +260,8 @@ class TabsPage extends React.Component {
                     <MDBNavItem>
                       <MDBNavLink
                         to="#"
-                        className={classnames({
-                          active: this.state.activeItemVerticalPills === "3"
-                        })}
-                        onClick={() => {
-                          this.toggleVerticalPills("3");
-                        }}
+                        className={this.state.activeItemVerticalPills === "3" && "active"}
+                        onClick={this.toggleVerticalPills("3")}
                       >
                         Billing Details
                         <MDBIcon icon="address-card" className="ml-2" />
@@ -341,12 +305,8 @@ class TabsPage extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={classnames({
-                      active: this.state.activeItemOuterTabs === "1"
-                    })}
-                    onClick={() => {
-                      this.toggleOuterTabs("1");
-                    }}
+                    className={this.state.activeItemOuterTabs === "1" && "active"}
+                    onClick={this.toggleOuterTabs("1")}
                     role="tab"
                   >
                     <MDBIcon icon="user" /> Profile
@@ -355,12 +315,8 @@ class TabsPage extends React.Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={classnames({
-                      active: this.state.activeItemOuterTabs === "2"
-                    })}
-                    onClick={() => {
-                      this.toggleOuterTabs("2");
-                    }}
+                    className={this.state.activeItemOuterTabs === "2" && "active"}
+                    onClick={this.toggleOuterTabs("2")}
                     role="tab"
                   >
                     <MDBIcon icon="heart" /> Follow
@@ -378,12 +334,8 @@ class TabsPage extends React.Component {
                         <MDBNavItem>
                           <MDBNavLink
                             to="#"
-                            className={classnames({
-                              active: this.state.activeItemInnerPills === "1"
-                            })}
-                            onClick={() => {
-                              this.toggleInnerPills("1");
-                            }}
+                            className={this.state.activeItemInnerPills === "1" && "active"}
+                            onClick={this.toggleInnerPills("1")}
                           >
                             Downloads <MDBIcon icon="download" className="ml-2" />
                           </MDBNavLink>
@@ -391,12 +343,8 @@ class TabsPage extends React.Component {
                         <MDBNavItem>
                           <MDBNavLink
                             to="#"
-                            className={classnames({
-                              active: this.state.activeItemInnerPills === "2"
-                            })}
-                            onClick={() => {
-                              this.toggleInnerPills("2");
-                            }}
+                            className={this.state.activeItemInnerPills === "2" && "active"}
+                            onClick={this.toggleInnerPills("2")}
                           >
                             Orders & invoices
                             <MDBIcon icon="file-alt" className="ml-2" />
@@ -405,12 +353,8 @@ class TabsPage extends React.Component {
                         <MDBNavItem>
                           <MDBNavLink
                             to="#"
-                            className={classnames({
-                              active: this.state.activeItemInnerPills === "3"
-                            })}
-                            onClick={() => {
-                              this.toggleInnerPills("3");
-                            }}
+                            className={this.state.activeItemInnerPills === "3" && "active"}
+                            onClick={this.toggleInnerPills("3")}
                           >
                             Billing Details
                             <MDBIcon icon="address-card" className="ml-2" />
@@ -484,12 +428,8 @@ class TabsPage extends React.Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={classnames({
-                        active: this.state.activeItemClassicTabs1 === "1"
-                      })}
-                      onClick={() => {
-                        this.toggleClassicTabs1("1");
-                      }}
+                      className={this.state.activeItemClassicTabs1 === "1" && "active"}
+                      onClick={this.toggleClassicTabs1("1")}
                     >
                       Profile
                     </MDBNavLink>
@@ -497,12 +437,8 @@ class TabsPage extends React.Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={classnames({
-                        active: this.state.activeItemClassicTabs1 === "2"
-                      })}
-                      onClick={() => {
-                        this.toggleClassicTabs1("2");
-                      }}
+                      className={this.state.activeItemClassicTabs1 === "2" && "active"}
+                      onClick={this.toggleClassicTabs1("2")}
                     >
                       Follow
                     </MDBNavLink>
@@ -510,12 +446,8 @@ class TabsPage extends React.Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={classnames({
-                        active: this.state.activeItemClassicTabs1 === "3"
-                      })}
-                      onClick={() => {
-                        this.toggleClassicTabs1("3");
-                      }}
+                      className={this.state.activeItemClassicTabs1 === "3" && "active"}
+                      onClick={this.toggleClassicTabs1("3")}
                     >
                       Contact
                     </MDBNavLink>
@@ -523,12 +455,8 @@ class TabsPage extends React.Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={classnames({
-                        active: this.state.activeItemClassicTabs1 === "4"
-                      })}
-                      onClick={() => {
-                        this.toggleClassicTabs1("4");
-                      }}
+                      className={this.state.activeItemClassicTabs1 === "4" && "active"}
+                      onClick={this.toggleClassicTabs1("4")}
                     >
                       Be Awesome
                     </MDBNavLink>
@@ -582,12 +510,8 @@ class TabsPage extends React.Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={classnames({
-                        active: this.state.activeItemClassicTabs2 === "1"
-                      })}
-                      onClick={() => {
-                        this.toggleClassicTabs2("1");
-                      }}
+                      className={this.state.activeItemClassicTabs2 === "1" && "active"}
+                      onClick={this.toggleClassicTabs2("1")}
                     >
                       <MDBIcon icon="user" size="2x" />
                       <br />
@@ -597,12 +521,8 @@ class TabsPage extends React.Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={classnames({
-                        active: this.state.activeItemClassicTabs2 === "2"
-                      })}
-                      onClick={() => {
-                        this.toggleClassicTabs2("2");
-                      }}
+                      className={this.state.activeItemClassicTabs2 === "2" && "active"}
+                      onClick={this.toggleClassicTabs2("2")}
                     >
                       <MDBIcon icon="heart" size="2x" />
                       <br />
@@ -612,12 +532,8 @@ class TabsPage extends React.Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={classnames({
-                        active: this.state.activeItemClassicTabs2 === "3"
-                      })}
-                      onClick={() => {
-                        this.toggleClassicTabs2("3");
-                      }}
+                      className={this.state.activeItemClassicTabs2 === "3" && "active"}
+                      onClick={this.toggleClassicTabs2("3")}
                     >
                       <MDBIcon icon="envelope" size="2x" />
                       <br />
@@ -627,12 +543,8 @@ class TabsPage extends React.Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={classnames({
-                        active: this.state.activeItemClassicTabs2 === "4"
-                      })}
-                      onClick={() => {
-                        this.toggleClassicTabs2("4");
-                      }}
+                      className={this.state.activeItemClassicTabs2 === "4" && "active"}
+                      onClick={this.toggleClassicTabs2("4")}
                     >
                       <MDBIcon icon="star" size="2x" />
                       <br />

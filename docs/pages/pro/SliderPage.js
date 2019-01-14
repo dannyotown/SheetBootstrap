@@ -1,17 +1,6 @@
 import React, { Component } from "react";
-import {
-  MDBContainer,
-  MDBRow,
-  MDBRangeInput,
-  MDBCard,
-  MDBCol,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardImage,
-  MDBIcon,
-  MDBBadge
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBRow, MDBRangeInput, MDBCard, MDBCol, MDBCardBody, MDBCardTitle, MDBCardImage,   MDBIcon, MDBBadge } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
 class SliderPage extends Component {
   state = {
