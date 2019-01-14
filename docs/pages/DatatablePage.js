@@ -1,6 +1,6 @@
 import React from "react";
-import { DataTable, Container, Row, Col, Card, CardBody } from "mdbreact";
-import DocsLink from "./DocsLink";
+import { MDBDataTable, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody } from "mdbreact";
+import DocsLink from "./../components/docsLink";
 
 const DatatablePage = () => {
   const data = {
@@ -503,88 +503,88 @@ const DatatablePage = () => {
   };
 
   return (
-    <Container className="mt-3">
+    <MDBContainer className="mt-3">
       <DocsLink
         title="Datatable"
         href="https://mdbootstrap.com/docs/react/tables/datatables/"
       />
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
-              <DataTable striped bordered hover data={data} />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
+              <MDBDataTable striped bordered hover data={data} />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
 
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">Info off</h2>
-              <DataTable striped bordered hover info={false} data={data} />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+              <MDBDataTable striped bordered hover info={false} data={data} />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
 
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">Sortable off</h2>
-              <DataTable striped bordered hover sortable={false} data={data} />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+              <MDBDataTable striped bordered hover sortable={false} data={data} />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
 
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">Initial order</h2>
-              <DataTable
+              <MDBDataTable
                 striped
                 bordered
                 hover
                 order={["age", "desc"]}
                 data={data}
               />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
 
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">Searching off</h2>
-              <DataTable striped bordered hover searching={false} data={data} />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+              <MDBDataTable striped bordered hover searching={false} data={data} />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
 
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">Paging off</h2>
-              <DataTable striped bordered hover paging={false} data={data} />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+              <MDBDataTable striped bordered hover paging={false} data={data} />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
 
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">ScrollY</h2>
-              <DataTable
+              <MDBDataTable
                 striped
                 bordered
                 hover
@@ -592,17 +592,17 @@ const DatatablePage = () => {
                 maxHeight="300px"
                 data={data}
               />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
 
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">ScrollY dynamic height</h2>
-              <DataTable
+              <MDBDataTable
                 striped
                 bordered
                 hover
@@ -610,28 +610,28 @@ const DatatablePage = () => {
                 maxHeight="50vh"
                 data={data}
               />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
 
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">scrollX</h2>
-              <DataTable striped bordered hover scrollX data={data} />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+              <MDBDataTable striped bordered hover scrollX data={data} />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
 
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardBody>
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
               <h2 className="h2-responsive pb-4">scroll X and Y</h2>
-              <DataTable
+              <MDBDataTable
                 striped
                 bordered
                 hover
@@ -640,11 +640,11 @@ const DatatablePage = () => {
                 maxHeight="300xp"
                 data={data}
               />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
   );
 };
 
