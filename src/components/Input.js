@@ -11,6 +11,12 @@ class Input extends React.Component {
       isFocused: false,
       isPristine: true
     };
+
+    this.inputElementRef = React.createRef();
+  }
+
+  componentDidMount() {
+    this.props.inputRef && this.props.inputRef(this.inputElementRef);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -44,6 +50,10 @@ class Input extends React.Component {
 
     this.props.onChange && this.props.onChange(event);
     this.props.getValue && this.props.getValue(event.target.value);
+  }
+
+  setFocus = () => {
+    this.inputElementRef.current.focus();
   }
 
   render() {
@@ -137,6 +147,7 @@ class Input extends React.Component {
             light={iconLight}
             regular={iconRegular}
             className={iconClassFix}
+            onClick={this.setFocus}
           />
         }
         <Tag
@@ -144,25 +155,25 @@ class Input extends React.Component {
           className={classes}
           id={id}
           placeholder={hint}
-          ref={this.props.inputRef}
+          ref={this.inputElementRef}
           value={this.state.innerValue}
           onBlur={this.onBlur}
           onChange={this.onChange}
           onFocus={this.onFocus}
         />
-        {label ? (
+        {
+          label && 
           <label
             className={labelClassFix}
             htmlFor={id}
             data-error={error}
             data-success={success}
             id={id}
+            onClick={this.setFocus}
           >
             {label}
           </label>
-        ) : (
-            false
-          )}
+        }
         {children}
       </div>
     );

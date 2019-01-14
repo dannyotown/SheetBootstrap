@@ -9,7 +9,7 @@ class InputPage extends Component {
       value: "Controlled input with value",
     }
 
-    this.firstInput = React.createRef();
+    this.firstInputRef = null;
   }
 
   handleSubmit = event => {
@@ -18,20 +18,16 @@ class InputPage extends Component {
   }
 
   saveToState = value => {
-    this.setState({ ...this.state, value: value });
+    this.setState({ value });
   };
 
   getValue = value => {
-    console.log(value);
+    console.log(value), this.firstInputRef;
   }
 
   handleChange = event => {
     this.setState({ value: event.target.value });
   };
-
-  onChange = e => {
-    this.setState({ inpVal: e.target.value })
-  }
 
   render() {
     return (
@@ -42,7 +38,7 @@ class InputPage extends Component {
         />
         <MDBContainer style={{ textAlign: "initial" }}>
           <div>
-            <MDBInput label="Material input" getValue={this.getValue} valueDefault="Uncontrolled input with default value" />
+            <MDBInput label="Material input" inputRef={ref => this.firstInputRef = ref} getValue={this.getValue} valueDefault="Uncontrolled input with default value" />
 
             <MDBInput label="Example label" onChange={this.handleChange} value={this.state.value} />
             
