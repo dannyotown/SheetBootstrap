@@ -15,27 +15,31 @@ class DatePicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: props.value,
+      selectedDate: props.value || props.valueDefault,
       muiTheme: createMuiTheme({...props.theme, typography: {
         useNextVariants: true,
       }})
     }
   }
 
-  handleDateChange = (date) => {
-    this.setState({ selectedDate: date ? date._d : this.props.value });
-  }
-
   componentDidUpdate(prevProps, prevState) {
     if(this.props.getValue && prevState.selectedDate !== this.state.selectedDate) {
       this.props.getValue(this.state.selectedDate);
     }
-
+    
+    if(this.props.value !== prevProps.value) {
+      this.setState({ selectedDate: this.props.value });
+    }
+    
     if(prevProps.theme !== this.props.theme) {
       this.setState({ muiTheme: createMuiTheme(this.props.theme) });
     }
   }
-
+  
+  handleDateChange = (date) => {
+    this.setState({ selectedDate: date ? date._d : this.props.value });
+  }
+  
   render() {
     const {
       theme,
@@ -74,6 +78,7 @@ class DatePicker extends Component {
       className,
       getValue,
       value,
+      valueDefault,
       tag: Tag,
       ...attributes
     } = this.props;
@@ -167,13 +172,15 @@ DatePicker.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
   getValue: PropTypes.func,
-  value: PropTypes.instanceOf(Date)
+  value: PropTypes.instanceOf(Date),
+  valueDefault: PropTypes.instanceOf(Date)
 };
 
 DatePicker.defaultProps = {
   theme: {},
   tag: 'div',
-  value: new Date(),
+  value: null,
+  valueDefault: new Date(),
   getValue: () => {}
 };
 
