@@ -9,7 +9,7 @@ class InputPage extends Component {
       value: "Controlled input with value",
     }
 
-    this.firstInputRef = null;
+    this.nextInputRef = null;
   }
 
   handleSubmit = event => {
@@ -17,17 +17,13 @@ class InputPage extends Component {
     event.preventDefault();
   }
 
-  saveToState = value => {
-    this.setState({ value });
-  };
+  saveToState = value => this.setState({ value });
 
-  getValue = value => {
-    console.log(value), this.firstInputRef;
-  }
+  getValue = value => console.log(value);
 
-  handleChange = event => {
-    this.setState({ value: event.target.value });
-  };
+  handleChange = event => this.setState({ value: event.target.value });
+
+  changeFocus = () => this.nextInputRef.current.focus();
 
   render() {
     return (
@@ -38,13 +34,14 @@ class InputPage extends Component {
         />
         <MDBContainer style={{ textAlign: "initial" }}>
           <div>
-            <MDBInput label="Material input" inputRef={ref => this.firstInputRef = ref} getValue={this.getValue} valueDefault="Uncontrolled input with default value" />
+            <MDBInput label="Material input" getValue={this.getValue} valueDefault="Uncontrolled input with default value" />
 
             <MDBInput label="Example label" onChange={this.handleChange} value={this.state.value} />
             
-            <MDBInput label="Example label" size="sm" icon="envelope" />
+            <MDBInput label="Focus next input on change (uses ref)" onChange={this.changeFocus} size="sm" icon="envelope" />
 
-            <MDBInput label="Example label" icon="envelope" />
+            <MDBInput label="Example label" inputRef={ref => this.nextInputRef = ref} icon="envelope" />
+
             <MDBInput label="Example label" icon="user" />
 
             <MDBInput hint="placeholder" label="Example label" />
