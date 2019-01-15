@@ -16,7 +16,10 @@ class Input extends React.Component {
   }
 
   componentDidMount() {
-    this.props.inputRef && this.props.inputRef(this.inputElementRef);
+    // User wants to access the input ref, but we have to use it intenrally to.
+    // Return Ref instance to share ref with parent
+    // then user sets ref as a callback -> inputRef={ref => this.myInputRef = ref}
+    this.props.inputRef && this.props.inputRef(this.inputElementRef.current);
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {

@@ -23,7 +23,7 @@ class InputPage extends Component {
 
   handleChange = event => this.setState({ value: event.target.value });
 
-  changeFocus = () => this.nextInputRef.current.focus();
+  changeFocus = () => this.nextInputRef.focus();
 
   render() {
     return (
