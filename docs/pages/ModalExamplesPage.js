@@ -378,16 +378,16 @@ class ModalExamplesPage extends Component {
             <MDBModalFooter className="justify-content-center">
               <span className="mr-4">Spread the word!</span>
               <MDBBtn tag="a" size="sm" floating social="fb">
-                <MDBIcon icon="facebook" />
+                <MDBIcon fab icon="facebook" />
               </MDBBtn>
               <MDBBtn tag="a" size="sm" floating social="tw">
-                <MDBIcon icon="twitter" />
+                <MDBIcon fab icon="twitter" />
               </MDBBtn>
               <MDBBtn tag="a" size="sm" floating social="gplus">
-                <MDBIcon icon="google-plus" />
+                <MDBIcon fab icon="google-plus" />
               </MDBBtn>
               <MDBBtn tag="a" size="sm" floating social="li">
-                <MDBIcon icon="linkedin" />
+                <MDBIcon fab icon="linkedin" />
               </MDBBtn>
               <MDBBtn
                 color="primary"
