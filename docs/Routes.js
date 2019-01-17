@@ -186,8 +186,8 @@ class Routes extends React.Component {
         <Route path="/forms/pro/input" component={InputPagePro} />
         <Route path="/navigation/pro/sidenav" component={SideNavPage} />
         <Route path="/forms/pro/select" component={SelectPage} />
-        <Route path="/advanced/pro/datepicker" component={DatePickerPage} />
-        <Route path="/advanced/pro/timepicker" component={TimePickerPage} />
+        <Route path="/forms/pro/datepicker" component={DatePickerPage} />
+        <Route path="/forms/pro/timepicker" component={TimePickerPage} />
         <Route path="/advanced/pro/lightbox" component={LightboxPage} />
         <Route path="/forms/pro/slider" component={SliderPage} />
         <Route

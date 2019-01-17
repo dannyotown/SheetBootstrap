@@ -35,8 +35,8 @@ import FormInline from "./components/FormInline";
 import Footer from "./components/Footer";
 import FreeBird from "./components/FreeBird";
 import HamburgerToggler from "./components/HamburgerToggler";
-import Input from "./components/Input";
 import InputNumeric from "./components/InputNumeric";
+import Input from "./components/Input";
 import Jumbotron from "./components/Jumbotron";
 import ListGroup from "./components/ListGroup";
 import ListGroupItem from "./components/ListGroupItem";
@@ -66,7 +66,6 @@ import Table from "./components/Table";
 import TableBody from "./components/TableBody";
 import TableHead from "./components/TableHead";
 import TableFoot from "./components/TableFoot";
-import TextField from "./components/TextField";
 import Tooltip from "./components/Tooltip";
 import View from "./components/View";
 import { toast, ToastContainer, cssTransition } from "react-toastify";
@@ -185,7 +184,6 @@ import {MDBTable} from "./components/Table";
 import {MDBTableBody} from "./components/TableBody";
 import {MDBTableHead} from "./components/TableHead";
 import {MDBTableFoot} from "./components/TableFoot";
-import {MDBTextarea} from "./components/TextField";
 import {MDBTooltip} from "./components/Tooltip";
 import { MDBView } from "./components/View";
 import {MDBIframe} from "./components/Iframe";
@@ -326,7 +324,6 @@ export  {
   TableBody,
   TableHead,
   TableFoot,
-  TextField,
   Tooltip,
   View,
   toast,
@@ -446,7 +443,6 @@ export  {
   MDBTableBody,
   MDBTableHead,
   MDBTableFoot,
-  MDBTextarea,
   MDBTooltip,
   MDBView,
   // PRO-START

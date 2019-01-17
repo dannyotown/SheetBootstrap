@@ -24,13 +24,11 @@ const AdvancedNavPage = () => {
               <h6 className="mt-3 grey-text">PRO </h6>
               <MenuLink to="/advanced/pro/collapse" title="Accordion" />
               <MenuLink to="/advanced/pro/charts" title="Charts" />
-              <MenuLink to="/advanced/pro/datepicker" title="Date picker" />
               <MenuLink to="/advanced/pro/lightbox" title="Lightbox" />
               <MenuLink to="/advanced/pro/multicarousel" title="Multi-item Carousel" />
               <MenuLink to="/advanced/pro/scrollbar" title="ScrollBar" />
               <MenuLink to="/advanced/pro/sticky" title="Sticky Content" />
               <MenuLink to="/advanced/pro/thumbnailscarousel" title="Thumbnails Carousel" />
-              <MenuLink to="/advanced/pro/timepicker" title="Time picker" />
               {/* PRO-END */}
             </ul>
           </MDBJumbotron>

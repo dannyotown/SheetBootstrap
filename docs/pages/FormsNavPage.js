@@ -20,10 +20,12 @@ const FormsNavPage = () =>  {
               {/* PRO-START */}
               <h6 className="mt-3 grey-text">PRO </h6>
               <MenuLink to="/forms/pro/autocomplete" title="Autocomplete" />
+              <MenuLink to="/forms/pro/datepicker" title="Date picker" />
               <MenuLink to="/forms/pro/forms" title="Forms" />
               <MenuLink to="/forms/pro/input" title="Input" />
               <MenuLink to="/forms/pro/select" title="Material Select" />
               <MenuLink to="/forms/pro/slider" title="Slider" />
+              <MenuLink to="/forms/pro/timepicker" title="Time picker" />
               <MenuLink to="/forms/pro/validation" title="Validation" />
               {/* PRO-END */}
             </ul>

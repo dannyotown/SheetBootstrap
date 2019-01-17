@@ -3,8 +3,13 @@ import { MDBInput, MDBInputSelect, MDBFormInline, MDBBtn, MDBContainer, MDBRow, 
 import DocsLink from "./../components/docsLink";
 
 class InputPage extends Component {
-  state = {
-    value: "John Doe"
+  constructor() {
+    super();
+    this.state = {
+      value: "Controlled input with value",
+    }
+
+    this.nextInputRef = null;
   }
 
   handleSubmit = event => {
@@ -12,13 +17,13 @@ class InputPage extends Component {
     event.preventDefault();
   }
 
-  saveToState = value => {
-    this.setState({ ...this.state, value: value });
-  };
+  saveToState = value => this.setState({ value });
 
-  handleChange = value => {
-    console.log(value);
-  };
+  getValue = value => console.log(value);
+
+  handleChange = event => this.setState({ value: event.target.value });
+
+  changeFocus = () => this.nextInputRef.focus();
 
   render() {
     return (
@@ -29,21 +34,20 @@ class InputPage extends Component {
         />
         <MDBContainer style={{ textAlign: "initial" }}>
           <div>
-            <MDBInput label="Material input" />
+            <MDBInput label="Material input" getValue={this.getValue} valueDefault="Uncontrolled input with default value" />
 
-            <MDBInput label="Example label" size="sm" />
-            <MDBInput label="Example label" size="sm" icon="envelope" />
+            <MDBInput label="Example label" onChange={this.handleChange} value={this.state.value} />
+            
+            <MDBInput label="Focus next input on change (uses ref)" onChange={this.changeFocus} size="sm" icon="envelope" />
 
-            <MDBInput label="Example label" icon="envelope" />
+            <MDBInput label="Example label" inputRef={ref => this.nextInputRef = ref} icon="envelope" />
+
             <MDBInput label="Example label" icon="user" />
 
             <MDBInput hint="placeholder" label="Example label" />
 
-            <MDBInput
-              value={this.state.value}
-              getValue={this.saveToState}
-              label="Example label"
-            />
+            <MDBInput label="Example label" />
+
             <MDBBtn onClick={this.handleSubmit}>Submit</MDBBtn>
 
             <MDBInput
@@ -86,11 +90,11 @@ class InputPage extends Component {
             </MDBFormInline>
 
             <MDBInput
-              getValue={this.handleChange}
+              getValue={this.getValue}
               type="textarea"
               label="Icon Prefix"
               rows="2"
-              icon="pencil"
+              icon="pencil-alt"
             />
             <MDBInput type="textarea" label="Basic textarea" rows="2" />
 
@@ -99,7 +103,7 @@ class InputPage extends Component {
             <MDBRow>
               <MDBCol sm="4">
                 <MDBInputSelect
-                  getValue={this.handleChange}
+                  getValue={this.getValue}
                   min={5}
                   max={15}
                   value={10}

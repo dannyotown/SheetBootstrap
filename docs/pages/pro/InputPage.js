@@ -22,17 +22,24 @@ class InputPage extends Component {
     })
   }
 
-  handleCheckboxChange = () => {
+  handleCheckboxChange = (e) => {
     this.setState({ checkbox: !this.state.checkbox });
+    console.log(e.target.value + " checked? " + e.target.checked);
   }
 
-  handleSwitchChange = () => {
-    this.setState({ switchInput: !this.state.switchInput });
-  }
-
-  handleChange = value => {
+  handleSwitchChange = (value) => {
     console.log(value);
+    this.setState({ switchInput: value });
+  }
+
+  handleChange = e => {
+    console.log(e.target.value + " checked? " + e.target.checked);
   };
+
+  handleRangeChange = value => {
+    console.log("range value: " + value);
+  }
+
 
   render() {
     const { radioSet1, radioSet2, radioSet3, checkbox, switchInput } = this.state;
@@ -48,7 +55,6 @@ class InputPage extends Component {
           </h2>
           <h4 className="mt-5 mb-3">Basic examples</h4>
           <MDBInput
-            getValue={this.handleChange}
             value="Classic checkbox"
             label="Classic checkbox"
             checked={checkbox}
@@ -83,17 +89,25 @@ class InputPage extends Component {
             <MDBInput
               label="Classic checkbox"
               type="checkbox"
-              value="coś tam"
-              onChange={this.handleCheckboxChange}
+              value="example"
               id="checkbox5"
+              onChange={this.handleChange}
             />
             <MDBInput
               label="Filled-in checkbox"
               filled
+              value="example2"
               type="checkbox"
               id="checkbox6"
+              onChange={this.handleChange}
             />
-            <MDBInput label="Classic checkbox" type="checkbox" id="checkbox7" />
+            <MDBInput 
+              label="Classic checkbox" 
+              type="checkbox" 
+              value="example3"
+              id="checkbox7"
+              onChange={this.handleChange}
+            />
           </MDBFormInline>
 
           <hr className="my-5" />
@@ -103,23 +117,24 @@ class InputPage extends Component {
           </h2>
           <h4 className="mt-5 mb-3">Basic examples</h4>
           <MDBInput
-            getValue={this.handleChange}
             value="Option 1"
-            onClick={this.radioInputHandler(1, 1)}
+            onChange={this.radioInputHandler(1, 1)}
             checked={radioSet1 === 1 ? true : false}
             label="Option 1"
             type="radio"
             id="radio1"
           />
           <MDBInput
-            onClick={this.radioInputHandler(1, 2)}
+            value="Option 2"
+            onChange={this.radioInputHandler(1, 2)}
             checked={radioSet1 === 2 ? true : false}
             label="Option 2"
             type="radio"
             id="radio2"
           />
           <MDBInput
-            onClick={this.radioInputHandler(1, 3)}
+            value="Option 3"
+            onChange={this.radioInputHandler(1, 3)}
             checked={radioSet1 === 3 ? true : false}
             label="Option 3"
             type="radio"
@@ -129,7 +144,7 @@ class InputPage extends Component {
           <h4 className="mt-5 mb-3">Radio buttons with gap</h4>
           <MDBInput
             gap
-            onClick={this.radioInputHandler(2, 4)}
+            onChange={this.radioInputHandler(2, 4)}
             checked={radioSet2 === 4 ? true : false}
             label="Option 1"
             type="radio"
@@ -137,7 +152,7 @@ class InputPage extends Component {
           />
           <MDBInput
             gap
-            onClick={this.radioInputHandler(2, 5)}
+            onChange={this.radioInputHandler(2, 5)}
             checked={radioSet2 === 5 ? true : false}
             label="Option 2"
             type="radio"
@@ -145,7 +160,7 @@ class InputPage extends Component {
           />
           <MDBInput
             gap
-            onClick={this.radioInputHandler(2, 6)}
+            onChange={this.radioInputHandler(2, 6)}
             checked={radioSet2 === 6 ? true : false}
             label="Option 3"
             type="radio"
@@ -155,21 +170,21 @@ class InputPage extends Component {
           <h4 className="mt-5 mb-3">Inline radio buttons</h4>
           <MDBFormInline>
             <MDBInput
-              onClick={this.radioInputHandler(3, 7)}
+              onChange={this.radioInputHandler(3, 7)}
               checked={radioSet3 === 7 ? true : false}
               label="Option 1"
               type="radio"
               id="radio7"
             />
             <MDBInput
-              onClick={this.radioInputHandler(3, 8)}
+              onChange={this.radioInputHandler(3, 8)}
               checked={radioSet3 === 8 ? true : false}
               label="Option 2"
               type="radio"
               id="radio8"
             />
             <MDBInput
-              onClick={this.radioInputHandler(3, 8)}
+              onChange={this.radioInputHandler(3, 8)}
               checked={radioSet3 === 9 ? true : false}
               label="Option 3"
               type="radio"
@@ -183,9 +198,8 @@ class InputPage extends Component {
             <strong>Switch</strong>
           </h2>
           <MDBSwitch
-            getValue={this.handleChange}
             checked={switchInput}
-            onChange={this.handleSwitchChange}
+            getValue={this.handleSwitchChange}
             labelLeft="No"
             labelRight="Yes"
           />
@@ -214,10 +228,10 @@ class InputPage extends Component {
             <strong>Range</strong>
           </h2>
           <MDBRangeInput
-            getValue={this.handleChange}
+            getValue={this.handleRangeChange}
             min={0}
             max={100}
-            value={50}
+            value={20}
           />
         </MDBContainer>
       </MDBContainer>
