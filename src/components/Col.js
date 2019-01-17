@@ -38,14 +38,15 @@ class Col extends Component {
 }
 
 Col.propTypes = {
+  size: PropTypes.string,
   xs: PropTypes.string,
   sm: PropTypes.string,
   md: PropTypes.string,
   lg: PropTypes.string,
   xl: PropTypes.string,
-  top: PropTypes.string,
-  bottom: PropTypes.string,
-  middle: PropTypes.string,
+  top: PropTypes.bool,
+  bottom: PropTypes.bool,
+  middle: PropTypes.bool,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string
 };
