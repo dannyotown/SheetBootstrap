@@ -55,6 +55,19 @@ class Input extends React.Component {
     this.props.getValue && this.props.getValue(event.target.value);
   }
 
+  onInput = (event) => {
+    event.stopPropagation();
+    if (this.props.type !== "checkbox" && this.props.type !== "radio") {
+      this.setState({
+        innerValue: event.target.value,
+        isPristine: false
+      });
+    }
+
+    this.props.onInput && this.props.onInput(event);
+    this.props.getValue && this.props.getValue(event.target.value);
+  }
+
   setFocus = () => {
     this.inputElementRef.current.focus();
   }
@@ -162,6 +175,7 @@ class Input extends React.Component {
           value={this.state.innerValue}
           onBlur={this.onBlur}
           onChange={this.onChange}
+          onInput={this.onInput}
           onFocus={this.onFocus}
         />
         {
@@ -211,6 +225,7 @@ Input.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onInput: PropTypes.func,
   size: PropTypes.string,
   success: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
