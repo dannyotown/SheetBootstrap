@@ -368,6 +368,7 @@ DataTable.propTypes = {
   children: PropTypes.node,
   dark: PropTypes.bool,
   data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  entries: PropTypes.number,
   entriesLabel: PropTypes.oneOfType([
     PropTypes.string, 
     PropTypes.number, 
