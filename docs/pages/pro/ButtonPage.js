@@ -1,16 +1,14 @@
 import React from "react";
 import { MDBBtn, MDBIcon, MDBBtnFixed, MDBBtnFixedItem, MDBContainer } from "mdbreact";
-import DocsLink from "../DocsLink";
+import DocsLink from "../../components/docsLink";
 
 class ButtonPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      buttonStyle: {
-        transform: "scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)",
-        opacity: "0"
-      }
-    };
+
+  state = {
+    buttonStyle: {
+      transform: "scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)",
+      opacity: "0"
+    }
   }
 
   onHover = () => {
@@ -110,7 +108,7 @@ class ButtonPage extends React.Component {
               floating
               size="lg"
               color="red"
-              icon="pencil"
+              icon="pencil-alt"
               style={{ bottom: "45px", right: "24px" }}
             >
               <MDBBtnFixedItem

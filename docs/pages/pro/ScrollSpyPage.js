@@ -1,15 +1,8 @@
-import React from "react";
-import {
-  MDBContainer,
-  MDBScrollspyBox,
-  MDBScrollspyList,
-  MDBScrollspyListItem,
-  MDBScrollspyText,
-  MDBTabContent
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import React, { Component } from "react";
+import { MDBContainer, MDBScrollspyBox, MDBScrollspyList, MDBScrollspyListItem, MDBScrollspyText,  MDBTabContent } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
-class ScrollSpyPage extends React.Component {
+class ScrollSpyPage extends Component {
   constructor(props) {
     super(props);
     this.state = {

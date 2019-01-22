@@ -1,25 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  Container,
-  FormInline,
-  Button,
-  Navbar,
-  NavbarBrand,
-  Collapse,
-  NavbarToggler,
-  NavbarNav,
-  NavItem,
-  NavLink,
-  Select,
-  SelectInput,
-  SelectOptions,
-  SelectOption,
-  Fa
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBFormInline, MDBBtn, MDBNavbar, MDBNavbarBrand, MDBCollapse, MDBNavbarToggler, MDBNavbarNav, MDBNavItem,  MDBNavLink, MDBSelect, MDBSelectInput, MDBSelectOptions, MDBSelectOption, MDBIcon } from "mdbreact";
+import DocsLink from "../../components/docsLink";
 
-class SearchPagePro extends React.Component {
+class SearchPagePro extends Component {
 
   state = {
     collapsed: false,
@@ -52,62 +36,62 @@ class SearchPagePro extends React.Component {
   render() {
     return (
       <Router>
-        <Container>
+        <MDBContainer>
           <DocsLink
             title="Search"
             href="https://mdbootstrap.com/docs/react/forms/search/"
           />
-          <FormInline className="md-form mr-auto mb-4">
+          <MDBFormInline className="md-form mr-auto mb-4">
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button gradient="blue" rounded size="sm" type="submit" className="mr-auto">Search</Button>
+            <MDBBtn gradient="blue" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button outline color="success" rounded size="sm" type="submit" className="mr-auto">Search</Button>
+            <MDBBtn outline color="success" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button color="unique" rounded size="sm" type="submit" className="mr-auto">Search</Button>
-        </FormInline>
-        <FormInline className="md-form mr-auto mb-4">
+            <MDBBtn color="unique" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
+        </MDBFormInline>
+        <MDBFormInline className="md-form mr-auto mb-4">
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button gradient="aqua" rounded size="sm" type="submit" className="mr-auto">Search</Button>
+            <MDBBtn gradient="aqua" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button outline color="warning" rounded size="sm" type="submit" className="mr-auto">Search</Button>
+            <MDBBtn outline color="warning" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button color="elegant" rounded size="sm" type="submit" className="mr-auto">Search</Button>
-        </FormInline>
-        <FormInline className="mr-auto mb-4">
+            <MDBBtn color="elegant" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
+        </MDBFormInline>
+        <MDBFormInline className="mr-auto mb-4">
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button gradient="purple" rounded size="sm" type="submit" className="mr-auto">Search</Button>
+            <MDBBtn gradient="purple" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button outline color="danger" rounded size="sm" type="submit" className="mr-auto">Search</Button>
+            <MDBBtn outline color="danger" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button outline color="indigo" rounded size="sm" type="submit" className="mr-auto">Search</Button>
-        </FormInline>
-        <FormInline className="mr-auto mb-4">
+            <MDBBtn outline color="indigo" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
+        </MDBFormInline>
+        <MDBFormInline className="mr-auto mb-4">
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button gradient="peach" rounded size="sm" type="submit" className="mr-auto">Search</Button>
+            <MDBBtn gradient="peach" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button outline color="primary" rounded size="sm" type="submit" className="mr-auto">Search</Button>
+            <MDBBtn outline color="primary" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-            <Button color="mdb-color" rounded size="sm" type="submit" className="mr-auto">Search</Button>
-        </FormInline>
+            <MDBBtn color="mdb-color" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
+        </MDBFormInline>
           <h3 className="mt-5">Search within navbar</h3>
-          <Navbar
+          <MDBNavbar
             color="deep-purple"
             className="text-white darken-3"
             dark
             expand="md"
           >
-            <NavbarBrand>Navbar</NavbarBrand>
-            <NavbarToggler onClick={this.handleTogglerClick} />
-            <Collapse isOpen={this.state.collapsed} navbar>
-              <NavbarNav right onClick={this.handleNavbarClick}>
-                <FormInline className="md-form mr-auto m-0">
+            <MDBNavbarBrand>MDBNavbar</MDBNavbarBrand>
+            <MDBNavbarToggler onClick={this.handleTogglerClick} />
+            <MDBCollapse isOpen={this.state.collapsed} navbar>
+              <MDBNavbarNav right onClick={this.handleNavbarClick}>
+                <MDBFormInline className="md-form mr-auto m-0">
                   <input
                     className="form-control mr-sm-2"
                     type="text"
                     placeholder="Search"
                     aria-label="Search"
                   />
-                  <Button
+                  <MDBBtn
                     outline
                     color="white"
                     size="sm"
@@ -115,89 +99,89 @@ class SearchPagePro extends React.Component {
                     className="mr-auto"
                   >
                     Search
-                  </Button>
-                </FormInline>
-              </NavbarNav>
-            </Collapse>
-          </Navbar>
+                  </MDBBtn>
+                </MDBFormInline>
+              </MDBNavbarNav>
+            </MDBCollapse>
+          </MDBNavbar>
           <br />
-          <Navbar color="blue-grey" light className="lighten-5" expand="md">
-            <NavbarBrand>Navbar</NavbarBrand>
-            <NavbarToggler onClick={this.handleTogglerClick} />
-            <Collapse isOpen={this.state.collapsed} navbar>
-              <NavbarNav left onClick={this.handleNavbarClick}>
-                <NavItem active>
-                  <NavLink to="#!">Home</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#!">Features</NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink to="#!">Pricing</NavLink>
-                </NavItem>
-              </NavbarNav>
-              <NavbarNav right onClick={this.handleNavbarClick}>
-                <FormInline className="mr-auto m-0">
+          <MDBNavbar color="blue-grey" light className="lighten-5" expand="md">
+            <MDBNavbarBrand>MDBNavbar</MDBNavbarBrand>
+            <MDBNavbarToggler onClick={this.handleTogglerClick} />
+            <MDBCollapse isOpen={this.state.collapsed} navbar>
+              <MDBNavbarNav left onClick={this.handleNavbarClick}>
+                <MDBNavItem active>
+                  <MDBNavLink to="#!">Home</MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink to="#!">Features</MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink to="#!">Pricing</MDBNavLink>
+                </MDBNavItem>
+              </MDBNavbarNav>
+              <MDBNavbarNav right onClick={this.handleNavbarClick}>
+                <MDBFormInline className="mr-auto m-0">
                   <input
                     className="form-control mr-sm-2"
                     type="text"
                     placeholder="Search"
                     aria-label="Search"
                   />
-                </FormInline>
-              </NavbarNav>
-            </Collapse>
-          </Navbar>
-          <Navbar color="pink lighten-3" dark className="lighten-5 mt-4" expand="md">
-            <NavbarNav left onClick={this.handleNavbarClick}>
-            <FormInline className="md-form m-0">
+                </MDBFormInline>
+              </MDBNavbarNav>
+            </MDBCollapse>
+          </MDBNavbar>
+          <MDBNavbar color="pink lighten-3" dark className="lighten-5 mt-4" expand="md">
+            <MDBNavbarNav left onClick={this.handleNavbarClick}>
+            <MDBFormInline className="md-form m-0">
               <input
                 className="form-control form-control-sm ml-3 w-75"
                 type="text"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <Fa icon="search" />
-            </FormInline>
-            </NavbarNav>
-            <NavbarBrand>Navbar</NavbarBrand>
-          </Navbar>
-          <Navbar color="blue lighten-2" dark className="lighten-5 mt-4" expand="md">
-            <NavbarNav left onClick={this.handleNavbarClick}>
-            <FormInline className="mr-auto">
+              <MDBIcon icon="search" />
+            </MDBFormInline>
+            </MDBNavbarNav>
+            <MDBNavbarBrand>MDBNavbar</MDBNavbarBrand>
+          </MDBNavbar>
+          <MDBNavbar color="blue lighten-2" dark className="lighten-5 mt-4" expand="md">
+            <MDBNavbarNav left onClick={this.handleNavbarClick}>
+            <MDBFormInline className="mr-auto">
                 <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-                <Button color="mdb-color" rounded size="sm" type="submit" className="mr-auto">Search</Button>
-            </FormInline>
-            </NavbarNav>
-            <NavbarBrand>Navbar</NavbarBrand>
-          </Navbar>
+                <MDBBtn color="mdb-color" rounded size="sm" type="submit" className="mr-auto">Search</MDBBtn>
+            </MDBFormInline>
+            </MDBNavbarNav>
+            <MDBNavbarBrand>MDBNavbar</MDBNavbarBrand>
+          </MDBNavbar>
           <h3 className="mt-5">Search within select</h3>
-          <Select getValue={ value => this.getValueOfSelectOne(value)}>
-            <SelectInput selected="Choose your option" />
-            <SelectOptions search>
-              <SelectOption disabled>Choose your option</SelectOption>
-              <SelectOption>Option nr 1</SelectOption>
-              <SelectOption>Option nr 2</SelectOption>
-              <SelectOption>Option nr 3</SelectOption>
-              <SelectOption>Option nr 4</SelectOption>
-              <SelectOption>Option nr 5</SelectOption>
-            </SelectOptions>
-          </Select>
+          <MDBSelect getValue={ value => this.getValueOfSelectOne(value)}>
+            <MDBSelectInput selected="Choose your option" />
+            <MDBSelectOptions search>
+              <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+              <MDBSelectOption>Option nr 1</MDBSelectOption>
+              <MDBSelectOption>Option nr 2</MDBSelectOption>
+              <MDBSelectOption>Option nr 3</MDBSelectOption>
+              <MDBSelectOption>Option nr 4</MDBSelectOption>
+              <MDBSelectOption>Option nr 5</MDBSelectOption>
+            </MDBSelectOptions>
+          </MDBSelect>
           <label>Example label</label>
           <h3 className="mt-5">Search within multiselect</h3>
-          <Select multiple getValue={value => this.getValueOfSelectOne(value)}>
-            <SelectInput selected="Choose your option" />
-            <SelectOptions search>
-              <SelectOption disabled>Choose your option</SelectOption>
-              <SelectOption>Option nr 1</SelectOption>
-              <SelectOption>Option nr 2</SelectOption>
-              <SelectOption>Option nr 3</SelectOption>
-              <SelectOption>Option nr 4</SelectOption>
-              <SelectOption>Option nr 5</SelectOption>
-            </SelectOptions>
-          </Select>
+          <MDBSelect multiple getValue={value => this.getValueOfSelectOne(value)}>
+            <MDBSelectInput selected="Choose your option" />
+            <MDBSelectOptions search>
+              <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+              <MDBSelectOption>Option nr 1</MDBSelectOption>
+              <MDBSelectOption>Option nr 2</MDBSelectOption>
+              <MDBSelectOption>Option nr 3</MDBSelectOption>
+              <MDBSelectOption>Option nr 4</MDBSelectOption>
+              <MDBSelectOption>Option nr 5</MDBSelectOption>
+            </MDBSelectOptions>
+          </MDBSelect>
           <label>Example label</label>
-        </Container>
+        </MDBContainer>
       </Router>
     );
   }

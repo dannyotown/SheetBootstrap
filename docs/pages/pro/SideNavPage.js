@@ -1,49 +1,22 @@
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  MDBSideNavCat,
-  MDBSideNavNav,
-  MDBSideNav,
-  MDBSideNavLink,
-  MDBContainer,
-  MDBRow,
-  MDBIcon
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBSideNavLink, MDBContainer, MDBIcon, MDBBtn } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
-class SideNavPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLeftOpen: false,
-      isRightOpen: false
-    };
+class SideNavPage extends Component {
+  state = {
+    sideNavLeft: false,
+    sideNavRight: false
   }
 
-  // Slide out buttons event handlers
-  handleToggleClickA = () => {
+  sidenavToggle = sidenavId => () => {
+    const sidenavNr = `sideNav${sidenavId}`
     this.setState({
-      isLeftOpen: !this.state.isLeftOpen
-    });
-  };
-  handleToggleClickB = () => {
-    this.setState({
-      isRightOpen: !this.state.isRightOpen
+      [sidenavNr]: !this.state[sidenavNr]
     });
   };
 
   render() {
-    // Because the toggling buttons are nearly identical, we create a function to render them:
-    const createButton = (onClick, side) => {
-      return (
-        <div style={{ width: "50%", textAlign: "center" }}>
-          <a href="#!" onClick={onClick} key={"toggleThe" + side + "SideNav"}>
-            <MDBIcon icon="bars" size="5x" />
-          </a>
-        </div>
-      );
-    };
-
     return (
       <Router>
         <MDBContainer>
@@ -51,17 +24,15 @@ class SideNavPage extends React.Component {
             title="Sidenav"
             href="https://mdbootstrap.com/docs/react/navigation/sidenav/"
           />
-          {/* the buttons toggling visibility of SideNavs: */}
-          <MDBRow style={{ height: "80vh", alignItems: "center" }}>
-            {createButton(this.handleToggleClickA, "Left")}
-            {createButton(this.handleToggleClickB, "Right")}
-          </MDBRow>
+
+          <MDBBtn onClick={this.sidenavToggle("Left")}><MDBIcon size="lg" icon="bars" /></MDBBtn>
+          <MDBBtn onClick={this.sidenavToggle("Right")}><MDBIcon size="lg" icon="bars" /></MDBBtn>
 
           {/* the left SideNav: */}
           <MDBSideNav
             logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
             hidden
-            triggerOpening={this.state.isLeftOpen}
+            triggerOpening={this.state.sideNavLeft}
             breakWidth={1300}
             className="deep-purple darken-4"
           >
@@ -123,7 +94,7 @@ class SideNavPage extends React.Component {
           <MDBSideNav
             logo="https://mdbootstrap.com/img/logo/mdb-transparent.png"
             hidden
-            triggerOpening={this.state.isRightOpen}
+            triggerOpening={this.state.sideNavRight}
             className="side-nav-light"
             right
             breakWidth={1300}

@@ -107,6 +107,7 @@ import StreakPage from "./pages/pro/StreakPage";
 import ValidationPagePro from "./pages/pro/ValidationPage";
 import FlippingCardsPage from "./pages/pro/FlippingCardsPage";
 import TableStylesPagePro from "./pages/pro/TableStylesPage";
+import ModalExamplesProPage from "./pages/pro/ModalExamplesPage";
 // PRO-END
 
 class Routes extends React.Component {
@@ -185,8 +186,8 @@ class Routes extends React.Component {
         <Route path="/forms/pro/input" component={InputPagePro} />
         <Route path="/navigation/pro/sidenav" component={SideNavPage} />
         <Route path="/forms/pro/select" component={SelectPage} />
-        <Route path="/advanced/pro/datepicker" component={DatePickerPage} />
-        <Route path="/advanced/pro/timepicker" component={TimePickerPage} />
+        <Route path="/forms/pro/datepicker" component={DatePickerPage} />
+        <Route path="/forms/pro/timepicker" component={TimePickerPage} />
         <Route path="/advanced/pro/lightbox" component={LightboxPage} />
         <Route path="/forms/pro/slider" component={SliderPage} />
         <Route
@@ -223,6 +224,7 @@ class Routes extends React.Component {
         <Route path="/components/pro/stepper" component={StepperPage} />
         <Route path="/tables/pro/datatable-csv" component={DatatableCsvPage} />
         <Route path="/modals/pro/modal-form" component={ModalFormProPage} />
+        <Route path="/modals/pro/modal-examples" component={ModalExamplesProPage} />
         <Route path="/sections/testimonials" component={TestimonialsPage} />
         <Route
           path="/sections/testimonialsMulti"

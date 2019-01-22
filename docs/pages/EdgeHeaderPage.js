@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBFreeBird, MDBInput, MDBCol, MDBRow, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer, MDBEdgeHeader } from "mdbreact";
-import DocsLink from "./DocsLink";
+import DocsLink from "./../components/docsLink";
 
 const EdgeHeaderPage = props => {
   return (

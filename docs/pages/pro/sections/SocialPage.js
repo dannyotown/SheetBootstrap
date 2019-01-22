@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBTooltip, MDBCollapse, MDBInput, MDBCardImage,   MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
-import DocsLink from "../../DocsLink";
+import DocsLink from "../../../components/docsLink";
 
 class SocialPage extends Component {
   state = {

@@ -1,6 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardUp, MDBAvatar, MDBCardBody, MDBIcon, MDBCarousel, MDBCarouselInner, MDBCarouselItem,   MDBTestimonial } from "mdbreact";
-import DocsLink from "../../DocsLink";
+import DocsLink from "../../../components/docsLink";
 
 const  TestimonialsPage = () => {
   return (
@@ -216,7 +216,7 @@ const  TestimonialsPage = () => {
                 Web Designer
               </h6>
               <p className="font-weight-normal dark-grey-text">
-                <MDBIcon className="fa fa-quote-left pr-2" />
+                <MDBIcon icon="quote-left" className="pr-2" />
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
                 eos id officiis hic tenetur quae quaerat ad velit ab hic
                 tenetur.

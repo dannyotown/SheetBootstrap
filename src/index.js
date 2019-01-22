@@ -66,7 +66,6 @@ import Table from './components/Table';
 import TableBody from './components/TableBody';
 import TableHead from './components/TableHead';
 import TableFoot from './components/TableFoot';
-import TextField from './components/TextField';
 import Tooltip from './components/Tooltip';
 import View from './components/View';
 import { toast, ToastContainer, cssTransition } from 'react-toastify';
@@ -117,7 +116,7 @@ import TimelineStep from './components/pro/TimelineStep';
 import TimePicker from './components/pro/TimePicker/TimePicker';
 // PRO-END
 
-// MDB FREE
+// // MDB FREE
 import { MDBBadge } from './components/Badge';
 import { MDBAlert } from './components/Alert';
 import { MDBBreadcrumb } from './components/Breadcrumb';
@@ -184,12 +183,12 @@ import { MDBTable } from './components/Table';
 import { MDBTableBody } from './components/TableBody';
 import { MDBTableHead } from './components/TableHead';
 import { MDBTableFoot } from './components/TableFoot';
-import { MDBTextarea } from './components/TextField';
 import { MDBTooltip } from './components/Tooltip';
 import { MDBView } from './components/View';
+import { MDBIframe } from './components/Iframe';
 
 // PRO-START
-// import {MDBAnimation} from './components/Animation';
+import { MDBAnimation } from './components/Animation';
 import { MDBAutocomplete } from './components/pro/Autocomplete';
 import { MDBAvatar } from './components/pro/Avatar';
 import { MDBBtnFixed } from './components/pro/ButtonFixed';
@@ -236,6 +235,7 @@ import Dropdown from './components/Dropdown';
 import DropdownMenuComponent from './components/pro/DropdownMenuProComponent';
 import MDBDropdown from './components/Dropdown';
 import MDBDropdownMenuComponent from './components/pro/DropdownMenuProComponent';
+
 
 export {
   // FREE
@@ -309,7 +309,6 @@ export {
   TableBody,
   TableHead,
   TableFoot,
-  TextField,
   Tooltip,
   View,
   toast,
@@ -359,6 +358,8 @@ export {
   TimelineStep,
   TimePicker,
   // PRO-END
+  MDBIframe,
+  MDBAnimation,
   MDBBadge,
   MDBAlert,
   MDBBreadcrumb,
@@ -427,7 +428,6 @@ export {
   MDBTableBody,
   MDBTableHead,
   MDBTableFoot,
-  MDBTextarea,
   MDBTooltip,
   MDBView,
   // PRO-START

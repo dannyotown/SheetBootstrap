@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardBody,
-  TableEditable
-} from "mdbreact";
-import DocsLink from "../DocsLink";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardHeader, MDBCardBody, MDBTableEditable } from "mdbreact";
+import DocsLink from "./../../components/docsLink";
 
 const columns = ["Person Name", "Age", "Company Name", "Country", "City"];
 
@@ -21,27 +13,27 @@ const data = [
 
 const TableEditablePage = props => {
   return (
-    <Container className="mt-3">
+    <MDBContainer className="mt-3">
       <DocsLink
         title="Table Editable"
         href="https://mdbootstrap.com/docs/react/tables/editable/"
       />
-      <Row className="py-3">
-        <Col md="12">
-          <Card>
-            <CardHeader
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardHeader
               tag="h3"
               className="text-center font-weight-bold text-uppercase py-4"
             >
               Table Editable
-            </CardHeader>
-            <CardBody>
-              <TableEditable data={data} columns={columns} striped bordered />
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+            </MDBCardHeader>
+            <MDBCardBody>
+              <MDBTableEditable data={data} columns={columns} striped bordered />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </MDBContainer>
   );
 };
 

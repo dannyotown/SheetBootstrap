@@ -1,7 +1,6 @@
 import React from "react";
 import { MDBContainer, MDBTimeline, MDBTimelineStep, MDBIcon } from "mdbreact";
-import DocsLink from "../DocsLink";
-import "./TimelinePage.css";
+import DocsLink from "./../../components/docsLink";
 
 const TimelinePage = () => {
   return (
