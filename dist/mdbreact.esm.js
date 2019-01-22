@@ -1489,7 +1489,7 @@ function (_Component) {
 
       if (this.props.src) {
         return React.createElement(View, {
-          zoom: true,
+          zoom: zoom,
           hover: this.props.hover,
           cascade: this.props.cascade
         }, React.createElement("div", {
@@ -1656,7 +1656,7 @@ function (_Component) {
 
       if (testimonial) {
         var arrow = direction === "prev" ? "left" : "right";
-        classes = classNames("carousel-item-" + direction, arrow, "carousel-control", className);
+        classes = classNames("carousel-control-" + direction, arrow, "carousel-control", className);
         caretClasses = classNames("icon-" + direction);
       }
 
@@ -1848,7 +1848,6 @@ function (_Component) {
       if (_this.props.thumbnails) {
         var CarouselItemsArray = _this.carouselRef.current.querySelectorAll('.carousel-item img');
 
-        console.log(CarouselItemsArray);
         var srcArray = Array.prototype.map.call(CarouselItemsArray, function (item) {
           return item.src;
         });
