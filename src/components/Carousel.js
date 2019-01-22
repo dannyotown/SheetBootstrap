@@ -65,7 +65,6 @@ class Carousel extends Component {
       const CarouselItemsArray = this.carouselRef.current.querySelectorAll(
         ".carousel-item img"
       );
-      console.log(CarouselItemsArray)
       const srcArray = Array.prototype.map.call(
         CarouselItemsArray,
         item => item.src
