@@ -4202,6 +4202,10 @@ DataTableSelect.propTypes = {
   value: PropTypes__default.number.isRequired
 };
 
+// FREE-START
+// import DataTableSelect from './DataTableSelect';
+// FREE-END
+
 var DataTableEntries = function DataTableEntries(props) {
   var handleEntriesChange = props.handleEntriesChange,
       entries = props.entries,
@@ -4246,6 +4250,10 @@ DataTableInput.propTypes = {
   onChange: PropTypes__default.func,
   value: PropTypes__default.string
 };
+
+// FREE-START
+// import DataTableInput from './DataTableInput';
+// FREE-END
 
 var DataTableSearch = function DataTableSearch(props) {
   var handleSearchChange = props.handleSearchChange,
@@ -4546,6 +4554,115 @@ DataTablePagination.propTypes = {
   label: PropTypes__default.arrayOf(PropTypes__default.string).isRequired
 };
 
+var ExportToCSV =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ExportToCSV, _Component);
+
+  function ExportToCSV(props) {
+    var _this;
+
+    _classCallCheck(this, ExportToCSV);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ExportToCSV).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "computeDataToLink", function () {
+      _this.setState(function (prevState) {
+        return {
+          href: encodeURI("data:text/csv;charset=utf-8," + [prevState.columns.map(function (col) {
+            return col.field;
+          }).join(","), [].concat.apply([], prevState.data).map(function (row) {
+            return Object.values(row).join(",");
+          }).join("\n")].join("\n"))
+        };
+      });
+    });
+
+    _this.state = {
+      columns: _this.props.columns,
+      data: _this.props.data,
+      href: ""
+    };
+    return _this;
+  }
+
+  _createClass(ExportToCSV, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.computeDataToLink();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevState.data !== this.props.data || prevState.columns !== this.props.columns) {
+        this.setState({
+          columns: this.props.columns,
+          data: this.props.data
+        }, this.computeDataToLink());
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          active = _this$props.active,
+          block = _this$props.block,
+          circle = _this$props.circle,
+          className = _this$props.className,
+          color = _this$props.color,
+          children = _this$props.children,
+          outline = _this$props.outline,
+          size = _this$props.size,
+          rounded = _this$props.rounded,
+          gradient = _this$props.gradient,
+          floating = _this$props.floating,
+          flat = _this$props.flat,
+          attributes = _objectWithoutProperties(_this$props, ["active", "block", "circle", "className", "color", "children", "outline", "size", "rounded", "gradient", "floating", "flat"]);
+
+      return React__default.createElement(Button, _extends({
+        active: active,
+        block: block,
+        circle: circle,
+        className: className,
+        color: color,
+        outline: outline,
+        size: size,
+        rounded: rounded,
+        gradient: gradient,
+        floating: floating,
+        flat: flat,
+        role: "button",
+        type: "link"
+      }, attributes, {
+        href: this.state.href,
+        download: "export.csv"
+      }), children);
+    }
+  }]);
+
+  return ExportToCSV;
+}(React.Component);
+
+ExportToCSV.propTypes = {
+  columns: PropTypes__default.arrayOf(PropTypes__default.object).isRequired,
+  data: PropTypes__default.array.isRequired,
+  active: PropTypes__default.bool,
+  block: PropTypes__default.bool,
+  color: PropTypes__default.string,
+  gradient: PropTypes__default.string,
+  disabled: PropTypes__default.bool,
+  outline: PropTypes__default.bool,
+  rounded: PropTypes__default.bool,
+  circle: PropTypes__default.bool,
+  floating: PropTypes__default.bool,
+  flat: PropTypes__default.bool,
+  size: PropTypes__default.string,
+  children: PropTypes__default.node,
+  className: PropTypes__default.string
+};
+
+var ExportToCsvBtn = ExportToCSV; // PRO-END
+
 var DataTable =
 /*#__PURE__*/
 function (_Component) {
@@ -4787,16 +4904,6 @@ function (_Component) {
           activePage = _this$state.activePage,
           search = _this$state.search,
           translateScrollHead = _this$state.translateScrollHead;
-      var ExportToCsvBtn;
-
-      if (exportToCSV) {
-        try {
-          ExportToCsvBtn = require("./pro/ExportToCSV").default;
-        } catch (err) {
-          console.log("Export to CSV is MDB PRO component, more here: https://mdbootstrap.com/products/react-ui-kit/");
-        }
-      }
-
       return React__default.createElement("div", {
         className: "dataTables_wrapper dt-bootstrap4"
       }, React__default.createElement("div", {
@@ -5125,6 +5232,10 @@ DropdownMenuProComponent.propTypes = {
 DropdownMenuProComponent.defaultProps = {
   d_classes: ""
 };
+
+// FREE-START
+// import DropdownMenuComponent from './DropdownMenuComponent';
+// FREE-END
 
 var noFlipModifier = {
   flip: {
@@ -7118,6 +7229,196 @@ Iframe.propTypes = {
   title: PropTypes__default.string
 };
 
+var Dropdown =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Dropdown, _React$Component);
+
+  function Dropdown(props) {
+    var _this;
+
+    _classCallCheck(this, Dropdown);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dropdown).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggle", function () {
+      _this.setState({
+        isOpen: !_this.state.isOpen
+      });
+    });
+
+    _this.state = {
+      isOpen: false
+    };
+    _this.addEvents = _this.addEvents.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.removeEvents = _this.removeEvents.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(Dropdown, [{
+    key: "getChildContext",
+    value: function getChildContext() {
+      return {
+        isOpen: this.state.isOpen,
+        dropup: this.props.dropup,
+        toggle: this.toggle
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.handleEventsBinding();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.removeEvents();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.handleEventsBinding();
+    }
+  }, {
+    key: "handleEventsBinding",
+    value: function handleEventsBinding() {
+      if (this.state.isOpen) {
+        this.addEvents();
+      } else {
+        this.removeEvents();
+      }
+    }
+  }, {
+    key: "getContainer",
+    value: function getContainer() {
+      return ReactDOM__default.findDOMNode(this);
+    }
+  }, {
+    key: "addEvents",
+    value: function addEvents() {
+      var _this2 = this;
+
+      ["click", "touchstart", "keyup"].forEach(function (event) {
+        return document.addEventListener(event, _this2.handleDocumentClick, true);
+      });
+    }
+  }, {
+    key: "removeEvents",
+    value: function removeEvents() {
+      var _this3 = this;
+
+      ["click", "touchstart", "keyup"].forEach(function (event) {
+        return document.removeEventListener(event, _this3.handleDocumentClick, true);
+      });
+    }
+  }, {
+    key: "handleDocumentClick",
+    value: function handleDocumentClick(e) {
+      if (e && (e.which === 3 || e.type === "keyup" && e.which !== keyCodes.tab)) return;
+      var container = this.getContainer();
+
+      if (container.contains(e.target) && container !== e.target && (e.type !== "keyup" || e.which === keyCodes.tab)) {
+        return;
+      }
+
+      this.toggle(e);
+    }
+  }, {
+    key: "handleKeyDown",
+    value: function handleKeyDown(e) {
+      if ([keyCodes.esc, keyCodes.up, keyCodes.down, keyCodes.space].indexOf(e.which) === -1 || /button/i.test(e.target.tagName) && e.which === keyCodes.space || /input|textarea/i.test(e.target.tagName)) {
+        return;
+      }
+
+      e.preventDefault();
+      if (this.props.disabled) return;
+      var container = this.getContainer();
+
+      if (e.which === keyCodes.space && this.state.isOpen && container !== e.target) {
+        e.target.click();
+      }
+
+      if (e.which === keyCodes.esc || !this.state.isOpen) {
+        this.toggle(e);
+        container.querySelector("[aria-expanded]").focus();
+        return;
+      }
+
+      var menuClass = "dropdown-menu";
+      var itemClass = "dropdown-item";
+      var disabledClass = "disabled";
+      var items = container.querySelectorAll(".".concat(menuClass, " .").concat(itemClass, ":not(.").concat(disabledClass, ")"));
+      if (!items.length) return;
+      var index = -1;
+
+      for (var i = 0; i < items.length; i += 1) {
+        if (items[i] === e.target) {
+          index = i;
+          break;
+        }
+      }
+
+      if (e.which === keyCodes.up && index > 0) {
+        index -= 1;
+      }
+
+      if (e.which === keyCodes.down && index < items.length - 1) {
+        index += 1;
+      }
+
+      if (index < 0) {
+        index = 0;
+      }
+
+      items[index].focus();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _classNames;
+
+      var _omit = omit(this.props, ["toggle", "disabled"]),
+          className = _omit.className,
+          dropup = _omit.dropup,
+          group = _omit.group,
+          size = _omit.size,
+          attrs = _objectWithoutProperties(_omit, ["className", "dropup", "group", "size"]);
+
+      var classes = classNames((_classNames = {
+        "btn-group": group
+      }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _classNames), className);
+      return React__default.createElement(reactPopper.Manager, _extends({}, attrs, {
+        className: classes,
+        onKeyDown: this.handleKeyDown
+      }));
+    }
+  }]);
+
+  return Dropdown;
+}(React__default.Component);
+
+Dropdown.propTypes = {
+  disabled: PropTypes__default.bool,
+  dropup: PropTypes__default.bool,
+  group: PropTypes__default.bool,
+  size: PropTypes__default.string,
+  tag: PropTypes__default.string,
+  toggle: PropTypes__default.func,
+  children: PropTypes__default.node,
+  className: PropTypes__default.string
+};
+Dropdown.defaultProps = {
+  dropup: false,
+  tag: "div"
+};
+Dropdown.childContextTypes = {
+  toggle: PropTypes__default.func.isRequired,
+  isOpen: PropTypes__default.bool.isRequired,
+  dropup: PropTypes__default.bool.isRequired
+};
+
 var Avatar =
 /*#__PURE__*/
 function (_Component) {
@@ -7975,113 +8276,6 @@ DatePicker.defaultProps = {
   value: null,
   valueDefault: new Date(),
   getValue: function getValue() {}
-};
-
-var ExportToCSV =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(ExportToCSV, _Component);
-
-  function ExportToCSV(props) {
-    var _this;
-
-    _classCallCheck(this, ExportToCSV);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(ExportToCSV).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "computeDataToLink", function () {
-      _this.setState(function (prevState) {
-        return {
-          href: encodeURI("data:text/csv;charset=utf-8," + [prevState.columns.map(function (col) {
-            return col.field;
-          }).join(","), [].concat.apply([], prevState.data).map(function (row) {
-            return Object.values(row).join(",");
-          }).join("\n")].join("\n"))
-        };
-      });
-    });
-
-    _this.state = {
-      columns: _this.props.columns,
-      data: _this.props.data,
-      href: ""
-    };
-    return _this;
-  }
-
-  _createClass(ExportToCSV, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.computeDataToLink();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps, prevState) {
-      if (prevState.data !== this.props.data || prevState.columns !== this.props.columns) {
-        this.setState({
-          columns: this.props.columns,
-          data: this.props.data
-        }, this.computeDataToLink());
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          active = _this$props.active,
-          block = _this$props.block,
-          circle = _this$props.circle,
-          className = _this$props.className,
-          color = _this$props.color,
-          children = _this$props.children,
-          outline = _this$props.outline,
-          size = _this$props.size,
-          rounded = _this$props.rounded,
-          gradient = _this$props.gradient,
-          floating = _this$props.floating,
-          flat = _this$props.flat,
-          attributes = _objectWithoutProperties(_this$props, ["active", "block", "circle", "className", "color", "children", "outline", "size", "rounded", "gradient", "floating", "flat"]);
-
-      return React__default.createElement(Button, _extends({
-        active: active,
-        block: block,
-        circle: circle,
-        className: className,
-        color: color,
-        outline: outline,
-        size: size,
-        rounded: rounded,
-        gradient: gradient,
-        floating: floating,
-        flat: flat,
-        role: "button",
-        type: "link"
-      }, attributes, {
-        href: this.state.href,
-        download: "export.csv"
-      }), children);
-    }
-  }]);
-
-  return ExportToCSV;
-}(React.Component);
-
-ExportToCSV.propTypes = {
-  columns: PropTypes__default.arrayOf(PropTypes__default.object).isRequired,
-  data: PropTypes__default.array.isRequired,
-  active: PropTypes__default.bool,
-  block: PropTypes__default.bool,
-  color: PropTypes__default.string,
-  gradient: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  outline: PropTypes__default.bool,
-  rounded: PropTypes__default.bool,
-  circle: PropTypes__default.bool,
-  floating: PropTypes__default.bool,
-  flat: PropTypes__default.bool,
-  size: PropTypes__default.string,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string
 };
 
 function RotatingCard(props) {
@@ -11114,196 +11308,6 @@ MDBStreak.defaultProps = {
   wrapperClass: "grey lighten-3"
 };
 
-var Dropdown =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Dropdown, _React$Component);
-
-  function Dropdown(props) {
-    var _this;
-
-    _classCallCheck(this, Dropdown);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dropdown).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggle", function () {
-      _this.setState({
-        isOpen: !_this.state.isOpen
-      });
-    });
-
-    _this.state = {
-      isOpen: false
-    };
-    _this.addEvents = _this.addEvents.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.removeEvents = _this.removeEvents.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    return _this;
-  }
-
-  _createClass(Dropdown, [{
-    key: "getChildContext",
-    value: function getChildContext() {
-      return {
-        isOpen: this.state.isOpen,
-        dropup: this.props.dropup,
-        toggle: this.toggle
-      };
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.handleEventsBinding();
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.removeEvents();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.handleEventsBinding();
-    }
-  }, {
-    key: "handleEventsBinding",
-    value: function handleEventsBinding() {
-      if (this.state.isOpen) {
-        this.addEvents();
-      } else {
-        this.removeEvents();
-      }
-    }
-  }, {
-    key: "getContainer",
-    value: function getContainer() {
-      return ReactDOM__default.findDOMNode(this);
-    }
-  }, {
-    key: "addEvents",
-    value: function addEvents() {
-      var _this2 = this;
-
-      ["click", "touchstart", "keyup"].forEach(function (event) {
-        return document.addEventListener(event, _this2.handleDocumentClick, true);
-      });
-    }
-  }, {
-    key: "removeEvents",
-    value: function removeEvents() {
-      var _this3 = this;
-
-      ["click", "touchstart", "keyup"].forEach(function (event) {
-        return document.removeEventListener(event, _this3.handleDocumentClick, true);
-      });
-    }
-  }, {
-    key: "handleDocumentClick",
-    value: function handleDocumentClick(e) {
-      if (e && (e.which === 3 || e.type === "keyup" && e.which !== keyCodes.tab)) return;
-      var container = this.getContainer();
-
-      if (container.contains(e.target) && container !== e.target && (e.type !== "keyup" || e.which === keyCodes.tab)) {
-        return;
-      }
-
-      this.toggle(e);
-    }
-  }, {
-    key: "handleKeyDown",
-    value: function handleKeyDown(e) {
-      if ([keyCodes.esc, keyCodes.up, keyCodes.down, keyCodes.space].indexOf(e.which) === -1 || /button/i.test(e.target.tagName) && e.which === keyCodes.space || /input|textarea/i.test(e.target.tagName)) {
-        return;
-      }
-
-      e.preventDefault();
-      if (this.props.disabled) return;
-      var container = this.getContainer();
-
-      if (e.which === keyCodes.space && this.state.isOpen && container !== e.target) {
-        e.target.click();
-      }
-
-      if (e.which === keyCodes.esc || !this.state.isOpen) {
-        this.toggle(e);
-        container.querySelector("[aria-expanded]").focus();
-        return;
-      }
-
-      var menuClass = "dropdown-menu";
-      var itemClass = "dropdown-item";
-      var disabledClass = "disabled";
-      var items = container.querySelectorAll(".".concat(menuClass, " .").concat(itemClass, ":not(.").concat(disabledClass, ")"));
-      if (!items.length) return;
-      var index = -1;
-
-      for (var i = 0; i < items.length; i += 1) {
-        if (items[i] === e.target) {
-          index = i;
-          break;
-        }
-      }
-
-      if (e.which === keyCodes.up && index > 0) {
-        index -= 1;
-      }
-
-      if (e.which === keyCodes.down && index < items.length - 1) {
-        index += 1;
-      }
-
-      if (index < 0) {
-        index = 0;
-      }
-
-      items[index].focus();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _classNames;
-
-      var _omit = omit(this.props, ["toggle", "disabled"]),
-          className = _omit.className,
-          dropup = _omit.dropup,
-          group = _omit.group,
-          size = _omit.size,
-          attrs = _objectWithoutProperties(_omit, ["className", "dropup", "group", "size"]);
-
-      var classes = classNames((_classNames = {
-        "btn-group": group
-      }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _classNames), className);
-      return React__default.createElement(reactPopper.Manager, _extends({}, attrs, {
-        className: classes,
-        onKeyDown: this.handleKeyDown
-      }));
-    }
-  }]);
-
-  return Dropdown;
-}(React__default.Component);
-
-Dropdown.propTypes = {
-  disabled: PropTypes__default.bool,
-  dropup: PropTypes__default.bool,
-  group: PropTypes__default.bool,
-  size: PropTypes__default.string,
-  tag: PropTypes__default.string,
-  toggle: PropTypes__default.func,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string
-};
-Dropdown.defaultProps = {
-  dropup: false,
-  tag: "div"
-};
-Dropdown.childContextTypes = {
-  toggle: PropTypes__default.func.isRequired,
-  isOpen: PropTypes__default.bool.isRequired,
-  dropup: PropTypes__default.bool.isRequired
-};
-
 // FREE
 
 exports.cssTransition = reactToastify.cssTransition;
@@ -11337,7 +11341,6 @@ exports.Collapse = Collapse;
 exports.Container = Container;
 exports.DataTable = DataTable;
 exports.Dropdown = Dropdown;
-exports.MDBDropdown = Dropdown;
 exports.DropdownItem = DropdownItem;
 exports.DropdownMenu = DropdownMenu;
 exports.DropdownMenuComponent = DropdownMenuProComponent;
@@ -11453,6 +11456,7 @@ exports.MDBCol = Col;
 exports.MDBCollapse = Collapse;
 exports.MDBContainer = Container;
 exports.MDBDataTable = DataTable;
+exports.MDBDropdown = Dropdown;
 exports.MDBDropdownItem = DropdownItem;
 exports.MDBDropdownMenu = DropdownMenu;
 exports.MDBDropdownToggle = DropdownToggle;

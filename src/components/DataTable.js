@@ -8,9 +8,8 @@ import DataTableInfo from './DataTableComponents/DataTableInfo';
 import DataTablePagination from './DataTableComponents/DataTablePagination';
 // PRO-START
 import exportToCSV from './pro/ExportToCSV';
+const ExportToCsvBtn = exportToCSV;
 // PRO-END
-const ExportToCsvBtn = exportToCSV || null;
-
 
 class DataTable extends Component {
   constructor(props) {
@@ -99,7 +98,7 @@ class DataTable extends Component {
   };
 
   handleSort = (field, sort) => {
-    if(sort !== "disabled") {
+    if (sort !== "disabled") {
       this.setState(
         prevState => {
           // asc by default
@@ -172,7 +171,7 @@ class DataTable extends Component {
         }
         prevState.activePage =
           prevState.activePage < prevState.pages.length ||
-          prevState.activePage === 0
+            prevState.activePage === 0
             ? prevState.activePage
             : prevState.pages.length - 1;
       } else {
@@ -341,13 +340,17 @@ class DataTable extends Component {
             />
           </div>
         )}
-        {exportToCSV && (
-          <div className="row justify-content-end">
-            <ExportToCsvBtn columns={columns} data={pages} color="primary">
-              Download CSV
+        {/* PRO-START */}
+        {
+          exportToCSV && (
+            <div className="row justify-content-end">
+              <ExportToCsvBtn columns={columns} data={pages} color="primary">
+                Download CSV
             </ExportToCsvBtn>
-          </div>
-        )}
+            </div>
+          )
+        }
+        {/* PRO-END */}
       </div>
     );
   }
