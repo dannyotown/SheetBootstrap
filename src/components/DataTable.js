@@ -6,6 +6,11 @@ import DataTableEntries from './DataTableComponents/DataTableEntries';
 import DataTableSearch from './DataTableComponents/DataTableSearch';
 import DataTableInfo from './DataTableComponents/DataTableInfo';
 import DataTablePagination from './DataTableComponents/DataTablePagination';
+// PRO-START
+import exportToCSV from './pro/ExportToCSV';
+// PRO-END
+const ExportToCsvBtn = exportToCSV || null;
+
 
 class DataTable extends Component {
   constructor(props) {
@@ -236,17 +241,6 @@ class DataTable extends Component {
       search,
       translateScrollHead
     } = this.state;
-
-    let ExportToCsvBtn;
-    if (exportToCSV) {
-      try {
-        ExportToCsvBtn = require("./pro/ExportToCSV").default;
-      } catch (err) {
-        console.log(
-          "Export to CSV is MDB PRO component, more here: https://mdbootstrap.com/products/react-ui-kit/"
-        );
-      }
-    }
 
     return (
       <div className="dataTables_wrapper dt-bootstrap4">

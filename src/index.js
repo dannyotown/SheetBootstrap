@@ -70,6 +70,7 @@ import Tooltip from './components/Tooltip';
 import View from './components/View';
 import { toast, ToastContainer, cssTransition } from 'react-toastify';
 import Iframe from './components/Iframe';
+import Dropdown from './components/Dropdown';
 
 // PRO-START
 import Autocomplete from './components/pro/Autocomplete';
@@ -116,7 +117,7 @@ import TimelineStep from './components/pro/TimelineStep';
 import TimePicker from './components/pro/TimePicker/TimePicker';
 // PRO-END
 
-// // MDB FREE
+// MDB FREE
 import { MDBBadge } from './components/Badge';
 import { MDBAlert } from './components/Alert';
 import { MDBBreadcrumb } from './components/Breadcrumb';
@@ -186,6 +187,7 @@ import { MDBTableFoot } from './components/TableFoot';
 import { MDBTooltip } from './components/Tooltip';
 import { MDBView } from './components/View';
 import { MDBIframe } from './components/Iframe';
+import { MDBDropdown } from './components/Dropdown';
 
 // PRO-START
 import { MDBAnimation } from './components/Animation';
@@ -231,11 +233,9 @@ import { MDBTestimonial } from './components/pro/Testimonial';
 import { MDBTimeline } from './components/pro/Timeline';
 import { MDBTimelineStep } from './components/pro/TimelineStep';
 import MDBStreak from './components/pro/Streak';
-import Dropdown from './components/Dropdown';
 import DropdownMenuComponent from './components/pro/DropdownMenuProComponent';
-import MDBDropdown from './components/Dropdown';
 import MDBDropdownMenuComponent from './components/pro/DropdownMenuProComponent';
-
+// PRO-END
 
 export {
   // FREE

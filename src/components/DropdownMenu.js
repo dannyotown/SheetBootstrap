@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Popper } from 'react-popper';
 import './DropdownMenu.css';
+// PRO-START
 import DropdownMenuComponent from './pro/DropdownMenuProComponent';
+// PRO-END
+// FREE-START
+// import DropdownMenuComponent from './DropdownMenuComponent';
+// FREE-END
 
 const noFlipModifier = { flip: { enabled: false } };
 
