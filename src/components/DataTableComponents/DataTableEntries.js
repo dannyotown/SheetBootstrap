@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // PRO-START
 import DataTableSelect from '../pro/DataTableSelect';
-// FREE-START
 /*
 // PRO-END
 import DataTableSelect from './DataTableSelect';
 // PRO-START
 */
-// FREE-END
 // PRO-END
 
 const DataTableEntries = props => {
