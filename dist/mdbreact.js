@@ -4202,9 +4202,13 @@ DataTableSelect.propTypes = {
   value: PropTypes__default.number.isRequired
 };
 
-// FREE-START
-// import DataTableSelect from './DataTableSelect';
+/*
+// PRO-END
+import DataTableSelect from './DataTableSelect';
+// PRO-START
+*/
 // FREE-END
+// PRO-END
 
 var DataTableEntries = function DataTableEntries(props) {
   var handleEntriesChange = props.handleEntriesChange,
@@ -4251,9 +4255,13 @@ DataTableInput.propTypes = {
   value: PropTypes__default.string
 };
 
-// FREE-START
-// import DataTableInput from './DataTableInput';
+/*
+// PRO-END
+import DataTableInput from './DataTableInput';
+// PRO-START
+*/
 // FREE-END
+// PRO-END
 
 var DataTableSearch = function DataTableSearch(props) {
   var handleSearchChange = props.handleSearchChange,
@@ -5233,9 +5241,13 @@ DropdownMenuProComponent.defaultProps = {
   d_classes: ""
 };
 
-// FREE-START
-// import DropdownMenuComponent from './DropdownMenuComponent';
+/*
+// PRO-END
+import DropdownMenuComponent from './DropdownMenuComponent';
+// PRO-START
+*/
 // FREE-END
+// PRO-END
 
 var noFlipModifier = {
   flip: {
@@ -11343,8 +11355,6 @@ exports.DataTable = DataTable;
 exports.Dropdown = Dropdown;
 exports.DropdownItem = DropdownItem;
 exports.DropdownMenu = DropdownMenu;
-exports.DropdownMenuComponent = DropdownMenuProComponent;
-exports.MDBDropdownMenuComponent = DropdownMenuProComponent;
 exports.DropdownToggle = DropdownToggle;
 exports.EdgeHeader = EdgeHeader;
 exports.Fa = Fa;

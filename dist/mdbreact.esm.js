@@ -4193,9 +4193,13 @@ DataTableSelect.propTypes = {
   value: PropTypes.number.isRequired
 };
 
-// FREE-START
-// import DataTableSelect from './DataTableSelect';
+/*
+// PRO-END
+import DataTableSelect from './DataTableSelect';
+// PRO-START
+*/
 // FREE-END
+// PRO-END
 
 var DataTableEntries = function DataTableEntries(props) {
   var handleEntriesChange = props.handleEntriesChange,
@@ -4242,9 +4246,13 @@ DataTableInput.propTypes = {
   value: PropTypes.string
 };
 
-// FREE-START
-// import DataTableInput from './DataTableInput';
+/*
+// PRO-END
+import DataTableInput from './DataTableInput';
+// PRO-START
+*/
 // FREE-END
+// PRO-END
 
 var DataTableSearch = function DataTableSearch(props) {
   var handleSearchChange = props.handleSearchChange,
@@ -5224,9 +5232,13 @@ DropdownMenuProComponent.defaultProps = {
   d_classes: ""
 };
 
-// FREE-START
-// import DropdownMenuComponent from './DropdownMenuComponent';
+/*
+// PRO-END
+import DropdownMenuComponent from './DropdownMenuComponent';
+// PRO-START
+*/
 // FREE-END
+// PRO-END
 
 var noFlipModifier = {
   flip: {
@@ -11301,4 +11313,4 @@ MDBStreak.defaultProps = {
 
 // FREE
 
-export { Animation, Alert, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, Carousel, CarouselCaption, Control as CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Col, Collapse, Container, DataTable, Dropdown, DropdownItem, DropdownMenu, DropdownMenuProComponent as DropdownMenuComponent, DropdownMenuProComponent as MDBDropdownMenuComponent, DropdownToggle, EdgeHeader, Fa, FormInline, Footer, FreeBird, HamburgerToggler, Input, InputNumeric, Jumbotron, ListGroup, ListGroupItem, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, NavLink$1 as NavLink, Pagination, PageItem, PageLink, Popover, PopoverBody, PopoverHeader, Progress, Waves, Row, Table, TableBody, TableHead, TableFoot, Tooltip, View, Iframe, Autocomplete, Avatar, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, CardUp, Chip, ChipsInput, CollapseHeader, DatePicker$1 as DatePicker, ExportToCSV, RotatingCard as FlippingCard, InputFile, InputRange, InputSwitch, css$c as LightboxStyles, ScrollBar as PerfectScrollbar, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, Select, SelectInput$1 as SelectInput, Options as SelectOptions, SelectOption, Spinner, Step, Stepper, TableEditable, TabPane, TabContent, Sticky, Container$1 as StickyContainer, Testimonial, Timeline, TimelineStep, TimePicker, Iframe as MDBIframe, Animation as MDBAnimation, Badge as MDBBadge, Alert as MDBAlert, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, Control as MDBControl, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, CarouselIndicators as MDBCarouselIndicators, CarouselIndicator as MDBCarouselIndicator, Col as MDBCol, Collapse as MDBCollapse, Container as MDBContainer, DataTable as MDBDataTable, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, FormInline as MDBFormInline, Footer as MDBFooter, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Input as MDBInput, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, NavItem as MDBNavItem, NavLink$1 as MDBNavLink, Pagination as MDBPagination, PageItem as MDBPageItem, PageLink as MDBPageNav, Popover as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Progress as MDBProgress, Waves as MDBWaves, Row as MDBRow, Table as MDBTable, TableBody as MDBTableBody, TableHead as MDBTableHead, TableFoot as MDBTableFoot, Tooltip as MDBTooltip, View as MDBView, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, CardUp as MDBCardUp, Chip as MDBChip, ChipsInput as MDBChipsInput, CollapseHeader as MDBCollapseHeader, ExportToCSV as MDBExportToCSV, DatePicker$1 as MDBDatePicker, TimePicker as MDBTimePicker, RotatingCard as MDBRotatingCard, InputFile as MDBFileInput, InputRange as MDBRangeInput, InputSwitch as MDBSwitch, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, Select as MDBSelect, SelectInput as MDBSelectInput, Options as MDBSelectOptions, Option as MDBSelectOption, Spinner as MDBSpinner, TableEditable as MDBTableEditable, TabPane as MDBTabPane, TabContent as MDBTabContent, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, Testimonial as MDBTestimonial, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, MDBStreak };
+export { Animation, Alert, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, Carousel, CarouselCaption, Control as CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Col, Collapse, Container, DataTable, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, Fa, FormInline, Footer, FreeBird, HamburgerToggler, Input, InputNumeric, Jumbotron, ListGroup, ListGroupItem, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, NavLink$1 as NavLink, Pagination, PageItem, PageLink, Popover, PopoverBody, PopoverHeader, Progress, Waves, Row, Table, TableBody, TableHead, TableFoot, Tooltip, View, Iframe, Autocomplete, Avatar, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, CardUp, Chip, ChipsInput, CollapseHeader, DatePicker$1 as DatePicker, ExportToCSV, RotatingCard as FlippingCard, InputFile, InputRange, InputSwitch, css$c as LightboxStyles, ScrollBar as PerfectScrollbar, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, Select, SelectInput$1 as SelectInput, Options as SelectOptions, SelectOption, Spinner, Step, Stepper, TableEditable, TabPane, TabContent, Sticky, Container$1 as StickyContainer, Testimonial, Timeline, TimelineStep, TimePicker, Iframe as MDBIframe, Animation as MDBAnimation, Badge as MDBBadge, Alert as MDBAlert, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, Control as MDBControl, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, CarouselIndicators as MDBCarouselIndicators, CarouselIndicator as MDBCarouselIndicator, Col as MDBCol, Collapse as MDBCollapse, Container as MDBContainer, DataTable as MDBDataTable, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, FormInline as MDBFormInline, Footer as MDBFooter, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Input as MDBInput, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, NavItem as MDBNavItem, NavLink$1 as MDBNavLink, Pagination as MDBPagination, PageItem as MDBPageItem, PageLink as MDBPageNav, Popover as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Progress as MDBProgress, Waves as MDBWaves, Row as MDBRow, Table as MDBTable, TableBody as MDBTableBody, TableHead as MDBTableHead, TableFoot as MDBTableFoot, Tooltip as MDBTooltip, View as MDBView, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, CardUp as MDBCardUp, Chip as MDBChip, ChipsInput as MDBChipsInput, CollapseHeader as MDBCollapseHeader, ExportToCSV as MDBExportToCSV, DatePicker$1 as MDBDatePicker, TimePicker as MDBTimePicker, RotatingCard as MDBRotatingCard, InputFile as MDBFileInput, InputRange as MDBRangeInput, InputSwitch as MDBSwitch, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, Select as MDBSelect, SelectInput as MDBSelectInput, Options as MDBSelectOptions, Option as MDBSelectOption, Spinner as MDBSpinner, TableEditable as MDBTableEditable, TabPane as MDBTabPane, TabContent as MDBTabContent, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, Testimonial as MDBTestimonial, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, MDBStreak };
