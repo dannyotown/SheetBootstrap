@@ -5,10 +5,14 @@ import { Popper } from 'react-popper';
 import './DropdownMenu.css';
 // PRO-START
 import DropdownMenuComponent from './pro/DropdownMenuProComponent';
-// PRO-END
 // FREE-START
-// import DropdownMenuComponent from './DropdownMenuComponent';
+/*
+// PRO-END
+import DropdownMenuComponent from './DropdownMenuComponent';
+// PRO-START
+*/
 // FREE-END
+// PRO-END
 
 const noFlipModifier = { flip: { enabled: false } };
 

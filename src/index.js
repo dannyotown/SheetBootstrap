@@ -233,8 +233,6 @@ import { MDBTestimonial } from './components/pro/Testimonial';
 import { MDBTimeline } from './components/pro/Timeline';
 import { MDBTimelineStep } from './components/pro/TimelineStep';
 import MDBStreak from './components/pro/Streak';
-import DropdownMenuComponent from './components/pro/DropdownMenuProComponent';
-import MDBDropdownMenuComponent from './components/pro/DropdownMenuProComponent';
 // PRO-END
 
 export {
@@ -270,7 +268,6 @@ export {
   Dropdown,
   DropdownItem,
   DropdownMenu,
-  DropdownMenuComponent,
   DropdownToggle,
   EdgeHeader,
   Fa,
@@ -389,7 +386,6 @@ export {
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,
-  MDBDropdownMenuComponent,
   MDBDropdownToggle,
   MDBEdgeHeader,
   MDBFormInline,
