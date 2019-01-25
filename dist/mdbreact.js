@@ -4207,7 +4207,6 @@ DataTableSelect.propTypes = {
 import DataTableSelect from './DataTableSelect';
 // PRO-START
 */
-// FREE-END
 // PRO-END
 
 var DataTableEntries = function DataTableEntries(props) {
@@ -4260,7 +4259,6 @@ DataTableInput.propTypes = {
 import DataTableInput from './DataTableInput';
 // PRO-START
 */
-// FREE-END
 // PRO-END
 
 var DataTableSearch = function DataTableSearch(props) {
