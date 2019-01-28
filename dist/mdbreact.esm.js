@@ -8611,8 +8611,8 @@ InputSwitch.propTypes = {
 InputSwitch.defaultProps = {
   checked: false,
   getValue: false,
-  labelLeft: "On",
-  labelRight: "Off"
+  labelLeft: "Off",
+  labelRight: "On"
 };
 
 var css$c = ".ReactModal__Overlay {\n    z-index: 2000 !important;\n}";
