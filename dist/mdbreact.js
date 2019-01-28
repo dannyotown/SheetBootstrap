@@ -4667,8 +4667,6 @@ ExportToCSV.propTypes = {
   className: PropTypes__default.string
 };
 
-var ExportToCsvBtn = ExportToCSV; // PRO-END
-
 var DataTable =
 /*#__PURE__*/
 function (_Component) {
@@ -4997,7 +4995,7 @@ function (_Component) {
         label: paginationLabel
       })), exportToCSV && React__default.createElement("div", {
         className: "row justify-content-end"
-      }, React__default.createElement(ExportToCsvBtn, {
+      }, React__default.createElement(ExportToCSV, {
         columns: columns,
         data: pages,
         color: "primary"
