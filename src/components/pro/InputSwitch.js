@@ -72,8 +72,8 @@ InputSwitch.propTypes = {
 InputSwitch.defaultProps = {
   checked: false,
   getValue: false,
-  labelLeft: "On",
-  labelRight: "Off"
+  labelLeft: "Off",
+  labelRight: "On"
 };
 
 export default InputSwitch;

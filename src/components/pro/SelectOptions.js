@@ -1,9 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import Autocomplete from "./Autocomplete";
-require("./Fade.css");
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Autocomplete from './Autocomplete';
+import './Fade.css';
 
 var data = [];
 
@@ -17,16 +17,16 @@ class Options extends React.Component {
     options.forEach(function(option) {
       let optionValue = option.children[0].innerText.toLowerCase();
       if (!optionValue.includes(value)) {
-        option.style.display = "none";
+        option.style.display = 'none';
       } else {
-        option.style.display = "block";
+        option.style.display = 'block';
       }
     });
   }
 
   componentDidMount() {
     if (this.props.search) {
-      let options = ReactDOM.findDOMNode(this).querySelectorAll("li");
+      let options = ReactDOM.findDOMNode(this).querySelectorAll('li');
       options.forEach(function(option) {
         data.push(option.children[0].innerHTML);
       });
@@ -34,12 +34,19 @@ class Options extends React.Component {
   }
 
   render() {
-    const { className, children, search, searchLabel, searchId, ...attributes } = this.props;
+    const {
+      className,
+      children,
+      search,
+      searchLabel,
+      searchId,
+      ...attributes
+    } = this.props;
 
     const classes = classNames(
-      "dropdown-content",
-      "select-dropdown",
-      "fadeElement",
+      'dropdown-content',
+      'select-dropdown',
+      'fadeElement',
       className
     );
 
@@ -76,10 +83,10 @@ Options.propTypes = {
 };
 
 Options.defaultProps = {
-  className: "",
+  className: '',
   search: false,
-  searchLabel: "Search",
-  searchId: "selectSearchInput"
+  searchLabel: 'Search',
+  searchId: 'selectSearchInput'
 };
 
 export default Options;

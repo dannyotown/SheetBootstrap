@@ -1,29 +1,20 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var React = require('react');
-var React__default = _interopDefault(React);
-var PropTypes = require('prop-types');
-var PropTypes__default = _interopDefault(PropTypes);
-var classNames = _interopDefault(require('classnames'));
-var reactTransitionGroup = require('react-transition-group');
-var ReactDOM = require('react-dom');
-var ReactDOM__default = _interopDefault(ReactDOM);
-var Autosuggest = _interopDefault(require('react-autosuggest'));
-var reactPopper = require('react-popper');
-var NumericInput = _interopDefault(require('react-numeric-input'));
-var reactRouterDom = require('react-router-dom');
-var outy = _interopDefault(require('outy'));
-var reactToastify = require('react-toastify');
-var MomentUtils = _interopDefault(require('@date-io/moment'));
-var materialUiPickers = require('material-ui-pickers');
-var moment = _interopDefault(require('moment'));
-var core = require('@material-ui/core');
-var PerfectScrollbar = _interopDefault(require('perfect-scrollbar'));
-var raf = _interopDefault(require('raf'));
+import React, { Component, Fragment, PureComponent } from 'react';
+import PropTypes, { PropTypes as PropTypes$1 } from 'prop-types';
+import classNames from 'classnames';
+import { Transition, CSSTransition } from 'react-transition-group';
+import ReactDOM, { findDOMNode } from 'react-dom';
+import Autosuggest from 'react-autosuggest';
+import { Popper, Target, Manager, Arrow } from 'react-popper';
+import NumericInput from 'react-numeric-input';
+import { NavLink } from 'react-router-dom';
+import outy from 'outy';
+export { cssTransition, toast, ToastContainer } from 'react-toastify';
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
+import moment from 'moment';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import PerfectScrollbar from 'perfect-scrollbar';
+import raf from 'raf';
 
 function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -297,7 +288,7 @@ function (_Component) {
       revealed: _this.props.reveal ? false : true,
       countIterations: 0
     };
-    _this.elemRef = React__default.createRef();
+    _this.elemRef = React.createRef();
     return _this;
   }
 
@@ -350,7 +341,7 @@ function (_Component) {
       var getAllStyles = Object.assign(styleObject, style);
       var classes = classNames(this.state.isVisible && "animated", // will this work?
       type && type, infinite && "infinite", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes,
         style: isVisible && revealed ? getAllStyles : hiddenStyles,
         ref: this.elemRef,
@@ -362,16 +353,16 @@ function (_Component) {
   }]);
 
   return Animation;
-}(React.Component);
+}(Component);
 
 Animation.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  type: PropTypes__default.string,
-  delay: PropTypes__default.string,
-  count: PropTypes__default.number,
-  onAnimationEnd: PropTypes__default.func,
-  onAnimationStart: PropTypes__default.func
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  type: PropTypes.string,
+  delay: PropTypes.string,
+  count: PropTypes.number,
+  onAnimationEnd: PropTypes.func,
+  onAnimationStart: PropTypes.func
 };
 Animation.defaultProps = {
   tag: "div",
@@ -434,7 +425,7 @@ function (_Component) {
       var alertComponent;
 
       if (dismiss) {
-        alertComponent = React__default.createElement(reactTransitionGroup.Transition, {
+        alertComponent = React.createElement(Transition, {
           in: this.state.isOpen,
           timeout: 150,
           unmountOnExit: true,
@@ -444,20 +435,20 @@ function (_Component) {
           onExited: function onExited(node) {
             return _this2.handleOnExited(node);
           }
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: alertClasses,
           role: "alert"
-        }, children, React__default.createElement("button", {
+        }, children, React.createElement("button", {
           onClick: this.closeAlert,
           type: "button",
           className: "close",
           "data-dismiss": "alert",
           "aria-label": "Close"
-        }, React__default.createElement("span", {
+        }, React.createElement("span", {
           "aria-hidden": "true"
         }, "\xD7"))));
       } else {
-        alertComponent = React__default.createElement("div", {
+        alertComponent = React.createElement("div", {
           className: alertClasses,
           role: "alert"
         }, children);
@@ -468,16 +459,16 @@ function (_Component) {
   }]);
 
   return Alert;
-}(React.Component);
+}(Component);
 
 Alert.defaultProps = {
   color: "primary"
 };
 Alert.propTypes = {
-  className: PropTypes__default.string,
-  color: PropTypes__default.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']),
-  onClose: PropTypes__default.func,
-  onClosed: PropTypes__default.func
+  className: PropTypes.string,
+  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']),
+  onClose: PropTypes.func,
+  onClosed: PropTypes.func
 };
 
 var Badge =
@@ -503,14 +494,14 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["tag", "className", "children", "color", "pill"]);
 
       var classes = classNames("badge", color, "badge-" + color, pill ? "badge-pill" : false, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), this.props.children);
     }
   }]);
 
   return Badge;
-}(React__default.Component);
+}(React.Component);
 
 Badge.defaultProps = {
   tag: "span",
@@ -518,10 +509,10 @@ Badge.defaultProps = {
   pill: false
 };
 Badge.propTypes = {
-  color: PropTypes__default.string,
-  pill: PropTypes__default.bool,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string
+  color: PropTypes.string,
+  pill: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 function omit(obj, omitKeys) {
@@ -578,8 +569,8 @@ var Breadcrumb = function Breadcrumb(props) {
   var children;
 
   if (bold) {
-    children = React__default.Children.map(props.children, function (child) {
-      return React__default.cloneElement(child, {
+    children = React.Children.map(props.children, function (child) {
+      return React.cloneElement(child, {
         bold: true
       });
     });
@@ -587,18 +578,18 @@ var Breadcrumb = function Breadcrumb(props) {
     children = props.children;
   }
 
-  return React__default.createElement("nav", null, React__default.createElement("ol", _extends({}, attributes, {
+  return React.createElement("nav", null, React.createElement("ol", _extends({}, attributes, {
     className: classes
   }), children));
 };
 
 Breadcrumb.propTypes = {
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  color: PropTypes__default.string,
-  light: PropTypes__default.bool,
-  uppercase: PropTypes__default.bool,
-  bold: PropTypes__default.bool
+  children: PropTypes.node,
+  className: PropTypes.string,
+  color: PropTypes.string,
+  light: PropTypes.bool,
+  uppercase: PropTypes.bool,
+  bold: PropTypes.bool
 };
 
 var Fa =
@@ -639,35 +630,35 @@ function (_React$Component) {
 
       var iconPrefix = brand || fab ? "fab" : light || fal ? "fal" : regular || far ? "far" : "fa";
       var classes = classNames(iconPrefix, list ? "fa-li" : false, icon ? "fa-".concat(icon) : false, size ? "fa-".concat(size) : false, fixed ? "fa-fw" : false, pull ? "fa-pull-".concat(pull) : false, border ? "fa-border" : false, spin ? "fa-spin" : false, pulse ? "fa-pulse" : false, rotate ? "fa-rotate-".concat(rotate) : false, flip ? "fa-flip-".concat(flip) : false, inverse ? "fa-inverse" : false, stack ? "fa-".concat(stack) : false, className);
-      return React__default.createElement("i", _extends({}, attributes, {
+      return React.createElement("i", _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return Fa;
-}(React__default.Component);
+}(React.Component);
 
 Fa.propTypes = {
-  icon: PropTypes__default.string.isRequired,
-  border: PropTypes__default.bool,
-  brand: PropTypes__default.bool,
-  className: PropTypes__default.string,
-  fab: PropTypes__default.bool,
-  fal: PropTypes__default.bool,
-  far: PropTypes__default.bool,
-  fixed: PropTypes__default.bool,
-  flip: PropTypes__default.string,
-  inverse: PropTypes__default.string,
-  light: PropTypes__default.bool,
-  list: PropTypes__default.bool,
-  pull: PropTypes__default.string,
-  pulse: PropTypes__default.bool,
-  regular: PropTypes__default.bool,
-  rotate: PropTypes__default.string,
-  spin: PropTypes__default.bool,
-  size: PropTypes__default.string,
-  stack: PropTypes__default.string
+  icon: PropTypes.string.isRequired,
+  border: PropTypes.bool,
+  brand: PropTypes.bool,
+  className: PropTypes.string,
+  fab: PropTypes.bool,
+  fal: PropTypes.bool,
+  far: PropTypes.bool,
+  fixed: PropTypes.bool,
+  flip: PropTypes.string,
+  inverse: PropTypes.string,
+  light: PropTypes.bool,
+  list: PropTypes.bool,
+  pull: PropTypes.string,
+  pulse: PropTypes.bool,
+  regular: PropTypes.bool,
+  rotate: PropTypes.string,
+  spin: PropTypes.bool,
+  size: PropTypes.string,
+  stack: PropTypes.string
 };
 Fa.defaultProps = {
   border: false,
@@ -739,12 +730,12 @@ var BreadcrumbItem = function BreadcrumbItem(props) {
 
   var WithBold = function WithBold(_ref) {
     var children = _ref.children;
-    return bold ? React__default.createElement("strong", null, children) : children;
+    return bold ? React.createElement("strong", null, children) : children;
   };
 
   var WithIcon = function WithIcon() {
     if (icon) {
-      return React__default.createElement(React.Fragment, null, appendIcon && children, React__default.createElement(Fa, {
+      return React.createElement(Fragment, null, appendIcon && children, React.createElement(Fa, {
         brand: iconBrand,
         className: iconClasses,
         icon: icon,
@@ -757,23 +748,23 @@ var BreadcrumbItem = function BreadcrumbItem(props) {
     return children;
   };
 
-  return React__default.createElement("li", _extends({}, attributes, {
+  return React.createElement("li", _extends({}, attributes, {
     className: classes
-  }), React__default.createElement(WithBold, null, React__default.createElement(WithIcon, null)));
+  }), React.createElement(WithBold, null, React.createElement(WithIcon, null)));
 };
 
 BreadcrumbItem.propTypes = {
-  active: PropTypes__default.bool,
-  appendIcon: PropTypes__default.bool,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  bold: PropTypes__default.bool,
-  icon: PropTypes__default.string,
-  iconBrand: PropTypes__default.bool,
-  iconClassName: PropTypes__default.string,
-  iconLight: PropTypes__default.bool,
-  iconRegular: PropTypes__default.bool,
-  iconSize: PropTypes__default.string
+  active: PropTypes.bool,
+  appendIcon: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  bold: PropTypes.bool,
+  icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClassName: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string
 };
 BreadcrumbItem.defaultProps = {
   active: false,
@@ -833,7 +824,7 @@ function (_React$Component) {
     key: "reppling",
     value: function reppling() {
       // Get the element
-      var $ripple = ReactDOM__default.findDOMNode(this);
+      var $ripple = ReactDOM.findDOMNode(this);
       var $button = $ripple.parentNode;
       var buttonPos = $button.getBoundingClientRect();
       var buttonWidth = $button.offsetWidth;
@@ -853,7 +844,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: 'Ripple ' + (this.props.outline || this.props.flat || this.props.dark ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : ''),
         style: {
           top: this.state.top + 'px',
@@ -866,14 +857,14 @@ function (_React$Component) {
   }]);
 
   return Waves;
-}(React__default.Component);
+}(React.Component);
 
 Waves.propTypes = {
-  outline: PropTypes__default.bool,
-  flat: PropTypes__default.bool,
-  animate: PropTypes__default.bool,
-  cursorPos: PropTypes__default.object,
-  children: PropTypes__default.node
+  outline: PropTypes.bool,
+  flat: PropTypes.bool,
+  animate: PropTypes.bool,
+  cursorPos: PropTypes.object,
+  children: PropTypes.node
 };
 
 var Button =
@@ -943,7 +934,7 @@ function (_React$Component) {
         Tag = "a";
       }
 
-      return React__default.createElement(Tag, _extends({
+      return React.createElement(Tag, _extends({
         type: Tag === "button" && !type ? "button" : type,
         target: target,
         role: Tag === "a" && !role ? "button" : role,
@@ -954,7 +945,7 @@ function (_React$Component) {
       }, attributes, {
         download: download,
         disabled: disabled
-      }), this.props.children, this.props.disabled ? false : React__default.createElement(Waves, {
+      }), this.props.children, this.props.disabled ? false : React.createElement(Waves, {
         cursorPos: this.state.cursorPos,
         outline: outline,
         flat: flat
@@ -963,35 +954,35 @@ function (_React$Component) {
   }]);
 
   return Button;
-}(React__default.Component);
+}(React.Component);
 
 Button.defaultProps = {
   color: "default",
   tag: "button"
 };
 Button.propTypes = {
-  active: PropTypes__default.bool,
-  action: PropTypes__default.bool,
-  block: PropTypes__default.bool,
-  color: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  download: PropTypes__default.string,
-  gradient: PropTypes__default.string,
-  role: PropTypes__default.string,
-  type: PropTypes__default.string,
-  outline: PropTypes__default.bool,
-  rounded: PropTypes__default.bool,
-  circle: PropTypes__default.bool,
-  floating: PropTypes__default.bool,
-  flat: PropTypes__default.bool,
-  innerRef: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  onClick: PropTypes__default.func,
-  size: PropTypes__default.string,
-  social: PropTypes__default.string,
-  children: PropTypes__default.node,
-  tag: PropTypes__default.string,
-  target: PropTypes__default.string,
-  className: PropTypes__default.string
+  active: PropTypes.bool,
+  action: PropTypes.bool,
+  block: PropTypes.bool,
+  color: PropTypes.string,
+  disabled: PropTypes.bool,
+  download: PropTypes.string,
+  gradient: PropTypes.string,
+  role: PropTypes.string,
+  type: PropTypes.string,
+  outline: PropTypes.bool,
+  rounded: PropTypes.bool,
+  circle: PropTypes.bool,
+  floating: PropTypes.bool,
+  flat: PropTypes.bool,
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  onClick: PropTypes.func,
+  size: PropTypes.string,
+  social: PropTypes.string,
+  children: PropTypes.node,
+  tag: PropTypes.string,
+  target: PropTypes.string,
+  className: PropTypes.string
 };
 
 var css$2 = ".btn-group-vertical>.btn,\n.btn-group-vertical>.btn+.btn-group,\n.btn-group-vertical>.btn-group+.btn,\n.btn-group-vertical>.btn-group+.btn-group {\n  margin-left: 0px;\n}\n\n.btn-group-lg>.btn {\n  font-size: 0.9rem;\n  padding: 1rem 2.4rem;\n}\n\n.btn-group-sm>.btn {\n  font-size: 0.6rem;\n  padding: 0.5rem 1.6rem;\n}\n\n.btn-floating.btn.btn-sm,\n.btn-floating.btn.btn-lg {\n  padding: 0;\n}\n";
@@ -1018,22 +1009,22 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "size", "vertical"]);
 
       var classes = classNames(className, size ? "btn-group-" + size : false, vertical ? "btn-group-vertical" : "btn-group");
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
       }), this.props.children);
     }
   }]);
 
   return ButtonGroup;
-}(React__default.Component);
+}(React.Component);
 
 ButtonGroup.propTypes = {
-  "aria-label": PropTypes__default.string,
-  className: PropTypes__default.string,
-  role: PropTypes__default.string,
-  size: PropTypes__default.string,
-  children: PropTypes__default.node,
-  vertical: PropTypes__default.bool
+  "aria-label": PropTypes.string,
+  className: PropTypes.string,
+  role: PropTypes.string,
+  size: PropTypes.string,
+  children: PropTypes.node,
+  vertical: PropTypes.bool
 };
 ButtonGroup.defaultProps = {
   role: "group"
@@ -1058,20 +1049,20 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className"]);
 
       var classes = classNames(className, "btn-toolbar");
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
       }), this.props.children);
     }
   }]);
 
   return ButtonToolbar;
-}(React__default.Component);
+}(React.Component);
 
 ButtonToolbar.propTypes = {
-  "aria-label": PropTypes__default.string,
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  role: PropTypes__default.string
+  "aria-label": PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
+  role: PropTypes.string
 };
 ButtonToolbar.defaultProps = {
   role: "toolbar"
@@ -1110,20 +1101,20 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "cascade", "wide", "narrow", "reverse", "testimonial", "ecommerce", "collection", "pricing", "personal", "news", "color", "text", "border"]);
 
       var classes = classNames("card", cascade && "card-cascade", wide && "card-cascade wider", narrow && "card-cascade narrower", reverse && "card-cascade wider reverse", testimonial && "testimonial-card", ecommerce && "card-ecommerce", collection && "collection-card", pricing && "pricing-card", personal && "card-personal", news && "news-card", color && color, text && text + "-text", border && "border-" + border, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return Card;
-}(React.Component);
+}(Component);
 
 Card.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  color: PropTypes__default.string,
-  border: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  color: PropTypes.string,
+  border: PropTypes.string
 };
 Card.defaultProps = {
   tag: "div"
@@ -1150,19 +1141,19 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "cascade"]);
 
       var classes = classNames("card-body", cascade && "card-body-cascade", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return CardBody;
-}(React.Component);
+}(Component);
 
 CardBody.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  cascade: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  cascade: PropTypes.bool
 };
 CardBody.defaultProps = {
   tag: "div"
@@ -1194,14 +1185,14 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "color", "text", "border", "transparent", "small", "muted"]);
 
       var classes = classNames("card-footer", color && color, text && text, color && !text && " white-text", border && "border-" + border, transparent && "bg-transparent", muted && "text-muted", className);
-      var component = React__default.createElement(Tag, _extends({}, attributes, {
+      var component = React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
 
       if (small) {
-        component = React__default.createElement(Tag, _extends({}, attributes, {
+        component = React.createElement(Tag, _extends({}, attributes, {
           className: classes
-        }), React__default.createElement("small", null, " ", this.props.children, " "));
+        }), React.createElement("small", null, " ", this.props.children, " "));
       }
 
       return component;
@@ -1209,17 +1200,17 @@ function (_Component) {
   }]);
 
   return CardFooter;
-}(React.Component);
+}(Component);
 
 CardFooter.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  color: PropTypes__default.string,
-  text: PropTypes__default.string,
-  border: PropTypes__default.string,
-  transparent: PropTypes__default.bool,
-  small: PropTypes__default.bool,
-  muted: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  color: PropTypes.string,
+  text: PropTypes.string,
+  border: PropTypes.string,
+  transparent: PropTypes.bool,
+  small: PropTypes.bool,
+  muted: PropTypes.bool
 };
 CardFooter.defaultProps = {
   tag: "div"
@@ -1247,20 +1238,20 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "deck", "column"]);
 
       var classes = classNames(deck ? "card-deck" : column ? "card-columns" : "card-group", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return CardGroup;
-}(React.Component);
+}(Component);
 
 CardGroup.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  deck: PropTypes__default.bool,
-  column: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  deck: PropTypes.bool,
+  column: PropTypes.bool
 };
 CardGroup.defaultProps = {
   tag: "div"
@@ -1290,22 +1281,22 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "color", "text", "border", "transparent"]);
 
       var classes = classNames("card-header", color && color, text && text, color && !text && " white-text", border && "border-" + border, transparent && "bg-transparent", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return CardHeader;
-}(React.Component);
+}(Component);
 
 CardHeader.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  color: PropTypes__default.string,
-  text: PropTypes__default.string,
-  border: PropTypes__default.string,
-  transparent: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  color: PropTypes.string,
+  text: PropTypes.string,
+  border: PropTypes.string,
+  transparent: PropTypes.bool
 };
 CardHeader.defaultProps = {
   tag: "div"
@@ -1334,21 +1325,21 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "overlay", "pattern", "tag"]);
 
       var classes = classNames("mask", pattern && "pattern-".concat(pattern), overlay && "rgba-".concat(overlay), className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), this.props.children);
     }
   }]);
 
   return Mask;
-}(React__default.Component);
+}(React.Component);
 
 Mask.propTypes = {
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  overlay: PropTypes__default.string,
-  pattern: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number]),
-  tag: PropTypes__default.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  overlay: PropTypes.string,
+  pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  tag: PropTypes.string
 };
 Mask.defaultProps = {
   className: "",
@@ -1410,19 +1401,19 @@ function (_React$Component) {
         backgroundPosition: "center center",
         height: "100vh"
       } : {};
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes,
         onMouseDown: this.handleClick.bind(this),
         onTouchStart: this.handleClick.bind(this),
         style: viewStyle
-      }), children, waves && React__default.createElement(Waves, {
+      }), children, waves && React.createElement(Waves, {
         cursorPos: this.state.cursorPos
       }));
     }
   }]);
 
   return View;
-}(React__default.Component);
+}(React.Component);
 
 View.defaultProps = {
   cascade: false,
@@ -1435,15 +1426,15 @@ View.defaultProps = {
   zoom: false
 };
 View.propTypes = {
-  cascade: PropTypes__default.bool,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  hover: PropTypes__default.bool,
-  rounded: PropTypes__default.bool,
-  src: PropTypes__default.string,
-  tag: PropTypes__default.string,
-  waves: PropTypes__default.bool,
-  zoom: PropTypes__default.bool
+  cascade: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  hover: PropTypes.bool,
+  rounded: PropTypes.bool,
+  src: PropTypes.string,
+  tag: PropTypes.string,
+  waves: PropTypes.bool,
+  zoom: PropTypes.bool
 };
 
 var CardImage =
@@ -1492,44 +1483,44 @@ function (_Component) {
 
       var classes = classNames(top && "card-img-top", className);
       var Tag = tag;
-      var innerContent = React__default.createElement(Tag, _extends({}, attributes, {
+      var innerContent = React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), this.props.children);
 
       if (this.props.src) {
-        return React__default.createElement(View, {
+        return React.createElement(View, {
           zoom: zoom,
           hover: this.props.hover,
           cascade: this.props.cascade
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "Ripple-parent",
           onMouseDown: this.handleClick.bind(this),
           onTouchStart: this.handleClick.bind(this)
-        }, innerContent, React__default.createElement(Mask, {
+        }, innerContent, React.createElement(Mask, {
           overlay: overlay
-        }), this.props.waves && React__default.createElement(Waves, {
+        }), this.props.waves && React.createElement(Waves, {
           cursorPos: this.state.cursorPos
         })));
       } else {
-        return React__default.createElement("div", null, innerContent);
+        return React.createElement("div", null, innerContent);
       }
     }
   }]);
 
   return CardImage;
-}(React.Component);
+}(Component);
 
 CardImage.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  zoom: PropTypes__default.bool,
-  waves: PropTypes__default.bool,
-  className: PropTypes__default.string,
-  cascade: PropTypes__default.bool,
-  hover: PropTypes__default.bool,
-  overlay: PropTypes__default.string,
-  top: PropTypes__default.bool,
-  src: PropTypes__default.string,
-  children: PropTypes__default.node
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  zoom: PropTypes.bool,
+  waves: PropTypes.bool,
+  className: PropTypes.string,
+  cascade: PropTypes.bool,
+  hover: PropTypes.bool,
+  overlay: PropTypes.string,
+  top: PropTypes.bool,
+  src: PropTypes.string,
+  children: PropTypes.node
 };
 CardImage.defaultProps = {
   tag: "img",
@@ -1562,14 +1553,14 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "muted", "small"]);
 
       var classes = classNames("card-text", muted && "text-muted", className);
-      var text = React__default.createElement(Tag, _extends({}, attributes, {
+      var text = React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
 
       if (small) {
-        text = React__default.createElement(Tag, _extends({}, attributes, {
+        text = React.createElement(Tag, _extends({}, attributes, {
           className: classes
-        }), React__default.createElement("small", null, " ", this.props.children, " "));
+        }), React.createElement("small", null, " ", this.props.children, " "));
       }
 
       return text;
@@ -1577,13 +1568,13 @@ function (_Component) {
   }]);
 
   return CardText;
-}(React.Component);
+}(Component);
 
 CardText.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  muted: PropTypes__default.bool,
-  small: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  muted: PropTypes.bool,
+  small: PropTypes.bool
 };
 CardText.defaultProps = {
   tag: "p"
@@ -1610,19 +1601,19 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "sub"]);
 
       var classes = classNames(sub ? "card-subtitle" : "card-title", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return CardTitle;
-}(React.Component);
+}(Component);
 
 CardTitle.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  sub: PropTypes__default.bool,
-  className: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  sub: PropTypes.bool,
+  className: PropTypes.string
 };
 CardTitle.defaultProps = {
   tag: "h4",
@@ -1673,35 +1664,35 @@ function (_Component) {
         classes = classNames("btn-floating");
       }
 
-      return React__default.createElement(Tag, {
+      return React.createElement(Tag, {
         className: classes,
         "data-slide": direction,
         onClick: onClick
-      }, iconLeft ? React__default.createElement(Fa, {
+      }, iconLeft ? React.createElement(Fa, {
         icon: "chevron-left"
-      }) : iconRight ? React__default.createElement(Fa, {
+      }) : iconRight ? React.createElement(Fa, {
         icon: "chevron-right"
-      }) : React__default.createElement("div", null, React__default.createElement("span", {
+      }) : React.createElement("div", null, React.createElement("span", {
         className: caretClasses,
         "aria-hidden": "true"
-      }), React__default.createElement("span", {
+      }), React.createElement("span", {
         className: "sr-only"
       }, text)));
     }
   }]);
 
   return Control;
-}(React.Component);
+}(Component);
 
 Control.propTypes = {
-  onClick: PropTypes__default.any,
-  direction: PropTypes__default.string,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  iconLeft: PropTypes__default.bool,
-  iconRight: PropTypes__default.bool,
-  testimonial: PropTypes__default.bool,
-  multiItem: PropTypes__default.bool
+  onClick: PropTypes.any,
+  direction: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  iconLeft: PropTypes.bool,
+  iconRight: PropTypes.bool,
+  testimonial: PropTypes.bool,
+  multiItem: PropTypes.bool
 };
 Control.defaultProps = {
   tag: "a"
@@ -1727,18 +1718,18 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className"]);
 
       var classes = classNames("carousel-indicators", className);
-      return React__default.createElement("ol", _extends({}, attributes, {
+      return React.createElement("ol", _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return CarouselIndicators;
-}(React.Component);
+}(Component);
 
 CarouselIndicators.propTypes = {
-  children: PropTypes__default.node,
-  className: PropTypes__default.string
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 CarouselIndicators.defaultProps = {
   className: ""
@@ -1767,9 +1758,9 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["active", "children", "className", "img", "alt"]);
 
       var classes = classNames(this.props.active ? "active" : "", className);
-      return React__default.createElement("li", _extends({}, attributes, {
+      return React.createElement("li", _extends({}, attributes, {
         className: classes
-      }), this.props.img && React__default.createElement("img", {
+      }), this.props.img && React.createElement("img", {
         src: this.props.img,
         alt: this.props.alt,
         className: "img-fluid"
@@ -1778,14 +1769,14 @@ function (_Component) {
   }]);
 
   return CarouselIndicator;
-}(React.Component);
+}(Component);
 
 CarouselIndicator.propTypes = {
-  active: PropTypes__default.bool.isRequired,
-  alt: PropTypes__default.string,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  img: PropTypes__default.string
+  active: PropTypes.bool.isRequired,
+  alt: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  img: PropTypes.string
 };
 CarouselIndicator.defaultProps = {
   alt: "Carousel thumbnail",
@@ -1873,7 +1864,7 @@ function (_Component) {
       slide: _this.props.slide,
       srcArray: []
     };
-    _this.carouselRef = React__default.createRef();
+    _this.carouselRef = React.createRef();
     return _this;
   }
 
@@ -1931,7 +1922,7 @@ function (_Component) {
       var CarouselIndicatorsArray = [];
 
       var _loop = function _loop(i) {
-        CarouselIndicatorsArray.push(React__default.createElement(CarouselIndicator, {
+        CarouselIndicatorsArray.push(React.createElement(CarouselIndicator, {
           img: thumbnails ? _this2.state.srcArray[i - 1] : null,
           key: i,
           active: _this2.state.activeItem === i ? true : false,
@@ -1945,14 +1936,14 @@ function (_Component) {
         _loop(i);
       }
 
-      return React__default.createElement(Tag, _extends({
+      return React.createElement(Tag, _extends({
         ref: this.carouselRef
       }, attributes, {
         className: classes,
         "aria-label": ariaLabel
-      }), showControls && multiItem && React__default.createElement("div", {
+      }), showControls && multiItem && React.createElement("div", {
         className: "controls-top"
-      }, React__default.createElement(Control, {
+      }, React.createElement(Control, {
         testimonial: testimonial ? true : false,
         multiItem: multiItem ? true : false,
         iconLeft: true,
@@ -1960,7 +1951,7 @@ function (_Component) {
         direction: "prev",
         role: "button",
         onClick: this.prev
-      }), React__default.createElement(Control, {
+      }), React.createElement(Control, {
         testimonial: testimonial ? true : false,
         multiItem: multiItem ? true : false,
         iconRight: true,
@@ -1968,38 +1959,38 @@ function (_Component) {
         direction: "next",
         role: "button",
         onClick: this.next
-      })), children, showControls && !multiItem && React__default.createElement(React__default.Fragment, null, React__default.createElement(Control, {
+      })), children, showControls && !multiItem && React.createElement(React.Fragment, null, React.createElement(Control, {
         testimonial: testimonial ? true : false,
         multiItem: multiItem ? true : false,
         direction: "prev",
         role: "button",
         onClick: this.prev
-      }), React__default.createElement(Control, {
+      }), React.createElement(Control, {
         testimonial: testimonial ? true : false,
         multiItem: multiItem ? true : false,
         direction: "next",
         role: "button",
         onClick: this.next
-      })), React__default.createElement(CarouselIndicators, null, showIndicators && CarouselIndicatorsArray));
+      })), React.createElement(CarouselIndicators, null, showIndicators && CarouselIndicatorsArray));
     }
   }]);
 
   return Carousel;
-}(React.Component);
+}(Component);
 
 Carousel.propTypes = {
-  activeItem: PropTypes__default.number,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  multiItem: PropTypes__default.bool,
-  interval: PropTypes__default.oneOfType([PropTypes__default.number, PropTypes__default.bool]),
-  thumbnails: PropTypes__default.bool,
-  testimonial: PropTypes__default.bool,
-  showControls: PropTypes__default.bool,
-  showIndicators: PropTypes__default.bool,
-  slide: PropTypes__default.bool,
-  length: PropTypes__default.number
+  activeItem: PropTypes.number,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node,
+  multiItem: PropTypes.bool,
+  interval: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
+  thumbnails: PropTypes.bool,
+  testimonial: PropTypes.bool,
+  showControls: PropTypes.bool,
+  showIndicators: PropTypes.bool,
+  slide: PropTypes.bool,
+  length: PropTypes.number
 };
 Carousel.defaultProps = {
   tag: 'div',
@@ -2008,9 +1999,9 @@ Carousel.defaultProps = {
   showIndicators: true
 };
 Carousel.childContextTypes = {
-  activeItem: PropTypes__default.any,
-  length: PropTypes__default.any,
-  slide: PropTypes__default.any
+  activeItem: PropTypes.any,
+  length: PropTypes.any,
+  slide: PropTypes.any
 };
 
 var CarouselCaption =
@@ -2034,20 +2025,20 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag"]);
 
       var classes = classNames("carousel-caption", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return CarouselCaption;
-}(React.Component);
+}(Component);
 
 CarouselCaption.propTypes = {
-  active: PropTypes__default.string,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node
+  active: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 CarouselCaption.defaultProps = {
   tag: "div"
@@ -2065,7 +2056,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(CarouselInner).call(this, props));
     _this.state = {
-      childrenCount: React__default.Children.count(_this.props.children)
+      childrenCount: React.Children.count(_this.props.children)
     };
     return _this;
   }
@@ -2082,28 +2073,28 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["active", "children", "childrenCount", "className", "tag"]);
 
       var classes = classNames("carousel-inner", active ? "active" : "", className);
-      childrenCount = React__default.Children.count(this.props.children);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      childrenCount = React.Children.count(this.props.children);
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return CarouselInner;
-}(React.Component);
+}(Component);
 
 CarouselInner.propTypes = {
-  childrenCount: PropTypes__default.any,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  active: PropTypes__default.bool,
-  children: PropTypes__default.node
+  childrenCount: PropTypes.any,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  active: PropTypes.bool,
+  children: PropTypes.node
 };
 CarouselInner.defaultProps = {
   tag: "div"
 };
 CarouselInner.contextTypes = {
-  childrenCount: PropTypes__default.any
+  childrenCount: PropTypes.any
 };
 
 var CarouselItem =
@@ -2171,7 +2162,7 @@ function (_Component) {
         }
       }
 
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes,
         style: this.style
       }), children);
@@ -2179,22 +2170,22 @@ function (_Component) {
   }]);
 
   return CarouselItem;
-}(React.Component);
+}(Component);
 
 CarouselItem.propTypes = {
-  active: PropTypes__default.bool,
-  itemId: PropTypes__default.any,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node
+  active: PropTypes.bool,
+  itemId: PropTypes.any,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 CarouselItem.defaultProps = {
   tag: "div"
 };
 CarouselItem.contextTypes = {
-  activeItem: PropTypes__default.any,
-  length: PropTypes__default.any,
-  slide: PropTypes__default.any
+  activeItem: PropTypes.any,
+  length: PropTypes.any,
+  slide: PropTypes.any
 };
 
 var Col =
@@ -2226,27 +2217,27 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["xs", "sm", "md", "lg", "xl", "top", "bottom", "middle", "size", "className", "tag"]);
 
       var classes = classNames(size && "col-" + size, xs && "col-xs-" + xs, sm && "col-sm-" + sm, md && "col-md-" + md, lg && "col-lg-" + lg, xl && "col-xl-" + xl, !size && !xs && !sm && !md && !lg && !xl ? "col" : "", top && "align-self-start", middle && "align-self-center", bottom && "align-self-end", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return Col;
-}(React.Component);
+}(Component);
 
 Col.propTypes = {
-  size: PropTypes__default.string,
-  xs: PropTypes__default.string,
-  sm: PropTypes__default.string,
-  md: PropTypes__default.string,
-  lg: PropTypes__default.string,
-  xl: PropTypes__default.string,
-  top: PropTypes__default.bool,
-  bottom: PropTypes__default.bool,
-  middle: PropTypes__default.bool,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  size: PropTypes.string,
+  xs: PropTypes.string,
+  sm: PropTypes.string,
+  md: PropTypes.string,
+  lg: PropTypes.string,
+  xl: PropTypes.string,
+  top: PropTypes.bool,
+  bottom: PropTypes.bool,
+  middle: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
 };
 Col.defaultProps = {
   tag: "div",
@@ -2412,7 +2403,7 @@ function (_Component) {
       var style = height === null ? null : {
         height: height
       };
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         style: _objectSpread({}, attributes.style, style),
         className: classes,
         ref: function ref(c) {
@@ -2423,20 +2414,20 @@ function (_Component) {
   }]);
 
   return Collapse;
-}(React.Component);
+}(Component);
 
 Collapse.propTypes = {
-  isOpen: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.bool]),
-  id: PropTypes__default.string,
-  className: PropTypes__default.node,
-  children: PropTypes__default.node,
-  navbar: PropTypes__default.bool,
-  delay: PropTypes__default.oneOfType([PropTypes__default.shape({
-    show: PropTypes__default.number,
-    hide: PropTypes__default.number
-  }), PropTypes__default.number]),
-  onOpened: PropTypes__default.func,
-  onClosed: PropTypes__default.func
+  isOpen: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  id: PropTypes.string,
+  className: PropTypes.node,
+  children: PropTypes.node,
+  navbar: PropTypes.bool,
+  delay: PropTypes.oneOfType([PropTypes.shape({
+    show: PropTypes.number,
+    hide: PropTypes.number
+  }), PropTypes.number]),
+  onOpened: PropTypes.func,
+  onClosed: PropTypes.func
 };
 Collapse.defaultProps = {
   isOpen: "",
@@ -2466,19 +2457,19 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["fluid", "className", "tag"]);
 
       var classes = classNames(fluid ? "container-fluid" : "container", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return Container;
-}(React.Component);
+}(Component);
 
 Container.propTypes = {
-  fluid: PropTypes__default.bool,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  fluid: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
 };
 Container.defaultProps = {
   tag: "div",
@@ -2546,38 +2537,38 @@ function (_React$Component) {
       var wrapperStyles = {
         maxHeight: maxHeight ? "".concat(maxHeight) : null
       };
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: wrapperClasses,
         style: wrapperStyles
-      }, React__default.createElement("table", _extends({}, attributes, {
+      }, React.createElement("table", _extends({}, attributes, {
         className: tableClasses
       }), children));
     }
   }]);
 
   return Table;
-}(React__default.Component);
+}(React.Component);
 
 Table.propTypes = {
-  autoWidth: PropTypes__default.bool,
-  bordered: PropTypes__default.bool,
-  borderless: PropTypes__default.bool,
-  btn: PropTypes__default.bool,
-  children: PropTypes__default.node,
-  dark: PropTypes__default.bool,
-  fixed: PropTypes__default.bool,
-  theadColor: PropTypes__default.string,
-  hover: PropTypes__default.bool,
-  maxHeight: PropTypes__default.string,
-  responsive: PropTypes__default.bool,
-  responsiveSm: PropTypes__default.bool,
-  responsiveMd: PropTypes__default.bool,
-  responsiveLg: PropTypes__default.bool,
-  responsiveXl: PropTypes__default.bool,
-  scrollY: PropTypes__default.bool,
-  small: PropTypes__default.bool,
-  striped: PropTypes__default.bool,
-  className: PropTypes__default.string
+  autoWidth: PropTypes.bool,
+  bordered: PropTypes.bool,
+  borderless: PropTypes.bool,
+  btn: PropTypes.bool,
+  children: PropTypes.node,
+  dark: PropTypes.bool,
+  fixed: PropTypes.bool,
+  theadColor: PropTypes.string,
+  hover: PropTypes.bool,
+  maxHeight: PropTypes.string,
+  responsive: PropTypes.bool,
+  responsiveSm: PropTypes.bool,
+  responsiveMd: PropTypes.bool,
+  responsiveLg: PropTypes.bool,
+  responsiveXl: PropTypes.bool,
+  scrollY: PropTypes.bool,
+  small: PropTypes.bool,
+  striped: PropTypes.bool,
+  className: PropTypes.string
 };
 
 var DataTableHead = function DataTableHead(props) {
@@ -2589,24 +2580,24 @@ var DataTableHead = function DataTableHead(props) {
       sortable = props.sortable,
       textWhite = props.textWhite;
   var theadClasses = classNames(color && (color !== "dark" && color !== "light" ? color : "thead-".concat(color)), textWhite && "text-white");
-  return React__default.createElement(React.Fragment, null, (scrollY || scrollX) && React__default.createElement("colgroup", null, columns.map(function (col) {
-    return React__default.createElement("col", {
+  return React.createElement(Fragment, null, (scrollY || scrollX) && React.createElement("colgroup", null, columns.map(function (col) {
+    return React.createElement("col", {
       key: col.field,
       style: {
         width: "".concat(col.width, "px") || "auto",
         minWidth: "".concat(col.width, "px") || "auto"
       }
     });
-  })), React__default.createElement("thead", {
+  })), React.createElement("thead", {
     className: theadClasses || undefined
-  }, React__default.createElement("tr", null, columns.map(function (col) {
-    return React__default.createElement("th", _extends({
+  }, React.createElement("tr", null, columns.map(function (col) {
+    return React.createElement("th", _extends({
       onClick: function onClick() {
         return sortable && handleSort(col.field, col.sort);
       },
       key: col.field,
       className: col.hasOwnProperty("minimal") ? "th-".concat(col.minimal) : undefined
-    }, col.attributes), col.label, sortable && col.sort !== 'disabled' && React__default.createElement(Fa, {
+    }, col.attributes), col.label, sortable && col.sort !== 'disabled' && React.createElement(Fa, {
       icon: "sort",
       className: "float-right",
       "aria-hidden": "true"
@@ -2615,13 +2606,13 @@ var DataTableHead = function DataTableHead(props) {
 };
 
 DataTableHead.propTypes = {
-  color: PropTypes__default.string,
-  columns: PropTypes__default.arrayOf(PropTypes__default.object),
-  handleSort: PropTypes__default.func,
-  scrollX: PropTypes__default.bool,
-  scrollY: PropTypes__default.bool,
-  sortable: PropTypes__default.bool,
-  textWhite: PropTypes__default.bool
+  color: PropTypes.string,
+  columns: PropTypes.arrayOf(PropTypes.object),
+  handleSort: PropTypes.func,
+  scrollX: PropTypes.bool,
+  scrollY: PropTypes.bool,
+  sortable: PropTypes.bool,
+  textWhite: PropTypes.bool
 };
 DataTableHead.defaultProps = {
   scrollX: false,
@@ -2640,21 +2631,21 @@ var TableBody = function TableBody(props) {
   var classes = classNames(color, {
     "text-white": textWhite
   });
-  return React__default.createElement("tbody", _extends({}, attributes, {
+  return React.createElement("tbody", _extends({}, attributes, {
     className: classes || undefined
   }), rows && rows.map(function (row, index) {
-    return React__default.createElement("tr", {
+    return React.createElement("tr", {
       onClick: row.hasOwnProperty("clickEvent") ? row.clickEvent : undefined,
       key: index
     }, Object.keys(row).map(function (key, index, array) {
       if (key === "clickEvent") return null;
 
       if (key !== "colspan") {
-        return array[index + 1] !== "colspan" ? React__default.createElement("td", {
+        return array[index + 1] !== "colspan" ? React.createElement("td", {
           key: key
         }, row[key]) : null;
       } else {
-        return React__default.createElement("td", {
+        return React.createElement("td", {
           key: key,
           colSpan: row[key]
         }, row[array[index - 1]]);
@@ -2664,10 +2655,10 @@ var TableBody = function TableBody(props) {
 };
 
 TableBody.propTypes = {
-  children: PropTypes__default.node,
-  color: PropTypes__default.string,
-  rows: PropTypes__default.arrayOf(PropTypes__default.object),
-  textWhite: PropTypes__default.bool
+  children: PropTypes.node,
+  color: PropTypes.string,
+  rows: PropTypes.arrayOf(PropTypes.object),
+  textWhite: PropTypes.bool
 };
 TableBody.defaultProps = {
   textWhite: false
@@ -2683,10 +2674,10 @@ var TableFoot = function TableFoot(props) {
   var classes = classNames(color && (color !== "dark" && color !== "light" ? color : "thead-".concat(color)), {
     "text-white": textWhite
   });
-  return React__default.createElement("thead", _extends({}, attributes, {
+  return React.createElement("thead", _extends({}, attributes, {
     className: classes || undefined
-  }), columns && React__default.createElement("tr", null, columns.map(function (col) {
-    return React__default.createElement("th", {
+  }), columns && React.createElement("tr", null, columns.map(function (col) {
+    return React.createElement("th", {
       key: col.field,
       className: col.hasOwnProperty("minimal") ? "th-".concat(col.minimal) : undefined
     }, col.label);
@@ -2694,10 +2685,10 @@ var TableFoot = function TableFoot(props) {
 };
 
 TableFoot.propTypes = {
-  children: PropTypes__default.node,
-  color: PropTypes__default.string,
-  columns: PropTypes__default.arrayOf(PropTypes__default.object),
-  textWhite: PropTypes__default.bool
+  children: PropTypes.node,
+  color: PropTypes.string,
+  columns: PropTypes.arrayOf(PropTypes.object),
+  textWhite: PropTypes.bool
 };
 TableFoot.defaultProps = {
   textWhite: false
@@ -2729,9 +2720,9 @@ var DataTableTable = function DataTableTable(props) {
       theadTextWhite = props.theadTextWhite,
       attributes = _objectWithoutProperties(props, ["autoWidth", "bordered", "borderless", "btn", "children", "columns", "dark", "fixed", "hover", "handleSort", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "rows", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite"]);
 
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "col-sm-12"
-  }, React__default.createElement(Table, _extends({
+  }, React.createElement(Table, _extends({
     autoWidth: autoWidth,
     bordered: bordered,
     borderless: borderless,
@@ -2747,17 +2738,17 @@ var DataTableTable = function DataTableTable(props) {
     small: small,
     striped: striped,
     className: "dataTable"
-  }, attributes), React__default.createElement(DataTableHead, {
+  }, attributes), React.createElement(DataTableHead, {
     color: theadColor,
     textWhite: theadTextWhite,
     columns: columns,
     handleSort: handleSort,
     sortable: sortable
-  }), React__default.createElement(TableBody, {
+  }), React.createElement(TableBody, {
     color: tbodyColor,
     textWhite: tbodyTextWhite,
     rows: rows
-  }), React__default.createElement(TableFoot, {
+  }), React.createElement(TableFoot, {
     color: theadColor,
     textWhite: theadTextWhite,
     columns: columns
@@ -2765,29 +2756,29 @@ var DataTableTable = function DataTableTable(props) {
 };
 
 DataTableTable.propTypes = {
-  autoWidth: PropTypes__default.bool.isRequired,
-  bordered: PropTypes__default.bool.isRequired,
-  borderless: PropTypes__default.bool.isRequired,
-  btn: PropTypes__default.bool.isRequired,
-  dark: PropTypes__default.bool.isRequired,
-  fixed: PropTypes__default.bool.isRequired,
-  hover: PropTypes__default.bool.isRequired,
-  handleSort: PropTypes__default.func.isRequired,
-  responsive: PropTypes__default.bool.isRequired,
-  responsiveSm: PropTypes__default.bool.isRequired,
-  responsiveMd: PropTypes__default.bool.isRequired,
-  responsiveLg: PropTypes__default.bool.isRequired,
-  responsiveXl: PropTypes__default.bool.isRequired,
-  sortable: PropTypes__default.bool.isRequired,
-  small: PropTypes__default.bool.isRequired,
-  striped: PropTypes__default.bool.isRequired,
-  theadColor: PropTypes__default.string.isRequired,
-  theadTextWhite: PropTypes__default.bool.isRequired,
-  tbodyColor: PropTypes__default.string.isRequired,
-  tbodyTextWhite: PropTypes__default.bool.isRequired,
-  columns: PropTypes__default.arrayOf(PropTypes__default.object),
-  rows: PropTypes__default.arrayOf(PropTypes__default.object),
-  children: PropTypes__default.node
+  autoWidth: PropTypes.bool.isRequired,
+  bordered: PropTypes.bool.isRequired,
+  borderless: PropTypes.bool.isRequired,
+  btn: PropTypes.bool.isRequired,
+  dark: PropTypes.bool.isRequired,
+  fixed: PropTypes.bool.isRequired,
+  hover: PropTypes.bool.isRequired,
+  handleSort: PropTypes.func.isRequired,
+  responsive: PropTypes.bool.isRequired,
+  responsiveSm: PropTypes.bool.isRequired,
+  responsiveMd: PropTypes.bool.isRequired,
+  responsiveLg: PropTypes.bool.isRequired,
+  responsiveXl: PropTypes.bool.isRequired,
+  sortable: PropTypes.bool.isRequired,
+  small: PropTypes.bool.isRequired,
+  striped: PropTypes.bool.isRequired,
+  theadColor: PropTypes.string.isRequired,
+  theadTextWhite: PropTypes.bool.isRequired,
+  tbodyColor: PropTypes.string.isRequired,
+  tbodyTextWhite: PropTypes.bool.isRequired,
+  columns: PropTypes.arrayOf(PropTypes.object),
+  rows: PropTypes.arrayOf(PropTypes.object),
+  children: PropTypes.node
 };
 
 var DataTableTableScroll = function DataTableTableScroll(props) {
@@ -2821,16 +2812,16 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
       translateScrollHead = props.translateScrollHead,
       attributes = _objectWithoutProperties(props, ["autoWidth", "bordered", "borderless", "btn", "children", "columns", "dark", "fixed", "hover", "handleSort", "handleTableBodyScroll", "maxHeight", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "rows", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "translateScrollHead"]);
 
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "col-sm-12"
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "dataTables_scroll"
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "dataTables_scrollHead",
     style: {
       overflow: "hidden"
     }
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "dataTables_scrollHeadInner",
     style: {
       position: "relative",
@@ -2843,7 +2834,7 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
         return prev + curr;
       }, 0) + "px" : "auto")
     }
-  }, React__default.createElement(Table, _extends({
+  }, React.createElement(Table, _extends({
     autoWidth: autoWidth,
     bordered: bordered,
     borderless: borderless,
@@ -2859,7 +2850,7 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
     small: small,
     striped: striped,
     className: "dataTable"
-  }, attributes), React__default.createElement(DataTableHead, {
+  }, attributes), React.createElement(DataTableHead, {
     color: theadColor,
     textWhite: theadTextWhite,
     columns: columns,
@@ -2867,13 +2858,13 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
     scrollX: scrollX,
     scrollY: scrollY,
     sortable: sortable
-  })))), React__default.createElement("div", {
+  })))), React.createElement("div", {
     className: "dataTable_scrollBody",
     style: {
       overflow: "auto"
     },
     onScroll: handleTableBodyScroll
-  }, React__default.createElement(Table, _extends({
+  }, React.createElement(Table, _extends({
     style: {
       minWidth: "".concat(scrollX ? columns.map(function (col) {
         return col.width;
@@ -2898,15 +2889,15 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
     small: small,
     striped: striped,
     className: "dataTable"
-  }, attributes), React__default.createElement("colgroup", null, columns.map(function (col) {
-    return React__default.createElement("col", {
+  }, attributes), React.createElement("colgroup", null, columns.map(function (col) {
+    return React.createElement("col", {
       key: col.field,
       style: {
         width: "".concat(col.width, "px") || "auto",
         minWidth: "".concat(col.width, "px") || "auto"
       }
     });
-  })), React__default.createElement(TableBody, {
+  })), React.createElement(TableBody, {
     color: tbodyColor,
     textWhite: tbodyTextWhite,
     rows: rows
@@ -2914,39 +2905,39 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
 };
 
 DataTableTableScroll.propTypes = {
-  autoWidth: PropTypes__default.bool.isRequired,
-  bordered: PropTypes__default.bool.isRequired,
-  borderless: PropTypes__default.bool.isRequired,
-  btn: PropTypes__default.bool.isRequired,
-  dark: PropTypes__default.bool.isRequired,
-  fixed: PropTypes__default.bool.isRequired,
-  hover: PropTypes__default.bool.isRequired,
-  handleSort: PropTypes__default.func.isRequired,
-  handleTableBodyScroll: PropTypes__default.func.isRequired,
-  responsive: PropTypes__default.bool.isRequired,
-  responsiveSm: PropTypes__default.bool.isRequired,
-  responsiveMd: PropTypes__default.bool.isRequired,
-  responsiveLg: PropTypes__default.bool.isRequired,
-  responsiveXl: PropTypes__default.bool.isRequired,
-  sortable: PropTypes__default.bool.isRequired,
-  small: PropTypes__default.bool.isRequired,
-  striped: PropTypes__default.bool.isRequired,
-  theadColor: PropTypes__default.string.isRequired,
-  theadTextWhite: PropTypes__default.bool.isRequired,
-  tbodyColor: PropTypes__default.string.isRequired,
-  tbodyTextWhite: PropTypes__default.bool.isRequired,
-  translateScrollHead: PropTypes__default.number.isRequired,
-  columns: PropTypes__default.arrayOf(PropTypes__default.object),
-  rows: PropTypes__default.arrayOf(PropTypes__default.object),
-  children: PropTypes__default.node,
-  maxHeight: PropTypes__default.string,
-  scrollX: PropTypes__default.bool,
-  scrollY: PropTypes__default.bool
+  autoWidth: PropTypes.bool.isRequired,
+  bordered: PropTypes.bool.isRequired,
+  borderless: PropTypes.bool.isRequired,
+  btn: PropTypes.bool.isRequired,
+  dark: PropTypes.bool.isRequired,
+  fixed: PropTypes.bool.isRequired,
+  hover: PropTypes.bool.isRequired,
+  handleSort: PropTypes.func.isRequired,
+  handleTableBodyScroll: PropTypes.func.isRequired,
+  responsive: PropTypes.bool.isRequired,
+  responsiveSm: PropTypes.bool.isRequired,
+  responsiveMd: PropTypes.bool.isRequired,
+  responsiveLg: PropTypes.bool.isRequired,
+  responsiveXl: PropTypes.bool.isRequired,
+  sortable: PropTypes.bool.isRequired,
+  small: PropTypes.bool.isRequired,
+  striped: PropTypes.bool.isRequired,
+  theadColor: PropTypes.string.isRequired,
+  theadTextWhite: PropTypes.bool.isRequired,
+  tbodyColor: PropTypes.string.isRequired,
+  tbodyTextWhite: PropTypes.bool.isRequired,
+  translateScrollHead: PropTypes.number.isRequired,
+  columns: PropTypes.arrayOf(PropTypes.object),
+  rows: PropTypes.arrayOf(PropTypes.object),
+  children: PropTypes.node,
+  maxHeight: PropTypes.string,
+  scrollX: PropTypes.bool,
+  scrollY: PropTypes.bool
 };
 
 var ControlledSelectInput = function ControlledSelectInput(_ref) {
   var value = _ref.value;
-  return React__default.createElement("input", {
+  return React.createElement("input", {
     type: "text",
     readOnly: true,
     value: value,
@@ -2955,7 +2946,7 @@ var ControlledSelectInput = function ControlledSelectInput(_ref) {
 };
 
 ControlledSelectInput.propTypes = {
-  value: PropTypes__default.string
+  value: PropTypes.string
 };
 
 var Input =
@@ -3027,7 +3018,7 @@ function (_React$Component) {
       isFocused: false,
       isPristine: true
     };
-    _this.inputElementRef = React__default.createRef();
+    _this.inputElementRef = React.createRef();
     return _this;
   }
 
@@ -3090,9 +3081,9 @@ function (_React$Component) {
       var containerClassFix = classNames(type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form", group ? "form-group" : false, size ? "form-".concat(size) : false, containerClass);
       var iconClassFix = classNames(isNotEmpty && this.state.isFocused ? "active" : false, iconClass, "prefix");
       var labelClassFix = classNames(isNotEmpty ? "active" : false, disabled ? "disabled" : false, type === "checkbox" ? "form-check-label mr-5" : false, type === "radio" ? "form-check-label mr-5" : false, labelClass);
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: containerClassFix
-      }, icon && React__default.createElement(Fa, {
+      }, icon && React.createElement(Fa, {
         icon: icon,
         size: iconSize,
         brand: iconBrand,
@@ -3100,7 +3091,7 @@ function (_React$Component) {
         regular: iconRegular,
         className: iconClassFix,
         onClick: this.setFocus
-      }), React__default.createElement(Tag, _extends({}, attributes, {
+      }), React.createElement(Tag, _extends({}, attributes, {
         className: classes,
         id: id,
         placeholder: hint,
@@ -3110,7 +3101,7 @@ function (_React$Component) {
         onChange: this.onChange,
         onInput: this.onInput,
         onFocus: this.onFocus
-      })), label && React__default.createElement("label", {
+      })), label && React.createElement("label", {
         className: labelClassFix,
         htmlFor: id,
         "data-error": error,
@@ -3133,40 +3124,40 @@ function (_React$Component) {
   }]);
 
   return Input;
-}(React__default.Component);
+}(React.Component);
 
 Input.propTypes = {
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  containerClass: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  error: PropTypes__default.string,
-  filled: PropTypes__default.bool,
-  gap: PropTypes__default.bool,
-  getValue: PropTypes__default.func,
-  group: PropTypes__default.bool,
-  hint: PropTypes__default.string,
-  icon: PropTypes__default.string,
-  iconBrand: PropTypes__default.bool,
-  iconClass: PropTypes__default.string,
-  iconLight: PropTypes__default.bool,
-  iconRegular: PropTypes__default.bool,
-  iconSize: PropTypes__default.string,
-  id: PropTypes__default.string,
-  inputRef: PropTypes__default.oneOfType([PropTypes__default.object, PropTypes__default.func]),
-  label: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object]),
-  labelClass: PropTypes__default.string,
-  onBlur: PropTypes__default.func,
-  onChange: PropTypes__default.func,
-  onFocus: PropTypes__default.func,
-  onInput: PropTypes__default.func,
-  size: PropTypes__default.string,
-  success: PropTypes__default.string,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  type: PropTypes__default.string,
-  validate: PropTypes__default.bool,
-  value: PropTypes__default.string,
-  valueDefault: PropTypes__default.string
+  className: PropTypes.string,
+  children: PropTypes.node,
+  containerClass: PropTypes.string,
+  disabled: PropTypes.bool,
+  error: PropTypes.string,
+  filled: PropTypes.bool,
+  gap: PropTypes.bool,
+  getValue: PropTypes.func,
+  group: PropTypes.bool,
+  hint: PropTypes.string,
+  icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
+  id: PropTypes.string,
+  inputRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  labelClass: PropTypes.string,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onInput: PropTypes.func,
+  size: PropTypes.string,
+  success: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  type: PropTypes.string,
+  validate: PropTypes.bool,
+  value: PropTypes.string,
+  valueDefault: PropTypes.string
 };
 Input.defaultProps = {
   className: "",
@@ -3203,27 +3194,27 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
       text = _ref.text,
       value = _ref.value;
   var classes = classNames(disabled && "disabled", checked && "active");
-  return React__default.createElement("li", {
+  return React.createElement("li", {
     "data-multiple": multiple,
     className: classes,
     onClick: function onClick() {
       return selectOption(value);
     }
-  }, icon && React__default.createElement("img", {
+  }, icon && React.createElement("img", {
     src: icon,
     alt: "",
     className: "rounded-circle"
-  }), React__default.createElement("span", {
+  }), React.createElement("span", {
     "data-multiple": multiple,
     className: "filtrable"
-  }, multiple && React__default.createElement(React__default.Fragment, null, React__default.createElement("input", {
+  }, multiple && React.createElement(React.Fragment, null, React.createElement("input", {
     type: "checkbox",
     value: value,
     className: "form-check-input",
     checked: checked,
     disabled: disabled,
     onChange: function onChange() {}
-  }), React__default.createElement("label", {
+  }), React.createElement("label", {
     style: {
       height: "10px"
     },
@@ -3232,13 +3223,13 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
 };
 
 ControlledSelectOption.propTypes = {
-  checked: PropTypes__default.bool,
-  disabled: PropTypes__default.bool,
-  icon: PropTypes__default.string,
-  multiple: PropTypes__default.bool,
-  selectOption: PropTypes__default.func,
-  text: PropTypes__default.string,
-  value: PropTypes__default.string
+  checked: PropTypes.bool,
+  disabled: PropTypes.bool,
+  icon: PropTypes.string,
+  multiple: PropTypes.bool,
+  selectOption: PropTypes.func,
+  text: PropTypes.string,
+  value: PropTypes.string
 };
 
 var ControlledSelectOptions =
@@ -3296,20 +3287,20 @@ function (_Component) {
           selected = _this$props.selected,
           selectOption = _this$props.selectOption;
       var classes = classNames("dropdown-content", "select-dropdown", "fadeElement");
-      return React__default.createElement("ul", {
+      return React.createElement("ul", {
         className: classes
-      }, search && React__default.createElement(Input, {
+      }, search && React.createElement(Input, {
         label: searchLabel,
         id: searchId,
         getValue: this.search,
         "data-search": "true"
-      }), React__default.createElement(ControlledSelectOption, {
+      }), React.createElement(ControlledSelectOption, {
         checked: false,
         disabled: true,
         icon: null,
         value: selected
       }), this.state.filteredOptions.map(function (option, index) {
-        return React__default.createElement(ControlledSelectOption, {
+        return React.createElement(ControlledSelectOption, {
           key: "".concat(option.value, "-").concat(index),
           checked: option.checked,
           disabled: option.disabled,
@@ -3324,22 +3315,22 @@ function (_Component) {
   }]);
 
   return ControlledSelectOptions;
-}(React.Component);
+}(Component);
 
 ControlledSelectOptions.propTypes = {
-  selected: PropTypes__default.string.isRequired,
-  selectOption: PropTypes__default.func.isRequired,
-  multiple: PropTypes__default.bool,
-  options: PropTypes__default.arrayOf(PropTypes__default.shape({
-    checked: PropTypes__default.bool,
-    disabled: PropTypes__default.bool,
-    icon: PropTypes__default.string,
-    text: PropTypes__default.string,
-    value: PropTypes__default.string
+  selected: PropTypes.string.isRequired,
+  selectOption: PropTypes.func.isRequired,
+  multiple: PropTypes.bool,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    checked: PropTypes.bool,
+    disabled: PropTypes.bool,
+    icon: PropTypes.string,
+    text: PropTypes.string,
+    value: PropTypes.string
   })),
-  search: PropTypes__default.bool,
-  searchLabel: PropTypes__default.string,
-  searchId: PropTypes__default.string
+  search: PropTypes.bool,
+  searchLabel: PropTypes.string,
+  searchId: PropTypes.string
 };
 ControlledSelectOptions.defaultProps = {
   multiple: false,
@@ -3349,7 +3340,7 @@ ControlledSelectOptions.defaultProps = {
   searchId: "selectSearchInput"
 };
 
-var SelectContext = React__default.createContext();
+var SelectContext = React.createContext();
 
 var Select =
 /*#__PURE__*/
@@ -3471,15 +3462,15 @@ function (_React$Component) {
       var classes = classNames("select-wrapper md-form", _this.props.color ? "colorful-select dropdown-" + _this.props.color : "", className);
 
       if (!_this.props.children) {
-        return React__default.createElement("div", _extends({}, attributes, {
+        return React.createElement("div", _extends({}, attributes, {
           "data-color": color,
           "data-multiple": multiple,
           className: classes
-        }), React__default.createElement("span", {
+        }), React.createElement("span", {
           className: "caret"
-        }, "\u25BC"), React__default.createElement(ControlledSelectInput, {
+        }, "\u25BC"), React.createElement(ControlledSelectInput, {
           value: _this.state.selectTextContent
-        }), React__default.createElement(ControlledSelectOptions, {
+        }), React.createElement(ControlledSelectOptions, {
           multiple: multiple,
           options: _this.state.options,
           search: search,
@@ -3488,17 +3479,17 @@ function (_React$Component) {
           selectOption: _this.selectOption
         }));
       } else {
-        return React__default.createElement(SelectContext.Provider, {
+        return React.createElement(SelectContext.Provider, {
           value: {
             state: _this.state,
             multiple: _this.props.multiple,
             triggerOptionChange: _this.triggerOptionChange
           }
-        }, React__default.createElement("div", _extends({}, attributes, {
+        }, React.createElement("div", _extends({}, attributes, {
           "data-color": color,
           "data-multiple": multiple,
           className: classes
-        }), React__default.createElement("span", {
+        }), React.createElement("span", {
           className: "caret"
         }, "\u25BC"), children));
       }
@@ -3553,29 +3544,29 @@ function (_React$Component) {
   }]);
 
   return Select;
-}(React__default.Component);
+}(React.Component);
 
 Select.propTypes = {
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  color: PropTypes__default.string,
-  getTextContent: PropTypes__default.func,
-  getValue: PropTypes__default.func,
-  multiple: PropTypes__default.bool,
-  options: PropTypes__default.arrayOf(PropTypes__default.shape({
-    checked: PropTypes__default.bool,
-    disabled: PropTypes__default.bool,
-    icon: PropTypes__default.string,
-    text: PropTypes__default.string,
-    value: PropTypes__default.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  color: PropTypes.string,
+  getTextContent: PropTypes.func,
+  getValue: PropTypes.func,
+  multiple: PropTypes.bool,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    checked: PropTypes.bool,
+    disabled: PropTypes.bool,
+    icon: PropTypes.string,
+    text: PropTypes.string,
+    value: PropTypes.string
   })),
-  search: PropTypes__default.bool,
-  searchLabel: PropTypes__default.string,
-  searchId: PropTypes__default.string,
-  selected: PropTypes__default.string
+  search: PropTypes.bool,
+  searchLabel: PropTypes.string,
+  searchId: PropTypes.string,
+  selected: PropTypes.string
 };
 
-var selectContextHOC = function selectContextHOC(Component) {
+var selectContextHOC = function selectContextHOC(Component$$1) {
   return (
     /*#__PURE__*/
     function (_React$Component) {
@@ -3592,8 +3583,8 @@ var selectContextHOC = function selectContextHOC(Component) {
         value: function render() {
           var _this = this;
 
-          return React__default.createElement(SelectContext.Consumer, null, function (context) {
-            return React__default.createElement(Component, _extends({}, _this.props, {
+          return React.createElement(SelectContext.Consumer, null, function (context) {
+            return React.createElement(Component$$1, _extends({}, _this.props, {
               context: context
             }));
           });
@@ -3601,17 +3592,17 @@ var selectContextHOC = function selectContextHOC(Component) {
       }]);
 
       return HOC;
-    }(React__default.Component)
+    }(React.Component)
   );
 };
 
-exports.MDBSelectInput = function SelectInput(_ref) {
+var SelectInput = function SelectInput(_ref) {
   var attributes = _ref.attributes,
       className = _ref.className,
       context = _ref.context,
       selected = _ref.selected;
   var classes = classNames("select-dropdown", className);
-  return React__default.createElement("input", _extends({
+  return React.createElement("input", _extends({
     type: "text",
     readOnly: true,
     value: context.state.selectTextContent ? context.state.selectTextContent : selected
@@ -3620,16 +3611,16 @@ exports.MDBSelectInput = function SelectInput(_ref) {
   }));
 };
 
-exports.MDBSelectInput.propTypes = {
-  context: PropTypes__default.object.isRequired,
-  className: PropTypes__default.string,
-  selected: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number])
+SelectInput.propTypes = {
+  context: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
-exports.MDBSelectInput.defaultProps = {
+SelectInput.defaultProps = {
   className: "",
   selected: "Choose your option"
 };
-var SelectInput = exports.MDBSelectInput = selectContextHOC(exports.MDBSelectInput);
+var SelectInput$1 = SelectInput = selectContextHOC(SelectInput);
 
 var theme = {
   container: "md-form",
@@ -3689,7 +3680,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderSuggestion", function (suggestion) {
-      return React__default.createElement("div", null, suggestion);
+      return React.createElement("div", null, suggestion);
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (event, _ref2) {
@@ -3700,7 +3691,7 @@ function (_Component) {
       });
 
       if (_this.props.search) {
-        _this.props.search(newValue, ReactDOM__default.findDOMNode(_assertThisInitialized(_assertThisInitialized(_this))).parentNode.parentNode.querySelectorAll("li"));
+        _this.props.search(newValue, ReactDOM.findDOMNode(_assertThisInitialized(_assertThisInitialized(_this))).parentNode.parentNode.querySelectorAll("li"));
       }
     });
 
@@ -3821,14 +3812,14 @@ function (_Component) {
       };
 
       var renderInputComponent = function renderInputComponent(inputProps) {
-        return React__default.createElement("div", null, icon && React__default.createElement(Fa, {
+        return React.createElement("div", null, icon && React.createElement(Fa, {
           icon: icon,
           size: iconSize,
           brand: iconBrand,
           light: iconLight,
           regular: iconRegular,
           className: iconClassFix
-        }), React__default.createElement("input", _extends({
+        }), React.createElement("input", _extends({
           type: "text",
           id: id,
           className: "form-control"
@@ -3838,12 +3829,12 @@ function (_Component) {
 
             inputProps.onFocus(ev, val);
           }
-        })), React__default.createElement("label", {
+        })), React.createElement("label", {
           htmlFor: id,
           id: "label for ".concat(id),
           onClick: _this2.triggerFocus,
           className: labelClassFix
-        }, label), clear && React__default.createElement(Fa, {
+        }, label), clear && React.createElement(Fa, {
           icon: "close",
           onClick: _this2.handleClear,
           style: clearStyleFix,
@@ -3851,7 +3842,7 @@ function (_Component) {
         }));
       };
 
-      return React__default.createElement(Autosuggest, _extends({
+      return React.createElement(Autosuggest, _extends({
         suggestions: suggestions,
         onSuggestionsFetchRequested: this.onSuggestionsFetchRequested,
         onSuggestionsClearRequested: this.onSuggestionsClearRequested,
@@ -3869,26 +3860,26 @@ function (_Component) {
   }]);
 
   return Autocomplete;
-}(React.Component);
+}(Component);
 
 Autocomplete.propTypes = {
-  className: PropTypes__default.string,
-  clear: PropTypes__default.bool,
-  clearClass: PropTypes__default.string,
-  data: PropTypes__default.arrayOf(PropTypes__default.string),
-  disabled: PropTypes__default.bool,
-  getValue: PropTypes__default.func,
-  id: PropTypes__default.string,
-  label: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object]),
-  labelClass: PropTypes__default.string,
-  icon: PropTypes__default.string,
-  iconBrand: PropTypes__default.bool,
-  iconClass: PropTypes__default.string,
-  iconLight: PropTypes__default.bool,
-  iconRegular: PropTypes__default.bool,
-  iconSize: PropTypes__default.string,
-  placeholder: PropTypes__default.string,
-  search: PropTypes__default.func
+  className: PropTypes.string,
+  clear: PropTypes.bool,
+  clearClass: PropTypes.string,
+  data: PropTypes.arrayOf(PropTypes.string),
+  disabled: PropTypes.bool,
+  getValue: PropTypes.func,
+  id: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  labelClass: PropTypes.string,
+  icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
+  placeholder: PropTypes.string,
+  search: PropTypes.func
 };
 Autocomplete.defaultProps = {
   className: "",
@@ -3946,7 +3937,7 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       if (this.props.search) {
-        var options = ReactDOM__default.findDOMNode(this).querySelectorAll('li');
+        var options = ReactDOM.findDOMNode(this).querySelectorAll('li');
         options.forEach(function (option) {
           data.push(option.children[0].innerHTML);
         });
@@ -3967,9 +3958,9 @@ function (_React$Component) {
       var autocomplete = null;
 
       if (this.props.search) {
-        autocomplete = React__default.createElement("div", {
+        autocomplete = React.createElement("div", {
           className: "mx-2"
-        }, React__default.createElement(Autocomplete, {
+        }, React.createElement(Autocomplete, {
           data: data,
           label: searchLabel,
           id: searchId,
@@ -3978,21 +3969,21 @@ function (_React$Component) {
         }));
       }
 
-      return React__default.createElement("ul", _extends({}, attributes, {
+      return React.createElement("ul", _extends({}, attributes, {
         className: classes
       }), autocomplete, children);
     }
   }]);
 
   return Options;
-}(React__default.Component);
+}(React.Component);
 
 Options.propTypes = {
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  search: PropTypes__default.bool,
-  searchLabel: PropTypes__default.string,
-  searchId: PropTypes__default.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  search: PropTypes.bool,
+  searchLabel: PropTypes.string,
+  searchId: PropTypes.string
 };
 Options.defaultProps = {
   className: '',
@@ -4001,7 +3992,7 @@ Options.defaultProps = {
   searchId: 'selectSearchInput'
 };
 
-exports.MDBSelectOption =
+var Option =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(Option, _React$Component);
@@ -4069,7 +4060,7 @@ function (_React$Component) {
       multiple: _this.props.context.multiple || false,
       checked: _this.props.selected || false
     };
-    _this.optionRef = React__default.createRef();
+    _this.optionRef = React.createRef();
     return _this;
   }
 
@@ -4103,7 +4094,7 @@ function (_React$Component) {
 
       if (this.state.multiple) {
         if (!disabled) {
-          input = React__default.createElement("input", {
+          input = React.createElement("input", {
             type: "checkbox",
             value: value,
             onChange: function onChange() {
@@ -4112,19 +4103,19 @@ function (_React$Component) {
             className: "form-check-input",
             checked: this.state.checked
           });
-          label = React__default.createElement("label", {
+          label = React.createElement("label", {
             style: {
               height: "10px"
             },
             "data-multiple": this.state.multiple
           });
         } else {
-          input = React__default.createElement("input", {
+          input = React.createElement("input", {
             type: "checkbox",
             className: "form-check-input",
             disabled: true
           });
-          label = React__default.createElement("label", {
+          label = React.createElement("label", {
             style: {
               height: "10px"
             },
@@ -4133,17 +4124,17 @@ function (_React$Component) {
         }
       }
 
-      return React__default.createElement("li", _extends({
+      return React.createElement("li", _extends({
         ref: this.optionRef
       }, attributes, {
         "data-multiple": this.state.multiple,
         className: classes,
         onClick: this.selectOption
-      }), icon && React__default.createElement("img", {
+      }), icon && React.createElement("img", {
         src: this.props.icon,
         alt: "icon",
         className: "rounded-circle"
-      }), React__default.createElement("span", {
+      }), React.createElement("span", {
         "data-multiple": this.state.multiple,
         className: "filtrable"
       }, input, label, children));
@@ -4151,18 +4142,18 @@ function (_React$Component) {
   }]);
 
   return Option;
-}(React__default.Component);
+}(React.Component);
 
-exports.MDBSelectOption.propTypes = {
-  children: PropTypes__default.node,
-  checked: PropTypes__default.bool,
-  className: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  icon: PropTypes__default.string,
-  triggerOptionClick: PropTypes__default.func,
-  value: PropTypes__default.any
+Option.propTypes = {
+  children: PropTypes.node,
+  checked: PropTypes.bool,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  icon: PropTypes.string,
+  triggerOptionClick: PropTypes.func,
+  value: PropTypes.any
 };
-exports.MDBSelectOption.defaultProps = {
+Option.defaultProps = {
   children: "span",
   checked: false,
   className: "",
@@ -4171,23 +4162,23 @@ exports.MDBSelectOption.defaultProps = {
   triggerOptionClick: function triggerOptionClick() {},
   value: ""
 };
-var SelectOption = exports.MDBSelectOption = selectContextHOC(exports.MDBSelectOption);
+var SelectOption = Option = selectContextHOC(Option);
 
 var DataTableSelect = function DataTableSelect(_ref) {
   var value = _ref.value,
       onChange = _ref.onChange,
       entries = _ref.entries,
       label = _ref.label;
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "dataTables_length d-flex flex-row"
-  }, React__default.createElement("label", {
+  }, React.createElement("label", {
     className: "mt-4"
-  }, label), React__default.createElement(Select, {
+  }, label), React.createElement(Select, {
     getValue: onChange
-  }, React__default.createElement(SelectInput, {
+  }, React.createElement(SelectInput$1, {
     selected: value
-  }), React__default.createElement(Options, null, entries.map(function (entry, index) {
-    return React__default.createElement(SelectOption, {
+  }), React.createElement(Options, null, entries.map(function (entry, index) {
+    return React.createElement(SelectOption, {
       checked: index === 0,
       key: entry,
       value: entry
@@ -4196,10 +4187,10 @@ var DataTableSelect = function DataTableSelect(_ref) {
 };
 
 DataTableSelect.propTypes = {
-  entries: PropTypes__default.arrayOf(PropTypes__default.number).isRequired,
-  label: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object]).isRequired,
-  onChange: PropTypes__default.func.isRequired,
-  value: PropTypes__default.number.isRequired
+  entries: PropTypes.arrayOf(PropTypes.number).isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired
 };
 
 /*
@@ -4215,9 +4206,9 @@ var DataTableEntries = function DataTableEntries(props) {
       entriesArr = props.entriesArr,
       paging = props.paging,
       label = props.label;
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "col-sm-12 col-md-6"
-  }, paging && React__default.createElement(DataTableSelect, {
+  }, paging && React.createElement(DataTableSelect, {
     value: entries,
     onChange: handleEntriesChange,
     entries: entriesArr,
@@ -4226,20 +4217,20 @@ var DataTableEntries = function DataTableEntries(props) {
 };
 
 DataTableEntries.propTypes = {
-  handleEntriesChange: PropTypes__default.func.isRequired,
-  entries: PropTypes__default.number.isRequired,
-  entriesArr: PropTypes__default.arrayOf(PropTypes__default.number).isRequired,
-  paging: PropTypes__default.bool.isRequired,
-  label: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object]).isRequired
+  handleEntriesChange: PropTypes.func.isRequired,
+  entries: PropTypes.number.isRequired,
+  entriesArr: PropTypes.arrayOf(PropTypes.number).isRequired,
+  paging: PropTypes.bool.isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired
 };
 
 var DataTableInput = function DataTableInput(_ref) {
   var value = _ref.value,
       onChange = _ref.onChange,
       label = _ref.label;
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "dataTables_filter md-form"
-  }, React__default.createElement("input", {
+  }, React.createElement("input", {
     value: value,
     onChange: onChange,
     type: "search",
@@ -4249,9 +4240,9 @@ var DataTableInput = function DataTableInput(_ref) {
 };
 
 DataTableInput.propTypes = {
-  label: PropTypes__default.string,
-  onChange: PropTypes__default.func,
-  value: PropTypes__default.string
+  label: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.string
 };
 
 /*
@@ -4266,9 +4257,9 @@ var DataTableSearch = function DataTableSearch(props) {
       search = props.search,
       searching = props.searching,
       label = props.label;
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "col-sm-12 col-md-6"
-  }, searching && React__default.createElement(DataTableInput, {
+  }, searching && React.createElement(DataTableInput, {
     value: search,
     onChange: handleSearchChange,
     label: label
@@ -4276,10 +4267,10 @@ var DataTableSearch = function DataTableSearch(props) {
 };
 
 DataTableSearch.propTypes = {
-  handleSearchChange: PropTypes__default.func.isRequired,
-  search: PropTypes__default.string.isRequired,
-  searching: PropTypes__default.bool.isRequired,
-  label: PropTypes__default.string
+  handleSearchChange: PropTypes.func.isRequired,
+  search: PropTypes.string.isRequired,
+  searching: PropTypes.bool.isRequired,
+  label: PropTypes.string
 };
 
 var DataTableInfo = function DataTableInfo(props) {
@@ -4289,9 +4280,9 @@ var DataTableInfo = function DataTableInfo(props) {
       info = props.info,
       pages = props.pages,
       label = props.label;
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "col-sm-12 col-md-5"
-  }, info && React__default.createElement("div", {
+  }, info && React.createElement("div", {
     className: "dataTables_info",
     role: "status",
     "aria-live": "polite"
@@ -4299,12 +4290,12 @@ var DataTableInfo = function DataTableInfo(props) {
 };
 
 DataTableInfo.propTypes = {
-  activePage: PropTypes__default.number.isRequired,
-  entries: PropTypes__default.number.isRequired,
-  filteredRows: PropTypes__default.array.isRequired,
-  info: PropTypes__default.bool.isRequired,
-  pages: PropTypes__default.array.isRequired,
-  label: PropTypes__default.arrayOf(PropTypes__default.string)
+  activePage: PropTypes.number.isRequired,
+  entries: PropTypes.number.isRequired,
+  filteredRows: PropTypes.array.isRequired,
+  info: PropTypes.bool.isRequired,
+  pages: PropTypes.array.isRequired,
+  label: PropTypes.arrayOf(PropTypes.string)
 };
 DataTableInfo.defaultProps = {
   label: ["Showing", "to", "of", "entries"]
@@ -4334,22 +4325,22 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "circle", "className", "color", "tag", "size"]);
 
       var classes = classNames("pagination", circle && "pagination-circle", color && "pg-" + color, size ? "pagination-".concat(size) : false, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return Pagination;
-}(React.Component);
+}(Component);
 
 Pagination.propTypes = {
-  children: PropTypes__default.node,
-  circle: PropTypes__default.bool,
-  className: PropTypes__default.string,
-  color: PropTypes__default.string,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  size: PropTypes__default.oneOf(['lg', 'sm'])
+  children: PropTypes.node,
+  circle: PropTypes.bool,
+  className: PropTypes.string,
+  color: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  size: PropTypes.oneOf(['lg', 'sm'])
 };
 Pagination.defaultProps = {
   circle: false,
@@ -4381,21 +4372,21 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["active", "className", "children", "disabled", "tag"]);
 
       var classes = classNames("page-item", disabled ? "disabled" : "", active ? "active" : "", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return PageItem;
-}(React.Component);
+}(Component);
 
 PageItem.propTypes = {
-  active: PropTypes__default.bool,
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  disabled: PropTypes__default.bool,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string])
+  active: PropTypes.bool,
+  className: PropTypes.string,
+  children: PropTypes.node,
+  disabled: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 PageItem.defaultProps = {
   active: false,
@@ -4425,19 +4416,19 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag"]);
 
       var classes = classNames("page-link", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return PageLink;
-}(React.Component);
+}(Component);
 
 PageLink.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 PageLink.defaultProps = {
   tag: "a"
@@ -4513,51 +4504,51 @@ function (_Component) {
           changeActivePage = _this$props.changeActivePage,
           pages = _this$props.pages,
           label = _this$props.label;
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: "col-sm-12 col-md-7"
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: "dataTables_paginate"
-      }, React__default.createElement(Pagination, null, React__default.createElement(PageItem, {
+      }, React.createElement(Pagination, null, React.createElement(PageItem, {
         disabled: activePage === 0
-      }, React__default.createElement(PageLink, {
+      }, React.createElement(PageLink, {
         className: "page-link",
         "aria-label": label[0],
         onClick: function onClick() {
           return changeActivePage(activePage - 1);
         }
-      }, React__default.createElement("span", null, label[0]))), this.choosePagesGroup().map(function (page) {
-        return React__default.createElement(PageItem, {
+      }, React.createElement("span", null, label[0]))), this.choosePagesGroup().map(function (page) {
+        return React.createElement(PageItem, {
           key: page[0].name + page.index,
           active: page.index === activePage
-        }, React__default.createElement(PageLink, {
+        }, React.createElement(PageLink, {
           className: "page-link",
           onClick: function onClick() {
             return changeActivePage(page.index);
           }
-        }, page.index + 1, " ", page.index === activePage && React__default.createElement("span", {
+        }, page.index + 1, " ", page.index === activePage && React.createElement("span", {
           className: "sr-only"
         }, "(current)")));
-      }), React__default.createElement(PageItem, {
+      }), React.createElement(PageItem, {
         disabled: activePage === pages.length - 1
-      }, React__default.createElement(PageLink, {
+      }, React.createElement(PageLink, {
         className: "page-link",
         "aria-label": label[1],
         onClick: function onClick() {
           return changeActivePage(activePage + 1);
         }
-      }, React__default.createElement("span", null, label[1]))))));
+      }, React.createElement("span", null, label[1]))))));
     }
   }]);
 
   return DataTablePagination;
-}(React.Component);
+}(Component);
 
 DataTablePagination.propTypes = {
-  activePage: PropTypes__default.number.isRequired,
-  changeActivePage: PropTypes__default.func.isRequired,
-  pages: PropTypes__default.array.isRequired,
-  pagesAmount: PropTypes__default.number.isRequired,
-  label: PropTypes__default.arrayOf(PropTypes__default.string).isRequired
+  activePage: PropTypes.number.isRequired,
+  changeActivePage: PropTypes.func.isRequired,
+  pages: PropTypes.array.isRequired,
+  pagesAmount: PropTypes.number.isRequired,
+  label: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 var ExportToCSV =
@@ -4625,7 +4616,7 @@ function (_Component) {
           flat = _this$props.flat,
           attributes = _objectWithoutProperties(_this$props, ["active", "block", "circle", "className", "color", "children", "outline", "size", "rounded", "gradient", "floating", "flat"]);
 
-      return React__default.createElement(Button, _extends({
+      return React.createElement(Button, _extends({
         active: active,
         block: block,
         circle: circle,
@@ -4647,24 +4638,24 @@ function (_Component) {
   }]);
 
   return ExportToCSV;
-}(React.Component);
+}(Component);
 
 ExportToCSV.propTypes = {
-  columns: PropTypes__default.arrayOf(PropTypes__default.object).isRequired,
-  data: PropTypes__default.array.isRequired,
-  active: PropTypes__default.bool,
-  block: PropTypes__default.bool,
-  color: PropTypes__default.string,
-  gradient: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  outline: PropTypes__default.bool,
-  rounded: PropTypes__default.bool,
-  circle: PropTypes__default.bool,
-  floating: PropTypes__default.bool,
-  flat: PropTypes__default.bool,
-  size: PropTypes__default.string,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string
+  columns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  data: PropTypes.array.isRequired,
+  active: PropTypes.bool,
+  block: PropTypes.bool,
+  color: PropTypes.string,
+  gradient: PropTypes.string,
+  disabled: PropTypes.bool,
+  outline: PropTypes.bool,
+  rounded: PropTypes.bool,
+  circle: PropTypes.bool,
+  floating: PropTypes.bool,
+  flat: PropTypes.bool,
+  size: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 var DataTable =
@@ -4908,24 +4899,24 @@ function (_Component) {
           activePage = _this$state.activePage,
           search = _this$state.search,
           translateScrollHead = _this$state.translateScrollHead;
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: "dataTables_wrapper dt-bootstrap4"
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: "row"
-      }, React__default.createElement(DataTableEntries, {
+      }, React.createElement(DataTableEntries, {
         paging: paging,
         entries: entries,
         handleEntriesChange: this.handleEntriesChange,
         entriesArr: entriesOptions,
         label: entriesLabel
-      }), React__default.createElement(DataTableSearch, {
+      }), React.createElement(DataTableSearch, {
         handleSearchChange: this.handleSearchChange,
         search: search,
         searching: searching,
         label: searchLabel
-      })), !scrollY && !scrollX && React__default.createElement("div", {
+      })), !scrollY && !scrollX && React.createElement("div", {
         className: "row"
-      }, React__default.createElement(DataTableTable, _extends({
+      }, React.createElement(DataTableTable, _extends({
         autoWidth: autoWidth,
         bordered: bordered,
         borderless: borderless,
@@ -4948,9 +4939,9 @@ function (_Component) {
         tbodyColor: tbodyColor,
         tbodyTextWhite: tbodyTextWhite,
         rows: pages[activePage]
-      }, attributes))), (scrollY || scrollX) && React__default.createElement("div", {
+      }, attributes))), (scrollY || scrollX) && React.createElement("div", {
         className: "row"
-      }, React__default.createElement(DataTableTableScroll, _extends({
+      }, React.createElement(DataTableTableScroll, _extends({
         autoWidth: autoWidth,
         bordered: bordered,
         borderless: borderless,
@@ -4978,24 +4969,24 @@ function (_Component) {
         tbodyTextWhite: tbodyTextWhite,
         rows: pages[activePage],
         translateScrollHead: translateScrollHead
-      }, attributes))), paging && React__default.createElement("div", {
+      }, attributes))), paging && React.createElement("div", {
         className: "row"
-      }, React__default.createElement(DataTableInfo, {
+      }, React.createElement(DataTableInfo, {
         activePage: activePage,
         entries: entries,
         filteredRows: filteredRows,
         info: info,
         pages: pages,
         label: infoLabel
-      }), React__default.createElement(DataTablePagination, {
+      }), React.createElement(DataTablePagination, {
         activePage: activePage,
         changeActivePage: this.changeActivePage,
         pages: pages,
         pagesAmount: pagesAmount,
         label: paginationLabel
-      })), exportToCSV && React__default.createElement("div", {
+      })), exportToCSV && React.createElement("div", {
         className: "row justify-content-end"
-      }, React__default.createElement(ExportToCSV, {
+      }, React.createElement(ExportToCSV, {
         columns: columns,
         data: pages,
         color: "primary"
@@ -5004,45 +4995,45 @@ function (_Component) {
   }]);
 
   return DataTable;
-}(React.Component);
+}(Component);
 
 DataTable.propTypes = {
-  autoWidth: PropTypes__default.bool,
-  bordered: PropTypes__default.bool,
-  borderless: PropTypes__default.bool,
-  btn: PropTypes__default.bool,
-  children: PropTypes__default.node,
-  dark: PropTypes__default.bool,
-  data: PropTypes__default.oneOfType([PropTypes__default.object, PropTypes__default.string]),
-  entries: PropTypes__default.number,
-  entriesLabel: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object]),
-  entriesOptions: PropTypes__default.arrayOf(PropTypes__default.number),
-  exportToCSV: PropTypes__default.bool,
-  fixed: PropTypes__default.bool,
-  hover: PropTypes__default.bool,
-  info: PropTypes__default.bool,
-  infoLabel: PropTypes__default.arrayOf(PropTypes__default.string),
-  maxHeight: PropTypes__default.string,
-  order: PropTypes__default.arrayOf(PropTypes__default.string),
-  pagesAmount: PropTypes__default.number,
-  paging: PropTypes__default.bool,
-  paginationLabel: PropTypes__default.arrayOf(PropTypes__default.string),
-  responsive: PropTypes__default.bool,
-  responsiveSm: PropTypes__default.bool,
-  responsiveMd: PropTypes__default.bool,
-  responsiveLg: PropTypes__default.bool,
-  responsiveXl: PropTypes__default.bool,
-  searching: PropTypes__default.bool,
-  searchLabel: PropTypes__default.string,
-  scrollX: PropTypes__default.bool,
-  scrollY: PropTypes__default.bool,
-  sortable: PropTypes__default.bool,
-  small: PropTypes__default.bool,
-  striped: PropTypes__default.bool,
-  theadColor: PropTypes__default.string,
-  theadTextWhite: PropTypes__default.bool,
-  tbodyColor: PropTypes__default.string,
-  tbodyTextWhite: PropTypes__default.bool
+  autoWidth: PropTypes.bool,
+  bordered: PropTypes.bool,
+  borderless: PropTypes.bool,
+  btn: PropTypes.bool,
+  children: PropTypes.node,
+  dark: PropTypes.bool,
+  data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  entries: PropTypes.number,
+  entriesLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  entriesOptions: PropTypes.arrayOf(PropTypes.number),
+  exportToCSV: PropTypes.bool,
+  fixed: PropTypes.bool,
+  hover: PropTypes.bool,
+  info: PropTypes.bool,
+  infoLabel: PropTypes.arrayOf(PropTypes.string),
+  maxHeight: PropTypes.string,
+  order: PropTypes.arrayOf(PropTypes.string),
+  pagesAmount: PropTypes.number,
+  paging: PropTypes.bool,
+  paginationLabel: PropTypes.arrayOf(PropTypes.string),
+  responsive: PropTypes.bool,
+  responsiveSm: PropTypes.bool,
+  responsiveMd: PropTypes.bool,
+  responsiveLg: PropTypes.bool,
+  responsiveXl: PropTypes.bool,
+  searching: PropTypes.bool,
+  searchLabel: PropTypes.string,
+  scrollX: PropTypes.bool,
+  scrollY: PropTypes.bool,
+  sortable: PropTypes.bool,
+  small: PropTypes.bool,
+  striped: PropTypes.bool,
+  theadColor: PropTypes.string,
+  theadTextWhite: PropTypes.bool,
+  tbodyColor: PropTypes.string,
+  tbodyTextWhite: PropTypes.bool
 };
 DataTable.defaultProps = {
   autoWidth: false,
@@ -5082,18 +5073,18 @@ DataTable.defaultProps = {
 };
 
 var propTypes = {
-  children: PropTypes__default.node,
-  active: PropTypes__default.bool,
-  disabled: PropTypes__default.bool,
-  divider: PropTypes__default.bool,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  header: PropTypes__default.bool,
-  onClick: PropTypes__default.func,
-  className: PropTypes__default.string,
-  toggle: PropTypes__default.bool
+  children: PropTypes.node,
+  active: PropTypes.bool,
+  disabled: PropTypes.bool,
+  divider: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  header: PropTypes.bool,
+  onClick: PropTypes.func,
+  className: PropTypes.string,
+  toggle: PropTypes.bool
 };
 var contextTypes = {
-  toggle: PropTypes__default.func
+  toggle: PropTypes.func
 };
 var defaultProps = {
   tag: "button",
@@ -5172,7 +5163,7 @@ function (_React$Component) {
         }
       }
 
-      return React__default.createElement(Tag, _extends({
+      return React.createElement(Tag, _extends({
         type: Tag === "button" && (props.onClick || this.props.toggle) ? "button" : undefined
       }, props, {
         tabIndex: tabIndex,
@@ -5183,7 +5174,7 @@ function (_React$Component) {
   }]);
 
   return DropdownItem;
-}(React__default.Component);
+}(React.Component);
 
 DropdownItem.propTypes = propTypes;
 DropdownItem.defaultProps = defaultProps;
@@ -5203,7 +5194,7 @@ var DropdownMenuProComponent = function DropdownMenuProComponent(props) {
       d_key = props.d_key,
       children = props.children;
   var Tag = d_tag;
-  return React__default.createElement(reactTransitionGroup.CSSTransition, {
+  return React.createElement(CSSTransition, {
     in: isOpen,
     appear: isOpen,
     classNames: "popover",
@@ -5212,7 +5203,7 @@ var DropdownMenuProComponent = function DropdownMenuProComponent(props) {
       enter: 300,
       exit: 300
     }
-  }, React__default.createElement(Tag, _extends({
+  }, React.createElement(Tag, _extends({
     tabIndex: d_tabIndex,
     role: d_role
   }, d_attributes, {
@@ -5223,15 +5214,15 @@ var DropdownMenuProComponent = function DropdownMenuProComponent(props) {
 };
 
 DropdownMenuProComponent.propTypes = {
-  d_aria: PropTypes__default.bool.isRequired,
-  d_attributes: PropTypes__default.object.isRequired,
-  d_key: PropTypes__default.string.isRequired,
-  d_role: PropTypes__default.string.isRequired,
-  d_tabIndex: PropTypes__default.string.isRequired,
-  d_tag: PropTypes__default.any.isRequired,
-  isOpen: PropTypes__default.bool.isRequired,
-  children: PropTypes__default.node.isRequired,
-  d_classes: PropTypes__default.string
+  d_aria: PropTypes.bool.isRequired,
+  d_attributes: PropTypes.object.isRequired,
+  d_key: PropTypes.string.isRequired,
+  d_role: PropTypes.string.isRequired,
+  d_tabIndex: PropTypes.string.isRequired,
+  d_tag: PropTypes.any.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+  d_classes: PropTypes.string
 };
 DropdownMenuProComponent.defaultProps = {
   d_classes: ""
@@ -5283,7 +5274,7 @@ function (_Component) {
       var Tag = tag;
 
       if (this.context.isOpen) {
-        Tag = reactPopper.Popper;
+        Tag = Popper;
         var position1 = this.context.dropup ? 'top' : 'bottom';
         var position2 = right ? 'end' : 'start';
         attrs.placement = "".concat(position1, "-").concat(position2);
@@ -5291,7 +5282,7 @@ function (_Component) {
         attrs.modifiers = !flip ? noFlipModifier : undefined;
       }
 
-      return React__default.createElement(DropdownMenuProComponent, {
+      return React.createElement(DropdownMenuProComponent, {
         isOpen: this.context.isOpen,
         d_tag: Tag,
         d_tabIndex: "-1",
@@ -5305,15 +5296,15 @@ function (_Component) {
   }]);
 
   return DropdownMenu;
-}(React.Component);
+}(Component);
 
 DropdownMenu.propTypes = {
-  children: PropTypes__default.node.isRequired,
-  basic: PropTypes__default.bool,
-  className: PropTypes__default.string,
-  flip: PropTypes__default.bool,
-  right: PropTypes__default.bool,
-  tag: PropTypes__default.string
+  children: PropTypes.node.isRequired,
+  basic: PropTypes.bool,
+  className: PropTypes.string,
+  flip: PropTypes.bool,
+  right: PropTypes.bool,
+  tag: PropTypes.string
 };
 DropdownMenu.defaultProps = {
   basic: false,
@@ -5324,9 +5315,9 @@ DropdownMenu.defaultProps = {
   color: false
 };
 DropdownMenu.contextTypes = {
-  isOpen: PropTypes__default.bool.isRequired,
-  dropup: PropTypes__default.bool.isRequired,
-  color: PropTypes__default.oneOfType([PropTypes__default.oneOf(['primary', 'default', 'secondary', 'success', 'dark', 'danger', 'info', 'warning', 'ins']), PropTypes__default.bool])
+  isOpen: PropTypes.bool.isRequired,
+  dropup: PropTypes.bool.isRequired,
+  color: PropTypes.oneOfType([PropTypes.oneOf(['primary', 'default', 'secondary', 'success', 'dark', 'danger', 'info', 'warning', 'ins']), PropTypes.bool])
 };
 
 var DropdownToggle =
@@ -5378,7 +5369,7 @@ function (_React$Component) {
         "dropdown-toggle": caret,
         "nav-link": nav
       }, className);
-      var children = props.children || React__default.createElement("span", {
+      var children = props.children || React.createElement("span", {
         className: "sr-only"
       }, ariaLabel);
       var Tag;
@@ -5393,7 +5384,7 @@ function (_React$Component) {
         Tag = tag;
       }
 
-      return React__default.createElement(reactPopper.Target, _extends({}, props, {
+      return React.createElement(Target, _extends({}, props, {
         className: classes,
         component: Tag,
         onClick: this.onClick,
@@ -5403,26 +5394,26 @@ function (_React$Component) {
   }]);
 
   return DropdownToggle;
-}(React__default.Component);
+}(React.Component);
 
 DropdownToggle.propTypes = {
-  caret: PropTypes__default.bool,
-  color: PropTypes__default.string,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  onClick: PropTypes__default.func,
-  "aria-haspopup": PropTypes__default.bool,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  nav: PropTypes__default.bool
+  caret: PropTypes.bool,
+  color: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  "aria-haspopup": PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  nav: PropTypes.bool
 };
 DropdownToggle.defaultProps = {
   "aria-haspopup": true,
   color: "secondary"
 };
 DropdownToggle.contextTypes = {
-  isOpen: PropTypes__default.bool.isRequired,
-  toggle: PropTypes__default.func.isRequired
+  isOpen: PropTypes.bool.isRequired,
+  toggle: PropTypes.func.isRequired
 };
 
 var EdgeHeader =
@@ -5446,19 +5437,19 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["color", "className", "tag"]);
 
       var classes = classNames("edge-header", color, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return EdgeHeader;
-}(React.Component);
+}(Component);
 
 EdgeHeader.propTypes = {
-  color: PropTypes__default.string,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  color: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
 };
 EdgeHeader.defaultProps = {
   color: "deep-purple",
@@ -5505,23 +5496,23 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "waves", "children"]);
 
       var classes = classNames("form-inline", this.props.waves ? "Ripple-parent" : false, className);
-      return React__default.createElement("form", _extends({}, attributes, {
+      return React.createElement("form", _extends({}, attributes, {
         className: classes,
         onMouseDown: this.handleClick.bind(this),
         onTouchStart: this.handleClick.bind(this)
-      }), this.props.children, this.props.waves && React__default.createElement(Waves, {
+      }), this.props.children, this.props.waves && React.createElement(Waves, {
         cursorPos: this.state.cursorPos
       }));
     }
   }]);
 
   return FormInline;
-}(React__default.Component);
+}(React.Component);
 
 FormInline.propTypes = {
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  waves: PropTypes__default.bool
+  children: PropTypes.node,
+  className: PropTypes.string,
+  waves: PropTypes.bool
 };
 
 var Footer =
@@ -5546,20 +5537,20 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["color", "children", "className", "tag"]);
 
       var classes = classNames("page-footer", color ? color : "", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return Footer;
-}(React.Component);
+}(Component);
 
 Footer.propTypes = {
-  color: PropTypes__default.string,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node
+  color: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 Footer.defaultProps = {
   tag: "footer"
@@ -5585,18 +5576,18 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag"]);
 
       var classes = classNames("container free-bird", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return FreeBird;
-}(React.Component);
+}(Component);
 
 FreeBird.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
 };
 FreeBird.defaultProps = {
   tag: "div"
@@ -5638,25 +5629,25 @@ function (_React$Component) {
           color = _this$props.color,
           className = _this$props.className;
       var classes = classNames("hamburger-button__button", className);
-      return React__default.createElement(React__default.Fragment, null, React__default.createElement("input", {
+      return React.createElement(React.Fragment, null, React.createElement("input", {
         type: "checkbox",
         defaultChecked: this.state.checked,
         onChange: this.props.onClick,
         className: "hamburger-button__checkbox",
         id: id
-      }), React__default.createElement("label", {
+      }), React.createElement("label", {
         id: "nav-icon1",
         className: classes,
         htmlFor: id
-      }, React__default.createElement("span", {
+      }, React.createElement("span", {
         style: {
           background: color
         }
-      }), React__default.createElement("span", {
+      }), React.createElement("span", {
         style: {
           background: color
         }
-      }), React__default.createElement("span", {
+      }), React.createElement("span", {
         style: {
           background: color
         }
@@ -5665,12 +5656,12 @@ function (_React$Component) {
   }]);
 
   return HamburgerToggler;
-}(React__default.Component);
+}(React.Component);
 
 HamburgerToggler.propTypes = {
-  id: PropTypes__default.string,
-  color: PropTypes__default.string,
-  className: PropTypes__default.string
+  id: PropTypes.string,
+  color: PropTypes.string,
+  className: PropTypes.string
 };
 
 var InputNumeric =
@@ -5707,7 +5698,7 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "getValue"]);
 
       var classes = classNames("form-control", className);
-      return React__default.createElement(NumericInput, _extends({}, attributes, {
+      return React.createElement(NumericInput, _extends({}, attributes, {
         onChange: this.onChangeHandler,
         className: classes
       }));
@@ -5715,11 +5706,11 @@ function (_React$Component) {
   }]);
 
   return InputNumeric;
-}(React__default.Component);
+}(React.Component);
 
 InputNumeric.propTypes = {
-  className: PropTypes__default.string,
-  getValue: PropTypes__default.func
+  className: PropTypes.string,
+  getValue: PropTypes.func
 };
 
 var Jumbotron =
@@ -5743,19 +5734,19 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "fluid"]);
 
       var classes = classNames("jumbotron", fluid ? "jumbotron-fluid" : false, className);
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return Jumbotron;
-}(React__default.Component);
+}(React.Component);
 
 Jumbotron.propTypes = {
-  fluid: PropTypes__default.bool,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string
+  fluid: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 var ListGroup =
@@ -5779,19 +5770,19 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag"]);
 
       var classes = classNames("list-group", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return ListGroup;
-}(React.Component);
+}(Component);
 
 ListGroup.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 ListGroup.defaultProps = {
   tag: "ul"
@@ -5831,27 +5822,27 @@ function (_Component) {
         Tag = "a";
       }
 
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return ListGroupItem;
-}(React.Component);
+}(Component);
 
 ListGroupItem.propTypes = {
-  active: PropTypes__default.bool,
-  disabled: PropTypes__default.bool,
-  hover: PropTypes__default.bool,
-  success: PropTypes__default.bool,
-  info: PropTypes__default.bool,
-  warning: PropTypes__default.bool,
-  danger: PropTypes__default.bool,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  color: PropTypes__default.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])
+  active: PropTypes.bool,
+  disabled: PropTypes.bool,
+  hover: PropTypes.bool,
+  success: PropTypes.bool,
+  info: PropTypes.bool,
+  warning: PropTypes.bool,
+  danger: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node,
+  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])
 };
 ListGroupItem.defaultProps = {
   tag: "li"
@@ -5912,35 +5903,35 @@ function (_React$Component) {
 
       var Tag = tag || defaultTag;
       var classes = classNames(body ? "media-body" : false, heading ? "mt-0" : false, left ? "media-left" : false, right ? "media-right" : false, top ? "align-self-start" : false, middle ? "align-self-center" : false, bottom ? "align-self-end" : false, object ? "media-object" : false, thumbnail ? "img-thumbnail" : false, list ? "media-list" : false, figure ? "figure" : false, figImg ? "figure-img" : false, figCap ? "figure-caption text-center" : false, figCapRight ? "figure-caption text-right" : false, figCapLeft ? "figure-caption text-left" : false, round ? "rounded-circle z-depth-1-half" : false, !body && !heading && !left && !right && !top && !bottom && !middle && !object && !list && !figCap && !figCapRight && !figCapRight && !figImg && !figure ? "media" : false, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return Media;
-}(React__default.Component);
+}(React.Component);
 
 Media.propTypes = {
-  body: PropTypes__default.bool,
-  bottom: PropTypes__default.bool,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  heading: PropTypes__default.bool,
-  figure: PropTypes__default.bool,
-  figImg: PropTypes__default.bool,
-  figCap: PropTypes__default.bool,
-  figCapRight: PropTypes__default.bool,
-  figCapLeft: PropTypes__default.bool,
-  left: PropTypes__default.bool,
-  list: PropTypes__default.bool,
-  middle: PropTypes__default.bool,
-  object: PropTypes__default.bool,
-  thumbnail: PropTypes__default.bool,
-  round: PropTypes__default.bool,
-  right: PropTypes__default.bool,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  top: PropTypes__default.bool
+  body: PropTypes.bool,
+  bottom: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  heading: PropTypes.bool,
+  figure: PropTypes.bool,
+  figImg: PropTypes.bool,
+  figCap: PropTypes.bool,
+  figCapRight: PropTypes.bool,
+  figCapLeft: PropTypes.bool,
+  left: PropTypes.bool,
+  list: PropTypes.bool,
+  middle: PropTypes.bool,
+  object: PropTypes.bool,
+  thumbnail: PropTypes.bool,
+  round: PropTypes.bool,
+  right: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  top: PropTypes.bool
 };
 
 var Modal =
@@ -6067,7 +6058,7 @@ function (_Component) {
         role: role,
         "aria-hidden": "true"
       });
-      return React__default.createElement(React.Fragment, null, backdrop && React__default.createElement(reactTransitionGroup.Transition, {
+      return React.createElement(Fragment, null, backdrop && React.createElement(Transition, {
         timeout: timeout,
         in: this.state.isOpen,
         appear: this.state.isOpen,
@@ -6080,9 +6071,9 @@ function (_Component) {
           return _this2.handleOnExit("backdrop", node);
         },
         onExited: this.handleOnExited
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: backdropClasses
-      })), React__default.createElement(reactTransitionGroup.Transition, {
+      })), React.createElement(Transition, {
         timeout: timeout,
         in: this.state.isOpen,
         appear: this.state.isOpen,
@@ -6095,13 +6086,13 @@ function (_Component) {
         onExit: function onExit(node) {
           return _this2.handleOnExit("modal", node);
         }
-      }, React__default.createElement("div", _extends({
+      }, React.createElement("div", _extends({
         onKeyUp: this.handleEscape,
         className: wrapperClasses
-      }, modalAttributes), React__default.createElement("div", {
+      }, modalAttributes), React.createElement("div", {
         className: modalDialogClasses,
         role: "document"
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         ref: function ref(elem) {
           return _this2.modalContent = elem;
         },
@@ -6111,7 +6102,7 @@ function (_Component) {
   }]);
 
   return Modal;
-}(React.Component);
+}(Component);
 
 Modal.defaultProps = {
   backdrop: true,
@@ -6125,29 +6116,29 @@ Modal.defaultProps = {
   tabIndex: "-1"
 };
 Modal.propTypes = {
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  backdrop: PropTypes__default.bool,
-  backdropClassName: PropTypes__default.string,
-  contentClassName: PropTypes__default.string,
-  modalClassName: PropTypes__default.string,
-  size: PropTypes__default.string,
-  side: PropTypes__default.bool,
-  fullHeight: PropTypes__default.bool,
-  frame: PropTypes__default.bool,
-  centered: PropTypes__default.bool,
-  position: PropTypes__default.string,
-  cascading: PropTypes__default.bool,
-  modalStyle: PropTypes__default.string,
-  wrapClassName: PropTypes__default.string,
-  animation: PropTypes__default.string,
-  fade: PropTypes__default.bool,
-  id: PropTypes__default.string,
-  role: PropTypes__default.string,
-  tabIndex: PropTypes__default.string,
-  showModal: PropTypes__default.func,
-  hiddenModal: PropTypes__default.func,
-  hideModal: PropTypes__default.func
+  children: PropTypes.node,
+  className: PropTypes.string,
+  backdrop: PropTypes.bool,
+  backdropClassName: PropTypes.string,
+  contentClassName: PropTypes.string,
+  modalClassName: PropTypes.string,
+  size: PropTypes.string,
+  side: PropTypes.bool,
+  fullHeight: PropTypes.bool,
+  frame: PropTypes.bool,
+  centered: PropTypes.bool,
+  position: PropTypes.string,
+  cascading: PropTypes.bool,
+  modalStyle: PropTypes.string,
+  wrapClassName: PropTypes.string,
+  animation: PropTypes.string,
+  fade: PropTypes.bool,
+  id: PropTypes.string,
+  role: PropTypes.string,
+  tabIndex: PropTypes.string,
+  showModal: PropTypes.func,
+  hiddenModal: PropTypes.func,
+  hideModal: PropTypes.func
 };
 
 var ModalBody =
@@ -6170,18 +6161,18 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "children"]);
 
       var classes = classNames("modal-body", className);
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return ModalBody;
-}(React__default.Component);
+}(React.Component);
 
 ModalBody.propTypes = {
-  className: PropTypes__default.string,
-  children: PropTypes__default.node
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 
 var ModalFooter =
@@ -6209,18 +6200,18 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "center", "start", "end", "around", "between"]);
 
       var classes = classNames("modal-footer", start && "justify-content-start", end && "justify-content-end", center && "justify-content-center", between && "justify-content-between", around && "justify-content-around", className);
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return ModalFooter;
-}(React__default.Component);
+}(React.Component);
 
 ModalFooter.propTypes = {
-  className: PropTypes__default.string,
-  children: PropTypes__default.node
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 
 var ModalHeader =
@@ -6252,33 +6243,33 @@ function (_React$Component) {
       var titleClasses = classNames("modal-title", this.props.titleClass);
 
       if (toggle) {
-        closeButton = React__default.createElement("button", {
+        closeButton = React.createElement("button", {
           type: "button",
           onClick: toggle,
           className: "close",
           "aria-label": closeAriaLabel
-        }, React__default.createElement("span", {
+        }, React.createElement("span", {
           "aria-hidden": "true"
         }, String.fromCharCode(215)));
       }
 
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
-      }), React__default.createElement(Tag, {
+      }), React.createElement(Tag, {
         className: titleClasses
       }, children), closeButton);
     }
   }]);
 
   return ModalHeader;
-}(React__default.Component);
+}(React.Component);
 
 ModalHeader.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  toggle: PropTypes__default.func,
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  closeAriaLabel: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  toggle: PropTypes.func,
+  className: PropTypes.string,
+  children: PropTypes.node,
+  closeAriaLabel: PropTypes.string
 };
 ModalHeader.defaultProps = {
   tag: "h4",
@@ -6311,24 +6302,24 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag", "tabs", "color", "classicTabs", "pills", "header"]);
 
       var classes = classNames("nav", tabs && "md-tabs", pills && "md-pills", header && "nav-pills card-header-pills", pills && color ? "pills-" + color : false, (tabs || classicTabs) && color ? "tabs-" + this.props.color : false, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return Nav;
-}(React.Component);
+}(Component);
 
 Nav.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  color: PropTypes__default.string,
-  classicTabs: PropTypes__default.bool,
-  pills: PropTypes__default.bool,
-  tabs: PropTypes__default.bool,
-  header: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node,
+  color: PropTypes.string,
+  classicTabs: PropTypes.bool,
+  pills: PropTypes.bool,
+  tabs: PropTypes.bool,
+  header: PropTypes.bool
 };
 Nav.defaultProps = {
   tag: "ul",
@@ -6413,7 +6404,7 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["expand", "light", "dark", "sticky", "fixed", "scrolling", "color", "className", "scrollingNavbarOffset", "tag", "double", "transparent"]);
 
       var classes = classNames("navbar", light ? "navbar-light" : "", dark ? "navbar-dark" : "", sticky ? "sticky-" + sticky : "", fixed ? "fixed-" + fixed : "", getExpandClass(expand), scrolling || scrollingNavbarOffset ? "scrolling-navbar" : "", this.state.isCollapsed ? "top-nav-collapse" : "", color ? transparent ? this.state.isCollapsed ? color : "" : color : "", double ? "double-nav" : "", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes,
         role: "navigation"
       }));
@@ -6421,21 +6412,21 @@ function (_Component) {
   }]);
 
   return Navbar;
-}(React.Component);
+}(Component);
 
 Navbar.propTypes = {
-  light: PropTypes__default.bool,
-  dark: PropTypes__default.bool,
-  double: PropTypes__default.bool,
-  fixed: PropTypes__default.string,
-  sticky: PropTypes__default.string,
-  scrolling: PropTypes__default.bool,
-  scrollingNavbarOffset: PropTypes__default.number,
-  color: PropTypes__default.string,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  expand: PropTypes__default.oneOfType([PropTypes__default.bool, PropTypes__default.string]),
-  transparent: PropTypes__default.bool
+  light: PropTypes.bool,
+  dark: PropTypes.bool,
+  double: PropTypes.bool,
+  fixed: PropTypes.string,
+  sticky: PropTypes.string,
+  scrolling: PropTypes.bool,
+  scrollingNavbarOffset: PropTypes.number,
+  color: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  transparent: PropTypes.bool
 };
 Navbar.defaultProps = {
   tag: "nav",
@@ -6452,13 +6443,13 @@ var NavbarBrand = function NavbarBrand(_ref) {
 
   var navbarBrand = function navbarBrand() {
     if (href) {
-      return React__default.createElement(reactRouterDom.NavLink, _extends({
+      return React.createElement(NavLink, _extends({
         to: href
       }, attributes, {
         className: classes
       }));
     } else {
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
       }));
     }
@@ -6468,8 +6459,8 @@ var NavbarBrand = function NavbarBrand(_ref) {
 };
 
 NavbarBrand.propTypes = {
-  className: PropTypes__default.string,
-  href: PropTypes__default.string
+  className: PropTypes.string,
+  href: PropTypes.string
 };
 
 var NavbarNav =
@@ -6495,21 +6486,21 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "right", "left", "tag"]);
 
       var classes = classNames("navbar-nav", right ? "ml-auto" : left ? "mr-auto" : "justify-content-around w-100", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return NavbarNav;
-}(React.Component);
+}(Component);
 
 NavbarNav.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  right: PropTypes__default.bool,
-  left: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node,
+  right: PropTypes.bool,
+  left: PropTypes.bool
 };
 NavbarNav.defaultProps = {
   tag: "ul"
@@ -6539,30 +6530,30 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["right", "left", "children", "className", "tag", "image"]);
 
       var classes = classNames("navbar-toggler", right && "navbar-toggler-right", left && "navbar-toggler-left", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
-      }), children ? children : image ? React__default.createElement("span", {
+      }), children ? children : image ? React.createElement("span", {
         className: "navbar-toggler-icon",
         style: {
           backgroundImage: "url(\"".concat(image, "\")")
         }
-      }) : React__default.createElement("span", {
+      }) : React.createElement("span", {
         className: "navbar-toggler-icon"
       }));
     }
   }]);
 
   return NavbarToggler;
-}(React.Component);
+}(Component);
 
 NavbarToggler.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  type: PropTypes__default.string,
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  right: PropTypes__default.bool,
-  left: PropTypes__default.bool,
-  image: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  type: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
+  right: PropTypes.bool,
+  left: PropTypes.bool,
+  image: PropTypes.string
 };
 NavbarToggler.defaultProps = {
   tag: "button",
@@ -6592,36 +6583,36 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "active", "text", "tag"]);
 
       var classes = classNames("nav-item", active ? "active" : "", text ? "navbar-text" : "", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return NavItem;
-}(React.Component);
+}(Component);
 
 NavItem.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  active: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node,
+  active: PropTypes.bool
 };
 NavItem.defaultProps = {
   tag: "li"
 };
 
-var NavLink =
+var NavLink$1 =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(NavLink, _Component);
+  _inherits(NavLink$$1, _Component);
 
-  function NavLink(props) {
+  function NavLink$$1(props) {
     var _this;
 
-    _classCallCheck(this, NavLink);
+    _classCallCheck(this, NavLink$$1);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(NavLink).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NavLink$$1).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (e) {
       if (!_this.props.disabled) {
@@ -6645,7 +6636,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(NavLink, [{
+  _createClass(NavLink$$1, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -6658,26 +6649,26 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "activeClassName"]);
 
       var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
-      return React__default.createElement(reactRouterDom.NavLink, _extends({
+      return React.createElement(NavLink, _extends({
         className: classes,
         onMouseUp: this.handleClick,
         onTouchStart: this.handleClick,
         to: to
-      }, attributes), children, this.props.disabled ? false : React__default.createElement(Waves, {
+      }, attributes), children, this.props.disabled ? false : React.createElement(Waves, {
         cursorPos: this.state.cursorPos
       }));
     }
   }]);
 
-  return NavLink;
-}(React.Component);
+  return NavLink$$1;
+}(Component);
 
-NavLink.propTypes = {
-  className: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  children: PropTypes__default.node,
-  to: PropTypes__default.string,
-  active: PropTypes__default.bool
+NavLink$1.propTypes = {
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  children: PropTypes.node,
+  to: PropTypes.string,
+  active: PropTypes.bool
 };
 
 var css$8 = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n";
@@ -6772,17 +6763,17 @@ function (_React$Component) {
       var classes = classNames(className);
       var popoverClasses = classNames("popover", placement ? "bs-popover-" + placement : "", popoverClass);
       var arrowClasses = classNames("arrow", arrowClass);
-      return React__default.createElement(reactPopper.Manager, {
+      return React.createElement(Manager, {
         tag: tag
-      }, React__default.createElement(reactPopper.Target, {
+      }, React.createElement(Target, {
         innerRef: function innerRef(c) {
-          return _this3.target = ReactDOM.findDOMNode(c);
+          return _this3.target = findDOMNode(c);
         },
         component: component,
         style: componentStyle,
         className: classes,
         onClick: this._handleTargetClick
-      }, popoverBody), React__default.createElement(reactTransitionGroup.CSSTransition, {
+      }, popoverBody), React.createElement(CSSTransition, {
         in: this.state.isOpen,
         appear: this.state.isOpen,
         classNames: "popover",
@@ -6791,34 +6782,34 @@ function (_React$Component) {
           enter: 300,
           exit: 300
         }
-      }, React__default.createElement(reactPopper.Popper, {
+      }, React.createElement(Popper, {
         key: "popover",
         component: componentPopover,
         innerRef: function innerRef(c) {
-          _this3.popper = ReactDOM.findDOMNode(c);
+          _this3.popper = findDOMNode(c);
         },
         placement: placement,
         className: popoverClasses
-      }, children, React__default.createElement(reactPopper.Arrow, {
+      }, children, React.createElement(Arrow, {
         className: arrowClasses
       }))));
     }
   }]);
 
   return Popover;
-}(React__default.Component);
+}(React.Component);
 
 Popover.propTypes = {
-  placement: PropTypes__default.string,
-  component: PropTypes__default.string,
-  componentStyle: PropTypes__default.string,
-  componentPopover: PropTypes__default.string,
-  popoverBody: PropTypes__default.string,
-  arrowClass: PropTypes__default.string,
-  popoverClass: PropTypes__default.string,
-  children: PropTypes__default.node,
-  tag: PropTypes__default.string,
-  className: PropTypes__default.string
+  placement: PropTypes.string,
+  component: PropTypes.string,
+  componentStyle: PropTypes.string,
+  componentPopover: PropTypes.string,
+  popoverBody: PropTypes.string,
+  arrowClass: PropTypes.string,
+  popoverClass: PropTypes.string,
+  children: PropTypes.node,
+  tag: PropTypes.string,
+  className: PropTypes.string
 };
 
 var PopoverBody = function PopoverBody(props) {
@@ -6827,14 +6818,14 @@ var PopoverBody = function PopoverBody(props) {
       attributes = _objectWithoutProperties(props, ["className", "tag"]);
 
   var classes = classNames("popover-body", className);
-  return React__default.createElement(Tag, _extends({}, attributes, {
+  return React.createElement(Tag, _extends({}, attributes, {
     className: classes
   }));
 };
 
 PopoverBody.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
 };
 PopoverBody.defaultProps = {
   tag: "div"
@@ -6846,14 +6837,14 @@ var PopoverHeader = function PopoverHeader(props) {
       attributes = _objectWithoutProperties(props, ["className", "tag"]);
 
   var classes = classNames("popover-header", className);
-  return React__default.createElement(Tag, _extends({}, attributes, {
+  return React.createElement(Tag, _extends({}, attributes, {
     className: classes
   }));
 };
 
 PopoverHeader.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
 };
 PopoverHeader.defaultProps = {
   tag: "h3"
@@ -6883,10 +6874,10 @@ var Progress = function Progress(_ref) {
     height: computedHeight
   });
 
-  return React__default.createElement("div", _extends({}, attributes, {
+  return React.createElement("div", _extends({}, attributes, {
     className: progressClasses,
     style: computedWrapperStyle
-  }), React__default.createElement("div", {
+  }), React.createElement("div", {
     className: progressBarClasses,
     style: {
       width: "".concat(percent, "%"),
@@ -6900,19 +6891,19 @@ var Progress = function Progress(_ref) {
 };
 
 Progress.propTypes = {
-  animated: PropTypes__default.bool,
-  barClassName: PropTypes__default.string,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  color: PropTypes__default.string,
-  height: PropTypes__default.string,
-  material: PropTypes__default.bool,
-  max: PropTypes__default.number,
-  min: PropTypes__default.number,
-  preloader: PropTypes__default.bool,
-  striped: PropTypes__default.bool,
-  wrapperStyle: PropTypes__default.object,
-  value: PropTypes__default.number
+  animated: PropTypes.bool,
+  barClassName: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  color: PropTypes.string,
+  height: PropTypes.string,
+  material: PropTypes.bool,
+  max: PropTypes.number,
+  min: PropTypes.number,
+  preloader: PropTypes.bool,
+  striped: PropTypes.bool,
+  wrapperStyle: PropTypes.object,
+  value: PropTypes.number
 };
 Progress.defaultProps = {
   animated: false,
@@ -6957,26 +6948,26 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "center", "start", "end", "around", "between", "top", "bottom", "middle"]);
 
       var classes = classNames("row", end && "justify-content-end", start && "justify-content-start", center && "justify-content-center", between && "justify-content-between", around && "justify-content-around", top && "align-self-start", middle && "align-self-center", bottom && "align-self-end", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return Row;
-}(React.Component);
+}(Component);
 
 Row.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  top: PropTypes__default.bool,
-  bottom: PropTypes__default.bool,
-  middle: PropTypes__default.bool,
-  end: PropTypes__default.bool,
-  start: PropTypes__default.bool,
-  center: PropTypes__default.bool,
-  between: PropTypes__default.bool,
-  around: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  top: PropTypes.bool,
+  bottom: PropTypes.bool,
+  middle: PropTypes.bool,
+  end: PropTypes.bool,
+  start: PropTypes.bool,
+  center: PropTypes.bool,
+  between: PropTypes.bool,
+  around: PropTypes.bool
 };
 Row.defaultProps = {
   tag: "div"
@@ -6992,10 +6983,10 @@ var TableHead = function TableHead(props) {
   var classes = classNames(color !== "dark" && color !== "light" ? color : "thead-".concat(color), {
     "text-white": textWhite
   });
-  return React__default.createElement("thead", _extends({}, attributes, {
+  return React.createElement("thead", _extends({}, attributes, {
     className: classes
-  }), columns && React__default.createElement("tr", null, columns.map(function (col) {
-    return React__default.createElement("th", {
+  }), columns && React.createElement("tr", null, columns.map(function (col) {
+    return React.createElement("th", {
       key: col.field,
       className: col.hasOwnProperty("minimal") ? "th-".concat(col.minimal) : ""
     }, col.label);
@@ -7003,10 +6994,10 @@ var TableHead = function TableHead(props) {
 };
 
 TableHead.propTypes = {
-  children: PropTypes__default.node,
-  color: PropTypes__default.string,
-  columns: PropTypes__default.arrayOf(PropTypes__default.object),
-  textWhite: PropTypes__default.bool
+  children: PropTypes.node,
+  color: PropTypes.string,
+  columns: PropTypes.arrayOf(PropTypes.object),
+  textWhite: PropTypes.bool
 };
 TableHead.defaultProps = {
   textWhite: false
@@ -7070,11 +7061,11 @@ function (_React$Component) {
       var tooltipClasses = classNames("tooltip fade", placement ? "bs-tooltip-" + placement : "", this.state.visible ? "show" : "", tooltipClass);
       var wrapperStyles = wrapperStyle ? wrapperStyle : {};
       var arrowClasses = classNames("arrow", arrowClass);
-      return React__default.createElement(reactPopper.Manager, {
+      return React.createElement(Manager, {
         tag: tag,
         className: classes,
         style: wrapperStyles
-      }, React__default.createElement(reactPopper.Target, {
+      }, React.createElement(Target, {
         component: component,
         style: componentStyle,
         className: componentClasses,
@@ -7082,18 +7073,18 @@ function (_React$Component) {
         onMouseLeave: this.hide,
         onTouchStart: this.show,
         onTouchEnd: this.hide
-      }, children), this.state.visible && React__default.createElement(reactPopper.Popper, {
+      }, children), this.state.visible && React.createElement(Popper, {
         placement: placement,
         component: componentTooltip
       }, function (_ref) {
         var popperProps = _ref.popperProps;
-        return React__default.createElement("div", _extends({}, popperProps, {
+        return React.createElement("div", _extends({}, popperProps, {
           className: tooltipClasses
-        }), React__default.createElement("div", {
+        }), React.createElement("div", {
           className: "tooltip-inner"
-        }, tooltipContent), React__default.createElement(reactPopper.Arrow, null, function (_ref2) {
+        }, tooltipContent), React.createElement(Arrow, null, function (_ref2) {
           var arrowProps = _ref2.arrowProps;
-          return React__default.createElement("span", _extends({}, arrowProps, {
+          return React.createElement("span", _extends({}, arrowProps, {
             className: arrowClasses
           }));
         }));
@@ -7102,21 +7093,21 @@ function (_React$Component) {
   }]);
 
   return Tooltip;
-}(React__default.Component);
+}(React.Component);
 
 Tooltip.propTypes = {
-  placement: PropTypes__default.string,
-  component: PropTypes__default.string,
-  componentStyle: PropTypes__default.string,
-  tooltipContent: PropTypes__default.string,
-  tooltipClass: PropTypes__default.string,
-  arrowClass: PropTypes__default.string,
-  componentTooltip: PropTypes__default.string,
-  componentClass: PropTypes__default.string,
-  children: PropTypes__default.node,
-  tag: PropTypes__default.string,
-  className: PropTypes__default.string,
-  wrapperStyle: PropTypes__default.object
+  placement: PropTypes.string,
+  component: PropTypes.string,
+  componentStyle: PropTypes.string,
+  tooltipContent: PropTypes.string,
+  tooltipClass: PropTypes.string,
+  arrowClass: PropTypes.string,
+  componentTooltip: PropTypes.string,
+  componentClass: PropTypes.string,
+  children: PropTypes.node,
+  tag: PropTypes.string,
+  className: PropTypes.string,
+  wrapperStyle: PropTypes.object
 };
 
 var Iframe =
@@ -7208,9 +7199,9 @@ function (_Component) {
         style: style || undefined
       };
       iframeAttributes = returnAttributes(iframeAttributes);
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: wrapperClasses
-      }, React__default.createElement("iframe", _extends({
+      }, React.createElement("iframe", _extends({
         title: title || "",
         className: classes
       }, iframeAttributes)));
@@ -7218,23 +7209,23 @@ function (_Component) {
   }]);
 
   return Iframe;
-}(React.Component);
+}(Component);
 
 Iframe.propTypes = {
-  allowFullScreen: PropTypes__default.bool,
-  className: PropTypes__default.string,
-  height: PropTypes__default.number,
-  id: PropTypes__default.string,
-  name: PropTypes__default.string,
-  onMouseOver: PropTypes__default.func,
-  onMouseOut: PropTypes__default.func,
-  onLoad: PropTypes__default.func,
-  ratio: PropTypes__default.string,
-  sandbox: PropTypes__default.string,
-  src: PropTypes__default.string.isRequired,
-  styles: PropTypes__default.object,
-  width: PropTypes__default.number,
-  title: PropTypes__default.string
+  allowFullScreen: PropTypes.bool,
+  className: PropTypes.string,
+  height: PropTypes.number,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  onMouseOver: PropTypes.func,
+  onMouseOut: PropTypes.func,
+  onLoad: PropTypes.func,
+  ratio: PropTypes.string,
+  sandbox: PropTypes.string,
+  src: PropTypes.string.isRequired,
+  styles: PropTypes.object,
+  width: PropTypes.number,
+  title: PropTypes.string
 };
 
 var Dropdown =
@@ -7301,7 +7292,7 @@ function (_React$Component) {
   }, {
     key: "getContainer",
     value: function getContainer() {
-      return ReactDOM__default.findDOMNode(this);
+      return ReactDOM.findDOMNode(this);
     }
   }, {
     key: "addEvents",
@@ -7397,7 +7388,7 @@ function (_React$Component) {
       var classes = classNames((_classNames = {
         "btn-group": group
       }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _classNames), className);
-      return React__default.createElement(reactPopper.Manager, _extends({}, attrs, {
+      return React.createElement(Manager, _extends({}, attrs, {
         className: classes,
         onKeyDown: this.handleKeyDown
       }));
@@ -7405,26 +7396,26 @@ function (_React$Component) {
   }]);
 
   return Dropdown;
-}(React__default.Component);
+}(React.Component);
 
 Dropdown.propTypes = {
-  disabled: PropTypes__default.bool,
-  dropup: PropTypes__default.bool,
-  group: PropTypes__default.bool,
-  size: PropTypes__default.string,
-  tag: PropTypes__default.string,
-  toggle: PropTypes__default.func,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string
+  disabled: PropTypes.bool,
+  dropup: PropTypes.bool,
+  group: PropTypes.bool,
+  size: PropTypes.string,
+  tag: PropTypes.string,
+  toggle: PropTypes.func,
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 Dropdown.defaultProps = {
   dropup: false,
   tag: "div"
 };
 Dropdown.childContextTypes = {
-  toggle: PropTypes__default.func.isRequired,
-  isOpen: PropTypes__default.bool.isRequired,
-  dropup: PropTypes__default.bool.isRequired
+  toggle: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  dropup: PropTypes.bool.isRequired
 };
 
 var Avatar =
@@ -7449,20 +7440,20 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "round", "circle"]);
 
       var classes = classNames("avatar", round && "rounded", circle && "rounded-circle", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return Avatar;
-}(React.Component);
+}(Component);
 
 Avatar.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  round: PropTypes__default.bool,
-  circle: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  round: PropTypes.bool,
+  circle: PropTypes.bool
 };
 Avatar.defaultProps = {
   tag: "div",
@@ -7541,66 +7532,66 @@ function (_React$Component) {
         active: active,
         disabled: this.props.disabled
       });
-      return React__default.createElement("div", _extends({
+      return React.createElement("div", _extends({
         className: buttonFixedClasses,
         ref: innerRef,
         style: {
           bottom: "45px",
           right: "24px"
         }
-      }, attributes), React__default.createElement("a", {
+      }, attributes), React.createElement("a", {
         href: this.props.topSection ? this.props.topSection : "#",
         className: classes,
         onClick: this.onClick,
         onMouseDown: this.handleClick.bind(this),
         onTouchStart: this.handleClick.bind(this)
-      }, icon && React__default.createElement(Fa, {
+      }, icon && React.createElement(Fa, {
         icon: icon,
         size: iconSize,
         brand: iconBrand,
         light: iconLight,
         regular: iconRegular,
         className: iconClass
-      }), this.props.disabled ? false : React__default.createElement(Waves, {
+      }), this.props.disabled ? false : React.createElement(Waves, {
         cursorPos: this.state.cursorPos,
         outline: outline,
         flat: flat
-      })), React__default.createElement("ul", {
+      })), React.createElement("ul", {
         className: "list-unstyled"
       }, this.props.children));
     }
   }]);
 
   return ButtonFixed;
-}(React__default.Component);
+}(React.Component);
 
 ButtonFixed.defaultProps = {
   color: "default"
 };
 ButtonFixed.propTypes = {
-  active: PropTypes__default.bool,
-  block: PropTypes__default.bool,
-  color: PropTypes__default.string,
-  gradient: PropTypes__default.string,
-  role: PropTypes__default.string,
-  type: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  outline: PropTypes__default.bool,
-  rounded: PropTypes__default.bool,
-  floating: PropTypes__default.bool,
-  flat: PropTypes__default.bool,
-  icon: PropTypes__default.string,
-  iconBrand: PropTypes__default.bool,
-  iconClass: PropTypes__default.string,
-  iconLight: PropTypes__default.bool,
-  iconRegular: PropTypes__default.bool,
-  iconSize: PropTypes__default.string,
-  innerRef: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  onClick: PropTypes__default.func,
-  size: PropTypes__default.string,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  topSection: PropTypes__default.string
+  active: PropTypes.bool,
+  block: PropTypes.bool,
+  color: PropTypes.string,
+  gradient: PropTypes.string,
+  role: PropTypes.string,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+  outline: PropTypes.bool,
+  rounded: PropTypes.bool,
+  floating: PropTypes.bool,
+  flat: PropTypes.bool,
+  icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  onClick: PropTypes.func,
+  size: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  topSection: PropTypes.string
 };
 
 var ButtonFixed$1 =
@@ -7674,20 +7665,20 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["active", "block", "className", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "innerRef", "buttonStyle"]);
 
       var classes = classNames(size && "btn-".concat(size), "btn-floating", color ? color : false, "Ripple-parent", className);
-      return React__default.createElement("li", null, React__default.createElement("a", _extends({}, attributes, {
+      return React.createElement("li", null, React.createElement("a", _extends({}, attributes, {
         style: this.props.buttonStyle,
         onClick: this.onClick,
         onMouseDown: this.handleClick.bind(this),
         onTouchStart: this.handleClick.bind(this),
         className: classes
-      }), icon && React__default.createElement(Fa, {
+      }), icon && React.createElement(Fa, {
         icon: icon,
         size: iconSize,
         brand: iconBrand,
         light: iconLight,
         regular: iconRegular,
         className: iconClass
-      }), this.props.disabled ? false : React__default.createElement(Waves, {
+      }), this.props.disabled ? false : React.createElement(Waves, {
         cursorPos: this.state.cursorPos,
         outline: outline,
         flat: flat
@@ -7696,35 +7687,35 @@ function (_React$Component) {
   }]);
 
   return ButtonFixed;
-}(React__default.Component);
+}(React.Component);
 
 ButtonFixed$1.defaultProps = {
   color: "default"
 };
 ButtonFixed$1.propTypes = {
-  active: PropTypes__default.bool,
-  block: PropTypes__default.bool,
-  color: PropTypes__default.string,
-  gradient: PropTypes__default.string,
-  role: PropTypes__default.string,
-  type: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  outline: PropTypes__default.bool,
-  rounded: PropTypes__default.bool,
-  floating: PropTypes__default.bool,
-  flat: PropTypes__default.bool,
-  innerRef: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  onClick: PropTypes__default.func,
-  size: PropTypes__default.oneOf(['lg', 'sm']),
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  icon: PropTypes__default.string,
-  iconBrand: PropTypes__default.bool,
-  iconClass: PropTypes__default.string,
-  iconLight: PropTypes__default.bool,
-  iconRegular: PropTypes__default.bool,
-  iconSize: PropTypes__default.string,
-  buttonStyle: PropTypes__default.object
+  active: PropTypes.bool,
+  block: PropTypes.bool,
+  color: PropTypes.string,
+  gradient: PropTypes.string,
+  role: PropTypes.string,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+  outline: PropTypes.bool,
+  rounded: PropTypes.bool,
+  floating: PropTypes.bool,
+  flat: PropTypes.bool,
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['lg', 'sm']),
+  children: PropTypes.node,
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
+  buttonStyle: PropTypes.object
 };
 
 var CardUp =
@@ -7749,18 +7740,18 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "color", "gradient"]);
 
       var classes = classNames("card-up", color && color + "-color", gradient && gradient + "-gradient", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return CardUp;
-}(React.Component);
+}(Component);
 
 CardUp.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
 };
 CardUp.defaultProps = {
   tag: "div"
@@ -7827,16 +7818,16 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "size", "bgColor", "text", "gradient", "src", "alt", "close", "waves", "handleClose"]);
 
       var classes = classNames("chip", size && "chip-" + size, bgColor && bgColor, text && text + "-text", gradient && gradient + "-gradient", waves && "Ripple-parent", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes,
         onMouseDown: this.handleClick.bind(this),
         onTouchStart: this.handleClick.bind(this)
-      }), src && React__default.createElement("img", {
+      }), src && React.createElement("img", {
         src: src,
         alt: alt
-      }), this.props.children, waves && React__default.createElement(Waves, {
+      }), this.props.children, waves && React.createElement(Waves, {
         cursorPos: this.state.cursorPos
-      }), close && React__default.createElement(Fa, {
+      }), close && React.createElement(Fa, {
         icon: "times",
         className: "close",
         onClick: this.handleCloseClick
@@ -7845,19 +7836,19 @@ function (_Component) {
   }]);
 
   return Chip;
-}(React.Component);
+}(Component);
 
 Chip.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  size: PropTypes__default.string,
-  bgColor: PropTypes__default.string,
-  text: PropTypes__default.string,
-  gradient: PropTypes__default.string,
-  src: PropTypes__default.string,
-  alt: PropTypes__default.string,
-  close: PropTypes__default.bool,
-  handleClose: PropTypes__default.func
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  size: PropTypes.string,
+  bgColor: PropTypes.string,
+  text: PropTypes.string,
+  gradient: PropTypes.string,
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  close: PropTypes.bool,
+  handleClose: PropTypes.func
 };
 Chip.defaultProps = {
   tag: "div"
@@ -7967,7 +7958,7 @@ function (_Component) {
       isTouched: false,
       isReadyToDelete: false
     };
-    _this.inputRef = React__default.createRef();
+    _this.inputRef = React.createRef();
     return _this;
   }
 
@@ -7990,7 +7981,7 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag", "handleClose", "placeholder", "secondaryPlaceholder", "chipSize", "chipColor", "chipText", "chipGradient", "chipWaves"]);
 
       var renderedChips = this.state.chipsList.map(function (chip) {
-        return React__default.createElement(Chip, {
+        return React.createElement(Chip, {
           close: true,
           handleClose: _this2.handleClose(chip),
           key: chip.toString(),
@@ -8010,11 +8001,11 @@ function (_Component) {
       }
 
       var classes = classNames("chips", this.state.isTouched && "focus", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes,
         onClick: this.handleClick,
         onKeyUp: this.handleBackspace
-      }), renderedChips, React__default.createElement("input", {
+      }), renderedChips, React.createElement("input", {
         className: "input",
         type: "text",
         placeholder: calculatePlaceholder,
@@ -8028,17 +8019,17 @@ function (_Component) {
   }]);
 
   return ChipsInput;
-}(React.Component);
+}(Component);
 
 ChipsInput.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  placeholder: PropTypes__default.string,
-  secondaryPlaceholder: PropTypes__default.string,
-  chipSize: PropTypes__default.string,
-  chipColor: PropTypes__default.string,
-  chipText: PropTypes__default.string,
-  chipGradient: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  secondaryPlaceholder: PropTypes.string,
+  chipSize: PropTypes.string,
+  chipColor: PropTypes.string,
+  chipText: PropTypes.string,
+  chipGradient: PropTypes.string
 };
 ChipsInput.defaultProps = {
   tag: "div",
@@ -8067,46 +8058,46 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "tag", "triggerOnClick"]);
 
       var classes = classNames("card-header", className);
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes,
         style: {
           cursor: "pointer"
         }
-      }), React__default.createElement("a", {
+      }), React.createElement("a", {
         href: "#!"
-      }, React__default.createElement(Tag, {
+      }, React.createElement(Tag, {
         className: "mb-0"
       }, children)));
     }
   }]);
 
   return CollapseHeader;
-}(React__default.Component);
+}(React.Component);
 
 CollapseHeader.defaultProps = {
   tag: "h5"
 };
 CollapseHeader.propTypes = {
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  tag: PropTypes__default.string,
-  triggerOnClick: PropTypes__default.func
+  children: PropTypes.node,
+  className: PropTypes.string,
+  tag: PropTypes.string,
+  triggerOnClick: PropTypes.func
 };
 
 var css$a = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
 styleInject(css$a);
 
-var DatePicker =
+var DatePicker$1 =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DatePicker, _Component);
+  _inherits(DatePicker$$1, _Component);
 
-  function DatePicker(props) {
+  function DatePicker$$1(props) {
     var _this;
 
-    _classCallCheck(this, DatePicker);
+    _classCallCheck(this, DatePicker$$1);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DatePicker).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DatePicker$$1).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDateChange", function (date) {
       _this.setState({
@@ -8116,7 +8107,7 @@ function (_Component) {
 
     _this.state = {
       selectedDate: props.value || props.valueDefault,
-      muiTheme: core.createMuiTheme(_objectSpread({}, props.theme, {
+      muiTheme: createMuiTheme(_objectSpread({}, props.theme, {
         typography: {
           useNextVariants: true
         }
@@ -8125,7 +8116,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DatePicker, [{
+  _createClass(DatePicker$$1, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
       if (this.props.getValue && prevState.selectedDate !== this.state.selectedDate) {
@@ -8140,7 +8131,7 @@ function (_Component) {
 
       if (prevProps.theme !== this.props.theme) {
         this.setState({
-          muiTheme: core.createMuiTheme(this.props.theme)
+          muiTheme: createMuiTheme(this.props.theme)
         });
       }
     }
@@ -8189,15 +8180,15 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["theme", "adornmentPosition", "allowKeyboardControl", "animateYearScrolling", "autoOk", "cancelLabel", "clearable", "clearLabel", "disableFuture", "disableOpenOnEnter", "disablePast", "emptyLabel", "initialFocusedDate", "InputAdornmentProps", "invalidDateMessage", "invalidLabel", "keyboard", "keyboardIcon", "leftArrowIcon", "mask", "maxDate", "maxDateMessage", "minDate", "minDateMessage", "okLabel", "onInputChange", "openToYearSelection", "rightArrowIcon", "showTodayButton", "TextFieldComponent", "todayLabel", "locale", "format", "className", "getValue", "value", "valueDefault", "tag"]);
 
       var classes = classNames('md-form', className);
-      return React__default.createElement(Tag, {
+      return React.createElement(Tag, {
         className: classes
-      }, React__default.createElement(core.MuiThemeProvider, {
+      }, React.createElement(MuiThemeProvider, {
         theme: this.state.muiTheme
-      }, React__default.createElement(materialUiPickers.MuiPickersUtilsProvider, {
+      }, React.createElement(MuiPickersUtilsProvider, {
         locale: locale,
         moment: moment,
         utils: MomentUtils
-      }, React__default.createElement(materialUiPickers.DatePicker, _extends({}, attributes, {
+      }, React.createElement(DatePicker, _extends({}, attributes, {
         adornmentPosition: adornmentPosition,
         allowKeyboardControl: allowKeyboardControl,
         animateYearScrolling: animateYearScrolling,
@@ -8235,50 +8226,50 @@ function (_Component) {
     }
   }]);
 
-  return DatePicker;
-}(React.Component);
+  return DatePicker$$1;
+}(Component);
 
-DatePicker.propTypes = {
-  theme: PropTypes__default.object,
-  adornmentPosition: PropTypes__default.string,
-  allowKeyboardControl: PropTypes__default.bool,
-  animateYearScrolling: PropTypes__default.bool,
-  autoOk: PropTypes__default.bool,
-  cancelLabel: PropTypes__default.node,
-  clearable: PropTypes__default.bool,
-  clearLabel: PropTypes__default.node,
-  disableFuture: PropTypes__default.object,
-  disableOpenOnEnter: PropTypes__default.bool,
-  disablePast: PropTypes__default.bool,
-  emptyLabel: PropTypes__default.string,
-  initialFocusedDate: PropTypes__default.string,
-  InputAdornmentProps: PropTypes__default.object,
-  invalidDateMessage: PropTypes__default.node,
-  invalidLabel: PropTypes__default.string,
-  keyboard: PropTypes__default.bool,
-  keyboardIcon: PropTypes__default.node,
-  leftArrowIcon: PropTypes__default.node,
-  mask: PropTypes__default.any,
-  maxDate: PropTypes__default.string,
-  maxDateMessage: PropTypes__default.node,
-  minDate: PropTypes__default.string,
-  minDateMessage: PropTypes__default.node,
-  okLabel: PropTypes__default.node,
-  onInputChange: PropTypes__default.func,
-  openToYearSelection: PropTypes__default.bool,
-  rightArrowIcon: PropTypes__default.node,
-  showTodayButton: PropTypes__default.bool,
-  TextFieldComponent: PropTypes__default.string,
-  todayLabel: PropTypes__default.string,
-  locale: PropTypes__default.string,
-  format: PropTypes__default.string,
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  getValue: PropTypes__default.func,
-  value: PropTypes__default.instanceOf(Date),
-  valueDefault: PropTypes__default.instanceOf(Date)
+DatePicker$1.propTypes = {
+  theme: PropTypes.object,
+  adornmentPosition: PropTypes.string,
+  allowKeyboardControl: PropTypes.bool,
+  animateYearScrolling: PropTypes.bool,
+  autoOk: PropTypes.bool,
+  cancelLabel: PropTypes.node,
+  clearable: PropTypes.bool,
+  clearLabel: PropTypes.node,
+  disableFuture: PropTypes.object,
+  disableOpenOnEnter: PropTypes.bool,
+  disablePast: PropTypes.bool,
+  emptyLabel: PropTypes.string,
+  initialFocusedDate: PropTypes.string,
+  InputAdornmentProps: PropTypes.object,
+  invalidDateMessage: PropTypes.node,
+  invalidLabel: PropTypes.string,
+  keyboard: PropTypes.bool,
+  keyboardIcon: PropTypes.node,
+  leftArrowIcon: PropTypes.node,
+  mask: PropTypes.any,
+  maxDate: PropTypes.string,
+  maxDateMessage: PropTypes.node,
+  minDate: PropTypes.string,
+  minDateMessage: PropTypes.node,
+  okLabel: PropTypes.node,
+  onInputChange: PropTypes.func,
+  openToYearSelection: PropTypes.bool,
+  rightArrowIcon: PropTypes.node,
+  showTodayButton: PropTypes.bool,
+  TextFieldComponent: PropTypes.string,
+  todayLabel: PropTypes.string,
+  locale: PropTypes.string,
+  format: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  getValue: PropTypes.func,
+  value: PropTypes.instanceOf(Date),
+  valueDefault: PropTypes.instanceOf(Date)
 };
-DatePicker.defaultProps = {
+DatePicker$1.defaultProps = {
   theme: {},
   tag: 'div',
   value: null,
@@ -8294,19 +8285,19 @@ function RotatingCard(props) {
       attributes = _objectWithoutProperties(props, ["className", "tag", "innerTag", "flipped"]);
 
   var classes = classNames("card-rotating effect__click", props.flipped && "flipped", className);
-  return React__default.createElement(Tag, _extends({}, attributes, {
+  return React.createElement(Tag, _extends({}, attributes, {
     className: "card-wrapper"
-  }), React__default.createElement(InnerTag, {
+  }), React.createElement(InnerTag, {
     className: classes
   }, props.children));
 }
 
 RotatingCard.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  innerTag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  flipped: PropTypes__default.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  innerTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  children: PropTypes.node,
+  flipped: PropTypes.bool
 };
 RotatingCard.defaultProps = {
   tag: "div",
@@ -8375,17 +8366,17 @@ function (_React$Component) {
           multiple = _this$props.multiple;
       var btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", "float-left");
       var inputFieldClass = classNames("file-path validate", this.state.files ? "valid" : false, className);
-      return React__default.createElement("form", null, React__default.createElement("div", {
+      return React.createElement("form", null, React.createElement("div", {
         className: "file-field md-form"
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: btnClass
-      }, React__default.createElement("span", null, btnTitle), React__default.createElement("input", {
+      }, React.createElement("span", null, btnTitle), React.createElement("input", {
         multiple: multiple,
         onChange: this.onChangeHandler,
         type: "file"
-      })), React__default.createElement("div", {
+      })), React.createElement("div", {
         className: "file-path-wrapper"
-      }, React__default.createElement("input", {
+      }, React.createElement("input", {
         className: inputFieldClass,
         type: "text",
         placeholder: this.state.files ? this.state.files : textFieldTitle
@@ -8394,14 +8385,14 @@ function (_React$Component) {
   }]);
 
   return InputFile;
-}(React__default.Component);
+}(React.Component);
 
 InputFile.propTypes = {
-  className: PropTypes__default.string,
-  btnTitle: PropTypes__default.string,
-  btnColor: PropTypes__default.string,
-  textFieldTitle: PropTypes__default.string,
-  multiple: PropTypes__default.bool
+  className: PropTypes.string,
+  btnTitle: PropTypes.string,
+  btnColor: PropTypes.string,
+  textFieldTitle: PropTypes.string,
+  multiple: PropTypes.bool
 };
 InputFile.defaultProps = {
   btnTitle: "Choose file",
@@ -8481,7 +8472,7 @@ function (_React$Component) {
       input: 'input',
       oneStep: ''
     };
-    _this.inputRef = React__default.createRef();
+    _this.inputRef = React.createRef();
     return _this;
   }
 
@@ -8496,9 +8487,9 @@ function (_React$Component) {
       var inputClass = classNames(className);
       var formClass = classNames('range-field', formClassName);
       var thumbClass = classNames('thumb', this.state.thumbActive ? 'active' : false);
-      return React__default.createElement("form", {
+      return React.createElement("form", {
         className: formClass
-      }, React__default.createElement("input", {
+      }, React.createElement("input", {
         ref: this.inputRef,
         className: inputClass,
         min: min,
@@ -8508,7 +8499,7 @@ function (_React$Component) {
         onChange: this.rangeChange,
         onFocus: this.rangeFocus,
         onMouseLeave: this.rangeMouseLeave
-      }), React__default.createElement("span", {
+      }), React.createElement("span", {
         className: thumbClass,
         style: {
           left: this.state.leftPosition,
@@ -8517,21 +8508,21 @@ function (_React$Component) {
           top: this.state.thumbTop,
           marginLeft: this.state.thumbMarginLeft
         }
-      }, React__default.createElement("span", {
+      }, React.createElement("span", {
         className: "value"
       }, this.state.value)));
     }
   }]);
 
   return InputRange;
-}(React__default.Component);
+}(React.Component);
 
 InputRange.propTypes = {
-  className: PropTypes__default.string,
-  min: PropTypes__default.number,
-  max: PropTypes__default.number,
-  value: PropTypes__default.number,
-  getValue: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.bool])
+  className: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  value: PropTypes.number,
+  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
 };
 InputRange.defaultProps = {
   min: 0,
@@ -8588,9 +8579,9 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "checked", "disabled", "getValue", "labelLeft", "labelRight"]);
 
       var classes = classNames("switch", className);
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
-      }), React__default.createElement("label", null, labelLeft, React__default.createElement("input", {
+      }), React.createElement("label", null, labelLeft, React.createElement("input", {
         disabled: this.props.disabled,
         value: this.state.value,
         checked: this.state.value,
@@ -8598,22 +8589,22 @@ function (_React$Component) {
           return _this2.handleChange(event);
         },
         type: "checkbox"
-      }), React__default.createElement("span", {
+      }), React.createElement("span", {
         className: "lever"
       }), labelRight));
     }
   }]);
 
   return InputSwitch;
-}(React__default.Component);
+}(React.Component);
 
 InputSwitch.propTypes = {
-  className: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  checked: PropTypes__default.bool,
-  getValue: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.bool]),
-  labelLeft: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object]),
-  labelRight: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object])
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  checked: PropTypes.bool,
+  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  labelLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  labelRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
 };
 InputSwitch.defaultProps = {
   checked: false,
@@ -8712,7 +8703,7 @@ function (_Component) {
       var _this$props = this.props,
           children = _this$props.children,
           className = _this$props.className;
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: "scrollbar-container ".concat(className),
         ref: this.handleRef
       }, children);
@@ -8720,7 +8711,7 @@ function (_Component) {
   }]);
 
   return ScrollBar;
-}(React.Component);
+}(Component);
 
 ScrollBar.defaultProps = {
   className: '',
@@ -8738,20 +8729,20 @@ ScrollBar.defaultProps = {
   onXReachEnd: undefined
 };
 ScrollBar.propTypes = {
-  children: PropTypes.PropTypes.node.isRequired,
-  className: PropTypes.PropTypes.string,
-  option: PropTypes.PropTypes.object,
-  containerRef: PropTypes.PropTypes.func,
-  onScrollY: PropTypes.PropTypes.func,
-  onScrollX: PropTypes.PropTypes.func,
-  onScrollUp: PropTypes.PropTypes.func,
-  onScrollDown: PropTypes.PropTypes.func,
-  onScrollLeft: PropTypes.PropTypes.func,
-  onScrollRight: PropTypes.PropTypes.func,
-  onYReachStart: PropTypes.PropTypes.func,
-  onYReachEnd: PropTypes.PropTypes.func,
-  onXReachStart: PropTypes.PropTypes.func,
-  onXReachEnd: PropTypes.PropTypes.func
+  children: PropTypes$1.node.isRequired,
+  className: PropTypes$1.string,
+  option: PropTypes$1.object,
+  containerRef: PropTypes$1.func,
+  onScrollY: PropTypes$1.func,
+  onScrollX: PropTypes$1.func,
+  onScrollUp: PropTypes$1.func,
+  onScrollDown: PropTypes$1.func,
+  onScrollLeft: PropTypes$1.func,
+  onScrollRight: PropTypes$1.func,
+  onYReachStart: PropTypes$1.func,
+  onYReachEnd: PropTypes$1.func,
+  onXReachStart: PropTypes$1.func,
+  onXReachEnd: PropTypes$1.func
 };
 
 var ScrollBox =
@@ -8774,18 +8765,18 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "children"]);
 
       var classes = classNames("scroll-box", className);
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
       }), children);
     }
   }]);
 
   return ScrollBox;
-}(React.Component);
+}(Component);
 
 ScrollBox.propTypes = {
-  className: PropTypes__default.string,
-  children: PropTypes__default.node
+  className: PropTypes.string,
+  children: PropTypes.node
 };
 
 var ScrollSpyList =
@@ -8809,7 +8800,7 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "color"]);
 
       var classes = classNames("nav md-tabs horizontal-spy", color ? color : false, className);
-      return React__default.createElement("ul", _extends({}, attributes, {
+      return React.createElement("ul", _extends({}, attributes, {
         role: "navigation",
         className: classes
       }), children);
@@ -8817,12 +8808,12 @@ function (_Component) {
   }]);
 
   return ScrollSpyList;
-}(React.Component);
+}(Component);
 
 ScrollSpyList.propTypes = {
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  color: PropTypes__default.string
+  className: PropTypes.string,
+  children: PropTypes.node,
+  color: PropTypes.string
 };
 
 var ScrollSpyListItem =
@@ -8846,9 +8837,9 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "active"]);
 
       var classes = classNames("nav-link ", active ? "active" : false, className);
-      return React__default.createElement("li", {
+      return React.createElement("li", {
         className: "nav-item"
-      }, React__default.createElement("a", _extends({}, attributes, {
+      }, React.createElement("a", _extends({}, attributes, {
         className: classes,
         role: "tab"
       }), children));
@@ -8856,12 +8847,12 @@ function (_Component) {
   }]);
 
   return ScrollSpyListItem;
-}(React.Component);
+}(Component);
 
 ScrollSpyListItem.propTypes = {
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  active: PropTypes__default.bool
+  className: PropTypes.string,
+  children: PropTypes.node,
+  active: PropTypes.bool
 };
 
 var ScrollSpyText =
@@ -8885,7 +8876,7 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "scrollSpyRef"]);
 
       var classes = classNames("scrollspy-example z-depth-1", className);
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         ref: this.props.scrollSpyRef,
         className: classes
       }), children);
@@ -8893,12 +8884,12 @@ function (_Component) {
   }]);
 
   return ScrollSpyText;
-}(React.Component);
+}(Component);
 
 ScrollSpyText.propTypes = {
-  className: PropTypes__default.string,
-  children: PropTypes__default.node,
-  scrollSpyRef: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.object])
+  className: PropTypes.string,
+  children: PropTypes.node,
+  scrollSpyRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 
 var SideNav =
@@ -9005,33 +8996,33 @@ function (_React$Component) {
           isOpen = _this$state.isOpen,
           showOverlay = _this$state.showOverlay;
       var classes = classNames("side-nav", right && "right-aligned", className);
-      var overlay = React__default.createElement("div", {
+      var overlay = React.createElement("div", {
         id: "sidenav-overlay",
         onClick: this.handleOverlayClick
       });
-      var sidenav = React__default.createElement(Tag, _extends({}, attributes, {
+      var sidenav = React.createElement(Tag, _extends({}, attributes, {
         className: classes,
         style: {
           backgroundImage: "url(".concat(bg)
         }
-      }), React__default.createElement("ul", {
+      }), React.createElement("ul", {
         className: "custom-scrollbar list-unstyled"
-      }, logo && React__default.createElement("li", null, React__default.createElement("div", {
+      }, logo && React.createElement("li", null, React.createElement("div", {
         className: "logo-wrapper"
-      }, React__default.createElement("a", {
+      }, React.createElement("a", {
         href: href,
         className: "Ripple-parent",
         onClick: this.handleClick
-      }, React__default.createElement("img", {
+      }, React.createElement("img", {
         src: logo,
         alt: "",
         className: "img-fluid flex-center d-block"
-      }), React__default.createElement(Waves, {
+      }), React.createElement(Waves, {
         cursorPos: this.state.cursorPos
-      })))), children), mask && React__default.createElement("div", {
+      })))), children), mask && React.createElement("div", {
         className: "sidenav-bg mask-".concat(mask)
       }));
-      return React__default.createElement("div", null, React__default.createElement(reactTransitionGroup.CSSTransition, {
+      return React.createElement("div", null, React.createElement(CSSTransition, {
         timeout: {
           enter: 300,
           exit: 300
@@ -9043,21 +9034,21 @@ function (_React$Component) {
   }]);
 
   return SideNav;
-}(React__default.Component);
+}(React.Component);
 
 SideNav.propTypes = {
-  bg: PropTypes__default.string,
-  breakWidth: PropTypes__default.number,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  hidden: PropTypes__default.bool,
-  href: PropTypes__default.string,
-  logo: PropTypes__default.string,
-  mask: PropTypes__default.string,
-  onOverlayClick: PropTypes__default.func,
-  right: PropTypes__default.bool,
-  triggerOpening: PropTypes__default.bool,
-  tag: PropTypes__default.string
+  bg: PropTypes.string,
+  breakWidth: PropTypes.number,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  hidden: PropTypes.bool,
+  href: PropTypes.string,
+  logo: PropTypes.string,
+  mask: PropTypes.string,
+  onOverlayClick: PropTypes.func,
+  right: PropTypes.bool,
+  triggerOpening: PropTypes.bool,
+  tag: PropTypes.string
 };
 SideNav.defaultProps = {
   bg: '',
@@ -9145,55 +9136,55 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["tag", "children", "className", "name", "icon", "iconBrand", "iconLight", "iconRegular", "iconSize", "onClick", "disabled", "isOpen", "isOpenID", "id"]);
 
       var classes = classNames("collapsible-header", "Ripple-parent", "arrow-r", isOpen && "active", disabled && "disabled", className);
-      return React__default.createElement(Tag, null, React__default.createElement("a", _extends({
+      return React.createElement(Tag, null, React.createElement("a", _extends({
         className: classes,
         onClick: function onClick(e) {
           return _this2.handleClick(e, id);
         }
-      }, attributes), icon && React__default.createElement(Fa, {
+      }, attributes), icon && React.createElement(Fa, {
         icon: icon,
         brand: iconBrand,
         light: iconLight,
         regular: iconRegular,
         size: iconSize,
         className: "mr-2"
-      }), name, React__default.createElement(Fa, {
+      }), name, React.createElement(Fa, {
         icon: "angle-down",
         className: "rotate-icon"
-      }), React__default.createElement(Waves, {
+      }), React.createElement(Waves, {
         cursorPos: this.state.cursorPos
-      })), React__default.createElement(Collapse, {
+      })), React.createElement(Collapse, {
         id: id,
         isOpen: this.state.isOpenID
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: "collapsible-body",
         style: {
           display: "block"
         }
-      }, React__default.createElement("ul", null, children))));
+      }, React.createElement("ul", null, children))));
     }
   }]);
 
   return SideNavCat;
-}(React__default.Component);
+}(React.Component);
 
 _defineProperty(SideNavCat, "displayName", "SideNavCat");
 
 SideNavCat.propTypes = {
-  children: PropTypes__default.node,
-  className: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  icon: PropTypes__default.string,
-  iconBrand: PropTypes__default.bool,
-  iconLight: PropTypes__default.bool,
-  iconRegular: PropTypes__default.bool,
-  iconSize: PropTypes__default.string,
-  id: PropTypes__default.string,
-  isOpen: PropTypes__default.bool,
-  isOpenID: PropTypes__default.string,
-  name: PropTypes__default.string,
-  onClick: PropTypes__default.func,
-  tag: PropTypes__default.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
+  id: PropTypes.string,
+  isOpen: PropTypes.bool,
+  isOpenID: PropTypes.string,
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  tag: PropTypes.string
 };
 SideNavCat.defaultProps = {
   className: "",
@@ -9262,28 +9253,28 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["tag", "children", "href", "className", "innerRef"]);
 
       var classes = classNames("Ripple-parent", className);
-      return React__default.createElement(Tag, _extends({
+      return React.createElement(Tag, _extends({
         className: classes,
         ref: innerRef,
         onClick: this.handleClick
-      }, attributes), React__default.createElement("a", {
+      }, attributes), React.createElement("a", {
         className: classes,
         href: href
-      }, children, React__default.createElement(Waves, {
+      }, children, React.createElement(Waves, {
         cursorPos: this.state.cursorPos
       })));
     }
   }]);
 
   return SideNavItem;
-}(React__default.Component);
+}(React.Component);
 
 SideNavItem.propTypes = {
-  children: PropTypes__default.node,
-  href: PropTypes__default.string,
-  tag: PropTypes__default.string,
-  innerRef: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  children: PropTypes.node,
+  href: PropTypes.string,
+  tag: PropTypes.string,
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
 };
 SideNavItem.defaultProps = {
   tag: "li"
@@ -9341,28 +9332,28 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["tag", "children", "to", "className", "innerRef", "topLevel"]);
 
       var classes = classNames('Ripple-parent', topLevel && 'collapsible-header', className);
-      var sideNavLink = React__default.createElement(reactRouterDom.NavLink, _extends({
+      var sideNavLink = React.createElement(NavLink, _extends({
         className: classes,
         ref: innerRef,
         onClick: this.handleClick,
         to: to
-      }, attributes), children, React__default.createElement(Waves, {
+      }, attributes), children, React.createElement(Waves, {
         cursorPos: this.state.cursorPos
       }));
-      return topLevel ? React__default.createElement("li", null, " ", sideNavLink) : sideNavLink;
+      return topLevel ? React.createElement("li", null, " ", sideNavLink) : sideNavLink;
     }
   }]);
 
   return SideNavLink;
-}(React__default.Component);
+}(React.Component);
 
 SideNavLink.propTypes = {
-  children: PropTypes__default.node,
-  href: PropTypes__default.string,
-  tag: PropTypes__default.string,
-  innerRef: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string,
-  topLevel: PropTypes__default.bool
+  children: PropTypes.node,
+  href: PropTypes.string,
+  tag: PropTypes.string,
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string,
+  topLevel: PropTypes.bool
 };
 SideNavLink.defaultProps = {
   to: '#',
@@ -9416,9 +9407,9 @@ function (_React$Component) {
 
       var accordion = this.state.accordion;
       var classes = classNames("collapsible", "collapsible-accordion", className);
-      var modified = React__default.Children.map(this.props.children, function (child, i) {
+      var modified = React.Children.map(this.props.children, function (child, i) {
         if (child.type.displayName === "SideNavCat") {
-          return React__default.cloneElement(child, {
+          return React.cloneElement(child, {
             onClick: _this2.onClick(i),
             isOpen: accordion === i
           });
@@ -9426,19 +9417,19 @@ function (_React$Component) {
           return child;
         }
       });
-      return React__default.createElement("li", null, React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement("li", null, React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), modified));
     }
   }]);
 
   return SideNavNav;
-}(React__default.Component);
+}(React.Component);
 
 SideNavNav.propTypes = {
-  children: PropTypes__default.node,
-  tag: PropTypes__default.string,
-  className: PropTypes__default.string
+  children: PropTypes.node,
+  tag: PropTypes.string,
+  className: PropTypes.string
 };
 SideNavNav.defaultProps = {
   tag: "ul"
@@ -9469,7 +9460,7 @@ var SimpleChart = function SimpleChart(props) {
       label = "".concat(percent, "%"),
       labelLeftOffset = label.length === 3 || label.length === 4 ? -0.95 : -0.6,
       arc = describeArc(center, center, radius, startAngle, endAngle - .001);
-  return React__default.createElement("svg", {
+  return React.createElement("svg", {
     className: "react-chart ".concat(props.type),
     width: props.width,
     style: _objectSpread({
@@ -9477,19 +9468,19 @@ var SimpleChart = function SimpleChart(props) {
       border: props.border
     }, props.style),
     height: props.height
-  }, React__default.createElement("circle", {
+  }, React.createElement("circle", {
     cx: center,
     cy: center,
     r: radius,
     fill: props.fillColor,
     stroke: props.railColor,
     strokeWidth: props.strokeWidth
-  }), React__default.createElement("path", {
+  }), React.createElement("path", {
     fill: props.fillColor,
     stroke: props.strokeColor,
     strokeWidth: props.strokeWidth,
     d: arc
-  }), React__default.createElement("text", {
+  }), React.createElement("text", {
     x: center,
     y: center,
     dx: "".concat(labelLeftOffset, "em"),
@@ -9516,17 +9507,17 @@ SimpleChart.defaultProps = {
   padding: 0
 };
 SimpleChart.propTypes = {
-  width: PropTypes__default.number,
-  height: PropTypes__default.number,
-  strokeWidth: PropTypes__default.number,
-  strokeColor: PropTypes__default.string,
-  labelFontWeight: PropTypes__default.string,
-  labelFontSize: PropTypes__default.string,
-  fillColor: PropTypes__default.string,
-  startAngle: PropTypes__default.number,
-  endAngle: PropTypes__default.number,
-  radius: PropTypes__default.number,
-  style: PropTypes__default.object
+  width: PropTypes.number,
+  height: PropTypes.number,
+  strokeWidth: PropTypes.number,
+  strokeColor: PropTypes.string,
+  labelFontWeight: PropTypes.string,
+  labelFontSize: PropTypes.string,
+  fillColor: PropTypes.string,
+  startAngle: PropTypes.number,
+  endAngle: PropTypes.number,
+  radius: PropTypes.number,
+  style: PropTypes.object
 };
 
 var Spinner =
@@ -9544,78 +9535,78 @@ function (_Component) {
     key: "theChosenColorSpinner",
     value: function theChosenColorSpinner(spinnerClasses) {
       if (this.props.multicolor) {
-        var theSpinnerItself = React__default.createElement("div", null, React__default.createElement("div", {
+        var theSpinnerItself = React.createElement("div", null, React.createElement("div", {
           className: "spinner-layer spinner-blue"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle-clipper left"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "gap-patch"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "circle-clipper right"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        }))), React__default.createElement("div", {
+        }))), React.createElement("div", {
           className: "spinner-layer spinner-red"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle-clipper left"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "gap-patch"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "circle-clipper right"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        }))), React__default.createElement("div", {
+        }))), React.createElement("div", {
           className: "spinner-layer spinner-yellow"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle-clipper left"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "gap-patch"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "circle-clipper right"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        }))), React__default.createElement("div", {
+        }))), React.createElement("div", {
           className: "spinner-layer spinner-green"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle-clipper left"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "gap-patch"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "circle-clipper right"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
         }))));
         return theSpinnerItself;
       } else {
-        var _theSpinnerItself = React__default.createElement("div", {
+        var _theSpinnerItself = React.createElement("div", {
           className: spinnerClasses
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle-clipper left"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "gap-patch"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
-        })), React__default.createElement("div", {
+        })), React.createElement("div", {
           className: "circle-clipper right"
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: "circle"
         })));
 
@@ -9636,17 +9627,17 @@ function (_Component) {
       var spinnerClasses = classNames("spinner-layer", red ? "spinner-red-only" : false, green ? "spinner-green-only" : false, yellow ? "spinner-yellow-only" : "spinner-blue-only", className);
 
       if (this.props.crazy) {
-        return React__default.createElement("div", {
+        return React.createElement("div", {
           className: wrapperClasses
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: wrapperClasses
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: wrapperClasses
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: wrapperClasses
         }, this.theChosenColorSpinner(spinnerClasses)))));
       } else {
-        return React__default.createElement("div", {
+        return React.createElement("div", {
           className: wrapperClasses
         }, this.theChosenColorSpinner(spinnerClasses));
       }
@@ -9654,17 +9645,17 @@ function (_Component) {
   }]);
 
   return Spinner;
-}(React.Component);
+}(Component);
 
 Spinner.propTypes = {
-  className: PropTypes__default.string,
-  big: PropTypes__default.bool,
-  small: PropTypes__default.bool,
-  crazy: PropTypes__default.bool,
-  red: PropTypes__default.bool,
-  green: PropTypes__default.bool,
-  yellow: PropTypes__default.bool,
-  multicolor: PropTypes__default.bool
+  className: PropTypes.string,
+  big: PropTypes.bool,
+  small: PropTypes.bool,
+  crazy: PropTypes.bool,
+  red: PropTypes.bool,
+  green: PropTypes.bool,
+  yellow: PropTypes.bool,
+  multicolor: PropTypes.bool
 };
 Spinner.defaultProps = {
   tag: "div"
@@ -9715,49 +9706,49 @@ function (_React$Component) {
       var step;
 
       if (form) {
-        step = React__default.createElement(Tag, {
+        step = React.createElement(Tag, {
           className: stepClass
         }, this.props.children);
       } else if (icon && !vertical) {
-        step = React__default.createElement(Tag, {
+        step = React.createElement(Tag, {
           className: stepClass,
           onClick: this.props.onClick
-        }, React__default.createElement(Tooltip, {
+        }, React.createElement(Tooltip, {
           placement: "top",
           componentClass: "btn btn-circle-2 btn-blue-grey waves-effect",
           tag: "a",
           type: "button",
           component: "div",
           tooltipContent: stepName
-        }, React__default.createElement("i", {
+        }, React.createElement("i", {
           className: iconClass,
           onTouchStart: this.handleClick.bind(this),
           onMouseDown: this.handleClick.bind(this)
-        }), React__default.createElement(Waves, {
+        }), React.createElement(Waves, {
           cursorPos: this.state.cursorPos,
           dark: true
         })));
       } else if (icon && vertical) {
-        step = React__default.createElement(Tag, {
+        step = React.createElement(Tag, {
           className: stepClass,
           onClick: this.props.onClick
-        }, React__default.createElement(Tooltip, {
+        }, React.createElement(Tooltip, {
           placement: "top",
           componentClass: "btn btn-circle-3 btn-blue-grey waves-effect",
           tag: "a",
           type: "button",
           component: "div",
           tooltipContent: stepName
-        }, React__default.createElement("i", {
+        }, React.createElement("i", {
           className: iconClass,
           onTouchStart: this.handleClick.bind(this),
           onMouseDown: this.handleClick.bind(this)
-        }), React__default.createElement(Waves, {
+        }), React.createElement(Waves, {
           cursorPos: this.state.cursorPos,
           dark: true
         })));
       } else {
-        step = React__default.createElement("li", {
+        step = React.createElement("li", {
           className: stepClass
         }, this.props.children);
       }
@@ -9767,7 +9758,7 @@ function (_React$Component) {
   }]);
 
   return Step;
-}(React__default.Component);
+}(React.Component);
 
 Step.defaultProps = {
   tag: "div",
@@ -9806,13 +9797,13 @@ function (_React$Component) {
       var stepper;
 
       if (form || icon) {
-        stepper = React__default.createElement("div", {
+        stepper = React.createElement("div", {
           className: stepperClass
-        }, React__default.createElement("div", {
+        }, React.createElement("div", {
           className: wrapperFix
         }, this.props.children));
       } else {
-        stepper = React__default.createElement("ul", {
+        stepper = React.createElement("ul", {
           className: stepperClass
         }, this.props.children);
       }
@@ -9822,14 +9813,14 @@ function (_React$Component) {
   }]);
 
   return Stepper;
-}(React__default.Component);
+}(React.Component);
 
 Stepper.propTypes = {
-  vertical: PropTypes__default.bool,
-  form: PropTypes__default.bool,
-  icon: PropTypes__default.bool,
-  children: PropTypes__default.node,
-  className: PropTypes__default.string
+  vertical: PropTypes.bool,
+  form: PropTypes.bool,
+  icon: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 Stepper.defaultProps = {
   form: false
@@ -9974,28 +9965,28 @@ function (_React$Component) {
 
       var classes = classNames("table", small && "table-sm", bordered && "table-bordered", striped && "table-striped", hover && "table-hover", className);
       var wrapperClasses = classNames("table-editable text-center", responsive && "table-responsive", responsiveSm && "table-responsive-sm", responsiveMd && "table-responsive-md", responsiveLg && "table-responsive-lg", responsiveXl && "table-responsive-xl");
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: wrapperClasses
-      }, React__default.createElement("span", {
+      }, React.createElement("span", {
         onClick: this.addRow,
         className: "table-add float-right mb-3 mr-2"
-      }, React__default.createElement("a", {
+      }, React.createElement("a", {
         href: "#!",
         className: "text-success"
-      }, React__default.createElement(Fa, {
+      }, React.createElement(Fa, {
         icon: "plus",
         size: "2x"
-      }))), React__default.createElement("table", _extends({}, attributes, {
+      }))), React.createElement("table", _extends({}, attributes, {
         className: classes
-      }), React__default.createElement("thead", null, React__default.createElement("tr", null, this.props.columns && this.props.columns.map(function (th, i) {
-        return React__default.createElement("th", {
+      }), React.createElement("thead", null, React.createElement("tr", null, this.props.columns && this.props.columns.map(function (th, i) {
+        return React.createElement("th", {
           key: i
         }, th);
-      }), React__default.createElement("th", null, "Sort "), React__default.createElement("th", null, "Delete "))), React__default.createElement("tbody", null, this.state.data.map(function (tr, trIndex) {
-        return React__default.createElement("tr", {
+      }), React.createElement("th", null, "Sort "), React.createElement("th", null, "Delete "))), React.createElement("tbody", null, this.state.data.map(function (tr, trIndex) {
+        return React.createElement("tr", {
           key: trIndex
         }, tr.map(function (td, tdIndex) {
-          return React__default.createElement("td", {
+          return React.createElement("td", {
             key: tdIndex,
             contentEditable: true,
             suppressContentEditableWarning: "true",
@@ -10003,32 +9994,32 @@ function (_React$Component) {
               return _this2.onBlurHandler(trIndex, tdIndex, e);
             }
           }, td);
-        }), React__default.createElement("td", null, React__default.createElement("span", {
+        }), React.createElement("td", null, React.createElement("span", {
           onClick: function onClick() {
             return _this2.decreaseIndex(trIndex);
           },
           className: "table-up"
-        }, React__default.createElement("a", {
+        }, React.createElement("a", {
           href: "#!",
           className: "indigo-text"
-        }, React__default.createElement(Fa, {
+        }, React.createElement(Fa, {
           icon: "long-arrow-alt-up"
-        }))), React__default.createElement("span", {
+        }))), React.createElement("span", {
           onClick: function onClick() {
             return _this2.increaseIndex(trIndex);
           },
           className: "table-down"
-        }, React__default.createElement("a", {
+        }, React.createElement("a", {
           href: "#!",
           className: "indigo-text"
-        }, React__default.createElement(Fa, {
+        }, React.createElement(Fa, {
           icon: "long-arrow-alt-down"
-        })))), React__default.createElement("td", null, React__default.createElement("span", {
+        })))), React.createElement("td", null, React.createElement("span", {
           onClick: function onClick() {
             return _this2.removeRow(trIndex);
           },
           className: "table-remove"
-        }, React__default.createElement("button", {
+        }, React.createElement("button", {
           type: "button",
           className: "btn btn-danger btn-rounded btn-sm my-0"
         }, "Remove"))));
@@ -10037,22 +10028,22 @@ function (_React$Component) {
   }]);
 
   return TableEditable;
-}(React__default.Component);
+}(React.Component);
 
 TableEditable.propTypes = {
-  className: PropTypes__default.string,
-  small: PropTypes__default.bool,
-  bordered: PropTypes__default.bool,
-  striped: PropTypes__default.bool,
-  hover: PropTypes__default.bool,
-  data: PropTypes__default.array,
-  columns: PropTypes__default.array,
-  children: PropTypes__default.node,
-  responsive: PropTypes__default.bool,
-  responsiveSm: PropTypes__default.bool,
-  responsiveMd: PropTypes__default.bool,
-  responsiveLg: PropTypes__default.bool,
-  responsiveXl: PropTypes__default.bool
+  className: PropTypes.string,
+  small: PropTypes.bool,
+  bordered: PropTypes.bool,
+  striped: PropTypes.bool,
+  hover: PropTypes.bool,
+  data: PropTypes.array,
+  columns: PropTypes.array,
+  children: PropTypes.node,
+  responsive: PropTypes.bool,
+  responsiveSm: PropTypes.bool,
+  responsiveMd: PropTypes.bool,
+  responsiveLg: PropTypes.bool,
+  responsiveXl: PropTypes.bool
 };
 
 var TabPane =
@@ -10077,7 +10068,7 @@ function (_React$Component) {
       var classes = classNames("tab-pane", {
         active: tabId === this.context.activeItemId
       }, className);
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes,
         role: "tabpanel"
       }));
@@ -10085,20 +10076,20 @@ function (_React$Component) {
   }]);
 
   return TabPane;
-}(React__default.Component);
+}(React.Component);
 
 TabPane.contextTypes = {
-  activeItemId: PropTypes__default.any
+  activeItemId: PropTypes.any
 };
 TabPane.propTypes = {
-  tabId: PropTypes__default.any,
-  className: PropTypes__default.string
+  tabId: PropTypes.any,
+  className: PropTypes.string
 };
 
 var propTypes$1 = {
-  activeItem: PropTypes__default.any,
-  tabId: PropTypes__default.any,
-  className: PropTypes__default.string
+  activeItem: PropTypes.any,
+  tabId: PropTypes.any,
+  className: PropTypes.string
 };
 
 var TabContent =
@@ -10131,7 +10122,7 @@ function (_React$Component) {
       var className = this.props.className;
       var attributes = omit(this.props, Object.keys(propTypes$1));
       var classes = classNames("tab-content", className);
-      return React__default.createElement("div", _extends({}, attributes, {
+      return React.createElement("div", _extends({}, attributes, {
         className: classes
       }));
     }
@@ -10145,10 +10136,10 @@ function (_React$Component) {
   }]);
 
   return TabContent;
-}(React__default.Component);
+}(React.Component);
 
 TabContent.childContextTypes = {
-  activeItemId: PropTypes__default.any
+  activeItemId: PropTypes.any
 };
 TabContent.propTypes = propTypes$1;
 
@@ -10244,7 +10235,7 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var element = React__default.cloneElement(this.props.children({
+      var element = React.cloneElement(this.props.children({
         isSticky: this.state.isSticky,
         wasSticky: this.state.wasSticky,
         distanceFromTop: this.state.distanceFromTop,
@@ -10253,10 +10244,10 @@ function (_Component) {
         style: this.state.style
       }), {
         ref: function ref(content) {
-          _this2.content = ReactDOM__default.findDOMNode(content);
+          _this2.content = ReactDOM.findDOMNode(content);
         }
       });
-      return React__default.createElement("div", null, React__default.createElement("div", {
+      return React.createElement("div", null, React.createElement("div", {
         ref: function ref(placeholder) {
           return _this2.placeholder = placeholder;
         }
@@ -10265,13 +10256,13 @@ function (_Component) {
   }]);
 
   return Sticky;
-}(React.Component);
+}(Component);
 
 _defineProperty(Sticky, "propTypes", {
-  topOffset: PropTypes__default.number,
-  bottomOffset: PropTypes__default.number,
-  relative: PropTypes__default.bool,
-  children: PropTypes__default.func.isRequired
+  topOffset: PropTypes.number,
+  bottomOffset: PropTypes.number,
+  relative: PropTypes.bool,
+  children: PropTypes.func.isRequired
 });
 
 _defineProperty(Sticky, "defaultProps", {
@@ -10283,9 +10274,9 @@ _defineProperty(Sticky, "defaultProps", {
 });
 
 _defineProperty(Sticky, "contextTypes", {
-  subscribe: PropTypes__default.func,
-  unsubscribe: PropTypes__default.func,
-  getParent: PropTypes__default.func
+  subscribe: PropTypes.func,
+  unsubscribe: PropTypes.func,
+  getParent: PropTypes.func
 });
 
 var Container$1 =
@@ -10381,7 +10372,7 @@ function (_PureComponent) {
     value: function render() {
       var _this4 = this;
 
-      return React__default.createElement("div", _extends({}, this.props, {
+      return React.createElement("div", _extends({}, this.props, {
         ref: function ref(node) {
           return _this4.node = node;
         },
@@ -10394,12 +10385,12 @@ function (_PureComponent) {
   }]);
 
   return Container;
-}(React.PureComponent);
+}(PureComponent);
 
 _defineProperty(Container$1, "childContextTypes", {
-  subscribe: PropTypes__default.func,
-  unsubscribe: PropTypes__default.func,
-  getParent: PropTypes__default.func
+  subscribe: PropTypes.func,
+  unsubscribe: PropTypes.func,
+  getParent: PropTypes.func
 });
 
 var Testimonial =
@@ -10422,18 +10413,18 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "tag"]);
 
       var classes = classNames("testimonial", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }));
     }
   }]);
 
   return Testimonial;
-}(React.Component);
+}(Component);
 
 Testimonial.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
 };
 Testimonial.defaultProps = {
   tag: "div"
@@ -10444,7 +10435,7 @@ styleInject(css$g);
 
 var Timeline = function Timeline(props) {
   var children = props.children;
-  return React__default.createElement("ul", {
+  return React.createElement("ul", {
     className: "stepper stepper-vertical timeline pl-0"
   }, children);
 };
@@ -10467,35 +10458,35 @@ var TimelineStep = function TimelineStep(props) {
   var circleClasses = classNames("circle", "z-depth-1-half", color ? color : "primary-color", className);
   var stepContentClasses = classNames("step-content", "z-depth-1", "ml-xl-0", colorful ? "p-0 mt-2" : "p-4", hoverable && "hoverable");
   var liClasses = classNames(inverted && "timeline-inverted");
-  return React__default.createElement("li", {
+  return React.createElement("li", {
     className: liClasses
-  }, React__default.createElement("a", {
+  }, React.createElement("a", {
     href: href
-  }, React__default.createElement("span", {
+  }, React.createElement("span", {
     className: circleClasses
-  }, icon && React__default.createElement(Fa, {
+  }, icon && React.createElement(Fa, {
     icon: icon,
     size: iconSize,
     brand: iconBrand,
     light: iconLight,
     regular: iconRegular,
     className: iconClass
-  }), label)), React__default.createElement("div", {
+  }), label)), React.createElement("div", {
     className: stepContentClasses
   }, children));
 };
 
 TimelineStep.propTypes = {
-  href: PropTypes__default.string,
-  color: PropTypes__default.string,
-  size: PropTypes__default.string,
-  icon: PropTypes__default.string,
-  iconBrand: PropTypes__default.bool,
-  iconClass: PropTypes__default.string,
-  iconLight: PropTypes__default.bool,
-  iconRegular: PropTypes__default.bool,
-  iconSize: PropTypes__default.string,
-  className: PropTypes__default.string
+  href: PropTypes.string,
+  color: PropTypes.string,
+  size: PropTypes.string,
+  icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
+  className: PropTypes.string
 };
 TimelineStep.defaultProps = {
   href: "#"
@@ -10505,13 +10496,13 @@ var css$h = ".time-picker-clock {\n  border-radius: 100%;\n  position: relative;
 styleInject(css$h);
 
 var propTypes$2 = {
-  color: PropTypes__default.string.isRequired,
-  hours: PropTypes__default.string.isRequired,
-  minutes: PropTypes__default.string.isRequired,
-  dayTime: PropTypes__default.string.isRequired,
-  unitsMode: PropTypes__default.string.isRequired,
-  handleModeChange: PropTypes__default.func.isRequired,
-  hoursFormat: PropTypes__default.number.isRequired
+  color: PropTypes.string.isRequired,
+  hours: PropTypes.string.isRequired,
+  minutes: PropTypes.string.isRequired,
+  dayTime: PropTypes.string.isRequired,
+  unitsMode: PropTypes.string.isRequired,
+  handleModeChange: PropTypes.func.isRequired,
+  hoursFormat: PropTypes.number.isRequired
 };
 
 var TimePickerDisplay = function TimePickerDisplay(_ref) {
@@ -10525,25 +10516,25 @@ var TimePickerDisplay = function TimePickerDisplay(_ref) {
   var displayClasses = classNames('picker__date-display', "btn-".concat(color));
   var hourClasses = classNames('clockpicker-span-hours', unitsMode === 'h' && 'text-primary');
   var minuteClasses = classNames('clockpicker-span-minutes', unitsMode === 'm' && 'text-primary');
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: displayClasses
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "clockpicker-display"
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "clockpicker-display-column"
-  }, React__default.createElement("span", {
+  }, React.createElement("span", {
     className: hourClasses,
     onClick: function onClick() {
       return handleModeChange('h');
     }
-  }, hours !== '' ? hours : "--"), ":", React__default.createElement("span", {
+  }, hours !== '' ? hours : "--"), ":", React.createElement("span", {
     className: minuteClasses,
     onClick: function onClick() {
       return handleModeChange('m');
     }
-  }, minutes !== '' ? minutes : "--")), hoursFormat === 12 && React__default.createElement("div", {
+  }, minutes !== '' ? minutes : "--")), hoursFormat === 12 && React.createElement("div", {
     className: "clockpicker-display-column clockpicker-display-am-pm"
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "clockpicker-span-am-pm"
   }, dayTime.toUpperCase()))));
 };
@@ -10551,9 +10542,9 @@ var TimePickerDisplay = function TimePickerDisplay(_ref) {
 TimePickerDisplay.propTypes = propTypes$2;
 
 var propTypes$3 = {
-  angle: PropTypes__default.number.isRequired,
-  color: PropTypes__default.string.isRequired,
-  scale: PropTypes__default.number.isRequired
+  angle: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
+  scale: PropTypes.number.isRequired
 };
 
 var TimpiePickerClockHand = function TimpiePickerClockHand(_ref) {
@@ -10562,13 +10553,13 @@ var TimpiePickerClockHand = function TimpiePickerClockHand(_ref) {
       color = _ref.color,
       scale = _ref.scale;
   var classes = classNames('time-picker-clock__hand', color, between && 'between');
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: classes,
     style: {
       transform: "rotate(".concat(angle, "deg)"),
       height: "calc((50% - 28px) * ".concat(scale, ")")
     }
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: "time-picker-clock__hand--ring"
   }));
 };
@@ -10576,20 +10567,20 @@ var TimpiePickerClockHand = function TimpiePickerClockHand(_ref) {
 TimpiePickerClockHand.propTypes = propTypes$3;
 
 var propTypes$4 = {
-  className: PropTypes__default.string.isRequired,
-  handleChange: PropTypes__default.func.isRequired,
-  max: PropTypes__default.number.isRequired,
-  min: PropTypes__default.number.isRequired,
-  rotate: PropTypes__default.number.isRequired,
-  step: PropTypes__default.number.isRequired,
-  startFromInner: PropTypes__default.bool.isRequired,
-  allowedValues: PropTypes__default.arrayOf(PropTypes__default.number),
-  autoSwitch: PropTypes__default.bool,
-  color: PropTypes__default.string,
-  double: PropTypes__default.bool,
-  handleModeChange: PropTypes__default.func,
-  size: PropTypes__default.number,
-  value: PropTypes__default.number
+  className: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  max: PropTypes.number.isRequired,
+  min: PropTypes.number.isRequired,
+  rotate: PropTypes.number.isRequired,
+  step: PropTypes.number.isRequired,
+  startFromInner: PropTypes.bool.isRequired,
+  allowedValues: PropTypes.arrayOf(PropTypes.number),
+  autoSwitch: PropTypes.bool,
+  color: PropTypes.string,
+  double: PropTypes.bool,
+  handleModeChange: PropTypes.func,
+  size: PropTypes.number,
+  value: PropTypes.number
 };
 var defaultProps$1 = {
   allowedValues: [],
@@ -10745,7 +10736,7 @@ function (_Component) {
 
       var _loop = function _loop(value) {
         var classes = classNames('clockpicker-tick', value === _this.state.value && 'active', !_this.isValueAllowed(value) && 'disabled');
-        children.push(React__default.createElement("span", {
+        children.push(React.createElement("span", {
           className: classes,
           style: Object.assign(_this.transformPosition(value), {
             fontSize: !_this.props.double ? '140%' : _this.props.startFromInner ? value <= 12 ? '120%' : '100%' : value > 12 ? '120%' : '100%'
@@ -10848,7 +10839,7 @@ function (_Component) {
       outerRadius: 266,
       value: 0
     };
-    _this.clockRef = React__default.createRef();
+    _this.clockRef = React.createRef();
     return _this;
   }
 
@@ -10868,7 +10859,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       var classes = classNames('time-picker-clock', 'clockpicker-dial', this.props.className, this.state.value === null && 'time-picker-clock--indeterminate');
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: classes,
         style: {
           height: "".concat(this.props.size, "px"),
@@ -10883,7 +10874,7 @@ function (_Component) {
         onMouseMove: this.onDragMove,
         onTouchMove: this.onDragMove,
         ref: this.clockRef
-      }, React__default.createElement(TimpiePickerClockHand, {
+      }, React.createElement(TimpiePickerClockHand, {
         between: this.state.value % this.props.step !== 0,
         color: this.props.color,
         angle: this.state.handAngle,
@@ -10893,15 +10884,15 @@ function (_Component) {
   }]);
 
   return TimePickerClock;
-}(React.Component);
+}(Component);
 
 TimePickerClock.propTypes = propTypes$4;
 TimePickerClock.defaultProps = defaultProps$1;
 
 var propTypes$5 = {
-  color: PropTypes__default.string.isRequired,
-  dayTime: PropTypes__default.string.isRequired,
-  handleDayTimeChange: PropTypes__default.func.isRequired
+  color: PropTypes.string.isRequired,
+  dayTime: PropTypes.string.isRequired,
+  handleDayTimeChange: PropTypes.func.isRequired
 };
 
 var TimePickerAmPmBlock = function TimePickerAmPmBlock(_ref) {
@@ -10910,15 +10901,15 @@ var TimePickerAmPmBlock = function TimePickerAmPmBlock(_ref) {
       handleDayTimeChange = _ref.handleDayTimeChange;
   var classesAM = classNames('btn-floating', 'btn-flat', 'clockpicker-button', 'am-button', dayTime === 'am' && 'active', "btn-".concat(color));
   var classesPM = classNames('btn-floating', 'btn-flat', 'clockpicker-button', 'pm-button', dayTime === 'pm' && 'active', "btn-".concat(color));
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "clockpicker-am-pm-block d-flex justify-content-between"
-  }, React__default.createElement("button", {
+  }, React.createElement("button", {
     type: "button",
     className: classesAM,
     onClick: function onClick() {
       return handleDayTimeChange('am');
     }
-  }, "AM"), React__default.createElement("button", {
+  }, "AM"), React.createElement("button", {
     type: "button",
     className: classesPM,
     onClick: function onClick() {
@@ -10930,14 +10921,14 @@ var TimePickerAmPmBlock = function TimePickerAmPmBlock(_ref) {
 TimePickerAmPmBlock.propTypes = propTypes$5;
 
 var propTypes$6 = {
-  cancelable: PropTypes__default.bool.isRequired,
-  cancelText: PropTypes__default.string.isRequired,
-  clearable: PropTypes__default.bool.isRequired,
-  clearText: PropTypes__default.string.isRequired,
-  doneText: PropTypes__default.string.isRequired,
-  handleCancelClick: PropTypes__default.func.isRequired,
-  handleClearClick: PropTypes__default.func.isRequired,
-  handleDoneClick: PropTypes__default.func.isRequired
+  cancelable: PropTypes.bool.isRequired,
+  cancelText: PropTypes.string.isRequired,
+  clearable: PropTypes.bool.isRequired,
+  clearText: PropTypes.string.isRequired,
+  doneText: PropTypes.string.isRequired,
+  handleCancelClick: PropTypes.func.isRequired,
+  handleClearClick: PropTypes.func.isRequired,
+  handleDoneClick: PropTypes.func.isRequired
 };
 
 var TimePickerFooter = function TimePickerFooter(_ref) {
@@ -10949,19 +10940,19 @@ var TimePickerFooter = function TimePickerFooter(_ref) {
       handleCancelClick = _ref.handleCancelClick,
       handleClearClick = _ref.handleClearClick,
       handleDoneClick = _ref.handleDoneClick;
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: "picker__footer"
-  }, clearable && React__default.createElement(Button, {
+  }, clearable && React.createElement(Button, {
     flat: true,
     className: "clockpicker-button",
     tabIndex: "0",
     onClick: handleClearClick
-  }, clearText), cancelable && React__default.createElement(Button, {
+  }, clearText), cancelable && React.createElement(Button, {
     flat: true,
     className: "clockpicker-button",
     tabIndex: "0",
     onClick: handleCancelClick
-  }, cancelText), React__default.createElement(Button, {
+  }, cancelText), React.createElement(Button, {
     flat: true,
     className: "clockpicker-button",
     tabIndex: "0",
@@ -10972,23 +10963,23 @@ var TimePickerFooter = function TimePickerFooter(_ref) {
 TimePickerFooter.propTypes = propTypes$6;
 
 var propTypes$7 = {
-  id: PropTypes__default.string.isRequired,
-  allowedValues: PropTypes__default.arrayOf(PropTypes__default.number),
-  autoSwitch: PropTypes__default.bool,
-  cancelable: PropTypes__default.bool,
-  cancelText: PropTypes__default.string,
-  clearable: PropTypes__default.bool,
-  clearText: PropTypes__default.string,
-  closeOnCancel: PropTypes__default.bool,
-  color: PropTypes__default.string,
-  doneText: PropTypes__default.string,
-  getValue: PropTypes__default.func,
-  hours: PropTypes__default.number,
-  hoursFormat: PropTypes__default.number,
-  label: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object]),
-  minutes: PropTypes__default.number,
-  placeholder: PropTypes__default.string,
-  startFromInner: PropTypes__default.bool
+  id: PropTypes.string.isRequired,
+  allowedValues: PropTypes.arrayOf(PropTypes.number),
+  autoSwitch: PropTypes.bool,
+  cancelable: PropTypes.bool,
+  cancelText: PropTypes.string,
+  clearable: PropTypes.bool,
+  clearText: PropTypes.string,
+  closeOnCancel: PropTypes.bool,
+  color: PropTypes.string,
+  doneText: PropTypes.string,
+  getValue: PropTypes.func,
+  hours: PropTypes.number,
+  hoursFormat: PropTypes.number,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  minutes: PropTypes.number,
+  placeholder: PropTypes.string,
+  startFromInner: PropTypes.bool
 };
 var defaultProps$2 = {
   allowedValues: [],
@@ -11184,9 +11175,9 @@ function (_Component) {
       var clockClasses = classNames("clockpicker", "picker", pickerDialogOpen && "picker--opened");
       var hoursClasses = classNames("clockpicker-hours", unitsMode !== "h" && "clockpicker-dial-out");
       var minutesClasses = classNames("clockpicker-minutes", unitsMode !== "m" && "clockpicker-dial-out");
-      return React__default.createElement("div", {
+      return React.createElement("div", {
         className: "md-form"
-      }, React__default.createElement("input", {
+      }, React.createElement("input", {
         type: "text",
         placeholder: placeholder,
         id: id,
@@ -11194,21 +11185,21 @@ function (_Component) {
         value: value,
         onClick: this.handlePickerDialogOpen,
         readOnly: true
-      }), React__default.createElement("label", {
+      }), React.createElement("label", {
         htmlFor: id,
         className: "active"
-      }, label), pickerDialogOpen && React__default.createElement("div", {
+      }, label), pickerDialogOpen && React.createElement("div", {
         className: clockClasses
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: "picker__holder",
         onClick: this.handleBackdropClick
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: "picker__frame"
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: "picker__wrap"
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: "picker__box"
-      }, React__default.createElement(TimePickerDisplay, {
+      }, React.createElement(TimePickerDisplay, {
         color: color,
         hours: computedHours,
         minutes: computedMinutes,
@@ -11216,11 +11207,11 @@ function (_Component) {
         unitsMode: unitsMode,
         handleModeChange: this.handleModeChange,
         hoursFormat: hoursFormat
-      }), React__default.createElement("div", {
+      }), React.createElement("div", {
         className: "picker__calendar-container"
-      }, React__default.createElement("div", {
+      }, React.createElement("div", {
         className: "clockpicker-plate"
-      }, unitsMode === 'h' ? React__default.createElement(TimePickerClock, {
+      }, unitsMode === 'h' ? React.createElement(TimePickerClock, {
         allowedValues: allowedValues,
         autoSwitch: autoSwitch,
         className: hoursClasses,
@@ -11234,7 +11225,7 @@ function (_Component) {
         rotate: 30,
         startFromInner: startFromInner,
         value: hours
-      }) : React__default.createElement(TimePickerClock, {
+      }) : React.createElement(TimePickerClock, {
         className: minutesClasses,
         color: color,
         handleChange: this.handleMinutesChange,
@@ -11244,11 +11235,11 @@ function (_Component) {
         rotate: 0,
         startFromInner: startFromInner,
         value: minutes
-      })), hoursFormat === 12 && React__default.createElement(TimePickerAmPmBlock, {
+      })), hoursFormat === 12 && React.createElement(TimePickerAmPmBlock, {
         color: color,
         dayTime: dayTime,
         handleDayTimeChange: this.handleDayTimeChange
-      })), React__default.createElement(TimePickerFooter, {
+      })), React.createElement(TimePickerFooter, {
         cancelText: cancelText,
         clearText: clearText,
         doneText: doneText,
@@ -11262,7 +11253,7 @@ function (_Component) {
   }]);
 
   return TimePicker;
-}(React.Component);
+}(Component);
 
 TimePicker.propTypes = propTypes$7;
 TimePicker.defaultProps = defaultProps$2;
@@ -11280,37 +11271,37 @@ var MDBStreak = function MDBStreak(_ref) {
   var wrapperClasses = classNames("streak", photo && "streak-photo", size && "streak-".concat(size), wrapperClass);
   var quoteClasses = classNames("h2-responsive", quoteClass);
   var overlayClasses = classNames("flex-center", overlayClass);
-  return React__default.createElement("div", {
+  return React.createElement("div", {
     className: wrapperClasses,
     style: {
       backgroundImage: "url(\"".concat(photo, "\")"),
       backgroundAttachment: "fixed"
     }
-  }, React__default.createElement("div", {
+  }, React.createElement("div", {
     className: overlayClasses
-  }, React__default.createElement("ul", {
+  }, React.createElement("ul", {
     className: "mb-0 list-unstyled"
-  }, React__default.createElement("li", null, React__default.createElement("h2", {
+  }, React.createElement("li", null, React.createElement("h2", {
     className: quoteClasses
-  }, React__default.createElement(Fa, {
+  }, React.createElement(Fa, {
     icon: "quote-left"
-  }), " ", children, " ", React__default.createElement(Fa, {
+  }), " ", children, " ", React.createElement(Fa, {
     icon: "quote-right"
-  }))), React__default.createElement("li", {
+  }))), React.createElement("li", {
     className: "mb-0"
-  }, React__default.createElement("h5", {
+  }, React.createElement("h5", {
     className: byClasses
   }, "~ ", by)))));
 };
 
 MDBStreak.propTypes = {
-  size: PropTypes__default.oneOf(['lg', 'md']),
-  by: PropTypes__default.string,
-  wrapperClass: PropTypes__default.string,
-  byClass: PropTypes__default.string,
-  quoteClass: PropTypes__default.string,
-  photo: PropTypes__default.string,
-  overlayClass: PropTypes__default.string
+  size: PropTypes.oneOf(['lg', 'md']),
+  by: PropTypes.string,
+  wrapperClass: PropTypes.string,
+  byClass: PropTypes.string,
+  quoteClass: PropTypes.string,
+  photo: PropTypes.string,
+  overlayClass: PropTypes.string
 };
 MDBStreak.defaultProps = {
   wrapperClass: "grey lighten-3"
@@ -11318,230 +11309,4 @@ MDBStreak.defaultProps = {
 
 // FREE
 
-exports.cssTransition = reactToastify.cssTransition;
-exports.toast = reactToastify.toast;
-exports.ToastContainer = reactToastify.ToastContainer;
-exports.Animation = Animation;
-exports.Alert = Alert;
-exports.Badge = Badge;
-exports.Breadcrumb = Breadcrumb;
-exports.BreadcrumbItem = BreadcrumbItem;
-exports.Button = Button;
-exports.ButtonGroup = ButtonGroup;
-exports.ButtonToolbar = ButtonToolbar;
-exports.Card = Card;
-exports.CardBody = CardBody;
-exports.CardFooter = CardFooter;
-exports.CardGroup = CardGroup;
-exports.CardHeader = CardHeader;
-exports.CardImage = CardImage;
-exports.CardText = CardText;
-exports.CardTitle = CardTitle;
-exports.Carousel = Carousel;
-exports.CarouselCaption = CarouselCaption;
-exports.CarouselControl = Control;
-exports.CarouselInner = CarouselInner;
-exports.CarouselItem = CarouselItem;
-exports.CarouselIndicators = CarouselIndicators;
-exports.CarouselIndicator = CarouselIndicator;
-exports.Col = Col;
-exports.Collapse = Collapse;
-exports.Container = Container;
-exports.DataTable = DataTable;
-exports.Dropdown = Dropdown;
-exports.DropdownItem = DropdownItem;
-exports.DropdownMenu = DropdownMenu;
-exports.DropdownToggle = DropdownToggle;
-exports.EdgeHeader = EdgeHeader;
-exports.Fa = Fa;
-exports.FormInline = FormInline;
-exports.Footer = Footer;
-exports.FreeBird = FreeBird;
-exports.HamburgerToggler = HamburgerToggler;
-exports.Input = Input;
-exports.InputNumeric = InputNumeric;
-exports.Jumbotron = Jumbotron;
-exports.ListGroup = ListGroup;
-exports.ListGroupItem = ListGroupItem;
-exports.Mask = Mask;
-exports.Media = Media;
-exports.Modal = Modal;
-exports.ModalBody = ModalBody;
-exports.ModalFooter = ModalFooter;
-exports.ModalHeader = ModalHeader;
-exports.Nav = Nav;
-exports.Navbar = Navbar;
-exports.NavbarBrand = NavbarBrand;
-exports.NavbarNav = NavbarNav;
-exports.NavbarToggler = NavbarToggler;
-exports.NavItem = NavItem;
-exports.NavLink = NavLink;
-exports.Pagination = Pagination;
-exports.PageItem = PageItem;
-exports.PageLink = PageLink;
-exports.Popover = Popover;
-exports.PopoverBody = PopoverBody;
-exports.PopoverHeader = PopoverHeader;
-exports.Progress = Progress;
-exports.Waves = Waves;
-exports.Row = Row;
-exports.Table = Table;
-exports.TableBody = TableBody;
-exports.TableHead = TableHead;
-exports.TableFoot = TableFoot;
-exports.Tooltip = Tooltip;
-exports.View = View;
-exports.Iframe = Iframe;
-exports.Autocomplete = Autocomplete;
-exports.Avatar = Avatar;
-exports.ButtonFixed = ButtonFixed;
-exports.ButtonFixedItem = ButtonFixed$1;
-exports.CardUp = CardUp;
-exports.Chip = Chip;
-exports.ChipsInput = ChipsInput;
-exports.CollapseHeader = CollapseHeader;
-exports.DatePicker = DatePicker;
-exports.ExportToCSV = ExportToCSV;
-exports.FlippingCard = RotatingCard;
-exports.InputFile = InputFile;
-exports.InputRange = InputRange;
-exports.InputSwitch = InputSwitch;
-exports.LightboxStyles = css$c;
-exports.PerfectScrollbar = ScrollBar;
-exports.ScrollSpyBox = ScrollBox;
-exports.ScrollSpyList = ScrollSpyList;
-exports.ScrollSpyListItem = ScrollSpyListItem;
-exports.ScrollSpyText = ScrollSpyText;
-exports.SideNav = SideNav;
-exports.SideNavCat = SideNavCat;
-exports.SideNavItem = SideNavItem;
-exports.SideNavLink = SideNavLink;
-exports.SideNavNav = SideNavNav;
-exports.SimpleChart = SimpleChart;
-exports.Select = Select;
-exports.SelectInput = SelectInput;
-exports.SelectOptions = Options;
-exports.SelectOption = SelectOption;
-exports.Spinner = Spinner;
-exports.Step = Step;
-exports.Stepper = Stepper;
-exports.TableEditable = TableEditable;
-exports.TabPane = TabPane;
-exports.TabContent = TabContent;
-exports.Sticky = Sticky;
-exports.StickyContainer = Container$1;
-exports.Testimonial = Testimonial;
-exports.Timeline = Timeline;
-exports.TimelineStep = TimelineStep;
-exports.TimePicker = TimePicker;
-exports.MDBIframe = Iframe;
-exports.MDBAnimation = Animation;
-exports.MDBBadge = Badge;
-exports.MDBAlert = Alert;
-exports.MDBBreadcrumb = Breadcrumb;
-exports.MDBBreadcrumbItem = BreadcrumbItem;
-exports.MDBBtn = Button;
-exports.MDBBtnGroup = ButtonGroup;
-exports.MDBBtnToolbar = ButtonToolbar;
-exports.MDBCard = Card;
-exports.MDBCardBody = CardBody;
-exports.MDBCardFooter = CardFooter;
-exports.MDBCardGroup = CardGroup;
-exports.MDBCardHeader = CardHeader;
-exports.MDBCardImage = CardImage;
-exports.MDBCardText = CardText;
-exports.MDBCardTitle = CardTitle;
-exports.MDBCarousel = Carousel;
-exports.MDBCarouselCaption = CarouselCaption;
-exports.MDBControl = Control;
-exports.MDBCarouselInner = CarouselInner;
-exports.MDBCarouselItem = CarouselItem;
-exports.MDBCarouselIndicators = CarouselIndicators;
-exports.MDBCarouselIndicator = CarouselIndicator;
-exports.MDBCol = Col;
-exports.MDBCollapse = Collapse;
-exports.MDBContainer = Container;
-exports.MDBDataTable = DataTable;
-exports.MDBDropdown = Dropdown;
-exports.MDBDropdownItem = DropdownItem;
-exports.MDBDropdownMenu = DropdownMenu;
-exports.MDBDropdownToggle = DropdownToggle;
-exports.MDBEdgeHeader = EdgeHeader;
-exports.MDBFormInline = FormInline;
-exports.MDBFooter = Footer;
-exports.MDBFreeBird = FreeBird;
-exports.MDBHamburgerToggler = HamburgerToggler;
-exports.MDBIcon = Fa;
-exports.MDBInput = Input;
-exports.MDBInputSelect = InputNumeric;
-exports.MDBJumbotron = Jumbotron;
-exports.MDBListGroup = ListGroup;
-exports.MDBListGroupItem = ListGroupItem;
-exports.MDBMask = Mask;
-exports.MDBMedia = Media;
-exports.MDBModal = Modal;
-exports.MDBModalBody = ModalBody;
-exports.MDBModalFooter = ModalFooter;
-exports.MDBModalHeader = ModalHeader;
-exports.MDBNav = Nav;
-exports.MDBNavbar = Navbar;
-exports.MDBNavbarBrand = NavbarBrand;
-exports.MDBNavbarNav = NavbarNav;
-exports.MDBNavbarToggler = NavbarToggler;
-exports.MDBNavItem = NavItem;
-exports.MDBNavLink = NavLink;
-exports.MDBPagination = Pagination;
-exports.MDBPageItem = PageItem;
-exports.MDBPageNav = PageLink;
-exports.MDBPopover = Popover;
-exports.MDBPopoverBody = PopoverBody;
-exports.MDBPopoverHeader = PopoverHeader;
-exports.MDBProgress = Progress;
-exports.MDBWaves = Waves;
-exports.MDBRow = Row;
-exports.MDBTable = Table;
-exports.MDBTableBody = TableBody;
-exports.MDBTableHead = TableHead;
-exports.MDBTableFoot = TableFoot;
-exports.MDBTooltip = Tooltip;
-exports.MDBView = View;
-exports.MDBAutocomplete = Autocomplete;
-exports.MDBAvatar = Avatar;
-exports.MDBBtnFixed = ButtonFixed;
-exports.MDBBtnFixedItem = ButtonFixed$1;
-exports.MDBCardUp = CardUp;
-exports.MDBChip = Chip;
-exports.MDBChipsInput = ChipsInput;
-exports.MDBCollapseHeader = CollapseHeader;
-exports.MDBExportToCSV = ExportToCSV;
-exports.MDBDatePicker = DatePicker;
-exports.MDBTimePicker = TimePicker;
-exports.MDBRotatingCard = RotatingCard;
-exports.MDBFileInput = InputFile;
-exports.MDBRangeInput = InputRange;
-exports.MDBSwitch = InputSwitch;
-exports.MDBScrollbar = ScrollBar;
-exports.MDBScrollspyBox = ScrollBox;
-exports.MDBScrollspyList = ScrollSpyList;
-exports.MDBScrollspyListItem = ScrollSpyListItem;
-exports.MDBScrollspyText = ScrollSpyText;
-exports.MDBSideNav = SideNav;
-exports.MDBSideNavCat = SideNavCat;
-exports.MDBSideNavItem = SideNavItem;
-exports.MDBSideNavLink = SideNavLink;
-exports.MDBSideNavNav = SideNavNav;
-exports.MDBSimpleChart = SimpleChart;
-exports.MDBSelect = Select;
-exports.MDBSelectOptions = Options;
-exports.MDBSpinner = Spinner;
-exports.MDBTableEditable = TableEditable;
-exports.MDBTabPane = TabPane;
-exports.MDBTabContent = TabContent;
-exports.MDBStep = Step;
-exports.MDBStepper = Stepper;
-exports.MDBSticky = Sticky;
-exports.MDBStickyContent = Container$1;
-exports.MDBTestimonial = Testimonial;
-exports.MDBTimeline = Timeline;
-exports.MDBTimelineStep = TimelineStep;
-exports.MDBStreak = MDBStreak;
+export { Animation, Alert, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, Carousel, CarouselCaption, Control as CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Col, Collapse, Container, DataTable, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, Fa, FormInline, Footer, FreeBird, HamburgerToggler, Input, InputNumeric, Jumbotron, ListGroup, ListGroupItem, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, NavLink$1 as NavLink, Pagination, PageItem, PageLink, Popover, PopoverBody, PopoverHeader, Progress, Waves, Row, Table, TableBody, TableHead, TableFoot, Tooltip, View, Iframe, Autocomplete, Avatar, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, CardUp, Chip, ChipsInput, CollapseHeader, DatePicker$1 as DatePicker, ExportToCSV, RotatingCard as FlippingCard, InputFile, InputRange, InputSwitch, css$c as LightboxStyles, ScrollBar as PerfectScrollbar, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, Select, SelectInput$1 as SelectInput, Options as SelectOptions, SelectOption, Spinner, Step, Stepper, TableEditable, TabPane, TabContent, Sticky, Container$1 as StickyContainer, Testimonial, Timeline, TimelineStep, TimePicker, Iframe as MDBIframe, Animation as MDBAnimation, Badge as MDBBadge, Alert as MDBAlert, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, Control as MDBControl, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, CarouselIndicators as MDBCarouselIndicators, CarouselIndicator as MDBCarouselIndicator, Col as MDBCol, Collapse as MDBCollapse, Container as MDBContainer, DataTable as MDBDataTable, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, FormInline as MDBFormInline, Footer as MDBFooter, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Input as MDBInput, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, NavItem as MDBNavItem, NavLink$1 as MDBNavLink, Pagination as MDBPagination, PageItem as MDBPageItem, PageLink as MDBPageNav, Popover as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Progress as MDBProgress, Waves as MDBWaves, Row as MDBRow, Table as MDBTable, TableBody as MDBTableBody, TableHead as MDBTableHead, TableFoot as MDBTableFoot, Tooltip as MDBTooltip, View as MDBView, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, CardUp as MDBCardUp, Chip as MDBChip, ChipsInput as MDBChipsInput, CollapseHeader as MDBCollapseHeader, ExportToCSV as MDBExportToCSV, DatePicker$1 as MDBDatePicker, TimePicker as MDBTimePicker, RotatingCard as MDBRotatingCard, InputFile as MDBFileInput, InputRange as MDBRangeInput, InputSwitch as MDBSwitch, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, Select as MDBSelect, SelectInput as MDBSelectInput, Options as MDBSelectOptions, Option as MDBSelectOption, Spinner as MDBSpinner, TableEditable as MDBTableEditable, TabPane as MDBTabPane, TabContent as MDBTabContent, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, Testimonial as MDBTestimonial, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, MDBStreak };
