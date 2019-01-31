@@ -18,6 +18,7 @@ const AddonsNavPage = () => {
               <MenuLink to="/addons/iframe" title="Iframe" />
               {/* PRO-START */}
               <h6 className="mt-3 grey-text">PRO </h6>
+              <MenuLink to="/addons/pro/blog-components" title="Blog components" />
               <MenuLink to="/addons/pro/chat" title="Chat" />
               <MenuLink to="/addons/pro/e-commerce-components" title="E-commerce components" />
               <MenuLink to="/addons/pro/flipping-cards" title="Flipping Cards" />
