@@ -3,12 +3,12 @@ import PropTypes, { PropTypes as PropTypes$1 } from 'prop-types';
 import classNames from 'classnames';
 import { Transition, CSSTransition } from 'react-transition-group';
 import ReactDOM, { findDOMNode } from 'react-dom';
-import Autosuggest from 'react-autosuggest';
 import { Popper, Target, Manager, Arrow } from 'react-popper';
 import NumericInput from 'react-numeric-input';
 import { NavLink } from 'react-router-dom';
 import outy from 'outy';
 export { cssTransition, toast, ToastContainer } from 'react-toastify';
+import Autosuggest from 'react-autosuggest';
 import MomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 import moment from 'moment';
@@ -3622,288 +3622,8 @@ SelectInput.defaultProps = {
 };
 var SelectInput$1 = SelectInput = selectContextHOC(SelectInput);
 
-var theme = {
-  container: "md-form",
-  containerOpen: "react-autosuggest__container--open",
-  input: "mdb-autocomplete form-control",
-  inputOpen: "react-autosuggest__input--open",
-  inputFocused: "react-autosuggest__input--focused",
-  suggestionsContainer: "react-autosuggest__suggestions-container",
-  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
-  suggestionsList: "mdb-autocomplete-wrap",
-  suggestion: "react-autosuggest__suggestion",
-  suggestionFirst: "react-autosuggest__suggestion--first",
-  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
-  sectionContainer: "react-autosuggest__section-container",
-  sectionContainerFirst: "react-autosuggest__section-container--first",
-  sectionTitle: "react-autosuggest__section-title"
-};
-
-var Autocomplete =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Autocomplete, _Component);
-
-  function Autocomplete(props) {
-    var _this;
-
-    _classCallCheck(this, Autocomplete);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Autocomplete).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsFetchRequested", function (_ref) {
-      var value = _ref.value;
-
-      if (_this.props.search) {
-        return;
-      }
-
-      _this.setState({
-        suggestions: _this.getSuggestions(value)
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestions", function (value) {
-      var inputValue = value.toLowerCase();
-      var inputLength = inputValue.length;
-      return inputLength === 0 ? [] : _this.props.data.filter(function (data) {
-        return data.toLowerCase().includes(inputValue);
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestionValue", function (suggestion) {
-      if (_this.props.getValue) {
-        _this.props.getValue(suggestion);
-      }
-
-      return suggestion;
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderSuggestion", function (suggestion) {
-      return React.createElement("div", null, suggestion);
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (event, _ref2) {
-      var newValue = _ref2.newValue;
-
-      _this.setState({
-        value: newValue
-      });
-
-      if (_this.props.search) {
-        _this.props.search(newValue, ReactDOM.findDOMNode(_assertThisInitialized(_assertThisInitialized(_this))).parentNode.parentNode.querySelectorAll("li"));
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsClearRequested", function () {
-      _this.setState({
-        suggestions: []
-      });
-    });
-
-    _this.state = {
-      value: "",
-      suggestions: [],
-      isTouched: false
-    };
-    _this.onChange = _this.onChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.blurCallback = _this.blurCallback.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.triggerFocus = _this.triggerFocus.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleClear = _this.handleClear.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    return _this;
-  }
-
-  _createClass(Autocomplete, [{
-    key: "onClick",
-    value: function onClick(ev) {
-      this.setState({
-        isTouched: true
-      });
-    }
-  }, {
-    key: "blurCallback",
-    value: function blurCallback(ev) {
-      this.setState({
-        isTouched: false
-      });
-    }
-  }, {
-    key: "handleClear",
-    value: function handleClear() {
-      this.setState({
-        value: ""
-      });
-    }
-  }, {
-    key: "triggerFocus",
-    value: function triggerFocus() {
-      var input = document.getElementById(this.props.id);
-      input.focus();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$state = this.state,
-          value = _this$state.value,
-          suggestions = _this$state.suggestions;
-
-      var _this$props = this.props,
-          className = _this$props.className,
-          clear = _this$props.clear,
-          clearClass = _this$props.clearClass,
-          data = _this$props.data,
-          disabled = _this$props.disabled,
-          getValue = _this$props.getValue,
-          id = _this$props.id,
-          label = _this$props.label,
-          labelClass = _this$props.labelClass,
-          icon = _this$props.icon,
-          iconBrand = _this$props.iconBrand,
-          iconClass = _this$props.iconClass,
-          iconLight = _this$props.iconLight,
-          iconRegular = _this$props.iconRegular,
-          iconSize = _this$props.iconSize,
-          placeholder = _this$props.placeholder,
-          search = _this$props.search,
-          attributes = _objectWithoutProperties(_this$props, ["className", "clear", "clearClass", "data", "disabled", "getValue", "id", "label", "labelClass", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "placeholder", "search"]);
-
-      if (disabled) {
-        attributes.disabled = true;
-      } // needed for rendering custom input
-
-
-      var inputProps = {
-        placeholder: placeholder,
-        value: value,
-        onChange: this.onChange,
-        onBlur: this.blurCallback,
-        onClick: this.onClick,
-        onFocus: this.onFocus,
-        id: this.props.id
-      }; // the main variable for classFixes
-
-      var isNotEmpty = Boolean(this.state.value) || placeholder || this.state.isTouched; // classFixes:
-
-      var labelClassFix = classNames(isNotEmpty && "active", disabled && "disabled", labelClass);
-      var iconClassFix = classNames("prefix", this.state.isTouched && "active", iconClass);
-      var clearClassFix = classNames(clearClass);
-
-      var isclearVisible = function isclearVisible() {
-        var hiddenOrNot = "hidden";
-
-        if (_this2.state.value) {
-          hiddenOrNot = "visible";
-        }
-
-        return hiddenOrNot;
-      };
-
-      var clearStyleFix = {
-        position: "absolute",
-        zIndex: 2,
-        top: ".85rem",
-        right: 0,
-        border: "none",
-        background: "0 0",
-        visibility: isclearVisible()
-      };
-
-      var renderInputComponent = function renderInputComponent(inputProps) {
-        return React.createElement("div", null, icon && React.createElement(Fa, {
-          icon: icon,
-          size: iconSize,
-          brand: iconBrand,
-          light: iconLight,
-          regular: iconRegular,
-          className: iconClassFix
-        }), React.createElement("input", _extends({
-          type: "text",
-          id: id,
-          className: "form-control"
-        }, inputProps, attributes, {
-          onFocus: function onFocus(ev, val) {
-            _this2.onClick();
-
-            inputProps.onFocus(ev, val);
-          }
-        })), React.createElement("label", {
-          htmlFor: id,
-          id: "label for ".concat(id),
-          onClick: _this2.triggerFocus,
-          className: labelClassFix
-        }, label), clear && React.createElement(Fa, {
-          icon: "close",
-          onClick: _this2.handleClear,
-          style: clearStyleFix,
-          className: clearClassFix
-        }));
-      };
-
-      return React.createElement(Autosuggest, _extends({
-        suggestions: suggestions,
-        onSuggestionsFetchRequested: this.onSuggestionsFetchRequested,
-        onSuggestionsClearRequested: this.onSuggestionsClearRequested,
-        getSuggestions: this.getSuggestions,
-        getSuggestionValue: this.getSuggestionValue,
-        onSuggestionSelected: this.blurCallback,
-        renderSuggestion: this.renderSuggestion,
-        inputProps: inputProps,
-        onChange: this.onChange,
-        theme: theme,
-        renderInputComponent: renderInputComponent,
-        focusInputOnSuggestionClick: false
-      }, attributes));
-    }
-  }]);
-
-  return Autocomplete;
-}(Component);
-
-Autocomplete.propTypes = {
-  className: PropTypes.string,
-  clear: PropTypes.bool,
-  clearClass: PropTypes.string,
-  data: PropTypes.arrayOf(PropTypes.string),
-  disabled: PropTypes.bool,
-  getValue: PropTypes.func,
-  id: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
-  labelClass: PropTypes.string,
-  icon: PropTypes.string,
-  iconBrand: PropTypes.bool,
-  iconClass: PropTypes.string,
-  iconLight: PropTypes.bool,
-  iconRegular: PropTypes.bool,
-  iconSize: PropTypes.string,
-  placeholder: PropTypes.string,
-  search: PropTypes.func
-};
-Autocomplete.defaultProps = {
-  className: "",
-  clear: false,
-  clearClass: "",
-  data: [],
-  disabled: false,
-  getValue: function getValue() {},
-  id: "",
-  label: "",
-  labelClass: "",
-  icon: "",
-  iconBrand: false,
-  iconClass: "",
-  iconLight: false,
-  iconRegular: false,
-  iconSize: "",
-  placeholder: ""
-};
-
 var css$5 = ".fadeElement {\n  -webkit-transition: 0.5s;\n  -moz-transition: 0.5s;\n  -o-transition: 0.5s;\n  transition: 0.5s;\n  display: block;\n  width: 100%;\n  top: 0;\n  opacity: 0;\n  transform-origin:top;\n  transform:scaleY(0.7);\n  visibility: hidden;\n  pointer-events: none;\n}\n.fadeElement.fadeIn {\n  transform:scaleY(1);\n  opacity: 1;\n  visibility: visible;\n  pointer-events: auto;\n}\n";
 styleInject(css$5);
-
-var data = [];
 
 var Options =
 /*#__PURE__*/
@@ -3916,30 +3636,34 @@ function (_React$Component) {
     _classCallCheck(this, Options);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Options).call(this, props));
-    _this.search = _this.search.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    return _this;
-  }
 
-  _createClass(Options, [{
-    key: "search",
-    value: function search(value, options) {
-      options.forEach(function (option) {
-        var optionValue = option.children[0].innerText.toLowerCase();
-
-        if (!optionValue.includes(value)) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "search", function (value) {
+      _this.state.options.forEach(function (option) {
+        if (!option.children[0].innerText.toLowerCase().includes(value.toLowerCase())) {
           option.style.display = 'none';
         } else {
           option.style.display = 'block';
         }
       });
-    }
-  }, {
+    });
+
+    _this.state = {
+      options: [],
+      searchValue: ""
+    };
+    _this.optionsRef = React.createRef();
+    return _this;
+  }
+
+  _createClass(Options, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       if (this.props.search) {
-        var options = ReactDOM.findDOMNode(this).querySelectorAll('li');
-        options.forEach(function (option) {
-          data.push(option.children[0].innerHTML);
+        var options = Array.from(this.optionsRef.current.children).filter(function (child) {
+          return child.tagName === 'LI';
+        });
+        this.setState({
+          options: options
         });
       }
     }
@@ -3955,23 +3679,17 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "search", "searchLabel", "searchId"]);
 
       var classes = classNames('dropdown-content', 'select-dropdown', 'fadeElement', className);
-      var autocomplete = null;
-
-      if (this.props.search) {
-        autocomplete = React.createElement("div", {
-          className: "mx-2"
-        }, React.createElement(Autocomplete, {
-          data: data,
-          label: searchLabel,
-          id: searchId,
-          search: this.search,
-          "data-search": "true"
-        }));
-      }
-
       return React.createElement("ul", _extends({}, attributes, {
-        className: classes
-      }), autocomplete, children);
+        className: classes,
+        ref: this.optionsRef
+      }), search && React.createElement("div", {
+        className: "mx-2"
+      }, React.createElement(Input, {
+        label: searchLabel,
+        id: searchId,
+        getValue: this.search,
+        "data-search": "true"
+      })), children);
     }
   }]);
 
@@ -4518,7 +4236,7 @@ function (_Component) {
         }
       }, React.createElement("span", null, label[0]))), this.choosePagesGroup().map(function (page) {
         return React.createElement(PageItem, {
-          key: page[0].name + page.index,
+          key: Object.keys(page[0])[0] + page.index,
           active: page.index === activePage
         }, React.createElement(PageLink, {
           className: "page-link",
@@ -6002,6 +5720,8 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBackdropClick", function (e) {
+      if (!_this.props.backdrop) return;
+
       if (!_this.modalContent.contains(e.target)) {
         _this.props.toggle();
       }
@@ -7416,6 +7136,284 @@ Dropdown.childContextTypes = {
   toggle: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   dropup: PropTypes.bool.isRequired
+};
+
+var theme = {
+  container: "md-form",
+  containerOpen: "react-autosuggest__container--open",
+  input: "mdb-autocomplete form-control",
+  inputOpen: "react-autosuggest__input--open",
+  inputFocused: "react-autosuggest__input--focused",
+  suggestionsContainer: "react-autosuggest__suggestions-container",
+  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
+  suggestionsList: "mdb-autocomplete-wrap",
+  suggestion: "react-autosuggest__suggestion",
+  suggestionFirst: "react-autosuggest__suggestion--first",
+  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
+  sectionContainer: "react-autosuggest__section-container",
+  sectionContainerFirst: "react-autosuggest__section-container--first",
+  sectionTitle: "react-autosuggest__section-title"
+};
+
+var Autocomplete =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Autocomplete, _Component);
+
+  function Autocomplete(props) {
+    var _this;
+
+    _classCallCheck(this, Autocomplete);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Autocomplete).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsFetchRequested", function (_ref) {
+      var value = _ref.value;
+
+      if (_this.props.search) {
+        return;
+      }
+
+      _this.setState({
+        suggestions: _this.getSuggestions(value)
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestions", function (value) {
+      var inputValue = value.toLowerCase();
+      var inputLength = inputValue.length;
+      return inputLength === 0 ? [] : _this.props.data.filter(function (data) {
+        return data.toLowerCase().includes(inputValue);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestionValue", function (suggestion) {
+      if (_this.props.getValue) {
+        _this.props.getValue(suggestion);
+      }
+
+      return suggestion;
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderSuggestion", function (suggestion) {
+      return React.createElement("div", null, suggestion);
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (event, _ref2) {
+      var newValue = _ref2.newValue;
+
+      _this.setState({
+        value: newValue
+      });
+
+      if (_this.props.search) {
+        _this.props.search(newValue, ReactDOM.findDOMNode(_assertThisInitialized(_assertThisInitialized(_this))).parentNode.parentNode.querySelectorAll("li"));
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsClearRequested", function () {
+      _this.setState({
+        suggestions: []
+      });
+    });
+
+    _this.state = {
+      value: "",
+      suggestions: [],
+      isTouched: false
+    };
+    _this.onChange = _this.onChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.blurCallback = _this.blurCallback.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.triggerFocus = _this.triggerFocus.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleClear = _this.handleClear.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    return _this;
+  }
+
+  _createClass(Autocomplete, [{
+    key: "onClick",
+    value: function onClick(ev) {
+      this.setState({
+        isTouched: true
+      });
+    }
+  }, {
+    key: "blurCallback",
+    value: function blurCallback(ev) {
+      this.setState({
+        isTouched: false
+      });
+    }
+  }, {
+    key: "handleClear",
+    value: function handleClear() {
+      this.setState({
+        value: ""
+      });
+    }
+  }, {
+    key: "triggerFocus",
+    value: function triggerFocus() {
+      var input = document.getElementById(this.props.id);
+      input.focus();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$state = this.state,
+          value = _this$state.value,
+          suggestions = _this$state.suggestions;
+
+      var _this$props = this.props,
+          className = _this$props.className,
+          clear = _this$props.clear,
+          clearClass = _this$props.clearClass,
+          data = _this$props.data,
+          disabled = _this$props.disabled,
+          getValue = _this$props.getValue,
+          id = _this$props.id,
+          label = _this$props.label,
+          labelClass = _this$props.labelClass,
+          icon = _this$props.icon,
+          iconBrand = _this$props.iconBrand,
+          iconClass = _this$props.iconClass,
+          iconLight = _this$props.iconLight,
+          iconRegular = _this$props.iconRegular,
+          iconSize = _this$props.iconSize,
+          placeholder = _this$props.placeholder,
+          search = _this$props.search,
+          attributes = _objectWithoutProperties(_this$props, ["className", "clear", "clearClass", "data", "disabled", "getValue", "id", "label", "labelClass", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "placeholder", "search"]);
+
+      if (disabled) {
+        attributes.disabled = true;
+      } // needed for rendering custom input
+
+
+      var inputProps = {
+        placeholder: placeholder,
+        value: value,
+        onChange: this.onChange,
+        onBlur: this.blurCallback,
+        onClick: this.onClick,
+        onFocus: this.onFocus,
+        id: this.props.id
+      }; // the main variable for classFixes
+
+      var isNotEmpty = Boolean(this.state.value) || placeholder || this.state.isTouched; // classFixes:
+
+      var labelClassFix = classNames(isNotEmpty && "active", disabled && "disabled", labelClass);
+      var iconClassFix = classNames("prefix", this.state.isTouched && "active", iconClass);
+      var clearClassFix = classNames(clearClass);
+
+      var isclearVisible = function isclearVisible() {
+        var hiddenOrNot = "hidden";
+
+        if (_this2.state.value) {
+          hiddenOrNot = "visible";
+        }
+
+        return hiddenOrNot;
+      };
+
+      var clearStyleFix = {
+        position: "absolute",
+        zIndex: 2,
+        top: ".85rem",
+        right: 0,
+        border: "none",
+        background: "0 0",
+        visibility: isclearVisible()
+      };
+
+      var renderInputComponent = function renderInputComponent(inputProps) {
+        return React.createElement("div", null, icon && React.createElement(Fa, {
+          icon: icon,
+          size: iconSize,
+          brand: iconBrand,
+          light: iconLight,
+          regular: iconRegular,
+          className: iconClassFix
+        }), React.createElement("input", _extends({
+          type: "text",
+          id: id,
+          className: "form-control"
+        }, inputProps, attributes, {
+          onFocus: function onFocus(ev, val) {
+            _this2.onClick();
+
+            inputProps.onFocus(ev, val);
+          }
+        })), React.createElement("label", {
+          htmlFor: id,
+          id: "label for ".concat(id),
+          onClick: _this2.triggerFocus,
+          className: labelClassFix
+        }, label), clear && React.createElement(Fa, {
+          icon: "close",
+          onClick: _this2.handleClear,
+          style: clearStyleFix,
+          className: clearClassFix
+        }));
+      };
+
+      return React.createElement(Autosuggest, _extends({
+        suggestions: suggestions,
+        onSuggestionsFetchRequested: this.onSuggestionsFetchRequested,
+        onSuggestionsClearRequested: this.onSuggestionsClearRequested,
+        getSuggestions: this.getSuggestions,
+        getSuggestionValue: this.getSuggestionValue,
+        onSuggestionSelected: this.blurCallback,
+        renderSuggestion: this.renderSuggestion,
+        inputProps: inputProps,
+        onChange: this.onChange,
+        theme: theme,
+        renderInputComponent: renderInputComponent,
+        focusInputOnSuggestionClick: false
+      }, attributes));
+    }
+  }]);
+
+  return Autocomplete;
+}(Component);
+
+Autocomplete.propTypes = {
+  className: PropTypes.string,
+  clear: PropTypes.bool,
+  clearClass: PropTypes.string,
+  data: PropTypes.arrayOf(PropTypes.string),
+  disabled: PropTypes.bool,
+  getValue: PropTypes.func,
+  id: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  labelClass: PropTypes.string,
+  icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClass: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
+  placeholder: PropTypes.string,
+  search: PropTypes.func
+};
+Autocomplete.defaultProps = {
+  className: "",
+  clear: false,
+  clearClass: "",
+  data: [],
+  disabled: false,
+  getValue: function getValue() {},
+  id: "",
+  label: "",
+  labelClass: "",
+  icon: "",
+  iconBrand: false,
+  iconClass: "",
+  iconLight: false,
+  iconRegular: false,
+  iconSize: "",
+  placeholder: ""
 };
 
 var Avatar =
