@@ -1,37 +1,37 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Autocomplete from './Autocomplete';
 import './Fade.css';
-
-var data = [];
+import Input from '../Input';
 
 class Options extends React.Component {
   constructor(props) {
     super(props);
-    this.search = this.search.bind(this);
-  }
+    this.state = {
+      options: [],
+      searchValue: ""
+    }
 
-  search(value, options) {
-    options.forEach(function(option) {
-      let optionValue = option.children[0].innerText.toLowerCase();
-      if (!optionValue.includes(value)) {
-        option.style.display = 'none';
-      } else {
-        option.style.display = 'block';
-      }
-    });
+    this.optionsRef = React.createRef();
   }
 
   componentDidMount() {
     if (this.props.search) {
-      let options = ReactDOM.findDOMNode(this).querySelectorAll('li');
-      options.forEach(function(option) {
-        data.push(option.children[0].innerHTML);
-      });
+      const options = Array.from(this.optionsRef.current.children).filter(child => child.tagName === 'LI');
+      this.setState({ options });
     }
   }
+
+  search = value => {
+    this.state.options.forEach(option => {
+      if(!option.children[0].innerText.toLowerCase().includes(value.toLowerCase())) {
+        option.style.display = 'none';
+      }
+      else {
+        option.style.display = 'block';
+      }
+    });
+  };
 
   render() {
     const {
@@ -50,24 +50,18 @@ class Options extends React.Component {
       className
     );
 
-    let autocomplete = null;
-    if (this.props.search) {
-      autocomplete = (
-        <div className="mx-2">
-          <Autocomplete
-            data={data}
-            label={searchLabel}
-            id={searchId}
-            search={this.search}
-            data-search="true"
-          />
-        </div>
-      );
-    }
-
     return (
-      <ul {...attributes} className={classes}>
-        {autocomplete}
+      <ul {...attributes} className={classes} ref={this.optionsRef}>
+        {search && (
+          <div className="mx-2">
+            <Input
+              label={searchLabel}
+              id={searchId}
+              getValue={this.search}
+              data-search="true"
+            />
+          </div>
+        )}
         {children}
       </ul>
     );
