@@ -108,6 +108,10 @@ import ValidationPagePro from "./pages/pro/ValidationPage";
 import FlippingCardsPage from "./pages/pro/FlippingCardsPage";
 import TableStylesPagePro from "./pages/pro/TableStylesPage";
 import ModalExamplesProPage from "./pages/pro/ModalExamplesPage";
+import BlogComponentsPage from "./pages/pro/BlogComponentsPage";
+
+
+
 // PRO-END
 
 class Routes extends React.Component {
@@ -174,6 +178,7 @@ class Routes extends React.Component {
         <Route exact path="/sections" component={SectionsNavPage} />
         <Route path="/addons/pro/chat" component={ChatPage} />
         <Route path="/addons/pro/e-commerce-components" component={eCommercePage} />
+        <Route path="/addons/pro/blog-components" component={BlogComponentsPage} />
         <Route
           path="/components/pro/dropdown"
           component={MaterialDropdownPage}
