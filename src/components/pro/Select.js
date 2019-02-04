@@ -55,7 +55,7 @@ class Select extends React.Component {
       .filter(option => option.checked)
       .map(option => ({
         value: option.value,
-        text: option.text
+        text: option.text ? option.text : option.value
       }));
 
     let checkedValues = checkedOptions.map(opt => opt.value);
@@ -113,7 +113,7 @@ class Select extends React.Component {
 
       return {
         selectValue: [options[optionIndex].value],
-        selectTextContent: options[optionIndex].text,
+        selectTextContent: options[optionIndex].text ? options[optionIndex].text : options[optionIndex].value,
         options
       };
     });
