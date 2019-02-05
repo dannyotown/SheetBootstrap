@@ -52,6 +52,7 @@ import ValidationPage from "./pages/ValidationPage";
 import NavbarPage from "./pages/NavbarPage";
 import IframePage from "./pages/IframePage";
 import EdgeHeaderPage from "./pages/EdgeHeaderPage"
+import SpinnerPage from './pages/SpinnerPage';
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -74,7 +75,7 @@ import TimePickerPage from "./pages/pro/TimePickerPage";
 import StickyPage from "./pages/pro/StickyPage";
 import LightboxPage from "./pages/pro/LightboxPage";
 import MultiCarouselPage from "./pages/pro/MultiCarouselPage";
-import SpinnerPage from "./pages/pro/SpinnerPage";
+import SpinnerPagePro from "./pages/pro/SpinnerPage";
 import TabsPage from "./pages/pro/TabsPage";
 import ThumbnailsCarousel from "./pages/pro/ThumbnailsCarousel";
 import TestimonialsPage from "./pages/pro/sections/TestimonialsPage";
@@ -173,6 +174,7 @@ class Routes extends React.Component {
         <Route path="/addons/iframe" component={IframePage} />
         <Route path="/addons/edge-header" component={EdgeHeaderPage} />
         <Route path="/advanced/alerts" component={AlertPage} />
+        <Route path="/components/spinner" component={SpinnerPage} />
         {/* PRO-START */}
         <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
         <Route exact path="/sections" component={SectionsNavPage} />
@@ -201,7 +203,7 @@ class Routes extends React.Component {
         />
         <Route path="/addons/pro/timeline" component={TimelinePage} />
         <Route path="/addons/pro/streak" component={StreakPage} />
-        <Route path="/components/pro/spinner" component={SpinnerPage} />
+        <Route path="/components/pro/spinner" component={SpinnerPagePro} />
         <Route path="/advanced/pro/scrollbar" component={ScrollBarPage} />
         <Route path="/navigation/pro/scrollspy" component={ScrollSpyPage} />
         <Route
