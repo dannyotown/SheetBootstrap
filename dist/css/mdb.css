@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * Material Design for Bootstrap 4
- * Version: MDB PRO 4.7.0
+ * Version: MDB PRO 4.7.1
  *
  *
  * Copyright: Material Design for BootstrapS
@@ -22,7 +22,7 @@
  *
  * Contact: office@mdbootstrap.com
  *
- * Attribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js , Hammer.js
+ * Attribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js
  *
  */
 /*** Global ***/
@@ -4618,6 +4618,8 @@ a.waves-effect, a.waves-light {
     color: #747373;
     font-size: 0.9rem;
     font-weight: 400; }
+  .card .md-form label {
+    font-weight: 300; }
 
 .dropdown .dropdown-menu .dropdown-item:active {
   background-color: #757575; }
@@ -5663,6 +5665,308 @@ body.scrollable {
     padding-top: 1.5rem; }
   .md-form textarea ~ label.active {
     color: #4285f4; }
+  .md-form.md-outline {
+    position: relative;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem; }
+    .md-form.md-outline input[type=text],
+    .md-form.md-outline input[type=password],
+    .md-form.md-outline input[type=email],
+    .md-form.md-outline input[type=url],
+    .md-form.md-outline input[type=time],
+    .md-form.md-outline input[type=date],
+    .md-form.md-outline input[type=datetime-local],
+    .md-form.md-outline input[type=tel],
+    .md-form.md-outline input[type=number],
+    .md-form.md-outline input[type=search-md],
+    .md-form.md-outline input[type=search],
+    .md-form.md-outline textarea {
+      transition: all .3s;
+      outline: none;
+      box-shadow: none;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      background-color: transparent;
+      box-sizing: border-box; }
+      .md-form.md-outline input[type=text]:focus:not([readonly]),
+      .md-form.md-outline input[type=password]:focus:not([readonly]),
+      .md-form.md-outline input[type=email]:focus:not([readonly]),
+      .md-form.md-outline input[type=url]:focus:not([readonly]),
+      .md-form.md-outline input[type=time]:focus:not([readonly]),
+      .md-form.md-outline input[type=date]:focus:not([readonly]),
+      .md-form.md-outline input[type=datetime-local]:focus:not([readonly]),
+      .md-form.md-outline input[type=tel]:focus:not([readonly]),
+      .md-form.md-outline input[type=number]:focus:not([readonly]),
+      .md-form.md-outline input[type=search-md]:focus:not([readonly]),
+      .md-form.md-outline input[type=search]:focus:not([readonly]),
+      .md-form.md-outline textarea:focus:not([readonly]) {
+        border-color: #4285f4;
+        box-shadow: inset 0px 0px 0px 1px #4285f4; }
+        .md-form.md-outline input[type=text]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=password]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=email]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=url]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=time]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=date]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=datetime-local]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=tel]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=number]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=search-md]:focus:not([readonly]) + label,
+        .md-form.md-outline input[type=search]:focus:not([readonly]) + label,
+        .md-form.md-outline textarea:focus:not([readonly]) + label {
+          color: #4285f4; }
+      .md-form.md-outline input[type=text].valid, .md-form.md-outline input[type=text]:focus.valid,
+      .md-form.md-outline input[type=password].valid,
+      .md-form.md-outline input[type=password]:focus.valid,
+      .md-form.md-outline input[type=email].valid,
+      .md-form.md-outline input[type=email]:focus.valid,
+      .md-form.md-outline input[type=url].valid,
+      .md-form.md-outline input[type=url]:focus.valid,
+      .md-form.md-outline input[type=time].valid,
+      .md-form.md-outline input[type=time]:focus.valid,
+      .md-form.md-outline input[type=date].valid,
+      .md-form.md-outline input[type=date]:focus.valid,
+      .md-form.md-outline input[type=datetime-local].valid,
+      .md-form.md-outline input[type=datetime-local]:focus.valid,
+      .md-form.md-outline input[type=tel].valid,
+      .md-form.md-outline input[type=tel]:focus.valid,
+      .md-form.md-outline input[type=number].valid,
+      .md-form.md-outline input[type=number]:focus.valid,
+      .md-form.md-outline input[type=search-md].valid,
+      .md-form.md-outline input[type=search-md]:focus.valid,
+      .md-form.md-outline input[type=search].valid,
+      .md-form.md-outline input[type=search]:focus.valid,
+      .md-form.md-outline textarea.valid,
+      .md-form.md-outline textarea:focus.valid {
+        border-color: #00c851;
+        box-shadow: inset 0px 0px 0px 1px #00c851; }
+      .md-form.md-outline input[type=text]:focus:not([readonly]).valid + label, .md-form.md-outline input[type=text].valid + label:after, .md-form.md-outline input[type=text]:focus.valid + label:after,
+      .md-form.md-outline input[type=password]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=password].valid + label:after,
+      .md-form.md-outline input[type=password]:focus.valid + label:after,
+      .md-form.md-outline input[type=email]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=email].valid + label:after,
+      .md-form.md-outline input[type=email]:focus.valid + label:after,
+      .md-form.md-outline input[type=url]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=url].valid + label:after,
+      .md-form.md-outline input[type=url]:focus.valid + label:after,
+      .md-form.md-outline input[type=time]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=time].valid + label:after,
+      .md-form.md-outline input[type=time]:focus.valid + label:after,
+      .md-form.md-outline input[type=date]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=date].valid + label:after,
+      .md-form.md-outline input[type=date]:focus.valid + label:after,
+      .md-form.md-outline input[type=datetime-local]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=datetime-local].valid + label:after,
+      .md-form.md-outline input[type=datetime-local]:focus.valid + label:after,
+      .md-form.md-outline input[type=tel]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=tel].valid + label:after,
+      .md-form.md-outline input[type=tel]:focus.valid + label:after,
+      .md-form.md-outline input[type=number]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=number].valid + label:after,
+      .md-form.md-outline input[type=number]:focus.valid + label:after,
+      .md-form.md-outline input[type=search-md]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=search-md].valid + label:after,
+      .md-form.md-outline input[type=search-md]:focus.valid + label:after,
+      .md-form.md-outline input[type=search]:focus:not([readonly]).valid + label,
+      .md-form.md-outline input[type=search].valid + label:after,
+      .md-form.md-outline input[type=search]:focus.valid + label:after,
+      .md-form.md-outline textarea:focus:not([readonly]).valid + label,
+      .md-form.md-outline textarea.valid + label:after,
+      .md-form.md-outline textarea:focus.valid + label:after {
+        content: attr(data-success);
+        color: #00c851;
+        opacity: 1; }
+      .md-form.md-outline input[type=text].invalid, .md-form.md-outline input[type=text]:focus.invalid,
+      .md-form.md-outline input[type=password].invalid,
+      .md-form.md-outline input[type=password]:focus.invalid,
+      .md-form.md-outline input[type=email].invalid,
+      .md-form.md-outline input[type=email]:focus.invalid,
+      .md-form.md-outline input[type=url].invalid,
+      .md-form.md-outline input[type=url]:focus.invalid,
+      .md-form.md-outline input[type=time].invalid,
+      .md-form.md-outline input[type=time]:focus.invalid,
+      .md-form.md-outline input[type=date].invalid,
+      .md-form.md-outline input[type=date]:focus.invalid,
+      .md-form.md-outline input[type=datetime-local].invalid,
+      .md-form.md-outline input[type=datetime-local]:focus.invalid,
+      .md-form.md-outline input[type=tel].invalid,
+      .md-form.md-outline input[type=tel]:focus.invalid,
+      .md-form.md-outline input[type=number].invalid,
+      .md-form.md-outline input[type=number]:focus.invalid,
+      .md-form.md-outline input[type=search-md].invalid,
+      .md-form.md-outline input[type=search-md]:focus.invalid,
+      .md-form.md-outline input[type=search].invalid,
+      .md-form.md-outline input[type=search]:focus.invalid,
+      .md-form.md-outline textarea.invalid,
+      .md-form.md-outline textarea:focus.invalid {
+        border-color: #f44336;
+        box-shadow: inset 0px 0px 0px 1px #f44336; }
+      .md-form.md-outline input[type=text]:focus:not([readonly]).invalid + label, .md-form.md-outline input[type=text].invalid + label:after, .md-form.md-outline input[type=text]:focus.invalid + label:after,
+      .md-form.md-outline input[type=password]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=password].invalid + label:after,
+      .md-form.md-outline input[type=password]:focus.invalid + label:after,
+      .md-form.md-outline input[type=email]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=email].invalid + label:after,
+      .md-form.md-outline input[type=email]:focus.invalid + label:after,
+      .md-form.md-outline input[type=url]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=url].invalid + label:after,
+      .md-form.md-outline input[type=url]:focus.invalid + label:after,
+      .md-form.md-outline input[type=time]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=time].invalid + label:after,
+      .md-form.md-outline input[type=time]:focus.invalid + label:after,
+      .md-form.md-outline input[type=date]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=date].invalid + label:after,
+      .md-form.md-outline input[type=date]:focus.invalid + label:after,
+      .md-form.md-outline input[type=datetime-local]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=datetime-local].invalid + label:after,
+      .md-form.md-outline input[type=datetime-local]:focus.invalid + label:after,
+      .md-form.md-outline input[type=tel]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=tel].invalid + label:after,
+      .md-form.md-outline input[type=tel]:focus.invalid + label:after,
+      .md-form.md-outline input[type=number]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=number].invalid + label:after,
+      .md-form.md-outline input[type=number]:focus.invalid + label:after,
+      .md-form.md-outline input[type=search-md]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=search-md].invalid + label:after,
+      .md-form.md-outline input[type=search-md]:focus.invalid + label:after,
+      .md-form.md-outline input[type=search]:focus:not([readonly]).invalid + label,
+      .md-form.md-outline input[type=search].invalid + label:after,
+      .md-form.md-outline input[type=search]:focus.invalid + label:after,
+      .md-form.md-outline textarea:focus:not([readonly]).invalid + label,
+      .md-form.md-outline textarea.invalid + label:after,
+      .md-form.md-outline textarea:focus.invalid + label:after {
+        content: attr(data-error);
+        color: #f44336;
+        opacity: 1; }
+      .md-form.md-outline input[type=text].form-control.valid + label:after,
+      .md-form.md-outline input[type=text].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=password].form-control.valid + label:after,
+      .md-form.md-outline input[type=password].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=email].form-control.valid + label:after,
+      .md-form.md-outline input[type=email].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=url].form-control.valid + label:after,
+      .md-form.md-outline input[type=url].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=time].form-control.valid + label:after,
+      .md-form.md-outline input[type=time].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=date].form-control.valid + label:after,
+      .md-form.md-outline input[type=date].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=datetime-local].form-control.valid + label:after,
+      .md-form.md-outline input[type=datetime-local].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=tel].form-control.valid + label:after,
+      .md-form.md-outline input[type=tel].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=number].form-control.valid + label:after,
+      .md-form.md-outline input[type=number].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=search-md].form-control.valid + label:after,
+      .md-form.md-outline input[type=search-md].form-control:focus.valid + label:after,
+      .md-form.md-outline input[type=search].form-control.valid + label:after,
+      .md-form.md-outline input[type=search].form-control:focus.valid + label:after,
+      .md-form.md-outline textarea.form-control.valid + label:after,
+      .md-form.md-outline textarea.form-control:focus.valid + label:after {
+        top: 2.75rem;
+        left: 0;
+        position: absolute; }
+      .md-form.md-outline input[type=text].form-control.invalid + label:after,
+      .md-form.md-outline input[type=text].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=password].form-control.invalid + label:after,
+      .md-form.md-outline input[type=password].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=email].form-control.invalid + label:after,
+      .md-form.md-outline input[type=email].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=url].form-control.invalid + label:after,
+      .md-form.md-outline input[type=url].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=time].form-control.invalid + label:after,
+      .md-form.md-outline input[type=time].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=date].form-control.invalid + label:after,
+      .md-form.md-outline input[type=date].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=datetime-local].form-control.invalid + label:after,
+      .md-form.md-outline input[type=datetime-local].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=tel].form-control.invalid + label:after,
+      .md-form.md-outline input[type=tel].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=number].form-control.invalid + label:after,
+      .md-form.md-outline input[type=number].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=search-md].form-control.invalid + label:after,
+      .md-form.md-outline input[type=search-md].form-control:focus.invalid + label:after,
+      .md-form.md-outline input[type=search].form-control.invalid + label:after,
+      .md-form.md-outline input[type=search].form-control:focus.invalid + label:after,
+      .md-form.md-outline textarea.form-control.invalid + label:after,
+      .md-form.md-outline textarea.form-control:focus.invalid + label:after {
+        top: 2.75rem;
+        left: 0;
+        position: absolute; }
+    .md-form.md-outline .form-control {
+      padding: .375rem .75rem; }
+    .md-form.md-outline label {
+      font-size: .875rem;
+      position: absolute;
+      top: .65rem;
+      left: 0;
+      padding-left: 10px;
+      transition: .2s ease-out;
+      cursor: text;
+      color: #757575; }
+      .md-form.md-outline label.active {
+        transform: translateY(-100%);
+        background: #fff;
+        font-weight: 500;
+        padding-right: 5px;
+        padding-left: 5px;
+        font-size: 11px;
+        left: 8px; }
+    .md-form.md-outline.form-lg .form-control.form-control-lg {
+      padding: .5rem .725rem; }
+    .md-form.md-outline.form-lg label {
+      font-size: 1.25rem; }
+      .md-form.md-outline.form-lg label.active {
+        transform: translateY(-100%);
+        font-size: 13px; }
+    .md-form.md-outline.form-lg .prefix {
+      top: .65rem;
+      font-size: 25px; }
+      .md-form.md-outline.form-lg .prefix ~ input,
+      .md-form.md-outline.form-lg .prefix ~ textarea {
+        margin-left: 2.2rem;
+        width: calc(100% - 2.2rem); }
+      .md-form.md-outline.form-lg .prefix ~ label {
+        margin-left: 2.2rem; }
+      .md-form.md-outline.form-lg .prefix ~ .form-text {
+        margin-left: 2.3rem; }
+    .md-form.md-outline.form-sm .form-control.form-control-sm {
+      padding: .25rem .625rem; }
+    .md-form.md-outline.form-sm label {
+      font-size: .8rem;
+      top: .4rem; }
+      .md-form.md-outline.form-sm label.active {
+        transform: translateY(-85%);
+        font-size: 10px; }
+    .md-form.md-outline.form-sm .prefix {
+      top: .5rem;
+      font-size: 15px; }
+      .md-form.md-outline.form-sm .prefix ~ input,
+      .md-form.md-outline.form-sm .prefix ~ textarea {
+        margin-left: 1.6rem;
+        width: calc(100% - 1.6rem); }
+      .md-form.md-outline.form-sm .prefix ~ label {
+        margin-left: 1.6rem; }
+      .md-form.md-outline.form-sm .prefix ~ .form-text {
+        margin-left: 1.7rem; }
+    .md-form.md-outline .prefix {
+      position: absolute;
+      transition: color .2s; }
+      .md-form.md-outline .prefix:focus {
+        color: #4285f4; }
+    .md-form.md-outline .prefix {
+      top: .6rem;
+      font-size: 20px; }
+      .md-form.md-outline .prefix ~ input,
+      .md-form.md-outline .prefix ~ textarea {
+        margin-left: 2rem;
+        width: calc(100% - 2rem); }
+      .md-form.md-outline .prefix ~ label {
+        margin-left: 2rem; }
+      .md-form.md-outline .prefix ~ .form-text {
+        margin-left: 2.1rem; }
+    .md-form.md-outline .character-counter {
+      margin-top: -.5rem; }
 
 .md-form .form-control.is-invalid,
 .was-validated .md-form .form-control:invalid {
@@ -6139,6 +6443,498 @@ table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_desc:a
 
 table.dataTable thead .sorting_asc_disabled:before, table.dataTable thead .sorting_desc_disabled:after {
   opacity: 0; }
+
+/*
+ * MDBootstrap integration with Datatables
+ * Learn more: https://mdbootstrap.com/docs/jquery/tables/datatables/
+ * About MDBootstrap: https://mdbootstrap.com/
+ *
+ * This combined file was created taking that code from this webstie:
+
+ *  https://cdn.datatables.net/select/1.2.7/css/select.dataTables.min.css
+ *
+ *
+ * To rebuild or modify this file with the latest versions of the included
+ * software please visit:
+ *   https://datatables.net/download/#bs4/dt-1.10.18
+ *
+ * Included libraries:
+ *   DataTables 1.10.18
+ */
+table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+  background-color: #B0BED9; }
+
+table.dataTable.stripe tbody > tr.odd.selected, table.dataTable.stripe tbody > tr.odd > .selected {
+  background-color: #acbad4; }
+
+table.dataTable.display tbody > tr.odd.selected, table.dataTable.display tbody > tr.odd > .selected {
+  background-color: #acbad4; }
+
+table.dataTable.hover tbody > tr.selected:hover, table.dataTable.hover tbody > tr > .selected:hover {
+  background-color: #aab7d1; }
+
+table.dataTable.display tbody > tr.selected:hover, table.dataTable.display tbody > tr > .selected:hover {
+  background-color: #aab7d1; }
+
+table.dataTable.order-column tbody > tr.selected > .sorting_1, table.dataTable.order-column tbody > tr.selected > .sorting_2, table.dataTable.order-column tbody > tr.selected > .sorting_3 {
+  background-color: #acbad5; }
+
+table.dataTable.order-column tbody > tr > .selected {
+  background-color: #acbad5; }
+
+table.dataTable.display tbody > tr.selected > .sorting_1, table.dataTable.display tbody > tr.selected > .sorting_2, table.dataTable.display tbody > tr.selected > .sorting_3 {
+  background-color: #acbad5; }
+
+table.dataTable.display tbody > tr > .selected {
+  background-color: #acbad5; }
+
+table.dataTable.display tbody > tr.odd.selected > .sorting_1 {
+  background-color: #a6b4cd; }
+
+table.dataTable.order-column.stripe tbody > tr.odd.selected > .sorting_1 {
+  background-color: #a6b4cd; }
+
+table.dataTable.display tbody > tr.odd.selected > .sorting_2, table.dataTable.order-column.stripe tbody > tr.odd.selected > .sorting_2 {
+  background-color: #a8b5cf; }
+
+table.dataTable.display tbody > tr.odd.selected > .sorting_3, table.dataTable.order-column.stripe tbody > tr.odd.selected > .sorting_3 {
+  background-color: #a9b7d1; }
+
+table.dataTable.display tbody > tr.even.selected > .sorting_1, table.dataTable.order-column.stripe tbody > tr.even.selected > .sorting_1 {
+  background-color: #acbad5; }
+
+table.dataTable.display tbody > tr.even.selected > .sorting_2, table.dataTable.order-column.stripe tbody > tr.even.selected > .sorting_2 {
+  background-color: #aebcd6; }
+
+table.dataTable.display tbody > tr.even.selected > .sorting_3, table.dataTable.order-column.stripe tbody > tr.even.selected > .sorting_3 {
+  background-color: #afbdd8; }
+
+table.dataTable.display tbody > tr.odd > .selected, table.dataTable.order-column.stripe tbody > tr.odd > .selected {
+  background-color: #a6b4cd; }
+
+table.dataTable.display tbody > tr.even > .selected, table.dataTable.order-column.stripe tbody > tr.even > .selected {
+  background-color: #acbad5; }
+
+table.dataTable.display tbody > tr.selected:hover > .sorting_1, table.dataTable.order-column.hover tbody > tr.selected:hover > .sorting_1 {
+  background-color: #a2aec7; }
+
+table.dataTable.display tbody > tr.selected:hover > .sorting_2, table.dataTable.order-column.hover tbody > tr.selected:hover > .sorting_2 {
+  background-color: #a3b0c9; }
+
+table.dataTable.display tbody > tr.selected:hover > .sorting_3, table.dataTable.order-column.hover tbody > tr.selected:hover > .sorting_3 {
+  background-color: #a5b2cb; }
+
+table.dataTable.display tbody > tr:hover > .selected, table.dataTable.display tbody > tr > .selected:hover {
+  background-color: #a2aec7; }
+
+table.dataTable.order-column.hover tbody > tr:hover > .selected, table.dataTable.order-column.hover tbody > tr > .selected:hover {
+  background-color: #a2aec7; }
+
+table.dataTable tbody td.select-checkbox, table.dataTable tbody th.select-checkbox {
+  position: relative; }
+
+table.dataTable tbody td.select-checkbox:before, table.dataTable tbody td.select-checkbox:after {
+  display: block;
+  position: absolute;
+  top: 1.2em;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box; }
+
+table.dataTable tbody th.select-checkbox:before, table.dataTable tbody th.select-checkbox:after {
+  display: block;
+  position: absolute;
+  top: 1.2em;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box; }
+
+table.dataTable tbody td.select-checkbox:before, table.dataTable tbody th.select-checkbox:before {
+  content: ' ';
+  margin-top: 4px;
+  margin-left: -6px;
+  border: 1px solid black;
+  border-radius: 3px; }
+
+table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selected th.select-checkbox:after {
+  content: '\2714';
+  margin-top: 0px;
+  margin-left: -4px;
+  text-align: center;
+  text-shadow: 1px 1px #B0BED9, -1px -1px #B0BED9, 1px -1px #B0BED9, -1px 1px #B0BED9; }
+
+div.dataTables_wrapper span.select-info, div.dataTables_wrapper span.select-item {
+  margin-left: 0.5em; }
+
+@media screen and (max-width: 640px) {
+  div.dataTables_wrapper span.select-info, div.dataTables_wrapper span.select-item {
+    margin-left: 0;
+    display: block; } }
+
+.opacity-0 {
+  opacity: 0; }
+
+.opacity-10 {
+  opacity: 0.1; }
+
+.opacity-20 {
+  opacity: 0.2; }
+
+.opacity-30 {
+  opacity: 0.3; }
+
+.opacity-40 {
+  opacity: 0.4; }
+
+.opacity-50 {
+  opacity: 0.5; }
+
+.opacity-60 {
+  opacity: 0.6; }
+
+.opacity-70 {
+  opacity: 0.7; }
+
+.opacity-80 {
+  opacity: 0.8; }
+
+.opacity-90 {
+  opacity: 0.9; }
+
+.opacity-100 {
+  opacity: 1; }
+
+.masonry-with-columns {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 1000px; }
+  .masonry-with-columns div {
+    flex: 1 0 auto;
+    background: #00997B;
+    color: white;
+    margin: 0 1rem 1rem 0;
+    text-align: center;
+    font-weight: 900;
+    font-size: 2rem; }
+  .masonry-with-columns div:nth-child(1) {
+    height: 181px;
+    line-height: 181px; }
+  .masonry-with-columns div:nth-child(2) {
+    height: 397px;
+    line-height: 397px; }
+  .masonry-with-columns div:nth-child(3) {
+    height: 352px;
+    line-height: 352px; }
+  .masonry-with-columns div:nth-child(4) {
+    height: 468px;
+    line-height: 468px; }
+  .masonry-with-columns div:nth-child(5) {
+    height: 428px;
+    line-height: 428px; }
+  .masonry-with-columns div:nth-child(6) {
+    height: 396px;
+    line-height: 396px; }
+  .masonry-with-columns div:nth-child(7) {
+    height: 105px;
+    line-height: 105px; }
+  .masonry-with-columns div:nth-child(8) {
+    height: 176px;
+    line-height: 176px; }
+  .masonry-with-columns div:nth-child(9) {
+    height: 476px;
+    line-height: 476px; }
+  .masonry-with-columns div:nth-child(10) {
+    height: 154px;
+    line-height: 154px; }
+  .masonry-with-columns div:nth-child(11) {
+    height: 278px;
+    line-height: 278px; }
+  .masonry-with-columns div:nth-child(12) {
+    height: 452px;
+    line-height: 452px; }
+  .masonry-with-columns div:nth-child(13) {
+    height: 248px;
+    line-height: 248px; }
+  .masonry-with-columns div:nth-child(14) {
+    height: 330px;
+    line-height: 330px; }
+  .masonry-with-columns div:nth-child(15) {
+    height: 331px;
+    line-height: 331px; }
+  .masonry-with-columns div:nth-child(16) {
+    height: 449px;
+    line-height: 449px; }
+  .masonry-with-columns div:nth-child(17) {
+    height: 222px;
+    line-height: 222px; }
+  .masonry-with-columns div:nth-child(18) {
+    height: 384px;
+    line-height: 384px; }
+  .masonry-with-columns div:nth-child(19) {
+    height: 274px;
+    line-height: 274px; }
+  .masonry-with-columns div:nth-child(20) {
+    height: 432px;
+    line-height: 432px; }
+  .masonry-with-columns div:nth-child(21) {
+    height: 279px;
+    line-height: 279px; }
+  .masonry-with-columns div:nth-child(22) {
+    height: 413px;
+    line-height: 413px; }
+  .masonry-with-columns div:nth-child(23) {
+    height: 299px;
+    line-height: 299px; }
+  .masonry-with-columns div:nth-child(24) {
+    height: 403px;
+    line-height: 403px; }
+  .masonry-with-columns div:nth-child(25) {
+    height: 380px;
+    line-height: 380px; }
+  .masonry-with-columns div:nth-child(26) {
+    height: 109px;
+    line-height: 109px; }
+  .masonry-with-columns div:nth-child(27) {
+    height: 458px;
+    line-height: 458px; }
+  .masonry-with-columns div:nth-child(28) {
+    height: 404px;
+    line-height: 404px; }
+  .masonry-with-columns div:nth-child(29) {
+    height: 464px;
+    line-height: 464px; }
+  .masonry-with-columns div:nth-child(30) {
+    height: 122px;
+    line-height: 122px; }
+  .masonry-with-columns div:nth-child(31) {
+    height: 482px;
+    line-height: 482px; }
+  .masonry-with-columns div:nth-child(32) {
+    height: 225px;
+    line-height: 225px; }
+  .masonry-with-columns div:nth-child(33) {
+    height: 500px;
+    line-height: 500px; }
+  .masonry-with-columns div:nth-child(34) {
+    height: 297px;
+    line-height: 297px; }
+  .masonry-with-columns div:nth-child(35) {
+    height: 242px;
+    line-height: 242px; }
+  .masonry-with-columns div:nth-child(36) {
+    height: 227px;
+    line-height: 227px; }
+
+.masonry-with-columns-2 {
+  display: flex;
+  flex-wrap: wrap; }
+  .masonry-with-columns-2 div {
+    height: 150px;
+    line-height: 150px;
+    background: #9B1B30;
+    color: white;
+    margin: 0 1rem 1rem 0;
+    text-align: center;
+    font-weight: 900;
+    font-size: 2rem;
+    flex: 1 0 auto; }
+  .masonry-with-columns-2 div:nth-child(1) {
+    width: 295px; }
+  .masonry-with-columns-2 div:nth-child(2) {
+    width: 219px; }
+  .masonry-with-columns-2 div:nth-child(3) {
+    width: 396px; }
+  .masonry-with-columns-2 div:nth-child(4) {
+    width: 202px; }
+  .masonry-with-columns-2 div:nth-child(5) {
+    width: 159px; }
+  .masonry-with-columns-2 div:nth-child(6) {
+    width: 92px; }
+  .masonry-with-columns-2 div:nth-child(7) {
+    width: 191px; }
+  .masonry-with-columns-2 div:nth-child(8) {
+    width: 226px; }
+  .masonry-with-columns-2 div:nth-child(9) {
+    width: 131px; }
+  .masonry-with-columns-2 div:nth-child(10) {
+    width: 226px; }
+  .masonry-with-columns-2 div:nth-child(11) {
+    width: 400px; }
+  .masonry-with-columns-2 div:nth-child(12) {
+    width: 113px; }
+  .masonry-with-columns-2 div:nth-child(13) {
+    width: 391px; }
+  .masonry-with-columns-2 div:nth-child(14) {
+    width: 247px; }
+  .masonry-with-columns-2 div:nth-child(15) {
+    width: 427px; }
+  .masonry-with-columns-2 div:nth-child(16) {
+    width: 281px; }
+  .masonry-with-columns-2 div:nth-child(17) {
+    width: 387px; }
+  .masonry-with-columns-2 div:nth-child(18) {
+    width: 102px; }
+  .masonry-with-columns-2 div:nth-child(19) {
+    width: 230px; }
+  .masonry-with-columns-2 div:nth-child(20) {
+    width: 100px; }
+  .masonry-with-columns-2 div:nth-child(21) {
+    width: 238px; }
+  .masonry-with-columns-2 div:nth-child(22) {
+    width: 183px; }
+  .masonry-with-columns-2 div:nth-child(23) {
+    width: 460px; }
+  .masonry-with-columns-2 div:nth-child(24) {
+    width: 319px; }
+  .masonry-with-columns-2 div:nth-child(25) {
+    width: 204px; }
+  .masonry-with-columns-2 div:nth-child(26) {
+    width: 178px; }
+  .masonry-with-columns-2 div:nth-child(27) {
+    width: 112px; }
+  .masonry-with-columns-2 div:nth-child(28) {
+    width: 107px; }
+  .masonry-with-columns-2 div:nth-child(29) {
+    width: 360px; }
+  .masonry-with-columns-2 div:nth-child(30) {
+    width: 455px; }
+  .masonry-with-columns-2 div:nth-child(31) {
+    width: 434px; }
+  .masonry-with-columns-2 div:nth-child(32) {
+    width: 79px; }
+  .masonry-with-columns-2 div:nth-child(33) {
+    width: 311px; }
+  .masonry-with-columns-2 div:nth-child(34) {
+    width: 190px; }
+  .masonry-with-columns-2 div:nth-child(35) {
+    width: 449px; }
+  .masonry-with-columns-2 div:nth-child(36) {
+    width: 196px; }
+
+.masonry-with-flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 1000px; }
+  .masonry-with-flex div {
+    width: auto;
+    background: #975A58;
+    color: white;
+    margin: 0 1rem 1rem 0;
+    text-align: center;
+    font-weight: 900;
+    font-size: 2rem; }
+  .masonry-with-flex div:nth-child(1) {
+    height: 320px;
+    line-height: 320px; }
+  .masonry-with-flex div:nth-child(2) {
+    height: 475px;
+    line-height: 475px; }
+  .masonry-with-flex div:nth-child(3) {
+    height: 427px;
+    line-height: 427px; }
+  .masonry-with-flex div:nth-child(4) {
+    height: 125px;
+    line-height: 125px; }
+  .masonry-with-flex div:nth-child(5) {
+    height: 374px;
+    line-height: 374px; }
+  .masonry-with-flex div:nth-child(6) {
+    height: 259px;
+    line-height: 259px; }
+  .masonry-with-flex div:nth-child(7) {
+    height: 207px;
+    line-height: 207px; }
+  .masonry-with-flex div:nth-child(8) {
+    height: 246px;
+    line-height: 246px; }
+  .masonry-with-flex div:nth-child(9) {
+    height: 264px;
+    line-height: 264px; }
+  .masonry-with-flex div:nth-child(10) {
+    height: 166px;
+    line-height: 166px; }
+  .masonry-with-flex div:nth-child(11) {
+    height: 500px;
+    line-height: 500px; }
+  .masonry-with-flex div:nth-child(12) {
+    height: 250px;
+    line-height: 250px; }
+  .masonry-with-flex div:nth-child(13) {
+    height: 400px;
+    line-height: 400px; }
+  .masonry-with-flex div:nth-child(14) {
+    height: 110px;
+    line-height: 110px; }
+  .masonry-with-flex div:nth-child(15) {
+    height: 447px;
+    line-height: 447px; }
+  .masonry-with-flex div:nth-child(16) {
+    height: 458px;
+    line-height: 458px; }
+  .masonry-with-flex div:nth-child(17) {
+    height: 157px;
+    line-height: 157px; }
+  .masonry-with-flex div:nth-child(18) {
+    height: 402px;
+    line-height: 402px; }
+  .masonry-with-flex div:nth-child(19) {
+    height: 435px;
+    line-height: 435px; }
+  .masonry-with-flex div:nth-child(20) {
+    height: 244px;
+    line-height: 244px; }
+  .masonry-with-flex div:nth-child(21) {
+    height: 413px;
+    line-height: 413px; }
+  .masonry-with-flex div:nth-child(22) {
+    height: 294px;
+    line-height: 294px; }
+  .masonry-with-flex div:nth-child(23) {
+    height: 291px;
+    line-height: 291px; }
+  .masonry-with-flex div:nth-child(24) {
+    height: 366px;
+    line-height: 366px; }
+  .masonry-with-flex div:nth-child(25) {
+    height: 179px;
+    line-height: 179px; }
+  .masonry-with-flex div:nth-child(26) {
+    height: 495px;
+    line-height: 495px; }
+  .masonry-with-flex div:nth-child(27) {
+    height: 301px;
+    line-height: 301px; }
+  .masonry-with-flex div:nth-child(28) {
+    height: 220px;
+    line-height: 220px; }
+  .masonry-with-flex div:nth-child(29) {
+    height: 119px;
+    line-height: 119px; }
+  .masonry-with-flex div:nth-child(30) {
+    height: 343px;
+    line-height: 343px; }
+  .masonry-with-flex div:nth-child(31) {
+    height: 385px;
+    line-height: 385px; }
+  .masonry-with-flex div:nth-child(32) {
+    height: 241px;
+    line-height: 241px; }
+  .masonry-with-flex div:nth-child(33) {
+    height: 413px;
+    line-height: 413px; }
+  .masonry-with-flex div:nth-child(34) {
+    height: 434px;
+    line-height: 434px; }
+  .masonry-with-flex div:nth-child(35) {
+    height: 354px;
+    line-height: 354px; }
+  .masonry-with-flex div:nth-child(36) {
+    height: 105px;
+    line-height: 105px; }
 
 .btn.btn-flat {
   font-weight: 500;
@@ -9352,6 +10148,69 @@ span[data-jarallax-element] {
   list-style-type: none;
   padding: 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  .side-nav.slim {
+    width: 3.75rem;
+    transition-property: top,bottom,width;
+    transition-duration: .2s,.2s,.35s;
+    transition-timing-function: linear,linear,ease; }
+    .side-nav.slim:hover {
+      width: 15rem;
+      overflow: visible;
+      transition-property: top,bottom,width;
+      transition-duration: .2s,.2s,.35s;
+      transition-timing-function: linear,linear,ease; }
+      .side-nav.slim:hover .collapsible a {
+        padding-left: 23px;
+        transition: all .3s ease-in-out; }
+        .side-nav.slim:hover .collapsible a .sv-normal {
+          opacity: 1;
+          transition: all .1s linear; }
+        .side-nav.slim:hover .collapsible a .sv-slim {
+          opacity: 0;
+          display: none;
+          transition: all .1s linear; }
+      .side-nav.slim:hover .collapsible .sv-slim-icon {
+        padding-left: 0;
+        width: 30px;
+        height: 36px;
+        text-align: left;
+        margin-right: 0; }
+      .side-nav.slim:hover .collapsible-body a {
+        padding-left: 47px; }
+      .side-nav.slim:hover .fa-angle-down.rotate-icon {
+        opacity: 1;
+        display: block; }
+    .side-nav.slim .logo-wrapper.sn-ad-avatar-wrapper {
+      height: 5rem;
+      padding: 19px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.65); }
+      .side-nav.slim .logo-wrapper.sn-ad-avatar-wrapper a {
+        line-height: 2.6rem;
+        color: #fff; }
+        .side-nav.slim .logo-wrapper.sn-ad-avatar-wrapper a span {
+          padding-left: .7rem;
+          margin-top: -1rem; }
+        .side-nav.slim .logo-wrapper.sn-ad-avatar-wrapper a img {
+          max-width: 2.5rem;
+          padding: 0; }
+    .side-nav.slim .collapsible a {
+      padding-left: 23px;
+      transition: all .3s ease-in-out; }
+      .side-nav.slim .collapsible a .sv-normal {
+        opacity: 0;
+        transition: all .1s linear; }
+      .side-nav.slim .collapsible a .sv-slim {
+        opacity: 1;
+        transition: all .1s linear; }
+    .side-nav.slim .collapsible .sv-slim-icon {
+      padding-left: 0;
+      width: 30px;
+      height: 36px;
+      text-align: left;
+      margin-right: 0; }
+    .side-nav.slim .fa-angle-down.rotate-icon {
+      opacity: 0;
+      display: none; }
   .side-nav > ul {
     max-height: 100vh; }
   .side-nav ul {
@@ -9687,7 +10546,7 @@ span[data-jarallax-element] {
     .carousel-thumbnails .carousel-indicators .active {
       height: auto;
       width: auto;
-      opacity: 0.5; }
+      opacity: 1; }
     .carousel-thumbnails .carousel-indicators img {
       max-width: 6.25rem;
       height: auto;
@@ -10343,7 +11202,7 @@ button.md-toast-close-button {
   background: rgba(97, 97, 97, 0.9) !important;
   border-radius: 4px;
   font-size: 10px;
-  max-height: 24px !important; }
+  min-height: 24px !important; }
 
 .md-arrow {
   display: none; }
@@ -10353,7 +11212,7 @@ button.md-toast-close-button {
   background: rgba(97, 97, 97, 0.9) !important;
   border-radius: 4px;
   font-size: 14px;
-  max-height: 32px !important; }
+  min-height: 32px !important; }
 
 .md-tooltip,
 .md-tooltip-main {
