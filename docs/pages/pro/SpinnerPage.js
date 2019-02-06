@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBSpinner, MDBContainer, MDBCol } from "mdbreact";
+import { MDBSpinner, MDBContainer } from "mdbreact";
 import DocsLink from "../../components/docsLink";
 
 const SpinnerPage = props => {
