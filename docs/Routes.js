@@ -53,6 +53,7 @@ import NavbarPage from "./pages/NavbarPage";
 import IframePage from "./pages/IframePage";
 import EdgeHeaderPage from "./pages/EdgeHeaderPage"
 import SpinnerPage from './pages/SpinnerPage';
+import MasonryPage from './pages/MasonryPage';
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -175,6 +176,7 @@ class Routes extends React.Component {
         <Route path="/addons/edge-header" component={EdgeHeaderPage} />
         <Route path="/advanced/alerts" component={AlertPage} />
         <Route path="/components/spinner" component={SpinnerPage} />
+        <Route path="/css/masonry" component={MasonryPage} />
         {/* PRO-START */}
         <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
         <Route exact path="/sections" component={SectionsNavPage} />
