@@ -112,9 +112,7 @@ import FlippingCardsPage from "./pages/pro/FlippingCardsPage";
 import TableStylesPagePro from "./pages/pro/TableStylesPage";
 import ModalExamplesProPage from "./pages/pro/ModalExamplesPage";
 import BlogComponentsPage from "./pages/pro/BlogComponentsPage";
-
-
-
+import SmoothScrollPage from "./pages/pro/SmoothScrollPage";
 // PRO-END
 
 class Routes extends React.Component {
@@ -180,6 +178,7 @@ class Routes extends React.Component {
         <Route path="/css/masonry" component={MasonryPage} />
         <Route path="/advanced/scrollbar" component={ScrollBarPage} />
         {/* PRO-START */}
+        <Route path="/advanced/pro/smoothscroll" component={SmoothScrollPage} />
         <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
         <Route exact path="/sections" component={SectionsNavPage} />
         <Route path="/addons/pro/chat" component={ChatPage} />

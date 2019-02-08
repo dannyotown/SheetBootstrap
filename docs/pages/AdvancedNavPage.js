@@ -28,6 +28,7 @@ const AdvancedNavPage = () => {
               <MenuLink to="/advanced/pro/lightbox" title="Lightbox" />
               <MenuLink to="/advanced/pro/multicarousel" title="Multi-item Carousel" />
               <MenuLink to="/advanced/pro/scrollbar" title="ScrollBar" />
+              <MenuLink to="/advanced/pro/smoothscroll" title="SmoothScroll" />
               <MenuLink to="/advanced/pro/sticky" title="Sticky Content" />
               <MenuLink to="/advanced/pro/thumbnailscarousel" title="Thumbnails Carousel" />
               {/* PRO-END */}
