@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBContainer, MDBRow
+  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBSmoothScroll, MDBNavbarToggler, MDBCollapse, MDBContainer, MDBRow
 } from "mdbreact";
 import DocsLink from "./../../components/docsLink";
 
@@ -27,10 +27,10 @@ class NavbarPage extends Component {
           <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
             <MDBNavbarNav left>
               <MDBNavItem>
-                <MDBNavLink to="section1" smooth>Section 1</MDBNavLink>
+                <MDBSmoothScroll to="section1" smooth>Section 1</MDBSmoothScroll>
               </MDBNavItem>
               <MDBNavItem>
-                <MDBNavLink to="section2" smooth>Section 2</MDBNavLink>
+                <MDBSmoothScroll to="section2" smooth>Section 2</MDBSmoothScroll>
               </MDBNavItem>
             </MDBNavbarNav>
           </MDBCollapse>

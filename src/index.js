@@ -115,6 +115,7 @@ import Testimonial from './components/pro/Testimonial';
 import Timeline from './components/pro/Timeline';
 import TimelineStep from './components/pro/TimelineStep';
 import TimePicker from './components/pro/TimePicker/TimePicker';
+import SmoothScroll from './components/pro/SmoothScroll';
 // PRO-END
 
 // MDB FREE
@@ -233,6 +234,7 @@ import { MDBTestimonial } from './components/pro/Testimonial';
 import { MDBTimeline } from './components/pro/Timeline';
 import { MDBTimelineStep } from './components/pro/TimelineStep';
 import MDBStreak from './components/pro/Streak';
+import { MDBSmoothScroll } from './components/pro/SmoothScroll';
 // PRO-END
 
 export {
@@ -354,6 +356,7 @@ export {
   Timeline,
   TimelineStep,
   TimePicker,
+  SmoothScroll,
   // PRO-END
   MDBIframe,
   MDBAnimation,
@@ -468,6 +471,7 @@ export {
   MDBTestimonial,
   MDBTimeline,
   MDBTimelineStep,
-  MDBStreak
+  MDBStreak,
+  MDBSmoothScroll
   // PRO-END
 };
