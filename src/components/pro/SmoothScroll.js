@@ -70,10 +70,10 @@ class SmoothScroll extends Component {
 }
 
 SmoothScroll.propTypes = {
+  to: PropTypes.string.isRequired,
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  to: PropTypes.string,
   active: PropTypes.bool,
   spy: PropTypes.bool,
   smooth: PropTypes.bool,
