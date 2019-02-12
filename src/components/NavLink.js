@@ -32,10 +32,6 @@ class NavLink extends Component {
       disabled,
       active,
       to,
-      spy,
-      smooth,
-      offset,
-      duration,
       ...attributes
     } = this.props;
 
