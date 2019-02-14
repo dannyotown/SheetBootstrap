@@ -8,7 +8,7 @@ class Option extends React.Component {
     super(props);
     this.state = {
       multiple: this.props.context.multiple || false,
-      checked: this.props.selected || false
+      checked: this.props.checked || this.props.selected || false
     };
     this.optionRef = React.createRef();
   }
