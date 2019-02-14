@@ -113,6 +113,7 @@ import TableStylesPagePro from "./pages/pro/TableStylesPage";
 import ModalExamplesProPage from "./pages/pro/ModalExamplesPage";
 import BlogComponentsPage from "./pages/pro/BlogComponentsPage";
 import SmoothScrollPage from "./pages/pro/SmoothScrollPage";
+import NavsPagePro from "./pages/pro/NavsPage";
 // PRO-END
 
 class Routes extends React.Component {
@@ -214,6 +215,7 @@ class Routes extends React.Component {
         <Route path="/navigation/pro/hamburger-menu" component={HabmburgerMenuPage} />
         <Route path="/navigation/pro/double" component={DoubleNavigationPage} />
         <Route path="/navigation/pro/footer" component={FooterPagePro} />
+        <Route path="/navigation/pro/navs" component={NavsPagePro} />
         <Route path="/sections/testimonials" component={TestimonialsPage} />
         <Route path="/sections/testimonialsMulti" component={TestimonialsMultiPage} />
         <Route path="/sections/ecommerce" component={EcommercePage} />

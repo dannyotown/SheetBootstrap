@@ -22,6 +22,7 @@ const NavigationNavPage = () => {
               <MenuLink to="/navigation/pro/double" title="Double Navigation" />
               <MenuLink to="/navigation/pro/footer" title="Footer" />
               <MenuLink to="/navigation/pro/hamburger-menu" title="Hamburger Menu" />
+              <MenuLink to="/navigation/pro/navs" title="Navs" />
               <MenuLink to="/navigation/pro/scrollspy" title="ScrollSpy" />
               <MenuLink to="/navigation/pro/sidenav" title="SideNav" />
               {/* PRO-END */}
