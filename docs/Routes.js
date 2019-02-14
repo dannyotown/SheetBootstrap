@@ -55,6 +55,7 @@ import EdgeHeaderPage from "./pages/EdgeHeaderPage"
 import SpinnerPage from './pages/SpinnerPage';
 import MasonryPage from './pages/MasonryPage';
 import ScrollBarPage from './pages/ScrollBarPage';
+import NavsPage from './pages/NavsPage';
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -168,6 +169,7 @@ class Routes extends React.Component {
         <Route path="/modals/modal-examples" component={ModalExamplesPage} />
         <Route path="/navigation/navbar" component={NavbarPage} />
         <Route path="/navigation/breadcrumb" component={BreadcrumbPage} />
+        <Route path="/navigation/navs" component={NavsPage} />
         <Route path="/navigation/footer" component={FooterPage} />
         <Route path="/tables/table" component={TablePage} />
         <Route path="/tables/table-responsive" component={TableResponsivePage} />
