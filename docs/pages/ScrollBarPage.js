@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBContainer, MDBScrollbar } from "mdbreact";
+import { MDBContainer } from "mdbreact";
 import DocsLink from "./../components/docsLink";
 import "./ScrollbarPage.css";
 
