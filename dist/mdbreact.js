@@ -24,6 +24,7 @@ var moment = _interopDefault(require('moment'));
 var core = require('@material-ui/core');
 var PerfectScrollbar = _interopDefault(require('perfect-scrollbar'));
 var raf = _interopDefault(require('raf'));
+var reactScroll = require('react-scroll');
 
 function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -3046,38 +3047,39 @@ function (_React$Component) {
           children = _this$props.children,
           className = _this$props.className,
           containerClass = _this$props.containerClass,
-          size = _this$props.size,
-          group = _this$props.group,
-          getValue = _this$props.getValue,
-          type = _this$props.type,
-          tag = _this$props.tag,
-          id = _this$props.id,
-          hint = _this$props.hint,
-          validate = _this$props.validate,
-          value = _this$props.value,
-          label = _this$props.label,
-          error = _this$props.error,
-          success = _this$props.success,
           disabled = _this$props.disabled,
-          labelClass = _this$props.labelClass,
+          error = _this$props.error,
+          filled = _this$props.filled,
+          gap = _this$props.gap,
+          getValue = _this$props.getValue,
+          group = _this$props.group,
+          hint = _this$props.hint,
           icon = _this$props.icon,
           iconBrand = _this$props.iconBrand,
           iconClass = _this$props.iconClass,
           iconLight = _this$props.iconLight,
           iconRegular = _this$props.iconRegular,
           iconSize = _this$props.iconSize,
+          id = _this$props.id,
           inputRef = _this$props.inputRef,
-          filled = _this$props.filled,
-          gap = _this$props.gap,
+          outline = _this$props.outline,
+          label = _this$props.label,
+          labelClass = _this$props.labelClass,
+          size = _this$props.size,
+          success = _this$props.success,
+          tag = _this$props.tag,
+          type = _this$props.type,
+          validate = _this$props.validate,
+          value = _this$props.value,
           valueDefault = _this$props.valueDefault,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "containerClass", "size", "group", "getValue", "type", "tag", "id", "hint", "validate", "value", "label", "error", "success", "disabled", "labelClass", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "inputRef", "filled", "gap", "valueDefault"]);
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "containerClass", "disabled", "error", "filled", "gap", "getValue", "group", "hint", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "id", "inputRef", "outline", "label", "labelClass", "size", "success", "tag", "type", "validate", "value", "valueDefault"]);
 
       var isNotEmpty = !!this.state.innerValue || !!hint || this.state.isFocused;
       var Tag = "";
       var formControlClass = "";
 
       if (type === "textarea") {
-        formControlClass = "md-textarea form-control";
+        formControlClass = outline ? "form-control" : "md-textarea form-control";
         Tag = "textarea";
       } else {
         formControlClass = "form-control";
@@ -3087,7 +3089,7 @@ function (_React$Component) {
 
       attributes.disabled = disabled;
       var classes = classNames(formControlClass, size ? "form-control-".concat(size) : false, validate ? "validate" : false, filled ? "filled-in" : false, gap ? "with-gap" : false, type === "checkbox" ? gap ? false : "form-check-input" : false, type === "radio" ? "form-check-input" : false, className);
-      var containerClassFix = classNames(type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form", group ? "form-group" : false, size ? "form-".concat(size) : false, containerClass);
+      var containerClassFix = classNames(type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form", group ? "form-group" : false, size ? "form-".concat(size) : false, outline && 'md-outline', containerClass);
       var iconClassFix = classNames(isNotEmpty && this.state.isFocused ? "active" : false, iconClass, "prefix");
       var labelClassFix = classNames(isNotEmpty ? "active" : false, disabled ? "disabled" : false, type === "checkbox" ? "form-check-label mr-5" : false, type === "radio" ? "form-check-label mr-5" : false, labelClass);
       return React__default.createElement("div", {
@@ -3160,6 +3162,7 @@ Input.propTypes = {
   onChange: PropTypes__default.func,
   onFocus: PropTypes__default.func,
   onInput: PropTypes__default.func,
+  outline: PropTypes__default.bool,
   size: PropTypes__default.string,
   success: PropTypes__default.string,
   tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
@@ -3184,6 +3187,7 @@ Input.defaultProps = {
   iconRegular: false,
   iconSize: undefined,
   id: undefined,
+  outline: false,
   label: "",
   labelClass: "",
   size: "",
@@ -3369,7 +3373,7 @@ function (_React$Component) {
       }).map(function (option) {
         return {
           value: option.value,
-          text: option.text
+          text: option.text ? option.text : option.value
         };
       });
       var checkedValues = checkedOptions.map(function (opt) {
@@ -3428,7 +3432,7 @@ function (_React$Component) {
         });
         return {
           selectValue: [options[optionIndex].value],
-          selectTextContent: options[optionIndex].text,
+          selectTextContent: options[optionIndex].text ? options[optionIndex].text : options[optionIndex].value,
           options: options
         };
       });
@@ -3785,7 +3789,7 @@ function (_React$Component) {
 
     _this.state = {
       multiple: _this.props.context.multiple || false,
-      checked: _this.props.selected || false
+      checked: _this.props.checked || _this.props.selected || false
     };
     _this.optionRef = React__default.createRef();
     return _this;
@@ -6030,7 +6034,7 @@ function (_Component) {
           header = _this$props.header,
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag", "tabs", "color", "classicTabs", "pills", "header"]);
 
-      var classes = classNames("nav", tabs && "md-tabs", pills && "md-pills", header && "nav-pills card-header-pills", pills && color ? "pills-" + color : false, (tabs || classicTabs) && color ? "tabs-" + this.props.color : false, className);
+      var classes = classNames("nav", tabs && "md-tabs", pills && "md-pills", header && "nav-pills card-header-pills", color && !tabs && !classicTabs && !pills ? color : false, pills && color ? "pills-" + color : false, (tabs || classicTabs) && color ? "tabs-" + color : false, className);
       return React__default.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
@@ -6374,8 +6378,7 @@ function (_Component) {
           disabled = _this$props.disabled,
           active = _this$props.active,
           to = _this$props.to,
-          activeClassName = _this$props.activeClassName,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "activeClassName"]);
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to"]);
 
       var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
       return React__default.createElement(reactRouterDom.NavLink, _extends({
@@ -6393,11 +6396,16 @@ function (_Component) {
 }(React.Component);
 
 NavLink.propTypes = {
+  children: PropTypes__default.node,
   className: PropTypes__default.string,
   disabled: PropTypes__default.bool,
-  children: PropTypes__default.node,
   to: PropTypes__default.string,
   active: PropTypes__default.bool
+};
+NavLink.defaultProps = {
+  active: false,
+  className: "",
+  disabled: false
 };
 
 var css$8 = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n";
@@ -6518,7 +6526,8 @@ function (_React$Component) {
           _this3.popper = ReactDOM.findDOMNode(c);
         },
         placement: placement,
-        className: popoverClasses
+        className: popoverClasses,
+        onClick: this._handleTargetClick
       }, children, React__default.createElement(reactPopper.Arrow, {
         className: arrowClasses
       }))));
@@ -11265,6 +11274,95 @@ function (_Component) {
 TimePicker.propTypes = propTypes$7;
 TimePicker.defaultProps = defaultProps$2;
 
+var SmoothScroll =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(SmoothScroll, _Component);
+
+  function SmoothScroll(props) {
+    var _this;
+
+    _classCallCheck(this, SmoothScroll);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SmoothScroll).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (e) {
+      if (!_this.props.disabled) {
+        e.stopPropagation(); // Waves - Get Cursor Position
+
+        var cursorPos = {
+          top: e.clientY,
+          left: e.clientX,
+          time: Date.now()
+        };
+
+        _this.setState({
+          cursorPos: cursorPos
+        });
+      }
+    });
+
+    _this.state = {
+      cursorPos: {}
+    };
+    return _this;
+  }
+
+  _createClass(SmoothScroll, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          children = _this$props.children,
+          className = _this$props.className,
+          disabled = _this$props.disabled,
+          active = _this$props.active,
+          to = _this$props.to,
+          spy = _this$props.spy,
+          smooth = _this$props.smooth,
+          offset = _this$props.offset,
+          duration = _this$props.duration,
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration"]);
+
+      var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
+      return React__default.createElement(reactScroll.Link, _extends({
+        className: classes,
+        onMouseUp: this.handleClick,
+        onTouchStart: this.handleClick,
+        to: to,
+        spy: spy,
+        smooth: smooth,
+        offset: offset,
+        duration: duration
+      }, attributes), children, this.props.disabled ? false : React__default.createElement(Waves, {
+        cursorPos: this.state.cursorPos
+      }));
+    }
+  }]);
+
+  return SmoothScroll;
+}(React.Component);
+
+SmoothScroll.propTypes = {
+  to: PropTypes__default.string.isRequired,
+  children: PropTypes__default.node,
+  className: PropTypes__default.string,
+  disabled: PropTypes__default.bool,
+  active: PropTypes__default.bool,
+  spy: PropTypes__default.bool,
+  smooth: PropTypes__default.bool,
+  offset: PropTypes__default.number,
+  duration: PropTypes__default.number
+};
+SmoothScroll.defaultProps = {
+  active: false,
+  className: "",
+  disabled: false,
+  spy: true,
+  smooth: true,
+  offset: -70,
+  duration: 500
+};
+
 var MDBStreak = function MDBStreak(_ref) {
   var children = _ref.children,
       by = _ref.by,
@@ -11432,6 +11530,7 @@ exports.Testimonial = Testimonial;
 exports.Timeline = Timeline;
 exports.TimelineStep = TimelineStep;
 exports.TimePicker = TimePicker;
+exports.SmoothScroll = SmoothScroll;
 exports.MDBIframe = Iframe;
 exports.MDBAnimation = Animation;
 exports.MDBBadge = Badge;
@@ -11543,3 +11642,4 @@ exports.MDBTestimonial = Testimonial;
 exports.MDBTimeline = Timeline;
 exports.MDBTimelineStep = TimelineStep;
 exports.MDBStreak = MDBStreak;
+exports.MDBSmoothScroll = SmoothScroll;

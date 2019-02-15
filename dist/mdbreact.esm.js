@@ -15,6 +15,7 @@ import moment from 'moment';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import raf from 'raf';
+import { Link } from 'react-scroll';
 
 function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -3037,38 +3038,39 @@ function (_React$Component) {
           children = _this$props.children,
           className = _this$props.className,
           containerClass = _this$props.containerClass,
-          size = _this$props.size,
-          group = _this$props.group,
-          getValue = _this$props.getValue,
-          type = _this$props.type,
-          tag = _this$props.tag,
-          id = _this$props.id,
-          hint = _this$props.hint,
-          validate = _this$props.validate,
-          value = _this$props.value,
-          label = _this$props.label,
-          error = _this$props.error,
-          success = _this$props.success,
           disabled = _this$props.disabled,
-          labelClass = _this$props.labelClass,
+          error = _this$props.error,
+          filled = _this$props.filled,
+          gap = _this$props.gap,
+          getValue = _this$props.getValue,
+          group = _this$props.group,
+          hint = _this$props.hint,
           icon = _this$props.icon,
           iconBrand = _this$props.iconBrand,
           iconClass = _this$props.iconClass,
           iconLight = _this$props.iconLight,
           iconRegular = _this$props.iconRegular,
           iconSize = _this$props.iconSize,
+          id = _this$props.id,
           inputRef = _this$props.inputRef,
-          filled = _this$props.filled,
-          gap = _this$props.gap,
+          outline = _this$props.outline,
+          label = _this$props.label,
+          labelClass = _this$props.labelClass,
+          size = _this$props.size,
+          success = _this$props.success,
+          tag = _this$props.tag,
+          type = _this$props.type,
+          validate = _this$props.validate,
+          value = _this$props.value,
           valueDefault = _this$props.valueDefault,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "containerClass", "size", "group", "getValue", "type", "tag", "id", "hint", "validate", "value", "label", "error", "success", "disabled", "labelClass", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "inputRef", "filled", "gap", "valueDefault"]);
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "containerClass", "disabled", "error", "filled", "gap", "getValue", "group", "hint", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "id", "inputRef", "outline", "label", "labelClass", "size", "success", "tag", "type", "validate", "value", "valueDefault"]);
 
       var isNotEmpty = !!this.state.innerValue || !!hint || this.state.isFocused;
       var Tag = "";
       var formControlClass = "";
 
       if (type === "textarea") {
-        formControlClass = "md-textarea form-control";
+        formControlClass = outline ? "form-control" : "md-textarea form-control";
         Tag = "textarea";
       } else {
         formControlClass = "form-control";
@@ -3078,7 +3080,7 @@ function (_React$Component) {
 
       attributes.disabled = disabled;
       var classes = classNames(formControlClass, size ? "form-control-".concat(size) : false, validate ? "validate" : false, filled ? "filled-in" : false, gap ? "with-gap" : false, type === "checkbox" ? gap ? false : "form-check-input" : false, type === "radio" ? "form-check-input" : false, className);
-      var containerClassFix = classNames(type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form", group ? "form-group" : false, size ? "form-".concat(size) : false, containerClass);
+      var containerClassFix = classNames(type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form", group ? "form-group" : false, size ? "form-".concat(size) : false, outline && 'md-outline', containerClass);
       var iconClassFix = classNames(isNotEmpty && this.state.isFocused ? "active" : false, iconClass, "prefix");
       var labelClassFix = classNames(isNotEmpty ? "active" : false, disabled ? "disabled" : false, type === "checkbox" ? "form-check-label mr-5" : false, type === "radio" ? "form-check-label mr-5" : false, labelClass);
       return React.createElement("div", {
@@ -3151,6 +3153,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   onInput: PropTypes.func,
+  outline: PropTypes.bool,
   size: PropTypes.string,
   success: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
@@ -3175,6 +3178,7 @@ Input.defaultProps = {
   iconRegular: false,
   iconSize: undefined,
   id: undefined,
+  outline: false,
   label: "",
   labelClass: "",
   size: "",
@@ -3360,7 +3364,7 @@ function (_React$Component) {
       }).map(function (option) {
         return {
           value: option.value,
-          text: option.text
+          text: option.text ? option.text : option.value
         };
       });
       var checkedValues = checkedOptions.map(function (opt) {
@@ -3419,7 +3423,7 @@ function (_React$Component) {
         });
         return {
           selectValue: [options[optionIndex].value],
-          selectTextContent: options[optionIndex].text,
+          selectTextContent: options[optionIndex].text ? options[optionIndex].text : options[optionIndex].value,
           options: options
         };
       });
@@ -3776,7 +3780,7 @@ function (_React$Component) {
 
     _this.state = {
       multiple: _this.props.context.multiple || false,
-      checked: _this.props.selected || false
+      checked: _this.props.checked || _this.props.selected || false
     };
     _this.optionRef = React.createRef();
     return _this;
@@ -6021,7 +6025,7 @@ function (_Component) {
           header = _this$props.header,
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag", "tabs", "color", "classicTabs", "pills", "header"]);
 
-      var classes = classNames("nav", tabs && "md-tabs", pills && "md-pills", header && "nav-pills card-header-pills", pills && color ? "pills-" + color : false, (tabs || classicTabs) && color ? "tabs-" + this.props.color : false, className);
+      var classes = classNames("nav", tabs && "md-tabs", pills && "md-pills", header && "nav-pills card-header-pills", color && !tabs && !classicTabs && !pills ? color : false, pills && color ? "pills-" + color : false, (tabs || classicTabs) && color ? "tabs-" + color : false, className);
       return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
@@ -6365,8 +6369,7 @@ function (_Component) {
           disabled = _this$props.disabled,
           active = _this$props.active,
           to = _this$props.to,
-          activeClassName = _this$props.activeClassName,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "activeClassName"]);
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to"]);
 
       var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
       return React.createElement(NavLink, _extends({
@@ -6384,11 +6387,16 @@ function (_Component) {
 }(Component);
 
 NavLink$1.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  children: PropTypes.node,
   to: PropTypes.string,
   active: PropTypes.bool
+};
+NavLink$1.defaultProps = {
+  active: false,
+  className: "",
+  disabled: false
 };
 
 var css$8 = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n";
@@ -6509,7 +6517,8 @@ function (_React$Component) {
           _this3.popper = findDOMNode(c);
         },
         placement: placement,
-        className: popoverClasses
+        className: popoverClasses,
+        onClick: this._handleTargetClick
       }, children, React.createElement(Arrow, {
         className: arrowClasses
       }))));
@@ -11256,6 +11265,95 @@ function (_Component) {
 TimePicker.propTypes = propTypes$7;
 TimePicker.defaultProps = defaultProps$2;
 
+var SmoothScroll =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(SmoothScroll, _Component);
+
+  function SmoothScroll(props) {
+    var _this;
+
+    _classCallCheck(this, SmoothScroll);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SmoothScroll).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (e) {
+      if (!_this.props.disabled) {
+        e.stopPropagation(); // Waves - Get Cursor Position
+
+        var cursorPos = {
+          top: e.clientY,
+          left: e.clientX,
+          time: Date.now()
+        };
+
+        _this.setState({
+          cursorPos: cursorPos
+        });
+      }
+    });
+
+    _this.state = {
+      cursorPos: {}
+    };
+    return _this;
+  }
+
+  _createClass(SmoothScroll, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          children = _this$props.children,
+          className = _this$props.className,
+          disabled = _this$props.disabled,
+          active = _this$props.active,
+          to = _this$props.to,
+          spy = _this$props.spy,
+          smooth = _this$props.smooth,
+          offset = _this$props.offset,
+          duration = _this$props.duration,
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration"]);
+
+      var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
+      return React.createElement(Link, _extends({
+        className: classes,
+        onMouseUp: this.handleClick,
+        onTouchStart: this.handleClick,
+        to: to,
+        spy: spy,
+        smooth: smooth,
+        offset: offset,
+        duration: duration
+      }, attributes), children, this.props.disabled ? false : React.createElement(Waves, {
+        cursorPos: this.state.cursorPos
+      }));
+    }
+  }]);
+
+  return SmoothScroll;
+}(Component);
+
+SmoothScroll.propTypes = {
+  to: PropTypes.string.isRequired,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  active: PropTypes.bool,
+  spy: PropTypes.bool,
+  smooth: PropTypes.bool,
+  offset: PropTypes.number,
+  duration: PropTypes.number
+};
+SmoothScroll.defaultProps = {
+  active: false,
+  className: "",
+  disabled: false,
+  spy: true,
+  smooth: true,
+  offset: -70,
+  duration: 500
+};
+
 var MDBStreak = function MDBStreak(_ref) {
   var children = _ref.children,
       by = _ref.by,
@@ -11307,4 +11405,4 @@ MDBStreak.defaultProps = {
 
 // FREE
 
-export { Animation, Alert, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, Carousel, CarouselCaption, Control as CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Col, Collapse, Container, DataTable, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, Fa, FormInline, Footer, FreeBird, HamburgerToggler, Input, InputNumeric, Jumbotron, ListGroup, ListGroupItem, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, NavLink$1 as NavLink, Pagination, PageItem, PageLink, Popover, PopoverBody, PopoverHeader, Progress, Waves, Row, Table, TableBody, TableHead, TableFoot, Tooltip, View, Iframe, Autocomplete, Avatar, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, CardUp, Chip, ChipsInput, CollapseHeader, DatePicker$1 as DatePicker, ExportToCSV, RotatingCard as FlippingCard, InputFile, InputRange, InputSwitch, css$c as LightboxStyles, ScrollBar as PerfectScrollbar, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, Select, SelectInput$1 as SelectInput, Options as SelectOptions, SelectOption, Spinner, Step, Stepper, TableEditable, TabPane, TabContent, Sticky, Container$1 as StickyContainer, Testimonial, Timeline, TimelineStep, TimePicker, Iframe as MDBIframe, Animation as MDBAnimation, Badge as MDBBadge, Alert as MDBAlert, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, Control as MDBControl, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, CarouselIndicators as MDBCarouselIndicators, CarouselIndicator as MDBCarouselIndicator, Col as MDBCol, Collapse as MDBCollapse, Container as MDBContainer, DataTable as MDBDataTable, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, FormInline as MDBFormInline, Footer as MDBFooter, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Input as MDBInput, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, NavItem as MDBNavItem, NavLink$1 as MDBNavLink, Pagination as MDBPagination, PageItem as MDBPageItem, PageLink as MDBPageNav, Popover as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Progress as MDBProgress, Waves as MDBWaves, Row as MDBRow, Table as MDBTable, TableBody as MDBTableBody, TableHead as MDBTableHead, TableFoot as MDBTableFoot, Tooltip as MDBTooltip, View as MDBView, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, CardUp as MDBCardUp, Chip as MDBChip, ChipsInput as MDBChipsInput, CollapseHeader as MDBCollapseHeader, ExportToCSV as MDBExportToCSV, DatePicker$1 as MDBDatePicker, TimePicker as MDBTimePicker, RotatingCard as MDBRotatingCard, InputFile as MDBFileInput, InputRange as MDBRangeInput, InputSwitch as MDBSwitch, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, Select as MDBSelect, SelectInput as MDBSelectInput, Options as MDBSelectOptions, Option as MDBSelectOption, Spinner as MDBSpinner, TableEditable as MDBTableEditable, TabPane as MDBTabPane, TabContent as MDBTabContent, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, Testimonial as MDBTestimonial, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, MDBStreak };
+export { Animation, Alert, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, Carousel, CarouselCaption, Control as CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Col, Collapse, Container, DataTable, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, Fa, FormInline, Footer, FreeBird, HamburgerToggler, Input, InputNumeric, Jumbotron, ListGroup, ListGroupItem, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, NavLink$1 as NavLink, Pagination, PageItem, PageLink, Popover, PopoverBody, PopoverHeader, Progress, Waves, Row, Table, TableBody, TableHead, TableFoot, Tooltip, View, Iframe, Autocomplete, Avatar, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, CardUp, Chip, ChipsInput, CollapseHeader, DatePicker$1 as DatePicker, ExportToCSV, RotatingCard as FlippingCard, InputFile, InputRange, InputSwitch, css$c as LightboxStyles, ScrollBar as PerfectScrollbar, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, Select, SelectInput$1 as SelectInput, Options as SelectOptions, SelectOption, Spinner, Step, Stepper, TableEditable, TabPane, TabContent, Sticky, Container$1 as StickyContainer, Testimonial, Timeline, TimelineStep, TimePicker, SmoothScroll, Iframe as MDBIframe, Animation as MDBAnimation, Badge as MDBBadge, Alert as MDBAlert, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, Control as MDBControl, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, CarouselIndicators as MDBCarouselIndicators, CarouselIndicator as MDBCarouselIndicator, Col as MDBCol, Collapse as MDBCollapse, Container as MDBContainer, DataTable as MDBDataTable, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, FormInline as MDBFormInline, Footer as MDBFooter, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Input as MDBInput, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, NavItem as MDBNavItem, NavLink$1 as MDBNavLink, Pagination as MDBPagination, PageItem as MDBPageItem, PageLink as MDBPageNav, Popover as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Progress as MDBProgress, Waves as MDBWaves, Row as MDBRow, Table as MDBTable, TableBody as MDBTableBody, TableHead as MDBTableHead, TableFoot as MDBTableFoot, Tooltip as MDBTooltip, View as MDBView, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, CardUp as MDBCardUp, Chip as MDBChip, ChipsInput as MDBChipsInput, CollapseHeader as MDBCollapseHeader, ExportToCSV as MDBExportToCSV, DatePicker$1 as MDBDatePicker, TimePicker as MDBTimePicker, RotatingCard as MDBRotatingCard, InputFile as MDBFileInput, InputRange as MDBRangeInput, InputSwitch as MDBSwitch, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, Select as MDBSelect, SelectInput as MDBSelectInput, Options as MDBSelectOptions, Option as MDBSelectOption, Spinner as MDBSpinner, TableEditable as MDBTableEditable, TabPane as MDBTabPane, TabContent as MDBTabContent, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, Testimonial as MDBTestimonial, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, MDBStreak, SmoothScroll as MDBSmoothScroll };
