@@ -1,6 +1,6 @@
 /*!
  * Material Design for Bootstrap 4
- * Version: MDB PRO 4.7.1
+ * Version: MDB PRO 4.7.4
  *
  *
  * Copyright: Material Design for BootstrapS
@@ -11,7 +11,7 @@
  *
  * Documentation: https://mdbootstrap.com/
  *
- * Getting started: https://mdbootstrap.com/docs/react/getting-started/download/
+ * Getting started: https://mdbootstrap.com/docs/jquery/getting-started/download/
  *
  * Tutorials: https://mdbootstrap.com/education/bootstrap/
  *
@@ -30,6 +30,7 @@
 // Bootstrap
 @import "core/bootstrap/functions";
 @import "core/bootstrap/variables";
+@import "core/bootstrap/rfs";
 
 // CORE
 @import "core/mixins";

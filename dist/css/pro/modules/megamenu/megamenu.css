@@ -53,3 +53,8 @@
       color: #fff !important; }
       .navbar .mega-dropdown .dropdown-menu.mega-menu.v-3 .sub-menu .news-title:hover {
         color: #e0e0e0 !important; }
+    @media (max-width: 1024px) {
+      .navbar .mega-dropdown .dropdown-menu.mega-menu {
+        max-height: 300px;
+        overflow-x: hidden;
+        overflow-y: auto; } }
