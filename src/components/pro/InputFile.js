@@ -54,25 +54,23 @@ class InputFile extends React.Component {
       className
     );
     return (
-      <form>
-        <div className="file-field md-form">
-          <div className={btnClass}>
-            <span>{btnTitle}</span>
-            <input
-              multiple={multiple}
-              onChange={this.onChangeHandler}
-              type="file"
-            />
-          </div>
-          <div className="file-path-wrapper">
-            <input
-              className={inputFieldClass}
-              type="text"
-              placeholder={this.state.files ? this.state.files : textFieldTitle}
-            />
-          </div>
+      <div className="file-field md-form">
+        <div className={btnClass}>
+          <span>{btnTitle}</span>
+          <input
+            multiple={multiple}
+            onChange={this.onChangeHandler}
+            type="file"
+          />
         </div>
-      </form>
+        <div className="file-path-wrapper">
+          <input
+            className={inputFieldClass}
+            type="text"
+            placeholder={this.state.files ? this.state.files : textFieldTitle}
+          />
+        </div>
+      </div>
     );
   }
 }
