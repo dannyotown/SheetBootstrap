@@ -1,5 +1,6 @@
 import React from "react";
-import { MDBTooltip, MDBContainer } from "mdbreact";
+import { MDBTooltip, MDBContainer, MDBBtn, MDBJumbotron } from "mdbreact";
+import { Manager } from 'react-popper';
 import DocsLink from "./../components/docsLink";
 
 const TooltipsPage = () => {
@@ -11,7 +12,9 @@ const TooltipsPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/tooltips/"
       />
       <div className="m-5 text-center">
-        <MDBTooltip
+        <Manager>
+
+          {/* <MDBTooltip
           placement="top"
           componentClass="btn btn-primary"
           tag="div"
@@ -41,16 +44,19 @@ const TooltipsPage = () => {
           >
             MDBTooltip on right
           </MDBTooltip>
-        </div>
-        <MDBTooltip
-          placement="bottom"
-          componentClass="btn btn-primary"
-          tag="div"
-          component="button"
-          tooltipContent="MDBTooltip on bottom"
-        >
-          MDBTooltip on bottom
-        </MDBTooltip>
+        </div> */}
+          <MDBTooltip
+            placement="top"
+            componentClass="btn btn-primary"
+            tag="div"
+            tooltipContent="MDBTooltip on bottom"
+          >
+            <MDBBtn>Tootltip</MDBBtn>
+            <div>
+              MDBTooltip on yeah
+          </div>
+          </MDBTooltip>
+        </Manager>
       </div>
     </MDBContainer>
   );

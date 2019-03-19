@@ -1,97 +1,79 @@
-import React from "react";
-import { Manager, Target, Popper, Arrow } from "react-popper";
+import React, { useState, useRef } from "react";
+import { Reference, Popper } from "react-popper";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-class Tooltip extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false
-    };
+const Tooltip = (props) => {
+  const [visible, setVisible] = useState(false);
+  const wrapperRef = useRef();
+  const popperRef = useRef();
 
-    this.show = this.show.bind(this);
-    this.hide = this.hide.bind(this);
-    this.setVisibility = this.setVisibility.bind(this);
-  }
+  console.log(popperRef.current, wrapperRef.current);
 
-  show() {
-    this.setVisibility(true);
-  }
+  const {
+    placement,
+    component,
+    componentStyle,
+    className,
+    children,
+    tooltipContent,
+    tooltipClass,
+    arrowClass,
+    componentTooltip,
+    componentClass,
+    wrapperStyle,
+    tag
+  } = props;
 
-  hide() {
-    this.setVisibility(false);
-  }
+  const tooltipClasses = classNames(
+    "tooltip fade",
+    placement ? "bs-tooltip-" + placement : "",
+    visible ? "show" : "",
+    tooltipClass
+  );
 
-  setVisibility(visible) {
-    this.setState(
-      Object.assign({}, this.state, {
-        visible
-      })
-    );
-  }
+  const arrowClasses = classNames("arrow", arrowClass);
 
-  render() {
-    const {
-      placement,
-      component,
-      componentStyle,
-      className,
-      children,
-      tooltipContent,
-      tooltipClass,
-      arrowClass,
-      componentTooltip,
-      componentClass,
-      wrapperStyle,
-      tag
-    } = this.props;
+  const Wrapper = children[0];
+  const Content = children[1];
+  const Arrow = () => <div className={arrowClasses} />;
 
-    const classes = classNames(className);
-
-    const componentClasses = classNames(componentClass);
-
-    const tooltipClasses = classNames(
-      "tooltip fade",
-      placement ? "bs-tooltip-" + placement : "",
-      this.state.visible ? "show" : "",
-      tooltipClass
-    );
-
-    const wrapperStyles = wrapperStyle ? wrapperStyle: {};
-
-    const arrowClasses = classNames("arrow", arrowClass);
-    return (
-      <Manager tag={tag} className={classes} style={wrapperStyles}>
-        <Target
-          component={component}
-          style={componentStyle}
-          className={componentClasses}
-          onMouseEnter={this.show}
-          onMouseLeave={this.hide}
-          onTouchStart={this.show}
-          onTouchEnd={this.hide}
-        >
-          {children}
-        </Target>
+  return (
+    <>
+      <Reference>
         {
-          this.state.visible &&
-          <Popper placement={placement} component={componentTooltip}>
-            {({ popperProps }) => (
-              <div {...popperProps} className={tooltipClasses}>
-                <div className="tooltip-inner">{tooltipContent}</div>
-                <Arrow>
-                  {({ arrowProps }) => (
-                    <span {...arrowProps} className={arrowClasses} />
-                  )}
-                </Arrow>
-              </div>
-            )}
-          </Popper>
+          ({ wrapperRef }) => (
+            <Wrapper.type
+              {...Wrapper.props}
+              // onMouseEnter={() => setVisible(true)}
+              // onMouseLeave={() => setVisible(false)}
+              // onTouchStart={() => setVisible(true)}
+              // onTouchEnd={() => setVisible(false)}
+              onClick={() => setVisible(!visible)}
+              ref={wrapperRef}
+            />
+          )
         }
-      </Manager>
-    );
-  }
+      </Reference>
+      {
+        visible &&
+        <Popper
+          modifiers={{ preventOverflow: { enabled: false } }}
+          eventsEnabled={true}
+          positionFixed={false}
+        >
+          {
+            ({ placement, innerRef, style, arrowProps }) => (
+              <div ref={innerRef} data-placement={placement} >
+                <Content.type {...Content.props} className={tooltipClasses} />
+                <Arrow />
+              </div>
+            )
+          }
+        </Popper>
+      }
+    </>
+  );
 }
 
 Tooltip.propTypes = {
@@ -108,5 +90,6 @@ Tooltip.propTypes = {
   className: PropTypes.string,
   wrapperStyle: PropTypes.object
 };
+
 export default Tooltip;
 export { Tooltip as MDBTooltip };
