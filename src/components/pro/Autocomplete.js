@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
@@ -101,6 +101,11 @@ class Autocomplete extends Component {
   triggerFocus() {
     const input = document.getElementById(this.props.id);
     input.focus();
+  }
+
+  componentDidMount(){
+    let { data : suggestions } = this.props;
+    this.setState({ suggestions })
   }
 
   render() {
@@ -222,60 +227,10 @@ class Autocomplete extends Component {
       </div>
     );
 
-    const suggests = [
-      "Alabama",
-      "Alaska",
-      "Arizona",
-      "Arkansas",
-      "California",
-      "Colorado",
-      "Connecticut",
-      "Delaware",
-      "Florida",
-      "Georgia",
-      "Hawaii",
-      "Idaho",
-      "Illnois",
-      "Indiana",
-      "Iowa",
-      "Kansas",
-      "Kentucky",
-      "Louisiana",
-      "Maine",
-      "Maryland",
-      "Massachusetts",
-      "Michigan",
-      "Minnesota",
-      "Mississippi",
-      "Missouri",
-      "Montana",
-      "Nebraska",
-      "Nevada",
-      "New Hampshire",
-      "New Jersey",
-      "New Mexico",
-      "New York",
-      "North Carolina",
-      "North Dakota",
-      "Ohio",
-      "Oklahoma",
-      "Oregon",
-      "Pennsylvania",
-      "Rhode Island",
-      "South Carolina",
-      "South Dakota",
-      "Tennessee",
-      "Texas",
-      "Utah",
-      "Vermont",
-      "Virginia",
-      "Washington",
-      "West Virginia",
-      "Wisconsin",
-      "Wyoming"
-    ]
 
 
+
+  //CUSTOM
     const handleInput = e => {
       this.setState({ isTouched: true }, () => {
         this.state.isTouched && this.setState({ choosed: false })
@@ -288,18 +243,16 @@ class Autocomplete extends Component {
       })
     }
 
-    const handleClear = () => {
-      this.setState( { value: '' } )
-    }
+    const handleClear = () => this.setState({ value: '' })
 
     const setSuggestions = value => {
-      value = value.toLowerCase().trim()
-      let result = suggests.filter(suggest => suggest.toLowerCase().includes(value))
-      this.setState({ filteredSuggestions : result })
+      value = value.toLowerCase().trim();
+      let filteredSuggestions = this.state.suggestions.filter(suggest => suggest.toLowerCase().includes(value));
+      this.setState({ filteredSuggestions });
     }
 
     const handleSelect = e => {
-      let { textContent } = e.target
+      let { textContent } = e.target;
       this.setState({ 
         value: textContent,
         choosed: true,
@@ -312,6 +265,7 @@ class Autocomplete extends Component {
       return (
         <ul 
           className="mdb-autocomplete-wrap"
+          style={{ marginTop: "-15px" }}
           onClick={e => handleSelect(e)}
         >
           {res}
@@ -320,20 +274,45 @@ class Autocomplete extends Component {
     }
     
     const closeBtnStyle = {
-      minWidth: "30px", 
       height: "100%",
       position: "absolute",
-      display: "flex", 
-      justifyContent:"center", 
-      alignItems: "center", 
-      cursor: "pointer" ,
       right: 0,
-      top:0,
+      top: 0,
+      border: "none",
+      backgroundColor: "transparent"
     }
 
     return (
       <div>
-      {/* <Autosuggest
+        <div style={{ position: "relative" }}> 
+        
+          <MDBInput 
+            icon={icon}
+            id={id}
+            label={label} 
+            value={this.state.value} 
+            onChange={e => handleInput(e)} 
+            style={{ position: "relative" }}
+          >
+            {this.state.value && 
+              <button
+                style={closeBtnStyle} 
+                onClick={handleClear}
+              >
+                <svg fill="#a6a6a6" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                </svg>
+              </button>
+            }
+          </MDBInput>
+          {this.state.value && !this.state.choosed && showSuggestions(this.state.filteredSuggestions)}
+        </div>
+
+
+
+        
+          {/* <Autosuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
@@ -348,27 +327,8 @@ class Autocomplete extends Component {
         focusInputOnSuggestionClick={false}
         {...attributes}
       /> */}
-
-      
-      
-      <div style={{ position: "relative" }}> 
-        <MDBInput label={label} value={this.state.value} onChange={e => handleInput(e)} style={{ position: "relative"}}>
-        {this.state.value && 
-          <btn 
-            style={closeBtnStyle} 
-            onClick={handleClear}
-          >
-            <svg fill="#a6a6a6" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
-              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-              <path d="M0 0h24v24H0z" fill="none"></path>
-            </svg>
-          </btn>
-       
-        }
-        </MDBInput>
-        {this.state.value && !this.state.choosed && showSuggestions(this.state.filteredSuggestions)}
-       </div>
       </div>
+      
     );
   }
 }
