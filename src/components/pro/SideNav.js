@@ -4,27 +4,28 @@ import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import "../Transitions.css";
 import Waves from "../Waves";
+import ScrollBar from './PerfectScrollbar';
 
 class SideNav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false,
-      showOverlay: false,
-      cursorPos: {}
-    };
+
+  state = {
+    isOpen: this.props.fixed ? true : (this.props.triggerOpening ? (window.innerWidth > this.props.breakWidth) : false),
+    cursorPos: {}
   }
 
   componentDidMount() {
-    this.updatePredicate();
+    if (this.props.fixed === true && this.props.triggerOpening) {
+      throw new Error('Received "triggerOpening" prop for a  fixed Sidebar. If you want to contidionally render Sidenav, set the fixed prop to false');
+    }
+
     window.addEventListener("resize", this.updatePredicate);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.triggerOpening !== this.props.triggerOpening) {
+
       this.setState({
-        isOpen: !this.state.isOpen,
-        showOverlay: !this.state.showOverlay
+        isOpen: !this.state.isOpen
       });
     }
   }
@@ -41,8 +42,7 @@ class SideNav extends React.Component {
 
   handleOverlayClick = () => {
     this.setState({
-      isOpen: false,
-      showOverlay: false
+      isOpen: false
     });
     if (this.props.onOverlayClick) {
       this.props.onOverlayClick();
@@ -79,11 +79,13 @@ class SideNav extends React.Component {
       onOverlayClick,
       right,
       triggerOpening,
+      fixed,
+      showOverlay,
       tag: Tag,
       ...attributes
     } = this.props;
 
-    let { isOpen, showOverlay } = this.state;
+    const { isOpen } = this.state;
 
     const classes = classNames(
       "side-nav",
@@ -102,45 +104,57 @@ class SideNav extends React.Component {
       <Tag
         {...attributes}
         className={classes}
-        style={{ backgroundImage: `url(${bg}` }}
+        data-animate={fixed ? false : undefined}
+        style={bg ? { backgroundImage: `url(${bg}` } : undefined}
       >
-        <ul className="custom-scrollbar list-unstyled">
-          {logo && (
-            <li>
-              <div className="logo-wrapper">
-                <a
-                  href={href}
-                  className="Ripple-parent"
-                  onClick={this.handleClick}
-                >
-                  <img
-                    src={logo}
-                    alt=""
-                    className="img-fluid flex-center d-block"
-                  />
-                  <Waves cursorPos={this.state.cursorPos} />
-                </a>
-              </div>
-            </li>
-          )}
-          {children}
-        </ul>
+        <ScrollBar>
+          <ul className="list-unstyled">
+            {logo && (
+              <li>
+                <div className="logo-wrapper">
+                  <a
+                    href={href}
+                    className="Ripple-parent"
+                    onClick={this.handleClick}
+                  >
+                    <img
+                      src={logo}
+                      alt=""
+                      className="img-fluid flex-center d-block"
+                    />
+                    <Waves cursorPos={this.state.cursorPos} />
+                  </a>
+                </div>
+              </li>
+            )}
+            {children}
+          </ul>
+        </ScrollBar >
         {mask && <div className={`sidenav-bg mask-${mask}`} />}
       </Tag>
     );
 
+
     return (
-      <div>
-        <CSSTransition
-          timeout={{ enter: 300, exit: 300 }}
-          classNames={right ? "right-side-slide" : "side-slide"}
-          in={isOpen}
-        >
-          {sidenav}
-        </CSSTransition>
-        {showOverlay && isOpen && overlay}
-      </div>
-    );
+      <>
+        {
+          fixed ?
+            sidenav
+            :
+            (
+              <CSSTransition
+                appear={!this.props.fixed}
+                timeout={{ enter: 300, exit: 300 }}
+                classNames={right ? "right-side-slide" : "side-slide"}
+                in={isOpen}
+              >
+                {sidenav}
+              </CSSTransition>
+            )
+        }
+        {fixed ? false : (showOverlay && isOpen) && overlay}
+      </>
+    )
   }
 }
 
@@ -156,7 +170,9 @@ SideNav.propTypes = {
   onOverlayClick: PropTypes.func,
   right: PropTypes.bool,
   triggerOpening: PropTypes.bool,
-  tag: PropTypes.string
+  tag: PropTypes.string,
+  fixed: PropTypes.bool,
+  showOverlay: PropTypes.bool,
 };
 
 SideNav.defaultProps = {
@@ -170,7 +186,9 @@ SideNav.defaultProps = {
   onOverlayClick: () => { },
   right: false,
   triggerOpening: false,
-  tag: "div"
+  tag: "div",
+  fixed: false,
+  showOverlay: true
 };
 
 export default SideNav;
