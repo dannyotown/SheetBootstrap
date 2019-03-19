@@ -260,6 +260,17 @@ class Autocomplete extends Component {
       })
     }
 
+    const keyDownHandler = e => {
+      let target = e.target
+      if (e.keyCode === 13 && this.state.filteredSuggestions){
+        this.setState({ 
+          value: this.state.filteredSuggestions[0],
+          choosed: true,
+          isTouched: false
+        }, () => target.blur())
+      }
+    }
+
     const showSuggestions = filteredSuggests => {
       let res = filteredSuggests.map(el => <li key={el}>{el}</li>)
       return (
@@ -285,16 +296,17 @@ class Autocomplete extends Component {
     return (
       <div>
         <div style={{ position: "relative" }}> 
-        
           <MDBInput 
             icon={icon}
             id={id}
             label={label} 
             value={this.state.value} 
             onChange={e => handleInput(e)} 
+            onKeyDown={e => keyDownHandler(e)}
             style={{ position: "relative" }}
           >
-            {this.state.value && 
+            {
+              this.state.value && 
               <button
                 style={closeBtnStyle} 
                 onClick={handleClear}
