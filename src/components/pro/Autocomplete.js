@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import Autosuggest from "react-autosuggest";
+import { MDBInput,  MDBListGroup, MDBListGroupItem, MDBIcon } from "mdbreact";
 import Fa from "../Fa";
 
 const theme = {
@@ -28,7 +29,9 @@ class Autocomplete extends Component {
     this.state = {
       value: "",
       suggestions: [],
-      isTouched: false
+      isTouched: false,
+      choosed: false,
+      filteredSuggestions: []
     };
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -219,8 +222,119 @@ class Autocomplete extends Component {
       </div>
     );
 
+    const suggests = [
+      "Alabama",
+      "Alaska",
+      "Arizona",
+      "Arkansas",
+      "California",
+      "Colorado",
+      "Connecticut",
+      "Delaware",
+      "Florida",
+      "Georgia",
+      "Hawaii",
+      "Idaho",
+      "Illnois",
+      "Indiana",
+      "Iowa",
+      "Kansas",
+      "Kentucky",
+      "Louisiana",
+      "Maine",
+      "Maryland",
+      "Massachusetts",
+      "Michigan",
+      "Minnesota",
+      "Mississippi",
+      "Missouri",
+      "Montana",
+      "Nebraska",
+      "Nevada",
+      "New Hampshire",
+      "New Jersey",
+      "New Mexico",
+      "New York",
+      "North Carolina",
+      "North Dakota",
+      "Ohio",
+      "Oklahoma",
+      "Oregon",
+      "Pennsylvania",
+      "Rhode Island",
+      "South Carolina",
+      "South Dakota",
+      "Tennessee",
+      "Texas",
+      "Utah",
+      "Vermont",
+      "Virginia",
+      "Washington",
+      "West Virginia",
+      "Wisconsin",
+      "Wyoming"
+    ]
+
+    const handleInput = e => {
+      this.setState({ isTouched: true })
+      this.state.isTouched && this.setState({ choosed: false })
+      let { value } = e.target
+      this.setState({ value })
+      if( value !== ''){
+        setSuggestions(value)
+      }
+    }
+
+    const setSuggestions = value => {
+      value = value.toLowerCase().trim()
+      let result = suggests.filter(suggest => suggest.toLowerCase().includes(value))
+      this.setState({ filteredSuggestions : result })
+    }
+
+    const handleSelect = e => {
+      let { textContent } = e.target
+      this.setState({ 
+        value: textContent,
+        choosed: true,
+        isTouched: false
+      })
+    }
+
+    const suggestionsBlockStyles = {
+      maxHeight: "250px",
+      overflowY: "auto",
+      width: "100%",
+      position: "absolute",
+      zIndex: 9999
+    }
+
+    const showSuggestions = filteredSuggests => {
+      let res = filteredSuggests.map((el, index) => <MDBListGroupItem hover key={index} style={{ border: "none" }}>{el}</MDBListGroupItem>)
+      return (
+        <MDBListGroup 
+          style={suggestionsBlockStyles} 
+          onClick={e => handleSelect(e)}
+        >
+          {res}
+        </MDBListGroup>
+      )
+    }
+    
+    const closeBtnStyle = {
+      minWidth: "30px", 
+      height: "100%",
+      position: "absolute",
+      display: "flex", 
+      justifyContent:"center", 
+      alignItems: "center", 
+      cursor: "pointer" ,
+      right: 0,
+      top:0,
+    }
+
     return (
-      <Autosuggest
+      <div>
+      {/* <Autosuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
@@ -234,7 +348,24 @@ class Autocomplete extends Component {
         renderInputComponent={renderInputComponent}
         focusInputOnSuggestionClick={false}
         {...attributes}
-      />
+      /> */}
+
+      
+      
+      <div style={{ position: "relative" }}> 
+        <MDBInput label={label} value={this.state.value} onChange={e => handleInput(e)} style={{ position: "relative"}}>
+        {this.state.value && 
+          <div 
+            style={closeBtnStyle} 
+            onClick={this.handleClear}
+          >
+            <MDBIcon icon="times" />
+          </div>
+        }
+        </MDBInput>
+        {this.state.value && !this.state.choosed && showSuggestions(this.state.filteredSuggestions)}
+       </div>
+      </div>
     );
   }
 }
