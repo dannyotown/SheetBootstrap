@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import Autosuggest from "react-autosuggest";
-import { MDBInput, MDBIcon, MDBBtn } from "mdbreact";
+import { MDBInput, MDBBtn } from "mdbreact";
 import Fa from "../Fa";
 
 const theme = {
@@ -31,13 +31,19 @@ class Autocomplete extends Component {
       suggestions: [],
       isTouched: false,
       choosed: false,
-      filteredSuggestions: []
+      filteredSuggestions: [],
+      listFocus: 0
     };
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
     this.blurCallback = this.blurCallback.bind(this);
     this.triggerFocus = this.triggerFocus.bind(this);
     this.handleClear = this.handleClear.bind(this);
+  }
+
+  componentDidMount(){
+    let { data : suggestions } = this.props;
+    this.setState({ suggestions })
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
@@ -103,10 +109,7 @@ class Autocomplete extends Component {
     input.focus();
   }
 
-  componentDidMount(){
-    let { data : suggestions } = this.props;
-    this.setState({ suggestions })
-  }
+  
 
   render() {
     const { value, suggestions } = this.state;
@@ -234,22 +237,22 @@ class Autocomplete extends Component {
     const handleInput = e => {
       this.setState({ isTouched: true }, () => {
         this.state.isTouched && this.setState({ choosed: false })
-      })
-      let { value } = e.target
+      });
+      let { value } = e.target;
       this.setState({ value }, () => {
         if( value !== ''){
           setSuggestions(value)
         }
-      })
+      });
     }
-
-    const handleClear = () => this.setState({ value: '' })
 
     const setSuggestions = value => {
       value = value.toLowerCase().trim();
       let filteredSuggestions = this.state.suggestions.filter(suggest => suggest.toLowerCase().includes(value));
       this.setState({ filteredSuggestions });
     }
+    
+    const handleClear = () => this.setState({ value: '' })
 
     const handleSelect = e => {
       let { textContent } = e.target;
@@ -257,22 +260,54 @@ class Autocomplete extends Component {
         value: textContent,
         choosed: true,
         isTouched: false
-      })
+      });
     }
 
     const keyDownHandler = e => {
-      let target = e.target
-      if (e.keyCode === 13 && this.state.filteredSuggestions){
-        this.setState({ 
-          value: this.state.filteredSuggestions[0],
-          choosed: true,
-          isTouched: false
-        }, () => target.blur())
+      let list = document.querySelector('.mdb-autocomplete-wrap').childNodes;
+      let target = e.target;
+
+      if (this.state.filteredSuggestions && this.state.value !== ''){
+
+        if (e.keyCode === 13){
+          this.setState({ 
+            value: this.state.filteredSuggestions[this.state.listFocus],
+            choosed: true,
+            isTouched: false,
+            listFocus: 0
+          }, () => target.blur());
+        }
+
+        if (e.keyCode === 40){
+          list[this.state.listFocus].focus();
+          if (this.state.listFocus < list.length - 1){
+            this.setState({listFocus: this.state.listFocus + 1 }, () => {
+              console.log(list[this.state.listFocus].innerText)
+            });
+          }else {
+            this.setState({ listFocus: list.length - 1 }, () => {
+              console.log(list[this.state.listFocus].innerText)
+            })
+          }
+        }
+
+        if (e.keyCode === 38){
+          list[this.state.listFocus].focus();
+          if (this.state.listFocus > 0){
+            this.setState({listFocus: this.state.listFocus - 1 }, () => {
+              console.log(list[this.state.listFocus].innerText)
+            });
+          }else {
+            this.setState({ listFocus: 0 }, () => {
+              console.log(list[this.state.listFocus].innerText)
+            });
+          }
+        }
       }
     }
 
     const showSuggestions = filteredSuggests => {
-      let res = filteredSuggests.map(el => <li key={el}>{el}</li>)
+      let res = filteredSuggests.map((el, index) => <li key={el}>{el}</li>);
       return (
         <ul 
           className="mdb-autocomplete-wrap"
@@ -294,53 +329,31 @@ class Autocomplete extends Component {
     }
 
     return (
-      <div>
-        <div style={{ position: "relative" }}> 
-          <MDBInput 
-            icon={icon}
-            id={id}
-            label={label} 
-            value={this.state.value} 
-            onChange={e => handleInput(e)} 
-            onKeyDown={e => keyDownHandler(e)}
-            style={{ position: "relative" }}
-          >
-            {
-              this.state.value && 
-              <button
-                style={closeBtnStyle} 
-                onClick={handleClear}
-              >
-                <svg fill="#a6a6a6" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
-                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-                  <path d="M0 0h24v24H0z" fill="none"></path>
-                </svg>
-              </button>
-            }
-          </MDBInput>
-          {this.state.value && !this.state.choosed && showSuggestions(this.state.filteredSuggestions)}
-        </div>
-
-
-
-        
-          {/* <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestions={this.getSuggestions}
-        getSuggestionValue={this.getSuggestionValue}
-        onSuggestionSelected={this.blurCallback}
-        renderSuggestion={this.renderSuggestion}
-        inputProps={inputProps}
-        onChange={this.onChange}
-        theme={theme}
-        renderInputComponent={renderInputComponent}
-        focusInputOnSuggestionClick={false}
-        {...attributes}
-      /> */}
+      <div style={{ position: "relative" }}> 
+        <MDBInput 
+          icon={icon}
+          id={id}
+          label={label} 
+          value={this.state.value} 
+          onChange={e => handleInput(e)} 
+          onKeyDown={e => keyDownHandler(e)}
+          style={{ position: "relative" }}
+        >
+          {
+            this.state.value && 
+            <button
+              style={closeBtnStyle} 
+              onClick={handleClear}
+            >
+              <svg fill="#a6a6a6" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                <path d="M0 0h24v24H0z" fill="none"></path>
+              </svg>
+            </button>
+          }
+        </MDBInput>
+        {this.state.value && !this.state.choosed && showSuggestions(this.state.filteredSuggestions)}
       </div>
-      
     );
   }
 }
