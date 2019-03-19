@@ -26,7 +26,7 @@ const Tooltip = (props) => {
   } = props;
 
   const tooltipClasses = classNames(
-    "tooltip fade",
+    "tooltip fade tooltip-inner",
     placement ? "bs-tooltip-" + placement : "",
     visible ? "show" : "",
     tooltipClass
@@ -64,7 +64,7 @@ const Tooltip = (props) => {
         >
           {
             ({ placement, innerRef, style, arrowProps }) => (
-              <div ref={innerRef} data-placement={placement} >
+              <div ref={innerRef} data-placement={placement}>
                 <Content.type {...Content.props} className={tooltipClasses} />
                 <Arrow />
               </div>
