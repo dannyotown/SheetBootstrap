@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import Autosuggest from "react-autosuggest";
-import { MDBInput,  MDBListGroup, MDBListGroupItem, MDBIcon } from "mdbreact";
+import { MDBInput, MDBIcon, MDBBtn } from "mdbreact";
 import Fa from "../Fa";
 
 const theme = {
@@ -275,14 +275,21 @@ class Autocomplete extends Component {
       "Wyoming"
     ]
 
+
     const handleInput = e => {
-      this.setState({ isTouched: true })
-      this.state.isTouched && this.setState({ choosed: false })
+      this.setState({ isTouched: true }, () => {
+        this.state.isTouched && this.setState({ choosed: false })
+      })
       let { value } = e.target
-      this.setState({ value })
-      if( value !== ''){
-        setSuggestions(value)
-      }
+      this.setState({ value }, () => {
+        if( value !== ''){
+          setSuggestions(value)
+        }
+      })
+    }
+
+    const handleClear = () => {
+      this.setState( { value: '' } )
     }
 
     const setSuggestions = value => {
@@ -300,23 +307,15 @@ class Autocomplete extends Component {
       })
     }
 
-    const suggestionsBlockStyles = {
-      maxHeight: "250px",
-      overflowY: "auto",
-      width: "100%",
-      position: "absolute",
-      zIndex: 9999
-    }
-
     const showSuggestions = filteredSuggests => {
-      let res = filteredSuggests.map((el, index) => <MDBListGroupItem hover key={index} style={{ border: "none" }}>{el}</MDBListGroupItem>)
+      let res = filteredSuggests.map(el => <li key={el}>{el}</li>)
       return (
-        <MDBListGroup 
-          style={suggestionsBlockStyles} 
+        <ul 
+          className="mdb-autocomplete-wrap"
           onClick={e => handleSelect(e)}
         >
           {res}
-        </MDBListGroup>
+        </ul>
       )
     }
     
@@ -355,12 +354,16 @@ class Autocomplete extends Component {
       <div style={{ position: "relative" }}> 
         <MDBInput label={label} value={this.state.value} onChange={e => handleInput(e)} style={{ position: "relative"}}>
         {this.state.value && 
-          <div 
+          <btn 
             style={closeBtnStyle} 
-            onClick={this.handleClear}
+            onClick={handleClear}
           >
-            <MDBIcon icon="times" />
-          </div>
+            <svg fill="#a6a6a6" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+              <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+          </btn>
+       
         }
         </MDBInput>
         {this.state.value && !this.state.choosed && showSuggestions(this.state.filteredSuggestions)}
