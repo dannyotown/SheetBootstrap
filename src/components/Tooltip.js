@@ -2,9 +2,10 @@ import React, { useState, useRef } from "react";
 import { Reference, Popper } from "react-popper";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import "./Tooltip.css";
 
 const Tooltip = (props) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   const wrapperRef = useRef();
   const popperRef = useRef();
 
@@ -27,22 +28,26 @@ const Tooltip = (props) => {
 
   const tooltipClasses = classNames(
     "tooltip fade tooltip-inner",
-    placement ? "bs-tooltip-" + placement : "",
     visible ? "show" : "",
     tooltipClass
   );
 
   const arrowClasses = classNames("arrow", arrowClass);
 
+  const modifiers = {
+    flip: { enabled: false },
+    preventOverflow: { enabled: false },
+    hide: { enabled: false },
+  };
+
   const Wrapper = children[0];
   const Content = children[1];
-  const Arrow = () => <div className={arrowClasses} />;
 
   return (
     <>
       <Reference>
         {
-          ({ wrapperRef }) => (
+          ({ ref }) => (
             <Wrapper.type
               {...Wrapper.props}
               // onMouseEnter={() => setVisible(true)}
@@ -50,28 +55,28 @@ const Tooltip = (props) => {
               // onTouchStart={() => setVisible(true)}
               // onTouchEnd={() => setVisible(false)}
               onClick={() => setVisible(!visible)}
-              ref={wrapperRef}
+              innerRef={ref}
             />
           )
         }
       </Reference>
-      {
-        visible &&
+      <div>
         <Popper
-          modifiers={{ preventOverflow: { enabled: false } }}
+          modifiers={modifiers}
           eventsEnabled={true}
           positionFixed={false}
+          placement={placement}
         >
           {
-            ({ placement, innerRef, style, arrowProps }) => (
-              <div ref={innerRef} data-placement={placement}>
-                <Content.type {...Content.props} className={tooltipClasses} />
-                <Arrow />
+            ({ placement, ref, style, arrowProps }) => (
+              <div ref={ref} style={style} data-placement={placement} className={tooltipClasses}>
+                <Content.type {...Content.props} />
+                <div ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className={arrowClasses} />
               </div>
             )
           }
         </Popper>
-      }
+      </div>
     </>
   );
 }
