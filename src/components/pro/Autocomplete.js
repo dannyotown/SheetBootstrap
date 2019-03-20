@@ -32,7 +32,7 @@ class Autocomplete extends Component {
       isTouched: false,
       choosed: false,
       filteredSuggestions: [],
-      listFocus: 0
+      focusedListItem: 0
     };
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
@@ -264,42 +264,43 @@ class Autocomplete extends Component {
     }
 
     const keyDownHandler = e => {
-      let list = document.querySelector('.mdb-autocomplete-wrap').childNodes;
       let target = e.target;
 
       if (this.state.filteredSuggestions && this.state.value !== ''){
+        let list = document.querySelector('.mdb-autocomplete-wrap').childNodes;
+        this.setState({ value: list[this.state.focusedListItem].textContent })
 
         if (e.keyCode === 13){
           this.setState({ 
-            value: this.state.filteredSuggestions[this.state.listFocus],
+            value: this.state.filteredSuggestions[this.state.focusedListItem],
             choosed: true,
             isTouched: false,
-            listFocus: 0
+            focusedListItem: 0
           }, () => target.blur());
         }
 
         if (e.keyCode === 40){
-          list[this.state.listFocus].focus();
-          if (this.state.listFocus < list.length - 1){
-            this.setState({listFocus: this.state.listFocus + 1 }, () => {
-              console.log(list[this.state.listFocus].innerText)
+          list[this.state.focusedListItem].focus();
+          if (this.state.focusedListItem < list.length - 1){
+            this.setState({focusedListItem: this.state.focusedListItem + 1 }, () => {
+              console.log(list[this.state.focusedListItem].innerText)
             });
           }else {
-            this.setState({ listFocus: list.length - 1 }, () => {
-              console.log(list[this.state.listFocus].innerText)
+            this.setState({ focusedListItem: list.length - 1 }, () => {
+              console.log(list[this.state.focusedListItem].innerText)
             })
           }
         }
 
         if (e.keyCode === 38){
-          list[this.state.listFocus].focus();
-          if (this.state.listFocus > 0){
-            this.setState({listFocus: this.state.listFocus - 1 }, () => {
-              console.log(list[this.state.listFocus].innerText)
+          list[this.state.focusedListItem].focus();
+          if (this.state.focusedListItem > 0){
+            this.setState({focusedListItem: this.state.focusedListItem - 1 }, () => {
+              console.log(list[this.state.focusedListItem].innerText)
             });
           }else {
-            this.setState({ listFocus: 0 }, () => {
-              console.log(list[this.state.listFocus].innerText)
+            this.setState({ focusedListItem: 0 }, () => {
+              console.log(list[this.state.focusedListItem].innerText)
             });
           }
         }
