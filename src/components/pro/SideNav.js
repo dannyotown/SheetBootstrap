@@ -8,14 +8,44 @@ import ScrollBar from './PerfectScrollbar';
 
 class SideNav extends React.Component {
 
-  state = {
-    isOpen: this.props.fixed ? true : (this.props.triggerOpening ? (window.innerWidth > this.props.breakWidth) : false),
-    cursorPos: {}
+  constructor(props) {
+    super(props);
+
+    function isOpen() {
+      if (props.fixed) {
+
+        if ((window.innerWidth <= props.breakWidth)) {
+          return props.responsive ? false : true
+        }
+
+        return true;
+
+      } else {
+        if (props.triggerOpening) {
+          if ((window.innerWidth > props.breakWidth)) {
+            return true
+          }
+
+          return false;
+
+        }
+        return false;
+      }
+    }
+
+    this.state = {
+      initiallyFixed: props.fixed,
+      isFixed: !isOpen() ? false : props.fixed,
+      isOpen: isOpen(),
+      cursorPos: {}
+    };
   }
 
+
+
   componentDidMount() {
-    if (this.props.fixed === true && this.props.triggerOpening) {
-      throw new Error('Received "triggerOpening" prop for a  fixed Sidebar. If you want to contidionally render Sidenav, set the fixed prop to false');
+    if (this.props.triggerOpening && !this.props.responsive) {
+      throw new Error('Received "triggerOpening" prop for a  non-responsive Sidebar. If you want to contidionally render Sidenav, set the responsive prop to true');
     }
 
     window.addEventListener("resize", this.updatePredicate);
@@ -35,12 +65,24 @@ class SideNav extends React.Component {
   }
 
   updatePredicate = () => {
-    if (!this.props.hidden) {
+    if (!this.props.hidden && this.props.responsive) {
       this.setState({ isOpen: window.innerWidth > this.props.breakWidth });
+
+      if (window.innerWidth > this.props.breakWidth) {
+        this.setState({ isOpen: true, isFixed: this.state.initiallyFixed });
+      } else {
+        this.setState({
+          isOpen: false,
+          isFixed: false
+        });
+      }
     }
+
+
   };
 
   handleOverlayClick = () => {
+    if (this.state.isFixed) return
     this.setState({
       isOpen: false
     });
@@ -79,13 +121,14 @@ class SideNav extends React.Component {
       onOverlayClick,
       right,
       triggerOpening,
-      fixed,
       showOverlay,
+      fixed,
+      responsive,
       tag: Tag,
       ...attributes
     } = this.props;
 
-    const { isOpen } = this.state;
+    const { isOpen, isFixed } = this.state;
 
     const classes = classNames(
       "side-nav",
@@ -103,9 +146,11 @@ class SideNav extends React.Component {
     const sidenav = (
       <Tag
         {...attributes}
+        ref={this.sideNavRef}
         className={classes}
-        data-animate={fixed ? false : undefined}
+        data-animate={isFixed ? false : undefined}
         style={bg ? { backgroundImage: `url(${bg}` } : undefined}
+        onTouchMove={this.handleOverlayClick}
       >
         <ScrollBar option={{ suppressScrollX: true }}>
           <ul className="list-unstyled">
@@ -138,12 +183,12 @@ class SideNav extends React.Component {
     return (
       <>
         {
-          fixed ?
+          isFixed ?
             sidenav
             :
             (
               <CSSTransition
-                appear={!this.props.fixed}
+                appear={!this.state.isFixed}
                 timeout={{ enter: 300, exit: 300 }}
                 classNames={right ? "right-side-slide" : "side-slide"}
                 in={isOpen}
@@ -152,7 +197,7 @@ class SideNav extends React.Component {
               </CSSTransition>
             )
         }
-        {fixed ? false : (showOverlay && isOpen) && overlay}
+        {isFixed ? false : (showOverlay && isOpen) && overlay}
       </>
     )
   }
@@ -173,6 +218,7 @@ SideNav.propTypes = {
   tag: PropTypes.string,
   fixed: PropTypes.bool,
   showOverlay: PropTypes.bool,
+  responsive: PropTypes.bool
 };
 
 SideNav.defaultProps = {
@@ -188,6 +234,7 @@ SideNav.defaultProps = {
   triggerOpening: false,
   tag: "div",
   fixed: false,
+  responsive: true,
   showOverlay: true
 };
 
