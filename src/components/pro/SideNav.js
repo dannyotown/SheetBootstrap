@@ -107,7 +107,7 @@ class SideNav extends React.Component {
         data-animate={fixed ? false : undefined}
         style={bg ? { backgroundImage: `url(${bg}` } : undefined}
       >
-        <ScrollBar>
+        <ScrollBar option={{ suppressScrollX: true }}>
           <ul className="list-unstyled">
             {logo && (
               <li>
