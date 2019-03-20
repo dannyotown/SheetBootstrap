@@ -6,11 +6,7 @@ import "./Tooltip.css";
 
 const Tooltip = (props) => {
   const [visible, setVisible] = useState(true);
-  const wrapperRef = useRef();
-  const popperRef = useRef();
-
-  console.log(popperRef.current, wrapperRef.current);
-
+  
   const {
     placement,
     component,
