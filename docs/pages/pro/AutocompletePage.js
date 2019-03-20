@@ -301,7 +301,7 @@ class AutocompletePage extends Component {
             data={states}
             label="Choose your favorite state"
             icon="heart"
-            clear
+            // clear
             clearClass="grey-text"
             id="input"
             className="mx-auto"
