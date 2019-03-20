@@ -239,7 +239,7 @@ class Autocomplete extends Component {
     let suggestionsList = null;
 
     const handleInput = e => {
-      this.setState({ isTouched: true }, () => {
+      this.setState({ isTouched: true, focusedListItem: 0 }, () => {
         this.state.isTouched && this.setState({ choosed: false })
       });
       let { value } = e.target;
@@ -256,7 +256,7 @@ class Autocomplete extends Component {
       this.setState({ filteredSuggestions });
     }
     
-    const handleClear = () => this.setState({ value: '' })
+    const handleClear = () => this.setState({ value: '', focusedListItem: 0 })
 
     const handleSelect = e => {
       let { textContent } = e.target;
@@ -268,38 +268,51 @@ class Autocomplete extends Component {
     }
 
 
-    const refocusOnSuggestionsList = e => {
-      if (suggestionsList && e.keyCode === 9){
-        suggestionsList.focus();
-      }
+    const keyDownHandler = e => {
+     let target = e.target
 
-      // if (this.state.filteredSuggestions && this.state.value !== ''){
-      //   let list = document.querySelector('.mdb-autocomplete-wrap').childNodes;
+      if (this.state.filteredSuggestions && this.state.value !== ''){
+
+        // let list = document.querySelector('.mdb-autocomplete-wrap').childNodes;
         // this.setState({ value: list[this.state.focusedListItem].textContent })
+        if (e.keyCode === 13){
+          this.setState({ 
+            value: this.state.filteredSuggestions[this.state.focusedListItem],
+            choosed: true,
+            isTouched: false,
+            focusedListItem: 0
+          }, () => target.blur());
+        }
+  
+        if (e.keyCode === 40){
+          if (this.state.focusedListItem < this.state.filteredSuggestions.length - 1){
+            this.setState({
+              focusedListItem: this.state.focusedListItem + 1
+            })
+          }
+        }
 
-        // if (e.keyCode === 13){
-        //   this.setState({ 
-        //     value: this.state.filteredSuggestions[this.state.focusedListItem],
-        //     choosed: true,
-        //     isTouched: false,
-        //     focusedListItem: 0
-        //   }, () => target.blur());
-        // }
+        if (e.keyCode === 38){
+          if (this.state.focusedListItem > 0){
+            this.setState({
+              focusedListItem: this.state.focusedListItem - 1
+            })
+          }
+        }
 
         // if (e.keyCode === 40){
-        //   console.log('list', suggestionsList)
-        //   list[this.state.focusedListItem].focus();
-        //   if (this.state.focusedListItem < list.length - 1){
-        //     this.setState({focusedListItem: this.state.focusedListItem + 1 }, () => {
-        //       console.log(list[this.state.focusedListItem].innerText)
-        //     });
-        //   }else {
-        //     this.setState({ focusedListItem: list.length - 1 }, () => {
-        //       console.log(list[this.state.focusedListItem].innerText)
-        //     })
-        //   }
-        // }
-
+        //           console.log('list', suggestionsList)
+        //           list[this.state.focusedListItem].focus();
+        //           if (this.state.focusedListItem < list.length - 1){
+        //             this.setState({focusedListItem: this.state.focusedListItem + 1 }, () => {
+        //               console.log(list[this.state.focusedListItem].innerText)
+        //             });
+        //           }else {
+        //             this.setState({ focusedListItem: list.length - 1 }, () => {
+        //               console.log(list[this.state.focusedListItem].innerText)
+        //             })
+        //           }
+        //         }
         // if (e.keyCode === 38){
         //   list[this.state.focusedListItem].focus();
         //   if (this.state.focusedListItem > 0){
@@ -312,11 +325,11 @@ class Autocomplete extends Component {
         //     });
         //   }
         // }
-      // }
+      }
     }
 
     const handleKeyDown = e => {
-      console.log(suggestionsList.childNodes.length)
+        // console.log(suggestionsList.childNodes.length)
         let target = e.target;  
 
         if (e.keyCode === 13){
@@ -336,9 +349,9 @@ class Autocomplete extends Component {
           className="mdb-autocomplete-wrap"
           style={{ marginTop: "-15px" }}
           onClick={e => handleSelect(e)}
-          onKeyDown={e => handleKeyDown(e)}
+          // onKeyDown={e => handleKeyDown(e)}
         >
-         {filteredSuggests.map((el, index) => <li key={el} tabIndex="0" className="list-item">{el}</li>)}
+         {filteredSuggests.map((el, index) => <li key={el} style={{ background: `${this.state.focusedListItem === index ? '#eee' : 'white'}`}} tabIndex="0" className="list-item">{el}</li>)}
         </ul>
       )
     }
@@ -360,7 +373,7 @@ class Autocomplete extends Component {
           label={label} 
           value={this.state.value} 
           onChange={e => handleInput(e)} 
-          onKeyDown={e => refocusOnSuggestionsList(e)}
+          onKeyDown={e => keyDownHandler(e)}
           style={{ position: "relative" }}
         >
           {
