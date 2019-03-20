@@ -1,0 +1,65 @@
+.tooltip .arrow {
+  position: absolute;
+  width: 1.5em;
+  height: 1.5em;
+  opacity: inherit;
+}
+
+.tooltip .arrow::before {
+  content: '';
+  margin: auto;
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.tooltip .arrow[data-placement*='bottom'] {
+  top: 0;
+  left: 0;
+  margin-top: -0.45em;
+  width: 1.5em;
+  height: .5em;
+}
+
+.tooltip .arrow[data-placement*='bottom']::before {
+  border-width: 0 .75em .5em .75em;
+  border-color: transparent transparent #000 transparent;
+}
+
+.tooltip .arrow[data-placement*='top'] {
+  bottom: 0;
+  left: 0;
+  margin-bottom: -0.45em;
+  width: 1.5em;
+  height: .5em;
+}
+  
+.tooltip .arrow[data-placement*='top']::before {
+  border-width: .5em .75em 0 .75em;
+  border-color: #000 transparent transparent transparent;
+}
+
+.tooltip .arrow[data-placement*='right'] {
+  left: 0;
+  margin-left: -0.45em;
+  height: 1.5em;
+  width: .5em;
+}
+  
+.tooltip .arrow[data-placement*='right']::before {
+  border-width: .75em .5em .75em 0;
+  border-color: transparent #000 transparent transparent;
+}
+
+.tooltip .arrow[data-placement*='left'] {
+  right: 0;
+  margin-right: -0.45em;
+  height: 1.5em;
+  width: .5em;
+}
+
+.tooltip .arrow[data-placement*='left']::before {
+  border-width: .75em 0 .75em .5em;
+  border-color: transparent transparent transparent#000;
+}
