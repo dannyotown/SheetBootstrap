@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Tooltip.css";
 
-const Tooltip = ({ children, placement, modifiers, clickable }) => {
+const Tooltip = ({ children, placement, modifiers, clickable, domElement }) => {
   const [visible, setVisible] = useState(false);
 
   const tooltipClasses = classNames(
@@ -29,15 +29,25 @@ const Tooltip = ({ children, placement, modifiers, clickable }) => {
       <Reference>
         {
           ({ ref }) => (
-            <Wrapper.type
-              {...Wrapper.props}
-              onMouseEnter={() => !clickable && setVisible(true)}
-              onMouseLeave={() => !clickable && setVisible(false)}
-              onTouchStart={() => !clickable && setVisible(true)}
-              onTouchEnd={() => !clickable && setVisible(false)}
-              onClick={() => clickable && setVisible(!visible)}
-              innerRef={ref}
-            />
+            !domElement
+              ? <Wrapper.type
+                {...Wrapper.props}
+                onMouseEnter={() => !clickable && setVisible(true)}
+                onMouseLeave={() => !clickable && setVisible(false)}
+                onTouchStart={() => !clickable && setVisible(true)}
+                onTouchEnd={() => !clickable && setVisible(false)}
+                onClick={() => clickable && setVisible(!visible)}
+                innerRef={ref}
+              />
+              : <Wrapper.type
+                {...Wrapper.props}
+                onMouseEnter={() => !clickable && setVisible(true)}
+                onMouseLeave={() => !clickable && setVisible(false)}
+                onTouchStart={() => !clickable && setVisible(true)}
+                onTouchEnd={() => !clickable && setVisible(false)}
+                onClick={() => clickable && setVisible(!visible)}
+                ref={ref}
+              />
           )
         }
       </Reference>
@@ -50,7 +60,7 @@ const Tooltip = ({ children, placement, modifiers, clickable }) => {
         >
           {
             ({ placement, ref, style, arrowProps }) => (
-              <div ref={ref} style={Object.assign({...style}, popperStyle)} data-placement={placement} className={tooltipClasses}>
+              <div ref={ref} style={Object.assign({ ...style }, popperStyle)} data-placement={placement} className={tooltipClasses}>
                 <Content.type {...Content.props} />
                 <div ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
               </div>
