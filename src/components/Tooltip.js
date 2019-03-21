@@ -1,16 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Manager, Reference, Popper } from "react-popper";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Tooltip.css";
 
-const Tooltip = (props) => {
-  const [visible, setVisible] = useState(true);
-
-  const {
-    placement,
-    children
-  } = props;
+const Tooltip = ({ children, placement, modifiers, clickable }) => {
+  const [visible, setVisible] = useState(false);
 
   const tooltipClasses = classNames(
     "tooltip fade tooltip-inner",
@@ -26,12 +21,6 @@ const Tooltip = (props) => {
 
   const popperStyle = { [placementDict[placement][0]]: `${placementDict[placement][1]}` };
 
-  const modifiers = {
-    flip: { enabled: false },
-    preventOverflow: { enabled: false },
-    hide: { enabled: false },
-  };
-
   const Wrapper = children[0];
   const Content = children[1];
 
@@ -42,11 +31,11 @@ const Tooltip = (props) => {
           ({ ref }) => (
             <Wrapper.type
               {...Wrapper.props}
-              // onMouseEnter={() => setVisible(true)}
-              // onMouseLeave={() => setVisible(false)}
-              // onTouchStart={() => setVisible(true)}
-              // onTouchEnd={() => setVisible(false)}
-              onClick={() => setVisible(!visible)}
+              onMouseEnter={() => !clickable && setVisible(true)}
+              onMouseLeave={() => !clickable && setVisible(false)}
+              onTouchStart={() => !clickable && setVisible(true)}
+              onTouchEnd={() => !clickable && setVisible(false)}
+              onClick={() => clickable && setVisible(!visible)}
               innerRef={ref}
             />
           )
@@ -74,19 +63,16 @@ const Tooltip = (props) => {
 }
 
 Tooltip.propTypes = {
-  placement: PropTypes.string,
-  component: PropTypes.string,
-  componentStyle: PropTypes.string,
-  tooltipContent: PropTypes.string,
-  tooltipClass: PropTypes.string,
-  arrowClass: PropTypes.string,
-  componentTooltip: PropTypes.string,
-  componentClass: PropTypes.string,
   children: PropTypes.node,
-  tag: PropTypes.string,
-  className: PropTypes.string,
-  wrapperStyle: PropTypes.object
+  clickable: PropTypes.bool,
+  placement: PropTypes.string,
+  modifiers: PropTypes.object,
 };
+
+Tooltip.defaultProps = {
+  clickable: false,
+  placement: 'top',
+}
 
 export default Tooltip;
 export { Tooltip as MDBTooltip };
