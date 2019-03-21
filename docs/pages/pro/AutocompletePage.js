@@ -300,7 +300,7 @@ class AutocompletePage extends Component {
           <MDBAutocomplete
             data={states}
             label="Choose your favorite state"
-            icon="heart"
+            icon="angry"
             // clear
             clearClass="grey-text"
             id="input"

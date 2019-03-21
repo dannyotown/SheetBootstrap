@@ -3,9 +3,8 @@ import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import Autosuggest from "react-autosuggest";
-import { MDBInput, MDBBtn } from "mdbreact";
+import { MDBInput } from "mdbreact";
 import Fa from "../Fa";
-import './Autocomplete.css'
 
 const theme = {
   container: "md-form",
@@ -234,18 +233,24 @@ class Autocomplete extends Component {
 
 
 
-  //CUSTOM
+    //CUSTOM
 
     let suggestionsList = null;
 
     const handleInput = e => {
-      this.setState({ isTouched: true, focusedListItem: 0 }, () => {
-        this.state.isTouched && this.setState({ choosed: false })
-      });
+      this.setState({ 
+          isTouched: true, 
+          focusedListItem: 0 
+        }, 
+        () => {
+          this.state.isTouched && this.setState({ choosed: false })
+        }
+      );
       let { value } = e.target;
-      this.setState({ value }, () => {
-        if( value !== ''){
-          setSuggestions(value)
+      this.setState({ value }, 
+        () => {
+          if( value !== ''){
+            setSuggestions(value)
         }
       });
     }
@@ -270,11 +275,9 @@ class Autocomplete extends Component {
 
     const keyDownHandler = e => {
      let target = e.target
-
-      if (this.state.filteredSuggestions && this.state.value !== ''){
-
-        // let list = document.querySelector('.mdb-autocomplete-wrap').childNodes;
-        // this.setState({ value: list[this.state.focusedListItem].textContent })
+      if (this.state.filteredSuggestions && suggestionsList  && this.state.value !== ''){
+        // console.log(this.state.filteredSuggestions, suggestionsList.childNodes)
+        suggestionsList.childNodes.length >= 5 && suggestionsList.childNodes[this.state.focusedListItem].scrollIntoView({ block: "center",  behavior: "smooth" });
         if (e.keyCode === 13){
           this.setState({ 
             value: this.state.filteredSuggestions[this.state.focusedListItem],
@@ -286,72 +289,35 @@ class Autocomplete extends Component {
   
         if (e.keyCode === 40){
           if (this.state.focusedListItem < this.state.filteredSuggestions.length - 1){
-            this.setState({
-              focusedListItem: this.state.focusedListItem + 1
-            })
+            this.setState({ focusedListItem: this.state.focusedListItem + 1 })
           }
         }
 
         if (e.keyCode === 38){
           if (this.state.focusedListItem > 0){
-            this.setState({
-              focusedListItem: this.state.focusedListItem - 1
-            })
+            this.setState({ focusedListItem: this.state.focusedListItem - 1 })
           }
         }
-
-        // if (e.keyCode === 40){
-        //           console.log('list', suggestionsList)
-        //           list[this.state.focusedListItem].focus();
-        //           if (this.state.focusedListItem < list.length - 1){
-        //             this.setState({focusedListItem: this.state.focusedListItem + 1 }, () => {
-        //               console.log(list[this.state.focusedListItem].innerText)
-        //             });
-        //           }else {
-        //             this.setState({ focusedListItem: list.length - 1 }, () => {
-        //               console.log(list[this.state.focusedListItem].innerText)
-        //             })
-        //           }
-        //         }
-        // if (e.keyCode === 38){
-        //   list[this.state.focusedListItem].focus();
-        //   if (this.state.focusedListItem > 0){
-        //     this.setState({focusedListItem: this.state.focusedListItem - 1 }, () => {
-        //       console.log(list[this.state.focusedListItem].innerText)
-        //     });
-        //   }else {
-        //     this.setState({ focusedListItem: 0 }, () => {
-        //       console.log(list[this.state.focusedListItem].innerText)
-        //     });
-        //   }
-        // }
       }
     }
 
-    const handleKeyDown = e => {
-        // console.log(suggestionsList.childNodes.length)
-        let target = e.target;  
-
-        if (e.keyCode === 13){
-          this.setState({ 
-            value: target.textContent,
-            choosed: true,
-            isTouched: false,
-          })
-        }
-        
-    }
-
-    const showSuggestions = filteredSuggests => {
+    const showSuggestions = filteredSuggestions => {
       return (
         <ul 
           ref={list => suggestionsList = list}
           className="mdb-autocomplete-wrap"
           style={{ marginTop: "-15px" }}
           onClick={e => handleSelect(e)}
-          // onKeyDown={e => handleKeyDown(e)}
         >
-         {filteredSuggests.map((el, index) => <li key={el} style={{ background: `${this.state.focusedListItem === index ? '#eee' : 'white'}`}} tabIndex="0" className="list-item">{el}</li>)}
+         {filteredSuggestions.map((el, index) => 
+          <li 
+            key={el + index} 
+            className="list-item"
+            style={{ background: `${this.state.focusedListItem === index ? '#eee' : 'white'}` }} 
+          >
+          {el}
+          </li>)
+        }
         </ul>
       )
     }
