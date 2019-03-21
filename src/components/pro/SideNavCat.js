@@ -4,6 +4,7 @@ import classNames from "classnames";
 import Collapse from "../Collapse";
 import Waves from "../Waves";
 import Fa from '../Fa';
+import SideNavContext from './SideNavContext'
 
 class SideNavCat extends React.Component {
   constructor(props) {
@@ -71,33 +72,42 @@ class SideNavCat extends React.Component {
     );
 
     return (
-      <Tag>
-        <a
-          className={classes}
-          onClick={e => this.handleClick(e, id)}
-          {...attributes}
-        >
-          {
-            icon && 
-            <Fa 
-              icon={icon} 
-              brand={iconBrand} 
-              light={iconLight} 
-              regular={iconRegular} 
-              size={iconSize}
-              className="mr-2"
-            />
-          }
-          {name}
-          <Fa icon="angle-down" className="rotate-icon" />
-          <Waves cursorPos={this.state.cursorPos} />
-        </a>
-        <Collapse id={id} isOpen={this.state.isOpenID}>
-          <div className="collapsible-body" style={{ display: "block" }}>
-            <ul>{children}</ul>
-          </div>
-        </Collapse>
-      </Tag>
+      <SideNavContext.Consumer>
+        {({ slim }) => {
+          const iconClass = ['mr-2'];
+          slim && iconClass.push('v-slim-icon');
+
+          return (
+            <Tag>
+              <a
+                className={classes}
+                onClick={e => this.handleClick(e, id)}
+                {...attributes}
+              >
+                {
+                  icon &&
+                  <Fa
+                    icon={icon}
+                    brand={iconBrand}
+                    light={iconLight}
+                    regular={iconRegular}
+                    size={iconSize}
+                    className={iconClass.join(" ")}
+                  />
+                }
+                {name}
+                <Fa icon="angle-down" className="rotate-icon" />
+                <Waves cursorPos={this.state.cursorPos} />
+              </a>
+              <Collapse id={id} isOpen={this.state.isOpenID}>
+                <div className="collapsible-body" style={{ display: "block" }}>
+                  <ul>{children}</ul>
+                </div>
+              </Collapse>
+            </Tag>
+          )
+        }}
+      </SideNavContext.Consumer>
     );
   }
 }
@@ -123,15 +133,15 @@ SideNavCat.defaultProps = {
   className: "",
   disabled: false,
   icon: "",
-  iconBrand: false, 
+  iconBrand: false,
   iconLight: false,
   iconRegular: false,
   iconSize: "",
   id: "",
-  isOpen: false, 
+  isOpen: false,
   isOpenID: "",
   name: "",
-  onClick: () => {},
+  onClick: () => { },
   tag: "li"
 };
 
