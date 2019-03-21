@@ -6,7 +6,7 @@ import "./Tooltip.css";
 
 const Tooltip = (props) => {
   const [visible, setVisible] = useState(true);
-  
+
   const {
     placement,
     component,
@@ -29,6 +29,10 @@ const Tooltip = (props) => {
   );
 
   const arrowClasses = classNames("arrow", arrowClass);
+
+  const popperStyle = { [placement==='right' ? 'left' : placement==='bottom' ? 'top' : placement]: `${placement === 'left' || placement === 'top' ? '-7px' : '7px'}` };
+
+  console.log(popperStyle)
 
   const modifiers = {
     flip: { enabled: false },
@@ -65,7 +69,7 @@ const Tooltip = (props) => {
         >
           {
             ({ placement, ref, style, arrowProps }) => (
-              <div ref={ref} style={style} data-placement={placement} className={tooltipClasses}>
+              <div ref={ref} style={Object.assign({...style}, popperStyle)} data-placement={placement} className={tooltipClasses}>
                 <Content.type {...Content.props} />
                 <div ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className={arrowClasses} />
               </div>
