@@ -12,51 +12,49 @@ const TooltipsPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/tooltips/"
       />
       <div className="m-5 text-center">
-        <Manager>
 
-          {/* <MDBTooltip
+        <MDBTooltip
           placement="top"
-          componentClass="btn btn-primary"
-          tag="div"
-          component="button"
-          tooltipContent="MDBTooltip on top"
         >
-          MDBTooltip on top
-        </MDBTooltip>
-        <div style={style} className="text-right">
-          <MDBTooltip
-            placement="left"
-            componentClass="btn btn-primary"
-            tag="div"
-            component="button"
-            tooltipContent="MDBTooltip on left"
-          >
-            MDBTooltip on left
-          </MDBTooltip>
-        </div>
-        <div style={style} className="text-left">
-          <MDBTooltip
-            placement="right"
-            componentClass="btn btn-primary"
-            tag="div"
-            component="button"
-            tooltipContent="MDBTooltip on right"
-          >
-            MDBTooltip on right
-          </MDBTooltip>
-        </div> */}
-          <MDBTooltip
-            placement="top"
-            componentClass="btn btn-primary"
-            tag="div"
-            tooltipContent="MDBTooltip on bottom"
-          >
-            <MDBBtn>Tootltip</MDBBtn>
-            <div>
-              MDBTooltip on yeah
+          <MDBBtn>Top tooltip</MDBBtn>
+          <div>
+            MDBTooltip on top
           </div>
-          </MDBTooltip>
-        </Manager>
+        </MDBTooltip>
+
+        <div>
+          <div style={style} className="text-right">
+            <MDBTooltip
+              placement="left"
+            >
+              <MDBBtn>Left tooltip</MDBBtn>
+              <div>
+                MDBTooltip on left
+            </div>
+            </MDBTooltip>
+          </div>
+
+          <div style={style} className="text-left">
+            <MDBTooltip
+              placement="right"
+            >
+              <MDBBtn>Right tooltip</MDBBtn>
+              <div>
+                MDBTooltip on right
+            </div>
+            </MDBTooltip>
+          </div>
+        </div>
+
+        <MDBTooltip
+          placement="bottom"
+        >
+          <MDBBtn>Top tooltip</MDBBtn>
+          <div>
+            MDBTooltip on bottom
+          </div>
+        </MDBTooltip>
+
       </div>
     </MDBContainer>
   );
