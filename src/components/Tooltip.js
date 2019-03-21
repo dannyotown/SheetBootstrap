@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Reference, Popper } from "react-popper";
+import { Manager, Reference, Popper } from "react-popper";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Tooltip.css";
@@ -51,7 +51,7 @@ const Tooltip = (props) => {
   const Content = children[1];
 
   return (
-    <>
+    <Manager>
       <Reference>
         {
           ({ ref }) => (
@@ -84,7 +84,7 @@ const Tooltip = (props) => {
           }
         </Popper>
       </div>
-    </>
+    </Manager>
   );
 }
 
