@@ -9,37 +9,22 @@ const Tooltip = (props) => {
 
   const {
     placement,
-    component,
-    componentStyle,
-    className,
-    children,
-    tooltipContent,
-    tooltipClass,
-    arrowClass,
-    componentTooltip,
-    componentClass,
-    wrapperStyle,
-    tag
+    children
   } = props;
 
   const tooltipClasses = classNames(
     "tooltip fade tooltip-inner",
     visible ? "show" : "",
-    tooltipClass
   );
 
-  const arrowClasses = classNames("arrow", arrowClass);
-
   const placementDict = {
-    'left': 'left',
-    'right': 'left',
-    'top': 'top',
-    'bottom': 'top'
+    'left': ['left', '-2px'],
+    'right': ['left', '2px'],
+    'top': ['top', '-7px'],
+    'bottom': ['top', '7px']
   }
 
-  const popperStyle = { [placementDict[placement]]: `${placement === 'left' || placement === 'top' ? '-7px' : '7px'}` };
-
-  console.log(popperStyle)
+  const popperStyle = { [placementDict[placement][0]]: `${placementDict[placement][1]}` };
 
   const modifiers = {
     flip: { enabled: false },
@@ -78,7 +63,7 @@ const Tooltip = (props) => {
             ({ placement, ref, style, arrowProps }) => (
               <div ref={ref} style={Object.assign({...style}, popperStyle)} data-placement={placement} className={tooltipClasses}>
                 <Content.type {...Content.props} />
-                <div ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className={arrowClasses} />
+                <div ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
               </div>
             )
           }
