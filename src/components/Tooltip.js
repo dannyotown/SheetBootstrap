@@ -30,7 +30,14 @@ const Tooltip = (props) => {
 
   const arrowClasses = classNames("arrow", arrowClass);
 
-  const popperStyle = { [placement==='right' ? 'left' : placement==='bottom' ? 'top' : placement]: `${placement === 'left' || placement === 'top' ? '-7px' : '7px'}` };
+  const placementDict = {
+    'left': 'left',
+    'right': 'left',
+    'top': 'top',
+    'bottom': 'top'
+  }
+
+  const popperStyle = { [placementDict[placement]]: `${placement === 'left' || placement === 'top' ? '-7px' : '7px'}` };
 
   console.log(popperStyle)
 
