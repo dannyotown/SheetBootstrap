@@ -12,6 +12,13 @@ const TooltipsPage = () => {
       />
       <div className="m-5 text-center">
 
+        <p className="my-5">
+          Lorem ipsum dolor sit amet, <MDBTooltip domElement placement="top">
+            <span className="blue-text">consectetur adipiscing</span>
+            <div>Tooltip within text paragraph</div>
+          </MDBTooltip> elit. Phasellus id dictum lectus. Cras vitae nibh enim. Curabitur scelerisque tortor eget eros accumsan aliquam. Aliquam a luctus leo, vitae rhoncus purus. Etiam iaculis lacus massa, sit amet placerat risus dictum at. Nullam venenatis sed lacus eget congue. Maecenas auctor augue et ex fermentum porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris nec convallis velit. Nullam non libero efficitur lacus aliquet pretium eget eget lorem. Cras at odio nulla. Duis molestie magna a rhoncus ultricies.
+        </p>
+
         <MDBTooltip
           placement="top"
         >
@@ -55,7 +62,17 @@ const TooltipsPage = () => {
         </MDBTooltip>
 
         <MDBTooltip
-          placement="left"
+          placement="top"
+          clickable
+        >
+          <MDBBtn style={{ position: 'fixed', bottom: '145px', left: '50%', transform: 'translateX(-50%)' }} color="indigo">Tooltip on click</MDBBtn>
+          <div>
+            MDBTooltip on click
+          </div>
+        </MDBTooltip>
+
+        <MDBTooltip
+          placement="bottom"
         >
           <MDBBtnFixed floating color="indigo" icon="pencil-alt" style={{ padding: 0, bottom: "145px", right: "24px" }} />
           <div>
