@@ -2,26 +2,8 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Autosuggest from "react-autosuggest";
-import { MDBInput } from "mdbreact";
+import { MDBInput } from "../Input";
 import Fa from "../Fa";
-
-const theme = {
-  container: "md-form",
-  containerOpen: "react-autosuggest__container--open",
-  input: "mdb-autocomplete form-control",
-  inputOpen: "react-autosuggest__input--open",
-  inputFocused: "react-autosuggest__input--focused",
-  suggestionsContainer: "react-autosuggest__suggestions-container",
-  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
-  suggestionsList: "mdb-autocomplete-wrap",
-  suggestion: "react-autosuggest__suggestion",
-  suggestionFirst: "react-autosuggest__suggestion--first",
-  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
-  sectionContainer: "react-autosuggest__section-container",
-  sectionContainerFirst: "react-autosuggest__section-container--first",
-  sectionTitle: "react-autosuggest__section-title"
-};
 
 class Autocomplete extends Component {
   constructor(props) {
@@ -34,6 +16,9 @@ class Autocomplete extends Component {
       filteredSuggestions: [],
       focusedListItem: 0
     };
+
+    this.suggestionsList = null;
+
     this.onChange = this.onChange.bind(this);
     this.onClick = this.onClick.bind(this);
     this.blurCallback = this.blurCallback.bind(this);
@@ -42,8 +27,14 @@ class Autocomplete extends Component {
   }
 
   componentDidMount(){
-    let { data : suggestions } = this.props;
-    this.setState({ suggestions })
+    this.setState({ suggestions: this.filterRepeated(this.props.data) })
+    window.addEventListener('click', (e) => {
+      this.suggestionsList && e.target !== this.suggestionsList && this.setState({ choosed: true })
+    })
+  }
+
+  filterRepeated = data => {
+    return data.filter((el, index) => data.indexOf(el) === index);
   }
 
   onSuggestionsFetchRequested = ({ value }) => {
@@ -118,6 +109,8 @@ class Autocomplete extends Component {
       className,
       clear,
       clearClass,
+      clearColor,
+      clearSize,
       data,
       disabled,
       getValue,
@@ -235,8 +228,6 @@ class Autocomplete extends Component {
 
     //CUSTOM
 
-    let suggestionsList = null;
-
     const handleInput = e => {
       this.setState({ 
           isTouched: true, 
@@ -272,12 +263,10 @@ class Autocomplete extends Component {
       });
     }
 
-
     const keyDownHandler = e => {
-     let target = e.target
-      if (this.state.filteredSuggestions && suggestionsList  && this.state.value !== ''){
-        // console.log(this.state.filteredSuggestions, suggestionsList.childNodes)
-        suggestionsList.childNodes.length >= 5 && suggestionsList.childNodes[this.state.focusedListItem].scrollIntoView({ block: "center",  behavior: "smooth" });
+      let target = e.target
+      if (this.suggestionsList && this.state.filteredSuggestions){
+        this.suggestionsList.childNodes.length >= 5 && this.suggestionsList.childNodes[this.state.focusedListItem].scrollIntoView({ block: "center",  behavior: "smooth" });
         if (e.keyCode === 13){
           this.setState({ 
             value: this.state.filteredSuggestions[this.state.focusedListItem],
@@ -301,10 +290,12 @@ class Autocomplete extends Component {
       }
     }
 
+    const updateFocus = index => this.setState({ focusedListItem: index })
+
     const showSuggestions = filteredSuggestions => {
       return (
         <ul 
-          ref={list => suggestionsList = list}
+          ref={list => this.suggestionsList = list}
           className="mdb-autocomplete-wrap"
           style={{ marginTop: "-15px" }}
           onClick={e => handleSelect(e)}
@@ -313,11 +304,12 @@ class Autocomplete extends Component {
           <li 
             key={el + index} 
             className="list-item"
-            style={{ background: `${this.state.focusedListItem === index ? '#eee' : 'white'}` }} 
+            style={{ background: `${this.state.focusedListItem === index ? '#eee' : '#fff' }` } } 
+            onMouseEnter={() => updateFocus(index)}
           >
           {el}
           </li>)
-        }
+         }
         </ul>
       )
     }
@@ -340,15 +332,14 @@ class Autocomplete extends Component {
           value={this.state.value} 
           onChange={e => handleInput(e)} 
           onKeyDown={e => keyDownHandler(e)}
-          style={{ position: "relative" }}
         >
           {
-            !clear && this.state.value &&
+            clear && this.state.value &&
             <button
               style={closeBtnStyle} 
               onClick={handleClear}
             >
-              <svg fill="#a6a6a6" height="24" viewBox="0 0 24 24" width="24" xmlns="https://www.w3.org/2000/svg">
+              <svg fill={clearColor} height={clearSize} viewBox="0 0 24 24" width={clearSize} xmlns="https://www.w3.org/2000/svg">
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
                 <path d="M0 0h24v24H0z" fill="none"></path>
               </svg>
@@ -389,6 +380,8 @@ Autocomplete.defaultProps = {
   className: "",
   clear: false,
   clearClass: "",
+  clearColor: "#a6a6a6",
+  clearSize: 24,
   data: [],
   disabled: false,
   getValue: () => {},
