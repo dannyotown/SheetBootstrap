@@ -178,10 +178,9 @@ class Input extends React.Component {
           onBlur={this.onBlur}
           onChange={this.onChange}
           onInput={this.onInput}
-          onFocus={this.onFocus}
         />
         {
-          label && 
+          label &&
           <label
             className={labelClassFix}
             htmlFor={id}
