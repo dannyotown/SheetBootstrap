@@ -75,13 +75,18 @@ class Option extends React.Component {
       className,
       children,
       disabled,
+      separator,
       icon,
       triggerOptionClick,
       value,
       ...attributes
     } = this.props;
 
-    const classes = classNames(disabled ? "disabled" : "", className);
+    const classes = classNames(
+      disabled ? "disabled" : "",
+      separator ? "optgroup" : "",
+      className
+    );
 
     let input = null;
     let label = null;
@@ -141,7 +146,7 @@ Option.propTypes = {
   disabled: PropTypes.bool,
   icon: PropTypes.string,
   triggerOptionClick: PropTypes.func,
-  value: PropTypes.any,
+  value: PropTypes.any
 };
 
 Option.defaultProps = {
