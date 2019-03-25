@@ -27,10 +27,16 @@ class Autocomplete extends Component {
   }
 
   componentDidMount(){
-    this.setState({ suggestions: this.filterRepeated(this.props.data) })
-    window.addEventListener('click', (e) => {
-      this.suggestionsList && e.target !== this.suggestionsList && this.setState({ choosed: true })
-    })
+    this.setState({ suggestions: this.filterRepeated(this.props.data) });
+    window.addEventListener('click', this.outsideClickHandler)
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('click', this.outsideClickHandler);
+  }
+  
+  outsideClickHandler = e => {
+    this.suggestionsList && e.target !== this.suggestionsList && this.setState({ choosed: true })
   }
 
   filterRepeated = data => {
@@ -264,12 +270,16 @@ class Autocomplete extends Component {
     }
 
     const keyDownHandler = e => {
-      let target = e.target
+      let target = e.target;
+      let { filteredSuggestions, focusedListItem } = this.state;
+
       if (this.suggestionsList && this.state.filteredSuggestions){
-        this.suggestionsList.childNodes.length >= 5 && this.suggestionsList.childNodes[this.state.focusedListItem].scrollIntoView({ block: "center",  behavior: "smooth" });
+        let suggestionsListNodes = this.suggestionsList.childNodes;
+        suggestionsListNodes.length >= 5 && suggestionsListNodes[this.state.focusedListItem].scrollIntoView({ block: "center",  behavior: "smooth" });
+        
         if (e.keyCode === 13){
           this.setState({ 
-            value: this.state.filteredSuggestions[this.state.focusedListItem],
+            value: filteredSuggestions[focusedListItem],
             choosed: true,
             isTouched: false,
             focusedListItem: 0
@@ -277,14 +287,14 @@ class Autocomplete extends Component {
         }
   
         if (e.keyCode === 40){
-          if (this.state.focusedListItem < this.state.filteredSuggestions.length - 1){
-            this.setState({ focusedListItem: this.state.focusedListItem + 1 })
+          if (focusedListItem < filteredSuggestions.length - 1){
+            this.setState({ focusedListItem: focusedListItem + 1 })
           }
         }
 
         if (e.keyCode === 38){
-          if (this.state.focusedListItem > 0){
-            this.setState({ focusedListItem: this.state.focusedListItem - 1 })
+          if (focusedListItem > 0){
+            this.setState({ focusedListItem: focusedListItem - 1 })
           }
         }
       }
