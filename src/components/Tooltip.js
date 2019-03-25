@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Tooltip.css";
 
-const Tooltip = ({ children, placement, modifiers, clickable, domElement }) => {
+const Tooltip = ({ children, placement, modifiers, clickable, domElement, tag }) => {
   const [visible, setVisible] = useState(false);
 
   const tooltipClasses = classNames(
@@ -23,6 +23,8 @@ const Tooltip = ({ children, placement, modifiers, clickable, domElement }) => {
 
   const Wrapper = children[0];
   const Content = children[1];
+
+  const Tag = tag;
 
   return (
     <Manager>
@@ -51,7 +53,7 @@ const Tooltip = ({ children, placement, modifiers, clickable, domElement }) => {
           )
         }
       </Reference>
-      <div>
+      <Tag>
         <Popper
           modifiers={modifiers}
           eventsEnabled={true}
@@ -60,14 +62,14 @@ const Tooltip = ({ children, placement, modifiers, clickable, domElement }) => {
         >
           {
             ({ placement, ref, style, arrowProps }) => (
-              <div ref={ref} style={Object.assign({ ...style }, popperStyle)} data-placement={placement} className={tooltipClasses}>
+              <Tag ref={ref} style={Object.assign({ ...style }, popperStyle)} data-placement={placement} className={tooltipClasses}>
                 <Content.type {...Content.props} />
-                <div ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
-              </div>
+                <span ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
+              </Tag>
             )
           }
         </Popper>
-      </div>
+      </Tag>
     </Manager>
   );
 }
@@ -75,13 +77,17 @@ const Tooltip = ({ children, placement, modifiers, clickable, domElement }) => {
 Tooltip.propTypes = {
   children: PropTypes.node,
   clickable: PropTypes.bool,
+  domElement: PropTypes.bool,
   placement: PropTypes.string,
   modifiers: PropTypes.object,
+  tag: PropTypes.string,
 };
 
 Tooltip.defaultProps = {
   clickable: false,
+  domElement: false,
   placement: 'top',
+  tag: 'div'
 }
 
 export default Tooltip;
