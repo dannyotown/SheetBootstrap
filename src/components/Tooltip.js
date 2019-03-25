@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Tooltip.css";
 
-const Tooltip = ({ children, placement, modifiers, clickable, domElement, tag }) => {
+const Tooltip = ({ children, clickable, domElement, modifiers, placement, style, tag }) => {
   const [visible, setVisible] = useState(false);
 
   const tooltipClasses = classNames(
@@ -53,7 +53,7 @@ const Tooltip = ({ children, placement, modifiers, clickable, domElement, tag })
           )
         }
       </Reference>
-      <Tag>
+      <Tag style={style}>
         <Popper
           modifiers={modifiers}
           eventsEnabled={true}
@@ -78,8 +78,9 @@ Tooltip.propTypes = {
   children: PropTypes.node,
   clickable: PropTypes.bool,
   domElement: PropTypes.bool,
-  placement: PropTypes.string,
   modifiers: PropTypes.object,
+  placement: PropTypes.string,
+  style: PropTypes.objectOf(PropTypes.string),
   tag: PropTypes.string,
 };
 
@@ -87,6 +88,7 @@ Tooltip.defaultProps = {
   clickable: false,
   domElement: false,
   placement: 'top',
+  style: { display: 'block' },
   tag: 'div'
 }
 

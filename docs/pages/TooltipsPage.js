@@ -11,14 +11,6 @@ const TooltipsPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/tooltips/"
       />
       <div className="m-5 text-center">
-
-        <p className="my-5">
-          Lorem ipsum dolor sit amet, <MDBTooltip domElement tag='span' placement="top">
-            <span className="blue-text">consectetur adipiscing</span>
-            <span>Tooltip within text paragraph</span>
-          </MDBTooltip> elit. Phasellus id dictum lectus. Cras vitae nibh enim. Curabitur scelerisque tortor eget eros accumsan aliquam. Aliquam a luctus leo, vitae rhoncus purus. Etiam iaculis lacus massa, sit amet placerat risus dictum at. Nullam venenatis sed lacus eget congue. Maecenas auctor augue et ex fermentum porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris nec convallis velit. Nullam non libero efficitur lacus aliquet pretium eget eget lorem. Cras at odio nulla. Duis molestie magna a rhoncus ultricies.
-        </p>
-
         <MDBTooltip
           placement="top"
         >
@@ -80,6 +72,12 @@ const TooltipsPage = () => {
           </div>
         </MDBTooltip>
 
+        <p className="my-5">
+          Lorem ipsum dolor sit amet, <MDBTooltip domElement tag='span' style={{ display: 'inline' }} placement="top">
+            <span className="blue-text">consectetur adipiscing</span>
+            <span>Tooltip within text paragraph</span>
+          </MDBTooltip> elit. Phasellus id dictum lectus. Cras vitae nibh enim. Curabitur scelerisque tortor eget eros accumsan aliquam. Aliquam a luctus leo, vitae rhoncus purus. Etiam iaculis lacus massa, sit amet placerat risus dictum at. Nullam venenatis sed lacus eget congue. Maecenas auctor augue et ex fermentum porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris nec convallis velit. Nullam non libero efficitur lacus aliquet pretium eget eget lorem. Cras at odio nulla. Duis molestie magna a rhoncus ultricies.
+        </p>
       </div>
     </MDBContainer>
   );
