@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import './InputFile.css';
 
 class InputFile extends React.Component {
   constructor(props) {
@@ -38,23 +39,32 @@ class InputFile extends React.Component {
       btnTitle,
       btnColor,
       textFieldTitle,
-      multiple
+      multiple,
+      reverse
     } = this.props;
 
     const btnClass = classNames(
       "btn",
       "btn-" + btnColor,
       "btn-sm",
-      "float-left"
+      reverse ? "float-right" : "float-left"
     );
 
     const inputFieldClass = classNames(
-      "file-path validate",
+      "file-path",
+      "validate",
       this.state.files ? "valid" : false,
       className
     );
+
+    const wrapperClass = classNames(
+      "file-field",
+      "md-form",
+      reverse && "file-field-right"
+    );
+
     return (
-      <div className="file-field md-form">
+      <div className={wrapperClass}>
         <div className={btnClass}>
           <span>{btnTitle}</span>
           <input
@@ -80,13 +90,15 @@ InputFile.propTypes = {
   btnTitle: PropTypes.string,
   btnColor: PropTypes.string,
   textFieldTitle: PropTypes.string,
-  multiple: PropTypes.bool
+  multiple: PropTypes.bool,
+  reverse: PropTypes.bool
 };
 
 InputFile.defaultProps = {
   btnTitle: "Choose file",
   textFieldTitle: "Upload your file",
-  btnColor: "primary"
+  btnColor: "primary",
+  reverse: false
 };
 
 export default InputFile;
