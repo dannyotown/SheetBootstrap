@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbreact";
+import { MDBTooltip, MDBPopover, MDBBtn, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbreact";
 import DocsLink from "./../components/docsLink";
 
 const PopoverPage = () => {
@@ -10,19 +10,21 @@ const PopoverPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/popovers/"
       />
       <div className="d-flex m-5 p-5 justify-content-center">
-        <MDBPopover
-          component="button"
+        <MDBTooltip
           placement="top"
-          popoverBody="popover on top"
-          className="btn btn-default"
-        >
-          <MDBPopoverHeader>popover on top</MDBPopoverHeader>
-          <MDBPopoverBody>
-            Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-            Pellentesque ornare sem lacinia quam venenatis vestibulum.
-          </MDBPopoverBody>
-        </MDBPopover>
-        <MDBPopover
+          popover
+          clickable
+        > 
+          <MDBBtn>Popover</MDBBtn>
+          <div>
+            <MDBPopoverHeader>popover on top</MDBPopoverHeader>
+            <MDBPopoverBody>
+              Sed posuere consectetur est at lobortis. Aenean eu leo quam.
+              Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            </MDBPopoverBody>
+          </div>
+        </MDBTooltip>
+        {/* <MDBPopover
           component="button"
           placement="right"
           popoverBody="popover on right"
@@ -100,7 +102,7 @@ const PopoverPage = () => {
           <MDBPopoverBody>
             <img src="//placehold.it/50x50" alt="" />
           </MDBPopoverBody>
-        </MDBPopover>
+        </MDBPopover> */}
       </div>
 
     </MDBContainer >
