@@ -302,12 +302,12 @@ class AutocompletePage extends Component {
             label="Choose your favorite state"
             icon="angry"
             clear
-            clearClass="grey-text"
+            clearClass="red-text"
             clearColor="#a6a6a6"
-            clearSize={24}
+            clearSize="24"
             id="input"
-            className="mx-auto"
             getValue={this.logValue}
+            size="lg"
           />
         </section>
         <MDBRow>

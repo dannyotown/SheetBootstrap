@@ -93,37 +93,47 @@ class Autocomplete extends Component {
       clear,
       clearColor,
       clearSize,
+      clearClass,
       disabled,
       id,
       label,
-      icon
+      icon,
+      iconBrand,
+      iconClass,
+      iconLight,
+      iconRegular,
+      iconSize,
+      size,
+      labelClass,
+      hint,
+      ...attributes
     } = this.props;
-
-    const closeBtnStyle = {
-      height: "100%",
-      position: "absolute",
-      right: 0,
-      top: 0,
-      border: "none",
-      backgroundColor: "transparent"
-    }
 
     return (
       <div style={{ position: "relative" }}>
         <MDBInput
           icon={icon}
+          iconSize={iconSize}
+          iconBrand={iconBrand}
+          iconLight={iconLight}
+          iconRegular={iconRegular}
           id={id}
           label={label}
+          labelClass={labelClass}
           value={value}
           onChange={this.handleInput}
           onKeyDown={this.keyDownHandler}
           disabled={disabled}
+          size={size}
+          hint={hint}
+          {...attributes}
         >
           {
             clear && value &&
             <button
-              style={closeBtnStyle}
               onClick={this.handleClear}
+              className={`${clearClass} mdb-autocomplete-clear`}
+              style={{ visibility: "visible" }}
             >
               <svg fill={clearColor} height={clearSize} viewBox="0 0 24 24" width={clearSize} xmlns="https://www.w3.org/2000/svg">
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
@@ -163,7 +173,7 @@ class Autocomplete extends Component {
 Autocomplete.propTypes = {
   clear: PropTypes.bool,
   clearColor: PropTypes.string,
-  clearSize: PropTypes.number,
+  clearSize: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.string),
   disabled: PropTypes.bool,
   getValue: PropTypes.func,
@@ -180,14 +190,14 @@ Autocomplete.propTypes = {
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
-  placeholder: PropTypes.string,
+  hint: PropTypes.string,
   search: PropTypes.func
 };
 
 Autocomplete.defaultProps = {
   clear: false,
   clearColor: "#a6a6a6",
-  clearSize: 24,
+  clearSize: "24",
   data: [],
   disabled: false,
   getValue: () => { },
@@ -199,10 +209,10 @@ Autocomplete.defaultProps = {
   labelClass: "",
   iconBrand: false,
   iconClass: "",
+  iconSize: "",
   iconLight: false,
   iconRegular: false,
-  iconSize: "",
-  placeholder: ""
+  hint: ""
 };
 
 export default Autocomplete;
