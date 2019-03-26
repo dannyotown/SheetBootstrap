@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Manager, Reference, Popper } from "react-popper";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Tooltip.css";
 
-const Tooltip = ({ children, clickable, domElement, modifiers, placement, style, tag }) => {
+const Tooltip = ({ children, clickable, domElement, modifiers, placement, popover, style, tag }) => {
   const [visible, setVisible] = useState(false);
-
+  
   const tooltipClasses = classNames(
-    "tooltip fade tooltip-inner",
+    "fade",
+    popover ? "popover" : "tooltip tooltip-inner",
     visible ? "show" : "",
   );
 
@@ -63,8 +64,10 @@ const Tooltip = ({ children, clickable, domElement, modifiers, placement, style,
           {
             ({ placement, ref, style, arrowProps }) => (
               <Tag ref={ref} style={Object.assign({ ...style }, popperStyle)} data-placement={placement} className={tooltipClasses}>
-                <Content.type {...Content.props} />
-                <span ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
+                <Content.type {...Content.props}>
+                  {Content.props.children}
+                  <span ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
+                </Content.type>
               </Tag>
             )
           }
