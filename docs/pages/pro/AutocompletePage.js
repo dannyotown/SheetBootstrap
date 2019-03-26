@@ -304,7 +304,7 @@ class AutocompletePage extends Component {
             clear
             clearClass="grey-text"
             clearColor="#a6a6a6"
-            clearSize="24"
+            clearSize={24}
             id="input"
             className="mx-auto"
             getValue={this.logValue}
