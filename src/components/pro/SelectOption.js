@@ -83,7 +83,7 @@ class Option extends React.Component {
     } = this.props;
 
     const classes = classNames(
-      disabled ? "disabled" : "",
+      (disabled || separator) ? "disabled" : "",
       separator ? "optgroup" : "",
       className
     );

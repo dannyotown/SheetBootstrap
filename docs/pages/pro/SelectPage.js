@@ -15,6 +15,7 @@ class SelectPage extends Component {
       {
         checked: false,
         disabled: false,
+        separator: true,
         icon: null,
         text: "Option two",
         value: "2"
@@ -165,7 +166,7 @@ class SelectPage extends Component {
                 <MDBSelectOption disabled>team 1</MDBSelectOption>
                 <MDBSelectOption>Option nr 1</MDBSelectOption>
                 <MDBSelectOption>Option nr 2</MDBSelectOption>
-                <MDBSelectOption disabled>team 2</MDBSelectOption>
+                <MDBSelectOption separator>team 2</MDBSelectOption>
                 <MDBSelectOption>Option nr 3</MDBSelectOption>
                 <MDBSelectOption>Option nr 4</MDBSelectOption>
               </MDBSelectOptions>
