@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Popper as ReactPopper, Manager, Reference } from "react-popper";
 import PropTypes from "prop-types";
 import classNames from "classnames";
@@ -48,25 +48,28 @@ const Popper = ({ children, clickable, domElement, modifiers, placement, popover
           )
         }
       </Reference>
-      <Tag style={style}>
-        <ReactPopper
-          modifiers={modifiers}
-          eventsEnabled={true}
-          positionFixed={false}
-          placement={placement}
-        >
-          {
-            ({ placement, ref, style, arrowProps }) => (
-              <Tag ref={ref} style={style} data-placement={placement} className={tooltipClasses}>
-                <Content.type {...Content.props} className={contentClasses}>
-                  {Content.props.children}
-                </Content.type>
-                <span ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
-              </Tag>
-            )
-          }
-        </ReactPopper>
-      </Tag>
+      {
+        visible &&
+        <Tag style={style}>
+          <ReactPopper
+            modifiers={modifiers}
+            eventsEnabled={true}
+            positionFixed={false}
+            placement={placement}
+          >
+            {
+              ({ placement, ref, style, arrowProps }) => (
+                <Tag ref={ref} style={style} data-placement={placement} className={tooltipClasses}>
+                  <Content.type {...Content.props} className={contentClasses}>
+                    {Content.props.children}
+                  </Content.type>
+                  <span ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
+                </Tag>
+              )
+            }
+          </ReactPopper>
+        </Tag>
+      }
     </Manager>
   );
 }
