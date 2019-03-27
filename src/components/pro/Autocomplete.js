@@ -209,7 +209,6 @@ Autocomplete.defaultProps = {
   clearSize: "24",
   data: [],
   disabled: false,
-  getValue: () => { },
   id: "",
   label: "",
   className: "",
