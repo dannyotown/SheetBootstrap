@@ -65,7 +65,6 @@ class Input extends React.Component {
     }
 
     this.props.onInput && this.props.onInput(event);
-    this.props.getValue && this.props.getValue(event.target.value);
   }
 
   setFocus = () => {
