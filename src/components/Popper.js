@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Manager, Reference, Popper } from "react-popper";
+import { Popper as ReactPopper, Manager, Reference } from "react-popper";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-const Tooltip = ({ children, clickable, domElement, modifiers, placement, popover, style, tag }) => {
+const Popper = ({ children, clickable, domElement, modifiers, placement, popover, style, tag }) => {
   const [visible, setVisible] = useState(false);
 
   const tooltipClasses = classNames(
@@ -15,15 +15,6 @@ const Tooltip = ({ children, clickable, domElement, modifiers, placement, popove
   const contentClasses = classNames(
     !popover && "tooltip-inner"
   );
-
-  const placementDict = {
-    'left': 'left',
-    'right': 'left',
-    'top': 'top',
-    'bottom': 'top'
-  }
-
-  const arrowStyle = placementDict[placement] === 'top' ? { transform: 'translateX(-4px)' } : {};
 
   const Wrapper = children[0];
   const Content = children[1];
@@ -58,7 +49,7 @@ const Tooltip = ({ children, clickable, domElement, modifiers, placement, popove
         }
       </Reference>
       <Tag style={style}>
-        <Popper
+        <ReactPopper
           modifiers={modifiers}
           eventsEnabled={true}
           positionFixed={false}
@@ -70,17 +61,17 @@ const Tooltip = ({ children, clickable, domElement, modifiers, placement, popove
                 <Content.type {...Content.props} className={contentClasses}>
                   {Content.props.children}
                 </Content.type>
-                <span ref={arrowProps.ref} style={Object.assign({ ...arrowProps.style }, arrowStyle)} data-placement={placement} className="arrow" />
+                <span ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
               </Tag>
             )
           }
-        </Popper>
+        </ReactPopper>
       </Tag>
     </Manager>
   );
 }
 
-Tooltip.propTypes = {
+Popper.propTypes = {
   children: PropTypes.node,
   clickable: PropTypes.bool,
   domElement: PropTypes.bool,
@@ -90,7 +81,7 @@ Tooltip.propTypes = {
   tag: PropTypes.string,
 };
 
-Tooltip.defaultProps = {
+Popper.defaultProps = {
   clickable: false,
   domElement: false,
   placement: 'top',
@@ -98,5 +89,9 @@ Tooltip.defaultProps = {
   tag: 'div'
 }
 
-export default Tooltip;
-export { Tooltip as MDBTooltip };
+export default Popper;
+export { Popper as MDBPopper };
+export { Popper as MDBTooltip };
+export { Popper as Tooltip };
+export { Popper as MDBPopover };
+export { Popper as Popover };
