@@ -130,7 +130,7 @@ class SelectPage extends Component {
           <div className="col-md-6">
             <MDBSelect getValue={this.getValueOfSelect}>
               <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions>
+              <MDBSelectOptions search>
                 <MDBSelectOption disabled>Choose your option</MDBSelectOption>
                 <MDBSelectOption
                   value="User nr 1"

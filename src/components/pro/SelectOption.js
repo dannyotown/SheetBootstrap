@@ -126,14 +126,14 @@ class Option extends React.Component {
         className={classes}
         onClick={this.selectOption}
       >
-        {icon && (
-          <img src={this.props.icon} alt="icon" className="rounded-circle" />
-        )}
-        <span data-multiple={this.state.multiple} className="filtrable">
+        <span data-multiple={this.state.multiple} className="filtrable" style={{ display: "inline-block" }}>
           {input}
           {label}
           {children}
         </span>
+        {icon && (
+          <img src={this.props.icon} alt="icon" className="rounded-circle" />
+        )}
       </li>
     );
   }
