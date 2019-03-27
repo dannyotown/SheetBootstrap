@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import Tooltip from "../Tooltip";
+import Tooltip from "../Popper";
 import Waves from "../Waves";
 
 class Step extends React.Component {
