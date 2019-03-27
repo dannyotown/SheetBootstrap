@@ -2,25 +2,28 @@ import React, { useState, useEffect, useRef } from "react";
 import { Manager, Reference, Popper } from "react-popper";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import "./Tooltip.css";
 
 const Tooltip = ({ children, clickable, domElement, modifiers, placement, popover, style, tag }) => {
   const [visible, setVisible] = useState(false);
-  
+
   const tooltipClasses = classNames(
     "fade",
-    popover ? "popover" : "tooltip tooltip-inner",
+    popover ? `popover bs-popover-${placement} popover-enter-done` : `tooltip bs-tooltip-${placement}`,
     visible ? "show" : "",
   );
 
+  const contentClasses = classNames(
+    !popover && "tooltip-inner"
+  );
+
   const placementDict = {
-    'left': ['left', '-2px'],
-    'right': ['left', '2px'],
-    'top': ['top', '-7px'],
-    'bottom': ['top', '7px']
+    'left': 'left',
+    'right': 'left',
+    'top': 'top',
+    'bottom': 'top'
   }
 
-  const popperStyle = { [placementDict[placement][0]]: `${placementDict[placement][1]}` };
+  const arrowStyle = placementDict[placement] === 'top' ? { transform: 'translateX(-4px)' } : {};
 
   const Wrapper = children[0];
   const Content = children[1];
@@ -63,11 +66,11 @@ const Tooltip = ({ children, clickable, domElement, modifiers, placement, popove
         >
           {
             ({ placement, ref, style, arrowProps }) => (
-              <Tag ref={ref} style={Object.assign({ ...style }, popperStyle)} data-placement={placement} className={tooltipClasses}>
-                <Content.type {...Content.props}>
+              <Tag ref={ref} style={style} data-placement={placement} className={tooltipClasses}>
+                <Content.type {...Content.props} className={contentClasses}>
                   {Content.props.children}
-                  <span ref={arrowProps.ref} style={arrowProps.style} data-placement={placement} className="arrow" />
                 </Content.type>
+                <span ref={arrowProps.ref} style={Object.assign({ ...arrowProps.style }, arrowStyle)} data-placement={placement} className="arrow" />
               </Tag>
             )
           }
