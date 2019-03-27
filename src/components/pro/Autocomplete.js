@@ -55,15 +55,17 @@ class Autocomplete extends Component {
   handleClear = () => this.setState({ value: '', focusedListItem: 0 })
 
   handleSelect = () => {
-    let value = this.state.filteredSuggestions[this.state.focusedListItem]; 
+    let value = this.state.filteredSuggestions[this.state.focusedListItem];
 
-    this.setState({
-      value,
-      focusedListItem: 0,
-      choosed: true,
-    });
+    if (value) {
+      this.setState({
+        value,
+        focusedListItem: 0,
+        choosed: true,
+      });
 
-    this.props.getValue && this.props.getValue(value);
+      this.props.getValue && this.props.getValue(value);
+    }
   }
 
   keyDownHandler = e => {
