@@ -180,7 +180,7 @@ class Input extends React.Component {
           onFocus={this.onFocus}
         />
         {
-          label && 
+          label &&
           <label
             className={labelClassFix}
             htmlFor={id}
