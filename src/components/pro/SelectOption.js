@@ -146,7 +146,8 @@ Option.propTypes = {
   disabled: PropTypes.bool,
   icon: PropTypes.string,
   triggerOptionClick: PropTypes.func,
-  value: PropTypes.any
+  value: PropTypes.any,
+  separator: PropTypes.bool
 };
 
 Option.defaultProps = {
@@ -154,6 +155,7 @@ Option.defaultProps = {
   checked: false,
   className: "",
   disabled: false,
+  separator: false,
   icon: "",
   triggerOptionClick: () => {},
   value: ""

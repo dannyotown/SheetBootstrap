@@ -10,7 +10,6 @@ import classNames from "classnames";
       data-multiple={multiple}
       className={classes}
       onClick={() => selectOption(value)}
-      style={{ paddingLeft: separator ? "35px" : null }}
     >
       {icon && <img src={icon} alt="" className="rounded-circle" />}
       <span data-multiple={multiple} className="filtrable">
@@ -36,6 +35,7 @@ import classNames from "classnames";
 ControlledSelectOption.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
+  separator: PropTypes.bool,
   icon: PropTypes.string,
   multiple: PropTypes.bool,
   selectOption: PropTypes.func,
