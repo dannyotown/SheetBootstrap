@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBTooltip, MDBPopover, MDBBtn, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbreact";
+import { MDBPopover, MDBBtn, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbreact";
 import DocsLink from "./../components/docsLink";
 
 const PopoverPage = () => {
@@ -10,12 +10,11 @@ const PopoverPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/popovers/"
       />
       <div className="d-flex m-5 p-5 justify-content-center">
-        <MDBTooltip
-          placement="top"
+        <MDBPopover
           popover
           clickable
-        > 
-          <MDBBtn>Popover</MDBBtn>
+        >
+          <MDBBtn>popover on top</MDBBtn>
           <div>
             <MDBPopoverHeader>popover on top</MDBPopoverHeader>
             <MDBPopoverBody>
@@ -23,88 +22,108 @@ const PopoverPage = () => {
               Pellentesque ornare sem lacinia quam venenatis vestibulum.
             </MDBPopoverBody>
           </div>
-        </MDBTooltip>
-        {/* <MDBPopover
-          component="button"
+        </MDBPopover>
+
+        <MDBPopover
           placement="right"
-          popoverBody="popover on right"
-          className="btn btn-default"
+          popover
+          clickable
         >
-          <MDBPopoverHeader>popover on right</MDBPopoverHeader>
-          <MDBPopoverBody>
-            Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-            Pellentesque ornare sem lacinia quam venenatis vestibulum.
-          </MDBPopoverBody>
+          <MDBBtn>popover on right</MDBBtn>
+          <div>
+            <MDBPopoverHeader>popover on right</MDBPopoverHeader>
+            <MDBPopoverBody>
+              Sed posuere consectetur est at lobortis. Aenean eu leo quam.
+              Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            </MDBPopoverBody>
+          </div>
         </MDBPopover>
+
         <MDBPopover
-          component="button"
           placement="bottom"
-          popoverBody="popover on bottom"
-          className="btn btn-default"
+          popover
+          clickable
         >
-          <MDBPopoverHeader>popover on bottom</MDBPopoverHeader>
-          <MDBPopoverBody>
-            Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-            Pellentesque ornare sem lacinia quam venenatis vestibulum.
-          </MDBPopoverBody>
+          <MDBBtn>popover on bottom</MDBBtn>
+          <div>
+            <MDBPopoverHeader>popover on bottom</MDBPopoverHeader>
+            <MDBPopoverBody>
+              Sed posuere consectetur est at lobortis. Aenean eu leo quam.
+              Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            </MDBPopoverBody>
+          </div>
         </MDBPopover>
+
         <MDBPopover
-          component="button"
           placement="left"
-          popoverBody="popover on left"
-          className="btn btn-default"
+          popover
+          clickable
         >
-          <MDBPopoverHeader>popover on left</MDBPopoverHeader>
-          <MDBPopoverBody>
-            Sed posuere consectetur est at lobortis. Aenean eu leo quam.
-            Pellentesque ornare sem lacinia quam venenatis vestibulum.
-          </MDBPopoverBody>
+          <MDBBtn>popover on left</MDBBtn>
+          <div>
+            <MDBPopoverHeader>popover on left</MDBPopoverHeader>
+            <MDBPopoverBody>
+              Sed posuere consectetur est at lobortis. Aenean eu leo quam.
+              Pellentesque ornare sem lacinia quam venenatis vestibulum.
+            </MDBPopoverBody>
+          </div>
         </MDBPopover>
       </div>
+
       <h4 className="mt-5">Popover with image</h4>
       <div className="d-flex justify-content-center">
         <MDBPopover
-          component="button"
           placement="left"
-          popoverBody="click me"
-          className="btn btn-purple"
+          popover
+          clickable
         >
-          <MDBPopoverBody>
-            <img src="https://mdbootstrap.com/img/Others/documentation/img%20(30)-mini.jpg" alt="" />
-          </MDBPopoverBody>
+          <MDBBtn color="purple">popover on left</MDBBtn>
+          <div>
+            <MDBPopoverBody>
+              <img src="https://mdbootstrap.com/img/Others/documentation/img%20(30)-mini.jpg" alt="" />
+            </MDBPopoverBody>
+          </div>
         </MDBPopover>
-        <MDBPopover
-          component="button"
-          placement="bottom"
-          popoverBody="click me"
-          className="btn btn-purple"
-        >
-          <MDBPopoverBody>
-            <img src="https://mdbootstrap.com/img/logo/mdb192x192.jpg" alt="" />
-          </MDBPopoverBody>
-        </MDBPopover>
-        <MDBPopover
-          component="button"
-          placement="top"
-          popoverBody="click me"
-          className="btn btn-purple"
-        >
-          <MDBPopoverBody>
-            <img src="//placehold.it/100x50" alt="" />
-          </MDBPopoverBody>
-        </MDBPopover>
-        <MDBPopover
-          component="button"
-          placement="right"
-          popoverBody="click me"
-          className="btn btn-purple"
-        >
-          <MDBPopoverBody>
-            <img src="//placehold.it/50x50" alt="" />
-          </MDBPopoverBody>
-        </MDBPopover> */}
-      </div>
 
+        <MDBPopover
+          placement="bottom"
+          popover
+          clickable
+        >
+          <MDBBtn color="purple">popover on bottom</MDBBtn>
+          <div>
+            <MDBPopoverBody>
+              <img src="https://mdbootstrap.com/img/logo/mdb192x192.jpg" alt="" />
+            </MDBPopoverBody>
+          </div>
+        </MDBPopover>
+
+        <MDBPopover
+          placement="top"
+          popover
+          clickable
+        >
+          <MDBBtn color="purple">popover on top</MDBBtn>
+          <div>
+            <MDBPopoverBody>
+              <img src="//placehold.it/100x50" alt="" />
+            </MDBPopoverBody>
+          </div>
+        </MDBPopover>
+
+        <MDBPopover
+          placement="right"
+          popover
+          clickable
+        >
+          <MDBBtn color="purple">popover on right</MDBBtn>
+          <div>
+            <MDBPopoverBody>
+              <img src="//placehold.it/50x50" alt="" />
+            </MDBPopoverBody>
+          </div>
+        </MDBPopover>
+      </div>
     </MDBContainer >
   );
 }
