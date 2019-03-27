@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { MDBInput } from "../Input";
+import classNames from "classnames";
 
 class Autocomplete extends Component {
   constructor(props) {
@@ -96,6 +97,7 @@ class Autocomplete extends Component {
       clearClass,
       disabled,
       id,
+      className,
       label,
       icon,
       iconBrand,
@@ -103,11 +105,17 @@ class Autocomplete extends Component {
       iconLight,
       iconRegular,
       iconSize,
+      iconClassName,
       size,
       labelClass,
-      hint,
+      placeholder,
       ...attributes
     } = this.props;
+
+    const btnStyles = classNames(
+      clearClass,
+      'mdb-autocomplete-clear'
+    )
 
     return (
       <div style={{ position: "relative" }}>
@@ -117,22 +125,24 @@ class Autocomplete extends Component {
           iconBrand={iconBrand}
           iconLight={iconLight}
           iconRegular={iconRegular}
+          iconClass={iconClassName}
           id={id}
+          className={className}
           label={label}
           labelClass={labelClass}
+          hint={placeholder}
+          disabled={disabled}
           value={value}
           onChange={this.handleInput}
           onKeyDown={this.keyDownHandler}
-          disabled={disabled}
           size={size}
-          hint={hint}
           {...attributes}
         >
           {
             clear && value &&
             <button
               onClick={this.handleClear}
-              className={`${clearClass} mdb-autocomplete-clear`}
+              className={btnStyles}
               style={{ visibility: "visible" }}
             >
               <svg fill={clearColor} height={clearSize} viewBox="0 0 24 24" width={clearSize} xmlns="https://www.w3.org/2000/svg">
@@ -142,7 +152,6 @@ class Autocomplete extends Component {
             </button>
           }
         </MDBInput>
-
         {
           value && !choosed &&
           <ul
@@ -183,14 +192,14 @@ Autocomplete.propTypes = {
     PropTypes.number,
     PropTypes.object
   ]),
-  icon: PropTypes.string,
   labelClass: PropTypes.string,
+  icon: PropTypes.string,
   iconBrand: PropTypes.bool,
-  iconClass: PropTypes.string,
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
-  hint: PropTypes.string,
+  iconClassName: PropTypes.string,
+  placeholder: PropTypes.string,
   search: PropTypes.func
 };
 
@@ -203,16 +212,16 @@ Autocomplete.defaultProps = {
   getValue: () => { },
   id: "",
   label: "",
-  icon: "",
   className: "",
   clearClass: "",
   labelClass: "",
+  icon: "",
   iconBrand: false,
-  iconClass: "",
   iconSize: "",
   iconLight: false,
   iconRegular: false,
-  hint: ""
+  iconClassName: "",
+  placeholder: ""
 };
 
 export default Autocomplete;

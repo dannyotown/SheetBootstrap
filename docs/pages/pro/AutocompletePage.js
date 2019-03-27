@@ -300,14 +300,14 @@ class AutocompletePage extends Component {
           <MDBAutocomplete
             data={states}
             label="Choose your favorite state"
-            icon="angry"
+            icon="edit"
             clear
-            clearClass="red-text"
+            clearClass="clear-class"
             clearColor="#a6a6a6"
             clearSize="24"
             id="input"
             getValue={this.logValue}
-            size="lg"
+            size="md"
           />
         </section>
         <MDBRow>
