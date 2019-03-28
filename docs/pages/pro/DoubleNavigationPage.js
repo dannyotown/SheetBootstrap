@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { MDBInput, MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBDropdown, MDBDropdownToggle,  MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBSideNavItem, MDBSideNavCat, MDBSideNavNav, MDBSideNav,   MDBContainer } from "mdbreact";
+import { MDBInput, MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBSideNavItem, MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBContainer } from "mdbreact";
 
 class DoubleNavigationPage extends Component {
   state = {
@@ -53,6 +53,7 @@ class DoubleNavigationPage extends Component {
             breakWidth={this.state.breakWidth}
             bg="https://mdbootstrap.com/img/Photos/Others/sidenav1.jpg"
             mask="strong"
+            fixed
           >
             <li>
               <ul className="social">
