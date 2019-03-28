@@ -21,7 +21,7 @@ const PopoverPage = () => {
         >
           <MDBBtn>popover on top</MDBBtn>
           <div>
-            <MDBPopoverHeader>popover on top <button onClick={() => setVisibility(false)}>X</button></MDBPopoverHeader>
+            <MDBPopoverHeader className="d-flex justify-content-between align-items-center">popover on top <MDBBtn size="sm" className="py-1 px-2" onClick={() => setVisibility(false)}>X</MDBBtn></MDBPopoverHeader>
             <MDBPopoverBody>
               Sed posuere consectetur est at lobortis. Aenean eu leo quam.
               Pellentesque ornare sem lacinia quam venenatis vestibulum.
@@ -83,6 +83,7 @@ const PopoverPage = () => {
         <MDBPopover
           placement="left"
           popover
+          isVisible
           clickable
           id="popper5"
         >
