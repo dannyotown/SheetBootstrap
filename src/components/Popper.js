@@ -3,8 +3,26 @@ import { Popper as ReactPopper, Manager, Reference } from "react-popper";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-const Popper = ({ children, clickable, domElement, modifiers, placement, popover, style, tag }) => {
-  const [visible, setVisible] = useState(false);
+const Popper = ({ children, clickable, domElement, modifiers, id, isVisible, onChange, placement, popover, style, tag }) => {
+  const [visible, setVisible] = useState(isVisible);
+
+  useEffect(() => { setVisible(isVisible) }, [isVisible]);
+
+  useEffect(() => { onChange && onChange(visible) }, [visible]);
+
+  useEffect(() => {
+    window.addEventListener('click', handleClick);
+
+    return (() => window.removeEventListener('click', handleClick));
+  }, []);
+
+  function handleClick(e) {
+    const element = document.elementsFromPoint(e.clientX, e.clientY).find(el => el.dataset.popper === id);
+    if (element) return;
+
+    setVisible(false);
+  }
+
   const Wrapper = children[0];
   const Content = children[1];
   const Tag = tag;
@@ -18,19 +36,6 @@ const Popper = ({ children, clickable, domElement, modifiers, placement, popover
   const contentClasses = classNames(
     !popover && "tooltip-inner"
   );
-
-  useEffect(() => {
-    window.addEventListener('click', handleClick);
-
-    return (() => window.removeEventListener('click', handleClick));
-  }, []);
-
-  function handleClick(e) {
-    const element = document.elementsFromPoint(e.clientX, e.clientY).find(el => el.dataset.popper);
-    if (element) return;
-    
-    setVisible(false);
-  }
 
   return (
     <Manager>
@@ -46,7 +51,7 @@ const Popper = ({ children, clickable, domElement, modifiers, placement, popover
                 onTouchEnd={() => !clickable && setVisible(false)}
                 onClick={() => clickable && setVisible(!visible)}
                 innerRef={ref}
-                data-popper={true}
+                data-popper={id}
               />
               : <Wrapper.type
                 {...Wrapper.props}
@@ -56,7 +61,7 @@ const Popper = ({ children, clickable, domElement, modifiers, placement, popover
                 onTouchEnd={() => !clickable && setVisible(false)}
                 onClick={() => clickable && setVisible(!visible)}
                 ref={ref}
-                data-popper={true}
+                data-popper={id}
               />
           )
         }
@@ -72,7 +77,7 @@ const Popper = ({ children, clickable, domElement, modifiers, placement, popover
           >
             {
               ({ placement, ref, style, arrowProps }) => (
-                <Tag ref={ref} style={style} data-placement={placement} className={tooltipClasses} data-popper={true}>
+                <Tag ref={ref} style={style} data-placement={placement} className={tooltipClasses} data-popper={id}>
                   <Content.type {...Content.props} className={contentClasses}>
                     {Content.props.children}
                   </Content.type>
@@ -92,6 +97,8 @@ Popper.propTypes = {
   clickable: PropTypes.bool,
   domElement: PropTypes.bool,
   modifiers: PropTypes.object,
+  id: PropTypes.string,
+  isVisible: PropTypes.bool,
   placement: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.string),
   tag: PropTypes.string,
@@ -100,6 +107,8 @@ Popper.propTypes = {
 Popper.defaultProps = {
   clickable: false,
   domElement: false,
+  id: 'popper',
+  isVisible: false,
   placement: 'top',
   style: { display: 'block' },
   tag: 'div'
