@@ -26,6 +26,7 @@ const NavigationNavPage = () => {
               <MenuLink to="/navigation/pro/navs" title="Navs" />
               <MenuLink to="/navigation/pro/scrollspy" title="ScrollSpy" />
               <MenuLink to="/navigation/pro/sidenav" title="SideNav" />
+              <MenuLink to="/navigation/pro/slim-sidenav" title="Slim SideNav" />
               {/* PRO-END */}
             </ul>
           </MDBJumbotron>

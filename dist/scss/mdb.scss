@@ -1,6 +1,6 @@
 /*!
  * Material Design for Bootstrap 4
- * Version: MDB PRO 4.7.4
+ * Version: MDB PRO 4.7.5
  *
  *
  * Copyright: Material Design for BootstrapS
@@ -65,9 +65,9 @@
 @import "free/steppers";
 @import "free/loader";
 // Free addons
-@import "addons/datatables";
-@import "addons/datatables-select";
-@import "addons/directives";
+// @import "addons/datatables";
+// @import "addons/datatables-select";
+// @import "addons/directives";
 
 // PRO
 @import "pro/variables";
@@ -124,10 +124,10 @@
 @import "pro/sections/contacts";
 
 // Pro addons
-@import "addons-pro/steppers";
-@import "addons-pro/timeline";
-@import "addons-pro/cards-extended";
-@import "addons-pro/chat";
+// @import "addons-pro/steppers";
+// @import "addons-pro/timeline";
+// @import "addons-pro/cards-extended";
+// @import "addons-pro/chat";
 
 // Your custom styles
 @import "custom-styles";

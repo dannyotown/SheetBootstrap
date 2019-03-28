@@ -1,10 +1,12 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { CSSTransition } from "react-transition-group";
 import "../Transitions.css";
 import Waves from "../Waves";
 import ScrollBar from './PerfectScrollbar';
+import SideNavContext from './SideNavContext';
 
 class SideNav extends React.Component {
 
@@ -33,11 +35,15 @@ class SideNav extends React.Component {
       }
     }
 
+    this.sideNavRef = React.createRef();
+
     this.state = {
       initiallyFixed: props.fixed,
       isFixed: !isOpen() ? false : props.fixed,
       isOpen: isOpen(),
-      cursorPos: {}
+      cursorPos: {},
+      slim: this.props.slim,
+      slimInitial: this.props.slim
     };
   }
 
@@ -77,9 +83,14 @@ class SideNav extends React.Component {
         });
       }
     }
-
-
   };
+
+  toggleSlim = e => () => {
+    this.setState({ slim: !this.state.slim });
+
+    const sidenav = ReactDOM.findDOMNode(this.sideNavRef.current);
+    sidenav.classList.toggle('slim');
+  }
 
   handleOverlayClick = () => {
     if (this.state.isFixed) return
@@ -124,6 +135,7 @@ class SideNav extends React.Component {
       showOverlay,
       fixed,
       responsive,
+      slim,
       tag: Tag,
       ...attributes
     } = this.props;
@@ -132,7 +144,9 @@ class SideNav extends React.Component {
 
     const classes = classNames(
       "side-nav",
+      'wide',
       right && "right-aligned",
+      this.state.slimInitial && "slim",
       className
     );
 
@@ -175,13 +189,18 @@ class SideNav extends React.Component {
             {children}
           </ul>
         </ScrollBar >
-        {mask && <div className={`sidenav-bg mask-${mask}`} />}
+        {mask && <div className={`sidenav-bg ${mask}`} />}
       </Tag>
     );
 
 
     return (
-      <>
+      <SideNavContext.Provider value={{
+        slimInitial: this.state.slimInitial,
+        slim: this.state.slim,
+        toggleSlim: this.toggleSlim,
+        right: this.props.right
+      }}>
         {
           isFixed ?
             sidenav
@@ -198,7 +217,7 @@ class SideNav extends React.Component {
             )
         }
         {isFixed ? false : (showOverlay && isOpen) && overlay}
-      </>
+      </SideNavContext.Provider>
     )
   }
 }
@@ -218,7 +237,8 @@ SideNav.propTypes = {
   tag: PropTypes.string,
   fixed: PropTypes.bool,
   showOverlay: PropTypes.bool,
-  responsive: PropTypes.bool
+  responsive: PropTypes.bool,
+  slim: PropTypes.bool,
 };
 
 SideNav.defaultProps = {
@@ -235,7 +255,8 @@ SideNav.defaultProps = {
   tag: "div",
   fixed: false,
   responsive: true,
-  showOverlay: true
+  showOverlay: true,
+  slim: false,
 };
 
 export default SideNav;
