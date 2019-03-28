@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { MDBPopover, MDBBtn, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbreact";
 import DocsLink from "./../components/docsLink";
 
 const PopoverPage = () => {
+  const [visible, setVisibility] = useState(true);
+
   return (
     <MDBContainer>
       <DocsLink
@@ -13,10 +15,13 @@ const PopoverPage = () => {
         <MDBPopover
           popover
           clickable
+          isVisible={visible}
+          id="popper1"
+          onChange={(val) => setVisibility(val)}
         >
           <MDBBtn>popover on top</MDBBtn>
           <div>
-            <MDBPopoverHeader>popover on top</MDBPopoverHeader>
+            <MDBPopoverHeader>popover on top <button onClick={() => setVisibility(false)}>X</button></MDBPopoverHeader>
             <MDBPopoverBody>
               Sed posuere consectetur est at lobortis. Aenean eu leo quam.
               Pellentesque ornare sem lacinia quam venenatis vestibulum.
@@ -28,6 +33,7 @@ const PopoverPage = () => {
           placement="right"
           popover
           clickable
+          id="popper2"
         >
           <MDBBtn>popover on right</MDBBtn>
           <div>
@@ -43,6 +49,7 @@ const PopoverPage = () => {
           placement="bottom"
           popover
           clickable
+          id="popper3"
         >
           <MDBBtn>popover on bottom</MDBBtn>
           <div>
@@ -58,6 +65,7 @@ const PopoverPage = () => {
           placement="left"
           popover
           clickable
+          id="popper4"
         >
           <MDBBtn>popover on left</MDBBtn>
           <div>
@@ -76,6 +84,7 @@ const PopoverPage = () => {
           placement="left"
           popover
           clickable
+          id="popper5"
         >
           <MDBBtn color="purple">popover on left</MDBBtn>
           <div>
@@ -89,6 +98,7 @@ const PopoverPage = () => {
           placement="bottom"
           popover
           clickable
+          id="popper6"
         >
           <MDBBtn color="purple">popover on bottom</MDBBtn>
           <div>
@@ -115,6 +125,7 @@ const PopoverPage = () => {
           placement="right"
           popover
           clickable
+          id="popper7"
         >
           <MDBBtn color="purple">popover on right</MDBBtn>
           <div>
