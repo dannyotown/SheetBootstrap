@@ -71,6 +71,7 @@ class ControlledSelectOptions extends Component {
             icon={option.icon}
             text={option.text}
             value={option.value}
+            separator={option.separator}
             selectOption={selectOption}
           />
         ))}
@@ -86,6 +87,7 @@ ControlledSelectOptions.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       checked: PropTypes.bool,
+      separator: PropTypes.bool,
       disabled: PropTypes.bool,
       icon: PropTypes.string,
       text: PropTypes.string,

@@ -75,13 +75,18 @@ class Option extends React.Component {
       className,
       children,
       disabled,
+      separator,
       icon,
       triggerOptionClick,
       value,
       ...attributes
     } = this.props;
 
-    const classes = classNames(disabled ? "disabled" : "", className);
+    const classes = classNames(
+      (disabled || separator) ? "disabled" : "",
+      separator ? "optgroup" : "",
+      className
+    );
 
     let input = null;
     let label = null;
@@ -121,14 +126,14 @@ class Option extends React.Component {
         className={classes}
         onClick={this.selectOption}
       >
-        {icon && (
-          <img src={this.props.icon} alt="icon" className="rounded-circle" />
-        )}
-        <span data-multiple={this.state.multiple} className="filtrable">
-          {input}
+        <span data-multiple={this.state.multiple} className="filtrable" style={{ display: "inline-block" }}>
+          {!separator ? input : null}
           {label}
           {children}
         </span>
+        {icon && (
+          <img src={this.props.icon} alt="icon" className="rounded-circle" />
+        )}
       </li>
     );
   }
@@ -142,6 +147,7 @@ Option.propTypes = {
   icon: PropTypes.string,
   triggerOptionClick: PropTypes.func,
   value: PropTypes.any,
+  separator: PropTypes.bool
 };
 
 Option.defaultProps = {
@@ -149,6 +155,7 @@ Option.defaultProps = {
   checked: false,
   className: "",
   disabled: false,
+  separator: false,
   icon: "",
   triggerOptionClick: () => {},
   value: ""

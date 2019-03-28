@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOption, text, value }) => {
-  const classes = classNames(disabled && "disabled", checked && "active");
+  const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOption, text, value, separator }) => {
+  const classes = classNames((disabled || separator) && "disabled", separator && 'optgroup', checked && "active");
 
   return (
     <li
@@ -23,7 +23,7 @@ const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOptio
               disabled={disabled}
               onChange={() => {}}
             />
-            <label style={{ height: "10px" }} data-multiple={multiple} />
+            {!separator && <label style={{ height: "10px" }} data-multiple={multiple} />}
           </React.Fragment>
         )}
         {text ? text : value}
@@ -35,6 +35,7 @@ const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOptio
 ControlledSelectOption.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
+  separator: PropTypes.bool,
   icon: PropTypes.string,
   multiple: PropTypes.bool,
   selectOption: PropTypes.func,

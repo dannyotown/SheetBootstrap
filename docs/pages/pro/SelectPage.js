@@ -15,6 +15,7 @@ class SelectPage extends Component {
       {
         checked: false,
         disabled: false,
+        separator: true,
         icon: null,
         text: "Option two",
         value: "2"
@@ -94,7 +95,7 @@ class SelectPage extends Component {
                   Option nr 2
                 </MDBSelectOption>
                 <MDBSelectOption value="value nr 3">Option nr 3</MDBSelectOption>
-                <MDBSelectOption selected value="value nr 4">
+                <MDBSelectOption separator value="value nr 4">
                   Option nr 4
                 </MDBSelectOption>
                 <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
@@ -129,7 +130,7 @@ class SelectPage extends Component {
           <div className="col-md-6">
             <MDBSelect getValue={this.getValueOfSelect}>
               <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions>
+              <MDBSelectOptions search>
                 <MDBSelectOption disabled>Choose your option</MDBSelectOption>
                 <MDBSelectOption
                   value="User nr 1"
@@ -165,7 +166,7 @@ class SelectPage extends Component {
                 <MDBSelectOption disabled>team 1</MDBSelectOption>
                 <MDBSelectOption>Option nr 1</MDBSelectOption>
                 <MDBSelectOption>Option nr 2</MDBSelectOption>
-                <MDBSelectOption disabled>team 2</MDBSelectOption>
+                <MDBSelectOption separator>team 2</MDBSelectOption>
                 <MDBSelectOption>Option nr 3</MDBSelectOption>
                 <MDBSelectOption>Option nr 4</MDBSelectOption>
               </MDBSelectOptions>

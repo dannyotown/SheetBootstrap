@@ -1,26 +1,7 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
+import { MDBInput } from "../Input";
 import classNames from "classnames";
-import Autosuggest from "react-autosuggest";
-import Fa from "../Fa";
-
-const theme = {
-  container: "md-form",
-  containerOpen: "react-autosuggest__container--open",
-  input: "mdb-autocomplete form-control",
-  inputOpen: "react-autosuggest__input--open",
-  inputFocused: "react-autosuggest__input--focused",
-  suggestionsContainer: "react-autosuggest__suggestions-container",
-  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
-  suggestionsList: "mdb-autocomplete-wrap",
-  suggestion: "react-autosuggest__suggestion",
-  suggestionFirst: "react-autosuggest__suggestion--first",
-  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
-  sectionContainer: "react-autosuggest__section-container",
-  sectionContainerFirst: "react-autosuggest__section-container--first",
-  sectionTitle: "react-autosuggest__section-title"
-};
 
 class Autocomplete extends Component {
   constructor(props) {
@@ -28,221 +9,182 @@ class Autocomplete extends Component {
     this.state = {
       value: "",
       suggestions: [],
-      isTouched: false
+      choosed: false,
+      filteredSuggestions: [],
+      focusedListItem: 0
     };
-    this.onChange = this.onChange.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.blurCallback = this.blurCallback.bind(this);
-    this.triggerFocus = this.triggerFocus.bind(this);
-    this.handleClear = this.handleClear.bind(this);
+
+    this.suggestionsList = null;
   }
 
-  onSuggestionsFetchRequested = ({ value }) => {
-    if (this.props.search) {
-      return;
+  componentDidMount() {
+    this.setState({ suggestions: this.filterRepeated(this.props.data) });
+    window.addEventListener('click', this.outsideClickHandler)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('click', this.outsideClickHandler);
+  }
+
+  outsideClickHandler = e => {
+    this.suggestionsList && e.target !== this.suggestionsList && this.setState({ choosed: true })
+  }
+
+  filterRepeated = data => data.filter((el, index) => data.indexOf(el) === index);
+
+  handleInput = e => {
+    this.setState({
+      choosed: false,
+      focusedListItem: 0
+    });
+
+    let { value } = e.target;
+
+    this.setState({ value })
+
+    if (value !== '') {
+      this.setSuggestions(value)
     }
-    this.setState({
-      suggestions: this.getSuggestions(value)
-    });
-  };
+  }
 
-  getSuggestions = value => {
-    const inputValue = value.toLowerCase();
-    const inputLength = inputValue.length;
-    return inputLength === 0
-      ? []
-      : this.props.data.filter(data => data.toLowerCase().includes(inputValue));
-  };
+  setSuggestions = value => {
+    let filteredSuggestions = this.state.suggestions.filter(suggest => suggest.toLowerCase().includes(value.toLowerCase().trim()));
+    this.setState({ filteredSuggestions });
+  }
 
-  getSuggestionValue = suggestion => {
-    if (this.props.getValue) {
-      this.props.getValue(suggestion);
+  handleClear = () => this.setState({ value: '', focusedListItem: 0 })
+
+  handleSelect = () => {
+    let value = this.state.filteredSuggestions[this.state.focusedListItem];
+
+    if (value) {
+      this.setState({
+        value,
+        focusedListItem: 0,
+        choosed: true,
+      });
+
+      this.props.getValue && this.props.getValue(value);
     }
-    return suggestion;
-  };
+  }
 
-  renderSuggestion = suggestion => <div>{suggestion}</div>;
+  keyDownHandler = e => {
+    let { filteredSuggestions, focusedListItem } = this.state;
 
-  onChange = (event, { newValue }) => {
-    this.setState({
-      value: newValue
-    });
-    if (this.props.search) {
-      this.props.search(
-        newValue,
-        ReactDOM.findDOMNode(this).parentNode.parentNode.querySelectorAll("li")
-      );
+    if (this.suggestionsList && this.state.filteredSuggestions) {
+      let suggestionsListNodes = this.suggestionsList.childNodes;
+
+      suggestionsListNodes.length >= 5 && suggestionsListNodes[this.state.focusedListItem].scrollIntoView({ block: "center", behavior: "smooth" });
+
+      if (e.keyCode === 13) {
+        this.handleSelect();
+        e.target.blur();
+      }
+
+      e.keyCode === 40 && focusedListItem < filteredSuggestions.length - 1 && this.setState({ focusedListItem: focusedListItem + 1 })
+
+      e.keyCode === 38 && focusedListItem > 0 && this.setState({ focusedListItem: focusedListItem - 1 })
     }
-  };
-
-  onClick(ev) {
-    this.setState({ isTouched: true });
   }
 
-  blurCallback(ev) {
-    this.setState({ isTouched: false });
-  }
-
-  onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: []
-    });
-  };
-
-  handleClear() {
-    this.setState({
-      value: ""
-    });
-  }
-
-  triggerFocus() {
-    const input = document.getElementById(this.props.id);
-    input.focus();
-  }
+  updateFocus = index => this.setState({ focusedListItem: index })
 
   render() {
-    const { value, suggestions } = this.state;
+    const { value, filteredSuggestions, choosed } = this.state;
 
     const {
-      className,
       clear,
+      clearColor,
+      clearSize,
       clearClass,
-      data,
       disabled,
-      getValue,
       id,
+      className,
       label,
-      labelClass,
       icon,
       iconBrand,
       iconClass,
       iconLight,
       iconRegular,
       iconSize,
+      iconClassName,
+      size,
+      labelClass,
       placeholder,
-      search,
       ...attributes
     } = this.props;
 
-    if (disabled) {
-      attributes.disabled = true;
-    }
-
-    // needed for rendering custom input
-    const inputProps = {
-      placeholder: placeholder,
-      value,
-      onChange: this.onChange,
-      onBlur: this.blurCallback,
-      onClick: this.onClick,
-      onFocus: this.onFocus,
-      id: this.props.id
-    };
-
-    // the main variable for classFixes
-    let isNotEmpty =
-      Boolean(this.state.value) || placeholder || this.state.isTouched;
-
-    // classFixes:
-    const labelClassFix = classNames(
-      isNotEmpty && "active",
-      disabled && "disabled",
-      labelClass
-    );
-
-    const iconClassFix = classNames(
-      "prefix",
-      this.state.isTouched && "active",
-      iconClass
-    );
-
-    const clearClassFix = classNames(clearClass);
-
-    const isclearVisible = () => {
-      let hiddenOrNot = "hidden";
-      if (this.state.value) {
-        hiddenOrNot = "visible";
-      }
-      return hiddenOrNot;
-    };
-
-    const clearStyleFix = {
-      position: "absolute",
-      zIndex: 2,
-      top: ".85rem",
-      right: 0,
-      border: "none",
-      background: "0 0",
-      visibility: isclearVisible()
-    };
-
-    const renderInputComponent = inputProps => (
-      <div>
-        {
-          icon &&
-          <Fa
-            icon={icon}
-            size={iconSize}
-            brand={iconBrand}
-            light={iconLight}
-            regular={iconRegular}
-            className={iconClassFix}
-          />
-        }
-        <input
-          type="text"
-          id={id}
-          className="form-control"
-          {...inputProps}
-          {...attributes}
-          onFocus={(ev, val) => {
-            this.onClick();
-            inputProps.onFocus(ev, val);
-          }}
-        />
-        <label
-          htmlFor={id}
-          id={`label for ${id}`}
-          onClick={this.triggerFocus}
-          className={labelClassFix}
-        >
-          {label}
-        </label>
-        {clear && (
-          <Fa
-            icon="close"
-            onClick={this.handleClear}
-            style={clearStyleFix}
-            className={clearClassFix}
-          />
-        )}
-      </div>
-    );
+    const btnStyles = classNames(
+      clearClass,
+      'mdb-autocomplete-clear'
+    )
 
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestions={this.getSuggestions}
-        getSuggestionValue={this.getSuggestionValue}
-        onSuggestionSelected={this.blurCallback}
-        renderSuggestion={this.renderSuggestion}
-        inputProps={inputProps}
-        onChange={this.onChange}
-        theme={theme}
-        renderInputComponent={renderInputComponent}
-        focusInputOnSuggestionClick={false}
-        {...attributes}
-      />
+      <div style={{ position: "relative" }}>
+        <MDBInput
+          icon={icon}
+          iconSize={iconSize}
+          iconBrand={iconBrand}
+          iconLight={iconLight}
+          iconRegular={iconRegular}
+          iconClass={iconClassName}
+          id={id}
+          className={className}
+          label={label}
+          labelClass={labelClass}
+          hint={placeholder}
+          disabled={disabled}
+          value={value}
+          onChange={this.handleInput}
+          onKeyDown={this.keyDownHandler}
+          size={size}
+          {...attributes}
+        >
+          {
+            clear && value &&
+            <button
+              onClick={this.handleClear}
+              className={btnStyles}
+              style={{ visibility: "visible" }}
+            >
+              <svg fill={clearColor} height={clearSize} viewBox="0 0 24 24" width={clearSize} xmlns="https://www.w3.org/2000/svg">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+                <path d="M0 0h24v24H0z" fill="none"></path>
+              </svg>
+            </button>
+          }
+        </MDBInput>
+        {
+          value && !choosed &&
+          <ul
+            ref={list => this.suggestionsList = list}
+            className="mdb-autocomplete-wrap"
+            style={{ marginTop: "-15px" }}
+            onClick={this.handleSelect}
+          >
+            {
+              filteredSuggestions.map((el, index) =>
+                <li
+                  key={el + index}
+                  className="list-item"
+                  style={{ background: `${this.state.focusedListItem === index ? '#eee' : '#fff'}` }}
+                  onMouseEnter={() => this.updateFocus(index)}
+                >
+                  {el}
+                </li>
+              )
+            }
+          </ul>
+        }
+      </div>
     );
   }
 }
 
 Autocomplete.propTypes = {
-  className: PropTypes.string,
   clear: PropTypes.bool,
-  clearClass: PropTypes.string,
+  clearColor: PropTypes.string,
+  clearSize: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.string),
   disabled: PropTypes.bool,
   getValue: PropTypes.func,
@@ -255,30 +197,31 @@ Autocomplete.propTypes = {
   labelClass: PropTypes.string,
   icon: PropTypes.string,
   iconBrand: PropTypes.bool,
-  iconClass: PropTypes.string,
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
+  iconClassName: PropTypes.string,
   placeholder: PropTypes.string,
   search: PropTypes.func
 };
 
 Autocomplete.defaultProps = {
-  className: "",
   clear: false,
-  clearClass: "",
+  clearColor: "#a6a6a6",
+  clearSize: "24",
   data: [],
   disabled: false,
-  getValue: () => {},
   id: "",
   label: "",
+  className: "",
+  clearClass: "",
   labelClass: "",
   icon: "",
   iconBrand: false,
-  iconClass: "",
+  iconSize: "",
   iconLight: false,
   iconRegular: false,
-  iconSize: "",
+  iconClassName: "",
   placeholder: ""
 };
 
