@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Waves from '../Waves';
 import { NavLink as Link } from 'react-router-dom';
+import SideNavContext from './SideNavContext'
+
 
 class SideNavLink extends React.Component {
   constructor(props) {
@@ -38,6 +40,7 @@ class SideNavLink extends React.Component {
       className,
       innerRef,
       topLevel,
+      shortcut,
       ...attributes
     } = this.props;
 
@@ -47,17 +50,58 @@ class SideNavLink extends React.Component {
       className
     );
 
+
     const sideNavLink = (
-      <Link
-        className={classes}
-        ref={innerRef}
-        onClick={this.handleClick}
-        to={to}
-        {...attributes}
-      >
-        {children}
-        <Waves cursorPos={this.state.cursorPos} />
-      </Link>
+      <SideNavContext.Consumer >
+        {({ slim }) => {
+          let shortcut;
+
+          function calculateShortcut() {
+            if (typeof children === 'string') {
+              const wordsArray = children.toString().split(' ');
+
+              if (wordsArray.length === 1) {
+                return wordsArray[0].substr(0, 2).toUpperCase();
+              }
+
+              if (wordsArray.length >= 2) {
+                const firstLetter = wordsArray[0].substr(0, 1);
+                const secondLetter = wordsArray[1].substr(0, 1);
+                return firstLetter.concat(secondLetter).toUpperCase();
+              }
+            }
+            return children
+          }
+
+          if (slim) {
+            shortcut = this.props.shortcut || calculateShortcut();
+          }
+
+
+          return (
+            <Link
+              className={classes}
+              ref={innerRef}
+              onClick={this.handleClick}
+              to={to}
+              {...attributes}
+            >
+
+              {slim ? (
+                (
+                  (<><span className="sv-slim">{shortcut}</span>
+                    <span className="sv-normal">{children}</span></>)
+                )
+              )
+                : <span className="sv-normal">{children}</span>
+              }
+              <Waves cursorPos={this.state.cursorPos} />
+            </Link>
+          )
+        }
+        }
+      </SideNavContext.Consumer >
+
     );
 
     return topLevel ? <li> {sideNavLink}</li> : sideNavLink;
@@ -70,7 +114,8 @@ SideNavLink.propTypes = {
   tag: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  topLevel: PropTypes.bool
+  topLevel: PropTypes.bool,
+  shortcut: PropTypes.string
 };
 
 SideNavLink.defaultProps = {
