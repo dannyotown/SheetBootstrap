@@ -58,15 +58,25 @@ class DropdownToggle extends React.Component {
       <Reference>
         {
           ({ ref }) => (
-            <Tag
-              {...props}
-              className={classes}
-              onClick={this.onClick}
-              aria-expanded={this.context.isOpen}
-              innerRef={ref}
-            >
-              {children}
-            </Tag>
+            tag || nav
+              ? <Tag
+                {...props}
+                className={classes}
+                onClick={this.onClick}
+                aria-expanded={this.context.isOpen}
+                ref={ref}
+              >
+                {children}
+              </Tag>
+              : <Tag
+                {...props}
+                className={classes}
+                onClick={this.onClick}
+                aria-expanded={this.context.isOpen}
+                innerRef={ref}
+              >
+                {children}
+              </Tag>
           )
         }
       </Reference>
