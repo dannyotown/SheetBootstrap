@@ -127,7 +127,7 @@ class Option extends React.Component {
         onClick={this.selectOption}
       >
         <span data-multiple={this.state.multiple} className="filtrable" style={{ display: "inline-block" }}>
-          {input}
+          {!separator ? input : null}
           {label}
           {children}
         </span>

@@ -95,7 +95,7 @@ class SelectPage extends Component {
                   Option nr 2
                 </MDBSelectOption>
                 <MDBSelectOption value="value nr 3">Option nr 3</MDBSelectOption>
-                <MDBSelectOption selected value="value nr 4">
+                <MDBSelectOption separator value="value nr 4">
                   Option nr 4
                 </MDBSelectOption>
                 <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
