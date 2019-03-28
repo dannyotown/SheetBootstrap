@@ -110,7 +110,7 @@ Popper.defaultProps = {
   id: 'popper',
   isVisible: false,
   placement: 'top',
-  style: { display: 'block' },
+  style: { display: 'inline-block' },
   tag: 'div'
 }
 
