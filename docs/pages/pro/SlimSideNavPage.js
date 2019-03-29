@@ -38,7 +38,7 @@ class SideNavPage extends Component {
           >
             <li>
               <div className="logo-wrapper sn-ad-avatar-wrapper">
-                <a href="#">
+                <a href="#!">
                   <img alt="" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" className="rounded-circle" />
                   <span>Anna Deynah</span>
                 </a>
@@ -85,7 +85,7 @@ class SideNavPage extends Component {
           >
             <li>
               <div className="logo-wrapper sn-ad-avatar-wrapper">
-                <a href="#">
+                <a href="#!">
                   <img alt="" src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg" className="rounded-circle" />
                   <span className="text-black-50">John Smith</span>
                 </a>
