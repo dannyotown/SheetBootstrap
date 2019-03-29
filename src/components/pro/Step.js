@@ -2,7 +2,6 @@ import React from "react";
 import classNames from "classnames";
 import Tooltip from "../Popper";
 import Button from "../Button";
-import Waves from "../Waves";
 
 class Step extends React.Component {
   render() {
