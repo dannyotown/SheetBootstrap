@@ -149,7 +149,7 @@ class Dropdown extends React.Component {
   };
 
   render() {
-    const { className, children, dropup, group, size, ...attrs } = omit(this.props, [
+    const { className, children, dropup, group, size } = omit(this.props, [
       "toggle",
       "disabled"
     ]);
