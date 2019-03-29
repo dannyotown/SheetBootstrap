@@ -12,7 +12,8 @@ class Select extends React.Component {
     this.state = {
       selectValue: [],
       selectTextContent: "",
-      options: this.props.options || []
+      options: this.props.options || [],
+      allChecked: false
     };
   }
 
@@ -32,8 +33,6 @@ class Select extends React.Component {
       if (typeof this.props.getTextContent === "function") {
         this.props.getTextContent(this.state.selectTextContent);
       }
-
-
     }
 
     if (this.props.options !== prevProps.options) {
@@ -64,7 +63,8 @@ class Select extends React.Component {
     return {
       selectValue: checkedValues,
       selectTextContent: (checkedTexts.length ? checkedTexts.join(", ") : this.props.selected),
-      options
+      options,
+      allChecked: checkedOptions.length === this.state.options.length ? true : false
     };
   }
 
@@ -120,16 +120,35 @@ class Select extends React.Component {
   };
 
   selectMultipleOptions = value => {
-    this.setState(prevState => {
-      let options = [...prevState.options];
-      const optionIndex = options.findIndex(option => option.value === value);
-      options[optionIndex].checked = !prevState.options[optionIndex].checked;
+    if (value === "0"){
+      const setChecked = (option, status) => {
+        option.checked = status;
+        return option;
+      }
 
-      return this.computeValuesAndText(options);
-    });
+      this.setState(prevState => {
+        let options = [...prevState.options];
+        let areSomeUnchecked = options.some(option => option.checked === false);
+
+        areSomeUnchecked
+          ? options.map(option => option.checked === false ? setChecked(option, true) : null)
+          : options.map(option => setChecked(option, false))
+
+        return this.computeValuesAndText(options);
+      })
+      
+    }else {
+      this.setState(prevState => {
+        let options = [...prevState.options];
+        const optionIndex = options.findIndex(option => option.value === value);
+        options[optionIndex].checked = !prevState.options[optionIndex].checked;
+        
+        return this.computeValuesAndText(options);
+      });
+    }
   };
 
-  selectOption = value => {
+  selectOption = value => {   
     if (this.props.multiple) {
       this.selectMultipleOptions(value);
     } else {
@@ -149,6 +168,7 @@ class Select extends React.Component {
       searchLabel,
       searchId,
       selected,
+      selectAll,
       ...attributes
     } = this.props;
 
@@ -175,6 +195,8 @@ class Select extends React.Component {
             searchLabel={searchLabel}
             selected={selected}
             selectOption={this.selectOption}
+            selectAll={selectAll}
+            allChecked={this.state.allChecked}
           />
         </div>
       );

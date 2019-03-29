@@ -27,10 +27,10 @@ class ControlledSelectOptions extends Component {
   search = value => {
     const filteredOptions = this.state.options.filter(option => {
       if(option.text) {
-        return option.text.toLowerCase().match(value.toLowerCase())
+        return option.text.toLowerCase().match(value.toLowerCase().trim())
       }
       else {
-        return option.value.toLowerCase().match(value.toLowerCase())
+        return option.value.toLowerCase().match(value.toLowerCase().trim())
       }
     });
 
@@ -38,7 +38,7 @@ class ControlledSelectOptions extends Component {
   };
 
   render() {
-    const { multiple, search, searchLabel, searchId, selected, selectOption } = this.props;
+    const { multiple, search, searchLabel, searchId, selected, selectOption, selectAll } = this.props;
 
     const classes = classNames(
       "dropdown-content",
@@ -62,6 +62,19 @@ class ControlledSelectOptions extends Component {
           icon={null}
           value={selected}
         />
+        {
+          selectAll && multiple && this.state.filteredOptions.length > 1
+          ? 
+            <ControlledSelectOption 
+              text="Select All" 
+              value="0"
+              checked={this.props.allChecked}
+              multiple={true}
+              selectOption={selectOption}
+            /> 
+          : 
+            null
+        }
         {this.state.filteredOptions.map((option, index) => (
           <ControlledSelectOption
             key={`${option.value}-${index}`}
