@@ -62,7 +62,7 @@ class SideNavNav extends React.Component {
                   {modified}
                   {slimInitial && (
                     <li onClick={toggleSlim()}>
-                      <a className="waves-effect">
+                      <a href="#!" className="waves-effect">
                         <i className={iconClass.join(" ")}></i>
                         Minimize
                             menu
