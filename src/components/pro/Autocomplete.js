@@ -7,7 +7,7 @@ class Autocomplete extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
+      value: props.value || props.valueDefault,
       suggestions: [],
       choosed: false,
       filteredSuggestions: [],
@@ -22,6 +22,12 @@ class Autocomplete extends Component {
     window.addEventListener('click', this.outsideClickHandler)
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    (prevState.value !== this.state.value) && this.props.getValue && this.props.getValue(this.state.value);
+
+    prevProps.value !== this.props.value && this.setState({ value: this.props.value });
+  }
+  
   componentWillUnmount() {
     window.removeEventListener('click', this.outsideClickHandler);
   }
@@ -33,17 +39,16 @@ class Autocomplete extends Component {
   filterRepeated = data => data.filter((el, index) => data.indexOf(el) === index);
 
   handleInput = e => {
+    let { value } = e.target;
+
     this.setState({
+      value,
       choosed: false,
       focusedListItem: 0
     });
 
-    let { value } = e.target;
-
-    this.setState({ value })
-
     if (value !== '') {
-      this.setSuggestions(value)
+      this.setSuggestions(value);
     }
   }
 
@@ -63,8 +68,6 @@ class Autocomplete extends Component {
         focusedListItem: 0,
         choosed: true,
       });
-
-      this.props.getValue && this.props.getValue(value);
     }
   }
 
@@ -107,11 +110,10 @@ class Autocomplete extends Component {
       iconLight,
       iconRegular,
       iconSize,
-      iconClassName,
       size,
       labelClass,
       placeholder,
-      ...attributes
+      valueDefault
     } = this.props;
 
     const btnStyles = classNames(
@@ -127,7 +129,7 @@ class Autocomplete extends Component {
           iconBrand={iconBrand}
           iconLight={iconLight}
           iconRegular={iconRegular}
-          iconClass={iconClassName}
+          iconClass={iconClass}
           id={id}
           className={className}
           label={label}
@@ -135,10 +137,10 @@ class Autocomplete extends Component {
           hint={placeholder}
           disabled={disabled}
           value={value}
+          valueDefault={valueDefault}
           onChange={this.handleInput}
           onKeyDown={this.keyDownHandler}
           size={size}
-          {...attributes}
         >
           {
             clear && value &&
@@ -202,7 +204,8 @@ Autocomplete.propTypes = {
   iconSize: PropTypes.string,
   iconClassName: PropTypes.string,
   placeholder: PropTypes.string,
-  search: PropTypes.func
+  search: PropTypes.func,
+  valueDefault: PropTypes.string,
 };
 
 Autocomplete.defaultProps = {
@@ -222,7 +225,8 @@ Autocomplete.defaultProps = {
   iconLight: false,
   iconRegular: false,
   iconClassName: "",
-  placeholder: ""
+  placeholder: "",
+  valueDefault: ""
 };
 
 export default Autocomplete;
