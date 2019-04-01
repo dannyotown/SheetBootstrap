@@ -1,14 +1,12 @@
-import React, { Component, Fragment, PureComponent } from 'react';
+import React, { Component, Fragment, useState, useEffect, PureComponent } from 'react';
 import PropTypes, { PropTypes as PropTypes$1 } from 'prop-types';
 import classNames from 'classnames';
 import { Transition, CSSTransition } from 'react-transition-group';
-import ReactDOM, { findDOMNode } from 'react-dom';
-import { Popper, Target, Manager, Arrow } from 'react-popper';
+import ReactDOM from 'react-dom';
+import { Popper, Reference, Manager } from 'react-popper';
 import NumericInput from 'react-numeric-input';
 import { NavLink } from 'react-router-dom';
-import outy from 'outy';
 export { cssTransition, toast, ToastContainer } from 'react-toastify';
-import Autosuggest from 'react-autosuggest';
 import MomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 import moment from 'moment';
@@ -188,6 +186,10 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+}
+
 function _toConsumableArray(arr) {
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
 }
@@ -200,12 +202,46 @@ function _arrayWithoutHoles(arr) {
   }
 }
 
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
 function _iterableToArray(iter) {
   if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
 }
 
+function _iterableToArrayLimit(arr, i) {
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
 function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
 }
 
 var Animation =
@@ -220,7 +256,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Animation).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "updatePredicate", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updatePredicate", function () {
       var windowHeight = window.innerHeight;
       var scroll = window.scrollY;
       var docHeight = document.documentElement.offsetHeight;
@@ -244,7 +280,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleStart", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleStart", function (e) {
       _this.setState({
         countIterations: _this.state.countIterations + 1
       });
@@ -254,7 +290,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleIteration", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleIteration", function (e) {
       if (_this.props.onAnimationIteration) {
         _this.setState({
           countIterations: _this.state.countIterations + 1
@@ -264,7 +300,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleEnd", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleEnd", function (e) {
       _this.setState({
         countIterations: _this.state.countIterations + 1
       });
@@ -274,7 +310,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getOffset", function (elem) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getOffset", function (elem) {
       var box = elem.getBoundingClientRect();
       var body = document.body;
       var docEl = document.documentElement;
@@ -390,22 +426,22 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Alert)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       isOpen: true
     });
 
-    _defineProperty(_assertThisInitialized(_this), "closeAlert", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "closeAlert", function () {
       _this.setState({
         isOpen: false
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOnExit", function (node) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOnExit", function (node) {
       node.classList.add("fade");
       _this.props.onClose && _this.props.onClose();
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOnExited", function (node) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOnExited", function (node) {
       _this.props.onClosed && _this.props.onClosed();
     });
 
@@ -880,7 +916,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Button).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (e) {
       e.stopPropagation(); // Waves - Get Cursor Position
 
       var cursorPos = {
@@ -1800,14 +1836,14 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Carousel).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "restartInterval", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "restartInterval", function () {
       if (_this.props.interval !== false) {
         clearInterval(_this.cycleInterval);
         _this.cycleInterval = setInterval(_this.next, _this.props.interval);
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "next", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "next", function () {
       var nextItem = _this.state.activeItem + 1;
 
       if (nextItem > _this.state.length) {
@@ -1823,7 +1859,7 @@ function (_Component) {
       _this.restartInterval();
     });
 
-    _defineProperty(_assertThisInitialized(_this), "prev", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "prev", function () {
       var prevItem = _this.state.activeItem - 1;
 
       if (prevItem < 1) {
@@ -1839,7 +1875,7 @@ function (_Component) {
       _this.restartInterval();
     });
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentDidMount", function () {
       if (_this.props.interval === false) {
         return;
       }
@@ -2109,9 +2145,9 @@ function (_Component) {
     _classCallCheck(this, CarouselItem);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(CarouselItem).call(this, props));
-    _this.moveForward = _this.moveForward.bind(_assertThisInitialized(_this));
-    _this.moveBackwards = _this.moveBackwards.bind(_assertThisInitialized(_this));
-    _this.makeVisible = _this.makeVisible.bind(_assertThisInitialized(_this));
+    _this.moveForward = _this.moveForward.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.moveBackwards = _this.moveBackwards.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.makeVisible = _this.makeVisible.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -2270,7 +2306,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Collapse).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "openCollapse", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "openCollapse", function () {
       _this.setState({
         collapse: SHOW
       }, function () {
@@ -2287,7 +2323,7 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "closeCollapse", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "closeCollapse", function () {
       _this.setState({
         height: _this.getHeight()
       }, function () {
@@ -2962,7 +2998,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Input).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "onBlur", function (event) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onBlur", function (event) {
       event.stopPropagation();
 
       _this.setState({
@@ -2972,7 +3008,7 @@ function (_React$Component) {
       _this.props.onBlur && _this.props.onBlur(event);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onFocus", function (event) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onFocus", function (event) {
       event.stopPropagation();
 
       _this.setState({
@@ -2982,7 +3018,7 @@ function (_React$Component) {
       _this.props.onFocus && _this.props.onFocus(event);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onChange", function (event) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (event) {
       event.stopPropagation();
 
       if (_this.props.type !== "checkbox" && _this.props.type !== "radio") {
@@ -2996,7 +3032,7 @@ function (_React$Component) {
       _this.props.getValue && _this.props.getValue(event.target.value);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onInput", function (event) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onInput", function (event) {
       event.stopPropagation();
 
       if (_this.props.type !== "checkbox" && _this.props.type !== "radio") {
@@ -3007,10 +3043,9 @@ function (_React$Component) {
       }
 
       _this.props.onInput && _this.props.onInput(event);
-      _this.props.getValue && _this.props.getValue(event.target.value);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "setFocus", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setFocus", function () {
       _this.inputElementRef.current.focus();
     });
 
@@ -3101,7 +3136,8 @@ function (_React$Component) {
         value: this.state.innerValue,
         onBlur: this.onBlur,
         onChange: this.onChange,
-        onInput: this.onInput
+        onInput: this.onInput,
+        onFocus: this.onFocus
       })), label && React.createElement("label", {
         className: labelClassFix,
         htmlFor: id,
@@ -3195,8 +3231,9 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
       multiple = _ref.multiple,
       selectOption = _ref.selectOption,
       text = _ref.text,
-      value = _ref.value;
-  var classes = classNames(disabled && "disabled", checked && "active");
+      value = _ref.value,
+      separator = _ref.separator;
+  var classes = classNames((disabled || separator) && "disabled", separator && 'optgroup', checked && "active");
   return React.createElement("li", {
     "data-multiple": multiple,
     className: classes,
@@ -3217,7 +3254,7 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
     checked: checked,
     disabled: disabled,
     onChange: function onChange() {}
-  }), React.createElement("label", {
+  }), !separator && React.createElement("label", {
     style: {
       height: "10px"
     },
@@ -3228,6 +3265,7 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
 ControlledSelectOption.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
+  separator: PropTypes.bool,
   icon: PropTypes.string,
   multiple: PropTypes.bool,
   selectOption: PropTypes.func,
@@ -3247,7 +3285,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ControlledSelectOptions).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "search", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "search", function (value) {
       var filteredOptions = _this.state.options.filter(function (option) {
         if (option.text) {
           return option.text.toLowerCase().match(value.toLowerCase());
@@ -3311,6 +3349,7 @@ function (_Component) {
           icon: option.icon,
           text: option.text,
           value: option.value,
+          separator: option.separator,
           selectOption: selectOption
         });
       }));
@@ -3326,6 +3365,7 @@ ControlledSelectOptions.propTypes = {
   multiple: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.shape({
     checked: PropTypes.bool,
+    separator: PropTypes.bool,
     disabled: PropTypes.bool,
     icon: PropTypes.string,
     text: PropTypes.string,
@@ -3357,7 +3397,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "computeValuesAndText", function (options) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "computeValuesAndText", function (options) {
       var checkedOptions = options.filter(function (option) {
         return option.checked;
       }).map(function (option) {
@@ -3379,13 +3419,13 @@ function (_React$Component) {
       };
     });
 
-    _defineProperty(_assertThisInitialized(_this), "renderPreselectedOptions", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderPreselectedOptions", function () {
       return _this.setState(function (prevState) {
         return _this.computeValuesAndText(_toConsumableArray(prevState.options));
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "triggerOptionChange", function (value, text) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "triggerOptionChange", function (value, text) {
       Array.isArray(text) && (text = text.join(", "));
 
       _this.setState({
@@ -3394,7 +3434,7 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onClick", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClick", function (e) {
       if (e.target.dataset.multiple === "true" || e.target.dataset.search === "true") return;
 
       _this.closeDropdowns();
@@ -3402,14 +3442,14 @@ function (_React$Component) {
       e.target.nextElementSibling && e.target.nextElementSibling.classList.add("fadeIn");
     });
 
-    _defineProperty(_assertThisInitialized(_this), "closeDropdowns", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "closeDropdowns", function () {
       var dropdowns = document.querySelectorAll(".dropdown-content");
       dropdowns.forEach(function (dropdown) {
         return dropdown.classList.contains("fadeIn") && dropdown.classList.remove("fadeIn");
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "selectOneOption", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectOneOption", function (value) {
       _this.setState(function (prevState) {
         var options = _toConsumableArray(prevState.options);
 
@@ -3428,7 +3468,7 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "selectMultipleOptions", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectMultipleOptions", function (value) {
       _this.setState(function (prevState) {
         var options = _toConsumableArray(prevState.options);
 
@@ -3440,7 +3480,7 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "selectOption", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectOption", function (value) {
       if (_this.props.multiple) {
         _this.selectMultipleOptions(value);
       } else {
@@ -3448,7 +3488,7 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "returnComponentContent", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "returnComponentContent", function () {
       var _this$props = _this.props,
           className = _this$props.className,
           color = _this$props.color,
@@ -3640,7 +3680,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Options).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "search", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "search", function (value) {
       _this.state.options.forEach(function (option) {
         if (!option.children[0].innerText.toLowerCase().includes(value.toLowerCase())) {
           option.style.display = 'none';
@@ -3725,7 +3765,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Option).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "selectOption", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectOption", function () {
       if (!_this.props.disabled) {
         var selectedOption = _this.optionRef.current;
         var value = [];
@@ -3804,12 +3844,13 @@ function (_React$Component) {
           className = _this$props.className,
           children = _this$props.children,
           disabled = _this$props.disabled,
+          separator = _this$props.separator,
           icon = _this$props.icon,
           triggerOptionClick = _this$props.triggerOptionClick,
           value = _this$props.value,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "disabled", "icon", "triggerOptionClick", "value"]);
+          attributes = _objectWithoutProperties(_this$props, ["className", "children", "disabled", "separator", "icon", "triggerOptionClick", "value"]);
 
-      var classes = classNames(disabled ? "disabled" : "", className);
+      var classes = classNames(disabled || separator ? "disabled" : "", separator ? "optgroup" : "", className);
       var input = null;
       var label = null;
 
@@ -3851,14 +3892,17 @@ function (_React$Component) {
         "data-multiple": this.state.multiple,
         className: classes,
         onClick: this.selectOption
-      }), icon && React.createElement("img", {
+      }), React.createElement("span", {
+        "data-multiple": this.state.multiple,
+        className: "filtrable",
+        style: {
+          display: "inline-block"
+        }
+      }, !separator ? input : null, label, children), icon && React.createElement("img", {
         src: this.props.icon,
         alt: "icon",
         className: "rounded-circle"
-      }), React.createElement("span", {
-        "data-multiple": this.state.multiple,
-        className: "filtrable"
-      }, input, label, children));
+      }));
     }
   }]);
 
@@ -3872,13 +3916,15 @@ Option.propTypes = {
   disabled: PropTypes.bool,
   icon: PropTypes.string,
   triggerOptionClick: PropTypes.func,
-  value: PropTypes.any
+  value: PropTypes.any,
+  separator: PropTypes.bool
 };
 Option.defaultProps = {
   children: "span",
   checked: false,
   className: "",
   disabled: false,
+  separator: false,
   icon: "",
   triggerOptionClick: function triggerOptionClick() {},
   value: ""
@@ -3923,13 +3969,14 @@ import DataTableSelect from './DataTableSelect';
 
 var DataTableEntries = function DataTableEntries(props) {
   var handleEntriesChange = props.handleEntriesChange,
+      displayEntries = props.displayEntries,
       entries = props.entries,
       entriesArr = props.entriesArr,
       paging = props.paging,
       label = props.label;
   return React.createElement("div", {
     className: "col-sm-12 col-md-6"
-  }, paging && React.createElement(DataTableSelect, {
+  }, paging && displayEntries && React.createElement(DataTableSelect, {
     value: entries,
     onChange: handleEntriesChange,
     entries: entriesArr,
@@ -3939,6 +3986,7 @@ var DataTableEntries = function DataTableEntries(props) {
 
 DataTableEntries.propTypes = {
   handleEntriesChange: PropTypes.func.isRequired,
+  displayEntries: PropTypes.bool.isRequired,
   entries: PropTypes.number.isRequired,
   entriesArr: PropTypes.arrayOf(PropTypes.number).isRequired,
   paging: PropTypes.bool.isRequired,
@@ -4167,7 +4215,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DataTablePagination).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidUpdate", function (prevProps) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentDidUpdate", function (prevProps) {
       if (prevProps.pages !== _this.props.pages) {
         _this.setState({
           pages: _this.props.pages
@@ -4177,7 +4225,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "pagesIndexify", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "pagesIndexify", function () {
       var mutablePages = _toConsumableArray(_this.state.pages);
 
       mutablePages.forEach(function (page, index) {
@@ -4186,7 +4234,7 @@ function (_Component) {
       return mutablePages;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "groupPages", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "groupPages", function () {
       var pGroups = [];
 
       var pages = _this.pagesIndexify();
@@ -4200,7 +4248,7 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "choosePagesGroup", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "choosePagesGroup", function () {
       var pGroupNumber = Math.floor(_this.props.activePage / _this.props.pagesAmount);
       return _this.state.pGroups.length ? _this.state.pGroups[pGroupNumber] : [];
     });
@@ -4284,7 +4332,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ExportToCSV).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "computeDataToLink", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "computeDataToLink", function () {
       _this.setState(function (prevState) {
         return {
           href: encodeURI("data:text/csv;charset=utf-8," + [prevState.columns.map(function (col) {
@@ -4391,7 +4439,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DataTable).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "fetchData", function (link) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "fetchData", function (link) {
       fetch(link).then(function (res) {
         return res.json();
       }).then(function (json) {
@@ -4405,7 +4453,7 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "paginateRowsInitialy", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "paginateRowsInitialy", function () {
       // findout how many pages there are need to be, then slice rows into pages
       var pagesAmount = Math.ceil(_this.state.rows.length / _this.state.entries);
 
@@ -4416,7 +4464,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleEntriesChange", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleEntriesChange", function (value) {
       _this.setState({
         entries: Array.isArray(value) ? value[0] : value
       }, function () {
@@ -4424,7 +4472,7 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSearchChange", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchChange", function (e) {
       _this.setState({
         search: e.target.value
       }, function () {
@@ -4432,7 +4480,7 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleSort", function (field, sort) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSort", function (field, sort) {
       if (sort !== "disabled") {
         _this.setState(function (prevState) {
           // asc by default
@@ -4462,7 +4510,7 @@ function (_Component) {
       } else return;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "filterRows", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "filterRows", function () {
       _this.setState(function (prevState) {
         var filteredRows = prevState.rows.filter(function (row) {
           for (var key in row) {
@@ -4487,7 +4535,7 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "paginateRows", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "paginateRows", function () {
       // findout how many pages there are need to be, then slice rows into pages
       var pagesAmount = Math.ceil(_this.state.filteredRows.length / _this.state.entries);
 
@@ -4510,13 +4558,13 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "changeActivePage", function (page) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "changeActivePage", function (page) {
       _this.setState({
         activePage: page
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleTableBodyScroll", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleTableBodyScroll", function (e) {
       _this.setState({
         translateScrollHead: e.target.scrollLeft
       });
@@ -4582,6 +4630,7 @@ function (_Component) {
           children = _this$props.children,
           dark = _this$props.dark,
           data = _this$props.data,
+          displayEntries = _this$props.displayEntries,
           entriesOptions = _this$props.entriesOptions,
           entriesLabel = _this$props.entriesLabel,
           exportToCSV = _this$props.exportToCSV,
@@ -4610,7 +4659,7 @@ function (_Component) {
           tbodyTextWhite = _this$props.tbodyTextWhite,
           theadColor = _this$props.theadColor,
           theadTextWhite = _this$props.theadTextWhite,
-          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "children", "dark", "data", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite"]);
+          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite"]);
 
       var _this$state = this.state,
           columns = _this$state.columns,
@@ -4626,6 +4675,7 @@ function (_Component) {
         className: "row"
       }, React.createElement(DataTableEntries, {
         paging: paging,
+        displayEntries: displayEntries,
         entries: entries,
         handleEntriesChange: this.handleEntriesChange,
         entriesArr: entriesOptions,
@@ -4726,6 +4776,7 @@ DataTable.propTypes = {
   children: PropTypes.node,
   dark: PropTypes.bool,
   data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  displayEntries: PropTypes.bool,
   entries: PropTypes.number,
   entriesLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
   entriesOptions: PropTypes.arrayOf(PropTypes.number),
@@ -4763,6 +4814,7 @@ DataTable.defaultProps = {
   btn: false,
   dark: false,
   data: {},
+  displayEntries: true,
   entries: 10,
   entriesLabel: "Show entries",
   entriesOptions: [10, 20, 50, 100],
@@ -4823,8 +4875,8 @@ function (_React$Component) {
     _classCallCheck(this, DropdownItem);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DropdownItem).call(this, props));
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
-    _this.getTabIndex = _this.getTabIndex.bind(_assertThisInitialized(_this));
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.getTabIndex = _this.getTabIndex.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -4904,17 +4956,15 @@ DropdownItem.contextTypes = contextTypes;
 var css$6 = ".dropup .dropdown-menu {\n  top: auto !important;\n  bottom: 100% !important;\n  transform: translate3d(5px, 5px, 0px) !important;\n}\n\n.dropdown-menu-right {\n  left: 0 !important;\n  right: auto !important;\n}\n";
 styleInject(css$6);
 
-var DropdownMenuProComponent = function DropdownMenuProComponent(props) {
-  var isOpen = props.isOpen,
-      d_tag = props.d_tag,
-      d_tabIndex = props.d_tabIndex,
-      d_role = props.d_role,
-      d_attributes = props.d_attributes,
-      d_aria = props.d_aria,
-      d_classes = props.d_classes,
-      d_key = props.d_key,
-      children = props.children;
-  var Tag = d_tag;
+var DropdownMenuProComponent = function DropdownMenuProComponent(_ref) {
+  var isOpen = _ref.isOpen,
+      Tag = _ref.tag,
+      tabIndex = _ref.tabIndex,
+      role = _ref.role,
+      attributes = _ref.attributes,
+      aria = _ref.aria,
+      d_key = _ref.d_key,
+      children = _ref.children;
   return React.createElement(CSSTransition, {
     in: isOpen,
     appear: isOpen,
@@ -4925,28 +4975,23 @@ var DropdownMenuProComponent = function DropdownMenuProComponent(props) {
       exit: 300
     }
   }, React.createElement(Tag, _extends({
-    tabIndex: d_tabIndex,
-    role: d_role
-  }, d_attributes, {
-    "aria-hidden": d_aria,
-    className: d_classes,
+    tabIndex: tabIndex,
+    role: role
+  }, attributes, {
+    "aria-hidden": aria,
     key: d_key
   }), children));
 };
 
 DropdownMenuProComponent.propTypes = {
-  d_aria: PropTypes.bool.isRequired,
-  d_attributes: PropTypes.object.isRequired,
+  aria: PropTypes.bool.isRequired,
+  attributes: PropTypes.object.isRequired,
   d_key: PropTypes.string.isRequired,
-  d_role: PropTypes.string.isRequired,
-  d_tabIndex: PropTypes.string.isRequired,
-  d_tag: PropTypes.any.isRequired,
+  role: PropTypes.string.isRequired,
+  tabIndex: PropTypes.string.isRequired,
+  tag: PropTypes.any.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-  d_classes: PropTypes.string
-};
-DropdownMenuProComponent.defaultProps = {
-  d_classes: ""
+  children: PropTypes.node.isRequired
 };
 
 /*
@@ -4977,6 +5022,8 @@ function (_Component) {
   _createClass(DropdownMenu, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       var _this$props = this.props,
           basic = _this$props.basic,
           className = _this$props.className,
@@ -4995,7 +5042,6 @@ function (_Component) {
       var Tag = tag;
 
       if (this.context.isOpen) {
-        Tag = Popper;
         var position1 = this.context.dropup ? 'top' : 'bottom';
         var position2 = right ? 'end' : 'start';
         attrs.placement = "".concat(position1, "-").concat(position2);
@@ -5003,16 +5049,31 @@ function (_Component) {
         attrs.modifiers = !flip ? noFlipModifier : undefined;
       }
 
-      return React.createElement(DropdownMenuProComponent, {
-        isOpen: this.context.isOpen,
-        d_tag: Tag,
-        d_tabIndex: "-1",
-        d_role: "menu",
-        d_attributes: attrs,
-        d_aria: !this.context.isOpen,
-        d_classes: classes,
-        d_key: "dropDownMenu"
-      }, children);
+      return React.createElement(Popper, {
+        modifires: attrs.modifiers,
+        eventsEnabled: true,
+        positionFixed: false,
+        placement: attrs.placement
+      }, function (_ref) {
+        var placement = _ref.placement,
+            ref = _ref.ref,
+            style = _ref.style;
+        return React.createElement(Tag, {
+          ref: ref,
+          style: style,
+          "data-placement": placement,
+          className: classes
+        }, React.createElement(DropdownMenuProComponent, {
+          isOpen: _this.context.isOpen,
+          tag: Tag,
+          tabIndex: "-1",
+          role: "menu",
+          attributes: attrs,
+          aria: !_this.context.isOpen,
+          d_key: "dropDownMenu",
+          color: color
+        }, children));
+      });
     }
   }]);
 
@@ -5052,7 +5113,7 @@ function (_React$Component) {
     _classCallCheck(this, DropdownToggle);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DropdownToggle).call(this, props));
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -5077,6 +5138,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           className = _this$props.className,
           color = _this$props.color,
@@ -5105,12 +5168,20 @@ function (_React$Component) {
         Tag = tag;
       }
 
-      return React.createElement(Target, _extends({}, props, {
-        className: classes,
-        component: Tag,
-        onClick: this.onClick,
-        "aria-expanded": this.context.isOpen
-      }), children);
+      return React.createElement(Reference, null, function (_ref) {
+        var ref = _ref.ref;
+        return tag || nav ? React.createElement(Tag, _extends({}, props, {
+          className: classes,
+          onClick: _this2.onClick,
+          "aria-expanded": _this2.context.isOpen,
+          ref: ref
+        }), children) : React.createElement(Tag, _extends({}, props, {
+          className: classes,
+          onClick: _this2.onClick,
+          "aria-expanded": _this2.context.isOpen,
+          innerRef: ref
+        }), children);
+      });
     }
   }]);
 
@@ -5335,7 +5406,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(HamburgerToggler)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       checked: _this.props.isOpen || false
     });
 
@@ -5403,7 +5474,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(InputNumeric)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "onChangeHandler", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChangeHandler", function (value) {
       _this.props.getValue && _this.props.getValue(value);
     });
 
@@ -5673,19 +5744,19 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Modal)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       isOpen: _this.props.isOpen || false
     });
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentDidMount", function () {
       document.body.classList.add("modal-open");
     });
 
-    _defineProperty(_assertThisInitialized(_this), "componentWillUnmount", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentWillUnmount", function () {
       document.body.classList.remove("modal-open");
     });
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidUpdate", function (prevProps, prevState) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentDidUpdate", function (prevProps, prevState) {
       if (prevState.isOpen !== _this.props.isOpen) {
         _this.setState({
           isOpen: _this.props.isOpen
@@ -5693,7 +5764,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOnEntered", function (type, node) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOnEntered", function (type, node) {
       if (type === "backdrop" && _this.props.fade === false) {
         return;
       }
@@ -5706,7 +5777,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOnExit", function (type, node) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOnExit", function (type, node) {
       if (type === "backdrop" && _this.props.fade === false) {
         return;
       }
@@ -5718,11 +5789,11 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOnExited", function (node) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOnExited", function (node) {
       _this.props.hiddenModal && _this.props.hiddenModal();
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleBackdropClick", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBackdropClick", function (e) {
       if (!_this.props.backdrop) return;
 
       if (!_this.modalContent.contains(e.target)) {
@@ -5730,7 +5801,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleEscape", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleEscape", function (e) {
       if (e.keyCode === 27) {
         e.preventDefault();
 
@@ -6074,7 +6145,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "handleScroll", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleScroll", function () {
       var scrollingNavbarOffset = _this.props.scrollingNavbarOffset || 50;
 
       if (window.pageYOffset > scrollingNavbarOffset) {
@@ -6337,7 +6408,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(NavLink$$1).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (e) {
       if (!_this.props.disabled) {
         e.stopPropagation(); // Waves - Get Cursor Position
 
@@ -6398,183 +6469,179 @@ NavLink$1.defaultProps = {
   disabled: false
 };
 
-var css$8 = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter, .side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active, .side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter, .right-side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active, .right-side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n\n.side-nav[data-animate=\"false\"]{\n  transform: translateX(0%);\n}\n\n\n.side-nav.wide {\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n}\n\n\n.side-nav.wide.slim {\n    width: 3.75rem;\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n    right: 3.75rem;\n}\n\n.right-aligned.side-nav.wide.slim {\n    right: 0;\n}\n\n\n";
-styleInject(css$8);
+var Popper$1 = function Popper$$1(_ref) {
+  var children = _ref.children,
+      clickable = _ref.clickable,
+      domElement = _ref.domElement,
+      modifiers = _ref.modifiers,
+      id = _ref.id,
+      isVisible = _ref.isVisible,
+      onChange = _ref.onChange,
+      placement = _ref.placement,
+      popover = _ref.popover,
+      style = _ref.style,
+      tag = _ref.tag;
 
-var Popover =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Popover, _React$Component);
+  var _useState = useState(isVisible),
+      _useState2 = _slicedToArray(_useState, 2),
+      visible = _useState2[0],
+      setVisible = _useState2[1];
 
-  function Popover(props) {
-    var _this;
-
-    _classCallCheck(this, Popover);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Popover).call(this, props));
-    _this.state = {
-      isOpen: false
+  useEffect(function () {
+    setVisible(isVisible);
+  }, [isVisible]);
+  useEffect(function () {
+    onChange && onChange(visible);
+  }, [visible]);
+  useEffect(function () {
+    window.addEventListener('click', handleClick);
+    return function () {
+      return window.removeEventListener('click', handleClick);
     };
-    _this._handleTargetClick = _this._handleTargetClick.bind(_assertThisInitialized(_this));
-    _this._setOusideTap = _this._setOusideTap.bind(_assertThisInitialized(_this));
-    _this._handleOutsideTap = _this._handleOutsideTap.bind(_assertThisInitialized(_this));
-    return _this;
+  }, []);
+
+  function handleClick(e) {
+    var element = document.elementsFromPoint(e.clientX, e.clientY).find(function (el) {
+      return el.dataset.popper === id;
+    });
+    if (element) return;
+    setVisible(false);
   }
 
-  _createClass(Popover, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this._setOusideTap();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(lastProps, lastState) {
-      var _this2 = this;
-
-      if (lastState.isOpen !== this.state.isOpen) {
-        setTimeout(function () {
-          return _this2._setOusideTap();
-        });
-      }
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.outsideTap.remove();
-    }
-  }, {
-    key: "_setOusideTap",
-    value: function _setOusideTap() {
-      var elements = [this.target];
-
-      if (this.popper) {
-        elements.push(this.popper);
-      }
-
-      if (this.outsideTap) {
-        this.outsideTap.remove();
-      }
-
-      this.outsideTap = outy(elements, ["click", "touchstart"], this._handleOutsideTap);
-    }
-  }, {
-    key: "_handleOutsideTap",
-    value: function _handleOutsideTap() {
-      this.setState({
-        isOpen: false
-      });
-    }
-  }, {
-    key: "_handleTargetClick",
-    value: function _handleTargetClick() {
-      this.setState({
-        isOpen: !this.state.isOpen
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      var _this$props = this.props,
-          placement = _this$props.placement,
-          component = _this$props.component,
-          componentStyle = _this$props.componentStyle,
-          className = _this$props.className,
-          children = _this$props.children,
-          componentPopover = _this$props.componentPopover,
-          popoverBody = _this$props.popoverBody,
-          popoverClass = _this$props.popoverClass,
-          arrowClass = _this$props.arrowClass,
-          tag = _this$props.tag;
-      var classes = classNames(className);
-      var popoverClasses = classNames("popover", placement ? "bs-popover-" + placement : "", popoverClass);
-      var arrowClasses = classNames("arrow", arrowClass);
-      return React.createElement(Manager, {
-        tag: tag
-      }, React.createElement(Target, {
-        innerRef: function innerRef(c) {
-          return _this3.target = findDOMNode(c);
-        },
-        component: component,
-        style: componentStyle,
-        className: classes,
-        onClick: this._handleTargetClick
-      }, popoverBody), React.createElement(CSSTransition, {
-        in: this.state.isOpen,
-        appear: this.state.isOpen,
-        classNames: "popover",
-        unmountOnExit: true,
-        timeout: {
-          enter: 300,
-          exit: 300
-        }
-      }, React.createElement(Popper, {
-        key: "popover",
-        component: componentPopover,
-        innerRef: function innerRef(c) {
-          _this3.popper = findDOMNode(c);
-        },
-        placement: placement,
-        className: popoverClasses,
-        onClick: this._handleTargetClick
-      }, children, React.createElement(Arrow, {
-        className: arrowClasses
-      }))));
-    }
-  }]);
-
-  return Popover;
-}(React.Component);
-
-Popover.propTypes = {
-  placement: PropTypes.string,
-  component: PropTypes.string,
-  componentStyle: PropTypes.string,
-  componentPopover: PropTypes.string,
-  popoverBody: PropTypes.string,
-  arrowClass: PropTypes.string,
-  popoverClass: PropTypes.string,
-  children: PropTypes.node,
-  tag: PropTypes.string,
-  className: PropTypes.string
+  var Wrapper = children[0];
+  var Content = children[1];
+  var Tag = tag;
+  var tooltipClasses = classNames("fade", popover ? "popover bs-popover-".concat(placement, " popover-enter-done") : "tooltip bs-tooltip-".concat(placement), visible ? "show" : "");
+  var contentClasses = classNames(!popover && "tooltip-inner");
+  return React.createElement(Manager, null, React.createElement(Reference, null, function (_ref2) {
+    var ref = _ref2.ref;
+    return !domElement ? React.createElement(Wrapper.type, _extends({}, Wrapper.props, {
+      onMouseEnter: function onMouseEnter() {
+        return !clickable && setVisible(true);
+      },
+      onMouseLeave: function onMouseLeave() {
+        return !clickable && setVisible(false);
+      },
+      onTouchStart: function onTouchStart() {
+        return !clickable && setVisible(true);
+      },
+      onTouchEnd: function onTouchEnd() {
+        return !clickable && setVisible(false);
+      },
+      onClick: function onClick() {
+        return clickable && setVisible(!visible);
+      },
+      innerRef: ref,
+      "data-popper": id
+    })) : React.createElement(Wrapper.type, _extends({}, Wrapper.props, {
+      onMouseEnter: function onMouseEnter() {
+        return !clickable && setVisible(true);
+      },
+      onMouseLeave: function onMouseLeave() {
+        return !clickable && setVisible(false);
+      },
+      onTouchStart: function onTouchStart() {
+        return !clickable && setVisible(true);
+      },
+      onTouchEnd: function onTouchEnd() {
+        return !clickable && setVisible(false);
+      },
+      onClick: function onClick() {
+        return clickable && setVisible(!visible);
+      },
+      ref: ref,
+      "data-popper": id
+    }));
+  }), visible && React.createElement(Tag, {
+    style: style
+  }, React.createElement(Popper, {
+    modifiers: modifiers,
+    eventsEnabled: true,
+    positionFixed: false,
+    placement: placement
+  }, function (_ref3) {
+    var placement = _ref3.placement,
+        ref = _ref3.ref,
+        style = _ref3.style,
+        arrowProps = _ref3.arrowProps;
+    return React.createElement(Tag, {
+      ref: ref,
+      style: style,
+      "data-placement": placement,
+      className: tooltipClasses,
+      "data-popper": id
+    }, React.createElement(Content.type, _extends({}, Content.props, {
+      className: contentClasses
+    }), Content.props.children), React.createElement("span", {
+      ref: arrowProps.ref,
+      style: arrowProps.style,
+      "data-placement": placement,
+      className: "arrow"
+    }));
+  })));
 };
 
-var PopoverBody = function PopoverBody(props) {
-  var className = props.className,
-      Tag = props.tag,
-      attributes = _objectWithoutProperties(props, ["className", "tag"]);
+Popper$1.propTypes = {
+  children: PropTypes.node,
+  clickable: PropTypes.bool,
+  domElement: PropTypes.bool,
+  modifiers: PropTypes.object,
+  id: PropTypes.string,
+  isVisible: PropTypes.bool,
+  placement: PropTypes.string,
+  style: PropTypes.objectOf(PropTypes.string),
+  tag: PropTypes.string
+};
+Popper$1.defaultProps = {
+  clickable: false,
+  domElement: false,
+  id: 'popper',
+  isVisible: false,
+  placement: 'top',
+  style: {
+    display: 'inline-block'
+  },
+  tag: 'div'
+};
 
-  var classes = classNames("popover-body", className);
+var PopoverBody = function PopoverBody(_ref) {
+  var attributes = _ref.attributes,
+      children = _ref.children,
+      className = _ref.className,
+      Tag = _ref.tag;
+  var classes = classNames('popover-body', className);
   return React.createElement(Tag, _extends({}, attributes, {
     className: classes
-  }));
+  }), children);
 };
 
 PopoverBody.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 PopoverBody.defaultProps = {
   tag: "div"
 };
 
-var PopoverHeader = function PopoverHeader(props) {
-  var className = props.className,
-      Tag = props.tag,
-      attributes = _objectWithoutProperties(props, ["className", "tag"]);
-
-  var classes = classNames("popover-header", className);
+var PopoverHeader = function PopoverHeader(_ref) {
+  var attributes = _ref.attributes,
+      children = _ref.children,
+      className = _ref.className,
+      Tag = _ref.tag;
+  var classes = classNames('popover-header', className);
   return React.createElement(Tag, _extends({}, attributes, {
     className: classes
-  }));
+  }), children);
 };
 
 PopoverHeader.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 PopoverHeader.defaultProps = {
+  className: "",
   tag: "h3"
 };
 
@@ -6731,113 +6798,6 @@ TableHead.defaultProps = {
   textWhite: false
 };
 
-var Tooltip =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Tooltip, _React$Component);
-
-  function Tooltip(props) {
-    var _this;
-
-    _classCallCheck(this, Tooltip);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Tooltip).call(this, props));
-    _this.state = {
-      visible: false
-    };
-    _this.show = _this.show.bind(_assertThisInitialized(_this));
-    _this.hide = _this.hide.bind(_assertThisInitialized(_this));
-    _this.setVisibility = _this.setVisibility.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Tooltip, [{
-    key: "show",
-    value: function show() {
-      this.setVisibility(true);
-    }
-  }, {
-    key: "hide",
-    value: function hide() {
-      this.setVisibility(false);
-    }
-  }, {
-    key: "setVisibility",
-    value: function setVisibility(visible) {
-      this.setState(Object.assign({}, this.state, {
-        visible: visible
-      }));
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          placement = _this$props.placement,
-          component = _this$props.component,
-          componentStyle = _this$props.componentStyle,
-          className = _this$props.className,
-          children = _this$props.children,
-          tooltipContent = _this$props.tooltipContent,
-          tooltipClass = _this$props.tooltipClass,
-          arrowClass = _this$props.arrowClass,
-          componentTooltip = _this$props.componentTooltip,
-          componentClass = _this$props.componentClass,
-          wrapperStyle = _this$props.wrapperStyle,
-          tag = _this$props.tag;
-      var classes = classNames(className);
-      var componentClasses = classNames(componentClass);
-      var tooltipClasses = classNames("tooltip fade", placement ? "bs-tooltip-" + placement : "", this.state.visible ? "show" : "", tooltipClass);
-      var wrapperStyles = wrapperStyle ? wrapperStyle : {};
-      var arrowClasses = classNames("arrow", arrowClass);
-      return React.createElement(Manager, {
-        tag: tag,
-        className: classes,
-        style: wrapperStyles
-      }, React.createElement(Target, {
-        component: component,
-        style: componentStyle,
-        className: componentClasses,
-        onMouseEnter: this.show,
-        onMouseLeave: this.hide,
-        onTouchStart: this.show,
-        onTouchEnd: this.hide
-      }, children), this.state.visible && React.createElement(Popper, {
-        placement: placement,
-        component: componentTooltip
-      }, function (_ref) {
-        var popperProps = _ref.popperProps;
-        return React.createElement("div", _extends({}, popperProps, {
-          className: tooltipClasses
-        }), React.createElement("div", {
-          className: "tooltip-inner"
-        }, tooltipContent), React.createElement(Arrow, null, function (_ref2) {
-          var arrowProps = _ref2.arrowProps;
-          return React.createElement("span", _extends({}, arrowProps, {
-            className: arrowClasses
-          }));
-        }));
-      }));
-    }
-  }]);
-
-  return Tooltip;
-}(React.Component);
-
-Tooltip.propTypes = {
-  placement: PropTypes.string,
-  component: PropTypes.string,
-  componentStyle: PropTypes.string,
-  tooltipContent: PropTypes.string,
-  tooltipClass: PropTypes.string,
-  arrowClass: PropTypes.string,
-  componentTooltip: PropTypes.string,
-  componentClass: PropTypes.string,
-  children: PropTypes.node,
-  tag: PropTypes.string,
-  className: PropTypes.string,
-  wrapperStyle: PropTypes.object
-};
-
 var Iframe =
 /*#__PURE__*/
 function (_Component) {
@@ -6856,13 +6816,13 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Iframe)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       width: "",
       height: "",
       ratio: ""
     });
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentDidMount", function () {
       var width = _this.props.width;
       var height = _this.props.height;
       var ratio = 9 / 16;
@@ -6968,7 +6928,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Dropdown).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "toggle", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggle", function () {
       _this.setState({
         isOpen: !_this.state.isOpen
       });
@@ -6977,10 +6937,10 @@ function (_React$Component) {
     _this.state = {
       isOpen: false
     };
-    _this.addEvents = _this.addEvents.bind(_assertThisInitialized(_this));
-    _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_this));
-    _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_this));
-    _this.removeEvents = _this.removeEvents.bind(_assertThisInitialized(_this));
+    _this.addEvents = _this.addEvents.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.removeEvents = _this.removeEvents.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -7108,18 +7068,18 @@ function (_React$Component) {
 
       var _omit = omit(this.props, ["toggle", "disabled"]),
           className = _omit.className,
+          children = _omit.children,
           dropup = _omit.dropup,
           group = _omit.group,
-          size = _omit.size,
-          attrs = _objectWithoutProperties(_omit, ["className", "dropup", "group", "size"]);
+          size = _omit.size;
 
       var classes = classNames((_classNames = {
         "btn-group": group
       }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _classNames), className);
-      return React.createElement(Manager, _extends({}, attrs, {
+      return React.createElement(Manager, null, React.createElement("div", {
         className: classes,
         onKeyDown: this.handleKeyDown
-      }));
+      }, children));
     }
   }]);
 
@@ -7146,23 +7106,6 @@ Dropdown.childContextTypes = {
   dropup: PropTypes.bool.isRequired
 };
 
-var theme = {
-  container: "md-form",
-  containerOpen: "react-autosuggest__container--open",
-  input: "mdb-autocomplete form-control",
-  inputOpen: "react-autosuggest__input--open",
-  inputFocused: "react-autosuggest__input--focused",
-  suggestionsContainer: "react-autosuggest__suggestions-container",
-  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
-  suggestionsList: "mdb-autocomplete-wrap",
-  suggestion: "react-autosuggest__suggestion",
-  suggestionFirst: "react-autosuggest__suggestion--first",
-  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
-  sectionContainer: "react-autosuggest__section-container",
-  sectionContainerFirst: "react-autosuggest__section-container--first",
-  sectionTitle: "react-autosuggest__section-title"
-};
-
 var Autocomplete =
 /*#__PURE__*/
 function (_Component) {
@@ -7175,211 +7118,215 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Autocomplete).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionsFetchRequested", function (_ref) {
-      var value = _ref.value;
-
-      if (_this.props.search) {
-        return;
-      }
-
-      _this.setState({
-        suggestions: _this.getSuggestions(value)
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "outsideClickHandler", function (e) {
+      _this.suggestionsList && e.target !== _this.suggestionsList && _this.setState({
+        choosed: true
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getSuggestions", function (value) {
-      var inputValue = value.toLowerCase();
-      var inputLength = inputValue.length;
-      return inputLength === 0 ? [] : _this.props.data.filter(function (data) {
-        return data.toLowerCase().includes(inputValue);
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "filterRepeated", function (data) {
+      return data.filter(function (el, index) {
+        return data.indexOf(el) === index;
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getSuggestionValue", function (suggestion) {
-      if (_this.props.getValue) {
-        _this.props.getValue(suggestion);
-      }
-
-      return suggestion;
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "renderSuggestion", function (suggestion) {
-      return React.createElement("div", null, suggestion);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "onChange", function (event, _ref2) {
-      var newValue = _ref2.newValue;
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleInput", function (e) {
+      var value = e.target.value;
 
       _this.setState({
-        value: newValue
+        value: value,
+        choosed: false,
+        focusedListItem: 0
       });
 
-      if (_this.props.search) {
-        _this.props.search(newValue, ReactDOM.findDOMNode(_assertThisInitialized(_this)).parentNode.parentNode.querySelectorAll("li"));
+      if (value !== '') {
+        _this.setSuggestions(value);
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onSuggestionsClearRequested", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setSuggestions", function (value) {
+      var filteredSuggestions = _this.state.suggestions.filter(function (suggest) {
+        return suggest.toLowerCase().includes(value.toLowerCase().trim());
+      });
+
       _this.setState({
-        suggestions: []
+        filteredSuggestions: filteredSuggestions
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClear", function () {
+      return _this.setState({
+        value: '',
+        focusedListItem: 0
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSelect", function () {
+      var value = _this.state.filteredSuggestions[_this.state.focusedListItem];
+
+      if (value) {
+        _this.setState({
+          value: value,
+          focusedListItem: 0,
+          choosed: true
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "keyDownHandler", function (e) {
+      var _this$state = _this.state,
+          filteredSuggestions = _this$state.filteredSuggestions,
+          focusedListItem = _this$state.focusedListItem;
+
+      if (_this.suggestionsList && _this.state.filteredSuggestions) {
+        var suggestionsListNodes = _this.suggestionsList.childNodes;
+        suggestionsListNodes.length >= 5 && suggestionsListNodes[_this.state.focusedListItem].scrollIntoView({
+          block: "center",
+          behavior: "smooth"
+        });
+
+        if (e.keyCode === 13) {
+          _this.handleSelect();
+
+          e.target.blur();
+        }
+
+        e.keyCode === 40 && focusedListItem < filteredSuggestions.length - 1 && _this.setState({
+          focusedListItem: focusedListItem + 1
+        });
+        e.keyCode === 38 && focusedListItem > 0 && _this.setState({
+          focusedListItem: focusedListItem - 1
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateFocus", function (index) {
+      return _this.setState({
+        focusedListItem: index
       });
     });
 
     _this.state = {
-      value: "",
+      value: props.value || props.valueDefault,
       suggestions: [],
-      isTouched: false
+      choosed: false,
+      filteredSuggestions: [],
+      focusedListItem: 0
     };
-    _this.onChange = _this.onChange.bind(_assertThisInitialized(_this));
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
-    _this.blurCallback = _this.blurCallback.bind(_assertThisInitialized(_this));
-    _this.triggerFocus = _this.triggerFocus.bind(_assertThisInitialized(_this));
-    _this.handleClear = _this.handleClear.bind(_assertThisInitialized(_this));
+    _this.suggestionsList = null;
     return _this;
   }
 
   _createClass(Autocomplete, [{
-    key: "onClick",
-    value: function onClick(ev) {
+    key: "componentDidMount",
+    value: function componentDidMount() {
       this.setState({
-        isTouched: true
+        suggestions: this.filterRepeated(this.props.data)
+      });
+      window.addEventListener('click', this.outsideClickHandler);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      prevState.value !== this.state.value && this.props.getValue && this.props.getValue(this.state.value);
+      prevProps.value !== this.props.value && this.setState({
+        value: this.props.value
       });
     }
   }, {
-    key: "blurCallback",
-    value: function blurCallback(ev) {
-      this.setState({
-        isTouched: false
-      });
-    }
-  }, {
-    key: "handleClear",
-    value: function handleClear() {
-      this.setState({
-        value: ""
-      });
-    }
-  }, {
-    key: "triggerFocus",
-    value: function triggerFocus() {
-      var input = document.getElementById(this.props.id);
-      input.focus();
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener('click', this.outsideClickHandler);
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var _this$state = this.state,
-          value = _this$state.value,
-          suggestions = _this$state.suggestions;
-
+      var _this$state2 = this.state,
+          value = _this$state2.value,
+          filteredSuggestions = _this$state2.filteredSuggestions,
+          choosed = _this$state2.choosed;
       var _this$props = this.props,
-          className = _this$props.className,
           clear = _this$props.clear,
+          clearColor = _this$props.clearColor,
+          clearSize = _this$props.clearSize,
           clearClass = _this$props.clearClass,
-          data = _this$props.data,
           disabled = _this$props.disabled,
-          getValue = _this$props.getValue,
           id = _this$props.id,
+          className = _this$props.className,
           label = _this$props.label,
-          labelClass = _this$props.labelClass,
           icon = _this$props.icon,
           iconBrand = _this$props.iconBrand,
           iconClass = _this$props.iconClass,
           iconLight = _this$props.iconLight,
           iconRegular = _this$props.iconRegular,
           iconSize = _this$props.iconSize,
+          size = _this$props.size,
+          labelClass = _this$props.labelClass,
           placeholder = _this$props.placeholder,
-          search = _this$props.search,
-          attributes = _objectWithoutProperties(_this$props, ["className", "clear", "clearClass", "data", "disabled", "getValue", "id", "label", "labelClass", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "placeholder", "search"]);
-
-      if (disabled) {
-        attributes.disabled = true;
-      } // needed for rendering custom input
-
-
-      var inputProps = {
-        placeholder: placeholder,
-        value: value,
-        onChange: this.onChange,
-        onBlur: this.blurCallback,
-        onClick: this.onClick,
-        onFocus: this.onFocus,
-        id: this.props.id
-      }; // the main variable for classFixes
-
-      var isNotEmpty = Boolean(this.state.value) || placeholder || this.state.isTouched; // classFixes:
-
-      var labelClassFix = classNames(isNotEmpty && "active", disabled && "disabled", labelClass);
-      var iconClassFix = classNames("prefix", this.state.isTouched && "active", iconClass);
-      var clearClassFix = classNames(clearClass);
-
-      var isclearVisible = function isclearVisible() {
-        var hiddenOrNot = "hidden";
-
-        if (_this2.state.value) {
-          hiddenOrNot = "visible";
+          valueDefault = _this$props.valueDefault;
+      var btnStyles = classNames(clearClass, 'mdb-autocomplete-clear');
+      return React.createElement("div", {
+        style: {
+          position: "relative"
         }
-
-        return hiddenOrNot;
-      };
-
-      var clearStyleFix = {
-        position: "absolute",
-        zIndex: 2,
-        top: ".85rem",
-        right: 0,
-        border: "none",
-        background: "0 0",
-        visibility: isclearVisible()
-      };
-
-      var renderInputComponent = function renderInputComponent(inputProps) {
-        return React.createElement("div", null, icon && React.createElement(Fa, {
-          icon: icon,
-          size: iconSize,
-          brand: iconBrand,
-          light: iconLight,
-          regular: iconRegular,
-          className: iconClassFix
-        }), React.createElement("input", _extends({
-          type: "text",
-          id: id,
-          className: "form-control"
-        }, inputProps, attributes, {
-          onFocus: function onFocus(ev, val) {
-            _this2.onClick();
-
-            inputProps.onFocus(ev, val);
+      }, React.createElement(Input, {
+        icon: icon,
+        iconSize: iconSize,
+        iconBrand: iconBrand,
+        iconLight: iconLight,
+        iconRegular: iconRegular,
+        iconClass: iconClass,
+        id: id,
+        className: className,
+        label: label,
+        labelClass: labelClass,
+        hint: placeholder,
+        disabled: disabled,
+        value: value,
+        valueDefault: valueDefault,
+        onChange: this.handleInput,
+        onKeyDown: this.keyDownHandler,
+        size: size
+      }, clear && value && React.createElement("button", {
+        onClick: this.handleClear,
+        className: btnStyles,
+        style: {
+          visibility: "visible"
+        }
+      }, React.createElement("svg", {
+        fill: clearColor,
+        height: clearSize,
+        viewBox: "0 0 24 24",
+        width: clearSize,
+        xmlns: "https://www.w3.org/2000/svg"
+      }, React.createElement("path", {
+        d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+      }), React.createElement("path", {
+        d: "M0 0h24v24H0z",
+        fill: "none"
+      })))), value && !choosed && React.createElement("ul", {
+        ref: function ref(list) {
+          return _this2.suggestionsList = list;
+        },
+        className: "mdb-autocomplete-wrap",
+        style: {
+          marginTop: "-15px"
+        },
+        onClick: this.handleSelect
+      }, filteredSuggestions.map(function (el, index) {
+        return React.createElement("li", {
+          key: el + index,
+          className: "list-item",
+          style: {
+            background: "".concat(_this2.state.focusedListItem === index ? '#eee' : '#fff')
+          },
+          onMouseEnter: function onMouseEnter() {
+            return _this2.updateFocus(index);
           }
-        })), React.createElement("label", {
-          htmlFor: id,
-          id: "label for ".concat(id),
-          onClick: _this2.triggerFocus,
-          className: labelClassFix
-        }, label), clear && React.createElement(Fa, {
-          icon: "close",
-          onClick: _this2.handleClear,
-          style: clearStyleFix,
-          className: clearClassFix
-        }));
-      };
-
-      return React.createElement(Autosuggest, _extends({
-        suggestions: suggestions,
-        onSuggestionsFetchRequested: this.onSuggestionsFetchRequested,
-        onSuggestionsClearRequested: this.onSuggestionsClearRequested,
-        getSuggestions: this.getSuggestions,
-        getSuggestionValue: this.getSuggestionValue,
-        onSuggestionSelected: this.blurCallback,
-        renderSuggestion: this.renderSuggestion,
-        inputProps: inputProps,
-        onChange: this.onChange,
-        theme: theme,
-        renderInputComponent: renderInputComponent,
-        focusInputOnSuggestionClick: false
-      }, attributes));
+        }, el);
+      })));
     }
   }]);
 
@@ -7387,9 +7334,9 @@ function (_Component) {
 }(Component);
 
 Autocomplete.propTypes = {
-  className: PropTypes.string,
   clear: PropTypes.bool,
-  clearClass: PropTypes.string,
+  clearColor: PropTypes.string,
+  clearSize: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.string),
   disabled: PropTypes.bool,
   getValue: PropTypes.func,
@@ -7398,30 +7345,33 @@ Autocomplete.propTypes = {
   labelClass: PropTypes.string,
   icon: PropTypes.string,
   iconBrand: PropTypes.bool,
-  iconClass: PropTypes.string,
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
+  iconClassName: PropTypes.string,
   placeholder: PropTypes.string,
-  search: PropTypes.func
+  search: PropTypes.func,
+  valueDefault: PropTypes.string
 };
 Autocomplete.defaultProps = {
-  className: "",
   clear: false,
-  clearClass: "",
+  clearColor: "#a6a6a6",
+  clearSize: "24",
   data: [],
   disabled: false,
-  getValue: function getValue() {},
   id: "",
   label: "",
+  className: "",
+  clearClass: "",
   labelClass: "",
   icon: "",
   iconBrand: false,
-  iconClass: "",
+  iconSize: "",
   iconLight: false,
   iconRegular: false,
-  iconSize: "",
-  placeholder: ""
+  iconClassName: "",
+  placeholder: "",
+  valueDefault: ""
 };
 
 var Avatar =
@@ -7481,7 +7431,7 @@ function (_React$Component) {
     _this.state = {
       cursorPos: {}
     };
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -7612,7 +7562,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ButtonFixed).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "onClick", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClick", function (e) {
       if (_this.props.disabled) {
         e.preventDefault();
         return;
@@ -7763,8 +7713,8 @@ CardUp.defaultProps = {
   tag: "div"
 };
 
-var css$9 = ".chip.chip-md {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-md img {\n  height: 42px;\n  width: 42px;\n}\n.chip.chip-md .close {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-lg {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n.chip.chip-lg img {\n  height: 52px;\n  width: 52px;\n}\n.chip.chip-lg .close {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n";
-styleInject(css$9);
+var css$8 = ".chip.chip-md {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-md img {\n  height: 42px;\n  width: 42px;\n}\n.chip.chip-md .close {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-lg {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n.chip.chip-lg img {\n  height: 52px;\n  width: 52px;\n}\n.chip.chip-lg .close {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n";
+styleInject(css$8);
 
 var Chip =
 /*#__PURE__*/
@@ -7780,7 +7730,7 @@ function (_Component) {
     _this.state = {
       cursorPos: {}
     };
-    _this.handleCloseClick = _this.handleCloseClick.bind(_assertThisInitialized(_this));
+    _this.handleCloseClick = _this.handleCloseClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -7872,7 +7822,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ChipsInput).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function () {
       _this.setState({
         isTouched: true
       });
@@ -7880,14 +7830,14 @@ function (_Component) {
       _this.inputRef.current.focus();
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleChange", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (e) {
       _this.setState({
         inputValue: e.target.value,
         isReadyToDelete: false
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleEnter", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleEnter", function (e) {
       // 1) get the value:
       var newChipString = _this.inputRef.current.value; // 2) upon pressing Enter:
 
@@ -7921,7 +7871,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleBackspace", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBackspace", function (e) {
       // 1) if the input is already empty (is ready to delete chips) and Backspace is pressed:
       if (_this.state.isReadyToDelete && e.which === 8) {
         // 2) grab the array
@@ -7935,7 +7885,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleClose", function (param) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClose", function (param) {
       return function (e) {
         // Close functionality:
         // 1) get the chips list from state:
@@ -7952,7 +7902,7 @@ function (_Component) {
       };
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOutsideClick", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOutsideClick", function () {
       _this.setState({
         isTouched: false
       });
@@ -8090,8 +8040,8 @@ CollapseHeader.propTypes = {
   triggerOnClick: PropTypes.func
 };
 
-var css$a = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
-styleInject(css$a);
+var css$9 = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
+styleInject(css$9);
 
 var DatePicker$1 =
 /*#__PURE__*/
@@ -8105,7 +8055,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DatePicker$$1).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "handleDateChange", function (date) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDateChange", function (date) {
       _this.setState({
         selectedDate: date ? date._d : _this.props.value
       });
@@ -8311,6 +8261,9 @@ RotatingCard.defaultProps = {
   flipped: false
 };
 
+var css$a = ".file-field .file-field-right .file-path-wrapper {\n  padding-left: 0;\n  padding-right: 10px;\n}\n";
+styleInject(css$a);
+
 var InputFile =
 /*#__PURE__*/
 function (_React$Component) {
@@ -8323,7 +8276,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(InputFile).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "onChangeHandler", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChangeHandler", function (e) {
       _this.fileChange(e.target.files);
 
       _this.props.getValue && _this.props.getValue(e.target.files);
@@ -8332,7 +8285,7 @@ function (_React$Component) {
     _this.state = {
       files: false
     };
-    _this.fileChange = _this.fileChange.bind(_assertThisInitialized(_this));
+    _this.fileChange = _this.fileChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -8369,11 +8322,13 @@ function (_React$Component) {
           btnTitle = _this$props.btnTitle,
           btnColor = _this$props.btnColor,
           textFieldTitle = _this$props.textFieldTitle,
-          multiple = _this$props.multiple;
-      var btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", "float-left");
-      var inputFieldClass = classNames("file-path validate", this.state.files ? "valid" : false, className);
+          multiple = _this$props.multiple,
+          reverse = _this$props.reverse;
+      var btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", reverse ? "float-right" : "float-left");
+      var inputFieldClass = classNames("file-path", "validate", this.state.files ? "valid" : false, className);
+      var wrapperClass = classNames("file-field", "md-form", reverse && "file-field-right");
       return React.createElement("div", {
-        className: "file-field md-form"
+        className: wrapperClass
       }, React.createElement("div", {
         className: btnClass
       }, React.createElement("span", null, btnTitle), React.createElement("input", {
@@ -8398,12 +8353,14 @@ InputFile.propTypes = {
   btnTitle: PropTypes.string,
   btnColor: PropTypes.string,
   textFieldTitle: PropTypes.string,
-  multiple: PropTypes.bool
+  multiple: PropTypes.bool,
+  reverse: PropTypes.bool
 };
 InputFile.defaultProps = {
   btnTitle: "Choose file",
   textFieldTitle: "Upload your file",
-  btnColor: "primary"
+  btnColor: "primary",
+  reverse: false
 };
 
 var css$b = ".thumb {\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\n}\n\ninput[type=\"range\"] {\n  -webkit-appearance: none;\n}\n\n/* thumb */\n\ninput[type=range]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  border: none;\n  height: 14px;\n  width: 14px;\n  border-radius: 50%;\n  background-color: #4285f4;\n  transform-origin: 50% 50%;\n  margin: -5px 0 0 0;\n  transition: 0.3s; }\n  input[type=range]:focus::-webkit-slider-runnable-track {\n    background: #ccc; }\n  input[type=range]::-moz-range-track {\n    /*required for proper track sizing in FF*/\n    height: 3px;\n    background: #c2c0c2;\n    border: none; }\n  input[type=range]::-moz-range-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4;\n    margin-top: -5px; }\n  input[type=range]:-moz-focusring {\n    /*hide the outline behind the border*/\n    outline: 1px solid #ffffff;\n    outline-offset: -1px; }\n  input[type=range]:focus::-moz-range-track {\n    background: #c2c0c2; }\n  input[type=range]::-ms-track {\n    height: 3px;\n    background: transparent;\n    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */\n    border-color: transparent;\n    /*leave room for the larger thumb to overflow with a transparent border */\n    border-width: 6px 0;\n    color: transparent;\n    /*remove default tick marks*/ }\n  input[type=range]::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]::-ms-fill-upper {\n    background: #c2c0c2; }\n  input[type=range]::-ms-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4; }\n  input[type=range]:focus::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]:focus::-ms-fill-upper {\n    background: #c2c0c2; }";
@@ -8421,7 +8378,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(InputRange).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentDidMount", function () {
       var input = _this.inputRef.current;
       var inputWidth = input.offsetWidth;
       var oneStep = inputWidth / (_this.props.max - _this.props.min);
@@ -8433,7 +8390,7 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "rangeChange", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "rangeChange", function (e) {
       var newValue = e.target.value;
 
       _this.setState({
@@ -8444,7 +8401,7 @@ function (_React$Component) {
       _this.props.getValue && _this.props.getValue(e.target.value);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "rangeFocus", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "rangeFocus", function () {
       _this.setState({
         thumbActive: true,
         thumbHeight: '30px',
@@ -8454,7 +8411,7 @@ function (_React$Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "rangeMouseLeave", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "rangeMouseLeave", function () {
       var input = _this.inputRef.current;
       input.blur();
 
@@ -8551,7 +8508,7 @@ function (_React$Component) {
     _this.state = {
       value: false
     };
-    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
+    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -8651,7 +8608,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ScrollBar).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "handleRef", function (ref) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleRef", function (ref) {
       _this._container = ref;
 
       _this.props.containerRef(ref);
@@ -8898,6 +8855,9 @@ ScrollSpyText.propTypes = {
   scrollSpyRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 
+var css$e = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter, .side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active, .side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter, .right-side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active, .right-side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n\n.side-nav[data-animate=\"false\"]{\n  transform: translateX(0%);\n}\n\n\n.side-nav.wide {\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n}\n\n\n.side-nav.wide.slim {\n    width: 3.75rem;\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n    right: 3.75rem;\n}\n\n.right-aligned.side-nav.wide.slim {\n    right: 0;\n}\n\n\n";
+styleInject(css$e);
+
 var defaultValue = {
   slim: false
 };
@@ -8915,7 +8875,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SideNav).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "updatePredicate", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updatePredicate", function () {
       if (!_this.props.hidden && _this.props.responsive) {
         _this.setState({
           isOpen: window.innerWidth > _this.props.breakWidth
@@ -8935,7 +8895,7 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "toggleSlim", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggleSlim", function (e) {
       return function () {
         _this.setState({
           slim: !_this.state.slim
@@ -8946,7 +8906,7 @@ function (_React$Component) {
       };
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOverlayClick", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOverlayClick", function () {
       if (_this.state.isFixed) return;
 
       _this.setState({
@@ -8958,7 +8918,7 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (e) {
       if (!_this.props.disabled) {
         // Waves - Get Cursor Position
         var cursorPos = {
@@ -9167,7 +9127,7 @@ function (_React$Component) {
       cursorPos: {},
       isOpenID: ""
     };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -9309,7 +9269,7 @@ function (_React$Component) {
     _this.state = {
       cursorPos: {}
     };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -9387,7 +9347,7 @@ function (_React$Component) {
     _this.state = {
       cursorPos: {}
     };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
     return _this;
   }
 
@@ -9502,7 +9462,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SideNavNav).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "onClick", function (number) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onClick", function (number) {
       return function () {
         var state = "";
 
@@ -9562,6 +9522,7 @@ function (_React$Component) {
         }), modified, slimInitial && React.createElement("li", {
           onClick: toggleSlim()
         }, React.createElement("a", {
+          href: "#!",
           className: "waves-effect"
         }, React.createElement("i", {
           className: iconClass.join(" ")
@@ -9813,33 +9774,13 @@ var Step =
 function (_React$Component) {
   _inherits(Step, _React$Component);
 
-  function Step(props) {
-    var _this;
-
+  function Step() {
     _classCallCheck(this, Step);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Step).call(this, props));
-    _this.state = {
-      cursorPos: {}
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Step).apply(this, arguments));
   }
 
   _createClass(Step, [{
-    key: "handleClick",
-    value: function handleClick(e) {
-      // Get Cursor Position
-      e.preventDefault();
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({
-        cursorPos: cursorPos
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -9860,40 +9801,24 @@ function (_React$Component) {
         step = React.createElement(Tag, {
           className: stepClass,
           onClick: this.props.onClick
-        }, React.createElement(Tooltip, {
-          placement: "top",
-          componentClass: "btn btn-circle-2 btn-blue-grey waves-effect",
-          tag: "a",
-          type: "button",
-          component: "div",
-          tooltipContent: stepName
+        }, React.createElement(Popper$1, {
+          placement: "top"
+        }, React.createElement(Button, {
+          className: "btn-circle-2 btn-blue-grey"
         }, React.createElement("i", {
-          className: iconClass,
-          onTouchStart: this.handleClick.bind(this),
-          onMouseDown: this.handleClick.bind(this)
-        }), React.createElement(Waves, {
-          cursorPos: this.state.cursorPos,
-          dark: true
-        })));
+          className: iconClass
+        })), React.createElement("div", null, stepName)));
       } else if (icon && vertical) {
         step = React.createElement(Tag, {
           className: stepClass,
           onClick: this.props.onClick
-        }, React.createElement(Tooltip, {
-          placement: "top",
-          componentClass: "btn btn-circle-3 btn-blue-grey waves-effect",
-          tag: "a",
-          type: "button",
-          component: "div",
-          tooltipContent: stepName
+        }, React.createElement(Popper$1, {
+          placement: "top"
+        }, React.createElement(Button, {
+          className: "btn-circle-3 btn-blue-grey"
         }, React.createElement("i", {
-          className: iconClass,
-          onTouchStart: this.handleClick.bind(this),
-          onMouseDown: this.handleClick.bind(this)
-        }), React.createElement(Waves, {
-          cursorPos: this.state.cursorPos,
-          dark: true
-        })));
+          className: iconClass
+        })), React.createElement("div", null, stepName)));
       } else {
         step = React.createElement("li", {
           className: stepClass
@@ -9913,8 +9838,8 @@ Step.defaultProps = {
   vertical: false
 };
 
-var css$e = "/* Stepper Form */\n\n/* Stepper v.2 (Form) */\n.steps-form {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form .steps-row {\n  display: table-row; }\n.steps-form .steps-row:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 100%;\n  height: 1px;\n  background-color: #ccc; }\n.steps-form .steps-row .steps-step {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form .steps-row .steps-step p {\n  margin-top: 0.5rem; }\n.steps-form .steps-row .steps-step button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form .steps-row .steps-step .btn-circle {\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  padding: 6px 0;\n  font-size: 12px;\n  line-height: 1.428571429;\n  border-radius: 15px;\n  margin-top: 0; }\n\n/* Stepper v.3 (Icons) */\n.steps-form-2 {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form-2 .steps-row-2 {\n  display: table-row; }\n.steps-form-2 .steps-row-2:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 99%;\n  height: 2px;\n  background-color: #7283a7; }\n.steps-form-2 .steps-row-2 .steps-step-2 {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form-2 .steps-row-2 .steps-step-2 p {\n  margin-top: 0.5rem; }\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\n  width: 70px;\n  height: 70px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 22px 18px 15px 18px;\n  margin-top: -22px; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {\n  font-size: 1.7rem; }\n .steps-row-2:first-child .btn {\n  margin-left: 0\n}\n.steps-row-2:last-child .btn {\n  margin-right: 0\n}\n\n\n/* Stepper v.4 (Icon-vertical) */\n\n.steps-form-3 {\n  width: 2px;\nheight: 470px;\n  position: relative; }\n.steps-form-3 .steps-row-3 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column; }\n.steps-form-3 .steps-row-3:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \"\";\n  width: 2px;\n  height: 100%;\n  background-color: #7283a7; }\n.steps-form-3 .steps-row-3 .steps-step-3 {\n  height: 150px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  position: relative; }\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\n  height: 50px; }\n.steps-form-3 .steps-row-3 .steps-step-3 p {\nmargin-top: 0.5rem; }\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\n  width: 60px;\n  height: 60px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 18px 18px 15px 15px;\n  margin-top: -22px; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa {\n  font-size: 1.7rem; }\n";
-styleInject(css$e);
+var css$f = "/* Stepper Form */\n\n/* Stepper v.2 (Form) */\n.steps-form {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form .steps-row {\n  display: table-row; }\n.steps-form .steps-row:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 100%;\n  height: 1px;\n  background-color: #ccc; }\n.steps-form .steps-row .steps-step {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form .steps-row .steps-step p {\n  margin-top: 0.5rem; }\n.steps-form .steps-row .steps-step button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form .steps-row .steps-step .btn-circle {\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  padding: 6px 0;\n  font-size: 12px;\n  line-height: 1.428571429;\n  border-radius: 15px;\n  margin-top: 0; }\n\n/* Stepper v.3 (Icons) */\n.steps-form-2 {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form-2 .steps-row-2 {\n  display: table-row; }\n.steps-form-2 .steps-row-2:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 99%;\n  height: 2px;\n  background-color: #7283a7; }\n.steps-form-2 .steps-row-2 .steps-step-2 {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form-2 .steps-row-2 .steps-step-2 p {\n  margin-top: 0.5rem; }\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\n  width: 70px;\n  height: 70px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 22px 18px 15px 18px;\n  margin-top: -22px; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {\n  font-size: 1.7rem; }\n .steps-row-2:first-child .btn {\n  margin-left: 0\n}\n.steps-row-2:last-child .btn {\n  margin-right: 0\n}\n\n\n/* Stepper v.4 (Icon-vertical) */\n\n.steps-form-3 {\n  width: 2px;\nheight: 470px;\n  position: relative; }\n.steps-form-3 .steps-row-3 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column; }\n.steps-form-3 .steps-row-3:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \"\";\n  width: 2px;\n  height: 100%;\n  background-color: #7283a7; }\n.steps-form-3 .steps-row-3 .steps-step-3 {\n  height: 150px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  position: relative; }\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\n  height: 50px; }\n.steps-form-3 .steps-row-3 .steps-step-3 p {\nmargin-top: 0.5rem; }\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\n  width: 60px;\n  height: 60px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 18px 18px 15px 15px;\n  margin-top: -22px; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa {\n  font-size: 1.7rem; }\n";
+styleInject(css$f);
 
 var Stepper =
 /*#__PURE__*/
@@ -9973,8 +9898,8 @@ Stepper.defaultProps = {
   form: false
 };
 
-var css$f = ".react-bootstrap-table {\n  padding-top: 65px;\n}\n\n.react-bootstrap-table .caret {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 2px;\n  vertical-align: middle;\n  border-top: 4px dashed;\n  border-top: 4px solid\\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n\n.react-bootstrap-table .dropup .caret {\n  content: \"\";\n  border-top: 0;\n  border-bottom: 4px dashed;\n  border-bottom: 4px solid\\9;\n}\n\n.react-bootstrap-table-pagination .pagination {\n  float: right;\n}\n\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\n  background-color: #09c;\n}\n\n.react-bootstrap-table-pagination .select-wrapper {\n  display: inline-block;\n  width: 100px;\n  margin: 0 15px;\n}\n\n.react-bootstrap-table-pagination .dropdown-item {\n  padding: 0;\n}\n\n.react-bootstrap-table-pagination-total {\n  display: block;\n}\n\n.react-bootstrap-table .md-form {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  width: 200px;\n}\n\n.react-bootstrap-table-pagination > * {\n  position: inherit;\n}\n\n.react-bs-table-sizePerPage-dropdown {\n  position: absolute;\n  top: 0;\n  left: 0;\n}";
-styleInject(css$f);
+var css$g = ".react-bootstrap-table {\n  padding-top: 65px;\n}\n\n.react-bootstrap-table .caret {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 2px;\n  vertical-align: middle;\n  border-top: 4px dashed;\n  border-top: 4px solid\\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n\n.react-bootstrap-table .dropup .caret {\n  content: \"\";\n  border-top: 0;\n  border-bottom: 4px dashed;\n  border-bottom: 4px solid\\9;\n}\n\n.react-bootstrap-table-pagination .pagination {\n  float: right;\n}\n\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\n  background-color: #09c;\n}\n\n.react-bootstrap-table-pagination .select-wrapper {\n  display: inline-block;\n  width: 100px;\n  margin: 0 15px;\n}\n\n.react-bootstrap-table-pagination .dropdown-item {\n  padding: 0;\n}\n\n.react-bootstrap-table-pagination-total {\n  display: block;\n}\n\n.react-bootstrap-table .md-form {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  width: 200px;\n}\n\n.react-bootstrap-table-pagination > * {\n  position: inherit;\n}\n\n.react-bs-table-sizePerPage-dropdown {\n  position: absolute;\n  top: 0;\n  left: 0;\n}";
+styleInject(css$g);
 
 var TableEditable =
 /*#__PURE__*/
@@ -9994,17 +9919,17 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(TableEditable)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       data: []
     });
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "componentDidMount", function () {
       _this.props.data && _this.setState(_objectSpread({}, _this.state, {
         data: _this.props.data
       }));
     });
 
-    _defineProperty(_assertThisInitialized(_this), "addRow", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "addRow", function () {
       var newData = _toConsumableArray(_this.state.data);
 
       var newRow = [];
@@ -10020,7 +9945,7 @@ function (_React$Component) {
       }));
     });
 
-    _defineProperty(_assertThisInitialized(_this), "removeRow", function (index) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "removeRow", function (index) {
       var newData = _toConsumableArray(_this.state.data);
 
       newData = [].concat(_toConsumableArray(newData.slice(0, index)), _toConsumableArray(newData.slice(index + 1)));
@@ -10030,7 +9955,7 @@ function (_React$Component) {
       }));
     });
 
-    _defineProperty(_assertThisInitialized(_this), "decreaseIndex", function (index) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "decreaseIndex", function (index) {
       if (index === 0) return;
 
       var newData = _this.changeArrayOrder(index, index - 1);
@@ -10040,7 +9965,7 @@ function (_React$Component) {
       }));
     });
 
-    _defineProperty(_assertThisInitialized(_this), "increaseIndex", function (index) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "increaseIndex", function (index) {
       if (index === _this.state.data.length - 1) return;
 
       var newData = _this.changeArrayOrder(index, index + 1);
@@ -10050,7 +9975,7 @@ function (_React$Component) {
       }));
     });
 
-    _defineProperty(_assertThisInitialized(_this), "changeArrayOrder", function (oldIndex, newIndex) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "changeArrayOrder", function (oldIndex, newIndex) {
       var array = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _toConsumableArray(_this.state.data);
       var newArray = array;
 
@@ -10063,7 +9988,7 @@ function (_React$Component) {
       return newArray;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onBlurHandler", function (trIndex, tdIndex, e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onBlurHandler", function (trIndex, tdIndex, e) {
       var value = e.target.innerText;
 
       var newData = _toConsumableArray(_this.state.data);
@@ -10308,13 +10233,13 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Sticky)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
       isSticky: false,
       wasSticky: false,
       style: {}
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleContainerEvent", function (_ref) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleContainerEvent", function (_ref) {
       var distanceFromTop = _ref.distanceFromTop,
           distanceFromBottom = _ref.distanceFromBottom,
           eventSource = _ref.eventSource;
@@ -10444,21 +10369,21 @@ function (_PureComponent) {
 
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Container)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    _defineProperty(_assertThisInitialized(_this), "events", ["resize", "scroll", "touchstart", "touchmove", "touchend", "pageshow", "load"]);
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "events", ["resize", "scroll", "touchstart", "touchmove", "touchend", "pageshow", "load"]);
 
-    _defineProperty(_assertThisInitialized(_this), "subscribers", []);
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "subscribers", []);
 
-    _defineProperty(_assertThisInitialized(_this), "subscribe", function (handler) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "subscribe", function (handler) {
       _this.subscribers = _this.subscribers.concat(handler);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "unsubscribe", function (handler) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "unsubscribe", function (handler) {
       _this.subscribers = _this.subscribers.filter(function (current) {
         return current !== handler;
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "notifySubscribers", function (evt) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "notifySubscribers", function (evt) {
       if (!_this.framePending) {
         var currentTarget = evt.currentTarget;
         raf(function () {
@@ -10480,7 +10405,7 @@ function (_PureComponent) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getParent", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getParent", function () {
       return _this.node;
     });
 
@@ -10577,8 +10502,8 @@ Testimonial.defaultProps = {
   tag: "div"
 };
 
-var css$g = "@media (max-width: 1025px) {\n  .stepper.timeline li {\n    -webkit-box-align: end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: end;\n    align-items: flex-end;\n  }\n}\n\n.stepper.timeline li a {\n  padding: 0px 24px;\n  left: 50%;\n}\n@media (max-width: 450px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n.stepper.timeline li a .circle {\n  width: 50px;\n  height: 50px;\n  line-height: 50px;\n  font-size: 1.4em;\n  text-align: center;\n  position: absolute;\n  top: 16px;\n  margin-left: -50px;\n  background-color: #fff;\n  z-index: 2;\n}\n\n.stepper.timeline li .step-content {\n  width: 45%;\n  float: left;\n  border-radius: 2px;\n  position: relative;\n  background-color: #fff;\n}\n.stepper.timeline li .step-content:before {\n  position: absolute;\n  top: 26px;\n  right: -15px;\n  display: inline-block;\n  border-top: 15px solid transparent;\n  border-left: 15px solid #e0e0e0;\n  border-right: 0 solid #e0e0e0;\n  border-bottom: 15px solid transparent;\n  content: \" \";\n}\n.stepper.timeline li .step-content:after {\n  position: absolute;\n  top: 27px;\n  right: -14px;\n  display: inline-block;\n  border-top: 14px solid transparent;\n  border-left: 14px solid #fff;\n  border-right: 0 solid #fff;\n  border-bottom: 14px solid transparent;\n  content: \" \";\n}\n@media (max-width: 450px) {\n  .stepper.timeline li .step-content {\n    width: 80%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li .step-content {\n    width: 85%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n\n.stepper.timeline li.timeline-inverted {\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n  -ms-flex-align: end;\n  align-items: flex-end;\n}\n.stepper.timeline li.timeline-inverted .step-content {\n  float: right;\n}\n.stepper.timeline li.timeline-inverted .step-content:before {\n  border-left-width: 0;\n  border-right-width: 15px;\n  left: -15px;\n  right: auto;\n}\n.stepper.timeline li.timeline-inverted .step-content:after {\n  border-left-width: 0;\n  border-right-width: 14px;\n  left: -14px;\n  right: auto;\n}\n\n.stepper.timeline.stepper-vertical li:not(:last-child):after {\n  content: \" \";\n  position: absolute;\n  width: 3px;\n  background-color: #e0e0e0;\n  left: 50%;\n  top: 57px;\n  margin-left: -1.5px;\n}\n@media (max-width: 450px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n";
-styleInject(css$g);
+var css$h = "@media (max-width: 1025px) {\n  .stepper.timeline li {\n    -webkit-box-align: end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: end;\n    align-items: flex-end;\n  }\n}\n\n.stepper.timeline li a {\n  padding: 0px 24px;\n  left: 50%;\n}\n@media (max-width: 450px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n.stepper.timeline li a .circle {\n  width: 50px;\n  height: 50px;\n  line-height: 50px;\n  font-size: 1.4em;\n  text-align: center;\n  position: absolute;\n  top: 16px;\n  margin-left: -50px;\n  background-color: #fff;\n  z-index: 2;\n}\n\n.stepper.timeline li .step-content {\n  width: 45%;\n  float: left;\n  border-radius: 2px;\n  position: relative;\n  background-color: #fff;\n}\n.stepper.timeline li .step-content:before {\n  position: absolute;\n  top: 26px;\n  right: -15px;\n  display: inline-block;\n  border-top: 15px solid transparent;\n  border-left: 15px solid #e0e0e0;\n  border-right: 0 solid #e0e0e0;\n  border-bottom: 15px solid transparent;\n  content: \" \";\n}\n.stepper.timeline li .step-content:after {\n  position: absolute;\n  top: 27px;\n  right: -14px;\n  display: inline-block;\n  border-top: 14px solid transparent;\n  border-left: 14px solid #fff;\n  border-right: 0 solid #fff;\n  border-bottom: 14px solid transparent;\n  content: \" \";\n}\n@media (max-width: 450px) {\n  .stepper.timeline li .step-content {\n    width: 80%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li .step-content {\n    width: 85%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n\n.stepper.timeline li.timeline-inverted {\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n  -ms-flex-align: end;\n  align-items: flex-end;\n}\n.stepper.timeline li.timeline-inverted .step-content {\n  float: right;\n}\n.stepper.timeline li.timeline-inverted .step-content:before {\n  border-left-width: 0;\n  border-right-width: 15px;\n  left: -15px;\n  right: auto;\n}\n.stepper.timeline li.timeline-inverted .step-content:after {\n  border-left-width: 0;\n  border-right-width: 14px;\n  left: -14px;\n  right: auto;\n}\n\n.stepper.timeline.stepper-vertical li:not(:last-child):after {\n  content: \" \";\n  position: absolute;\n  width: 3px;\n  background-color: #e0e0e0;\n  left: 50%;\n  top: 57px;\n  margin-left: -1.5px;\n}\n@media (max-width: 450px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n";
+styleInject(css$h);
 
 var Timeline = function Timeline(props) {
   var children = props.children;
@@ -10639,8 +10564,8 @@ TimelineStep.defaultProps = {
   href: "#"
 };
 
-var css$h = ".time-picker-clock {\n  border-radius: 100%;\n  position: relative;\n  /* transition: 0.3s cubic-bezier(.25,.8,.50,1); */\n  user-select: none;\n  background: #f0f0f0;\n  animation: show-up-clock 0.2s linear;\n}\n@keyframes show-up-clock {\n  0% {\n    opacity: 0;\n    transform: scale(0.7);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n.time-picker-clock__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\n.time-picker-clock__hand {\n  height: calc(50% - 28px);\n  width: 2px;\n  bottom: 50%;\n  left: calc(50% - 1px);\n  transform-origin: center bottom;\n  position: absolute;\n  will-change: transform;\n  z-index: 1;\n  background-color: rgba(0, 150, 136, 0.25);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring {\n  background-color: rgba(0, 150, 136, 0.25);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 2.5rem;\n  height: 2.5rem;\n  content: \"\";\n  position: absolute;\n  top: -3%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring:before {\n  background-color: rgba(0, 77, 64, 0.75);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 10px;\n  height: 10px;\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand:after {\n  content: \"\";\n  position: absolute;\n  height: 6px;\n  width: 6px;\n  top: 100%;\n  left: 50%;\n  border-radius: 50%;\n  background-color: rgba(0, 77, 64, 0.75);\n  opacity: 0.75;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span {\n  align-items: center;\n  border-radius: 100%;\n  cursor: default;\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.2;\n  justify-content: center;\n  left: calc(50% - 40px / 2);\n  height: 40px;\n  position: absolute;\n  text-align: center;\n  top: calc(50% - 40px / 2);\n  width: 40px;\n  user-select: none;\n}\n.time-picker-clock > span:hover,\n.time-picker-clock > span.active:hover {\n  cursor: pointer;\n}\n.time-picker-clock > span:active:hover,\n.time-picker-clock > span.active:active:hover {\n  cursor: move;\n}\n.time-picker-clock:active:hover {\n  cursor: move;\n}\n.time-picker-clock > span > span {\n  z-index: 1;\n}\n\n.time-picker-clock > span:before,\n.time-picker-clock > span:after {\n  content: \"\";\n  border-radius: 100%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 14px;\n  width: 14px;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span > span:after,\n.time-picker-clock > span > span:before {\n  height: 40px;\n  width: 40px;\n}\n.time-picker-clock > span.active {\n  color: #fff;\n  cursor: default;\n  z-index: 2;\n  background: blue;\n}\n.time-picker-clock > span > span.disabled {\n  pointer-events: none;\n}\n\n.picker__footer .clockpicker-button {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n";
-styleInject(css$h);
+var css$i = ".time-picker-clock {\n  border-radius: 100%;\n  position: relative;\n  /* transition: 0.3s cubic-bezier(.25,.8,.50,1); */\n  user-select: none;\n  background: #f0f0f0;\n  animation: show-up-clock 0.2s linear;\n}\n@keyframes show-up-clock {\n  0% {\n    opacity: 0;\n    transform: scale(0.7);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n.time-picker-clock__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\n.time-picker-clock__hand {\n  height: calc(50% - 28px);\n  width: 2px;\n  bottom: 50%;\n  left: calc(50% - 1px);\n  transform-origin: center bottom;\n  position: absolute;\n  will-change: transform;\n  z-index: 1;\n  background-color: rgba(0, 150, 136, 0.25);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring {\n  background-color: rgba(0, 150, 136, 0.25);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 2.5rem;\n  height: 2.5rem;\n  content: \"\";\n  position: absolute;\n  top: -3%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring:before {\n  background-color: rgba(0, 77, 64, 0.75);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 10px;\n  height: 10px;\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand:after {\n  content: \"\";\n  position: absolute;\n  height: 6px;\n  width: 6px;\n  top: 100%;\n  left: 50%;\n  border-radius: 50%;\n  background-color: rgba(0, 77, 64, 0.75);\n  opacity: 0.75;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span {\n  align-items: center;\n  border-radius: 100%;\n  cursor: default;\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.2;\n  justify-content: center;\n  left: calc(50% - 40px / 2);\n  height: 40px;\n  position: absolute;\n  text-align: center;\n  top: calc(50% - 40px / 2);\n  width: 40px;\n  user-select: none;\n}\n.time-picker-clock > span:hover,\n.time-picker-clock > span.active:hover {\n  cursor: pointer;\n}\n.time-picker-clock > span:active:hover,\n.time-picker-clock > span.active:active:hover {\n  cursor: move;\n}\n.time-picker-clock:active:hover {\n  cursor: move;\n}\n.time-picker-clock > span > span {\n  z-index: 1;\n}\n\n.time-picker-clock > span:before,\n.time-picker-clock > span:after {\n  content: \"\";\n  border-radius: 100%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 14px;\n  width: 14px;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span > span:after,\n.time-picker-clock > span > span:before {\n  height: 40px;\n  width: 40px;\n}\n.time-picker-clock > span.active {\n  color: #fff;\n  cursor: default;\n  z-index: 2;\n  background: blue;\n}\n.time-picker-clock > span > span.disabled {\n  pointer-events: none;\n}\n\n.picker__footer .clockpicker-button {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n";
+styleInject(css$i);
 
 var propTypes$2 = {
   color: PropTypes.string.isRequired,
@@ -10751,7 +10676,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(TimePickerClock).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "buildComponentState", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "buildComponentState", function () {
       var _this$props = _this.props,
           size = _this$props.size,
           max = _this$props.max,
@@ -10785,7 +10710,7 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getScale", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getScale", function (value) {
       if (_this.props.startFromInner && _this.props.double) {
         return value - _this.props.min >= _this.state.digitsInRound ? _this.state.outerRadius / _this.state.clockRadius : _this.state.innerRadius / _this.state.clockRadius;
       }
@@ -10793,12 +10718,12 @@ function (_Component) {
       return value - _this.props.min >= _this.state.digitsInRound ? _this.state.innerRadius / _this.state.clockRadius : _this.state.outerRadius / _this.state.clockRadius;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getAngle", function (center, p1) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getAngle", function (center, p1) {
       var value = 2 * Math.atan2(p1.y - center.y - _this.euclidean(center, p1), p1.x - center.x);
       return Math.abs(value * 180 / Math.PI);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "getCoords", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getCoords", function (e) {
       var _this$clockRef$curren = _this.clockRef.current.getBoundingClientRect(),
           width = _this$clockRef$curren.width,
           top = _this$clockRef$curren.top,
@@ -10822,7 +10747,7 @@ function (_Component) {
       };
     });
 
-    _defineProperty(_assertThisInitialized(_this), "setPosition", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setPosition", function (value) {
       var radius = (_this.state.clockRadius - 24) * _this.getScale(value);
 
       var rotateRadians = _this.props.rotate * Math.PI / 180;
@@ -10832,13 +10757,13 @@ function (_Component) {
       };
     });
 
-    _defineProperty(_assertThisInitialized(_this), "isValueAllowed", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "isValueAllowed", function (value) {
       return _this.props.allowedValues.length ? _this.props.allowedValues.find(function (item) {
         return item === value;
       }) : value >= _this.props.min && value <= _this.props.max;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "isOnInner", function (center, coords) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "isOnInner", function (center, coords) {
       var centerDistance = _this.euclidean(center, coords);
 
       var betweenRadiusDistance = (_this.state.outerRadius + _this.state.innerRadius) / 2 - 16;
@@ -10850,11 +10775,11 @@ function (_Component) {
       return false;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "computeTimeNumber", function (number) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "computeTimeNumber", function (number) {
       return number < 10 ? "0".concat(number.toString()) : "".concat(number.toString());
     });
 
-    _defineProperty(_assertThisInitialized(_this), "computeHandAngle", function (exactAngle) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "computeHandAngle", function (exactAngle) {
       if (360 % _this.props.max !== 0) {
         return exactAngle >= 360 - _this.state.degreesPerUnit / 2 ? 0 : exactAngle;
       }
@@ -10862,13 +10787,13 @@ function (_Component) {
       return exactAngle <= _this.state.degreesPerUnit / 2 ? 360 : exactAngle;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "euclidean", function (p0, p1) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "euclidean", function (p0, p1) {
       var dx = p1.x - p0.x;
       var dy = p1.y - p0.y;
       return Math.sqrt(dx * dx + dy * dy);
     });
 
-    _defineProperty(_assertThisInitialized(_this), "transformPosition", function (value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "transformPosition", function (value) {
       var _this$setPosition = _this.setPosition(value),
           x = _this$setPosition.x,
           y = _this$setPosition.y;
@@ -10878,7 +10803,7 @@ function (_Component) {
       };
     });
 
-    _defineProperty(_assertThisInitialized(_this), "genClockDigits", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "genClockDigits", function () {
       var children = [];
 
       var _loop = function _loop(value) {
@@ -10905,7 +10830,7 @@ function (_Component) {
       return children;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onMouseDown", function (e, value) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseDown", function (e, value) {
       e.preventDefault();
 
       _this.setState({
@@ -10921,7 +10846,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onMouseUp", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseUp", function (e) {
       e.preventDefault();
 
       if (_this.state.isDragging) {
@@ -10933,14 +10858,14 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onMouseLeave", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onMouseLeave", function (e) {
       e.preventDefault();
       if (_this.state.isDragging) _this.setState({
         isDragging: false
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onDragMove", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onDragMove", function (e) {
       e.preventDefault();
       if (!_this.state.isDragging && e.type !== 'click') return;
 
@@ -10964,7 +10889,7 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "updateValue", function (value, handAngle, handScale) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateValue", function (value, handAngle, handScale) {
       _this.props.handleChange(value);
 
       _this.setState({
@@ -11159,7 +11084,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(TimePicker).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "setInputText", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setInputText", function () {
       var value = '';
 
       if (_this.state.hours !== null && _this.state.minutes !== null) {
@@ -11172,7 +11097,7 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "computeTimeNumber", function (number) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "computeTimeNumber", function (number) {
       if (number !== null) {
         number = _this.state.unitsMode === 'h' && number === 24 ? 0 : number;
         return number < 10 ? "0".concat(number.toString()) : "".concat(number.toString());
@@ -11181,49 +11106,49 @@ function (_Component) {
       return '';
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handlePickerDialogOpen", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handlePickerDialogOpen", function () {
       return _this.setState({
         pickerDialogOpen: !_this.state.pickerDialogOpen
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleModeChange", function (unitsMode) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleModeChange", function (unitsMode) {
       return _this.setState({
         unitsMode: unitsMode
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleDayTimeChange", function (dayTime) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDayTimeChange", function (dayTime) {
       return _this.setState({
         dayTime: dayTime
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleMinutesChange", function (minutes) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleMinutesChange", function (minutes) {
       return _this.setState({
         minutes: minutes
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleHoursChange", function (hours) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleHoursChange", function (hours) {
       _this.setState({
         hours: hours
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleBackdropClick", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleBackdropClick", function (e) {
       if (e.target.classList.value === 'picker__holder') {
         _this.handlePickerDialogOpen();
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleDoneClick", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleDoneClick", function () {
       _this.setInputText();
 
       _this.handlePickerDialogOpen();
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleClearClick", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClearClick", function () {
       _this.handleHoursChange(null);
 
       _this.handleMinutesChange(null);
@@ -11233,7 +11158,7 @@ function (_Component) {
       _this.handleDayTimeChange('am');
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleCancelClick", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleCancelClick", function () {
       _this.handleHoursChange(_this.props.hours);
 
       _this.handleMinutesChange(_this.props.minutes);
@@ -11417,7 +11342,7 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SmoothScroll).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClick", function (e) {
       if (!_this.props.disabled) {
         e.stopPropagation(); // Waves - Get Cursor Position
 
@@ -11545,4 +11470,4 @@ MDBStreak.defaultProps = {
 
 // FREE
 
-export { Animation, Alert, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, Carousel, CarouselCaption, Control as CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Col, Collapse, Container, DataTable, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, Fa, FormInline, Footer, FreeBird, HamburgerToggler, Input, InputNumeric, Jumbotron, ListGroup, ListGroupItem, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, NavLink$1 as NavLink, Pagination, PageItem, PageLink, Popover, PopoverBody, PopoverHeader, Progress, Waves, Row, Table, TableBody, TableHead, TableFoot, Tooltip, View, Iframe, Autocomplete, Avatar, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, CardUp, Chip, ChipsInput, CollapseHeader, DatePicker$1 as DatePicker, ExportToCSV, RotatingCard as FlippingCard, InputFile, InputRange, InputSwitch, css$c as LightboxStyles, ScrollBar as PerfectScrollbar, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, Select, SelectInput$1 as SelectInput, Options as SelectOptions, SelectOption, Spinner, Step, Stepper, TableEditable, TabPane, TabContent, Sticky, Container$1 as StickyContainer, Testimonial, Timeline, TimelineStep, TimePicker, SmoothScroll, Iframe as MDBIframe, Animation as MDBAnimation, Badge as MDBBadge, Alert as MDBAlert, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, Control as MDBControl, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, CarouselIndicators as MDBCarouselIndicators, CarouselIndicator as MDBCarouselIndicator, Col as MDBCol, Collapse as MDBCollapse, Container as MDBContainer, DataTable as MDBDataTable, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, FormInline as MDBFormInline, Footer as MDBFooter, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Input as MDBInput, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, NavItem as MDBNavItem, NavLink$1 as MDBNavLink, Pagination as MDBPagination, PageItem as MDBPageItem, PageLink as MDBPageNav, Popover as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Progress as MDBProgress, Waves as MDBWaves, Row as MDBRow, Table as MDBTable, TableBody as MDBTableBody, TableHead as MDBTableHead, TableFoot as MDBTableFoot, Tooltip as MDBTooltip, View as MDBView, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, CardUp as MDBCardUp, Chip as MDBChip, ChipsInput as MDBChipsInput, CollapseHeader as MDBCollapseHeader, ExportToCSV as MDBExportToCSV, DatePicker$1 as MDBDatePicker, TimePicker as MDBTimePicker, RotatingCard as MDBRotatingCard, InputFile as MDBFileInput, InputRange as MDBRangeInput, InputSwitch as MDBSwitch, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, Select as MDBSelect, SelectInput as MDBSelectInput, Options as MDBSelectOptions, Option as MDBSelectOption, Spinner as MDBSpinner, TableEditable as MDBTableEditable, TabPane as MDBTabPane, TabContent as MDBTabContent, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, Testimonial as MDBTestimonial, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, MDBStreak, SmoothScroll as MDBSmoothScroll };
+export { Animation, Alert, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, Carousel, CarouselCaption, Control as CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Col, Collapse, Container, DataTable, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, Fa, FormInline, Footer, FreeBird, HamburgerToggler, Input, InputNumeric, Jumbotron, ListGroup, ListGroupItem, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, NavLink$1 as NavLink, Pagination, PageItem, PageLink, Popper$1 as Popover, Popper$1 as Popper, Popper$1 as Tooltip, PopoverBody, PopoverHeader, Progress, Waves, Row, Table, TableBody, TableHead, TableFoot, View, Iframe, Autocomplete, Avatar, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, CardUp, Chip, ChipsInput, CollapseHeader, DatePicker$1 as DatePicker, ExportToCSV, RotatingCard as FlippingCard, InputFile, InputRange, InputSwitch, css$c as LightboxStyles, ScrollBar as PerfectScrollbar, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, Select, SelectInput$1 as SelectInput, Options as SelectOptions, SelectOption, Spinner, Step, Stepper, TableEditable, TabPane, TabContent, Sticky, Container$1 as StickyContainer, Testimonial, Timeline, TimelineStep, TimePicker, SmoothScroll, Iframe as MDBIframe, Animation as MDBAnimation, Badge as MDBBadge, Alert as MDBAlert, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, Control as MDBControl, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, CarouselIndicators as MDBCarouselIndicators, CarouselIndicator as MDBCarouselIndicator, Col as MDBCol, Collapse as MDBCollapse, Container as MDBContainer, DataTable as MDBDataTable, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, FormInline as MDBFormInline, Footer as MDBFooter, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Input as MDBInput, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, NavItem as MDBNavItem, NavLink$1 as MDBNavLink, Pagination as MDBPagination, PageItem as MDBPageItem, PageLink as MDBPageNav, Popper$1 as MDBPopover, Popper$1 as MDBPopper, Popper$1 as MDBTooltip, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Progress as MDBProgress, Waves as MDBWaves, Row as MDBRow, Table as MDBTable, TableBody as MDBTableBody, TableHead as MDBTableHead, TableFoot as MDBTableFoot, View as MDBView, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, CardUp as MDBCardUp, Chip as MDBChip, ChipsInput as MDBChipsInput, CollapseHeader as MDBCollapseHeader, ExportToCSV as MDBExportToCSV, DatePicker$1 as MDBDatePicker, TimePicker as MDBTimePicker, RotatingCard as MDBRotatingCard, InputFile as MDBFileInput, InputRange as MDBRangeInput, InputSwitch as MDBSwitch, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, Select as MDBSelect, SelectInput as MDBSelectInput, Options as MDBSelectOptions, Option as MDBSelectOption, Spinner as MDBSpinner, TableEditable as MDBTableEditable, TabPane as MDBTabPane, TabContent as MDBTabContent, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, Testimonial as MDBTestimonial, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, MDBStreak, SmoothScroll as MDBSmoothScroll };
