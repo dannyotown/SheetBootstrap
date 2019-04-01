@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import SideNavContext from './SideNavContext'
 
 class SideNavNav extends React.Component {
   constructor(props) {
@@ -45,11 +46,36 @@ class SideNavNav extends React.Component {
     });
 
     return (
-      <li>
-        <Tag {...attributes} className={classes}>
-          {modified}
-        </Tag>
-      </li>
+      <SideNavContext.Consumer>
+        {({ slim, slimInitial, toggleSlim, right }) => {
+
+          const iconClass = ['mr-2', "sv-slim-icon", "fas", "icon-rotate"];
+          (right & slim) && iconClass.push('fa-angle-double-left');
+          (right & !slim) && iconClass.push('fa-angle-double-right');
+          (!right & !slim) && iconClass.push('fa-angle-double-left');
+          (!right & slim) && iconClass.push('fa-angle-double-right');
+
+          return (
+            <>
+              <li>
+                <Tag {...attributes} className={classes}>
+                  {modified}
+                  {slimInitial && (
+                    <li onClick={toggleSlim()}>
+                      <a href="#!" className="waves-effect">
+                        <i className={iconClass.join(" ")}></i>
+                        Minimize
+                            menu
+                      </a>
+                    </li>
+                  )}
+                </Tag>
+              </li>
+            </>
+          )
+        }}
+
+      </SideNavContext.Consumer>
     );
   }
 }

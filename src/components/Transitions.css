@@ -87,3 +87,25 @@
 .side-nav[data-animate="false"]{
   transform: translateX(0%);
 }
+
+
+.side-nav.wide {
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+}
+
+
+.side-nav.wide.slim {
+    width: 3.75rem;
+    transition-property: all;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out;
+    right: 3.75rem;
+}
+
+.right-aligned.side-nav.wide.slim {
+    right: 0;
+}
+
+

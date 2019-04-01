@@ -3,7 +3,7 @@ import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardBody, MDBCardImage, MDBCa
 import DocsLink from "./../../components/docsLink";
 
 class eCommercePage extends Component {
-  state={
+  state = {
     activePill: "1",
     data: [
       {
@@ -83,22 +83,22 @@ class eCommercePage extends Component {
     const { columns, data, activePill } = this.state;
     data.map(row => {
       return rows.push(
-      {
-        'img': <img src={row.src} alt="" className="img-fluid z-depth-0" /> ,
-        'product': [<h5 className="mt-3" key={new Date().getDate + 1}><strong>{row.title}</strong></h5>, <p key={new Date().getDate} className="text-muted">{row.subTitle}</p>],
-        'color': row.color,
-        'price': `$${row.price}`,
-        'qty':
-        <MDBInput type="number" default={row.qty} className="form-control" style={{ width: "100px" }} /> ,
-          'amount': <strong>${row.qty * row.price}</strong> ,
-        'button':
-        <MDBTooltip
-          placement="top"
-          componentClass="btn btn-sm btn-primary"
-          tag="div"
-          component="button"
-          tooltipContent="Remove item">X</MDBTooltip>
-      })
+        {
+          'img': <img src={row.src} alt="" className="img-fluid z-depth-0" />,
+          'product': [<h5 className="mt-3" key={new Date().getDate + 1}><strong>{row.title}</strong></h5>, <p key={new Date().getDate} className="text-muted">{row.subTitle}</p>],
+          'color': row.color,
+          'price': `$${row.price}`,
+          'qty':
+            <MDBInput type="number" default={row.qty} className="form-control" style={{ width: "100px" }} />,
+          'amount': <strong>${row.qty * row.price}</strong>,
+          'button':
+            <MDBTooltip
+              placement="top"
+            >
+              <MDBBtn color="primary">X</MDBBtn>
+              <span>Remove item</span>
+            </MDBTooltip>
+        })
     });
 
     return (
@@ -112,12 +112,12 @@ class eCommercePage extends Component {
           <MDBRow center>
             {/* Product card v.1 */}
             <MDBCard className="m-2" style={{ width: "22rem" }} cascade ecommerce wide>
-                <MDBCardImage
-                  cascade
-                  top
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/shoes%20(2).jpg"
-                  waves
-                />
+              <MDBCardImage
+                cascade
+                top
+                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/shoes%20(2).jpg"
+                waves
+              />
               <MDBCardBody cascade className="text-center">
                 <MDBCardTitle tag="h5">
                   Category
@@ -133,17 +133,19 @@ class eCommercePage extends Component {
                   <span className="float-left">49$</span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-share-alt mr-3"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Share" />
+                    >
+                      <i className="fa fa-share-alt mr-3"></i>
+                      <span>Share</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-heart"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Added to Wishlist" />
+                    >
+                      <i className="fa fa-heart"></i>
+                      <span>Add to Whishlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -172,17 +174,19 @@ class eCommercePage extends Component {
                   <span className="float-left">49$</span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-eye mr-3"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Share" />
+                    >
+                      <i className="fa fa-eye mr-3"></i>
+                      <span>Share</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-heart"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Added to Wishlist" />
+                    >
+                      <i className="fa fa-heart"></i>
+                      <span>Add to Whishlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -211,11 +215,12 @@ class eCommercePage extends Component {
                   <span className="float-left">49$ <span className="discount">199$</span></span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-heart"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Added to Wishlist" />
+                    >
+                      <i className="fa fa-heart"></i>
+                      <span>Add to Whishlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -251,17 +256,19 @@ class eCommercePage extends Component {
                   <span className="float-left">49$</span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-share-alt mr-3"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Share" />
+                    >
+                      <i className="fa fa-share-alt mr-3"></i>
+                      <span>Share</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-heart"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Added to Wishlist" />
+                    >
+                      <i className="fa fa-heart"></i>
+                      <span>Add to Whishlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -297,23 +304,26 @@ class eCommercePage extends Component {
                   <span className="float-left">49$</span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-shopping-cart mr-3"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Add to Cart" />
+                    >
+                      <i className="fa fa-shopping-cart mr-3"></i>
+                      <span>Add to Cart</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-share-alt mr-3"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Share" />
+                    >
+                      <i className="fa fa-share-alt mr-3"></i>
+                      <span>Share</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      componentClass="fa fa-heart"
-                      tag="a"
-                      component="i"
-                      tooltipContent="Added to Wishlist" />
+                    >
+                      <i className="fa fa-heart"></i>
+                      <span>Add to Whishlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -542,14 +552,14 @@ class eCommercePage extends Component {
                               <input type="text" className="form-control" id="cc-name123" required />
                               <small className="text-muted">Full name as displayed on card</small>
                               <div className="invalid-feedback">
-                                  Name on card is required
+                                Name on card is required
                               </div>
                             </MDBCol>
                             <MDBCol md="6" className="mb-3">
                               <label htmlFor="cc-number123">Credit card number</label>
                               <input type="text" className="form-control" id="cc-number123" required />
                               <div className="invalid-feedback">
-                                  Credit card number is required
+                                Credit card number is required
                               </div>
                             </MDBCol>
                           </MDBRow>
@@ -565,7 +575,7 @@ class eCommercePage extends Component {
                               <label htmlFor="cc-cvv123">CVV</label>
                               <input type="text" className="form-control" id="cc-cvv123" required />
                               <div className="invalid-feedback">
-                                  Security code required
+                                Security code required
                               </div>
                             </MDBCol>
                           </MDBRow>

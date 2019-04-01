@@ -1,8 +1,8 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBIcon, MDBTooltip,  MDBBadge, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBBtn } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBIcon, MDBTooltip, MDBBadge, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBBtn } from "mdbreact";
 import DocsLink from "../../../components/docsLink";
 
-const EcommercePage = () =>  {
+const EcommercePage = () => {
   return (
     <MDBContainer>
       <DocsLink
@@ -63,27 +63,26 @@ const EcommercePage = () =>  {
                   </span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-shopping-cart grey-text ml-3"
-                      tooltipContent="Add to cart"
-                    />
+                    >
+                      <i className="fa fa-shopping-cart grey-text ml-3"></i>
+                      <span>Add to cart</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-share-alt grey-text ml-3"
-                      tooltipContent="Share"
-                    />
+                    >
+                      <i className="fa fa-share-alt grey-text ml-3"></i>
+                      <span>Share</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      className="active"
-                      componentClass="fa fa-heart ml-3"
-                      tooltipContent="Added to watchlist"
-                    />
+                    >
+                      <i className="fa fa-heart ml-3"></i>
+                      <span>Added to watchlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -133,26 +132,26 @@ const EcommercePage = () =>  {
                   </span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-shopping-cart grey-text ml-3"
-                      tooltipContent="Add to cart"
-                    />
+                    >
+                      <i className="fa fa-shopping-cart grey-text ml-3"></i>
+                      <span>Add to cart</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-share-alt grey-text ml-3"
-                      tooltipContent="Share"
-                    />
+                    >
+                      <i className="fa fa-share-alt grey-text ml-3"></i>
+                      <span>Share</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-heart grey-text ml-3"
-                      tooltipContent="Add to watchlist"
-                    />
+                    >
+                      <i className="fa fa-heart ml-3"></i>
+                      <span>Add to watchlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -202,26 +201,26 @@ const EcommercePage = () =>  {
                   </span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-shopping-cart grey-text ml-3"
-                      tooltipContent="Add to cart"
-                    />
+                    >
+                      <i className="fa fa-shopping-cart grey-text ml-3"></i>
+                      <span>Add to cart</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-share-alt grey-text ml-3"
-                      tooltipContent="Share"
-                    />
+                    >
+                      <i className="fa fa-share-alt grey-text ml-3"></i>
+                      <span>Share</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-heart grey-text ml-3"
-                      tooltipContent="Add to watchlist"
-                    />
+                    >
+                      <i className="fa fa-heart ml-3"></i>
+                      <span>Add to watchlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -271,27 +270,26 @@ const EcommercePage = () =>  {
                   </span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-shopping-cart grey-text ml-3"
-                      tooltipContent="Add to cart"
-                    />
+                    >
+                      <i className="fa fa-shopping-cart grey-text ml-3"></i>
+                      <span>Add to cart</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-share-alt grey-text ml-3"
-                      tooltipContent="Share"
-                    />
+                    >
+                      <i className="fa fa-share-alt grey-text ml-3"></i>
+                      <span>Share</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      className="active"
-                      componentClass="fa fa-heart ml-3"
-                      tooltipContent="Added to watchlist"
-                    />
+                    >
+                      <i className="fa fa-heart ml-3"></i>
+                      <span>Add to watchlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -337,19 +335,19 @@ const EcommercePage = () =>  {
                   </span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-eye grey-text ml-3"
-                      tooltipContent="Quick look"
-                    />
+                    >
+                      <i className="fa fa-eye grey-text ml-3"></i>
+                      <span>Quick look</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-heart grey-text ml-3"
-                      tooltipContent="Add to watchlist"
-                    />
+                    >
+                      <i className="fa fa-heart grey-text ml-3"></i>
+                      <span>Add to watchlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -382,19 +380,19 @@ const EcommercePage = () =>  {
                   </span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-eye grey-text ml-3"
-                      tooltipContent="Quick look"
-                    />
+                    >
+                      <i className="fa fa-eye grey-text ml-3"></i>
+                      <span>Quick look</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-heart grey-text ml-3"
-                      tooltipContent="Add to watchlist"
-                    />
+                    >
+                      <i className="fa fa-heart grey-text ml-3"></i>
+                      <span>Add to watchlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -427,19 +425,19 @@ const EcommercePage = () =>  {
                   </span>
                   <span className="float-right">
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-eye grey-text ml-3"
-                      tooltipContent="Quick look"
-                    />
+                    >
+                      <i className="fa fa-eye grey-text ml-3"></i>
+                      <span>Quick look</span>
+                    </MDBTooltip>
                     <MDBTooltip
+                      domElement
                       placement="top"
-                      tag="a"
-                      component="i"
-                      componentClass="fa fa-heart grey-text ml-3"
-                      tooltipContent="Add to watchlist"
-                    />
+                    >
+                      <i className="fa fa-heart grey-text ml-3"></i>
+                      <span>Add to watchlist</span>
+                    </MDBTooltip>
                   </span>
                 </MDBCardFooter>
               </MDBCardBody>
@@ -697,19 +695,19 @@ const EcommercePage = () =>  {
                         <span className="float-left">69$</span>
                         <span className="float-right">
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-eye grey-text ml-3"
-                            tooltipContent="Quick look"
-                          />
+                          >
+                            <i className="fa fa-eye grey-text ml-3"></i>
+                            <span>Quick look</span>
+                          </MDBTooltip>
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-heart grey-text ml-3"
-                            tooltipContent="Add to watchlist"
-                          />
+                          >
+                            <i className="fa fa-heart grey-text ml-3"></i>
+                            <span>Add to watchlist</span>
+                          </MDBTooltip>
                         </span>
                       </MDBCardFooter>
                     </MDBCardBody>
@@ -740,19 +738,19 @@ const EcommercePage = () =>  {
                         <span className="float-left">99$</span>
                         <span className="float-right">
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-eye grey-text ml-3"
-                            tooltipContent="Quick look"
-                          />
+                          >
+                            <i className="fa fa-eye grey-text ml-3"></i>
+                            <span>Quick look</span>
+                          </MDBTooltip>
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-heart grey-text ml-3"
-                            tooltipContent="Add to watchlist"
-                          />
+                          >
+                            <i className="fa fa-heart grey-text ml-3"></i>
+                            <span>Add to watchlist</span>
+                          </MDBTooltip>
                         </span>
                       </MDBCardFooter>
                     </MDBCardBody>
@@ -783,19 +781,19 @@ const EcommercePage = () =>  {
                         <span className="float-left">49$</span>
                         <span className="float-right">
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-eye grey-text ml-3"
-                            tooltipContent="Quick look"
-                          />
+                          >
+                            <i className="fa fa-eye grey-text ml-3"></i>
+                            <span>Quick look</span>
+                          </MDBTooltip>
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-heart grey-text ml-3"
-                            tooltipContent="Add to watchlist"
-                          />
+                          >
+                            <i className="fa fa-heart grey-text ml-3"></i>
+                            <span>Add to watchlist</span>
+                          </MDBTooltip>
                         </span>
                       </MDBCardFooter>
                     </MDBCardBody>
@@ -828,19 +826,19 @@ const EcommercePage = () =>  {
                         <span className="float-left">69$</span>
                         <span className="float-right">
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-eye grey-text ml-3"
-                            tooltipContent="Quick look"
-                          />
+                          >
+                            <i className="fa fa-eye grey-text ml-3"></i>
+                            <span>Quick look</span>
+                          </MDBTooltip>
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-heart grey-text ml-3"
-                            tooltipContent="Add to watchlist"
-                          />
+                          >
+                            <i className="fa fa-heart grey-text ml-3"></i>
+                            <span>Add to watchlist</span>
+                          </MDBTooltip>
                         </span>
                       </MDBCardFooter>
                     </MDBCardBody>
@@ -871,19 +869,19 @@ const EcommercePage = () =>  {
                         <span className="float-left">99$</span>
                         <span className="float-right">
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-eye grey-text ml-3"
-                            tooltipContent="Quick look"
-                          />
+                          >
+                            <i className="fa fa-eye grey-text ml-3"></i>
+                            <span>Quick look</span>
+                          </MDBTooltip>
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-heart grey-text ml-3"
-                            tooltipContent="Add to watchlist"
-                          />
+                          >
+                            <i className="fa fa-heart grey-text ml-3"></i>
+                            <span>Add to watchlist</span>
+                          </MDBTooltip>
                         </span>
                       </MDBCardFooter>
                     </MDBCardBody>
@@ -914,19 +912,19 @@ const EcommercePage = () =>  {
                         <span className="float-left">49$</span>
                         <span className="float-right">
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-eye grey-text ml-3"
-                            tooltipContent="Quick look"
-                          />
+                          >
+                            <i className="fa fa-eye grey-text ml-3"></i>
+                            <span>Quick look</span>
+                          </MDBTooltip>
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-heart grey-text ml-3"
-                            tooltipContent="Add to watchlist"
-                          />
+                          >
+                            <i className="fa fa-heart grey-text ml-3"></i>
+                            <span>Add to watchlist</span>
+                          </MDBTooltip>
                         </span>
                       </MDBCardFooter>
                     </MDBCardBody>
@@ -959,19 +957,19 @@ const EcommercePage = () =>  {
                         <span className="float-left">69$</span>
                         <span className="float-right">
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-eye grey-text ml-3"
-                            tooltipContent="Quick look"
-                          />
+                          >
+                            <i className="fa fa-eye grey-text ml-3"></i>
+                            <span>Quick look</span>
+                          </MDBTooltip>
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-heart grey-text ml-3"
-                            tooltipContent="Add to watchlist"
-                          />
+                          >
+                            <i className="fa fa-heart grey-text ml-3"></i>
+                            <span>Add to watchlist</span>
+                          </MDBTooltip>
                         </span>
                       </MDBCardFooter>
                     </MDBCardBody>
@@ -1002,19 +1000,19 @@ const EcommercePage = () =>  {
                         <span className="float-left">99$</span>
                         <span className="float-right">
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-eye grey-text ml-3"
-                            tooltipContent="Quick look"
-                          />
+                          >
+                            <i className="fa fa-eye grey-text ml-3"></i>
+                            <span>Quick look</span>
+                          </MDBTooltip>
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-heart grey-text ml-3"
-                            tooltipContent="Add to watchlist"
-                          />
+                          >
+                            <i className="fa fa-heart grey-text ml-3"></i>
+                            <span>Add to watchlist</span>
+                          </MDBTooltip>
                         </span>
                       </MDBCardFooter>
                     </MDBCardBody>
@@ -1045,19 +1043,19 @@ const EcommercePage = () =>  {
                         <span className="float-left">49$</span>
                         <span className="float-right">
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-eye grey-text ml-3"
-                            tooltipContent="Quick look"
-                          />
+                          >
+                            <i className="fa fa-eye grey-text ml-3"></i>
+                            <span>Quick look</span>
+                          </MDBTooltip>
                           <MDBTooltip
+                            domElement
                             placement="top"
-                            tag="a"
-                            component="i"
-                            componentClass="fa fa-heart grey-text ml-3"
-                            tooltipContent="Add to watchlist"
-                          />
+                          >
+                            <i className="fa fa-heart grey-text ml-3"></i>
+                            <span>Add to watchlist</span>
+                          </MDBTooltip>
                         </span>
                       </MDBCardFooter>
                     </MDBCardBody>

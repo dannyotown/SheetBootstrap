@@ -199,6 +199,7 @@ class DataTable extends Component {
       children,
       dark,
       data,
+      displayEntries,
       entriesOptions,
       entriesLabel,
       exportToCSV,
@@ -245,6 +246,7 @@ class DataTable extends Component {
         <div className="row">
           <DataTableEntries
             paging={paging}
+            displayEntries={displayEntries}
             entries={entries}
             handleEntriesChange={this.handleEntriesChange}
             entriesArr={entriesOptions}
@@ -363,6 +365,7 @@ DataTable.propTypes = {
   children: PropTypes.node,
   dark: PropTypes.bool,
   data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  displayEntries: PropTypes.bool,
   entries: PropTypes.number,
   entriesLabel: PropTypes.oneOfType([
     PropTypes.string,
@@ -405,6 +408,7 @@ DataTable.defaultProps = {
   btn: false,
   dark: false,
   data: {},
+  displayEntries: true,
   entries: 10,
   entriesLabel: "Show entries",
   entriesOptions: [10, 20, 50, 100],

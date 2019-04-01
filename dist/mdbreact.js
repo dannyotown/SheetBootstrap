@@ -10,14 +10,11 @@ var PropTypes = require('prop-types');
 var PropTypes__default = _interopDefault(PropTypes);
 var classNames = _interopDefault(require('classnames'));
 var reactTransitionGroup = require('react-transition-group');
-var ReactDOM = require('react-dom');
-var ReactDOM__default = _interopDefault(ReactDOM);
+var ReactDOM = _interopDefault(require('react-dom'));
 var reactPopper = require('react-popper');
 var NumericInput = _interopDefault(require('react-numeric-input'));
 var reactRouterDom = require('react-router-dom');
-var outy = _interopDefault(require('outy'));
 var reactToastify = require('react-toastify');
-var Autosuggest = _interopDefault(require('react-autosuggest'));
 var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
 var moment = _interopDefault(require('moment'));
@@ -197,6 +194,10 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+}
+
 function _toConsumableArray(arr) {
   return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
 }
@@ -209,12 +210,46 @@ function _arrayWithoutHoles(arr) {
   }
 }
 
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
 function _iterableToArray(iter) {
   if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
 }
 
+function _iterableToArrayLimit(arr, i) {
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
 function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance");
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
 }
 
 var Animation =
@@ -834,7 +869,7 @@ function (_React$Component) {
     key: "reppling",
     value: function reppling() {
       // Get the element
-      var $ripple = ReactDOM__default.findDOMNode(this);
+      var $ripple = ReactDOM.findDOMNode(this);
       var $button = $ripple.parentNode;
       var buttonPos = $button.getBoundingClientRect();
       var buttonWidth = $button.offsetWidth;
@@ -3016,7 +3051,6 @@ function (_React$Component) {
       }
 
       _this.props.onInput && _this.props.onInput(event);
-      _this.props.getValue && _this.props.getValue(event.target.value);
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setFocus", function () {
@@ -3205,8 +3239,9 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
       multiple = _ref.multiple,
       selectOption = _ref.selectOption,
       text = _ref.text,
-      value = _ref.value;
-  var classes = classNames(disabled && "disabled", checked && "active");
+      value = _ref.value,
+      separator = _ref.separator;
+  var classes = classNames((disabled || separator) && "disabled", separator && 'optgroup', checked && "active");
   return React__default.createElement("li", {
     "data-multiple": multiple,
     className: classes,
@@ -3227,7 +3262,7 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
     checked: checked,
     disabled: disabled,
     onChange: function onChange() {}
-  }), React__default.createElement("label", {
+  }), !separator && React__default.createElement("label", {
     style: {
       height: "10px"
     },
@@ -3238,6 +3273,7 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
 ControlledSelectOption.propTypes = {
   checked: PropTypes__default.bool,
   disabled: PropTypes__default.bool,
+  separator: PropTypes__default.bool,
   icon: PropTypes__default.string,
   multiple: PropTypes__default.bool,
   selectOption: PropTypes__default.func,
@@ -3321,6 +3357,7 @@ function (_Component) {
           icon: option.icon,
           text: option.text,
           value: option.value,
+          separator: option.separator,
           selectOption: selectOption
         });
       }));
@@ -3336,6 +3373,7 @@ ControlledSelectOptions.propTypes = {
   multiple: PropTypes__default.bool,
   options: PropTypes__default.arrayOf(PropTypes__default.shape({
     checked: PropTypes__default.bool,
+    separator: PropTypes__default.bool,
     disabled: PropTypes__default.bool,
     icon: PropTypes__default.string,
     text: PropTypes__default.string,
@@ -3814,12 +3852,13 @@ function (_React$Component) {
           className = _this$props.className,
           children = _this$props.children,
           disabled = _this$props.disabled,
+          separator = _this$props.separator,
           icon = _this$props.icon,
           triggerOptionClick = _this$props.triggerOptionClick,
           value = _this$props.value,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "disabled", "icon", "triggerOptionClick", "value"]);
+          attributes = _objectWithoutProperties(_this$props, ["className", "children", "disabled", "separator", "icon", "triggerOptionClick", "value"]);
 
-      var classes = classNames(disabled ? "disabled" : "", className);
+      var classes = classNames(disabled || separator ? "disabled" : "", separator ? "optgroup" : "", className);
       var input = null;
       var label = null;
 
@@ -3861,14 +3900,17 @@ function (_React$Component) {
         "data-multiple": this.state.multiple,
         className: classes,
         onClick: this.selectOption
-      }), icon && React__default.createElement("img", {
+      }), React__default.createElement("span", {
+        "data-multiple": this.state.multiple,
+        className: "filtrable",
+        style: {
+          display: "inline-block"
+        }
+      }, !separator ? input : null, label, children), icon && React__default.createElement("img", {
         src: this.props.icon,
         alt: "icon",
         className: "rounded-circle"
-      }), React__default.createElement("span", {
-        "data-multiple": this.state.multiple,
-        className: "filtrable"
-      }, input, label, children));
+      }));
     }
   }]);
 
@@ -3882,13 +3924,15 @@ exports.MDBSelectOption.propTypes = {
   disabled: PropTypes__default.bool,
   icon: PropTypes__default.string,
   triggerOptionClick: PropTypes__default.func,
-  value: PropTypes__default.any
+  value: PropTypes__default.any,
+  separator: PropTypes__default.bool
 };
 exports.MDBSelectOption.defaultProps = {
   children: "span",
   checked: false,
   className: "",
   disabled: false,
+  separator: false,
   icon: "",
   triggerOptionClick: function triggerOptionClick() {},
   value: ""
@@ -3933,13 +3977,14 @@ import DataTableSelect from './DataTableSelect';
 
 var DataTableEntries = function DataTableEntries(props) {
   var handleEntriesChange = props.handleEntriesChange,
+      displayEntries = props.displayEntries,
       entries = props.entries,
       entriesArr = props.entriesArr,
       paging = props.paging,
       label = props.label;
   return React__default.createElement("div", {
     className: "col-sm-12 col-md-6"
-  }, paging && React__default.createElement(DataTableSelect, {
+  }, paging && displayEntries && React__default.createElement(DataTableSelect, {
     value: entries,
     onChange: handleEntriesChange,
     entries: entriesArr,
@@ -3949,6 +3994,7 @@ var DataTableEntries = function DataTableEntries(props) {
 
 DataTableEntries.propTypes = {
   handleEntriesChange: PropTypes__default.func.isRequired,
+  displayEntries: PropTypes__default.bool.isRequired,
   entries: PropTypes__default.number.isRequired,
   entriesArr: PropTypes__default.arrayOf(PropTypes__default.number).isRequired,
   paging: PropTypes__default.bool.isRequired,
@@ -4592,6 +4638,7 @@ function (_Component) {
           children = _this$props.children,
           dark = _this$props.dark,
           data = _this$props.data,
+          displayEntries = _this$props.displayEntries,
           entriesOptions = _this$props.entriesOptions,
           entriesLabel = _this$props.entriesLabel,
           exportToCSV = _this$props.exportToCSV,
@@ -4620,7 +4667,7 @@ function (_Component) {
           tbodyTextWhite = _this$props.tbodyTextWhite,
           theadColor = _this$props.theadColor,
           theadTextWhite = _this$props.theadTextWhite,
-          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "children", "dark", "data", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite"]);
+          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite"]);
 
       var _this$state = this.state,
           columns = _this$state.columns,
@@ -4636,6 +4683,7 @@ function (_Component) {
         className: "row"
       }, React__default.createElement(DataTableEntries, {
         paging: paging,
+        displayEntries: displayEntries,
         entries: entries,
         handleEntriesChange: this.handleEntriesChange,
         entriesArr: entriesOptions,
@@ -4736,6 +4784,7 @@ DataTable.propTypes = {
   children: PropTypes__default.node,
   dark: PropTypes__default.bool,
   data: PropTypes__default.oneOfType([PropTypes__default.object, PropTypes__default.string]),
+  displayEntries: PropTypes__default.bool,
   entries: PropTypes__default.number,
   entriesLabel: PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.number, PropTypes__default.object]),
   entriesOptions: PropTypes__default.arrayOf(PropTypes__default.number),
@@ -4773,6 +4822,7 @@ DataTable.defaultProps = {
   btn: false,
   dark: false,
   data: {},
+  displayEntries: true,
   entries: 10,
   entriesLabel: "Show entries",
   entriesOptions: [10, 20, 50, 100],
@@ -4914,17 +4964,15 @@ DropdownItem.contextTypes = contextTypes;
 var css$6 = ".dropup .dropdown-menu {\n  top: auto !important;\n  bottom: 100% !important;\n  transform: translate3d(5px, 5px, 0px) !important;\n}\n\n.dropdown-menu-right {\n  left: 0 !important;\n  right: auto !important;\n}\n";
 styleInject(css$6);
 
-var DropdownMenuProComponent = function DropdownMenuProComponent(props) {
-  var isOpen = props.isOpen,
-      d_tag = props.d_tag,
-      d_tabIndex = props.d_tabIndex,
-      d_role = props.d_role,
-      d_attributes = props.d_attributes,
-      d_aria = props.d_aria,
-      d_classes = props.d_classes,
-      d_key = props.d_key,
-      children = props.children;
-  var Tag = d_tag;
+var DropdownMenuProComponent = function DropdownMenuProComponent(_ref) {
+  var isOpen = _ref.isOpen,
+      Tag = _ref.tag,
+      tabIndex = _ref.tabIndex,
+      role = _ref.role,
+      attributes = _ref.attributes,
+      aria = _ref.aria,
+      d_key = _ref.d_key,
+      children = _ref.children;
   return React__default.createElement(reactTransitionGroup.CSSTransition, {
     in: isOpen,
     appear: isOpen,
@@ -4935,28 +4983,23 @@ var DropdownMenuProComponent = function DropdownMenuProComponent(props) {
       exit: 300
     }
   }, React__default.createElement(Tag, _extends({
-    tabIndex: d_tabIndex,
-    role: d_role
-  }, d_attributes, {
-    "aria-hidden": d_aria,
-    className: d_classes,
+    tabIndex: tabIndex,
+    role: role
+  }, attributes, {
+    "aria-hidden": aria,
     key: d_key
   }), children));
 };
 
 DropdownMenuProComponent.propTypes = {
-  d_aria: PropTypes__default.bool.isRequired,
-  d_attributes: PropTypes__default.object.isRequired,
+  aria: PropTypes__default.bool.isRequired,
+  attributes: PropTypes__default.object.isRequired,
   d_key: PropTypes__default.string.isRequired,
-  d_role: PropTypes__default.string.isRequired,
-  d_tabIndex: PropTypes__default.string.isRequired,
-  d_tag: PropTypes__default.any.isRequired,
+  role: PropTypes__default.string.isRequired,
+  tabIndex: PropTypes__default.string.isRequired,
+  tag: PropTypes__default.any.isRequired,
   isOpen: PropTypes__default.bool.isRequired,
-  children: PropTypes__default.node.isRequired,
-  d_classes: PropTypes__default.string
-};
-DropdownMenuProComponent.defaultProps = {
-  d_classes: ""
+  children: PropTypes__default.node.isRequired
 };
 
 /*
@@ -4987,6 +5030,8 @@ function (_Component) {
   _createClass(DropdownMenu, [{
     key: "render",
     value: function render() {
+      var _this = this;
+
       var _this$props = this.props,
           basic = _this$props.basic,
           className = _this$props.className,
@@ -5005,7 +5050,6 @@ function (_Component) {
       var Tag = tag;
 
       if (this.context.isOpen) {
-        Tag = reactPopper.Popper;
         var position1 = this.context.dropup ? 'top' : 'bottom';
         var position2 = right ? 'end' : 'start';
         attrs.placement = "".concat(position1, "-").concat(position2);
@@ -5013,16 +5057,31 @@ function (_Component) {
         attrs.modifiers = !flip ? noFlipModifier : undefined;
       }
 
-      return React__default.createElement(DropdownMenuProComponent, {
-        isOpen: this.context.isOpen,
-        d_tag: Tag,
-        d_tabIndex: "-1",
-        d_role: "menu",
-        d_attributes: attrs,
-        d_aria: !this.context.isOpen,
-        d_classes: classes,
-        d_key: "dropDownMenu"
-      }, children);
+      return React__default.createElement(reactPopper.Popper, {
+        modifires: attrs.modifiers,
+        eventsEnabled: true,
+        positionFixed: false,
+        placement: attrs.placement
+      }, function (_ref) {
+        var placement = _ref.placement,
+            ref = _ref.ref,
+            style = _ref.style;
+        return React__default.createElement(Tag, {
+          ref: ref,
+          style: style,
+          "data-placement": placement,
+          className: classes
+        }, React__default.createElement(DropdownMenuProComponent, {
+          isOpen: _this.context.isOpen,
+          tag: Tag,
+          tabIndex: "-1",
+          role: "menu",
+          attributes: attrs,
+          aria: !_this.context.isOpen,
+          d_key: "dropDownMenu",
+          color: color
+        }, children));
+      });
     }
   }]);
 
@@ -5087,6 +5146,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           className = _this$props.className,
           color = _this$props.color,
@@ -5115,12 +5176,20 @@ function (_React$Component) {
         Tag = tag;
       }
 
-      return React__default.createElement(reactPopper.Target, _extends({}, props, {
-        className: classes,
-        component: Tag,
-        onClick: this.onClick,
-        "aria-expanded": this.context.isOpen
-      }), children);
+      return React__default.createElement(reactPopper.Reference, null, function (_ref) {
+        var ref = _ref.ref;
+        return tag || nav ? React__default.createElement(Tag, _extends({}, props, {
+          className: classes,
+          onClick: _this2.onClick,
+          "aria-expanded": _this2.context.isOpen,
+          ref: ref
+        }), children) : React__default.createElement(Tag, _extends({}, props, {
+          className: classes,
+          onClick: _this2.onClick,
+          "aria-expanded": _this2.context.isOpen,
+          innerRef: ref
+        }), children);
+      });
     }
   }]);
 
@@ -6408,183 +6477,179 @@ NavLink.defaultProps = {
   disabled: false
 };
 
-var css$8 = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n";
-styleInject(css$8);
+var Popper = function Popper(_ref) {
+  var children = _ref.children,
+      clickable = _ref.clickable,
+      domElement = _ref.domElement,
+      modifiers = _ref.modifiers,
+      id = _ref.id,
+      isVisible = _ref.isVisible,
+      onChange = _ref.onChange,
+      placement = _ref.placement,
+      popover = _ref.popover,
+      style = _ref.style,
+      tag = _ref.tag;
 
-var Popover =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Popover, _React$Component);
+  var _useState = React.useState(isVisible),
+      _useState2 = _slicedToArray(_useState, 2),
+      visible = _useState2[0],
+      setVisible = _useState2[1];
 
-  function Popover(props) {
-    var _this;
-
-    _classCallCheck(this, Popover);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Popover).call(this, props));
-    _this.state = {
-      isOpen: false
+  React.useEffect(function () {
+    setVisible(isVisible);
+  }, [isVisible]);
+  React.useEffect(function () {
+    onChange && onChange(visible);
+  }, [visible]);
+  React.useEffect(function () {
+    window.addEventListener('click', handleClick);
+    return function () {
+      return window.removeEventListener('click', handleClick);
     };
-    _this._handleTargetClick = _this._handleTargetClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this._setOusideTap = _this._setOusideTap.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this._handleOutsideTap = _this._handleOutsideTap.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    return _this;
+  }, []);
+
+  function handleClick(e) {
+    var element = document.elementsFromPoint(e.clientX, e.clientY).find(function (el) {
+      return el.dataset.popper === id;
+    });
+    if (element) return;
+    setVisible(false);
   }
 
-  _createClass(Popover, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this._setOusideTap();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(lastProps, lastState) {
-      var _this2 = this;
-
-      if (lastState.isOpen !== this.state.isOpen) {
-        setTimeout(function () {
-          return _this2._setOusideTap();
-        });
-      }
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.outsideTap.remove();
-    }
-  }, {
-    key: "_setOusideTap",
-    value: function _setOusideTap() {
-      var elements = [this.target];
-
-      if (this.popper) {
-        elements.push(this.popper);
-      }
-
-      if (this.outsideTap) {
-        this.outsideTap.remove();
-      }
-
-      this.outsideTap = outy(elements, ["click", "touchstart"], this._handleOutsideTap);
-    }
-  }, {
-    key: "_handleOutsideTap",
-    value: function _handleOutsideTap() {
-      this.setState({
-        isOpen: false
-      });
-    }
-  }, {
-    key: "_handleTargetClick",
-    value: function _handleTargetClick() {
-      this.setState({
-        isOpen: !this.state.isOpen
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this3 = this;
-
-      var _this$props = this.props,
-          placement = _this$props.placement,
-          component = _this$props.component,
-          componentStyle = _this$props.componentStyle,
-          className = _this$props.className,
-          children = _this$props.children,
-          componentPopover = _this$props.componentPopover,
-          popoverBody = _this$props.popoverBody,
-          popoverClass = _this$props.popoverClass,
-          arrowClass = _this$props.arrowClass,
-          tag = _this$props.tag;
-      var classes = classNames(className);
-      var popoverClasses = classNames("popover", placement ? "bs-popover-" + placement : "", popoverClass);
-      var arrowClasses = classNames("arrow", arrowClass);
-      return React__default.createElement(reactPopper.Manager, {
-        tag: tag
-      }, React__default.createElement(reactPopper.Target, {
-        innerRef: function innerRef(c) {
-          return _this3.target = ReactDOM.findDOMNode(c);
-        },
-        component: component,
-        style: componentStyle,
-        className: classes,
-        onClick: this._handleTargetClick
-      }, popoverBody), React__default.createElement(reactTransitionGroup.CSSTransition, {
-        in: this.state.isOpen,
-        appear: this.state.isOpen,
-        classNames: "popover",
-        unmountOnExit: true,
-        timeout: {
-          enter: 300,
-          exit: 300
-        }
-      }, React__default.createElement(reactPopper.Popper, {
-        key: "popover",
-        component: componentPopover,
-        innerRef: function innerRef(c) {
-          _this3.popper = ReactDOM.findDOMNode(c);
-        },
-        placement: placement,
-        className: popoverClasses,
-        onClick: this._handleTargetClick
-      }, children, React__default.createElement(reactPopper.Arrow, {
-        className: arrowClasses
-      }))));
-    }
-  }]);
-
-  return Popover;
-}(React__default.Component);
-
-Popover.propTypes = {
-  placement: PropTypes__default.string,
-  component: PropTypes__default.string,
-  componentStyle: PropTypes__default.string,
-  componentPopover: PropTypes__default.string,
-  popoverBody: PropTypes__default.string,
-  arrowClass: PropTypes__default.string,
-  popoverClass: PropTypes__default.string,
-  children: PropTypes__default.node,
-  tag: PropTypes__default.string,
-  className: PropTypes__default.string
+  var Wrapper = children[0];
+  var Content = children[1];
+  var Tag = tag;
+  var tooltipClasses = classNames("fade", popover ? "popover bs-popover-".concat(placement, " popover-enter-done") : "tooltip bs-tooltip-".concat(placement), visible ? "show" : "");
+  var contentClasses = classNames(!popover && "tooltip-inner");
+  return React__default.createElement(reactPopper.Manager, null, React__default.createElement(reactPopper.Reference, null, function (_ref2) {
+    var ref = _ref2.ref;
+    return !domElement ? React__default.createElement(Wrapper.type, _extends({}, Wrapper.props, {
+      onMouseEnter: function onMouseEnter() {
+        return !clickable && setVisible(true);
+      },
+      onMouseLeave: function onMouseLeave() {
+        return !clickable && setVisible(false);
+      },
+      onTouchStart: function onTouchStart() {
+        return !clickable && setVisible(true);
+      },
+      onTouchEnd: function onTouchEnd() {
+        return !clickable && setVisible(false);
+      },
+      onClick: function onClick() {
+        return clickable && setVisible(!visible);
+      },
+      innerRef: ref,
+      "data-popper": id
+    })) : React__default.createElement(Wrapper.type, _extends({}, Wrapper.props, {
+      onMouseEnter: function onMouseEnter() {
+        return !clickable && setVisible(true);
+      },
+      onMouseLeave: function onMouseLeave() {
+        return !clickable && setVisible(false);
+      },
+      onTouchStart: function onTouchStart() {
+        return !clickable && setVisible(true);
+      },
+      onTouchEnd: function onTouchEnd() {
+        return !clickable && setVisible(false);
+      },
+      onClick: function onClick() {
+        return clickable && setVisible(!visible);
+      },
+      ref: ref,
+      "data-popper": id
+    }));
+  }), visible && React__default.createElement(Tag, {
+    style: style
+  }, React__default.createElement(reactPopper.Popper, {
+    modifiers: modifiers,
+    eventsEnabled: true,
+    positionFixed: false,
+    placement: placement
+  }, function (_ref3) {
+    var placement = _ref3.placement,
+        ref = _ref3.ref,
+        style = _ref3.style,
+        arrowProps = _ref3.arrowProps;
+    return React__default.createElement(Tag, {
+      ref: ref,
+      style: style,
+      "data-placement": placement,
+      className: tooltipClasses,
+      "data-popper": id
+    }, React__default.createElement(Content.type, _extends({}, Content.props, {
+      className: contentClasses
+    }), Content.props.children), React__default.createElement("span", {
+      ref: arrowProps.ref,
+      style: arrowProps.style,
+      "data-placement": placement,
+      className: "arrow"
+    }));
+  })));
 };
 
-var PopoverBody = function PopoverBody(props) {
-  var className = props.className,
-      Tag = props.tag,
-      attributes = _objectWithoutProperties(props, ["className", "tag"]);
+Popper.propTypes = {
+  children: PropTypes__default.node,
+  clickable: PropTypes__default.bool,
+  domElement: PropTypes__default.bool,
+  modifiers: PropTypes__default.object,
+  id: PropTypes__default.string,
+  isVisible: PropTypes__default.bool,
+  placement: PropTypes__default.string,
+  style: PropTypes__default.objectOf(PropTypes__default.string),
+  tag: PropTypes__default.string
+};
+Popper.defaultProps = {
+  clickable: false,
+  domElement: false,
+  id: 'popper',
+  isVisible: false,
+  placement: 'top',
+  style: {
+    display: 'inline-block'
+  },
+  tag: 'div'
+};
 
-  var classes = classNames("popover-body", className);
+var PopoverBody = function PopoverBody(_ref) {
+  var attributes = _ref.attributes,
+      children = _ref.children,
+      className = _ref.className,
+      Tag = _ref.tag;
+  var classes = classNames('popover-body', className);
   return React__default.createElement(Tag, _extends({}, attributes, {
     className: classes
-  }));
+  }), children);
 };
 
 PopoverBody.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  children: PropTypes__default.node,
+  className: PropTypes__default.string,
+  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string])
 };
 PopoverBody.defaultProps = {
   tag: "div"
 };
 
-var PopoverHeader = function PopoverHeader(props) {
-  var className = props.className,
-      Tag = props.tag,
-      attributes = _objectWithoutProperties(props, ["className", "tag"]);
-
-  var classes = classNames("popover-header", className);
+var PopoverHeader = function PopoverHeader(_ref) {
+  var attributes = _ref.attributes,
+      children = _ref.children,
+      className = _ref.className,
+      Tag = _ref.tag;
+  var classes = classNames('popover-header', className);
   return React__default.createElement(Tag, _extends({}, attributes, {
     className: classes
-  }));
+  }), children);
 };
 
 PopoverHeader.propTypes = {
-  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
-  className: PropTypes__default.string
+  children: PropTypes__default.node,
+  className: PropTypes__default.string,
+  tag: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string])
 };
 PopoverHeader.defaultProps = {
+  className: "",
   tag: "h3"
 };
 
@@ -6739,113 +6804,6 @@ TableHead.propTypes = {
 };
 TableHead.defaultProps = {
   textWhite: false
-};
-
-var Tooltip =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Tooltip, _React$Component);
-
-  function Tooltip(props) {
-    var _this;
-
-    _classCallCheck(this, Tooltip);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Tooltip).call(this, props));
-    _this.state = {
-      visible: false
-    };
-    _this.show = _this.show.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.hide = _this.hide.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.setVisibility = _this.setVisibility.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    return _this;
-  }
-
-  _createClass(Tooltip, [{
-    key: "show",
-    value: function show() {
-      this.setVisibility(true);
-    }
-  }, {
-    key: "hide",
-    value: function hide() {
-      this.setVisibility(false);
-    }
-  }, {
-    key: "setVisibility",
-    value: function setVisibility(visible) {
-      this.setState(Object.assign({}, this.state, {
-        visible: visible
-      }));
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          placement = _this$props.placement,
-          component = _this$props.component,
-          componentStyle = _this$props.componentStyle,
-          className = _this$props.className,
-          children = _this$props.children,
-          tooltipContent = _this$props.tooltipContent,
-          tooltipClass = _this$props.tooltipClass,
-          arrowClass = _this$props.arrowClass,
-          componentTooltip = _this$props.componentTooltip,
-          componentClass = _this$props.componentClass,
-          wrapperStyle = _this$props.wrapperStyle,
-          tag = _this$props.tag;
-      var classes = classNames(className);
-      var componentClasses = classNames(componentClass);
-      var tooltipClasses = classNames("tooltip fade", placement ? "bs-tooltip-" + placement : "", this.state.visible ? "show" : "", tooltipClass);
-      var wrapperStyles = wrapperStyle ? wrapperStyle : {};
-      var arrowClasses = classNames("arrow", arrowClass);
-      return React__default.createElement(reactPopper.Manager, {
-        tag: tag,
-        className: classes,
-        style: wrapperStyles
-      }, React__default.createElement(reactPopper.Target, {
-        component: component,
-        style: componentStyle,
-        className: componentClasses,
-        onMouseEnter: this.show,
-        onMouseLeave: this.hide,
-        onTouchStart: this.show,
-        onTouchEnd: this.hide
-      }, children), this.state.visible && React__default.createElement(reactPopper.Popper, {
-        placement: placement,
-        component: componentTooltip
-      }, function (_ref) {
-        var popperProps = _ref.popperProps;
-        return React__default.createElement("div", _extends({}, popperProps, {
-          className: tooltipClasses
-        }), React__default.createElement("div", {
-          className: "tooltip-inner"
-        }, tooltipContent), React__default.createElement(reactPopper.Arrow, null, function (_ref2) {
-          var arrowProps = _ref2.arrowProps;
-          return React__default.createElement("span", _extends({}, arrowProps, {
-            className: arrowClasses
-          }));
-        }));
-      }));
-    }
-  }]);
-
-  return Tooltip;
-}(React__default.Component);
-
-Tooltip.propTypes = {
-  placement: PropTypes__default.string,
-  component: PropTypes__default.string,
-  componentStyle: PropTypes__default.string,
-  tooltipContent: PropTypes__default.string,
-  tooltipClass: PropTypes__default.string,
-  arrowClass: PropTypes__default.string,
-  componentTooltip: PropTypes__default.string,
-  componentClass: PropTypes__default.string,
-  children: PropTypes__default.node,
-  tag: PropTypes__default.string,
-  className: PropTypes__default.string,
-  wrapperStyle: PropTypes__default.object
 };
 
 var Iframe =
@@ -7030,7 +6988,7 @@ function (_React$Component) {
   }, {
     key: "getContainer",
     value: function getContainer() {
-      return ReactDOM__default.findDOMNode(this);
+      return ReactDOM.findDOMNode(this);
     }
   }, {
     key: "addEvents",
@@ -7118,18 +7076,18 @@ function (_React$Component) {
 
       var _omit = omit(this.props, ["toggle", "disabled"]),
           className = _omit.className,
+          children = _omit.children,
           dropup = _omit.dropup,
           group = _omit.group,
-          size = _omit.size,
-          attrs = _objectWithoutProperties(_omit, ["className", "dropup", "group", "size"]);
+          size = _omit.size;
 
       var classes = classNames((_classNames = {
         "btn-group": group
       }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _classNames), className);
-      return React__default.createElement(reactPopper.Manager, _extends({}, attrs, {
+      return React__default.createElement(reactPopper.Manager, null, React__default.createElement("div", {
         className: classes,
         onKeyDown: this.handleKeyDown
-      }));
+      }, children));
     }
   }]);
 
@@ -7156,23 +7114,6 @@ Dropdown.childContextTypes = {
   dropup: PropTypes__default.bool.isRequired
 };
 
-var theme = {
-  container: "md-form",
-  containerOpen: "react-autosuggest__container--open",
-  input: "mdb-autocomplete form-control",
-  inputOpen: "react-autosuggest__input--open",
-  inputFocused: "react-autosuggest__input--focused",
-  suggestionsContainer: "react-autosuggest__suggestions-container",
-  suggestionsContainerOpen: "react-autosuggest__suggestions-container--open",
-  suggestionsList: "mdb-autocomplete-wrap",
-  suggestion: "react-autosuggest__suggestion",
-  suggestionFirst: "react-autosuggest__suggestion--first",
-  suggestionHighlighted: "react-autosuggest__suggestion--highlighted",
-  sectionContainer: "react-autosuggest__section-container",
-  sectionContainerFirst: "react-autosuggest__section-container--first",
-  sectionTitle: "react-autosuggest__section-title"
-};
-
 var Autocomplete =
 /*#__PURE__*/
 function (_Component) {
@@ -7185,211 +7126,215 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Autocomplete).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsFetchRequested", function (_ref) {
-      var value = _ref.value;
-
-      if (_this.props.search) {
-        return;
-      }
-
-      _this.setState({
-        suggestions: _this.getSuggestions(value)
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "outsideClickHandler", function (e) {
+      _this.suggestionsList && e.target !== _this.suggestionsList && _this.setState({
+        choosed: true
       });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestions", function (value) {
-      var inputValue = value.toLowerCase();
-      var inputLength = inputValue.length;
-      return inputLength === 0 ? [] : _this.props.data.filter(function (data) {
-        return data.toLowerCase().includes(inputValue);
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "filterRepeated", function (data) {
+      return data.filter(function (el, index) {
+        return data.indexOf(el) === index;
       });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "getSuggestionValue", function (suggestion) {
-      if (_this.props.getValue) {
-        _this.props.getValue(suggestion);
-      }
-
-      return suggestion;
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "renderSuggestion", function (suggestion) {
-      return React__default.createElement("div", null, suggestion);
-    });
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onChange", function (event, _ref2) {
-      var newValue = _ref2.newValue;
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleInput", function (e) {
+      var value = e.target.value;
 
       _this.setState({
-        value: newValue
+        value: value,
+        choosed: false,
+        focusedListItem: 0
       });
 
-      if (_this.props.search) {
-        _this.props.search(newValue, ReactDOM__default.findDOMNode(_assertThisInitialized(_assertThisInitialized(_this))).parentNode.parentNode.querySelectorAll("li"));
+      if (value !== '') {
+        _this.setSuggestions(value);
       }
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "onSuggestionsClearRequested", function () {
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "setSuggestions", function (value) {
+      var filteredSuggestions = _this.state.suggestions.filter(function (suggest) {
+        return suggest.toLowerCase().includes(value.toLowerCase().trim());
+      });
+
       _this.setState({
-        suggestions: []
+        filteredSuggestions: filteredSuggestions
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleClear", function () {
+      return _this.setState({
+        value: '',
+        focusedListItem: 0
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSelect", function () {
+      var value = _this.state.filteredSuggestions[_this.state.focusedListItem];
+
+      if (value) {
+        _this.setState({
+          value: value,
+          focusedListItem: 0,
+          choosed: true
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "keyDownHandler", function (e) {
+      var _this$state = _this.state,
+          filteredSuggestions = _this$state.filteredSuggestions,
+          focusedListItem = _this$state.focusedListItem;
+
+      if (_this.suggestionsList && _this.state.filteredSuggestions) {
+        var suggestionsListNodes = _this.suggestionsList.childNodes;
+        suggestionsListNodes.length >= 5 && suggestionsListNodes[_this.state.focusedListItem].scrollIntoView({
+          block: "center",
+          behavior: "smooth"
+        });
+
+        if (e.keyCode === 13) {
+          _this.handleSelect();
+
+          e.target.blur();
+        }
+
+        e.keyCode === 40 && focusedListItem < filteredSuggestions.length - 1 && _this.setState({
+          focusedListItem: focusedListItem + 1
+        });
+        e.keyCode === 38 && focusedListItem > 0 && _this.setState({
+          focusedListItem: focusedListItem - 1
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updateFocus", function (index) {
+      return _this.setState({
+        focusedListItem: index
       });
     });
 
     _this.state = {
-      value: "",
+      value: props.value || props.valueDefault,
       suggestions: [],
-      isTouched: false
+      choosed: false,
+      filteredSuggestions: [],
+      focusedListItem: 0
     };
-    _this.onChange = _this.onChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.onClick = _this.onClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.blurCallback = _this.blurCallback.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.triggerFocus = _this.triggerFocus.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.handleClear = _this.handleClear.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.suggestionsList = null;
     return _this;
   }
 
   _createClass(Autocomplete, [{
-    key: "onClick",
-    value: function onClick(ev) {
+    key: "componentDidMount",
+    value: function componentDidMount() {
       this.setState({
-        isTouched: true
+        suggestions: this.filterRepeated(this.props.data)
+      });
+      window.addEventListener('click', this.outsideClickHandler);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      prevState.value !== this.state.value && this.props.getValue && this.props.getValue(this.state.value);
+      prevProps.value !== this.props.value && this.setState({
+        value: this.props.value
       });
     }
   }, {
-    key: "blurCallback",
-    value: function blurCallback(ev) {
-      this.setState({
-        isTouched: false
-      });
-    }
-  }, {
-    key: "handleClear",
-    value: function handleClear() {
-      this.setState({
-        value: ""
-      });
-    }
-  }, {
-    key: "triggerFocus",
-    value: function triggerFocus() {
-      var input = document.getElementById(this.props.id);
-      input.focus();
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      window.removeEventListener('click', this.outsideClickHandler);
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var _this$state = this.state,
-          value = _this$state.value,
-          suggestions = _this$state.suggestions;
-
+      var _this$state2 = this.state,
+          value = _this$state2.value,
+          filteredSuggestions = _this$state2.filteredSuggestions,
+          choosed = _this$state2.choosed;
       var _this$props = this.props,
-          className = _this$props.className,
           clear = _this$props.clear,
+          clearColor = _this$props.clearColor,
+          clearSize = _this$props.clearSize,
           clearClass = _this$props.clearClass,
-          data = _this$props.data,
           disabled = _this$props.disabled,
-          getValue = _this$props.getValue,
           id = _this$props.id,
+          className = _this$props.className,
           label = _this$props.label,
-          labelClass = _this$props.labelClass,
           icon = _this$props.icon,
           iconBrand = _this$props.iconBrand,
           iconClass = _this$props.iconClass,
           iconLight = _this$props.iconLight,
           iconRegular = _this$props.iconRegular,
           iconSize = _this$props.iconSize,
+          size = _this$props.size,
+          labelClass = _this$props.labelClass,
           placeholder = _this$props.placeholder,
-          search = _this$props.search,
-          attributes = _objectWithoutProperties(_this$props, ["className", "clear", "clearClass", "data", "disabled", "getValue", "id", "label", "labelClass", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "placeholder", "search"]);
-
-      if (disabled) {
-        attributes.disabled = true;
-      } // needed for rendering custom input
-
-
-      var inputProps = {
-        placeholder: placeholder,
-        value: value,
-        onChange: this.onChange,
-        onBlur: this.blurCallback,
-        onClick: this.onClick,
-        onFocus: this.onFocus,
-        id: this.props.id
-      }; // the main variable for classFixes
-
-      var isNotEmpty = Boolean(this.state.value) || placeholder || this.state.isTouched; // classFixes:
-
-      var labelClassFix = classNames(isNotEmpty && "active", disabled && "disabled", labelClass);
-      var iconClassFix = classNames("prefix", this.state.isTouched && "active", iconClass);
-      var clearClassFix = classNames(clearClass);
-
-      var isclearVisible = function isclearVisible() {
-        var hiddenOrNot = "hidden";
-
-        if (_this2.state.value) {
-          hiddenOrNot = "visible";
+          valueDefault = _this$props.valueDefault;
+      var btnStyles = classNames(clearClass, 'mdb-autocomplete-clear');
+      return React__default.createElement("div", {
+        style: {
+          position: "relative"
         }
-
-        return hiddenOrNot;
-      };
-
-      var clearStyleFix = {
-        position: "absolute",
-        zIndex: 2,
-        top: ".85rem",
-        right: 0,
-        border: "none",
-        background: "0 0",
-        visibility: isclearVisible()
-      };
-
-      var renderInputComponent = function renderInputComponent(inputProps) {
-        return React__default.createElement("div", null, icon && React__default.createElement(Fa, {
-          icon: icon,
-          size: iconSize,
-          brand: iconBrand,
-          light: iconLight,
-          regular: iconRegular,
-          className: iconClassFix
-        }), React__default.createElement("input", _extends({
-          type: "text",
-          id: id,
-          className: "form-control"
-        }, inputProps, attributes, {
-          onFocus: function onFocus(ev, val) {
-            _this2.onClick();
-
-            inputProps.onFocus(ev, val);
+      }, React__default.createElement(Input, {
+        icon: icon,
+        iconSize: iconSize,
+        iconBrand: iconBrand,
+        iconLight: iconLight,
+        iconRegular: iconRegular,
+        iconClass: iconClass,
+        id: id,
+        className: className,
+        label: label,
+        labelClass: labelClass,
+        hint: placeholder,
+        disabled: disabled,
+        value: value,
+        valueDefault: valueDefault,
+        onChange: this.handleInput,
+        onKeyDown: this.keyDownHandler,
+        size: size
+      }, clear && value && React__default.createElement("button", {
+        onClick: this.handleClear,
+        className: btnStyles,
+        style: {
+          visibility: "visible"
+        }
+      }, React__default.createElement("svg", {
+        fill: clearColor,
+        height: clearSize,
+        viewBox: "0 0 24 24",
+        width: clearSize,
+        xmlns: "https://www.w3.org/2000/svg"
+      }, React__default.createElement("path", {
+        d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+      }), React__default.createElement("path", {
+        d: "M0 0h24v24H0z",
+        fill: "none"
+      })))), value && !choosed && React__default.createElement("ul", {
+        ref: function ref(list) {
+          return _this2.suggestionsList = list;
+        },
+        className: "mdb-autocomplete-wrap",
+        style: {
+          marginTop: "-15px"
+        },
+        onClick: this.handleSelect
+      }, filteredSuggestions.map(function (el, index) {
+        return React__default.createElement("li", {
+          key: el + index,
+          className: "list-item",
+          style: {
+            background: "".concat(_this2.state.focusedListItem === index ? '#eee' : '#fff')
+          },
+          onMouseEnter: function onMouseEnter() {
+            return _this2.updateFocus(index);
           }
-        })), React__default.createElement("label", {
-          htmlFor: id,
-          id: "label for ".concat(id),
-          onClick: _this2.triggerFocus,
-          className: labelClassFix
-        }, label), clear && React__default.createElement(Fa, {
-          icon: "close",
-          onClick: _this2.handleClear,
-          style: clearStyleFix,
-          className: clearClassFix
-        }));
-      };
-
-      return React__default.createElement(Autosuggest, _extends({
-        suggestions: suggestions,
-        onSuggestionsFetchRequested: this.onSuggestionsFetchRequested,
-        onSuggestionsClearRequested: this.onSuggestionsClearRequested,
-        getSuggestions: this.getSuggestions,
-        getSuggestionValue: this.getSuggestionValue,
-        onSuggestionSelected: this.blurCallback,
-        renderSuggestion: this.renderSuggestion,
-        inputProps: inputProps,
-        onChange: this.onChange,
-        theme: theme,
-        renderInputComponent: renderInputComponent,
-        focusInputOnSuggestionClick: false
-      }, attributes));
+        }, el);
+      })));
     }
   }]);
 
@@ -7397,9 +7342,9 @@ function (_Component) {
 }(React.Component);
 
 Autocomplete.propTypes = {
-  className: PropTypes__default.string,
   clear: PropTypes__default.bool,
-  clearClass: PropTypes__default.string,
+  clearColor: PropTypes__default.string,
+  clearSize: PropTypes__default.string,
   data: PropTypes__default.arrayOf(PropTypes__default.string),
   disabled: PropTypes__default.bool,
   getValue: PropTypes__default.func,
@@ -7408,30 +7353,33 @@ Autocomplete.propTypes = {
   labelClass: PropTypes__default.string,
   icon: PropTypes__default.string,
   iconBrand: PropTypes__default.bool,
-  iconClass: PropTypes__default.string,
   iconLight: PropTypes__default.bool,
   iconRegular: PropTypes__default.bool,
   iconSize: PropTypes__default.string,
+  iconClassName: PropTypes__default.string,
   placeholder: PropTypes__default.string,
-  search: PropTypes__default.func
+  search: PropTypes__default.func,
+  valueDefault: PropTypes__default.string
 };
 Autocomplete.defaultProps = {
-  className: "",
   clear: false,
-  clearClass: "",
+  clearColor: "#a6a6a6",
+  clearSize: "24",
   data: [],
   disabled: false,
-  getValue: function getValue() {},
   id: "",
   label: "",
+  className: "",
+  clearClass: "",
   labelClass: "",
   icon: "",
   iconBrand: false,
-  iconClass: "",
+  iconSize: "",
   iconLight: false,
   iconRegular: false,
-  iconSize: "",
-  placeholder: ""
+  iconClassName: "",
+  placeholder: "",
+  valueDefault: ""
 };
 
 var Avatar =
@@ -7773,8 +7721,8 @@ CardUp.defaultProps = {
   tag: "div"
 };
 
-var css$9 = ".chip.chip-md {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-md img {\n  height: 42px;\n  width: 42px;\n}\n.chip.chip-md .close {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-lg {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n.chip.chip-lg img {\n  height: 52px;\n  width: 52px;\n}\n.chip.chip-lg .close {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n";
-styleInject(css$9);
+var css$8 = ".chip.chip-md {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-md img {\n  height: 42px;\n  width: 42px;\n}\n.chip.chip-md .close {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-lg {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n.chip.chip-lg img {\n  height: 52px;\n  width: 52px;\n}\n.chip.chip-lg .close {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n";
+styleInject(css$8);
 
 var Chip =
 /*#__PURE__*/
@@ -8100,8 +8048,8 @@ CollapseHeader.propTypes = {
   triggerOnClick: PropTypes__default.func
 };
 
-var css$a = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
-styleInject(css$a);
+var css$9 = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
+styleInject(css$9);
 
 var DatePicker =
 /*#__PURE__*/
@@ -8321,6 +8269,9 @@ RotatingCard.defaultProps = {
   flipped: false
 };
 
+var css$a = ".file-field .file-field-right .file-path-wrapper {\n  padding-left: 0;\n  padding-right: 10px;\n}\n";
+styleInject(css$a);
+
 var InputFile =
 /*#__PURE__*/
 function (_React$Component) {
@@ -8379,11 +8330,13 @@ function (_React$Component) {
           btnTitle = _this$props.btnTitle,
           btnColor = _this$props.btnColor,
           textFieldTitle = _this$props.textFieldTitle,
-          multiple = _this$props.multiple;
-      var btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", "float-left");
-      var inputFieldClass = classNames("file-path validate", this.state.files ? "valid" : false, className);
-      return React__default.createElement("form", null, React__default.createElement("div", {
-        className: "file-field md-form"
+          multiple = _this$props.multiple,
+          reverse = _this$props.reverse;
+      var btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", reverse ? "float-right" : "float-left");
+      var inputFieldClass = classNames("file-path", "validate", this.state.files ? "valid" : false, className);
+      var wrapperClass = classNames("file-field", "md-form", reverse && "file-field-right");
+      return React__default.createElement("div", {
+        className: wrapperClass
       }, React__default.createElement("div", {
         className: btnClass
       }, React__default.createElement("span", null, btnTitle), React__default.createElement("input", {
@@ -8396,7 +8349,7 @@ function (_React$Component) {
         className: inputFieldClass,
         type: "text",
         placeholder: this.state.files ? this.state.files : textFieldTitle
-      }))));
+      })));
     }
   }]);
 
@@ -8408,12 +8361,14 @@ InputFile.propTypes = {
   btnTitle: PropTypes__default.string,
   btnColor: PropTypes__default.string,
   textFieldTitle: PropTypes__default.string,
-  multiple: PropTypes__default.bool
+  multiple: PropTypes__default.bool,
+  reverse: PropTypes__default.bool
 };
 InputFile.defaultProps = {
   btnTitle: "Choose file",
   textFieldTitle: "Upload your file",
-  btnColor: "primary"
+  btnColor: "primary",
+  reverse: false
 };
 
 var css$b = ".thumb {\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\n}\n\ninput[type=\"range\"] {\n  -webkit-appearance: none;\n}\n\n/* thumb */\n\ninput[type=range]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  border: none;\n  height: 14px;\n  width: 14px;\n  border-radius: 50%;\n  background-color: #4285f4;\n  transform-origin: 50% 50%;\n  margin: -5px 0 0 0;\n  transition: 0.3s; }\n  input[type=range]:focus::-webkit-slider-runnable-track {\n    background: #ccc; }\n  input[type=range]::-moz-range-track {\n    /*required for proper track sizing in FF*/\n    height: 3px;\n    background: #c2c0c2;\n    border: none; }\n  input[type=range]::-moz-range-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4;\n    margin-top: -5px; }\n  input[type=range]:-moz-focusring {\n    /*hide the outline behind the border*/\n    outline: 1px solid #ffffff;\n    outline-offset: -1px; }\n  input[type=range]:focus::-moz-range-track {\n    background: #c2c0c2; }\n  input[type=range]::-ms-track {\n    height: 3px;\n    background: transparent;\n    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */\n    border-color: transparent;\n    /*leave room for the larger thumb to overflow with a transparent border */\n    border-width: 6px 0;\n    color: transparent;\n    /*remove default tick marks*/ }\n  input[type=range]::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]::-ms-fill-upper {\n    background: #c2c0c2; }\n  input[type=range]::-ms-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4; }\n  input[type=range]:focus::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]:focus::-ms-fill-upper {\n    background: #c2c0c2; }";
@@ -8908,6 +8863,14 @@ ScrollSpyText.propTypes = {
   scrollSpyRef: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.object])
 };
 
+var css$e = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter, .side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active, .side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter, .right-side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active, .right-side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n\n.side-nav[data-animate=\"false\"]{\n  transform: translateX(0%);\n}\n\n\n.side-nav.wide {\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n}\n\n\n.side-nav.wide.slim {\n    width: 3.75rem;\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n    right: 3.75rem;\n}\n\n.right-aligned.side-nav.wide.slim {\n    right: 0;\n}\n\n\n";
+styleInject(css$e);
+
+var defaultValue = {
+  slim: false
+};
+var SideNavContext = React__default.createContext(defaultValue);
+
 var SideNav =
 /*#__PURE__*/
 function (_React$Component) {
@@ -8921,17 +8884,41 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SideNav).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updatePredicate", function () {
-      if (!_this.props.hidden) {
+      if (!_this.props.hidden && _this.props.responsive) {
         _this.setState({
           isOpen: window.innerWidth > _this.props.breakWidth
         });
+
+        if (window.innerWidth > _this.props.breakWidth) {
+          _this.setState({
+            isOpen: true,
+            isFixed: _this.state.initiallyFixed
+          });
+        } else {
+          _this.setState({
+            isOpen: false,
+            isFixed: false
+          });
+        }
       }
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "toggleSlim", function (e) {
+      return function () {
+        _this.setState({
+          slim: !_this.state.slim
+        });
+
+        var sidenav = ReactDOM.findDOMNode(_this.sideNavRef.current);
+        sidenav.classList.toggle('slim');
+      };
+    });
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleOverlayClick", function () {
+      if (_this.state.isFixed) return;
+
       _this.setState({
-        isOpen: false,
-        showOverlay: false
+        isOpen: false
       });
 
       if (_this.props.onOverlayClick) {
@@ -8961,10 +8948,34 @@ function (_React$Component) {
       e.stopPropagation();
     });
 
+    function isOpen() {
+      if (props.fixed) {
+        if (window.innerWidth <= props.breakWidth) {
+          return props.responsive ? false : true;
+        }
+
+        return true;
+      } else {
+        if (props.triggerOpening) {
+          if (window.innerWidth > props.breakWidth) {
+            return true;
+          }
+
+          return false;
+        }
+
+        return false;
+      }
+    }
+
+    _this.sideNavRef = React__default.createRef();
     _this.state = {
-      isOpen: false,
-      showOverlay: false,
-      cursorPos: {}
+      initiallyFixed: props.fixed,
+      isFixed: !isOpen() ? false : props.fixed,
+      isOpen: isOpen(),
+      cursorPos: {},
+      slim: _this.props.slim,
+      slimInitial: _this.props.slim
     };
     return _this;
   }
@@ -8972,7 +8983,10 @@ function (_React$Component) {
   _createClass(SideNav, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.updatePredicate();
+      if (this.props.triggerOpening && !this.props.responsive) {
+        throw new Error('Received "triggerOpening" prop for a  non-responsive Sidebar. If you want to contidionally render Sidenav, set the responsive prop to true');
+      }
+
       window.addEventListener("resize", this.updatePredicate);
     }
   }, {
@@ -8980,8 +8994,7 @@ function (_React$Component) {
     value: function componentDidUpdate(prevProps) {
       if (prevProps.triggerOpening !== this.props.triggerOpening) {
         this.setState({
-          isOpen: !this.state.isOpen,
-          showOverlay: !this.state.showOverlay
+          isOpen: !this.state.isOpen
         });
       }
     }
@@ -9005,24 +9018,35 @@ function (_React$Component) {
           onOverlayClick = _this$props.onOverlayClick,
           right = _this$props.right,
           triggerOpening = _this$props.triggerOpening,
+          showOverlay = _this$props.showOverlay,
+          fixed = _this$props.fixed,
+          responsive = _this$props.responsive,
+          slim = _this$props.slim,
           Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["bg", "breakWidth", "children", "className", "hidden", "href", "logo", "mask", "onOverlayClick", "right", "triggerOpening", "tag"]);
+          attributes = _objectWithoutProperties(_this$props, ["bg", "breakWidth", "children", "className", "hidden", "href", "logo", "mask", "onOverlayClick", "right", "triggerOpening", "showOverlay", "fixed", "responsive", "slim", "tag"]);
 
       var _this$state = this.state,
           isOpen = _this$state.isOpen,
-          showOverlay = _this$state.showOverlay;
-      var classes = classNames("side-nav", right && "right-aligned", className);
+          isFixed = _this$state.isFixed;
+      var classes = classNames("side-nav", 'wide', right && "right-aligned", this.state.slimInitial && "slim", className);
       var overlay = React__default.createElement("div", {
         id: "sidenav-overlay",
         onClick: this.handleOverlayClick
       });
       var sidenav = React__default.createElement(Tag, _extends({}, attributes, {
+        ref: this.sideNavRef,
         className: classes,
-        style: {
+        "data-animate": isFixed ? false : undefined,
+        style: bg ? {
           backgroundImage: "url(".concat(bg)
+        } : undefined,
+        onTouchMove: this.handleOverlayClick
+      }), React__default.createElement(ScrollBar, {
+        option: {
+          suppressScrollX: true
         }
-      }), React__default.createElement("ul", {
-        className: "custom-scrollbar list-unstyled"
+      }, React__default.createElement("ul", {
+        className: "list-unstyled"
       }, logo && React__default.createElement("li", null, React__default.createElement("div", {
         className: "logo-wrapper"
       }, React__default.createElement("a", {
@@ -9035,17 +9059,25 @@ function (_React$Component) {
         className: "img-fluid flex-center d-block"
       }), React__default.createElement(Waves, {
         cursorPos: this.state.cursorPos
-      })))), children), mask && React__default.createElement("div", {
-        className: "sidenav-bg mask-".concat(mask)
+      })))), children)), mask && React__default.createElement("div", {
+        className: "sidenav-bg ".concat(mask)
       }));
-      return React__default.createElement("div", null, React__default.createElement(reactTransitionGroup.CSSTransition, {
+      return React__default.createElement(SideNavContext.Provider, {
+        value: {
+          slimInitial: this.state.slimInitial,
+          slim: this.state.slim,
+          toggleSlim: this.toggleSlim,
+          right: this.props.right
+        }
+      }, isFixed ? sidenav : React__default.createElement(reactTransitionGroup.CSSTransition, {
+        appear: !this.state.isFixed,
         timeout: {
           enter: 300,
           exit: 300
         },
         classNames: right ? "right-side-slide" : "side-slide",
         in: isOpen
-      }, sidenav), showOverlay && isOpen && overlay);
+      }, sidenav), isFixed ? false : showOverlay && isOpen && overlay);
     }
   }]);
 
@@ -9064,7 +9096,11 @@ SideNav.propTypes = {
   onOverlayClick: PropTypes__default.func,
   right: PropTypes__default.bool,
   triggerOpening: PropTypes__default.bool,
-  tag: PropTypes__default.string
+  tag: PropTypes__default.string,
+  fixed: PropTypes__default.bool,
+  showOverlay: PropTypes__default.bool,
+  responsive: PropTypes__default.bool,
+  slim: PropTypes__default.bool
 };
 SideNav.defaultProps = {
   bg: '',
@@ -9077,7 +9113,11 @@ SideNav.defaultProps = {
   onOverlayClick: function onOverlayClick() {},
   right: false,
   triggerOpening: false,
-  tag: "div"
+  tag: "div",
+  fixed: false,
+  responsive: true,
+  showOverlay: true,
+  slim: false
 };
 
 var SideNavCat =
@@ -9152,32 +9192,37 @@ function (_React$Component) {
           attributes = _objectWithoutProperties(_this$props, ["tag", "children", "className", "name", "icon", "iconBrand", "iconLight", "iconRegular", "iconSize", "onClick", "disabled", "isOpen", "isOpenID", "id"]);
 
       var classes = classNames("collapsible-header", "Ripple-parent", "arrow-r", isOpen && "active", disabled && "disabled", className);
-      return React__default.createElement(Tag, null, React__default.createElement("a", _extends({
-        className: classes,
-        onClick: function onClick(e) {
-          return _this2.handleClick(e, id);
-        }
-      }, attributes), icon && React__default.createElement(Fa, {
-        icon: icon,
-        brand: iconBrand,
-        light: iconLight,
-        regular: iconRegular,
-        size: iconSize,
-        className: "mr-2"
-      }), name, React__default.createElement(Fa, {
-        icon: "angle-down",
-        className: "rotate-icon"
-      }), React__default.createElement(Waves, {
-        cursorPos: this.state.cursorPos
-      })), React__default.createElement(Collapse, {
-        id: id,
-        isOpen: this.state.isOpenID
-      }, React__default.createElement("div", {
-        className: "collapsible-body",
-        style: {
-          display: "block"
-        }
-      }, React__default.createElement("ul", null, children))));
+      return React__default.createElement(SideNavContext.Consumer, null, function (_ref) {
+        var slim = _ref.slim;
+        var iconClass = ['mr-2'];
+        slim && iconClass.push('v-slim-icon');
+        return React__default.createElement(Tag, null, React__default.createElement("a", _extends({
+          className: classes,
+          onClick: function onClick(e) {
+            return _this2.handleClick(e, id);
+          }
+        }, attributes), icon && React__default.createElement(Fa, {
+          icon: icon,
+          brand: iconBrand,
+          light: iconLight,
+          regular: iconRegular,
+          size: iconSize,
+          className: iconClass.join(" ")
+        }), name, React__default.createElement(Fa, {
+          icon: "angle-down",
+          className: "rotate-icon"
+        }), React__default.createElement(Waves, {
+          cursorPos: _this2.state.cursorPos
+        })), React__default.createElement(Collapse, {
+          id: id,
+          isOpen: _this2.state.isOpenID
+        }, React__default.createElement("div", {
+          className: "collapsible-body",
+          style: {
+            display: "block"
+          }
+        }, React__default.createElement("ul", null, children))));
+      });
     }
   }]);
 
@@ -9338,6 +9383,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           Tag = _this$props.tag,
           children = _this$props.children,
@@ -9345,17 +9392,51 @@ function (_React$Component) {
           className = _this$props.className,
           innerRef = _this$props.innerRef,
           topLevel = _this$props.topLevel,
-          attributes = _objectWithoutProperties(_this$props, ["tag", "children", "to", "className", "innerRef", "topLevel"]);
+          shortcut = _this$props.shortcut,
+          attributes = _objectWithoutProperties(_this$props, ["tag", "children", "to", "className", "innerRef", "topLevel", "shortcut"]);
 
       var classes = classNames('Ripple-parent', topLevel && 'collapsible-header', className);
-      var sideNavLink = React__default.createElement(reactRouterDom.NavLink, _extends({
-        className: classes,
-        ref: innerRef,
-        onClick: this.handleClick,
-        to: to
-      }, attributes), children, React__default.createElement(Waves, {
-        cursorPos: this.state.cursorPos
-      }));
+      var sideNavLink = React__default.createElement(SideNavContext.Consumer, null, function (_ref) {
+        var slim = _ref.slim;
+        var shortcut;
+
+        function calculateShortcut() {
+          if (typeof children === 'string') {
+            var wordsArray = children.toString().split(' ');
+
+            if (wordsArray.length === 1) {
+              return wordsArray[0].substr(0, 2).toUpperCase();
+            }
+
+            if (wordsArray.length >= 2) {
+              var firstLetter = wordsArray[0].substr(0, 1);
+              var secondLetter = wordsArray[1].substr(0, 1);
+              return firstLetter.concat(secondLetter).toUpperCase();
+            }
+          }
+
+          return children;
+        }
+
+        if (slim) {
+          shortcut = _this2.props.shortcut || calculateShortcut();
+        }
+
+        return React__default.createElement(reactRouterDom.NavLink, _extends({
+          className: classes,
+          ref: innerRef,
+          onClick: _this2.handleClick,
+          to: to
+        }, attributes), slim ? React__default.createElement(React__default.Fragment, null, React__default.createElement("span", {
+          className: "sv-slim"
+        }, shortcut), React__default.createElement("span", {
+          className: "sv-normal"
+        }, children)) : React__default.createElement("span", {
+          className: "sv-normal"
+        }, children), React__default.createElement(Waves, {
+          cursorPos: _this2.state.cursorPos
+        }));
+      });
       return topLevel ? React__default.createElement("li", null, " ", sideNavLink) : sideNavLink;
     }
   }]);
@@ -9369,7 +9450,8 @@ SideNavLink.propTypes = {
   tag: PropTypes__default.string,
   innerRef: PropTypes__default.oneOfType([PropTypes__default.func, PropTypes__default.string]),
   className: PropTypes__default.string,
-  topLevel: PropTypes__default.bool
+  topLevel: PropTypes__default.bool,
+  shortcut: PropTypes__default.string
 };
 SideNavLink.defaultProps = {
   to: '#',
@@ -9433,9 +9515,27 @@ function (_React$Component) {
           return child;
         }
       });
-      return React__default.createElement("li", null, React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), modified));
+      return React__default.createElement(SideNavContext.Consumer, null, function (_ref) {
+        var slim = _ref.slim,
+            slimInitial = _ref.slimInitial,
+            toggleSlim = _ref.toggleSlim,
+            right = _ref.right;
+        var iconClass = ['mr-2', "sv-slim-icon", "fas", "icon-rotate"];
+        right & slim && iconClass.push('fa-angle-double-left');
+        right & !slim && iconClass.push('fa-angle-double-right');
+        !right & !slim && iconClass.push('fa-angle-double-left');
+        !right & slim && iconClass.push('fa-angle-double-right');
+        return React__default.createElement(React__default.Fragment, null, React__default.createElement("li", null, React__default.createElement(Tag, _extends({}, attributes, {
+          className: classes
+        }), modified, slimInitial && React__default.createElement("li", {
+          onClick: toggleSlim()
+        }, React__default.createElement("a", {
+          href: "#!",
+          className: "waves-effect"
+        }, React__default.createElement("i", {
+          className: iconClass.join(" ")
+        }), "Minimize menu")))));
+      });
     }
   }]);
 
@@ -9682,33 +9782,13 @@ var Step =
 function (_React$Component) {
   _inherits(Step, _React$Component);
 
-  function Step(props) {
-    var _this;
-
+  function Step() {
     _classCallCheck(this, Step);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Step).call(this, props));
-    _this.state = {
-      cursorPos: {}
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(Step).apply(this, arguments));
   }
 
   _createClass(Step, [{
-    key: "handleClick",
-    value: function handleClick(e) {
-      // Get Cursor Position
-      e.preventDefault();
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({
-        cursorPos: cursorPos
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -9729,40 +9809,24 @@ function (_React$Component) {
         step = React__default.createElement(Tag, {
           className: stepClass,
           onClick: this.props.onClick
-        }, React__default.createElement(Tooltip, {
-          placement: "top",
-          componentClass: "btn btn-circle-2 btn-blue-grey waves-effect",
-          tag: "a",
-          type: "button",
-          component: "div",
-          tooltipContent: stepName
+        }, React__default.createElement(Popper, {
+          placement: "top"
+        }, React__default.createElement(Button, {
+          className: "btn-circle-2 btn-blue-grey"
         }, React__default.createElement("i", {
-          className: iconClass,
-          onTouchStart: this.handleClick.bind(this),
-          onMouseDown: this.handleClick.bind(this)
-        }), React__default.createElement(Waves, {
-          cursorPos: this.state.cursorPos,
-          dark: true
-        })));
+          className: iconClass
+        })), React__default.createElement("div", null, stepName)));
       } else if (icon && vertical) {
         step = React__default.createElement(Tag, {
           className: stepClass,
           onClick: this.props.onClick
-        }, React__default.createElement(Tooltip, {
-          placement: "top",
-          componentClass: "btn btn-circle-3 btn-blue-grey waves-effect",
-          tag: "a",
-          type: "button",
-          component: "div",
-          tooltipContent: stepName
+        }, React__default.createElement(Popper, {
+          placement: "top"
+        }, React__default.createElement(Button, {
+          className: "btn-circle-3 btn-blue-grey"
         }, React__default.createElement("i", {
-          className: iconClass,
-          onTouchStart: this.handleClick.bind(this),
-          onMouseDown: this.handleClick.bind(this)
-        }), React__default.createElement(Waves, {
-          cursorPos: this.state.cursorPos,
-          dark: true
-        })));
+          className: iconClass
+        })), React__default.createElement("div", null, stepName)));
       } else {
         step = React__default.createElement("li", {
           className: stepClass
@@ -9782,8 +9846,8 @@ Step.defaultProps = {
   vertical: false
 };
 
-var css$e = "/* Stepper Form */\n\n/* Stepper v.2 (Form) */\n.steps-form {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form .steps-row {\n  display: table-row; }\n.steps-form .steps-row:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 100%;\n  height: 1px;\n  background-color: #ccc; }\n.steps-form .steps-row .steps-step {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form .steps-row .steps-step p {\n  margin-top: 0.5rem; }\n.steps-form .steps-row .steps-step button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form .steps-row .steps-step .btn-circle {\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  padding: 6px 0;\n  font-size: 12px;\n  line-height: 1.428571429;\n  border-radius: 15px;\n  margin-top: 0; }\n\n/* Stepper v.3 (Icons) */\n.steps-form-2 {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form-2 .steps-row-2 {\n  display: table-row; }\n.steps-form-2 .steps-row-2:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 99%;\n  height: 2px;\n  background-color: #7283a7; }\n.steps-form-2 .steps-row-2 .steps-step-2 {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form-2 .steps-row-2 .steps-step-2 p {\n  margin-top: 0.5rem; }\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\n  width: 70px;\n  height: 70px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 22px 18px 15px 18px;\n  margin-top: -22px; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {\n  font-size: 1.7rem; }\n .steps-row-2:first-child .btn {\n  margin-left: 0\n}\n.steps-row-2:last-child .btn {\n  margin-right: 0\n}\n\n\n/* Stepper v.4 (Icon-vertical) */\n\n.steps-form-3 {\n  width: 2px;\nheight: 470px;\n  position: relative; }\n.steps-form-3 .steps-row-3 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column; }\n.steps-form-3 .steps-row-3:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \"\";\n  width: 2px;\n  height: 100%;\n  background-color: #7283a7; }\n.steps-form-3 .steps-row-3 .steps-step-3 {\n  height: 150px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  position: relative; }\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\n  height: 50px; }\n.steps-form-3 .steps-row-3 .steps-step-3 p {\nmargin-top: 0.5rem; }\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\n  width: 60px;\n  height: 60px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 18px 18px 15px 15px;\n  margin-top: -22px; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa {\n  font-size: 1.7rem; }\n";
-styleInject(css$e);
+var css$f = "/* Stepper Form */\n\n/* Stepper v.2 (Form) */\n.steps-form {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form .steps-row {\n  display: table-row; }\n.steps-form .steps-row:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 100%;\n  height: 1px;\n  background-color: #ccc; }\n.steps-form .steps-row .steps-step {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form .steps-row .steps-step p {\n  margin-top: 0.5rem; }\n.steps-form .steps-row .steps-step button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form .steps-row .steps-step .btn-circle {\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  padding: 6px 0;\n  font-size: 12px;\n  line-height: 1.428571429;\n  border-radius: 15px;\n  margin-top: 0; }\n\n/* Stepper v.3 (Icons) */\n.steps-form-2 {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form-2 .steps-row-2 {\n  display: table-row; }\n.steps-form-2 .steps-row-2:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 99%;\n  height: 2px;\n  background-color: #7283a7; }\n.steps-form-2 .steps-row-2 .steps-step-2 {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form-2 .steps-row-2 .steps-step-2 p {\n  margin-top: 0.5rem; }\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\n  width: 70px;\n  height: 70px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 22px 18px 15px 18px;\n  margin-top: -22px; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {\n  font-size: 1.7rem; }\n .steps-row-2:first-child .btn {\n  margin-left: 0\n}\n.steps-row-2:last-child .btn {\n  margin-right: 0\n}\n\n\n/* Stepper v.4 (Icon-vertical) */\n\n.steps-form-3 {\n  width: 2px;\nheight: 470px;\n  position: relative; }\n.steps-form-3 .steps-row-3 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column; }\n.steps-form-3 .steps-row-3:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \"\";\n  width: 2px;\n  height: 100%;\n  background-color: #7283a7; }\n.steps-form-3 .steps-row-3 .steps-step-3 {\n  height: 150px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  position: relative; }\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\n  height: 50px; }\n.steps-form-3 .steps-row-3 .steps-step-3 p {\nmargin-top: 0.5rem; }\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\n  width: 60px;\n  height: 60px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 18px 18px 15px 15px;\n  margin-top: -22px; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa {\n  font-size: 1.7rem; }\n";
+styleInject(css$f);
 
 var Stepper =
 /*#__PURE__*/
@@ -9842,8 +9906,8 @@ Stepper.defaultProps = {
   form: false
 };
 
-var css$f = ".react-bootstrap-table {\n  padding-top: 65px;\n}\n\n.react-bootstrap-table .caret {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 2px;\n  vertical-align: middle;\n  border-top: 4px dashed;\n  border-top: 4px solid\\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n\n.react-bootstrap-table .dropup .caret {\n  content: \"\";\n  border-top: 0;\n  border-bottom: 4px dashed;\n  border-bottom: 4px solid\\9;\n}\n\n.react-bootstrap-table-pagination .pagination {\n  float: right;\n}\n\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\n  background-color: #09c;\n}\n\n.react-bootstrap-table-pagination .select-wrapper {\n  display: inline-block;\n  width: 100px;\n  margin: 0 15px;\n}\n\n.react-bootstrap-table-pagination .dropdown-item {\n  padding: 0;\n}\n\n.react-bootstrap-table-pagination-total {\n  display: block;\n}\n\n.react-bootstrap-table .md-form {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  width: 200px;\n}\n\n.react-bootstrap-table-pagination > * {\n  position: inherit;\n}\n\n.react-bs-table-sizePerPage-dropdown {\n  position: absolute;\n  top: 0;\n  left: 0;\n}";
-styleInject(css$f);
+var css$g = ".react-bootstrap-table {\n  padding-top: 65px;\n}\n\n.react-bootstrap-table .caret {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 2px;\n  vertical-align: middle;\n  border-top: 4px dashed;\n  border-top: 4px solid\\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n\n.react-bootstrap-table .dropup .caret {\n  content: \"\";\n  border-top: 0;\n  border-bottom: 4px dashed;\n  border-bottom: 4px solid\\9;\n}\n\n.react-bootstrap-table-pagination .pagination {\n  float: right;\n}\n\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\n  background-color: #09c;\n}\n\n.react-bootstrap-table-pagination .select-wrapper {\n  display: inline-block;\n  width: 100px;\n  margin: 0 15px;\n}\n\n.react-bootstrap-table-pagination .dropdown-item {\n  padding: 0;\n}\n\n.react-bootstrap-table-pagination-total {\n  display: block;\n}\n\n.react-bootstrap-table .md-form {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  width: 200px;\n}\n\n.react-bootstrap-table-pagination > * {\n  position: inherit;\n}\n\n.react-bs-table-sizePerPage-dropdown {\n  position: absolute;\n  top: 0;\n  left: 0;\n}";
+styleInject(css$g);
 
 var TableEditable =
 /*#__PURE__*/
@@ -10260,7 +10324,7 @@ function (_Component) {
         style: this.state.style
       }), {
         ref: function ref(content) {
-          _this2.content = ReactDOM__default.findDOMNode(content);
+          _this2.content = ReactDOM.findDOMNode(content);
         }
       });
       return React__default.createElement("div", null, React__default.createElement("div", {
@@ -10446,8 +10510,8 @@ Testimonial.defaultProps = {
   tag: "div"
 };
 
-var css$g = "@media (max-width: 1025px) {\n  .stepper.timeline li {\n    -webkit-box-align: end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: end;\n    align-items: flex-end;\n  }\n}\n\n.stepper.timeline li a {\n  padding: 0px 24px;\n  left: 50%;\n}\n@media (max-width: 450px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n.stepper.timeline li a .circle {\n  width: 50px;\n  height: 50px;\n  line-height: 50px;\n  font-size: 1.4em;\n  text-align: center;\n  position: absolute;\n  top: 16px;\n  margin-left: -50px;\n  background-color: #fff;\n  z-index: 2;\n}\n\n.stepper.timeline li .step-content {\n  width: 45%;\n  float: left;\n  border-radius: 2px;\n  position: relative;\n  background-color: #fff;\n}\n.stepper.timeline li .step-content:before {\n  position: absolute;\n  top: 26px;\n  right: -15px;\n  display: inline-block;\n  border-top: 15px solid transparent;\n  border-left: 15px solid #e0e0e0;\n  border-right: 0 solid #e0e0e0;\n  border-bottom: 15px solid transparent;\n  content: \" \";\n}\n.stepper.timeline li .step-content:after {\n  position: absolute;\n  top: 27px;\n  right: -14px;\n  display: inline-block;\n  border-top: 14px solid transparent;\n  border-left: 14px solid #fff;\n  border-right: 0 solid #fff;\n  border-bottom: 14px solid transparent;\n  content: \" \";\n}\n@media (max-width: 450px) {\n  .stepper.timeline li .step-content {\n    width: 80%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li .step-content {\n    width: 85%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n\n.stepper.timeline li.timeline-inverted {\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n  -ms-flex-align: end;\n  align-items: flex-end;\n}\n.stepper.timeline li.timeline-inverted .step-content {\n  float: right;\n}\n.stepper.timeline li.timeline-inverted .step-content:before {\n  border-left-width: 0;\n  border-right-width: 15px;\n  left: -15px;\n  right: auto;\n}\n.stepper.timeline li.timeline-inverted .step-content:after {\n  border-left-width: 0;\n  border-right-width: 14px;\n  left: -14px;\n  right: auto;\n}\n\n.stepper.timeline.stepper-vertical li:not(:last-child):after {\n  content: \" \";\n  position: absolute;\n  width: 3px;\n  background-color: #e0e0e0;\n  left: 50%;\n  top: 57px;\n  margin-left: -1.5px;\n}\n@media (max-width: 450px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n";
-styleInject(css$g);
+var css$h = "@media (max-width: 1025px) {\n  .stepper.timeline li {\n    -webkit-box-align: end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: end;\n    align-items: flex-end;\n  }\n}\n\n.stepper.timeline li a {\n  padding: 0px 24px;\n  left: 50%;\n}\n@media (max-width: 450px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n.stepper.timeline li a .circle {\n  width: 50px;\n  height: 50px;\n  line-height: 50px;\n  font-size: 1.4em;\n  text-align: center;\n  position: absolute;\n  top: 16px;\n  margin-left: -50px;\n  background-color: #fff;\n  z-index: 2;\n}\n\n.stepper.timeline li .step-content {\n  width: 45%;\n  float: left;\n  border-radius: 2px;\n  position: relative;\n  background-color: #fff;\n}\n.stepper.timeline li .step-content:before {\n  position: absolute;\n  top: 26px;\n  right: -15px;\n  display: inline-block;\n  border-top: 15px solid transparent;\n  border-left: 15px solid #e0e0e0;\n  border-right: 0 solid #e0e0e0;\n  border-bottom: 15px solid transparent;\n  content: \" \";\n}\n.stepper.timeline li .step-content:after {\n  position: absolute;\n  top: 27px;\n  right: -14px;\n  display: inline-block;\n  border-top: 14px solid transparent;\n  border-left: 14px solid #fff;\n  border-right: 0 solid #fff;\n  border-bottom: 14px solid transparent;\n  content: \" \";\n}\n@media (max-width: 450px) {\n  .stepper.timeline li .step-content {\n    width: 80%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li .step-content {\n    width: 85%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n\n.stepper.timeline li.timeline-inverted {\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n  -ms-flex-align: end;\n  align-items: flex-end;\n}\n.stepper.timeline li.timeline-inverted .step-content {\n  float: right;\n}\n.stepper.timeline li.timeline-inverted .step-content:before {\n  border-left-width: 0;\n  border-right-width: 15px;\n  left: -15px;\n  right: auto;\n}\n.stepper.timeline li.timeline-inverted .step-content:after {\n  border-left-width: 0;\n  border-right-width: 14px;\n  left: -14px;\n  right: auto;\n}\n\n.stepper.timeline.stepper-vertical li:not(:last-child):after {\n  content: \" \";\n  position: absolute;\n  width: 3px;\n  background-color: #e0e0e0;\n  left: 50%;\n  top: 57px;\n  margin-left: -1.5px;\n}\n@media (max-width: 450px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n";
+styleInject(css$h);
 
 var Timeline = function Timeline(props) {
   var children = props.children;
@@ -10508,8 +10572,8 @@ TimelineStep.defaultProps = {
   href: "#"
 };
 
-var css$h = ".time-picker-clock {\n  border-radius: 100%;\n  position: relative;\n  /* transition: 0.3s cubic-bezier(.25,.8,.50,1); */\n  user-select: none;\n  background: #f0f0f0;\n  animation: show-up-clock 0.2s linear;\n}\n@keyframes show-up-clock {\n  0% {\n    opacity: 0;\n    transform: scale(0.7);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n.time-picker-clock__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\n.time-picker-clock__hand {\n  height: calc(50% - 28px);\n  width: 2px;\n  bottom: 50%;\n  left: calc(50% - 1px);\n  transform-origin: center bottom;\n  position: absolute;\n  will-change: transform;\n  z-index: 1;\n  background-color: rgba(0, 150, 136, 0.25);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring {\n  background-color: rgba(0, 150, 136, 0.25);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 2.5rem;\n  height: 2.5rem;\n  content: \"\";\n  position: absolute;\n  top: -3%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring:before {\n  background-color: rgba(0, 77, 64, 0.75);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 10px;\n  height: 10px;\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand:after {\n  content: \"\";\n  position: absolute;\n  height: 6px;\n  width: 6px;\n  top: 100%;\n  left: 50%;\n  border-radius: 50%;\n  background-color: rgba(0, 77, 64, 0.75);\n  opacity: 0.75;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span {\n  align-items: center;\n  border-radius: 100%;\n  cursor: default;\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.2;\n  justify-content: center;\n  left: calc(50% - 40px / 2);\n  height: 40px;\n  position: absolute;\n  text-align: center;\n  top: calc(50% - 40px / 2);\n  width: 40px;\n  user-select: none;\n}\n.time-picker-clock > span:hover,\n.time-picker-clock > span.active:hover {\n  cursor: pointer;\n}\n.time-picker-clock > span:active:hover,\n.time-picker-clock > span.active:active:hover {\n  cursor: move;\n}\n.time-picker-clock:active:hover {\n  cursor: move;\n}\n.time-picker-clock > span > span {\n  z-index: 1;\n}\n\n.time-picker-clock > span:before,\n.time-picker-clock > span:after {\n  content: \"\";\n  border-radius: 100%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 14px;\n  width: 14px;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span > span:after,\n.time-picker-clock > span > span:before {\n  height: 40px;\n  width: 40px;\n}\n.time-picker-clock > span.active {\n  color: #fff;\n  cursor: default;\n  z-index: 2;\n  background: blue;\n}\n.time-picker-clock > span > span.disabled {\n  pointer-events: none;\n}\n\n.picker__footer .clockpicker-button {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n";
-styleInject(css$h);
+var css$i = ".time-picker-clock {\n  border-radius: 100%;\n  position: relative;\n  /* transition: 0.3s cubic-bezier(.25,.8,.50,1); */\n  user-select: none;\n  background: #f0f0f0;\n  animation: show-up-clock 0.2s linear;\n}\n@keyframes show-up-clock {\n  0% {\n    opacity: 0;\n    transform: scale(0.7);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n.time-picker-clock__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\n.time-picker-clock__hand {\n  height: calc(50% - 28px);\n  width: 2px;\n  bottom: 50%;\n  left: calc(50% - 1px);\n  transform-origin: center bottom;\n  position: absolute;\n  will-change: transform;\n  z-index: 1;\n  background-color: rgba(0, 150, 136, 0.25);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring {\n  background-color: rgba(0, 150, 136, 0.25);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 2.5rem;\n  height: 2.5rem;\n  content: \"\";\n  position: absolute;\n  top: -3%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring:before {\n  background-color: rgba(0, 77, 64, 0.75);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 10px;\n  height: 10px;\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand:after {\n  content: \"\";\n  position: absolute;\n  height: 6px;\n  width: 6px;\n  top: 100%;\n  left: 50%;\n  border-radius: 50%;\n  background-color: rgba(0, 77, 64, 0.75);\n  opacity: 0.75;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span {\n  align-items: center;\n  border-radius: 100%;\n  cursor: default;\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.2;\n  justify-content: center;\n  left: calc(50% - 40px / 2);\n  height: 40px;\n  position: absolute;\n  text-align: center;\n  top: calc(50% - 40px / 2);\n  width: 40px;\n  user-select: none;\n}\n.time-picker-clock > span:hover,\n.time-picker-clock > span.active:hover {\n  cursor: pointer;\n}\n.time-picker-clock > span:active:hover,\n.time-picker-clock > span.active:active:hover {\n  cursor: move;\n}\n.time-picker-clock:active:hover {\n  cursor: move;\n}\n.time-picker-clock > span > span {\n  z-index: 1;\n}\n\n.time-picker-clock > span:before,\n.time-picker-clock > span:after {\n  content: \"\";\n  border-radius: 100%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 14px;\n  width: 14px;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span > span:after,\n.time-picker-clock > span > span:before {\n  height: 40px;\n  width: 40px;\n}\n.time-picker-clock > span.active {\n  color: #fff;\n  cursor: default;\n  z-index: 2;\n  background: blue;\n}\n.time-picker-clock > span > span.disabled {\n  pointer-events: none;\n}\n\n.picker__footer .clockpicker-button {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n";
+styleInject(css$i);
 
 var propTypes$2 = {
   color: PropTypes__default.string.isRequired,
@@ -11475,7 +11539,9 @@ exports.NavLink = NavLink;
 exports.Pagination = Pagination;
 exports.PageItem = PageItem;
 exports.PageLink = PageLink;
-exports.Popover = Popover;
+exports.Popover = Popper;
+exports.Popper = Popper;
+exports.Tooltip = Popper;
 exports.PopoverBody = PopoverBody;
 exports.PopoverHeader = PopoverHeader;
 exports.Progress = Progress;
@@ -11485,7 +11551,6 @@ exports.Table = Table;
 exports.TableBody = TableBody;
 exports.TableHead = TableHead;
 exports.TableFoot = TableFoot;
-exports.Tooltip = Tooltip;
 exports.View = View;
 exports.Iframe = Iframe;
 exports.Autocomplete = Autocomplete;
@@ -11590,7 +11655,9 @@ exports.MDBNavLink = NavLink;
 exports.MDBPagination = Pagination;
 exports.MDBPageItem = PageItem;
 exports.MDBPageNav = PageLink;
-exports.MDBPopover = Popover;
+exports.MDBPopover = Popper;
+exports.MDBPopper = Popper;
+exports.MDBTooltip = Popper;
 exports.MDBPopoverBody = PopoverBody;
 exports.MDBPopoverHeader = PopoverHeader;
 exports.MDBProgress = Progress;
@@ -11600,7 +11667,6 @@ exports.MDBTable = Table;
 exports.MDBTableBody = TableBody;
 exports.MDBTableHead = TableHead;
 exports.MDBTableFoot = TableFoot;
-exports.MDBTooltip = Tooltip;
 exports.MDBView = View;
 exports.MDBAutocomplete = Autocomplete;
 exports.MDBAvatar = Avatar;

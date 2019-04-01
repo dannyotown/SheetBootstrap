@@ -72,6 +72,7 @@ import ScrollBarPagePro from "./pages/pro/ScrollBarPage";
 import ScrollSpyPage from "./pages/pro/ScrollSpyPage";
 import SelectPage from "./pages/pro/SelectPage";
 import SideNavPage from "./pages/pro/SideNavPage";
+import SlimSideNavPage from "./pages/pro/SlimSideNavPage";
 import DatePickerPage from "./pages/pro/DatePickerPage";
 import DoubleNavigationPage from "./pages/pro/DoubleNavigationPage";
 import TimePickerPage from "./pages/pro/TimePickerPage";
@@ -213,6 +214,7 @@ class Routes extends React.Component {
         <Route path="/modals/pro/modal-form" component={ModalFormProPage} />
         <Route path="/modals/pro/modal-examples" component={ModalExamplesProPage} />
         <Route path="/navigation/pro/sidenav" component={SideNavPage} />
+        <Route path="/navigation/pro/slim-sidenav" component={SlimSideNavPage} />
         <Route path="/navigation/pro/scrollspy" component={ScrollSpyPage} />
         <Route path="/navigation/pro/hamburger-menu" component={HabmburgerMenuPage} />
         <Route path="/navigation/pro/double" component={DoubleNavigationPage} />
