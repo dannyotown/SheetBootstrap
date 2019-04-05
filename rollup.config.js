@@ -5,7 +5,7 @@ import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 import commonjs from 'rollup-plugin-commonjs';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-const dependencies = Object.keys(require("./package.json").dependencies)
+const dependencies = Object.keys(require("./package.json").devDependencies);
 
 const plugins = [
   peerDepsExternal(),
