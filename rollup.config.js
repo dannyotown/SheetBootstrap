@@ -14,6 +14,10 @@ const plugins = [
   }),
   commonjs({
     include: 'node_modules/**',
+    namedExports: {
+      'node_modules/react/index.js': ['Component', 'PureComponent', 'Fragment', 'Children', 'createElement', 'createContext', 'forwardRef', 'useState', 'useEffect'],
+      'node_modules/react-dom/index.js': ['render', 'findDOMNode']
+    }
   }),
   babel({
     exclude: 'node_modules/**'
