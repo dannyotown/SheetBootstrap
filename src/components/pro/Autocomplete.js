@@ -204,7 +204,6 @@ Autocomplete.propTypes = {
   iconSize: PropTypes.string,
   iconClassName: PropTypes.string,
   placeholder: PropTypes.string,
-  search: PropTypes.func,
   valueDefault: PropTypes.string,
 };
 

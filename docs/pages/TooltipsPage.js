@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBTooltip, MDBContainer, MDBBtn, MDBBtnFixed } from "mdbreact";
+import { MDBTooltip, MDBContainer, MDBBtn } from "mdbreact";
 import DocsLink from "./../components/docsLink";
 
 const TooltipsPage = () => {
@@ -60,15 +60,6 @@ const TooltipsPage = () => {
           <MDBBtn style={{ position: 'fixed', bottom: '145px', left: '50%', transform: 'translateX(-50%)' }} color="indigo">Tooltip on click</MDBBtn>
           <div>
             MDBTooltip on click
-          </div>
-        </MDBTooltip>
-
-        <MDBTooltip
-          placement="bottom"
-        >
-          <MDBBtnFixed floating color="indigo" icon="pencil-alt" style={{ padding: 0, bottom: "145px", right: "24px" }} />
-          <div>
-            MDBTooltip on fixed button
           </div>
         </MDBTooltip>
 
