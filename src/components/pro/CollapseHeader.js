@@ -6,6 +6,7 @@ class CollapseHeader extends React.Component {
   render() {
     const {
       className,
+      tagClassName,
       children,
       tag: Tag,
       triggerOnClick,
@@ -13,10 +14,11 @@ class CollapseHeader extends React.Component {
     } = this.props;
 
     const classes = classNames("card-header", className);
+    const tagClasses = classNames("mb-0", tagClassName)
     return (
       <div {...attributes} className={classes} style={{ cursor: "pointer" }}>
         <a href="#!">
-          <Tag className="mb-0">{children}</Tag>
+          <Tag className={tagClasses}>{children}</Tag>
         </a>
       </div>
     );
@@ -30,6 +32,7 @@ CollapseHeader.defaultProps = {
 CollapseHeader.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  tagClassName: PropTypes.string,
   tag: PropTypes.string,
   triggerOnClick: PropTypes.func
 };
