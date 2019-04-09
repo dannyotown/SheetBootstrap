@@ -43,7 +43,7 @@ class DropdownMenu extends Component {
     let Tag = tag;
 
     if (this.context.isOpen) {
-      const position1 = this.context.dropup ? 'top' : 'bottom';
+      const position1 = this.context.dropup ? 'top' : this.context.dropright ? 'right' : this.context.dropleft ? 'left' : 'bottom';
       const position2 = right ? 'end' : 'start';
       attrs.placement = `${position1}-${position2}`;
       attrs.component = tag;
@@ -101,6 +101,8 @@ DropdownMenu.defaultProps = {
 DropdownMenu.contextTypes = {
   isOpen: PropTypes.bool.isRequired,
   dropup: PropTypes.bool.isRequired,
+  dropright: PropTypes.bool.isRequired,
+  dropleft: PropTypes.bool.isRequired,
   color: PropTypes.oneOfType([
     PropTypes.oneOf([
       'primary',
