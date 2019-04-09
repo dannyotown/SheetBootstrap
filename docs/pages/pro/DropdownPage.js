@@ -157,6 +157,34 @@ const DropdownPage = () => {
           </MDBDropdownMenu>
         </MDBDropdown>
         <br />
+        <h2>Dropleft variation</h2>
+        <MDBDropdown dropleft>
+          <MDBDropdownToggle caret color="primary">
+            Dropleft
+          </MDBDropdownToggle>
+          <MDBDropdownMenu>
+            <MDBDropdownItem>Action</MDBDropdownItem>
+            <MDBDropdownItem>Another Action</MDBDropdownItem>
+            <MDBDropdownItem>Something else here</MDBDropdownItem>
+            <MDBDropdownItem divider />
+            <MDBDropdownItem>Separated link</MDBDropdownItem>
+          </MDBDropdownMenu>
+        </MDBDropdown>
+        <br />
+        <h2>Dropright variation</h2>
+        <MDBDropdown dropright>
+          <MDBDropdownToggle caret color="primary">
+            Dropright
+          </MDBDropdownToggle>
+          <MDBDropdownMenu>
+            <MDBDropdownItem>Action</MDBDropdownItem>
+            <MDBDropdownItem>Another Action</MDBDropdownItem>
+            <MDBDropdownItem>Something else here</MDBDropdownItem>
+            <MDBDropdownItem divider />
+            <MDBDropdownItem>Separated link</MDBDropdownItem>
+          </MDBDropdownMenu>
+        </MDBDropdown>
+        <br />
         <h2>Alignment</h2>
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
