@@ -36,6 +36,8 @@ class SideNav extends React.Component {
     }
 
     this.sideNavRef = React.createRef();
+    this.initialX = null;
+    this.initialY = null;
 
     this.state = {
       initiallyFixed: props.fixed,
@@ -54,8 +56,44 @@ class SideNav extends React.Component {
       throw new Error('Received "triggerOpening" prop for a  non-responsive Sidebar. If you want to contidionally render Sidenav, set the responsive prop to true');
     }
 
+    this.sideNavRef.current.addEventListener("touchstart", this.startTouch);
+    this.sideNavRef.current.addEventListener("touchmove", this.moveTouch);
     window.addEventListener("resize", this.updatePredicate);
   }
+
+  startTouch = e => {
+    this.initialX = e.touches[0].clientX;
+    this.initialY = e.touches[0].clientY;
+  };
+
+  moveTouch = e => {
+    if (this.initialX === null) {
+      return;
+    }
+
+    if (this.initialY === null) {
+      return;
+    }
+
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
+
+    const diffX = this.initialX - currentX;
+    const diffY = this.initialY - currentY;
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 0) {
+        !this.props.right && this.handleOverlayClick()
+      } else {
+        this.props.right && this.handleOverlayClick()
+      }
+    }
+
+    this.initialX = null;
+    this.initialY = null;
+
+    e.preventDefault();
+  };
 
   componentDidUpdate(prevProps) {
     if (prevProps.triggerOpening !== this.props.triggerOpening) {
@@ -68,6 +106,8 @@ class SideNav extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.updatePredicate);
+    this.sideNavRef.current.removeEventListener("touchstart", this.startTouch);
+    this.sideNavRef.current.removeEventListener("touchmove", this.moveTouch);
   }
 
   updatePredicate = () => {
@@ -164,7 +204,6 @@ class SideNav extends React.Component {
         className={classes}
         data-animate={isFixed ? false : undefined}
         style={bg ? { backgroundImage: `url(${bg}` } : undefined}
-        onTouchMove={this.handleOverlayClick}
       >
         <ScrollBar option={{ suppressScrollX: true }}>
           <ul className="list-unstyled">
