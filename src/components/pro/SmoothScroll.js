@@ -45,7 +45,6 @@ class SmoothScroll extends Component {
       floating,
       flat,
       social,
-      action,
       btn,
       fixed,
       bottom,
@@ -69,7 +68,6 @@ class SmoothScroll extends Component {
       size ? `btn-${size}` : false,
       rounded ? "btn-rounded" : false,
       block ? "btn-block" : false,
-      action ? "btn-action" : false,
       social ? "btn-" + social : false,
       "Ripple-parent",
       className
