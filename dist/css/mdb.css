@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * Material Design for Bootstrap 4
- * Version: MDB PRO 4.7.5
+ * Version: MDB PRO 4.7.6
  *
  *
  * Copyright: Material Design for BootstrapS
@@ -1265,6 +1265,11 @@
 
 .blue-gradient-rgba {
   background: linear-gradient(40deg, rgba(69, 202, 252, 0.9), rgba(48, 63, 159, 0.9)) !important; }
+
+.dark-grey-text {
+  color: #4f4f4f !important; }
+  .dark-grey-text:hover, .dark-grey-text:focus {
+    color: #4f4f4f !important; }
 
 .hoverable {
   box-shadow: none;
@@ -3026,7 +3031,7 @@ a.waves-effect, a.waves-light {
   text-transform: uppercase;
   white-space: normal;
   word-wrap: break-word;
-  color: #fff; }
+  color: inherit; }
   .btn:hover, .btn:active, .btn:focus {
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
     outline: 0; }
@@ -5893,7 +5898,7 @@ body.scrollable {
     .md-form.md-outline input[type=number],
     .md-form.md-outline input[type=search-md],
     .md-form.md-outline input[type=search],
-    .md-form.md-outline textarea {
+    .md-form.md-outline textarea.md-textarea {
       transition: all .3s;
       outline: none;
       box-shadow: none;
@@ -5912,7 +5917,7 @@ body.scrollable {
       .md-form.md-outline input[type=number]:focus:not([readonly]),
       .md-form.md-outline input[type=search-md]:focus:not([readonly]),
       .md-form.md-outline input[type=search]:focus:not([readonly]),
-      .md-form.md-outline textarea:focus:not([readonly]) {
+      .md-form.md-outline textarea.md-textarea:focus:not([readonly]) {
         border-color: #4285f4;
         box-shadow: inset 0px 0px 0px 1px #4285f4; }
         .md-form.md-outline input[type=text]:focus:not([readonly]) + label,
@@ -5926,7 +5931,7 @@ body.scrollable {
         .md-form.md-outline input[type=number]:focus:not([readonly]) + label,
         .md-form.md-outline input[type=search-md]:focus:not([readonly]) + label,
         .md-form.md-outline input[type=search]:focus:not([readonly]) + label,
-        .md-form.md-outline textarea:focus:not([readonly]) + label {
+        .md-form.md-outline textarea.md-textarea:focus:not([readonly]) + label {
           color: #4285f4; }
       .md-form.md-outline input[type=text].valid, .md-form.md-outline input[type=text]:focus.valid,
       .md-form.md-outline input[type=password].valid,
@@ -5949,8 +5954,8 @@ body.scrollable {
       .md-form.md-outline input[type=search-md]:focus.valid,
       .md-form.md-outline input[type=search].valid,
       .md-form.md-outline input[type=search]:focus.valid,
-      .md-form.md-outline textarea.valid,
-      .md-form.md-outline textarea:focus.valid {
+      .md-form.md-outline textarea.md-textarea.valid,
+      .md-form.md-outline textarea.md-textarea:focus.valid {
         border-color: #00c851;
         box-shadow: inset 0px 0px 0px 1px #00c851; }
       .md-form.md-outline input[type=text]:focus:not([readonly]).valid + label, .md-form.md-outline input[type=text].valid + label:after, .md-form.md-outline input[type=text]:focus.valid + label:after,
@@ -5984,9 +5989,9 @@ body.scrollable {
       .md-form.md-outline input[type=search]:focus:not([readonly]).valid + label,
       .md-form.md-outline input[type=search].valid + label:after,
       .md-form.md-outline input[type=search]:focus.valid + label:after,
-      .md-form.md-outline textarea:focus:not([readonly]).valid + label,
-      .md-form.md-outline textarea.valid + label:after,
-      .md-form.md-outline textarea:focus.valid + label:after {
+      .md-form.md-outline textarea.md-textarea:focus:not([readonly]).valid + label,
+      .md-form.md-outline textarea.md-textarea.valid + label:after,
+      .md-form.md-outline textarea.md-textarea:focus.valid + label:after {
         content: attr(data-success);
         color: #00c851;
         opacity: 1; }
@@ -6011,8 +6016,8 @@ body.scrollable {
       .md-form.md-outline input[type=search-md]:focus.invalid,
       .md-form.md-outline input[type=search].invalid,
       .md-form.md-outline input[type=search]:focus.invalid,
-      .md-form.md-outline textarea.invalid,
-      .md-form.md-outline textarea:focus.invalid {
+      .md-form.md-outline textarea.md-textarea.invalid,
+      .md-form.md-outline textarea.md-textarea:focus.invalid {
         border-color: #f44336;
         box-shadow: inset 0px 0px 0px 1px #f44336; }
       .md-form.md-outline input[type=text]:focus:not([readonly]).invalid + label, .md-form.md-outline input[type=text].invalid + label:after, .md-form.md-outline input[type=text]:focus.invalid + label:after,
@@ -6046,9 +6051,9 @@ body.scrollable {
       .md-form.md-outline input[type=search]:focus:not([readonly]).invalid + label,
       .md-form.md-outline input[type=search].invalid + label:after,
       .md-form.md-outline input[type=search]:focus.invalid + label:after,
-      .md-form.md-outline textarea:focus:not([readonly]).invalid + label,
-      .md-form.md-outline textarea.invalid + label:after,
-      .md-form.md-outline textarea:focus.invalid + label:after {
+      .md-form.md-outline textarea.md-textarea:focus:not([readonly]).invalid + label,
+      .md-form.md-outline textarea.md-textarea.invalid + label:after,
+      .md-form.md-outline textarea.md-textarea:focus.invalid + label:after {
         content: attr(data-error);
         color: #f44336;
         opacity: 1; }
@@ -6074,8 +6079,8 @@ body.scrollable {
       .md-form.md-outline input[type=search-md].form-control:focus.valid + label:after,
       .md-form.md-outline input[type=search].form-control.valid + label:after,
       .md-form.md-outline input[type=search].form-control:focus.valid + label:after,
-      .md-form.md-outline textarea.form-control.valid + label:after,
-      .md-form.md-outline textarea.form-control:focus.valid + label:after {
+      .md-form.md-outline textarea.md-textarea.form-control.valid + label:after,
+      .md-form.md-outline textarea.md-textarea.form-control:focus.valid + label:after {
         top: 2.75rem;
         left: 0;
         position: absolute; }
@@ -6101,8 +6106,8 @@ body.scrollable {
       .md-form.md-outline input[type=search-md].form-control:focus.invalid + label:after,
       .md-form.md-outline input[type=search].form-control.invalid + label:after,
       .md-form.md-outline input[type=search].form-control:focus.invalid + label:after,
-      .md-form.md-outline textarea.form-control.invalid + label:after,
-      .md-form.md-outline textarea.form-control:focus.invalid + label:after {
+      .md-form.md-outline textarea.md-textarea.form-control.invalid + label:after,
+      .md-form.md-outline textarea.md-textarea.form-control:focus.invalid + label:after {
         top: 2.75rem;
         left: 0;
         position: absolute; }
@@ -6125,7 +6130,6 @@ body.scrollable {
     .md-form.md-outline label {
       font-size: .875rem;
       position: absolute;
-      top: .65rem;
       left: 0;
       padding-left: 10px;
       transition: .2s ease-out;
@@ -6194,145 +6198,75 @@ body.scrollable {
         margin-left: 2.1rem; }
     .md-form.md-outline .character-counter {
       margin-top: -.5rem; }
-  .md-form.md-ver {
-    position: relative;
-    padding-top: 16px;
-    margin-bottom: 16px; }
-    .md-form.md-ver input[type=text]:focus,
-    .md-form.md-ver input[type=password]:focus,
-    .md-form.md-ver input[type=email]:focus,
-    .md-form.md-ver input[type=url]:focus,
-    .md-form.md-ver input[type=time]:focus,
-    .md-form.md-ver input[type=date]:focus,
-    .md-form.md-ver input[type=datetime-local]:focus,
-    .md-form.md-ver input[type=tel]:focus,
-    .md-form.md-ver input[type=number]:focus,
-    .md-form.md-ver input[type=search-md]:focus,
-    .md-form.md-ver input[type=search]:focus,
-    .md-form.md-ver textarea:focus {
+  .md-form.md-bg input[type=text],
+  .md-form.md-bg input[type=password],
+  .md-form.md-bg input[type=email],
+  .md-form.md-bg input[type=url],
+  .md-form.md-bg input[type=time],
+  .md-form.md-bg input[type=date],
+  .md-form.md-bg input[type=datetime-local],
+  .md-form.md-bg input[type=tel],
+  .md-form.md-bg input[type=number],
+  .md-form.md-bg input[type=search-md],
+  .md-form.md-bg input[type=search],
+  .md-form.md-bg textarea.md-textarea {
+    box-sizing: border-box;
+    padding: 10px 5px;
+    border: 0;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+    background: #f5f5f5 no-repeat;
+    background-image: linear-gradient(to bottom, #4285f4, #4285f4), linear-gradient(to bottom, #ced4da, #ced4da);
+    background-size: 0 2px, 100% 1px;
+    background-position: 50% 100%, 50% 100%;
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1); }
+    .md-form.md-bg input[type=text]:focus:not([readonly]),
+    .md-form.md-bg input[type=password]:focus:not([readonly]),
+    .md-form.md-bg input[type=email]:focus:not([readonly]),
+    .md-form.md-bg input[type=url]:focus:not([readonly]),
+    .md-form.md-bg input[type=time]:focus:not([readonly]),
+    .md-form.md-bg input[type=date]:focus:not([readonly]),
+    .md-form.md-bg input[type=datetime-local]:focus:not([readonly]),
+    .md-form.md-bg input[type=tel]:focus:not([readonly]),
+    .md-form.md-bg input[type=number]:focus:not([readonly]),
+    .md-form.md-bg input[type=search-md]:focus:not([readonly]),
+    .md-form.md-bg input[type=search]:focus:not([readonly]),
+    .md-form.md-bg textarea.md-textarea:focus:not([readonly]) {
       box-shadow: none;
-      border-bottom-color: rgba(0, 0, 0, 0.12); }
-      .md-form.md-ver input[type=text]:focus ~ label,
-      .md-form.md-ver input[type=password]:focus ~ label,
-      .md-form.md-ver input[type=email]:focus ~ label,
-      .md-form.md-ver input[type=url]:focus ~ label,
-      .md-form.md-ver input[type=time]:focus ~ label,
-      .md-form.md-ver input[type=date]:focus ~ label,
-      .md-form.md-ver input[type=datetime-local]:focus ~ label,
-      .md-form.md-ver input[type=tel]:focus ~ label,
-      .md-form.md-ver input[type=number]:focus ~ label,
-      .md-form.md-ver input[type=search-md]:focus ~ label,
-      .md-form.md-ver input[type=search]:focus ~ label,
-      .md-form.md-ver textarea:focus ~ label {
-        top: 0;
-        opacity: 1;
-        color: #8e44ad;
-        font-size: 12px; }
-        .md-form.md-ver input[type=text]:focus ~ label:after,
-        .md-form.md-ver input[type=password]:focus ~ label:after,
-        .md-form.md-ver input[type=email]:focus ~ label:after,
-        .md-form.md-ver input[type=url]:focus ~ label:after,
-        .md-form.md-ver input[type=time]:focus ~ label:after,
-        .md-form.md-ver input[type=date]:focus ~ label:after,
-        .md-form.md-ver input[type=datetime-local]:focus ~ label:after,
-        .md-form.md-ver input[type=tel]:focus ~ label:after,
-        .md-form.md-ver input[type=number]:focus ~ label:after,
-        .md-form.md-ver input[type=search-md]:focus ~ label:after,
-        .md-form.md-ver input[type=search]:focus ~ label:after,
-        .md-form.md-ver textarea:focus ~ label:after {
-          visibility: visible;
-          width: 100%;
-          left: 0; }
-    .md-form.md-ver input[type=text]:focus:not([readonly]),
-    .md-form.md-ver input[type=password]:focus:not([readonly]),
-    .md-form.md-ver input[type=email]:focus:not([readonly]),
-    .md-form.md-ver input[type=url]:focus:not([readonly]),
-    .md-form.md-ver input[type=time]:focus:not([readonly]),
-    .md-form.md-ver input[type=date]:focus:not([readonly]),
-    .md-form.md-ver input[type=datetime-local]:focus:not([readonly]),
-    .md-form.md-ver input[type=tel]:focus:not([readonly]),
-    .md-form.md-ver input[type=number]:focus:not([readonly]),
-    .md-form.md-ver input[type=search-md]:focus:not([readonly]),
-    .md-form.md-ver input[type=search]:focus:not([readonly]),
-    .md-form.md-ver textarea:focus:not([readonly]) {
-      border-color: #4285f4;
-      box-shadow: inset 0px 0px 0px 1px #4285f4; }
-      .md-form.md-ver input[type=text]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=password]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=email]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=url]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=time]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=date]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=datetime-local]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=tel]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=number]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=search-md]:focus:not([readonly]) + label,
-      .md-form.md-ver input[type=search]:focus:not([readonly]) + label,
-      .md-form.md-ver textarea:focus:not([readonly]) + label {
-        top: 0;
-        opacity: 1;
-        color: #8e44ad;
-        font-size: 12px; }
-        .md-form.md-ver input[type=text]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=password]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=email]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=url]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=time]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=date]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=datetime-local]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=tel]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=number]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=search-md]:focus:not([readonly]) + label:after,
-        .md-form.md-ver input[type=search]:focus:not([readonly]) + label:after,
-        .md-form.md-ver textarea:focus:not([readonly]) + label:after {
-          visibility: visible;
-          width: 100%;
-          left: 0; }
-    .md-form.md-ver label {
-      position: absolute;
-      top: 20px;
-      left: 0;
-      bottom: 0;
-      z-index: 2;
-      width: 100%;
-      font-weight: 300;
-      opacity: 0.5;
-      cursor: text;
-      transition: 0.2s ease all;
-      margin: 0;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none; }
-      .md-form.md-ver label:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 45%;
-        height: 2px;
-        width: 10px;
-        visibility: hidden;
-        background-color: #8e44ad;
-        transition: 0.2s ease all; }
-    .md-form.md-ver .form-control {
-      position: relative;
-      z-index: 1;
-      border-radius: 0;
-      border-width: 0 0 1px;
-      border-bottom-color: rgba(0, 0, 0, 0.25);
-      height: auto;
-      padding: 3px 0 5px; }
-      .md-form.md-ver .form-control:focus {
-        box-shadow: none;
-        border-bottom-color: rgba(0, 0, 0, 0.12); }
-        .md-form.md-ver .form-control:focus ~ label {
-          top: 0;
-          opacity: 1;
-          color: #8e44ad;
-          font-size: 12px; }
-          .md-form.md-ver .form-control:focus ~ label:after {
-            visibility: visible;
-            width: 100%;
-            left: 0; }
+      border-bottom: none; }
+    .md-form.md-bg input[type=text]:focus,
+    .md-form.md-bg input[type=password]:focus,
+    .md-form.md-bg input[type=email]:focus,
+    .md-form.md-bg input[type=url]:focus,
+    .md-form.md-bg input[type=time]:focus,
+    .md-form.md-bg input[type=date]:focus,
+    .md-form.md-bg input[type=datetime-local]:focus,
+    .md-form.md-bg input[type=tel]:focus,
+    .md-form.md-bg input[type=number]:focus,
+    .md-form.md-bg input[type=search-md]:focus,
+    .md-form.md-bg input[type=search]:focus,
+    .md-form.md-bg textarea.md-textarea:focus {
+      background-color: #dcdcdc;
+      background-size: 100% 2px, 100% 1px;
+      outline: none; }
+  .md-form.md-bg > input[type=date]:not(.browser-default) + label {
+    transform: translateY(-12px) scale(0.8);
+    transform-origin: 0 0; }
+  .md-form.md-bg > input[type]:-webkit-autofill:not(.browser-default):not([type="search"]) + label,
+  .md-form.md-bg > input[type=time]:not(.browser-default) + label {
+    transform: translateY(-12px);
+    transform-origin: 0 0;
+    font-size: .8rem; }
+  .md-form.md-bg .form-control {
+    padding: 1.1rem .7rem .4rem !important; }
+  .md-form.md-bg label {
+    top: .85rem;
+    padding-left: .7rem; }
+    .md-form.md-bg label.active {
+      transform: translateY(-65%);
+      font-weight: 500;
+      font-size: .7rem;
+      padding-left: .75rem; }
 
 .md-form .form-control.is-invalid,
 .was-validated .md-form .form-control:invalid {
@@ -6662,6 +6596,31 @@ ul.stepper {
 .fast.spinner-grow {
   animation: spinner-grow .4s linear infinite; }
 
+.treeview .w-20 {
+  width: 20rem; }
+
+.treeview .rotate {
+  cursor: pointer;
+  user-select: none;
+  transition: all .1s linear;
+  font-size: .8rem;
+  vertical-align: text-top;
+  margin-top: .2rem; }
+  .treeview .rotate.down {
+    transform: rotate(90deg); }
+
+.treeview .nested {
+  display: none; }
+
+.treeview .active {
+  display: block; }
+
+.treeview ul {
+  list-style-type: none; }
+
+.treeview .ic-w {
+  width: 1.3rem; }
+
 /*
  * MDBootstrap integration with Datatables
  * Learn more: https://mdbootstrap.com/docs/jquery/tables/datatables/
@@ -6986,113 +6945,113 @@ div.dataTables_wrapper span.select-info, div.dataTables_wrapper span.select-item
     font-weight: 900;
     font-size: 2rem; }
   .masonry-with-columns div:nth-child(1) {
-    height: 166px;
-    line-height: 166px; }
+    height: 369px;
+    line-height: 369px; }
   .masonry-with-columns div:nth-child(2) {
-    height: 163px;
-    line-height: 163px; }
+    height: 326px;
+    line-height: 326px; }
   .masonry-with-columns div:nth-child(3) {
-    height: 313px;
-    line-height: 313px; }
+    height: 463px;
+    line-height: 463px; }
   .masonry-with-columns div:nth-child(4) {
-    height: 334px;
-    line-height: 334px; }
+    height: 236px;
+    line-height: 236px; }
   .masonry-with-columns div:nth-child(5) {
-    height: 462px;
-    line-height: 462px; }
+    height: 295px;
+    line-height: 295px; }
   .masonry-with-columns div:nth-child(6) {
-    height: 238px;
-    line-height: 238px; }
+    height: 438px;
+    line-height: 438px; }
   .masonry-with-columns div:nth-child(7) {
-    height: 222px;
-    line-height: 222px; }
+    height: 315px;
+    line-height: 315px; }
   .masonry-with-columns div:nth-child(8) {
-    height: 286px;
-    line-height: 286px; }
+    height: 494px;
+    line-height: 494px; }
   .masonry-with-columns div:nth-child(9) {
-    height: 450px;
-    line-height: 450px; }
+    height: 426px;
+    line-height: 426px; }
   .masonry-with-columns div:nth-child(10) {
-    height: 284px;
-    line-height: 284px; }
+    height: 309px;
+    line-height: 309px; }
   .masonry-with-columns div:nth-child(11) {
-    height: 474px;
-    line-height: 474px; }
+    height: 160px;
+    line-height: 160px; }
   .masonry-with-columns div:nth-child(12) {
-    height: 242px;
-    line-height: 242px; }
+    height: 427px;
+    line-height: 427px; }
   .masonry-with-columns div:nth-child(13) {
-    height: 341px;
-    line-height: 341px; }
+    height: 114px;
+    line-height: 114px; }
   .masonry-with-columns div:nth-child(14) {
-    height: 273px;
-    line-height: 273px; }
+    height: 306px;
+    line-height: 306px; }
   .masonry-with-columns div:nth-child(15) {
+    height: 265px;
+    line-height: 265px; }
+  .masonry-with-columns div:nth-child(16) {
+    height: 380px;
+    line-height: 380px; }
+  .masonry-with-columns div:nth-child(17) {
+    height: 345px;
+    line-height: 345px; }
+  .masonry-with-columns div:nth-child(18) {
+    height: 112px;
+    line-height: 112px; }
+  .masonry-with-columns div:nth-child(19) {
+    height: 322px;
+    line-height: 322px; }
+  .masonry-with-columns div:nth-child(20) {
+    height: 312px;
+    line-height: 312px; }
+  .masonry-with-columns div:nth-child(21) {
+    height: 473px;
+    line-height: 473px; }
+  .masonry-with-columns div:nth-child(22) {
+    height: 173px;
+    line-height: 173px; }
+  .masonry-with-columns div:nth-child(23) {
     height: 491px;
     line-height: 491px; }
-  .masonry-with-columns div:nth-child(16) {
-    height: 368px;
-    line-height: 368px; }
-  .masonry-with-columns div:nth-child(17) {
-    height: 177px;
-    line-height: 177px; }
-  .masonry-with-columns div:nth-child(18) {
-    height: 418px;
-    line-height: 418px; }
-  .masonry-with-columns div:nth-child(19) {
-    height: 416px;
-    line-height: 416px; }
-  .masonry-with-columns div:nth-child(20) {
-    height: 189px;
-    line-height: 189px; }
-  .masonry-with-columns div:nth-child(21) {
-    height: 271px;
-    line-height: 271px; }
-  .masonry-with-columns div:nth-child(22) {
-    height: 290px;
-    line-height: 290px; }
-  .masonry-with-columns div:nth-child(23) {
-    height: 488px;
-    line-height: 488px; }
   .masonry-with-columns div:nth-child(24) {
-    height: 141px;
-    line-height: 141px; }
+    height: 280px;
+    line-height: 280px; }
   .masonry-with-columns div:nth-child(25) {
-    height: 471px;
-    line-height: 471px; }
+    height: 181px;
+    line-height: 181px; }
   .masonry-with-columns div:nth-child(26) {
-    height: 171px;
-    line-height: 171px; }
+    height: 441px;
+    line-height: 441px; }
   .masonry-with-columns div:nth-child(27) {
-    height: 226px;
-    line-height: 226px; }
+    height: 123px;
+    line-height: 123px; }
   .masonry-with-columns div:nth-child(28) {
-    height: 365px;
-    line-height: 365px; }
+    height: 336px;
+    line-height: 336px; }
   .masonry-with-columns div:nth-child(29) {
-    height: 305px;
-    line-height: 305px; }
+    height: 169px;
+    line-height: 169px; }
   .masonry-with-columns div:nth-child(30) {
-    height: 366px;
-    line-height: 366px; }
+    height: 238px;
+    line-height: 238px; }
   .masonry-with-columns div:nth-child(31) {
-    height: 430px;
-    line-height: 430px; }
+    height: 345px;
+    line-height: 345px; }
   .masonry-with-columns div:nth-child(32) {
-    height: 119px;
-    line-height: 119px; }
+    height: 118px;
+    line-height: 118px; }
   .masonry-with-columns div:nth-child(33) {
-    height: 219px;
-    line-height: 219px; }
+    height: 308px;
+    line-height: 308px; }
   .masonry-with-columns div:nth-child(34) {
-    height: 140px;
-    line-height: 140px; }
+    height: 498px;
+    line-height: 498px; }
   .masonry-with-columns div:nth-child(35) {
-    height: 482px;
-    line-height: 482px; }
+    height: 155px;
+    line-height: 155px; }
   .masonry-with-columns div:nth-child(36) {
-    height: 459px;
-    line-height: 459px; }
+    height: 323px;
+    line-height: 323px; }
 
 .masonry-with-columns-2 {
   display: flex;
@@ -7108,77 +7067,77 @@ div.dataTables_wrapper span.select-info, div.dataTables_wrapper span.select-item
     font-size: 2rem;
     flex: 1 0 auto; }
   .masonry-with-columns-2 div:nth-child(1) {
-    width: 184px; }
+    width: 173px; }
   .masonry-with-columns-2 div:nth-child(2) {
-    width: 113px; }
+    width: 260px; }
   .masonry-with-columns-2 div:nth-child(3) {
-    width: 339px; }
+    width: 348px; }
   .masonry-with-columns-2 div:nth-child(4) {
-    width: 244px; }
+    width: 404px; }
   .masonry-with-columns-2 div:nth-child(5) {
-    width: 210px; }
-  .masonry-with-columns-2 div:nth-child(6) {
-    width: 419px; }
-  .masonry-with-columns-2 div:nth-child(7) {
-    width: 417px; }
-  .masonry-with-columns-2 div:nth-child(8) {
-    width: 395px; }
-  .masonry-with-columns-2 div:nth-child(9) {
-    width: 453px; }
-  .masonry-with-columns-2 div:nth-child(10) {
-    width: 386px; }
-  .masonry-with-columns-2 div:nth-child(11) {
-    width: 443px; }
-  .masonry-with-columns-2 div:nth-child(12) {
-    width: 171px; }
-  .masonry-with-columns-2 div:nth-child(13) {
-    width: 410px; }
-  .masonry-with-columns-2 div:nth-child(14) {
-    width: 127px; }
-  .masonry-with-columns-2 div:nth-child(15) {
-    width: 357px; }
-  .masonry-with-columns-2 div:nth-child(16) {
-    width: 161px; }
-  .masonry-with-columns-2 div:nth-child(17) {
-    width: 433px; }
-  .masonry-with-columns-2 div:nth-child(18) {
-    width: 441px; }
-  .masonry-with-columns-2 div:nth-child(19) {
-    width: 258px; }
-  .masonry-with-columns-2 div:nth-child(20) {
-    width: 90px; }
-  .masonry-with-columns-2 div:nth-child(21) {
-    width: 401px; }
-  .masonry-with-columns-2 div:nth-child(22) {
-    width: 382px; }
-  .masonry-with-columns-2 div:nth-child(23) {
-    width: 357px; }
-  .masonry-with-columns-2 div:nth-child(24) {
-    width: 143px; }
-  .masonry-with-columns-2 div:nth-child(25) {
-    width: 130px; }
-  .masonry-with-columns-2 div:nth-child(26) {
-    width: 283px; }
-  .masonry-with-columns-2 div:nth-child(27) {
-    width: 219px; }
-  .masonry-with-columns-2 div:nth-child(28) {
-    width: 427px; }
-  .masonry-with-columns-2 div:nth-child(29) {
-    width: 282px; }
-  .masonry-with-columns-2 div:nth-child(30) {
     width: 341px; }
+  .masonry-with-columns-2 div:nth-child(6) {
+    width: 140px; }
+  .masonry-with-columns-2 div:nth-child(7) {
+    width: 384px; }
+  .masonry-with-columns-2 div:nth-child(8) {
+    width: 407px; }
+  .masonry-with-columns-2 div:nth-child(9) {
+    width: 95px; }
+  .masonry-with-columns-2 div:nth-child(10) {
+    width: 75px; }
+  .masonry-with-columns-2 div:nth-child(11) {
+    width: 122px; }
+  .masonry-with-columns-2 div:nth-child(12) {
+    width: 149px; }
+  .masonry-with-columns-2 div:nth-child(13) {
+    width: 217px; }
+  .masonry-with-columns-2 div:nth-child(14) {
+    width: 342px; }
+  .masonry-with-columns-2 div:nth-child(15) {
+    width: 128px; }
+  .masonry-with-columns-2 div:nth-child(16) {
+    width: 102px; }
+  .masonry-with-columns-2 div:nth-child(17) {
+    width: 346px; }
+  .masonry-with-columns-2 div:nth-child(18) {
+    width: 101px; }
+  .masonry-with-columns-2 div:nth-child(19) {
+    width: 281px; }
+  .masonry-with-columns-2 div:nth-child(20) {
+    width: 390px; }
+  .masonry-with-columns-2 div:nth-child(21) {
+    width: 443px; }
+  .masonry-with-columns-2 div:nth-child(22) {
+    width: 219px; }
+  .masonry-with-columns-2 div:nth-child(23) {
+    width: 468px; }
+  .masonry-with-columns-2 div:nth-child(24) {
+    width: 295px; }
+  .masonry-with-columns-2 div:nth-child(25) {
+    width: 357px; }
+  .masonry-with-columns-2 div:nth-child(26) {
+    width: 363px; }
+  .masonry-with-columns-2 div:nth-child(27) {
+    width: 126px; }
+  .masonry-with-columns-2 div:nth-child(28) {
+    width: 291px; }
+  .masonry-with-columns-2 div:nth-child(29) {
+    width: 387px; }
+  .masonry-with-columns-2 div:nth-child(30) {
+    width: 303px; }
   .masonry-with-columns-2 div:nth-child(31) {
-    width: 269px; }
+    width: 435px; }
   .masonry-with-columns-2 div:nth-child(32) {
-    width: 395px; }
+    width: 412px; }
   .masonry-with-columns-2 div:nth-child(33) {
-    width: 365px; }
+    width: 376px; }
   .masonry-with-columns-2 div:nth-child(34) {
-    width: 364px; }
+    width: 277px; }
   .masonry-with-columns-2 div:nth-child(35) {
-    width: 254px; }
+    width: 415px; }
   .masonry-with-columns-2 div:nth-child(36) {
-    width: 460px; }
+    width: 253px; }
 
 .masonry-with-flex {
   display: flex;
@@ -7189,113 +7148,113 @@ div.dataTables_wrapper span.select-info, div.dataTables_wrapper span.select-item
     width: auto;
     margin: 0 1rem 1rem 0; }
   .masonry-with-flex div:nth-child(1) {
+    height: 261px;
+    line-height: 261px; }
+  .masonry-with-flex div:nth-child(2) {
     height: 183px;
     line-height: 183px; }
-  .masonry-with-flex div:nth-child(2) {
-    height: 292px;
-    line-height: 292px; }
   .masonry-with-flex div:nth-child(3) {
-    height: 142px;
-    line-height: 142px; }
-  .masonry-with-flex div:nth-child(4) {
-    height: 473px;
-    line-height: 473px; }
-  .masonry-with-flex div:nth-child(5) {
-    height: 256px;
-    line-height: 256px; }
-  .masonry-with-flex div:nth-child(6) {
-    height: 318px;
-    line-height: 318px; }
-  .masonry-with-flex div:nth-child(7) {
-    height: 470px;
-    line-height: 470px; }
-  .masonry-with-flex div:nth-child(8) {
     height: 361px;
     line-height: 361px; }
+  .masonry-with-flex div:nth-child(4) {
+    height: 375px;
+    line-height: 375px; }
+  .masonry-with-flex div:nth-child(5) {
+    height: 168px;
+    line-height: 168px; }
+  .masonry-with-flex div:nth-child(6) {
+    height: 240px;
+    line-height: 240px; }
+  .masonry-with-flex div:nth-child(7) {
+    height: 157px;
+    line-height: 157px; }
+  .masonry-with-flex div:nth-child(8) {
+    height: 333px;
+    line-height: 333px; }
   .masonry-with-flex div:nth-child(9) {
-    height: 376px;
-    line-height: 376px; }
+    height: 326px;
+    line-height: 326px; }
   .masonry-with-flex div:nth-child(10) {
-    height: 229px;
-    line-height: 229px; }
+    height: 104px;
+    line-height: 104px; }
   .masonry-with-flex div:nth-child(11) {
-    height: 163px;
-    line-height: 163px; }
+    height: 221px;
+    line-height: 221px; }
   .masonry-with-flex div:nth-child(12) {
-    height: 285px;
-    line-height: 285px; }
+    height: 204px;
+    line-height: 204px; }
   .masonry-with-flex div:nth-child(13) {
-    height: 118px;
-    line-height: 118px; }
+    height: 172px;
+    line-height: 172px; }
   .masonry-with-flex div:nth-child(14) {
-    height: 445px;
-    line-height: 445px; }
+    height: 380px;
+    line-height: 380px; }
   .masonry-with-flex div:nth-child(15) {
-    height: 194px;
-    line-height: 194px; }
+    height: 343px;
+    line-height: 343px; }
   .masonry-with-flex div:nth-child(16) {
-    height: 243px;
-    line-height: 243px; }
+    height: 452px;
+    line-height: 452px; }
   .masonry-with-flex div:nth-child(17) {
-    height: 480px;
-    line-height: 480px; }
+    height: 101px;
+    line-height: 101px; }
   .masonry-with-flex div:nth-child(18) {
-    height: 481px;
-    line-height: 481px; }
+    height: 175px;
+    line-height: 175px; }
   .masonry-with-flex div:nth-child(19) {
-    height: 284px;
-    line-height: 284px; }
+    height: 366px;
+    line-height: 366px; }
   .masonry-with-flex div:nth-child(20) {
-    height: 401px;
-    line-height: 401px; }
+    height: 254px;
+    line-height: 254px; }
   .masonry-with-flex div:nth-child(21) {
-    height: 497px;
-    line-height: 497px; }
+    height: 435px;
+    line-height: 435px; }
   .masonry-with-flex div:nth-child(22) {
-    height: 202px;
-    line-height: 202px; }
+    height: 357px;
+    line-height: 357px; }
   .masonry-with-flex div:nth-child(23) {
-    height: 106px;
-    line-height: 106px; }
+    height: 152px;
+    line-height: 152px; }
   .masonry-with-flex div:nth-child(24) {
-    height: 414px;
-    line-height: 414px; }
+    height: 145px;
+    line-height: 145px; }
   .masonry-with-flex div:nth-child(25) {
-    height: 265px;
-    line-height: 265px; }
+    height: 484px;
+    line-height: 484px; }
   .masonry-with-flex div:nth-child(26) {
-    height: 431px;
-    line-height: 431px; }
+    height: 347px;
+    line-height: 347px; }
   .masonry-with-flex div:nth-child(27) {
-    height: 139px;
-    line-height: 139px; }
+    height: 307px;
+    line-height: 307px; }
   .masonry-with-flex div:nth-child(28) {
-    height: 397px;
-    line-height: 397px; }
+    height: 382px;
+    line-height: 382px; }
   .masonry-with-flex div:nth-child(29) {
-    height: 474px;
-    line-height: 474px; }
+    height: 183px;
+    line-height: 183px; }
   .masonry-with-flex div:nth-child(30) {
-    height: 481px;
-    line-height: 481px; }
-  .masonry-with-flex div:nth-child(31) {
-    height: 486px;
-    line-height: 486px; }
-  .masonry-with-flex div:nth-child(32) {
-    height: 130px;
-    line-height: 130px; }
-  .masonry-with-flex div:nth-child(33) {
-    height: 369px;
-    line-height: 369px; }
-  .masonry-with-flex div:nth-child(34) {
-    height: 358px;
-    line-height: 358px; }
-  .masonry-with-flex div:nth-child(35) {
-    height: 315px;
-    line-height: 315px; }
-  .masonry-with-flex div:nth-child(36) {
     height: 487px;
     line-height: 487px; }
+  .masonry-with-flex div:nth-child(31) {
+    height: 163px;
+    line-height: 163px; }
+  .masonry-with-flex div:nth-child(32) {
+    height: 141px;
+    line-height: 141px; }
+  .masonry-with-flex div:nth-child(33) {
+    height: 347px;
+    line-height: 347px; }
+  .masonry-with-flex div:nth-child(34) {
+    height: 475px;
+    line-height: 475px; }
+  .masonry-with-flex div:nth-child(35) {
+    height: 425px;
+    line-height: 425px; }
+  .masonry-with-flex div:nth-child(36) {
+    height: 129px;
+    line-height: 129px; }
 
 .btn.btn-flat {
   font-weight: 500;
@@ -10041,7 +10000,7 @@ label.btn input[type="checkbox"]:disabled:checked + label:after {
     text-overflow: ellipsis; }
     .select-wrapper input.select-dropdown:disabled {
       color: rgba(0, 0, 0, 0.3);
-      border-bottom-color: rgba(0, 0, 0, 0.3);
+      border-bottom-color: rgba(0, 0, 0, 0.2);
       cursor: default; }
     .select-wrapper input.select-dropdown .selected, .select-wrapper input.select-dropdown li:focus {
       background-color: rgba(0, 0, 0, 0.15); }
@@ -10066,11 +10025,13 @@ label.btn input[type="checkbox"]:disabled:checked + label:after {
     top: .8rem;
     font-size: 0.63rem; }
     .select-wrapper span.caret.disabled {
-      color: rgba(0, 0, 0, 0.46); }
+      color: rgba(0, 0, 0, 0.3); }
   .select-wrapper + label {
     position: absolute;
     top: 7px;
     font-size: 0.8rem; }
+  .select-wrapper + label.disabled {
+    color: rgba(0, 0, 0, 0.3); }
   .select-wrapper i {
     color: rgba(0, 0, 0, 0.3); }
   .select-wrapper ul {
@@ -10084,6 +10045,32 @@ label.btn input[type="checkbox"]:disabled:checked + label:after {
     padding-left: 38px; }
   .select-wrapper.md-form.colorful-select > ul li.select-toggle-all:hover label {
     color: #fff; }
+  .select-wrapper.md-form.md-outline span.caret {
+    padding-right: .75rem;
+    padding-left: .75rem;
+    color: #495057 !important; }
+    .select-wrapper.md-form.md-outline span.caret.active {
+      color: #4285f4 !important; }
+  .select-wrapper.md-form.md-outline .dropdown-content {
+    top: 2.7rem !important; }
+  .select-wrapper.md-form.md-outline input.select-dropdown {
+    padding: .375rem .75rem;
+    color: #495057 !important; }
+    .select-wrapper.md-form.md-outline input.select-dropdown:focus {
+      border-color: #4285f4;
+      box-shadow: inset 0px 0px 0px 1px #4285f4; }
+  .select-wrapper.md-form.md-outline + label {
+    position: absolute;
+    transform: translateY(66%);
+    left: 23px;
+    color: #757575;
+    background: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding-right: 5px;
+    padding-left: 5px; }
+    .select-wrapper.md-form.md-outline + label.active {
+      color: #4285f4; }
 
 select {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
