@@ -142,7 +142,7 @@ class AccordionPage extends Component {
                 butcher vice lomo. Leggings occaecat craft beer farm-to-table,
                 raw denim aesthetic synth nesciunt you probably haven&apos;t
                 heard of them accusamus labore sustainable VHS.
-      </MDBCardBody>
+              </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
 
@@ -269,7 +269,7 @@ class AccordionPage extends Component {
                       Hi! I am the second one.
                     </h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                       ullamco laboris
@@ -354,11 +354,11 @@ class AccordionPage extends Component {
               <MDBIcon far icon="star" className="red-text" size="2x" />
             </MDBNavLink>
           </MDBNav>
-          <h2 class="text-center text-uppercase red-text py-4 px-3">
+          <h2 className="text-center text-uppercase red-text py-4 px-3">
             Hello my friends, I am the nicest accordion!
           </h2>
 
-          <hr class="mb-0" />
+          <hr className="mb-0" />
 
           <MDBCard>
             <MDBCollapseHeader
@@ -378,7 +378,7 @@ class AccordionPage extends Component {
               />
             </MDBCollapseHeader>
             <MDBCollapse id="collapse10" isOpen={this.state.collapseID}>
-              <MDBCardBody class="pt-0">
+              <MDBCardBody className="pt-0">
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life
                   accusamus terry richardson ad squid. 3 wolf moon officia aute,
@@ -414,7 +414,7 @@ class AccordionPage extends Component {
               />
             </MDBCollapseHeader>
             <MDBCollapse id="collapse11" isOpen={this.state.collapseID}>
-              <MDBCardBody class="pt-0">
+              <MDBCardBody className="pt-0">
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life
                   accusamus terry richardson ad squid. 3 wolf moon officia aute,
@@ -450,7 +450,7 @@ class AccordionPage extends Component {
               />
             </MDBCollapseHeader>
             <MDBCollapse id="collapse12" isOpen={this.state.collapseID}>
-              <MDBCardBody class="pt-0">
+              <MDBCardBody className="pt-0">
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life
                   accusamus terry richardson ad squid. 3 wolf moon officia aute,
