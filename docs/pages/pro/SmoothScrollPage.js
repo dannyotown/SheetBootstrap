@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBSmoothScroll, MDBNavbarToggler, MDBCollapse, MDBContainer, MDBRow
+  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBSmoothScroll, MDBNavbarToggler, MDBCollapse, MDBContainer, MDBRow, MDBIcon
 } from "mdbreact";
 import DocsLink from "./../../components/docsLink";
 
@@ -19,7 +19,9 @@ class NavbarPage extends Component {
       <MDBContainer>
         <DocsLink title="SmoothScroll" href="https://mdbootstrap.com/docs/react/advanced/scroll" />
 
-        <MDBNavbar color="indigo" dark expand="md">
+        <MDBSmoothScroll size="lg" fixed floating gradient="blue" to="top-navbar" smooth><MDBIcon icon="angle-up"></MDBIcon></MDBSmoothScroll>        
+     
+        <MDBNavbar color="indigo" dark expand="md" id="top-navbar">
           <MDBNavbarBrand>
             <strong className="white-text">Navbar</strong>
           </MDBNavbarBrand>
@@ -71,6 +73,7 @@ class NavbarPage extends Component {
             Etiam dictum eu diam malesuada semper. Curabitur sed facilisis eros. Sed ac eros leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean sit amet ipsum odio. Donec maximus nunc id nulla iaculis, quis fermentum ligula sagittis. Aenean faucibus finibus diam, sit amet ultrices elit suscipit id. Vestibulum bibendum eu erat quis facilisis. Nunc finibus vehicula augue, eu fringilla lectus laoreet sit amet. Morbi massa diam, elementum non vulputate nec, ultrices et ex.
         </p>
         </MDBRow>
+    
       </MDBContainer>
     );
   }
