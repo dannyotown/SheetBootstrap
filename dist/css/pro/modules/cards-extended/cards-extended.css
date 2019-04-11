@@ -1232,6 +1232,11 @@
 .blue-gradient-rgba {
   background: linear-gradient(40deg, rgba(69, 202, 252, 0.9), rgba(48, 63, 159, 0.9)) !important; }
 
+.dark-grey-text {
+  color: #4f4f4f !important; }
+  .dark-grey-text:hover, .dark-grey-text:focus {
+    color: #4f4f4f !important; }
+
 .hoverable {
   box-shadow: none;
   transition: all 0.55s ease-in-out; }
