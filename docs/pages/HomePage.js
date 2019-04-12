@@ -69,7 +69,8 @@ class HomePage extends React.Component {
                     </p>
                     <MDBNavLink
                       tag="button"
-                      className="btn btn-sm indigo darken-3 text-whitecss"
+                      className="btn btn-sm indigo darken-3 text-white" 
+                      to="css"
                     >
                       Learn more
                     </MDBNavLink>
@@ -106,7 +107,8 @@ class HomePage extends React.Component {
                     </p>
                     <MDBNavLink
                       tag="button"
-                      className="btn btn-sm indigo darken-3 text-whiteadvanced"
+                      className="btn btn-sm indigo darken-3 text-white" 
+                      to="advanced"
                     >
                       Learn more
                     </MDBNavLink>
@@ -164,7 +166,8 @@ class HomePage extends React.Component {
                     </p>
                     <MDBNavLink
                       tag="button"
-                      className="btn btn-sm indigo darken-3 text-whitetables"
+                      className="btn btn-sm indigo darken-3 text-white" 
+                      to="tables"
                     >
                       Learn more
                     </MDBNavLink>
@@ -184,7 +187,8 @@ class HomePage extends React.Component {
                     </p>
                     <MDBNavLink
                       tag="button"
-                      className="btn btn-sm indigo darken-3 text-whitemodals"
+                      className="btn btn-sm indigo darken-3 text-white" 
+                      to="modals"
                     >
                       Learn more
                     </MDBNavLink>
@@ -222,7 +226,8 @@ class HomePage extends React.Component {
                     </p>
                     <MDBNavLink
                       tag="button"
-                      className="btn btn-sm indigo darken-3 text-whitesections"
+                      className="btn btn-sm indigo darken-3 text-white" 
+                      to="sections"
                     >
                       Learn more
                     </MDBNavLink>
