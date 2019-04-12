@@ -77,7 +77,7 @@ class CallToActionIntro extends React.Component {
 						<MDBContainer>
 							<MDBRow>
 								<MDBCol md="12" className="mb-4 text-center">
-									<h1 class="display-4 font-weight-bold mb-0 pt-md-5 pt-5" >Our New Course is Ready</h1>
+									<h1 className="display-4 font-weight-bold mb-0 pt-md-5 pt-5" >Our New Course is Ready</h1>
 									<h5 className="pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5">It comes
               with a lot of new features, easy to follow videos and images. Check it out now!</h5>
 									<MDBBtn rounded className="btn-purple"><MDBIcon icon="user" className="mr-2"></MDBIcon> Sign up!</MDBBtn>
