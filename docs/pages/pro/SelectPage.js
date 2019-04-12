@@ -87,14 +87,16 @@ class SelectPage extends Component {
               multiple
             >
               <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions search selectAll>
+              <MDBSelectOptions search>
                 <MDBSelectOption disabled>Choose your option</MDBSelectOption>
                 <MDBSelectOption value="value nr 1">Option nr 1</MDBSelectOption>
                 <MDBSelectOption selected value="value nr 2">
                   Option nr 2
                 </MDBSelectOption>
                 <MDBSelectOption value="value nr 3">Option nr 3</MDBSelectOption>
-                <MDBSelectOption value="value nr 4">Option nr 4</MDBSelectOption>
+                <MDBSelectOption value="value nr 4">
+                  Option nr 4
+                </MDBSelectOption>
                 <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
               </MDBSelectOptions>
             </MDBSelect>
