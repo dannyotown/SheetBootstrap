@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBTooltip, MDBCollapse, MDBInput, MDBCardImage,   MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBTooltip, MDBCollapse, MDBInput, MDBCardImage, MDBCardTitle, MDBCardText, MDBBtn } from "mdbreact";
 import DocsLink from "../../../components/docsLink";
 
 class SocialPage extends Component {
@@ -10,7 +10,7 @@ class SocialPage extends Component {
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
-  }));
+    }));
 
   render() {
     return (
@@ -225,23 +225,28 @@ class SocialPage extends Component {
                         <span>
                           <a href="#!"> 7 </a>
                         </span>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            tag="span"
-                            placement="top"
-                            tooltipContent="I like it"
-                          >
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs mx-2">
                             <MDBIcon icon="thumbs-up" />
-                          </MDBTooltip>
-                        </a>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            placement="top"
-                            tooltipContent="I don't like it"
-                          >
+                          </a>
+                          <span>
+                            I like it
+                          </span>
+                        </MDBTooltip>
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs">
                             <MDBIcon icon="thumbs-down" />
-                          </MDBTooltip>
-                        </a>
+                          </a>
+                          <span>
+                            I don't like it
+                          </span>
+                        </MDBTooltip>
                       </div>
                       <MDBCollapse
                         id="collapseExample-1"
@@ -305,23 +310,28 @@ class SocialPage extends Component {
                         <span>
                           <a href="#!"> 31 </a>
                         </span>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            tag="span"
-                            placement="top"
-                            tooltipContent="I like it"
-                          >
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs mx-2">
                             <MDBIcon icon="thumbs-up" />
-                          </MDBTooltip>
-                        </a>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            placement="top"
-                            tooltipContent="I don't like it"
-                          >
+                          </a>
+                          <span>
+                            I like it
+                          </span>
+                        </MDBTooltip>
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs">
                             <MDBIcon icon="thumbs-down" />
-                          </MDBTooltip>
-                        </a>
+                          </a>
+                          <span>
+                            I don't like it
+                          </span>
+                        </MDBTooltip>
                       </div>
                       <MDBCollapse
                         id="collapseExample-2"
@@ -373,23 +383,28 @@ class SocialPage extends Component {
                         <span>
                           <a href="#!"> 12 </a>
                         </span>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            tag="span"
-                            placement="top"
-                            tooltipContent="I like it"
-                          >
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs mx-2">
                             <MDBIcon icon="thumbs-up" />
-                          </MDBTooltip>
-                        </a>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            placement="top"
-                            tooltipContent="I don't like it"
-                          >
+                          </a>
+                          <span>
+                            I like it
+                          </span>
+                        </MDBTooltip>
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs">
                             <MDBIcon icon="thumbs-down" />
-                          </MDBTooltip>
-                        </a>
+                          </a>
+                          <span>
+                            I don't like it
+                          </span>
+                        </MDBTooltip>
                       </div>
                       <MDBCollapse
                         id="collapseExample-3"
@@ -447,23 +462,28 @@ class SocialPage extends Component {
                         <span>
                           <a href="#!"> 25 </a>
                         </span>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            tag="span"
-                            placement="top"
-                            tooltipContent="I like it"
-                          >
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs mx-2">
                             <MDBIcon icon="thumbs-up" />
-                          </MDBTooltip>
-                        </a>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            placement="top"
-                            tooltipContent="I don't like it"
-                          >
+                          </a>
+                          <span>
+                            I like it
+                          </span>
+                        </MDBTooltip>
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs">
                             <MDBIcon icon="thumbs-down" />
-                          </MDBTooltip>
-                        </a>
+                          </a>
+                          <span>
+                            I don't like it
+                          </span>
+                        </MDBTooltip>
                       </div>
                       <MDBCollapse
                         id="collapseExample-4"
@@ -527,23 +547,28 @@ class SocialPage extends Component {
                         <span>
                           <a href="#!"> 47 </a>
                         </span>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            tag="span"
-                            placement="top"
-                            tooltipContent="I like it"
-                          >
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs mx-2">
                             <MDBIcon icon="thumbs-up" />
-                          </MDBTooltip>
-                        </a>
-                        <a href="#!" className="thumbs">
-                          <MDBTooltip
-                            placement="top"
-                            tooltipContent="I don't like it"
-                          >
+                          </a>
+                          <span>
+                            I like it
+                          </span>
+                        </MDBTooltip>
+                        <MDBTooltip
+                          placement="top"
+                          domElement
+                        >
+                          <a href="#!" className="thumbs">
                             <MDBIcon icon="thumbs-down" />
-                          </MDBTooltip>
-                        </a>
+                          </a>
+                          <span>
+                            I don't like it
+                          </span>
+                        </MDBTooltip>
                       </div>
                       <MDBCollapse
                         id="collapseExample-5"
