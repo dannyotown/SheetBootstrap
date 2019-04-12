@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './Fade.css';
 import Input from '../Input';
-import SelectOption from './SelectOption'
 
 class Options extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       options: [],
-      searchValue: "",
+      searchValue: ""
     }
 
     this.optionsRef = React.createRef();
@@ -41,7 +40,6 @@ class Options extends React.Component {
       search,
       searchLabel,
       searchId,
-      selectAll,
       ...attributes
     } = this.props;
 
@@ -64,14 +62,6 @@ class Options extends React.Component {
             />
           </div>
         )}
-        {
-          selectAll &&
-          <SelectOption 
-            value="-1" 
-          >
-            Select All
-          </SelectOption>
-        }
         {children}
       </ul>
     );

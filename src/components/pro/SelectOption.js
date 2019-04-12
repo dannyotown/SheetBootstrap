@@ -8,10 +8,9 @@ class Option extends React.Component {
     super(props);
     this.state = {
       multiple: this.props.context.multiple || false,
-      checked: this.props.context.allSelected || this.props.checked || this.props.selected || false,
+      checked: this.props.checked || this.props.selected || false
     };
     this.optionRef = React.createRef();
-    this.valueRef = React.createRef();
   }
 
   componentDidMount() {
@@ -23,8 +22,7 @@ class Option extends React.Component {
         this.selectOption();
       }
     }
-    
-  } 
+  }
 
   selectOption = () => {
     if (!this.props.disabled) {
@@ -34,15 +32,14 @@ class Option extends React.Component {
       let options = selectedOption.parentNode.children;
 
       if (this.state.multiple) {
-          text = [];
-          if (selectedOption.classList.contains("active")) {
-            selectedOption.classList.remove("active");
-            this.setState({ checked: false });
-          } else {
-            selectedOption.classList.add("active");
-            this.setState({ checked: true });
-          }
-        
+        text = [];
+        if (selectedOption.classList.contains("active")) {
+          selectedOption.classList.remove("active");
+          this.setState({ checked: false });
+        } else {
+          selectedOption.classList.add("active");
+          this.setState({ checked: true });
+        }
 
         // iterate throught child nodes options and add checked to arr
         Array.from(options).forEach(option => {
@@ -57,18 +54,7 @@ class Option extends React.Component {
         if (text.length === 0) {
           text = "Choose your option";
         }
-
-      //START
-        if (this.valueRef.current.value === "-1"){
-          this.props.context.handleSelectAll();
-        }
-      
-        this.props.context.allSelected && this.setState({ checked: true })
-      //END
-      }
-      
-
-      else {
+      } else {
         Array.from(selectedOption.children).forEach(child => {
           if (child.nodeName === "SPAN") {
             text = child.textContent;
@@ -80,8 +66,7 @@ class Option extends React.Component {
         );
         selectedOption.classList.add("active");
       }
-      
-     
+      this.props.context.triggerOptionChange(value, text);
     }
   };
 
@@ -114,7 +99,6 @@ class Option extends React.Component {
             onChange={() => false}
             className="form-check-input"
             checked={this.state.checked}
-            ref={this.valueRef}
           />
         );
         label = (

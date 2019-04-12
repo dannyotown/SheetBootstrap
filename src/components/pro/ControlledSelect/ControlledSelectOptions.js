@@ -67,7 +67,7 @@ class ControlledSelectOptions extends Component {
           ? 
             <ControlledSelectOption 
               text="Select All" 
-              value="-1"
+              value="0"
               checked={this.props.allChecked}
               multiple={true}
               selectOption={selectOption}

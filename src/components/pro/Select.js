@@ -13,8 +13,7 @@ class Select extends React.Component {
       selectValue: [],
       selectTextContent: "",
       options: this.props.options || [],
-      allChecked: false,
-      allCheckedUncontrolled: false
+      allChecked: false
     };
   }
 
@@ -65,7 +64,7 @@ class Select extends React.Component {
       selectValue: checkedValues,
       selectTextContent: (checkedTexts.length ? checkedTexts.join(", ") : this.props.selected),
       options,
-      allChecked: checkedOptions.length === this.state.options.length
+      allChecked: checkedOptions.length === this.state.options.length ? true : false
     };
   }
 
@@ -121,8 +120,8 @@ class Select extends React.Component {
   };
 
   selectMultipleOptions = value => {
-    if (value === "-1"){
-      const setStatus = (option, status) => {
+    if (value === "0"){
+      const setChecked = (option, status) => {
         option.checked = status;
         return option;
       }
@@ -132,8 +131,8 @@ class Select extends React.Component {
         let areSomeUnchecked = options.some(option => option.checked === false);
 
         areSomeUnchecked
-          ? options.map(option => option.checked === false ? setStatus(option, true) : null)
-          : options.map(option => setStatus(option, false))
+          ? options.map(option => option.checked === false ? setChecked(option, true) : null)
+          : options.map(option => setChecked(option, false))
 
         return this.computeValuesAndText(options);
       })
@@ -156,13 +155,6 @@ class Select extends React.Component {
       this.selectOneOption(value);
     }
   };
-
-  selectAllOptions = () => {
-    this.setState(prevState => {
-      return { allCheckedUncontrolled: !prevState.allCheckedUncontrolled }
-    })
-    console.log(`all selected: `,this.state.allCheckedUncontrolled);
-  }
 
   returnComponentContent = () => {
     const {
@@ -214,9 +206,7 @@ class Select extends React.Component {
           value={{
             state: this.state,
             multiple: this.props.multiple,
-            triggerOptionChange: this.triggerOptionChange,
-            allSelected: this.state.allCheckedUncontrolled,
-            handleSelectAll: this.selectAllOptions
+            triggerOptionChange: this.triggerOptionChange
           }}
         >
           <div
