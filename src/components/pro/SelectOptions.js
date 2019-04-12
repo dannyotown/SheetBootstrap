@@ -28,7 +28,7 @@ class Options extends React.Component {
         option.style.display = 'none';
       }
       else {
-        option.style.display = 'block';
+        option.style.display = 'flex';
       }
     });
   };

@@ -85,7 +85,8 @@ class Option extends React.Component {
     const classes = classNames(
       (disabled || separator) ? "disabled" : "",
       separator ? "optgroup" : "",
-      className
+      className,
+      "justify-content-between align-items-center"
     );
 
     let input = null;
@@ -125,8 +126,9 @@ class Option extends React.Component {
         data-multiple={this.state.multiple}
         className={classes}
         onClick={this.selectOption}
+        style={{ display: "flex" }}
       >
-        <span data-multiple={this.state.multiple} className="filtrable" style={{ display: "inline-block" }}>
+        <span data-multiple={this.state.multiple} className="filtrable" style={{ flex: "1" }}>
           {!separator ? input : null}
           {label}
           {children}
