@@ -11,10 +11,11 @@ class ControlledSelectOptions extends Component {
     this.state = {
       filteredOptions: this.props.options || [],
       options: this.props.options || [],
-      searchValue: ""
+      searchValue: "",
+      focused: null,
     };
   }
-
+  
   componentDidUpdate(prevProps, prevState) {
     if (prevState.options !== this.props.options) {
       this.setState({
@@ -37,6 +38,35 @@ class ControlledSelectOptions extends Component {
     this.setState({ filteredOptions });
   };
 
+  handleFocus = (e) => {
+    let focused = this.state.focused;
+
+   //Enter
+    if (e.keyCode === 13 && focused !== null) {
+      focused === -1 
+        ? this.props.selectOption(this.props.selectAllValue)
+        : this.props.selectOption(this.state.options[focused].value)
+        console.log(`enter `,focused)
+      } 
+    
+    //Esc
+    e.keyCode === 27 && this.setState({ focused : null })
+    
+    //Down Arrow
+    if (e.keyCode === 40){
+      this.state.focused === null
+        ? this.setState({ focused: -1 })
+        : focused < this.state.filteredOptions.length - 1 && this.setState(prevState => ({ focused: prevState.focused + 1 }))
+        console.log(`down `, focused)
+    } 
+
+    //Up Arrow
+    if (e.keyCode === 38){
+      focused >= 0 && this.state.filteredOptions.length > 1 && this.setState(prevState => ({ focused: prevState.focused - 1 }))
+      console.log(`up `, focused)
+    } 
+  }
+
   render() {
     const { multiple, search, searchLabel, searchId, selected, selectOption, selectAll } = this.props;
 
@@ -54,6 +84,7 @@ class ControlledSelectOptions extends Component {
             id={searchId}
             getValue={this.search}
             data-search="true"
+            onKeyDown={this.handleFocus}
           />
         )}
         <ControlledSelectOption
@@ -66,11 +97,12 @@ class ControlledSelectOptions extends Component {
           selectAll && multiple && this.state.filteredOptions.length > 1
           ? 
             <ControlledSelectOption 
-              text="Select All" 
-              value="0"
+              text={this.props.selectAllLabel} 
+              value={this.props.selectAllValue}
               checked={this.props.allChecked}
               multiple={true}
               selectOption={selectOption}
+              focused={this.state.focused === -1}
             /> 
           : 
             null
@@ -86,6 +118,7 @@ class ControlledSelectOptions extends Component {
             value={option.value}
             separator={option.separator}
             selectOption={selectOption}
+            focused={index === this.state.focused}
           />
         ))}
       </ul>
@@ -109,7 +142,9 @@ ControlledSelectOptions.propTypes = {
   ),
   search: PropTypes.bool,
   searchLabel: PropTypes.string,
-  searchId: PropTypes.string
+  searchId: PropTypes.string,
+  selectAllLabel: PropTypes.string,
+  selectAllValue: PropTypes.string
 };
 
 ControlledSelectOptions.defaultProps = {
@@ -117,7 +152,8 @@ ControlledSelectOptions.defaultProps = {
   options: [],
   search: false,
   searchLabel: "Search",
-  searchId: "selectSearchInput"
+  searchId: "selectSearchInput",
+  selectAllLabel: "Select All",
 };
 
 export default ControlledSelectOptions;

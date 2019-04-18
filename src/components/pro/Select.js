@@ -64,7 +64,7 @@ class Select extends React.Component {
       selectValue: checkedValues,
       selectTextContent: (checkedTexts.length ? checkedTexts.join(", ") : this.props.selected),
       options,
-      allChecked: checkedOptions.length === this.state.options.length ? true : false
+      allChecked: checkedOptions.length === this.state.options.length
     };
   }
 
@@ -120,7 +120,7 @@ class Select extends React.Component {
   };
 
   selectMultipleOptions = value => {
-    if (value === "0"){
+    if (value === this.props.selectAllValue){
       const setChecked = (option, status) => {
         option.checked = status;
         return option;
@@ -169,6 +169,8 @@ class Select extends React.Component {
       searchId,
       selected,
       selectAll,
+      selectAllLabel,
+      selectAllValue,
       ...attributes
     } = this.props;
 
@@ -196,6 +198,8 @@ class Select extends React.Component {
             selected={selected}
             selectOption={this.selectOption}
             selectAll={selectAll}
+            selectAllLabel={selectAllLabel}
+            selectAllValue={selectAllValue}
             allChecked={this.state.allChecked}
           />
         </div>
@@ -247,8 +251,13 @@ Select.propTypes = {
   search: PropTypes.bool,
   searchLabel: PropTypes.string,
   searchId: PropTypes.string,
-  selected: PropTypes.string
+  selected: PropTypes.string,
+  selectAllLabel: PropTypes.string,
+  selectAllValue: PropTypes.string,
 };
 
+Select.defaultProps = {
+  selectAllValue: "0"
+}
 export default Select;
 export { Select as MDBSelect };
