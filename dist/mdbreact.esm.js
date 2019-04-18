@@ -1428,7 +1428,8 @@ function (_React$Component) {
           Tag = _this$props.tag,
           waves = _this$props.waves,
           zoom = _this$props.zoom,
-          attributes = _objectWithoutProperties(_this$props, ["cascade", "children", "className", "hover", "rounded", "src", "tag", "waves", "zoom"]);
+          fixed = _this$props.fixed,
+          attributes = _objectWithoutProperties(_this$props, ["cascade", "children", "className", "hover", "rounded", "src", "tag", "waves", "zoom", "fixed"]);
 
       var classes = classNames("view", rounded && "rounded", zoom && "zoom", hover && "overlay", cascade && "view-cascade", waves ? "Ripple-parent" : false, className);
       var viewStyle = src ? {
@@ -1436,7 +1437,8 @@ function (_React$Component) {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center center",
-        height: "100vh"
+        height: "100vh",
+        backgroundAttachment: fixed ? "fixed" : null
       } : {};
       return React.createElement(Tag, _extends({}, attributes, {
         className: classes,
@@ -3288,9 +3290,9 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "search", function (value) {
       var filteredOptions = _this.state.options.filter(function (option) {
         if (option.text) {
-          return option.text.toLowerCase().match(value.toLowerCase());
+          return option.text.toLowerCase().match(value.toLowerCase().trim());
         } else {
-          return option.value.toLowerCase().match(value.toLowerCase());
+          return option.value.toLowerCase().match(value.toLowerCase().trim());
         }
       });
 
@@ -3326,7 +3328,8 @@ function (_Component) {
           searchLabel = _this$props.searchLabel,
           searchId = _this$props.searchId,
           selected = _this$props.selected,
-          selectOption = _this$props.selectOption;
+          selectOption = _this$props.selectOption,
+          selectAll = _this$props.selectAll;
       var classes = classNames("dropdown-content", "select-dropdown", "fadeElement");
       return React.createElement("ul", {
         className: classes
@@ -3340,7 +3343,13 @@ function (_Component) {
         disabled: true,
         icon: null,
         value: selected
-      }), this.state.filteredOptions.map(function (option, index) {
+      }), selectAll && multiple && this.state.filteredOptions.length > 1 ? React.createElement(ControlledSelectOption, {
+        text: "Select All",
+        value: "0",
+        checked: this.props.allChecked,
+        multiple: true,
+        selectOption: selectOption
+      }) : null, this.state.filteredOptions.map(function (option, index) {
         return React.createElement(ControlledSelectOption, {
           key: "".concat(option.value, "-").concat(index),
           checked: option.checked,
@@ -3415,7 +3424,8 @@ function (_React$Component) {
       return {
         selectValue: checkedValues,
         selectTextContent: checkedTexts.length ? checkedTexts.join(", ") : _this.props.selected,
-        options: options
+        options: options,
+        allChecked: checkedOptions.length === _this.state.options.length ? true : false
       };
     });
 
@@ -3469,15 +3479,36 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectMultipleOptions", function (value) {
-      _this.setState(function (prevState) {
-        var options = _toConsumableArray(prevState.options);
+      if (value === "0") {
+        var setChecked = function setChecked(option, status) {
+          option.checked = status;
+          return option;
+        };
 
-        var optionIndex = options.findIndex(function (option) {
-          return option.value === value;
+        _this.setState(function (prevState) {
+          var options = _toConsumableArray(prevState.options);
+
+          var areSomeUnchecked = options.some(function (option) {
+            return option.checked === false;
+          });
+          areSomeUnchecked ? options.map(function (option) {
+            return option.checked === false ? setChecked(option, true) : null;
+          }) : options.map(function (option) {
+            return setChecked(option, false);
+          });
+          return _this.computeValuesAndText(options);
         });
-        options[optionIndex].checked = !prevState.options[optionIndex].checked;
-        return _this.computeValuesAndText(options);
-      });
+      } else {
+        _this.setState(function (prevState) {
+          var options = _toConsumableArray(prevState.options);
+
+          var optionIndex = options.findIndex(function (option) {
+            return option.value === value;
+          });
+          options[optionIndex].checked = !prevState.options[optionIndex].checked;
+          return _this.computeValuesAndText(options);
+        });
+      }
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "selectOption", function (value) {
@@ -3500,7 +3531,8 @@ function (_React$Component) {
           searchLabel = _this$props.searchLabel,
           searchId = _this$props.searchId,
           selected = _this$props.selected,
-          attributes = _objectWithoutProperties(_this$props, ["className", "color", "children", "getTextContent", "getValue", "multiple", "search", "searchLabel", "searchId", "selected"]);
+          selectAll = _this$props.selectAll,
+          attributes = _objectWithoutProperties(_this$props, ["className", "color", "children", "getTextContent", "getValue", "multiple", "search", "searchLabel", "searchId", "selected", "selectAll"]);
 
       var classes = classNames("select-wrapper md-form", _this.props.color ? "colorful-select dropdown-" + _this.props.color : "", className);
 
@@ -3519,7 +3551,9 @@ function (_React$Component) {
           search: search,
           searchLabel: searchLabel,
           selected: selected,
-          selectOption: _this.selectOption
+          selectOption: _this.selectOption,
+          selectAll: selectAll,
+          allChecked: _this.state.allChecked
         }));
       } else {
         return React.createElement(SelectContext.Provider, {
@@ -3541,7 +3575,8 @@ function (_React$Component) {
     _this.state = {
       selectValue: [],
       selectTextContent: "",
-      options: _this.props.options || []
+      options: _this.props.options || [],
+      allChecked: false
     };
     return _this;
   }
@@ -3685,7 +3720,7 @@ function (_React$Component) {
         if (!option.children[0].innerText.toLowerCase().includes(value.toLowerCase())) {
           option.style.display = 'none';
         } else {
-          option.style.display = 'block';
+          option.style.display = 'flex';
         }
       });
     });
@@ -3850,7 +3885,7 @@ function (_React$Component) {
           value = _this$props.value,
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "disabled", "separator", "icon", "triggerOptionClick", "value"]);
 
-      var classes = classNames(disabled || separator ? "disabled" : "", separator ? "optgroup" : "", className);
+      var classes = classNames(disabled || separator ? "disabled" : "", separator ? "optgroup" : "", className, "justify-content-between align-items-center");
       var input = null;
       var label = null;
 
@@ -3891,12 +3926,15 @@ function (_React$Component) {
       }, attributes, {
         "data-multiple": this.state.multiple,
         className: classes,
-        onClick: this.selectOption
+        onClick: this.selectOption,
+        style: {
+          display: "flex"
+        }
       }), React.createElement("span", {
         "data-multiple": this.state.multiple,
         className: "filtrable",
         style: {
-          display: "inline-block"
+          flex: "1"
         }
       }, !separator ? input : null, label, children), icon && React.createElement("img", {
         src: this.props.icon,
@@ -5042,7 +5080,7 @@ function (_Component) {
       var Tag = tag;
 
       if (this.context.isOpen) {
-        var position1 = this.context.dropup ? 'top' : 'bottom';
+        var position1 = this.context.dropup ? 'top' : this.context.dropright ? 'right' : this.context.dropleft ? 'left' : 'bottom';
         var position2 = right ? 'end' : 'start';
         attrs.placement = "".concat(position1, "-").concat(position2);
         attrs.component = tag;
@@ -5099,6 +5137,8 @@ DropdownMenu.defaultProps = {
 DropdownMenu.contextTypes = {
   isOpen: PropTypes.bool.isRequired,
   dropup: PropTypes.bool.isRequired,
+  dropright: PropTypes.bool.isRequired,
+  dropleft: PropTypes.bool.isRequired,
   color: PropTypes.oneOfType([PropTypes.oneOf(['primary', 'default', 'secondary', 'success', 'dark', 'danger', 'info', 'warning', 'ins']), PropTypes.bool])
 };
 
@@ -6589,6 +6629,7 @@ Popper$1.propTypes = {
   id: PropTypes.string,
   isVisible: PropTypes.bool,
   placement: PropTypes.string,
+  popover: PropTypes.bool,
   style: PropTypes.objectOf(PropTypes.string),
   tag: PropTypes.string
 };
@@ -6598,6 +6639,7 @@ Popper$1.defaultProps = {
   id: 'popper',
   isVisible: false,
   placement: 'top',
+  popover: false,
   style: {
     display: 'inline-block'
   },
@@ -6950,6 +6992,8 @@ function (_React$Component) {
       return {
         isOpen: this.state.isOpen,
         dropup: this.props.dropup,
+        dropright: this.props.dropright,
+        dropleft: this.props.dropleft,
         toggle: this.toggle
       };
     }
@@ -7071,11 +7115,13 @@ function (_React$Component) {
           children = _omit.children,
           dropup = _omit.dropup,
           group = _omit.group,
-          size = _omit.size;
+          size = _omit.size,
+          dropright = _omit.dropright,
+          dropleft = _omit.dropleft;
 
       var classes = classNames((_classNames = {
         "btn-group": group
-      }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _classNames), className);
+      }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _defineProperty(_classNames, "dropright", dropright), _defineProperty(_classNames, "dropleft", dropleft), _classNames), className);
       return React.createElement(Manager, null, React.createElement("div", {
         className: classes,
         onKeyDown: this.handleKeyDown
@@ -7089,6 +7135,8 @@ function (_React$Component) {
 Dropdown.propTypes = {
   disabled: PropTypes.bool,
   dropup: PropTypes.bool,
+  dropright: PropTypes.bool,
+  dropleft: PropTypes.bool,
   group: PropTypes.bool,
   size: PropTypes.string,
   tag: PropTypes.string,
@@ -7098,12 +7146,16 @@ Dropdown.propTypes = {
 };
 Dropdown.defaultProps = {
   dropup: false,
+  dropright: false,
+  dropleft: false,
   tag: "div"
 };
 Dropdown.childContextTypes = {
   toggle: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  dropup: PropTypes.bool.isRequired
+  dropup: PropTypes.bool.isRequired,
+  dropright: PropTypes.bool.isRequired,
+  dropleft: PropTypes.bool.isRequired
 };
 
 var Autocomplete =
@@ -7350,7 +7402,6 @@ Autocomplete.propTypes = {
   iconSize: PropTypes.string,
   iconClassName: PropTypes.string,
   placeholder: PropTypes.string,
-  search: PropTypes.func,
   valueDefault: PropTypes.string
 };
 Autocomplete.defaultProps = {
@@ -8008,12 +8059,14 @@ function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           className = _this$props.className,
+          tagClassName = _this$props.tagClassName,
           children = _this$props.children,
           Tag = _this$props.tag,
           triggerOnClick = _this$props.triggerOnClick,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "tag", "triggerOnClick"]);
+          attributes = _objectWithoutProperties(_this$props, ["className", "tagClassName", "children", "tag", "triggerOnClick"]);
 
       var classes = classNames("card-header", className);
+      var tagClasses = classNames("mb-0", tagClassName);
       return React.createElement("div", _extends({}, attributes, {
         className: classes,
         style: {
@@ -8022,7 +8075,7 @@ function (_React$Component) {
       }), React.createElement("a", {
         href: "#!"
       }, React.createElement(Tag, {
-        className: "mb-0"
+        className: tagClasses
       }, children)));
     }
   }]);
@@ -8036,6 +8089,7 @@ CollapseHeader.defaultProps = {
 CollapseHeader.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  tagClassName: PropTypes.string,
   tag: PropTypes.string,
   triggerOnClick: PropTypes.func
 };
@@ -8875,6 +8929,38 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SideNav).call(this, props));
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "startTouch", function (e) {
+      _this.initialX = e.touches[0].clientX;
+      _this.initialY = e.touches[0].clientY;
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "moveTouch", function (e) {
+      if (_this.initialX === null) {
+        return;
+      }
+
+      if (_this.initialY === null) {
+        return;
+      }
+
+      var currentX = e.touches[0].clientX;
+      var currentY = e.touches[0].clientY;
+      var diffX = _this.initialX - currentX;
+      var diffY = _this.initialY - currentY;
+
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+          !_this.props.right && _this.handleOverlayClick();
+        } else {
+          _this.props.right && _this.handleOverlayClick();
+        }
+      }
+
+      _this.initialX = null;
+      _this.initialY = null;
+      e.preventDefault();
+    });
+
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "updatePredicate", function () {
       if (!_this.props.hidden && _this.props.responsive) {
         _this.setState({
@@ -8961,6 +9047,8 @@ function (_React$Component) {
     }
 
     _this.sideNavRef = React.createRef();
+    _this.initialX = null;
+    _this.initialY = null;
     _this.state = {
       initiallyFixed: props.fixed,
       isFixed: !isOpen() ? false : props.fixed,
@@ -8979,6 +9067,8 @@ function (_React$Component) {
         throw new Error('Received "triggerOpening" prop for a  non-responsive Sidebar. If you want to contidionally render Sidenav, set the responsive prop to true');
       }
 
+      this.sideNavRef.current.addEventListener("touchstart", this.startTouch);
+      this.sideNavRef.current.addEventListener("touchmove", this.moveTouch);
       window.addEventListener("resize", this.updatePredicate);
     }
   }, {
@@ -8994,6 +9084,8 @@ function (_React$Component) {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       window.removeEventListener("resize", this.updatePredicate);
+      this.sideNavRef.current.removeEventListener("touchstart", this.startTouch);
+      this.sideNavRef.current.removeEventListener("touchmove", this.moveTouch);
     }
   }, {
     key: "render",
@@ -9031,8 +9123,7 @@ function (_React$Component) {
         "data-animate": isFixed ? false : undefined,
         style: bg ? {
           backgroundImage: "url(".concat(bg)
-        } : undefined,
-        onTouchMove: this.handleOverlayClick
+        } : undefined
       }), React.createElement(ScrollBar, {
         option: {
           suppressScrollX: true
@@ -11377,9 +11468,31 @@ function (_Component) {
           smooth = _this$props.smooth,
           offset = _this$props.offset,
           duration = _this$props.duration,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration"]);
+          block = _this$props.block,
+          color = _this$props.color,
+          outline = _this$props.outline,
+          size = _this$props.size,
+          rounded = _this$props.rounded,
+          gradient = _this$props.gradient,
+          floating = _this$props.floating,
+          flat = _this$props.flat,
+          social = _this$props.social,
+          btn = _this$props.btn,
+          fixed = _this$props.fixed,
+          bottom = _this$props.bottom,
+          right = _this$props.right,
+          top = _this$props.top,
+          left = _this$props.left,
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration", "block", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "social", "btn", "fixed", "bottom", "right", "top", "left"]);
 
-      var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
+      var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", (btn || floating) && "btn", floating && "btn-floating", flat ? "btn-flat" : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? "-outline" : "", "-").concat(color), size ? "btn-".concat(size) : false, rounded ? "btn-rounded" : false, block ? "btn-block" : false, social ? "btn-" + social : false, "Ripple-parent", className);
+      var fixedStyles = {
+        position: "fixed",
+        top: top ? "".concat(top, "px") : null,
+        bottom: bottom ? "".concat(bottom, "px") : !top ? '45px' : null,
+        left: left ? "".concat(left, "px") : null,
+        right: right ? "".concat(right, "px") : !left ? '24px' : null
+      };
       return React.createElement(Link, _extends({
         className: classes,
         onMouseUp: this.handleClick,
@@ -11388,7 +11501,8 @@ function (_Component) {
         spy: spy,
         smooth: smooth,
         offset: offset,
-        duration: duration
+        duration: duration,
+        style: fixed ? fixedStyles : null
       }, attributes), children, this.props.disabled ? false : React.createElement(Waves, {
         cursorPos: this.state.cursorPos
       }));
@@ -11407,7 +11521,22 @@ SmoothScroll.propTypes = {
   spy: PropTypes.bool,
   smooth: PropTypes.bool,
   offset: PropTypes.number,
-  duration: PropTypes.number
+  duration: PropTypes.number,
+  block: PropTypes.bool,
+  color: PropTypes.string,
+  outline: PropTypes.bool,
+  size: PropTypes.string,
+  rounded: PropTypes.bool,
+  gradient: PropTypes.string,
+  floating: PropTypes.bool,
+  flat: PropTypes.bool,
+  social: PropTypes.string,
+  action: PropTypes.bool,
+  fixed: PropTypes.bool,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  right: PropTypes.string,
+  left: PropTypes.string
 };
 SmoothScroll.defaultProps = {
   active: false,
