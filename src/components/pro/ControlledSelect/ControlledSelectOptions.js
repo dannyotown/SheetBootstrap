@@ -11,8 +11,7 @@ class ControlledSelectOptions extends Component {
 		this.state = {
 			filteredOptions: this.props.options || [],
 			options: this.props.options || [],
-			searchValue: '',
-			focused: null
+			searchValue: ''
 		};
 	}
 
@@ -42,42 +41,33 @@ class ControlledSelectOptions extends Component {
 			}
 		});
 
-		this.setState({ filteredOptions });
-	};
-
-	changeFocus = (value) => {
-		switch (value) {
-			case null:
-				this.setState({ focused: null });
-				break;
-			case 0:
-				this.setState({ focused: 0 });
-				break;
-			default:
-				this.setState((prevState) => ({ focused: prevState.focused + value }));
-				break;
-		}
+		this.props.changeFocus(null);
+		this.setState({ filteredOptions }, () => this.props.setFilteredOptions(this.state.filteredOptions));
 	};
 
 	handleFocus = (e) => {
-		const { focused } = this.state;
+		const { focused } = this.props;
 
+		//Enter
 		if (e.keyCode === 13 && focused !== null) {
 			focused === -1
 				? this.props.selectOption(this.props.selectAllValue)
 				: this.props.selectOption(this.state.filteredOptions[focused].value);
 		}
 
-		e.keyCode === 27 && this.changeFocus(null);
+		//Esc
+		e.keyCode === 27 && this.props.changeFocus(null);
 
+		//Down
 		if (e.keyCode === 40) {
 			focused === null
-				? this.state.filteredOptions.length === 1 ? this.changeFocus(0) : this.changeFocus(-1)
-				: focused < this.state.filteredOptions.length - 1 && this.changeFocus(1);
+				? this.state.filteredOptions.length === 1 ? this.props.changeFocus(0) : this.props.changeFocus(-1)
+				: focused < this.state.filteredOptions.length - 1 && this.props.changeFocus(1);
 		}
 
+		//Up
 		if (e.keyCode === 38) {
-			focused >= 0 && this.state.filteredOptions.length > 1 && this.changeFocus(-1);
+			focused >= 0 && this.state.filteredOptions.length > 1 && this.props.changeFocus(-1);
 		}
 	};
 
@@ -105,7 +95,7 @@ class ControlledSelectOptions extends Component {
 						checked={this.props.allChecked}
 						multiple={true}
 						selectOption={selectOption}
-						focused={this.state.focused === -1}
+						focused={this.props.focused === -1}
 					/>
 				) : null}
 				{this.state.filteredOptions.map((option, index) => (
@@ -119,7 +109,7 @@ class ControlledSelectOptions extends Component {
 						value={option.value}
 						separator={option.separator}
 						selectOption={selectOption}
-						focused={index === this.state.focused}
+						focused={index === this.props.focused}
 					/>
 				))}
 			</ul>
