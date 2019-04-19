@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-  const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOption, text, value, separator, focused }) => {
+  const ControlledSelectOption = ({ checked, disabled, icon, multiple, selectOption, text, value, separator, isFocused }) => {
   const classes = classNames((disabled || separator) && "disabled", separator && 'optgroup', checked && "active");
   const focusedStyles = {
-    backgroundColor: focused ? "#eee" : null, 
-    boxShadow: focused ? "inset 0px -17px 15px -16px rgba(0,0,0,0.35)" : null 
+    backgroundColor: isFocused ? "#eee" : null, 
+    boxShadow: isFocused ? "inset 0px -17px 15px -16px rgba(0,0,0,0.35)" : null 
   }
 
   return (
@@ -45,7 +45,8 @@ ControlledSelectOption.propTypes = {
   multiple: PropTypes.bool,
   selectOption: PropTypes.func,
   text: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  isFocused: PropTypes.bool
 };
 
 export default ControlledSelectOption;

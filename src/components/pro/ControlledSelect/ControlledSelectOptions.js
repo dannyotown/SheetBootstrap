@@ -48,6 +48,8 @@ class ControlledSelectOptions extends Component {
 	handleFocus = (e) => {
 		const { focused } = this.props;
 
+		(e.keyCode === 40 || e.keyCode === 38) && e.preventDefault();
+		
 		//Enter
 		if (e.keyCode === 13 && focused !== null) {
 			focused === -1
@@ -95,7 +97,7 @@ class ControlledSelectOptions extends Component {
 						checked={this.props.allChecked}
 						multiple={true}
 						selectOption={selectOption}
-						focused={this.props.focused === -1}
+						isFocused={this.props.focused === -1}
 					/>
 				) : null}
 				{this.state.filteredOptions.map((option, index) => (
@@ -109,7 +111,7 @@ class ControlledSelectOptions extends Component {
 						value={option.value}
 						separator={option.separator}
 						selectOption={selectOption}
-						focused={index === this.props.focused}
+						isFocused={index === this.props.focused}
 					/>
 				))}
 			</ul>
@@ -135,7 +137,12 @@ ControlledSelectOptions.propTypes = {
 	searchLabel: PropTypes.string,
 	searchId: PropTypes.string,
 	selectAllLabel: PropTypes.string,
-	selectAllValue: PropTypes.string
+	selectAllValue: PropTypes.string,
+	allChecked: PropTypes.bool,
+	focused: PropTypes.number,
+	changeFocus: PropTypes.func,
+	setFilteredOptions: PropTypes.func,
+	inputRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
 };
 
 ControlledSelectOptions.defaultProps = {
@@ -144,7 +151,8 @@ ControlledSelectOptions.defaultProps = {
 	search: false,
 	searchLabel: 'Search',
 	searchId: 'selectSearchInput',
-	selectAllLabel: 'Select All'
+	selectAllLabel: 'Select All',
+	focused: null
 };
 
 export default ControlledSelectOptions;
