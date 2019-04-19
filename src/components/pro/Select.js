@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import ControlledSelectInput from "./ControlledSelect/ControlledSelectInput";
 import ControlledSelectOptions from "./ControlledSelect/ControlledSelectOptions";
+
 export const SelectContext = React.createContext();
 
 class Select extends React.Component {
@@ -15,6 +16,7 @@ class Select extends React.Component {
       options: this.props.options || [],
       allChecked: false
     };
+    this.inputRef = React.createRef();
   }
 
   componentDidMount() {
@@ -85,7 +87,7 @@ class Select extends React.Component {
       e.target.dataset.multiple === "true" ||
       e.target.dataset.search === "true"
     )
-      return;
+     return;
     this.closeDropdowns();
     e.target.nextElementSibling &&
       e.target.nextElementSibling.classList.add("fadeIn");
@@ -189,7 +191,7 @@ class Select extends React.Component {
           className={classes}
         >
           <span className="caret">▼</span>
-          <ControlledSelectInput value={this.state.selectTextContent} />
+          <ControlledSelectInput value={this.state.selectTextContent} ref={this.inputRef} />
           <ControlledSelectOptions
             multiple={multiple}
             options={this.state.options}
@@ -201,6 +203,7 @@ class Select extends React.Component {
             selectAllLabel={selectAllLabel}
             selectAllValue={selectAllValue}
             allChecked={this.state.allChecked}
+            inputRef={this.inputRef}
           />
         </div>
       );
