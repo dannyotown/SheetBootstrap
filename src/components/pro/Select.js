@@ -16,7 +16,7 @@ class Select extends React.Component {
 			options: this.props.options || [],
 			allChecked: false,
 			focused: null,
-			filteredOptions: this.props.options || [],
+			filteredOptions: this.props.options || []
 		};
 		this.inputRef = React.createRef();
 	}
@@ -93,6 +93,7 @@ class Select extends React.Component {
 
 	closeDropdowns = () => {
 		this.changeFocus(null);
+
 		this.setState((prevState) => ({ opened: !prevState.opened }));
 		let dropdowns = document.querySelectorAll('.dropdown-content');
 		dropdowns.forEach((dropdown) => dropdown.classList.contains('fadeIn') && dropdown.classList.remove('fadeIn'));
@@ -118,49 +119,17 @@ class Select extends React.Component {
 		this.setState({ filteredOptions });
 	};
 
-	selectMultipleOptions = (value) => {
-		if (value === this.props.selectAllValue) {
-			const setChecked = (option, status) => {
-				option.checked = status;
-				return option;
-			};
-
-			this.setState((prevState) => {
-				let options = [ ...prevState.options ];
-				let filteredOptions = [ ...prevState.filteredOptions ];
-				let areSomeUnchecked = filteredOptions.some((option) => option.checked === false);
-
-				areSomeUnchecked
-					? filteredOptions.map((option) => (option.checked === false ? setChecked(option, true) : null))
-					: filteredOptions.map((option) => setChecked(option, false));
-
-				filteredOptions.forEach((filteredOption) => {
-					options.forEach((option) => {
-						if (option.value === filteredOption.value && option.checked !== filteredOption.checked) {
-							option.checked = filteredOption.checked;
-						}
-					});
-				});
-
-				return this.computeValuesAndText(options);
-			});
-		} else {
-			this.setState((prevState) => {
-				let options = [ ...prevState.options ];
-				const optionIndex = options.findIndex((option) => option.value === value);
-				options[optionIndex].checked = !prevState.options[optionIndex].checked;
-
-				return this.computeValuesAndText(options);
-			});
-		}
+	setStatus = (option, status) => {
+		option.checked = status;
+		return option;
 	};
 
-	selectOption = (value) => {
-		if (this.props.multiple) {
-			this.selectMultipleOptions(value);
-		} else {
-			this.selectOneOption(value);
-		}
+	applyFilteredOptionsChanges = (options, filteredOptions) => {
+		filteredOptions.forEach((filteredOption) => {
+			const index = options.findIndex((option) => option.value === filteredOption.value);
+			filteredOption.checked !== options[index].checked && this.setStatus(options[index], filteredOption.checked);
+		});
+		return options;
 	};
 
 	changeFocus = (value) => {
@@ -174,6 +143,41 @@ class Select extends React.Component {
 			default:
 				this.setState((prevState) => ({ focused: prevState.focused + value }));
 				break;
+		}
+	};
+
+	selectMultipleOption = (value) => {
+		this.setState((prevState) => {
+			let options = [ ...prevState.options ];
+			const optionIndex = options.findIndex((option) => option.value === value);
+			this.setStatus(options[optionIndex], !prevState.options[optionIndex].checked);
+
+			return this.computeValuesAndText(options);
+		});
+	};
+
+	selectAllOptions = () => {
+		this.setState((prevState) => {
+			let options = [ ...prevState.options ];
+			let filteredOptions = [ ...prevState.filteredOptions ];
+			let areSomeUnchecked = filteredOptions.some((option) => option.checked === false);
+
+			areSomeUnchecked
+				? filteredOptions.map((option) => (option.checked === false ? this.setStatus(option, true) : null))
+				: filteredOptions.map((option) => this.setStatus(option, false));
+
+			options =
+				filteredOptions !== options ? this.applyFilteredOptionsChanges(options, filteredOptions) : options;
+
+			return this.computeValuesAndText(options);
+		});
+	};
+
+	selectOption = (value) => {
+		if (this.props.multiple) {
+			value === this.props.selectAllValue ? this.selectAllOptions() : this.selectMultipleOption(value);
+		} else {
+			this.selectOneOption(value);
 		}
 	};
 
@@ -230,7 +234,7 @@ class Select extends React.Component {
 					value={{
 						state: this.state,
 						multiple: this.props.multiple,
-						triggerOptionChange: this.triggerOptionChange,
+						triggerOptionChange: this.triggerOptionChange
 					}}
 				>
 					<div {...attributes} data-color={color} data-multiple={multiple} className={classes}>
