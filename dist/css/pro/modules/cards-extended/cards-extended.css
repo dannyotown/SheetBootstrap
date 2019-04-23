@@ -1276,6 +1276,7 @@ a {
   transition: all 0.2s ease-in-out; }
   a:hover {
     text-decoration: none;
+    color: #014c8c;
     transition: all 0.2s ease-in-out; }
   a.disabled:hover, a:disabled:hover {
     color: #0275d8; }
