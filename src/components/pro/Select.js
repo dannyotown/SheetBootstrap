@@ -19,6 +19,7 @@ class Select extends React.Component {
 
   componentDidMount() {
     document.addEventListener("click", this.onClick);
+
     if (this.state.options.length) {
       this.renderPreselectedOptions();
     }
@@ -64,7 +65,7 @@ class Select extends React.Component {
 
     return {
       selectValue: checkedValues,
-      selectTextContent: (checkedTexts.length ? checkedTexts.join(", ") : this.props.selected),
+      selectTextContent: (checkedTexts.length ? checkedTexts.join(", ") : this.props.selected ? this.props.selected : ""),
       options,
       allChecked: checkedOptions.length === this.state.options.length ? true : false
     };
@@ -166,7 +167,9 @@ class Select extends React.Component {
       getTextContent,
       getValue,
       label,
+      labelClass,
       multiple,
+      outline,
       search,
       searchLabel,
       searchId,
@@ -178,13 +181,20 @@ class Select extends React.Component {
     const classes = classNames(
       "select-wrapper mdb-select md-form",
       this.props.color ? "colorful-select dropdown-" + this.props.color : "",
-      className
+      outline ? "md-outline" : className
     );
 
     const labelClasses = classNames(
-      "mdb-main-label",
-      this.state.selectTextContent && 'active'
+      !outline && "mdb-main-label",
+      this.state.selectTextContent && 'active',
+      labelClass
     );
+
+    const labelStyles = {
+      top: `${outline && (this.state.selectTextContent ? '.5' : '1.35')}em`,
+      fontSize: `${outline && (this.state.selectTextContent ? '11' : '14')}px`,
+      zIndex: 4
+    }
 
     if (!this.props.children) {
       return (
@@ -210,7 +220,7 @@ class Select extends React.Component {
           </div>
           {
             label &&
-            <label className={labelClasses}>{label}</label>
+            <label className={labelClasses} style={labelStyles}>{label}</label>
           }
         </React.Fragment>
       );
@@ -235,7 +245,7 @@ class Select extends React.Component {
           </div>
           {
             label &&
-            <label className={labelClasses}>{label}</label>
+            <label className={labelClasses} style={labelStyles}>{label}</label>
           }
         </SelectContext.Provider>
       );
@@ -253,6 +263,8 @@ Select.propTypes = {
   color: PropTypes.string,
   getTextContent: PropTypes.func,
   getValue: PropTypes.func,
+  label: PropTypes.string,
+  labelClass: PropTypes.string,
   multiple: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -263,11 +275,19 @@ Select.propTypes = {
       value: PropTypes.string
     })
   ),
+  outline: PropTypes.bool,
   search: PropTypes.bool,
   searchLabel: PropTypes.string,
   searchId: PropTypes.string,
   selected: PropTypes.string
 };
+
+Select.defaultProps = {
+  label: "",
+  labelClass: "",
+  outline: false,
+  selected: ""
+}
 
 export default Select;
 export { Select as MDBSelect };
