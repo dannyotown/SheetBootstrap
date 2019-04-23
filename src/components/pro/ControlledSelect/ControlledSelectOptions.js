@@ -49,7 +49,7 @@ class ControlledSelectOptions extends Component {
 		const { focused } = this.props;
 
 		(e.keyCode === 40 || e.keyCode === 38) && e.preventDefault();
-		
+
 		//Enter
 		if (e.keyCode === 13 && focused !== null) {
 			focused === -1
@@ -98,6 +98,8 @@ class ControlledSelectOptions extends Component {
 						multiple={true}
 						selectOption={selectOption}
 						isFocused={this.props.focused === -1}
+						focusShadow={this.props.focusShadow}
+						focusBackgroundColor={this.props.focusBackgroundColor}
 					/>
 				) : null}
 				{this.state.filteredOptions.map((option, index) => (
@@ -112,6 +114,8 @@ class ControlledSelectOptions extends Component {
 						separator={option.separator}
 						selectOption={selectOption}
 						isFocused={index === this.props.focused}
+						focusShadow={this.props.focusShadow}
+						focusBackgroundColor={this.props.focusBackgroundColor}
 					/>
 				))}
 			</ul>
@@ -142,7 +146,9 @@ ControlledSelectOptions.propTypes = {
 	focused: PropTypes.number,
 	changeFocus: PropTypes.func,
 	setFilteredOptions: PropTypes.func,
-	inputRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+	inputRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+	focusShadow: PropTypes.string,
+	focusBackgroundColor: PropTypes.string
 };
 
 ControlledSelectOptions.defaultProps = {

@@ -160,14 +160,16 @@ class Select extends React.Component {
 		this.setState((prevState) => {
 			let options = [ ...prevState.options ];
 			let filteredOptions = [ ...prevState.filteredOptions ];
+
 			let areSomeUnchecked = filteredOptions.some((option) => option.checked === false);
 
 			areSomeUnchecked
 				? filteredOptions.map((option) => (option.checked === false ? this.setStatus(option, true) : null))
 				: filteredOptions.map((option) => this.setStatus(option, false));
 
-			options =
-				filteredOptions !== options ? this.applyFilteredOptionsChanges(options, filteredOptions) : options;
+			if (filteredOptions.length !== options.length) {
+				options = this.applyFilteredOptionsChanges(options, filteredOptions);
+			}
 
 			return this.computeValuesAndText(options);
 		});
@@ -196,6 +198,8 @@ class Select extends React.Component {
 			selectAll,
 			selectAllLabel,
 			selectAllValue,
+			focusShadow,
+			focusBackgroundColor,
 			...attributes
 		} = this.props;
 
@@ -225,6 +229,8 @@ class Select extends React.Component {
 						setFilteredOptions={this.setFilteredOptions}
 						focused={this.state.focused}
 						changeFocus={this.changeFocus}
+						focusShadow={focusShadow}
+						focusBackgroundColor={focusBackgroundColor}
 					/>
 				</div>
 			);
@@ -272,7 +278,9 @@ Select.propTypes = {
 	searchId: PropTypes.string,
 	selected: PropTypes.string,
 	selectAllLabel: PropTypes.string,
-	selectAllValue: PropTypes.string
+	selectAllValue: PropTypes.string,
+	focusShadow: PropTypes.string,
+	focusBackgroundColor: PropTypes.string
 };
 
 Select.defaultProps = {
