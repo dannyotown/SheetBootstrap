@@ -62,6 +62,7 @@ class SelectPage extends Component {
             <MDBSelect
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
+              label="Example label"
             >
               <MDBSelectInput selected="Choose your option" />
               <MDBSelectOptions>
@@ -73,7 +74,6 @@ class SelectPage extends Component {
                 <MDBSelectOption selected>Option nr 5</MDBSelectOption>
               </MDBSelectOptions>
             </MDBSelect>
-            <label>Example label</label>
           </div>
         </div>
         <h4 className="my-4 teal-text">
@@ -84,6 +84,7 @@ class SelectPage extends Component {
             <MDBSelect
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
+              label="Example label"
               multiple
             >
               <MDBSelectInput selected="Choose your option" />
@@ -100,7 +101,6 @@ class SelectPage extends Component {
                 <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
               </MDBSelectOptions>
             </MDBSelect>
-            <label>Example label</label>
           </div>
         </div>
         <h4 className="my-4 deep-orange-text">
@@ -108,7 +108,11 @@ class SelectPage extends Component {
         </h4>
         <div className="row">
           <div className="col-md-6">
-            <MDBSelect getValue={this.getValueOfSelect} color="primary">
+            <MDBSelect
+              getValue={this.getValueOfSelect}
+              color="primary"
+              label="Blue select"
+            >
               <MDBSelectInput selected="Choose your option" />
               <MDBSelectOptions>
                 <MDBSelectOption disabled>Choose your option</MDBSelectOption>
@@ -119,7 +123,6 @@ class SelectPage extends Component {
                 <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
               </MDBSelectOptions>
             </MDBSelect>
-            <label>Blue select</label>
           </div>
         </div>
         <h4 className="my-4 blue-grey-text">
@@ -127,7 +130,10 @@ class SelectPage extends Component {
         </h4>
         <div className="row">
           <div className="col-md-6">
-            <MDBSelect getValue={this.getValueOfSelect}>
+            <MDBSelect
+              getValue={this.getValueOfSelect}
+              label="Example label"
+            >
               <MDBSelectInput selected="Choose your option" />
               <MDBSelectOptions search>
                 <MDBSelectOption disabled>Choose your option</MDBSelectOption>
@@ -151,7 +157,6 @@ class SelectPage extends Component {
                 </MDBSelectOption>
               </MDBSelectOptions>
             </MDBSelect>
-            <label>Example label</label>
           </div>
         </div>
         <h4 className="my-4 deep-purple-text">
@@ -159,7 +164,10 @@ class SelectPage extends Component {
         </h4>
         <div className="row">
           <div className="col-md-6">
-            <MDBSelect getValue={this.getValueOfSelect}>
+            <MDBSelect
+              getValue={this.getValueOfSelect}
+              label="Example label"
+            >
               <MDBSelectInput selected="Choose your option" />
               <MDBSelectOptions>
                 <MDBSelectOption disabled>team 1</MDBSelectOption>
@@ -170,7 +178,6 @@ class SelectPage extends Component {
                 <MDBSelectOption>Option nr 4</MDBSelectOption>
               </MDBSelectOptions>
             </MDBSelect>
-            <label>Example label</label>
           </div>
         </div>
         <h4 className="my-4 deep-default-text">
@@ -188,8 +195,8 @@ class SelectPage extends Component {
               options={this.state.options}
               selected="Choose option"
               style={{ marginBottom: "15rem" }}
+              label="MDBSelect with Objects"
             />
-            <label>MDBSelect with Objects</label>
           </div>
           <div className="col-md-6">
             <MDBBtn onClick={this.remove}>Remove option</MDBBtn>

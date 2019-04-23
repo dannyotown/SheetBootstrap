@@ -49,6 +49,8 @@ class Select extends React.Component {
     document.removeEventListener("click", this.onClick);
   }
 
+  updateSelected = (value) => this.setState({ selectTextContent: value });
+
   computeValuesAndText = (options) => {
     let checkedOptions = options
       .filter(option => option.checked)
@@ -120,7 +122,7 @@ class Select extends React.Component {
   };
 
   selectMultipleOptions = value => {
-    if (value === "0"){
+    if (value === "0") {
       const setChecked = (option, status) => {
         option.checked = status;
         return option;
@@ -136,19 +138,19 @@ class Select extends React.Component {
 
         return this.computeValuesAndText(options);
       })
-      
-    }else {
+
+    } else {
       this.setState(prevState => {
         let options = [...prevState.options];
         const optionIndex = options.findIndex(option => option.value === value);
         options[optionIndex].checked = !prevState.options[optionIndex].checked;
-        
+
         return this.computeValuesAndText(options);
       });
     }
   };
 
-  selectOption = value => {   
+  selectOption = value => {
     if (this.props.multiple) {
       this.selectMultipleOptions(value);
     } else {
@@ -163,6 +165,7 @@ class Select extends React.Component {
       children,
       getTextContent,
       getValue,
+      label,
       multiple,
       search,
       searchLabel,
@@ -173,32 +176,43 @@ class Select extends React.Component {
     } = this.props;
 
     const classes = classNames(
-      "select-wrapper md-form",
+      "select-wrapper mdb-select md-form",
       this.props.color ? "colorful-select dropdown-" + this.props.color : "",
       className
     );
 
+    const labelClasses = classNames(
+      "mdb-main-label",
+      this.state.selectTextContent && 'active'
+    );
+
     if (!this.props.children) {
       return (
-        <div
-          {...attributes}
-          data-color={color}
-          data-multiple={multiple}
-          className={classes}
-        >
-          <span className="caret">▼</span>
-          <ControlledSelectInput value={this.state.selectTextContent} />
-          <ControlledSelectOptions
-            multiple={multiple}
-            options={this.state.options}
-            search={search}
-            searchLabel={searchLabel}
-            selected={selected}
-            selectOption={this.selectOption}
-            selectAll={selectAll}
-            allChecked={this.state.allChecked}
-          />
-        </div>
+        <React.Fragment>
+          <div
+            {...attributes}
+            data-color={color}
+            data-multiple={multiple}
+            className={classes}
+          >
+            <span className="caret">▼</span>
+            <ControlledSelectInput value={this.state.selectTextContent} />
+            <ControlledSelectOptions
+              multiple={multiple}
+              options={this.state.options}
+              search={search}
+              searchLabel={searchLabel}
+              selected={selected}
+              selectOption={this.selectOption}
+              selectAll={selectAll}
+              allChecked={this.state.allChecked}
+            />
+          </div>
+          {
+            label &&
+            <label className={labelClasses}>{label}</label>
+          }
+        </React.Fragment>
       );
     } else {
       return (
@@ -206,7 +220,8 @@ class Select extends React.Component {
           value={{
             state: this.state,
             multiple: this.props.multiple,
-            triggerOptionChange: this.triggerOptionChange
+            triggerOptionChange: this.triggerOptionChange,
+            updateSelected: this.updateSelected
           }}
         >
           <div
@@ -218,6 +233,10 @@ class Select extends React.Component {
             <span className="caret">▼</span>
             {children}
           </div>
+          {
+            label &&
+            <label className={labelClasses}>{label}</label>
+          }
         </SelectContext.Provider>
       );
     }
