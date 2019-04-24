@@ -60,6 +60,7 @@ class InputPage extends Component {
               error="wrong"
               success="right"
             />
+            
             <MDBInput
               label="Type your password"
               icon="lock"
