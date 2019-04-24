@@ -13,14 +13,16 @@ class ControlledSelectOptions extends Component {
 			options: this.props.options || [],
 			searchValue: ''
 		};
+		this.inputRef = null;
 	}
 
 	componentDidMount() {
-		this.props.inputRef.current && this.props.inputRef.current.addEventListener('keydown', this.handleFocus);
+		if (this.props.inputRef.current) this.inputRef = this.props.inputRef.current;
+		this.inputRef.addEventListener('keydown', this.handleFocus);
 	}
 
 	componentWillUnmount() {
-		this.props.inputRef.current.removeEventListener('keydown');
+		this.inputRef.removeEventListener('keydown', this.handleFocus);
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -62,14 +64,18 @@ class ControlledSelectOptions extends Component {
 
 		//Down
 		if (e.keyCode === 40) {
-			focused === null
-				? this.state.filteredOptions.length === 1 ? this.props.changeFocus(0) : this.props.changeFocus(-1)
-				: focused < this.state.filteredOptions.length - 1 && this.props.changeFocus(1);
+			if (focused === null) {
+				this.props.selectAll && this.state.filteredOptions.length !== 1
+					? this.props.changeFocus(-1)
+					: this.props.changeFocus(0)
+			} else {
+				focused < this.state.filteredOptions.length - 1 && this.props.changeFocus(1);
+			}
 		}
 
 		//Up
 		if (e.keyCode === 38) {
-			focused >= 0 && this.state.filteredOptions.length > 1 && this.props.changeFocus(-1);
+			focused >= (this.props.selectAll ? 0 : 1) && this.state.filteredOptions.length > 1 && this.props.changeFocus(-1);
 		}
 	};
 
