@@ -42,7 +42,8 @@ class Select extends React.Component {
     if (this.props.options !== prevProps.options) {
       this.setState(
         {
-          options: this.props.options
+          options: this.props.options,
+          filteredOptions: this.props.options
         },
         this.renderPreselectedOptions
       );
@@ -67,7 +68,7 @@ class Select extends React.Component {
     return {
       selectValue: checkedValues,
       selectTextContent: checkedTexts.length ? checkedTexts.join(', ') : this.props.selected,
-      allChecked: checkedOptions.length === this.state.options.length,
+      allChecked: checkedOptions.length === this.state.options.length
     };
   };
 
