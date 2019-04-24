@@ -55,7 +55,7 @@ class Select extends React.Component {
 
   updateSelected = (value) => this.setState({ selectTextContent: value });
 
-  computeValuesAndText = (options, optionIndex) => {
+  computeValuesAndText = (options) => {
     let checkedOptions = options.filter((option) => option.checked).map((option) => ({
       value: option.value,
       text: option.text ? option.text : option.value
@@ -67,9 +67,7 @@ class Select extends React.Component {
     return {
       selectValue: checkedValues,
       selectTextContent: checkedTexts.length ? checkedTexts.join(', ') : this.props.selected,
-      options,
       allChecked: checkedOptions.length === this.state.options.length,
-      focused: optionIndex
     };
   };
 
@@ -155,7 +153,7 @@ class Select extends React.Component {
       const optionIndex = options.findIndex((option) => option.value === value);
       this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
 
-      return this.computeValuesAndText(options, optionIndex);
+      return this.computeValuesAndText(options);
     });
   };
 
@@ -174,7 +172,7 @@ class Select extends React.Component {
         options = this.applyFilteredOptionsChanges(options, filteredOptions);
       }
 
-      return this.computeValuesAndText(options, -1);
+      return this.computeValuesAndText(options);
     });
   };
 
