@@ -129,6 +129,7 @@ import { MDBBtn } from './components/Button';
 import { MDBBtnGroup } from './components/ButtonGroup';
 import { MDBBtnToolbar } from './components/ButtonToolbar';
 import { MDBCard } from './components/Card';
+import { MDBCloseIcon } from './components/CloseIcon'
 import { MDBCardBody } from './components/CardBody';
 import { MDBCardFooter } from './components/CardFooter';
 import { MDBCardGroup } from './components/CardGroup';
@@ -371,6 +372,7 @@ export {
   MDBBtnGroup,
   MDBBtnToolbar,
   MDBCard,
+  MDBCloseIcon,
   MDBCardBody,
   MDBCardFooter,
   MDBCardGroup,
