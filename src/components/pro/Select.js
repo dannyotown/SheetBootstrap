@@ -19,13 +19,14 @@ class Select extends React.Component {
       filteredOptions: this.props.options || []
     };
     this.inputRef = React.createRef();
+
+    if (this.props.options.length) {
+      Object.assign(this.state, this.computeValuesAndText(this.props.options));
+    }
   }
 
   componentDidMount() {
     document.addEventListener('click', this.onClick);
-    if (this.state.options.length) {
-      this.renderPreselectedOptions();
-    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -72,7 +73,7 @@ class Select extends React.Component {
     };
   };
 
-  renderPreselectedOptions = () => this.setState((prevState) => this.computeValuesAndText([...prevState.options]));
+  // renderPreselectedOptions = () => this.setState((prevState) => this.computeValuesAndText([...prevState.options]));
 
   triggerOptionChange = (value, text) => {
     Array.isArray(text) && (text = text.join(', '));
@@ -280,7 +281,10 @@ class Select extends React.Component {
     }
   };
 
-  render() {    
+  render() {
+    console.log('render', this.state)
+
+
     return this.returnComponentContent();
   }
 }
@@ -300,7 +304,7 @@ Select.propTypes = {
     PropTypes.shape({
       checked: PropTypes.bool,
       disabled: PropTypes.bool,
-      icon: PropTypes.string, 
+      icon: PropTypes.string,
       text: PropTypes.oneOfType([
         PropTypes.object,
         PropTypes.string
