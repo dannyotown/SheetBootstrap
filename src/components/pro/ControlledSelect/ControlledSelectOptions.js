@@ -82,7 +82,7 @@ class ControlledSelectOptions extends Component {
 	render() {
 		const { multiple, search, searchLabel, searchId, selected, selectOption, selectAll } = this.props;
 
-		const classes = classNames('dropdown-content', 'select-dropdown', 'fadeElement');
+		const classes = classNames('dropdown-content', 'select-dropdown', 'fadeElement');		
 
 		return (
 			<ul className={classes}>
@@ -139,7 +139,11 @@ ControlledSelectOptions.propTypes = {
 			separator: PropTypes.bool,
 			disabled: PropTypes.bool,
 			icon: PropTypes.string,
-			text: PropTypes.string,
+			image: PropTypes.string,
+			text: PropTypes.oneOfType([
+			  PropTypes.object,
+			  PropTypes.string
+			]),
 			value: PropTypes.string
 		})
 	),

@@ -280,7 +280,7 @@ class Select extends React.Component {
     }
   };
 
-  render() {
+  render() {    
     return this.returnComponentContent();
   }
 }
@@ -300,8 +300,11 @@ Select.propTypes = {
     PropTypes.shape({
       checked: PropTypes.bool,
       disabled: PropTypes.bool,
-      icon: PropTypes.string,
-      text: PropTypes.string,
+      icon: PropTypes.string, 
+      text: PropTypes.oneOfType([
+        PropTypes.object,
+        PropTypes.string
+      ]),
       value: PropTypes.string
     })
   ),
