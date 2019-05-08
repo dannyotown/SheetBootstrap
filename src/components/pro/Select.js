@@ -41,12 +41,16 @@ class Select extends React.Component {
     }
 
     if (this.props.options !== prevProps.options) {
+      const { selectValue, selectTextContent, allChecked } = this.computeValuesAndText(this.props.options);
+
       this.setState(
         {
           options: this.props.options,
-          filteredOptions: this.props.options
-        },
-        this.renderPreselectedOptions
+          filteredOptions: this.props.options,
+          selectValue,
+          selectTextContent,
+          allChecked
+        }
       );
     }
   }
@@ -68,7 +72,7 @@ class Select extends React.Component {
 
   closeDropdowns = () => {
     this.changeFocus(null);
-    
+
     let dropdowns = document.querySelectorAll('.dropdown-content');
     dropdowns.forEach((dropdown) => dropdown.classList.contains('fadeIn') && dropdown.classList.remove('fadeIn'));
   };
@@ -80,7 +84,7 @@ class Select extends React.Component {
     }));
 
     let checkedValues = checkedOptions.map((opt) => opt.value);
-    let checkedTexts = checkedOptions.map((opt) => (opt.text ? opt.text : opt.value));
+    let checkedTexts = checkedOptions.map((opt) => (opt.text && typeof opt.text !== 'object' ? opt.text : opt.value));
 
     return {
       selectValue: checkedValues,
@@ -128,11 +132,7 @@ class Select extends React.Component {
 
       options.forEach((option, index) => (index !== optionIndex ? (option.checked = false) : false));
 
-      return {
-        selectValue: [options[optionIndex].value],
-        selectTextContent: options[optionIndex].text ? options[optionIndex].text : options[optionIndex].value,
-        options
-      };
+      return this.computeValuesAndText(options);
     });
   };
 
@@ -182,7 +182,7 @@ class Select extends React.Component {
       selectTextContent: text
     });
   };
-  
+
   returnComponentContent = () => {
     const {
       className,
