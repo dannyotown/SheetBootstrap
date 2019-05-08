@@ -26,7 +26,7 @@ class Select extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.onClick);
+    document.addEventListener('click', this.onDocumentClick);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -52,10 +52,26 @@ class Select extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.onClick);
+    document.removeEventListener('click', this.onDocumentClick);
   }
 
-  updateSelected = (value) => this.setState({ selectTextContent: value });
+  // close all select dropdown (unless it has multiple property or search input)
+  // open nieghbour ul of clicked input
+  onDocumentClick = (e) => {
+    if (e.target.dataset.multiple === 'true' || e.target.dataset.search === 'true') {
+      return;
+    }
+
+    this.closeDropdowns();
+    e.target.nextElementSibling && e.target.nextElementSibling.classList.add('fadeIn');
+  };
+
+  closeDropdowns = () => {
+    this.changeFocus(null);
+    
+    let dropdowns = document.querySelectorAll('.dropdown-content');
+    dropdowns.forEach((dropdown) => dropdown.classList.contains('fadeIn') && dropdown.classList.remove('fadeIn'));
+  };
 
   computeValuesAndText = (options) => {
     let checkedOptions = options.filter((option) => option.checked).map((option) => ({
@@ -71,51 +87,6 @@ class Select extends React.Component {
       selectTextContent: checkedTexts.length ? checkedTexts.join(', ') : this.props.selected,
       allChecked: checkedOptions.length === this.state.options.length
     };
-  };
-
-  // renderPreselectedOptions = () => this.setState((prevState) => this.computeValuesAndText([...prevState.options]));
-
-  triggerOptionChange = (value, text) => {
-    Array.isArray(text) && (text = text.join(', '));
-    this.setState({
-      selectValue: value,
-      selectTextContent: text
-    });
-  };
-
-  // close all select dropdown (unless it has multiple property or search input)
-  // open nieghbour ul of clicked input
-  onClick = (e) => {
-    if (e.target.dataset.multiple === 'true' || e.target.dataset.search === 'true') {
-      return;
-    }
-
-    this.closeDropdowns();
-    e.target.nextElementSibling && e.target.nextElementSibling.classList.add('fadeIn');
-  };
-
-  closeDropdowns = () => {
-    this.changeFocus(null);
-
-    this.setState((prevState) => ({ opened: !prevState.opened }));
-    let dropdowns = document.querySelectorAll('.dropdown-content');
-    dropdowns.forEach((dropdown) => dropdown.classList.contains('fadeIn') && dropdown.classList.remove('fadeIn'));
-  };
-
-  selectOneOption = (value) => {
-    this.setState((prevState) => {
-      let options = [...prevState.options];
-      const optionIndex = options.findIndex((option) => option.value === value);
-      options[optionIndex].checked = true;
-
-      options.forEach((option, index) => (index !== optionIndex ? (option.checked = false) : false));
-
-      return {
-        selectValue: [options[optionIndex].value],
-        selectTextContent: options[optionIndex].text ? options[optionIndex].text : options[optionIndex].value,
-        options
-      };
-    });
   };
 
   setFilteredOptions = (filteredOptions) => {
@@ -138,7 +109,7 @@ class Select extends React.Component {
   changeFocus = (value) => {
     switch (value) {
       case null:
-        this.setState({ focused: null });
+        this.setState(prevState => prevState.focused !== value ? { focused: null } : null);
         break;
       case 0:
         this.setState({ focused: 0 });
@@ -147,6 +118,22 @@ class Select extends React.Component {
         this.setState((prevState) => ({ focused: prevState.focused + value }));
         break;
     }
+  };
+
+  selectOneOption = (value) => {
+    this.setState((prevState) => {
+      let options = [...prevState.options];
+      const optionIndex = options.findIndex((option) => option.value === value);
+      options[optionIndex].checked = true;
+
+      options.forEach((option, index) => (index !== optionIndex ? (option.checked = false) : false));
+
+      return {
+        selectValue: [options[optionIndex].value],
+        selectTextContent: options[optionIndex].text ? options[optionIndex].text : options[optionIndex].value,
+        options
+      };
+    });
   };
 
   selectMultipleOption = (value) => {
@@ -186,6 +173,16 @@ class Select extends React.Component {
     }
   };
 
+  updateSelected = (value) => this.setState({ selectTextContent: value });
+
+  triggerOptionChange = (value, text) => {
+    Array.isArray(text) && (text = text.join(', '));
+    this.setState({
+      selectValue: value,
+      selectTextContent: text
+    });
+  };
+  
   returnComponentContent = () => {
     const {
       className,
@@ -282,9 +279,6 @@ class Select extends React.Component {
   };
 
   render() {
-    console.log('render', this.state)
-
-
     return this.returnComponentContent();
   }
 }
