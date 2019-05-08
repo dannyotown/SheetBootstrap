@@ -20,7 +20,7 @@ class Select extends React.Component {
     };
     this.inputRef = React.createRef();
 
-    if (this.props.options.length) {
+    if (this.props.options && this.props.options.length) {
       Object.assign(this.state, this.computeValuesAndText(this.props.options));
     }
   }
