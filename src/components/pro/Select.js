@@ -128,7 +128,7 @@ class Select extends React.Component {
     this.setState((prevState) => {
       let options = [...prevState.options];
       const optionIndex = options.findIndex((option) => option.value === value);
-      options[optionIndex].checked = true;
+      this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
 
       options.forEach((option, index) => (index !== optionIndex ? (option.checked = false) : false));
 
