@@ -26,6 +26,8 @@ class Autocomplete extends Component {
     (prevState.value !== this.state.value) && this.props.getValue && this.props.getValue(this.state.value);
 
     prevProps.value !== this.props.value && this.setState({ value: this.props.value });
+
+    prevProps.data !== this.props.data && this.setState({ suggestions: this.filterRepeated(this.props.data) });
   }
   
   componentWillUnmount() {
