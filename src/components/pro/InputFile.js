@@ -94,7 +94,7 @@ class InputFile extends React.Component {
         {reset && (
           <CloseIcon
             onClick={this.resetFiles}
-            className={resetClassName ? resetClassName : null}
+            className={resetClassName}
             ariaLabel={resetAriaLabel ? resetAriaLabel : null}
             style={{
               position: "absolute",
