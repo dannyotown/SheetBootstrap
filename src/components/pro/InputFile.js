@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import './InputFile.css';
+import "./InputFile.css";
+import CloseIcon from "../CloseIcon";
 
 class InputFile extends React.Component {
   constructor(props) {
@@ -33,6 +34,10 @@ class InputFile extends React.Component {
     this.props.getValue && this.props.getValue(e.target.files);
   };
 
+  resetFiles = () => {
+    this.state.files && this.setState({ files: false });
+  };
+
   render() {
     const {
       className,
@@ -40,6 +45,9 @@ class InputFile extends React.Component {
       btnColor,
       textFieldTitle,
       multiple,
+      reset,
+      resetClassName,
+      resetAriaLabel,
       reverse
     } = this.props;
 
@@ -77,9 +85,25 @@ class InputFile extends React.Component {
           <input
             className={inputFieldClass}
             type="text"
-            placeholder={this.state.files ? this.state.files : textFieldTitle}
+            placeholder={
+              this.state.files ? this.state.files : textFieldTitle
+            }
+            style={{ position: reset ? "relative" : null }}
           />
         </div>
+        {reset && (
+          <CloseIcon
+            onClick={this.resetFiles}
+            className={resetClassName ? resetClassName : null}
+            ariaLabel={resetAriaLabel ? resetAriaLabel : null}
+            style={{
+              position: "absolute",
+              top: "50%",
+              right: "0",
+              transform: "translateY(-50%)"
+            }}
+          />
+        )}
       </div>
     );
   }
@@ -91,6 +115,9 @@ InputFile.propTypes = {
   btnColor: PropTypes.string,
   textFieldTitle: PropTypes.string,
   multiple: PropTypes.bool,
+  reset: PropTypes.bool,
+  resetClassName:PropTypes.string,
+  resetAriaLabel:PropTypes.string,
   reverse: PropTypes.bool
 };
 
@@ -98,6 +125,7 @@ InputFile.defaultProps = {
   btnTitle: "Choose file",
   textFieldTitle: "Upload your file",
   btnColor: "primary",
+  reset: false,
   reverse: false
 };
 

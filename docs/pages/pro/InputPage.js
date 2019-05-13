@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBInput, MDBFormInline, MDBSwitch, MDBFileInput, MDBRangeInput } from "mdbreact";
+import {
+  MDBContainer,
+  MDBInput,
+  MDBFormInline,
+  MDBSwitch,
+  MDBFileInput,
+  MDBRangeInput
+} from "mdbreact";
 import DocsLink from "../../components/docsLink";
 
 class InputPage extends Component {
@@ -8,29 +15,29 @@ class InputPage extends Component {
     radioSet2: false,
     radioSet3: false,
     checkbox: true,
-    switchInput: true,
-  }
+    switchInput: true
+  };
 
   fileInputHandler = files => {
     console.log(files);
   };
 
   radioInputHandler = (setNr, radioNr) => () => {
-    const radioSetNr = `radioSet${setNr}`
+    const radioSetNr = `radioSet${setNr}`;
     this.setState({
       [radioSetNr]: radioNr
-    })
-  }
+    });
+  };
 
-  handleCheckboxChange = (e) => {
+  handleCheckboxChange = e => {
     this.setState({ checkbox: !this.state.checkbox });
     console.log(e.target.value + " checked? " + e.target.checked);
-  }
+  };
 
-  handleSwitchChange = (value) => {
+  handleSwitchChange = value => {
     console.log(value);
     this.setState({ switchInput: value });
-  }
+  };
 
   handleChange = e => {
     console.log(e.target.value + " checked? " + e.target.checked);
@@ -38,11 +45,16 @@ class InputPage extends Component {
 
   handleRangeChange = value => {
     console.log("range value: " + value);
-  }
-
+  };
 
   render() {
-    const { radioSet1, radioSet2, radioSet3, checkbox, switchInput } = this.state;
+    const {
+      radioSet1,
+      radioSet2,
+      radioSet3,
+      checkbox,
+      switchInput
+    } = this.state;
     return (
       <MDBContainer className="mt-5">
         <DocsLink
@@ -101,9 +113,9 @@ class InputPage extends Component {
               id="checkbox6"
               onChange={this.handleChange}
             />
-            <MDBInput 
-              label="Classic checkbox" 
-              type="checkbox" 
+            <MDBInput
+              label="Classic checkbox"
+              type="checkbox"
               value="example3"
               id="checkbox7"
               onChange={this.handleChange}
@@ -213,6 +225,12 @@ class InputPage extends Component {
           </h2>
           <h4 className="mt-5 mb-3">Basic example</h4>
           <MDBFileInput getValue={this.fileInputHandler} />
+
+          <h4 className="mt-5 mb-3">Basic example with reset button</h4>
+          <MDBFileInput
+            reset
+            getValue={this.fileInputHandler}
+          />
 
           <h4 className="mt-5 mb-3">Multiple files</h4>
           <MDBFileInput
