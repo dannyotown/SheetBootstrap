@@ -69,7 +69,6 @@ import TableHead from './components/TableHead';
 import TableFoot from './components/TableFoot';
 import Tooltip from './components/Popper';
 import View from './components/View';
-import { toast, ToastContainer, cssTransition } from 'react-toastify';
 import Iframe from './components/Iframe';
 import Dropdown from './components/Dropdown';
 
@@ -116,6 +115,9 @@ import Testimonial from './components/pro/Testimonial';
 import Timeline from './components/pro/Timeline';
 import TimelineStep from './components/pro/TimelineStep';
 import TimePicker from './components/pro/TimePicker/TimePicker';
+import { toast } from './components/pro/Toast';
+import { ToastContainer } from './components/pro/Toast';
+import { cssTransition } from './components/pro/Toast';
 import SmoothScroll from './components/pro/SmoothScroll';
 // PRO-END
 
@@ -236,6 +238,9 @@ import { MDBStickyContent } from './components/pro/StickyContainer';
 import { MDBTestimonial } from './components/pro/Testimonial';
 import { MDBTimeline } from './components/pro/Timeline';
 import { MDBTimelineStep } from './components/pro/TimelineStep';
+import { MDBToast } from './components/pro/Toast';
+import { MDBToastContainer } from './components/pro/Toast';
+import { MDBcssTransition } from './components/pro/Toast';
 import MDBStreak from './components/pro/Streak';
 import { MDBSmoothScroll } from './components/pro/SmoothScroll';
 // PRO-END
@@ -268,7 +273,6 @@ export {
   Col,
   Collapse,
   Container,
-  cssTransition,
   DataTable,
   Dropdown,
   DropdownItem,
@@ -314,8 +318,6 @@ export {
   TableFoot,
   Tooltip,
   View,
-  toast,
-  ToastContainer,
   Iframe,
   // PRO-START
   Autocomplete,
@@ -326,6 +328,7 @@ export {
   Chip,
   ChipsInput,
   CollapseHeader,
+  cssTransition,
   DatePicker,
   ExportToCSV,
   FlippingCard,
@@ -360,6 +363,8 @@ export {
   Timeline,
   TimelineStep,
   TimePicker,
+  toast,
+  ToastContainer,
   SmoothScroll,
   // PRO-END
   MDBIframe,
@@ -444,6 +449,7 @@ export {
   MDBChip,
   MDBChipsInput,
   MDBCollapseHeader,
+  MDBcssTransition,
   MDBExportToCSV,
   MDBDatePicker,
   MDBTimePicker,
@@ -477,6 +483,8 @@ export {
   MDBTestimonial,
   MDBTimeline,
   MDBTimelineStep,
+  MDBToast,
+  MDBToastContainer,
   MDBStreak,
   MDBSmoothScroll
   // PRO-END
