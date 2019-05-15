@@ -3379,6 +3379,8 @@ ControlledSelectOption.defaultProps = {
   focusBackgroundColor: '#eee'
 };
 
+var theElement = typeof Element === 'undefined' ? function () {} : Element;
+
 var ControlledSelectOptions =
 /*#__PURE__*/
 function (_Component) {
@@ -3545,7 +3547,7 @@ ControlledSelectOptions.propTypes = {
   changeFocus: propTypes.func,
   setFilteredOptions: propTypes.func,
   inputRef: propTypes.shape({
-    current: propTypes.object
+    current: propTypes.instanceOf(theElement)
   }),
   focusShadow: propTypes.string,
   focusBackgroundColor: propTypes.string
