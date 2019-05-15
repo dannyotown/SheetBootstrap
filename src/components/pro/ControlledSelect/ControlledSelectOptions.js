@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import Input from '../../Input';
 import ControlledSelectOption from './ControlledSelectOption';
 
-const theElement = typeof Element === 'undefined' ? function(){} : Element;
 class ControlledSelectOptions extends Component {
   constructor(props) {
     super(props);
@@ -161,7 +160,7 @@ ControlledSelectOptions.propTypes = {
   focused: PropTypes.number,
   changeFocus: PropTypes.func,
   setFilteredOptions: PropTypes.func,
-  inputRef: PropTypes.shape({ current: PropTypes.instanceOf(theElement) }),
+  inputRef: PropTypes.shape({ current: PropTypes.instanceOf(typeof Element === 'undefined' ? function(){} : Element) }),
   focusShadow: PropTypes.string,
   focusBackgroundColor: PropTypes.string
 };
