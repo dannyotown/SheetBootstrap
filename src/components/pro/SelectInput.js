@@ -6,15 +6,15 @@ import selectContextHOC from "./SelectContext";
 let SelectInput = ({ attributes, className, context, selected }) => {
   const classes = classNames("select-dropdown", className);
 
+  if(context.state.selectTextContent === "" && selected) {
+    context.updateSelected(selected);
+  }
+
   return (
     <input
       type="text"
       readOnly
-      value={
-        context.state.selectTextContent
-          ? context.state.selectTextContent
-          : selected
-      }
+      value={context.state.selectTextContent}
       {...attributes}
       className={classes}
     />

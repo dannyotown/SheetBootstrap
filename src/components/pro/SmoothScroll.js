@@ -36,6 +36,21 @@ class SmoothScroll extends Component {
       smooth,
       offset,
       duration,
+      block,
+      color,
+      outline,
+      size,
+      rounded,
+      gradient,
+      floating,
+      flat,
+      social,
+      btn,
+      fixed,
+      bottom,
+      right,
+      top,
+      left,
       ...attributes
     } = this.props;
 
@@ -43,8 +58,28 @@ class SmoothScroll extends Component {
       "nav-link",
       disabled ? "disabled" : "Ripple-parent",
       active && "active",
+      (btn || floating) && "btn",
+      floating && "btn-floating",
+      flat
+        ? "btn-flat"
+        : gradient
+          ? `${gradient}-gradient`
+          : `btn${outline ? "-outline" : ""}-${color}`,
+      size ? `btn-${size}` : false,
+      rounded ? "btn-rounded" : false,
+      block ? "btn-block" : false,
+      social ? "btn-" + social : false,
+      "Ripple-parent",
       className
     );
+
+    const fixedStyles = {
+      position: "fixed",
+      top: top ? `${top}px` : null,
+      bottom: bottom ? `${bottom}px` : !top ? '45px' : null,
+      left: left ? `${left}px` : null,
+      right: right ? `${right}px` : !left ? '24px' : null,
+    } 
 
     return (
       <Link
@@ -56,6 +91,7 @@ class SmoothScroll extends Component {
         smooth={smooth}
         offset={offset}
         duration={duration}
+        style={ fixed ? fixedStyles : null }
         {...attributes}
       >
         {children}
@@ -78,7 +114,22 @@ SmoothScroll.propTypes = {
   spy: PropTypes.bool,
   smooth: PropTypes.bool,
   offset: PropTypes.number,
-  duration: PropTypes.number
+  duration: PropTypes.number,
+  block: PropTypes.bool,
+  color: PropTypes.string,
+  outline: PropTypes.bool,
+  size: PropTypes.string,
+  rounded: PropTypes.bool,
+  gradient: PropTypes.string,
+  floating: PropTypes.bool,
+  flat: PropTypes.bool,
+  social: PropTypes.string,
+  action: PropTypes.bool,
+  fixed: PropTypes.bool,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  right: PropTypes.string,
+  left: PropTypes.string,
 };
 
 SmoothScroll.defaultProps = {

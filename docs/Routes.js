@@ -116,6 +116,9 @@ import ModalExamplesProPage from "./pages/pro/ModalExamplesPage";
 import BlogComponentsPage from "./pages/pro/BlogComponentsPage";
 import SmoothScrollPage from "./pages/pro/SmoothScrollPage";
 import NavsPagePro from "./pages/pro/NavsPage";
+import MinimalisticIntro from "./pages/pro/sections/MinimalisticIntro";
+import ParallaxIntro from "./pages/pro/sections/ParallaxIntro";
+import CallToActionIntro from "./pages/pro/sections/CallToActionIntro";
 // PRO-END
 
 class Routes extends React.Component {
@@ -234,6 +237,9 @@ class Routes extends React.Component {
         <Route path="/sections/team" component={TeamPage} />
         <Route path="/sections/magazine" component={MagazinePage} />
         <Route path="/sections/social" component={SocialPage} />
+        <Route path="/sections/minimalistic-intro" component={MinimalisticIntro} />
+        <Route path="/sections/parallax-intro" component={ParallaxIntro} />
+        <Route path="/sections/call-to-action-intro" component={CallToActionIntro} />
         <Route path="/tables/pro/tableeditable" component={TableEditable} />
         <Route path="/tables/pro/table-styles" component={TableStylesPagePro} />
         <Route path="/tables/pro/datatable-csv" component={DatatableCsvPage} />

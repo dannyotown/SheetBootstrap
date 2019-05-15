@@ -1,18 +1,17 @@
 import React, { Component, Fragment, useState, useEffect, PureComponent } from 'react';
-import PropTypes, { PropTypes as PropTypes$1 } from 'prop-types';
 import classNames from 'classnames';
 import { Transition, CSSTransition } from 'react-transition-group';
 import ReactDOM from 'react-dom';
-import { Popper, Reference, Manager } from 'react-popper';
+import { Popper as Popper$1, Reference, Manager } from 'react-popper';
 import NumericInput from 'react-numeric-input';
-import { NavLink } from 'react-router-dom';
-export { cssTransition, toast, ToastContainer } from 'react-toastify';
+import { NavLink as NavLink$1 } from 'react-router-dom';
 import MomentUtils from '@date-io/moment';
-import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
+import { MuiPickersUtilsProvider, DatePicker as DatePicker$1 } from 'material-ui-pickers';
 import moment from 'moment';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 import raf from 'raf';
+export { toast as MDBToast, ToastContainer as MDBToastContainer, cssTransition as MDBcssTransition, ToastContainer, cssTransition, toast } from 'react-toastify';
 import { Link } from 'react-scroll';
 
 function _typeof(obj) {
@@ -244,6 +243,88 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance");
 }
 
+function createCommonjsModule(fn, module) {
+	return module = { exports: {} }, fn(module, module.exports), module.exports;
+}
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
+
+var ReactPropTypesSecret_1 = ReactPropTypesSecret;
+
+function emptyFunction() {}
+function emptyFunctionWithReset() {}
+emptyFunctionWithReset.resetWarningCache = emptyFunction;
+
+var factoryWithThrowingShims = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret_1) {
+      // It is still safe when called from React.
+      return;
+    }
+    var err = new Error(
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+    err.name = 'Invariant Violation';
+    throw err;
+  }  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  }  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    elementType: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim,
+    exact: getShim,
+
+    checkPropTypes: emptyFunctionWithReset,
+    resetWarningCache: emptyFunction
+  };
+
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
+var propTypes = createCommonjsModule(function (module) {
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+{
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = factoryWithThrowingShims();
+}
+});
+
 var Animation =
 /*#__PURE__*/
 function (_Component) {
@@ -393,13 +474,13 @@ function (_Component) {
 }(Component);
 
 Animation.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  type: PropTypes.string,
-  delay: PropTypes.string,
-  count: PropTypes.number,
-  onAnimationEnd: PropTypes.func,
-  onAnimationStart: PropTypes.func
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  type: propTypes.string,
+  delay: propTypes.string,
+  count: propTypes.number,
+  onAnimationEnd: propTypes.func,
+  onAnimationStart: propTypes.func
 };
 Animation.defaultProps = {
   tag: "div",
@@ -463,7 +544,7 @@ function (_Component) {
 
       if (dismiss) {
         alertComponent = React.createElement(Transition, {
-          in: this.state.isOpen,
+          "in": this.state.isOpen,
           timeout: 150,
           unmountOnExit: true,
           onExit: function onExit(node) {
@@ -502,10 +583,10 @@ Alert.defaultProps = {
   color: "primary"
 };
 Alert.propTypes = {
-  className: PropTypes.string,
-  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']),
-  onClose: PropTypes.func,
-  onClosed: PropTypes.func
+  className: propTypes.string,
+  color: propTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']),
+  onClose: propTypes.func,
+  onClosed: propTypes.func
 };
 
 var Badge =
@@ -546,10 +627,10 @@ Badge.defaultProps = {
   pill: false
 };
 Badge.propTypes = {
-  color: PropTypes.string,
-  pill: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string
+  color: propTypes.string,
+  pill: propTypes.bool,
+  children: propTypes.node,
+  className: propTypes.string
 };
 
 function omit(obj, omitKeys) {
@@ -621,12 +702,12 @@ var Breadcrumb = function Breadcrumb(props) {
 };
 
 Breadcrumb.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  color: PropTypes.string,
-  light: PropTypes.bool,
-  uppercase: PropTypes.bool,
-  bold: PropTypes.bool
+  children: propTypes.node,
+  className: propTypes.string,
+  color: propTypes.string,
+  light: propTypes.bool,
+  uppercase: propTypes.bool,
+  bold: propTypes.bool
 };
 
 var Fa =
@@ -677,25 +758,25 @@ function (_React$Component) {
 }(React.Component);
 
 Fa.propTypes = {
-  icon: PropTypes.string.isRequired,
-  border: PropTypes.bool,
-  brand: PropTypes.bool,
-  className: PropTypes.string,
-  fab: PropTypes.bool,
-  fal: PropTypes.bool,
-  far: PropTypes.bool,
-  fixed: PropTypes.bool,
-  flip: PropTypes.string,
-  inverse: PropTypes.string,
-  light: PropTypes.bool,
-  list: PropTypes.bool,
-  pull: PropTypes.string,
-  pulse: PropTypes.bool,
-  regular: PropTypes.bool,
-  rotate: PropTypes.string,
-  spin: PropTypes.bool,
-  size: PropTypes.string,
-  stack: PropTypes.string
+  icon: propTypes.string.isRequired,
+  border: propTypes.bool,
+  brand: propTypes.bool,
+  className: propTypes.string,
+  fab: propTypes.bool,
+  fal: propTypes.bool,
+  far: propTypes.bool,
+  fixed: propTypes.bool,
+  flip: propTypes.string,
+  inverse: propTypes.string,
+  light: propTypes.bool,
+  list: propTypes.bool,
+  pull: propTypes.string,
+  pulse: propTypes.bool,
+  regular: propTypes.bool,
+  rotate: propTypes.string,
+  spin: propTypes.bool,
+  size: propTypes.string,
+  stack: propTypes.string
 };
 Fa.defaultProps = {
   border: false,
@@ -791,17 +872,17 @@ var BreadcrumbItem = function BreadcrumbItem(props) {
 };
 
 BreadcrumbItem.propTypes = {
-  active: PropTypes.bool,
-  appendIcon: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  bold: PropTypes.bool,
-  icon: PropTypes.string,
-  iconBrand: PropTypes.bool,
-  iconClassName: PropTypes.string,
-  iconLight: PropTypes.bool,
-  iconRegular: PropTypes.bool,
-  iconSize: PropTypes.string
+  active: propTypes.bool,
+  appendIcon: propTypes.bool,
+  children: propTypes.node,
+  className: propTypes.string,
+  bold: propTypes.bool,
+  icon: propTypes.string,
+  iconBrand: propTypes.bool,
+  iconClassName: propTypes.string,
+  iconLight: propTypes.bool,
+  iconRegular: propTypes.bool,
+  iconSize: propTypes.string
 };
 BreadcrumbItem.defaultProps = {
   active: false,
@@ -897,11 +978,11 @@ function (_React$Component) {
 }(React.Component);
 
 Waves.propTypes = {
-  outline: PropTypes.bool,
-  flat: PropTypes.bool,
-  animate: PropTypes.bool,
-  cursorPos: PropTypes.object,
-  children: PropTypes.node
+  outline: propTypes.bool,
+  flat: propTypes.bool,
+  animate: propTypes.bool,
+  cursorPos: propTypes.object,
+  children: propTypes.node
 };
 
 var Button =
@@ -998,28 +1079,28 @@ Button.defaultProps = {
   tag: "button"
 };
 Button.propTypes = {
-  active: PropTypes.bool,
-  action: PropTypes.bool,
-  block: PropTypes.bool,
-  color: PropTypes.string,
-  disabled: PropTypes.bool,
-  download: PropTypes.string,
-  gradient: PropTypes.string,
-  role: PropTypes.string,
-  type: PropTypes.string,
-  outline: PropTypes.bool,
-  rounded: PropTypes.bool,
-  circle: PropTypes.bool,
-  floating: PropTypes.bool,
-  flat: PropTypes.bool,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  onClick: PropTypes.func,
-  size: PropTypes.string,
-  social: PropTypes.string,
-  children: PropTypes.node,
-  tag: PropTypes.string,
-  target: PropTypes.string,
-  className: PropTypes.string
+  active: propTypes.bool,
+  action: propTypes.bool,
+  block: propTypes.bool,
+  color: propTypes.string,
+  disabled: propTypes.bool,
+  download: propTypes.string,
+  gradient: propTypes.string,
+  role: propTypes.string,
+  type: propTypes.string,
+  outline: propTypes.bool,
+  rounded: propTypes.bool,
+  circle: propTypes.bool,
+  floating: propTypes.bool,
+  flat: propTypes.bool,
+  innerRef: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  onClick: propTypes.func,
+  size: propTypes.string,
+  social: propTypes.string,
+  children: propTypes.node,
+  tag: propTypes.string,
+  target: propTypes.string,
+  className: propTypes.string
 };
 
 var css$2 = ".btn-group-vertical>.btn,\n.btn-group-vertical>.btn+.btn-group,\n.btn-group-vertical>.btn-group+.btn,\n.btn-group-vertical>.btn-group+.btn-group {\n  margin-left: 0px;\n}\n\n.btn-group-lg>.btn {\n  font-size: 0.9rem;\n  padding: 1rem 2.4rem;\n}\n\n.btn-group-sm>.btn {\n  font-size: 0.6rem;\n  padding: 0.5rem 1.6rem;\n}\n\n.btn-floating.btn.btn-sm,\n.btn-floating.btn.btn-lg {\n  padding: 0;\n}\n";
@@ -1056,12 +1137,12 @@ function (_React$Component) {
 }(React.Component);
 
 ButtonGroup.propTypes = {
-  "aria-label": PropTypes.string,
-  className: PropTypes.string,
-  role: PropTypes.string,
-  size: PropTypes.string,
-  children: PropTypes.node,
-  vertical: PropTypes.bool
+  "aria-label": propTypes.string,
+  className: propTypes.string,
+  role: propTypes.string,
+  size: propTypes.string,
+  children: propTypes.node,
+  vertical: propTypes.bool
 };
 ButtonGroup.defaultProps = {
   role: "group"
@@ -1096,10 +1177,10 @@ function (_React$Component) {
 }(React.Component);
 
 ButtonToolbar.propTypes = {
-  "aria-label": PropTypes.string,
-  className: PropTypes.string,
-  children: PropTypes.node,
-  role: PropTypes.string
+  "aria-label": propTypes.string,
+  className: propTypes.string,
+  children: propTypes.node,
+  role: propTypes.string
 };
 ButtonToolbar.defaultProps = {
   role: "toolbar"
@@ -1148,10 +1229,10 @@ function (_Component) {
 }(Component);
 
 Card.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  color: PropTypes.string,
-  border: PropTypes.string
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  color: propTypes.string,
+  border: propTypes.string
 };
 Card.defaultProps = {
   tag: "div"
@@ -1188,9 +1269,9 @@ function (_Component) {
 }(Component);
 
 CardBody.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  cascade: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  cascade: propTypes.bool
 };
 CardBody.defaultProps = {
   tag: "div"
@@ -1240,14 +1321,14 @@ function (_Component) {
 }(Component);
 
 CardFooter.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  color: PropTypes.string,
-  text: PropTypes.string,
-  border: PropTypes.string,
-  transparent: PropTypes.bool,
-  small: PropTypes.bool,
-  muted: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  color: propTypes.string,
+  text: propTypes.string,
+  border: propTypes.string,
+  transparent: propTypes.bool,
+  small: propTypes.bool,
+  muted: propTypes.bool
 };
 CardFooter.defaultProps = {
   tag: "div"
@@ -1285,10 +1366,10 @@ function (_Component) {
 }(Component);
 
 CardGroup.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  deck: PropTypes.bool,
-  column: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  deck: propTypes.bool,
+  column: propTypes.bool
 };
 CardGroup.defaultProps = {
   tag: "div"
@@ -1328,12 +1409,12 @@ function (_Component) {
 }(Component);
 
 CardHeader.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  color: PropTypes.string,
-  text: PropTypes.string,
-  border: PropTypes.string,
-  transparent: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  color: propTypes.string,
+  text: propTypes.string,
+  border: propTypes.string,
+  transparent: propTypes.bool
 };
 CardHeader.defaultProps = {
   tag: "div"
@@ -1372,11 +1453,11 @@ function (_React$Component) {
 }(React.Component);
 
 Mask.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  overlay: PropTypes.string,
-  pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  tag: PropTypes.string
+  children: propTypes.node,
+  className: propTypes.string,
+  overlay: propTypes.string,
+  pattern: propTypes.oneOfType([propTypes.string, propTypes.number]),
+  tag: propTypes.string
 };
 Mask.defaultProps = {
   className: "",
@@ -1428,7 +1509,8 @@ function (_React$Component) {
           Tag = _this$props.tag,
           waves = _this$props.waves,
           zoom = _this$props.zoom,
-          attributes = _objectWithoutProperties(_this$props, ["cascade", "children", "className", "hover", "rounded", "src", "tag", "waves", "zoom"]);
+          fixed = _this$props.fixed,
+          attributes = _objectWithoutProperties(_this$props, ["cascade", "children", "className", "hover", "rounded", "src", "tag", "waves", "zoom", "fixed"]);
 
       var classes = classNames("view", rounded && "rounded", zoom && "zoom", hover && "overlay", cascade && "view-cascade", waves ? "Ripple-parent" : false, className);
       var viewStyle = src ? {
@@ -1436,7 +1518,8 @@ function (_React$Component) {
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center center",
-        height: "100vh"
+        height: "100vh",
+        backgroundAttachment: fixed ? "fixed" : null
       } : {};
       return React.createElement(Tag, _extends({}, attributes, {
         className: classes,
@@ -1463,15 +1546,15 @@ View.defaultProps = {
   zoom: false
 };
 View.propTypes = {
-  cascade: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  hover: PropTypes.bool,
-  rounded: PropTypes.bool,
-  src: PropTypes.string,
-  tag: PropTypes.string,
-  waves: PropTypes.bool,
-  zoom: PropTypes.bool
+  cascade: propTypes.bool,
+  children: propTypes.node,
+  className: propTypes.string,
+  hover: propTypes.bool,
+  rounded: propTypes.bool,
+  src: propTypes.string,
+  tag: propTypes.string,
+  waves: propTypes.bool,
+  zoom: propTypes.bool
 };
 
 var CardImage =
@@ -1548,16 +1631,16 @@ function (_Component) {
 }(Component);
 
 CardImage.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  zoom: PropTypes.bool,
-  waves: PropTypes.bool,
-  className: PropTypes.string,
-  cascade: PropTypes.bool,
-  hover: PropTypes.bool,
-  overlay: PropTypes.string,
-  top: PropTypes.bool,
-  src: PropTypes.string,
-  children: PropTypes.node
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  zoom: propTypes.bool,
+  waves: propTypes.bool,
+  className: propTypes.string,
+  cascade: propTypes.bool,
+  hover: propTypes.bool,
+  overlay: propTypes.string,
+  top: propTypes.bool,
+  src: propTypes.string,
+  children: propTypes.node
 };
 CardImage.defaultProps = {
   tag: "img",
@@ -1608,10 +1691,10 @@ function (_Component) {
 }(Component);
 
 CardText.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  muted: PropTypes.bool,
-  small: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  muted: propTypes.bool,
+  small: propTypes.bool
 };
 CardText.defaultProps = {
   tag: "p"
@@ -1648,9 +1731,9 @@ function (_Component) {
 }(Component);
 
 CardTitle.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  sub: PropTypes.bool,
-  className: PropTypes.string
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  sub: propTypes.bool,
+  className: propTypes.string
 };
 CardTitle.defaultProps = {
   tag: "h4",
@@ -1722,14 +1805,14 @@ function (_Component) {
 }(Component);
 
 Control.propTypes = {
-  onClick: PropTypes.any,
-  direction: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  iconLeft: PropTypes.bool,
-  iconRight: PropTypes.bool,
-  testimonial: PropTypes.bool,
-  multiItem: PropTypes.bool
+  onClick: propTypes.any,
+  direction: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  iconLeft: propTypes.bool,
+  iconRight: propTypes.bool,
+  testimonial: propTypes.bool,
+  multiItem: propTypes.bool
 };
 Control.defaultProps = {
   tag: "a"
@@ -1765,8 +1848,8 @@ function (_Component) {
 }(Component);
 
 CarouselIndicators.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string
+  children: propTypes.node,
+  className: propTypes.string
 };
 CarouselIndicators.defaultProps = {
   className: ""
@@ -1809,11 +1892,11 @@ function (_Component) {
 }(Component);
 
 CarouselIndicator.propTypes = {
-  active: PropTypes.bool.isRequired,
-  alt: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  img: PropTypes.string
+  active: propTypes.bool.isRequired,
+  alt: propTypes.string,
+  children: propTypes.node,
+  className: propTypes.string,
+  img: propTypes.string
 };
 CarouselIndicator.defaultProps = {
   alt: "Carousel thumbnail",
@@ -2016,18 +2099,18 @@ function (_Component) {
 }(Component);
 
 Carousel.propTypes = {
-  activeItem: PropTypes.number,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node,
-  multiItem: PropTypes.bool,
-  interval: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]),
-  thumbnails: PropTypes.bool,
-  testimonial: PropTypes.bool,
-  showControls: PropTypes.bool,
-  showIndicators: PropTypes.bool,
-  slide: PropTypes.bool,
-  length: PropTypes.number
+  activeItem: propTypes.number,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node,
+  multiItem: propTypes.bool,
+  interval: propTypes.oneOfType([propTypes.number, propTypes.bool]),
+  thumbnails: propTypes.bool,
+  testimonial: propTypes.bool,
+  showControls: propTypes.bool,
+  showIndicators: propTypes.bool,
+  slide: propTypes.bool,
+  length: propTypes.number
 };
 Carousel.defaultProps = {
   tag: 'div',
@@ -2036,9 +2119,9 @@ Carousel.defaultProps = {
   showIndicators: true
 };
 Carousel.childContextTypes = {
-  activeItem: PropTypes.any,
-  length: PropTypes.any,
-  slide: PropTypes.any
+  activeItem: propTypes.any,
+  length: propTypes.any,
+  slide: propTypes.any
 };
 
 var CarouselCaption =
@@ -2072,10 +2155,10 @@ function (_Component) {
 }(Component);
 
 CarouselCaption.propTypes = {
-  active: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node
+  active: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node
 };
 CarouselCaption.defaultProps = {
   tag: "div"
@@ -2121,17 +2204,17 @@ function (_Component) {
 }(Component);
 
 CarouselInner.propTypes = {
-  childrenCount: PropTypes.any,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  active: PropTypes.bool,
-  children: PropTypes.node
+  childrenCount: propTypes.any,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  active: propTypes.bool,
+  children: propTypes.node
 };
 CarouselInner.defaultProps = {
   tag: "div"
 };
 CarouselInner.contextTypes = {
-  childrenCount: PropTypes.any
+  childrenCount: propTypes.any
 };
 
 var CarouselItem =
@@ -2210,19 +2293,19 @@ function (_Component) {
 }(Component);
 
 CarouselItem.propTypes = {
-  active: PropTypes.bool,
-  itemId: PropTypes.any,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node
+  active: propTypes.bool,
+  itemId: propTypes.any,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node
 };
 CarouselItem.defaultProps = {
   tag: "div"
 };
 CarouselItem.contextTypes = {
-  activeItem: PropTypes.any,
-  length: PropTypes.any,
-  slide: PropTypes.any
+  activeItem: propTypes.any,
+  length: propTypes.any,
+  slide: propTypes.any
 };
 
 var Col =
@@ -2264,17 +2347,17 @@ function (_Component) {
 }(Component);
 
 Col.propTypes = {
-  size: PropTypes.string,
-  xs: PropTypes.string,
-  sm: PropTypes.string,
-  md: PropTypes.string,
-  lg: PropTypes.string,
-  xl: PropTypes.string,
-  top: PropTypes.bool,
-  bottom: PropTypes.bool,
-  middle: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  size: propTypes.string,
+  xs: propTypes.string,
+  sm: propTypes.string,
+  md: propTypes.string,
+  lg: propTypes.string,
+  xl: propTypes.string,
+  top: propTypes.bool,
+  bottom: propTypes.bool,
+  middle: propTypes.bool,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string
 };
 Col.defaultProps = {
   tag: "div",
@@ -2454,17 +2537,17 @@ function (_Component) {
 }(Component);
 
 Collapse.propTypes = {
-  isOpen: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  id: PropTypes.string,
-  className: PropTypes.node,
-  children: PropTypes.node,
-  navbar: PropTypes.bool,
-  delay: PropTypes.oneOfType([PropTypes.shape({
-    show: PropTypes.number,
-    hide: PropTypes.number
-  }), PropTypes.number]),
-  onOpened: PropTypes.func,
-  onClosed: PropTypes.func
+  isOpen: propTypes.oneOfType([propTypes.string, propTypes.bool]),
+  id: propTypes.string,
+  className: propTypes.node,
+  children: propTypes.node,
+  navbar: propTypes.bool,
+  delay: propTypes.oneOfType([propTypes.shape({
+    show: propTypes.number,
+    hide: propTypes.number
+  }), propTypes.number]),
+  onOpened: propTypes.func,
+  onClosed: propTypes.func
 };
 Collapse.defaultProps = {
   isOpen: "",
@@ -2504,9 +2587,9 @@ function (_Component) {
 }(Component);
 
 Container.propTypes = {
-  fluid: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  fluid: propTypes.bool,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string
 };
 Container.defaultProps = {
   tag: "div",
@@ -2587,25 +2670,25 @@ function (_React$Component) {
 }(React.Component);
 
 Table.propTypes = {
-  autoWidth: PropTypes.bool,
-  bordered: PropTypes.bool,
-  borderless: PropTypes.bool,
-  btn: PropTypes.bool,
-  children: PropTypes.node,
-  dark: PropTypes.bool,
-  fixed: PropTypes.bool,
-  theadColor: PropTypes.string,
-  hover: PropTypes.bool,
-  maxHeight: PropTypes.string,
-  responsive: PropTypes.bool,
-  responsiveSm: PropTypes.bool,
-  responsiveMd: PropTypes.bool,
-  responsiveLg: PropTypes.bool,
-  responsiveXl: PropTypes.bool,
-  scrollY: PropTypes.bool,
-  small: PropTypes.bool,
-  striped: PropTypes.bool,
-  className: PropTypes.string
+  autoWidth: propTypes.bool,
+  bordered: propTypes.bool,
+  borderless: propTypes.bool,
+  btn: propTypes.bool,
+  children: propTypes.node,
+  dark: propTypes.bool,
+  fixed: propTypes.bool,
+  theadColor: propTypes.string,
+  hover: propTypes.bool,
+  maxHeight: propTypes.string,
+  responsive: propTypes.bool,
+  responsiveSm: propTypes.bool,
+  responsiveMd: propTypes.bool,
+  responsiveLg: propTypes.bool,
+  responsiveXl: propTypes.bool,
+  scrollY: propTypes.bool,
+  small: propTypes.bool,
+  striped: propTypes.bool,
+  className: propTypes.string
 };
 
 var DataTableHead = function DataTableHead(props) {
@@ -2643,13 +2726,13 @@ var DataTableHead = function DataTableHead(props) {
 };
 
 DataTableHead.propTypes = {
-  color: PropTypes.string,
-  columns: PropTypes.arrayOf(PropTypes.object),
-  handleSort: PropTypes.func,
-  scrollX: PropTypes.bool,
-  scrollY: PropTypes.bool,
-  sortable: PropTypes.bool,
-  textWhite: PropTypes.bool
+  color: propTypes.string,
+  columns: propTypes.arrayOf(propTypes.object),
+  handleSort: propTypes.func,
+  scrollX: propTypes.bool,
+  scrollY: propTypes.bool,
+  sortable: propTypes.bool,
+  textWhite: propTypes.bool
 };
 DataTableHead.defaultProps = {
   scrollX: false,
@@ -2692,10 +2775,10 @@ var TableBody = function TableBody(props) {
 };
 
 TableBody.propTypes = {
-  children: PropTypes.node,
-  color: PropTypes.string,
-  rows: PropTypes.arrayOf(PropTypes.object),
-  textWhite: PropTypes.bool
+  children: propTypes.node,
+  color: propTypes.string,
+  rows: propTypes.arrayOf(propTypes.object),
+  textWhite: propTypes.bool
 };
 TableBody.defaultProps = {
   textWhite: false
@@ -2722,10 +2805,10 @@ var TableFoot = function TableFoot(props) {
 };
 
 TableFoot.propTypes = {
-  children: PropTypes.node,
-  color: PropTypes.string,
-  columns: PropTypes.arrayOf(PropTypes.object),
-  textWhite: PropTypes.bool
+  children: propTypes.node,
+  color: propTypes.string,
+  columns: propTypes.arrayOf(propTypes.object),
+  textWhite: propTypes.bool
 };
 TableFoot.defaultProps = {
   textWhite: false
@@ -2793,29 +2876,29 @@ var DataTableTable = function DataTableTable(props) {
 };
 
 DataTableTable.propTypes = {
-  autoWidth: PropTypes.bool.isRequired,
-  bordered: PropTypes.bool.isRequired,
-  borderless: PropTypes.bool.isRequired,
-  btn: PropTypes.bool.isRequired,
-  dark: PropTypes.bool.isRequired,
-  fixed: PropTypes.bool.isRequired,
-  hover: PropTypes.bool.isRequired,
-  handleSort: PropTypes.func.isRequired,
-  responsive: PropTypes.bool.isRequired,
-  responsiveSm: PropTypes.bool.isRequired,
-  responsiveMd: PropTypes.bool.isRequired,
-  responsiveLg: PropTypes.bool.isRequired,
-  responsiveXl: PropTypes.bool.isRequired,
-  sortable: PropTypes.bool.isRequired,
-  small: PropTypes.bool.isRequired,
-  striped: PropTypes.bool.isRequired,
-  theadColor: PropTypes.string.isRequired,
-  theadTextWhite: PropTypes.bool.isRequired,
-  tbodyColor: PropTypes.string.isRequired,
-  tbodyTextWhite: PropTypes.bool.isRequired,
-  columns: PropTypes.arrayOf(PropTypes.object),
-  rows: PropTypes.arrayOf(PropTypes.object),
-  children: PropTypes.node
+  autoWidth: propTypes.bool.isRequired,
+  bordered: propTypes.bool.isRequired,
+  borderless: propTypes.bool.isRequired,
+  btn: propTypes.bool.isRequired,
+  dark: propTypes.bool.isRequired,
+  fixed: propTypes.bool.isRequired,
+  hover: propTypes.bool.isRequired,
+  handleSort: propTypes.func.isRequired,
+  responsive: propTypes.bool.isRequired,
+  responsiveSm: propTypes.bool.isRequired,
+  responsiveMd: propTypes.bool.isRequired,
+  responsiveLg: propTypes.bool.isRequired,
+  responsiveXl: propTypes.bool.isRequired,
+  sortable: propTypes.bool.isRequired,
+  small: propTypes.bool.isRequired,
+  striped: propTypes.bool.isRequired,
+  theadColor: propTypes.string.isRequired,
+  theadTextWhite: propTypes.bool.isRequired,
+  tbodyColor: propTypes.string.isRequired,
+  tbodyTextWhite: propTypes.bool.isRequired,
+  columns: propTypes.arrayOf(propTypes.object),
+  rows: propTypes.arrayOf(propTypes.object),
+  children: propTypes.node
 };
 
 var DataTableTableScroll = function DataTableTableScroll(props) {
@@ -2942,48 +3025,48 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
 };
 
 DataTableTableScroll.propTypes = {
-  autoWidth: PropTypes.bool.isRequired,
-  bordered: PropTypes.bool.isRequired,
-  borderless: PropTypes.bool.isRequired,
-  btn: PropTypes.bool.isRequired,
-  dark: PropTypes.bool.isRequired,
-  fixed: PropTypes.bool.isRequired,
-  hover: PropTypes.bool.isRequired,
-  handleSort: PropTypes.func.isRequired,
-  handleTableBodyScroll: PropTypes.func.isRequired,
-  responsive: PropTypes.bool.isRequired,
-  responsiveSm: PropTypes.bool.isRequired,
-  responsiveMd: PropTypes.bool.isRequired,
-  responsiveLg: PropTypes.bool.isRequired,
-  responsiveXl: PropTypes.bool.isRequired,
-  sortable: PropTypes.bool.isRequired,
-  small: PropTypes.bool.isRequired,
-  striped: PropTypes.bool.isRequired,
-  theadColor: PropTypes.string.isRequired,
-  theadTextWhite: PropTypes.bool.isRequired,
-  tbodyColor: PropTypes.string.isRequired,
-  tbodyTextWhite: PropTypes.bool.isRequired,
-  translateScrollHead: PropTypes.number.isRequired,
-  columns: PropTypes.arrayOf(PropTypes.object),
-  rows: PropTypes.arrayOf(PropTypes.object),
-  children: PropTypes.node,
-  maxHeight: PropTypes.string,
-  scrollX: PropTypes.bool,
-  scrollY: PropTypes.bool
+  autoWidth: propTypes.bool.isRequired,
+  bordered: propTypes.bool.isRequired,
+  borderless: propTypes.bool.isRequired,
+  btn: propTypes.bool.isRequired,
+  dark: propTypes.bool.isRequired,
+  fixed: propTypes.bool.isRequired,
+  hover: propTypes.bool.isRequired,
+  handleSort: propTypes.func.isRequired,
+  handleTableBodyScroll: propTypes.func.isRequired,
+  responsive: propTypes.bool.isRequired,
+  responsiveSm: propTypes.bool.isRequired,
+  responsiveMd: propTypes.bool.isRequired,
+  responsiveLg: propTypes.bool.isRequired,
+  responsiveXl: propTypes.bool.isRequired,
+  sortable: propTypes.bool.isRequired,
+  small: propTypes.bool.isRequired,
+  striped: propTypes.bool.isRequired,
+  theadColor: propTypes.string.isRequired,
+  theadTextWhite: propTypes.bool.isRequired,
+  tbodyColor: propTypes.string.isRequired,
+  tbodyTextWhite: propTypes.bool.isRequired,
+  translateScrollHead: propTypes.number.isRequired,
+  columns: propTypes.arrayOf(propTypes.object),
+  rows: propTypes.arrayOf(propTypes.object),
+  children: propTypes.node,
+  maxHeight: propTypes.string,
+  scrollX: propTypes.bool,
+  scrollY: propTypes.bool
 };
 
-var ControlledSelectInput = function ControlledSelectInput(_ref) {
+var ControlledSelectInput = React.forwardRef(function (_ref, inputRef) {
   var value = _ref.value;
   return React.createElement("input", {
     type: "text",
+    ref: inputRef,
     readOnly: true,
     value: value,
     className: "select-dropdown"
   });
-};
-
+});
 ControlledSelectInput.propTypes = {
-  value: PropTypes.string
+  value: propTypes.string
 };
 
 var Input =
@@ -3070,6 +3153,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
+          background = _this$props.background,
           children = _this$props.children,
           className = _this$props.className,
           containerClass = _this$props.containerClass,
@@ -3098,7 +3182,7 @@ function (_React$Component) {
           validate = _this$props.validate,
           value = _this$props.value,
           valueDefault = _this$props.valueDefault,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "containerClass", "disabled", "error", "filled", "gap", "getValue", "group", "hint", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "id", "inputRef", "outline", "label", "labelClass", "size", "success", "tag", "type", "validate", "value", "valueDefault"]);
+          attributes = _objectWithoutProperties(_this$props, ["background", "children", "className", "containerClass", "disabled", "error", "filled", "gap", "getValue", "group", "hint", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "id", "inputRef", "outline", "label", "labelClass", "size", "success", "tag", "type", "validate", "value", "valueDefault"]);
 
       var isNotEmpty = !!this.state.innerValue || !!hint || this.state.isFocused;
       var Tag = "";
@@ -3115,7 +3199,7 @@ function (_React$Component) {
 
       attributes.disabled = disabled;
       var classes = classNames(formControlClass, size ? "form-control-".concat(size) : false, validate ? "validate" : false, filled ? "filled-in" : false, gap ? "with-gap" : false, type === "checkbox" ? gap ? false : "form-check-input" : false, type === "radio" ? "form-check-input" : false, className);
-      var containerClassFix = classNames(type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form", group ? "form-group" : false, size ? "form-".concat(size) : false, outline && 'md-outline', containerClass);
+      var containerClassFix = classNames(type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form", group ? "form-group" : false, size ? "form-".concat(size) : false, outline && 'md-outline', background && 'md-bg', containerClass);
       var iconClassFix = classNames(isNotEmpty && this.state.isFocused ? "active" : false, iconClass, "prefix");
       var labelClassFix = classNames(isNotEmpty ? "active" : false, disabled ? "disabled" : false, type === "checkbox" ? "form-check-label mr-5" : false, type === "radio" ? "form-check-label mr-5" : false, labelClass);
       return React.createElement("div", {
@@ -3164,38 +3248,38 @@ function (_React$Component) {
 }(React.Component);
 
 Input.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  containerClass: PropTypes.string,
-  disabled: PropTypes.bool,
-  error: PropTypes.string,
-  filled: PropTypes.bool,
-  gap: PropTypes.bool,
-  getValue: PropTypes.func,
-  group: PropTypes.bool,
-  hint: PropTypes.string,
-  icon: PropTypes.string,
-  iconBrand: PropTypes.bool,
-  iconClass: PropTypes.string,
-  iconLight: PropTypes.bool,
-  iconRegular: PropTypes.bool,
-  iconSize: PropTypes.string,
-  id: PropTypes.string,
-  inputRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
-  labelClass: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  onInput: PropTypes.func,
-  outline: PropTypes.bool,
-  size: PropTypes.string,
-  success: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  type: PropTypes.string,
-  validate: PropTypes.bool,
-  value: PropTypes.string,
-  valueDefault: PropTypes.string
+  className: propTypes.string,
+  children: propTypes.node,
+  containerClass: propTypes.string,
+  disabled: propTypes.bool,
+  error: propTypes.string,
+  filled: propTypes.bool,
+  gap: propTypes.bool,
+  getValue: propTypes.func,
+  group: propTypes.bool,
+  hint: propTypes.string,
+  icon: propTypes.string,
+  iconBrand: propTypes.bool,
+  iconClass: propTypes.string,
+  iconLight: propTypes.bool,
+  iconRegular: propTypes.bool,
+  iconSize: propTypes.string,
+  id: propTypes.string,
+  inputRef: propTypes.oneOfType([propTypes.object, propTypes.func]),
+  label: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
+  labelClass: propTypes.string,
+  onBlur: propTypes.func,
+  onChange: propTypes.func,
+  onFocus: propTypes.func,
+  onInput: propTypes.func,
+  outline: propTypes.bool,
+  size: propTypes.string,
+  success: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  type: propTypes.string,
+  validate: propTypes.bool,
+  value: propTypes.string,
+  valueDefault: propTypes.string
 };
 Input.defaultProps = {
   className: "",
@@ -3232,14 +3316,22 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
       selectOption = _ref.selectOption,
       text = _ref.text,
       value = _ref.value,
-      separator = _ref.separator;
-  var classes = classNames((disabled || separator) && "disabled", separator && 'optgroup', checked && "active");
+      separator = _ref.separator,
+      isFocused = _ref.isFocused,
+      focusShadow = _ref.focusShadow,
+      focusBackgroundColor = _ref.focusBackgroundColor;
+  var classes = classNames((disabled || separator) && 'disabled', separator && 'optgroup', checked && 'active');
+  var focusedStyles = {
+    backgroundColor: isFocused ? focusBackgroundColor : null,
+    boxShadow: isFocused ? focusShadow : null
+  };
   return React.createElement("li", {
     "data-multiple": multiple,
     className: classes,
     onClick: function onClick() {
       return selectOption(value);
-    }
+    },
+    style: focusedStyles
   }, icon && React.createElement("img", {
     src: icon,
     alt: "",
@@ -3256,21 +3348,28 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
     onChange: function onChange() {}
   }), !separator && React.createElement("label", {
     style: {
-      height: "10px"
+      height: '10px'
     },
     "data-multiple": multiple
   })), text ? text : value));
 };
 
 ControlledSelectOption.propTypes = {
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  separator: PropTypes.bool,
-  icon: PropTypes.string,
-  multiple: PropTypes.bool,
-  selectOption: PropTypes.func,
-  text: PropTypes.string,
-  value: PropTypes.string
+  checked: propTypes.bool,
+  disabled: propTypes.bool,
+  separator: propTypes.bool,
+  icon: propTypes.string,
+  multiple: propTypes.bool,
+  selectOption: propTypes.func,
+  text: propTypes.oneOfType([propTypes.object, propTypes.string]),
+  value: propTypes.string,
+  isFocused: propTypes.bool,
+  focusShadow: propTypes.string,
+  focusBackgroundColor: propTypes.string
+};
+ControlledSelectOption.defaultProps = {
+  focusShadow: 'inset 0px -17px 15px -16px rgba(0, 0, 0, 0.35)',
+  focusBackgroundColor: '#eee'
 };
 
 var ControlledSelectOptions =
@@ -3288,26 +3387,67 @@ function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "search", function (value) {
       var filteredOptions = _this.state.options.filter(function (option) {
         if (option.text) {
-          return option.text.toLowerCase().match(value.toLowerCase());
+          return option.text.toLowerCase().match(value.toLowerCase().trim());
         } else {
-          return option.value.toLowerCase().match(value.toLowerCase());
+          return option.value.toLowerCase().match(value.toLowerCase().trim());
         }
       });
 
+      _this.props.changeFocus(null);
+
       _this.setState({
         filteredOptions: filteredOptions
+      }, function () {
+        return _this.props.setFilteredOptions(_this.state.filteredOptions);
       });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleFocus", function (e) {
+      var focused = _this.props.focused;
+      (e.keyCode === 40 || e.keyCode === 38) && e.preventDefault(); //Enter
+
+      if (e.keyCode === 13 && focused !== null) {
+        focused === -1 ? _this.props.selectOption(_this.props.selectAllValue) : _this.props.selectOption(_this.state.filteredOptions[focused].value);
+      } //Esc
+
+
+      e.keyCode === 27 && _this.props.changeFocus(null); //Down
+
+      if (e.keyCode === 40) {
+        if (focused === null) {
+          _this.props.selectAll && _this.state.filteredOptions.length !== 1 ? _this.props.changeFocus(-1) : _this.props.changeFocus(0);
+        } else {
+          focused < _this.state.filteredOptions.length - 1 && _this.props.changeFocus(1);
+        }
+      } //Up
+
+
+      if (e.keyCode === 38) {
+        focused >= (_this.props.selectAll ? 0 : 1) && _this.state.filteredOptions.length > 1 && _this.props.changeFocus(-1);
+      }
     });
 
     _this.state = {
       filteredOptions: _this.props.options || [],
       options: _this.props.options || [],
-      searchValue: ""
+      searchValue: ''
     };
+    _this.inputRef = null;
     return _this;
   }
 
   _createClass(ControlledSelectOptions, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (this.props.inputRef.current) this.inputRef = this.props.inputRef.current;
+      this.inputRef.addEventListener('keydown', this.handleFocus);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.inputRef.removeEventListener('keydown', this.handleFocus);
+    }
+  }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
       if (prevState.options !== this.props.options) {
@@ -3320,26 +3460,39 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           multiple = _this$props.multiple,
           search = _this$props.search,
           searchLabel = _this$props.searchLabel,
           searchId = _this$props.searchId,
           selected = _this$props.selected,
-          selectOption = _this$props.selectOption;
-      var classes = classNames("dropdown-content", "select-dropdown", "fadeElement");
+          selectOption = _this$props.selectOption,
+          selectAll = _this$props.selectAll;
+      var classes = classNames('dropdown-content', 'select-dropdown', 'fadeElement');
       return React.createElement("ul", {
         className: classes
       }, search && React.createElement(Input, {
         label: searchLabel,
         id: searchId,
         getValue: this.search,
-        "data-search": "true"
+        "data-search": "true",
+        onKeyDown: this.handleFocus
       }), React.createElement(ControlledSelectOption, {
         checked: false,
         disabled: true,
         icon: null,
         value: selected
+      }), selectAll && multiple && this.state.filteredOptions.length > 1 && React.createElement(ControlledSelectOption, {
+        text: this.props.selectAllLabel,
+        value: this.props.selectAllValue,
+        checked: this.props.allChecked,
+        multiple: true,
+        selectOption: selectOption,
+        isFocused: this.props.focused === -1,
+        focusShadow: this.props.focusShadow,
+        focusBackgroundColor: this.props.focusBackgroundColor
       }), this.state.filteredOptions.map(function (option, index) {
         return React.createElement(ControlledSelectOption, {
           key: "".concat(option.value, "-").concat(index),
@@ -3350,7 +3503,10 @@ function (_Component) {
           text: option.text,
           value: option.value,
           separator: option.separator,
-          selectOption: selectOption
+          selectOption: selectOption,
+          isFocused: index === _this2.props.focused,
+          focusShadow: _this2.props.focusShadow,
+          focusBackgroundColor: _this2.props.focusBackgroundColor
         });
       }));
     }
@@ -3360,27 +3516,41 @@ function (_Component) {
 }(Component);
 
 ControlledSelectOptions.propTypes = {
-  selected: PropTypes.string.isRequired,
-  selectOption: PropTypes.func.isRequired,
-  multiple: PropTypes.bool,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    checked: PropTypes.bool,
-    separator: PropTypes.bool,
-    disabled: PropTypes.bool,
-    icon: PropTypes.string,
-    text: PropTypes.string,
-    value: PropTypes.string
+  selected: propTypes.string.isRequired,
+  selectOption: propTypes.func.isRequired,
+  multiple: propTypes.bool,
+  options: propTypes.arrayOf(propTypes.shape({
+    checked: propTypes.bool,
+    separator: propTypes.bool,
+    disabled: propTypes.bool,
+    icon: propTypes.string,
+    image: propTypes.string,
+    text: propTypes.oneOfType([propTypes.object, propTypes.string]),
+    value: propTypes.string
   })),
-  search: PropTypes.bool,
-  searchLabel: PropTypes.string,
-  searchId: PropTypes.string
+  search: propTypes.bool,
+  searchLabel: propTypes.string,
+  searchId: propTypes.string,
+  selectAllLabel: propTypes.string,
+  selectAllValue: propTypes.string,
+  allChecked: propTypes.bool,
+  focused: propTypes.number,
+  changeFocus: propTypes.func,
+  setFilteredOptions: propTypes.func,
+  inputRef: propTypes.shape({
+    current: propTypes.instanceOf(Element)
+  }),
+  focusShadow: propTypes.string,
+  focusBackgroundColor: propTypes.string
 };
 ControlledSelectOptions.defaultProps = {
   multiple: false,
   options: [],
   search: false,
-  searchLabel: "Search",
-  searchId: "selectSearchInput"
+  searchLabel: 'Search',
+  searchId: 'selectSearchInput',
+  selectAllLabel: 'Select All',
+  focused: null
 };
 
 var SelectContext = React.createContext();
@@ -3397,6 +3567,28 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
 
+<<<<<<< HEAD
+=======
+    _defineProperty(_assertThisInitialized(_this), "onDocumentClick", function (e) {
+      if (e.target.dataset.multiple === 'true' || e.target.dataset.search === 'true') {
+        return;
+      }
+
+      _this.closeDropdowns();
+
+      e.target.nextElementSibling && e.target.nextElementSibling.classList.add('fadeIn');
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "closeDropdowns", function () {
+      _this.changeFocus(null);
+
+      var dropdowns = document.querySelectorAll('.dropdown-content');
+      dropdowns.forEach(function (dropdown) {
+        return dropdown.classList.contains('fadeIn') && dropdown.classList.remove('fadeIn');
+      });
+    });
+
+>>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
     _defineProperty(_assertThisInitialized(_this), "computeValuesAndText", function (options) {
       var checkedOptions = options.filter(function (option) {
         return option.checked;
@@ -3410,15 +3602,16 @@ function (_React$Component) {
         return opt.value;
       });
       var checkedTexts = checkedOptions.map(function (opt) {
-        return opt.text ? opt.text : opt.value;
+        return opt.text && _typeof(opt.text) !== 'object' ? opt.text : opt.value;
       });
       return {
         selectValue: checkedValues,
-        selectTextContent: checkedTexts.length ? checkedTexts.join(", ") : _this.props.selected,
-        options: options
+        selectTextContent: checkedTexts.length ? checkedTexts.join(', ') : _this.props.selected,
+        allChecked: checkedOptions.length === _this.state.options.length
       };
     });
 
+<<<<<<< HEAD
     _defineProperty(_assertThisInitialized(_this), "renderPreselectedOptions", function () {
       return _this.setState(function (prevState) {
         return _this.computeValuesAndText(_toConsumableArray(prevState.options));
@@ -3427,26 +3620,69 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "triggerOptionChange", function (value, text) {
       Array.isArray(text) && (text = text.join(", "));
-
+=======
+    _defineProperty(_assertThisInitialized(_this), "setFilteredOptions", function (filteredOptions) {
       _this.setState({
-        selectValue: value,
-        selectTextContent: text
+        filteredOptions: filteredOptions
       });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "onClick", function (e) {
-      if (e.target.dataset.multiple === "true" || e.target.dataset.search === "true") return;
+    _defineProperty(_assertThisInitialized(_this), "setOptionStatus", function (option, status) {
+      option.checked = status;
+      return option;
+    });
+>>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
 
-      _this.closeDropdowns();
-
-      e.target.nextElementSibling && e.target.nextElementSibling.classList.add("fadeIn");
+    _defineProperty(_assertThisInitialized(_this), "applyFilteredOptionsChanges", function (options, filteredOptions) {
+      filteredOptions.forEach(function (filteredOption) {
+        var index = options.findIndex(function (option) {
+          return option.value === filteredOption.value;
+        });
+        filteredOption.checked !== options[index].checked && _this.setOptionStatus(options[index], filteredOption.checked);
+      });
+      return options;
     });
 
+<<<<<<< HEAD
+    _defineProperty(_assertThisInitialized(_this), "onClick", function (e) {
+      if (e.target.dataset.multiple === "true" || e.target.dataset.search === "true") return;
+=======
+    _defineProperty(_assertThisInitialized(_this), "changeFocus", function (value) {
+      switch (value) {
+        case null:
+          _this.setState(function (prevState) {
+            return prevState.focused !== value ? {
+              focused: null
+            } : null;
+          });
+>>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
+
+          break;
+
+        case 0:
+          _this.setState({
+            focused: 0
+          });
+
+<<<<<<< HEAD
     _defineProperty(_assertThisInitialized(_this), "closeDropdowns", function () {
       var dropdowns = document.querySelectorAll(".dropdown-content");
       dropdowns.forEach(function (dropdown) {
         return dropdown.classList.contains("fadeIn") && dropdown.classList.remove("fadeIn");
       });
+=======
+          break;
+
+        default:
+          _this.setState(function (prevState) {
+            return {
+              focused: prevState.focused + value
+            };
+          });
+
+          break;
+      }
+>>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
     });
 
     _defineProperty(_assertThisInitialized(_this), "selectOneOption", function (value) {
@@ -3456,38 +3692,83 @@ function (_React$Component) {
         var optionIndex = options.findIndex(function (option) {
           return option.value === value;
         });
-        options[optionIndex].checked = true;
+
+        _this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
+
         options.forEach(function (option, index) {
           return index !== optionIndex ? option.checked = false : false;
         });
-        return {
-          selectValue: [options[optionIndex].value],
-          selectTextContent: options[optionIndex].text ? options[optionIndex].text : options[optionIndex].value,
-          options: options
-        };
+        return _this.computeValuesAndText(options);
       });
     });
 
+<<<<<<< HEAD
     _defineProperty(_assertThisInitialized(_this), "selectMultipleOptions", function (value) {
+=======
+    _defineProperty(_assertThisInitialized(_this), "selectMultipleOption", function (value) {
+>>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
       _this.setState(function (prevState) {
         var options = _toConsumableArray(prevState.options);
 
         var optionIndex = options.findIndex(function (option) {
           return option.value === value;
         });
-        options[optionIndex].checked = !prevState.options[optionIndex].checked;
+
+        _this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
+
+        return _this.computeValuesAndText(options);
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "selectAllOptions", function () {
+      _this.setState(function (prevState) {
+        var options = _toConsumableArray(prevState.options);
+
+        var filteredOptions = _toConsumableArray(prevState.filteredOptions);
+
+        var areSomeUnchecked = filteredOptions.some(function (option) {
+          return option.checked === false;
+        });
+        areSomeUnchecked ? filteredOptions.map(function (option) {
+          return option.checked === false ? _this.setOptionStatus(option, true) : null;
+        }) : filteredOptions.map(function (option) {
+          return _this.setOptionStatus(option, false);
+        });
+
+        if (filteredOptions.length !== options.length) {
+          options = _this.applyFilteredOptionsChanges(options, filteredOptions);
+        }
+
         return _this.computeValuesAndText(options);
       });
     });
 
     _defineProperty(_assertThisInitialized(_this), "selectOption", function (value) {
       if (_this.props.multiple) {
-        _this.selectMultipleOptions(value);
+        value === _this.props.selectAllValue ? _this.selectAllOptions() : _this.selectMultipleOption(value);
       } else {
         _this.selectOneOption(value);
       }
     });
 
+<<<<<<< HEAD
+=======
+    _defineProperty(_assertThisInitialized(_this), "updateSelected", function (value) {
+      return _this.setState({
+        selectTextContent: value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "triggerOptionChange", function (value, text) {
+      Array.isArray(text) && (text = text.join(', '));
+
+      _this.setState({
+        selectValue: value,
+        selectTextContent: text
+      });
+    });
+
+>>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
     _defineProperty(_assertThisInitialized(_this), "returnComponentContent", function () {
       var _this$props = _this.props,
           className = _this$props.className,
@@ -3495,38 +3776,67 @@ function (_React$Component) {
           children = _this$props.children,
           getTextContent = _this$props.getTextContent,
           getValue = _this$props.getValue,
+          label = _this$props.label,
+          labelClass = _this$props.labelClass,
           multiple = _this$props.multiple,
+          outline = _this$props.outline,
           search = _this$props.search,
           searchLabel = _this$props.searchLabel,
           searchId = _this$props.searchId,
           selected = _this$props.selected,
-          attributes = _objectWithoutProperties(_this$props, ["className", "color", "children", "getTextContent", "getValue", "multiple", "search", "searchLabel", "searchId", "selected"]);
+          selectAll = _this$props.selectAll,
+          selectAllLabel = _this$props.selectAllLabel,
+          selectAllValue = _this$props.selectAllValue,
+          focusShadow = _this$props.focusShadow,
+          focusBackgroundColor = _this$props.focusBackgroundColor,
+          attributes = _objectWithoutProperties(_this$props, ["className", "color", "children", "getTextContent", "getValue", "label", "labelClass", "multiple", "outline", "search", "searchLabel", "searchId", "selected", "selectAll", "selectAllLabel", "selectAllValue", "focusShadow", "focusBackgroundColor"]);
 
-      var classes = classNames("select-wrapper md-form", _this.props.color ? "colorful-select dropdown-" + _this.props.color : "", className);
+      var classes = classNames("select-wrapper mdb-select md-form", _this.props.color ? "colorful-select dropdown-" + _this.props.color : "", outline ? "md-outline" : className);
+      var labelClasses = classNames(!outline && "mdb-main-label", _this.state.selectTextContent && 'active', labelClass);
+      var labelStyles = {
+        top: "".concat(outline && (_this.state.selectTextContent ? '.5' : '1.35'), "em"),
+        fontSize: "".concat(outline && (_this.state.selectTextContent ? '11' : '14'), "px"),
+        zIndex: 4
+      };
 
       if (!_this.props.children) {
-        return React.createElement("div", _extends({}, attributes, {
+        return React.createElement(React.Fragment, null, React.createElement("div", _extends({}, attributes, {
           "data-color": color,
           "data-multiple": multiple,
           className: classes
         }), React.createElement("span", {
           className: "caret"
         }, "\u25BC"), React.createElement(ControlledSelectInput, {
-          value: _this.state.selectTextContent
+          value: _this.state.selectTextContent,
+          ref: _this.inputRef
         }), React.createElement(ControlledSelectOptions, {
           multiple: multiple,
           options: _this.state.options,
           search: search,
           searchLabel: searchLabel,
           selected: selected,
-          selectOption: _this.selectOption
-        }));
+          selectOption: _this.selectOption,
+          selectAll: selectAll,
+          selectAllLabel: selectAllLabel,
+          selectAllValue: selectAllValue,
+          allChecked: _this.state.allChecked,
+          inputRef: _this.inputRef,
+          setFilteredOptions: _this.setFilteredOptions,
+          focused: _this.state.focused,
+          changeFocus: _this.changeFocus,
+          focusShadow: focusShadow,
+          focusBackgroundColor: focusBackgroundColor
+        })), label && React.createElement("label", {
+          className: labelClasses,
+          style: labelStyles
+        }, label));
       } else {
         return React.createElement(SelectContext.Provider, {
           value: {
             state: _this.state,
             multiple: _this.props.multiple,
-            triggerOptionChange: _this.triggerOptionChange
+            triggerOptionChange: _this.triggerOptionChange,
+            updateSelected: _this.updateSelected
           }
         }, React.createElement("div", _extends({}, attributes, {
           "data-color": color,
@@ -3534,51 +3844,70 @@ function (_React$Component) {
           className: classes
         }), React.createElement("span", {
           className: "caret"
-        }, "\u25BC"), children));
+        }, "\u25BC"), children), label && React.createElement("label", {
+          className: labelClasses,
+          style: labelStyles
+        }, label));
       }
     });
 
     _this.state = {
       selectValue: [],
-      selectTextContent: "",
-      options: _this.props.options || []
+      selectTextContent: '',
+      options: _this.props.options || [],
+      allChecked: false,
+      focused: null,
+      filteredOptions: _this.props.options || []
     };
+    _this.inputRef = React.createRef();
+
+    if (_this.props.options && _this.props.options.length) {
+      Object.assign(_this.state, _this.computeValuesAndText(_this.props.options));
+    }
+
     return _this;
   }
 
   _createClass(Select, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      document.addEventListener("click", this.onClick);
-
-      if (this.state.options.length) {
-        this.renderPreselectedOptions();
-      }
+      document.addEventListener('click', this.onDocumentClick);
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
       if (prevState.selectValue !== this.state.selectValue) {
-        if (typeof this.props.getValue === "function") {
+        if (typeof this.props.getValue === 'function') {
           this.props.getValue(this.state.selectValue);
         }
 
-        if (typeof this.props.getTextContent === "function") {
+        if (typeof this.props.getTextContent === 'function') {
           this.props.getTextContent(this.state.selectTextContent);
         }
       }
 
       if (this.props.options !== prevProps.options) {
+        var _this$computeValuesAn = this.computeValuesAndText(this.props.options),
+            selectValue = _this$computeValuesAn.selectValue,
+            selectTextContent = _this$computeValuesAn.selectTextContent,
+            allChecked = _this$computeValuesAn.allChecked;
+
         this.setState({
-          options: this.props.options
-        }, this.renderPreselectedOptions);
+          options: this.props.options,
+          filteredOptions: this.props.options,
+          selectValue: selectValue,
+          selectTextContent: selectTextContent,
+          allChecked: allChecked
+        });
       }
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      document.removeEventListener("click", this.onClick);
-    }
+      document.removeEventListener('click', this.onDocumentClick);
+    } // close all select dropdown (unless it has multiple property or search input)
+    // open nieghbour ul of clicked input
+
   }, {
     key: "render",
     value: function render() {
@@ -3590,26 +3919,40 @@ function (_React$Component) {
 }(React.Component);
 
 Select.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  color: PropTypes.string,
-  getTextContent: PropTypes.func,
-  getValue: PropTypes.func,
-  multiple: PropTypes.bool,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    icon: PropTypes.string,
-    text: PropTypes.string,
-    value: PropTypes.string
+  children: propTypes.node,
+  className: propTypes.string,
+  color: propTypes.string,
+  focusShadow: propTypes.string,
+  focusBackgroundColor: propTypes.string,
+  getTextContent: propTypes.func,
+  getValue: propTypes.func,
+  label: propTypes.string,
+  labelClass: propTypes.string,
+  multiple: propTypes.bool,
+  options: propTypes.arrayOf(propTypes.shape({
+    checked: propTypes.bool,
+    disabled: propTypes.bool,
+    icon: propTypes.string,
+    text: propTypes.oneOfType([propTypes.object, propTypes.string]),
+    value: propTypes.string
   })),
-  search: PropTypes.bool,
-  searchLabel: PropTypes.string,
-  searchId: PropTypes.string,
-  selected: PropTypes.string
+  outline: propTypes.bool,
+  search: propTypes.bool,
+  searchLabel: propTypes.string,
+  searchId: propTypes.string,
+  selected: propTypes.string,
+  selectAllLabel: propTypes.string,
+  selectAllValue: propTypes.string
+};
+Select.defaultProps = {
+  label: "",
+  labelClass: "",
+  outline: false,
+  selected: "",
+  selectAllValue: '0'
 };
 
-var selectContextHOC = function selectContextHOC(Component$$1) {
+var selectContextHOC = function selectContextHOC(Component) {
   return (
     /*#__PURE__*/
     function (_React$Component) {
@@ -3627,7 +3970,7 @@ var selectContextHOC = function selectContextHOC(Component$$1) {
           var _this = this;
 
           return React.createElement(SelectContext.Consumer, null, function (context) {
-            return React.createElement(Component$$1, _extends({}, _this.props, {
+            return React.createElement(Component, _extends({}, _this.props, {
               context: context
             }));
           });
@@ -3645,19 +3988,24 @@ var SelectInput = function SelectInput(_ref) {
       context = _ref.context,
       selected = _ref.selected;
   var classes = classNames("select-dropdown", className);
+
+  if (context.state.selectTextContent === "" && selected) {
+    context.updateSelected(selected);
+  }
+
   return React.createElement("input", _extends({
     type: "text",
     readOnly: true,
-    value: context.state.selectTextContent ? context.state.selectTextContent : selected
+    value: context.state.selectTextContent
   }, attributes, {
     className: classes
   }));
 };
 
 SelectInput.propTypes = {
-  context: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  context: propTypes.object.isRequired,
+  className: propTypes.string,
+  selected: propTypes.oneOfType([propTypes.string, propTypes.number])
 };
 SelectInput.defaultProps = {
   className: "",
@@ -3685,7 +4033,7 @@ function (_React$Component) {
         if (!option.children[0].innerText.toLowerCase().includes(value.toLowerCase())) {
           option.style.display = 'none';
         } else {
-          option.style.display = 'block';
+          option.style.display = 'flex';
         }
       });
     });
@@ -3740,11 +4088,11 @@ function (_React$Component) {
 }(React.Component);
 
 Options.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  search: PropTypes.bool,
-  searchLabel: PropTypes.string,
-  searchId: PropTypes.string
+  children: propTypes.node,
+  className: propTypes.string,
+  search: propTypes.bool,
+  searchLabel: propTypes.string,
+  searchId: propTypes.string
 };
 Options.defaultProps = {
   className: '',
@@ -3850,7 +4198,7 @@ function (_React$Component) {
           value = _this$props.value,
           attributes = _objectWithoutProperties(_this$props, ["className", "children", "disabled", "separator", "icon", "triggerOptionClick", "value"]);
 
-      var classes = classNames(disabled || separator ? "disabled" : "", separator ? "optgroup" : "", className);
+      var classes = classNames(disabled || separator ? "disabled" : "", separator ? "optgroup" : "", className, "justify-content-between align-items-center");
       var input = null;
       var label = null;
 
@@ -3891,12 +4239,15 @@ function (_React$Component) {
       }, attributes, {
         "data-multiple": this.state.multiple,
         className: classes,
-        onClick: this.selectOption
+        onClick: this.selectOption,
+        style: {
+          display: "flex"
+        }
       }), React.createElement("span", {
         "data-multiple": this.state.multiple,
         className: "filtrable",
         style: {
-          display: "inline-block"
+          flex: "1"
         }
       }, !separator ? input : null, label, children), icon && React.createElement("img", {
         src: this.props.icon,
@@ -3910,14 +4261,14 @@ function (_React$Component) {
 }(React.Component);
 
 Option.propTypes = {
-  children: PropTypes.node,
-  checked: PropTypes.bool,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  icon: PropTypes.string,
-  triggerOptionClick: PropTypes.func,
-  value: PropTypes.any,
-  separator: PropTypes.bool
+  children: propTypes.node,
+  checked: propTypes.bool,
+  className: propTypes.string,
+  disabled: propTypes.bool,
+  icon: propTypes.string,
+  triggerOptionClick: propTypes.func,
+  value: propTypes.any,
+  separator: propTypes.bool
 };
 Option.defaultProps = {
   children: "span",
@@ -3954,10 +4305,10 @@ var DataTableSelect = function DataTableSelect(_ref) {
 };
 
 DataTableSelect.propTypes = {
-  entries: PropTypes.arrayOf(PropTypes.number).isRequired,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired
+  entries: propTypes.arrayOf(propTypes.number).isRequired,
+  label: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]).isRequired,
+  onChange: propTypes.func.isRequired,
+  value: propTypes.number.isRequired
 };
 
 /*
@@ -3985,12 +4336,12 @@ var DataTableEntries = function DataTableEntries(props) {
 };
 
 DataTableEntries.propTypes = {
-  handleEntriesChange: PropTypes.func.isRequired,
-  displayEntries: PropTypes.bool.isRequired,
-  entries: PropTypes.number.isRequired,
-  entriesArr: PropTypes.arrayOf(PropTypes.number).isRequired,
-  paging: PropTypes.bool.isRequired,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired
+  handleEntriesChange: propTypes.func.isRequired,
+  displayEntries: propTypes.bool.isRequired,
+  entries: propTypes.number.isRequired,
+  entriesArr: propTypes.arrayOf(propTypes.number).isRequired,
+  paging: propTypes.bool.isRequired,
+  label: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]).isRequired
 };
 
 var DataTableInput = function DataTableInput(_ref) {
@@ -4009,9 +4360,9 @@ var DataTableInput = function DataTableInput(_ref) {
 };
 
 DataTableInput.propTypes = {
-  label: PropTypes.string,
-  onChange: PropTypes.func,
-  value: PropTypes.string
+  label: propTypes.string,
+  onChange: propTypes.func,
+  value: propTypes.string
 };
 
 /*
@@ -4036,10 +4387,10 @@ var DataTableSearch = function DataTableSearch(props) {
 };
 
 DataTableSearch.propTypes = {
-  handleSearchChange: PropTypes.func.isRequired,
-  search: PropTypes.string.isRequired,
-  searching: PropTypes.bool.isRequired,
-  label: PropTypes.string
+  handleSearchChange: propTypes.func.isRequired,
+  search: propTypes.string.isRequired,
+  searching: propTypes.bool.isRequired,
+  label: propTypes.string
 };
 
 var DataTableInfo = function DataTableInfo(props) {
@@ -4059,12 +4410,12 @@ var DataTableInfo = function DataTableInfo(props) {
 };
 
 DataTableInfo.propTypes = {
-  activePage: PropTypes.number.isRequired,
-  entries: PropTypes.number.isRequired,
-  filteredRows: PropTypes.array.isRequired,
-  info: PropTypes.bool.isRequired,
-  pages: PropTypes.array.isRequired,
-  label: PropTypes.arrayOf(PropTypes.string)
+  activePage: propTypes.number.isRequired,
+  entries: propTypes.number.isRequired,
+  filteredRows: propTypes.array.isRequired,
+  info: propTypes.bool.isRequired,
+  pages: propTypes.array.isRequired,
+  label: propTypes.arrayOf(propTypes.string)
 };
 DataTableInfo.defaultProps = {
   label: ["Showing", "to", "of", "entries"]
@@ -4104,12 +4455,12 @@ function (_Component) {
 }(Component);
 
 Pagination.propTypes = {
-  children: PropTypes.node,
-  circle: PropTypes.bool,
-  className: PropTypes.string,
-  color: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  size: PropTypes.oneOf(['lg', 'sm'])
+  children: propTypes.node,
+  circle: propTypes.bool,
+  className: propTypes.string,
+  color: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  size: propTypes.oneOf(['lg', 'sm'])
 };
 Pagination.defaultProps = {
   circle: false,
@@ -4151,11 +4502,11 @@ function (_Component) {
 }(Component);
 
 PageItem.propTypes = {
-  active: PropTypes.bool,
-  className: PropTypes.string,
-  children: PropTypes.node,
-  disabled: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+  active: propTypes.bool,
+  className: propTypes.string,
+  children: propTypes.node,
+  disabled: propTypes.bool,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string])
 };
 PageItem.defaultProps = {
   active: false,
@@ -4195,9 +4546,9 @@ function (_Component) {
 }(Component);
 
 PageLink.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node
 };
 PageLink.defaultProps = {
   tag: "a"
@@ -4313,11 +4664,11 @@ function (_Component) {
 }(Component);
 
 DataTablePagination.propTypes = {
-  activePage: PropTypes.number.isRequired,
-  changeActivePage: PropTypes.func.isRequired,
-  pages: PropTypes.array.isRequired,
-  pagesAmount: PropTypes.number.isRequired,
-  label: PropTypes.arrayOf(PropTypes.string).isRequired
+  activePage: propTypes.number.isRequired,
+  changeActivePage: propTypes.func.isRequired,
+  pages: propTypes.array.isRequired,
+  pagesAmount: propTypes.number.isRequired,
+  label: propTypes.arrayOf(propTypes.string).isRequired
 };
 
 var ExportToCSV =
@@ -4410,21 +4761,21 @@ function (_Component) {
 }(Component);
 
 ExportToCSV.propTypes = {
-  columns: PropTypes.arrayOf(PropTypes.object).isRequired,
-  data: PropTypes.array.isRequired,
-  active: PropTypes.bool,
-  block: PropTypes.bool,
-  color: PropTypes.string,
-  gradient: PropTypes.string,
-  disabled: PropTypes.bool,
-  outline: PropTypes.bool,
-  rounded: PropTypes.bool,
-  circle: PropTypes.bool,
-  floating: PropTypes.bool,
-  flat: PropTypes.bool,
-  size: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string
+  columns: propTypes.arrayOf(propTypes.object).isRequired,
+  data: propTypes.array.isRequired,
+  active: propTypes.bool,
+  block: propTypes.bool,
+  color: propTypes.string,
+  gradient: propTypes.string,
+  disabled: propTypes.bool,
+  outline: propTypes.bool,
+  rounded: propTypes.bool,
+  circle: propTypes.bool,
+  floating: propTypes.bool,
+  flat: propTypes.bool,
+  size: propTypes.string,
+  children: propTypes.node,
+  className: propTypes.string
 };
 
 var DataTable =
@@ -4448,7 +4799,7 @@ function (_Component) {
           filteredRows: json.rows,
           rows: json.rows
         });
-      }).catch(function (err) {
+      })["catch"](function (err) {
         return console.log(err);
       });
     });
@@ -4769,43 +5120,43 @@ function (_Component) {
 }(Component);
 
 DataTable.propTypes = {
-  autoWidth: PropTypes.bool,
-  bordered: PropTypes.bool,
-  borderless: PropTypes.bool,
-  btn: PropTypes.bool,
-  children: PropTypes.node,
-  dark: PropTypes.bool,
-  data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  displayEntries: PropTypes.bool,
-  entries: PropTypes.number,
-  entriesLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
-  entriesOptions: PropTypes.arrayOf(PropTypes.number),
-  exportToCSV: PropTypes.bool,
-  fixed: PropTypes.bool,
-  hover: PropTypes.bool,
-  info: PropTypes.bool,
-  infoLabel: PropTypes.arrayOf(PropTypes.string),
-  maxHeight: PropTypes.string,
-  order: PropTypes.arrayOf(PropTypes.string),
-  pagesAmount: PropTypes.number,
-  paging: PropTypes.bool,
-  paginationLabel: PropTypes.arrayOf(PropTypes.string),
-  responsive: PropTypes.bool,
-  responsiveSm: PropTypes.bool,
-  responsiveMd: PropTypes.bool,
-  responsiveLg: PropTypes.bool,
-  responsiveXl: PropTypes.bool,
-  searching: PropTypes.bool,
-  searchLabel: PropTypes.string,
-  scrollX: PropTypes.bool,
-  scrollY: PropTypes.bool,
-  sortable: PropTypes.bool,
-  small: PropTypes.bool,
-  striped: PropTypes.bool,
-  theadColor: PropTypes.string,
-  theadTextWhite: PropTypes.bool,
-  tbodyColor: PropTypes.string,
-  tbodyTextWhite: PropTypes.bool
+  autoWidth: propTypes.bool,
+  bordered: propTypes.bool,
+  borderless: propTypes.bool,
+  btn: propTypes.bool,
+  children: propTypes.node,
+  dark: propTypes.bool,
+  data: propTypes.oneOfType([propTypes.object, propTypes.string]),
+  displayEntries: propTypes.bool,
+  entries: propTypes.number,
+  entriesLabel: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
+  entriesOptions: propTypes.arrayOf(propTypes.number),
+  exportToCSV: propTypes.bool,
+  fixed: propTypes.bool,
+  hover: propTypes.bool,
+  info: propTypes.bool,
+  infoLabel: propTypes.arrayOf(propTypes.string),
+  maxHeight: propTypes.string,
+  order: propTypes.arrayOf(propTypes.string),
+  pagesAmount: propTypes.number,
+  paging: propTypes.bool,
+  paginationLabel: propTypes.arrayOf(propTypes.string),
+  responsive: propTypes.bool,
+  responsiveSm: propTypes.bool,
+  responsiveMd: propTypes.bool,
+  responsiveLg: propTypes.bool,
+  responsiveXl: propTypes.bool,
+  searching: propTypes.bool,
+  searchLabel: propTypes.string,
+  scrollX: propTypes.bool,
+  scrollY: propTypes.bool,
+  sortable: propTypes.bool,
+  small: propTypes.bool,
+  striped: propTypes.bool,
+  theadColor: propTypes.string,
+  theadTextWhite: propTypes.bool,
+  tbodyColor: propTypes.string,
+  tbodyTextWhite: propTypes.bool
 };
 DataTable.defaultProps = {
   autoWidth: false,
@@ -4845,19 +5196,19 @@ DataTable.defaultProps = {
   tbodyTextWhite: false
 };
 
-var propTypes = {
-  children: PropTypes.node,
-  active: PropTypes.bool,
-  disabled: PropTypes.bool,
-  divider: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  header: PropTypes.bool,
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  toggle: PropTypes.bool
+var propTypes$1 = {
+  children: propTypes.node,
+  active: propTypes.bool,
+  disabled: propTypes.bool,
+  divider: propTypes.bool,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  header: propTypes.bool,
+  onClick: propTypes.func,
+  className: propTypes.string,
+  toggle: propTypes.bool
 };
 var contextTypes = {
-  toggle: PropTypes.func
+  toggle: propTypes.func
 };
 var defaultProps = {
   tag: "button",
@@ -4949,7 +5300,7 @@ function (_React$Component) {
   return DropdownItem;
 }(React.Component);
 
-DropdownItem.propTypes = propTypes;
+DropdownItem.propTypes = propTypes$1;
 DropdownItem.defaultProps = defaultProps;
 DropdownItem.contextTypes = contextTypes;
 
@@ -4966,7 +5317,7 @@ var DropdownMenuProComponent = function DropdownMenuProComponent(_ref) {
       d_key = _ref.d_key,
       children = _ref.children;
   return React.createElement(CSSTransition, {
-    in: isOpen,
+    "in": isOpen,
     appear: isOpen,
     classNames: "popover",
     unmountOnExit: true,
@@ -4984,14 +5335,14 @@ var DropdownMenuProComponent = function DropdownMenuProComponent(_ref) {
 };
 
 DropdownMenuProComponent.propTypes = {
-  aria: PropTypes.bool.isRequired,
-  attributes: PropTypes.object.isRequired,
-  d_key: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired,
-  tabIndex: PropTypes.string.isRequired,
-  tag: PropTypes.any.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired
+  aria: propTypes.bool.isRequired,
+  attributes: propTypes.object.isRequired,
+  d_key: propTypes.string.isRequired,
+  role: propTypes.string.isRequired,
+  tabIndex: propTypes.string.isRequired,
+  tag: propTypes.any.isRequired,
+  isOpen: propTypes.bool.isRequired,
+  children: propTypes.node.isRequired
 };
 
 /*
@@ -5042,14 +5393,14 @@ function (_Component) {
       var Tag = tag;
 
       if (this.context.isOpen) {
-        var position1 = this.context.dropup ? 'top' : 'bottom';
+        var position1 = this.context.dropup ? 'top' : this.context.dropright ? 'right' : this.context.dropleft ? 'left' : 'bottom';
         var position2 = right ? 'end' : 'start';
         attrs.placement = "".concat(position1, "-").concat(position2);
         attrs.component = tag;
         attrs.modifiers = !flip ? noFlipModifier : undefined;
       }
 
-      return React.createElement(Popper, {
+      return React.createElement(Popper$1, {
         modifires: attrs.modifiers,
         eventsEnabled: true,
         positionFixed: false,
@@ -5081,12 +5432,12 @@ function (_Component) {
 }(Component);
 
 DropdownMenu.propTypes = {
-  children: PropTypes.node.isRequired,
-  basic: PropTypes.bool,
-  className: PropTypes.string,
-  flip: PropTypes.bool,
-  right: PropTypes.bool,
-  tag: PropTypes.string
+  children: propTypes.node.isRequired,
+  basic: propTypes.bool,
+  className: propTypes.string,
+  flip: propTypes.bool,
+  right: propTypes.bool,
+  tag: propTypes.string
 };
 DropdownMenu.defaultProps = {
   basic: false,
@@ -5097,9 +5448,11 @@ DropdownMenu.defaultProps = {
   color: false
 };
 DropdownMenu.contextTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  dropup: PropTypes.bool.isRequired,
-  color: PropTypes.oneOfType([PropTypes.oneOf(['primary', 'default', 'secondary', 'success', 'dark', 'danger', 'info', 'warning', 'ins']), PropTypes.bool])
+  isOpen: propTypes.bool.isRequired,
+  dropup: propTypes.bool.isRequired,
+  dropright: propTypes.bool.isRequired,
+  dropleft: propTypes.bool.isRequired,
+  color: propTypes.oneOfType([propTypes.oneOf(['primary', 'default', 'secondary', 'success', 'dark', 'danger', 'info', 'warning', 'ins']), propTypes.bool])
 };
 
 var DropdownToggle =
@@ -5189,23 +5542,23 @@ function (_React$Component) {
 }(React.Component);
 
 DropdownToggle.propTypes = {
-  caret: PropTypes.bool,
-  color: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  "aria-haspopup": PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  nav: PropTypes.bool
+  caret: propTypes.bool,
+  color: propTypes.string,
+  children: propTypes.node,
+  className: propTypes.string,
+  disabled: propTypes.bool,
+  onClick: propTypes.func,
+  "aria-haspopup": propTypes.bool,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  nav: propTypes.bool
 };
 DropdownToggle.defaultProps = {
   "aria-haspopup": true,
   color: "secondary"
 };
 DropdownToggle.contextTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  toggle: PropTypes.func.isRequired
+  isOpen: propTypes.bool.isRequired,
+  toggle: propTypes.func.isRequired
 };
 
 var EdgeHeader =
@@ -5239,9 +5592,9 @@ function (_Component) {
 }(Component);
 
 EdgeHeader.propTypes = {
-  color: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  color: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string
 };
 EdgeHeader.defaultProps = {
   color: "deep-purple",
@@ -5302,9 +5655,9 @@ function (_React$Component) {
 }(React.Component);
 
 FormInline.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  waves: PropTypes.bool
+  children: propTypes.node,
+  className: propTypes.string,
+  waves: propTypes.bool
 };
 
 var Footer =
@@ -5339,10 +5692,10 @@ function (_Component) {
 }(Component);
 
 Footer.propTypes = {
-  color: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node
+  color: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node
 };
 Footer.defaultProps = {
   tag: "footer"
@@ -5378,8 +5731,8 @@ function (_Component) {
 }(Component);
 
 FreeBird.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string
 };
 FreeBird.defaultProps = {
   tag: "div"
@@ -5451,9 +5804,9 @@ function (_React$Component) {
 }(React.Component);
 
 HamburgerToggler.propTypes = {
-  id: PropTypes.string,
-  color: PropTypes.string,
-  className: PropTypes.string
+  id: propTypes.string,
+  color: propTypes.string,
+  className: propTypes.string
 };
 
 var InputNumeric =
@@ -5501,8 +5854,8 @@ function (_React$Component) {
 }(React.Component);
 
 InputNumeric.propTypes = {
-  className: PropTypes.string,
-  getValue: PropTypes.func
+  className: propTypes.string,
+  getValue: propTypes.func
 };
 
 var Jumbotron =
@@ -5536,9 +5889,9 @@ function (_React$Component) {
 }(React.Component);
 
 Jumbotron.propTypes = {
-  fluid: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string
+  fluid: propTypes.bool,
+  children: propTypes.node,
+  className: propTypes.string
 };
 
 var ListGroup =
@@ -5572,9 +5925,9 @@ function (_Component) {
 }(Component);
 
 ListGroup.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node
 };
 ListGroup.defaultProps = {
   tag: "ul"
@@ -5624,17 +5977,17 @@ function (_Component) {
 }(Component);
 
 ListGroupItem.propTypes = {
-  active: PropTypes.bool,
-  disabled: PropTypes.bool,
-  hover: PropTypes.bool,
-  success: PropTypes.bool,
-  info: PropTypes.bool,
-  warning: PropTypes.bool,
-  danger: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node,
-  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])
+  active: propTypes.bool,
+  disabled: propTypes.bool,
+  hover: propTypes.bool,
+  success: propTypes.bool,
+  info: propTypes.bool,
+  warning: propTypes.bool,
+  danger: propTypes.bool,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node,
+  color: propTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])
 };
 ListGroupItem.defaultProps = {
   tag: "li"
@@ -5705,25 +6058,25 @@ function (_React$Component) {
 }(React.Component);
 
 Media.propTypes = {
-  body: PropTypes.bool,
-  bottom: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  heading: PropTypes.bool,
-  figure: PropTypes.bool,
-  figImg: PropTypes.bool,
-  figCap: PropTypes.bool,
-  figCapRight: PropTypes.bool,
-  figCapLeft: PropTypes.bool,
-  left: PropTypes.bool,
-  list: PropTypes.bool,
-  middle: PropTypes.bool,
-  object: PropTypes.bool,
-  thumbnail: PropTypes.bool,
-  round: PropTypes.bool,
-  right: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  top: PropTypes.bool
+  body: propTypes.bool,
+  bottom: propTypes.bool,
+  children: propTypes.node,
+  className: propTypes.string,
+  heading: propTypes.bool,
+  figure: propTypes.bool,
+  figImg: propTypes.bool,
+  figCap: propTypes.bool,
+  figCapRight: propTypes.bool,
+  figCapLeft: propTypes.bool,
+  left: propTypes.bool,
+  list: propTypes.bool,
+  middle: propTypes.bool,
+  object: propTypes.bool,
+  thumbnail: propTypes.bool,
+  round: propTypes.bool,
+  right: propTypes.bool,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  top: propTypes.bool
 };
 
 var Modal =
@@ -5854,7 +6207,7 @@ function (_Component) {
       });
       return React.createElement(Fragment, null, backdrop && React.createElement(Transition, {
         timeout: timeout,
-        in: this.state.isOpen,
+        "in": this.state.isOpen,
         appear: this.state.isOpen,
         mountOnEnter: true,
         unmountOnExit: true,
@@ -5869,7 +6222,7 @@ function (_Component) {
         className: backdropClasses
       })), React.createElement(Transition, {
         timeout: timeout,
-        in: this.state.isOpen,
+        "in": this.state.isOpen,
         appear: this.state.isOpen,
         mountOnEnter: true,
         unmountOnExit: true,
@@ -5910,29 +6263,29 @@ Modal.defaultProps = {
   tabIndex: "-1"
 };
 Modal.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  backdrop: PropTypes.bool,
-  backdropClassName: PropTypes.string,
-  contentClassName: PropTypes.string,
-  modalClassName: PropTypes.string,
-  size: PropTypes.string,
-  side: PropTypes.bool,
-  fullHeight: PropTypes.bool,
-  frame: PropTypes.bool,
-  centered: PropTypes.bool,
-  position: PropTypes.string,
-  cascading: PropTypes.bool,
-  modalStyle: PropTypes.string,
-  wrapClassName: PropTypes.string,
-  animation: PropTypes.string,
-  fade: PropTypes.bool,
-  id: PropTypes.string,
-  role: PropTypes.string,
-  tabIndex: PropTypes.string,
-  showModal: PropTypes.func,
-  hiddenModal: PropTypes.func,
-  hideModal: PropTypes.func
+  children: propTypes.node,
+  className: propTypes.string,
+  backdrop: propTypes.bool,
+  backdropClassName: propTypes.string,
+  contentClassName: propTypes.string,
+  modalClassName: propTypes.string,
+  size: propTypes.string,
+  side: propTypes.bool,
+  fullHeight: propTypes.bool,
+  frame: propTypes.bool,
+  centered: propTypes.bool,
+  position: propTypes.string,
+  cascading: propTypes.bool,
+  modalStyle: propTypes.string,
+  wrapClassName: propTypes.string,
+  animation: propTypes.string,
+  fade: propTypes.bool,
+  id: propTypes.string,
+  role: propTypes.string,
+  tabIndex: propTypes.string,
+  showModal: propTypes.func,
+  hiddenModal: propTypes.func,
+  hideModal: propTypes.func
 };
 
 var ModalBody =
@@ -5965,8 +6318,8 @@ function (_React$Component) {
 }(React.Component);
 
 ModalBody.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
+  className: propTypes.string,
+  children: propTypes.node
 };
 
 var ModalFooter =
@@ -6004,8 +6357,8 @@ function (_React$Component) {
 }(React.Component);
 
 ModalFooter.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
+  className: propTypes.string,
+  children: propTypes.node
 };
 
 var ModalHeader =
@@ -6059,11 +6412,11 @@ function (_React$Component) {
 }(React.Component);
 
 ModalHeader.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  toggle: PropTypes.func,
-  className: PropTypes.string,
-  children: PropTypes.node,
-  closeAriaLabel: PropTypes.string
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  toggle: propTypes.func,
+  className: propTypes.string,
+  children: propTypes.node,
+  closeAriaLabel: propTypes.string
 };
 ModalHeader.defaultProps = {
   tag: "h4",
@@ -6106,14 +6459,14 @@ function (_Component) {
 }(Component);
 
 Nav.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node,
-  color: PropTypes.string,
-  classicTabs: PropTypes.bool,
-  pills: PropTypes.bool,
-  tabs: PropTypes.bool,
-  header: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node,
+  color: propTypes.string,
+  classicTabs: propTypes.bool,
+  pills: propTypes.bool,
+  tabs: propTypes.bool,
+  header: propTypes.bool
 };
 Nav.defaultProps = {
   tag: "ul",
@@ -6193,11 +6546,11 @@ function (_Component) {
           className = _this$props.className,
           scrollingNavbarOffset = _this$props.scrollingNavbarOffset,
           Tag = _this$props.tag,
-          double = _this$props.double,
+          _double = _this$props["double"],
           transparent = _this$props.transparent,
           attributes = _objectWithoutProperties(_this$props, ["expand", "light", "dark", "sticky", "fixed", "scrolling", "color", "className", "scrollingNavbarOffset", "tag", "double", "transparent"]);
 
-      var classes = classNames("navbar", light ? "navbar-light" : "", dark ? "navbar-dark" : "", sticky ? "sticky-" + sticky : "", fixed ? "fixed-" + fixed : "", getExpandClass(expand), scrolling || scrollingNavbarOffset ? "scrolling-navbar" : "", this.state.isCollapsed ? "top-nav-collapse" : "", color ? transparent ? this.state.isCollapsed ? color : "" : color : "", double ? "double-nav" : "", className);
+      var classes = classNames("navbar", light ? "navbar-light" : "", dark ? "navbar-dark" : "", sticky ? "sticky-" + sticky : "", fixed ? "fixed-" + fixed : "", getExpandClass(expand), scrolling || scrollingNavbarOffset ? "scrolling-navbar" : "", this.state.isCollapsed ? "top-nav-collapse" : "", color ? transparent ? this.state.isCollapsed ? color : "" : color : "", _double ? "double-nav" : "", className);
       return React.createElement(Tag, _extends({}, attributes, {
         className: classes,
         role: "navigation"
@@ -6209,18 +6562,18 @@ function (_Component) {
 }(Component);
 
 Navbar.propTypes = {
-  light: PropTypes.bool,
-  dark: PropTypes.bool,
-  double: PropTypes.bool,
-  fixed: PropTypes.string,
-  sticky: PropTypes.string,
-  scrolling: PropTypes.bool,
-  scrollingNavbarOffset: PropTypes.number,
-  color: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  expand: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  transparent: PropTypes.bool
+  light: propTypes.bool,
+  dark: propTypes.bool,
+  "double": propTypes.bool,
+  fixed: propTypes.string,
+  sticky: propTypes.string,
+  scrolling: propTypes.bool,
+  scrollingNavbarOffset: propTypes.number,
+  color: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  expand: propTypes.oneOfType([propTypes.bool, propTypes.string]),
+  transparent: propTypes.bool
 };
 Navbar.defaultProps = {
   tag: "nav",
@@ -6237,7 +6590,7 @@ var NavbarBrand = function NavbarBrand(_ref) {
 
   var navbarBrand = function navbarBrand() {
     if (href) {
-      return React.createElement(NavLink, _extends({
+      return React.createElement(NavLink$1, _extends({
         to: href
       }, attributes, {
         className: classes
@@ -6253,8 +6606,8 @@ var NavbarBrand = function NavbarBrand(_ref) {
 };
 
 NavbarBrand.propTypes = {
-  className: PropTypes.string,
-  href: PropTypes.string
+  className: propTypes.string,
+  href: propTypes.string
 };
 
 var NavbarNav =
@@ -6290,11 +6643,11 @@ function (_Component) {
 }(Component);
 
 NavbarNav.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node,
-  right: PropTypes.bool,
-  left: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node,
+  right: propTypes.bool,
+  left: propTypes.bool
 };
 NavbarNav.defaultProps = {
   tag: "ul"
@@ -6341,13 +6694,13 @@ function (_Component) {
 }(Component);
 
 NavbarToggler.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  type: PropTypes.string,
-  className: PropTypes.string,
-  children: PropTypes.node,
-  right: PropTypes.bool,
-  left: PropTypes.bool,
-  image: PropTypes.string
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  type: propTypes.string,
+  className: propTypes.string,
+  children: propTypes.node,
+  right: propTypes.bool,
+  left: propTypes.bool,
+  image: propTypes.string
 };
 NavbarToggler.defaultProps = {
   tag: "button",
@@ -6387,26 +6740,26 @@ function (_Component) {
 }(Component);
 
 NavItem.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node,
-  active: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node,
+  active: propTypes.bool
 };
 NavItem.defaultProps = {
   tag: "li"
 };
 
-var NavLink$1 =
+var NavLink =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(NavLink$$1, _Component);
+  _inherits(NavLink, _Component);
 
-  function NavLink$$1(props) {
+  function NavLink(props) {
     var _this;
 
-    _classCallCheck(this, NavLink$$1);
+    _classCallCheck(this, NavLink);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(NavLink$$1).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NavLink).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
       if (!_this.props.disabled) {
@@ -6430,7 +6783,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(NavLink$$1, [{
+  _createClass(NavLink, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -6442,7 +6795,7 @@ function (_Component) {
           attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to"]);
 
       var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
-      return React.createElement(NavLink, _extends({
+      return React.createElement(NavLink$1, _extends({
         className: classes,
         onMouseUp: this.handleClick,
         onTouchStart: this.handleClick,
@@ -6453,23 +6806,23 @@ function (_Component) {
     }
   }]);
 
-  return NavLink$$1;
+  return NavLink;
 }(Component);
 
-NavLink$1.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  to: PropTypes.string,
-  active: PropTypes.bool
+NavLink.propTypes = {
+  children: propTypes.node,
+  className: propTypes.string,
+  disabled: propTypes.bool,
+  to: propTypes.string,
+  active: propTypes.bool
 };
-NavLink$1.defaultProps = {
+NavLink.defaultProps = {
   active: false,
   className: "",
   disabled: false
 };
 
-var Popper$1 = function Popper$$1(_ref) {
+var Popper = function Popper(_ref) {
   var children = _ref.children,
       clickable = _ref.clickable,
       domElement = _ref.domElement,
@@ -6554,7 +6907,7 @@ var Popper$1 = function Popper$$1(_ref) {
     }));
   }), visible && React.createElement(Tag, {
     style: style
-  }, React.createElement(Popper, {
+  }, React.createElement(Popper$1, {
     modifiers: modifiers,
     eventsEnabled: true,
     positionFixed: false,
@@ -6581,6 +6934,7 @@ var Popper$1 = function Popper$$1(_ref) {
   })));
 };
 
+<<<<<<< HEAD
 Popper$1.propTypes = {
   children: PropTypes.node,
   clickable: PropTypes.bool,
@@ -6592,8 +6946,21 @@ Popper$1.propTypes = {
   popover: PropTypes.bool,
   style: PropTypes.objectOf(PropTypes.string),
   tag: PropTypes.string
+=======
+Popper.propTypes = {
+  children: propTypes.node,
+  clickable: propTypes.bool,
+  domElement: propTypes.bool,
+  modifiers: propTypes.object,
+  id: propTypes.string,
+  isVisible: propTypes.bool,
+  placement: propTypes.string,
+  popover: propTypes.bool,
+  style: propTypes.objectOf(propTypes.string),
+  tag: propTypes.string
+>>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
 };
-Popper$1.defaultProps = {
+Popper.defaultProps = {
   clickable: false,
   domElement: false,
   id: 'popper',
@@ -6618,9 +6985,9 @@ var PopoverBody = function PopoverBody(_ref) {
 };
 
 PopoverBody.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+  children: propTypes.node,
+  className: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string])
 };
 PopoverBody.defaultProps = {
   tag: "div"
@@ -6638,9 +7005,9 @@ var PopoverHeader = function PopoverHeader(_ref) {
 };
 
 PopoverHeader.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+  children: propTypes.node,
+  className: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string])
 };
 PopoverHeader.defaultProps = {
   className: "",
@@ -6688,19 +7055,19 @@ var Progress = function Progress(_ref) {
 };
 
 Progress.propTypes = {
-  animated: PropTypes.bool,
-  barClassName: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  color: PropTypes.string,
-  height: PropTypes.string,
-  material: PropTypes.bool,
-  max: PropTypes.number,
-  min: PropTypes.number,
-  preloader: PropTypes.bool,
-  striped: PropTypes.bool,
-  wrapperStyle: PropTypes.object,
-  value: PropTypes.number
+  animated: propTypes.bool,
+  barClassName: propTypes.string,
+  children: propTypes.node,
+  className: propTypes.string,
+  color: propTypes.string,
+  height: propTypes.string,
+  material: propTypes.bool,
+  max: propTypes.number,
+  min: propTypes.number,
+  preloader: propTypes.bool,
+  striped: propTypes.bool,
+  wrapperStyle: propTypes.object,
+  value: propTypes.number
 };
 Progress.defaultProps = {
   animated: false,
@@ -6755,16 +7122,16 @@ function (_Component) {
 }(Component);
 
 Row.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  top: PropTypes.bool,
-  bottom: PropTypes.bool,
-  middle: PropTypes.bool,
-  end: PropTypes.bool,
-  start: PropTypes.bool,
-  center: PropTypes.bool,
-  between: PropTypes.bool,
-  around: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  top: propTypes.bool,
+  bottom: propTypes.bool,
+  middle: propTypes.bool,
+  end: propTypes.bool,
+  start: propTypes.bool,
+  center: propTypes.bool,
+  between: propTypes.bool,
+  around: propTypes.bool
 };
 Row.defaultProps = {
   tag: "div"
@@ -6791,10 +7158,10 @@ var TableHead = function TableHead(props) {
 };
 
 TableHead.propTypes = {
-  children: PropTypes.node,
-  color: PropTypes.string,
-  columns: PropTypes.arrayOf(PropTypes.object),
-  textWhite: PropTypes.bool
+  children: propTypes.node,
+  color: propTypes.string,
+  columns: propTypes.arrayOf(propTypes.object),
+  textWhite: propTypes.bool
 };
 TableHead.defaultProps = {
   textWhite: false
@@ -6902,20 +7269,20 @@ function (_Component) {
 }(Component);
 
 Iframe.propTypes = {
-  allowFullScreen: PropTypes.bool,
-  className: PropTypes.string,
-  height: PropTypes.number,
-  id: PropTypes.string,
-  name: PropTypes.string,
-  onMouseOver: PropTypes.func,
-  onMouseOut: PropTypes.func,
-  onLoad: PropTypes.func,
-  ratio: PropTypes.string,
-  sandbox: PropTypes.string,
-  src: PropTypes.string.isRequired,
-  styles: PropTypes.object,
-  width: PropTypes.number,
-  title: PropTypes.string
+  allowFullScreen: propTypes.bool,
+  className: propTypes.string,
+  height: propTypes.number,
+  id: propTypes.string,
+  name: propTypes.string,
+  onMouseOver: propTypes.func,
+  onMouseOut: propTypes.func,
+  onLoad: propTypes.func,
+  ratio: propTypes.string,
+  sandbox: propTypes.string,
+  src: propTypes.string.isRequired,
+  styles: propTypes.object,
+  width: propTypes.number,
+  title: propTypes.string
 };
 
 var Dropdown =
@@ -6952,6 +7319,8 @@ function (_React$Component) {
       return {
         isOpen: this.state.isOpen,
         dropup: this.props.dropup,
+        dropright: this.props.dropright,
+        dropleft: this.props.dropleft,
         toggle: this.toggle
       };
     }
@@ -7073,11 +7442,13 @@ function (_React$Component) {
           children = _omit.children,
           dropup = _omit.dropup,
           group = _omit.group,
-          size = _omit.size;
+          size = _omit.size,
+          dropright = _omit.dropright,
+          dropleft = _omit.dropleft;
 
       var classes = classNames((_classNames = {
         "btn-group": group
-      }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _classNames), className);
+      }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _defineProperty(_classNames, "dropright", dropright), _defineProperty(_classNames, "dropleft", dropleft), _classNames), className);
       return React.createElement(Manager, null, React.createElement("div", {
         className: classes,
         onKeyDown: this.handleKeyDown
@@ -7089,23 +7460,29 @@ function (_React$Component) {
 }(React.Component);
 
 Dropdown.propTypes = {
-  disabled: PropTypes.bool,
-  dropup: PropTypes.bool,
-  group: PropTypes.bool,
-  size: PropTypes.string,
-  tag: PropTypes.string,
-  toggle: PropTypes.func,
-  children: PropTypes.node,
-  className: PropTypes.string
+  disabled: propTypes.bool,
+  dropup: propTypes.bool,
+  dropright: propTypes.bool,
+  dropleft: propTypes.bool,
+  group: propTypes.bool,
+  size: propTypes.string,
+  tag: propTypes.string,
+  toggle: propTypes.func,
+  children: propTypes.node,
+  className: propTypes.string
 };
 Dropdown.defaultProps = {
   dropup: false,
+  dropright: false,
+  dropleft: false,
   tag: "div"
 };
 Dropdown.childContextTypes = {
-  toggle: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  dropup: PropTypes.bool.isRequired
+  toggle: propTypes.func.isRequired,
+  isOpen: propTypes.bool.isRequired,
+  dropup: propTypes.bool.isRequired,
+  dropright: propTypes.bool.isRequired,
+  dropleft: propTypes.bool.isRequired
 };
 
 var Autocomplete =
@@ -7234,6 +7611,9 @@ function (_Component) {
       prevProps.value !== this.props.value && this.setState({
         value: this.props.value
       });
+      prevProps.data !== this.props.data && this.setState({
+        suggestions: this.filterRepeated(this.props.data)
+      });
     }
   }, {
     key: "componentWillUnmount",
@@ -7336,6 +7716,7 @@ function (_Component) {
 }(Component);
 
 Autocomplete.propTypes = {
+<<<<<<< HEAD
   clear: PropTypes.bool,
   clearColor: PropTypes.string,
   clearSize: PropTypes.string,
@@ -7353,6 +7734,25 @@ Autocomplete.propTypes = {
   iconClassName: PropTypes.string,
   placeholder: PropTypes.string,
   valueDefault: PropTypes.string
+=======
+  clear: propTypes.bool,
+  clearColor: propTypes.string,
+  clearSize: propTypes.string,
+  data: propTypes.arrayOf(propTypes.string),
+  disabled: propTypes.bool,
+  getValue: propTypes.func,
+  id: propTypes.string,
+  label: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
+  labelClass: propTypes.string,
+  icon: propTypes.string,
+  iconBrand: propTypes.bool,
+  iconLight: propTypes.bool,
+  iconRegular: propTypes.bool,
+  iconSize: propTypes.string,
+  iconClassName: propTypes.string,
+  placeholder: propTypes.string,
+  valueDefault: propTypes.string
+>>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
 };
 Autocomplete.defaultProps = {
   clear: false,
@@ -7407,10 +7807,10 @@ function (_Component) {
 }(Component);
 
 Avatar.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  round: PropTypes.bool,
-  circle: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  round: propTypes.bool,
+  circle: propTypes.bool
 };
 Avatar.defaultProps = {
   tag: "div",
@@ -7526,29 +7926,29 @@ ButtonFixed.defaultProps = {
   color: "default"
 };
 ButtonFixed.propTypes = {
-  active: PropTypes.bool,
-  block: PropTypes.bool,
-  color: PropTypes.string,
-  gradient: PropTypes.string,
-  role: PropTypes.string,
-  type: PropTypes.string,
-  disabled: PropTypes.bool,
-  outline: PropTypes.bool,
-  rounded: PropTypes.bool,
-  floating: PropTypes.bool,
-  flat: PropTypes.bool,
-  icon: PropTypes.string,
-  iconBrand: PropTypes.bool,
-  iconClass: PropTypes.string,
-  iconLight: PropTypes.bool,
-  iconRegular: PropTypes.bool,
-  iconSize: PropTypes.string,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  onClick: PropTypes.func,
-  size: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  topSection: PropTypes.string
+  active: propTypes.bool,
+  block: propTypes.bool,
+  color: propTypes.string,
+  gradient: propTypes.string,
+  role: propTypes.string,
+  type: propTypes.string,
+  disabled: propTypes.bool,
+  outline: propTypes.bool,
+  rounded: propTypes.bool,
+  floating: propTypes.bool,
+  flat: propTypes.bool,
+  icon: propTypes.string,
+  iconBrand: propTypes.bool,
+  iconClass: propTypes.string,
+  iconLight: propTypes.bool,
+  iconRegular: propTypes.bool,
+  iconSize: propTypes.string,
+  innerRef: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  onClick: propTypes.func,
+  size: propTypes.string,
+  children: propTypes.node,
+  className: propTypes.string,
+  topSection: propTypes.string
 };
 
 var ButtonFixed$1 =
@@ -7650,29 +8050,29 @@ ButtonFixed$1.defaultProps = {
   color: "default"
 };
 ButtonFixed$1.propTypes = {
-  active: PropTypes.bool,
-  block: PropTypes.bool,
-  color: PropTypes.string,
-  gradient: PropTypes.string,
-  role: PropTypes.string,
-  type: PropTypes.string,
-  disabled: PropTypes.bool,
-  outline: PropTypes.bool,
-  rounded: PropTypes.bool,
-  floating: PropTypes.bool,
-  flat: PropTypes.bool,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(['lg', 'sm']),
-  children: PropTypes.node,
-  className: PropTypes.string,
-  icon: PropTypes.string,
-  iconBrand: PropTypes.bool,
-  iconClass: PropTypes.string,
-  iconLight: PropTypes.bool,
-  iconRegular: PropTypes.bool,
-  iconSize: PropTypes.string,
-  buttonStyle: PropTypes.object
+  active: propTypes.bool,
+  block: propTypes.bool,
+  color: propTypes.string,
+  gradient: propTypes.string,
+  role: propTypes.string,
+  type: propTypes.string,
+  disabled: propTypes.bool,
+  outline: propTypes.bool,
+  rounded: propTypes.bool,
+  floating: propTypes.bool,
+  flat: propTypes.bool,
+  innerRef: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  onClick: propTypes.func,
+  size: propTypes.oneOf(['lg', 'sm']),
+  children: propTypes.node,
+  className: propTypes.string,
+  icon: propTypes.string,
+  iconBrand: propTypes.bool,
+  iconClass: propTypes.string,
+  iconLight: propTypes.bool,
+  iconRegular: propTypes.bool,
+  iconSize: propTypes.string,
+  buttonStyle: propTypes.object
 };
 
 var CardUp =
@@ -7707,8 +8107,8 @@ function (_Component) {
 }(Component);
 
 CardUp.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string
 };
 CardUp.defaultProps = {
   tag: "div"
@@ -7796,16 +8196,16 @@ function (_Component) {
 }(Component);
 
 Chip.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  size: PropTypes.string,
-  bgColor: PropTypes.string,
-  text: PropTypes.string,
-  gradient: PropTypes.string,
-  src: PropTypes.string,
-  alt: PropTypes.string,
-  close: PropTypes.bool,
-  handleClose: PropTypes.func
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  size: propTypes.string,
+  bgColor: propTypes.string,
+  text: propTypes.string,
+  gradient: propTypes.string,
+  src: propTypes.string,
+  alt: propTypes.string,
+  close: propTypes.bool,
+  handleClose: propTypes.func
 };
 Chip.defaultProps = {
   tag: "div"
@@ -7979,14 +8379,14 @@ function (_Component) {
 }(Component);
 
 ChipsInput.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  placeholder: PropTypes.string,
-  secondaryPlaceholder: PropTypes.string,
-  chipSize: PropTypes.string,
-  chipColor: PropTypes.string,
-  chipText: PropTypes.string,
-  chipGradient: PropTypes.string
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  placeholder: propTypes.string,
+  secondaryPlaceholder: propTypes.string,
+  chipSize: propTypes.string,
+  chipColor: propTypes.string,
+  chipText: propTypes.string,
+  chipGradient: propTypes.string
 };
 ChipsInput.defaultProps = {
   tag: "div",
@@ -8009,22 +8409,22 @@ function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           className = _this$props.className,
+          tagClassName = _this$props.tagClassName,
           children = _this$props.children,
           Tag = _this$props.tag,
           triggerOnClick = _this$props.triggerOnClick,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "tag", "triggerOnClick"]);
+          attributes = _objectWithoutProperties(_this$props, ["className", "tagClassName", "children", "tag", "triggerOnClick"]);
 
       var classes = classNames("card-header", className);
+      var tagClasses = classNames("mb-0", tagClassName);
       return React.createElement("div", _extends({}, attributes, {
         className: classes,
         style: {
           cursor: "pointer"
         }
-      }), React.createElement("a", {
-        href: "#!"
-      }, React.createElement(Tag, {
-        className: "mb-0"
-      }, children)));
+      }), React.createElement(Tag, {
+        className: tagClasses
+      }, children));
     }
   }]);
 
@@ -8035,26 +8435,27 @@ CollapseHeader.defaultProps = {
   tag: "h5"
 };
 CollapseHeader.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  tag: PropTypes.string,
-  triggerOnClick: PropTypes.func
+  children: propTypes.node,
+  className: propTypes.string,
+  tagClassName: propTypes.string,
+  tag: propTypes.string,
+  triggerOnClick: propTypes.func
 };
 
 var css$9 = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
 styleInject(css$9);
 
-var DatePicker$1 =
+var DatePicker =
 /*#__PURE__*/
 function (_Component) {
-  _inherits(DatePicker$$1, _Component);
+  _inherits(DatePicker, _Component);
 
-  function DatePicker$$1(props) {
+  function DatePicker(props) {
     var _this;
 
-    _classCallCheck(this, DatePicker$$1);
+    _classCallCheck(this, DatePicker);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DatePicker$$1).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DatePicker).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "handleDateChange", function (date) {
       _this.setState({
@@ -8073,7 +8474,7 @@ function (_Component) {
     return _this;
   }
 
-  _createClass(DatePicker$$1, [{
+  _createClass(DatePicker, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
       if (this.props.getValue && prevState.selectedDate !== this.state.selectedDate) {
@@ -8145,7 +8546,7 @@ function (_Component) {
         locale: locale,
         moment: moment,
         utils: MomentUtils
-      }, React.createElement(DatePicker, _extends({}, attributes, {
+      }, React.createElement(DatePicker$1, _extends({}, attributes, {
         adornmentPosition: adornmentPosition,
         allowKeyboardControl: allowKeyboardControl,
         animateYearScrolling: animateYearScrolling,
@@ -8183,50 +8584,50 @@ function (_Component) {
     }
   }]);
 
-  return DatePicker$$1;
+  return DatePicker;
 }(Component);
 
-DatePicker$1.propTypes = {
-  theme: PropTypes.object,
-  adornmentPosition: PropTypes.string,
-  allowKeyboardControl: PropTypes.bool,
-  animateYearScrolling: PropTypes.bool,
-  autoOk: PropTypes.bool,
-  cancelLabel: PropTypes.node,
-  clearable: PropTypes.bool,
-  clearLabel: PropTypes.node,
-  disableFuture: PropTypes.object,
-  disableOpenOnEnter: PropTypes.bool,
-  disablePast: PropTypes.bool,
-  emptyLabel: PropTypes.string,
-  initialFocusedDate: PropTypes.string,
-  InputAdornmentProps: PropTypes.object,
-  invalidDateMessage: PropTypes.node,
-  invalidLabel: PropTypes.string,
-  keyboard: PropTypes.bool,
-  keyboardIcon: PropTypes.node,
-  leftArrowIcon: PropTypes.node,
-  mask: PropTypes.any,
-  maxDate: PropTypes.string,
-  maxDateMessage: PropTypes.node,
-  minDate: PropTypes.string,
-  minDateMessage: PropTypes.node,
-  okLabel: PropTypes.node,
-  onInputChange: PropTypes.func,
-  openToYearSelection: PropTypes.bool,
-  rightArrowIcon: PropTypes.node,
-  showTodayButton: PropTypes.bool,
-  TextFieldComponent: PropTypes.string,
-  todayLabel: PropTypes.string,
-  locale: PropTypes.string,
-  format: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  getValue: PropTypes.func,
-  value: PropTypes.instanceOf(Date),
-  valueDefault: PropTypes.instanceOf(Date)
+DatePicker.propTypes = {
+  theme: propTypes.object,
+  adornmentPosition: propTypes.string,
+  allowKeyboardControl: propTypes.bool,
+  animateYearScrolling: propTypes.bool,
+  autoOk: propTypes.bool,
+  cancelLabel: propTypes.node,
+  clearable: propTypes.bool,
+  clearLabel: propTypes.node,
+  disableFuture: propTypes.object,
+  disableOpenOnEnter: propTypes.bool,
+  disablePast: propTypes.bool,
+  emptyLabel: propTypes.string,
+  initialFocusedDate: propTypes.string,
+  InputAdornmentProps: propTypes.object,
+  invalidDateMessage: propTypes.node,
+  invalidLabel: propTypes.string,
+  keyboard: propTypes.bool,
+  keyboardIcon: propTypes.node,
+  leftArrowIcon: propTypes.node,
+  mask: propTypes.any,
+  maxDate: propTypes.string,
+  maxDateMessage: propTypes.node,
+  minDate: propTypes.string,
+  minDateMessage: propTypes.node,
+  okLabel: propTypes.node,
+  onInputChange: propTypes.func,
+  openToYearSelection: propTypes.bool,
+  rightArrowIcon: propTypes.node,
+  showTodayButton: propTypes.bool,
+  TextFieldComponent: propTypes.string,
+  todayLabel: propTypes.string,
+  locale: propTypes.string,
+  format: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  getValue: propTypes.func,
+  value: propTypes.instanceOf(Date),
+  valueDefault: propTypes.instanceOf(Date)
 };
-DatePicker$1.defaultProps = {
+DatePicker.defaultProps = {
   theme: {},
   tag: 'div',
   value: null,
@@ -8250,11 +8651,11 @@ function RotatingCard(props) {
 }
 
 RotatingCard.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  innerTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node,
-  flipped: PropTypes.bool
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  innerTag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node,
+  flipped: propTypes.bool
 };
 RotatingCard.defaultProps = {
   tag: "div",
@@ -8264,6 +8665,37 @@ RotatingCard.defaultProps = {
 
 var css$a = ".file-field .file-field-right .file-path-wrapper {\n  padding-left: 0;\n  padding-right: 10px;\n}\n";
 styleInject(css$a);
+
+var MDBCloseIcon = function MDBCloseIcon(_ref) {
+  var onClick = _ref.onClick,
+      className = _ref.className,
+      ariaLabel = _ref.ariaLabel,
+      props = _objectWithoutProperties(_ref, ["onClick", "className", "ariaLabel"]);
+
+  var onClickHandler = function onClickHandler(e) {
+    onClick && onClick(e);
+  };
+
+  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
+  return React.createElement("button", _extends({
+    "data-test": "close-button",
+    type: "button"
+  }, props, {
+    className: btnClasses.join(" "),
+    onClick: onClickHandler,
+    "aria-label": ariaLabel
+  }), React.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7"));
+};
+MDBCloseIcon.defaultProps = {
+  ariaLabel: "Close"
+};
+MDBCloseIcon.propTypes = {
+  className: propTypes.string,
+  ariaLabel: propTypes.string,
+  onClick: propTypes.func
+};
 
 var InputFile =
 /*#__PURE__*/
@@ -8281,6 +8713,12 @@ function (_React$Component) {
       _this.fileChange(e.target.files);
 
       _this.props.getValue && _this.props.getValue(e.target.files);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "resetFiles", function () {
+      _this.state.files && _this.setState({
+        files: false
+      });
     });
 
     _this.state = {
@@ -8324,6 +8762,9 @@ function (_React$Component) {
           btnColor = _this$props.btnColor,
           textFieldTitle = _this$props.textFieldTitle,
           multiple = _this$props.multiple,
+          reset = _this$props.reset,
+          resetClassName = _this$props.resetClassName,
+          resetAriaLabel = _this$props.resetAriaLabel,
           reverse = _this$props.reverse;
       var btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", reverse ? "float-right" : "float-left");
       var inputFieldClass = classNames("file-path", "validate", this.state.files ? "valid" : false, className);
@@ -8341,8 +8782,21 @@ function (_React$Component) {
       }, React.createElement("input", {
         className: inputFieldClass,
         type: "text",
-        placeholder: this.state.files ? this.state.files : textFieldTitle
-      })));
+        placeholder: this.state.files ? this.state.files : textFieldTitle,
+        style: {
+          position: reset ? "relative" : null
+        }
+      })), reset && React.createElement(MDBCloseIcon, {
+        onClick: this.resetFiles,
+        className: resetClassName,
+        ariaLabel: resetAriaLabel ? resetAriaLabel : null,
+        style: {
+          position: "absolute",
+          top: "50%",
+          right: "0",
+          transform: "translateY(-50%)"
+        }
+      }));
     }
   }]);
 
@@ -8350,17 +8804,21 @@ function (_React$Component) {
 }(React.Component);
 
 InputFile.propTypes = {
-  className: PropTypes.string,
-  btnTitle: PropTypes.string,
-  btnColor: PropTypes.string,
-  textFieldTitle: PropTypes.string,
-  multiple: PropTypes.bool,
-  reverse: PropTypes.bool
+  className: propTypes.string,
+  btnTitle: propTypes.string,
+  btnColor: propTypes.string,
+  textFieldTitle: propTypes.string,
+  multiple: propTypes.bool,
+  reset: propTypes.bool,
+  resetClassName: propTypes.string,
+  resetAriaLabel: propTypes.string,
+  reverse: propTypes.bool
 };
 InputFile.defaultProps = {
   btnTitle: "Choose file",
   textFieldTitle: "Upload your file",
   btnColor: "primary",
+  reset: false,
   reverse: false
 };
 
@@ -8482,11 +8940,11 @@ function (_React$Component) {
 }(React.Component);
 
 InputRange.propTypes = {
-  className: PropTypes.string,
-  min: PropTypes.number,
-  max: PropTypes.number,
-  value: PropTypes.number,
-  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
+  className: propTypes.string,
+  min: propTypes.number,
+  max: propTypes.number,
+  value: propTypes.number,
+  getValue: propTypes.oneOfType([propTypes.func, propTypes.bool])
 };
 InputRange.defaultProps = {
   min: 0,
@@ -8563,12 +9021,12 @@ function (_React$Component) {
 }(React.Component);
 
 InputSwitch.propTypes = {
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  checked: PropTypes.bool,
-  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-  labelLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
-  labelRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object])
+  className: propTypes.string,
+  disabled: propTypes.bool,
+  checked: propTypes.bool,
+  getValue: propTypes.oneOfType([propTypes.func, propTypes.bool]),
+  labelLeft: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
+  labelRight: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object])
 };
 InputSwitch.defaultProps = {
   checked: false,
@@ -8693,20 +9151,20 @@ ScrollBar.defaultProps = {
   onXReachEnd: undefined
 };
 ScrollBar.propTypes = {
-  children: PropTypes$1.node.isRequired,
-  className: PropTypes$1.string,
-  option: PropTypes$1.object,
-  containerRef: PropTypes$1.func,
-  onScrollY: PropTypes$1.func,
-  onScrollX: PropTypes$1.func,
-  onScrollUp: PropTypes$1.func,
-  onScrollDown: PropTypes$1.func,
-  onScrollLeft: PropTypes$1.func,
-  onScrollRight: PropTypes$1.func,
-  onYReachStart: PropTypes$1.func,
-  onYReachEnd: PropTypes$1.func,
-  onXReachStart: PropTypes$1.func,
-  onXReachEnd: PropTypes$1.func
+  children: propTypes.node.isRequired,
+  className: propTypes.string,
+  option: propTypes.object,
+  containerRef: propTypes.func,
+  onScrollY: propTypes.func,
+  onScrollX: propTypes.func,
+  onScrollUp: propTypes.func,
+  onScrollDown: propTypes.func,
+  onScrollLeft: propTypes.func,
+  onScrollRight: propTypes.func,
+  onYReachStart: propTypes.func,
+  onYReachEnd: propTypes.func,
+  onXReachStart: propTypes.func,
+  onXReachEnd: propTypes.func
 };
 
 var ScrollBox =
@@ -8739,8 +9197,8 @@ function (_Component) {
 }(Component);
 
 ScrollBox.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
+  className: propTypes.string,
+  children: propTypes.node
 };
 
 var ScrollSpyList =
@@ -8775,9 +9233,9 @@ function (_Component) {
 }(Component);
 
 ScrollSpyList.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  color: PropTypes.string
+  className: propTypes.string,
+  children: propTypes.node,
+  color: propTypes.string
 };
 
 var ScrollSpyListItem =
@@ -8814,9 +9272,9 @@ function (_Component) {
 }(Component);
 
 ScrollSpyListItem.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  active: PropTypes.bool
+  className: propTypes.string,
+  children: propTypes.node,
+  active: propTypes.bool
 };
 
 var ScrollSpyText =
@@ -8851,9 +9309,9 @@ function (_Component) {
 }(Component);
 
 ScrollSpyText.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node,
-  scrollSpyRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+  className: propTypes.string,
+  children: propTypes.node,
+  scrollSpyRef: propTypes.oneOfType([propTypes.func, propTypes.object])
 };
 
 var css$e = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter, .side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active, .side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter, .right-side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active, .right-side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n\n.side-nav[data-animate=\"false\"]{\n  transform: translateX(0%);\n}\n\n\n.side-nav.wide {\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n}\n\n\n.side-nav.wide.slim {\n    width: 3.75rem;\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n    right: 3.75rem;\n}\n\n.right-aligned.side-nav.wide.slim {\n    right: 0;\n}\n\n\n";
@@ -9106,7 +9564,7 @@ function (_React$Component) {
           exit: 300
         },
         classNames: right ? "right-side-slide" : "side-slide",
-        in: isOpen
+        "in": isOpen
       }, sidenav), isFixed ? false : showOverlay && isOpen && overlay);
     }
   }]);
@@ -9115,22 +9573,22 @@ function (_React$Component) {
 }(React.Component);
 
 SideNav.propTypes = {
-  bg: PropTypes.string,
-  breakWidth: PropTypes.number,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  hidden: PropTypes.bool,
-  href: PropTypes.string,
-  logo: PropTypes.string,
-  mask: PropTypes.string,
-  onOverlayClick: PropTypes.func,
-  right: PropTypes.bool,
-  triggerOpening: PropTypes.bool,
-  tag: PropTypes.string,
-  fixed: PropTypes.bool,
-  showOverlay: PropTypes.bool,
-  responsive: PropTypes.bool,
-  slim: PropTypes.bool
+  bg: propTypes.string,
+  breakWidth: propTypes.number,
+  children: propTypes.node,
+  className: propTypes.string,
+  hidden: propTypes.bool,
+  href: propTypes.string,
+  logo: propTypes.string,
+  mask: propTypes.string,
+  onOverlayClick: propTypes.func,
+  right: propTypes.bool,
+  triggerOpening: propTypes.bool,
+  tag: propTypes.string,
+  fixed: propTypes.bool,
+  showOverlay: propTypes.bool,
+  responsive: propTypes.bool,
+  slim: propTypes.bool
 };
 SideNav.defaultProps = {
   bg: '',
@@ -9262,20 +9720,20 @@ function (_React$Component) {
 _defineProperty(SideNavCat, "displayName", "SideNavCat");
 
 SideNavCat.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  icon: PropTypes.string,
-  iconBrand: PropTypes.bool,
-  iconLight: PropTypes.bool,
-  iconRegular: PropTypes.bool,
-  iconSize: PropTypes.string,
-  id: PropTypes.string,
-  isOpen: PropTypes.bool,
-  isOpenID: PropTypes.string,
-  name: PropTypes.string,
-  onClick: PropTypes.func,
-  tag: PropTypes.string
+  children: propTypes.node,
+  className: propTypes.string,
+  disabled: propTypes.bool,
+  icon: propTypes.string,
+  iconBrand: propTypes.bool,
+  iconLight: propTypes.bool,
+  iconRegular: propTypes.bool,
+  iconSize: propTypes.string,
+  id: propTypes.string,
+  isOpen: propTypes.bool,
+  isOpenID: propTypes.string,
+  name: propTypes.string,
+  onClick: propTypes.func,
+  tag: propTypes.string
 };
 SideNavCat.defaultProps = {
   className: "",
@@ -9361,11 +9819,11 @@ function (_React$Component) {
 }(React.Component);
 
 SideNavItem.propTypes = {
-  children: PropTypes.node,
-  href: PropTypes.string,
-  tag: PropTypes.string,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  children: propTypes.node,
+  href: propTypes.string,
+  tag: propTypes.string,
+  innerRef: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string
 };
 SideNavItem.defaultProps = {
   tag: "li"
@@ -9452,7 +9910,7 @@ function (_React$Component) {
           shortcut = _this2.props.shortcut || calculateShortcut();
         }
 
-        return React.createElement(NavLink, _extends({
+        return React.createElement(NavLink$1, _extends({
           className: classes,
           ref: innerRef,
           onClick: _this2.handleClick,
@@ -9475,13 +9933,13 @@ function (_React$Component) {
 }(React.Component);
 
 SideNavLink.propTypes = {
-  children: PropTypes.node,
-  href: PropTypes.string,
-  tag: PropTypes.string,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  topLevel: PropTypes.bool,
-  shortcut: PropTypes.string
+  children: propTypes.node,
+  href: propTypes.string,
+  tag: propTypes.string,
+  innerRef: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  topLevel: propTypes.bool,
+  shortcut: propTypes.string
 };
 SideNavLink.defaultProps = {
   to: '#',
@@ -9573,9 +10031,9 @@ function (_React$Component) {
 }(React.Component);
 
 SideNavNav.propTypes = {
-  children: PropTypes.node,
-  tag: PropTypes.string,
-  className: PropTypes.string
+  children: propTypes.node,
+  tag: propTypes.string,
+  className: propTypes.string
 };
 SideNavNav.defaultProps = {
   tag: "ul"
@@ -9653,17 +10111,17 @@ SimpleChart.defaultProps = {
   padding: 0
 };
 SimpleChart.propTypes = {
-  width: PropTypes.number,
-  height: PropTypes.number,
-  strokeWidth: PropTypes.number,
-  strokeColor: PropTypes.string,
-  labelFontWeight: PropTypes.string,
-  labelFontSize: PropTypes.string,
-  fillColor: PropTypes.string,
-  startAngle: PropTypes.number,
-  endAngle: PropTypes.number,
-  radius: PropTypes.number,
-  style: PropTypes.object
+  width: propTypes.number,
+  height: propTypes.number,
+  strokeWidth: propTypes.number,
+  strokeColor: propTypes.string,
+  labelFontWeight: propTypes.string,
+  labelFontSize: propTypes.string,
+  fillColor: propTypes.string,
+  startAngle: propTypes.number,
+  endAngle: propTypes.number,
+  radius: propTypes.number,
+  style: propTypes.object
 };
 
 var Spinner =
@@ -9794,14 +10252,14 @@ function (_Component) {
 }(Component);
 
 Spinner.propTypes = {
-  className: PropTypes.string,
-  big: PropTypes.bool,
-  small: PropTypes.bool,
-  crazy: PropTypes.bool,
-  red: PropTypes.bool,
-  green: PropTypes.bool,
-  yellow: PropTypes.bool,
-  multicolor: PropTypes.bool
+  className: propTypes.string,
+  big: propTypes.bool,
+  small: propTypes.bool,
+  crazy: propTypes.bool,
+  red: propTypes.bool,
+  green: propTypes.bool,
+  yellow: propTypes.bool,
+  multicolor: propTypes.bool
 };
 Spinner.defaultProps = {
   tag: "div"
@@ -9839,7 +10297,7 @@ function (_React$Component) {
         step = React.createElement(Tag, {
           className: stepClass,
           onClick: this.props.onClick
-        }, React.createElement(Popper$1, {
+        }, React.createElement(Popper, {
           placement: "top"
         }, React.createElement(Button, {
           className: "btn-circle-2 btn-blue-grey"
@@ -9850,7 +10308,7 @@ function (_React$Component) {
         step = React.createElement(Tag, {
           className: stepClass,
           onClick: this.props.onClick
-        }, React.createElement(Popper$1, {
+        }, React.createElement(Popper, {
           placement: "top"
         }, React.createElement(Button, {
           className: "btn-circle-3 btn-blue-grey"
@@ -9926,11 +10384,11 @@ function (_React$Component) {
 }(React.Component);
 
 Stepper.propTypes = {
-  vertical: PropTypes.bool,
-  form: PropTypes.bool,
-  icon: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string
+  vertical: propTypes.bool,
+  form: propTypes.bool,
+  icon: propTypes.bool,
+  children: propTypes.node,
+  className: propTypes.string
 };
 Stepper.defaultProps = {
   form: false
@@ -10141,19 +10599,19 @@ function (_React$Component) {
 }(React.Component);
 
 TableEditable.propTypes = {
-  className: PropTypes.string,
-  small: PropTypes.bool,
-  bordered: PropTypes.bool,
-  striped: PropTypes.bool,
-  hover: PropTypes.bool,
-  data: PropTypes.array,
-  columns: PropTypes.array,
-  children: PropTypes.node,
-  responsive: PropTypes.bool,
-  responsiveSm: PropTypes.bool,
-  responsiveMd: PropTypes.bool,
-  responsiveLg: PropTypes.bool,
-  responsiveXl: PropTypes.bool
+  className: propTypes.string,
+  small: propTypes.bool,
+  bordered: propTypes.bool,
+  striped: propTypes.bool,
+  hover: propTypes.bool,
+  data: propTypes.array,
+  columns: propTypes.array,
+  children: propTypes.node,
+  responsive: propTypes.bool,
+  responsiveSm: propTypes.bool,
+  responsiveMd: propTypes.bool,
+  responsiveLg: propTypes.bool,
+  responsiveXl: propTypes.bool
 };
 
 var TabPane =
@@ -10189,17 +10647,17 @@ function (_React$Component) {
 }(React.Component);
 
 TabPane.contextTypes = {
-  activeItemId: PropTypes.any
+  activeItemId: propTypes.any
 };
 TabPane.propTypes = {
-  tabId: PropTypes.any,
-  className: PropTypes.string
+  tabId: propTypes.any,
+  className: propTypes.string
 };
 
-var propTypes$1 = {
-  activeItem: PropTypes.any,
-  tabId: PropTypes.any,
-  className: PropTypes.string
+var propTypes$2 = {
+  activeItem: propTypes.any,
+  tabId: propTypes.any,
+  className: propTypes.string
 };
 
 var TabContent =
@@ -10230,7 +10688,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var className = this.props.className;
-      var attributes = omit(this.props, Object.keys(propTypes$1));
+      var attributes = omit(this.props, Object.keys(propTypes$2));
       var classes = classNames("tab-content", className);
       return React.createElement("div", _extends({}, attributes, {
         className: classes
@@ -10249,9 +10707,9 @@ function (_React$Component) {
 }(React.Component);
 
 TabContent.childContextTypes = {
-  activeItemId: PropTypes.any
+  activeItemId: propTypes.any
 };
-TabContent.propTypes = propTypes$1;
+TabContent.propTypes = propTypes$2;
 
 var Sticky =
 /*#__PURE__*/
@@ -10369,10 +10827,10 @@ function (_Component) {
 }(Component);
 
 _defineProperty(Sticky, "propTypes", {
-  topOffset: PropTypes.number,
-  bottomOffset: PropTypes.number,
-  relative: PropTypes.bool,
-  children: PropTypes.func.isRequired
+  topOffset: propTypes.number,
+  bottomOffset: propTypes.number,
+  relative: propTypes.bool,
+  children: propTypes.func.isRequired
 });
 
 _defineProperty(Sticky, "defaultProps", {
@@ -10384,9 +10842,9 @@ _defineProperty(Sticky, "defaultProps", {
 });
 
 _defineProperty(Sticky, "contextTypes", {
-  subscribe: PropTypes.func,
-  unsubscribe: PropTypes.func,
-  getParent: PropTypes.func
+  subscribe: propTypes.func,
+  unsubscribe: propTypes.func,
+  getParent: propTypes.func
 });
 
 var Container$1 =
@@ -10498,9 +10956,9 @@ function (_PureComponent) {
 }(PureComponent);
 
 _defineProperty(Container$1, "childContextTypes", {
-  subscribe: PropTypes.func,
-  unsubscribe: PropTypes.func,
-  getParent: PropTypes.func
+  subscribe: propTypes.func,
+  unsubscribe: propTypes.func,
+  getParent: propTypes.func
 });
 
 var Testimonial =
@@ -10533,8 +10991,8 @@ function (_Component) {
 }(Component);
 
 Testimonial.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string
 };
 Testimonial.defaultProps = {
   tag: "div"
@@ -10587,16 +11045,16 @@ var TimelineStep = function TimelineStep(props) {
 };
 
 TimelineStep.propTypes = {
-  href: PropTypes.string,
-  color: PropTypes.string,
-  size: PropTypes.string,
-  icon: PropTypes.string,
-  iconBrand: PropTypes.bool,
-  iconClass: PropTypes.string,
-  iconLight: PropTypes.bool,
-  iconRegular: PropTypes.bool,
-  iconSize: PropTypes.string,
-  className: PropTypes.string
+  href: propTypes.string,
+  color: propTypes.string,
+  size: propTypes.string,
+  icon: propTypes.string,
+  iconBrand: propTypes.bool,
+  iconClass: propTypes.string,
+  iconLight: propTypes.bool,
+  iconRegular: propTypes.bool,
+  iconSize: propTypes.string,
+  className: propTypes.string
 };
 TimelineStep.defaultProps = {
   href: "#"
@@ -10605,14 +11063,14 @@ TimelineStep.defaultProps = {
 var css$i = ".time-picker-clock {\n  border-radius: 100%;\n  position: relative;\n  /* transition: 0.3s cubic-bezier(.25,.8,.50,1); */\n  user-select: none;\n  background: #f0f0f0;\n  animation: show-up-clock 0.2s linear;\n}\n@keyframes show-up-clock {\n  0% {\n    opacity: 0;\n    transform: scale(0.7);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n.time-picker-clock__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\n.time-picker-clock__hand {\n  height: calc(50% - 28px);\n  width: 2px;\n  bottom: 50%;\n  left: calc(50% - 1px);\n  transform-origin: center bottom;\n  position: absolute;\n  will-change: transform;\n  z-index: 1;\n  background-color: rgba(0, 150, 136, 0.25);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring {\n  background-color: rgba(0, 150, 136, 0.25);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 2.5rem;\n  height: 2.5rem;\n  content: \"\";\n  position: absolute;\n  top: -3%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring:before {\n  background-color: rgba(0, 77, 64, 0.75);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 10px;\n  height: 10px;\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand:after {\n  content: \"\";\n  position: absolute;\n  height: 6px;\n  width: 6px;\n  top: 100%;\n  left: 50%;\n  border-radius: 50%;\n  background-color: rgba(0, 77, 64, 0.75);\n  opacity: 0.75;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span {\n  align-items: center;\n  border-radius: 100%;\n  cursor: default;\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.2;\n  justify-content: center;\n  left: calc(50% - 40px / 2);\n  height: 40px;\n  position: absolute;\n  text-align: center;\n  top: calc(50% - 40px / 2);\n  width: 40px;\n  user-select: none;\n}\n.time-picker-clock > span:hover,\n.time-picker-clock > span.active:hover {\n  cursor: pointer;\n}\n.time-picker-clock > span:active:hover,\n.time-picker-clock > span.active:active:hover {\n  cursor: move;\n}\n.time-picker-clock:active:hover {\n  cursor: move;\n}\n.time-picker-clock > span > span {\n  z-index: 1;\n}\n\n.time-picker-clock > span:before,\n.time-picker-clock > span:after {\n  content: \"\";\n  border-radius: 100%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 14px;\n  width: 14px;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span > span:after,\n.time-picker-clock > span > span:before {\n  height: 40px;\n  width: 40px;\n}\n.time-picker-clock > span.active {\n  color: #fff;\n  cursor: default;\n  z-index: 2;\n  background: blue;\n}\n.time-picker-clock > span > span.disabled {\n  pointer-events: none;\n}\n\n.picker__footer .clockpicker-button {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n";
 styleInject(css$i);
 
-var propTypes$2 = {
-  color: PropTypes.string.isRequired,
-  hours: PropTypes.string.isRequired,
-  minutes: PropTypes.string.isRequired,
-  dayTime: PropTypes.string.isRequired,
-  unitsMode: PropTypes.string.isRequired,
-  handleModeChange: PropTypes.func.isRequired,
-  hoursFormat: PropTypes.number.isRequired
+var propTypes$3 = {
+  color: propTypes.string.isRequired,
+  hours: propTypes.string.isRequired,
+  minutes: propTypes.string.isRequired,
+  dayTime: propTypes.string.isRequired,
+  unitsMode: propTypes.string.isRequired,
+  handleModeChange: propTypes.func.isRequired,
+  hoursFormat: propTypes.number.isRequired
 };
 
 var TimePickerDisplay = function TimePickerDisplay(_ref) {
@@ -10649,12 +11107,12 @@ var TimePickerDisplay = function TimePickerDisplay(_ref) {
   }, dayTime.toUpperCase()))));
 };
 
-TimePickerDisplay.propTypes = propTypes$2;
+TimePickerDisplay.propTypes = propTypes$3;
 
-var propTypes$3 = {
-  angle: PropTypes.number.isRequired,
-  color: PropTypes.string.isRequired,
-  scale: PropTypes.number.isRequired
+var propTypes$4 = {
+  angle: propTypes.number.isRequired,
+  color: propTypes.string.isRequired,
+  scale: propTypes.number.isRequired
 };
 
 var TimpiePickerClockHand = function TimpiePickerClockHand(_ref) {
@@ -10674,29 +11132,29 @@ var TimpiePickerClockHand = function TimpiePickerClockHand(_ref) {
   }));
 };
 
-TimpiePickerClockHand.propTypes = propTypes$3;
+TimpiePickerClockHand.propTypes = propTypes$4;
 
-var propTypes$4 = {
-  className: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  max: PropTypes.number.isRequired,
-  min: PropTypes.number.isRequired,
-  rotate: PropTypes.number.isRequired,
-  step: PropTypes.number.isRequired,
-  startFromInner: PropTypes.bool.isRequired,
-  allowedValues: PropTypes.arrayOf(PropTypes.number),
-  autoSwitch: PropTypes.bool,
-  color: PropTypes.string,
-  double: PropTypes.bool,
-  handleModeChange: PropTypes.func,
-  size: PropTypes.number,
-  value: PropTypes.number
+var propTypes$5 = {
+  className: propTypes.string.isRequired,
+  handleChange: propTypes.func.isRequired,
+  max: propTypes.number.isRequired,
+  min: propTypes.number.isRequired,
+  rotate: propTypes.number.isRequired,
+  step: propTypes.number.isRequired,
+  startFromInner: propTypes.bool.isRequired,
+  allowedValues: propTypes.arrayOf(propTypes.number),
+  autoSwitch: propTypes.bool,
+  color: propTypes.string,
+  "double": propTypes.bool,
+  handleModeChange: propTypes.func,
+  size: propTypes.number,
+  value: propTypes.number
 };
 var defaultProps$1 = {
   allowedValues: [],
   autoSwitch: false,
   color: 'priamry',
-  double: false,
+  "double": false,
   handleModeChange: function handleModeChange() {},
   size: 270,
   value: 0
@@ -10719,12 +11177,12 @@ function (_Component) {
           size = _this$props.size,
           max = _this$props.max,
           min = _this$props.min,
-          double = _this$props.double,
+          _double = _this$props["double"],
           rotate = _this$props.rotate,
           value = _this$props.value;
       var clockRadius = size / 2;
       var digitsAmount = max - min + 1;
-      var digitsInRound = double ? digitsAmount / 2 : digitsAmount;
+      var digitsInRound = _double ? digitsAmount / 2 : digitsAmount;
       var degreesPerUnit = 360 / digitsInRound;
       var outerRadius = clockRadius - 4;
       var innerRadius = clockRadius - Math.max(clockRadius * 0.2, 40); // cant be lower than 40
@@ -10749,7 +11207,11 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getScale", function (value) {
+<<<<<<< HEAD
       if (_this.props.startFromInner && _this.props.double) {
+=======
+      if (_this.props.startFromInner && _this.props["double"]) {
+>>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
         return value - _this.props.min >= _this.state.digitsInRound ? _this.state.outerRadius / _this.state.clockRadius : _this.state.innerRadius / _this.state.clockRadius;
       }
 
@@ -10806,7 +11268,7 @@ function (_Component) {
 
       var betweenRadiusDistance = (_this.state.outerRadius + _this.state.innerRadius) / 2 - 16;
 
-      if (_this.props.double) {
+      if (_this.props["double"]) {
         return _this.props.startFromInner ? centerDistance > betweenRadiusDistance : centerDistance < betweenRadiusDistance;
       }
 
@@ -10849,7 +11311,7 @@ function (_Component) {
         children.push(React.createElement("span", {
           className: classes,
           style: Object.assign(_this.transformPosition(value), {
-            fontSize: !_this.props.double ? '140%' : _this.props.startFromInner ? value <= 12 ? '120%' : '100%' : value > 12 ? '120%' : '100%'
+            fontSize: !_this.props["double"] ? '140%' : _this.props.startFromInner ? value <= 12 ? '120%' : '100%' : value > 12 ? '120%' : '100%'
           }),
           key: value,
           onMouseDown: function onMouseDown(e) {
@@ -10996,13 +11458,13 @@ function (_Component) {
   return TimePickerClock;
 }(Component);
 
-TimePickerClock.propTypes = propTypes$4;
+TimePickerClock.propTypes = propTypes$5;
 TimePickerClock.defaultProps = defaultProps$1;
 
-var propTypes$5 = {
-  color: PropTypes.string.isRequired,
-  dayTime: PropTypes.string.isRequired,
-  handleDayTimeChange: PropTypes.func.isRequired
+var propTypes$6 = {
+  color: propTypes.string.isRequired,
+  dayTime: propTypes.string.isRequired,
+  handleDayTimeChange: propTypes.func.isRequired
 };
 
 var TimePickerAmPmBlock = function TimePickerAmPmBlock(_ref) {
@@ -11028,17 +11490,17 @@ var TimePickerAmPmBlock = function TimePickerAmPmBlock(_ref) {
   }, "PM"));
 };
 
-TimePickerAmPmBlock.propTypes = propTypes$5;
+TimePickerAmPmBlock.propTypes = propTypes$6;
 
-var propTypes$6 = {
-  cancelable: PropTypes.bool.isRequired,
-  cancelText: PropTypes.string.isRequired,
-  clearable: PropTypes.bool.isRequired,
-  clearText: PropTypes.string.isRequired,
-  doneText: PropTypes.string.isRequired,
-  handleCancelClick: PropTypes.func.isRequired,
-  handleClearClick: PropTypes.func.isRequired,
-  handleDoneClick: PropTypes.func.isRequired
+var propTypes$7 = {
+  cancelable: propTypes.bool.isRequired,
+  cancelText: propTypes.string.isRequired,
+  clearable: propTypes.bool.isRequired,
+  clearText: propTypes.string.isRequired,
+  doneText: propTypes.string.isRequired,
+  handleCancelClick: propTypes.func.isRequired,
+  handleClearClick: propTypes.func.isRequired,
+  handleDoneClick: propTypes.func.isRequired
 };
 
 var TimePickerFooter = function TimePickerFooter(_ref) {
@@ -11070,26 +11532,26 @@ var TimePickerFooter = function TimePickerFooter(_ref) {
   }, doneText));
 };
 
-TimePickerFooter.propTypes = propTypes$6;
+TimePickerFooter.propTypes = propTypes$7;
 
-var propTypes$7 = {
-  id: PropTypes.string.isRequired,
-  allowedValues: PropTypes.arrayOf(PropTypes.number),
-  autoSwitch: PropTypes.bool,
-  cancelable: PropTypes.bool,
-  cancelText: PropTypes.string,
-  clearable: PropTypes.bool,
-  clearText: PropTypes.string,
-  closeOnCancel: PropTypes.bool,
-  color: PropTypes.string,
-  doneText: PropTypes.string,
-  getValue: PropTypes.func,
-  hours: PropTypes.number,
-  hoursFormat: PropTypes.number,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
-  minutes: PropTypes.number,
-  placeholder: PropTypes.string,
-  startFromInner: PropTypes.bool
+var propTypes$8 = {
+  id: propTypes.string.isRequired,
+  allowedValues: propTypes.arrayOf(propTypes.number),
+  autoSwitch: propTypes.bool,
+  cancelable: propTypes.bool,
+  cancelText: propTypes.string,
+  clearable: propTypes.bool,
+  clearText: propTypes.string,
+  closeOnCancel: propTypes.bool,
+  color: propTypes.string,
+  doneText: propTypes.string,
+  getValue: propTypes.func,
+  hours: propTypes.number,
+  hoursFormat: propTypes.number,
+  label: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
+  minutes: propTypes.number,
+  placeholder: propTypes.string,
+  startFromInner: propTypes.bool
 };
 var defaultProps$2 = {
   allowedValues: [],
@@ -11326,7 +11788,7 @@ function (_Component) {
         autoSwitch: autoSwitch,
         className: hoursClasses,
         color: color,
-        double: hoursFormat === 24,
+        "double": hoursFormat === 24,
         handleChange: this.handleHoursChange,
         handleModeChange: this.handleModeChange,
         min: 1,
@@ -11365,8 +11827,11 @@ function (_Component) {
   return TimePicker;
 }(Component);
 
-TimePicker.propTypes = propTypes$7;
+TimePicker.propTypes = propTypes$8;
 TimePicker.defaultProps = defaultProps$2;
+
+var css$j = ".Toastify__toast-container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 320px;\n  box-sizing: border-box;\n  color: #fff; }\n  .Toastify__toast-container--top-left {\n    top: 1em;\n    left: 1em; }\n  .Toastify__toast-container--top-center {\n    top: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--top-right {\n    top: 1em;\n    right: 1em; }\n  .Toastify__toast-container--bottom-left {\n    bottom: 1em;\n    left: 1em; }\n  .Toastify__toast-container--bottom-center {\n    bottom: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--bottom-right {\n    bottom: 1em;\n    right: 1em; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast-container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0; }\n    .Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right {\n      top: 0; }\n    .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right {\n      bottom: 0; }\n    .Toastify__toast-container--rtl {\n      right: 0;\n      left: initial; } }\n\n.Toastify__toast {\n  position: relative;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 8px;\n  border-radius: 1px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  max-height: 800px;\n  overflow: hidden;\n  font-family: sans-serif;\n  cursor: pointer;\n  direction: ltr; }\n  .Toastify__toast--rtl {\n    direction: rtl; }\n  .Toastify__toast--default {\n    background: #fff;\n    color: #aaa; }\n  .Toastify__toast--info {\n    background: #3498db; }\n  .Toastify__toast--success {\n    background: #07bc0c; }\n  .Toastify__toast--warning {\n    background: #f1c40f; }\n  .Toastify__toast--error {\n    background: #e74c3c; }\n  .Toastify__toast-body {\n    margin: auto 0;\n    -ms-flex: 1;\n        flex: 1; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast {\n    margin-bottom: 0; } }\n\n.Toastify__close-button {\n  color: #fff;\n  font-weight: bold;\n  font-size: 14px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  opacity: 0.7;\n  transition: 0.3s ease;\n  -ms-flex-item-align: start;\n      align-self: flex-start; }\n  .Toastify__close-button--default {\n    color: #000;\n    opacity: 0.3; }\n  .Toastify__close-button:hover, .Toastify__close-button:focus {\n    opacity: 1; }\n\n@keyframes Toastify__trackProgress {\n  0% {\n    transform: scaleX(1); }\n  100% {\n    transform: scaleX(0); } }\n\n.Toastify__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 9999;\n  opacity: 0.7;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left; }\n  .Toastify__progress-bar--animated {\n    animation: Toastify__trackProgress linear 1 forwards; }\n  .Toastify__progress-bar--controlled {\n    transition: transform .2s; }\n  .Toastify__progress-bar--rtl {\n    right: 0;\n    left: initial;\n    transform-origin: right; }\n  .Toastify__progress-bar--default {\n    background: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55); }\n\n@keyframes Toastify__bounceInRight {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0); }\n  75% {\n    transform: translate3d(10px, 0, 0); }\n  90% {\n    transform: translate3d(-5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInLeft {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0); }\n  75% {\n    transform: translate3d(-10px, 0, 0); }\n  90% {\n    transform: translate3d(5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInUp {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  75% {\n    transform: translate3d(0, 10px, 0); }\n  90% {\n    transform: translate3d(0, -5px, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0); } }\n\n@keyframes Toastify__bounceInDown {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    transform: translate3d(0, 5px, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0); } }\n\n.Toastify__bounce-enter--top-left, .Toastify__bounce-enter--bottom-left {\n  animation-name: Toastify__bounceInLeft; }\n\n.Toastify__bounce-enter--top-right, .Toastify__bounce-enter--bottom-right {\n  animation-name: Toastify__bounceInRight; }\n\n.Toastify__bounce-enter--top-center {\n  animation-name: Toastify__bounceInDown; }\n\n.Toastify__bounce-enter--bottom-center {\n  animation-name: Toastify__bounceInUp; }\n\n.Toastify__bounce-exit--top-left, .Toastify__bounce-exit--bottom-left {\n  animation-name: Toastify__bounceOutLeft; }\n\n.Toastify__bounce-exit--top-right, .Toastify__bounce-exit--bottom-right {\n  animation-name: Toastify__bounceOutRight; }\n\n.Toastify__bounce-exit--top-center {\n  animation-name: Toastify__bounceOutUp; }\n\n.Toastify__bounce-exit--bottom-center {\n  animation-name: Toastify__bounceOutDown; }\n\n@keyframes Toastify__zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  50% {\n    opacity: 1; } }\n\n@keyframes Toastify__zoomOut {\n  from {\n    opacity: 1; }\n  50% {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  to {\n    opacity: 0; } }\n\n.Toastify__zoom-enter {\n  animation-name: Toastify__zoomIn; }\n\n.Toastify__zoom-exit {\n  animation-name: Toastify__zoomOut; }\n\n@keyframes Toastify__flipIn {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0; }\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in; }\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1; }\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }\n  to {\n    transform: perspective(400px); } }\n\n@keyframes Toastify__flipOut {\n  from {\n    transform: perspective(400px); }\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1; }\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0; } }\n\n.Toastify__flip-enter {\n  animation-name: Toastify__flipIn; }\n\n.Toastify__flip-exit {\n  animation-name: Toastify__flipOut; }\n\n@keyframes Toastify__slideInRight {\n  from {\n    transform: translate3d(110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInLeft {\n  from {\n    transform: translate3d(-110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInUp {\n  from {\n    transform: translate3d(0, 110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInDown {\n  from {\n    transform: translate3d(0, -110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(110%, 0, 0); } }\n\n@keyframes Toastify__slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(-110%, 0, 0); } }\n\n@keyframes Toastify__slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 500px, 0); } }\n\n@keyframes Toastify__slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -500px, 0); } }\n\n.Toastify__slide-enter--top-left, .Toastify__slide-enter--bottom-left {\n  animation-name: Toastify__slideInLeft; }\n\n.Toastify__slide-enter--top-right, .Toastify__slide-enter--bottom-right {\n  animation-name: Toastify__slideInRight; }\n\n.Toastify__slide-enter--top-center {\n  animation-name: Toastify__slideInDown; }\n\n.Toastify__slide-enter--bottom-center {\n  animation-name: Toastify__slideInUp; }\n\n.Toastify__slide-exit--top-left, .Toastify__slide-exit--bottom-left {\n  animation-name: Toastify__slideOutLeft; }\n\n.Toastify__slide-exit--top-right, .Toastify__slide-exit--bottom-right {\n  animation-name: Toastify__slideOutRight; }\n\n.Toastify__slide-exit--top-center {\n  animation-name: Toastify__slideOutUp; }\n\n.Toastify__slide-exit--bottom-center {\n  animation-name: Toastify__slideOutDown; }";
+styleInject(css$j);
 
 var SmoothScroll =
 /*#__PURE__*/
@@ -11415,9 +11880,31 @@ function (_Component) {
           smooth = _this$props.smooth,
           offset = _this$props.offset,
           duration = _this$props.duration,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration"]);
+          block = _this$props.block,
+          color = _this$props.color,
+          outline = _this$props.outline,
+          size = _this$props.size,
+          rounded = _this$props.rounded,
+          gradient = _this$props.gradient,
+          floating = _this$props.floating,
+          flat = _this$props.flat,
+          social = _this$props.social,
+          btn = _this$props.btn,
+          fixed = _this$props.fixed,
+          bottom = _this$props.bottom,
+          right = _this$props.right,
+          top = _this$props.top,
+          left = _this$props.left,
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration", "block", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "social", "btn", "fixed", "bottom", "right", "top", "left"]);
 
-      var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
+      var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", (btn || floating) && "btn", floating && "btn-floating", flat ? "btn-flat" : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? "-outline" : "", "-").concat(color), size ? "btn-".concat(size) : false, rounded ? "btn-rounded" : false, block ? "btn-block" : false, social ? "btn-" + social : false, "Ripple-parent", className);
+      var fixedStyles = {
+        position: "fixed",
+        top: top ? "".concat(top, "px") : null,
+        bottom: bottom ? "".concat(bottom, "px") : !top ? '45px' : null,
+        left: left ? "".concat(left, "px") : null,
+        right: right ? "".concat(right, "px") : !left ? '24px' : null
+      };
       return React.createElement(Link, _extends({
         className: classes,
         onMouseUp: this.handleClick,
@@ -11426,7 +11913,8 @@ function (_Component) {
         spy: spy,
         smooth: smooth,
         offset: offset,
-        duration: duration
+        duration: duration,
+        style: fixed ? fixedStyles : null
       }, attributes), children, this.props.disabled ? false : React.createElement(Waves, {
         cursorPos: this.state.cursorPos
       }));
@@ -11437,15 +11925,30 @@ function (_Component) {
 }(Component);
 
 SmoothScroll.propTypes = {
-  to: PropTypes.string.isRequired,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  active: PropTypes.bool,
-  spy: PropTypes.bool,
-  smooth: PropTypes.bool,
-  offset: PropTypes.number,
-  duration: PropTypes.number
+  to: propTypes.string.isRequired,
+  children: propTypes.node,
+  className: propTypes.string,
+  disabled: propTypes.bool,
+  active: propTypes.bool,
+  spy: propTypes.bool,
+  smooth: propTypes.bool,
+  offset: propTypes.number,
+  duration: propTypes.number,
+  block: propTypes.bool,
+  color: propTypes.string,
+  outline: propTypes.bool,
+  size: propTypes.string,
+  rounded: propTypes.bool,
+  gradient: propTypes.string,
+  floating: propTypes.bool,
+  flat: propTypes.bool,
+  social: propTypes.string,
+  action: propTypes.bool,
+  fixed: propTypes.bool,
+  top: propTypes.string,
+  bottom: propTypes.string,
+  right: propTypes.string,
+  left: propTypes.string
 };
 SmoothScroll.defaultProps = {
   active: false,
@@ -11494,13 +11997,13 @@ var MDBStreak = function MDBStreak(_ref) {
 };
 
 MDBStreak.propTypes = {
-  size: PropTypes.oneOf(['lg', 'md']),
-  by: PropTypes.string,
-  wrapperClass: PropTypes.string,
-  byClass: PropTypes.string,
-  quoteClass: PropTypes.string,
-  photo: PropTypes.string,
-  overlayClass: PropTypes.string
+  size: propTypes.oneOf(['lg', 'md']),
+  by: propTypes.string,
+  wrapperClass: propTypes.string,
+  byClass: propTypes.string,
+  quoteClass: propTypes.string,
+  photo: propTypes.string,
+  overlayClass: propTypes.string
 };
 MDBStreak.defaultProps = {
   wrapperClass: "grey lighten-3"
@@ -11508,4 +12011,4 @@ MDBStreak.defaultProps = {
 
 // FREE
 
-export { Animation, Alert, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, Carousel, CarouselCaption, Control as CarouselControl, CarouselInner, CarouselItem, CarouselIndicators, CarouselIndicator, Col, Collapse, Container, DataTable, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, Fa, FormInline, Footer, FreeBird, HamburgerToggler, Input, InputNumeric, Jumbotron, ListGroup, ListGroupItem, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, NavLink$1 as NavLink, Pagination, PageItem, PageLink, Popper$1 as Popover, Popper$1 as Popper, Popper$1 as Tooltip, PopoverBody, PopoverHeader, Progress, Waves, Row, Table, TableBody, TableHead, TableFoot, View, Iframe, Autocomplete, Avatar, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, CardUp, Chip, ChipsInput, CollapseHeader, DatePicker$1 as DatePicker, ExportToCSV, RotatingCard as FlippingCard, InputFile, InputRange, InputSwitch, css$c as LightboxStyles, ScrollBar as PerfectScrollbar, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, Select, SelectInput$1 as SelectInput, Options as SelectOptions, SelectOption, Spinner, Step, Stepper, TableEditable, TabPane, TabContent, Sticky, Container$1 as StickyContainer, Testimonial, Timeline, TimelineStep, TimePicker, SmoothScroll, Iframe as MDBIframe, Animation as MDBAnimation, Badge as MDBBadge, Alert as MDBAlert, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, Control as MDBControl, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, CarouselIndicators as MDBCarouselIndicators, CarouselIndicator as MDBCarouselIndicator, Col as MDBCol, Collapse as MDBCollapse, Container as MDBContainer, DataTable as MDBDataTable, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, FormInline as MDBFormInline, Footer as MDBFooter, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Input as MDBInput, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, NavItem as MDBNavItem, NavLink$1 as MDBNavLink, Pagination as MDBPagination, PageItem as MDBPageItem, PageLink as MDBPageNav, Popper$1 as MDBPopover, Popper$1 as MDBPopper, Popper$1 as MDBTooltip, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Progress as MDBProgress, Waves as MDBWaves, Row as MDBRow, Table as MDBTable, TableBody as MDBTableBody, TableHead as MDBTableHead, TableFoot as MDBTableFoot, View as MDBView, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, CardUp as MDBCardUp, Chip as MDBChip, ChipsInput as MDBChipsInput, CollapseHeader as MDBCollapseHeader, ExportToCSV as MDBExportToCSV, DatePicker$1 as MDBDatePicker, TimePicker as MDBTimePicker, RotatingCard as MDBRotatingCard, InputFile as MDBFileInput, InputRange as MDBRangeInput, InputSwitch as MDBSwitch, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, Select as MDBSelect, SelectInput as MDBSelectInput, Options as MDBSelectOptions, Option as MDBSelectOption, Spinner as MDBSpinner, TableEditable as MDBTableEditable, TabPane as MDBTabPane, TabContent as MDBTabContent, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, Testimonial as MDBTestimonial, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, MDBStreak, SmoothScroll as MDBSmoothScroll };
+export { Alert, Animation, Autocomplete, Avatar, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, CardUp, Carousel, CarouselCaption, Control as CarouselControl, CarouselIndicator, CarouselIndicators, CarouselInner, CarouselItem, Chip, ChipsInput, Col, Collapse, CollapseHeader, Container, DataTable, DatePicker, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, ExportToCSV, Fa, RotatingCard as FlippingCard, Footer, FormInline, FreeBird, HamburgerToggler, Iframe, Input, InputFile, InputNumeric, InputRange, InputSwitch, Jumbotron, css$c as LightboxStyles, ListGroup, ListGroupItem, Alert as MDBAlert, Animation as MDBAnimation, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, Badge as MDBBadge, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, CardUp as MDBCardUp, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, CarouselIndicator as MDBCarouselIndicator, CarouselIndicators as MDBCarouselIndicators, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, Chip as MDBChip, ChipsInput as MDBChipsInput, MDBCloseIcon, Col as MDBCol, Collapse as MDBCollapse, CollapseHeader as MDBCollapseHeader, Container as MDBContainer, Control as MDBControl, DataTable as MDBDataTable, DatePicker as MDBDatePicker, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, ExportToCSV as MDBExportToCSV, InputFile as MDBFileInput, Footer as MDBFooter, FormInline as MDBFormInline, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Iframe as MDBIframe, Input as MDBInput, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, NavItem as MDBNavItem, NavLink as MDBNavLink, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, PageItem as MDBPageItem, PageLink as MDBPageNav, Pagination as MDBPagination, Popper as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Popper as MDBPopper, Progress as MDBProgress, InputRange as MDBRangeInput, RotatingCard as MDBRotatingCard, Row as MDBRow, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, Select as MDBSelect, SelectInput as MDBSelectInput, Option as MDBSelectOption, Options as MDBSelectOptions, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, SmoothScroll as MDBSmoothScroll, Spinner as MDBSpinner, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, MDBStreak, InputSwitch as MDBSwitch, TabContent as MDBTabContent, TabPane as MDBTabPane, Table as MDBTable, TableBody as MDBTableBody, TableEditable as MDBTableEditable, TableFoot as MDBTableFoot, TableHead as MDBTableHead, Testimonial as MDBTestimonial, TimePicker as MDBTimePicker, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, Popper as MDBTooltip, View as MDBView, Waves as MDBWaves, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, PageItem, PageLink, Pagination, ScrollBar as PerfectScrollbar, Popper as Popover, PopoverBody, PopoverHeader, Popper, Progress, Row, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, Select, SelectInput$1 as SelectInput, SelectOption, Options as SelectOptions, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, SmoothScroll, Spinner, Step, Stepper, Sticky, Container$1 as StickyContainer, TabContent, TabPane, Table, TableBody, TableEditable, TableFoot, TableHead, Testimonial, TimePicker, Timeline, TimelineStep, Popper as Tooltip, View, Waves };
