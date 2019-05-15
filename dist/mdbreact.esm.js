@@ -3372,6 +3372,8 @@ ControlledSelectOption.defaultProps = {
   focusBackgroundColor: '#eee'
 };
 
+var theElement = typeof Element === 'undefined' ? function () {} : Element;
+
 var ControlledSelectOptions =
 /*#__PURE__*/
 function (_Component) {
@@ -3538,7 +3540,7 @@ ControlledSelectOptions.propTypes = {
   changeFocus: propTypes.func,
   setFilteredOptions: propTypes.func,
   inputRef: propTypes.shape({
-    current: propTypes.instanceOf(Element)
+    current: propTypes.instanceOf(theElement)
   }),
   focusShadow: propTypes.string,
   focusBackgroundColor: propTypes.string
@@ -3567,8 +3569,6 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
 
-<<<<<<< HEAD
-=======
     _defineProperty(_assertThisInitialized(_this), "onDocumentClick", function (e) {
       if (e.target.dataset.multiple === 'true' || e.target.dataset.search === 'true') {
         return;
@@ -3588,7 +3588,6 @@ function (_React$Component) {
       });
     });
 
->>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
     _defineProperty(_assertThisInitialized(_this), "computeValuesAndText", function (options) {
       var checkedOptions = options.filter(function (option) {
         return option.checked;
@@ -3611,16 +3610,6 @@ function (_React$Component) {
       };
     });
 
-<<<<<<< HEAD
-    _defineProperty(_assertThisInitialized(_this), "renderPreselectedOptions", function () {
-      return _this.setState(function (prevState) {
-        return _this.computeValuesAndText(_toConsumableArray(prevState.options));
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "triggerOptionChange", function (value, text) {
-      Array.isArray(text) && (text = text.join(", "));
-=======
     _defineProperty(_assertThisInitialized(_this), "setFilteredOptions", function (filteredOptions) {
       _this.setState({
         filteredOptions: filteredOptions
@@ -3631,7 +3620,6 @@ function (_React$Component) {
       option.checked = status;
       return option;
     });
->>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
 
     _defineProperty(_assertThisInitialized(_this), "applyFilteredOptionsChanges", function (options, filteredOptions) {
       filteredOptions.forEach(function (filteredOption) {
@@ -3643,10 +3631,6 @@ function (_React$Component) {
       return options;
     });
 
-<<<<<<< HEAD
-    _defineProperty(_assertThisInitialized(_this), "onClick", function (e) {
-      if (e.target.dataset.multiple === "true" || e.target.dataset.search === "true") return;
-=======
     _defineProperty(_assertThisInitialized(_this), "changeFocus", function (value) {
       switch (value) {
         case null:
@@ -3655,7 +3639,6 @@ function (_React$Component) {
               focused: null
             } : null;
           });
->>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
 
           break;
 
@@ -3664,13 +3647,6 @@ function (_React$Component) {
             focused: 0
           });
 
-<<<<<<< HEAD
-    _defineProperty(_assertThisInitialized(_this), "closeDropdowns", function () {
-      var dropdowns = document.querySelectorAll(".dropdown-content");
-      dropdowns.forEach(function (dropdown) {
-        return dropdown.classList.contains("fadeIn") && dropdown.classList.remove("fadeIn");
-      });
-=======
           break;
 
         default:
@@ -3682,7 +3658,6 @@ function (_React$Component) {
 
           break;
       }
->>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
     });
 
     _defineProperty(_assertThisInitialized(_this), "selectOneOption", function (value) {
@@ -3702,11 +3677,7 @@ function (_React$Component) {
       });
     });
 
-<<<<<<< HEAD
-    _defineProperty(_assertThisInitialized(_this), "selectMultipleOptions", function (value) {
-=======
     _defineProperty(_assertThisInitialized(_this), "selectMultipleOption", function (value) {
->>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
       _this.setState(function (prevState) {
         var options = _toConsumableArray(prevState.options);
 
@@ -3751,8 +3722,6 @@ function (_React$Component) {
       }
     });
 
-<<<<<<< HEAD
-=======
     _defineProperty(_assertThisInitialized(_this), "updateSelected", function (value) {
       return _this.setState({
         selectTextContent: value
@@ -3768,7 +3737,6 @@ function (_React$Component) {
       });
     });
 
->>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
     _defineProperty(_assertThisInitialized(_this), "returnComponentContent", function () {
       var _this$props = _this.props,
           className = _this$props.className,
@@ -6845,13 +6813,13 @@ var Popper = function Popper(_ref) {
   }, [isVisible]);
   useEffect(function () {
     onChange && onChange(visible);
-  }, [visible]);
+  }, [onChange, visible]);
   useEffect(function () {
     window.addEventListener('click', handleClick);
     return function () {
       return window.removeEventListener('click', handleClick);
     };
-  }, []);
+  });
 
   function handleClick(e) {
     var element = document.elementsFromPoint(e.clientX, e.clientY).find(function (el) {
@@ -6934,19 +6902,6 @@ var Popper = function Popper(_ref) {
   })));
 };
 
-<<<<<<< HEAD
-Popper$1.propTypes = {
-  children: PropTypes.node,
-  clickable: PropTypes.bool,
-  domElement: PropTypes.bool,
-  modifiers: PropTypes.object,
-  id: PropTypes.string,
-  isVisible: PropTypes.bool,
-  placement: PropTypes.string,
-  popover: PropTypes.bool,
-  style: PropTypes.objectOf(PropTypes.string),
-  tag: PropTypes.string
-=======
 Popper.propTypes = {
   children: propTypes.node,
   clickable: propTypes.bool,
@@ -6958,7 +6913,6 @@ Popper.propTypes = {
   popover: propTypes.bool,
   style: propTypes.objectOf(propTypes.string),
   tag: propTypes.string
->>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
 };
 Popper.defaultProps = {
   clickable: false,
@@ -7716,25 +7670,6 @@ function (_Component) {
 }(Component);
 
 Autocomplete.propTypes = {
-<<<<<<< HEAD
-  clear: PropTypes.bool,
-  clearColor: PropTypes.string,
-  clearSize: PropTypes.string,
-  data: PropTypes.arrayOf(PropTypes.string),
-  disabled: PropTypes.bool,
-  getValue: PropTypes.func,
-  id: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
-  labelClass: PropTypes.string,
-  icon: PropTypes.string,
-  iconBrand: PropTypes.bool,
-  iconLight: PropTypes.bool,
-  iconRegular: PropTypes.bool,
-  iconSize: PropTypes.string,
-  iconClassName: PropTypes.string,
-  placeholder: PropTypes.string,
-  valueDefault: PropTypes.string
-=======
   clear: propTypes.bool,
   clearColor: propTypes.string,
   clearSize: propTypes.string,
@@ -7752,7 +7687,6 @@ Autocomplete.propTypes = {
   iconClassName: propTypes.string,
   placeholder: propTypes.string,
   valueDefault: propTypes.string
->>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
 };
 Autocomplete.defaultProps = {
   clear: false,
@@ -11207,11 +11141,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "getScale", function (value) {
-<<<<<<< HEAD
-      if (_this.props.startFromInner && _this.props.double) {
-=======
       if (_this.props.startFromInner && _this.props["double"]) {
->>>>>>> 71171da35b80803ebe6d13359f2d0211c4d9bd5b
         return value - _this.props.min >= _this.state.digitsInRound ? _this.state.outerRadius / _this.state.clockRadius : _this.state.innerRadius / _this.state.clockRadius;
       }
 
