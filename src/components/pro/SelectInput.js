@@ -7,7 +7,7 @@ let SelectInput = ({ attributes, className, context, selected }) => {
   const classes = classNames("select-dropdown", className);
 
   if(context.state.selectTextContent === "" && selected) {
-    context.updateSelected(selected);
+    context.triggerOptionChange([], selected);
   }
 
   return (

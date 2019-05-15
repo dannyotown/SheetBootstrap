@@ -173,8 +173,6 @@ class Select extends React.Component {
     }
   };
 
-  updateSelected = (value) => this.setState({ selectTextContent: value });
-
   triggerOptionChange = (value, text) => {
     Array.isArray(text) && (text = text.join(', '));
     this.setState({
@@ -262,7 +260,6 @@ class Select extends React.Component {
             state: this.state,
             multiple: this.props.multiple,
             triggerOptionChange: this.triggerOptionChange,
-            updateSelected: this.updateSelected
           }}
         >
           <div {...attributes} data-color={color} data-multiple={multiple} className={classes}>

@@ -50,10 +50,6 @@ class Option extends React.Component {
               : value.push(option.textContent);
           }
         });
-
-        if (text.length === 0) {
-          text = "Choose your option";
-        }
       } else {
         Array.from(selectedOption.children).forEach(child => {
           if (child.nodeName === "SPAN") {
