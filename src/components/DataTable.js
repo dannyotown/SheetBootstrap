@@ -97,7 +97,7 @@ class DataTable extends Component {
   };
 
   checkFieldValue = (array, field) => {
-    return typeof array[field] !== 'string' ? array[field].props.searchValue : field;
+    return (typeof array[field] !== 'string' && typeof array[field] !== 'undefined') ? array[field].props.searchValue : field;
   }
 
   handleSort = (field, sort) => {
@@ -108,23 +108,31 @@ class DataTable extends Component {
           switch (sort) {
             case "desc":
               prevState.rows.sort((a, b) => {
-                if (this.props.sortRow && field === this.props.sortRow){
-                  let aField = this.checkFieldValue(a, field);
-                  let bField = this.checkFieldValue(b, field);
-
-                  return aField > bField ? -1 : 1;
-                }
+                if (this.props.sortRows){
+                  let fieldIndex = this.props.sortRows.findIndex(el => el === field);
+                  
+                  if (fieldIndex !== -1){
+                    let aField = this.checkFieldValue(a, field);
+                    let bField = this.checkFieldValue(b, field);
+                    
+                    return aField > bField ? -1 : 1;
+                  }
+                } 
 
                 return a[field] > b[field] ? -1 : 1;
               })
               break;
             default:
               prevState.rows.sort((a, b) => {
-                if (this.props.sortRow && field === this.props.sortRow){
-                  let aField = this.checkFieldValue(a, field);
-                  let bField = this.checkFieldValue(b, field);
+                if (this.props.sortRows){
+                  let fieldIndex = this.props.sortRows.findIndex(el => el === field);
 
-                  return aField < bField ? -1 : 1;
+                  if (fieldIndex !== -1){
+                    let aField = this.checkFieldValue(a, field);
+                    let bField = this.checkFieldValue(b, field);
+                    
+                    return aField < bField ? -1 : 1;
+                  }
                 }
 
                 return a[field] < b[field] ? -1 : 1;
@@ -155,7 +163,7 @@ class DataTable extends Component {
             if (Object.prototype.hasOwnProperty.call(row, key)) {
               let stringValue = row[key] !== null ? row[key].toString() : "";
 
-              if (this.props.sortRow) {
+              if (this.props.sortRows) {
                 if (typeof row[key] !== "string") {
                   stringValue = row[key].props.searchValue;
                 }
@@ -257,7 +265,7 @@ class DataTable extends Component {
       tbodyTextWhite,
       theadColor,
       theadTextWhite,
-      sortRow,
+      sortRows,
       ...attributes
     } = this.props;
 
@@ -423,7 +431,7 @@ DataTable.propTypes = {
   scrollX: PropTypes.bool,
   scrollY: PropTypes.bool,
   sortable: PropTypes.bool,
-  sortRow: PropTypes.string,
+  sortRows: PropTypes.arrayOf(PropTypes.string),
   small: PropTypes.bool,
   striped: PropTypes.bool,
   theadColor: PropTypes.string,

@@ -535,7 +535,7 @@ const DatatablePage = () => {
         },
         {
             name: 'John Doe',
-            search: <MyComponent searchValue={'eat'} />,
+            search: <MyComponent searchValue={'eat'} />
         },
         {
             name: 'Biri Satou',
@@ -543,6 +543,10 @@ const DatatablePage = () => {
         }
     ]
 };
+
+const sortRows = [
+  "search"
+]
 
   return (
     <MDBContainer className="mt-3">
@@ -555,7 +559,7 @@ const DatatablePage = () => {
         <MDBCol md="12">
           <MDBCard>
             <MDBCardBody>
-              <MDBDataTable striped bordered hover entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4} sortRow="search" data={newData} />
+              <MDBDataTable striped bordered hover entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4} sortRows={sortRows} data={newData} />
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
