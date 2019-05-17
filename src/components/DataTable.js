@@ -154,7 +154,7 @@ class DataTable extends Component {
         const filteredRows = prevState.rows.filter(row => {
           for (let key in row) {
             if (Object.prototype.hasOwnProperty.call(row, key)) {
-              let stringValue = row[key] !== null ? row[key] : "";
+              let stringValue = row[key] !== null ? row[key].toString() : "";
 
               if (this.props.sortRow) {
                 if (typeof row[key] !== "string") {
