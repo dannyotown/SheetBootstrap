@@ -96,6 +96,10 @@ class DataTable extends Component {
     this.setState({ search: e.target.value }, () => this.filterRows());
   };
 
+  checkFieldValue = (array, field) => {
+    return typeof array[field] !== 'string' ? array[field].props.searchValue : field;
+  }
+
   handleSort = (field, sort) => {
     if (sort !== "disabled") {
       this.setState(
@@ -105,26 +109,21 @@ class DataTable extends Component {
             case "desc":
               prevState.rows.sort((a, b) => {
                 if (this.props.sortRow && field === this.props.sortRow){
-                  let aField = field;
-                  let bField = field;
-                  
-                  if (typeof a[field] !== 'string') aField = a[field].props.searchValue;
-                  if (typeof b[field] !== 'string') bField = b[field].props.searchValue;
-                  
+                  let aField = this.checkFieldValue(a, field);
+                  let bField = this.checkFieldValue(b, field);
+
                   return aField > bField ? -1 : 1;
                 }
+
                 return a[field] > b[field] ? -1 : 1;
               })
               break;
             default:
               prevState.rows.sort((a, b) => {
-                  if (this.props.sortRow && field === this.props.sortRow){
-                  let aField = field;
-                  let bField = field;
-                  
-                  if (typeof a[field] !== 'string') aField = a[field].props.searchValue;
-                  if (typeof b[field] !== 'string') bField = b[field].props.searchValue;
-                  
+                if (this.props.sortRow && field === this.props.sortRow){
+                  let aField = this.checkFieldValue(a, field);
+                  let bField = this.checkFieldValue(b, field);
+
                   return aField < bField ? -1 : 1;
                 }
 
