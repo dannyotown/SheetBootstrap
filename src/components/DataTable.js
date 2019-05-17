@@ -103,10 +103,33 @@ class DataTable extends Component {
           // asc by default
           switch (sort) {
             case "desc":
-              prevState.rows.sort((a, b) => (a[field] > b[field] ? -1 : 1));
+              prevState.rows.sort((a, b) => {
+                if (this.props.sortRow && field === this.props.sortRow){
+                  let aField = field;
+                  let bField = field;
+                  
+                  if (typeof a[field] !== 'string') aField = a[field].props.searchValue;
+                  if (typeof b[field] !== 'string') bField = b[field].props.searchValue;
+                  
+                  return aField > bField ? -1 : 1;
+                }
+                return a[field] > b[field] ? -1 : 1;
+              })
               break;
             default:
-              prevState.rows.sort((a, b) => (a[field] > b[field] ? 1 : -1));
+              prevState.rows.sort((a, b) => {
+                  if (this.props.sortRow && field === this.props.sortRow){
+                  let aField = field;
+                  let bField = field;
+                  
+                  if (typeof a[field] !== 'string') aField = a[field].props.searchValue;
+                  if (typeof b[field] !== 'string') bField = b[field].props.searchValue;
+                  
+                  return aField < bField ? -1 : 1;
+                }
+
+                return a[field] < b[field] ? -1 : 1;
+              })
           }
 
           prevState.columns[
@@ -131,7 +154,14 @@ class DataTable extends Component {
         const filteredRows = prevState.rows.filter(row => {
           for (let key in row) {
             if (Object.prototype.hasOwnProperty.call(row, key)) {
-              const stringValue = row[key] !== null ? row[key].toString() : '';
+              let stringValue = row[key] !== null ? row[key] : "";
+
+              if (this.props.sortRow) {
+                if (typeof row[key] !== "string") {
+                  stringValue = row[key].props.searchValue;
+                }
+              }
+
               if (
                 stringValue.toLowerCase().match(this.state.search.toLowerCase())
               )
@@ -228,6 +258,7 @@ class DataTable extends Component {
       tbodyTextWhite,
       theadColor,
       theadTextWhite,
+      sortRow,
       ...attributes
     } = this.props;
 
@@ -393,6 +424,7 @@ DataTable.propTypes = {
   scrollX: PropTypes.bool,
   scrollY: PropTypes.bool,
   sortable: PropTypes.bool,
+  sortRow: PropTypes.string,
   small: PropTypes.bool,
   striped: PropTypes.bool,
   theadColor: PropTypes.string,

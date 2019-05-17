@@ -508,12 +508,59 @@ const DatatablePage = () => {
     ]
   });
 
+
+  const MyComponent = ({ searchValue }) => {
+    return <a href={`https://www.google.com/?query=${searchValue}`}>{searchValue}</a>;
+}
+
+  const newData = {
+    columns: [
+        {
+            label: 'Name',
+            field: 'name'
+        },
+        {
+            label: 'Search',
+            field: 'search'
+        }
+    ],
+    rows: [
+        {
+            name: 'Ashton Cox',
+            search: <MyComponent searchValue={'dogs'} />,
+        },
+        {
+            name: 'Cedric Kelly',
+            search: <MyComponent searchValue={'cats'} />,
+        },
+        {
+            name: 'John Doe',
+            search: <MyComponent searchValue={'eat'} />,
+        },
+        {
+            name: 'Biri Satou',
+            search: 'no Search',
+        }
+    ]
+};
+
   return (
     <MDBContainer className="mt-3">
       <DocsLink
         title="Datatable"
         href="https://mdbootstrap.com/docs/react/tables/datatables/"
       />
+
+      <MDBRow className="py-3">
+        <MDBCol md="12">
+          <MDBCard>
+            <MDBCardBody>
+              <MDBDataTable striped bordered hover entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4} sortRow="search" data={newData} />
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+
       <MDBRow className="py-3">
         <MDBCol md="12">
           <MDBCard>
