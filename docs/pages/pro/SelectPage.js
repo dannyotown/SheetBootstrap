@@ -268,7 +268,7 @@ class SelectPage extends Component {
               label="MDBSelect with Objects"
               required
             />
-            <button>Submit</button>
+            <MDBBtn type="submit" color="primary">Submit</MDBBtn>
             </form>
           </div>
           <div className="col-md-6">
