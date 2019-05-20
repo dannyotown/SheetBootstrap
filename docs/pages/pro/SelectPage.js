@@ -268,7 +268,7 @@ class SelectPage extends Component {
               label="MDBSelect with Objects"
               required
             />
-            <button>Sumbit</button>
+            <button>Submit</button>
             </form>
           </div>
           <div className="col-md-6">

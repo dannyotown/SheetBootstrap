@@ -48,11 +48,9 @@ class ControlledSelectOptions extends Component {
   };
 
   handleFocus = (e) => {
-    e.preventDefault();
-    
     const { focused } = this.props;
 
-    (e.keyCode === 40 || e.keyCode === 38) && e.preventDefault();
+    (e.keyCode === 40 || e.keyCode === 38 || e.keyCode === 13) && e.preventDefault();
 
     //Enter
     if (e.keyCode === 13 && focused !== null) {
