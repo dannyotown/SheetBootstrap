@@ -64,6 +64,12 @@ ControlledSelectOption.propTypes = {
 };
 
 ControlledSelectOption.defaultProps = {
+  checked: false,
+  disabled: false,
+  separator: false,
+  icon: '',
+  multiple: false,
+  isFocused: false,
   focusShadow: 'inset 0px -17px 15px -16px rgba(0, 0, 0, 0.35)',
   focusBackgroundColor: '#eee'
 };
