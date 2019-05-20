@@ -192,6 +192,7 @@ class Select extends React.Component {
       labelClass,
       multiple,
       outline,
+      required,
       search,
       searchLabel,
       searchId,
@@ -227,7 +228,7 @@ class Select extends React.Component {
         <>
           <div {...attributes} data-color={color} data-multiple={multiple} className={classes}>
             <span className="caret">▼</span>
-            <ControlledSelectInput value={this.state.selectTextContent} ref={this.inputRef} />
+            <ControlledSelectInput value={this.state.selectTextContent} ref={this.inputRef} required={required} />
             <ControlledSelectOptions
               multiple={multiple}
               options={this.state.options}
@@ -304,6 +305,7 @@ Select.propTypes = {
     })
   ),
   outline: PropTypes.bool,
+  required: PropTypes.bool,
   search: PropTypes.bool,
   searchLabel: PropTypes.string,
   searchId: PropTypes.string,
@@ -316,8 +318,9 @@ Select.defaultProps = {
   label: "",
   labelClass: "",
   outline: false,
+  required: false,
   selected: "",
-  selectAllValue: '0'
+  selectAllValue: '0',
 };
 
 export default Select;
