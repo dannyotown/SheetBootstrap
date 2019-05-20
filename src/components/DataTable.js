@@ -97,7 +97,7 @@ class DataTable extends Component {
   };
 
   checkFieldValue = (array, field) => {
-    return (typeof array[field] !== 'string' && typeof array[field] !== 'undefined') ? array[field].props.searchValue : field;
+    return (typeof array[field] !== 'string' && typeof array[field] !== 'undefined') ? array[field].props.searchValue : array[field];
   }
 
   handleSort = (field, sort) => {
@@ -161,11 +161,14 @@ class DataTable extends Component {
         const filteredRows = prevState.rows.filter(row => {
           for (let key in row) {
             if (Object.prototype.hasOwnProperty.call(row, key)) {
-              let stringValue = row[key] !== null ? row[key].toString() : "";
+              let stringValue = "";
 
-              if (this.props.sortRows) {
-                if (typeof row[key] !== "string") {
+              if (this.props.sortRows && typeof row[key] !== "string") {
                   stringValue = row[key].props.searchValue;
+              }
+              else{
+                if (row[key]){
+                  stringValue = row[key].toString();
                 }
               }
 
