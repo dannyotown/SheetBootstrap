@@ -514,6 +514,7 @@ const DatatablePage = () => {
         title="Datatable"
         href="https://mdbootstrap.com/docs/react/tables/datatables/"
       />
+
       <MDBRow className="py-3">
         <MDBCol md="12">
           <MDBCard>
