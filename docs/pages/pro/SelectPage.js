@@ -48,6 +48,11 @@ class SelectPage extends Component {
     });
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+    e.target.checkValidity() && console.log('Submitted');
+  }
+
   render() {
     return (
       <MDBContainer>
@@ -231,7 +236,7 @@ class SelectPage extends Component {
           <strong>Outline MDBSelect without markup</strong>
         </h4>
         <div className="row">
-          <div className="col-md-6" style={{ marginBottom: '250px'}}>
+          <div className="col-md-6" >
             <MDBSelect
               outline
               search
@@ -243,6 +248,28 @@ class SelectPage extends Component {
               label="Outline select"
               labelClass="labelBg"
             />
+          </div>
+        </div>
+
+        <h4 className="my-4 deep-default-text">
+          <strong>MDBSelect with required property</strong>
+        </h4>
+        <div className="row">
+          <div className="col-md-6" style={{ marginBottom: '250px'}}>
+          <form onSubmit={this.onSubmit}>
+            <MDBSelect
+              selectAll
+              search
+              multiple
+              color="primary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              label="MDBSelect with Objects"
+              required
+            />
+            <MDBBtn type="submit" color="primary">Submit</MDBBtn>
+            </form>
           </div>
         </div>
       </MDBContainer>
