@@ -97,7 +97,13 @@ class DataTable extends Component {
   };
 
   checkFieldValue = (array, field) => {
-    return (typeof array[field] !== 'string' && typeof array[field] !== 'undefined') ? array[field].props.searchValue : array[field];
+    return (array[field] && typeof array[field] !== 'string') ? array[field].props.searchValue : array[field];
+  }
+
+  checkField = (field, a, b, direction = 'desc') => {
+    let [aField, bField] = [this.checkFieldValue(a, field), this.checkFieldValue(b, field)];
+
+    return direction === 'desc' ? aField < bField : aField > bField;
   }
 
   handleSort = (field, sort) => {
@@ -108,35 +114,21 @@ class DataTable extends Component {
           switch (sort) {
             case "desc":
               prevState.rows.sort((a, b) => {
-                if (this.props.sortRows){
-                  let fieldIndex = this.props.sortRows.findIndex(el => el === field);
-                  
-                  if (fieldIndex !== -1){
-                    let aField = this.checkFieldValue(a, field);
-                    let bField = this.checkFieldValue(b, field);
-                    
-                    return aField > bField ? -1 : 1;
-                  }
-                } 
+                if (this.props.sortRows && this.props.sortRows.includes(field)) {
+                  return this.checkField(field, a, b);
+                }
 
                 return a[field] > b[field] ? -1 : 1;
-              })
+              });
               break;
             default:
               prevState.rows.sort((a, b) => {
-                if (this.props.sortRows){
-                  let fieldIndex = this.props.sortRows.findIndex(el => el === field);
-
-                  if (fieldIndex !== -1){
-                    let aField = this.checkFieldValue(a, field);
-                    let bField = this.checkFieldValue(b, field);
-                    
-                    return aField < bField ? -1 : 1;
-                  }
+                if (this.props.sortRows && this.props.sortRows.includes(field)) {
+                  return this.checkField(field, a, b, 'asc');
                 }
 
                 return a[field] < b[field] ? -1 : 1;
-              })
+              });
           }
 
           prevState.columns[
