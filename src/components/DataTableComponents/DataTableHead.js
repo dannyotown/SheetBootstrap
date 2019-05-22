@@ -41,23 +41,13 @@ const DataTableHead = props => {
             <th
               onClick={() => sortable && handleSort(col.field, col.sort)}
               key={col.field}
-              className={
-                col.hasOwnProperty("minimal") ? `th-${col.minimal}` : undefined
-              }
+              className={classNames(
+                col.hasOwnProperty("minimal") ? `th-${col.minimal}` : null, 
+                sortable && col.sort !== 'disabled' && ( sorted && col.sort ? `sorting_${col.sort === 'asc' ? 'desc' : 'asc'}` : 'sorting' )
+              )}
               {...col.attributes}
             >
               {col.label}
-              {
-                sortable && col.sort !== "disabled" && (
-                  sorted
-                    ? <Fa
-                      icon={`sort${col.sort ? col.sort === "asc" ? "-down" : "-up" : ""}`}
-                      className="float-right"
-                      aria-hidden="true"
-                    />
-                    : <Fa icon="sort" className="float-right" aria-hidden="true" />
-                  )
-              }
             </th>
           ))}
         </tr>

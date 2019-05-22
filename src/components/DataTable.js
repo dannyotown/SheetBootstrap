@@ -345,6 +345,7 @@ class DataTable extends Component {
               columns={columns}
               handleSort={this.handleSort}
               sortable={sortable}
+              sorted={this.state.sorted}
               tbodyColor={tbodyColor}
               tbodyTextWhite={tbodyTextWhite}
               rows={pages[activePage]}
