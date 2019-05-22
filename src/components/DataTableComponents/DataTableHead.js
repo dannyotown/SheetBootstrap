@@ -67,6 +67,7 @@ const DataTableHead = props => {
 };
 
 DataTableHead.propTypes = {
+  sorted: PropTypes.bool.isRequired,
   color: PropTypes.string,
   columns: PropTypes.arrayOf(PropTypes.object),
   handleSort: PropTypes.func,
