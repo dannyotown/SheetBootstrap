@@ -50,15 +50,8 @@ class DataTable extends Component {
           columns: this.props.data.columns || [],
           filteredRows: this.props.data.rows || [],
           rows: this.props.data.rows || []
-        });
+        }, () => this.paginateRows());
       }
-    }
-
-    if (
-      prevState.pages !== this.state.pages ||
-      prevState.rows !== this.state.rows
-    ) {
-      this.paginateRows();
     }
   }
 
