@@ -11,6 +11,7 @@ const DataTableHead = props => {
     scrollX,
     scrollY,
     sortable,
+    sorted,
     textWhite
   } = props;
 
@@ -46,9 +47,17 @@ const DataTableHead = props => {
               {...col.attributes}
             >
               {col.label}
-              {sortable && col.sort !== 'disabled' && (
-                <Fa icon="sort" className="float-right" aria-hidden="true" />
-              )}
+              {
+                sortable && col.sort !== "disabled" && (
+                  sorted
+                    ? <Fa
+                      icon={`sort${col.sort ? col.sort === "asc" ? "-down" : "-up" : ""}`}
+                      className="float-right"
+                      aria-hidden="true"
+                    />
+                    : <Fa icon="sort" className="float-right" aria-hidden="true" />
+                  )
+              }
             </th>
           ))}
         </tr>

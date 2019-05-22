@@ -31,7 +31,7 @@ const DatatablePage = () => {
       {
         label: "Age",
         field: "age",
-        sort: "desc",
+        sort: 'asc',
         width: 100
       },
       {
@@ -43,7 +43,7 @@ const DatatablePage = () => {
       {
         label: "Salary",
         field: "salary",
-        sort: "asc",
+        sort: "disabled",
         width: 100
       }
     ],

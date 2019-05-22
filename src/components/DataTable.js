@@ -22,7 +22,8 @@ class DataTable extends Component {
       rows: props.data.rows || [],
       search: '',
       translateScrollHead: 0,
-      order: props.order || []
+      order: props.order || [],
+      sorted: false
     };
 
     if (this.props.paging) {
@@ -124,13 +125,16 @@ class DataTable extends Component {
               });
           }
 
-          prevState.columns[
-            prevState.columns.findIndex(column => column.field === field)
-          ].sort = sort === "asc" ? "desc" : "asc";
+          prevState.columns.forEach(col => {
+            if(col.sort === 'disabled') return;
+
+            col.sort = col.field === field ? col.sort === "desc" ? "asc" : "desc" : '';
+          });
 
           return {
             rows: prevState.rows,
-            columns: prevState.columns
+            columns: prevState.columns,
+            sorted: true
           };
         },
         () => this.filterRows()
@@ -149,10 +153,10 @@ class DataTable extends Component {
               let stringValue = "";
 
               if (this.props.sortRows && typeof row[key] !== "string") {
-                  stringValue = row[key].props.searchValue;
+                stringValue = row[key].props.searchValue;
               }
-              else{
-                if (row[key]){
+              else {
+                if (row[key]) {
                   stringValue = row[key].toString();
                 }
               }
@@ -310,6 +314,7 @@ class DataTable extends Component {
               tbodyColor={tbodyColor}
               tbodyTextWhite={tbodyTextWhite}
               rows={pages[activePage]}
+              sorted={this.state.sorted}
               {...attributes}
             />
           </div>
