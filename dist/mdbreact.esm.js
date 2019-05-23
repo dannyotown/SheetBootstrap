@@ -2698,6 +2698,7 @@ var DataTableHead = function DataTableHead(props) {
       scrollX = props.scrollX,
       scrollY = props.scrollY,
       sortable = props.sortable,
+      sorted = props.sorted,
       textWhite = props.textWhite;
   var theadClasses = classNames(color && (color !== "dark" && color !== "light" ? color : "thead-".concat(color)), textWhite && "text-white");
   return React.createElement(Fragment, null, (scrollY || scrollX) && React.createElement("colgroup", null, columns.map(function (col) {
@@ -2716,16 +2717,13 @@ var DataTableHead = function DataTableHead(props) {
         return sortable && handleSort(col.field, col.sort);
       },
       key: col.field,
-      className: col.hasOwnProperty("minimal") ? "th-".concat(col.minimal) : undefined
-    }, col.attributes), col.label, sortable && col.sort !== 'disabled' && React.createElement(Fa, {
-      icon: "sort",
-      className: "float-right",
-      "aria-hidden": "true"
-    }));
+      className: classNames(col.hasOwnProperty("minimal") ? "th-".concat(col.minimal) : null, sortable && col.sort !== 'disabled' && (sorted && col.sort ? "sorting_".concat(col.sort === 'asc' ? 'desc' : 'asc') : 'sorting'))
+    }, col.attributes), col.label);
   }))));
 };
 
 DataTableHead.propTypes = {
+  sorted: propTypes.bool.isRequired,
   color: propTypes.string,
   columns: propTypes.arrayOf(propTypes.object),
   handleSort: propTypes.func,
@@ -2833,12 +2831,13 @@ var DataTableTable = function DataTableTable(props) {
       rows = props.rows,
       small = props.small,
       sortable = props.sortable,
+      sorted = props.sorted,
       striped = props.striped,
       tbodyColor = props.tbodyColor,
       tbodyTextWhite = props.tbodyTextWhite,
       theadColor = props.theadColor,
       theadTextWhite = props.theadTextWhite,
-      attributes = _objectWithoutProperties(props, ["autoWidth", "bordered", "borderless", "btn", "children", "columns", "dark", "fixed", "hover", "handleSort", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "rows", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite"]);
+      attributes = _objectWithoutProperties(props, ["autoWidth", "bordered", "borderless", "btn", "children", "columns", "dark", "fixed", "hover", "handleSort", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "rows", "small", "sortable", "sorted", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite"]);
 
   return React.createElement("div", {
     className: "col-sm-12"
@@ -2863,7 +2862,8 @@ var DataTableTable = function DataTableTable(props) {
     textWhite: theadTextWhite,
     columns: columns,
     handleSort: handleSort,
-    sortable: sortable
+    sortable: sortable,
+    sorted: sorted
   }), React.createElement(TableBody, {
     color: tbodyColor,
     textWhite: tbodyTextWhite,
@@ -2890,6 +2890,7 @@ DataTableTable.propTypes = {
   responsiveLg: propTypes.bool.isRequired,
   responsiveXl: propTypes.bool.isRequired,
   sortable: propTypes.bool.isRequired,
+  sorted: propTypes.bool.isRequired,
   small: propTypes.bool.isRequired,
   striped: propTypes.bool.isRequired,
   theadColor: propTypes.string.isRequired,
@@ -2924,13 +2925,14 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
       scrollY = props.scrollY,
       small = props.small,
       sortable = props.sortable,
+      sorted = props.sorted,
       striped = props.striped,
       tbodyColor = props.tbodyColor,
       tbodyTextWhite = props.tbodyTextWhite,
       theadColor = props.theadColor,
       theadTextWhite = props.theadTextWhite,
       translateScrollHead = props.translateScrollHead,
-      attributes = _objectWithoutProperties(props, ["autoWidth", "bordered", "borderless", "btn", "children", "columns", "dark", "fixed", "hover", "handleSort", "handleTableBodyScroll", "maxHeight", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "rows", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "translateScrollHead"]);
+      attributes = _objectWithoutProperties(props, ["autoWidth", "bordered", "borderless", "btn", "children", "columns", "dark", "fixed", "hover", "handleSort", "handleTableBodyScroll", "maxHeight", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "rows", "scrollX", "scrollY", "small", "sortable", "sorted", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "translateScrollHead"]);
 
   return React.createElement("div", {
     className: "col-sm-12"
@@ -2977,7 +2979,8 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
     handleSort: handleSort,
     scrollX: scrollX,
     scrollY: scrollY,
-    sortable: sortable
+    sortable: sortable,
+    sorted: sorted
   })))), React.createElement("div", {
     className: "dataTable_scrollBody",
     style: {
@@ -3040,6 +3043,7 @@ DataTableTableScroll.propTypes = {
   responsiveLg: propTypes.bool.isRequired,
   responsiveXl: propTypes.bool.isRequired,
   sortable: propTypes.bool.isRequired,
+  sorted: propTypes.bool.isRequired,
   small: propTypes.bool.isRequired,
   striped: propTypes.bool.isRequired,
   theadColor: propTypes.string.isRequired,
@@ -3056,17 +3060,22 @@ DataTableTableScroll.propTypes = {
 };
 
 var ControlledSelectInput = React.forwardRef(function (_ref, inputRef) {
-  var value = _ref.value;
+  var value = _ref.value,
+      required = _ref.required;
   return React.createElement("input", {
     type: "text",
     ref: inputRef,
-    readOnly: true,
-    value: value,
+    required: required,
+    defaultValue: value,
     className: "select-dropdown"
   });
 });
 ControlledSelectInput.propTypes = {
+  required: propTypes.bool,
   value: propTypes.string
+};
+ControlledSelectInput.defaultProps = {
+  required: false
 };
 
 var Input =
@@ -3368,6 +3377,12 @@ ControlledSelectOption.propTypes = {
   focusBackgroundColor: propTypes.string
 };
 ControlledSelectOption.defaultProps = {
+  checked: false,
+  disabled: false,
+  separator: false,
+  icon: '',
+  multiple: false,
+  isFocused: false,
   focusShadow: 'inset 0px -17px 15px -16px rgba(0, 0, 0, 0.35)',
   focusBackgroundColor: '#eee'
 };
@@ -3404,7 +3419,7 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleFocus", function (e) {
       var focused = _this.props.focused;
-      (e.keyCode === 40 || e.keyCode === 38) && e.preventDefault(); //Enter
+      (e.keyCode === 40 || e.keyCode === 38 || e.keyCode === 13) && e.preventDefault(); //Enter
 
       if (e.keyCode === 13 && focused !== null) {
         focused === -1 ? _this.props.selectOption(_this.props.selectAllValue) : _this.props.selectOption(_this.state.filteredOptions[focused].value);
@@ -3720,12 +3735,6 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "updateSelected", function (value) {
-      return _this.setState({
-        selectTextContent: value
-      });
-    });
-
     _defineProperty(_assertThisInitialized(_this), "triggerOptionChange", function (value, text) {
       Array.isArray(text) && (text = text.join(', '));
 
@@ -3746,6 +3755,7 @@ function (_React$Component) {
           labelClass = _this$props.labelClass,
           multiple = _this$props.multiple,
           outline = _this$props.outline,
+          required = _this$props.required,
           search = _this$props.search,
           searchLabel = _this$props.searchLabel,
           searchId = _this$props.searchId,
@@ -3755,7 +3765,7 @@ function (_React$Component) {
           selectAllValue = _this$props.selectAllValue,
           focusShadow = _this$props.focusShadow,
           focusBackgroundColor = _this$props.focusBackgroundColor,
-          attributes = _objectWithoutProperties(_this$props, ["className", "color", "children", "getTextContent", "getValue", "label", "labelClass", "multiple", "outline", "search", "searchLabel", "searchId", "selected", "selectAll", "selectAllLabel", "selectAllValue", "focusShadow", "focusBackgroundColor"]);
+          attributes = _objectWithoutProperties(_this$props, ["className", "color", "children", "getTextContent", "getValue", "label", "labelClass", "multiple", "outline", "required", "search", "searchLabel", "searchId", "selected", "selectAll", "selectAllLabel", "selectAllValue", "focusShadow", "focusBackgroundColor"]);
 
       var classes = classNames("select-wrapper mdb-select md-form", _this.props.color ? "colorful-select dropdown-" + _this.props.color : "", outline ? "md-outline" : className);
       var labelClasses = classNames(!outline && "mdb-main-label", _this.state.selectTextContent && 'active', labelClass);
@@ -3774,7 +3784,8 @@ function (_React$Component) {
           className: "caret"
         }, "\u25BC"), React.createElement(ControlledSelectInput, {
           value: _this.state.selectTextContent,
-          ref: _this.inputRef
+          ref: _this.inputRef,
+          required: required
         }), React.createElement(ControlledSelectOptions, {
           multiple: multiple,
           options: _this.state.options,
@@ -3801,8 +3812,7 @@ function (_React$Component) {
           value: {
             state: _this.state,
             multiple: _this.props.multiple,
-            triggerOptionChange: _this.triggerOptionChange,
-            updateSelected: _this.updateSelected
+            triggerOptionChange: _this.triggerOptionChange
           }
         }, React.createElement("div", _extends({}, attributes, {
           "data-color": color,
@@ -3903,6 +3913,7 @@ Select.propTypes = {
     value: propTypes.string
   })),
   outline: propTypes.bool,
+  required: propTypes.bool,
   search: propTypes.bool,
   searchLabel: propTypes.string,
   searchId: propTypes.string,
@@ -3914,6 +3925,7 @@ Select.defaultProps = {
   label: "",
   labelClass: "",
   outline: false,
+  required: false,
   selected: "",
   selectAllValue: '0'
 };
@@ -3956,7 +3968,7 @@ var SelectInput = function SelectInput(_ref) {
   var classes = classNames("select-dropdown", className);
 
   if (context.state.selectTextContent === "" && selected) {
-    context.updateSelected(selected);
+    context.triggerOptionChange([], selected);
   }
 
   return React.createElement("input", _extends({
@@ -4110,10 +4122,6 @@ function (_React$Component) {
               option.getElementsByTagName("input")[0].value ? value.push(option.getElementsByTagName("input")[0].value) : value.push(option.textContent);
             }
           });
-
-          if (text.length === 0) {
-            text = "Choose your option";
-          }
         } else {
           Array.from(selectedOption.children).forEach(function (child) {
             if (child.nodeName === "SPAN") {
@@ -4797,6 +4805,18 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "checkFieldValue", function (array, field) {
+      return array[field] && typeof array[field] !== 'string' ? array[field].props.searchValue : array[field];
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "checkField", function (field, a, b) {
+      var direction = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'desc';
+      var _ref = [_this.checkFieldValue(a, field), _this.checkFieldValue(b, field)],
+          aField = _ref[0],
+          bField = _ref[1];
+      return direction === 'desc' ? aField < bField : aField > bField;
+    });
+
     _defineProperty(_assertThisInitialized(_this), "handleSort", function (field, sort) {
       if (sort !== "disabled") {
         _this.setState(function (prevState) {
@@ -4804,22 +4824,32 @@ function (_Component) {
           switch (sort) {
             case "desc":
               prevState.rows.sort(function (a, b) {
+                if (_this.props.sortRows && _this.props.sortRows.includes(field)) {
+                  return _this.checkField(field, a, b);
+                }
+
                 return a[field] > b[field] ? -1 : 1;
               });
               break;
 
             default:
               prevState.rows.sort(function (a, b) {
-                return a[field] > b[field] ? 1 : -1;
+                if (_this.props.sortRows && _this.props.sortRows.includes(field)) {
+                  return _this.checkField(field, a, b, 'asc');
+                }
+
+                return a[field] < b[field] ? -1 : 1;
               });
           }
 
-          prevState.columns[prevState.columns.findIndex(function (column) {
-            return column.field === field;
-          })].sort = sort === "asc" ? "desc" : "asc";
+          prevState.columns.forEach(function (col) {
+            if (col.sort === 'disabled') return;
+            col.sort = col.field === field ? col.sort === "desc" ? "asc" : "desc" : '';
+          });
           return {
             rows: prevState.rows,
-            columns: prevState.columns
+            columns: prevState.columns,
+            sorted: true
           };
         }, function () {
           return _this.filterRows();
@@ -4832,7 +4862,16 @@ function (_Component) {
         var filteredRows = prevState.rows.filter(function (row) {
           for (var key in row) {
             if (Object.prototype.hasOwnProperty.call(row, key)) {
-              var stringValue = row[key] !== null ? row[key].toString() : '';
+              var stringValue = "";
+
+              if (_this.props.sortRows && typeof row[key] !== "string") {
+                stringValue = row[key].props.searchValue;
+              } else {
+                if (row[key]) {
+                  stringValue = row[key].toString();
+                }
+              }
+
               if (stringValue.toLowerCase().match(_this.state.search.toLowerCase())) return true;
             }
           }
@@ -4896,7 +4935,8 @@ function (_Component) {
       rows: props.data.rows || [],
       search: '',
       translateScrollHead: 0,
-      order: props.order || []
+      order: props.order || [],
+      sorted: false
     };
 
     if (_this.props.paging) {
@@ -4920,6 +4960,8 @@ function (_Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
+      var _this2 = this;
+
       if (prevProps.data !== this.props.data) {
         if (typeof this.props.data === 'string') {
           this.fetchData(this.props.data);
@@ -4928,12 +4970,10 @@ function (_Component) {
             columns: this.props.data.columns || [],
             filteredRows: this.props.data.rows || [],
             rows: this.props.data.rows || []
+          }, function () {
+            return _this2.paginateRows();
           });
         }
-      }
-
-      if (prevState.pages !== this.state.pages || prevState.rows !== this.state.rows) {
-        this.paginateRows();
       }
     }
   }, {
@@ -4976,7 +5016,8 @@ function (_Component) {
           tbodyTextWhite = _this$props.tbodyTextWhite,
           theadColor = _this$props.theadColor,
           theadTextWhite = _this$props.theadTextWhite,
-          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite"]);
+          sortRows = _this$props.sortRows,
+          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows"]);
 
       var _this$state = this.state,
           columns = _this$state.columns,
@@ -5026,7 +5067,8 @@ function (_Component) {
         sortable: sortable,
         tbodyColor: tbodyColor,
         tbodyTextWhite: tbodyTextWhite,
-        rows: pages[activePage]
+        rows: pages[activePage],
+        sorted: this.state.sorted
       }, attributes))), (scrollY || scrollX) && React.createElement("div", {
         className: "row"
       }, React.createElement(DataTableTableScroll, _extends({
@@ -5053,6 +5095,7 @@ function (_Component) {
         columns: columns,
         handleSort: this.handleSort,
         sortable: sortable,
+        sorted: this.state.sorted,
         tbodyColor: tbodyColor,
         tbodyTextWhite: tbodyTextWhite,
         rows: pages[activePage],
@@ -5117,6 +5160,7 @@ DataTable.propTypes = {
   scrollX: propTypes.bool,
   scrollY: propTypes.bool,
   sortable: propTypes.bool,
+  sortRows: propTypes.arrayOf(propTypes.string),
   small: propTypes.bool,
   striped: propTypes.bool,
   theadColor: propTypes.string,
