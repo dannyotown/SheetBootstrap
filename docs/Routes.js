@@ -56,6 +56,7 @@ import SpinnerPage from './pages/SpinnerPage';
 import MasonryPage from './pages/MasonryPage';
 import ScrollBarPage from './pages/ScrollBarPage';
 import NavsPage from './pages/NavsPage';
+import TabsPage from './pages/TabsPage';
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -80,7 +81,7 @@ import StickyPage from "./pages/pro/StickyPage";
 import LightboxPage from "./pages/pro/LightboxPage";
 import MultiCarouselPage from "./pages/pro/MultiCarouselPage";
 import SpinnerPagePro from "./pages/pro/SpinnerPage";
-import TabsPage from "./pages/pro/TabsPage";
+import TabsPagePro from "./pages/pro/TabsPage";
 import ThumbnailsCarousel from "./pages/pro/ThumbnailsCarousel";
 import TestimonialsPage from "./pages/pro/sections/TestimonialsPage";
 import TestimonialsMultiPage from "./pages/pro/sections/TestimonialsMultiPage";
@@ -165,6 +166,7 @@ class Routes extends React.Component {
         <Route path="/components/panels" component={PanelPage} />
         <Route path="/components/search" component={SearchPage} />
         <Route path="/components/spinner" component={SpinnerPage} />
+        <Route path="/components/tabs" component={TabsPage} />
         <Route path="/forms/forms" component={FormsPage} />
         <Route path="/forms/validation" component={ValidationPage} />
         <Route path="/forms/input" component={InputPage} />
@@ -181,6 +183,7 @@ class Routes extends React.Component {
         <Route path="/tables/table-styles" component={TableStylesPage} />
         <Route path="/tables/datatable-api" component={DatatableApiPage} />
         <Route path="/tables/datatable" component={DatatablePage} />
+        
         {/* PRO-START */}
         <Route exact path="/sections" component={SectionsNavPage} />
         <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />
@@ -200,7 +203,7 @@ class Routes extends React.Component {
         <Route path="/components/pro/dropdown" component={MaterialDropdownPage} />
         <Route path="/components/pro/spinner" component={SpinnerPagePro} />
         <Route path="/components/pro/chips" component={ChipsPage} />
-        <Route path="/components/pro/tabs" component={TabsPage} />
+        <Route path="/components/pro/tabs" component={TabsPagePro} />
         <Route path="/components/pro/socialbuttons" component={SocialButtonsPage} />
         <Route path="/components/pro/buttons" component={ButtonPagePro} />
         <Route path="/components/pro/cards" component={CardsPagePro} />

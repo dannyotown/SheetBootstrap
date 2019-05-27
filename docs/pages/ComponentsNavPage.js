@@ -24,6 +24,7 @@ const ComponentsNavPage = () => {
               <MenuLink to="/components/progress" title="Progress" />
               <MenuLink to="/components/search" title="Search" />
               <MenuLink to="/components/spinner" title="Loader/Spinner" />
+              <MenuLink to="/components/tabs" title="Tabs" />
               {/* PRO-START */}
               <h6 className="mt-3 grey-text">PRO</h6>
               <MenuLink to="/components/pro/buttons" title="Buttons" />
