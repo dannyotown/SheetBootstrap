@@ -6453,12 +6453,16 @@ function (_Component) {
           Tag = _this$props.tag,
           tabs = _this$props.tabs,
           color = _this$props.color,
+          gradient = _this$props.gradient,
           classicTabs = _this$props.classicTabs,
+          navPills = _this$props.navPills,
           pills = _this$props.pills,
           header = _this$props.header,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag", "tabs", "color", "classicTabs", "pills", "header"]);
+          rounded = _this$props.rounded,
+          outline = _this$props.outline,
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag", "tabs", "color", "gradient", "classicTabs", "navPills", "pills", "header", "rounded", "outline"]);
 
-      var classes = classNames("nav", tabs && "md-tabs", pills && "md-pills", header && "nav-pills card-header-pills", color && !tabs && !classicTabs && !pills ? color : false, pills && color ? "pills-" + color : false, (tabs || classicTabs) && color ? "tabs-" + color : false, className);
+      var classes = classNames("nav", tabs && "md-tabs", navPills && "nav-pills", pills && "md-pills", header && "nav-pills card-header-pills", color && !tabs && !classicTabs && !pills ? color : false, pills && gradient && !tabs && !classicTabs ? "pills-".concat(gradient, "-gradient") : false, pills && color ? "pills-" + color : false, pills && outline ? "pills-outline-" + outline : false, pills && rounded ? "pills-rounded" : false, (tabs || classicTabs) && color ? "tabs-" + color : false, className);
       return React.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
@@ -6473,8 +6477,11 @@ Nav.propTypes = {
   className: propTypes.string,
   children: propTypes.node,
   color: propTypes.string,
+  gradient: propTypes.string,
   classicTabs: propTypes.bool,
   pills: propTypes.bool,
+  rounded: propTypes.bool,
+  outline: propTypes.string,
   tabs: propTypes.bool,
   header: propTypes.bool
 };
@@ -8955,12 +8962,22 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (this.props.checked !== this.state.value) {
+        this.setState({
+          value: this.props.checked
+        });
+      }
+    }
+  }, {
     key: "handleChange",
     value: function handleChange(event) {
       this.setState({
         value: !this.state.value
       });
       this.props.getValue && this.props.getValue(event.target.checked);
+      this.props.onChange && this.props.onChange(event);
     }
   }, {
     key: "render",
@@ -9002,7 +9019,8 @@ InputSwitch.propTypes = {
   checked: propTypes.bool,
   getValue: propTypes.oneOfType([propTypes.func, propTypes.bool]),
   labelLeft: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
-  labelRight: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object])
+  labelRight: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
+  onChange: propTypes.func
 };
 InputSwitch.defaultProps = {
   checked: false,
