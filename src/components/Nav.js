@@ -10,19 +10,27 @@ class Nav extends Component {
       tag: Tag,
       tabs,
       color,
+      gradient,
       classicTabs,
+      navPills,
       pills,
       header,
+      rounded,
+      outline,
       ...attributes
     } = this.props;
 
     const classes = classNames(
       "nav",
       tabs && "md-tabs",
+      navPills && "nav-pills",
       pills && "md-pills",
       header && "nav-pills card-header-pills",
       color && !tabs && ! classicTabs && !pills ? color : false,
+      pills && gradient && !tabs && ! classicTabs ? `pills-${gradient}-gradient` : false,
       pills && color ? "pills-" + color : false,
+      pills && outline ? "pills-outline-" + outline : false,
+      pills && rounded? "pills-rounded" : false,
       (tabs || classicTabs) && color ? "tabs-" + color : false,
       className
     );
@@ -40,8 +48,11 @@ Nav.propTypes = {
   className: PropTypes.string,
   children: PropTypes.node,
   color: PropTypes.string,
+  gradient: PropTypes.string,
   classicTabs: PropTypes.bool,
   pills: PropTypes.bool,
+  rounded: PropTypes.bool,
+  outline: PropTypes.string,
   tabs: PropTypes.bool,
   header: PropTypes.bool
 };

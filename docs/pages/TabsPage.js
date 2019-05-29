@@ -1,12 +1,20 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol,  MDBTabPane,   MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBTabPane,
+  MDBTabContent,
+  MDBNav,
+  MDBNavItem,
+  MDBNavLink
+} from "mdbreact";
 import DocsLink from "../components/docsLink";
 
 class TabsPage extends Component {
-
   state = {
-    activeItem: "1",
-  }
+    activeItem: "1"
+  };
 
   toggle = tab => e => {
     if (this.state.activeItem !== tab) {
@@ -14,9 +22,7 @@ class TabsPage extends Component {
         activeItem: tab
       });
     }
-  }
-
-
+  };
 
   render() {
     return (
@@ -28,37 +34,43 @@ class TabsPage extends Component {
         <MDBContainer className="mt-4">
           <MDBRow>
             <MDBCol md="12">
-              
               <h2>Basic</h2>
               <MDBNav className="nav-tabs mt-5">
                 <MDBNavItem>
                   <MDBNavLink
-                        to="#"
-                        className={this.state.activeItem === "1" ? "active" : ""}
-                        onClick={this.toggle("1")}
-                        role="tab"
-                      >Home</MDBNavLink>
-                  </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                        to="#"
-                        className={this.state.activeItem === "2" ? "active" : ""}
-                        onClick={this.toggle("2")}
-                        role="tab"
-                      >Profile
-                      </MDBNavLink>
-                  </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                        to="#"
-                        className={this.state.activeItem === "3" ? "active" : ""}
-                        onClick={this.toggle("3")}
-                        role="tab"
-                      >Profile
+                    to="#"
+                    className={this.state.activeItem === "1" ? "active" : ""}
+                    onClick={this.toggle("1")}
+                    role="tab"
+                  >
+                    Home
                   </MDBNavLink>
                 </MDBNavItem>
-            </MDBNav>
-            <MDBTabContent className="card" activeItem={this.state.activeItem}>
+                <MDBNavItem>
+                  <MDBNavLink
+                    to="#"
+                    className={this.state.activeItem === "2" ? "active" : ""}
+                    onClick={this.toggle("2")}
+                    role="tab"
+                  >
+                    Profile
+                  </MDBNavLink>
+                </MDBNavItem>
+                <MDBNavItem>
+                  <MDBNavLink
+                    to="#"
+                    className={this.state.activeItem === "3" ? "active" : ""}
+                    onClick={this.toggle("3")}
+                    role="tab"
+                  >
+                    Profile
+                  </MDBNavLink>
+                </MDBNavItem>
+              </MDBNav>
+              <MDBTabContent
+                className="card"
+                activeItem={this.state.activeItem}
+              >
                 <MDBTabPane tabId="1" role="tabpanel">
                   <p className="mt-2">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -94,7 +106,6 @@ class TabsPage extends Component {
                   </p>
                 </MDBTabPane>
               </MDBTabContent>
-
             </MDBCol>
           </MDBRow>
         </MDBContainer>

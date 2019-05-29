@@ -57,6 +57,7 @@ import MasonryPage from './pages/MasonryPage';
 import ScrollBarPage from './pages/ScrollBarPage';
 import NavsPage from './pages/NavsPage';
 import TabsPage from './pages/TabsPage';
+import PillsPage from './pages/PillsPage';
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -69,6 +70,7 @@ import eCommercePage from "./pages/pro/eCommercePage";
 import ChipsPage from "./pages/pro/ChipsPage";
 import InputPagePro from "./pages/pro/InputPage";
 import CollapsePagePro from "./pages/pro/CollapsePage";
+import PillsPagePro from './pages/pro/PillsPage';
 import ScrollBarPagePro from "./pages/pro/ScrollBarPage";
 import ScrollSpyPage from "./pages/pro/ScrollSpyPage";
 import SelectPage from "./pages/pro/SelectPage";
@@ -164,6 +166,7 @@ class Routes extends React.Component {
         <Route path="/components/pagination" component={PaginationPage} />
         <Route path="/components/list-group" component={ListGroupPage} />
         <Route path="/components/panels" component={PanelPage} />
+        <Route path="/components/pills" component={PillsPage} />
         <Route path="/components/search" component={SearchPage} />
         <Route path="/components/spinner" component={SpinnerPage} />
         <Route path="/components/tabs" component={TabsPage} />
@@ -203,12 +206,13 @@ class Routes extends React.Component {
         <Route path="/components/pro/dropdown" component={MaterialDropdownPage} />
         <Route path="/components/pro/spinner" component={SpinnerPagePro} />
         <Route path="/components/pro/chips" component={ChipsPage} />
-        <Route path="/components/pro/tabs" component={TabsPagePro} />
         <Route path="/components/pro/socialbuttons" component={SocialButtonsPage} />
         <Route path="/components/pro/buttons" component={ButtonPagePro} />
         <Route path="/components/pro/cards" component={CardsPagePro} />
+        <Route path="/components/pro/pills" component={PillsPagePro} />
         <Route path="/components/pro/stepper" component={StepperPage} />
         <Route path="/components/pro/search" component={SearchPagePro} />
+        <Route path="/components/pro/tabs" component={TabsPagePro} />
         <Route path="/forms/pro/autocomplete" component={AutocompletePage} />
         <Route path="/forms/pro/input" component={InputPagePro} />
         <Route path="/forms/pro/select" component={SelectPage} />
