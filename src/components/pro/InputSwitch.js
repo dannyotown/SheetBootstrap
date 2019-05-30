@@ -15,9 +15,16 @@ class InputSwitch extends React.Component {
     this.setState({ value: this.props.checked });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(this.props.checked !== this.state.value) {
+      this.setState({ value: this.props.checked });
+    }
+  }
+  
   handleChange(event) {
     this.setState({ value: !this.state.value });
     this.props.getValue && this.props.getValue(event.target.checked);
+    this.props.onChange && this.props.onChange(event);
   }
 
   render() {
@@ -65,8 +72,8 @@ InputSwitch.propTypes = {
     PropTypes.string, 
     PropTypes.number, 
     PropTypes.object
-  ])
-
+  ]),
+  onChange: PropTypes.func
 };
 
 InputSwitch.defaultProps = {

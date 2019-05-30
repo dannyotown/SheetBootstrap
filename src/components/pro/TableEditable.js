@@ -17,6 +17,12 @@ class TableEditable extends React.Component {
       });
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps.data !== this.props.data && this.props.data !== this.state.data) {
+      this.setState({ data: this.props.data });
+    }
+  }
+  
   addRow = () => {
     let newData = [...this.state.data];
     let newRow = [];
