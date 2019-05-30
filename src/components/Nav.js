@@ -26,12 +26,12 @@ class Nav extends Component {
       navPills && "nav-pills",
       pills && "md-pills",
       header && "nav-pills card-header-pills",
-      color && !tabs && ! classicTabs && !pills ? color : false,
-      pills && gradient && !tabs && ! classicTabs ? `pills-${gradient}-gradient` : false,
-      pills && color ? "pills-" + color : false,
-      pills && outline ? "pills-outline-" + outline : false,
-      pills && rounded? "pills-rounded" : false,
-      (tabs || classicTabs) && color ? "tabs-" + color : false,
+      color && !tabs && !classicTabs && !pills ? `${color}` : false,
+      pills && gradient && !tabs ? `pills-${gradient}-gradient` : false,
+      pills && color ? `pills-${color}` : false,
+      pills && outline ? `pills-outline-${outline}` : false,
+      pills && rounded ? "pills-rounded" : false,
+      (tabs || classicTabs) && color ? `tabs-${color}` : false,
       className
     );
 

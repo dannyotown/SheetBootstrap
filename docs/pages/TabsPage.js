@@ -68,7 +68,6 @@ class TabsPage extends Component {
                 </MDBNavItem>
               </MDBNav>
               <MDBTabContent
-                className="card"
                 activeItem={this.state.activeItem}
               >
                 <MDBTabPane tabId="1" role="tabpanel">

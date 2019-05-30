@@ -34,7 +34,7 @@ class PillsPage extends Component {
         <MDBContainer className="mt-4">
           <MDBRow>
             <MDBCol md="12">
-            <h2>Default</h2>
+              <h2>Default</h2>
               <MDBNav navPills color="secondary" className="mt-5">
                 <MDBNavItem>
                   <MDBNavLink
@@ -44,7 +44,7 @@ class PillsPage extends Component {
                     }
                     onClick={this.togglePills("1")}
                   >
-                    Active
+                    Home
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
@@ -55,7 +55,7 @@ class PillsPage extends Component {
                     }
                     onClick={this.togglePills("2")}
                   >
-                    Link
+                    Profile
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
@@ -66,63 +66,51 @@ class PillsPage extends Component {
                     }
                     onClick={this.togglePills("3")}
                   >
-                    Link
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    to="#"
-                    className={
-                      this.state.activeItemPills === "4" ? "active" : ""
-                    }
-                    onClick={this.togglePills("4")}
-                  >
-                    Help
+                    Contact
                   </MDBNavLink>
                 </MDBNavItem>
               </MDBNav>
               <MDBTabContent activeItem={this.state.activeItemPills}>
                 <MDBTabPane tabId="1">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Nihil odit magnam minima, soluta doloribus reiciendis
-                    molestiae placeat unde eos molestias. Quisquam aperiam,
-                    pariatur. Tempora, placeat ratione porro voluptate odit
-                    minima.
+                    Consequat occaecat ullamco amet non eiusmod nostrud dolore
+                    irure incididunt est duis anim sunt officia. Fugiat velit
+                    proident aliquip nisi incididunt nostrud exercitation
+                    proident est nisi. Irure magna elit commodo anim ex veniam
+                    culpa eiusmod id nostrud sit cupidatat in veniam ad. Eiusmod
+                    consequat eu adipisicing minim anim aliquip cupidatat culpa
+                    excepteur quis. Occaecat sit eu exercitation irure Lorem
+                    incididunt nostrud.
                   </p>
                 </MDBTabPane>
                 <MDBTabPane tabId="2">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Nihil odit magnam minima, soluta doloribus reiciendis
-                    molestiae placeat unde eos molestias. Quisquam aperiam,
-                    pariatur. Tempora, placeat ratione porro voluptate odit
-                    minima.
+                    Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa
+                    mollit commodo mollit ex. Aute sunt incididunt amet commodo
+                    est sint nisi deserunt pariatur do. Aliquip ex eiusmod
+                    voluptate exercitation cillum id incididunt elit sunt. Qui
+                    minim sit magna Lorem id et dolore velit Lorem amet
+                    exercitation duis deserunt. Anim id labore elit adipisicing
+                    ut in id occaecat pariatur ut ullamco ea tempor duis.
                   </p>
                 </MDBTabPane>
                 <MDBTabPane tabId="3">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Nihil odit magnam minima, soluta doloribus reiciendis
-                    molestiae placeat unde eos molestias. Quisquam aperiam,
-                    pariatur. Tempora, placeat ratione porro voluptate odit
-                    minima.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Nihil odit magnam minima, soluta doloribus reiciendis
-                    molestiae placeat unde eos molestias. Quisquam aperiam,
-                    pariatur. Tempora, placeat ratione porro voluptate odit
-                    minima.
-                  </p>
-                </MDBTabPane>
-                <MDBTabPane tabId="4">
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Nihil odit magnam minima, soluta doloribus reiciendis
-                    molestiae placeat unde eos molestias. Quisquam aperiam,
-                    pariatur. Tempora, placeat ratione porro voluptate odit
-                    minima.
+                    Est quis nulla laborum officia ad nisi ex nostrud culpa
+                    Lorem excepteur aliquip dolor aliqua irure ex. Nulla ut duis
+                    ipsum nisi elit fugiat commodo sunt reprehenderit laborum
+                    veniam eu veniam. Eiusmod minim exercitation fugiat irure ex
+                    labore incididunt do fugiat commodo aliquip sit id deserunt
+                    reprehenderit aliquip nostrud. Amet ex cupidatat excepteur
+                    aute veniam incididunt mollit cupidatat esse irure officia
+                    elit do ipsum ullamco Lorem. Ullamco ut ad minim do mollit
+                    labore ipsum laboris ipsum commodo sunt tempor enim
+                    incididunt. Commodo quis sunt dolore aliquip aute tempor
+                    irure magna enim minim reprehenderit. Ullamco consectetur
+                    culpa veniam sint cillum aliqua incididunt velit ullamco
+                    sunt ullamco quis quis commodo voluptate. Mollit nulla
+                    nostrud adipisicing aliqua cupidatat aliqua pariatur mollit
+                    voluptate voluptate consequat non.
                   </p>
                 </MDBTabPane>
               </MDBTabContent>

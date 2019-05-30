@@ -16,7 +16,11 @@ import {
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
-  MDBDropdownItem
+  MDBDropdownItem,
+  MDBModal,
+  MDBModalBody,
+  MDBModalFooter,
+  MDBInput
 } from "mdbreact";
 import DocsLink from "../../components/docsLink";
 import "./PillsPage.css";
@@ -28,11 +32,25 @@ class PillsPage extends Component {
     activeItemPillsDropdown: "1",
     activeItemPillsGradient: "1",
     activeItemPillsRounded: "1",
+    activeItemPillsRounded2: "1",
+    activeItemPillsRoundedGradient: "1",
+    activeItemPillsRoundedGradient2: "1",
+    activeItemPillsRoundedOutline: "1",
+    activeItemPillsRoundedOutline2: "1",
+    activeItemPillsIcons: "1",
+    activeItemPillsIconsRight: "1",
     activeItemPillsWithContent: "1",
     activeItemPillsWithContentCard: "1",
+    activeItemPillsColorAnimation: "1",
+    activeItemPillsColorAnimationRoundedOutline: "1",
+    activeItemPillsColorAnimationRounded: "1",
+    activeItemPillsModal: "1",
+
     activeItemVerticalPills: "1",
     activeItemOuterTabs: "1",
-    activeItemInnerPills: "1"
+    activeItemInnerPills: "1",
+
+    modal1: false
   };
 
   togglePills = tab => () => {
@@ -75,6 +93,62 @@ class PillsPage extends Component {
     }
   };
 
+  togglePillsRounded2 = tab => () => {
+    if (this.state.activeItemPillsRounded2 !== tab) {
+      this.setState({
+        activeItemPillsRounded2: tab
+      });
+    }
+  };
+
+  togglePillsRoundedGradient = tab => () => {
+    if (this.state.activeItemPillsRoundedGradient !== tab) {
+      this.setState({
+        activeItemPillsRoundedGradient: tab
+      });
+    }
+  };
+
+  togglePillsRoundedGradient2 = tab => () => {
+    if (this.state.activeItemPillsRoundedGradient2 !== tab) {
+      this.setState({
+        activeItemPillsRoundedGradient2: tab
+      });
+    }
+  };
+
+  togglePillsRoundedOutline = tab => () => {
+    if (this.state.activeItemPillsRoundedOutline !== tab) {
+      this.setState({
+        activeItemPillsRoundedOutline: tab
+      });
+    }
+  };
+
+  togglePillsRoundedOutline2 = tab => () => {
+    if (this.state.activeItemPillsRoundedOutline2 !== tab) {
+      this.setState({
+        activeItemPillsRoundedOutline2: tab
+      });
+    }
+  };
+
+  togglePillsIcons = tab => () => {
+    if (this.state.activeItemPillsIcons !== tab) {
+      this.setState({
+        activeItemPillsIcons: tab
+      });
+    }
+  };
+
+  togglePillsIconsRight = tab => () => {
+    if (this.state.activeItemPillsIconsRight !== tab) {
+      this.setState({
+        activeItemPillsIconsRight: tab
+      });
+    }
+  };
+
   togglePillsWithContent = tab => () => {
     if (this.state.activeItemPillsWithContent !== tab) {
       this.setState({
@@ -87,6 +161,30 @@ class PillsPage extends Component {
     if (this.state.activeItemPillsWithContentCard !== tab) {
       this.setState({
         activeItemPillsWithContentCard: tab
+      });
+    }
+  };
+
+  togglePillsColorAnimation = tab => () => {
+    if (this.state.activeItemPillsColorAnimation !== tab) {
+      this.setState({
+        activeItemPillsColorAnimation: tab
+      });
+    }
+  };
+
+  togglePillsAnimationRoundedOutline = tab => () => {
+    if (this.state.activeItemPillsColorAnimationRoundedOutline !== tab) {
+      this.setState({
+        activeItemPillsColorAnimationRoundedOutline: tab
+      });
+    }
+  };
+
+  togglePillsRoundedAnimationRounded = tab => () => {
+    if (this.state.activeItemPillsColorAnimationRounded !== tab) {
+      this.setState({
+        activeItemPillsColorAnimationRounded: tab
       });
     }
   };
@@ -113,6 +211,21 @@ class PillsPage extends Component {
         activeItemInnerPills: tab
       });
     }
+  };
+
+  togglePillsModal = tab => () => {
+    if (this.state.activeItemPillsModal !== tab) {
+      this.setState({
+        activeItemPillsModal: tab
+      });
+    }
+  };
+
+  toggle = nr => () => {
+    let modalNumber = "modal" + nr;
+    this.setState({
+      [modalNumber]: !this.state[modalNumber]
+    });
   };
 
   render() {
@@ -217,63 +330,6 @@ class PillsPage extends Component {
                   </p>
                 </MDBTabPane>
               </MDBTabContent>
-
-              <h2 className="mt-5">Pills justified</h2>
-              <MDBNav pills color="pink" className="nav-justified ">
-                <MDBNavItem>
-                  <MDBNavLink
-                    to="#"
-                    className={
-                      this.state.activeItemPillsJustified === "1"
-                        ? "active"
-                        : ""
-                    }
-                    onClick={this.togglePillsJustified("1")}
-                  >
-                    Active
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    to="#"
-                    className={
-                      this.state.activeItemPillsJustified === "2"
-                        ? "active"
-                        : ""
-                    }
-                    onClick={this.togglePillsJustified("2")}
-                  >
-                    Link
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    to="#"
-                    className={
-                      this.state.activeItemPillsJustified === "3"
-                        ? "active"
-                        : ""
-                    }
-                    onClick={this.togglePillsJustified("3")}
-                  >
-                    Link
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink
-                    to="#"
-                    className={
-                      this.state.activeItemPillsJustified === "4"
-                        ? "active"
-                        : ""
-                    }
-                    onClick={this.togglePillsJustified("4")}
-                  >
-                    Help
-                  </MDBNavLink>
-                </MDBNavItem>
-              </MDBNav>
-
               <h2 className="mt-5">Pills with dropdown</h2>
               <MDBNav pills color="success" className="nav-justified ">
                 <MDBNavItem>
@@ -292,7 +348,7 @@ class PillsPage extends Component {
                     <MDBDropdownToggle nav caret color="success">
                       Dropdown
                     </MDBDropdownToggle>
-                    <MDBDropdownMenu color="secondary">
+                    <MDBDropdownMenu color="success">
                       <MDBDropdownItem>Action</MDBDropdownItem>
                       <MDBDropdownItem>Another Action</MDBDropdownItem>
                       <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -309,7 +365,7 @@ class PillsPage extends Component {
                     }
                     onClick={this.togglePillsDropdown("3")}
                   >
-                    Link
+                    Link 1
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
@@ -320,11 +376,10 @@ class PillsPage extends Component {
                     }
                     onClick={this.togglePillsDropdown("4")}
                   >
-                    Help
+                    Link 2
                   </MDBNavLink>
                 </MDBNavItem>
               </MDBNav>
-
               <h2 className="mt-5">Vertical Pills</h2>
               <MDBRow>
                 <MDBCol md="3">
@@ -404,7 +459,6 @@ class PillsPage extends Component {
                   </MDBTabContent>
                 </MDBCol>
               </MDBRow>
-
               <h2 className="mt-5">Pills with gradient</h2>
               <MDBNav pills gradient="peach" className="nav-justified">
                 <MDBNavItem>
@@ -415,7 +469,7 @@ class PillsPage extends Component {
                     }
                     onClick={this.togglePillsGradient("1")}
                   >
-                    Active
+                    Blogger
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
@@ -426,7 +480,7 @@ class PillsPage extends Component {
                     }
                     onClick={this.togglePillsGradient("2")}
                   >
-                    Link
+                    Designer
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
@@ -437,7 +491,7 @@ class PillsPage extends Component {
                     }
                     onClick={this.togglePillsGradient("3")}
                   >
-                    Link
+                    Photographer
                   </MDBNavLink>
                 </MDBNavItem>
                 <MDBNavItem>
@@ -448,381 +502,381 @@ class PillsPage extends Component {
                     }
                     onClick={this.togglePillsGradient("4")}
                   >
-                    Help
+                    Model
                   </MDBNavLink>
                 </MDBNavItem>
               </MDBNav>
-
               <h2 className="mt-5">Rounded pills</h2>
               <MDBRow>
-                <MDBCol md="6">
-                  <MDBNav
-                    pills
-                    rounded
-                    color="deep-purple"
-                    className="nav-justified"
-                  >
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "1"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("1")}
-                      >
-                        Active
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "2"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("2")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "3"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("3")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "4"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("4")}
-                      >
-                        Help
-                      </MDBNavLink>
-                    </MDBNavItem>
-                  </MDBNav>
-                  <MDBNav
-                    pills
-                    rounded
-                    gradient="peach"
-                    className="nav-justified"
-                  >
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "1"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("1")}
-                      >
-                        Active
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "2"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("2")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "3"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("3")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "4"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("4")}
-                      >
-                        Help
-                      </MDBNavLink>
-                    </MDBNavItem>
-                  </MDBNav>
+                <MDBNav
+                  pills
+                  rounded
+                  color="deep-purple"
+                  className="nav-justified col-md-6"
+                >
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRounded === "1"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRounded("1")}
+                    >
+                      Active
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRounded === "2"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRounded("2")}
+                    >
+                      Link 1
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRounded === "3"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRounded("3")}
+                    >
+                      Link 2
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRounded === "4"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRounded("4")}
+                    >
+                      Link 3
+                    </MDBNavLink>
+                  </MDBNavItem>
+                </MDBNav>
 
-                  <MDBNav pills rounded outline="red" className="nav-justified">
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "1"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("1")}
-                      >
-                        Active
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "2"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("2")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "3"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("3")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "4"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("4")}
-                      >
-                        Help
-                      </MDBNavLink>
-                    </MDBNavItem>
-                  </MDBNav>
-                </MDBCol>
+                <MDBNav
+                  pills
+                  rounded
+                  color="light-purple"
+                  className="nav-justified col-md-6"
+                >
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRounded2 === "1"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRounded2("1")}
+                    >
+                      Active
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRounded2 === "2"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRounded2("2")}
+                    >
+                      Link 1
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRounded2 === "3"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRounded2("3")}
+                    >
+                      Link 2
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRounded2 === "4"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRounded2("4")}
+                    >
+                      Link 3
+                    </MDBNavLink>
+                  </MDBNavItem>
+                </MDBNav>
 
-                <MDBCol md="6">
-                  <MDBNav
-                    pills
-                    rounded
-                    color="light-purple"
-                    className="nav-justified"
-                  >
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "1"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("1")}
-                      >
-                        Active
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "2"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("2")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "3"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("3")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "4"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("4")}
-                      >
-                        Help
-                      </MDBNavLink>
-                    </MDBNavItem>
-                  </MDBNav>
-                  <MDBNav
-                    pills
-                    rounded
-                    gradient="aqua"
-                    className="nav-justified"
-                  >
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "1"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("1")}
-                      >
-                        Active
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "2"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("2")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "3"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("3")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "4"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("4")}
-                      >
-                        Help
-                      </MDBNavLink>
-                    </MDBNavItem>
-                  </MDBNav>
-                  <MDBNav
-                    pills
-                    rounded
-                    outline="green"
-                    className="nav-justified"
-                  >
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "1"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("1")}
-                      >
-                        Active
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "2"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("2")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "3"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("3")}
-                      >
-                        Link
-                      </MDBNavLink>
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      <MDBNavLink
-                        to="#"
-                        className={
-                          this.state.activeItemPillsRounded === "4"
-                            ? "active"
-                            : ""
-                        }
-                        onClick={this.togglePillsRounded("4")}
-                      >
-                        Help
-                      </MDBNavLink>
-                    </MDBNavItem>
-                  </MDBNav>
-                </MDBCol>
+                <MDBNav
+                  pills
+                  rounded
+                  gradient="peach"
+                  className="nav-justified col-md-6"
+                >
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedGradient === "1"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedGradient("1")}
+                    >
+                      Active
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedGradient === "2"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedGradient("2")}
+                    >
+                      Link 1
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedGradient === "3"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedGradient("3")}
+                    >
+                      Link 2
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedGradient === "4"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedGradient("4")}
+                    >
+                      Link 3
+                    </MDBNavLink>
+                  </MDBNavItem>
+                </MDBNav>
+
+                <MDBNav
+                  pills
+                  rounded
+                  gradient="aqua"
+                  className="nav-justified col-md-6"
+                >
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedGradient2 === "1"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedGradient2("1")}
+                    >
+                      Active
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedGradient2 === "2"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedGradient2("2")}
+                    >
+                      Link 1
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedGradient2 === "3"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedGradient2("3")}
+                    >
+                      Link 2
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedGradient2 === "4"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedGradient2("4")}
+                    >
+                      Link 3
+                    </MDBNavLink>
+                  </MDBNavItem>
+                </MDBNav>
+
+                <MDBNav
+                  pills
+                  rounded
+                  outline="red"
+                  className="nav-justified col-md-6"
+                >
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedOutline === "1"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedOutline("1")}
+                    >
+                      Active
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedOutline === "2"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedOutline("2")}
+                    >
+                      Link 1
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedOutline === "3"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedOutline("3")}
+                    >
+                      Link 2
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedOutline === "4"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedOutline("4")}
+                    >
+                      Link 3
+                    </MDBNavLink>
+                  </MDBNavItem>
+                </MDBNav>
+
+                <MDBNav
+                  pills
+                  rounded
+                  outline="green"
+                  className="nav-justified col-md-6"
+                >
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedOutline2 === "1"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedOutline2("1")}
+                    >
+                      Active
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedOutline2 === "2"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedOutline2("2")}
+                    >
+                      Link 1
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedOutline2 === "3"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedOutline2("3")}
+                    >
+                      Link 2
+                    </MDBNavLink>
+                  </MDBNavItem>
+                  <MDBNavItem>
+                    <MDBNavLink
+                      to="#"
+                      className={
+                        this.state.activeItemPillsRoundedOutline2 === "4"
+                          ? "active"
+                          : ""
+                      }
+                      onClick={this.togglePillsRoundedOutline2("4")}
+                    >
+                      Link 3
+                    </MDBNavLink>
+                  </MDBNavItem>
+                </MDBNav>
               </MDBRow>
-
               <h2 className="mt-5">Pills with icons</h2>
               <MDBNav pills color="info" className="nav-justified ">
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
                     className={
-                      this.state.activeItemPillsJustified === "1"
-                        ? "active"
-                        : ""
+                      this.state.activeItemPillsIcons === "1" ? "active" : ""
                     }
-                    onClick={this.togglePillsJustified("1")}
+                    onClick={this.togglePillsIcons("1")}
                   >
                     <MDBIcon fab icon="android" /> USA
                   </MDBNavLink>
@@ -831,11 +885,9 @@ class PillsPage extends Component {
                   <MDBNavLink
                     to="#"
                     className={
-                      this.state.activeItemPillsJustified === "2"
-                        ? "active"
-                        : ""
+                      this.state.activeItemPillsIcons === "2" ? "active" : ""
                     }
-                    onClick={this.togglePillsJustified("2")}
+                    onClick={this.togglePillsIcons("2")}
                   >
                     <MDBIcon icon="leaf" /> Mexico
                   </MDBNavLink>
@@ -844,11 +896,9 @@ class PillsPage extends Component {
                   <MDBNavLink
                     to="#"
                     className={
-                      this.state.activeItemPillsJustified === "3"
-                        ? "active"
-                        : ""
+                      this.state.activeItemPillsIcons === "3" ? "active" : ""
                     }
-                    onClick={this.togglePillsJustified("3")}
+                    onClick={this.togglePillsIcons("3")}
                   >
                     <MDBIcon icon="heart" /> Poland
                   </MDBNavLink>
@@ -857,11 +907,9 @@ class PillsPage extends Component {
                   <MDBNavLink
                     to="#"
                     className={
-                      this.state.activeItemPillsJustified === "4"
-                        ? "active"
-                        : ""
+                      this.state.activeItemPillsIcons === "4" ? "active" : ""
                     }
-                    onClick={this.togglePillsJustified("4")}
+                    onClick={this.togglePillsIcons("4")}
                   >
                     <MDBIcon icon="futbol" /> Brazil
                   </MDBNavLink>
@@ -872,11 +920,11 @@ class PillsPage extends Component {
                   <MDBNavLink
                     to="#"
                     className={
-                      this.state.activeItemPillsJustified === "1"
+                      this.state.activeItemPillsIconsRight === "1"
                         ? "active"
                         : ""
                     }
-                    onClick={this.togglePillsJustified("1")}
+                    onClick={this.togglePillsIconsRight("1")}
                   >
                     San Francisco <MDBIcon far icon="grin" />
                   </MDBNavLink>
@@ -885,11 +933,11 @@ class PillsPage extends Component {
                   <MDBNavLink
                     to="#"
                     className={
-                      this.state.activeItemPillsJustified === "2"
+                      this.state.activeItemPillsIconsRight === "2"
                         ? "active"
                         : ""
                     }
-                    onClick={this.togglePillsJustified("2")}
+                    onClick={this.togglePillsIconsRight("2")}
                   >
                     Tijuana <MDBIcon icon="users" />
                   </MDBNavLink>
@@ -898,11 +946,11 @@ class PillsPage extends Component {
                   <MDBNavLink
                     to="#"
                     className={
-                      this.state.activeItemPillsJustified === "3"
+                      this.state.activeItemPillsIconsRight === "3"
                         ? "active"
                         : ""
                     }
-                    onClick={this.togglePillsJustified("3")}
+                    onClick={this.togglePillsIconsRight("3")}
                   >
                     Cracow <MDBIcon icon="thumbs-up" />
                   </MDBNavLink>
@@ -911,17 +959,16 @@ class PillsPage extends Component {
                   <MDBNavLink
                     to="#"
                     className={
-                      this.state.activeItemPillsJustified === "4"
+                      this.state.activeItemPillsIconsRight === "4"
                         ? "active"
                         : ""
                     }
-                    onClick={this.togglePillsJustified("4")}
+                    onClick={this.togglePillsIconsRight("4")}
                   >
                     Rio de Janeiro <MDBIcon icon="coffee" />
                   </MDBNavLink>
                 </MDBNavItem>
               </MDBNav>
-
               <h2 className="mt-5">Pills with content </h2>
               <MDBRow>
                 <MDBCol md="6">
@@ -948,7 +995,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         className={
-                          this.state.activeItemPillsJWithContent === "2"
+                          this.state.activeItemPillsWithContent === "2"
                             ? "active"
                             : ""
                         }
@@ -1040,11 +1087,7 @@ class PillsPage extends Component {
                   </MDBTabContent>
                 </MDBCol>
                 <MDBCol md="6">
-                  <MDBNav
-                    pills
-                    color="warning"
-                    className="nav-justified mb-4"
-                  >
+                  <MDBNav pills color="warning" className="nav-justified mb-4">
                     <MDBNavItem>
                       <MDBNavLink
                         to="#"
@@ -1085,8 +1128,9 @@ class PillsPage extends Component {
                       </MDBNavLink>
                     </MDBNavItem>
                   </MDBNav>
-                  <MDBTabContent className={'card'}
-                    activeItem={this.state.activeItemPillsWithContent}
+                  <MDBTabContent
+                    className={"card"}
+                    activeItem={this.state.activeItemPillsWithContentCard}
                   >
                     <MDBTabPane tabId="1">
                       <p>
@@ -1126,7 +1170,398 @@ class PillsPage extends Component {
                 </MDBCol>
               </MDBRow>
 
+              
+              <h2 className="mt-5">Colors animations</h2>
+              <MDBRow>
+                <MDBCol xl="8" md="10">
+                  <MDBNav pills color="blue-teal" className="nav-justified">
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsColorAnimation === "1"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsColorAnimation("1")}
+                      >
+                        Fashion
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsColorAnimation === "2"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsColorAnimation("2")}
+                      >
+                        Lifestyle
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsColorAnimation === "3"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsColorAnimation("3")}
+                      >
+                        Beauty
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsColorAnimation === "4"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsColorAnimation("4")}
+                      >
+                        Shop
+                      </MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNav>
+                  <MDBNav
+                    pills
+                    rounded
+                    outline="purple-anm"
+                    className="nav-justified"
+                  >
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state
+                            .activeItemPillsColorAnimationRoundedOutline === "1"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsAnimationRoundedOutline("1")}
+                      >
+                        Madrid
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state
+                            .activeItemPillsColorAnimationRoundedOutline === "2"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsAnimationRoundedOutline("2")}
+                      >
+                        Bari
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state
+                            .activeItemPillsColorAnimationRoundedOutline === "3"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsAnimationRoundedOutline("3")}
+                      >
+                        Warsaw
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state
+                            .activeItemPillsColorAnimationRoundedOutline === "4"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsAnimationRoundedOutline("4")}
+                      >
+                        Paris
+                      </MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNav>
+                  <MDBNav
+                    pills
+                    rounded
+                    color="orange-anm"
+                    className="nav-justified"
+                  >
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsColorAnimationRounded ===
+                          "1"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsRoundedAnimationRounded("1")}
+                      >
+                        Features
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsColorAnimationRounded ===
+                          "2"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsRoundedAnimationRounded("2")}
+                      >
+                        Pricing
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsColorAnimationRounded ===
+                          "3"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsRoundedAnimationRounded("3")}
+                      >
+                        Gadgets
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsColorAnimationRounded ===
+                          "4"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsRoundedAnimationRounded("4")}
+                      >
+                        Technology
+                      </MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNav>
+                  <MDBTabContent
+                    activeItem={this.state.activeItemPillsColorAnimationRounded}
+                  >
+                    <MDBTabPane tabId="1">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Nihil odit magnam minima, soluta doloribus
+                        reiciendis molestiae placeat unde eos molestias.
+                        Quisquam aperiam, pariatur. Tempora, placeat ratione
+                        porro voluptate odit minima.
+                      </p>
+                    </MDBTabPane>
+                    <MDBTabPane tabId="2">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Nihil odit magnam minima, soluta doloribus
+                        reiciendis molestiae placeat unde eos molestias.
+                        Quisquam aperiam, pariatur. Tempora, placeat ratione
+                        porro voluptate odit minima.
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Nihil odit magnam minima, soluta doloribus
+                        reiciendis molestiae placeat unde eos molestias.
+                        Quisquam aperiam, pariatur. Tempora, placeat ratione
+                        porro voluptate odit minima.
+                      </p>
+                    </MDBTabPane>
+                    <MDBTabPane tabId="3">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Nihil odit magnam minima, soluta doloribus
+                        reiciendis molestiae placeat unde eos molestias.
+                        Quisquam aperiam, pariatur. Tempora, placeat ratione
+                        porro voluptate odit minima.
+                      </p>
+                    </MDBTabPane>
+                    <MDBTabPane tabId="4">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Nihil odit magnam minima, soluta doloribus
+                        reiciendis molestiae placeat unde eos molestias.
+                        Quisquam aperiam, pariatur. Tempora, placeat ratione
+                        porro voluptate odit minima.
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Nihil odit magnam minima, soluta doloribus
+                        reiciendis molestiae placeat unde eos molestias.
+                        Quisquam aperiam, pariatur. Tempora, placeat ratione
+                        porro voluptate odit minima.
+                      </p>
+                    </MDBTabPane>
+                  </MDBTabContent>
+                </MDBCol>
+              </MDBRow>
 
+
+              <h2 className="mt-5">Pills within modal</h2>
+              <MDBBtn rounded onClick={this.toggle(1)}>
+                Launch Modal LogIn/Register
+                <MDBIcon icon="eye" className="ml-1" />
+              </MDBBtn>
+              <MDBModal
+                isOpen={this.state.modal1}
+                toggle={this.toggle(1)}
+                centered
+              >
+                <MDBModalBody>
+                  <MDBNav pills color="primary" className="nav-justified pt-2">
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsModal === "1"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsModal("1")}
+                      >
+                        <MDBIcon icon="user" className="mr-1" /> Login
+                      </MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink
+                        to="#"
+                        className={
+                          this.state.activeItemPillsModal === "2"
+                            ? "active"
+                            : ""
+                        }
+                        onClick={this.togglePillsModal("2")}
+                      >
+                        <MDBIcon icon="user-plus" className="mr-1" /> Register
+                      </MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNav>
+                  <MDBTabContent activeItem={this.state.activeItemPillsModal}>
+                    <MDBTabPane tabId="1">
+                      <form className=" mx-3 grey-text">
+                        <MDBInput
+                          label="Your email"
+                          icon="envelope"
+                          group
+                          type="email"
+                          validate
+                          error="wrong"
+                          success="right"
+                        />
+                        <MDBInput
+                          label="Your password"
+                          icon="lock"
+                          group
+                          type="password"
+                          validate
+                        />
+                        <MDBCol size="12" className="text-center">
+                          <MDBBtn color="primary">
+                            LOG IN
+                            <MDBIcon icon="sign-in-alt" className="ml-1" />
+                          </MDBBtn>
+                        </MDBCol>
+                      </form>
+                    </MDBTabPane>
+                    <MDBTabPane tabId="2">
+                      <form className="mx-3 grey-text">
+                        <MDBInput
+                          label="Your name"
+                          icon="user"
+                          group
+                          type="text"
+                          validate
+                          error="wrong"
+                          success="right"
+                        />
+                        <MDBInput
+                          label="Your email"
+                          icon="envelope"
+                          group
+                          type="email"
+                          validate
+                          error="wrong"
+                          success="right"
+                        />
+                        <MDBInput
+                          label="Your password"
+                          icon="lock"
+                          group
+                          type="password"
+                          validate
+                        />
+                        <MDBCol size="12" className="text-center">
+                          <MDBBtn color="primary">
+                            SIGN IN
+                            <MDBIcon icon="sign-in-alt" className="ml-1" />
+                          </MDBBtn>
+                        </MDBCol>
+                      </form>
+                    </MDBTabPane>
+                  </MDBTabContent>
+                </MDBModalBody>
+                <MDBModalFooter className="justify-content-center">
+                  <MDBRow className="w-100 justify-content-start">
+                    <MDBCol size="8">
+                      <div id="options" className="text-right float-left">
+                        <MDBTabContent
+                          className="pt-1 px-0 pb-0"
+                          activeItem={this.state.activeItemPillsModal}
+                        >
+                          <MDBTabPane tabId="1">
+                            <p className="font-small">
+                              Not a member?
+                              <a
+                                className="blue-text ml-1"
+                                onClick={this.togglePillsModal("2")}
+                              >
+                                Sign Up
+                              </a>
+                            </p>
+                            <p className="font-small">
+                              Forgot <a className="blue-text ml-1">password?</a>
+                            </p>
+                          </MDBTabPane>
+                          <MDBTabPane tabId="2">
+                            <p className="font-small">
+                              Already have an account?
+                              <a
+                                className="blue-text ml-1"
+                                onClick={this.togglePillsModal("2")}
+                              >
+                                LogIn
+                              </a>
+                            </p>
+                            <p className="font-small">
+                              Forgot <a className="blue-text ml-1">password?</a>
+                            </p>
+                          </MDBTabPane>
+                        </MDBTabContent>
+                      </div>
+                    </MDBCol>
+                    <MDBCol size="4" className="float-right">
+                      <MDBBtn outline color="primary" onClick={this.toggle(1)}>
+                        CLOSE
+                      </MDBBtn>
+                    </MDBCol>
+                  </MDBRow>
+                </MDBModalFooter>
+              </MDBModal>
               <h2 className="mt-5">Pills within the tabs</h2>
               <MDBNav tabs className="nav-justified" color="indigo">
                 <MDBNavItem>

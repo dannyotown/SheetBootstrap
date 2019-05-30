@@ -1,3 +1,4 @@
+/* Remove outline (border if you click button) */
 a,
 li,
 a::-moz-focus-inner,
@@ -9,6 +10,7 @@ button::-moz-focus-inner {
   outline: none !important;
 }
 
+/* Gradient buttons */
 .pills-peach-gradient .nav-item .nav-link.active {
   background: linear-gradient(40deg, #ffd86f, #fc6262);
 }
@@ -22,6 +24,7 @@ button::-moz-focus-inner {
   background: linear-gradient(40deg, #2096ff, #05ffa3);
 }
 
+/* Rounded buttons and outline*/
 .pills-rounded .nav-item .nav-link {
   border-radius: 10em;
 }
@@ -62,3 +65,65 @@ button::-moz-focus-inner {
   border: 2px solid #4caf50;
   color: #4caf50;
 }
+
+
+/* Colors animations */
+
+.pills-blue-teal .nav-item .nav-link.active {
+  background-color: #4fc3f7;
+  -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: example;
+  animation-duration: 4s;
+  }
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes example {
+  from {background-color: #4fc3f7;}
+  to {background-color: #009688;}
+  }
+  
+  /* Standard syntax */
+  @keyframes example {
+  from {background-color: #4fc3f7;}
+  to {background-color: #009688;}
+  }
+  
+  .pills-outline-purple-anm .nav-item .nav-link.active {
+  border: 2px solid #9c27b0;
+  color: #9c27b0;
+  background-color: transparent;
+  -webkit-animation-name: outline; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: outline;
+  animation-duration: 4s;
+  }
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes outline {
+  from {border: 2px solid #9c27b0; color: #9c27b0;}
+  to {border: 2px solid #f48fb1; color: #f48fb1;}
+  }
+  
+  /* Standard syntax */
+  @keyframes outline {
+  from {border: 2px solid #9c27b0; color: #9c27b0;}
+  to {border: 2px solid #f48fb1; color: #f48fb1;}
+  }
+  
+  .pills-orange-anm .nav-item .nav-link.active {
+  background-color: #ffa000 ;
+  -webkit-animation-name: orange; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+  animation-name: orange;
+  animation-duration: 4s;
+  }
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes orange {
+  from {background-color: #ffa000 ;}
+  to {background-color: #f44336;}
+  }
+  
+  /* Standard syntax */
+  @keyframes orange {
+  from {background-color: #ffa000 ;}
+  to {background-color: #f44336;}
+  }
