@@ -10515,7 +10515,7 @@ function (_React$Component) {
   _createClass(TableEditable, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
-      if (prevState.data !== this.state.data || this.props.data !== this.state.data) {
+      if (prevProps.data !== this.props.data && this.props.data !== this.state.data) {
         this.setState({
           data: this.props.data
         });
