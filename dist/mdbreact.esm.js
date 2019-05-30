@@ -10506,6 +10506,15 @@ function (_React$Component) {
   }
 
   _createClass(TableEditable, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (this.props.data !== this.state.data) {
+        this.setState({
+          data: this.props.data
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
