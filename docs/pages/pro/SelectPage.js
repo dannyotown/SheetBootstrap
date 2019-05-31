@@ -50,6 +50,7 @@ class SelectPage extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+
     e.target.checkValidity() && console.log('Submitted');
   }
 
@@ -270,9 +271,6 @@ class SelectPage extends Component {
             />
             <MDBBtn type="submit" color="primary">Submit</MDBBtn>
             </form>
-          </div>
-          <div className="col-md-6">
-            <MDBBtn onClick={this.remove}>Remove option</MDBBtn>
           </div>
         </div>
       </MDBContainer>
