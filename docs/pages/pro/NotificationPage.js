@@ -1,6 +1,5 @@
 import React from "react";
 import { toast, ToastContainer, MDBContainer } from "mdbreact";
-import "../alerts.css";
 import DocsLink from "../../components/docsLink";
 
 const NotificationPage = () => {
