@@ -50,6 +50,7 @@ class SelectPage extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+
     e.target.checkValidity() && console.log('Submitted');
   }
 
