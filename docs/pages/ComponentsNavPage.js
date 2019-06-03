@@ -21,7 +21,6 @@ const ComponentsNavPage = () => {
               <MenuLink to="/components/media" title="Media" />
               <MenuLink to="/components/panels" title="Panels" />
               <MenuLink to="/components/pagination" title="Pagination" />
-              <MenuLink to="/components/pills" title="Pills" />
               <MenuLink to="/components/progress" title="Progress" />
               <MenuLink to="/components/search" title="Search" />
               <MenuLink to="/components/spinner" title="Loader/Spinner" />
@@ -33,7 +32,6 @@ const ComponentsNavPage = () => {
               <MenuLink to="/components/pro/chips" title="Chips" />
               <MenuLink to="/components/pro/dropdown" title="Material Dropdown" />
               <MenuLink to="/components/pro/spinner" title="Loader/Spinner" />
-              <MenuLink to="/components/pro/pills" title="Pills" />
               <MenuLink to="/components/pro/search" title="Search" />
               <MenuLink to="/components/pro/socialbuttons" title="Social Buttons" />
               <MenuLink to="/components/pro/stepper" title="Stepper" />
