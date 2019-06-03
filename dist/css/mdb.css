@@ -6602,223 +6602,113 @@ table.table-sm td {
     font-weight: 900;
     font-size: 2rem; }
   .masonry-with-columns div:nth-child(1) {
-<<<<<<< HEAD
-    height: 362px;
-    line-height: 362px; }
-  .masonry-with-columns div:nth-child(2) {
-    height: 296px;
-    line-height: 296px; }
-  .masonry-with-columns div:nth-child(3) {
-    height: 432px;
-    line-height: 432px; }
-  .masonry-with-columns div:nth-child(4) {
-    height: 364px;
-    line-height: 364px; }
-  .masonry-with-columns div:nth-child(5) {
-    height: 489px;
-    line-height: 489px; }
-  .masonry-with-columns div:nth-child(6) {
-    height: 428px;
-    line-height: 428px; }
-  .masonry-with-columns div:nth-child(7) {
-    height: 137px;
-    line-height: 137px; }
-  .masonry-with-columns div:nth-child(8) {
-    height: 369px;
-    line-height: 369px; }
-  .masonry-with-columns div:nth-child(9) {
-    height: 167px;
-    line-height: 167px; }
-  .masonry-with-columns div:nth-child(10) {
-    height: 119px;
-    line-height: 119px; }
-  .masonry-with-columns div:nth-child(11) {
-    height: 217px;
-    line-height: 217px; }
-  .masonry-with-columns div:nth-child(12) {
-    height: 269px;
-    line-height: 269px; }
-  .masonry-with-columns div:nth-child(13) {
-    height: 222px;
-    line-height: 222px; }
-  .masonry-with-columns div:nth-child(14) {
-    height: 164px;
-    line-height: 164px; }
-  .masonry-with-columns div:nth-child(15) {
-    height: 214px;
-    line-height: 214px; }
-  .masonry-with-columns div:nth-child(16) {
-    height: 295px;
-    line-height: 295px; }
-  .masonry-with-columns div:nth-child(17) {
-    height: 358px;
-    line-height: 358px; }
-  .masonry-with-columns div:nth-child(18) {
-    height: 213px;
-    line-height: 213px; }
-  .masonry-with-columns div:nth-child(19) {
-    height: 471px;
-    line-height: 471px; }
-  .masonry-with-columns div:nth-child(20) {
-    height: 154px;
-    line-height: 154px; }
-  .masonry-with-columns div:nth-child(21) {
-    height: 116px;
-    line-height: 116px; }
-  .masonry-with-columns div:nth-child(22) {
-    height: 309px;
-    line-height: 309px; }
-  .masonry-with-columns div:nth-child(23) {
-    height: 186px;
-    line-height: 186px; }
-  .masonry-with-columns div:nth-child(24) {
-    height: 274px;
-    line-height: 274px; }
-  .masonry-with-columns div:nth-child(25) {
-    height: 273px;
-    line-height: 273px; }
-  .masonry-with-columns div:nth-child(26) {
-    height: 314px;
-    line-height: 314px; }
-  .masonry-with-columns div:nth-child(27) {
-    height: 320px;
-    line-height: 320px; }
-  .masonry-with-columns div:nth-child(28) {
-    height: 119px;
-    line-height: 119px; }
-  .masonry-with-columns div:nth-child(29) {
-    height: 406px;
-    line-height: 406px; }
-  .masonry-with-columns div:nth-child(30) {
-    height: 234px;
-    line-height: 234px; }
-  .masonry-with-columns div:nth-child(31) {
-    height: 180px;
-    line-height: 180px; }
-  .masonry-with-columns div:nth-child(32) {
-    height: 139px;
-    line-height: 139px; }
-  .masonry-with-columns div:nth-child(33) {
-    height: 450px;
-    line-height: 450px; }
-  .masonry-with-columns div:nth-child(34) {
-    height: 414px;
-    line-height: 414px; }
-  .masonry-with-columns div:nth-child(35) {
-    height: 331px;
-    line-height: 331px; }
-  .masonry-with-columns div:nth-child(36) {
-    height: 485px;
-    line-height: 485px; }
-=======
-    height: 340px;
-    line-height: 340px; }
-  .masonry-with-columns div:nth-child(2) {
-    height: 479px;
-    line-height: 479px; }
-  .masonry-with-columns div:nth-child(3) {
-    height: 444px;
-    line-height: 444px; }
-  .masonry-with-columns div:nth-child(4) {
-    height: 186px;
-    line-height: 186px; }
-  .masonry-with-columns div:nth-child(5) {
-    height: 435px;
-    line-height: 435px; }
-  .masonry-with-columns div:nth-child(6) {
-    height: 415px;
-    line-height: 415px; }
-  .masonry-with-columns div:nth-child(7) {
-    height: 200px;
-    line-height: 200px; }
-  .masonry-with-columns div:nth-child(8) {
     height: 223px;
     line-height: 223px; }
-  .masonry-with-columns div:nth-child(9) {
-    height: 134px;
-    line-height: 134px; }
-  .masonry-with-columns div:nth-child(10) {
-    height: 343px;
-    line-height: 343px; }
-  .masonry-with-columns div:nth-child(11) {
-    height: 213px;
-    line-height: 213px; }
-  .masonry-with-columns div:nth-child(12) {
-    height: 319px;
-    line-height: 319px; }
-  .masonry-with-columns div:nth-child(13) {
-    height: 457px;
-    line-height: 457px; }
-  .masonry-with-columns div:nth-child(14) {
-    height: 340px;
-    line-height: 340px; }
-  .masonry-with-columns div:nth-child(15) {
-    height: 448px;
-    line-height: 448px; }
-  .masonry-with-columns div:nth-child(16) {
-    height: 310px;
-    line-height: 310px; }
-  .masonry-with-columns div:nth-child(17) {
-    height: 395px;
-    line-height: 395px; }
-  .masonry-with-columns div:nth-child(18) {
-    height: 139px;
-    line-height: 139px; }
-  .masonry-with-columns div:nth-child(19) {
-    height: 207px;
-    line-height: 207px; }
-  .masonry-with-columns div:nth-child(20) {
-    height: 390px;
-    line-height: 390px; }
-  .masonry-with-columns div:nth-child(21) {
-    height: 360px;
-    line-height: 360px; }
-  .masonry-with-columns div:nth-child(22) {
-    height: 422px;
-    line-height: 422px; }
-  .masonry-with-columns div:nth-child(23) {
-    height: 497px;
-    line-height: 497px; }
-  .masonry-with-columns div:nth-child(24) {
-    height: 226px;
-    line-height: 226px; }
-  .masonry-with-columns div:nth-child(25) {
-    height: 349px;
-    line-height: 349px; }
-  .masonry-with-columns div:nth-child(26) {
-    height: 173px;
-    line-height: 173px; }
-  .masonry-with-columns div:nth-child(27) {
-    height: 314px;
-    line-height: 314px; }
-  .masonry-with-columns div:nth-child(28) {
-    height: 137px;
-    line-height: 137px; }
-  .masonry-with-columns div:nth-child(29) {
-    height: 464px;
-    line-height: 464px; }
-  .masonry-with-columns div:nth-child(30) {
-    height: 312px;
-    line-height: 312px; }
-  .masonry-with-columns div:nth-child(31) {
-    height: 215px;
-    line-height: 215px; }
-  .masonry-with-columns div:nth-child(32) {
-    height: 362px;
-    line-height: 362px; }
-  .masonry-with-columns div:nth-child(33) {
-    height: 470px;
-    line-height: 470px; }
-  .masonry-with-columns div:nth-child(34) {
-    height: 150px;
-    line-height: 150px; }
-  .masonry-with-columns div:nth-child(35) {
+  .masonry-with-columns div:nth-child(2) {
+    height: 432px;
+    line-height: 432px; }
+  .masonry-with-columns div:nth-child(3) {
+    height: 230px;
+    line-height: 230px; }
+  .masonry-with-columns div:nth-child(4) {
+    height: 211px;
+    line-height: 211px; }
+  .masonry-with-columns div:nth-child(5) {
     height: 306px;
     line-height: 306px; }
+  .masonry-with-columns div:nth-child(6) {
+    height: 394px;
+    line-height: 394px; }
+  .masonry-with-columns div:nth-child(7) {
+    height: 451px;
+    line-height: 451px; }
+  .masonry-with-columns div:nth-child(8) {
+    height: 302px;
+    line-height: 302px; }
+  .masonry-with-columns div:nth-child(9) {
+    height: 193px;
+    line-height: 193px; }
+  .masonry-with-columns div:nth-child(10) {
+    height: 321px;
+    line-height: 321px; }
+  .masonry-with-columns div:nth-child(11) {
+    height: 249px;
+    line-height: 249px; }
+  .masonry-with-columns div:nth-child(12) {
+    height: 166px;
+    line-height: 166px; }
+  .masonry-with-columns div:nth-child(13) {
+    height: 435px;
+    line-height: 435px; }
+  .masonry-with-columns div:nth-child(14) {
+    height: 338px;
+    line-height: 338px; }
+  .masonry-with-columns div:nth-child(15) {
+    height: 206px;
+    line-height: 206px; }
+  .masonry-with-columns div:nth-child(16) {
+    height: 386px;
+    line-height: 386px; }
+  .masonry-with-columns div:nth-child(17) {
+    height: 107px;
+    line-height: 107px; }
+  .masonry-with-columns div:nth-child(18) {
+    height: 244px;
+    line-height: 244px; }
+  .masonry-with-columns div:nth-child(19) {
+    height: 356px;
+    line-height: 356px; }
+  .masonry-with-columns div:nth-child(20) {
+    height: 135px;
+    line-height: 135px; }
+  .masonry-with-columns div:nth-child(21) {
+    height: 303px;
+    line-height: 303px; }
+  .masonry-with-columns div:nth-child(22) {
+    height: 401px;
+    line-height: 401px; }
+  .masonry-with-columns div:nth-child(23) {
+    height: 378px;
+    line-height: 378px; }
+  .masonry-with-columns div:nth-child(24) {
+    height: 406px;
+    line-height: 406px; }
+  .masonry-with-columns div:nth-child(25) {
+    height: 104px;
+    line-height: 104px; }
+  .masonry-with-columns div:nth-child(26) {
+    height: 112px;
+    line-height: 112px; }
+  .masonry-with-columns div:nth-child(27) {
+    height: 103px;
+    line-height: 103px; }
+  .masonry-with-columns div:nth-child(28) {
+    height: 224px;
+    line-height: 224px; }
+  .masonry-with-columns div:nth-child(29) {
+    height: 191px;
+    line-height: 191px; }
+  .masonry-with-columns div:nth-child(30) {
+    height: 281px;
+    line-height: 281px; }
+  .masonry-with-columns div:nth-child(31) {
+    height: 399px;
+    line-height: 399px; }
+  .masonry-with-columns div:nth-child(32) {
+    height: 314px;
+    line-height: 314px; }
+  .masonry-with-columns div:nth-child(33) {
+    height: 283px;
+    line-height: 283px; }
+  .masonry-with-columns div:nth-child(34) {
+    height: 477px;
+    line-height: 477px; }
+  .masonry-with-columns div:nth-child(35) {
+    height: 374px;
+    line-height: 374px; }
   .masonry-with-columns div:nth-child(36) {
-    height: 286px;
-    line-height: 286px; }
->>>>>>> update-css
+    height: 348px;
+    line-height: 348px; }
 
 .masonry-with-columns-2 {
   display: flex;
@@ -6834,151 +6724,77 @@ table.table-sm td {
     font-size: 2rem;
     flex: 1 0 auto; }
   .masonry-with-columns-2 div:nth-child(1) {
-<<<<<<< HEAD
-    width: 211px; }
+    width: 347px; }
   .masonry-with-columns-2 div:nth-child(2) {
-    width: 227px; }
-  .masonry-with-columns-2 div:nth-child(3) {
-    width: 411px; }
-  .masonry-with-columns-2 div:nth-child(4) {
-    width: 290px; }
-  .masonry-with-columns-2 div:nth-child(5) {
-    width: 316px; }
-  .masonry-with-columns-2 div:nth-child(6) {
-    width: 444px; }
-  .masonry-with-columns-2 div:nth-child(7) {
-    width: 424px; }
-  .masonry-with-columns-2 div:nth-child(8) {
-    width: 217px; }
-  .masonry-with-columns-2 div:nth-child(9) {
-    width: 199px; }
-  .masonry-with-columns-2 div:nth-child(10) {
-    width: 396px; }
-  .masonry-with-columns-2 div:nth-child(11) {
-    width: 308px; }
-  .masonry-with-columns-2 div:nth-child(12) {
-    width: 72px; }
-  .masonry-with-columns-2 div:nth-child(13) {
-    width: 139px; }
-  .masonry-with-columns-2 div:nth-child(14) {
-    width: 246px; }
-  .masonry-with-columns-2 div:nth-child(15) {
-    width: 292px; }
-  .masonry-with-columns-2 div:nth-child(16) {
-    width: 149px; }
-  .masonry-with-columns-2 div:nth-child(17) {
-    width: 396px; }
-  .masonry-with-columns-2 div:nth-child(18) {
-    width: 232px; }
-  .masonry-with-columns-2 div:nth-child(19) {
-    width: 241px; }
-  .masonry-with-columns-2 div:nth-child(20) {
-    width: 74px; }
-  .masonry-with-columns-2 div:nth-child(21) {
-    width: 192px; }
-  .masonry-with-columns-2 div:nth-child(22) {
-    width: 392px; }
-  .masonry-with-columns-2 div:nth-child(23) {
-    width: 408px; }
-  .masonry-with-columns-2 div:nth-child(24) {
-    width: 384px; }
-  .masonry-with-columns-2 div:nth-child(25) {
-    width: 297px; }
-  .masonry-with-columns-2 div:nth-child(26) {
-    width: 271px; }
-  .masonry-with-columns-2 div:nth-child(27) {
-    width: 200px; }
-  .masonry-with-columns-2 div:nth-child(28) {
-    width: 280px; }
-  .masonry-with-columns-2 div:nth-child(29) {
-    width: 252px; }
-  .masonry-with-columns-2 div:nth-child(30) {
-    width: 151px; }
-  .masonry-with-columns-2 div:nth-child(31) {
-    width: 452px; }
-  .masonry-with-columns-2 div:nth-child(32) {
     width: 406px; }
-  .masonry-with-columns-2 div:nth-child(33) {
-    width: 88px; }
-  .masonry-with-columns-2 div:nth-child(34) {
-    width: 349px; }
-  .masonry-with-columns-2 div:nth-child(35) {
-    width: 105px; }
-  .masonry-with-columns-2 div:nth-child(36) {
-    width: 84px; }
-=======
-    width: 343px; }
-  .masonry-with-columns-2 div:nth-child(2) {
-    width: 144px; }
   .masonry-with-columns-2 div:nth-child(3) {
-    width: 320px; }
+    width: 118px; }
   .masonry-with-columns-2 div:nth-child(4) {
-    width: 107px; }
+    width: 351px; }
   .masonry-with-columns-2 div:nth-child(5) {
-    width: 113px; }
-  .masonry-with-columns-2 div:nth-child(6) {
-    width: 385px; }
-  .masonry-with-columns-2 div:nth-child(7) {
-    width: 421px; }
-  .masonry-with-columns-2 div:nth-child(8) {
-    width: 139px; }
-  .masonry-with-columns-2 div:nth-child(9) {
     width: 352px; }
+  .masonry-with-columns-2 div:nth-child(6) {
+    width: 204px; }
+  .masonry-with-columns-2 div:nth-child(7) {
+    width: 384px; }
+  .masonry-with-columns-2 div:nth-child(8) {
+    width: 158px; }
+  .masonry-with-columns-2 div:nth-child(9) {
+    width: 403px; }
   .masonry-with-columns-2 div:nth-child(10) {
-    width: 85px; }
+    width: 201px; }
   .masonry-with-columns-2 div:nth-child(11) {
-    width: 256px; }
+    width: 271px; }
   .masonry-with-columns-2 div:nth-child(12) {
-    width: 281px; }
+    width: 196px; }
   .masonry-with-columns-2 div:nth-child(13) {
-    width: 79px; }
-  .masonry-with-columns-2 div:nth-child(14) {
-    width: 415px; }
-  .masonry-with-columns-2 div:nth-child(15) {
-    width: 361px; }
-  .masonry-with-columns-2 div:nth-child(16) {
-    width: 93px; }
-  .masonry-with-columns-2 div:nth-child(17) {
-    width: 124px; }
-  .masonry-with-columns-2 div:nth-child(18) {
     width: 148px; }
+  .masonry-with-columns-2 div:nth-child(14) {
+    width: 389px; }
+  .masonry-with-columns-2 div:nth-child(15) {
+    width: 97px; }
+  .masonry-with-columns-2 div:nth-child(16) {
+    width: 208px; }
+  .masonry-with-columns-2 div:nth-child(17) {
+    width: 239px; }
+  .masonry-with-columns-2 div:nth-child(18) {
+    width: 96px; }
   .masonry-with-columns-2 div:nth-child(19) {
-    width: 153px; }
+    width: 438px; }
   .masonry-with-columns-2 div:nth-child(20) {
-    width: 371px; }
+    width: 341px; }
   .masonry-with-columns-2 div:nth-child(21) {
-    width: 156px; }
+    width: 95px; }
   .masonry-with-columns-2 div:nth-child(22) {
-    width: 380px; }
+    width: 327px; }
   .masonry-with-columns-2 div:nth-child(23) {
-    width: 296px; }
+    width: 352px; }
   .masonry-with-columns-2 div:nth-child(24) {
-    width: 240px; }
+    width: 281px; }
   .masonry-with-columns-2 div:nth-child(25) {
-    width: 170px; }
+    width: 420px; }
   .masonry-with-columns-2 div:nth-child(26) {
-    width: 412px; }
+    width: 250px; }
   .masonry-with-columns-2 div:nth-child(27) {
-    width: 211px; }
+    width: 194px; }
   .masonry-with-columns-2 div:nth-child(28) {
-    width: 329px; }
+    width: 398px; }
   .masonry-with-columns-2 div:nth-child(29) {
-    width: 416px; }
+    width: 99px; }
   .masonry-with-columns-2 div:nth-child(30) {
-    width: 147px; }
+    width: 374px; }
   .masonry-with-columns-2 div:nth-child(31) {
-    width: 402px; }
+    width: 83px; }
   .masonry-with-columns-2 div:nth-child(32) {
-    width: 202px; }
+    width: 410px; }
   .masonry-with-columns-2 div:nth-child(33) {
-    width: 290px; }
+    width: 468px; }
   .masonry-with-columns-2 div:nth-child(34) {
-    width: 289px; }
+    width: 116px; }
   .masonry-with-columns-2 div:nth-child(35) {
-    width: 171px; }
+    width: 396px; }
   .masonry-with-columns-2 div:nth-child(36) {
-    width: 326px; }
->>>>>>> update-css
+    width: 421px; }
 
 .masonry-with-flex {
   display: flex;
@@ -6994,223 +6810,113 @@ table.table-sm td {
     font-weight: 900;
     font-size: 2rem; }
   .masonry-with-flex div:nth-child(1) {
-<<<<<<< HEAD
-    height: 170px;
-    line-height: 170px; }
+    height: 454px;
+    line-height: 454px; }
   .masonry-with-flex div:nth-child(2) {
-    height: 336px;
-    line-height: 336px; }
+    height: 192px;
+    line-height: 192px; }
   .masonry-with-flex div:nth-child(3) {
-    height: 229px;
-    line-height: 229px; }
-  .masonry-with-flex div:nth-child(4) {
-    height: 127px;
-    line-height: 127px; }
-  .masonry-with-flex div:nth-child(5) {
-    height: 250px;
-    line-height: 250px; }
-  .masonry-with-flex div:nth-child(6) {
-    height: 107px;
-    line-height: 107px; }
-  .masonry-with-flex div:nth-child(7) {
-    height: 108px;
-    line-height: 108px; }
-  .masonry-with-flex div:nth-child(8) {
-    height: 402px;
-    line-height: 402px; }
-  .masonry-with-flex div:nth-child(9) {
-    height: 370px;
-    line-height: 370px; }
-  .masonry-with-flex div:nth-child(10) {
-    height: 456px;
-    line-height: 456px; }
-  .masonry-with-flex div:nth-child(11) {
-    height: 186px;
-    line-height: 186px; }
-  .masonry-with-flex div:nth-child(12) {
-    height: 304px;
-    line-height: 304px; }
-  .masonry-with-flex div:nth-child(13) {
-    height: 267px;
-    line-height: 267px; }
-  .masonry-with-flex div:nth-child(14) {
-    height: 257px;
-    line-height: 257px; }
-  .masonry-with-flex div:nth-child(15) {
-    height: 373px;
-    line-height: 373px; }
-  .masonry-with-flex div:nth-child(16) {
-    height: 494px;
-    line-height: 494px; }
-  .masonry-with-flex div:nth-child(17) {
-    height: 364px;
-    line-height: 364px; }
-  .masonry-with-flex div:nth-child(18) {
-    height: 398px;
-    line-height: 398px; }
-  .masonry-with-flex div:nth-child(19) {
-    height: 359px;
-    line-height: 359px; }
-  .masonry-with-flex div:nth-child(20) {
-    height: 171px;
-    line-height: 171px; }
-  .masonry-with-flex div:nth-child(21) {
-    height: 485px;
-    line-height: 485px; }
-  .masonry-with-flex div:nth-child(22) {
-    height: 253px;
-    line-height: 253px; }
-  .masonry-with-flex div:nth-child(23) {
-    height: 214px;
-    line-height: 214px; }
-  .masonry-with-flex div:nth-child(24) {
-    height: 301px;
-    line-height: 301px; }
-  .masonry-with-flex div:nth-child(25) {
-    height: 332px;
-    line-height: 332px; }
-  .masonry-with-flex div:nth-child(26) {
-    height: 312px;
-    line-height: 312px; }
-  .masonry-with-flex div:nth-child(27) {
-    height: 414px;
-    line-height: 414px; }
-  .masonry-with-flex div:nth-child(28) {
-    height: 164px;
-    line-height: 164px; }
-  .masonry-with-flex div:nth-child(29) {
-    height: 358px;
-    line-height: 358px; }
-  .masonry-with-flex div:nth-child(30) {
-    height: 184px;
-    line-height: 184px; }
-  .masonry-with-flex div:nth-child(31) {
-    height: 383px;
-    line-height: 383px; }
-  .masonry-with-flex div:nth-child(32) {
-    height: 257px;
-    line-height: 257px; }
-  .masonry-with-flex div:nth-child(33) {
-    height: 150px;
-    line-height: 150px; }
-  .masonry-with-flex div:nth-child(34) {
-    height: 431px;
-    line-height: 431px; }
-  .masonry-with-flex div:nth-child(35) {
-    height: 293px;
-    line-height: 293px; }
-  .masonry-with-flex div:nth-child(36) {
-    height: 354px;
-    line-height: 354px; }
-=======
-    height: 188px;
-    line-height: 188px; }
-  .masonry-with-flex div:nth-child(2) {
-    height: 135px;
-    line-height: 135px; }
-  .masonry-with-flex div:nth-child(3) {
-    height: 480px;
-    line-height: 480px; }
-  .masonry-with-flex div:nth-child(4) {
-    height: 125px;
-    line-height: 125px; }
-  .masonry-with-flex div:nth-child(5) {
-    height: 434px;
-    line-height: 434px; }
-  .masonry-with-flex div:nth-child(6) {
-    height: 244px;
-    line-height: 244px; }
-  .masonry-with-flex div:nth-child(7) {
     height: 425px;
     line-height: 425px; }
+  .masonry-with-flex div:nth-child(4) {
+    height: 212px;
+    line-height: 212px; }
+  .masonry-with-flex div:nth-child(5) {
+    height: 419px;
+    line-height: 419px; }
+  .masonry-with-flex div:nth-child(6) {
+    height: 484px;
+    line-height: 484px; }
+  .masonry-with-flex div:nth-child(7) {
+    height: 438px;
+    line-height: 438px; }
   .masonry-with-flex div:nth-child(8) {
-    height: 258px;
-    line-height: 258px; }
+    height: 374px;
+    line-height: 374px; }
   .masonry-with-flex div:nth-child(9) {
-    height: 386px;
-    line-height: 386px; }
+    height: 318px;
+    line-height: 318px; }
   .masonry-with-flex div:nth-child(10) {
-    height: 437px;
-    line-height: 437px; }
+    height: 325px;
+    line-height: 325px; }
   .masonry-with-flex div:nth-child(11) {
-    height: 375px;
-    line-height: 375px; }
+    height: 152px;
+    line-height: 152px; }
   .masonry-with-flex div:nth-child(12) {
-    height: 488px;
-    line-height: 488px; }
-  .masonry-with-flex div:nth-child(13) {
-    height: 370px;
-    line-height: 370px; }
-  .masonry-with-flex div:nth-child(14) {
-    height: 482px;
-    line-height: 482px; }
-  .masonry-with-flex div:nth-child(15) {
-    height: 262px;
-    line-height: 262px; }
-  .masonry-with-flex div:nth-child(16) {
-    height: 265px;
-    line-height: 265px; }
-  .masonry-with-flex div:nth-child(17) {
     height: 147px;
     line-height: 147px; }
+  .masonry-with-flex div:nth-child(13) {
+    height: 131px;
+    line-height: 131px; }
+  .masonry-with-flex div:nth-child(14) {
+    height: 478px;
+    line-height: 478px; }
+  .masonry-with-flex div:nth-child(15) {
+    height: 492px;
+    line-height: 492px; }
+  .masonry-with-flex div:nth-child(16) {
+    height: 106px;
+    line-height: 106px; }
+  .masonry-with-flex div:nth-child(17) {
+    height: 357px;
+    line-height: 357px; }
   .masonry-with-flex div:nth-child(18) {
-    height: 395px;
-    line-height: 395px; }
+    height: 356px;
+    line-height: 356px; }
   .masonry-with-flex div:nth-child(19) {
-    height: 144px;
-    line-height: 144px; }
+    height: 152px;
+    line-height: 152px; }
   .masonry-with-flex div:nth-child(20) {
-    height: 215px;
-    line-height: 215px; }
+    height: 422px;
+    line-height: 422px; }
   .masonry-with-flex div:nth-child(21) {
-    height: 425px;
-    line-height: 425px; }
+    height: 331px;
+    line-height: 331px; }
   .masonry-with-flex div:nth-child(22) {
-    height: 246px;
-    line-height: 246px; }
+    height: 102px;
+    line-height: 102px; }
   .masonry-with-flex div:nth-child(23) {
-    height: 339px;
-    line-height: 339px; }
+    height: 265px;
+    line-height: 265px; }
   .masonry-with-flex div:nth-child(24) {
-    height: 443px;
-    line-height: 443px; }
+    height: 256px;
+    line-height: 256px; }
   .masonry-with-flex div:nth-child(25) {
-    height: 326px;
-    line-height: 326px; }
+    height: 365px;
+    line-height: 365px; }
   .masonry-with-flex div:nth-child(26) {
-    height: 227px;
-    line-height: 227px; }
+    height: 478px;
+    line-height: 478px; }
   .masonry-with-flex div:nth-child(27) {
-    height: 130px;
-    line-height: 130px; }
+    height: 393px;
+    line-height: 393px; }
   .masonry-with-flex div:nth-child(28) {
-    height: 165px;
-    line-height: 165px; }
+    height: 169px;
+    line-height: 169px; }
   .masonry-with-flex div:nth-child(29) {
-    height: 457px;
-    line-height: 457px; }
+    height: 386px;
+    line-height: 386px; }
   .masonry-with-flex div:nth-child(30) {
-    height: 178px;
-    line-height: 178px; }
-  .masonry-with-flex div:nth-child(31) {
-    height: 157px;
-    line-height: 157px; }
-  .masonry-with-flex div:nth-child(32) {
     height: 411px;
     line-height: 411px; }
-  .masonry-with-flex div:nth-child(33) {
-    height: 257px;
-    line-height: 257px; }
-  .masonry-with-flex div:nth-child(34) {
-    height: 143px;
-    line-height: 143px; }
-  .masonry-with-flex div:nth-child(35) {
+  .masonry-with-flex div:nth-child(31) {
+    height: 373px;
+    line-height: 373px; }
+  .masonry-with-flex div:nth-child(32) {
     height: 178px;
     line-height: 178px; }
+  .masonry-with-flex div:nth-child(33) {
+    height: 326px;
+    line-height: 326px; }
+  .masonry-with-flex div:nth-child(34) {
+    height: 471px;
+    line-height: 471px; }
+  .masonry-with-flex div:nth-child(35) {
+    height: 166px;
+    line-height: 166px; }
   .masonry-with-flex div:nth-child(36) {
-    height: 277px;
-    line-height: 277px; }
->>>>>>> update-css
+    height: 377px;
+    line-height: 377px; }
 
 ul.stepper {
   counter-reset: section;
