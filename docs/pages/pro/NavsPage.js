@@ -85,7 +85,7 @@ class NavsPage extends Component {
         <h2 className="mt-5">Navs with Tabs & Pills with dropdown</h2>
 
         <MDBContainer className="mt-4">
-          <MDBNav tabs color="s">
+          <MDBNav tabs color="secondary">
             <MDBNavItem>
               <MDBNavLink active to="#!">Active</MDBNavLink>
             </MDBNavItem>
