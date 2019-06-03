@@ -111,7 +111,7 @@ class TabsPage extends Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={this.state.activeItem === "1" ? "active" : ""}
+                    active={this.state.activeItem === "1"}
                     onClick={this.toggle("1")}
                     role="tab"
                   >
@@ -121,7 +121,7 @@ class TabsPage extends Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={this.state.activeItem === "2" ? "active" : ""}
+                    active={this.state.activeItem === "2"}
                     onClick={this.toggle("2")}
                     role="tab"
                   >
@@ -131,7 +131,7 @@ class TabsPage extends Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={this.state.activeItem === "3" ? "active" : ""}
+                    active={this.state.activeItem === "3"}
                     onClick={this.toggle("3")}
                     role="tab"
                   >
@@ -223,9 +223,7 @@ class TabsPage extends Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={
-                      this.state.activeItemJustified === "1" ? "active" : ""
-                    }
+                    active={this.state.activeItemJustified === "1"}
                     onClick={this.toggleJustified("1")}
                     role="tab"
                   >
@@ -235,9 +233,7 @@ class TabsPage extends Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={
-                      this.state.activeItemJustified === "2" ? "active" : ""
-                    }
+                    active={this.state.activeItemJustified === "2"}
                     onClick={this.toggleJustified("2")}
                     role="tab"
                   >
@@ -247,9 +243,7 @@ class TabsPage extends Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={
-                      this.state.activeItemJustified === "3" ? "active" : ""
-                    }
+                    active={this.state.activeItemJustified === "3"}
                     onClick={this.toggleJustified("3")}
                     role="tab"
                   >
@@ -311,11 +305,7 @@ class TabsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={
-                        this.state.activeItemClassicTabs1 === "1"
-                          ? "active"
-                          : ""
-                      }
+                      active={this.state.activeItemClassicTabs1 === "1"}
                       onClick={this.toggleClassicTabs1("1")}
                     >
                       Profile
@@ -324,11 +314,7 @@ class TabsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={
-                        this.state.activeItemClassicTabs1 === "2"
-                          ? "active"
-                          : ""
-                      }
+                      active={this.state.activeItemClassicTabs1 === "2"}
                       onClick={this.toggleClassicTabs1("2")}
                     >
                       Follow
@@ -337,11 +323,7 @@ class TabsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={
-                        this.state.activeItemClassicTabs1 === "3"
-                          ? "active"
-                          : ""
-                      }
+                      active={this.state.activeItemClassicTabs1 === "3"}
                       onClick={this.toggleClassicTabs1("3")}
                     >
                       Contact
@@ -350,11 +332,7 @@ class TabsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to="#"
-                      className={
-                        this.state.activeItemClassicTabs1 === "4"
-                          ? "active"
-                          : ""
-                      }
+                      active={this.state.activeItemClassicTabs1 === "4"}
                       onClick={this.toggleClassicTabs1("4")}
                     >
                       Be Awesome
@@ -424,9 +402,7 @@ class TabsPage extends Component {
           <MDBNavItem>
             <MDBNavLink
               to="#"
-              className={
-                this.state.activeItemClassicTabs3 === "1" ? "active" : ""
-              }
+              active={this.state.activeItemClassicTabs3 === "1"}
               onClick={this.toggleClassicTabs3("1")}
             >
               <MDBIcon icon="user" size="2x" />
@@ -437,9 +413,7 @@ class TabsPage extends Component {
           <MDBNavItem>
             <MDBNavLink
               to="#"
-              className={
-                this.state.activeItemClassicTabs3 === "2" ? "active" : ""
-              }
+              active={this.state.activeItemClassicTabs3 === "2"}
               onClick={this.toggleClassicTabs3("2")}
             >
               <MDBIcon icon="heart" size="2x" />
@@ -450,9 +424,7 @@ class TabsPage extends Component {
           <MDBNavItem>
             <MDBNavLink
               to="#"
-              className={
-                this.state.activeItemClassicTabs3 === "3" ? "active" : ""
-              }
+              active={this.state.activeItemClassicTabs3 === "3"}
               onClick={this.toggleClassicTabs3("3")}
             >
               <MDBIcon icon="envelope" size="2x" />
@@ -463,9 +435,7 @@ class TabsPage extends Component {
           <MDBNavItem>
             <MDBNavLink
               to="#"
-              className={
-                this.state.activeItemClassicTabs3 === "4" ? "active" : ""
-              }
+              active={this.state.activeItemClassicTabs3 === "4"}
               onClick={this.toggleClassicTabs3("4")}
             >
               <MDBIcon icon="star" size="2x" />
@@ -532,9 +502,7 @@ class TabsPage extends Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={
-                      this.state.activeItemOuterTabs === "1" ? "active" : ""
-                    }
+                    active={this.state.activeItemOuterTabs === "1"}
                     onClick={this.toggleOuterTabs("1")}
                     role="tab"
                   >
@@ -544,9 +512,7 @@ class TabsPage extends Component {
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
-                    className={
-                      this.state.activeItemOuterTabs === "2" ? "active" : ""
-                    }
+                    active={this.state.activeItemOuterTabs === "2"}
                     onClick={this.toggleOuterTabs("2")}
                     role="tab"
                   >
@@ -565,11 +531,7 @@ class TabsPage extends Component {
                         <MDBNavItem>
                           <MDBNavLink
                             to="#"
-                            className={
-                              this.state.activeItemInnerPills === "1"
-                                ? "active"
-                                : ""
-                            }
+                            active={this.state.activeItemInnerPills === "1"}
                             onClick={this.toggleInnerPills("1")}
                           >
                             Downloads{" "}
@@ -579,11 +541,7 @@ class TabsPage extends Component {
                         <MDBNavItem>
                           <MDBNavLink
                             to="#"
-                            className={
-                              this.state.activeItemInnerPills === "2"
-                                ? "active"
-                                : ""
-                            }
+                            active={this.state.activeItemInnerPills === "2"}
                             onClick={this.toggleInnerPills("2")}
                           >
                             Orders & invoices
@@ -593,11 +551,7 @@ class TabsPage extends Component {
                         <MDBNavItem>
                           <MDBNavLink
                             to="#"
-                            className={
-                              this.state.activeItemInnerPills === "3"
-                                ? "active"
-                                : ""
-                            }
+                            active={this.state.activeItemInnerPills === "3"}
                             onClick={this.toggleInnerPills("3")}
                           >
                             Billing Details
