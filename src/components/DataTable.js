@@ -6,6 +6,7 @@ import DataTableEntries from './DataTableComponents/DataTableEntries';
 import DataTableSearch from './DataTableComponents/DataTableSearch';
 import DataTableInfo from './DataTableComponents/DataTableInfo';
 import DataTablePagination from './DataTableComponents/DataTablePagination';
+import classnames from 'classnames';
 // PRO-START
 import ExportToCsvBtn from './pro/ExportToCSV';
 // PRO-END
@@ -225,6 +226,7 @@ class DataTable extends Component {
       bordered,
       borderless,
       btn,
+      className,
       children,
       dark,
       data,
@@ -271,8 +273,13 @@ class DataTable extends Component {
       translateScrollHead
     } = this.state;
 
+    const tableClasses = classnames(
+      className && `${className}`,
+      "dataTables_wrapper dt-bootstrap4"
+    )
+
     return (
-      <div className="dataTables_wrapper dt-bootstrap4">
+      <div className={tableClasses}>
         <div className="row">
           <DataTableEntries
             paging={paging}
@@ -394,6 +401,7 @@ DataTable.propTypes = {
   bordered: PropTypes.bool,
   borderless: PropTypes.bool,
   btn: PropTypes.bool,
+  className: PropTypes.string,
   children: PropTypes.node,
   dark: PropTypes.bool,
   data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
