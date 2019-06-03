@@ -31,7 +31,6 @@ import ProgressPage from "./pages/ProgressPage";
 import InputPage from "./pages/InputPage";
 import MediaPage from "./pages/MediaPage";
 import JumbotronPage from "./pages/JumbotronPage";
-import NotificationPage from "./pages/NotificationPage";
 import CardsPage from "./pages/CardsPage";
 import PaginationPage from "./pages/PaginationPage";
 import PopoverPage from "./pages/PopoverPage";
@@ -80,6 +79,7 @@ import TimePickerPage from "./pages/pro/TimePickerPage";
 import StickyPage from "./pages/pro/StickyPage";
 import LightboxPage from "./pages/pro/LightboxPage";
 import MultiCarouselPage from "./pages/pro/MultiCarouselPage";
+import NotificationPage from "./pages/pro/NotificationPage";
 import SpinnerPagePro from "./pages/pro/SpinnerPage";
 import TabsPagePro from "./pages/pro/TabsPage";
 import ThumbnailsCarousel from "./pages/pro/ThumbnailsCarousel";
@@ -139,7 +139,6 @@ class Routes extends React.Component {
         {/* FREE */}
         <Route path="/addons/iframe" component={IframePage} />
         <Route path="/addons/edge-header" component={EdgeHeaderPage} />
-        <Route path="/addons/pro/notification" component={NotificationPage} />
         <Route path="/advanced/carousel" component={CarouselPage} />
         <Route path="/advanced/collapse" component={CollapsePage} />
         <Route path="/advanced/videocarousel" component={VideoCarouselPage} />
@@ -204,6 +203,7 @@ class Routes extends React.Component {
         <Route path="/components/pro/spinner" component={SpinnerPagePro} />
         <Route path="/components/pro/chips" component={ChipsPage} />
         <Route path="/components/pro/socialbuttons" component={SocialButtonsPage} />
+        <Route path="/addons/pro/notification" component={NotificationPage} />
         <Route path="/components/pro/buttons" component={ButtonPagePro} />
         <Route path="/components/pro/cards" component={CardsPagePro} />
         <Route path="/components/pro/stepper" component={StepperPage} />
