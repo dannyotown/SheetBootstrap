@@ -46,7 +46,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <MDBIcon icon="heart" />
+                        <MDBIcon icon="heart" className="mr-2"/>
                         <span>5 likes</span>
                       </a>
                     </div>
@@ -82,7 +82,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <MDBIcon icon="heart" />
+                        <MDBIcon className="mr-2" icon="heart" />
                         <span>18 likes</span>
                       </a>
                     </div>
@@ -108,7 +108,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <MDBIcon icon="heart" />
+                        <MDBIcon className="mr-2" icon="heart" />
                         <span>11 likes</span>
                       </a>
                     </div>
@@ -138,7 +138,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <MDBIcon icon="heart" />
+                        <MDBIcon className="mr-2" icon="heart" />
                         <span>7 likes</span>
                       </a>
                     </div>
@@ -174,7 +174,7 @@ class SocialPage extends Component {
                     </div>
                     <div className="feed-footer">
                       <a href="#!" className="like">
-                        <MDBIcon icon="heart" />
+                        <MDBIcon className="mr-2" icon="heart" />
                         <span>53 likes</span>
                       </a>
                     </div>
@@ -230,7 +230,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs mx-2">
-                            <MDBIcon icon="thumbs-up" />
+                            <MDBIcon className="mr-2" icon="thumbs-up" />
                           </a>
                           <span>
                             I like it
@@ -241,7 +241,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs">
-                            <MDBIcon icon="thumbs-down" />
+                            <MDBIcon className="mr-2" icon="thumbs-down" />
                           </a>
                           <span>
                             I don't like it
@@ -315,7 +315,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs mx-2">
-                            <MDBIcon icon="thumbs-up" />
+                            <MDBIcon className="mr-2" icon="thumbs-up" />
                           </a>
                           <span>
                             I like it
@@ -326,7 +326,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs">
-                            <MDBIcon icon="thumbs-down" />
+                            <MDBIcon className="mr-2" icon="thumbs-down" />
                           </a>
                           <span>
                             I don't like it
@@ -388,7 +388,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs mx-2">
-                            <MDBIcon icon="thumbs-up" />
+                            <MDBIcon className="mr-2" icon="thumbs-up" />
                           </a>
                           <span>
                             I like it
@@ -399,7 +399,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs">
-                            <MDBIcon icon="thumbs-down" />
+                            <MDBIcon className="mr-2" icon="thumbs-down" />
                           </a>
                           <span>
                             I don't like it
@@ -467,7 +467,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs mx-2">
-                            <MDBIcon icon="thumbs-up" />
+                            <MDBIcon className="mr-2" icon="thumbs-up" />
                           </a>
                           <span>
                             I like it
@@ -478,7 +478,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs">
-                            <MDBIcon icon="thumbs-down" />
+                            <MDBIcon className="mr-2" icon="thumbs-down" />
                           </a>
                           <span>
                             I don't like it
@@ -552,7 +552,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs mx-2">
-                            <MDBIcon icon="thumbs-up" />
+                            <MDBIcon className="mr-2" icon="thumbs-up" />
                           </a>
                           <span>
                             I like it
@@ -563,7 +563,7 @@ class SocialPage extends Component {
                           domElement
                         >
                           <a href="#!" className="thumbs">
-                            <MDBIcon icon="thumbs-down" />
+                            <MDBIcon className="mr-2" icon="thumbs-down" />
                           </a>
                           <span>
                             I don't like it
@@ -616,7 +616,7 @@ class SocialPage extends Component {
                 <hr />
                 <a href="#!" className="card-meta">
                   <span>
-                    <MDBIcon icon="user" />
+                    <MDBIcon className="mr-2" icon="user" />
                     22 Friends
                   </span>
                 </a>
@@ -651,11 +651,11 @@ class SocialPage extends Component {
                 <div className="social-meta">
                   <p>Another great adventure! </p>
                   <span>
-                    <MDBIcon icon="heart" />
+                    <MDBIcon className="mr-2" icon="heart" />
                     25 likes
                   </span>
                   <p>
-                    <MDBIcon icon="comment" />
+                    <MDBIcon className="mr-2" icon="comment" />
                     13 comments
                   </p>
                 </div>
@@ -698,11 +698,11 @@ class SocialPage extends Component {
                     #awesome #bboy #battle #breaking #cool
                   </p>
                   <span>
-                    <MDBIcon icon="heart" />
+                    <MDBIcon className="mr-2" icon="heart" />
                     265 likes
                   </span>
                   <p>
-                    <MDBIcon icon="comment" />
+                    <MDBIcon className="mr-2" icon="comment" />
                     89 comments
                   </p>
                 </div>
@@ -743,7 +743,7 @@ class SocialPage extends Component {
                   <hr />
                   <a href="#!" className="card-meta">
                     <span>
-                      <MDBIcon icon="user" />
+                      <MDBIcon className="mr-2" icon="user" />
                       83 Friends
                     </span>
                   </a>
@@ -773,7 +773,7 @@ class SocialPage extends Component {
                   <hr />
                   <a href="#!" className="card-meta">
                     <span>
-                      <MDBIcon icon="user" />
+                      <MDBIcon className="mr-2" icon="user" />
                       48 Friends
                     </span>
                   </a>
@@ -803,7 +803,7 @@ class SocialPage extends Component {
                   <hr />
                   <a href="#!" className="card-meta">
                     <span>
-                      <MDBIcon icon="user" />
+                      <MDBIcon className="mr-2" icon="user" />
                       127 Friends
                     </span>
                   </a>
