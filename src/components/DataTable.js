@@ -43,7 +43,7 @@ class DataTable extends Component {
     this.state.order.length &&
       this.handleSort(this.state.order[0], this.state.order[1]);
 
-    this.setUnsearchable(this.props.data.columns);
+    this.setUnsearchable(this.state.columns);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -59,9 +59,8 @@ class DataTable extends Component {
           },
           () => this.paginateRows()
         );
+        this.setUnsearchable(this.state.columns);
       }
-
-      this.setUnsearchable(this.props.data.columns);
     }
   }
 
@@ -75,8 +74,8 @@ class DataTable extends Component {
       return false;
     });
 
-    this.setState({ unsearchable })
-  }
+    this.setState({ unsearchable });
+  };
 
   fetchData = link => {
     fetch(link)
