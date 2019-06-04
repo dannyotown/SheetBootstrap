@@ -35,7 +35,7 @@ class PillsPage extends Component {
           <MDBRow>
             <MDBCol md="12">
               <h2>Default</h2>
-              <MDBNav navPills color="secondary" className="mt-5">
+              <MDBNav pills color="secondary" className="mt-5">
                 <MDBNavItem>
                   <MDBNavLink
                     to="#"
