@@ -16,8 +16,7 @@ const DatatablePage = () => {
         attributes: {
           "aria-controls": "DataTable",
           "aria-label": "Name"
-        },
-        // searchable: false
+        }
       },
       {
         label: "Position",
