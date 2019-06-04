@@ -67,11 +67,10 @@ class DataTable extends Component {
   setUnsearchable = columns => {
     const unsearchable = [];
 
-    columns.map(column => {
+    columns.forEach(column => {
       if (column.searchable !== undefined && column.searchable === false) {
         unsearchable.push(column.field);
       }
-      return false;
     });
 
     this.setState({ unsearchable });
