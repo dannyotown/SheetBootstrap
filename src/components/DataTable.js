@@ -59,8 +59,8 @@ class DataTable extends Component {
           },
           () => this.paginateRows()
         );
-        this.setUnsearchable(this.state.columns);
       }
+      this.setUnsearchable(this.state.columns);
     }
   }
 
