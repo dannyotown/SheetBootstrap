@@ -56,6 +56,7 @@ import MasonryPage from './pages/MasonryPage';
 import ScrollBarPage from './pages/ScrollBarPage';
 import NavsPage from './pages/NavsPage';
 import TabsPage from './pages/TabsPage';
+import PillsPage from './pages/PillsPage';
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -166,6 +167,7 @@ class Routes extends React.Component {
         <Route path="/components/search" component={SearchPage} />
         <Route path="/components/spinner" component={SpinnerPage} />
         <Route path="/components/tabs" component={TabsPage} />
+        <Route path="/components/pills" component={PillsPage} />
         <Route path="/forms/forms" component={FormsPage} />
         <Route path="/forms/validation" component={ValidationPage} />
         <Route path="/forms/input" component={InputPage} />
