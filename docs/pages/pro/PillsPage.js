@@ -112,12 +112,12 @@ class PillsPage extends Component {
       }
 
       .pills-outline-red .nav-item .nav-link {
-        border: 2px solid #fff;
+        border: 2px solid transparent;
         color: #666;
         background-color: transparent;
       }
       .pills-outline-red .nav-item .nav-link:hover {
-        border: 2px solid #eee;
+        border: 2px solid #fff;
       }
       .pills-outline-red .nav-item .nav-link.active {
         border: 2px solid #f44336;
@@ -129,12 +129,12 @@ class PillsPage extends Component {
       }
 
       .pills-outline-green .nav-item .nav-link {
-        border: 2px solid #fff;
+        border: 2px solid transparent;
         color: #666;
         background-color: transparent;
       }
       .pills-outline-green .nav-item .nav-link:hover {
-        border: 2px solid #eee;
+        border: 2px solid #fff;
       }
       .pills-outline-green .nav-item .nav-link.active {
         border: 2px solid #4caf50;
