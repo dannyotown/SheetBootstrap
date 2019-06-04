@@ -121,6 +121,7 @@ import NavsPagePro from "./pages/pro/NavsPage";
 import MinimalisticIntro from "./pages/pro/sections/MinimalisticIntro";
 import ParallaxIntro from "./pages/pro/sections/ParallaxIntro";
 import CallToActionIntro from "./pages/pro/sections/CallToActionIntro";
+import PillsPagePro from './pages/pro/PillsPage';
 // PRO-END
 
 class Routes extends React.Component {
@@ -248,6 +249,7 @@ class Routes extends React.Component {
         <Route path="/tables/pro/tableeditable" component={TableEditable} />
         <Route path="/tables/pro/table-styles" component={TableStylesPagePro} />
         <Route path="/tables/pro/datatable-csv" component={DatatableCsvPage} />
+        <Route path="/components/pro/pills" component={PillsPagePro} />
         {/* PRO-END */}
         <Route
           render={function () {

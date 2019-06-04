@@ -37,6 +37,7 @@ const ComponentsNavPage = () => {
               <MenuLink to="/components/pro/socialbuttons" title="Social Buttons" />
               <MenuLink to="/components/pro/stepper" title="Stepper" />
               <MenuLink to="/components/pro/tabs" title="Tabs" />
+              <MenuLink to="/components/pro/pills" title="Pills" />
               {/* PRO-END */}
             </ul>
           </MDBJumbotron>
