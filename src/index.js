@@ -53,6 +53,7 @@ import NavbarNav from './components/NavbarNav';
 import NavbarToggler from './components/NavbarToggler';
 import NavItem from './components/NavItem';
 import NavLink from './components/NavLink';
+import Notification from './components/Notification';
 import Pagination from './components/Pagination';
 import PageItem from './components/PageItem';
 import PageLink from './components/PageLink';
@@ -177,6 +178,7 @@ import { MDBNavbarNav } from './components/NavbarNav';
 import { MDBNavbarToggler } from './components/NavbarToggler';
 import { MDBNavItem } from './components/NavItem';
 import { MDBNavLink } from './components/NavLink';
+import { MDBNotification } from './components/Notification';
 import { MDBPagination } from './components/Pagination';
 import { MDBPageItem } from './components/PageItem';
 import { MDBPageNav } from './components/PageLink';
@@ -302,6 +304,7 @@ export {
   NavbarToggler,
   NavItem,
   NavLink,
+  Notification,
   Pagination,
   PageItem,
   PageLink,
@@ -424,6 +427,7 @@ export {
   MDBNavbarToggler,
   MDBNavItem,
   MDBNavLink,
+  MDBNotification,
   MDBPagination,
   MDBPageItem,
   MDBPageNav,

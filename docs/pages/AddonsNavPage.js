@@ -16,6 +16,7 @@ const AddonsNavPage = () => {
               <h6 className="mt-3 grey-text">FREE </h6>
               <MenuLink to="/addons/edge-header" title="Edge Header" />
               <MenuLink to="/addons/iframe" title="Iframe" />
+              <MenuLink to="/addons/notification" title="Notification" />
               {/* PRO-START */}
               <h6 className="mt-3 grey-text">PRO </h6>
               <MenuLink to="/addons/pro/blog-components" title="Blog components" />
