@@ -3,14 +3,6 @@ import { MDBNotification, MDBContainer } from "mdbreact";
 import DocsLink from "../components/docsLink";
 
 class NotificationPage extends Component {
-  hideNotification = e => {
-    let target = e.target.closest(".toast");
-    target.classList.remove("show");
-    setTimeout(() => {
-      target.classList.add("hide");
-    }, 150);
-  };
-
   render() {
     return (
       <MDBContainer>
@@ -18,113 +10,48 @@ class NotificationPage extends Component {
           title="Notifications"
           href="https://mdbootstrap.com/docs/react/addons/notification/"
         />
-
         <h2 className="mt-5">Default</h2>
         <MDBNotification
           show
           fade
           role="alert"
+          labelColor="#007aff"
+          title="Bootstrap"
+          body="Hello, world! This is a toast message."
+          time="11 mins ago"
           //autohide={3000} // by default = ∞ ms
-        >
-          <MDBNotification header>
-            <svg
-              className="rounded mr-2"
-              width="20"
-              height="20"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-              role="img"
-            >
-              <rect fill="#007aff" width="100%" height="100%" />
-            </svg>
-            <strong className="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button className="ml-2 mb-1 close" onClick={this.hideNotification}>
-              &times;
-            </button>
-          </MDBNotification>
-          <MDBNotification body>
-            Hello, world! This is a toast message.
-          </MDBNotification>
-        </MDBNotification>
-
+        />
         <h2 className="mt-5">Translucent</h2>
         <MDBContainer className="grey darken-3 p-3">
-          <MDBNotification show fade role="alert">
-            <MDBNotification header>
-              <svg
-                className="rounded mr-2"
-                width="20"
-                height="20"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-                role="img"
-              >
-                <rect fill="#007aff" width="100%" height="100%" />
-              </svg>
-              <strong className="mr-auto">Bootstrap</strong>
-              <small>11 mins ago</small>
-              <button
-                className="ml-2 mb-1 close"
-                onClick={this.hideNotification}
-              >
-                &times;
-              </button>
-            </MDBNotification>
-            <MDBNotification body>
-              Hello, world! This is a toast message.
-            </MDBNotification>
-          </MDBNotification>
+          <MDBNotification
+            show
+            fade
+            role="alert"
+            labelColor="#007aff"
+            title="Bootstrap"
+            body="Hello, world! This is a toast message."
+            time="11 mins ago"
+          />
         </MDBContainer>
-
         <h2 className="mt-5">Translucent</h2>
-        <MDBNotification show fade role="alert">
-          <MDBNotification header>
-            <svg
-              className="rounded mr-2"
-              width="20"
-              height="20"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-              role="img"
-            >
-              <rect fill="#007aff" width="100%" height="100%" />
-            </svg>
-            <strong className="mr-auto">Bootstrap</strong>
-            <small>just now</small>
-            <button className="ml-2 mb-1 close" onClick={this.hideNotification}>
-              &times;
-            </button>
-          </MDBNotification>
-          <MDBNotification body>See? Just like this.</MDBNotification>
-        </MDBNotification>
-        <MDBNotification show fade role="alert">
-          <MDBNotification header>
-            <svg
-              className="rounded mr-2"
-              width="20"
-              height="20"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-              role="img"
-            >
-              <rect fill="#007aff" width="100%" height="100%" />
-            </svg>
-            <strong className="mr-auto">Bootstrap</strong>
-            <small>2 second ago</small>
-            <button className="ml-2 mb-1 close" onClick={this.hideNotification}>
-              &times;
-            </button>
-          </MDBNotification>
-          <MDBNotification body>
-            Heads up, toasts will stack automatically
-          </MDBNotification>
-        </MDBNotification>
-
+        <MDBNotification
+          show
+          fade
+          role="alert"
+          labelColor="#007aff"
+          title="Bootstrap"
+          body="Hello, world! This is a toast message."
+          time="11 mins ago"
+        />
+        <MDBNotification
+          show
+          fade
+          role="alert"
+          labelColor="#007aff"
+          title="Bootstrap"
+          body="Hello, world! This is a toast message."
+          time="11 mins ago"
+        />
         <h2 className="mt-5">Placement</h2>
         <MDBContainer className="grey darken-3 p-3 mb-5">
           <div style={{ minHeight: "200px", position: "relative" }}>
@@ -132,37 +59,16 @@ class NotificationPage extends Component {
               show
               fade
               role="alert"
+              labelColor="#007aff"
+              title="Bootstrap"
+              body="Hello, world! This is a toast message."
+              time="11 mins ago"
               style={{
                 position: "absolute",
                 top: 0,
                 right: 0
               }}
-            >
-              <MDBNotification header>
-                <svg
-                  className="rounded mr-2"
-                  width="20"
-                  height="20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  preserveAspectRatio="xMidYMid slice"
-                  focusable="false"
-                  role="img"
-                >
-                  <rect fill="#007aff" width="100%" height="100%" />
-                </svg>
-                <strong className="mr-auto">Bootstrap</strong>
-                <small>2 second ago</small>
-                <button
-                  className="ml-2 mb-1 close"
-                  onClick={this.hideNotification}
-                >
-                  &times;
-                </button>
-              </MDBNotification>
-              <MDBNotification body>
-                Hello, world! This is a toast message.
-              </MDBNotification>
-            </MDBNotification>
+            />
           </div>
         </MDBContainer>
         <MDBContainer className="grey darken-3 p-3  mb-5">
@@ -174,91 +80,68 @@ class NotificationPage extends Component {
                 right: 0
               }}
             >
-              <MDBNotification show fade role="alert">
-                <MDBNotification header>
-                  <svg
-                    className="rounded mr-2"
-                    width="20"
-                    height="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
-                    role="img"
-                  >
-                    <rect fill="#007aff" width="100%" height="100%" />
-                  </svg>
-                  <strong className="mr-auto">Bootstrap</strong>
-                  <small>just now</small>
-                  <button
-                    className="ml-2 mb-1 close"
-                    onClick={this.hideNotification}
-                  >
-                    &times;
-                  </button>
-                </MDBNotification>
-                <MDBNotification body>See? Just like this.</MDBNotification>
-              </MDBNotification>
-              <MDBNotification show fade role="alert">
-                <MDBNotification header>
-                  <svg
-                    className="rounded mr-2"
-                    width="20"
-                    height="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                    preserveAspectRatio="xMidYMid slice"
-                    focusable="false"
-                    role="img"
-                  >
-                    <rect fill="#007aff" width="100%" height="100%" />
-                  </svg>
-                  <strong className="mr-auto">Bootstrap</strong>
-                  <small>2 second ago</small>
-                  <button
-                    className="ml-2 mb-1 close"
-                    onClick={this.hideNotification}
-                  >
-                    &times;
-                  </button>
-                </MDBNotification>
-                <MDBNotification body>
-                  Heads up, toasts will stack automatically
-                </MDBNotification>
-              </MDBNotification>
+              <MDBNotification
+                show
+                fade
+                role="alert"
+                labelColor="#007aff"
+                title="Bootstrap"
+                body="Hello, world! This is a toast message."
+                time="11 mins ago"
+              />
+              <MDBNotification
+                show
+                fade
+                role="alert"
+                labelColor="#007aff"
+                title="Bootstrap"
+                body="Hello, world! This is a toast message."
+                time="11 mins ago"
+              />
             </div>
           </div>
         </MDBContainer>
-
-        <h2 className="mt-5">Accessibility</h2>
+        <h2 className="mt-5" id="Accessibility">
+          Accessibility
+        </h2>
+        <p>
+          Toasts are intended to be small interruptions to your visitors or
+          users, so to help those with screen readers and similar assistive
+          technologies, you should wrap your toasts in an aria-live region.
+          Changes to live regions (such as injecting/updating a toast component)
+          are automatically announced by screen readers without needing to move
+          the user’s focus or otherwise interrupt the user. Additionally,
+          include aria-atomic="true" to ensure that the entire toast is always
+          announced as a single (atomic) unit, rather than announcing what was
+          changed (which could lead to problems if you only update part of the
+          toast’s content, or if displaying the same toast content at a later
+          point in time). If the information needed is important for the
+          process, e.g. for a list of errors in a form, then use the alert
+          component instead of toast. Note that the live region needs to be
+          present in the markup before the toast is generated or updated. If you
+          dynamically generate both at the same time and inject them into the
+          page, they will generally not be announced by assistive technologies.
+          You also need to adapt the role and aria-live level depending on the
+          content. If it’s an important message like an error, use role="alert"
+          aria-live="assertive", otherwise use role="status" aria-live="polite"
+          attributes. As the content you’re displaying changes, be sure to
+          update the delay timeout to ensure people have enough time to read the
+          toast.
+        </p>
         <MDBNotification
           show
           fade
           role="alert"
-          aria-live="polite"
-          aria-atomic="true"
-          autohide={10000} // by default = ∞ ms
-        >
-          <MDBNotification header>
-            <svg
-              className="rounded mr-2"
-              width="20"
-              height="20"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-              focusable="false"
-              role="img"
-            >
-              <rect fill="#007aff" width="100%" height="100%" />
-            </svg>
-            <strong className="mr-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-            <button className="ml-2 mb-1 close" onClick={this.hideNotification}>
-              &times;
-            </button>
-          </MDBNotification>
-          <MDBNotification body>
-            Hello, world! This is a toast message.
-          </MDBNotification>
-        </MDBNotification>
+          labelColor="#007aff"
+          title="Bootstrap"
+          body="Hello, world! This is a toast message."
+          time="11 mins ago"
+          autohide={7500}
+          aria-live="assertive" aria-atomic="true" class="toast" 
+        />
+        <p className="mb-5">
+          Notification with autohide! Refresh and wait 7.5 sec
+        </p>
       </MDBContainer>
     );
   }

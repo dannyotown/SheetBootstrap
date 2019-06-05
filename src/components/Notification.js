@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import MDBCloseIcon from './CloseIcon';
 
 class Notification extends React.Component {
   state = {
@@ -27,8 +28,10 @@ class Notification extends React.Component {
     const {
       show,
       fade,
-      header,
       body,
+      labelColor,
+      time,
+      title,
       className,
       children,
       tag: Tag,
@@ -36,10 +39,8 @@ class Notification extends React.Component {
     } = this.props;
 
     const classes = classNames(
-      !header && !body ? "toast" : false, 
+      "toast",
       fade ? "fade" : false,
-      header && !fade && !show && !body ? "toast-header" : false, 
-      body && !fade && !show && !header ? "toast-body" : false, 
 
       this.state.componentState,
       className
@@ -47,7 +48,25 @@ class Notification extends React.Component {
 
     return (
       <Tag {...attributes} className={classes} >
-        {children}
+        <div className='toast-header'>
+        <svg
+              className="rounded mr-2"
+              width="20"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid slice"
+              focusable="false"
+              role="img"
+            >
+              <rect fill={labelColor} width="100%" height="100%" />
+            </svg>
+            <strong className="mr-auto">{title}</strong>
+            <small>{time}</small>
+            <MDBCloseIcon className="ml-2 mb-1" onClick={()=> this.hide(1)}/>
+            </div>
+            <div className="toast-body">
+              {body}
+            </div>
       </Tag>
     );
   }
@@ -58,8 +77,9 @@ Notification.propTypes = {
   show: PropTypes.bool,
   fade: PropTypes.bool,
   autohide: PropTypes.number,
-  header: PropTypes.bool,
-  body: PropTypes.bool,
+  labelColor: PropTypes.string,
+  time: PropTypes.string,
+  title: PropTypes.string,
   children: PropTypes.node,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
