@@ -10,12 +10,32 @@ class NotificationPage extends Component {
           title="Notifications"
           href="https://mdbootstrap.com/docs/react/addons/notification/"
         />
+        <h2 className="mt-5">Full functions</h2>
+        <MDBNotification
+          show
+          fade
+          role="alert"
+
+          labelColor="#59698d"
+          title="Bootstrap"
+          titleColor="elegant-color-dark"
+          titleTextColor='white'
+          closeClassName="blue-grey-text"
+
+          body="Hello, world! This is a toast message."
+          bodyColor="stylish-color-dark"
+          bodyTextColor="white"
+
+          time="11 mins ago"
+          autohide={0} // by default = ∞ ms
+
+        />
         <h2 className="mt-5">Default</h2>
         <MDBNotification
           show
           fade
           role="alert"
-          labelColor="#007aff"
+          labelColor="red"
           title="Bootstrap"
           body="Hello, world! This is a toast message."
           time="11 mins ago"
@@ -137,7 +157,8 @@ class NotificationPage extends Component {
           body="Hello, world! This is a toast message."
           time="11 mins ago"
           autohide={7500}
-          aria-live="assertive" aria-atomic="true" class="toast" 
+          aria-live="assertive"
+          aria-atomic="true"
         />
         <p className="mb-5">
           Notification with autohide! Refresh and wait 7.5 sec
