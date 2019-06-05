@@ -16,14 +16,14 @@ const AddonsNavPage = () => {
               <h6 className="mt-3 grey-text">FREE </h6>
               <MenuLink to="/addons/edge-header" title="Edge Header" />
               <MenuLink to="/addons/iframe" title="Iframe" />
-              <MenuLink to="/addons/notification" title="Notification" />
+              <MenuLink to="/addons/notifications" title="Notifications" />
               {/* PRO-START */}
               <h6 className="mt-3 grey-text">PRO </h6>
               <MenuLink to="/addons/pro/blog-components" title="Blog components" />
               <MenuLink to="/addons/pro/chat" title="Chat" />
               <MenuLink to="/addons/pro/e-commerce-components" title="E-commerce components" />
               <MenuLink to="/addons/pro/flipping-cards" title="Flipping Cards" />
-              <MenuLink to="/addons/pro/notification" title="Notifications" />
+              <MenuLink to="/addons/pro/notifications" title="Notifications" />
               <MenuLink to="/addons/pro/streak" title="Streak" />
               <MenuLink to="/addons/pro/timeline" title="Timeline" />
               {/* PRO-END */}

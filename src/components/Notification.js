@@ -28,14 +28,14 @@ class Notification extends React.Component {
     const {
       show,
       fade,
-      body,
+      message,
+      bodyClassName,
       bodyColor,
-      bodyTextColor,
       labelColor,
       title,
+      titleClassName,
       titleColor,
-      titleTextColor,
-      time,
+      text,
       className,
       closeClassName,
       tag: Tag,
@@ -44,30 +44,20 @@ class Notification extends React.Component {
 
     const classes = classNames(
       "toast",
-      fade ? "fade" : false,
+      fade && "fade",
       this.state.componentState,
       className
     );
 
-    const headerClasses = classNames(
-      "toast-header",
-      titleColor
-    );
-    const bodyClasses = classNames(
-      "toast-body",
-      bodyColor
-    );
+    const headerClasses = classNames("toast-header", titleClassName);
+    const bodyClasses = classNames("toast-body", bodyClassName);
 
-    const HTextColor = classNames(
-      titleTextColor ? `${titleTextColor}-text` : false
-    );
-    const BTextColor = classNames(
-      bodyTextColor ? `${titleTextColor}-text` : false
-    );
+    const HTextColor = classNames(titleColor ? `${titleColor}-text` : false);
+    const BTextColor = classNames(bodyColor ? `${titleColor}-text` : false);
 
     return (
-      <Tag { ...attributes } className={ classes }>
-        <div className={ headerClasses }>
+      <Tag {...attributes} className={classes}>
+        <div className={headerClasses}>
           <svg
             className="rounded mr-2"
             width="20"
@@ -77,16 +67,16 @@ class Notification extends React.Component {
             focusable="false"
             role="img"
           >
-            <rect fill={ labelColor } width="100%" height="100%" />
+            <rect fill={labelColor} width="100%" height="100%" />
           </svg>
-          <strong className={ "mr-auto " + HTextColor }>{ title }</strong>
-          <small className={ HTextColor }>{ time }</small>
+          <strong className={"mr-auto " + HTextColor}>{title}</strong>
+          <small className={HTextColor}>{text}</small>
           <MDBCloseIcon
-            className={`ml-2 mb-1 ${ closeClassName || "" }`}
+            className={`ml-2 mb-1 ${closeClassName || ""}`}
             onClick={() => this.hide(1)}
           />
         </div>
-        <div className={ bodyClasses + " " + BTextColor }>{ body }</div>
+        <div className={bodyClasses + " " + BTextColor}>{message}</div>
       </Tag>
     );
   }
@@ -99,10 +89,10 @@ Notification.propTypes = {
   fade: PropTypes.bool,
   autohide: PropTypes.number,
   labelColor: PropTypes.string,
-  time: PropTypes.string,
+  text: PropTypes.string,
   title: PropTypes.string,
   titleColor: PropTypes.string,
-  titleTextColor: PropTypes.string,
+  titleColor: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
