@@ -12,7 +12,7 @@ class Notification extends React.Component {
     if (this.props.autohide > 0) this.hide(this.props.autohide);
   }
 
-  hide = time => {
+  hide = (time = 0) => {
     setTimeout(() => {
       this.setState({ componentState: "" }, () => {
         setTimeout(() => {
@@ -32,11 +32,9 @@ class Notification extends React.Component {
       fade,
       message,
       bodyClassName,
-      bodyColor,
       labelColor,
       title,
       titleClassName,
-      titleColor,
       text,
       closeClassName,
       ...attributes
@@ -67,15 +65,11 @@ class Notification extends React.Component {
           >
             <rect fill={labelColor} width="100%" height="100%" />
           </svg>
-          <strong style={{ color: titleColor }} className="mr-auto">
-            {title}
-          </strong>
-          <small style={{ color: titleColor }}>{text}</small>
-          <MDBCloseIcon className={closeClasses} onClick={() => this.hide(1)} />
+          <strong className="mr-auto">{title}</strong>
+          <small>{text}</small>
+          <MDBCloseIcon className={closeClasses} onClick={() => this.hide()} />
         </div>
-        <div style={{ color: bodyColor }} className={bodyClasses}>
-          {message}
-        </div>
+        <div className={bodyClasses}>{message}</div>
       </Tag>
     );
   }

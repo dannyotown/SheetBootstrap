@@ -16,15 +16,15 @@ class NotificationPage extends Component {
           fade
           labelColor="#59698d"
           title="Bootstrap"
-          titleClassName="elegant-color-dark"
-          titleColor="white"
+          titleClassName="elegant-color-dark white-text"
           closeClassName="blue-grey-text"
           message="Hello, world! This is a toast message."
-          bodyClassName="stylish-color-dark"
-          bodyColor="white"
+          bodyClassName="p-5 font-weight-bold white-text"
           text="11 mins ago"
           autohide={0} // by default = ∞ ms
+          className="stylish-color-dark"
         />
+
         <h2 className="mt-5">Default</h2>
         <MDBNotification
           show
