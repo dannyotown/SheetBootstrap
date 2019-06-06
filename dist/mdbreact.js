@@ -3069,12 +3069,21 @@ DataTableTableScroll.propTypes = {
 var ControlledSelectInput = React__default.forwardRef(function (_ref, inputRef) {
   var value = _ref.value,
       required = _ref.required;
-  return React__default.createElement("input", {
+  return !required ? React__default.createElement("input", {
+    type: "text",
+    ref: inputRef,
+    readOnly: true,
+    value: value,
+    className: "select-dropdown"
+  }) : React__default.createElement("input", {
     type: "text",
     ref: inputRef,
     required: required,
     defaultValue: value,
-    className: "select-dropdown"
+    className: "select-dropdown",
+    onKeyPress: function onKeyPress(e) {
+      return e.preventDefault();
+    }
   });
 });
 ControlledSelectInput.propTypes = {
@@ -4771,6 +4780,19 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(DataTable).call(this, props));
 
+    _defineProperty(_assertThisInitialized(_this), "setUnsearchable", function (columns) {
+      var unsearchable = [];
+      columns.forEach(function (column) {
+        if (column.searchable !== undefined && column.searchable === false) {
+          unsearchable.push(column.field);
+        }
+      });
+
+      _this.setState({
+        unsearchable: unsearchable
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "fetchData", function (link) {
       fetch(link).then(function (res) {
         return res.json();
@@ -4813,15 +4835,15 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "checkFieldValue", function (array, field) {
-      return array[field] && typeof array[field] !== 'string' ? array[field].props.searchValue : array[field];
+      return array[field] && typeof array[field] !== "string" ? array[field].props.searchValue : array[field];
     });
 
     _defineProperty(_assertThisInitialized(_this), "checkField", function (field, a, b) {
-      var direction = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'desc';
+      var direction = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : "desc";
       var _ref = [_this.checkFieldValue(a, field), _this.checkFieldValue(b, field)],
           aField = _ref[0],
           bField = _ref[1];
-      return direction === 'desc' ? aField < bField : aField > bField;
+      return direction === "desc" ? aField < bField : aField > bField;
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleSort", function (field, sort) {
@@ -4842,7 +4864,7 @@ function (_Component) {
             default:
               prevState.rows.sort(function (a, b) {
                 if (_this.props.sortRows && _this.props.sortRows.includes(field)) {
-                  return _this.checkField(field, a, b, 'asc');
+                  return _this.checkField(field, a, b, "asc");
                 }
 
                 return a[field] < b[field] ? -1 : 1;
@@ -4850,8 +4872,8 @@ function (_Component) {
           }
 
           prevState.columns.forEach(function (col) {
-            if (col.sort === 'disabled') return;
-            col.sort = col.field === field ? col.sort === "desc" ? "asc" : "desc" : '';
+            if (col.sort === "disabled") return;
+            col.sort = col.field === field ? col.sort === "desc" ? "asc" : "desc" : "";
           });
           return {
             rows: prevState.rows,
@@ -4869,24 +4891,26 @@ function (_Component) {
         var filteredRows = prevState.rows.filter(function (row) {
           for (var key in row) {
             if (Object.prototype.hasOwnProperty.call(row, key)) {
-              var stringValue = "";
+              if ((!_this.state.unsearchable.length || !_this.state.unsearchable.includes(key)) && typeof row[key] !== "function") {
+                var stringValue = "";
 
-              if (_this.props.sortRows && typeof row[key] !== "string") {
-                stringValue = row[key].props.searchValue;
-              } else {
-                if (row[key]) {
-                  stringValue = row[key].toString();
+                if (_this.props.sortRows && typeof row[key] !== "string") {
+                  stringValue = row[key].props.searchValue;
+                } else {
+                  if (row[key]) {
+                    stringValue = row[key].toString();
+                  }
                 }
-              }
 
-              if (stringValue.toLowerCase().match(_this.state.search.toLowerCase())) return true;
+                if (stringValue.toLowerCase().match(_this.state.search.toLowerCase())) return true;
+              }
             }
           }
 
           return false;
         });
         if (filteredRows.length === 0) filteredRows.push({
-          message: 'No matching records found',
+          message: "No matching records found",
           colspan: prevState.columns.length
         });
         return {
@@ -4940,7 +4964,8 @@ function (_Component) {
       filteredRows: props.data.rows || [],
       pages: [],
       rows: props.data.rows || [],
-      search: '',
+      search: "",
+      unsearchable: [],
       translateScrollHead: 0,
       order: props.order || [],
       sorted: false
@@ -4958,11 +4983,12 @@ function (_Component) {
   _createClass(DataTable, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if (typeof this.props.data === 'string') {
+      if (typeof this.props.data === "string") {
         this.fetchData(this.props.data);
       }
 
       this.state.order.length && this.handleSort(this.state.order[0], this.state.order[1]);
+      this.setUnsearchable(this.state.columns);
     }
   }, {
     key: "componentDidUpdate",
@@ -4970,7 +4996,7 @@ function (_Component) {
       var _this2 = this;
 
       if (prevProps.data !== this.props.data) {
-        if (typeof this.props.data === 'string') {
+        if (typeof this.props.data === "string") {
           this.fetchData(this.props.data);
         } else {
           this.setState({
@@ -4981,6 +5007,8 @@ function (_Component) {
             return _this2.paginateRows();
           });
         }
+
+        this.setUnsearchable(this.state.columns);
       }
     }
   }, {
@@ -4991,6 +5019,7 @@ function (_Component) {
           bordered = _this$props.bordered,
           borderless = _this$props.borderless,
           btn = _this$props.btn,
+          className = _this$props.className,
           children = _this$props.children,
           dark = _this$props.dark,
           data = _this$props.data,
@@ -5024,7 +5053,7 @@ function (_Component) {
           theadColor = _this$props.theadColor,
           theadTextWhite = _this$props.theadTextWhite,
           sortRows = _this$props.sortRows,
-          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows"]);
+          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "className", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows"]);
 
       var _this$state = this.state,
           columns = _this$state.columns,
@@ -5034,8 +5063,9 @@ function (_Component) {
           activePage = _this$state.activePage,
           search = _this$state.search,
           translateScrollHead = _this$state.translateScrollHead;
+      var tableClasses = classNames(className && "".concat(className), "dataTables_wrapper dt-bootstrap4");
       return React__default.createElement("div", {
-        className: "dataTables_wrapper dt-bootstrap4"
+        className: tableClasses
       }, React__default.createElement("div", {
         className: "row"
       }, React__default.createElement(DataTableEntries, {
@@ -5140,6 +5170,7 @@ DataTable.propTypes = {
   bordered: propTypes.bool,
   borderless: propTypes.bool,
   btn: propTypes.bool,
+  className: propTypes.string,
   children: propTypes.node,
   dark: propTypes.bool,
   data: propTypes.oneOfType([propTypes.object, propTypes.string]),
@@ -5207,9 +5238,9 @@ DataTable.defaultProps = {
   sortable: true,
   small: false,
   striped: false,
-  theadColor: '',
+  theadColor: "",
   theadTextWhite: false,
-  tbodyColor: '',
+  tbodyColor: "",
   tbodyTextWhite: false
 };
 
@@ -6460,16 +6491,12 @@ function (_Component) {
           Tag = _this$props.tag,
           tabs = _this$props.tabs,
           color = _this$props.color,
-          gradient = _this$props.gradient,
           classicTabs = _this$props.classicTabs,
-          navPills = _this$props.navPills,
           pills = _this$props.pills,
           header = _this$props.header,
-          rounded = _this$props.rounded,
-          outline = _this$props.outline,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag", "tabs", "color", "gradient", "classicTabs", "navPills", "pills", "header", "rounded", "outline"]);
+          attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag", "tabs", "color", "classicTabs", "pills", "header"]);
 
-      var classes = classNames("nav", tabs && "md-tabs", navPills && "nav-pills", pills && "md-pills", header && "nav-pills card-header-pills", color && !tabs && !classicTabs && !pills ? color : false, pills && gradient && !tabs && !classicTabs ? "pills-".concat(gradient, "-gradient") : false, pills && color ? "pills-" + color : false, pills && outline ? "pills-outline-" + outline : false, pills && rounded ? "pills-rounded" : false, (tabs || classicTabs) && color ? "tabs-" + color : false, className);
+      var classes = classNames("nav", tabs && "md-tabs", pills && "md-pills", header && "nav-pills card-header-pills", color && !tabs && !classicTabs && !pills ? color : false, pills && color ? "pills-" + color : false, (tabs || classicTabs) && color ? "tabs-" + color : false, className);
       return React__default.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), children);
@@ -6484,11 +6511,8 @@ Nav.propTypes = {
   className: propTypes.string,
   children: propTypes.node,
   color: propTypes.string,
-  gradient: propTypes.string,
   classicTabs: propTypes.bool,
   pills: propTypes.bool,
-  rounded: propTypes.bool,
-  outline: propTypes.string,
   tabs: propTypes.bool,
   header: propTypes.bool
 };
@@ -6844,6 +6868,159 @@ NavLink.defaultProps = {
   active: false,
   className: "",
   disabled: false
+};
+
+var MDBCloseIcon = function MDBCloseIcon(_ref) {
+  var onClick = _ref.onClick,
+      className = _ref.className,
+      ariaLabel = _ref.ariaLabel,
+      props = _objectWithoutProperties(_ref, ["onClick", "className", "ariaLabel"]);
+
+  var onClickHandler = function onClickHandler(e) {
+    onClick && onClick(e);
+  };
+
+  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
+  return React__default.createElement("button", _extends({
+    "data-test": "close-button",
+    type: "button"
+  }, props, {
+    className: btnClasses.join(" "),
+    onClick: onClickHandler,
+    "aria-label": ariaLabel
+  }), React__default.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7"));
+};
+MDBCloseIcon.defaultProps = {
+  ariaLabel: "Close"
+};
+MDBCloseIcon.propTypes = {
+  className: propTypes.string,
+  ariaLabel: propTypes.string,
+  onClick: propTypes.func
+};
+
+var Notification =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Notification, _React$Component);
+
+  function Notification() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Notification);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Notification)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      componentState: _this.props.show ? "show" : "hide"
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "hide", function () {
+      var time = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      setTimeout(function () {
+        _this.setState({
+          componentState: ""
+        }, function () {
+          setTimeout(function () {
+            _this.setState({
+              componentState: "hide"
+            });
+          }, 150);
+        });
+      }, time);
+    });
+
+    return _this;
+  }
+
+  _createClass(Notification, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (this.props.autohide > 0) this.hide(this.props.autohide);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props = this.props,
+          Tag = _this$props.tag,
+          className = _this$props.className,
+          show = _this$props.show,
+          fade = _this$props.fade,
+          message = _this$props.message,
+          bodyClassName = _this$props.bodyClassName,
+          labelColor = _this$props.labelColor,
+          title = _this$props.title,
+          titleClassName = _this$props.titleClassName,
+          text = _this$props.text,
+          closeClassName = _this$props.closeClassName,
+          attributes = _objectWithoutProperties(_this$props, ["tag", "className", "show", "fade", "message", "bodyClassName", "labelColor", "title", "titleClassName", "text", "closeClassName"]);
+
+      var classes = classNames("toast", fade && "fade", this.state.componentState, className);
+      var headerClasses = classNames("toast-header", titleClassName);
+      var bodyClasses = classNames("toast-body", bodyClassName);
+      var closeClasses = classNames("ml-2", "mb-1", closeClassName);
+      return React__default.createElement(Tag, _extends({}, attributes, {
+        className: classes
+      }), React__default.createElement("div", {
+        className: headerClasses
+      }, React__default.createElement("svg", {
+        className: "rounded mr-2",
+        width: "20",
+        height: "20",
+        xmlns: "http://www.w3.org/2000/svg",
+        preserveAspectRatio: "xMidYMid slice",
+        focusable: "false",
+        role: "img"
+      }, React__default.createElement("rect", {
+        fill: labelColor,
+        width: "100%",
+        height: "100%"
+      })), React__default.createElement("strong", {
+        className: "mr-auto"
+      }, title), React__default.createElement("small", null, text), React__default.createElement(MDBCloseIcon, {
+        className: closeClasses,
+        onClick: function onClick() {
+          return _this2.hide();
+        }
+      })), React__default.createElement("div", {
+        className: bodyClasses
+      }, message));
+    }
+  }]);
+
+  return Notification;
+}(React__default.Component);
+
+Notification.propTypes = {
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  show: propTypes.bool,
+  fade: propTypes.bool,
+  autohide: propTypes.number,
+  labelColor: propTypes.string,
+  title: propTypes.string,
+  text: propTypes.string,
+  titleColor: propTypes.string,
+  titleClassName: propTypes.string,
+  closeClassName: propTypes.string,
+  bodyClassName: propTypes.string,
+  bodyColor: propTypes.string,
+  message: propTypes.string
+};
+Notification.defaultProps = {
+  tag: "div",
+  labelColor: "#007aff",
+  closeClassName: "text-dark"
 };
 
 var Popper = function Popper(_ref) {
@@ -8655,37 +8832,6 @@ RotatingCard.defaultProps = {
 
 var css$a = ".file-field .file-field-right .file-path-wrapper {\n  padding-left: 0;\n  padding-right: 10px;\n}\n";
 styleInject(css$a);
-
-var MDBCloseIcon = function MDBCloseIcon(_ref) {
-  var onClick = _ref.onClick,
-      className = _ref.className,
-      ariaLabel = _ref.ariaLabel,
-      props = _objectWithoutProperties(_ref, ["onClick", "className", "ariaLabel"]);
-
-  var onClickHandler = function onClickHandler(e) {
-    onClick && onClick(e);
-  };
-
-  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
-  return React__default.createElement("button", _extends({
-    "data-test": "close-button",
-    type: "button"
-  }, props, {
-    className: btnClasses.join(" "),
-    onClick: onClickHandler,
-    "aria-label": ariaLabel
-  }), React__default.createElement("span", {
-    "aria-hidden": "true"
-  }, "\xD7"));
-};
-MDBCloseIcon.defaultProps = {
-  ariaLabel: "Close"
-};
-MDBCloseIcon.propTypes = {
-  className: propTypes.string,
-  ariaLabel: propTypes.string,
-  onClick: propTypes.func
-};
 
 var InputFile =
 /*#__PURE__*/
@@ -12179,6 +12325,7 @@ exports.MDBNavbar = Navbar;
 exports.MDBNavbarBrand = NavbarBrand;
 exports.MDBNavbarNav = NavbarNav;
 exports.MDBNavbarToggler = NavbarToggler;
+exports.MDBNotification = Notification;
 exports.MDBPageItem = PageItem;
 exports.MDBPageNav = PageLink;
 exports.MDBPagination = Pagination;
@@ -12238,6 +12385,7 @@ exports.Navbar = Navbar;
 exports.NavbarBrand = NavbarBrand;
 exports.NavbarNav = NavbarNav;
 exports.NavbarToggler = NavbarToggler;
+exports.Notification = Notification;
 exports.PageItem = PageItem;
 exports.PageLink = PageLink;
 exports.Pagination = Pagination;
