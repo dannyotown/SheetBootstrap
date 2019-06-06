@@ -10,21 +10,6 @@ class NotificationPage extends Component {
           title="Notifications"
           href="https://mdbootstrap.com/docs/react/addons/notification/"
         />
-        <h2 className="mt-5">Full functions</h2>
-        <MDBNotification
-          show
-          fade
-          labelColor="#59698d"
-          title="Bootstrap"
-          titleClassName="elegant-color-dark white-text"
-          closeClassName="blue-grey-text"
-          message="Hello, world! This is a toast message."
-          bodyClassName="p-5 font-weight-bold white-text"
-          text="11 mins ago"
-          autohide={0} // by default = ∞ ms
-          className="stylish-color-dark"
-        />
-
         <h2 className="mt-5">Default</h2>
         <MDBNotification
           show
@@ -47,7 +32,6 @@ class NotificationPage extends Component {
         <MDBNotification
           show
           fade
-          labelColor="red"
           title="Bootstrap"
           message="See? Just like this."
           text="just now"
@@ -88,7 +72,6 @@ class NotificationPage extends Component {
               <MDBNotification
                 show
                 fade
-                labelColor="red"
                 title="Bootstrap"
                 message="See? Just like this."
                 text="just now"
@@ -117,6 +100,27 @@ class NotificationPage extends Component {
         <p className="mb-5">
           Notification with autohide! Refresh page and wait 7.5 sec
         </p>
+        <h2 className="mt-5">Customizable</h2>
+        <MDBNotification
+          show
+          fade
+          labelColor="#59698d"
+          title="Bootstrap"
+          titleClassName="elegant-color-dark white-text"
+          closeClassName="blue-grey-text"
+          message="Hello, world! This is a toast message."
+          bodyClassName="p-5 font-weight-bold white-text"
+          text="11 mins ago"
+          autohide={0} // by default = ∞ ms
+          className="stylish-color-dark"
+        />
+        <hr
+          style={{
+            opacity: 0
+          }}
+          className="mt-5"
+        />
+        >
       </MDBContainer>
     );
   }
