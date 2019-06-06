@@ -120,7 +120,6 @@ class NotificationPage extends Component {
           }}
           className="mt-5"
         />
-        >
       </MDBContainer>
     );
   }
