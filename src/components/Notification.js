@@ -26,6 +26,8 @@ class Notification extends React.Component {
 
   render() {
     const {
+      tag: Tag,
+      className,
       show,
       fade,
       message,
@@ -36,9 +38,7 @@ class Notification extends React.Component {
       titleClassName,
       titleColor,
       text,
-      className,
       closeClassName,
-      tag: Tag,
       ...attributes
     } = this.props;
 
@@ -51,9 +51,7 @@ class Notification extends React.Component {
 
     const headerClasses = classNames("toast-header", titleClassName);
     const bodyClasses = classNames("toast-body", bodyClassName);
-
-    const HTextColor = classNames(titleColor ? `${titleColor}-text` : false);
-    const BTextColor = classNames(bodyColor ? `${titleColor}-text` : false);
+    const closeClasses = classNames("ml-2", "mb-1", closeClassName);
 
     return (
       <Tag {...attributes} className={classes}>
@@ -69,36 +67,41 @@ class Notification extends React.Component {
           >
             <rect fill={labelColor} width="100%" height="100%" />
           </svg>
-          <strong className={"mr-auto " + HTextColor}>{title}</strong>
-          <small className={HTextColor}>{text}</small>
-          <MDBCloseIcon
-            className={`ml-2 mb-1 ${closeClassName || ""}`}
-            onClick={() => this.hide(1)}
-          />
+          <strong style={{ color: titleColor }} className="mr-auto">
+            {title}
+          </strong>
+          <small style={{ color: titleColor }}>{text}</small>
+          <MDBCloseIcon className={closeClasses} onClick={() => this.hide(1)} />
         </div>
-        <div className={bodyClasses + " " + BTextColor}>{message}</div>
+        <div style={{ color: bodyColor }} className={bodyClasses}>
+          {message}
+        </div>
       </Tag>
     );
   }
 }
 
 Notification.propTypes = {
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  closeClassName: PropTypes.string,
   show: PropTypes.bool,
   fade: PropTypes.bool,
   autohide: PropTypes.number,
   labelColor: PropTypes.string,
-  text: PropTypes.string,
   title: PropTypes.string,
+  text: PropTypes.string,
   titleColor: PropTypes.string,
-  titleColor: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+  titleClassName: PropTypes.string,
+  closeClassName: PropTypes.string,
+  bodyClassName: PropTypes.string,
+  bodyColor: PropTypes.string,
+  message: PropTypes.string
 };
 
 Notification.defaultProps = {
   tag: "div",
-  labelColor: "#007aff"
+  labelColor: "#007aff",
+  closeClassName: "text-dark"
 };
 
 export default Notification;

@@ -29,7 +29,6 @@ class NotificationPage extends Component {
         <MDBNotification
           show
           fade
-          labelColor="red"
           title="Bootstrap"
           message="Hello, world! This is a toast message."
           text="11 mins ago"
@@ -39,28 +38,26 @@ class NotificationPage extends Component {
           <MDBNotification
             show
             fade
-            labelColor="#007aff"
             title="Bootstrap"
             message="Hello, world! This is a toast message."
             text="11 mins ago"
           />
         </MDBContainer>
-        <h2 className="mt-5">Translucent</h2>
+        <h2 className="mt-5">Stacking</h2>
         <MDBNotification
           show
           fade
-          labelColor="#007aff"
+          labelColor="red"
           title="Bootstrap"
-          message="Hello, world! This is a toast message."
-          text="11 mins ago"
+          message="See? Just like this."
+          text="just now"
         />
         <MDBNotification
           show
           fade
-          labelColor="#007aff"
           title="Bootstrap"
-          message="Hello, world! This is a toast message."
-          text="11 mins ago"
+          message="Heads up, toasts will stack automatically"
+          text="2 seconds ago"
         />
         <h2 className="mt-5">Placement</h2>
         <MDBContainer className="grey darken-3 p-3 mb-5">
@@ -68,7 +65,6 @@ class NotificationPage extends Component {
             <MDBNotification
               show
               fade
-              labelColor="#007aff"
               title="Bootstrap"
               message="Hello, world! This is a toast message."
               text="11 mins ago"
@@ -92,18 +88,17 @@ class NotificationPage extends Component {
               <MDBNotification
                 show
                 fade
-                labelColor="#007aff"
+                labelColor="red"
                 title="Bootstrap"
-                message="Hello, world! This is a toast message."
-                text="11 mins ago"
+                message="See? Just like this."
+                text="just now"
               />
               <MDBNotification
                 show
                 fade
-                labelColor="#007aff"
                 title="Bootstrap"
-                message="Hello, world! This is a toast message."
-                text="11 mins ago"
+                message="Heads up, toasts will stack automatically"
+                text="2 seconds ago"
               />
             </div>
           </div>
@@ -114,7 +109,6 @@ class NotificationPage extends Component {
         <MDBNotification
           show
           fade
-          labelColor="#007aff"
           title="Bootstrap"
           message="Hello, world! This is a toast message."
           text="11 mins ago"
