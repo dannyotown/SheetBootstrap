@@ -64,6 +64,8 @@ import PopoverHeader from './components/PopoverHeader';
 import Progress from './components/Progress';
 import Waves from './components/Waves';
 import Row from './components/Row';
+import TabPane from './components/TabPane';
+import TabContent from './components/TabContent';
 import Table from './components/Table';
 import TableBody from './components/TableBody';
 import TableHead from './components/TableHead';
@@ -108,8 +110,6 @@ import Spinner from './components/pro/Spinner';
 import Step from './components/pro/Step';
 import Stepper from './components/pro/Stepper';
 import TableEditable from './components/pro/TableEditable';
-import TabPane from './components/pro/TabPane';
-import TabContent from './components/pro/TabContent';
 import Sticky from './components/pro/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
 import Testimonial from './components/pro/Testimonial';
@@ -189,6 +189,8 @@ import { MDBPopoverHeader } from './components/PopoverHeader';
 import { MDBProgress } from './components/Progress';
 import { MDBWaves } from './components/Waves';
 import { MDBRow } from './components/Row';
+import { MDBTabPane } from './components/TabPane';
+import { MDBTabContent } from './components/TabContent';
 import { MDBTable } from './components/Table';
 import { MDBTableBody } from './components/TableBody';
 import { MDBTableHead } from './components/TableHead';
@@ -233,8 +235,6 @@ import { MDBSpinner } from './components/pro/Spinner';
 import { MDBStep } from './components/pro/Step';
 import { MDBStepper } from './components/pro/Stepper';
 import { MDBTableEditable } from './components/pro/TableEditable';
-import { MDBTabPane } from './components/pro/TabPane';
-import { MDBTabContent } from './components/pro/TabContent';
 import { MDBSticky } from './components/pro/Sticky';
 import { MDBStickyContent } from './components/pro/StickyContainer';
 import { MDBTestimonial } from './components/pro/Testimonial';
@@ -315,6 +315,8 @@ export {
   Progress,
   Waves,
   Row,
+  TabPane,
+  TabContent,
   Table,
   TableBody,
   TableHead,
@@ -358,8 +360,6 @@ export {
   Step,
   Stepper,
   TableEditable,
-  TabPane,
-  TabContent,
   Sticky,
   StickyContainer,
   Testimonial,
@@ -438,6 +438,8 @@ export {
   MDBProgress,
   MDBWaves,
   MDBRow,
+  MDBTabPane,
+  MDBTabContent,
   MDBTable,
   MDBTableBody,
   MDBTableHead,
@@ -478,8 +480,6 @@ export {
   MDBSelectOption,
   MDBSpinner,
   MDBTableEditable,
-  MDBTabPane,
-  MDBTabContent,
   MDBStep,
   MDBStepper,
   MDBSticky,
