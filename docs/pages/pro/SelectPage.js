@@ -260,6 +260,7 @@ class SelectPage extends Component {
           <form onSubmit={this.onSubmit}>
             <MDBSelect
               selectAll
+              selectAllClassName="font-weight-bold"
               search
               multiple
               color="primary"
