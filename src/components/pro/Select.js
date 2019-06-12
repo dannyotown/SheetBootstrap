@@ -218,9 +218,9 @@ class Select extends React.Component {
     );
 
     const labelStyles = {
-      top: `${outline && (this.state.selectTextContent ? '.5' : '1.35')}em`,
-      fontSize: `${outline && (this.state.selectTextContent ? '11' : '14')}px`,
-      zIndex: 4
+      color: this.state.selectTextContent && '#4285f4',
+      transform: !this.state.selectTextContent && 'translateY(7px)',
+      zIndex: 4,
     }
 
     if (!this.props.children) {
@@ -247,11 +247,11 @@ class Select extends React.Component {
               focusShadow={focusShadow}
               focusBackgroundColor={focusBackgroundColor}
             />
-          </div>
           {
             label &&
             <label className={labelClasses} style={labelStyles}>{label}</label>
           }
+          </div>
         </>
       );
     } else {
