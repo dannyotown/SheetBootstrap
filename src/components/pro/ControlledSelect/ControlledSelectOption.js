@@ -13,7 +13,8 @@ const ControlledSelectOption = ({
   separator,
   isFocused,
   focusShadow,
-  focusBackgroundColor
+  focusBackgroundColor,
+  selectAllClassName
 }) => {
   const classes = classNames((disabled || separator) && 'disabled', separator && 'optgroup', checked && 'active');
   const focusedStyles = {
@@ -26,7 +27,7 @@ const ControlledSelectOption = ({
       {
         icon && <img src={icon} alt="" className="rounded-circle" />
       }
-      <span data-multiple={multiple} className="filtrable">
+      <span data-multiple={multiple} className={`filtrable ${selectAllClassName}`}>
         {multiple && (
           <React.Fragment>
             <input
@@ -60,7 +61,8 @@ ControlledSelectOption.propTypes = {
   value: PropTypes.string,
   isFocused: PropTypes.bool,
   focusShadow: PropTypes.string,
-  focusBackgroundColor: PropTypes.string
+  focusBackgroundColor: PropTypes.string,
+  selectAllClassName: PropTypes.string
 };
 
 ControlledSelectOption.defaultProps = {
@@ -71,7 +73,8 @@ ControlledSelectOption.defaultProps = {
   multiple: false,
   isFocused: false,
   focusShadow: 'inset 0px -17px 15px -16px rgba(0, 0, 0, 0.35)',
-  focusBackgroundColor: '#eee'
+  focusBackgroundColor: '#eee',
+  selectAllClassName: ''
 };
 
 export default ControlledSelectOption;

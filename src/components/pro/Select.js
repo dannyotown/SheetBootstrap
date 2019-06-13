@@ -233,6 +233,7 @@ class Select extends React.Component {
       searchId,
       selected,
       selectAll,
+      selectAllClassName,
       selectAllLabel,
       selectAllValue,
       focusShadow,
@@ -281,6 +282,7 @@ class Select extends React.Component {
               selected={selected}
               selectOption={this.selectOption}
               selectAll={selectAll}
+              selectAllClassName={selectAllClassName}
               selectAllLabel={selectAllLabel}
               selectAllValue={selectAllValue}
               allChecked={this.state.allChecked}
@@ -357,6 +359,7 @@ Select.propTypes = {
   searchLabel: PropTypes.string,
   searchId: PropTypes.string,
   selected: PropTypes.string,
+  selectAllClassName: PropTypes.string,
   selectAllLabel: PropTypes.string,
   selectAllValue: PropTypes.string
 };

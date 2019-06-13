@@ -103,6 +103,7 @@ class ControlledSelectOptions extends Component {
           <ControlledSelectOption
             text={this.props.selectAllLabel}
             value={this.props.selectAllValue}
+            selectAllClassName={this.props.selectAllClassName}
             checked={this.props.allChecked}
             multiple={true}
             selectOption={selectOption}
