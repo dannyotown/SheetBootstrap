@@ -67,7 +67,8 @@ class Select extends React.Component {
     if (
       e.target.dataset.multiple === "true" ||
       e.target.dataset.search === "true" ||
-      e.target.getAttribute("for") 
+      e.target.classList.contains('dropdown-content') ||
+      e.target.getAttribute("for") === "selectSearchInput"
     ) {
       return;
     }
