@@ -16,7 +16,7 @@ const ControlledSelectOption = ({
   focusBackgroundColor,
   selectAllClassName
 }) => {
-  const classes = classNames((disabled || separator) && 'disabled', separator && 'optgroup', checked && 'active');
+  const classes = classNames((disabled || separator) && 'disabled', separator && 'optgroup', checked && 'active', selectAllClassName && selectAllClassName);
   const focusedStyles = {
     backgroundColor: isFocused ? focusBackgroundColor : null,
     boxShadow: isFocused ? focusShadow : null
@@ -27,7 +27,7 @@ const ControlledSelectOption = ({
       {
         icon && <img src={icon} alt="" className="rounded-circle" />
       }
-      <span data-multiple={multiple} className={`filtrable ${selectAllClassName}`}>
+      <span data-multiple={multiple} className="filtrable">
         {multiple && (
           <React.Fragment>
             <input
@@ -50,31 +50,30 @@ const ControlledSelectOption = ({
 ControlledSelectOption.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
-  separator: PropTypes.bool,
+  focusShadow: PropTypes.string,
+  focusBackgroundColor: PropTypes.string,
   icon: PropTypes.string,
+  isFocused: PropTypes.bool,
   multiple: PropTypes.bool,
+  selectAllClassName: PropTypes.string,
+  separator: PropTypes.bool,
   selectOption: PropTypes.func,
   text: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string
   ]),
   value: PropTypes.string,
-  isFocused: PropTypes.bool,
-  focusShadow: PropTypes.string,
-  focusBackgroundColor: PropTypes.string,
-  selectAllClassName: PropTypes.string
 };
 
 ControlledSelectOption.defaultProps = {
   checked: false,
   disabled: false,
-  separator: false,
-  icon: '',
-  multiple: false,
-  isFocused: false,
   focusShadow: 'inset 0px -17px 15px -16px rgba(0, 0, 0, 0.35)',
   focusBackgroundColor: '#eee',
-  selectAllClassName: ''
+  icon: '',
+  isFocused: false,
+  multiple: false,
+  separator: false,
 };
 
 export default ControlledSelectOption;

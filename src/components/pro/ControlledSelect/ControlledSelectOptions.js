@@ -135,8 +135,12 @@ class ControlledSelectOptions extends Component {
 }
 
 ControlledSelectOptions.propTypes = {
-  selected: PropTypes.string.isRequired,
-  selectOption: PropTypes.func.isRequired,
+  allChecked: PropTypes.bool,
+  changeFocus: PropTypes.func,
+  focused: PropTypes.number,
+  focusShadow: PropTypes.string,
+  focusBackgroundColor: PropTypes.string,
+  inputRef: PropTypes.shape({ current: PropTypes.instanceOf(typeof Element === 'undefined' ? function(){} : Element) }),
   multiple: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -151,29 +155,26 @@ ControlledSelectOptions.propTypes = {
       ]),
       value: PropTypes.string
     })
-  ),
+    ),
+  selected: PropTypes.string.isRequired,
+  selectOption: PropTypes.func.isRequired,
   search: PropTypes.bool,
   searchLabel: PropTypes.string,
   searchId: PropTypes.string,
+  selectAllClassName: PropTypes.string,
   selectAllLabel: PropTypes.string,
   selectAllValue: PropTypes.string,
-  allChecked: PropTypes.bool,
-  focused: PropTypes.number,
-  changeFocus: PropTypes.func,
   setFilteredOptions: PropTypes.func,
-  inputRef: PropTypes.shape({ current: PropTypes.instanceOf(typeof Element === 'undefined' ? function(){} : Element) }),
-  focusShadow: PropTypes.string,
-  focusBackgroundColor: PropTypes.string
 };
 
 ControlledSelectOptions.defaultProps = {
+  focused: null,
   multiple: false,
   options: [],
   search: false,
-  searchLabel: 'Search',
-  searchId: 'selectSearchInput',
   selectAllLabel: 'Select All',
-  focused: null
+  searchId: 'selectSearchInput',
+  searchLabel: 'Search',
 };
 
 export default ControlledSelectOptions;
