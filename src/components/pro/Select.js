@@ -67,8 +67,7 @@ class Select extends React.Component {
     if (
       e.target.dataset.multiple === "true" ||
       e.target.dataset.search === "true" ||
-      e.target.getAttribute("for") ||
-      e.target.classList.contains("md-form")
+      e.target.getAttribute("for") 
     ) {
       return;
     }
