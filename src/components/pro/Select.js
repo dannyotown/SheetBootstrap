@@ -255,10 +255,17 @@ class Select extends React.Component {
     );
 
     const labelStyles = {
+<<<<<<< HEAD
       top: `${outline && (this.state.selectTextContent ? ".5" : "1.35")}em`,
       fontSize: `${outline && (this.state.selectTextContent ? "11" : "14")}px`,
       zIndex: 4
     };
+=======
+      color: this.state.selectTextContent && '#4285f4',
+      transform: !this.state.selectTextContent && 'translateY(7px)',
+      zIndex: 4,
+    }
+>>>>>>> select-label-fix
 
     if (!this.props.children) {
       return (
@@ -293,12 +300,20 @@ class Select extends React.Component {
               focusShadow={focusShadow}
               focusBackgroundColor={focusBackgroundColor}
             />
+<<<<<<< HEAD
           </div>
           {label && (
             <label className={labelClasses} style={labelStyles}>
               {label}
             </label>
           )}
+=======
+          {
+            label &&
+            <label className={labelClasses} style={labelStyles}>{label}</label>
+          }
+          </div>
+>>>>>>> select-label-fix
         </>
       );
     } else {
