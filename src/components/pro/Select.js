@@ -107,7 +107,7 @@ class Select extends React.Component {
       selectTextContent: checkedTexts.length
         ? checkedTexts.join(", ")
         : this.props.selected,
-      allChecked: checkedOptions.length === this.state.options.length
+      allChecked: checkedOptions.length === this.state.options.filter(option => option.disabled !== true).length
     };
   };
 
@@ -116,7 +116,9 @@ class Select extends React.Component {
   };
 
   setOptionStatus = (option, status) => {
-    option.checked = status;
+    if (!option.disabled){
+      option.checked = status;
+    }
     return option;
   };
 
@@ -178,19 +180,15 @@ class Select extends React.Component {
   };
 
   selectAllOptions = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       let options = [...prevState.options];
-      let filteredOptions = [...prevState.filteredOptions];
+      let filteredOptions = [...prevState.filteredOptions].filter(option => option.disabled !== true);
 
-      let areSomeUnchecked = filteredOptions.some(
-        option => option.checked === false
-      );
+      let areSomeUnchecked = filteredOptions.some((option) => option.checked === false);
 
       areSomeUnchecked
-        ? filteredOptions.map(option =>
-            option.checked === false ? this.setOptionStatus(option, true) : null
-          )
-        : filteredOptions.map(option => this.setOptionStatus(option, false));
+        ? filteredOptions.map((option) => (option.checked === false && !option.disabled ? this.setOptionStatus(option, true) : null))
+        : filteredOptions.map((option) => this.setOptionStatus(option, false));
 
       if (filteredOptions.length !== options.length) {
         options = this.applyFilteredOptionsChanges(options, filteredOptions);
@@ -255,17 +253,10 @@ class Select extends React.Component {
     );
 
     const labelStyles = {
-<<<<<<< HEAD
-      top: `${outline && (this.state.selectTextContent ? ".5" : "1.35")}em`,
-      fontSize: `${outline && (this.state.selectTextContent ? "11" : "14")}px`,
-      zIndex: 4
-    };
-=======
       color: this.state.selectTextContent && '#4285f4',
       transform: !this.state.selectTextContent && 'translateY(7px)',
       zIndex: 4,
     }
->>>>>>> select-label-fix
 
     if (!this.props.children) {
       return (
@@ -300,20 +291,11 @@ class Select extends React.Component {
               focusShadow={focusShadow}
               focusBackgroundColor={focusBackgroundColor}
             />
-<<<<<<< HEAD
-          </div>
-          {label && (
-            <label className={labelClasses} style={labelStyles}>
-              {label}
-            </label>
-          )}
-=======
           {
             label &&
             <label className={labelClasses} style={labelStyles}>{label}</label>
           }
           </div>
->>>>>>> select-label-fix
         </>
       );
     } else {
