@@ -17,21 +17,21 @@ class SelectPage extends Component {
         checked: false,
         disabled: false,
         icon: null,
-        text: "Option two",
+        text: "Option Two",
         value: "2"
       },
       {
         checked: false,
         disabled: false,
         icon: null,
-        text: "Option three",
+        text: "Option Three",
         value: "3"
       },
       {
         checked: false,
         disabled: false,
         icon: null,
-        text: "Option four",
+        text: "Option Four",
         value: "4"
       }
     ]
