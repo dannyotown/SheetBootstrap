@@ -16,7 +16,8 @@ const ControlledSelectOption = ({
   focusBackgroundColor,
   selectAllClassName
 }) => {
-  const classes = classNames((disabled || separator) && 'disabled', separator && 'optgroup', checked && 'active', selectAllClassName && selectAllClassName);
+  const classes = classNames((disabled || separator) && 'disabled', separator && 'optgroup', checked && 'active', );
+  const spanClasses = classNames('filtrable', selectAllClassName && selectAllClassName);
   const focusedStyles = {
     backgroundColor: isFocused ? focusBackgroundColor : null,
     boxShadow: isFocused ? focusShadow : null
@@ -27,7 +28,7 @@ const ControlledSelectOption = ({
       {
         icon && <img src={icon} alt="" className="rounded-circle" />
       }
-      <span data-multiple={multiple} className="filtrable">
+      <span data-multiple={multiple} className={spanClasses}>
         {multiple && (
           <React.Fragment>
             <input
