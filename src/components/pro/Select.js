@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
-import ControlledSelectInput from './ControlledSelect/ControlledSelectInput';
-import ControlledSelectOptions from './ControlledSelect/ControlledSelectOptions';
+import ControlledSelectInput from "./ControlledSelect/ControlledSelectInput";
+import ControlledSelectOptions from "./ControlledSelect/ControlledSelectOptions";
 
 export const SelectContext = React.createContext();
 
@@ -12,7 +12,7 @@ class Select extends React.Component {
     super(props);
     this.state = {
       selectValue: [],
-      selectTextContent: '',
+      selectTextContent: "",
       options: this.props.options || [],
       allChecked: false,
       focused: null,
@@ -26,74 +26,92 @@ class Select extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('click', this.onDocumentClick);
+    document.addEventListener("click", this.onDocumentClick);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.selectValue !== this.state.selectValue) {
-      if (typeof this.props.getValue === 'function') {
+      if (typeof this.props.getValue === "function") {
         this.props.getValue(this.state.selectValue);
       }
 
-      if (typeof this.props.getTextContent === 'function') {
+      if (typeof this.props.getTextContent === "function") {
         this.props.getTextContent(this.state.selectTextContent);
       }
     }
 
     if (this.props.options !== prevProps.options) {
-      const { selectValue, selectTextContent, allChecked } = this.computeValuesAndText(this.props.options);
+      const {
+        selectValue,
+        selectTextContent,
+        allChecked
+      } = this.computeValuesAndText(this.props.options);
 
-      this.setState(
-        {
-          options: this.props.options,
-          filteredOptions: this.props.options,
-          selectValue,
-          selectTextContent,
-          allChecked
-        }
-      );
+      this.setState({
+        options: this.props.options,
+        filteredOptions: this.props.options,
+        selectValue,
+        selectTextContent,
+        allChecked
+      });
     }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.onDocumentClick);
+    document.removeEventListener("click", this.onDocumentClick);
   }
 
   // close all select dropdown (unless it has multiple property or search input)
   // open nieghbour ul of clicked input
-  onDocumentClick = (e) => {
-    if (e.target.dataset.multiple === 'true' || e.target.dataset.search === 'true') {
+  onDocumentClick = e => {
+    if (
+      e.target.dataset.multiple === "true" ||
+      e.target.dataset.search === "true" ||
+      e.target.getAttribute("for") ||
+      e.target.classList.contains("md-form")
+    ) {
       return;
     }
 
     this.closeDropdowns();
-    e.target.nextElementSibling && e.target.nextElementSibling.classList.add('fadeIn');
+    e.target.nextElementSibling &&
+      e.target.nextElementSibling.classList.add("fadeIn");
   };
 
   closeDropdowns = () => {
     this.changeFocus(null);
 
-    let dropdowns = document.querySelectorAll('.dropdown-content');
-    dropdowns.forEach((dropdown) => dropdown.classList.contains('fadeIn') && dropdown.classList.remove('fadeIn'));
+    let dropdowns = document.querySelectorAll(".dropdown-content");
+    dropdowns.forEach(
+      dropdown =>
+        dropdown.classList.contains("fadeIn") &&
+        dropdown.classList.remove("fadeIn")
+    );
   };
 
-  computeValuesAndText = (options) => {
-    let checkedOptions = options.filter((option) => option.checked).map((option) => ({
-      value: option.value,
-      text: option.text ? option.text : option.value
-    }));
+  computeValuesAndText = options => {
+    let checkedOptions = options
+      .filter(option => option.checked)
+      .map(option => ({
+        value: option.value,
+        text: option.text ? option.text : option.value
+      }));
 
-    let checkedValues = checkedOptions.map((opt) => opt.value);
-    let checkedTexts = checkedOptions.map((opt) => (opt.text && typeof opt.text !== 'object' ? opt.text : opt.value));
+    let checkedValues = checkedOptions.map(opt => opt.value);
+    let checkedTexts = checkedOptions.map(opt =>
+      opt.text && typeof opt.text !== "object" ? opt.text : opt.value
+    );
 
     return {
       selectValue: checkedValues,
-      selectTextContent: checkedTexts.length ? checkedTexts.join(', ') : this.props.selected,
+      selectTextContent: checkedTexts.length
+        ? checkedTexts.join(", ")
+        : this.props.selected,
       allChecked: checkedOptions.length === this.state.options.length
     };
   };
 
-  setFilteredOptions = (filteredOptions) => {
+  setFilteredOptions = filteredOptions => {
     this.setState({ filteredOptions });
   };
 
@@ -103,59 +121,76 @@ class Select extends React.Component {
   };
 
   applyFilteredOptionsChanges = (options, filteredOptions) => {
-    filteredOptions.forEach((filteredOption) => {
-      const index = options.findIndex((option) => option.value === filteredOption.value);
-      filteredOption.checked !== options[index].checked && this.setOptionStatus(options[index], filteredOption.checked);
+    filteredOptions.forEach(filteredOption => {
+      const index = options.findIndex(
+        option => option.value === filteredOption.value
+      );
+      filteredOption.checked !== options[index].checked &&
+        this.setOptionStatus(options[index], filteredOption.checked);
     });
     return options;
   };
 
-  changeFocus = (value) => {
+  changeFocus = value => {
     switch (value) {
       case null:
-        this.setState(prevState => prevState.focused !== value ? { focused: null } : null);
+        this.setState(prevState =>
+          prevState.focused !== value ? { focused: null } : null
+        );
         break;
       case 0:
         this.setState({ focused: 0 });
         break;
       default:
-        this.setState((prevState) => ({ focused: prevState.focused + value }));
+        this.setState(prevState => ({ focused: prevState.focused + value }));
         break;
     }
   };
 
-  selectOneOption = (value) => {
-    this.setState((prevState) => {
+  selectOneOption = value => {
+    this.setState(prevState => {
       let options = [...prevState.options];
-      const optionIndex = options.findIndex((option) => option.value === value);
-      this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
+      const optionIndex = options.findIndex(option => option.value === value);
+      this.setOptionStatus(
+        options[optionIndex],
+        !prevState.options[optionIndex].checked
+      );
 
-      options.forEach((option, index) => (index !== optionIndex ? (option.checked = false) : false));
+      options.forEach((option, index) =>
+        index !== optionIndex ? (option.checked = false) : false
+      );
 
       return this.computeValuesAndText(options);
     });
   };
 
-  selectMultipleOption = (value) => {
-    this.setState((prevState) => {
+  selectMultipleOption = value => {
+    this.setState(prevState => {
       let options = [...prevState.options];
-      const optionIndex = options.findIndex((option) => option.value === value);
-      this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
+      const optionIndex = options.findIndex(option => option.value === value);
+      this.setOptionStatus(
+        options[optionIndex],
+        !prevState.options[optionIndex].checked
+      );
 
       return this.computeValuesAndText(options);
     });
   };
 
   selectAllOptions = () => {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       let options = [...prevState.options];
       let filteredOptions = [...prevState.filteredOptions];
 
-      let areSomeUnchecked = filteredOptions.some((option) => option.checked === false);
+      let areSomeUnchecked = filteredOptions.some(
+        option => option.checked === false
+      );
 
       areSomeUnchecked
-        ? filteredOptions.map((option) => (option.checked === false ? this.setOptionStatus(option, true) : null))
-        : filteredOptions.map((option) => this.setOptionStatus(option, false));
+        ? filteredOptions.map(option =>
+            option.checked === false ? this.setOptionStatus(option, true) : null
+          )
+        : filteredOptions.map(option => this.setOptionStatus(option, false));
 
       if (filteredOptions.length !== options.length) {
         options = this.applyFilteredOptionsChanges(options, filteredOptions);
@@ -165,16 +200,18 @@ class Select extends React.Component {
     });
   };
 
-  selectOption = (value) => {
+  selectOption = value => {
     if (this.props.multiple) {
-      value === this.props.selectAllValue ? this.selectAllOptions() : this.selectMultipleOption(value);
+      value === this.props.selectAllValue
+        ? this.selectAllOptions()
+        : this.selectMultipleOption(value);
     } else {
       this.selectOneOption(value);
     }
   };
 
   triggerOptionChange = (value, text) => {
-    Array.isArray(text) && (text = text.join(', '));
+    Array.isArray(text) && (text = text.join(", "));
     this.setState({
       selectValue: value,
       selectTextContent: text
@@ -213,22 +250,31 @@ class Select extends React.Component {
 
     const labelClasses = classNames(
       !outline && "mdb-main-label",
-      this.state.selectTextContent && 'active',
+      this.state.selectTextContent && "active",
       labelClass
     );
 
     const labelStyles = {
-      top: `${outline && (this.state.selectTextContent ? '.5' : '1.35')}em`,
-      fontSize: `${outline && (this.state.selectTextContent ? '11' : '14')}px`,
+      top: `${outline && (this.state.selectTextContent ? ".5" : "1.35")}em`,
+      fontSize: `${outline && (this.state.selectTextContent ? "11" : "14")}px`,
       zIndex: 4
-    }
+    };
 
     if (!this.props.children) {
       return (
         <>
-          <div {...attributes} data-color={color} data-multiple={multiple} className={classes}>
+          <div
+            {...attributes}
+            data-color={color}
+            data-multiple={multiple}
+            className={classes}
+          >
             <span className="caret">▼</span>
-            <ControlledSelectInput value={this.state.selectTextContent} ref={this.inputRef} required={required} />
+            <ControlledSelectInput
+              value={this.state.selectTextContent}
+              ref={this.inputRef}
+              required={required}
+            />
             <ControlledSelectOptions
               multiple={multiple}
               options={this.state.options}
@@ -248,10 +294,11 @@ class Select extends React.Component {
               focusBackgroundColor={focusBackgroundColor}
             />
           </div>
-          {
-            label &&
-            <label className={labelClasses} style={labelStyles}>{label}</label>
-          }
+          {label && (
+            <label className={labelClasses} style={labelStyles}>
+              {label}
+            </label>
+          )}
         </>
       );
     } else {
@@ -260,17 +307,23 @@ class Select extends React.Component {
           value={{
             state: this.state,
             multiple: this.props.multiple,
-            triggerOptionChange: this.triggerOptionChange,
+            triggerOptionChange: this.triggerOptionChange
           }}
         >
-          <div {...attributes} data-color={color} data-multiple={multiple} className={classes}>
+          <div
+            {...attributes}
+            data-color={color}
+            data-multiple={multiple}
+            className={classes}
+          >
             <span className="caret">▼</span>
             {children}
           </div>
-          {
-            label &&
-            <label className={labelClasses} style={labelStyles}>{label}</label>
-          }
+          {label && (
+            <label className={labelClasses} style={labelStyles}>
+              {label}
+            </label>
+          )}
         </SelectContext.Provider>
       );
     }
@@ -297,10 +350,7 @@ Select.propTypes = {
       checked: PropTypes.bool,
       disabled: PropTypes.bool,
       icon: PropTypes.string,
-      text: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.string
-      ]),
+      text: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       value: PropTypes.string
     })
   ),
@@ -311,7 +361,7 @@ Select.propTypes = {
   searchId: PropTypes.string,
   selected: PropTypes.string,
   selectAllLabel: PropTypes.string,
-  selectAllValue: PropTypes.string,
+  selectAllValue: PropTypes.string
 };
 
 Select.defaultProps = {
@@ -320,7 +370,7 @@ Select.defaultProps = {
   outline: false,
   required: false,
   selected: "",
-  selectAllValue: '0',
+  selectAllValue: "0"
 };
 
 export default Select;
