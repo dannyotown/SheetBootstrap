@@ -3,22 +3,14 @@ import PropTypes from "prop-types";
 
 const ControlledSelectInput = React.forwardRef(
   ({ value, required }, inputRef) => {
-    return !required ? (
+    return (
       <input
         type="text"
         ref={inputRef}
-        readOnly
+        required={required ? required : false}
         value={value}
+        onChange={() => {}}
         className="select-dropdown"
-      />
-    ) : (
-      <input
-        type="text"
-        ref={inputRef}
-        required={required}
-        defaultValue={value}
-        className="select-dropdown"
-        onKeyPress={e => e.preventDefault()}
       />
     );
   }
