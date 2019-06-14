@@ -61,7 +61,7 @@ class HomePage extends React.Component {
                   <MDBCol size="2" md="2" className="float-left">
                     <MDBIcon icon="css3" brand className="pink-text" size="2x" />
                   </MDBCol>
-                  <MDBCol size="10" md="8" lg="10" className="float-right">
+                  <MDBCol size="10" md="8" lg="10" className="float-right" >
                     <h4 className="font-weight-bold">CSS</h4>
                     <p className="grey-text">
                       Animations, colours, shadows, skins and many more! Get to
@@ -88,7 +88,7 @@ class HomePage extends React.Component {
                     </p>
                     <MDBNavLink
                       tag="button"
-                      className="btn btn-sm indigo lighten-2 text-white"
+                      className="btn btn-sm indigo darken-3 text-white"
                       to="/components"
                     >
                       Learn more
@@ -147,7 +147,7 @@ class HomePage extends React.Component {
                     </p>
                     <MDBNavLink
                       tag="button"
-                      className="btn btn-sm indigo lighten-2 text-white"
+                      className="btn btn-sm indigo datken-3 text-white"
                       to="/forms"
                     >
                       Learn more
@@ -206,7 +206,7 @@ class HomePage extends React.Component {
                     </p>
                     <MDBNavLink
                       tag="button"
-                      className="btn btn-sm indigo lighten-2 text-white"
+                      className="btn btn-sm indigo darken-3 text-white"
                       to="/addons"
                     >
                       Learn more

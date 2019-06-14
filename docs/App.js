@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse,   MDBNavItem, MDBFooter, MDBNavLink } from "mdbreact";
+import { MDBNavbar, MDBNavbarBrand, MDBEdgeHeader, MDBNavbarNav, MDBNavbarToggler, MDBCollapse,   MDBNavItem, MDBFooter, MDBNavLink } from "mdbreact";
 import { ReactComponent as Logo } from './assets/logo.svg';
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./Routes";
@@ -133,6 +133,7 @@ class App extends Component {
           </MDBNavbar>
           {collapseID && overlay}
           <main style={{ marginTop: "4rem" }}>
+          <MDBEdgeHeader color="indigo darken-3" style={{ marginBottom: "-200px" }}/>
             <Routes />
           </main>
           <MDBFooter color="indigo">

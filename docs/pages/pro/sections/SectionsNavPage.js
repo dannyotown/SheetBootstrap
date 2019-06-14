@@ -8,8 +8,8 @@ const SectionsNavPage = () => {
       <MDBRow>
         <MDBCol md="8" className="mt-3 mx-auto">
           <MDBJumbotron>
-            <h1>
-              <MDBIcon icon="th" className="grey-text" /> Sections
+            <h1 className="text-center">
+              <MDBIcon icon="th" style={{ color: "#283593" }} /> Sections
             </h1>
             <ul className="list-unstyled example-components-list">
               <h5 className="grey-text">Intros</h5>

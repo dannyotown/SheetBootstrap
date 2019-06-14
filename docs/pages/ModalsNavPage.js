@@ -8,8 +8,8 @@ const ModalsNavPage = () => {
       <MDBRow>
         <MDBCol md="8" className="mt-3 mx-auto">
           <MDBJumbotron>
-            <h1>
-              <MDBIcon icon="window-restore" className="grey-text mr-2" />
+            <h1 className="text-center">
+              <MDBIcon icon="window-restore" className="mr-2" style={{ color: "#283593" }} />
               Modals
             </h1>
             <ul className="list-unstyled example-components-list">

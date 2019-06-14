@@ -8,8 +8,8 @@ const CSSPage = () => {
       <MDBRow>
         <MDBCol md="8" className="mx-auto">
           <MDBJumbotron className="mt-3">
-            <h1>
-              <MDBIcon icon="css3" brand className="grey-text" /> CSS
+            <h1 className="text-center">
+              <MDBIcon icon="css3" brand style={{ color: "#283593" }}/> CSS
             </h1>
             <ul className="list-unstyled example-components-list">
               <h6 className="mt-3 grey-text">FREE </h6>
