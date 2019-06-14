@@ -4,9 +4,16 @@ import Select from "./Select";
 import SelectInput from "./SelectInput";
 import SelectOptions from "./SelectOptions";
 import SelectOption from "./SelectOption";
+import classNames from "classnames";
 
 const DataTableSelect = ({ value, onChange, entries, label, barReverse }) => (
-  <div className={`dataTables_length d-flex flex-row${ barReverse ? ` justify-content-end` : ''}`}>
+  <div className={classNames(
+      "dataTables_length",
+      "d-flex",
+      "flex-row",
+      barReverse ? "justify-content-end" : false
+    )}
+  >
     <label className="mt-4">{label}</label>
     <Select getValue={onChange}>
       <SelectInput selected={value} />
@@ -25,12 +32,12 @@ DataTableSelect.propTypes = {
   barReverse: PropTypes.bool,
   entries: PropTypes.arrayOf(PropTypes.number).isRequired,
   label: PropTypes.oneOfType([
-    PropTypes.string, 
-    PropTypes.number, 
+    PropTypes.string,
+    PropTypes.number,
     PropTypes.object
   ]).isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired
 };
 
 export default DataTableSelect;
