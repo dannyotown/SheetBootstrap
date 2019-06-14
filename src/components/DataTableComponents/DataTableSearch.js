@@ -10,7 +10,7 @@ import DataTableInput from './DataTableInput';
 // PRO-END
 
 const DataTableSearch = props => {
-  const { handleSearchChange, search, searching, label } = props;
+  const { handleSearchChange, search, searching, label, barReverse } = props;
 
   return (
     <div className="col-sm-12 col-md-6">
@@ -19,6 +19,7 @@ const DataTableSearch = props => {
           value={search}
           onChange={handleSearchChange}
           label={label}
+          barReverse={barReverse}
         />
       )}
     </div>
@@ -26,6 +27,7 @@ const DataTableSearch = props => {
 };
 
 DataTableSearch.propTypes = {
+  barReverse: PropTypes.bool,
   handleSearchChange: PropTypes.func.isRequired,
   search: PropTypes.string.isRequired,
   searching: PropTypes.bool.isRequired,
