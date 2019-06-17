@@ -255,7 +255,6 @@ class Select extends React.Component {
 
     const labelStyles = {
       color: this.state.selectTextContent && '#4285f4',
-      transform: !this.state.selectTextContent && 'translateY(7px)',
       zIndex: 4,
     }
 
