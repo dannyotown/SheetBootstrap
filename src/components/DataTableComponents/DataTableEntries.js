@@ -10,7 +10,7 @@ import DataTableSelect from './DataTableSelect';
 // PRO-END
 
 const DataTableEntries = props => {
-  const { handleEntriesChange, displayEntries, entries, entriesArr, paging, label } = props;
+  const { handleEntriesChange, displayEntries, entries, entriesArr, paging, label, barReverse } = props;
 
   return (
     <div className="col-sm-12 col-md-6">
@@ -20,6 +20,7 @@ const DataTableEntries = props => {
           onChange={handleEntriesChange}
           entries={entriesArr}
           label={label}
+          barReverse={barReverse}
         />
       )}
     </div>
@@ -27,6 +28,7 @@ const DataTableEntries = props => {
 };
 
 DataTableEntries.propTypes = {
+  barReverse: PropTypes.bool,
   handleEntriesChange: PropTypes.func.isRequired,
   displayEntries: PropTypes.bool.isRequired,
   entries: PropTypes.number.isRequired,

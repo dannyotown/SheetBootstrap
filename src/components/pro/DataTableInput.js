@@ -1,8 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
-const DataTableInput = ({ value, onChange, label }) => (
-  <div className="dataTables_filter md-form">
+const DataTableInput = ({ value, onChange, label, barReverse }) => (
+  <div className={classNames(
+    "dataTables_filter",
+    "md-form",
+    "flex-row",
+    barReverse ? "text-left" : false
+  )}>
     <input
       value={value}
       onChange={onChange}
@@ -14,6 +20,7 @@ const DataTableInput = ({ value, onChange, label }) => (
 );
 
 DataTableInput.propTypes = {
+  barReverse: PropTypes.bool,
   label: PropTypes.string,
   onChange: PropTypes.func,
   value: PropTypes.string
