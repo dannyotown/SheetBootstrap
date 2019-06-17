@@ -7,7 +7,7 @@ const DataTableInput = ({ value, onChange, label, barReverse }) => (
     "dataTables_filter",
     "md-form",
     "flex-row",
-    barReverse ? "text-left" : false
+    barReverse && "text-left"
   )}>
     <input
       value={value}

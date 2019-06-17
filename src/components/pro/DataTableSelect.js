@@ -11,7 +11,7 @@ const DataTableSelect = ({ value, onChange, entries, label, barReverse }) => (
       "dataTables_length",
       "d-flex",
       "flex-row",
-      barReverse ? "justify-content-end" : false
+      barReverse && "justify-content-end"
     )}
   >
     <label className="mt-4">{label}</label>
