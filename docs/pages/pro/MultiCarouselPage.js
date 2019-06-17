@@ -36,7 +36,7 @@ const MultiCarouselPage = () => {
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol>
-              <MDBCol md="4" className="clearfix d-none d-md-block">
+              <MDBCol md="4">
                 <MDBCard className="mb-2">
                   <MDBCardImage
                     className="img-fluid"
@@ -52,7 +52,7 @@ const MultiCarouselPage = () => {
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol>
-              <MDBCol md="4" className="clearfix d-none d-md-block">
+              <MDBCol md="4">
                 <MDBCard className="mb-2">
                   <MDBCardImage
                     className="img-fluid"
@@ -86,7 +86,7 @@ const MultiCarouselPage = () => {
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol>
-              <MDBCol md="4" className="clearfix d-none d-md-block">
+              <MDBCol md="4">
                 <MDBCard className="mb-2">
                   <MDBCardImage
                     className="img-fluid"
@@ -102,7 +102,7 @@ const MultiCarouselPage = () => {
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol>
-              <MDBCol md="4" className="clearfix d-none d-md-block">
+              <MDBCol md="4">
                 <MDBCard className="mb-2">
                   <MDBCardImage
                     className="img-fluid"
@@ -136,7 +136,7 @@ const MultiCarouselPage = () => {
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol>
-              <MDBCol md="4" className="clearfix d-none d-md-block">
+              <MDBCol md="4">
                 <MDBCard className="mb-2">
                   <MDBCardImage
                     className="img-fluid"
@@ -152,7 +152,7 @@ const MultiCarouselPage = () => {
                   </MDBCardBody>
                 </MDBCard>
               </MDBCol>
-              <MDBCol md="4" className="clearfix d-none d-md-block">
+              <MDBCol md="4">
                 <MDBCard className="mb-2">
                   <MDBCardImage
                     className="img-fluid"
