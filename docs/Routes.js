@@ -58,6 +58,7 @@ import NavsPage from './pages/NavsPage';
 import TabsPage from './pages/TabsPage';
 import PillsPage from './pages/PillsPage';
 import NotificationPage from './pages/NotificationPage';
+import InputGroupPage from './pages/InputGroupPage'
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -174,6 +175,7 @@ class Routes extends React.Component {
         <Route path="/forms/forms" component={FormsPage} />
         <Route path="/forms/validation" component={ValidationPage} />
         <Route path="/forms/input" component={InputPage} />
+        <Route path="/forms/inputgroup" component={InputGroupPage} />
         <Route path="/modals/modal" component={ModalPage} />
         <Route path="/modals/modal-form" component={ModalFormPage} />
         <Route path="/modals/modal-examples" component={ModalExamplesPage} />
