@@ -4,16 +4,14 @@ import classNames from "classnames";
 import selectContextHOC from "./SelectContext";
 
 class SelectInput extends React.Component {
-  constructor(props) {
-    super(props);
-    if (props.selected) {
-      props.context.selected = props.selected;
-    }
+  componentDidMount() {
+    this.props.selected && this.props.context.setSelected(this.props.selected)
   }
+  
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.selected) {
-      this.props.context.selected = this.props.selected;
+   if (prevProps.context.state.isEmpty !== this.props.context.state.isEmpty){
+     this.props.selected && this.props.context.setSelected(this.props.selected);
     }
   }
 
@@ -21,17 +19,7 @@ class SelectInput extends React.Component {
     const classes = classNames("select-dropdown", this.props.className);
     const { attributes, context } = this.props;
 
-    let value = "";
-
-    if (context.state.isEmpty){
-      if (context.label){
-        value = "";
-      }else{
-        value = this.props.context.selected;
-      }
-    }else{
-      value = context.state.selectTextContent
-    }
+    const value = context.state.isEmpty ? this.props.selected && !context.label ? this.props.selected : "" : context.state.selectTextContent;
 
     return (
       <input

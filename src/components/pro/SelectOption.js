@@ -16,7 +16,6 @@ class Option extends React.Component {
   componentDidMount() {
     if (!this.state.multiple) {
       this.state.checked && this.optionRef.current.click();
-      // this.props.context.triggerOptionChange([], this.props.context.selected);
     } else {
       if (!this.props.disabled) {
         !this.state.checked && this.optionRef.current.classList.add("active");
@@ -65,7 +64,7 @@ class Option extends React.Component {
       }
 
       if (!value.length){
-        this.props.context.triggerOptionChange([], this.props.context.selected);
+        this.props.context.triggerOptionChange();
       }else{
         this.props.context.triggerOptionChange(value, text);
       }

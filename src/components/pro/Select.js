@@ -11,6 +11,7 @@ class Select extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedValue: "",
       isEmpty: true,
       isControlledEmpty: true,
       selectValue: [],
@@ -210,14 +211,17 @@ class Select extends React.Component {
     }
   };
 
-  triggerOptionChange = (value, text) => {
+  triggerOptionChange = (value = [], text = this.state.selectedValue) => {
     Array.isArray(text) && (text = text.join(", "));
+
     this.setState({
       selectValue: value,
       selectTextContent: text,
       isEmpty: value.length ? false : true
     });
   };
+
+  setSelected = selectedValue => this.setState({ selectedValue });
 
 
   returnComponentContent = () => {
@@ -253,21 +257,14 @@ class Select extends React.Component {
 
     const labelClasses = classNames(
       !outline && "mdb-main-label",
-      !this.props.children
-        ? (!this.state.isControlledEmpty || this.props.selected) && "active"
-        : !this.state.isEmpty && "active",
-      labelClass
+      labelClass,
+      this.props.children
+        ? !this.state.isEmpty && "active text-primary"
+        : !this.state.isControlledEmpty && "active text-primary"
     );
 
-    const labelStyles = {
-      color: !this.props.children
-        ? (!this.state.isControlledEmpty || this.props.selected) && "#4285f4"
-        : !this.state.isEmpty && "#4285f4",
-      zIndex: 4
-    };
-
     if (!this.props.children) {
-      const uncontrolledValue = this.state.isControlledEmpty ? this.props.selected ? this.props.selected : "" : this.state.selectTextContent; 
+      const controlledValue = this.state.isControlledEmpty ? selected && !label ? selected : "" : this.state.selectTextContent; 
 
       return (
         <>
@@ -279,7 +276,7 @@ class Select extends React.Component {
           >
             <span className="caret">▼</span>
             <ControlledSelectInput
-              value={uncontrolledValue}
+              value={controlledValue}
               ref={this.inputRef}
               required={required}
             />
@@ -303,7 +300,7 @@ class Select extends React.Component {
               focusBackgroundColor={focusBackgroundColor}
             />
             {label && (
-              <label className={labelClasses} style={labelStyles}>
+              <label className={labelClasses} style={{ zIndex: 4 }}>
                 {label}
               </label>
             )}
@@ -315,10 +312,10 @@ class Select extends React.Component {
         <SelectContext.Provider
           value={{
             state: this.state,
-            multiple: this.props.multiple,
+            multiple,
             triggerOptionChange: this.triggerOptionChange,
             label,
-            selected: ""
+            setSelected: this.setSelected
           }}
         >
           <div
@@ -331,7 +328,7 @@ class Select extends React.Component {
             {children}
           </div>
           {label && (
-            <label className={labelClasses} style={labelStyles}>
+            <label className={labelClasses} style={{ zIndex: 4 }}>
               {label}
             </label>
           )}
