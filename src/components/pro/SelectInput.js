@@ -37,7 +37,6 @@ class SelectInput extends React.Component {
       <input
         type="text"
         readOnly
-        // value={context.state.isEmpty ? "" : context.state.selectTextContent}
         value={value}
         {...attributes}
         className={classes}

@@ -66,10 +66,8 @@ class Option extends React.Component {
 
       if (!value.length){
         this.props.context.triggerOptionChange([], this.props.context.selected);
-        this.props.context.setIsEmpty(true);
       }else{
         this.props.context.triggerOptionChange(value, text);
-        this.props.context.setIsEmpty(false);
       }
     }
   };
