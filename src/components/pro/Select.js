@@ -44,7 +44,7 @@ class Select extends React.Component {
 
       if (this.props.children) {
         this.setState({
-          isControlledEmpty: this.state.options.every(option => !option.checked)
+          isControlledEmpty: !this.state.options.some(option => option.checked)
         });
       }
     }
