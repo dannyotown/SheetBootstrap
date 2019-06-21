@@ -63,11 +63,9 @@ class Option extends React.Component {
         selectedOption.classList.add("active");
       }
 
-      if (!value.length){
-        this.props.context.triggerOptionChange();
-      }else{
-        this.props.context.triggerOptionChange(value, text);
-      }
+      value.length
+        ? this.props.context.triggerOptionChange(value, text)
+        : this.props.context.triggerOptionChange();
     }
   };
 
@@ -84,7 +82,7 @@ class Option extends React.Component {
     } = this.props;
 
     const classes = classNames(
-      (disabled || separator) ? "disabled" : "",
+      disabled || separator ? "disabled" : "",
       separator ? "optgroup" : "",
       className,
       "justify-content-between align-items-center"
@@ -129,7 +127,11 @@ class Option extends React.Component {
         onClick={this.selectOption}
         style={{ display: "flex" }}
       >
-        <span data-multiple={this.state.multiple} className="filtrable" style={{ flex: "1" }}>
+        <span
+          data-multiple={this.state.multiple}
+          className="filtrable"
+          style={{ flex: "1" }}
+        >
           {!separator ? input : null}
           {label}
           {children}
