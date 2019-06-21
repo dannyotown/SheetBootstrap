@@ -99,20 +99,19 @@ class Select extends React.Component {
   };
 
   computeValuesAndText = options => {
-    let checkedOptions = options.filter(option => option.checked);
+    const checkedOptions = options.filter(option => option.checked);
     
-    let checkedValues = checkedOptions.map(opt => opt.value);
-    let checkedTexts = checkedOptions.map(opt => opt.text ? opt.text : opt.value);
+    const checkedValues = checkedOptions.map(opt => opt.value);
+    const checkedTexts = checkedOptions.map(opt => opt.text ? opt.text : opt.value);
+
+    const selectTextContent = checkedTexts.length ? checkedTexts.join(", ") : this.props.selected; 
+    const allChecked = checkedOptions.length === this.state.options.filter(option => !option.disabled).length;
 
     return {
       isControlledEmpty: !checkedOptions.length,
       selectValue: checkedValues,
-      selectTextContent: checkedTexts.length
-        ? checkedTexts.join(", ")
-        : this.props.selected,
-      allChecked:
-        checkedOptions.length ===
-        this.state.options.filter(option => !option.disabled).length
+      selectTextContent,
+      allChecked
     };
   };
 
@@ -159,10 +158,8 @@ class Select extends React.Component {
       let options = [...prevState.options];
       const optionIndex = options.findIndex(option => option.value === value);
 
-      this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
-
       options.forEach((option, index) =>
-        index !== optionIndex ? this.setOptionStatus(option, false) : null
+        index !== optionIndex ? this.setOptionStatus(option, false) : this.setOptionStatus(option, !option.checked)
       );
 
       return this.computeValuesAndText(options);
@@ -185,9 +182,7 @@ class Select extends React.Component {
       let options = [...prevState.options];
       let filteredOptions = [...prevState.filteredOptions].filter(option => !option.disabled);
 
-      let areSomeUnchecked = filteredOptions.some(
-        option => option.checked === false
-      );
+      const areSomeUnchecked = filteredOptions.some(option => !option.checked);
 
       areSomeUnchecked
         ? filteredOptions.map(option => !option.checked && this.setOptionStatus(option, true))
