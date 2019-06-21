@@ -12,9 +12,14 @@ class ContactFormPage extends React.Component {
     this.setState(prevState => ({
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     }));
-
+    componentDidMount(){
+      document.querySelector("nav").style.height="65px";
+    }
+    componentWillUnmount() {
+      document.querySelector("nav").style.height="auto";
+    }
   render() {
-    const navStyle = { marginTop: "4rem" };
+    const navStyle = { marginTop: "65px" };
     const overlay = (
       <div
         id="sidenav-overlay"

@@ -1,6 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol, MDBIcon,   MDBBtn, MDBView, MDBContainer } from "mdbreact";
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBMask,
+  MDBRow,
+  MDBCol,
+  MDBIcon,
+  MDBBtn,
+  MDBView,
+  MDBContainer
+} from "mdbreact";
 import "./VideoBackgroundPage.css";
 
 class VideoBackgroundPage extends React.Component {
@@ -13,6 +28,12 @@ class VideoBackgroundPage extends React.Component {
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     }));
 
+  componentDidMount() {
+    document.querySelector("nav").style.height = "65px";
+  }
+  componentWillUnmount() {
+    document.querySelector("nav").style.height = "auto";
+  }
   render() {
     const navStyle = { marginTop: "4rem" };
     const overlay = (

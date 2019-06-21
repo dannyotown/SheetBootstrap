@@ -17,6 +17,7 @@ import {
   MDBFormInline,
   MDBAnimation
 } from "mdbreact";
+import { get } from "https";
 // import "./index.css";
 
 class AppPage extends React.Component {
@@ -31,6 +32,10 @@ class AppPage extends React.Component {
   };
   componentDidMount() {
     this.Styles();
+    document.querySelector("nav").style.height="65px";
+  }
+  componentWillUnmount() {
+    document.querySelector("nav").style.height="auto";
   }
   Styles = () => {
     let style = document.createElement("style");
@@ -77,7 +82,7 @@ class AppPage extends React.Component {
               fixed="top"
               scrolling
               transparent
-              style={{marginTop: "4rem"}}
+              style={{marginTop: "65px"}}
             >
               <MDBContainer>
                 <MDBNavbarBrand>

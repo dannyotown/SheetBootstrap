@@ -35,6 +35,10 @@ class ClassicFormPage extends React.Component {
 
   componentDidMount() {
     this.Styles();
+    document.querySelector("nav").style.height="65px";
+  }
+  componentWillUnmount() {
+    document.querySelector("nav").style.height="auto";
   }
   Styles = () => {
     let style = document.createElement("style");
@@ -95,7 +99,7 @@ class ClassicFormPage extends React.Component {
       <div id="classicformpage">
         <Router>
           <div>
-            <MDBNavbar dark expand="md" fixed="top" style={{marginTop: "4rem"}}>
+            <MDBNavbar dark expand="md" fixed="top" style={{marginTop: "65px"}}>
               <MDBContainer>
                 <MDBNavbarBrand>
                   <strong className="white-text">MDB</strong>
