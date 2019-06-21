@@ -1,7 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol, MDBBtn,   MDBView, MDBContainer, MDBFormInline } from "mdbreact";
-import "./AppPage.css";
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBMask,
+  MDBRow,
+  MDBCol,
+  MDBBtn,
+  MDBView,
+  MDBContainer,
+  MDBFormInline,
+  MDBAnimation
+} from "mdbreact";
+// import "./index.css";
 
 class AppPage extends React.Component {
   state = {
@@ -13,9 +29,36 @@ class AppPage extends React.Component {
       collapsed: !this.state.collapsed
     });
   };
-
+  componentDidMount() {
+    this.Styles();
+  }
+  Styles = () => {
+    let style = document.createElement("style");
+    style.innerHTML = `
+        #apppage .gradient {
+          background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+          background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+          background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)));
+          background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+          background: linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+        }
+        
+        #apppage .view {
+          background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+          height: 100vh;
+        }
+        
+        #apppage h6 {
+          line-height: 1.7;
+        }
+      `;
+    let firstScriptTag = document.querySelector("script");
+    firstScriptTag.parentNode.insertBefore(style, firstScriptTag);
+  };
   render() {
-    const navStyle = { marginTop: "4rem" };
     const overlay = (
       <div
         id="sidenav-overlay"
@@ -29,12 +72,12 @@ class AppPage extends React.Component {
           <div>
             <MDBNavbar
               color="primary-color"
-              style={navStyle}
               dark
               expand="md"
               fixed="top"
               scrolling
               transparent
+              style={{marginTop: "4rem"}}
             >
               <MDBContainer>
                 <MDBNavbarBrand>
@@ -77,28 +120,33 @@ class AppPage extends React.Component {
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <MDBContainer>
               <MDBRow>
-                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
-                  <h1 className="h1-responsive font-weight-bold mt-sm-5">
-                    Make purchases with our app{" "}
-                  </h1>
-                  <hr className="hr-light" />
-                  <h6 className="mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Rem repellendus quasi fuga nesciunt dolorum nulla magnam
-                    veniam sapiente, fugiat! Commodi sequi non animi ea dolor
-                    molestiae iste.
-                  </h6>
-                  <MDBBtn color="white">Download</MDBBtn>
-                  <MDBBtn outline color="white">
-                    Learn More
-                  </MDBBtn>
-                </div>
+                  <MDBCol md="6" className="white-text text-center text-md-left mt-xl-5 mb-5">
+                    <MDBAnimation type="fadeInLeft" delay=".3s">
+                      <h1 className="h1-responsive font-weight-bold mt-sm-5">
+                        Make purchases with our app{" "}
+                      </h1>
+                      <hr className="hr-light" />
+                      <h6 className="mb-4">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Rem repellendus quasi fuga nesciunt dolorum nulla magnam
+                        veniam sapiente, fugiat! Commodi sequi non animi ea dolor
+                        molestiae iste.
+                      </h6>
+                      <MDBBtn color="white">Download</MDBBtn>
+                      <MDBBtn outline color="white">
+                        Learn More
+                      </MDBBtn>
+                    </MDBAnimation>
+                  </MDBCol>
+
                 <MDBCol md="6" xl="5" className="mt-xl-5">
-                  <img
-                    src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png"
-                    alt=""
-                    className="img-fluid"
-                  />
+                  <MDBAnimation type="fadeInRight" delay=".3s">
+                    <img
+                      src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png"
+                      alt=""
+                      className="img-fluid"
+                    />
+                  </MDBAnimation>
                 </MDBCol>
               </MDBRow>
             </MDBContainer>
