@@ -1973,7 +1973,7 @@ function (_Component) {
       _this.cycleInterval = setInterval(_this.next, _this.props.interval); // get images src atr
 
       if (_this.props.thumbnails) {
-        var CarouselItemsArray = _this.carouselRef.current.querySelectorAll('.carousel-item img');
+        var CarouselItemsArray = _this.carouselRef.current.querySelectorAll(".carousel-item img");
 
         var srcArray = Array.prototype.map.call(CarouselItemsArray, function (item) {
           return item.src;
@@ -1989,7 +1989,10 @@ function (_Component) {
       activeItem: _this.props.activeItem,
       length: _this.props.length,
       slide: _this.props.slide,
-      srcArray: []
+      srcArray: [],
+      swipeAvailable: true,
+      initialX: null,
+      initialY: null
     };
     _this.carouselRef = React__default.createRef();
     return _this;
@@ -2005,6 +2008,51 @@ function (_Component) {
       }
 
       this.restartInterval();
+    }
+  }, {
+    key: "startTouch",
+    value: function startTouch(e) {
+      this.setState({
+        initialX: e.touches[0].clientX,
+        initialY: e.touches[0].clientY
+      });
+    }
+  }, {
+    key: "moveTouch",
+    value: function moveTouch(e) {
+      this.setState({
+        swipeAvailable: false
+      });
+      var _this$state = this.state,
+          initialX = _this$state.initialX,
+          initialY = _this$state.initialY;
+
+      if (initialX === null) {
+        return;
+      }
+
+      if (initialY === null) {
+        return;
+      }
+
+      var currentX = e.touches[0].clientX;
+      var currentY = e.touches[0].clientY;
+      var diffX = initialX - currentX;
+      var diffY = initialY - currentY;
+
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        // sliding horizontally
+        if (diffX > 0) {
+          this.next();
+        } else {
+          this.prev();
+        }
+      }
+
+      this.setState({
+        initialX: null,
+        initialY: null
+      });
     }
   }, {
     key: "componentWillUnmount",
@@ -2044,8 +2092,8 @@ function (_Component) {
           showIndicators = _this$props.showIndicators,
           attributes = _objectWithoutProperties(_this$props, ["activeItem", "children", "className", "multiItem", "slide", "thumbnails", "interval", "testimonial", "tag", "length", "showControls", "showIndicators"]);
 
-      var ariaLabel = 'carousel';
-      var classes = classNames('carousel', multiItem ? 'carousel-multi-item' : 'carousel-fade', thumbnails ? 'carousel-thumbnails' : '', testimonial ? 'testimonial-carousel' : '', className);
+      var ariaLabel = "carousel";
+      var classes = classNames("carousel", multiItem ? "carousel-multi-item" : "carousel-fade", thumbnails ? "carousel-thumbnails" : "", testimonial ? "testimonial-carousel" : "", className);
       var CarouselIndicatorsArray = [];
 
       var _loop = function _loop(i) {
@@ -2067,7 +2115,18 @@ function (_Component) {
         ref: this.carouselRef
       }, attributes, {
         className: classes,
-        "aria-label": ariaLabel
+        "aria-label": ariaLabel,
+        onTouchStart: function onTouchStart(touchStart) {
+          return _this2.startTouch(touchStart);
+        },
+        onTouchMove: function onTouchMove(touchMove) {
+          return _this2.state.swipeAvailable ? _this2.moveTouch(touchMove) : null;
+        },
+        onTouchEnd: function onTouchEnd() {
+          return _this2.setState({
+            swipeAvailable: true
+          });
+        }
       }), showControls && multiItem && React__default.createElement("div", {
         className: "controls-top"
       }, React__default.createElement(Control, {
@@ -2120,7 +2179,7 @@ Carousel.propTypes = {
   length: propTypes.number
 };
 Carousel.defaultProps = {
-  tag: 'div',
+  tag: "div",
   interval: 6000,
   showControls: true,
   showIndicators: true
@@ -3069,21 +3128,13 @@ DataTableTableScroll.propTypes = {
 var ControlledSelectInput = React__default.forwardRef(function (_ref, inputRef) {
   var value = _ref.value,
       required = _ref.required;
-  return !required ? React__default.createElement("input", {
+  return React__default.createElement("input", {
     type: "text",
     ref: inputRef,
-    readOnly: true,
+    required: required ? required : false,
     value: value,
+    onChange: function onChange() {},
     className: "select-dropdown"
-  }) : React__default.createElement("input", {
-    type: "text",
-    ref: inputRef,
-    required: required,
-    defaultValue: value,
-    className: "select-dropdown",
-    onKeyPress: function onKeyPress(e) {
-      return e.preventDefault();
-    }
   });
 });
 ControlledSelectInput.propTypes = {
@@ -3344,8 +3395,10 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
       separator = _ref.separator,
       isFocused = _ref.isFocused,
       focusShadow = _ref.focusShadow,
-      focusBackgroundColor = _ref.focusBackgroundColor;
+      focusBackgroundColor = _ref.focusBackgroundColor,
+      selectAllClassName = _ref.selectAllClassName;
   var classes = classNames((disabled || separator) && 'disabled', separator && 'optgroup', checked && 'active');
+  var spanClasses = classNames('filtrable', selectAllClassName && selectAllClassName);
   var focusedStyles = {
     backgroundColor: isFocused ? focusBackgroundColor : null,
     boxShadow: isFocused ? focusShadow : null
@@ -3363,7 +3416,7 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
     className: "rounded-circle"
   }), React__default.createElement("span", {
     "data-multiple": multiple,
-    className: "filtrable"
+    className: spanClasses
   }, multiple && React__default.createElement(React__default.Fragment, null, React__default.createElement("input", {
     type: "checkbox",
     value: value,
@@ -3382,25 +3435,26 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
 ControlledSelectOption.propTypes = {
   checked: propTypes.bool,
   disabled: propTypes.bool,
-  separator: propTypes.bool,
+  focusShadow: propTypes.string,
+  focusBackgroundColor: propTypes.string,
   icon: propTypes.string,
+  isFocused: propTypes.bool,
   multiple: propTypes.bool,
+  selectAllClassName: propTypes.string,
+  separator: propTypes.bool,
   selectOption: propTypes.func,
   text: propTypes.oneOfType([propTypes.object, propTypes.string]),
-  value: propTypes.string,
-  isFocused: propTypes.bool,
-  focusShadow: propTypes.string,
-  focusBackgroundColor: propTypes.string
+  value: propTypes.string
 };
 ControlledSelectOption.defaultProps = {
   checked: false,
   disabled: false,
-  separator: false,
-  icon: '',
-  multiple: false,
-  isFocused: false,
   focusShadow: 'inset 0px -17px 15px -16px rgba(0, 0, 0, 0.35)',
-  focusBackgroundColor: '#eee'
+  focusBackgroundColor: '#eee',
+  icon: '',
+  isFocused: false,
+  multiple: false,
+  separator: false
 };
 
 var ControlledSelectOptions =
@@ -3518,6 +3572,7 @@ function (_Component) {
       }), selectAll && multiple && this.state.filteredOptions.length > 1 && React__default.createElement(ControlledSelectOption, {
         text: this.props.selectAllLabel,
         value: this.props.selectAllValue,
+        selectAllClassName: this.props.selectAllClassName,
         checked: this.props.allChecked,
         multiple: true,
         selectOption: selectOption,
@@ -3547,8 +3602,14 @@ function (_Component) {
 }(React.Component);
 
 ControlledSelectOptions.propTypes = {
-  selected: propTypes.string.isRequired,
-  selectOption: propTypes.func.isRequired,
+  allChecked: propTypes.bool,
+  changeFocus: propTypes.func,
+  focused: propTypes.number,
+  focusShadow: propTypes.string,
+  focusBackgroundColor: propTypes.string,
+  inputRef: propTypes.shape({
+    current: propTypes.instanceOf(typeof Element === 'undefined' ? function () {} : Element)
+  }),
   multiple: propTypes.bool,
   options: propTypes.arrayOf(propTypes.shape({
     checked: propTypes.bool,
@@ -3559,29 +3620,24 @@ ControlledSelectOptions.propTypes = {
     text: propTypes.oneOfType([propTypes.object, propTypes.string]),
     value: propTypes.string
   })),
+  selected: propTypes.string.isRequired,
+  selectOption: propTypes.func.isRequired,
   search: propTypes.bool,
   searchLabel: propTypes.string,
   searchId: propTypes.string,
+  selectAllClassName: propTypes.string,
   selectAllLabel: propTypes.string,
   selectAllValue: propTypes.string,
-  allChecked: propTypes.bool,
-  focused: propTypes.number,
-  changeFocus: propTypes.func,
-  setFilteredOptions: propTypes.func,
-  inputRef: propTypes.shape({
-    current: propTypes.instanceOf(typeof Element === 'undefined' ? function () {} : Element)
-  }),
-  focusShadow: propTypes.string,
-  focusBackgroundColor: propTypes.string
+  setFilteredOptions: propTypes.func
 };
 ControlledSelectOptions.defaultProps = {
+  focused: null,
   multiple: false,
   options: [],
   search: false,
-  searchLabel: 'Search',
-  searchId: 'selectSearchInput',
   selectAllLabel: 'Select All',
-  focused: null
+  searchId: 'selectSearchInput',
+  searchLabel: 'Search'
 };
 
 var SelectContext = React__default.createContext();
@@ -3599,21 +3655,21 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
 
     _defineProperty(_assertThisInitialized(_this), "onDocumentClick", function (e) {
-      if (e.target.dataset.multiple === 'true' || e.target.dataset.search === 'true') {
+      if (e.target.dataset.multiple === "true" || e.target.dataset.search === "true" || e.target.classList.contains('dropdown-content') || e.target.getAttribute("for") === "selectSearchInput") {
         return;
       }
 
       _this.closeDropdowns();
 
-      e.target.nextElementSibling && e.target.nextElementSibling.classList.add('fadeIn');
+      e.target.nextElementSibling && e.target.nextElementSibling.classList.add("fadeIn");
     });
 
     _defineProperty(_assertThisInitialized(_this), "closeDropdowns", function () {
       _this.changeFocus(null);
 
-      var dropdowns = document.querySelectorAll('.dropdown-content');
+      var dropdowns = document.querySelectorAll(".dropdown-content");
       dropdowns.forEach(function (dropdown) {
-        return dropdown.classList.contains('fadeIn') && dropdown.classList.remove('fadeIn');
+        return dropdown.classList.contains("fadeIn") && dropdown.classList.remove("fadeIn");
       });
     });
 
@@ -3630,12 +3686,14 @@ function (_React$Component) {
         return opt.value;
       });
       var checkedTexts = checkedOptions.map(function (opt) {
-        return opt.text && _typeof(opt.text) !== 'object' ? opt.text : opt.value;
+        return opt.text && _typeof(opt.text) !== "object" ? opt.text : opt.value;
       });
       return {
         selectValue: checkedValues,
-        selectTextContent: checkedTexts.length ? checkedTexts.join(', ') : _this.props.selected,
-        allChecked: checkedOptions.length === _this.state.options.length
+        selectTextContent: checkedTexts.length ? checkedTexts.join(", ") : _this.props.selected,
+        allChecked: checkedOptions.length === _this.state.options.filter(function (option) {
+          return option.disabled !== true;
+        }).length
       };
     });
 
@@ -3646,7 +3704,10 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "setOptionStatus", function (option, status) {
-      option.checked = status;
+      if (!option.disabled) {
+        option.checked = status;
+      }
+
       return option;
     });
 
@@ -3724,13 +3785,15 @@ function (_React$Component) {
       _this.setState(function (prevState) {
         var options = _toConsumableArray(prevState.options);
 
-        var filteredOptions = _toConsumableArray(prevState.filteredOptions);
+        var filteredOptions = _toConsumableArray(prevState.filteredOptions).filter(function (option) {
+          return option.disabled !== true;
+        });
 
         var areSomeUnchecked = filteredOptions.some(function (option) {
           return option.checked === false;
         });
         areSomeUnchecked ? filteredOptions.map(function (option) {
-          return option.checked === false ? _this.setOptionStatus(option, true) : null;
+          return option.checked === false && !option.disabled ? _this.setOptionStatus(option, true) : null;
         }) : filteredOptions.map(function (option) {
           return _this.setOptionStatus(option, false);
         });
@@ -3752,7 +3815,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "triggerOptionChange", function (value, text) {
-      Array.isArray(text) && (text = text.join(', '));
+      Array.isArray(text) && (text = text.join(", "));
 
       _this.setState({
         selectValue: value,
@@ -3777,17 +3840,17 @@ function (_React$Component) {
           searchId = _this$props.searchId,
           selected = _this$props.selected,
           selectAll = _this$props.selectAll,
+          selectAllClassName = _this$props.selectAllClassName,
           selectAllLabel = _this$props.selectAllLabel,
           selectAllValue = _this$props.selectAllValue,
           focusShadow = _this$props.focusShadow,
           focusBackgroundColor = _this$props.focusBackgroundColor,
-          attributes = _objectWithoutProperties(_this$props, ["className", "color", "children", "getTextContent", "getValue", "label", "labelClass", "multiple", "outline", "required", "search", "searchLabel", "searchId", "selected", "selectAll", "selectAllLabel", "selectAllValue", "focusShadow", "focusBackgroundColor"]);
+          attributes = _objectWithoutProperties(_this$props, ["className", "color", "children", "getTextContent", "getValue", "label", "labelClass", "multiple", "outline", "required", "search", "searchLabel", "searchId", "selected", "selectAll", "selectAllClassName", "selectAllLabel", "selectAllValue", "focusShadow", "focusBackgroundColor"]);
 
       var classes = classNames("select-wrapper mdb-select md-form", _this.props.color ? "colorful-select dropdown-" + _this.props.color : "", outline ? "md-outline" : className);
-      var labelClasses = classNames(!outline && "mdb-main-label", _this.state.selectTextContent && 'active', labelClass);
+      var labelClasses = classNames(!outline && "mdb-main-label", _this.state.selectTextContent && "active", labelClass);
       var labelStyles = {
-        top: "".concat(outline && (_this.state.selectTextContent ? '.5' : '1.35'), "em"),
-        fontSize: "".concat(outline && (_this.state.selectTextContent ? '11' : '14'), "px"),
+        color: _this.state.selectTextContent && '#4285f4',
         zIndex: 4
       };
 
@@ -3810,6 +3873,7 @@ function (_React$Component) {
           selected: selected,
           selectOption: _this.selectOption,
           selectAll: selectAll,
+          selectAllClassName: selectAllClassName,
           selectAllLabel: selectAllLabel,
           selectAllValue: selectAllValue,
           allChecked: _this.state.allChecked,
@@ -3819,10 +3883,10 @@ function (_React$Component) {
           changeFocus: _this.changeFocus,
           focusShadow: focusShadow,
           focusBackgroundColor: focusBackgroundColor
-        })), label && React__default.createElement("label", {
+        }), label && React__default.createElement("label", {
           className: labelClasses,
           style: labelStyles
-        }, label));
+        }, label)));
       } else {
         return React__default.createElement(SelectContext.Provider, {
           value: {
@@ -3845,7 +3909,7 @@ function (_React$Component) {
 
     _this.state = {
       selectValue: [],
-      selectTextContent: '',
+      selectTextContent: "",
       options: _this.props.options || [],
       allChecked: false,
       focused: null,
@@ -3863,17 +3927,17 @@ function (_React$Component) {
   _createClass(Select, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      document.addEventListener('click', this.onDocumentClick);
+      document.addEventListener("click", this.onDocumentClick);
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
       if (prevState.selectValue !== this.state.selectValue) {
-        if (typeof this.props.getValue === 'function') {
+        if (typeof this.props.getValue === "function") {
           this.props.getValue(this.state.selectValue);
         }
 
-        if (typeof this.props.getTextContent === 'function') {
+        if (typeof this.props.getTextContent === "function") {
           this.props.getTextContent(this.state.selectTextContent);
         }
       }
@@ -3896,7 +3960,7 @@ function (_React$Component) {
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      document.removeEventListener('click', this.onDocumentClick);
+      document.removeEventListener("click", this.onDocumentClick);
     } // close all select dropdown (unless it has multiple property or search input)
     // open nieghbour ul of clicked input
 
@@ -3934,6 +3998,7 @@ Select.propTypes = {
   searchLabel: propTypes.string,
   searchId: propTypes.string,
   selected: propTypes.string,
+  selectAllClassName: propTypes.string,
   selectAllLabel: propTypes.string,
   selectAllValue: propTypes.string
 };
@@ -3943,7 +4008,7 @@ Select.defaultProps = {
   outline: false,
   required: false,
   selected: "",
-  selectAllValue: '0'
+  selectAllValue: "0"
 };
 
 var selectContextHOC = function selectContextHOC(Component) {
@@ -4276,9 +4341,10 @@ var DataTableSelect = function DataTableSelect(_ref) {
   var value = _ref.value,
       onChange = _ref.onChange,
       entries = _ref.entries,
-      label = _ref.label;
+      label = _ref.label,
+      barReverse = _ref.barReverse;
   return React__default.createElement("div", {
-    className: "dataTables_length d-flex flex-row"
+    className: classNames("dataTables_length", "d-flex", "flex-row", barReverse && "justify-content-end")
   }, React__default.createElement("label", {
     className: "mt-4"
   }, label), React__default.createElement(Select, {
@@ -4295,6 +4361,7 @@ var DataTableSelect = function DataTableSelect(_ref) {
 };
 
 DataTableSelect.propTypes = {
+  barReverse: propTypes.bool,
   entries: propTypes.arrayOf(propTypes.number).isRequired,
   label: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]).isRequired,
   onChange: propTypes.func.isRequired,
@@ -4314,18 +4381,21 @@ var DataTableEntries = function DataTableEntries(props) {
       entries = props.entries,
       entriesArr = props.entriesArr,
       paging = props.paging,
-      label = props.label;
+      label = props.label,
+      barReverse = props.barReverse;
   return React__default.createElement("div", {
     className: "col-sm-12 col-md-6"
   }, paging && displayEntries && React__default.createElement(DataTableSelect, {
     value: entries,
     onChange: handleEntriesChange,
     entries: entriesArr,
-    label: label
+    label: label,
+    barReverse: barReverse
   }));
 };
 
 DataTableEntries.propTypes = {
+  barReverse: propTypes.bool,
   handleEntriesChange: propTypes.func.isRequired,
   displayEntries: propTypes.bool.isRequired,
   entries: propTypes.number.isRequired,
@@ -4337,9 +4407,10 @@ DataTableEntries.propTypes = {
 var DataTableInput = function DataTableInput(_ref) {
   var value = _ref.value,
       onChange = _ref.onChange,
-      label = _ref.label;
+      label = _ref.label,
+      barReverse = _ref.barReverse;
   return React__default.createElement("div", {
-    className: "dataTables_filter md-form"
+    className: classNames("dataTables_filter", "md-form", "flex-row", barReverse && "text-left")
   }, React__default.createElement("input", {
     value: value,
     onChange: onChange,
@@ -4350,6 +4421,7 @@ var DataTableInput = function DataTableInput(_ref) {
 };
 
 DataTableInput.propTypes = {
+  barReverse: propTypes.bool,
   label: propTypes.string,
   onChange: propTypes.func,
   value: propTypes.string
@@ -4366,17 +4438,20 @@ var DataTableSearch = function DataTableSearch(props) {
   var handleSearchChange = props.handleSearchChange,
       search = props.search,
       searching = props.searching,
-      label = props.label;
+      label = props.label,
+      barReverse = props.barReverse;
   return React__default.createElement("div", {
     className: "col-sm-12 col-md-6"
   }, searching && React__default.createElement(DataTableInput, {
     value: search,
     onChange: handleSearchChange,
-    label: label
+    label: label,
+    barReverse: barReverse
   }));
 };
 
 DataTableSearch.propTypes = {
+  barReverse: propTypes.bool,
   handleSearchChange: propTypes.func.isRequired,
   search: propTypes.string.isRequired,
   searching: propTypes.bool.isRequired,
@@ -5018,6 +5093,7 @@ function (_Component) {
           autoWidth = _this$props.autoWidth,
           bordered = _this$props.bordered,
           borderless = _this$props.borderless,
+          barReverse = _this$props.barReverse,
           btn = _this$props.btn,
           className = _this$props.className,
           children = _this$props.children,
@@ -5053,7 +5129,7 @@ function (_Component) {
           theadColor = _this$props.theadColor,
           theadTextWhite = _this$props.theadTextWhite,
           sortRows = _this$props.sortRows,
-          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "className", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows"]);
+          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "barReverse", "btn", "className", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows"]);
 
       var _this$state = this.state,
           columns = _this$state.columns,
@@ -5067,19 +5143,21 @@ function (_Component) {
       return React__default.createElement("div", {
         className: tableClasses
       }, React__default.createElement("div", {
-        className: "row"
+        className: "row".concat(barReverse ? ' flex-row-reverse' : '')
       }, React__default.createElement(DataTableEntries, {
         paging: paging,
         displayEntries: displayEntries,
         entries: entries,
         handleEntriesChange: this.handleEntriesChange,
         entriesArr: entriesOptions,
-        label: entriesLabel
+        label: entriesLabel,
+        barReverse: barReverse
       }), React__default.createElement(DataTableSearch, {
         handleSearchChange: this.handleSearchChange,
         search: search,
         searching: searching,
-        label: searchLabel
+        label: searchLabel,
+        barReverse: barReverse
       })), !scrollY && !scrollX && React__default.createElement("div", {
         className: "row"
       }, React__default.createElement(DataTableTable, _extends({
@@ -5167,6 +5245,7 @@ function (_Component) {
 
 DataTable.propTypes = {
   autoWidth: propTypes.bool,
+  barReverse: propTypes.bool,
   bordered: propTypes.bool,
   borderless: propTypes.bool,
   btn: propTypes.bool,
@@ -5208,6 +5287,7 @@ DataTable.propTypes = {
 };
 DataTable.defaultProps = {
   autoWidth: false,
+  barReverse: false,
   bordered: false,
   borderless: false,
   btn: false,
@@ -6195,7 +6275,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleBackdropClick", function (e) {
-      if (!_this.props.backdrop) return;
+      if (!_this.props.backdrop || e.target.closest('[role="dialog"]') && !e.target.classList.contains("modal")) return;
 
       if (!_this.modalContent.contains(e.target)) {
         _this.props.toggle();
@@ -7323,6 +7403,103 @@ Row.propTypes = {
 Row.defaultProps = {
   tag: "div"
 };
+
+var TabPane =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(TabPane, _React$Component);
+
+  function TabPane() {
+    _classCallCheck(this, TabPane);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(TabPane).apply(this, arguments));
+  }
+
+  _createClass(TabPane, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          className = _this$props.className,
+          tabId = _this$props.tabId,
+          attributes = _objectWithoutProperties(_this$props, ["className", "tabId"]);
+
+      var classes = classNames("tab-pane", {
+        active: tabId === this.context.activeItemId
+      }, className);
+      return React__default.createElement("div", _extends({}, attributes, {
+        className: classes,
+        role: "tabpanel"
+      }));
+    }
+  }]);
+
+  return TabPane;
+}(React__default.Component);
+
+TabPane.contextTypes = {
+  activeItemId: propTypes.any
+};
+TabPane.propTypes = {
+  tabId: propTypes.any,
+  className: propTypes.string
+};
+
+var propTypes$2 = {
+  activeItem: propTypes.any,
+  tabId: propTypes.any,
+  className: propTypes.string
+};
+
+var TabContent =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(TabContent, _React$Component);
+
+  function TabContent(props) {
+    var _this;
+
+    _classCallCheck(this, TabContent);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(TabContent).call(this, props));
+    _this.state = {
+      activeItem: _this.props.activeItem
+    };
+    return _this;
+  }
+
+  _createClass(TabContent, [{
+    key: "getChildContext",
+    value: function getChildContext() {
+      return {
+        activeItemId: this.state.activeItem
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var className = this.props.className;
+      var attributes = omit(this.props, Object.keys(propTypes$2));
+      var classes = classNames("tab-content", className);
+      return React__default.createElement("div", _extends({}, attributes, {
+        className: classes
+      }));
+    }
+  }], [{
+    key: "getDerivedStateFromProps",
+    value: function getDerivedStateFromProps(nextProps, prevState) {
+      return prevState.activeItem !== nextProps.activeItem ? {
+        activeItem: nextProps.activeItem
+      } : null;
+    }
+  }]);
+
+  return TabContent;
+}(React__default.Component);
+
+TabContent.childContextTypes = {
+  activeItemId: propTypes.any
+};
+TabContent.propTypes = propTypes$2;
 
 var TableHead = function TableHead(props) {
   var children = props.children,
@@ -10769,103 +10946,6 @@ TableEditable.propTypes = {
   responsiveLg: propTypes.bool,
   responsiveXl: propTypes.bool
 };
-
-var TabPane =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(TabPane, _React$Component);
-
-  function TabPane() {
-    _classCallCheck(this, TabPane);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(TabPane).apply(this, arguments));
-  }
-
-  _createClass(TabPane, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          tabId = _this$props.tabId,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tabId"]);
-
-      var classes = classNames("tab-pane", {
-        active: tabId === this.context.activeItemId
-      }, className);
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes,
-        role: "tabpanel"
-      }));
-    }
-  }]);
-
-  return TabPane;
-}(React__default.Component);
-
-TabPane.contextTypes = {
-  activeItemId: propTypes.any
-};
-TabPane.propTypes = {
-  tabId: propTypes.any,
-  className: propTypes.string
-};
-
-var propTypes$2 = {
-  activeItem: propTypes.any,
-  tabId: propTypes.any,
-  className: propTypes.string
-};
-
-var TabContent =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(TabContent, _React$Component);
-
-  function TabContent(props) {
-    var _this;
-
-    _classCallCheck(this, TabContent);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(TabContent).call(this, props));
-    _this.state = {
-      activeItem: _this.props.activeItem
-    };
-    return _this;
-  }
-
-  _createClass(TabContent, [{
-    key: "getChildContext",
-    value: function getChildContext() {
-      return {
-        activeItemId: this.state.activeItem
-      };
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var className = this.props.className;
-      var attributes = omit(this.props, Object.keys(propTypes$2));
-      var classes = classNames("tab-content", className);
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }], [{
-    key: "getDerivedStateFromProps",
-    value: function getDerivedStateFromProps(nextProps, prevState) {
-      return prevState.activeItem !== nextProps.activeItem ? {
-        activeItem: nextProps.activeItem
-      } : null;
-    }
-  }]);
-
-  return TabContent;
-}(React__default.Component);
-
-TabContent.childContextTypes = {
-  activeItemId: propTypes.any
-};
-TabContent.propTypes = propTypes$2;
 
 var Sticky =
 /*#__PURE__*/
