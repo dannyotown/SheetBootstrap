@@ -295,7 +295,7 @@ class Select extends React.Component {
               focusBackgroundColor={focusBackgroundColor}
             />
             {label && (
-              <label className={labelClasses} style={{ zIndex: 4 }}>
+              <label className={labelClasses} style={{ zIndex: 4, transform: this.state.isControlledEmpty ? "translateY(7px)" : "" }}>
                 {label}
               </label>
             )}
