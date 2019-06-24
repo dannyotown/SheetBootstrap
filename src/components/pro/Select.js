@@ -42,7 +42,7 @@ class Select extends React.Component {
         this.props.getTextContent(this.state.selectTextContent);
       }
 
-      if (this.props.children) {
+      if (!this.props.children) {
         this.setState({
           isControlledEmpty: !this.state.options.some(option => option.checked)
         });
