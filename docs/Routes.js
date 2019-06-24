@@ -124,6 +124,7 @@ import MinimalisticIntro from "./pages/pro/sections/MinimalisticIntro";
 import ParallaxIntro from "./pages/pro/sections/ParallaxIntro";
 import CallToActionIntro from "./pages/pro/sections/CallToActionIntro";
 import PillsPagePro from './pages/pro/PillsPage';
+import InputGroupPagePro from './pages/pro/InputGroupPage';
 // PRO-END
 
 class Routes extends React.Component {
@@ -218,6 +219,7 @@ class Routes extends React.Component {
         <Route path="/components/pro/tabs" component={TabsPagePro} />
         <Route path="/forms/pro/autocomplete" component={AutocompletePage} />
         <Route path="/forms/pro/input" component={InputPagePro} />
+        <Route path="/forms/pro/inputgroup" component={InputGroupPagePro} />
         <Route path="/forms/pro/select" component={SelectPage} />
         <Route path="/forms/pro/forms" component={FormsPagePro} />
         <Route path="/forms/pro/validation" component={ValidationPagePro} />

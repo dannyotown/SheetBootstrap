@@ -15,7 +15,7 @@ class InputGroup extends React.Component {
       inputs,
       inputType,
       inputValue,
-      inputPlaceholder,
+      placeholder,
       label,
       material,
       prepend,
@@ -63,7 +63,7 @@ class InputGroup extends React.Component {
             id={inputID}
             value={inputValue}
             name={inputName}
-            placeholder={inputPlaceholder}
+            placeholder={placeholder}
           />
         )}
         {append && (
@@ -94,7 +94,7 @@ InputGroup.propTypes = {
   inputTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   inputType: PropTypes.string,
   inputValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  inputPlaceholder: PropTypes.string,
+  placeholder: PropTypes.string,
   material: PropTypes.bool,
   prepend: PropTypes.any,
   prependClassName: PropTypes.string,
