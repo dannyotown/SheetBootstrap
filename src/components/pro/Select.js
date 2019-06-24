@@ -171,7 +171,7 @@ class Select extends React.Component {
       let options = [...prevState.options];
       const optionIndex = options.findIndex(option => option.value === value);
 
-      this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
+      options[optionIndex].checked = !options[optionIndex].checked;
 
       return this.computeValuesAndText(options);
     });
