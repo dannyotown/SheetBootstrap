@@ -71,9 +71,142 @@ class SelectPage extends Component {
           href="https://mdbootstrap.com/docs/react/forms/select/"
         />
 
-        <h4 className="my-4 indigo-text">
-          <strong>Basic example</strong>
-        </h4>
+        <h2 className="text-center my-5">Controlled Select</h2>
+
+        <h4 className="mt-4 deep-default-text">Basic example</h4>
+        <MDBRow>
+          <MDBCol md="6">
+            <MDBSelect
+              color="secondary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              label="Basic example"
+              labelClass="labelBg"
+            />
+          </MDBCol>
+        </MDBRow>
+
+        <h4 className="mt-4 deep-default-text">Basic outline example</h4>
+        <MDBRow>
+          <MDBCol md="6">
+            <MDBSelect
+              outline
+              color="secondary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              label="Basic outline example"
+              labelClass="labelBg"
+            />
+          </MDBCol>
+        </MDBRow>
+
+        <h4 className="mt-4 deep-default-text">Search enabled</h4>
+        <MDBRow>
+          <MDBCol md="6">
+            <MDBSelect
+              search
+              color="secondary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              label="Search enabled"
+              labelClass="labelBg"
+            />
+          </MDBCol>
+        </MDBRow>
+
+        <h4 className="mt-4 deep-default-text">Multiple select</h4>
+        <MDBRow>
+          <MDBCol md="6">
+            <MDBSelect
+              search
+              multiple
+              color="secondary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              label="Multiple select"
+              labelClass="labelBg"
+            />
+          </MDBCol>
+        </MDBRow>
+
+        <h4 className="mt-4 deep-default-text">Colorful select</h4>
+        <MDBRow>
+          <MDBCol md="6">
+            <MDBSelect
+              search
+              multiple
+              color="secondary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              label="Colorful select"
+              labelClass="labelBg"
+            />
+          </MDBCol>
+        </MDBRow>
+
+        <h4 className="mt-4 deep-default-text">Select All option</h4>
+        <MDBRow>
+          <MDBCol md="6">
+            <MDBSelect
+              selectAll
+              search
+              multiple
+              color="secondary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              label="Select All option"
+              labelClass="labelBg"
+            />
+          </MDBCol>
+        </MDBRow>
+
+        <h4 className="mt-4 deep-default-text">Without label</h4>
+        <MDBRow>
+          <MDBCol md="6">
+            <MDBSelect
+              outline
+              search
+              multiple
+              color="secondary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.options}
+              selected="Choose your option"
+            />
+          </MDBCol>
+        </MDBRow>
+
+        <h4 className="mt-4 deep-default-text">With required property</h4>
+        <MDBRow>
+          <MDBCol md="6">
+            <form onSubmit={this.onSubmit}>
+              <MDBSelect
+                selectAll
+                search
+                multiple
+                color="primary"
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.options}
+                label="With required property"
+                required
+              />
+              <MDBBtn type="submit" color="primary">
+                Submit
+              </MDBBtn>
+            </form>
+          </MDBCol>
+        </MDBRow>
+
+        <h2 className="text-center my-5">Uncontrolled Select</h2>
+
+        <h4 className="mt-4 indigo-text">Basic example</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -94,9 +227,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="my-4 indigo-text">
-          <strong>Basic outline example</strong>
-        </h4>
+        <h4 className="mt-4 indigo-text">Basic outline example</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -119,9 +250,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="my-4 teal-text">
-          <strong>Multiple select</strong>
-        </h4>
+        <h4 className="mt-4 teal-text">Multiple select</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -153,9 +282,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="my-4 deep-orange-text">
-          <strong>Colorful select</strong>
-        </h4>
+        <h4 className="mt-4 deep-orange-text">Colorful select</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -186,9 +313,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="my-4 blue-grey-text">
-          <strong>MDBSelect with icons</strong>
-        </h4>
+        <h4 className="mt-4 blue-grey-text">MDBSelect with icons</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect getValue={this.getValueOfSelect} label="Example label">
@@ -218,9 +343,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="my-4 deep-purple-text">
-          <strong>Options groups</strong>
-        </h4>
+        <h4 className="mt-4 deep-purple-text">Options groups</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect getValue={this.getValueOfSelect} label="Example label">
@@ -237,70 +360,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="my-4 deep-default-text">
-          <strong>MDBSelect without markup</strong>
-        </h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              selectAll
-              search
-              multiple
-              color="primary"
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.options}
-              selected="Choose option"
-              label="MDBSelect with Objects"
-            />
-          </MDBCol>
-          <MDBCol md="6">
-            <MDBBtn onClick={this.remove}>Remove option</MDBBtn>
-          </MDBCol>
-        </MDBRow>
-
-        <h4 className="my-4 deep-default-text">
-          <strong>Outline MDBSelect without markup</strong>
-        </h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              outline
-              search
-              multiple
-              color="secondary"
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.options}
-              label="Outline select"
-              labelClass="labelBg"
-            />
-          </MDBCol>
-        </MDBRow>
-
-        <h4 className="my-4 deep-default-text">
-          <strong>MDBSelect with required property</strong>
-        </h4>
-        <MDBRow>
-          <MDBCol md="6" style={{ marginBottom: "250px" }}>
-            <form onSubmit={this.onSubmit}>
-              <MDBSelect
-                selectAll
-                search
-                multiple
-                color="primary"
-                getValue={this.getValueOfSelect}
-                getTextContent={this.getValueOfSelect}
-                options={this.state.options}
-                label="MDBSelect with Objects"
-                required
-              />
-              <MDBBtn type="submit" color="primary">
-                Submit
-              </MDBBtn>
-            </form>
-          </MDBCol>
-        </MDBRow>
+        <div style={{ marginTop: "250px" }} />
       </MDBContainer>
     );
   }
