@@ -85,6 +85,10 @@ class Select extends React.Component {
     this.closeDropdowns();
     e.target.nextElementSibling &&
       e.target.nextElementSibling.classList.add("fadeIn");
+
+      if (e.target.nextElementSibling && !this.props.outline) {
+        e.target.nextElementSibling.style.top = "2.7rem";
+      }
   };
 
   closeDropdowns = () => {
