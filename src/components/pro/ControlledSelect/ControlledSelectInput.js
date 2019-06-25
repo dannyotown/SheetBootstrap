@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const ControlledSelectInput = React.forwardRef(
-  ({ value, required }, inputRef) => {
+  ({ value, required }, inputRef) => {    
     return (
       <input
         type="text"
@@ -11,6 +11,7 @@ const ControlledSelectInput = React.forwardRef(
         value={value}
         onChange={() => {}}
         className="select-dropdown"
+        onFocus={(e) => e.target.style.caretColor = "transparent"}
       />
     );
   }
