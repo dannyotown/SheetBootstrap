@@ -7,6 +7,7 @@ class InputGroup extends React.Component {
     const {
       append,
       appendClassName,
+      ariaLabel,
       className,
       children,
       inputClassName,
@@ -43,7 +44,11 @@ class InputGroup extends React.Component {
 
     const appendClassNames = classNames("input-group-append", appendClassName);
 
-    const textClassNames = classNames("input-group-text", textClassName);
+    const textClassNames = classNames(
+      "input-group-text",
+      material && "md-addon",
+      textClassName
+    );
 
     return (
       <Tag {...attributes} className={classes}>
@@ -64,6 +69,7 @@ class InputGroup extends React.Component {
             value={inputValue}
             name={inputName}
             placeholder={placeholder}
+            aria-label={ariaLabel}
           />
         )}
         {append && (
@@ -82,7 +88,7 @@ class InputGroup extends React.Component {
 }
 
 InputGroup.propTypes = {
-  "aria-label": PropTypes.string,
+  ariaLabel: PropTypes.string,
   append: PropTypes.any,
   appendClassNames: PropTypes.string,
   children: PropTypes.node,
@@ -100,7 +106,7 @@ InputGroup.propTypes = {
   prependClassName: PropTypes.string,
   size: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  textClassName: PropTypes.string,
+  textClassName: PropTypes.string
 };
 
 InputGroup.defaultProps = {
