@@ -30,19 +30,20 @@ class Input extends React.Component {
     return null;
   }
 
-  onBlur = (event) => {
+  onBlur = event => {
     event.stopPropagation();
     this.setState({ isFocused: false });
     this.props.onBlur && this.props.onBlur(event);
-  }
+  };
 
-  onFocus = (event) => {
+  onFocus = event => {
     event.stopPropagation();
+    // if (this.props.type == "checkbox" || this.props.type == "radio") return;
     this.setState({ isFocused: true });
     this.props.onFocus && this.props.onFocus(event);
-  }
+  };
 
-  onChange = (event) => {
+  onChange = event => {
     event.stopPropagation();
     if (this.props.type !== "checkbox" && this.props.type !== "radio") {
       this.setState({
@@ -53,9 +54,9 @@ class Input extends React.Component {
 
     this.props.onChange && this.props.onChange(event);
     this.props.getValue && this.props.getValue(event.target.value);
-  }
+  };
 
-  onInput = (event) => {
+  onInput = event => {
     event.stopPropagation();
     if (this.props.type !== "checkbox" && this.props.type !== "radio") {
       this.setState({
@@ -65,11 +66,11 @@ class Input extends React.Component {
     }
 
     this.props.onInput && this.props.onInput(event);
-  }
+  };
 
   setFocus = () => {
     this.inputElementRef.current.focus();
-  }
+  };
 
   render() {
     const {
@@ -105,15 +106,14 @@ class Input extends React.Component {
       ...attributes
     } = this.props;
 
-    let isNotEmpty = !!this.state.innerValue || !!hint || this.state.isFocused;
+    let isNotEmpty = ( !!this.state.innerValue || !!hint || this.state.isFocused ) && (type !== "checkbox" && type !== "radio");
     let Tag = "";
     let formControlClass = "";
 
     if (type === "textarea") {
       formControlClass = outline ? "form-control" : "md-textarea form-control";
       Tag = "textarea";
-    }
-    else {
+    } else {
       formControlClass = "form-control";
       Tag = "input";
       attributes.type = type;
@@ -133,11 +133,15 @@ class Input extends React.Component {
     );
 
     const containerClassFix = classNames(
-      type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form",
+      type === "checkbox" || type === "radio"
+        ? typeof label === "boolean" && label
+          ? "d-flex"
+          : "form-check my-3"
+        : "md-form",
       group ? "form-group" : false,
       size ? `form-${size}` : false,
-      outline && 'md-outline',
-      background && 'md-bg',
+      outline && "md-outline",
+      background && "md-bg",
       containerClass
     );
 
@@ -146,19 +150,26 @@ class Input extends React.Component {
       iconClass,
       "prefix"
     );
-
     const labelClassFix = classNames(
       isNotEmpty ? "active" : false,
       disabled ? "disabled" : false,
-      type === "checkbox" ? "form-check-label mr-5" : false,
-      type === "radio" ? "form-check-label mr-5" : false,
+      type === "checkbox"
+        ? typeof label === "boolean" && label
+          ? "form-check-label"
+          : "form-check-label mr-5"
+        : false,
+      type === "radio"
+        ? typeof label === "boolean" && label
+          ? "form-check-label"
+          : "form-check-label mr-5"
+        : false,
       labelClass
     );
-
+    
+    
     return (
       <div className={containerClassFix}>
-        {
-          icon &&
+        {icon && (
           <Fa
             icon={icon}
             size={iconSize}
@@ -168,7 +179,7 @@ class Input extends React.Component {
             className={iconClassFix}
             onClick={this.setFocus}
           />
-        }
+        )}
         <Tag
           {...attributes}
           className={classes}
@@ -181,8 +192,7 @@ class Input extends React.Component {
           onInput={this.onInput}
           onFocus={this.onFocus}
         />
-        {
-          label &&
+        {label && (
           <label
             className={labelClassFix}
             htmlFor={id}
@@ -193,7 +203,7 @@ class Input extends React.Component {
           >
             {label}
           </label>
-        }
+        )}
         {children}
       </div>
     );
@@ -222,7 +232,8 @@ Input.propTypes = {
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-    PropTypes.object
+    PropTypes.object,
+    PropTypes.bool
   ]),
   labelClass: PropTypes.string,
   onBlur: PropTypes.func,

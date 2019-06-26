@@ -46,7 +46,6 @@ const InputGroup = ({
     material && "md-addon",
     textClassName
   );
-
   return (
     <Tag {...attributes} className={classes}>
       {prepend && (
