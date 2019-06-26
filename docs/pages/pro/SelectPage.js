@@ -14,37 +14,55 @@ import "../InputPage.css";
 
 class SelectPage extends Component {
   state = {
-    options: [
-      {
-        checked: false,
-        disabled: false,
-        icon: null,
-        text: "Option One",
-        value: "1"
-      },
-      {
-        checked: false,
-        disabled: false,
-        icon: null,
-        text: "Option Two",
-        value: "2"
-      },
-      {
-        checked: false,
-        disabled: false,
-        icon: null,
-        text: "Option Three",
-        value: "3"
-      },
-      {
-        checked: false,
-        disabled: false,
-        icon: null,
-        text: "Option Four",
-        value: "4"
-      }
-    ]
+    basicOptions: [],
+    basicOutlineOptions:[],
+    searchOptions: [],
+    multipleOptions: [],
+    colorfulOptions: [],
+    selectAllOptions: [],
+    withoutLabelOptions: [],
+    requiredOptions: []
   };
+
+  componentDidMount() {
+    this.setState({
+      basicOptions: this.createOptions(),
+      basicOutlineOptions: this.createOptions(),
+      searchOptions: this.createOptions(),
+      multipleOptions: this.createOptions(),
+      colorfulOptions: this.createOptions(),
+      selectAllOptions: this.createOptions(),
+      withoutLabelOptions: this.createOptions(),
+      requiredOptions: this.createOptions()
+    })
+  }
+
+  createOptions = () => [
+    {
+      checked: false,
+      disabled: false,
+      text: "Option One",
+      value: "1"
+    },
+    {
+      checked: true,
+      disabled: false,
+      text: "Option Two",
+      value: "2"
+    },
+    {
+      checked: false,
+      disabled: false,
+      text: "Option Three",
+      value: "3"
+    },
+    {
+      checked: false,
+      disabled: false,
+      text: "Option Four",
+      value: "4"
+    }
+  ]
 
   // build function for your selects, and pass it as getValue property to reed the select's value
   getValueOfSelect = value => {
@@ -80,7 +98,7 @@ class SelectPage extends Component {
               color="primary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
-              options={this.state.options}
+              options={this.state.basicOptions}
               label="Basic example"
               labelClass="labelBg"
             />
@@ -95,7 +113,7 @@ class SelectPage extends Component {
               color="primary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
-              options={this.state.options}
+              options={this.state.basicOutlineOptions}
               label="Basic outline example"
               labelClass="labelBg"
             />
@@ -110,7 +128,7 @@ class SelectPage extends Component {
               color="primary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
-              options={this.state.options}
+              options={this.state.searchOptions}
               label="Search enabled"
               labelClass="labelBg"
             />
@@ -126,7 +144,7 @@ class SelectPage extends Component {
               color="primary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
-              options={this.state.options}
+              options={this.state.multipleOptions}
               label="Multiple select"
               labelClass="labelBg"
             />
@@ -142,7 +160,7 @@ class SelectPage extends Component {
               color="secondary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
-              options={this.state.options}
+              options={this.state.colorfulOptions}
               label="Colorful select"
               labelClass="labelBg"
             />
@@ -159,7 +177,7 @@ class SelectPage extends Component {
               color="secondary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
-              options={this.state.options}
+              options={this.state.selectAllOptions}
               label="Select All option"
               labelClass="labelBg"
             />
@@ -176,7 +194,7 @@ class SelectPage extends Component {
               color="secondary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
-              options={this.state.options}
+              options={this.state.withoutLabelOptions}
               selected="Choose your option"
             />
           </MDBCol>
@@ -193,7 +211,7 @@ class SelectPage extends Component {
                 color="primary"
                 getValue={this.getValueOfSelect}
                 getTextContent={this.getValueOfSelect}
-                options={this.state.options}
+                options={this.state.requiredOptions}
                 label="With required property"
                 required
               />
