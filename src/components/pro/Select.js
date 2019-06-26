@@ -273,6 +273,18 @@ class Select extends React.Component {
         : (!this.state.isControlledEmpty || this.state.isOpened) && "active text-primary"
     );
 
+    const controlledLabelStyles = {
+      zIndex:
+        this.props.outline &&
+        (!this.state.isControlledEmpty || this.state.isOpened)
+          ? 4
+          : "",
+      transform:
+        this.state.isControlledEmpty && !this.state.isOpened
+          ? "translateY(7px)"
+          : ""
+    };
+
     if (!this.props.children) {
       const controlledValue = this.state.isControlledEmpty
         ? selected && !label
@@ -316,13 +328,7 @@ class Select extends React.Component {
             {label && (
               <label
                 className={labelClasses}
-                style={{
-                  zIndex: 4,
-                  transform:
-                    this.state.isControlledEmpty && !this.state.isOpened
-                      ? "translateY(7px)"
-                      : ""
-                }}
+                style={controlledLabelStyles}
               >
                 {label}
               </label>
