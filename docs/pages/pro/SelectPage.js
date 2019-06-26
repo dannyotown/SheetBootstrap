@@ -77,7 +77,7 @@ class SelectPage extends Component {
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
-              color="secondary"
+              color="primary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
               options={this.state.options}
@@ -92,7 +92,7 @@ class SelectPage extends Component {
           <MDBCol md="6">
             <MDBSelect
               outline
-              color="secondary"
+              color="primary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
               options={this.state.options}
@@ -107,7 +107,7 @@ class SelectPage extends Component {
           <MDBCol md="6">
             <MDBSelect
               search
-              color="secondary"
+              color="primary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
               options={this.state.options}
@@ -123,7 +123,7 @@ class SelectPage extends Component {
             <MDBSelect
               search
               multiple
-              color="secondary"
+              color="primary"
               getValue={this.getValueOfSelect}
               getTextContent={this.getValueOfSelect}
               options={this.state.options}
