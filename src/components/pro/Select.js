@@ -14,6 +14,7 @@ class Select extends React.Component {
       selectedValue: "",
       isEmpty: true,
       isControlledEmpty: true,
+      isOpened: false,
       selectValue: [],
       selectTextContent: "",
       options: this.props.options || [],
@@ -73,6 +74,9 @@ class Select extends React.Component {
   // close all select dropdown (unless it has multiple property or search input)
   // open nieghbour ul of clicked input
   onDocumentClick = e => {
+
+    this.setState({ isOpened: false })
+
     if (
       e.target.dataset.multiple === "true" ||
       e.target.dataset.search === "true" ||
@@ -86,8 +90,15 @@ class Select extends React.Component {
     e.target.nextElementSibling &&
       e.target.nextElementSibling.classList.add("fadeIn");
 
-      if (e.target.nextElementSibling && !this.props.outline) {
-        e.target.nextElementSibling.style.top = "2.7rem";
+      if (e.target.nextElementSibling){
+
+        if (e.target.nextElementSibling.classList.contains("select-dropdown")){
+          if (e.target.nextElementSibling.classList.contains("fadeIn")){
+            this.setState({ isOpened: true })
+          }else{
+            this.setState({ isOpened: false })
+          }
+        }
       }
   };
 
@@ -258,8 +269,8 @@ class Select extends React.Component {
       !outline && "mdb-main-label",
       labelClass,
       this.props.children
-        ? !this.state.isEmpty && "active text-primary"
-        : !this.state.isControlledEmpty && "active text-primary"
+        ? (!this.state.isEmpty || this.state.isOpened) && "active text-primary"
+        : (!this.state.isControlledEmpty || this.state.isOpened) && "active text-primary"
     );
 
     if (!this.props.children) {
@@ -299,7 +310,7 @@ class Select extends React.Component {
               focusBackgroundColor={focusBackgroundColor}
             />
             {label && (
-              <label className={labelClasses} style={{ zIndex: 4, transform: this.state.isControlledEmpty ? "translateY(7px)" : "" }}>
+              <label className={labelClasses} style={{ zIndex: 4, transform: this.state.isControlledEmpty && !this.state.isOpened ? "translateY(7px)" : "" }}>
                 {label}
               </label>
             )}
