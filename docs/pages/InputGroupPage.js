@@ -44,10 +44,10 @@ class InputGroupPage extends React.Component {
             <MDBContainer className="border p-3">
               <MDBInputGroup
                 className="mb-3"
-                prepend={"@"}
+                prepend="@"
                 // placeholder="Bla foo"
               />
-              <MDBInputGroup className="mb-3" append={"@example.com"} />
+              <MDBInputGroup className="mb-3" append="@example.com" />
               <label htmlFor="basic-url">Your vanity URL</label>
               <MDBInputGroup
                 className="mb-3"
@@ -66,14 +66,12 @@ class InputGroupPage extends React.Component {
               <MDBInputGroup
                 material
                 className="mb-3 mt-0"
-                prepend={"@"}
-                textClassName="md-addon"
+                prepend="@"
               />
               <MDBInputGroup
                 material
                 className="mb-3 mt-0"
-                append={"@example.com"}
-                textClassName="md-addon"
+                append="@example.com"
               />
               <label htmlFor="basic-url" className="mb-0">
                 Your vanity URL
@@ -83,14 +81,12 @@ class InputGroupPage extends React.Component {
                 className="mb-3 mt-0"
                 prepend="https://example.com/users/"
                 inputID="basic-url"
-                textClassName="md-addon pl-0"
               />
               <MDBInputGroup
                 material
                 className="mb-3"
                 prepend="$"
                 append=".00"
-                textClassName="md-addon"
               />
               <MDBInputGroup
                 material
@@ -98,7 +94,6 @@ class InputGroupPage extends React.Component {
                 prepend="With textarea"
                 inputTag="textarea"
                 inputType="text"
-                textClassName="md-addon"
               />
             </MDBContainer>
           </MDBCol>
@@ -130,20 +125,17 @@ class InputGroupPage extends React.Component {
             <MDBContainer className="border p-3">
               <MDBInputGroup
                 material
-                textClassName="md-addon"
                 className="mb-0 mt-0"
                 prepend="Small"
                 size="sm"
               />
               <MDBInputGroup
                 material
-                textClassName="md-addon"
                 className="mb-3 mt-1"
                 prepend="Default"
               />
               <MDBInputGroup
                 material
-                textClassName="md-addon"
                 className="mb-0 mt-1"
                 prepend="Large"
                 size="lg"
@@ -175,7 +167,6 @@ class InputGroupPage extends React.Component {
                 material
                 className="m-0"
                 prepend="First and last name"
-                textClassName="md-addon"
                 inputs={
                   <>
                     <input
@@ -357,14 +348,14 @@ class InputGroupPage extends React.Component {
                     <MDBBtn
                       color="info"
                       size="md"
-                      className="m-0 px-3 py-2 z-depth-0"
+                      className="m-0 px-3 py-2 z-depth-1"
                     >
                       BUTTON
                     </MDBBtn>
                     <MDBBtn
                       color="info"
                       size="md"
-                      className="m-0 px-3 py-2 z-depth-0"
+                      className="m-0 px-3 py-2 z-depth-1"
                     >
                       BUTTON
                     </MDBBtn>
@@ -380,14 +371,14 @@ class InputGroupPage extends React.Component {
                     <MDBBtn
                       color="primary"
                       size="md"
-                      className="m-0 px-3 py-2 z-depth-0"
+                      className="m-0 px-3 py-2 z-depth-1"
                     >
                       BUTTON
                     </MDBBtn>
                     <MDBBtn
                       color="primary"
                       size="md"
-                      className="m-0 px-3 py-2 z-depth-0"
+                      className="m-0 px-3 py-2 z-depth-1"
                     >
                       BUTTON
                     </MDBBtn>

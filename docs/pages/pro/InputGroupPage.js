@@ -29,6 +29,7 @@ class InputGroupPage extends React.Component {
                 material
                 className="mb-3 mt-0"
                 placeholder="Product name"
+                ariaLabel="Product name"
                 prepend={
                   <MDBBtn
                     rounded
@@ -298,7 +299,7 @@ class InputGroupPage extends React.Component {
                       <MDBDropdownToggle
                         color="elegant"
                         size="md"
-                        className="m-0 px-2 z-depth-0 rounded-0"
+                        className="m-0 px-2 z-depth-1 rounded-0"
                       >
                         <MDBIcon icon="caret-down" />
                       </MDBDropdownToggle>
@@ -330,7 +331,7 @@ class InputGroupPage extends React.Component {
                       <MDBDropdownToggle
                         color="ins"
                         size="md"
-                        className="m-0 px-2 z-depth-0 rounded-0"
+                        className="m-0 px-2 z-depth-1 rounded-0"
                       >
                         <MDBIcon icon="caret-down" />
                       </MDBDropdownToggle>
