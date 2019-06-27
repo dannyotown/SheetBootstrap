@@ -1,43 +1,43 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { MDBInput } from "./Input";
 
 const InputGroup = ({
   append,
   appendClassName,
   ariaLabel,
-  className,
   children,
-  inputClassName,
-  inputID,
-  inputName,
+  className,
+  containerClassName,
+  containerId,
+  hint,
+  id,
   inputs,
-  inputType,
-  inputValue,
-  placeholder,
+  inputTag,
   label,
+  labelClassName,
   material,
+  name,
   prepend,
   prependClassName,
   size,
-  textClassName,
   tag: Tag,
-  inputTag: InputTag,
+  textClassName,
+  type,
+  value,
   ...attributes
 }) => {
-  const classes = classNames(
+  const containerClassNames = classNames(
     "input-group",
     material && "md-form",
     size && `input-group-${size}`,
-    className
+    containerClassName
   );
 
-  const inputClassNames = classNames("form-control", inputClassName);
+  const inputClassNames = classNames("form-control", className);
 
-  const prependClassNames = classNames(
-    "input-group-prepend",
-    prependClassName
-  );
+  const prependClassNames = classNames("input-group-prepend", prependClassName);
 
   const appendClassNames = classNames("input-group-append", appendClassName);
 
@@ -47,68 +47,75 @@ const InputGroup = ({
     textClassName
   );
   return (
-    <Tag {...attributes} className={classes}>
-      {prepend && (
-        <div className={prependClassNames}>
-          {typeof prepend === "string" ? (
-            <span className={textClassNames}>{prepend}</span>
-          ) : (
-            prepend
-          )}
-        </div>
+    <>
+      {label && (
+        <label htmlFor={id} className={labelClassName}>{label}</label>
       )}
-      {inputs || (
-        <InputTag
-          type={inputType}
-          className={inputClassNames}
-          id={inputID}
-          value={inputValue}
-          name={inputName}
-          placeholder={placeholder}
-          aria-label={ariaLabel}
-        />
-      )}
-      {append && (
-        <div className={appendClassNames}>
-          {typeof append === "string" ? (
-            <span className={textClassNames}>{append}</span>
-          ) : (
-            append
-          )}
-        </div>
-      )}
-      {children}
-    </Tag>
+      <Tag {...attributes} className={containerClassNames} id={containerId}>
+        {prepend && (
+          <div className={prependClassNames}>
+            {typeof prepend === "string" ? (
+              <span className={textClassNames}>{prepend}</span>
+            ) : (
+              prepend
+            )}
+          </div>
+        )}
+        {inputs || (
+          <MDBInput
+            noTag
+            type={type}
+            className={inputClassNames}
+            id={id}
+            value={value}
+            name={name}
+            hint={hint}
+            aria-label={ariaLabel}
+          />
+        )}
+        {append && (
+          <div className={appendClassNames}>
+            {typeof append === "string" ? (
+              <span className={textClassNames}>{append}</span>
+            ) : (
+              append
+            )}
+          </div>
+        )}
+        {children}
+      </Tag>
+    </>
   );
-
-}
+};
 
 InputGroup.propTypes = {
-  ariaLabel: PropTypes.string,
   append: PropTypes.any,
   appendClassNames: PropTypes.string,
+  ariaLabel: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
-  inputClassName: PropTypes.string,
-  inputID: PropTypes.string,
-  inputName: PropTypes.string,
+  containerClassName: PropTypes.string,
+  containerId: PropTypes.string,
+  hint: PropTypes.string,
+  id: PropTypes.string,
   inputs: PropTypes.node,
   inputTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  inputType: PropTypes.string,
-  inputValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  labelClassName: PropTypes.string,
   material: PropTypes.bool,
+  name: PropTypes.string,
   prepend: PropTypes.any,
   prependClassName: PropTypes.string,
   size: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  textClassName: PropTypes.string
+  textClassName: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 InputGroup.defaultProps = {
   tag: "div",
-  inputTag: "input",
-  inputType: "text"
+  type: "text"
 };
 
 export default InputGroup;

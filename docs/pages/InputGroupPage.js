@@ -9,6 +9,7 @@ import {
   MDBDropdownToggle,
   MDBIcon,
   MDBCol,
+  MDBInput,
   MDBRow
 } from "mdbreact";
 import DocsLink from "../components/docsLink";
@@ -42,20 +43,16 @@ class InputGroupPage extends React.Component {
             <h3 className="mb-3">Default input groups</h3>
             <p>Default styling for Bootstrap Input Group component</p>
             <MDBContainer className="border p-3">
+              <MDBInputGroup containerClassName="mb-3" prepend="@" hint="Bla foo" />
+              <MDBInputGroup containerClassName="mb-3" append="@example.com" />
               <MDBInputGroup
-                className="mb-3"
-                prepend="@"
-                // placeholder="Bla foo"
-              />
-              <MDBInputGroup className="mb-3" append="@example.com" />
-              <label htmlFor="basic-url">Your vanity URL</label>
-              <MDBInputGroup
-                className="mb-3"
+                label="Your vanity URL"
+                containerClassName="mb-3"
                 prepend="https://example.com/users/"
-                inputID="basic-url"
+                id="basic-url"
               />
-              <MDBInputGroup className="mb-3" prepend="$" append=".00" />
-              <MDBInputGroup prepend="With textarea" inputTag="textarea" />
+              <MDBInputGroup containerClassName="mb-3" prepend="$" append=".00" />
+              <MDBInputGroup prepend="With textarea" type="textarea" />
             </MDBContainer>
           </MDBCol>
 
@@ -63,28 +60,23 @@ class InputGroupPage extends React.Component {
             <h3 className="mb-3">Material input groups</h3>
             <p>Material Design styling for Bootstrap Input Group component</p>
             <MDBContainer className="border p-3">
+              <MDBInputGroup material containerClassName="mb-3 mt-0" prepend="@" />
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
-                prepend="@"
-              />
-              <MDBInputGroup
-                material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 append="@example.com"
               />
-              <label htmlFor="basic-url" className="mb-0">
-                Your vanity URL
-              </label>
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                label="Your vanity URL"
+                labelClassName="mb-0 ml-2"
+                containerClassName="mb-3 mt-0"
                 prepend="https://example.com/users/"
-                inputID="basic-url"
+                id="basic-url-material"
               />
               <MDBInputGroup
                 material
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend="$"
                 append=".00"
               />
@@ -92,8 +84,7 @@ class InputGroupPage extends React.Component {
                 material
                 className="mb-0"
                 prepend="With textarea"
-                inputTag="textarea"
-                inputType="text"
+                type="textarea"
               />
             </MDBContainer>
           </MDBCol>
@@ -108,7 +99,7 @@ class InputGroupPage extends React.Component {
         <MDBRow>
           <MDBCol md="12" tag="section">
             <MDBContainer className="border p-3">
-              <MDBInputGroup className="flex-nowrap mb-3" prepend="@" />
+              <MDBInputGroup containerClassName="flex-nowrap mb-3" prepend="@" />
             </MDBContainer>
           </MDBCol>
         </MDBRow>
@@ -116,27 +107,27 @@ class InputGroupPage extends React.Component {
         <MDBRow>
           <MDBCol md="6" tag="section">
             <MDBContainer className="border p-3">
-              <MDBInputGroup className="mb-3" prepend="Small" size="sm" />
-              <MDBInputGroup className="mb-3" prepend="Default" />
-              <MDBInputGroup className="mb-3" prepend="Large" size="lg" />
+              <MDBInputGroup containerClassName="mb-3" prepend="Small" size="sm" />
+              <MDBInputGroup containerClassName="mb-3" prepend="Default" />
+              <MDBInputGroup containerClassName="mb-3" prepend="Large" size="lg" />
             </MDBContainer>
           </MDBCol>
           <MDBCol md="6" tag="section">
             <MDBContainer className="border p-3">
               <MDBInputGroup
                 material
-                className="mb-0 mt-0"
+                containerClassName="mb-2 mt-0"
                 prepend="Small"
                 size="sm"
               />
               <MDBInputGroup
                 material
-                className="mb-3 mt-1"
+                containerClassName="mb-2 mt-0"
                 prepend="Default"
               />
               <MDBInputGroup
                 material
-                className="mb-0 mt-1"
+                containerClassName="mb-2 mt-0"
                 prepend="Large"
                 size="lg"
               />
@@ -153,8 +144,8 @@ class InputGroupPage extends React.Component {
                 prepend="First and last name"
                 inputs={
                   <>
-                    <input type="text" className="form-control" />
-                    <input type="text" className="form-control" />
+                    <MDBInput noTag type="text" />
+                    <MDBInput noTag type="text" />
                   </>
                 }
               />
@@ -162,23 +153,14 @@ class InputGroupPage extends React.Component {
           </MDBCol>
           <MDBCol md="6" tag="section">
             <MDBContainer className="border p-3">
-              
               <MDBInputGroup
                 material
-                className="m-0"
+                containerClassName="m-0"
                 prepend="First and last name"
                 inputs={
                   <>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Type sth"
-                    />
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Type sth"
-                    />
+                    <MDBInput noTag type="text" hint="Type sth" />
+                    <MDBInput noTag type="text" hint="Type sth" />
                   </>
                 }
               />
@@ -191,9 +173,8 @@ class InputGroupPage extends React.Component {
         <MDBRow>
           <MDBCol md="6" tag="section">
             <MDBContainer className="border p-3">
-              
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <>
                     <span className="input-group-text">$</span>
@@ -214,7 +195,7 @@ class InputGroupPage extends React.Component {
           <MDBCol md="6" tag="section">
             <MDBContainer className="border p-3">
               <MDBInputGroup
-                className="mt-0 mb-3"
+                containerClassName="mt-0 mb-3"
                 material
                 prepend={
                   <>
@@ -224,7 +205,7 @@ class InputGroupPage extends React.Component {
                 }
               />
               <MDBInputGroup
-                className="my-0"
+                containerClassName="my-0"
                 material
                 append={
                   <>
@@ -243,7 +224,7 @@ class InputGroupPage extends React.Component {
           <MDBCol md="6" tag="section">
             <MDBContainer className="border p-3">
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <MDBBtn
                     color="primary"
@@ -257,7 +238,7 @@ class InputGroupPage extends React.Component {
               />
 
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 append={
                   <MDBBtn outline size="md" className="m-0 px-3 py-2 z-depth-0">
                     BUTTON
@@ -266,7 +247,7 @@ class InputGroupPage extends React.Component {
               />
 
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <>
                     <MDBBtn
@@ -290,7 +271,7 @@ class InputGroupPage extends React.Component {
               />
 
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 append={
                   <>
                     <MDBBtn
@@ -318,7 +299,7 @@ class InputGroupPage extends React.Component {
             <MDBContainer className="border p-3">
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 prepend={
                   <MDBBtn size="md" className="m-0 px-3 py-2 z-depth-0">
                     BUTTON
@@ -328,7 +309,7 @@ class InputGroupPage extends React.Component {
 
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 append={
                   <MDBBtn
                     color="secondary"
@@ -342,7 +323,7 @@ class InputGroupPage extends React.Component {
 
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 prepend={
                   <>
                     <MDBBtn
@@ -365,7 +346,7 @@ class InputGroupPage extends React.Component {
 
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-4 mt-0"
                 append={
                   <>
                     <MDBBtn
@@ -394,7 +375,7 @@ class InputGroupPage extends React.Component {
           <MDBCol tag="section">
             <MDBContainer className="border p-3">
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <MDBDropdown>
                     <MDBDropdownToggle
@@ -405,9 +386,7 @@ class InputGroupPage extends React.Component {
                       Dropdown <MDBIcon icon="caret-down" className="ml-1" />
                     </MDBDropdownToggle>
                     <MDBDropdownMenu color="white">
-                      <MDBDropdownItem>
-                        Action
-                      </MDBDropdownItem>
+                      <MDBDropdownItem>Action</MDBDropdownItem>
                       <MDBDropdownItem>Another Action</MDBDropdownItem>
                       <MDBDropdownItem>Something else here</MDBDropdownItem>
                       <MDBDropdownItem divider />
@@ -418,7 +397,7 @@ class InputGroupPage extends React.Component {
               />
 
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 append={
                   <MDBDropdown>
                     <MDBDropdownToggle
@@ -447,7 +426,7 @@ class InputGroupPage extends React.Component {
           <MDBCol tag="section">
             <MDBContainer className="border p-3">
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <>
                     <MDBBtn
@@ -480,7 +459,7 @@ class InputGroupPage extends React.Component {
               />
 
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 append={
                   <>
                     <MDBBtn
@@ -521,7 +500,7 @@ class InputGroupPage extends React.Component {
           <MDBCol tag="section">
             <MDBContainer className="border p-3">
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend="Options"
                 inputs={
                   <select className="browser-default custom-select">
@@ -534,7 +513,7 @@ class InputGroupPage extends React.Component {
               />
 
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 append="Options"
                 inputs={
                   <select className="browser-default custom-select">
@@ -547,7 +526,7 @@ class InputGroupPage extends React.Component {
               />
 
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <MDBBtn
                     color="mdb-color"
@@ -569,7 +548,7 @@ class InputGroupPage extends React.Component {
               />
 
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 append={
                   <MDBBtn
                     color="mdb-color"
@@ -615,7 +594,7 @@ class InputGroupPage extends React.Component {
                     </label>
                   </div>
                 }
-                className="mb-3"
+                containerClassName="mb-3"
               />
 
               <MDBInputGroup
@@ -635,7 +614,7 @@ class InputGroupPage extends React.Component {
                     </label>
                   </div>
                 }
-                className="mb-3"
+                containerClassName="mb-3"
               />
 
               <MDBInputGroup
@@ -664,7 +643,7 @@ class InputGroupPage extends React.Component {
                     </label>
                   </div>
                 }
-                className="mb-3"
+                containerClassName="mb-3"
               />
 
               <MDBInputGroup
@@ -693,7 +672,7 @@ class InputGroupPage extends React.Component {
                     </label>
                   </div>
                 }
-                className="mb-3"
+                containerClassName="mb-3"
               />
             </MDBContainer>
           </MDBCol>
@@ -706,13 +685,13 @@ class InputGroupPage extends React.Component {
             <p>Default styling for Bootstrap Input Group component</p>
             <MDBContainer className="border p-3">
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend="@"
                 textClassName="amber lighten-3"
-                placeholder="Username"
+                hint="Username"
               />
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <>
                     <span className="input-group-text red lighten-3">$</span>
@@ -721,26 +700,26 @@ class InputGroupPage extends React.Component {
                 }
               />
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend="$"
                 append=".00"
                 textClassName="lime lighten-2"
-                inputClassName="border-warning"
+                className="border-warning"
               />
 
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 append="@example.com"
                 textClassName="purple lighten-3"
-                placeholder="Recipient's Username"
+                hint="Recipient's Username"
               />
 
-              <label htmlFor="basic-url2">Your vanity URL</label>
               <MDBInputGroup
-                className="mb-3"
+                label="Your vanity URL"
+                containerClassName="mb-3"
                 prepend="https://example.com/users/"
                 textClassName="blue lighten-3"
-                inputID="basic-url2"
+                id="basic-url2"
               />
             </MDBContainer>
           </MDBCol>

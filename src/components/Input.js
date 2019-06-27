@@ -38,7 +38,6 @@ class Input extends React.Component {
 
   onFocus = event => {
     event.stopPropagation();
-    // if (this.props.type == "checkbox" || this.props.type == "radio") return;
     this.setState({ isFocused: true });
     this.props.onFocus && this.props.onFocus(event);
   };
@@ -93,12 +92,12 @@ class Input extends React.Component {
       iconSize,
       id,
       inputRef,
+      noTag,
       outline,
       label,
       labelClass,
       size,
       success,
-      tag,
       type,
       validate,
       value,
@@ -106,7 +105,9 @@ class Input extends React.Component {
       ...attributes
     } = this.props;
 
-    let isNotEmpty = ( !!this.state.innerValue || !!hint || this.state.isFocused ) && (type !== "checkbox" && type !== "radio");
+    let isNotEmpty =
+      (!!this.state.innerValue || !!hint || this.state.isFocused) &&
+      (type !== "checkbox" && type !== "radio");
     let Tag = "";
     let formControlClass = "";
 
@@ -165,48 +166,54 @@ class Input extends React.Component {
         : false,
       labelClass
     );
-    
-    
-    return (
-      <div className={containerClassFix}>
-        {icon && (
-          <Fa
-            icon={icon}
-            size={iconSize}
-            brand={iconBrand}
-            light={iconLight}
-            regular={iconRegular}
-            className={iconClassFix}
-            onClick={this.setFocus}
-          />
-        )}
-        <Tag
-          {...attributes}
-          className={classes}
-          id={id}
-          placeholder={hint}
-          ref={this.inputElementRef}
-          value={this.state.innerValue}
-          onBlur={this.onBlur}
-          onChange={this.onChange}
-          onInput={this.onInput}
-          onFocus={this.onFocus}
-        />
-        {label && (
-          <label
-            className={labelClassFix}
-            htmlFor={id}
-            data-error={error}
-            data-success={success}
+
+    const returnComponent = () => {
+      return (
+        <>
+          {icon && (
+            <Fa
+              icon={icon}
+              size={iconSize}
+              brand={iconBrand}
+              light={iconLight}
+              regular={iconRegular}
+              className={iconClassFix}
+              onClick={this.setFocus}
+            />
+          )}
+          <Tag
+            {...attributes}
+            className={classes}
             id={id}
-            onClick={this.setFocus}
-          >
-            {label}
-          </label>
-        )}
-        {children}
-      </div>
-    );
+            placeholder={hint}
+            ref={this.inputElementRef}
+            value={this.state.innerValue}
+            onBlur={this.onBlur}
+            onChange={this.onChange}
+            onInput={this.onInput}
+            onFocus={this.onFocus}
+          />
+          {label && (
+            <label
+              className={labelClassFix}
+              htmlFor={id}
+              data-error={error}
+              data-success={success}
+              id={id}
+              onClick={this.setFocus}
+            >
+              {label}
+            </label>
+          )}
+          {children}
+        </>
+      );
+    };
+    if (noTag) {
+      return returnComponent();
+    } else {
+      return <div className={containerClassFix}>{returnComponent()}</div>;
+    }
   }
 }
 
@@ -236,6 +243,7 @@ Input.propTypes = {
     PropTypes.bool
   ]),
   labelClass: PropTypes.string,
+  noTag: PropTypes.bool,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
@@ -243,7 +251,6 @@ Input.propTypes = {
   outline: PropTypes.bool,
   size: PropTypes.string,
   success: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   type: PropTypes.string,
   validate: PropTypes.bool,
   value: PropTypes.string,
@@ -266,12 +273,12 @@ Input.defaultProps = {
   iconRegular: false,
   iconSize: undefined,
   id: undefined,
+  noTag: false,
   outline: false,
   label: "",
   labelClass: "",
   size: "",
   success: "",
-  tag: "input",
   type: "text",
   validate: false,
   valueDefault: ""
