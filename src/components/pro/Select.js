@@ -92,9 +92,13 @@ class Select extends React.Component {
     ) {
       return;
     }
+    
     !e.target.classList.contains('select-dropdown') && this.setIsOpened(false); 
 
     this.closeDropdowns();
+
+    //prevent adding classes to buttons 
+    if (e.target.classList.contains("btn")) return;
 
     e.target.nextElementSibling &&
       e.target.nextElementSibling.classList.add("fadeIn");
