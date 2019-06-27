@@ -15,7 +15,7 @@ import "../InputPage.css";
 class SelectPage extends Component {
   state = {
     basicOptions: [],
-    basicOutlineOptions:[],
+    basicOutlineOptions: [],
     searchOptions: [],
     multipleOptions: [],
     colorfulOptions: [],
@@ -34,7 +34,7 @@ class SelectPage extends Component {
       selectAllOptions: this.createOptions(),
       withoutLabelOptions: this.createOptions(),
       requiredOptions: this.createOptions()
-    })
+    });
   }
 
   createOptions = () => [
@@ -45,7 +45,7 @@ class SelectPage extends Component {
       value: "1"
     },
     {
-      checked: true,
+      checked: false,
       disabled: false,
       text: "Option Two",
       value: "2"
@@ -62,7 +62,7 @@ class SelectPage extends Component {
       text: "Option Four",
       value: "4"
     }
-  ]
+  ];
 
   // build function for your selects, and pass it as getValue property to reed the select's value
   getValueOfSelect = value => {
@@ -200,7 +200,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="mt-4 deep-default-text">With required property</h4>
+         <h4 className="mt-4 deep-default-text">With required property</h4>
         <MDBRow>
           <MDBCol md="6">
             <form onSubmit={this.onSubmit}>
@@ -255,14 +255,14 @@ class SelectPage extends Component {
               outline
               labelClass="labelBg"
             >
-              <MDBSelectInput selected="Choose your option" />
+              <MDBSelectInput />
               <MDBSelectOptions>
                 <MDBSelectOption disabled>Choose your option</MDBSelectOption>
                 <MDBSelectOption>Option nr 1</MDBSelectOption>
                 <MDBSelectOption>Option nr 2</MDBSelectOption>
                 <MDBSelectOption>Option nr 3</MDBSelectOption>
                 <MDBSelectOption>Option nr 4</MDBSelectOption>
-                <MDBSelectOption selected>Option nr 5</MDBSelectOption>
+                <MDBSelectOption>Option nr 5</MDBSelectOption>
               </MDBSelectOptions>
             </MDBSelect>
           </MDBCol>

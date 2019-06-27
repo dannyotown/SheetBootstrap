@@ -76,7 +76,9 @@ class Select extends React.Component {
     this.inputRef.current.removeEventListener("click", this.onInputClick);
   }
 
-  onInputClick = () => this.setState({ isOpened: true });
+  onInputClick = () => this.setIsOpened(true);
+
+  setIsOpened = value => this.setState({ isOpened: value });
 
   // close all select dropdown (unless it has multiple property or search input)
   // open nieghbour ul of clicked input
@@ -89,8 +91,7 @@ class Select extends React.Component {
     ) {
       return;
     }
-
-    e.target !== this.inputRef.current && this.setState({ isOpened: false });
+    !e.target.classList.contains('select-dropdown') && this.setIsOpened(false); 
 
     this.closeDropdowns();
 
@@ -120,7 +121,7 @@ class Select extends React.Component {
     const checkedTexts = checkedOptions.map(opt => opt.text ? opt.text : opt.value);
 
     const selectTextContent = checkedTexts.length ? checkedTexts.join(", ") : this.props.selected;
-    const allChecked = checkedOptions.length === this.state.options.filter(option => !option.disabled).length;
+    const allChecked = checkedOptions.length === options.filter(option => !option.disabled).length;
 
     return {
       isControlledEmpty: !checkedOptions.length,
@@ -269,9 +270,17 @@ class Select extends React.Component {
       !outline && "mdb-main-label",
       labelClass,
       this.props.children
-        ? !this.state.isEmpty && "active text-primary"
+        ? (!this.state.isEmpty || this.state.isOpened) && "active text-primary"
         : (!this.state.isControlledEmpty || this.state.isOpened) && "active text-primary"
     );
+
+    const needToMoveOutline = outline && this.state.isEmpty && !this.state.isOpened;
+
+    const labelStyles = {
+      transform: needToMoveOutline && "translateY(23px)",
+      fontSize: needToMoveOutline && "1rem",
+      fontWeight: needToMoveOutline && "300"
+    };
 
     const controlledLabelStyles = {
       zIndex:
@@ -344,7 +353,8 @@ class Select extends React.Component {
             multiple,
             triggerOptionChange: this.triggerOptionChange,
             label,
-            setSelected: this.setSelected
+            setSelected: this.setSelected,
+            setIsOpened: this.setIsOpened
           }}
         >
           <div
@@ -357,7 +367,7 @@ class Select extends React.Component {
             {children}
           </div>
           {label && (
-            <label className={labelClasses} style={{ zIndex: 4 }}>
+            <label className={labelClasses} style={labelStyles}>
               {label}
             </label>
           )}
