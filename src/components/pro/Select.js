@@ -32,9 +32,9 @@ class Select extends React.Component {
   componentDidMount() {
     document.addEventListener("click", this.onDocumentClick);
 
-    this.inputRef &&
-      this.inputRef.current &&
+    if (this.inputRef && this.inputRef.current) {
       this.inputRef.current.addEventListener("click", this.onInputClick);
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -73,8 +73,10 @@ class Select extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener("click", this.onDocumentClick);
-    this.inputRef &&
-      this.inputRef.current && this.inputRef.current.removeEventListener("click", this.onInputClick);
+
+    if (this.inputRef && this.inputRef.current) {
+      this.inputRef.current.removeEventListener("click", this.onInputClick);
+    }
   }
 
   onInputClick = () => this.setIsOpened(true);
@@ -83,30 +85,31 @@ class Select extends React.Component {
 
   // close all select dropdown (unless it has multiple property or search input)
   // open nieghbour ul of clicked input
-  onDocumentClick = e => {
+  onDocumentClick = ({ target }) => {
+    const { dataset, classList, nextElementSibling } = target;
+
     if (
-      e.target.dataset.multiple === "true" ||
-      e.target.dataset.search === "true" ||
-      e.target.classList.contains("dropdown-content") ||
-      e.target.getAttribute("for") === "selectSearchInput"
+      dataset.multiple === "true" ||
+      dataset.search === "true" ||
+      classList.contains("dropdown-content") ||
+      //prevent adding classes to buttons(was recovered while using Buttons and Select components inside a Form)
+      classList.contains("btn") ||
+      target.getAttribute("for") === "selectSearchInput"
     ) {
       return;
     }
-    
-    !e.target.classList.contains('select-dropdown') && this.setIsOpened(false); 
+
+    !classList.contains("select-dropdown") && this.setIsOpened(false);
 
     this.closeDropdowns();
 
-    //prevent adding classes to buttons 
-    if (e.target.classList.contains("btn")) return;
+    nextElementSibling && nextElementSibling.classList.add("fadeIn");
 
-    e.target.nextElementSibling &&
-      e.target.nextElementSibling.classList.add("fadeIn");
-
-    if (e.target.nextElementSibling && !this.props.outline) {
-      e.target.nextElementSibling.style.top = ".6rem";
+    if (nextElementSibling && !this.props.outline) {
+      nextElementSibling.style.top = ".6rem";
     }
   };
+
 
   closeDropdowns = () => {
     this.changeFocus(null);
