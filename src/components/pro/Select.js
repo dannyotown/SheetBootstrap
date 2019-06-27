@@ -268,46 +268,41 @@ class Select extends React.Component {
       ...attributes
     } = this.props;
 
+    const { isEmpty, isControlledEmpty, isOpened, selectTextContent } = this.state;
+
     const classes = classNames(
       "select-wrapper mdb-select md-form",
-      this.props.color ? "colorful-select dropdown-" + this.props.color : "",
+      color ? "colorful-select dropdown-" + color : "",
       outline ? "md-outline" : className
     );
 
     const labelClasses = classNames(
       !outline && "mdb-main-label",
       labelClass,
-      this.props.children
-        ? (!this.state.isEmpty || this.state.isOpened) && "active text-primary"
-        : (!this.state.isControlledEmpty || this.state.isOpened) && "active text-primary"
+      children
+        ? (!isEmpty || isOpened) && "active text-primary"
+        : (!isControlledEmpty || isOpened) && "active text-primary"
     );
 
-    const needToMoveOutline = outline && this.state.isEmpty && !this.state.isOpened;
+    const needToMoveOutline = outline && isEmpty && !isOpened;
 
-    const labelStyles = {
+    const uncontrolledLabelStyles = {
       transform: needToMoveOutline && "translateY(23px)",
       fontSize: needToMoveOutline && "1rem",
       fontWeight: needToMoveOutline && "300"
     };
 
     const controlledLabelStyles = {
-      zIndex:
-        this.props.outline &&
-        (!this.state.isControlledEmpty || this.state.isOpened)
-          ? 4
-          : "",
-      transform:
-        this.state.isControlledEmpty && !this.state.isOpened
-          ? "translateY(7px)"
-          : ""
+      zIndex: outline && (!isControlledEmpty || isOpened) && 4,
+      transform: isControlledEmpty && !isOpened && "translateY(7px)"
     };
 
-    if (!this.props.children) {
-      const controlledValue = this.state.isControlledEmpty
+    if (!children) {
+      const controlledValue = isControlledEmpty
         ? selected && !label
           ? selected
           : ""
-        : this.state.selectTextContent;
+        : selectTextContent;
 
       return (
         <>
@@ -375,7 +370,7 @@ class Select extends React.Component {
             {children}
           </div>
           {label && (
-            <label className={labelClasses} style={labelStyles}>
+            <label className={labelClasses} style={uncontrolledLabelStyles}>
               {label}
             </label>
           )}
