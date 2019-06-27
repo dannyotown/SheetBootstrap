@@ -91,7 +91,7 @@ class SelectPage extends Component {
 
         <h2 className="text-center my-5">Controlled Select</h2>
 
-        <h4 className="mt-4 deep-default-text">Basic example</h4>
+        <h4 className="mt-4 indigo-text">Basic example</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -105,7 +105,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="mt-4 deep-default-text">Basic outline example</h4>
+        <h4 className="mt-4 indigo-text">Basic outline example</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -120,7 +120,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="mt-4 deep-default-text">Search enabled</h4>
+        <h4 className="mt-4 indigo-text">Search enabled</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -135,7 +135,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="mt-4 deep-default-text">Multiple select</h4>
+        <h4 className="mt-4 indigo-text">Multiple select</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -151,7 +151,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="mt-4 deep-default-text">Colorful select</h4>
+        <h4 className="mt-4 indigo-text">Colorful select</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -167,7 +167,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="mt-4 deep-default-text">Select All option</h4>
+        <h4 className="mt-4 indigo-text">Select All option</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -184,7 +184,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-        <h4 className="mt-4 deep-default-text">Without label</h4>
+        <h4 className="mt-4 indigo-text">Without label</h4>
         <MDBRow>
           <MDBCol md="6">
             <MDBSelect
@@ -200,7 +200,7 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
-         <h4 className="mt-4 deep-default-text">With required property</h4>
+         <h4 className="mt-4 indigo-text">With required property</h4>
         <MDBRow>
           <MDBCol md="6">
             <form onSubmit={this.onSubmit}>
