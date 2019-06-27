@@ -69,7 +69,7 @@ class InputPage extends Component {
               validate
             />
 
-            <MDBInput label="Example label" disabled />
+            <MDBInput label="Disabled" disabled />
 
             <MDBFormInline>
               <MDBInput

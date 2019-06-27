@@ -9,6 +9,7 @@ import {
   MDBDropdownToggle,
   MDBIcon,
   MDBCol,
+  MDBInput,
   MDBRow
 } from "mdbreact";
 import DocsLink from "../../components/docsLink";
@@ -27,7 +28,7 @@ class InputGroupPage extends React.Component {
             <MDBContainer className="border p-3">
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 placeholder="Product name"
                 ariaLabel="Product name"
                 prepend={
@@ -53,7 +54,7 @@ class InputGroupPage extends React.Component {
               />
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 placeholder="Product name"
                 prepend={
                   <span>
@@ -72,7 +73,7 @@ class InputGroupPage extends React.Component {
               />
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 placeholder="Product name"
                 prepend={
                   <span>
@@ -110,53 +111,30 @@ class InputGroupPage extends React.Component {
           <MDBCol md="6" tag="section">
             <MDBContainer className="border p-3">
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <div className="input-group-text">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="defaultCheckbox1"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="defaultCheckbox1"
-                    />
+                    <MDBInput label type="checkbox" id="checkbox1" />
                   </div>
                 }
               />
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <div className="input-group-text">
-                    <input
-                      className="form-check-input filled-in"
-                      type="checkbox"
-                      value=""
-                      id="filledInCheckbox1"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="filledInCheckbox1"
-                    />
+                    <MDBInput label filled type="checkbox" id="checkbox2" />
                   </div>
                 }
               />
               <MDBInputGroup
-                className="mb-3"
+                containerClassName="mb-3"
                 prepend={
                   <div className="input-group-text">
-                    <input
-                      className="form-check-input"
+                    <MDBInput
+                      label
                       type="radio"
-                      name="exampleRadios"
                       id="exampleRadios1"
-                      value="option1"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="exampleRadios1"
+                      name="exampleRadios"
                     />
                   </div>
                 }
@@ -166,56 +144,43 @@ class InputGroupPage extends React.Component {
           <MDBCol md="6" tag="section">
             <MDBContainer className="border p-3">
               <MDBInputGroup
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 material
                 prepend={
                   <div className="input-group-text md-addon">
-                    <input
-                      className="form-check-input"
+                    <MDBInput
+                      onFocus={() => console.log("console")}
+                      label
                       type="checkbox"
-                      value=""
-                      id="defaultCheckbox2"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="defaultCheckbox2"
+                      id="checkboxMaterial1"
                     />
                   </div>
                 }
               />
               <MDBInputGroup
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 material
                 prepend={
                   <div className="input-group-text md-addon">
-                    <input
-                      className="form-check-input filled-in"
+                    <MDBInput
+                      label
+                      filled
                       type="checkbox"
-                      value=""
-                      id="filledInCheckbox2"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="filledInCheckbox2"
+                      id="checkboxMaterial2"
                     />
                   </div>
                 }
               />
               <MDBInputGroup
-                className="mb-3 mt-0"
+                containerClassName="mb-3"
                 material
                 prepend={
                   <div className="input-group-text md-addon">
-                    <input
-                      className="form-check-input"
+                    <MDBInput
+                      label
                       type="radio"
-                      name="exampleRadios"
                       id="exampleRadios2"
-                      value="option1"
-                    />
-                    <label
-                      className="form-check-label"
-                      htmlFor="exampleRadios2"
+                      name="exampleRadios"
                     />
                   </div>
                 }
@@ -230,7 +195,7 @@ class InputGroupPage extends React.Component {
             <MDBContainer className="border p-3">
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 prepend={
                   <MDBDropdown>
                     <MDBDropdownToggle
@@ -254,7 +219,7 @@ class InputGroupPage extends React.Component {
 
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 append={
                   <MDBDropdown>
                     <MDBDropdownToggle
@@ -285,7 +250,7 @@ class InputGroupPage extends React.Component {
             <MDBContainer className="border p-3">
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 prepend={
                   <>
                     <MDBBtn
@@ -317,7 +282,7 @@ class InputGroupPage extends React.Component {
 
               <MDBInputGroup
                 material
-                className="mb-3 mt-0"
+                containerClassName="mb-3 mt-0"
                 append={
                   <>
                     <MDBBtn
