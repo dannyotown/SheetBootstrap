@@ -36,8 +36,7 @@ class SelectPage extends Component {
       colorfulOptions: this.createOptions(),
       selectAllOptions: this.createOptions(),
       withoutLabelOptions: this.createOptions(),
-      requiredOptions: this.createOptions(),
-      dynamicOptions: this.createOptions()
+      requiredOptions: this.createOptions()
     });
   }
 
@@ -73,11 +72,24 @@ class SelectPage extends Component {
     console.log(value);
   };
 
-  remove = () => {
+  removeOption = () => {
     this.setState({
       dynamicOptions: this.state.dynamicOptions.slice(0, -1)
     });
   };
+
+  addOption = () => {
+    const dynamicOptions = [...this.state.dynamicOptions];
+    const newOption = {
+        checked: true,
+        text: `Option ${this.state.dynamicOptions.length + 1}`,
+        value: `${this.state.dynamicOptions.length + 1}`
+    }
+
+    this.setState({
+      dynamicOptions: [...dynamicOptions, newOption]
+    })
+  }
 
   handleSubmitBtnColor = value => {
     this.setState({ submitBtnColor: value.length ? "success" : "primary" });
@@ -242,13 +254,16 @@ class SelectPage extends Component {
               options={this.state.dynamicOptions}
               selected="Choose your option"
             />
-            <MDBBtn
-              onClick={this.remove}
-              color="primary"
-              disabled={this.state.disabled}
-            >
-              Remove option
-            </MDBBtn>
+              <MDBBtn onClick={this.addOption} color="success">
+                Add option
+              </MDBBtn>
+              <MDBBtn
+                onClick={this.removeOption}
+                color="danger"
+                disabled={this.state.disabled}
+              >
+                Remove option
+              </MDBBtn>
           </MDBCol>
         </MDBRow>
 
