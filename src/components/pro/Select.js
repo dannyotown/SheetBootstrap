@@ -73,7 +73,8 @@ class Select extends React.Component {
 
   componentWillUnmount() {
     document.removeEventListener("click", this.onDocumentClick);
-    this.inputRef.current.removeEventListener("click", this.onInputClick);
+    this.inputRef &&
+      this.inputRef.current && this.inputRef.current.removeEventListener("click", this.onInputClick);
   }
 
   onInputClick = () => this.setIsOpened(true);
