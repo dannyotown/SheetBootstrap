@@ -253,6 +253,8 @@ class SelectPage extends Component {
               getTextContent={this.getValueOfSelect}
               options={this.state.dynamicOptions}
               selected="Choose your option"
+              label="Dynamically change state"
+              labelClass="labelBg"
             />
               <MDBBtn onClick={this.addOption} color="success">
                 Add option
