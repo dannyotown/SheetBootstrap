@@ -33,7 +33,7 @@ class InputGroupPage extends React.Component {
 
   render() {
     return (
-      <MDBContainer className="inpGroup">
+      <MDBContainer className="inpGroup mb-5">
         <DocsLink
           title="Inputs Group"
           href="https://mdbootstrap.com/docs/react/forms/inputs/"
