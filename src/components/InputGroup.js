@@ -89,7 +89,7 @@ const InputGroup = ({
 };
 
 InputGroup.propTypes = {
-  append: PropTypes.any,
+  append: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   appendClassNames: PropTypes.string,
   ariaLabel: PropTypes.string,
   children: PropTypes.node,
