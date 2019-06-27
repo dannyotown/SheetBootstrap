@@ -218,6 +218,21 @@ class SelectPage extends Component {
           </MDBCol>
         </MDBRow>
 
+        <h4 className="mt-4 indigo-text">Without color</h4>
+        <MDBRow>
+          <MDBCol md="6">
+            <MDBSelect
+              selectAll
+              multiple
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.withoutLabelOptions}
+              label="Without color"
+              selected="Choose your option"
+            />
+          </MDBCol>
+        </MDBRow>
+
         <h4 className="mt-4 indigo-text">With required property</h4>
         <MDBRow>
           <MDBCol md="6">
