@@ -83,12 +83,13 @@ class Select extends React.Component {
 
   setIsOpened = value => this.setState({ isOpened: value });
 
-  onInputClick = ({ target }) => {
-    const dropdown = target.nextElementSibling;
+  onInputClick = ({ target: input }) => {
+    const dropdown = input.nextElementSibling;
 
-    this.setState({ dropdown, input: target });
     dropdown.classList.add("fadeIn");
     !this.props.outline && (dropdown.style.top = ".6rem");
+    
+    this.setState({ dropdown, input });
     this.setIsOpened(true);
   };
 
@@ -105,6 +106,8 @@ class Select extends React.Component {
         dropdown.classList.remove("fadeIn");
         this.setIsOpened(false);
         this.changeFocus(null);
+
+        this.setState({ dropdown: null })
       }
     }
   };
@@ -137,16 +140,16 @@ class Select extends React.Component {
   // };
 
 
-  closeDropdowns = () => {
-    this.changeFocus(null);
+  // closeDropdowns = () => {
+  //   this.changeFocus(null);
 
-    let dropdowns = document.querySelectorAll(".dropdown-content");
-    dropdowns.forEach(
-      dropdown =>
-        dropdown.classList.contains("fadeIn") &&
-        dropdown.classList.remove("fadeIn")
-    );
-  };
+  //   let dropdowns = document.querySelectorAll(".dropdown-content");
+  //   dropdowns.forEach(
+  //     dropdown =>
+  //       dropdown.classList.contains("fadeIn") &&
+  //       dropdown.classList.remove("fadeIn")
+  //   );
+  // };
 
   computeValuesAndText = options => {
     const checkedOptions = options.filter(option => option.checked);
