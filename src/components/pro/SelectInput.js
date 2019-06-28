@@ -3,22 +3,34 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import selectContextHOC from "./SelectContext";
 
-let SelectInput = ({ attributes, className, context, selected }) => {
-  const classes = classNames("select-dropdown", className);
+class SelectInput extends React.Component {
+  componentDidMount() {
+    this.props.selected && this.props.context.setSelected(this.props.selected)
+  }
+  
 
-  if(context.state.selectTextContent === "" && selected) {
-    context.triggerOptionChange([], selected);
+  componentDidUpdate(prevProps, prevState) {
+   if (prevProps.context.state.isEmpty !== this.props.context.state.isEmpty){
+     this.props.selected && this.props.context.setSelected(this.props.selected);
+    }
   }
 
-  return (
-    <input
-      type="text"
-      readOnly
-      value={context.state.selectTextContent}
-      {...attributes}
-      className={classes}
-    />
-  );
+  render() {
+    const classes = classNames("select-dropdown", this.props.className);
+    const { attributes, context } = this.props;
+
+    const value = context.state.isEmpty ? this.props.selected && !context.label ? this.props.selected : "" : context.state.selectTextContent;
+
+    return (
+      <input
+        type="text"
+        readOnly
+        value={value}
+        {...attributes}
+        className={classes}
+      />
+    );
+  }
 }
 
 SelectInput.propTypes = {
@@ -28,8 +40,7 @@ SelectInput.propTypes = {
 };
 
 SelectInput.defaultProps = {
-  className: "",
-  selected: "Choose your option"
+  className: ""
 };
 
 export default (SelectInput = selectContextHOC(SelectInput));

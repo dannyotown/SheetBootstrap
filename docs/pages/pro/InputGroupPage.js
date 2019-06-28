@@ -17,7 +17,7 @@ import DocsLink from "../../components/docsLink";
 class InputGroupPage extends React.Component {
   render() {
     return (
-      <MDBContainer>
+      <MDBContainer className="mb-5">
         <DocsLink
           title="Inputs Group"
           href="https://mdbootstrap.com/docs/react/forms/inputs/"

@@ -69,7 +69,7 @@ class InputGroupPage extends React.Component {
 
   render() {
     return (
-      <MDBContainer className="inpGroup">
+      <MDBContainer className="inpGroup mb-5">
         <DocsLink
           title="Inputs Group"
           href="https://mdbootstrap.com/docs/react/forms/inputs/"
@@ -79,11 +79,7 @@ class InputGroupPage extends React.Component {
             <h3 className="mb-3">Default input groups</h3>
             <p>Default styling for Bootstrap Input Group component</p>
             <MDBContainer className="border p-3">
-              <MDBInputGroup
-                containerClassName="mb-3"
-                prepend="@"
-                hint="Bla foo"
-              />
+              <MDBInputGroup containerClassName="mb-3" prepend="@" />
               <MDBInputGroup containerClassName="mb-3" append="@example.com" />
               <MDBInputGroup
                 label="Your vanity URL"

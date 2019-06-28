@@ -11,6 +11,9 @@ class Select extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedValue: "",
+      isEmpty: true,
+      isControlledEmpty: true,
       selectValue: [],
       selectTextContent: "",
       options: this.props.options || [],
@@ -37,6 +40,12 @@ class Select extends React.Component {
 
       if (typeof this.props.getTextContent === "function") {
         this.props.getTextContent(this.state.selectTextContent);
+      }
+
+      if (!this.props.children) {
+        this.setState({
+          isControlledEmpty: !this.state.options.some(option => option.checked)
+        });
       }
     }
 
@@ -67,7 +76,7 @@ class Select extends React.Component {
     if (
       e.target.dataset.multiple === "true" ||
       e.target.dataset.search === "true" ||
-      e.target.classList.contains('dropdown-content') ||
+      e.target.classList.contains("dropdown-content") ||
       e.target.getAttribute("for") === "selectSearchInput"
     ) {
       return;
@@ -90,24 +99,19 @@ class Select extends React.Component {
   };
 
   computeValuesAndText = options => {
-    let checkedOptions = options
-      .filter(option => option.checked)
-      .map(option => ({
-        value: option.value,
-        text: option.text ? option.text : option.value
-      }));
+    const checkedOptions = options.filter(option => option.checked);
+    
+    const checkedValues = checkedOptions.map(opt => opt.value);
+    const checkedTexts = checkedOptions.map(opt => opt.text ? opt.text : opt.value);
 
-    let checkedValues = checkedOptions.map(opt => opt.value);
-    let checkedTexts = checkedOptions.map(opt =>
-      opt.text && typeof opt.text !== "object" ? opt.text : opt.value
-    );
+    const selectTextContent = checkedTexts.length ? checkedTexts.join(", ") : this.props.selected; 
+    const allChecked = checkedOptions.length === this.state.options.filter(option => !option.disabled).length;
 
     return {
+      isControlledEmpty: !checkedOptions.length,
       selectValue: checkedValues,
-      selectTextContent: checkedTexts.length
-        ? checkedTexts.join(", ")
-        : this.props.selected,
-      allChecked: checkedOptions.length === this.state.options.filter(option => option.disabled !== true).length
+      selectTextContent,
+      allChecked
     };
   };
 
@@ -116,7 +120,7 @@ class Select extends React.Component {
   };
 
   setOptionStatus = (option, status) => {
-    if (!option.disabled){
+    if (!option.disabled) {
       option.checked = status;
     }
     return option;
@@ -153,13 +157,9 @@ class Select extends React.Component {
     this.setState(prevState => {
       let options = [...prevState.options];
       const optionIndex = options.findIndex(option => option.value === value);
-      this.setOptionStatus(
-        options[optionIndex],
-        !prevState.options[optionIndex].checked
-      );
 
       options.forEach((option, index) =>
-        index !== optionIndex ? (option.checked = false) : false
+        index !== optionIndex ? this.setOptionStatus(option, false) : this.setOptionStatus(option, !option.checked)
       );
 
       return this.computeValuesAndText(options);
@@ -170,25 +170,23 @@ class Select extends React.Component {
     this.setState(prevState => {
       let options = [...prevState.options];
       const optionIndex = options.findIndex(option => option.value === value);
-      this.setOptionStatus(
-        options[optionIndex],
-        !prevState.options[optionIndex].checked
-      );
+
+      options[optionIndex].checked = !options[optionIndex].checked;
 
       return this.computeValuesAndText(options);
     });
   };
 
   selectAllOptions = () => {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       let options = [...prevState.options];
-      let filteredOptions = [...prevState.filteredOptions].filter(option => option.disabled !== true);
+      let filteredOptions = [...prevState.filteredOptions].filter(option => !option.disabled);
 
-      let areSomeUnchecked = filteredOptions.some((option) => option.checked === false);
+      const areSomeUnchecked = filteredOptions.some(option => !option.checked);
 
       areSomeUnchecked
-        ? filteredOptions.map((option) => (option.checked === false && !option.disabled ? this.setOptionStatus(option, true) : null))
-        : filteredOptions.map((option) => this.setOptionStatus(option, false));
+        ? filteredOptions.map(option => !option.checked && this.setOptionStatus(option, true))
+        : filteredOptions.map(option => this.setOptionStatus(option, false));
 
       if (filteredOptions.length !== options.length) {
         options = this.applyFilteredOptionsChanges(options, filteredOptions);
@@ -208,13 +206,18 @@ class Select extends React.Component {
     }
   };
 
-  triggerOptionChange = (value, text) => {
+  triggerOptionChange = (value = [], text = this.state.selectedValue) => {
     Array.isArray(text) && (text = text.join(", "));
+
     this.setState({
       selectValue: value,
-      selectTextContent: text
+      selectTextContent: text,
+      isEmpty: value.length ? false : true
     });
   };
+
+  setSelected = selectedValue => this.setState({ selectedValue });
+
 
   returnComponentContent = () => {
     const {
@@ -249,16 +252,15 @@ class Select extends React.Component {
 
     const labelClasses = classNames(
       !outline && "mdb-main-label",
-      this.state.selectTextContent && "active",
-      labelClass
+      labelClass,
+      this.props.children
+        ? !this.state.isEmpty && "active text-primary"
+        : !this.state.isControlledEmpty && "active text-primary"
     );
 
-    const labelStyles = {
-      color: this.state.selectTextContent && '#4285f4',
-      zIndex: 4,
-    }
-
     if (!this.props.children) {
+      const controlledValue = this.state.isControlledEmpty ? selected && !label ? selected : "" : this.state.selectTextContent; 
+
       return (
         <>
           <div
@@ -269,7 +271,7 @@ class Select extends React.Component {
           >
             <span className="caret">▼</span>
             <ControlledSelectInput
-              value={this.state.selectTextContent}
+              value={controlledValue}
               ref={this.inputRef}
               required={required}
             />
@@ -292,10 +294,11 @@ class Select extends React.Component {
               focusShadow={focusShadow}
               focusBackgroundColor={focusBackgroundColor}
             />
-          {
-            label &&
-            <label className={labelClasses} style={labelStyles}>{label}</label>
-          }
+            {label && (
+              <label className={labelClasses} style={{ zIndex: 4, transform: this.state.isControlledEmpty ? "translateY(7px)" : "" }}>
+                {label}
+              </label>
+            )}
           </div>
         </>
       );
@@ -304,8 +307,10 @@ class Select extends React.Component {
         <SelectContext.Provider
           value={{
             state: this.state,
-            multiple: this.props.multiple,
-            triggerOptionChange: this.triggerOptionChange
+            multiple,
+            triggerOptionChange: this.triggerOptionChange,
+            label,
+            setSelected: this.setSelected
           }}
         >
           <div
@@ -318,7 +323,7 @@ class Select extends React.Component {
             {children}
           </div>
           {label && (
-            <label className={labelClasses} style={labelStyles}>
+            <label className={labelClasses} style={{ zIndex: 4 }}>
               {label}
             </label>
           )}
