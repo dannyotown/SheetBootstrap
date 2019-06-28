@@ -18,7 +18,6 @@ const InputGroup = ({
   label,
   labelClassName,
   material,
-  name,
   prepend,
   prependClassName,
   size,
@@ -26,6 +25,7 @@ const InputGroup = ({
   textClassName,
   type,
   value,
+  valueDefault,
   ...attributes
 }) => {
   const containerClassNames = classNames(
@@ -35,7 +35,7 @@ const InputGroup = ({
     containerClassName
   );
 
-  const inputClassNames = classNames("form-control", className);
+  const inputClassNames = classNames(className);
 
   const prependClassNames = classNames("input-group-prepend", prependClassName);
 
@@ -49,7 +49,9 @@ const InputGroup = ({
   return (
     <>
       {label && (
-        <label htmlFor={id} className={labelClassName}>{label}</label>
+        <label htmlFor={id} className={labelClassName}>
+          {label}
+        </label>
       )}
       <Tag {...attributes} className={containerClassNames} id={containerId}>
         {prepend && (
@@ -68,7 +70,7 @@ const InputGroup = ({
             className={inputClassNames}
             id={id}
             value={value}
-            name={name}
+            valueDefault={valueDefault}
             hint={hint}
             aria-label={ariaLabel}
           />
@@ -99,18 +101,17 @@ InputGroup.propTypes = {
   hint: PropTypes.string,
   id: PropTypes.string,
   inputs: PropTypes.node,
-  inputTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   label: PropTypes.string,
   labelClassName: PropTypes.string,
   material: PropTypes.bool,
-  name: PropTypes.string,
   prepend: PropTypes.any,
   prependClassName: PropTypes.string,
   size: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   textClassName: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  value: PropTypes.string,
+  valueDefault: PropTypes.string
 };
 
 InputGroup.defaultProps = {

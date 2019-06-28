@@ -251,6 +251,7 @@ Input.propTypes = {
   outline: PropTypes.bool,
   size: PropTypes.string,
   success: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   type: PropTypes.string,
   validate: PropTypes.bool,
   value: PropTypes.string,
@@ -279,6 +280,7 @@ Input.defaultProps = {
   labelClass: "",
   size: "",
   success: "",
+  tag: "input",
   type: "text",
   validate: false,
   valueDefault: ""

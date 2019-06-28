@@ -26,10 +26,59 @@ class InputGroupPage extends React.Component {
         <MDBRow>
           <MDBCol tag="section">
             <MDBContainer className="border p-3">
+              <MDBRow>
+                <MDBCol md="6">
+                  <MDBInputGroup
+                    material
+                    hint="Search for..."
+                    prepend={
+                      <MDBBtn gradient="peach" className="m-0">
+                        GO!
+                      </MDBBtn>
+                    }
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <MDBInputGroup
+                    material
+                    hint="Search for..."
+                    append={
+                      <MDBBtn gradient="aqua" className="m-0">
+                        GO!
+                      </MDBBtn>
+                    }
+                  />
+                </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                <MDBCol md="6">
+                  <MDBInputGroup
+                    material
+                    hint="Search for..."
+                    prepend={
+                      <MDBBtn outline color="warning" className="m-0">
+                        GO!
+                      </MDBBtn>
+                    }
+                  />
+                </MDBCol>
+                <MDBCol md="6">
+                  <MDBInputGroup
+                    material
+                    hint="Search for..."
+                    append={
+                      <MDBBtn outline color="success" className="m-0">
+                        GO!
+                      </MDBBtn>
+                    }
+                  />
+                </MDBCol>
+              </MDBRow>
+
               <MDBInputGroup
                 material
                 containerClassName="mb-3 mt-0"
-                placeholder="Product name"
+                hint="Product name"
                 ariaLabel="Product name"
                 prepend={
                   <MDBBtn
@@ -55,7 +104,7 @@ class InputGroupPage extends React.Component {
               <MDBInputGroup
                 material
                 containerClassName="mb-3 mt-0"
-                placeholder="Product name"
+                hint="Product name"
                 prepend={
                   <span>
                     <MDBBtn rounded color="indigo" size="md" className="m-0">
@@ -74,7 +123,7 @@ class InputGroupPage extends React.Component {
               <MDBInputGroup
                 material
                 containerClassName="mb-3 mt-0"
-                placeholder="Product name"
+                hint="Product name"
                 prepend={
                   <span>
                     <MDBBtn

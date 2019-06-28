@@ -26,6 +26,42 @@ class InputGroupPage extends React.Component {
         color: #16181b !important;
         box-shadow: 0 0 0 rgba(0,0,0,0) ;
       }
+
+
+      .custom-input-group.input-group input {
+        border: 1px solid #bdbdbd;
+      }
+      .custom-input-group.input-group input[type=text]:focus:not([readonly]).lime-border  {
+        border: 1px solid #cddc39;
+        box-shadow: none;
+      }
+      .custom-input-group.input-group input {
+        border: 1px solid #bdbdbd;
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+      }
+      .custom-input-group.input-group input[type=text]:focus:not([readonly]).red-border  {
+        border: 1px solid #ef9a9a;
+        box-shadow: none;
+      }
+      .custom-input-group.input-group input[type=text]:focus:not([readonly]).amber-border  {
+        border: 1px solid #ffca28;
+        box-shadow: none;
+      }
+      .custom-input-group.input-group input[type=text]:focus:not([readonly]).blue-border  {
+        border: 1px solid #64b5f6;
+        box-shadow: none;
+      }
+      .custom-input-group.input-group input {
+        border: 1px solid #bdbdbd;
+        border-top-left-radius: 0.25rem;
+        border-bottom-left-radius: 0.25rem;
+      }
+      .custom-input-group.input-group input[type=text]:focus:not([readonly]).purple-border  {
+        border: 1px solid #ce93d8;
+        box-shadow: none;
+      }
+      
       `;
     let firstScriptTag = document.querySelector("script");
     firstScriptTag.parentNode.insertBefore(style, firstScriptTag);
@@ -43,7 +79,11 @@ class InputGroupPage extends React.Component {
             <h3 className="mb-3">Default input groups</h3>
             <p>Default styling for Bootstrap Input Group component</p>
             <MDBContainer className="border p-3">
-              <MDBInputGroup containerClassName="mb-3" prepend="@" hint="Bla foo" />
+              <MDBInputGroup
+                containerClassName="mb-3"
+                prepend="@"
+                hint="Bla foo"
+              />
               <MDBInputGroup containerClassName="mb-3" append="@example.com" />
               <MDBInputGroup
                 label="Your vanity URL"
@@ -51,7 +91,11 @@ class InputGroupPage extends React.Component {
                 prepend="https://example.com/users/"
                 id="basic-url"
               />
-              <MDBInputGroup containerClassName="mb-3" prepend="$" append=".00" />
+              <MDBInputGroup
+                containerClassName="mb-3"
+                prepend="$"
+                append=".00"
+              />
               <MDBInputGroup prepend="With textarea" type="textarea" />
             </MDBContainer>
           </MDBCol>
@@ -60,7 +104,11 @@ class InputGroupPage extends React.Component {
             <h3 className="mb-3">Material input groups</h3>
             <p>Material Design styling for Bootstrap Input Group component</p>
             <MDBContainer className="border p-3">
-              <MDBInputGroup material containerClassName="mb-3 mt-0" prepend="@" />
+              <MDBInputGroup
+                material
+                containerClassName="mb-3 mt-0"
+                prepend="@"
+              />
               <MDBInputGroup
                 material
                 containerClassName="mb-3 mt-0"
@@ -99,7 +147,10 @@ class InputGroupPage extends React.Component {
         <MDBRow>
           <MDBCol md="12" tag="section">
             <MDBContainer className="border p-3">
-              <MDBInputGroup containerClassName="flex-nowrap mb-3" prepend="@" />
+              <MDBInputGroup
+                containerClassName="flex-nowrap mb-3"
+                prepend="@"
+              />
             </MDBContainer>
           </MDBCol>
         </MDBRow>
@@ -107,9 +158,17 @@ class InputGroupPage extends React.Component {
         <MDBRow>
           <MDBCol md="6" tag="section">
             <MDBContainer className="border p-3">
-              <MDBInputGroup containerClassName="mb-3" prepend="Small" size="sm" />
+              <MDBInputGroup
+                containerClassName="mb-3"
+                prepend="Small"
+                size="sm"
+              />
               <MDBInputGroup containerClassName="mb-3" prepend="Default" />
-              <MDBInputGroup containerClassName="mb-3" prepend="Large" size="lg" />
+              <MDBInputGroup
+                containerClassName="mb-3"
+                prepend="Large"
+                size="lg"
+              />
             </MDBContainer>
           </MDBCol>
           <MDBCol md="6" tag="section">
@@ -683,44 +742,51 @@ class InputGroupPage extends React.Component {
           <MDBCol tag="section">
             <h3 className="mb-3">Colorful input groups</h3>
             <p>Default styling for Bootstrap Input Group component</p>
-            <MDBContainer className="border p-3">
+            <MDBContainer className="border p-3 custom-input-group">
               <MDBInputGroup
-                containerClassName="mb-3"
+                containerClassName="custom-input-group mb-3"
                 prepend="@"
                 textClassName="amber lighten-3"
+                className="amber-border"
                 hint="Username"
               />
+
               <MDBInputGroup
-                containerClassName="mb-3"
+                containerClassName="custom-input-group mb-3"
+                prepend="$"
+                append=".00"
+                textClassName="lime lighten-2"
+                className="border-warning"
+                className="lime-border"
+              />
+
+              <MDBInputGroup
+                containerClassName="custom-input-group mb-3"
                 prepend={
                   <>
                     <span className="input-group-text red lighten-3">$</span>
                     <span className="input-group-text red lighten-3">0.00</span>
                   </>
                 }
-              />
-              <MDBInputGroup
-                containerClassName="mb-3"
-                prepend="$"
-                append=".00"
-                textClassName="lime lighten-2"
-                className="border-warning"
+                className="red-border"
               />
 
               <MDBInputGroup
-                containerClassName="mb-3"
+                containerClassName="custom-input-group mb-3"
                 append="@example.com"
                 textClassName="purple lighten-3"
                 hint="Recipient's Username"
+                className="purple-border"
               />
 
               <MDBInputGroup
                 label="Your vanity URL"
-                containerClassName="mb-3"
+                containerClassName="custom-input-group mb-3"
                 prepend="https://example.com/users/"
                 textClassName="blue lighten-3"
                 id="basic-url2"
-              />
+                className="blue-border"
+              />s
             </MDBContainer>
           </MDBCol>
         </MDBRow>
