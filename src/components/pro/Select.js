@@ -87,27 +87,26 @@ class Select extends React.Component {
   // open nieghbour ul of clicked input
   onDocumentClick = ({ target }) => {
     const { dataset, classList, nextElementSibling } = target;
+    let dropdown = null;
 
     if (
       dataset.multiple === "true" ||
       dataset.search === "true" ||
       classList.contains("dropdown-content") ||
-      //prevent adding classes to buttons(was recovered while using Buttons and Select components inside a Form)
-      classList.contains("btn") ||
       target.getAttribute("for") === "selectSearchInput"
     ) {
       return;
     }
 
     !classList.contains("select-dropdown") && this.setIsOpened(false);
-
+    
     this.closeDropdowns();
-
-    nextElementSibling && nextElementSibling.classList.add("fadeIn");
-
-    if (nextElementSibling && !this.props.outline) {
-      nextElementSibling.style.top = ".6rem";
-    }
+    
+    if (nextElementSibling && nextElementSibling.classList.contains('dropdown-content')){
+      dropdown = nextElementSibling;
+      dropdown.classList.add('fadeIn');
+      !this.props.outline && (dropdown.style.top = ".6rem");
+    } 
   };
 
 
