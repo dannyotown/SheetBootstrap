@@ -25,7 +25,7 @@ class SelectInput extends React.Component {
       <input
         type="text"
         readOnly
-        onClick={() => context.setIsOpened(true)}
+        onClick={(e) => context.onInputClick(e)}
         value={value}
         {...attributes}
         className={classes}

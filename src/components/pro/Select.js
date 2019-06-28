@@ -20,7 +20,9 @@ class Select extends React.Component {
       options: this.props.options || [],
       allChecked: false,
       focused: null,
-      filteredOptions: this.props.options || []
+      filteredOptions: this.props.options || [],
+      input: null,
+      dropdown: null
     };
     this.inputRef = React.createRef();
 
@@ -79,35 +81,60 @@ class Select extends React.Component {
     }
   }
 
-  onInputClick = () => this.setIsOpened(true);
-
   setIsOpened = value => this.setState({ isOpened: value });
+
+  onInputClick = ({ target }) => {
+    const dropdown = target.nextElementSibling;
+
+    this.setState({ dropdown, input: target });
+    dropdown.classList.add("fadeIn");
+    !this.props.outline && (dropdown.style.top = ".6rem");
+    this.setIsOpened(true);
+  };
+
+  onDocumentClick = ({ target }) => {
+    const { dropdown, input } = this.state;
+    
+    if (dropdown) {
+      const isMultiple = target.dataset.multiple === "true";
+      const isSearchLabel = target.id === "selectSearchInput";
+      
+      if (target === input || isMultiple || isSearchLabel) {
+        return;
+      } else {
+        dropdown.classList.remove("fadeIn");
+        this.setIsOpened(false);
+        this.changeFocus(null);
+      }
+    }
+  };
+
 
   // close all select dropdown (unless it has multiple property or search input)
   // open nieghbour ul of clicked input
-  onDocumentClick = ({ target }) => {
-    const { dataset, classList, nextElementSibling } = target;
-    let dropdown = null;
+  // onDocumentClick = ({ target }) => {
+  //   const { dataset, classList, nextElementSibling } = target;
+  //   let dropdown = null;
 
-    if (
-      dataset.multiple === "true" ||
-      dataset.search === "true" ||
-      classList.contains("dropdown-content") ||
-      target.getAttribute("for") === "selectSearchInput"
-    ) {
-      return;
-    }
+  //   if (
+  //     dataset.multiple === "true" ||
+  //     dataset.search === "true" ||
+  //     classList.contains("dropdown-content") ||
+  //     target.getAttribute("for") === "selectSearchInput"
+  //   ) {
+  //     return;
+  //   }
 
-    !classList.contains("select-dropdown") && this.setIsOpened(false);
+  //   !classList.contains("select-dropdown") && this.setIsOpened(false);
     
-    this.closeDropdowns();
+  //   this.closeDropdowns();
     
-    if (nextElementSibling && nextElementSibling.classList.contains('dropdown-content')){
-      dropdown = nextElementSibling;
-      dropdown.classList.add('fadeIn');
-      !this.props.outline && (dropdown.style.top = ".6rem");
-    } 
-  };
+  //   if (nextElementSibling && nextElementSibling.classList.contains('dropdown-content')){
+  //     dropdown = nextElementSibling;
+  //     dropdown.classList.add('fadeIn');
+  //     !this.props.outline && (dropdown.style.top = ".6rem");
+  //   } 
+  // };
 
 
   closeDropdowns = () => {
@@ -356,7 +383,8 @@ class Select extends React.Component {
             triggerOptionChange: this.triggerOptionChange,
             label,
             setSelected: this.setSelected,
-            setIsOpened: this.setIsOpened
+            setIsOpened: this.setIsOpened,
+            onInputClick: this.onInputClick
           }}
         >
           <div
