@@ -47,7 +47,7 @@ class VideoBackgroundPage extends React.Component {
       <div id="videobackground">
         <Router>
           <div>
-            <MDBNavbar style={navStyle} dark expand="md" fixed="top">
+            <MDBNavbar style={navStyle} dark scrolling expand="md" fixed="top">
               <MDBContainer>
                 <MDBNavbarBrand>
                   <span className="white-text">MDBNavbar</span>
