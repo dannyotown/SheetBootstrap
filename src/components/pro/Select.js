@@ -80,6 +80,7 @@ class Select extends React.Component {
     }
   }
 
+  // open nieghbour ul of clicked input
   onInputClick = ({ target: input }) => {
     const dropdown = input.nextElementSibling;
 
@@ -89,6 +90,7 @@ class Select extends React.Component {
     this.setState({ dropdown, input });
   };
 
+  // close select dropdown (unless it has multiple property or search input)
   onDocumentClick = ({ target }) => {
     const { dropdown, input } = this.state;
     
@@ -106,45 +108,6 @@ class Select extends React.Component {
       }
     }
   };
-
-
-  // close all select dropdown (unless it has multiple property or search input)
-  // open nieghbour ul of clicked input
-  // onDocumentClick = ({ target }) => {
-  //   const { dataset, classList, nextElementSibling } = target;
-  //   let dropdown = null;
-
-  //   if (
-  //     dataset.multiple === "true" ||
-  //     dataset.search === "true" ||
-  //     classList.contains("dropdown-content") ||
-  //     target.getAttribute("for") === "selectSearchInput"
-  //   ) {
-  //     return;
-  //   }
-
-  //   !classList.contains("select-dropdown") && this.setIsOpened(false);
-    
-  //   this.closeDropdowns();
-    
-  //   if (nextElementSibling && nextElementSibling.classList.contains('dropdown-content')){
-  //     dropdown = nextElementSibling;
-  //     dropdown.classList.add('fadeIn');
-  //     !this.props.outline && (dropdown.style.top = ".6rem");
-  //   } 
-  // };
-
-
-  // closeDropdowns = () => {
-  //   this.changeFocus(null);
-
-  //   let dropdowns = document.querySelectorAll(".dropdown-content");
-  //   dropdowns.forEach(
-  //     dropdown =>
-  //       dropdown.classList.contains("fadeIn") &&
-  //       dropdown.classList.remove("fadeIn")
-  //   );
-  // };
 
   computeValuesAndText = options => {
     const checkedOptions = options.filter(option => option.checked);
