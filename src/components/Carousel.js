@@ -261,7 +261,7 @@ Carousel.defaultProps = {
   interval: 6000,
   showControls: true,
   showIndicators: true,
-  onHoverStop: false
+  onHoverStop: true
 };
 
 Carousel.childContextTypes = {

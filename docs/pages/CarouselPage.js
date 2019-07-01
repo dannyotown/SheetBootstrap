@@ -208,7 +208,6 @@ const CarouselPage = () => {
       <h4 className="mt-5 mb-3">Stop when mouse is on the carousel</h4>
       <MDBCarousel
         interval={1500}
-        onHoverStop
         activeItem={1}
         length={3}
         showControls={true}
@@ -220,7 +219,7 @@ const CarouselPage = () => {
             <MDBView>
               <img
                 className="d-block w-100"
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(130).jpg"
+                src="https://mdbootstrap.com/img/Photos/Slides/img%20(131).jpg"
                 alt="First slide"
               />
             </MDBView>
@@ -229,7 +228,7 @@ const CarouselPage = () => {
             <MDBView>
               <img
                 className="d-block w-100"
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(129).jpg"
+                src="https://mdbootstrap.com/img/Photos/Slides/img%20(132).jpg"
                 alt="Second slide"
               />
             </MDBView>
@@ -238,7 +237,7 @@ const CarouselPage = () => {
             <MDBView>
               <img
                 className="d-block w-100"
-                src="https://mdbootstrap.com/img/Photos/Slides/img%20(70).jpg"
+                src="https://mdbootstrap.com/img/Photos/Slides/img%20(133).jpg"
                 alt="Third slide"
               />
             </MDBView>
