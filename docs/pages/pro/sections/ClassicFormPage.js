@@ -21,7 +21,7 @@ import {
   MDBFormInline,
   MDBAnimation
 } from "mdbreact";
-// import "./index.css";
+import "./ClassicFormPage.css";
 
 class ClassicFormPage extends React.Component {
   state = {
@@ -34,54 +34,11 @@ class ClassicFormPage extends React.Component {
     }));
 
   componentDidMount() {
-    this.Styles();
+    document.querySelector("nav").style.height="65px";
   }
-  Styles = () => {
-    let style = document.createElement("style");
-    style.innerHTML = `
-          #classicformpage .view {
-            background-image: url('http://mdbootstrap.com/img/Photos/Others/images/91.jpg');
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            height: 100vh;
-          }
-          
-          #classicformpage .gradient {
-            background: -webkit-linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
-            background: -webkit-gradient(linear, 45deg, from(rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%));
-            background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(72, 15, 144, 0.4) 100%);
-          }
-          
-          #classicformpage .card {
-            background-color: rgba(126, 123, 215, 0.2);
-          }
-          
-          #classicformpage h6 {
-            line-height: 1.7;
-          }
-          
-          #classicformpage .navbar {
-            transition: background .5s ease-in-out,padding .5s ease-in-out;
-          }
-          
-          #classicformpage .top-nav-collapse {
-            background: #424f95 !important;
-          }
-          
-          @media (max-width: 768px) {
-            #classicformpage .navbar:not(.top-nav-collapse) {
-                background: #424f95 !important;
-            }
-          }
-          
-          #classicformpage label {
-            color: #fff!important;
-          }
-        `;
-    let firstScriptTag = document.querySelector("script");
-    firstScriptTag.parentNode.insertBefore(style, firstScriptTag);
-  };
+  componentWillUnmount() {
+    document.querySelector("nav").style.height="auto";
+  }
 
   render() {
     const overlay = (
@@ -95,7 +52,7 @@ class ClassicFormPage extends React.Component {
       <div id="classicformpage">
         <Router>
           <div>
-            <MDBNavbar dark expand="md" fixed="top" style={{marginTop: "4rem"}}>
+            <MDBNavbar dark expand="md" scrolling fixed="top" style={{marginTop: "65px"}}>
               <MDBContainer>
                 <MDBNavbarBrand>
                   <strong className="white-text">MDB</strong>

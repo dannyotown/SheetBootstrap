@@ -17,7 +17,7 @@ import {
   MDBFormInline,
   MDBAnimation
 } from "mdbreact";
-// import "./index.css";
+import "./AppPage.css";
 
 class AppPage extends React.Component {
   state = {
@@ -30,34 +30,12 @@ class AppPage extends React.Component {
     });
   };
   componentDidMount() {
-    this.Styles();
+    document.querySelector("nav").style.height="65px";
   }
-  Styles = () => {
-    let style = document.createElement("style");
-    style.innerHTML = `
-        #apppage .gradient {
-          background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-          background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-          background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)));
-          background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-          background: linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
-        }
-        
-        #apppage .view {
-          background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg');
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center center;
-          height: 100vh;
-        }
-        
-        #apppage h6 {
-          line-height: 1.7;
-        }
-      `;
-    let firstScriptTag = document.querySelector("script");
-    firstScriptTag.parentNode.insertBefore(style, firstScriptTag);
-  };
+  componentWillUnmount() {
+    document.querySelector("nav").style.height="auto";
+  }
+
   render() {
     const overlay = (
       <div
@@ -77,7 +55,7 @@ class AppPage extends React.Component {
               fixed="top"
               scrolling
               transparent
-              style={{marginTop: "4rem"}}
+              style={{marginTop: "65px"}}
             >
               <MDBContainer>
                 <MDBNavbarBrand>
