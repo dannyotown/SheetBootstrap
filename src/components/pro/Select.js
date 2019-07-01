@@ -318,7 +318,8 @@ class Select extends React.Component {
     const uncontrolledLabelStyles = {
       transform: needToMoveOutline && "translateY(23px)",
       fontSize: needToMoveOutline && "1rem",
-      fontWeight: needToMoveOutline && "300"
+      fontWeight: needToMoveOutline && "300",
+      left: !outline && isEmpty && !isOpened && "15px"
     };
 
     const controlledLabelStyles = {
