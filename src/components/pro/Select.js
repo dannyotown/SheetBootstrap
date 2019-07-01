@@ -14,7 +14,6 @@ class Select extends React.Component {
       selectedValue: "",
       isEmpty: true,
       isControlledEmpty: true,
-      isOpened: false,
       selectValue: [],
       selectTextContent: "",
       options: this.props.options || [],
@@ -81,8 +80,6 @@ class Select extends React.Component {
     }
   }
 
-  setIsOpened = value => this.setState({ isOpened: value });
-
   onInputClick = ({ target: input }) => {
     const dropdown = input.nextElementSibling;
 
@@ -90,7 +87,6 @@ class Select extends React.Component {
     !this.props.outline && (dropdown.style.top = ".6rem");
     
     this.setState({ dropdown, input });
-    this.setIsOpened(true);
   };
 
   onDocumentClick = ({ target }) => {
@@ -104,7 +100,6 @@ class Select extends React.Component {
         return;
       } else {
         dropdown.classList.remove("fadeIn");
-        this.setIsOpened(false);
         this.changeFocus(null);
 
         this.setState({ dropdown: null })
@@ -297,7 +292,7 @@ class Select extends React.Component {
       ...attributes
     } = this.props;
 
-    const { isEmpty, isControlledEmpty, isOpened, selectTextContent } = this.state;
+    const { isEmpty, isControlledEmpty, dropdown: isOpened, selectTextContent } = this.state;
 
     const classes = classNames(
       "select-wrapper mdb-select md-form",
@@ -387,7 +382,6 @@ class Select extends React.Component {
             triggerOptionChange: this.triggerOptionChange,
             label,
             setSelected: this.setSelected,
-            setIsOpened: this.setIsOpened,
             onInputClick: this.onInputClick
           }}
         >
