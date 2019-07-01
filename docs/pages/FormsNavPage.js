@@ -16,6 +16,7 @@ const FormsNavPage = () =>  {
               <h6 className="mt-3 grey-text">FREE </h6>
               <MenuLink to="/forms/forms" title="Forms" />
               <MenuLink to="/forms/input" title="Input" />
+              <MenuLink to="/forms/inputgroup" title="Input Group" />
               <MenuLink to="/forms/validation" title="Validation" />
               {/* PRO-START */}
               <h6 className="mt-3 grey-text">PRO </h6>
@@ -23,6 +24,7 @@ const FormsNavPage = () =>  {
               <MenuLink to="/forms/pro/datepicker" title="Date picker" />
               <MenuLink to="/forms/pro/forms" title="Forms" />
               <MenuLink to="/forms/pro/input" title="Input" />
+              <MenuLink to="/forms/pro/inputgroup" title="Input Group" />
               <MenuLink to="/forms/pro/select" title="Material Select" />
               <MenuLink to="/forms/pro/slider" title="Slider" />
               <MenuLink to="/forms/pro/timepicker" title="Time picker" />

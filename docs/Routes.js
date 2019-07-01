@@ -58,6 +58,7 @@ import NavsPage from './pages/NavsPage';
 import TabsPage from './pages/TabsPage';
 import PillsPage from './pages/PillsPage';
 import NotificationPage from './pages/NotificationPage';
+import InputGroupPage from './pages/InputGroupPage'
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -123,6 +124,7 @@ import MinimalisticIntro from "./pages/pro/sections/MinimalisticIntro";
 import ParallaxIntro from "./pages/pro/sections/ParallaxIntro";
 import CallToActionIntro from "./pages/pro/sections/CallToActionIntro";
 import PillsPagePro from './pages/pro/PillsPage';
+import InputGroupPagePro from './pages/pro/InputGroupPage';
 // PRO-END
 
 class Routes extends React.Component {
@@ -174,6 +176,7 @@ class Routes extends React.Component {
         <Route path="/forms/forms" component={FormsPage} />
         <Route path="/forms/validation" component={ValidationPage} />
         <Route path="/forms/input" component={InputPage} />
+        <Route path="/forms/inputgroup" component={InputGroupPage} />
         <Route path="/modals/modal" component={ModalPage} />
         <Route path="/modals/modal-form" component={ModalFormPage} />
         <Route path="/modals/modal-examples" component={ModalExamplesPage} />
@@ -216,6 +219,7 @@ class Routes extends React.Component {
         <Route path="/components/pro/tabs" component={TabsPagePro} />
         <Route path="/forms/pro/autocomplete" component={AutocompletePage} />
         <Route path="/forms/pro/input" component={InputPagePro} />
+        <Route path="/forms/pro/inputgroup" component={InputGroupPagePro} />
         <Route path="/forms/pro/select" component={SelectPage} />
         <Route path="/forms/pro/forms" component={FormsPagePro} />
         <Route path="/forms/pro/validation" component={ValidationPagePro} />
