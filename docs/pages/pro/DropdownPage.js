@@ -1,5 +1,11 @@
 import React from "react";
-import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer } from "mdbreact";
+import {
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+  MDBContainer
+} from "mdbreact";
 import DocsLink from "../../components/docsLink";
 
 const DropdownPage = () => {
@@ -10,7 +16,7 @@ const DropdownPage = () => {
         href="https://mdbootstrap.com/docs/react/components/dropdowns/"
       />
       <div className="container">
-      <h2>Basic example</h2>
+        <h2>Basic example</h2>
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             Dropdown
@@ -158,18 +164,20 @@ const DropdownPage = () => {
         </MDBDropdown>
         <br />
         <h2>Dropleft variation</h2>
-        <MDBDropdown dropleft>
-          <MDBDropdownToggle caret color="primary">
-            Dropleft
-          </MDBDropdownToggle>
-          <MDBDropdownMenu>
-            <MDBDropdownItem>Action</MDBDropdownItem>
-            <MDBDropdownItem>Another Action</MDBDropdownItem>
-            <MDBDropdownItem>Something else here</MDBDropdownItem>
-            <MDBDropdownItem divider />
-            <MDBDropdownItem>Separated link</MDBDropdownItem>
-          </MDBDropdownMenu>
-        </MDBDropdown>
+        <div style={{ position: "relative", left: "150px" }}>
+          <MDBDropdown dropleft>
+            <MDBDropdownToggle caret color="primary">
+              Dropleft
+            </MDBDropdownToggle>
+            <MDBDropdownMenu>
+              <MDBDropdownItem>Action</MDBDropdownItem>
+              <MDBDropdownItem>Another Action</MDBDropdownItem>
+              <MDBDropdownItem>Something else here</MDBDropdownItem>
+              <MDBDropdownItem divider />
+              <MDBDropdownItem>Separated link</MDBDropdownItem>
+            </MDBDropdownMenu>
+          </MDBDropdown>
+        </div>
         <br />
         <h2>Dropright variation</h2>
         <MDBDropdown dropright>
@@ -240,6 +248,6 @@ const DropdownPage = () => {
       </div>
     </MDBContainer>
   );
-}
+};
 
 export default DropdownPage;
