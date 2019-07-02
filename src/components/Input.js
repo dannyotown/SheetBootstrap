@@ -107,8 +107,8 @@ class Input extends React.Component {
       valueDefault,
       ...attributes
     } = this.props;
-
-    let isNotEmpty = !!this.state.innerValue || !!hint || this.state.isFocused;
+    
+    let isNotEmpty = !!this.state.innerValue || !!hint || this.state.isFocused || `${this.state.innerValue}`.length > 0 ;
     let Tag = "";
     let formControlClass = "";
 
@@ -244,7 +244,7 @@ Input.propTypes = {
   type: PropTypes.string,
   validate: PropTypes.bool,
   value: PropTypes.string,
-  valueDefault: PropTypes.string
+  valueDefault: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 Input.defaultProps = {
