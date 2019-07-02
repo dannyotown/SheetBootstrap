@@ -164,7 +164,7 @@ const DropdownPage = () => {
         </MDBDropdown>
         <br />
         <h2>Dropleft variation</h2>
-        <div style={{ position: "relative", left: "150px" }}>
+        <div style={{ marginLeft: "158px" }}>
           <MDBDropdown dropleft>
             <MDBDropdownToggle caret color="primary">
               Dropleft
