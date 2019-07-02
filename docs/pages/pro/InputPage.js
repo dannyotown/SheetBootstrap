@@ -246,12 +246,6 @@ class InputPage extends Component {
             <strong>Range</strong>
           </h2>
           <MDBRangeInput
-            getValue={this.handleRangeChange}
-            min={0}
-            max={100}
-            value={20}
-          />
-          <MDBRangeInput
             tag="form"
             getValue={this.handleRangeChange}
             min={0}
