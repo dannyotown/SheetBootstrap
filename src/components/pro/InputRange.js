@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import './InputRange.css';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import "./InputRange.css";
 
 class InputRange extends React.Component {
   constructor(props) {
@@ -12,10 +12,10 @@ class InputRange extends React.Component {
       thumbActive: false,
       thumbHeight: 0,
       thumbWidth: 0,
-      thumbTop: '10px',
-      thumbMarginLeft: '-6px',
-      input: 'input',
-      oneStep: ''
+      thumbTop: "10px",
+      thumbMarginLeft: "-6px",
+      input: "input",
+      oneStep: ""
     };
 
     this.inputRef = React.createRef();
@@ -45,10 +45,10 @@ class InputRange extends React.Component {
   rangeFocus = () => {
     this.setState({
       thumbActive: true,
-      thumbHeight: '30px',
-      thumbWidth: '30px',
-      thumbTop: '-20px',
-      thumbMarginLeft: '-15px'
+      thumbHeight: "30px",
+      thumbWidth: "30px",
+      thumbTop: "-20px",
+      thumbMarginLeft: "-15px"
     });
   };
 
@@ -59,25 +59,25 @@ class InputRange extends React.Component {
       thumbActive: false,
       thumbHeight: 0,
       thumbWidth: 0,
-      thumbTop: '10px',
-      thumbMarginLeft: '-6px'
+      thumbTop: "10px",
+      thumbMarginLeft: "-6px"
     });
   };
 
   render() {
-    const { className, formClassName, min, max } = this.props;
+    const { className, formClassName, min, max, tag: Tag } = this.props;
 
     const inputClass = classNames(className);
 
-    const formClass = classNames('range-field', formClassName);
+    const formClass = classNames("range-field", formClassName);
 
     const thumbClass = classNames(
-      'thumb',
-      this.state.thumbActive ? 'active' : false
+      "thumb",
+      this.state.thumbActive ? "active" : false
     );
 
     return (
-      <form className={formClass}>
+      <Tag className={formClass}>
         <input
           ref={this.inputRef}
           className={inputClass}
@@ -101,7 +101,7 @@ class InputRange extends React.Component {
         >
           <span className="value">{this.state.value}</span>
         </span>
-      </form>
+      </Tag>
     );
   }
 }
@@ -111,14 +111,16 @@ InputRange.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
   value: PropTypes.number,
-  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool])
+  getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 InputRange.defaultProps = {
   min: 0,
   max: 100,
   value: 50,
-  getValue: false
+  getValue: false,
+  tag: "div"
 };
 
 export default InputRange;
