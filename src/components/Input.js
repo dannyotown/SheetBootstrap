@@ -243,7 +243,7 @@ Input.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   type: PropTypes.string,
   validate: PropTypes.bool,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   valueDefault: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
