@@ -33,7 +33,6 @@ class Notification extends React.Component {
       fade,
       message,
       bodyClassName,
-      labelColor,
       icon,
       iconClassName,
       title,
@@ -75,7 +74,6 @@ Notification.propTypes = {
   show: PropTypes.bool,
   fade: PropTypes.bool,
   autohide: PropTypes.number,
-  labelColor: PropTypes.string,
   iconClassName: PropTypes.string,
   title: PropTypes.string,
   text: PropTypes.string,
@@ -90,7 +88,6 @@ Notification.propTypes = {
 Notification.defaultProps = {
   icon: "square",
   tag: "div",
-  labelColor: "#007aff",
   closeClassName: "text-dark"
 };
 
