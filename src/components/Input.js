@@ -100,25 +100,25 @@ class Input extends React.Component {
       labelClass,
       size,
       success,
-      tag,
       type,
       validate,
       value,
       valueDefault,
+      wrapperTag: WrapperTag,     
       ...attributes
     } = this.props;
     
     let isNotEmpty = !!this.state.innerValue || !!hint || this.state.isFocused || this.state.innerValue === 0 ;
-    let Tag = "";
+    let TagInput = "";
     let formControlClass = "";
 
     if (type === "textarea") {
       formControlClass = outline ? "form-control" : "md-textarea form-control";
-      Tag = "textarea";
+      TagInput = "textarea";
     }
     else {
       formControlClass = "form-control";
-      Tag = "input";
+      TagInput = "input";
       attributes.type = type;
     }
 
@@ -159,7 +159,7 @@ class Input extends React.Component {
     );
 
     return (
-      <div className={containerClassFix}>
+      <WrapperTag className={containerClassFix}>
         {
           icon &&
           <Fa
@@ -174,7 +174,7 @@ class Input extends React.Component {
             onMouseLeave={onIconMouseLeave}
           />
         }
-        <Tag
+        <TagInput
           {...attributes}
           className={classes}
           id={id}
@@ -200,7 +200,7 @@ class Input extends React.Component {
           </label>
         }
         {children}
-      </div>
+      </WrapperTag>
     );
   }
 }
@@ -240,11 +240,11 @@ Input.propTypes = {
   outline: PropTypes.bool,
   size: PropTypes.string,
   success: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   type: PropTypes.string,
   validate: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   valueDefault: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  wrapperTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
 };
 
 Input.defaultProps = {
@@ -270,7 +270,7 @@ Input.defaultProps = {
   labelClass: "",
   size: "",
   success: "",
-  tag: "input",
+  wrapperTag: "div",
   type: "text",
   validate: false,
   valueDefault: ""
