@@ -101,7 +101,7 @@ class AppPage extends React.Component {
                   <MDBCol md="6" className="white-text text-center text-md-left mt-xl-5 mb-5">
                     <MDBAnimation type="fadeInLeft" delay=".3s">
                       <h1 className="h1-responsive font-weight-bold mt-sm-5">
-                        Make purchases with our app{" "}
+                        Make purchases with our app
                       </h1>
                       <hr className="hr-light" />
                       <h6 className="mb-4">
