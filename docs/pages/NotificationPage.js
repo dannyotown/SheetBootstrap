@@ -76,8 +76,15 @@ class NotificationPage extends Component {
             />
           </div>
         </MDBContainer>
-        <MDBContainer className="p-3 mb-5" style={{ backgroundImage: "url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(122).jpg')", minHeight: "350px"}}>
-          <div style={{ position: "relative" }} >
+        <MDBContainer
+          className="p-3 mb-5"
+          style={{
+            backgroundImage:
+              "url('https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(122).jpg')",
+            minHeight: "350px"
+          }}
+        >
+          <div style={{ position: "relative" }}>
             <div
               style={{
                 position: "absolute",
@@ -130,18 +137,18 @@ class NotificationPage extends Component {
         </p>
         <h2 className="mt-5">Customizable</h2>
         <MDBNotification
-          iconClassName="blue-grey-text"
-          show
+          autohide={0} // by default = ∞ ms
+          bodyClassName="p-5 font-weight-bold white-text"
+          className="stylish-color-dark"
+          closeClassName="blue-grey-text"
           fade
-          labelColor="#59698d"
+          icon="bell"
+          iconClassName="blue-grey-text"
+          message="Hello, world! This is a toast message."
+          show
+          text="11 mins ago"
           title="Bootstrap"
           titleClassName="elegant-color-dark white-text"
-          closeClassName="blue-grey-text"
-          message="Hello, world! This is a toast message."
-          bodyClassName="p-5 font-weight-bold white-text"
-          text="11 mins ago"
-          autohide={0} // by default = ∞ ms
-          className="stylish-color-dark"
         />
         <hr
           style={{
