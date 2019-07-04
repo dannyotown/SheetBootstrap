@@ -206,15 +206,7 @@ class Input extends React.Component {
       </>
     );
 
-    return noTag ? renderFunction() : <div className={containerClassFix} >{renderFunction()}</div>;
-
-        
-    // if(noTag) {
-    //   return renderFunction();
-    // } else {
-    //   return <div className={containerClassFix} >{renderFunction()}</div>;
-    // }
-    
+    return noTag ? renderFunction() : <div className={containerClassFix} >{renderFunction()}</div>;   
   }
 }
 
