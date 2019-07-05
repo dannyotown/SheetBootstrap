@@ -110,10 +110,8 @@ class Input extends React.Component {
     } = this.props;
 
     let isNotEmpty =
-      !!this.state.innerValue ||
-      !!hint ||
-      this.state.isFocused ||
-      this.state.innerValue === 0;
+      (!!this.state.innerValue || !!hint || this.state.isFocused) &&
+      (type !== "checkbox" && type !== "radio");
     let Tag = "";
     let formControlClass = "";
 
@@ -140,7 +138,12 @@ class Input extends React.Component {
     );
 
     const containerClassFix = classNames(
-      type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form",
+      type === "checkbox" || type === "radio"
+        ? typeof label === "boolean" && label
+          ? "d-flex"
+          : "form-check my-3"
+        : "md-form",
+
       group ? "form-group" : false,
       size ? `form-${size}` : false,
       outline && "md-outline",
@@ -157,8 +160,16 @@ class Input extends React.Component {
     const labelClassFix = classNames(
       isNotEmpty ? "active" : false,
       disabled ? "disabled" : false,
-      type === "checkbox" ? "form-check-label mr-5" : false,
-      type === "radio" ? "form-check-label mr-5" : false,
+      type === "checkbox"
+        ? typeof label === "boolean" && label
+          ? "form-check-label"
+          : "form-check-label mr-5"
+        : false,
+      type === "radio"
+        ? typeof label === "boolean" && label
+          ? "form-check-label"
+          : "form-check-label mr-5"
+        : false,
       labelClass
     );
     const renderFunction = () => (
@@ -206,7 +217,11 @@ class Input extends React.Component {
       </>
     );
 
-    return noTag ? renderFunction() : <div className={containerClassFix} >{renderFunction()}</div>;   
+    return noTag ? (
+      renderFunction()
+    ) : (
+      <div className={containerClassFix}>{renderFunction()}</div>
+    );
   }
 }
 
@@ -235,7 +250,8 @@ Input.propTypes = {
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-    PropTypes.object
+    PropTypes.object,
+    PropTypes.bool
   ]),
   labelClass: PropTypes.string,
   noTag: PropTypes.bool,
