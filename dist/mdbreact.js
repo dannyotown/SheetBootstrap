@@ -2090,7 +2090,8 @@ function (_Component) {
           length = _this$props.length,
           showControls = _this$props.showControls,
           showIndicators = _this$props.showIndicators,
-          attributes = _objectWithoutProperties(_this$props, ["activeItem", "children", "className", "multiItem", "slide", "thumbnails", "interval", "testimonial", "tag", "length", "showControls", "showIndicators"]);
+          onHoverStop = _this$props.onHoverStop,
+          attributes = _objectWithoutProperties(_this$props, ["activeItem", "children", "className", "multiItem", "slide", "thumbnails", "interval", "testimonial", "tag", "length", "showControls", "showIndicators", "onHoverStop"]);
 
       var ariaLabel = "carousel";
       var classes = classNames("carousel", multiItem ? "carousel-multi-item" : "carousel-fade", thumbnails ? "carousel-thumbnails" : "", testimonial ? "testimonial-carousel" : "", className);
@@ -2126,6 +2127,12 @@ function (_Component) {
           return _this2.setState({
             swipeAvailable: true
           });
+        },
+        onMouseEnter: function onMouseEnter() {
+          return onHoverStop ? clearInterval(_this2.cycleInterval) : false;
+        },
+        onMouseLeave: function onMouseLeave() {
+          return onHoverStop ? _this2.restartInterval() : false;
         }
       }), showControls && multiItem && React__default.createElement("div", {
         className: "controls-top"
@@ -2176,13 +2183,15 @@ Carousel.propTypes = {
   showControls: propTypes.bool,
   showIndicators: propTypes.bool,
   slide: propTypes.bool,
-  length: propTypes.number
+  length: propTypes.number,
+  onHoverStop: propTypes.bool
 };
 Carousel.defaultProps = {
   tag: "div",
   interval: 6000,
   showControls: true,
-  showIndicators: true
+  showIndicators: true,
+  onHoverStop: true
 };
 Carousel.childContextTypes = {
   activeItem: propTypes.any,
@@ -3134,7 +3143,10 @@ var ControlledSelectInput = React__default.forwardRef(function (_ref, inputRef) 
     required: required ? required : false,
     value: value,
     onChange: function onChange() {},
-    className: "select-dropdown"
+    className: "select-dropdown",
+    onFocus: function onFocus(e) {
+      return e.target.style.caretColor = "transparent";
+    }
   });
 });
 ControlledSelectInput.propTypes = {
@@ -3228,6 +3240,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           background = _this$props.background,
           children = _this$props.children,
@@ -3244,10 +3258,14 @@ function (_React$Component) {
           iconBrand = _this$props.iconBrand,
           iconClass = _this$props.iconClass,
           iconLight = _this$props.iconLight,
+          onIconClick = _this$props.onIconClick,
+          onIconMouseEnter = _this$props.onIconMouseEnter,
+          onIconMouseLeave = _this$props.onIconMouseLeave,
           iconRegular = _this$props.iconRegular,
           iconSize = _this$props.iconSize,
           id = _this$props.id,
           inputRef = _this$props.inputRef,
+          noTag = _this$props.noTag,
           outline = _this$props.outline,
           label = _this$props.label,
           labelClass = _this$props.labelClass,
@@ -3258,9 +3276,9 @@ function (_React$Component) {
           validate = _this$props.validate,
           value = _this$props.value,
           valueDefault = _this$props.valueDefault,
-          attributes = _objectWithoutProperties(_this$props, ["background", "children", "className", "containerClass", "disabled", "error", "filled", "gap", "getValue", "group", "hint", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "id", "inputRef", "outline", "label", "labelClass", "size", "success", "tag", "type", "validate", "value", "valueDefault"]);
+          attributes = _objectWithoutProperties(_this$props, ["background", "children", "className", "containerClass", "disabled", "error", "filled", "gap", "getValue", "group", "hint", "icon", "iconBrand", "iconClass", "iconLight", "onIconClick", "onIconMouseEnter", "onIconMouseLeave", "iconRegular", "iconSize", "id", "inputRef", "noTag", "outline", "label", "labelClass", "size", "success", "tag", "type", "validate", "value", "valueDefault"]);
 
-      var isNotEmpty = !!this.state.innerValue || !!hint || this.state.isFocused;
+      var isNotEmpty = (!!this.state.innerValue || !!hint || this.state.isFocused || this.state.innerValue === 0) && type !== "checkbox" && type !== "radio";
       var Tag = "";
       var formControlClass = "";
 
@@ -3275,37 +3293,46 @@ function (_React$Component) {
 
       attributes.disabled = disabled;
       var classes = classNames(formControlClass, size ? "form-control-".concat(size) : false, validate ? "validate" : false, filled ? "filled-in" : false, gap ? "with-gap" : false, type === "checkbox" ? gap ? false : "form-check-input" : false, type === "radio" ? "form-check-input" : false, className);
-      var containerClassFix = classNames(type === "checkbox" || type === "radio" ? "form-check my-3" : "md-form", group ? "form-group" : false, size ? "form-".concat(size) : false, outline && 'md-outline', background && 'md-bg', containerClass);
+      var containerClassFix = classNames(type === "checkbox" || type === "radio" ? typeof label === "boolean" && label ? "d-flex" : "form-check my-3" : "md-form", group ? "form-group" : false, size ? "form-".concat(size) : false, outline && "md-outline", background && "md-bg", containerClass);
       var iconClassFix = classNames(isNotEmpty && this.state.isFocused ? "active" : false, iconClass, "prefix");
-      var labelClassFix = classNames(isNotEmpty ? "active" : false, disabled ? "disabled" : false, type === "checkbox" ? "form-check-label mr-5" : false, type === "radio" ? "form-check-label mr-5" : false, labelClass);
-      return React__default.createElement("div", {
+      var labelClassFix = classNames(isNotEmpty ? "active" : false, disabled ? "disabled" : false, type === "checkbox" ? typeof label === "boolean" && label ? "form-check-label" : "form-check-label mr-5" : false, type === "radio" ? typeof label === "boolean" && label ? "form-check-label" : "form-check-label mr-5" : false, labelClass);
+
+      var renderFunction = function renderFunction() {
+        return React__default.createElement(React__default.Fragment, null, icon && React__default.createElement(Fa, {
+          icon: icon,
+          size: iconSize,
+          brand: iconBrand,
+          light: iconLight,
+          regular: iconRegular,
+          className: iconClassFix,
+          onClick: function onClick(e) {
+            onIconClick ? onIconClick() : _this2.setFocus(e);
+          },
+          onMouseEnter: onIconMouseEnter,
+          onMouseLeave: onIconMouseLeave
+        }), React__default.createElement(Tag, _extends({}, attributes, {
+          className: classes,
+          id: id,
+          placeholder: hint,
+          ref: _this2.inputElementRef,
+          value: _this2.state.innerValue,
+          onBlur: _this2.onBlur,
+          onChange: _this2.onChange,
+          onInput: _this2.onInput,
+          onFocus: _this2.onFocus
+        })), label && React__default.createElement("label", {
+          className: labelClassFix,
+          htmlFor: id,
+          "data-error": error,
+          "data-success": success,
+          id: id,
+          onClick: _this2.setFocus
+        }, label), children);
+      };
+
+      return noTag ? renderFunction() : React__default.createElement("div", {
         className: containerClassFix
-      }, icon && React__default.createElement(Fa, {
-        icon: icon,
-        size: iconSize,
-        brand: iconBrand,
-        light: iconLight,
-        regular: iconRegular,
-        className: iconClassFix,
-        onClick: this.setFocus
-      }), React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes,
-        id: id,
-        placeholder: hint,
-        ref: this.inputElementRef,
-        value: this.state.innerValue,
-        onBlur: this.onBlur,
-        onChange: this.onChange,
-        onInput: this.onInput,
-        onFocus: this.onFocus
-      })), label && React__default.createElement("label", {
-        className: labelClassFix,
-        htmlFor: id,
-        "data-error": error,
-        "data-success": success,
-        id: id,
-        onClick: this.setFocus
-      }, label), children);
+      }, renderFunction());
     }
   }], [{
     key: "getDerivedStateFromProps",
@@ -3338,12 +3365,16 @@ Input.propTypes = {
   iconBrand: propTypes.bool,
   iconClass: propTypes.string,
   iconLight: propTypes.bool,
+  onIconClick: propTypes.func,
+  onIconMouseEnter: propTypes.func,
+  onIconMouseLeave: propTypes.func,
   iconRegular: propTypes.bool,
   iconSize: propTypes.string,
   id: propTypes.string,
   inputRef: propTypes.oneOfType([propTypes.object, propTypes.func]),
-  label: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
+  label: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object, propTypes.bool]),
   labelClass: propTypes.string,
+  noTag: propTypes.bool,
   onBlur: propTypes.func,
   onChange: propTypes.func,
   onFocus: propTypes.func,
@@ -3354,8 +3385,8 @@ Input.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
   type: propTypes.string,
   validate: propTypes.bool,
-  value: propTypes.string,
-  valueDefault: propTypes.string
+  value: propTypes.oneOfType([propTypes.number, propTypes.string]),
+  valueDefault: propTypes.oneOfType([propTypes.number, propTypes.string])
 };
 Input.defaultProps = {
   className: "",
@@ -3370,9 +3401,12 @@ Input.defaultProps = {
   iconBrand: false,
   iconClass: "",
   iconLight: false,
+  onIconMouseEnter: function onIconMouseEnter() {},
+  onIconMouseLeave: function onIconMouseLeave() {},
   iconRegular: false,
   iconSize: undefined,
   id: undefined,
+  noTag: false,
   outline: false,
   label: "",
   labelClass: "",
@@ -3654,46 +3688,61 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Select).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_this), "onDocumentClick", function (e) {
-      if (e.target.dataset.multiple === "true" || e.target.dataset.search === "true" || e.target.classList.contains('dropdown-content') || e.target.getAttribute("for") === "selectSearchInput") {
-        return;
-      }
+    _defineProperty(_assertThisInitialized(_this), "onInputClick", function (_ref) {
+      var input = _ref.target;
+      var dropdown = input.nextElementSibling;
+      dropdown.classList.add("fadeIn");
+      !_this.props.outline && (dropdown.style.top = ".6rem");
 
-      _this.closeDropdowns();
-
-      e.target.nextElementSibling && e.target.nextElementSibling.classList.add("fadeIn");
+      _this.setState({
+        dropdown: dropdown,
+        input: input
+      });
     });
 
-    _defineProperty(_assertThisInitialized(_this), "closeDropdowns", function () {
-      _this.changeFocus(null);
+    _defineProperty(_assertThisInitialized(_this), "onDocumentClick", function (_ref2) {
+      var target = _ref2.target;
+      var _this$state = _this.state,
+          dropdown = _this$state.dropdown,
+          input = _this$state.input;
 
-      var dropdowns = document.querySelectorAll(".dropdown-content");
-      dropdowns.forEach(function (dropdown) {
-        return dropdown.classList.contains("fadeIn") && dropdown.classList.remove("fadeIn");
-      });
+      if (dropdown) {
+        var isMultiple = target.dataset.multiple === "true";
+        var isSearchLabel = target.id === "selectSearchInput";
+
+        if (target === input || isMultiple || isSearchLabel) {
+          return;
+        } else {
+          dropdown.classList.remove("fadeIn");
+
+          _this.changeFocus(null);
+
+          _this.setState({
+            dropdown: null
+          });
+        }
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "computeValuesAndText", function (options) {
       var checkedOptions = options.filter(function (option) {
         return option.checked;
-      }).map(function (option) {
-        return {
-          value: option.value,
-          text: option.text ? option.text : option.value
-        };
       });
       var checkedValues = checkedOptions.map(function (opt) {
         return opt.value;
       });
       var checkedTexts = checkedOptions.map(function (opt) {
-        return opt.text && _typeof(opt.text) !== "object" ? opt.text : opt.value;
+        return opt.text ? opt.text : opt.value;
       });
+      var selectTextContent = checkedTexts.length ? checkedTexts.join(", ") : _this.props.selected;
+      var allChecked = checkedOptions.length === options.filter(function (option) {
+        return !option.disabled;
+      }).length;
       return {
+        isControlledEmpty: !checkedOptions.length,
         selectValue: checkedValues,
-        selectTextContent: checkedTexts.length ? checkedTexts.join(", ") : _this.props.selected,
-        allChecked: checkedOptions.length === _this.state.options.filter(function (option) {
-          return option.disabled !== true;
-        }).length
+        selectTextContent: selectTextContent,
+        allChecked: allChecked
       };
     });
 
@@ -3757,11 +3806,8 @@ function (_React$Component) {
         var optionIndex = options.findIndex(function (option) {
           return option.value === value;
         });
-
-        _this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
-
         options.forEach(function (option, index) {
-          return index !== optionIndex ? option.checked = false : false;
+          return index !== optionIndex ? _this.setOptionStatus(option, false) : _this.setOptionStatus(option, !option.checked);
         });
         return _this.computeValuesAndText(options);
       });
@@ -3774,9 +3820,7 @@ function (_React$Component) {
         var optionIndex = options.findIndex(function (option) {
           return option.value === value;
         });
-
-        _this.setOptionStatus(options[optionIndex], !prevState.options[optionIndex].checked);
-
+        options[optionIndex].checked = !options[optionIndex].checked;
         return _this.computeValuesAndText(options);
       });
     });
@@ -3786,14 +3830,14 @@ function (_React$Component) {
         var options = _toConsumableArray(prevState.options);
 
         var filteredOptions = _toConsumableArray(prevState.filteredOptions).filter(function (option) {
-          return option.disabled !== true;
+          return !option.disabled;
         });
 
         var areSomeUnchecked = filteredOptions.some(function (option) {
-          return option.checked === false;
+          return !option.checked;
         });
         areSomeUnchecked ? filteredOptions.map(function (option) {
-          return option.checked === false && !option.disabled ? _this.setOptionStatus(option, true) : null;
+          return !option.checked && _this.setOptionStatus(option, true);
         }) : filteredOptions.map(function (option) {
           return _this.setOptionStatus(option, false);
         });
@@ -3814,12 +3858,21 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "triggerOptionChange", function (value, text) {
+    _defineProperty(_assertThisInitialized(_this), "triggerOptionChange", function () {
+      var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+      var text = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _this.state.selectedValue;
       Array.isArray(text) && (text = text.join(", "));
 
       _this.setState({
         selectValue: value,
-        selectTextContent: text
+        selectTextContent: text,
+        isEmpty: value.length ? false : true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setSelected", function (selectedValue) {
+      return _this.setState({
+        selectedValue: selectedValue
       });
     });
 
@@ -3847,14 +3900,27 @@ function (_React$Component) {
           focusBackgroundColor = _this$props.focusBackgroundColor,
           attributes = _objectWithoutProperties(_this$props, ["className", "color", "children", "getTextContent", "getValue", "label", "labelClass", "multiple", "outline", "required", "search", "searchLabel", "searchId", "selected", "selectAll", "selectAllClassName", "selectAllLabel", "selectAllValue", "focusShadow", "focusBackgroundColor"]);
 
-      var classes = classNames("select-wrapper mdb-select md-form", _this.props.color ? "colorful-select dropdown-" + _this.props.color : "", outline ? "md-outline" : className);
-      var labelClasses = classNames(!outline && "mdb-main-label", _this.state.selectTextContent && "active", labelClass);
-      var labelStyles = {
-        color: _this.state.selectTextContent && '#4285f4',
-        zIndex: 4
+      var _this$state2 = _this.state,
+          isEmpty = _this$state2.isEmpty,
+          isControlledEmpty = _this$state2.isControlledEmpty,
+          isOpened = _this$state2.dropdown,
+          selectTextContent = _this$state2.selectTextContent;
+      var classes = classNames("select-wrapper mdb-select md-form", color ? "colorful-select dropdown-" + color : "", outline ? "md-outline" : className);
+      var labelClasses = classNames(!outline && "mdb-main-label", labelClass, children ? (!isEmpty || isOpened) && "active text-primary" : (!isControlledEmpty || isOpened) && "active text-primary");
+      var needToMoveOutline = outline && isEmpty && !isOpened;
+      var uncontrolledLabelStyles = {
+        transform: needToMoveOutline && "translateY(23px)",
+        fontSize: needToMoveOutline && "1rem",
+        fontWeight: needToMoveOutline && "300",
+        left: !outline && isEmpty && !isOpened && "15px"
+      };
+      var controlledLabelStyles = {
+        zIndex: outline && (!isControlledEmpty || isOpened) && 4,
+        transform: isControlledEmpty && !isOpened && "translateY(7px)"
       };
 
-      if (!_this.props.children) {
+      if (!children) {
+        var controlledValue = isControlledEmpty ? selected && !label ? selected : "" : selectTextContent;
         return React__default.createElement(React__default.Fragment, null, React__default.createElement("div", _extends({}, attributes, {
           "data-color": color,
           "data-multiple": multiple,
@@ -3862,7 +3928,7 @@ function (_React$Component) {
         }), React__default.createElement("span", {
           className: "caret"
         }, "\u25BC"), React__default.createElement(ControlledSelectInput, {
-          value: _this.state.selectTextContent,
+          value: controlledValue,
           ref: _this.inputRef,
           required: required
         }), React__default.createElement(ControlledSelectOptions, {
@@ -3885,14 +3951,17 @@ function (_React$Component) {
           focusBackgroundColor: focusBackgroundColor
         }), label && React__default.createElement("label", {
           className: labelClasses,
-          style: labelStyles
+          style: controlledLabelStyles
         }, label)));
       } else {
         return React__default.createElement(SelectContext.Provider, {
           value: {
             state: _this.state,
-            multiple: _this.props.multiple,
-            triggerOptionChange: _this.triggerOptionChange
+            multiple: multiple,
+            triggerOptionChange: _this.triggerOptionChange,
+            label: label,
+            setSelected: _this.setSelected,
+            onInputClick: _this.onInputClick
           }
         }, React__default.createElement("div", _extends({}, attributes, {
           "data-color": color,
@@ -3902,18 +3971,23 @@ function (_React$Component) {
           className: "caret"
         }, "\u25BC"), children), label && React__default.createElement("label", {
           className: labelClasses,
-          style: labelStyles
+          style: uncontrolledLabelStyles
         }, label));
       }
     });
 
     _this.state = {
+      selectedValue: "",
+      isEmpty: true,
+      isControlledEmpty: true,
       selectValue: [],
       selectTextContent: "",
       options: _this.props.options || [],
       allChecked: false,
       focused: null,
-      filteredOptions: _this.props.options || []
+      filteredOptions: _this.props.options || [],
+      input: null,
+      dropdown: null
     };
     _this.inputRef = React__default.createRef();
 
@@ -3928,6 +4002,10 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       document.addEventListener("click", this.onDocumentClick);
+
+      if (this.inputRef && this.inputRef.current) {
+        this.inputRef.current.addEventListener("click", this.onInputClick);
+      }
     }
   }, {
     key: "componentDidUpdate",
@@ -3939,6 +4017,14 @@ function (_React$Component) {
 
         if (typeof this.props.getTextContent === "function") {
           this.props.getTextContent(this.state.selectTextContent);
+        }
+
+        if (!this.props.children) {
+          this.setState({
+            isControlledEmpty: !this.state.options.some(function (option) {
+              return option.checked;
+            })
+          });
         }
       }
 
@@ -3961,8 +4047,11 @@ function (_React$Component) {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
       document.removeEventListener("click", this.onDocumentClick);
-    } // close all select dropdown (unless it has multiple property or search input)
-    // open nieghbour ul of clicked input
+
+      if (this.inputRef && this.inputRef.current) {
+        this.inputRef.current.removeEventListener("click", this.onInputClick);
+      }
+    } // open nieghbour ul of clicked input
 
   }, {
     key: "render",
@@ -4041,25 +4130,52 @@ var selectContextHOC = function selectContextHOC(Component) {
   );
 };
 
-exports.MDBSelectInput = function SelectInput(_ref) {
-  var attributes = _ref.attributes,
-      className = _ref.className,
-      context = _ref.context,
-      selected = _ref.selected;
-  var classes = classNames("select-dropdown", className);
+exports.MDBSelectInput =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(SelectInput, _React$Component);
 
-  if (context.state.selectTextContent === "" && selected) {
-    context.triggerOptionChange([], selected);
+  function SelectInput() {
+    _classCallCheck(this, SelectInput);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SelectInput).apply(this, arguments));
   }
 
-  return React__default.createElement("input", _extends({
-    type: "text",
-    readOnly: true,
-    value: context.state.selectTextContent
-  }, attributes, {
-    className: classes
-  }));
-};
+  _createClass(SelectInput, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.selected && this.props.context.setSelected(this.props.selected);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (prevProps.context.state.isEmpty !== this.props.context.state.isEmpty) {
+        this.props.selected && this.props.context.setSelected(this.props.selected);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var classes = classNames("select-dropdown", this.props.className);
+      var _this$props = this.props,
+          attributes = _this$props.attributes,
+          context = _this$props.context;
+      var value = context.state.isEmpty ? this.props.selected && !context.label ? this.props.selected : "" : context.state.selectTextContent;
+      return React__default.createElement("input", _extends({
+        type: "text",
+        readOnly: true,
+        onClick: function onClick(e) {
+          return context.onInputClick(e);
+        },
+        value: value
+      }, attributes, {
+        className: classes
+      }));
+    }
+  }]);
+
+  return SelectInput;
+}(React__default.Component);
 
 exports.MDBSelectInput.propTypes = {
   context: propTypes.object.isRequired,
@@ -4067,8 +4183,7 @@ exports.MDBSelectInput.propTypes = {
   selected: propTypes.oneOfType([propTypes.string, propTypes.number])
 };
 exports.MDBSelectInput.defaultProps = {
-  className: "",
-  selected: "Choose your option"
+  className: ""
 };
 var SelectInput = exports.MDBSelectInput = selectContextHOC(exports.MDBSelectInput);
 
@@ -4216,7 +4331,7 @@ function (_React$Component) {
           selectedOption.classList.add("active");
         }
 
-        _this.props.context.triggerOptionChange(value, text);
+        value.length ? _this.props.context.triggerOptionChange(value, text) : _this.props.context.triggerOptionChange();
       }
     });
 
@@ -5937,6 +6052,90 @@ HamburgerToggler.propTypes = {
   className: propTypes.string
 };
 
+var InputGroup = function InputGroup(_ref) {
+  var append = _ref.append,
+      appendClassName = _ref.appendClassName,
+      ariaLabel = _ref.ariaLabel,
+      children = _ref.children,
+      className = _ref.className,
+      containerClassName = _ref.containerClassName,
+      containerId = _ref.containerId,
+      hint = _ref.hint,
+      id = _ref.id,
+      inputs = _ref.inputs,
+      inputTag = _ref.inputTag,
+      label = _ref.label,
+      labelClassName = _ref.labelClassName,
+      material = _ref.material,
+      prepend = _ref.prepend,
+      prependClassName = _ref.prependClassName,
+      size = _ref.size,
+      Tag = _ref.tag,
+      textClassName = _ref.textClassName,
+      type = _ref.type,
+      value = _ref.value,
+      valueDefault = _ref.valueDefault,
+      attributes = _objectWithoutProperties(_ref, ["append", "appendClassName", "ariaLabel", "children", "className", "containerClassName", "containerId", "hint", "id", "inputs", "inputTag", "label", "labelClassName", "material", "prepend", "prependClassName", "size", "tag", "textClassName", "type", "value", "valueDefault"]);
+
+  var containerClassNames = classNames("input-group", material && "md-form", size && "input-group-".concat(size), containerClassName);
+  var inputClassNames = classNames(className);
+  var prependClassNames = classNames("input-group-prepend", prependClassName);
+  var appendClassNames = classNames("input-group-append", appendClassName);
+  var textClassNames = classNames("input-group-text", material && "md-addon", textClassName);
+  return React__default.createElement(React__default.Fragment, null, label && React__default.createElement("label", {
+    htmlFor: id,
+    className: labelClassName
+  }, label), React__default.createElement(Tag, _extends({}, attributes, {
+    className: containerClassNames,
+    id: containerId
+  }), prepend && React__default.createElement("div", {
+    className: prependClassNames
+  }, typeof prepend === "string" ? React__default.createElement("span", {
+    className: textClassNames
+  }, prepend) : prepend), inputs || React__default.createElement(Input, {
+    noTag: true,
+    type: type,
+    className: inputClassNames,
+    id: id,
+    value: value,
+    valueDefault: valueDefault,
+    hint: hint,
+    "aria-label": ariaLabel
+  }), append && React__default.createElement("div", {
+    className: appendClassNames
+  }, typeof append === "string" ? React__default.createElement("span", {
+    className: textClassNames
+  }, append) : append), children));
+};
+
+InputGroup.propTypes = {
+  append: propTypes.oneOfType([propTypes.node, propTypes.string]),
+  appendClassNames: propTypes.string,
+  ariaLabel: propTypes.string,
+  children: propTypes.node,
+  className: propTypes.string,
+  containerClassName: propTypes.string,
+  containerId: propTypes.string,
+  hint: propTypes.string,
+  id: propTypes.string,
+  inputs: propTypes.node,
+  label: propTypes.string,
+  labelClassName: propTypes.string,
+  material: propTypes.bool,
+  prepend: propTypes.any,
+  prependClassName: propTypes.string,
+  size: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  textClassName: propTypes.string,
+  type: propTypes.string,
+  value: propTypes.string,
+  valueDefault: propTypes.string
+};
+InputGroup.defaultProps = {
+  tag: "div",
+  type: "text"
+};
+
 var InputNumeric =
 /*#__PURE__*/
 function (_React$Component) {
@@ -7038,34 +7237,28 @@ function (_React$Component) {
           fade = _this$props.fade,
           message = _this$props.message,
           bodyClassName = _this$props.bodyClassName,
-          labelColor = _this$props.labelColor,
+          icon = _this$props.icon,
+          iconClassName = _this$props.iconClassName,
           title = _this$props.title,
           titleClassName = _this$props.titleClassName,
           text = _this$props.text,
           closeClassName = _this$props.closeClassName,
-          attributes = _objectWithoutProperties(_this$props, ["tag", "className", "show", "fade", "message", "bodyClassName", "labelColor", "title", "titleClassName", "text", "closeClassName"]);
+          attributes = _objectWithoutProperties(_this$props, ["tag", "className", "show", "fade", "message", "bodyClassName", "icon", "iconClassName", "title", "titleClassName", "text", "closeClassName"]);
 
       var classes = classNames("toast", fade && "fade", this.state.componentState, className);
       var headerClasses = classNames("toast-header", titleClassName);
+      var iconClassNames = classNames("mr-2", iconClassName);
       var bodyClasses = classNames("toast-body", bodyClassName);
       var closeClasses = classNames("ml-2", "mb-1", closeClassName);
       return React__default.createElement(Tag, _extends({}, attributes, {
         className: classes
       }), React__default.createElement("div", {
         className: headerClasses
-      }, React__default.createElement("svg", {
-        className: "rounded mr-2",
-        width: "20",
-        height: "20",
-        xmlns: "http://www.w3.org/2000/svg",
-        preserveAspectRatio: "xMidYMid slice",
-        focusable: "false",
-        role: "img"
-      }, React__default.createElement("rect", {
-        fill: labelColor,
-        width: "100%",
-        height: "100%"
-      })), React__default.createElement("strong", {
+      }, React__default.createElement(Fa, {
+        icon: icon,
+        className: iconClassNames,
+        size: "lg"
+      }), React__default.createElement("strong", {
         className: "mr-auto"
       }, title), React__default.createElement("small", null, text), React__default.createElement(MDBCloseIcon, {
         className: closeClasses,
@@ -7087,7 +7280,7 @@ Notification.propTypes = {
   show: propTypes.bool,
   fade: propTypes.bool,
   autohide: propTypes.number,
-  labelColor: propTypes.string,
+  iconClassName: propTypes.string,
   title: propTypes.string,
   text: propTypes.string,
   titleColor: propTypes.string,
@@ -7098,8 +7291,8 @@ Notification.propTypes = {
   message: propTypes.string
 };
 Notification.defaultProps = {
+  icon: "square",
   tag: "div",
-  labelColor: "#007aff",
   closeClassName: "text-dark"
 };
 
@@ -7186,7 +7379,7 @@ var Popper = function Popper(_ref) {
       ref: ref,
       "data-popper": id
     }));
-  }), visible && React__default.createElement(Tag, {
+  }), visible && Content.props.children && React__default.createElement(Tag, {
     style: style
   }, React__default.createElement(reactPopper.Popper, {
     modifiers: modifiers,
@@ -9176,10 +9369,10 @@ function (_React$Component) {
     _defineProperty(_assertThisInitialized(_this), "rangeFocus", function () {
       _this.setState({
         thumbActive: true,
-        thumbHeight: '30px',
-        thumbWidth: '30px',
-        thumbTop: '-20px',
-        thumbMarginLeft: '-15px'
+        thumbHeight: "30px",
+        thumbWidth: "30px",
+        thumbTop: "-20px",
+        thumbMarginLeft: "-15px"
       });
     });
 
@@ -9191,8 +9384,8 @@ function (_React$Component) {
         thumbActive: false,
         thumbHeight: 0,
         thumbWidth: 0,
-        thumbTop: '10px',
-        thumbMarginLeft: '-6px'
+        thumbTop: "10px",
+        thumbMarginLeft: "-6px"
       });
     });
 
@@ -9202,10 +9395,10 @@ function (_React$Component) {
       thumbActive: false,
       thumbHeight: 0,
       thumbWidth: 0,
-      thumbTop: '10px',
-      thumbMarginLeft: '-6px',
-      input: 'input',
-      oneStep: ''
+      thumbTop: "10px",
+      thumbMarginLeft: "-6px",
+      input: "input",
+      oneStep: ""
     };
     _this.inputRef = React__default.createRef();
     return _this;
@@ -9218,11 +9411,12 @@ function (_React$Component) {
           className = _this$props.className,
           formClassName = _this$props.formClassName,
           min = _this$props.min,
-          max = _this$props.max;
+          max = _this$props.max,
+          Tag = _this$props.tag;
       var inputClass = classNames(className);
-      var formClass = classNames('range-field', formClassName);
-      var thumbClass = classNames('thumb', this.state.thumbActive ? 'active' : false);
-      return React__default.createElement("form", {
+      var formClass = classNames("range-field", formClassName);
+      var thumbClass = classNames("thumb", this.state.thumbActive ? "active" : false);
+      return React__default.createElement(Tag, {
         className: formClass
       }, React__default.createElement("input", {
         ref: this.inputRef,
@@ -9257,13 +9451,15 @@ InputRange.propTypes = {
   min: propTypes.number,
   max: propTypes.number,
   value: propTypes.number,
-  getValue: propTypes.oneOfType([propTypes.func, propTypes.bool])
+  getValue: propTypes.oneOfType([propTypes.func, propTypes.bool]),
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string])
 };
 InputRange.defaultProps = {
   min: 0,
   max: 100,
   value: 50,
-  getValue: false
+  getValue: false,
+  tag: "div"
 };
 
 var InputSwitch =
@@ -12330,6 +12526,7 @@ exports.HamburgerToggler = HamburgerToggler;
 exports.Iframe = Iframe;
 exports.Input = Input;
 exports.InputFile = InputFile;
+exports.InputGroup = InputGroup;
 exports.InputNumeric = InputNumeric;
 exports.InputRange = InputRange;
 exports.InputSwitch = InputSwitch;
@@ -12388,6 +12585,7 @@ exports.MDBHamburgerToggler = HamburgerToggler;
 exports.MDBIcon = Fa;
 exports.MDBIframe = Iframe;
 exports.MDBInput = Input;
+exports.MDBInputGroup = InputGroup;
 exports.MDBInputSelect = InputNumeric;
 exports.MDBJumbotron = Jumbotron;
 exports.MDBListGroup = ListGroup;
