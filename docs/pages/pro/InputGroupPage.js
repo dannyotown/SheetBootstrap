@@ -198,7 +198,6 @@ class InputGroupPage extends React.Component {
                 prepend={
                   <div className="input-group-text md-addon">
                     <MDBInput
-                      onFocus={() => console.log("console")}
                       label
                       type="checkbox"
                       id="checkboxMaterial1"

@@ -110,7 +110,10 @@ class Input extends React.Component {
     } = this.props;
 
     let isNotEmpty =
-      (!!this.state.innerValue || !!hint || this.state.isFocused) &&
+      (!!this.state.innerValue ||
+        !!hint ||
+        this.state.isFocused ||
+        this.state.innerValue === 0) &&
       (type !== "checkbox" && type !== "radio");
     let Tag = "";
     let formControlClass = "";
