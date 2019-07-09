@@ -14,7 +14,7 @@ import {
   MDBScrollbar
 } from "mdbreact";
 import DocsLink from "./../../components/docsLink";
-import "./ChatPage.css"
+import "./ChatPage.css";
 
 class ChatPage extends Component {
   state = {
@@ -282,7 +282,7 @@ class ChatPage extends Component {
   componentDidMount() {
     this.scrollToLast(".chat-message");
   }
-  scrollToLast = (selector) => {
+  scrollToLast = selector => {
     let message = document.querySelectorAll(selector);
     message[message.length - 1].scrollIntoView();
   };
@@ -344,20 +344,16 @@ class ChatPage extends Component {
         <hr className="my-5" />
 
         <h3>Chat with scrollbar</h3>
-
         <MDBCard className="grey lighten-3 chat-room mb-5">
           <MDBCardBody>
-            <MDBRow
-              className="px-lg-2 px-2 d-block d-md-flex scrollable-chat"
-              // style={{ height: '600px'}}
-            >
+            <MDBRow className="px-lg-2 px-2">
               <MDBCol
                 md="6"
                 xl="4"
-                className="px-0 mb-4 mb-md-0 h-100 pb-5"
+                className="px-0 mb-4 mb-md-0 scrollable-friends-list"
               >
                 <h6 className="font-weight-bold mb-3 text-lg-left">Member</h6>
-                <MDBScrollbar className="white z-depth-1 p-3" >
+                <MDBScrollbar className="white z-depth-1 p-3">
                   <MDBListGroup className="friend-list">
                     {this.state.friendsToScroll.map(friend => (
                       <Friend key={friend.name} friend={friend} />
@@ -365,12 +361,8 @@ class ChatPage extends Component {
                   </MDBListGroup>
                 </MDBScrollbar>
               </MDBCol>
-              <MDBCol
-                md="6"
-                xl="8"
-                className="pl-md-3 mt-4 mt-md-0 px-lg-auto h-75"
-              >
-                <MDBScrollbar>
+              <MDBCol md="6" xl="8" className="pl-md-3 mt-4 mt-md-0 px-lg-auto">
+                <MDBScrollbar className="scrollable-chat">
                   <MDBListGroup className="list-unstyled pl-3 pr-3">
                     {this.state.messagesToScroll.map(message => (
                       <ChatMessage
@@ -387,7 +379,6 @@ class ChatPage extends Component {
                     id="exampleFormControlTextarea2"
                     rows="3"
                     placeholder="Type your message here..."
-                    style={{resize: "none"}}
                   />
                   <MDBBtn
                     color="info"
