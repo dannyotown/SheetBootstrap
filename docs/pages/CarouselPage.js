@@ -17,6 +17,7 @@ const CarouselPage = () => {
         showControls={false}
         showIndicators={false}
         className="z-depth-1"
+        slide={true}
       >
         <MDBCarouselInner>
           <MDBCarouselItem itemId="1">
@@ -59,6 +60,7 @@ const CarouselPage = () => {
         showControls={true}
         showIndicators={true}
         className="z-depth-1"
+        slide
       >
         <MDBCarouselInner>
           <MDBCarouselItem itemId="1">
