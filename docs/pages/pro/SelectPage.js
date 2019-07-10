@@ -10,7 +10,6 @@ import {
   MDBCol
 } from "mdbreact";
 import DocsLink from "../../components/docsLink";
-import "../InputPage.css";
 
 class SelectPage extends Component {
   state = {
