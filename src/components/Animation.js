@@ -45,7 +45,8 @@ class Animation extends Component {
     ) {
       // if the predicate is true, change state
       this.setState({
-        isVisible: true
+        isVisible: true,
+        revealed: true
       });
     } else {
       //  was the "revealing" fired at least once?
