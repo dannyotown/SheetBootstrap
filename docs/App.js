@@ -17,7 +17,7 @@ class App extends Component {
   state = {
     collapseID: ""
   };
-
+  
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
       collapseID: prevState.collapseID !== collapseID ? collapseID : ""
@@ -148,7 +148,7 @@ class App extends Component {
           </main>
           <MDBFooter color="indigo">
             <p className="footer-copyright mb-0 py-3 text-center">
-              &copy; {new Date().getFullYear()} Copyright:{" "}
+              &copy; {new Date().getFullYear()} Copyright:
               <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
             </p>
           </MDBFooter>

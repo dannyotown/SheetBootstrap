@@ -11,11 +11,14 @@ import {
   MDBCardTitle,
   MDBBtn,
   MDBCardImage,
-  MDBCardText
+  MDBCardText,
+  MDBAnimation,
+  MDBNavLink
 } from "mdbreact";
 import "./HomePage.css";
 
 class HomePage extends React.Component {
+  scrollToTop = () => window.scrollTo(0, 0);
   render() {
     return (
       <>
@@ -80,418 +83,306 @@ class HomePage extends React.Component {
 
                 <MDBRow id="categories">
                   <MDBCol md="4">
-                    <MDBCard cascade className="mb-5 grey lighten-4">
-                      <MDBCardImage
-                        cascade
-                        className="img-fluid"
-                        src="https://mdbootstrap.com/wp-content/uploads/2016/08/mdb.jpg"
-                      />
-                      <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <MDBIcon
-                            icon="css3"
-                            brand
-                            className="pink-text pr-2"
-                          />
-                          <strong>CSS</strong>
-                        </MDBCardTitle>
-                        <MDBCardText>
-                          Animations, colours, shadows, skins and many more! Get
-                          to know all our css styles in one place.
-                        </MDBCardText>
-                        <MDBBtn
-                          rounded
-                          outline
-                          color="mdb-color"
-                          className="m-0"
-                          size="sm"
-                        >
-                          More
-                        </MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
+                    <MDBAnimation type="fadeInLeft">
+                      <MDBCard cascade className="mb-5 grey lighten-4">
+                        <MDBCardImage
+                          cascade
+                          className="img-fluid"
+                          src="https://mdbootstrap.com/wp-content/uploads/2016/08/mdb.jpg"
+                        />
+                        <MDBCardBody cascade className="text-center">
+                          <MDBCardTitle>
+                            <MDBIcon
+                              icon="css3"
+                              brand
+                              className="pink-text pr-2"
+                            />
+                            <strong>CSS</strong>
+                          </MDBCardTitle>
+                          <MDBCardText>
+                            Animations, colours, shadows, skins and many more!
+                            Get to know all our css styles in one place.
+                          </MDBCardText>
+                          <MDBNavLink 
+                              tag="button"
+                              to="/css"
+                              color="mdb-color"
+                              className="btn btn-outline-mdb-color btn-sm btn-rounded d-inline"
+                              onClick={this.scrollToTop}
+                            >
+                              More
+                          </MDBNavLink>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </MDBAnimation>
                   </MDBCol>
                   <MDBCol md="4">
-                    <MDBCard cascade className="mb-5 grey lighten-4">
-                      <MDBCardImage
-                        cascade
-                        className="img-fluid"
-                        src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-main.jpg"
-                      />
-                      <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <MDBIcon icon="cubes" className="blue-text pr-2" />
-                          <strong>COMPONENTS</strong>
-                        </MDBCardTitle>
-                        <MDBCardText>
-                          Ready-to-use components that you can use in your
-                          applications. Both basic and extended versions!
-                        </MDBCardText>
-                        <MDBBtn
-                          rounded
-                          outline
-                          color="mdb-color"
-                          className="m-0"
-                          size="sm"
-                        >
-                          More
-                        </MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
+                    <MDBAnimation type="fadeIn">
+                      <MDBCard cascade className="mb-5 grey lighten-4">
+                        <MDBCardImage
+                          cascade
+                          className="img-fluid"
+                          src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-main.jpg"
+                        />
+                        <MDBCardBody cascade className="text-center">
+                          <MDBCardTitle>
+                            <MDBIcon icon="cubes" className="blue-text pr-2" />
+                            <strong>COMPONENTS</strong>
+                          </MDBCardTitle>
+                          <MDBCardText>
+                            Ready-to-use components that you can use in your
+                            applications. Both basic and extended versions!
+                          </MDBCardText>
+                          <MDBNavLink 
+                              tag="button"
+                              to="/components"
+                              color="mdb-color"
+                              className="btn btn-outline-mdb-color btn-sm btn-rounded d-inline"
+                              onClick={this.scrollToTop}
+                            >
+                              More
+                          </MDBNavLink>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </MDBAnimation>
                   </MDBCol>
                   <MDBCol md="4">
-                    <MDBCard cascade className="mb-5 grey lighten-4">
-                      <MDBCardImage
-                        cascade
-                        className="img-fluid"
-                        src="https://mdbootstrap.com/wp-content/uploads/2018/11/mdb-jquery-free.jpg"
-                      />
-                      <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <MDBIcon icon="code" className="green-text pr-2" />
-                          <strong>COMPONENTS</strong>
-                        </MDBCardTitle>
-                        <MDBCardText>
-                          Advanced components such as charts, carousels,
-                          tooltips and popovers. All in Material Design version.
-                        </MDBCardText>
+                    <MDBAnimation type="fadeInRight">
+                      <MDBCard cascade className="mb-5 grey lighten-4">
+                        <MDBCardImage
+                          cascade
+                          className="img-fluid"
+                          src="https://mdbootstrap.com/wp-content/uploads/2018/11/mdb-jquery-free.jpg"
+                        />
+                        <MDBCardBody cascade className="text-center">
+                          <MDBCardTitle>
+                            <MDBIcon icon="code" className="green-text pr-2" />
+                            <strong>ADVANCED</strong>
+                          </MDBCardTitle>
+                          <MDBCardText>
+                            Advanced components such as charts, carousels,
+                            tooltips and popovers. All in Material Design
+                            version.
+                          </MDBCardText>
 
-                        <MDBBtn
-                          rounded
-                          outline
-                          color="mdb-color"
-                          className="m-0"
-                          size="sm"
-                        >
-                          More
-                        </MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
+                          <MDBNavLink 
+                              tag="button"
+                              to="/advanced"
+                              color="mdb-color"
+                              className="btn btn-outline-mdb-color btn-sm btn-rounded d-inline"
+                              onClick={this.scrollToTop}
+                            >
+                              More
+                          </MDBNavLink>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </MDBAnimation>
                   </MDBCol>
                 </MDBRow>
+
                 <MDBRow id="categories">
                   <MDBCol md="4">
-                    <MDBCard cascade className="mb-5 grey lighten-4">
-                      <MDBCardImage
-                        cascade
-                        className="img-fluid"
-                        src="https://mdbootstrap.com/wp-content/uploads/2017/06/navigation-1.jpg"
-                      />
-                      <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <MDBIcon icon="bars" className="pink-text pr-2" />
-                          <strong>NAVIGATION</strong>
-                        </MDBCardTitle>
-                        <MDBCardText>
-                          Ready-to-use navigation layouts, navbars, breadcrumbs
-                          and much more! More about our navigation components.
-                        </MDBCardText>
+                    <MDBAnimation type="fadeInLeft">
+                      <MDBCard cascade className="mb-5 grey lighten-4">
+                        <MDBCardImage
+                          cascade
+                          className="img-fluid"
+                          src="https://mdbootstrap.com/wp-content/uploads/2017/06/navigation-1.jpg"
+                        />
+                        <MDBCardBody cascade className="text-center">
+                          <MDBCardTitle>
+                            <MDBIcon icon="bars" className="pink-text pr-2" />
+                            <strong>NAVIGATION</strong>
+                          </MDBCardTitle>
+                          <MDBCardText>
+                            Ready-to-use navigation layouts, navbars,
+                            breadcrumbs and much more! More about our navigation
+                            components.
+                          </MDBCardText>
 
-                        <MDBBtn
-                          rounded
-                          outline
-                          color="mdb-color"
-                          className="m-0"
-                          size="sm"
-                        >
-                          More
-                        </MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
+                          <MDBNavLink 
+                              tag="button"
+                              to="/navigation"
+                              color="mdb-color"
+                              className="btn btn-outline-mdb-color btn-sm btn-rounded d-inline"
+                              onClick={this.scrollToTop}
+                            >
+                              More
+                          </MDBNavLink>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </MDBAnimation>
                   </MDBCol>
                   <MDBCol md="4">
-                    <MDBCard cascade className="mb-5 grey lighten-4">
-                      <MDBCardImage
-                        cascade
-                        className="img-fluid"
-                        src="https://mdbootstrap.com/wp-content/uploads/2015/08/forms.jpg"
-                      />
-                      <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <MDBIcon icon="edit" className="blue-text pr-2" />
-                          <strong>FORMS</strong>
-                        </MDBCardTitle>
-                        <MDBCardText className="mb-3">
-                          Inputselecst, date and time pickers. Everything in one
-                          place is ready to use!
-                        </MDBCardText>
+                    <MDBAnimation type="fadeIn">
+                      <MDBCard cascade className="mb-5 grey lighten-4">
+                        <MDBCardImage
+                          cascade
+                          className="img-fluid"
+                          src="https://mdbootstrap.com/wp-content/uploads/2015/08/forms.jpg"
+                        />
+                        <MDBCardBody cascade className="text-center">
+                          <MDBCardTitle>
+                            <MDBIcon icon="edit" className="blue-text pr-2" />
+                            <strong>FORMS</strong>
+                          </MDBCardTitle>
+                          <MDBCardText className="mb-4 pb-3">
+                            Inputselecst, date and time pickers. Everything in
+                            one place is ready to use!
+                          </MDBCardText>
 
-                        <MDBBtn
-                          rounded
-                          outline
-                          color="mdb-color"
-                          className="m-0 mt-4"
-                          size="sm"
-                        >
-                          More
-                        </MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
+                          <MDBNavLink 
+                              tag="button"
+                              to="/forms"
+                              color="mdb-color"
+                              className="btn btn-outline-mdb-color btn-sm btn-rounded d-inline"
+                              onClick={this.scrollToTop}
+                            >
+                              More
+                          </MDBNavLink>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </MDBAnimation>
                   </MDBCol>
                   <MDBCol md="4">
-                    <MDBCard cascade className="mb-5 grey lighten-4">
-                      <MDBCardImage
-                        cascade
-                        className="img-fluid"
-                        src="https://mdbootstrap.com/wp-content/uploads/2015/08/table-fb.jpg"
-                      />
-                      <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <MDBIcon icon="table" className="green-text pr-2" />
-                          <strong>TABLES</strong>
-                        </MDBCardTitle>
-                        <MDBCardText>
-                          Basic and advanced tables. Responsive, datatables,
-                          with sorting, searching and export to csv.
-                        </MDBCardText>
+                    <MDBAnimation type="fadeInRight">
+                      <MDBCard cascade className="mb-5 grey lighten-4">
+                        <MDBCardImage
+                          cascade
+                          className="img-fluid"
+                          src="https://mdbootstrap.com/wp-content/uploads/2015/08/table-fb.jpg"
+                        />
+                        <MDBCardBody cascade className="text-center">
+                          <MDBCardTitle>
+                            <MDBIcon icon="table" className="green-text pr-2" />
+                            <strong>TABLES</strong>
+                          </MDBCardTitle>
+                          <MDBCardText>
+                            Basic and advanced tables. Responsive, datatables,
+                            with sorting, searching and export to csv.
+                          </MDBCardText>
 
-                        <MDBBtn
-                          rounded
-                          outline
-                          color="mdb-color"
-                          className="m-0"
-                          size="sm"
-                        >
-                          More
-                        </MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
+                          <MDBNavLink 
+                              tag="button"
+                              to="/tables"
+                              color="mdb-color"
+                              className="btn btn-outline-mdb-color btn-sm btn-rounded d-inline"
+                              onClick={this.scrollToTop}
+                            >
+                              More
+                          </MDBNavLink>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </MDBAnimation>
                   </MDBCol>
                 </MDBRow>
+
                 <MDBRow id="categories">
                   <MDBCol md="4">
-                    <MDBCard cascade className="mb-5 grey lighten-4">
-                      <MDBCardImage
-                        cascade
-                        className="img-fluid"
-                        src="https://mdbootstrap.com/wp-content/uploads/2018/02/modal-new.jpg"
-                      />
-                      <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <MDBIcon
-                            icon="window-restore"
-                            far
-                            className="pink-text pr-2"
-                          />
-                          <strong>MODALS</strong>
-                        </MDBCardTitle>
-                        <MDBCardText>
-                          Modals used to display advanced messages to the user.
-                          Cookies, logging in, registration and much more.
-                        </MDBCardText>
+                    <MDBAnimation type="fadeInLeft">
+                      <MDBCard cascade className="mb-5 grey lighten-4">
+                        <MDBCardImage
+                          cascade
+                          className="img-fluid"
+                          src="https://mdbootstrap.com/wp-content/uploads/2018/02/modal-new.jpg"
+                        />
+                        <MDBCardBody cascade className="text-center">
+                          <MDBCardTitle>
+                            <MDBIcon
+                              icon="window-restore"
+                              far
+                              className="pink-text pr-2"
+                            />
+                            <strong>MODALS</strong>
+                          </MDBCardTitle>
+                          <MDBCardText>
+                            Modals used to display advanced messages to the
+                            user. Cookies, logging in, registration and much
+                            more.
+                          </MDBCardText>
 
-                        <MDBBtn
-                          rounded
-                          outline
-                          color="mdb-color"
-                          className="m-0"
-                          size="sm"
-                        >
-                          More
-                        </MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
+                          <MDBNavLink 
+                              tag="button"
+                              to="/modals"
+                              color="mdb-color"
+                              className="btn btn-outline-mdb-color btn-sm btn-rounded d-inline"
+                              onClick={this.scrollToTop}
+                            >
+                              More
+                          </MDBNavLink>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </MDBAnimation>
                   </MDBCol>
                   <MDBCol md="4">
-                    <MDBCard cascade className="mb-5 grey lighten-4">
-                      <MDBCardImage
-                        cascade
-                        className="img-fluid"
-                        src="https://mdbootstrap.com/img/Marketing/docs/social/main-addons.jpg"
-                      />
-                      <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <MDBIcon
-                            icon="arrows-alt"
-                            className="blue-text pr-2"
-                          />
-                          <strong>PLUGINS & ADDONS</strong>
-                        </MDBCardTitle>
-                        <MDBCardText>
-                          Google Maps, Social Buttons, Pre-built Contact Forms
-                          and Steppers. Find out more about our extended
-                          components.
-                        </MDBCardText>
+                    <MDBAnimation type="fadeIn">
+                      <MDBCard cascade className="mb-5 grey lighten-4">
+                        <MDBCardImage
+                          cascade
+                          className="img-fluid"
+                          src="https://mdbootstrap.com/img/Marketing/docs/social/main-addons.jpg"
+                        />
+                        <MDBCardBody cascade className="text-center">
+                          <MDBCardTitle>
+                            <MDBIcon
+                              icon="arrows-alt"
+                              className="blue-text pr-2"
+                            />
+                            <strong>PLUGINS & ADDONS</strong>
+                          </MDBCardTitle>
+                          <MDBCardText>
+                            Google Maps, Social Buttons, Pre-built Contact Forms
+                            and Steppers. Find out more about our extended
+                            components.
+                          </MDBCardText>
 
-                        <MDBBtn
-                          rounded
-                          outline
-                          color="mdb-color"
-                          className="m-0"
-                          size="sm"
-                        >
-                          More
-                        </MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
+                          <MDBNavLink 
+                              tag="button"
+                              to="/addons"
+                              color="mdb-color"
+                              className="btn btn-outline-mdb-color btn-sm btn-rounded d-inline"
+                              onClick={this.scrollToTop}
+                            >
+                              More
+                          </MDBNavLink>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </MDBAnimation>
                   </MDBCol>
                   {/* PRO-START */}
                   <MDBCol md="4">
-                    <MDBCard cascade className="mb-5 grey lighten-4">
-                      <MDBCardImage
-                        cascade
-                        className="img-fluid"
-                        src="https://mdbootstrap.com/wp-content/uploads/2015/08/table-fb.jpg"
-                      />
-                      <MDBCardBody cascade className="text-center">
-                        <MDBCardTitle>
-                          <MDBIcon icon="th" className="green-text pr-2" />
-                          <strong>SECTIONS</strong>
-                        </MDBCardTitle>
-                        <MDBCardText className="mb-4">
-                          E-commerce, contact, blog and much more sections. All
-                          ready to use in seconds.
-                        </MDBCardText>
+                    <MDBAnimation type="fadeInRight">
+                      <MDBCard cascade className="mb-5 grey lighten-4">
+                        <MDBCardImage
+                          cascade
+                          className="img-fluid"
+                          src="https://mdbootstrap.com/wp-content/uploads/2015/08/table-fb.jpg"
+                        />
+                        <MDBCardBody cascade className="text-center">
+                          <MDBCardTitle>
+                            <MDBIcon icon="th" className="green-text pr-2" />
+                            <strong>SECTIONS</strong>
+                          </MDBCardTitle>
+                          <MDBCardText className="mb-4 pb-3">
+                            E-commerce, contact, blog and much more sections.
+                            All ready to use in seconds.
+                          </MDBCardText>
 
-                        <MDBBtn
-                          rounded
-                          outline
-                          color="mdb-color"
-                          className="m-0 mt-3"
-                          size="sm"
-                        >
-                          More
-                        </MDBBtn>
-                      </MDBCardBody>
-                    </MDBCard>
+                          <MDBNavLink 
+                              tag="button"
+                              to="/sections"
+                              color="mdb-color"
+                              className="btn btn-outline-mdb-color btn-sm btn-rounded d-inline"
+                              onClick={this.scrollToTop}
+                            >
+                              More
+                          </MDBNavLink>
+                        </MDBCardBody>
+                      </MDBCard>
+                    </MDBAnimation>
                   </MDBCol>
                   {/* PRO-END */}
                 </MDBRow>
-
-                {/* 
-              
-                
-              <MDBRow id="categories">
-                <MDBCol md="4" className="mb-5">
-                  <MDBCol size="2" md="2" className="float-left">
-                    <MDBIcon icon="bars" className="pink-text" size="2x" />
-                  </MDBCol>
-                  <MDBCol size="10" md="8" lg="10" className="float-right">
-                    <h4 className="font-weight-bold">NAVIGATION</h4>
-                    <p className="grey-text">
-                      Ready-to-use navigation layouts, navbars, breadcrumbs and
-                      much more! More about our navigation components.
-                    </p>
-                    <MDBNavLink
-                      tag="button"
-                      className="btn btn-sm indigo darken-3 text-white"
-                      to="/navigation"
-                    >
-                      More
-                    </MDBNavLink>
-                  </MDBCol>
-                </MDBCol>
-                <MDBCol md="4" className="mb-5">
-                  <MDBCol size="2" md="2" className="float-left">
-                    <MDBIcon icon="edit" className="blue-text" size="2x" />
-                  </MDBCol>
-                  <MDBCol size="10" md="8" lg="10" className="float-right">
-                    <h4 className="font-weight-bold">FORMS</h4>
-                    <p className="grey-text">
-                      Inputs, autocomplete, selecst, date and time pickers.
-                      Everything in one place is ready to use!
-                    </p>
-                    <MDBNavLink
-                      tag="button"
-                      className="btn btn-sm indigo datken-3 text-white"
-                      to="/forms"
-                    >
-                      More
-                    </MDBNavLink>
-                  </MDBCol>
-                </MDBCol>
-                <MDBCol md="4" className="mb-5">
-                  <MDBCol size="2" md="2" className="float-left">
-                    <MDBIcon icon="table" className="green-text" size="2x" />
-                  </MDBCol>
-                  <MDBCol size="10" md="8" lg="10" className="float-right">
-                    <h4 className="font-weight-bold">TABLES</h4>
-                    <p className="grey-text">
-                      Basic and advanced tables. Responsive, datatables, with
-                      sorting, searching and export to csv.
-                    </p>
-                    <MDBNavLink
-                      tag="button"
-                      className="btn btn-sm indigo darken-3 text-white"
-                      to="tables"
-                    >
-                      More
-                    </MDBNavLink>
-                  </MDBCol>
-                </MDBCol>
-              </MDBRow>
-              <MDBRow id="categories" center>
-                <MDBCol md="4" className="mb-5">
-                  <MDBCol size="2" md="2" className="float-left">
-                    <MDBIcon
-                      icon="window-restore"
-                      className="pink-text"
-                      size="2x"
-                    />
-                  </MDBCol>
-                  <MDBCol size="10" md="8" lg="10" className="float-right">
-                    <h4 className="font-weight-bold">MODALS</h4>
-                    <p className="grey-text">
-                      Modals used to display advanced messages to the user.
-                      Cookies, logging in, registration and much more.
-                    </p>
-                    <MDBNavLink
-                      tag="button"
-                      className="btn btn-sm indigo darken-3 text-white"
-                      to="modals"
-                    >
-                      More
-                    </MDBNavLink>
-                  </MDBCol>
-                </MDBCol>
-                <MDBCol md="4" className="mb-5">
-                  <MDBCol size="2" md="2" className="float-left">
-                    <MDBIcon
-                      icon="arrows-alt"
-                      className="blue-text"
-                      size="2x"
-                    />
-                  </MDBCol>
-                  <MDBCol size="10" md="8" lg="10" className="float-right">
-                    <h4 className="font-weight-bold">ADDONS</h4>
-                    <p className="grey-text">
-                      Google Maps, Social Buttons, Pre-built Contact Forms and
-                      Steppers. Find out more about our extended components.
-                    </p>
-                    <MDBNavLink
-                      tag="button"
-                      className="btn btn-sm indigo darken-3 text-white"
-                      to="/addons"
-                    >
-                      More
-                    </MDBNavLink>
-                  </MDBCol>
-                </MDBCol>
-                {/* PRO-START */}
-
-                {/*
-                <MDBCol md="4" className="mb-5">
-                  <MDBCol size="2" md="2" className="float-left">
-                    <MDBIcon icon="th" className="green-text" size="2x" />
-                  </MDBCol>
-                  <MDBCol size="10" md="8" lg="10" className="float-right">
-                    <h4 className="font-weight-bold">SECTIONS</h4>
-                    <p className="grey-text">
-                      E-commerce, contact, blog and much more sections. All
-                      ready to use in seconds.
-                    </p>
-                    <MDBNavLink
-                      tag="button"
-                      className="btn btn-sm indigo darken-3 text-white"
-                      to="sections"
-                    >
-                      More
-                    </MDBNavLink>
-                  </MDBCol>
-                </MDBCol>
-                {/* PRO-END */}
-                {/* </MDBRow>
-                 */}
               </MDBCol>
             </MDBRow>
           </MDBContainer>
