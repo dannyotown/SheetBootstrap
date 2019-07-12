@@ -9,7 +9,6 @@ import {
   MDBIcon,
   MDBCard,
   MDBCardTitle,
-  MDBBtn,
   MDBCardImage,
   MDBCardText,
   MDBAnimation,
@@ -23,14 +22,14 @@ class HomePage extends React.Component {
     return (
       <>
         <MDBEdgeHeader color="indigo darken-3" className="sectionPage" />
-        <div className="mt-3">
+        <div className="mt-3 mb-5">
           <MDBFreeBird>
             <MDBRow>
               <MDBCol
                 md="10"
                 className="mx-auto float-none white z-depth-1 py-2 px-2"
               >
-                <MDBCardBody>
+                <MDBCardBody className="text-center">
                   <h2 className="h2-responsive mb-4">
                     <strong className="font-weight-bold">
                       <img
@@ -54,7 +53,7 @@ class HomePage extends React.Component {
                       rel="noopener noreferrer"
                     >
                       <MDBIcon icon="graduation-cap" className="mr-2" />
-                      Official Documentation
+                      <span className="font-weight-bold">Official Documentation</span>
                     </a>
                   </MDBRow>
                 </MDBCardBody>
@@ -64,7 +63,7 @@ class HomePage extends React.Component {
           <MDBContainer>
             <MDBRow>
               <MDBCol md="12" className="mt-4">
-                <h2 className="text-center my-4 font-weight-bold">
+                <h2 className="text-center my-5 font-weight-bold">
                   Why is it so great?
                 </h2>
                 <p className="text-center text-muted mb-1">
@@ -84,7 +83,7 @@ class HomePage extends React.Component {
                 <MDBRow id="categories">
                   <MDBCol md="4">
                     <MDBAnimation type="fadeInLeft">
-                      <MDBCard cascade className="mb-5 grey lighten-4">
+                      <MDBCard cascade className="my-3 grey lighten-4">
                         <MDBCardImage
                           cascade
                           className="img-fluid"
@@ -117,8 +116,8 @@ class HomePage extends React.Component {
                     </MDBAnimation>
                   </MDBCol>
                   <MDBCol md="4">
-                    <MDBAnimation type="fadeIn">
-                      <MDBCard cascade className="mb-5 grey lighten-4">
+                    <MDBAnimation type="fadeInDown">
+                      <MDBCard cascade className="my-3 grey lighten-4">
                         <MDBCardImage
                           cascade
                           className="img-fluid"
@@ -148,7 +147,7 @@ class HomePage extends React.Component {
                   </MDBCol>
                   <MDBCol md="4">
                     <MDBAnimation type="fadeInRight">
-                      <MDBCard cascade className="mb-5 grey lighten-4">
+                      <MDBCard cascade className="my-3 grey lighten-4">
                         <MDBCardImage
                           cascade
                           className="img-fluid"
@@ -182,8 +181,8 @@ class HomePage extends React.Component {
 
                 <MDBRow id="categories">
                   <MDBCol md="4">
-                    <MDBAnimation type="fadeInLeft">
-                      <MDBCard cascade className="mb-5 grey lighten-4">
+                    <MDBAnimation reveal type="fadeInLeft">
+                      <MDBCard cascade className="my-3 grey lighten-4">
                         <MDBCardImage
                           cascade
                           className="img-fluid"
@@ -214,8 +213,8 @@ class HomePage extends React.Component {
                     </MDBAnimation>
                   </MDBCol>
                   <MDBCol md="4">
-                    <MDBAnimation type="fadeIn">
-                      <MDBCard cascade className="mb-5 grey lighten-4">
+                    <MDBAnimation reveal type="fadeIn">
+                      <MDBCard cascade className="my-3 grey lighten-4">
                         <MDBCardImage
                           cascade
                           className="img-fluid"
@@ -245,8 +244,8 @@ class HomePage extends React.Component {
                     </MDBAnimation>
                   </MDBCol>
                   <MDBCol md="4">
-                    <MDBAnimation type="fadeInRight">
-                      <MDBCard cascade className="mb-5 grey lighten-4">
+                    <MDBAnimation reveal type="fadeInRight">
+                      <MDBCard cascade className="my-3 grey lighten-4">
                         <MDBCardImage
                           cascade
                           className="img-fluid"
@@ -277,10 +276,10 @@ class HomePage extends React.Component {
                   </MDBCol>
                 </MDBRow>
 
-                <MDBRow id="categories">
+                <MDBRow id="categories" >
                   <MDBCol md="4">
-                    <MDBAnimation type="fadeInLeft">
-                      <MDBCard cascade className="mb-5 grey lighten-4">
+                    <MDBAnimation reveal type="fadeInLeft">
+                      <MDBCard cascade className="my-3 grey lighten-4">
                         <MDBCardImage
                           cascade
                           className="img-fluid"
@@ -315,8 +314,8 @@ class HomePage extends React.Component {
                     </MDBAnimation>
                   </MDBCol>
                   <MDBCol md="4">
-                    <MDBAnimation type="fadeIn">
-                      <MDBCard cascade className="mb-5 grey lighten-4">
+                    <MDBAnimation reveal type="fadeInUp">
+                      <MDBCard cascade className="my-3 grey lighten-4">
                         <MDBCardImage
                           cascade
                           className="img-fluid"
@@ -351,8 +350,8 @@ class HomePage extends React.Component {
                   </MDBCol>
                   {/* PRO-START */}
                   <MDBCol md="4">
-                    <MDBAnimation type="fadeInRight">
-                      <MDBCard cascade className="mb-5 grey lighten-4">
+                    <MDBAnimation reveal type="fadeInRight">
+                      <MDBCard cascade className="my-3 grey lighten-4">
                         <MDBCardImage
                           cascade
                           className="img-fluid"
