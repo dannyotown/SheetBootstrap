@@ -13,7 +13,7 @@ const HoverPage = () => {
         <MDBCol md="4">
           <MDBView hover>
             <img
-              src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg"
+              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(75).jpg"
               className="img-fluid"
               alt=""
             />
@@ -25,7 +25,7 @@ const HoverPage = () => {
         <MDBCol md="4">
           <MDBView hover>
             <img
-              src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg"
+              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(75).jpg"
               className="img-fluid"
               alt=""
             />
@@ -37,7 +37,7 @@ const HoverPage = () => {
         <MDBCol md="4">
           <MDBView hover>
             <img
-              src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg"
+              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(75).jpg"
               className="img-fluid"
               alt=""
             />
@@ -51,7 +51,7 @@ const HoverPage = () => {
         <MDBCol md="6">
           <MDBView hover zoom>
             <img
-              src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg"
+              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(66).jpg"
               className="img-fluid"
               alt=""
             />
@@ -63,7 +63,7 @@ const HoverPage = () => {
         <MDBCol md="6">
           <h5 className="text-center">Shadow effect</h5>
           <img
-            src="https://mdbootstrap.com/img/Photos/Others/nature-sm.jpg"
+            src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(42).jpg"
             className="img-fluid rounded-circle hoverable"
             alt=""
           />
