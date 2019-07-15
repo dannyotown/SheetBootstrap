@@ -63,46 +63,63 @@ class InputPage extends Component {
           href="https://mdbootstrap.com/docs/react/forms/inputs/"
         />
         <MDBContainer style={{ textAlign: "initial" }}>
-          <div>
-            <MDBInput
-              label="Material input"
-              getValue={this.getValue}
-              valueDefault="Uncontrolled input with default value"
-            />
+          <h3 className="mb-3">Inputs examples</h3>
+          <MDBContainer className="border p-3">
+            <MDBRow>
+              <MDBCol md="6">
+                <MDBInput
+                  label="Material input"
+                  getValue={this.getValue}
+                  valueDefault="Uncontrolled input with default value"
+                />
+              </MDBCol>
+              <MDBCol md="6">
+                <MDBInput
+                  label="Example label"
+                  onChange={this.handleChange}
+                  value={this.state.value}
+                />
+              </MDBCol>
+            </MDBRow>
 
-            <MDBInput
-              label="Example label"
-              onChange={this.handleChange}
-              value={this.state.value}
-            />
+            <MDBRow>
+              <MDBCol md="6">
+                <MDBInput
+                  label="Focus next input on change (uses ref)"
+                  onChange={this.changeFocus}
+                  size="sm"
+                  icon="envelope"
+                />
+              </MDBCol>
+              <MDBCol md="6">
+                <MDBInput
+                  label="Example label"
+                  inputRef={ref => (this.nextInputRef = ref)}
+                  icon="envelope"
+                />
+              </MDBCol>
+            </MDBRow>
 
-            <MDBInput
-              label="Focus next input on change (uses ref)"
-              onChange={this.changeFocus}
-              size="sm"
-              icon="envelope"
-            />
-
-            <MDBInput
-              label="Example label"
-              inputRef={ref => (this.nextInputRef = ref)}
-              icon="envelope"
-            />
-
-            <MDBInput
-              iconClass="iconHover"
-              label="Run function on click icon"
-              icon="bell"
-              onIconClick={() => alert("Wait! This is an alert!")}
-            />
-            <MDBInput
-              label="Hover Eye to show password!"
-              valueDefault="Do you see me?"
-              type={this.state.typeInput}
-              icon={this.state.iconInput}
-              onIconMouseEnter={this.mouseEnter}
-              onIconMouseLeave={this.mouseLeave}
-            />
+            <MDBRow>
+              <MDBCol md="6">
+                <MDBInput
+                  iconClass="iconHover"
+                  label="Run function on click icon"
+                  icon="bell"
+                  onIconClick={() => alert("Wait! This is an alert!")}
+                />
+              </MDBCol>
+              <MDBCol md="6">
+                <MDBInput
+                  label="Hover Eye to show password!"
+                  valueDefault="Do you see me?"
+                  type={this.state.typeInput}
+                  icon={this.state.iconInput}
+                  onIconMouseEnter={this.mouseEnter}
+                  onIconMouseLeave={this.mouseLeave}
+                />
+              </MDBCol>
+            </MDBRow>
 
             <MDBInput hint="placeholder" label="Example label" />
 
@@ -110,23 +127,28 @@ class InputPage extends Component {
 
             <MDBBtn onClick={this.handleSubmit}>Submit</MDBBtn>
 
-            <MDBInput
-              label="Type your email"
-              icon="envelope"
-              group
-              type="email"
-              validate
-              error="wrong"
-              success="right"
-            />
-
-            <MDBInput
-              label="Type your password"
-              icon="lock"
-              group
-              type="password"
-              validate
-            />
+            <MDBRow>
+              <MDBCol md="6">
+                <MDBInput
+                  label="Type your email"
+                  icon="envelope"
+                  group
+                  type="email"
+                  validate
+                  error="wrong"
+                  success="right"
+                />
+              </MDBCol>
+              <MDBCol md="6">
+                <MDBInput
+                  label="Type your password"
+                  icon="lock"
+                  group
+                  type="password"
+                  validate
+                />
+              </MDBCol>
+            </MDBRow>
 
             <MDBInput label="Disabled" disabled />
 
@@ -150,124 +172,152 @@ class InputPage extends Component {
               <MDBBtn>Login</MDBBtn>
             </MDBFormInline>
 
-            <MDBInput
-              getValue={this.getValue}
-              type="textarea"
-              label="Icon Prefix"
-              rows="2"
-              icon="pencil-alt"
-            />
-            <MDBInput type="textarea" label="Basic textarea" rows="2" />
-
-            <h4 className="mt-5">Outline inputs</h4>
-
-            <MDBInput
-              labelClass="labelBg"
-              outline
-              label="Type your email"
-              type="email"
-            />
-
-            <MDBInput
-              labelClass="labelBg"
-              outline
-              label="Type your password"
-              icon="lock"
-              type="password"
-            />
-
-            <MDBInput
-              labelClass="labelBg"
-              outline
-              getValue={this.getValue}
-              type="textarea"
-              label="Icon Prefix"
-              rows="2"
-              icon="pencil-alt"
-            />
-
-            <MDBInput
-              labelClass="labelBg"
-              outline
-              type="textarea"
-              label="Basic textarea"
-              rows="2"
-            />
-
-            <h4 className="mt-5">Inputs with background</h4>
-
-            <MDBInput
-              labelClass="labelBg"
-              background
-              label="Type your email"
-              type="email"
-            />
-
-            <MDBInput
-              labelClass="labelBg"
-              background
-              label="Type your password"
-              icon="lock"
-              type="password"
-            />
-
-            <MDBInput
-              labelClass="labelBg"
-              background
-              getValue={this.getValue}
-              type="textarea"
-              label="Icon Prefix"
-              rows="2"
-              icon="pencil-alt"
-            />
-
-            <MDBInput
-              labelClass="labelBg"
-              background
-              type="textarea"
-              label="Basic textarea"
-              rows="2"
-            />
-
-            <h4 className="mt-5">Numeric inputs</h4>
-
             <MDBRow>
-              <MDBCol sm="4">
-                <MDBInputSelect
+              <MDBCol md="6">
+                <MDBInput
                   getValue={this.getValue}
-                  min={5}
-                  max={15}
-                  value={10}
-                  className="mb-2"
-                />
-                <MDBInputSelect
-                  precision={2}
-                  value={50.3}
-                  step={0.1}
-                  className="mb-2"
-                />
-                <MDBInputSelect
-                  precision={2}
-                  value={50.3}
-                  step={0.5}
-                  snap
-                  className="mb-2"
+                  type="textarea"
+                  label="Icon Prefix"
+                  rows="2"
+                  icon="pencil-alt"
                 />
               </MDBCol>
+              <MDBCol md="6">
+                <MDBInput type="textarea" label="Basic textarea" rows="2" />
+              </MDBCol>
             </MDBRow>
+          </MDBContainer>
 
-            <hr className="mt-5" />
+          <MDBRow className="mt-5">
+            <MDBCol md="6" tag="section">
+              <h3 className="mb-3">Outline inputs</h3>
+              <MDBContainer className="border p-3">
+                <MDBInput
+                  labelClass="labelBg"
+                  outline
+                  label="Type your email"
+                  type="email"
+                />
 
-            <h2 className="mt-5">
-              <strong>Default Bootstrap Inputs</strong>
-            </h2>
+                <MDBInput
+                  labelClass="labelBg"
+                  outline
+                  label="Type your password"
+                  icon="lock"
+                  type="password"
+                />
 
+                <MDBInput
+                  labelClass="labelBg"
+                  outline
+                  getValue={this.getValue}
+                  type="textarea"
+                  label="Icon Prefix"
+                  rows="2"
+                  icon="pencil-alt"
+                />
+
+                <MDBInput
+                  labelClass="labelBg"
+                  outline
+                  type="textarea"
+                  label="Basic textarea"
+                  rows="2"
+                />
+              </MDBContainer>
+            </MDBCol>
+
+            <MDBCol md="6" tag="section">
+              <h3 className="mb-3">Inputs with background</h3>
+              <MDBContainer className="border p-3">
+                <MDBInput
+                  labelClass="labelBg"
+                  background
+                  label="Type your email"
+                  type="email"
+                />
+
+                <MDBInput
+                  labelClass="labelBg"
+                  background
+                  label="Type your password"
+                  icon="lock"
+                  type="password"
+                />
+
+                <MDBInput
+                  labelClass="labelBg"
+                  background
+                  getValue={this.getValue}
+                  type="textarea"
+                  label="Icon Prefix"
+                  rows="2"
+                  icon="pencil-alt"
+                />
+
+                <MDBInput
+                  labelClass="labelBg"
+                  background
+                  type="textarea"
+                  label="Basic textarea"
+                  rows="2"
+                />
+              </MDBContainer>
+            </MDBCol>
+          </MDBRow>
+
+          <h2 className="mt-5">Numeric inputs</h2>
+          <MDBContainer className="border p-3 section">
+            <MDBCol md="5">
+              <MDBInputSelect
+                getValue={this.getValue}
+                min={5}
+                max={15}
+                value={10}
+                className="mb-2"
+              />
+
+              <MDBInputSelect
+                precision={2}
+                value={50.3}
+                step={0.1}
+                className="mb-2"
+              />
+
+              <MDBInputSelect
+                precision={2}
+                value={50.3}
+                step={0.5}
+                snap
+                className="mb-2"
+              />
+            </MDBCol>
+          </MDBContainer>
+
+          <hr className="my-5" />
+
+          <h2 className="mt-5">
+            <strong>Default Bootstrap Inputs</strong>
+          </h2>
+          <MDBContainer className="border p-3 section">
             <label htmlFor="exampleForm2">Basic example</label>
             <input type="text" id="exampleForm2" className="form-control" />
 
-            <h4 className="mt-4">
-              <strong>MDBInput fields</strong>
-            </h4>
+            <label htmlFor="inputDisabledEx2" className="disabled mt-4">
+              Disabled input
+            </label>
+            <input
+              type="text"
+              id="inputDisabledEx2"
+              className="form-control"
+              disabled
+            />
+          </MDBContainer>
+
+          <h4 className="mt-5">
+            <strong>MDBInput fields</strong>
+          </h4>
+          <MDBContainer className="border p-3 section">
             <input
               className="form-control form-control-lg"
               type="text"
@@ -283,22 +333,12 @@ class InputPage extends Component {
               type="text"
               placeholder="Small input"
             />
+          </MDBContainer>
 
-            <br />
-
-            <label htmlFor="inputDisabledEx2" className="disabled">
-              Disabled input
-            </label>
-            <input
-              type="text"
-              id="inputDisabledEx2"
-              className="form-control"
-              disabled
-            />
-            <h4 className="mt-4">
-              <strong>Form groups</strong>
-            </h4>
-
+          <h4 className="mt-5">
+            <strong>Form groups</strong>
+          </h4>
+          <MDBContainer className="border p-3 section">
             <form>
               <div className="form-group">
                 <label htmlFor="formGroupExampleInput">Example label</label>
@@ -319,52 +359,66 @@ class InputPage extends Component {
                 />
               </div>
             </form>
+          </MDBContainer>
 
-            <h4 className="mt-4">
-              <strong>Form grid</strong>
-            </h4>
-            <form>
-              <MDBRow>
-                <MDBCol>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="First name"
-                  />
-                </MDBCol>
-                <MDBCol>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Last name"
-                  />
-                </MDBCol>
-              </MDBRow>
-            </form>
-            <h4 className="mt-4">
-              <strong>Form row</strong>
-            </h4>
-            <form>
-              <div className="form-row">
-                <MDBCol>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="First name"
-                  />
-                </MDBCol>
-                <MDBCol>
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Last name"
-                  />
-                </MDBCol>
-              </div>
-            </form>
-            <h4 className="mt-4">
-              <strong>Form layout</strong>
-            </h4>
+          <MDBRow className="mt-5">
+            <MDBCol md="6" tag="section">
+              <h4 className="mb-3">
+                <strong>Form grid</strong>
+              </h4>
+              <MDBContainer className="border p-3">
+                <form>
+                  <MDBRow>
+                    <MDBCol>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="First name"
+                      />
+                    </MDBCol>
+                    <MDBCol>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Last name"
+                      />
+                    </MDBCol>
+                  </MDBRow>
+                </form>
+              </MDBContainer>
+            </MDBCol>
+
+            <MDBCol md="6" tag="section">
+              <h4 className="mb-3">
+                <strong>Form row</strong>
+              </h4>
+              <MDBContainer className="border p-3">
+                <form>
+                  <div className="form-row">
+                    <MDBCol>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="First name"
+                      />
+                    </MDBCol>
+                    <MDBCol>
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Last name"
+                      />
+                    </MDBCol>
+                  </div>
+                </form>
+              </MDBContainer>
+            </MDBCol>
+          </MDBRow>
+
+          <h4 className="mt-5">
+            <strong>Form layout</strong>
+          </h4>
+          <MDBContainer className="border p-3 section">
             <form>
               <div className="form-row">
                 <div className="form-group col-md-6">
@@ -428,9 +482,12 @@ class InputPage extends Component {
                 Sign in
               </button>
             </form>
-            <h4 className="mt-4">
-              <strong>Horizontal form</strong>
-            </h4>
+          </MDBContainer>
+
+          <h4 className="mt-5">
+            <strong>Horizontal form</strong>
+          </h4>
+          <MDBContainer className="border p-3 section">
             <form>
               <div className="form-group row">
                 <label
@@ -472,9 +529,12 @@ class InputPage extends Component {
                 </div>
               </div>
             </form>
-            <h4 className="mt-4">
-              <strong>Column sizing</strong>
-            </h4>
+          </MDBContainer>
+
+          <h4 className="mt-5">
+            <strong>Column sizing</strong>
+          </h4>
+          <MDBContainer className="border p-3 section">
             <form>
               <div className="form-row">
                 <div className="col-7">
@@ -500,9 +560,12 @@ class InputPage extends Component {
                 </div>
               </div>
             </form>
-            <h4 className="mt-4">
-              <strong>Auto-sizing</strong>
-            </h4>
+          </MDBContainer>
+
+          <h4 className="mt-5">
+            <strong>Auto-sizing</strong>
+          </h4>
+          <MDBContainer className="border p-3 section">
             <form>
               <div className="form-row align-items-center">
                 <div className="col-auto">
@@ -539,53 +602,43 @@ class InputPage extends Component {
                 </div>
               </div>
             </form>
-            <h4 className="mt-4">
-              <strong>Inline forms</strong>
-            </h4>
-            <form className="form-inline">
-              <label className="sr-only" htmlFor="inlineFormInputName2">
-                Name
-              </label>
-              <input
-                type="text"
-                className="form-control mb-2 mr-sm-2"
-                id="inlineFormInputName2"
-                placeholder="Jane Doe"
-              />
-              <label
-                className="sr-only"
-                htmlFor="inlineFormInputGroupUsername2"
-              >
-                Username
-              </label>
-              <div className="input-group mb-2 mr-sm-2">
-                <div className="input-group-prepend">
-                  <div className="input-group-text">@</div>
+          </MDBContainer>
+
+          <h4 className="mt-5">
+            <strong>Inline forms</strong>
+          </h4>
+          <MDBContainer className="border p-3 section">
+            <form>
+              <div className="form-row">
+                <div className="col-7">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="City"
+                  />
                 </div>
-                <input
-                  type="text"
-                  className="form-control py-0"
-                  id="inlineFormInputGroupUsername2"
-                  placeholder="Username"
-                />
+                <div className="col">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="State"
+                  />
+                </div>
+                <div className="col">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Zip"
+                  />
+                </div>
               </div>
-              <div className="form-check mb-2 mr-sm-2">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="inlineFormCheck"
-                />
-                <label className="form-check-label" htmlFor="inlineFormCheck">
-                  Remember me
-                </label>
-              </div>
-              <button type="submit" className="btn btn-primary btn-md mt-0">
-                Submit
-              </button>
             </form>
-            <h4 className="mt-4">
-              <strong>Textarea</strong>
-            </h4>
+          </MDBContainer>
+
+          <h4 className="mt-5">
+            <strong>Textarea</strong>
+          </h4>
+          <MDBContainer className="border p-3 section">
             <div className="form-group">
               <label htmlFor="exampleFormControlTextarea1">
                 Example textarea
@@ -596,9 +649,12 @@ class InputPage extends Component {
                 rows="5"
               />
             </div>
-            <h4 className="mt-4">
-              <strong>Help text</strong>
-            </h4>
+          </MDBContainer>
+
+          <h4 className="mt-5">
+            <strong>Help text</strong>
+          </h4>
+          <MDBContainer className="border p-3 section mb-5">
             <label htmlFor="inputPassword5">Password</label>
             <input
               type="password"
@@ -626,7 +682,7 @@ class InputPage extends Component {
                 </small>
               </div>
             </form>
-          </div>
+          </MDBContainer>
         </MDBContainer>
       </MDBContainer>
     );
