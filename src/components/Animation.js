@@ -16,6 +16,7 @@ class Animation extends Component {
     // add EL on window if the animation is to "reveal"
     if (this.props.reveal) {
       window.addEventListener("scroll", this.updatePredicate);
+      this.updatePredicate()
     }
   }
   componentWillUnmount() {
