@@ -16,8 +16,8 @@ const BadgePage = props => {
         <table className="m-5">
           <thead>
             <tr>
-              <th><h2>Header</h2></th>
-              <th><h2 className="ml-2">MDBBadge</h2></th>
+              <th><h4>Header</h4></th>
+              <th><h4 className="ml-2">MDBBadge</h4></th>
             </tr>
           </thead>
           <tbody>
