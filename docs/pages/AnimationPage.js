@@ -229,7 +229,8 @@ class AnimationPage extends React.Component {
       this.setAnimation()
     );
 
-  render({ animation, selects } = this.state) {
+    render() {
+      const { animation, selects } = this.state;
     return (
       <MDBContainer className="mt-5">
         <DocsLink
