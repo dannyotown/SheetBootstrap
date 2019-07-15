@@ -170,7 +170,7 @@ class AnimationPage extends React.Component {
           { text: "1s", value: "7" },
           { text: "2s", value: "8" },
           { text: "3s", value: "9" },
-          { text: "4s", value: "10" },
+          { text: "4s", value: "10" }
         ]
       }
     };
@@ -203,15 +203,9 @@ class AnimationPage extends React.Component {
     );
   };
 
-  setAnimation = () => {
+  setAnimation = ({ animations, infinite, loop, duration, delay } = this.state) => {
     this.setState({
-      animation: this.animation(
-        this.state.animations,
-        this.state.infinite,
-        this.state.loop,
-        this.state.duration,
-        this.state.delay
-      )
+      animation: this.animation(animations, infinite, loop, duration, delay)
     });
   };
 
@@ -220,18 +214,22 @@ class AnimationPage extends React.Component {
   };
 
   getCount = v => {
-    let val = Number(v[0]) || 0;
-    val === 0
+    Number(v[0]) === 0
       ? this.setState({ loop: 0, infinite: true })
-      : this.setState({ loop: val, infinite: false });
+      : this.setState({ loop: Number(v[0]), infinite: false });
     this.setState({ animation: null }, () => this.setAnimation());
   };
 
-  getDuration = v => this.setState({ duration: v || "800ms" }, () => this.setAnimation());
-  getDelay = v => this.setState({ animation: null, delay: v || "0" ,}, () => this.setAnimation());
+  getDuration = v =>
+    this.setState({ animation: null, duration: v || "800ms" }, () =>
+      this.setAnimation()
+    );
+  getDelay = v =>
+    this.setState({ animation: null, delay: v || "0" }, () =>
+      this.setAnimation()
+    );
 
-  render() {
-    const { animation, selects } = this.state;
+  render({ animation, selects } = this.state) {
     return (
       <MDBContainer className="mt-5">
         <DocsLink
@@ -444,8 +442,8 @@ class AnimationPage extends React.Component {
           </MDBCol>
         </MDBRow>
 
-        <h2 className="mt-5">Reveal animations when scrolling</h2>
-        <MDBRow>
+        <h2 style={{marginTop: "150px"}}>Reveal animations when scrolling</h2>
+        <MDBRow className="mb-5">
           <MDBCol tag="section">
             <MDBContainer className="border p-3">
               <MDBRow className="mb-4">
