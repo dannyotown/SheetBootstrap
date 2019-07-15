@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import DocsLink from "./../components/docsLink";
+import SectionContainer from "./../components/sectionContainer";
+
 
 class ValidationPage extends Component {
   state = {
@@ -28,7 +30,9 @@ class ValidationPage extends Component {
           title="Form Validation"
           href="https://mdbootstrap.com/docs/react/forms/validation/"
         />
-        <div>
+
+
+        <SectionContainer title="Validations">
           <form
             className="needs-validation"
             onSubmit={this.submitHandler}
@@ -183,10 +187,10 @@ class ValidationPage extends Component {
               Submit Form
             </MDBBtn>
           </form>
-        </div>
+        </SectionContainer>
         <hr className="my-5" />
-        <h2 className="mb-5">Browser defualt validation</h2>
-        <div>
+
+        <SectionContainer title="Browser defualt validation">
           <form>
             <MDBRow>
               <MDBCol md="4">
@@ -270,11 +274,11 @@ class ValidationPage extends Component {
               Submit Form
             </MDBBtn>
           </form>
-        </div>
+        </SectionContainer>
 
         <hr className="my-5" />
-        <h2 className="mb-5">Supported elements</h2>
-        <MDBRow className="mt-6">
+
+        <SectionContainer title="Supported elements">
           <MDBCol md="4">
             <form className="was-validated" noValidate>
               <div className="custom-control custom-checkbox mb-3">
@@ -360,11 +364,11 @@ class ValidationPage extends Component {
               </div>
             </form>
           </MDBCol>
-        </MDBRow>
+        </SectionContainer>
 
         <hr className="my-5" />
-        <h2 className="mb-5">Tooltips</h2>
-        <MDBRow className="mt-6">
+      
+        <SectionContainer title="Tooltips">
           <MDBCol md="">
             <form
               className="needs-validation"
@@ -514,7 +518,7 @@ class ValidationPage extends Component {
               </button>
             </form>
           </MDBCol>
-        </MDBRow>
+        </SectionContainer>
       </MDBContainer>
     );
   }

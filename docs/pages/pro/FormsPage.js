@@ -1,6 +1,18 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBIcon, MDBCard, MDBCardBody, MDBModalFooter,   MDBCardHeader } from "mdbreact";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBIcon,
+  MDBCard,
+  MDBCardBody,
+  MDBModalFooter,
+  MDBCardHeader
+} from "mdbreact";
 import DocsLink from "../../components/docsLink";
+import SectionContainer from "../../components/sectionContainer";
 import "./Forms.css";
 
 const FormsPage = () => {
@@ -10,114 +22,195 @@ const FormsPage = () => {
         title="Forms"
         href="https://mdbootstrap.com/docs/react/forms/basic/"
       />
-      <section className="form-elegant">
-        <h2 className="mb-5">A gradient login form</h2>
-        <MDBRow>
+
+      <SectionContainer
+        title="A gradient login form"
+        className="form-elegant row mt-5"
+        tag="section"
+        noBorder
+      >
+        <MDBCol md="5">
+          <MDBCard>
+            <MDBCardBody>
+              <MDBCardHeader className="form-header warm-flame-gradient rounded">
+                <h3 className="my-3">
+                  <MDBIcon icon="lock" /> Login:
+                </h3>
+              </MDBCardHeader>
+              <label
+                htmlFor="defaultFormEmailEx"
+                className="grey-text font-weight-light"
+              >
+                Your email
+              </label>
+              <input
+                type="email"
+                id="defaultFormEmailEx"
+                className="form-control"
+              />
+
+              <label
+                htmlFor="defaultFormPasswordEx"
+                className="grey-text font-weight-light"
+              >
+                Your password
+              </label>
+              <input
+                type="password"
+                id="defaultFormPasswordEx"
+                className="form-control"
+              />
+
+              <div className="text-center mt-4">
+                <MDBBtn color="deep-orange" className="mb-3" type="submit">
+                  Login
+                </MDBBtn>
+              </div>
+
+              <MDBModalFooter>
+                <div className="font-weight-light">
+                  <p>Not a member? Sign Up</p>
+                  <p>Forgot Password?</p>
+                </div>
+              </MDBModalFooter>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+        <MDBCol md="5">
+          <MDBCard>
+            <MDBCardBody>
+              <MDBCardHeader className="form-header deep-blue-gradient rounded">
+                <h3 className="my-3">
+                  <MDBIcon icon="lock" /> Login:
+                </h3>
+              </MDBCardHeader>
+              <form>
+                <div className="grey-text">
+                  <MDBInput
+                    label="Type your email"
+                    icon="envelope"
+                    group
+                    type="email"
+                    validate
+                    error="wrong"
+                    success="right"
+                  />
+                  <MDBInput
+                    label="Type your password"
+                    icon="lock"
+                    group
+                    type="password"
+                    validate
+                  />
+                </div>
+
+                <div className="text-center mt-4">
+                  <MDBBtn color="light-blue" className="mb-3" type="submit">
+                    Login
+                  </MDBBtn>
+                </div>
+              </form>
+              <MDBModalFooter>
+                <div className="font-weight-light">
+                  <p>Not a member? Sign Up</p>
+                  <p>Forgot Password?</p>
+                </div>
+              </MDBModalFooter>
+            </MDBCardBody>
+          </MDBCard>
+        </MDBCol>
+
+        <SectionContainer noBorder className="mt-5">
           <MDBCol md="5">
             <MDBCard>
-              <MDBCardBody>
-                <MDBCardHeader className="form-header warm-flame-gradient rounded">
-                  <h3 className="my-3">
-                    <MDBIcon icon="lock" /> Login:
+              <div className="header pt-3 peach-gradient">
+                <MDBRow className="d-flex justify-content-center">
+                  <h3 className="white-text mb-3 pt-3 font-weight-bold">
+                    Log in
                   </h3>
-                </MDBCardHeader>
-                <label
-                  htmlFor="defaultFormEmailEx"
-                  className="grey-text font-weight-light"
-                >
-                  Your email
-                </label>
-                <input
-                  type="email"
-                  id="defaultFormEmailEx"
-                  className="form-control"
-                />
-
-                <label
-                  htmlFor="defaultFormPasswordEx"
-                  className="grey-text font-weight-light"
-                >
-                  Your password
-                </label>
-                <input
+                </MDBRow>
+                <MDBRow className="mt-2 mb-3 d-flex justify-content-center">
+                  <a href="#!" className="fa-lg p-2 m-2 fb-ic">
+                    <MDBIcon
+                      brand
+                      icon="facebook"
+                      size="lg"
+                      className="white-text"
+                    />
+                  </a>
+                  <a href="#!" className="fa-lg p-2 m-2 tw-ic">
+                    <MDBIcon
+                      brand
+                      icon="twitter"
+                      size="lg"
+                      className="white-text"
+                    />
+                  </a>
+                  <a href="#!" className="fa-lg p-2 m-2 gplus-ic">
+                    <MDBIcon
+                      brand
+                      icon="google-plus"
+                      size="lg"
+                      className="white-text"
+                    />
+                  </a>
+                </MDBRow>
+              </div>
+              <MDBCardBody className="mx-4 mt-4">
+                <MDBInput label="Your email" group type="text" validate />
+                <MDBInput
+                  label="Your password"
+                  group
                   type="password"
-                  id="defaultFormPasswordEx"
-                  className="form-control"
+                  validate
+                  containerClass="mb-0"
                 />
-
-                <div className="text-center mt-4">
-                  <MDBBtn color="deep-orange" className="mb-3" type="submit">
-                    Login
-                  </MDBBtn>
-                </div>
-
-                <MDBModalFooter>
-                  <div className="font-weight-light">
-                    <p>Not a member? Sign Up</p>
-                    <p>Forgot Password?</p>
-                  </div>
-                </MDBModalFooter>
+                <p className="font-small grey-text d-flex justify-content-end">
+                  Forgot
+                  <a href="#!" className="dark-grey-text ml-1 font-weight-bold">
+                    Password?
+                  </a>
+                </p>
+                <MDBRow className="d-flex align-items-center mb-4 mt-5">
+                  <MDBCol md="5" className="d-flex align-items-start">
+                    <div className="text-center">
+                      <MDBBtn
+                        color="grey"
+                        rounded
+                        type="button"
+                        className="z-depth-1a"
+                      >
+                        Log in
+                      </MDBBtn>
+                    </div>
+                  </MDBCol>
+                  <MDBCol md="7" className="d-flex justify-content-end">
+                    <p className="font-small grey-text mt-3">
+                      Don't have an account?
+                      <a
+                        href="#!"
+                        className="dark-grey-text ml-1 font-weight-bold"
+                      >
+                        Sign up
+                      </a>
+                    </p>
+                  </MDBCol>
+                </MDBRow>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-        </MDBRow>
-      </section>
-      <section className="form-elegant my-5">
-        <MDBRow>
-          <MDBCol md="5">
-            <MDBCard>
-              <MDBCardBody>
-                <MDBCardHeader className="form-header deep-blue-gradient rounded">
-                  <h3 className="my-3">
-                    <MDBIcon icon="lock" /> Login:
-                  </h3>
-                </MDBCardHeader>
-                <form>
-                  <div className="grey-text">
-                    <MDBInput
-                      label="Type your email"
-                      icon="envelope"
-                      group
-                      type="email"
-                      validate
-                      error="wrong"
-                      success="right"
-                    />
-                    <MDBInput
-                      label="Type your password"
-                      icon="lock"
-                      group
-                      type="password"
-                      validate
-                    />
-                  </div>
+        </SectionContainer>
+      </SectionContainer>
 
-                <div className="text-center mt-4">
-                  <MDBBtn
-                    color="light-blue"
-                    className="mb-3"
-                    type="submit"
-                  >
-                    Login
-                  </MDBBtn>
-                </div>
-                </form>
-                <MDBModalFooter>
-                  <div className="font-weight-light">
-                    <p>Not a member? Sign Up</p>
-                    <p>Forgot Password?</p>
-                  </div>
-                </MDBModalFooter>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </section>
       <hr className="my-5" />
-      <section className="form-elegant">
-        <h2 className="my-5">Form elegant</h2>
-        <MDBRow>
-          <MDBCol md="5">
+
+      <SectionContainer
+        className="form-elegant row mt-5"
+        tag="section"
+        noBorder
+      >
+        <MDBCol md="5">
+          <SectionContainer title="Form elegant" noBorder>
             <MDBCard>
               <MDBCardBody className="mx-4">
                 <div className="text-center">
@@ -199,86 +292,11 @@ const FormsPage = () => {
                 </p>
               </MDBModalFooter>
             </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </section>
-      <hr className="my-5" />
-      <section className="form-gradient">
-        <h2 className="mb-5">Form gradient</h2>
-        <MDBRow>
-          <MDBCol md="5">
-            <MDBCard>
-              <div className="header pt-3 peach-gradient">
-                <MDBRow className="d-flex justify-content-center">
-                  <h3 className="white-text mb-3 pt-3 font-weight-bold">
-                    Log in
-                  </h3>
-                </MDBRow>
-                <MDBRow className="mt-2 mb-3 d-flex justify-content-center">
-                  <a href="#!" className="fa-lg p-2 m-2 fb-ic">
-                    <MDBIcon brand icon="facebook" size="lg" className="white-text" />
-                  </a>
-                  <a href="#!" className="fa-lg p-2 m-2 tw-ic">
-                    <MDBIcon brand icon="twitter" size="lg" className="white-text" />
-                  </a>
-                  <a href="#!" className="fa-lg p-2 m-2 gplus-ic">
-                    <MDBIcon brand icon="google-plus" size="lg" className="white-text" />
-                  </a>
-                </MDBRow>
-              </div>
-              <MDBCardBody className="mx-4 mt-4">
-                <MDBInput label="Your email" group type="text" validate />
-                <MDBInput
-                  label="Your password"
-                  group
-                  type="password"
-                  validate
-                  containerClass="mb-0"
-                />
-                <p className="font-small grey-text d-flex justify-content-end">
-                  Forgot
-                  <a
-                    href="#!"
-                    className="dark-grey-text ml-1 font-weight-bold"
-                  >
-                    Password?
-                  </a>
-                </p>
-                <MDBRow className="d-flex align-items-center mb-4 mt-5">
-                  <MDBCol md="5" className="d-flex align-items-start">
-                    <div className="text-center">
-                      <MDBBtn
-                        color="grey"
-                        rounded
-                        type="button"
-                        className="z-depth-1a"
-                      >
-                        Log in
-                      </MDBBtn>
-                    </div>
-                  </MDBCol>
-                  <MDBCol md="7" className="d-flex justify-content-end">
-                    <p className="font-small grey-text mt-3">
-                      Don't have an account?
-                      <a
-                        href="#!"
-                        className="dark-grey-text ml-1 font-weight-bold"
-                      >
-                        Sign up
-                      </a>
-                    </p>
-                  </MDBCol>
-                </MDBRow>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </section>
-      <hr className="my-5" />
-      <section className="form-light">
-        <h2 className="mb-5">Form light</h2>
-        <MDBRow>
-          <MDBCol md="5">
+          </SectionContainer>
+        </MDBCol>
+
+        <MDBCol md="5">
+          <SectionContainer title="Form light" noBorder>
             <MDBCard>
               <MDBCardBody className="mx-4">
                 <div className="text-center">
@@ -335,25 +353,38 @@ const FormsPage = () => {
                 </MDBRow>
                 <MDBRow className="mt-2 mb-3 d-flex justify-content-center">
                   <a href="#!" className="fa-lg p-2 m-2 fb-ic">
-                    <MDBIcon brand icon="facebook" size="lg" className="white-text " />
+                    <MDBIcon
+                      brand
+                      icon="facebook"
+                      size="lg"
+                      className="white-text "
+                    />
                   </a>
                   <a href="#!" className="fa-lg p-2 m-2 tw-ic">
                     <MDBIcon brand icon="twitter" className="white-text" />
                   </a>
                   <a href="#!" className="fa-lg p-2 m-2 gplus-ic">
-                    <MDBIcon brand icon="google-plus" size="lg" className="white-text" />
+                    <MDBIcon
+                      brand
+                      icon="google-plus"
+                      size="lg"
+                      className="white-text"
+                    />
                   </a>
                 </MDBRow>
               </div>
             </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </section>
-      <hr className="my-5" />
-      <section className="form-dark">
-        <h2 className="mb-5">Form dark</h2>
-        <MDBRow>
-          <MDBCol md="5">
+          </SectionContainer>
+        </MDBCol>
+      </SectionContainer>
+
+      <SectionContainer
+        className="form-elegant row mt-5"
+        tag="section"
+        noBorder
+      >
+        <MDBCol md="5" className="mr-5">
+          <SectionContainer title="Form dark" noBorder>
             <MDBCard
               className="card-image"
               style={{
@@ -419,20 +450,15 @@ const FormsPage = () => {
                 </MDBCol>
               </div>
             </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </section>
-      <hr className="my-5" />
-      <section className="form-simple">
-        <h2 className="mb-5">Form simple</h2>
-        <MDBRow>
-          <MDBCol md="5">
+          </SectionContainer>
+        </MDBCol>
+
+        <MDBCol md="5">
+          <SectionContainer noBorder title="Form simple">
             <MDBCard>
               <div className="header pt-3 grey lighten-2">
                 <MDBRow className="d-flex justify-content-start">
-                  <h3 className="deep-grey-text mt-3 mb-4 pb-1 mx-5">
-                    Log in
-                  </h3>
+                  <h3 className="deep-grey-text mt-3 mb-4 pb-1 mx-5">Log in</h3>
                 </MDBRow>
               </div>
               <MDBCardBody className="mx-4 mt-4">
@@ -446,10 +472,7 @@ const FormsPage = () => {
                 />
                 <p className="font-small grey-text d-flex justify-content-end">
                   Forgot
-                  <a
-                    href="#!"
-                    className="dark-grey-text font-weight-bold ml-1"
-                  >
+                  <a href="#!" className="dark-grey-text font-weight-bold ml-1">
                     Password?
                   </a>
                 </p>
@@ -464,20 +487,17 @@ const FormsPage = () => {
                 </div>
                 <p className="font-small grey-text d-flex justify-content-center">
                   Don't have an account?
-                  <a
-                    href="#!"
-                    className="dark-grey-text font-weight-bold ml-1"
-                  >
+                  <a href="#!" className="dark-grey-text font-weight-bold ml-1">
                     Sign up
                   </a>
                 </p>
               </MDBCardBody>
             </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </section>
+          </SectionContainer>
+        </MDBCol>
+      </SectionContainer>
     </MDBContainer>
   );
-}
+};
 
 export default FormsPage;

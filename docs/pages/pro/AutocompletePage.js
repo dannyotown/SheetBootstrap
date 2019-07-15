@@ -1,6 +1,21 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBAutocomplete, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody, MDBModal,   MDBModalHeader, MDBModalBody, MDBModalFooter, MDBIcon } from "mdbreact";
+import {
+  MDBContainer,
+  MDBAutocomplete,
+  MDBRow,
+  MDBCol,
+  MDBInput,
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBModal,
+  MDBModalHeader,
+  MDBModalBody,
+  MDBModalFooter,
+  MDBIcon
+} from "mdbreact";
 import DocsLink from "../../components/docsLink";
+import SectionContainer from "../../components/sectionContainer";
 
 const states = [
   "Alabama",
@@ -282,7 +297,7 @@ class AutocompletePage extends Component {
     this.setState({
       modal: false
     });
-  }
+  };
 
   logValue = value => {
     console.log(value);
@@ -296,7 +311,7 @@ class AutocompletePage extends Component {
           title="Autocomplete"
           href="https://mdbootstrap.com/docs/react/forms/autocomplete/"
         />
-        <section style={{ paddingLeft: 200, paddingRight: 200 }}>
+        <SectionContainer title="Autocomplete">
           <MDBAutocomplete
             data={states}
             label="Choose your favorite state"
@@ -309,8 +324,11 @@ class AutocompletePage extends Component {
             getValue={this.logValue}
             size="md"
           />
-        </section>
-        <MDBRow>
+        </SectionContainer>
+
+        <hr className="my-5" />
+
+        <SectionContainer title="Autocomplete with register cart">
           <MDBCol md="9" lg="7" xl="5" className="mx-auto mt-3">
             <MDBCard>
               <MDBCardBody className="mx-4">
@@ -354,7 +372,6 @@ class AutocompletePage extends Component {
                   className="dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"
                   style={smallStyle}
                 >
-
                   or Sign up with:
                 </p>
                 <div className="row my-3 d-flex justify-content-center">
@@ -391,16 +408,17 @@ class AutocompletePage extends Component {
                 >
                   Already a member?
                   <a href="#!" className="blue-text ml-1">
-
                     Sign In
                   </a>
                 </p>
               </MDBModalFooter>
             </MDBCard>
           </MDBCol>
-        </MDBRow>
+        </SectionContainer>
 
-        <div className="text-center mt-3">
+        <hr className="my-5" />
+
+        <SectionContainer title="Autocomplete in Contact Form">
           <MDBBtn onClick={this.toggle} rounded className="mx-auto">
             launch modal contact
           </MDBBtn>
@@ -423,9 +441,9 @@ class AutocompletePage extends Component {
               />
             </MDBModalHeader>
             <MDBModalBody>
-              <MDBInput label="Your name"  />
-              <MDBInput label="Your email"  iconClass="dark-grey" />
-              <MDBAutocomplete label="Subject"  data={subjects} clear />
+              <MDBInput label="Your name" />
+              <MDBInput label="Your email" iconClass="dark-grey" />
+              <MDBAutocomplete label="Subject" data={subjects} clear />
               <MDBInput
                 label="Your message"
                 type="textarea"
@@ -445,7 +463,7 @@ class AutocompletePage extends Component {
               </div>
             </MDBModalBody>
           </MDBModal>
-        </div>
+        </SectionContainer>
       </MDBContainer>
     );
   }
