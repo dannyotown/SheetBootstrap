@@ -2,6 +2,7 @@ import React from "react";
 import { Line, Bar, Radar, Pie, Doughnut, Polar } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 import DocsLink from "./../components/docsLink";
+import SectionContainer from "./../components/sectionContainer";
 
 // LineChart
 const dataLine = {
@@ -168,32 +169,32 @@ const ChartsPage = () => {
         title="Charts"
         href="https://mdbootstrap.com/docs/react/advanced/charts/"
       />
-      <div>
-        <h3 className="mt-5">Line chart</h3>
+
+      <SectionContainer title="Line chart">
         <Line data={dataLine} options={{ responsive: true }} />
-      </div>
-      <div>
-        <h3 className="mt-5">Radar chart</h3>
+      </SectionContainer>
+
+      <SectionContainer title="Radar chart">
         <Radar data={dataRadar} options={{ responsive: true }} />
-      </div>
-      <div>
-        <h3 className="mt-5">Bar chart</h3>
+      </SectionContainer>
+
+      <SectionContainer title="Bar chart">
         <Bar data={dataBar} options={barChartOptions} />
-      </div>
-      <div>
-        <h3 className="mt-5">Polar chart</h3>
+      </SectionContainer>
+
+      <SectionContainer title="Polar chart">
         <Polar data={dataPolar} options={{ responsive: true }} />
-      </div>
-      <div>
-        <h3 className="mt-5">Pie Chart</h3>
+      </SectionContainer>
+
+      <SectionContainer title="Pie chart">
         <Pie data={dataPie} options={{ responsive: true }} />
-      </div>
-      <div>
-        <h3 className="mt-5">Doughnut Chart</h3>
+      </SectionContainer>
+
+      <SectionContainer title="Doughnut chart">
         <Doughnut data={dataDoughnut} options={{ responsive: true }} />
-      </div>
+      </SectionContainer>
     </MDBContainer>
   );
-}
+};
 
 export default ChartsPage;

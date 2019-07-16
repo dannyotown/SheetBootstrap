@@ -1,11 +1,25 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBCollapse, MDBCard, MDBCardBody, MDBCollapseHeader, MDBIcon, MDBCardImage, MDBView, MDBRow, MDBCol, MDBNavLink, MDBNav } from "mdbreact";
+import {
+  MDBContainer,
+  MDBCollapse,
+  MDBCard,
+  MDBCardBody,
+  MDBCollapseHeader,
+  MDBIcon,
+  MDBCardImage,
+  MDBView,
+  MDBRow,
+  MDBCol,
+  MDBNavLink,
+  MDBNav
+} from "mdbreact";
 import DocsLink from "./../../components/docsLink";
+import SectionContainer from "./../../components/sectionContainer";
 
 class AccordionPage extends Component {
   state = {
     collapseID: "collapse3"
-  }
+  };
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
@@ -16,7 +30,7 @@ class AccordionPage extends Component {
     const { collapseID } = this.state;
     const resetPadding = {
       padding: "0"
-    }
+    };
     return (
       <MDBContainer>
         <DocsLink
@@ -25,8 +39,7 @@ class AccordionPage extends Component {
         />
 
         {/* Basic Accordion */}
-        <MDBContainer className="md-accordion mt-5" style={resetPadding}>
-          <h4 className="mt-5 mb-4">Basic Accordion</h4>
+        <SectionContainer title="Basic Accordion" className="md-accordion p-5">
           <MDBCard className="mt-3">
             <MDBCollapseHeader onClick={this.toggleCollapse("collapse1")}>
               Collapsible Group Item #1
@@ -107,13 +120,15 @@ class AccordionPage extends Component {
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
-        </MDBContainer>
+        </SectionContainer>
 
-        <hr />
+        <hr className="my-5" />
 
         {/* Accordion with gradient background */}
-        <h4 className="mt-5 mb-4">Accordion with gradient background</h4>
-        <MDBContainer className="accordion-gradient-bcg p-5">
+        <SectionContainer
+          title="Accordion with gradient background"
+          className="accordion-gradient-bcg p-5"
+        >
           <MDBCard
             style={{ backgroundColor: "rgba(0,0,0,.03)" }}
             className="my-1"
@@ -171,7 +186,7 @@ class AccordionPage extends Component {
                 butcher vice lomo. Leggings occaecat craft beer farm-to-table,
                 raw denim aesthetic synth nesciunt you probably haven&apos;t
                 heard of them accusamus labore sustainable VHS.
-      </MDBCardBody>
+              </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
 
@@ -200,17 +215,20 @@ class AccordionPage extends Component {
                 butcher vice lomo. Leggings occaecat craft beer farm-to-table,
                 raw denim aesthetic synth nesciunt you probably haven&apos;t
                 heard of them accusamus labore sustainable VHS.
-                </MDBCardBody>
+              </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
-        </MDBContainer>
+        </SectionContainer>
 
-        <hr />
+        <hr className="my-5" />
 
         {/* Accordion with a picture */}
-        <MDBContainer className="accordion md-accordion accordion-1" style={resetPadding}>
-          <h4 className="mt-5 mb-4">Accordion with a picture</h4>
-          <MDBCard style={{ backgroundColor: "transparent" }}>
+
+        <SectionContainer
+          title="Accordion with a picture"
+          className="accordion md-accordion accordion-1 p-5"
+        >
+          <MDBCard className="transparent">
             <MDBCollapseHeader
               onClick={this.toggleCollapse("collapse7")}
               className="text-uppercase blue lighten-3 z-depth-1"
@@ -240,7 +258,6 @@ class AccordionPage extends Component {
                   <MDBCol md="4" className="mt-3 pt-2">
                     <MDBView className="z-depth-1">
                       <MDBCardImage
-
                         className="img-fluid z-depth-1"
                         src="https://mdbootstrap.com/img/Photos/Others/nature.jpeg"
                         alt=""
@@ -252,7 +269,7 @@ class AccordionPage extends Component {
             </MDBCollapse>
           </MDBCard>
 
-          <MDBCard style={{ backgroundColor: "transparent" }}>
+          <MDBCard className="transparent">
             <MDBCollapseHeader
               onClick={this.toggleCollapse("collapse8")}
               className="text-uppercase blue lighten-3 z-depth-1"
@@ -269,7 +286,7 @@ class AccordionPage extends Component {
                       Hi! I am the second one.
                     </h2>
                     <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                       sed do eiusmod tempor incididunt ut labore et dolore magna
                       aliqua. Ut enim ad minim veniam, quis nostrud exercitation
                       ullamco laboris
@@ -293,7 +310,7 @@ class AccordionPage extends Component {
             </MDBCollapse>
           </MDBCard>
 
-          <MDBCard style={{ backgroundColor: "transparent" }}>
+          <MDBCard className="transparent">
             <MDBCollapseHeader
               onClick={this.toggleCollapse("collapse9")}
               className="text-uppercase blue lighten-3 z-depth-1"
@@ -333,15 +350,14 @@ class AccordionPage extends Component {
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
-        </MDBContainer>
+        </SectionContainer>
 
-        <hr />
+        <hr className="my-5" />
 
         {/* Accordion with icons */}
-        <h4 className="mt-5 mb-4">Accordion with icons</h4>
-        <MDBContainer
+        <SectionContainer
+          title="Accordion with icons"
           className="accordion md-accordion accordion-3 z-depth-1-half"
-          style={{ backgroundColor: "#fff", padding: "0" }}
         >
           <MDBNav className="justify-content-center pt-5">
             <MDBNavLink to="#!">
@@ -467,12 +483,15 @@ class AccordionPage extends Component {
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
-        </MDBContainer>
+        </SectionContainer>
 
-        <hr />
+        <hr className="my-5" />
 
         {/* Accordion with teal cards  */}
-        <MDBContainer className="accordion md-accordion accordion-4" style={resetPadding}>
+        <MDBContainer
+          className="accordion md-accordion accordion-4"
+          style={resetPadding}
+        >
           <h4 className="mt-5 mb-4">Accordion with teal cards</h4>
           <MDBCard>
             <MDBCollapseHeader
@@ -630,7 +649,7 @@ class AccordionPage extends Component {
           </MDBCard>
         </MDBContainer>
 
-        <hr />
+        <hr className="my-5" />
 
         {/* Accordion with a photo in the background */}
         <h4 className="mt-5 mb-4">Accordion with a photo in background</h4>
@@ -643,7 +662,10 @@ class AccordionPage extends Component {
           <div className="rgba-black-strong py-5 px-4">
             <MDBRow className="d-flex justify-content-center">
               <MDBCol md="10" xl="8">
-                <MDBContainer className="accordion md-accordion accordion-5" style={{ resetPadding }}>
+                <MDBContainer
+                  className="accordion md-accordion accordion-5"
+                  style={{ resetPadding }}
+                >
                   <MDBCard className="mb-4">
                     <MDBCollapseHeader
                       onClick={this.toggleCollapse("collapse1")}
