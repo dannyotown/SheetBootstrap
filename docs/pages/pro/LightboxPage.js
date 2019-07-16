@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import Lightbox from "react-image-lightbox";
 import DocsLink from "./../../components/docsLink";
+import SectionContainer from "./../../components/sectionContainer";
 import "./Lightbox.css";
 
 class LightboxPage extends Component {
@@ -55,7 +56,7 @@ class LightboxPage extends Component {
           title="Lightbox"
           href="https://mdbootstrap.com/docs/react/advanced/lightbox/"
         />
-        <MDBContainer className="mt-5">
+        <SectionContainer title="Lightbox example" className="p-4">
           <div className="mdb-lightbox no-margin">
             <MDBRow>
               {this.renderImages()}
@@ -80,7 +81,7 @@ class LightboxPage extends Component {
               }
             />
           )}
-        </MDBContainer>
+        </SectionContainer>
       </MDBContainer>
     );
   }

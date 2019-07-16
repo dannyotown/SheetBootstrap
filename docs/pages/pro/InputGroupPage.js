@@ -21,7 +21,7 @@ class InputGroupPage extends React.Component {
       <MDBContainer className="mb-5">
         <DocsLink
           title="Inputs Group"
-          href="https://mdbootstrap.com/docs/react/forms/inputs/"
+          href="https://mdbootstrap.com/docs/react/forms/input-group/"
         />
         <SectionContainer title="Examples & customizations">
           <MDBRow>

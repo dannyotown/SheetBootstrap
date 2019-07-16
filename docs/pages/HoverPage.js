@@ -6,10 +6,14 @@ import SectionContainer from "../components/sectionContainer";
 const HoverPage = () => {
   return (
     <MDBContainer className="mt-5">
-      <DocsLink title="Hover Effects" href="https://mdbootstrap.com/docs/react/css/hover-effects/" />
+      <DocsLink
+        title="Hover Effects"
+        href="https://mdbootstrap.com/docs/react/css/hover-effects/"
+      />
 
-        <MDBCol md="8">
-          <SectionContainer header="Strong overlay">
+      <SectionContainer title="Overlay">
+        <MDBRow>
+          <MDBCol md="4">
             <MDBView hover>
               <img
                 src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(75).jpg"
@@ -20,11 +24,8 @@ const HoverPage = () => {
                 <p className="white-text">Strong overlay</p>
               </MDBMask>
             </MDBView>
-          </SectionContainer>
-        </MDBCol>
-
-        <MDBCol md="8">
-          <SectionContainer header="Light overlay">
+          </MDBCol>
+          <MDBCol md="4">
             <MDBView hover>
               <img
                 src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(75).jpg"
@@ -35,11 +36,8 @@ const HoverPage = () => {
                 <p className="white-text">Light overlay</p>
               </MDBMask>
             </MDBView>
-          </SectionContainer>
-        </MDBCol>
-
-        <MDBCol md="8">
-          <SectionContainer header="Super light overlay">
+          </MDBCol>
+          <MDBCol md="4">
             <MDBView hover>
               <img
                 src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(75).jpg"
@@ -50,11 +48,13 @@ const HoverPage = () => {
                 <p className="white-text">Super light overlay</p>
               </MDBMask>
             </MDBView>
-          </SectionContainer>
-        </MDBCol>
+          </MDBCol>
+        </MDBRow>
+      </SectionContainer>
 
-        <MDBCol md="8">
-          <SectionContainer header="Zoom effect">
+      <SectionContainer header="Effects">
+        <MDBRow>
+          <MDBCol md="6">
             <MDBView hover zoom>
               <img
                 src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(66).jpg"
@@ -65,19 +65,19 @@ const HoverPage = () => {
                 <p className="white-text">Zoom effect</p>
               </MDBMask>
             </MDBView>
-          </SectionContainer>
-        </MDBCol>
-
-        <MDBCol md="8">
-          <SectionContainer header="Shadow effect">
+          </MDBCol>
+          <MDBCol md="6">
             <img
               src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(42).jpg"
               className="img-fluid hoverable"
               alt=""
             />
-          </SectionContainer>
-        </MDBCol>
-      
+            <MDBMask className="flex-center">
+              <p>Zoom effect</p>
+            </MDBMask>
+          </MDBCol>
+        </MDBRow>
+      </SectionContainer>
     </MDBContainer>
   );
 };
