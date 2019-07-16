@@ -1,6 +1,18 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBRangeInput, MDBCard, MDBCol, MDBCardBody, MDBCardTitle, MDBCardImage,   MDBIcon, MDBBadge } from "mdbreact";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBRangeInput,
+  MDBCard,
+  MDBCol,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardImage,
+  MDBIcon,
+  MDBBadge
+} from "mdbreact";
 import DocsLink from "../../components/docsLink";
+import SectionContainer from "../../components/sectionContainer";
 
 class SliderPage extends Component {
   state = {
@@ -18,15 +30,86 @@ class SliderPage extends Component {
           title="Slider"
           href="https://mdbootstrap.com/docs/react/forms/slider/"
         />
-        <MDBContainer className="mt-5">
-          <div className="my-5">
-            <label htmlFor="customRange1">Example range</label>
+
+        <SectionContainer title="Example range">
+          <div className="mb-3">
+            <label htmlFor="customRange1">Example</label>
             <input type="range" className="custom-range" id="customRange1" />
           </div>
+          <MDBRangeInput min={0} max={100} value={50} />
+        </SectionContainer>
 
-          <div className="my-5">
-            <MDBRangeInput min={0} max={100} value={50} />
-          </div>
+        <SectionContainer
+          title="Slider with different width"
+          className="d-flex flex-column"
+        >
+          <MDBRangeInput
+            getValue={this.handleChange}
+            min={0}
+            max={100}
+            value={50}
+            formClassName="w-25"
+          />
+          <MDBRangeInput
+            getValue={this.handleChange}
+            min={0}
+            max={100}
+            value={50}
+            formClassName="w-50"
+          />
+          <MDBRangeInput
+            getValue={this.handleChange}
+            min={0}
+            max={100}
+            value={50}
+            formClassName="w-75"
+          />
+          <MDBRangeInput
+            getValue={this.handleChange}
+            min={0}
+            max={100}
+            value={50}
+            formClassName="w-100"
+          />
+        </SectionContainer>
+
+        <SectionContainer title="With span">
+          <MDBRow center>
+            <span className="font-weight-bold indigo-text mr-2">0</span>
+            <MDBRangeInput
+              getValue={this.handleChange}
+              min={0}
+              max={100}
+              value={50}
+              formClassName="w-25"
+            />
+            <span className="font-weight-bold indigo-text ml-2">100</span>
+          </MDBRow>
+          <MDBRow center>
+            <span className="font-weight-bold blue-text mr-2">0</span>
+            <MDBRangeInput
+              getValue={this.handleChange}
+              min={0}
+              max={100}
+              value={50}
+              formClassName="w-50"
+            />
+            <span className="font-weight-bold blue-text ml-2">100</span>
+          </MDBRow>
+          <MDBRow center>
+            <span className="font-weight-bold purple-text mr-2">0</span>
+            <MDBRangeInput
+              getValue={this.handleChange}
+              min={0}
+              max={100}
+              value={50}
+              formClassName="w-75"
+            />
+            <span className="font-weight-bold purple-text ml-2">100</span>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer title="Examples">
           <MDBRow className="my-5" center>
             <MDBCol sm="4">
               <MDBCard>
@@ -134,71 +217,7 @@ class SliderPage extends Component {
               </MDBCard>
             </MDBCol>
           </MDBRow>
-          <MDBRow style={{ flexDirection: "column" }} className="my-5">
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-25"
-            />
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-50"
-            />
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-75"
-            />
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-100"
-            />
-          </MDBRow>
-
-          <MDBRow center>
-            <span className="font-weight-bold indigo-text mr-2">0</span>
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-25"
-            />
-            <span className="font-weight-bold indigo-text ml-2">100</span>
-          </MDBRow>
-          <MDBRow center>
-            <span className="font-weight-bold blue-text mr-2">0</span>
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-50"
-            />
-            <span className="font-weight-bold blue-text ml-2">100</span>
-          </MDBRow>
-          <MDBRow center>
-            <span className="font-weight-bold purple-text mr-2">0</span>
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-75"
-            />
-            <span className="font-weight-bold purple-text ml-2">100</span>
-          </MDBRow>
-        </MDBContainer>
+        </SectionContainer>
       </MDBContainer>
     );
   }

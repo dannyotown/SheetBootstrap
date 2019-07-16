@@ -141,6 +141,7 @@ class SelectPage extends Component {
                   options={this.state.basicOptions}
                   label="Basic example"
                   labelClass="labelBg"
+                  className="my-0"
                 />
               </SectionContainer>
             </MDBCol>
@@ -158,6 +159,7 @@ class SelectPage extends Component {
                   options={this.state.basicOutlineOptions}
                   label="Basic outline example"
                   labelClass="labelBg"
+                  className="my-0"
                 />
               </SectionContainer>
             </MDBCol>
@@ -168,16 +170,19 @@ class SelectPage extends Component {
           <MDBRow>
             <MDBCol md="6">
               <MDBSelect
+                search
                 color="primary"
                 getValue={this.getValueOfSelect}
                 getTextContent={this.getValueOfSelect}
                 options={this.state.searchOptions}
                 label="Basic example"
                 labelClass="labelBg"
+                className="my-0"
               />
             </MDBCol>
             <MDBCol md="6">
               <MDBSelect
+                search
                 outline
                 color="primary"
                 getValue={this.getValueOfSelect}
@@ -185,6 +190,7 @@ class SelectPage extends Component {
                 options={this.state.searchOutlineOptions}
                 label="Basic outline example"
                 labelClass="labelBg"
+                className="my-0"
               />
             </MDBCol>
           </MDBRow>
@@ -202,6 +208,7 @@ class SelectPage extends Component {
                 options={this.state.multipleOptions}
                 label="Multiple select"
                 labelClass="labelBg"
+                className="my-0"
               />
             </MDBCol>
             <MDBCol md="6">
@@ -215,6 +222,7 @@ class SelectPage extends Component {
                 options={this.state.multipleOutlineOptions}
                 label="Multiple select"
                 labelClass="labelBg"
+                className="my-0"
               />
             </MDBCol>
           </MDBRow>
@@ -232,6 +240,7 @@ class SelectPage extends Component {
                 options={this.state.colorfulOptions}
                 label="Colorful select"
                 labelClass="labelBg"
+                className="my-0"
               />
             </MDBCol>
             <MDBCol md="6">
@@ -239,12 +248,13 @@ class SelectPage extends Component {
                 search
                 multiple
                 outline
-                color="secondary"
+                color="danger"
                 getValue={this.getValueOfSelect}
                 getTextContent={this.getValueOfSelect}
                 options={this.state.colorfulOutlineOptions}
                 label="Colorful select"
                 labelClass="labelBg"
+                className="my-0"
               />
             </MDBCol>
           </MDBRow>
@@ -263,6 +273,7 @@ class SelectPage extends Component {
                 options={this.state.selectAllOptions}
                 label="Colorful select"
                 labelClass="labelBg"
+                className="my-0"
               />
             </MDBCol>
             <MDBCol md="6">
@@ -271,12 +282,13 @@ class SelectPage extends Component {
                 multiple
                 outline
                 selectAll
-                color="secondary"
+                color="danger"
                 getValue={this.getValueOfSelect}
                 getTextContent={this.getValueOfSelect}
                 options={this.state.selectAllOutlineOptions}
                 label="Colorful select"
                 labelClass="labelBg"
+                className="my-0"
               />
             </MDBCol>
           </MDBRow>
@@ -293,6 +305,7 @@ class SelectPage extends Component {
                 getTextContent={this.getValueOfSelect}
                 options={this.state.withoutLabelOptions}
                 selected="Choose your option"
+                className="my-0"
               />
             </MDBCol>
             <MDBCol md="6">
@@ -300,11 +313,12 @@ class SelectPage extends Component {
                 outline
                 search
                 multiple
-                color="secondary"
+                color="danger"
                 getValue={this.getValueOfSelect}
                 getTextContent={this.getValueOfSelect}
                 options={this.state.withoutLabelOutlineOptions}
                 selected="Choose your option"
+                className="my-0"
               />
             </MDBCol>
           </MDBRow>
@@ -321,6 +335,7 @@ class SelectPage extends Component {
                 options={this.state.withoutLabelOptions}
                 label="Without color"
                 selected="Choose your option"
+                className="my-0"
               />
             </MDBCol>
             <MDBCol md="6">
@@ -333,6 +348,7 @@ class SelectPage extends Component {
                 options={this.state.withoutLabelOutlineOptions}
                 label="Without color"
                 selected="Choose your option"
+                className="my-0"
               />
             </MDBCol>
           </MDBRow>
@@ -351,6 +367,7 @@ class SelectPage extends Component {
                 options={this.state.requiredOptions}
                 label="With required property"
                 required
+                className="my-0"
               />
               <MDBBtn type="submit" color={this.state.submitBtnColor}>
                 Submit
@@ -368,6 +385,7 @@ class SelectPage extends Component {
                 options={this.state.requiredOutlineOptions}
                 label="With required property"
                 required
+                className="my-0"
               />
               <MDBBtn type="submit" color={this.state.submitBtnColor2}>
                 Submit
@@ -390,6 +408,7 @@ class SelectPage extends Component {
                 selected="Choose your option"
                 label="Dynamically change state"
                 labelClass="labelBg"
+                className="my-0"
               />
               <MDBBtn onClick={this.addOption} color="success">
                 Add option
@@ -415,6 +434,7 @@ class SelectPage extends Component {
                 selected="Choose your option"
                 label="Dynamically change state"
                 labelClass="labelBg"
+                className="my-0"
               />
             </MDBCol>
           </MDBRow>
@@ -422,163 +442,290 @@ class SelectPage extends Component {
 
         <hr className="my-5" />
 
-        <h2 className="text-center my-5 text-primary">Uncontrolled Select</h2>
+        <SectionContainer title="Controlled Select">
+          <MDBRow>
+            <MDBCol md="6">
+              <SectionContainer
+                header="Basic material example"
+                noBorder
+                noBottom
+              >
+                <MDBRow>
+                  <MDBCol size="12">
+                    <MDBSelect
+                      getValue={this.getValueOfSelect}
+                      getTextContent={this.getValueOfSelect}
+                      label="Example label"
+                    >
+                      <MDBSelectInput selected="Choose your option" />
+                      <MDBSelectOptions>
+                        <MDBSelectOption disabled>
+                          Choose your option
+                        </MDBSelectOption>
+                        <MDBSelectOption>Option nr 1</MDBSelectOption>
+                        <MDBSelectOption>Option nr 2</MDBSelectOption>
+                        <MDBSelectOption>Option nr 3</MDBSelectOption>
+                        <MDBSelectOption>Option nr 4</MDBSelectOption>
+                        <MDBSelectOption selected>Option nr 5</MDBSelectOption>
+                      </MDBSelectOptions>
+                    </MDBSelect>
+                  </MDBCol>
+                </MDBRow>
+              </SectionContainer>
+            </MDBCol>
+            <MDBCol md="6">
+              <SectionContainer
+                header="Basic outline example"
+                noBorder
+                noBottom
+              >
+                <MDBRow>
+                  <MDBCol size="12">
+                    <MDBSelect
+                      getValue={this.getValueOfSelect}
+                      getTextContent={this.getValueOfSelect}
+                      label="Example label"
+                      outline
+                      labelClass="labelBg"
+                    >
+                      <MDBSelectInput />
+                      <MDBSelectOptions>
+                        <MDBSelectOption disabled>
+                          Choose your option
+                        </MDBSelectOption>
+                        <MDBSelectOption>Option nr 1</MDBSelectOption>
+                        <MDBSelectOption>Option nr 2</MDBSelectOption>
+                        <MDBSelectOption>Option nr 3</MDBSelectOption>
+                        <MDBSelectOption>Option nr 4</MDBSelectOption>
+                        <MDBSelectOption>Option nr 5</MDBSelectOption>
+                      </MDBSelectOptions>
+                    </MDBSelect>
+                  </MDBCol>
+                </MDBRow>
+              </SectionContainer>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 indigo-text">Basic example</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              label="Example label"
-            >
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions>
-                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
-                <MDBSelectOption>Option nr 1</MDBSelectOption>
-                <MDBSelectOption>Option nr 2</MDBSelectOption>
-                <MDBSelectOption>Option nr 3</MDBSelectOption>
-                <MDBSelectOption>Option nr 4</MDBSelectOption>
-                <MDBSelectOption selected>Option nr 5</MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Multiple select">
+          <MDBRow>
+            <MDBCol md="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                label="Example label"
+                multiple
+              >
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions search>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption value="value nr 1">
+                    Option nr 1
+                  </MDBSelectOption>
+                  <MDBSelectOption selected value="value nr 2">
+                    Option nr 2
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 3">
+                    Option nr 3
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 4">
+                    Option nr 4
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 5">
+                    Option nr 5
+                  </MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                label="Example label"
+                multiple
+                outline
+              >
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions search>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption value="value nr 1">
+                    Option nr 1
+                  </MDBSelectOption>
+                  <MDBSelectOption selected value="value nr 2">
+                    Option nr 2
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 3">
+                    Option nr 3
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 4">
+                    Option nr 4
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 5">
+                    Option nr 5
+                  </MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 indigo-text">Basic outline example</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              label="Example label"
-              outline
-              labelClass="labelBg"
-            >
-              <MDBSelectInput />
-              <MDBSelectOptions>
-                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
-                <MDBSelectOption>Option nr 1</MDBSelectOption>
-                <MDBSelectOption>Option nr 2</MDBSelectOption>
-                <MDBSelectOption>Option nr 3</MDBSelectOption>
-                <MDBSelectOption>Option nr 4</MDBSelectOption>
-                <MDBSelectOption>Option nr 5</MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Colorful select">
+          <MDBRow>
+            <MDBCol md="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                color="primary"
+                label="Blue select"
+              >
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption value="value nr 1">
+                    Option nr 1
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 2">
+                    Option nr 2
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 3">
+                    Option nr 3
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 4">
+                    Option nr 4
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 5">
+                    Option nr 5
+                  </MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                color="warning"
+                label="Warning select"
+                outline
+              >
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption value="value nr 1">
+                    Option nr 1
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 2">
+                    Option nr 2
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 3">
+                    Option nr 3
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 4">
+                    Option nr 4
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 5">
+                    Option nr 5
+                  </MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 teal-text">Multiple select</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              label="Example label"
-              multiple
-            >
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions search>
-                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
-                <MDBSelectOption value="value nr 1">
-                  Option nr 1
-                </MDBSelectOption>
-                <MDBSelectOption selected value="value nr 2">
-                  Option nr 2
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 3">
-                  Option nr 3
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 4">
-                  Option nr 4
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 5">
-                  Option nr 5
-                </MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="MDBSelect with icons">
+          <MDBRow>
+            <MDBCol md="6">
+              <MDBSelect getValue={this.getValueOfSelect} label="Example label">
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions search>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption
+                    value="User nr 1"
+                    icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg"
+                  >
+                    Option nr 1
+                  </MDBSelectOption>
+                  <MDBSelectOption
+                    value="User nr 2"
+                    icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
+                  >
+                    Option nr 2
+                  </MDBSelectOption>
+                  <MDBSelectOption
+                    value="User nr 3"
+                    icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg"
+                  >
+                    Option nr 3
+                  </MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                label="Example label"
+                outline
+              >
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions search>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption
+                    value="User nr 1"
+                    icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg"
+                  >
+                    Option nr 1
+                  </MDBSelectOption>
+                  <MDBSelectOption
+                    value="User nr 2"
+                    icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
+                  >
+                    Option nr 2
+                  </MDBSelectOption>
+                  <MDBSelectOption
+                    value="User nr 3"
+                    icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg"
+                  >
+                    Option nr 3
+                  </MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 deep-orange-text">Colorful select</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              color="primary"
-              label="Blue select"
-            >
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions>
-                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
-                <MDBSelectOption value="value nr 1">
-                  Option nr 1
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 2">
-                  Option nr 2
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 3">
-                  Option nr 3
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 4">
-                  Option nr 4
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 5">
-                  Option nr 5
-                </MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Options groups">
+          <MDBRow>
+            <MDBCol md="6">
+              <MDBSelect getValue={this.getValueOfSelect} label="Example label">
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>team 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 2</MDBSelectOption>
+                  <MDBSelectOption separator>team 2</MDBSelectOption>
+                  <MDBSelectOption>Option nr 3</MDBSelectOption>
+                  <MDBSelectOption>Option nr 4</MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                label="Example label"
+                outline
+              >
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>team 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 2</MDBSelectOption>
+                  <MDBSelectOption separator>team 2</MDBSelectOption>
+                  <MDBSelectOption>Option nr 3</MDBSelectOption>
+                  <MDBSelectOption>Option nr 4</MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 blue-grey-text">MDBSelect with icons</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect getValue={this.getValueOfSelect} label="Example label">
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions search>
-                <MDBSelectOption disabled>Choose your option</MDBSelectOption>
-                <MDBSelectOption
-                  value="User nr 1"
-                  icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg"
-                >
-                  Option nr 1
-                </MDBSelectOption>
-                <MDBSelectOption
-                  value="User nr 2"
-                  icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
-                >
-                  Option nr 2
-                </MDBSelectOption>
-                <MDBSelectOption
-                  value="User nr 3"
-                  icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg"
-                >
-                  Option nr 3
-                </MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
-
-        <h4 className="mt-4 deep-purple-text">Options groups</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect getValue={this.getValueOfSelect} label="Example label">
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions>
-                <MDBSelectOption disabled>team 1</MDBSelectOption>
-                <MDBSelectOption>Option nr 1</MDBSelectOption>
-                <MDBSelectOption>Option nr 2</MDBSelectOption>
-                <MDBSelectOption separator>team 2</MDBSelectOption>
-                <MDBSelectOption>Option nr 3</MDBSelectOption>
-                <MDBSelectOption>Option nr 4</MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
-
-        <div style={{ marginTop: "250px" }} />
+        <div style={{ marginTop: "175px" }} />
       </MDBContainer>
     );
   }

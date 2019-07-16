@@ -5,6 +5,7 @@ import classNames from "classnames";
 const SectionContainer = ({
   children,
   className,
+  description,
   fluid,
   header,
   noBorder,
@@ -15,8 +16,8 @@ const SectionContainer = ({
 }) => {
   const classes = classNames(
     "section",
-    !noBottom &&  "mb-5",
-    !noBorder ? "border p-3" : "py-3 px-0",
+    !noBottom && "mb-5",
+    !noBorder ? "border p-3" : "px-0",
     className
   );
   return (
@@ -31,6 +32,7 @@ const SectionContainer = ({
           <strong>{header}</strong>
         </h4>
       )}
+      {description && <p>{description}</p>}
       {children && (
         <MDBContainer fluid={fluid} tag={tag} className={classes} style={style}>
           {children}

@@ -1,6 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
 import DocsLink from "../../components/docsLink";
+import SectionContainer from "../../components/sectionContainer";
 
 class FormsPage extends React.Component {
   state = {
@@ -28,8 +29,7 @@ class FormsPage extends React.Component {
           title="Form Validation"
           href="https://mdbootstrap.com/docs/react/forms/validation/"
         />
-        <h2 className="mb-5">Material example</h2>
-        <div>
+        <SectionContainer title="Material example">
           <form
             className="needs-validation"
             onSubmit={this.submitHandler}
@@ -144,11 +144,11 @@ class FormsPage extends React.Component {
               Submit Form
             </MDBBtn>
           </form>
-        </div>
+        </SectionContainer>
 
         <hr className="my-5" />
-        <h2 className="mb-5">Browser defualt validation</h2>
-        <div>
+
+        <SectionContainer title="Browser defualt validation">
           <form>
             <MDBRow>
               <MDBCol md="4">
@@ -232,164 +232,164 @@ class FormsPage extends React.Component {
               Submit Form
             </MDBBtn>
           </form>
-        </div>
+        </SectionContainer>
 
         <hr className="my-5" />
-        <h2 className="mb-5">Supported elements</h2>
-        <MDBRow className="mt-6">
-          <MDBCol md="4">
-            <form className="was-validated" noValidate>
-              <MDBInput
-                type="checkbox"
-                id="customControlValidation1"
-                label="Check this custom checkbox"
-                required
-              >
-                <div className="invalid-feedback">
-                  Example invalid feedback text
-                </div>
-              </MDBInput>
 
-              <MDBInput
-                type="radio"
-                id="customControlValidation2"
-                name="radio-stacked"
-                required
-                label="Toggle this custom radio"
-              />
+        <SectionContainer title="Supported elements">
+          <MDBRow className="mt-6">
+            <MDBCol md="4">
+              <form className="was-validated" noValidate>
+                <MDBInput
+                  type="checkbox"
+                  id="customControlValidation1"
+                  label="Check this custom checkbox"
+                  required
+                >
+                  <div className="invalid-feedback">
+                    Example invalid feedback text
+                  </div>
+                </MDBInput>
 
-              <MDBInput
-                type="radio"
-                id="customControlValidation3"
-                name="radio-stacked"
-                required
-                label="Or toggle this other custom radio"
-              >
-                <div className="invalid-feedback">
-                  More example invalid feedback text
-                </div>
-              </MDBInput>
-            </form>
-          </MDBCol>
-        </MDBRow>
+                <MDBInput
+                  type="radio"
+                  id="customControlValidation2"
+                  name="radio-stacked"
+                  required
+                  label="Toggle this custom radio"
+                />
+
+                <MDBInput
+                  type="radio"
+                  id="customControlValidation3"
+                  name="radio-stacked"
+                  required
+                  label="Or toggle this other custom radio"
+                >
+                  <div className="invalid-feedback">
+                    More example invalid feedback text
+                  </div>
+                </MDBInput>
+              </form>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
         <hr className="my-5" />
-        <h2 className="mb-5">Tooltips</h2>
-        <MDBRow className="mt-6">
-          <MDBCol md="">
-            <form
-              className="needs-validation"
-              onSubmit={this.submitHandler}
-              noValidate
-            >
-              <MDBRow>
-                <MDBCol md="4">
-                  <MDBInput
-                    value={this.state.fname}
-                    name="fname"
-                    onChange={this.changeHandler}
-                    type="text"
-                    id="defaultFormRegisterNameEx"
-                    label="First name"
-                    required
-                  >
-                    <div style={{ top: "auto" }} className="valid-tooltip">
-                      Looks good!
-                    </div>
-                  </MDBInput>
-                </MDBCol>
-                <MDBCol m="4">
-                  <MDBInput
-                    value={this.state.lname}
-                    name="lname"
-                    onChange={this.changeHandler}
-                    type="text"
-                    id="defaultFormRegisterEmailEx2"
-                    label="Last name"
-                    required
-                  >
-                    <div style={{ top: "auto" }} className="valid-tooltip">
-                      Looks good!
-                    </div>
-                  </MDBInput>
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
-                    value={this.state.email}
-                    onChange={this.changeHandler}
-                    type="email"
-                    id="defaultFormRegisterConfirmEx3"
-                    name="email"
-                    label="Your Email address"
-                  >
-                    <small id="emailHelp" className="form-text text-muted">
-                      We'll never share your email with anyone else.
-                    </small>
-                  </MDBInput>
-                </MDBCol>
-              </MDBRow>
-              <MDBRow>
-                <MDBCol md="4">
-                  <MDBInput
-                    value={this.state.city}
-                    onChange={this.changeHandler}
-                    type="text"
-                    id="defaultFormRegisterPasswordEx4"
-                    name="city"
-                    label="City"
-                    required
-                  >
-                    <div style={{ top: "auto" }} className="invalid-tooltip">
-                      Please provide a valid city.
-                    </div>
-                    <div style={{ top: "auto" }} className="valid-tooltip">
-                      Looks good!
-                    </div>
-                  </MDBInput>
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
-                    value={this.state.state}
-                    onChange={this.changeHandler}
-                    type="text"
-                    id="defaultFormRegisterPasswordEx4"
-                    name="state"
-                    label="State"
-                    required
-                  >
-                    <div style={{ top: "auto" }} className="invalid-tooltip">
-                      Please provide a valid state.
-                    </div>
-                    <div style={{ top: "auto" }} className="valid-tooltip">
-                      Looks good!
-                    </div>
-                  </MDBInput>
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBInput
-                    value={this.state.zip}
-                    onChange={this.changeHandler}
-                    type="text"
-                    id="defaultFormRegisterPasswordEx4"
-                    name="zip"
-                    label="Zip"
-                    required
-                  >
-                    <div style={{ top: "auto" }} className="invalid-tooltip">
-                      Please provide a valid zip.
-                    </div>
-                    <div style={{ top: "auto" }} className="valid-tooltip">
-                      Looks good!
-                    </div>
-                  </MDBInput>
-                </MDBCol>
-              </MDBRow>
-              <MDBBtn className="mt-4" color="unique" type="submit">
-                Submit Form
-              </MDBBtn>
-            </form>
-          </MDBCol>
-        </MDBRow>
+
+        <SectionContainer title="Tooltips">
+          <form
+            className="needs-validation"
+            onSubmit={this.submitHandler}
+            noValidate
+          >
+            <MDBRow>
+              <MDBCol md="4">
+                <MDBInput
+                  value={this.state.fname}
+                  name="fname"
+                  onChange={this.changeHandler}
+                  type="text"
+                  id="defaultFormRegisterNameEx"
+                  label="First name"
+                  required
+                >
+                  <div style={{ top: "auto" }} className="valid-tooltip">
+                    Looks good!
+                  </div>
+                </MDBInput>
+              </MDBCol>
+              <MDBCol m="4">
+                <MDBInput
+                  value={this.state.lname}
+                  name="lname"
+                  onChange={this.changeHandler}
+                  type="text"
+                  id="defaultFormRegisterEmailEx2"
+                  label="Last name"
+                  required
+                >
+                  <div style={{ top: "auto" }} className="valid-tooltip">
+                    Looks good!
+                  </div>
+                </MDBInput>
+              </MDBCol>
+              <MDBCol md="4">
+                <MDBInput
+                  value={this.state.email}
+                  onChange={this.changeHandler}
+                  type="email"
+                  id="defaultFormRegisterConfirmEx3"
+                  name="email"
+                  label="Your Email address"
+                >
+                  <small id="emailHelp" className="form-text text-muted">
+                    We'll never share your email with anyone else.
+                  </small>
+                </MDBInput>
+              </MDBCol>
+            </MDBRow>
+            <MDBRow>
+              <MDBCol md="4">
+                <MDBInput
+                  value={this.state.city}
+                  onChange={this.changeHandler}
+                  type="text"
+                  id="defaultFormRegisterPasswordEx4"
+                  name="city"
+                  label="City"
+                  required
+                >
+                  <div style={{ top: "auto" }} className="invalid-tooltip">
+                    Please provide a valid city.
+                  </div>
+                  <div style={{ top: "auto" }} className="valid-tooltip">
+                    Looks good!
+                  </div>
+                </MDBInput>
+              </MDBCol>
+              <MDBCol md="4">
+                <MDBInput
+                  value={this.state.state}
+                  onChange={this.changeHandler}
+                  type="text"
+                  id="defaultFormRegisterPasswordEx4"
+                  name="state"
+                  label="State"
+                  required
+                >
+                  <div style={{ top: "auto" }} className="invalid-tooltip">
+                    Please provide a valid state.
+                  </div>
+                  <div style={{ top: "auto" }} className="valid-tooltip">
+                    Looks good!
+                  </div>
+                </MDBInput>
+              </MDBCol>
+              <MDBCol md="4">
+                <MDBInput
+                  value={this.state.zip}
+                  onChange={this.changeHandler}
+                  type="text"
+                  id="defaultFormRegisterPasswordEx4"
+                  name="zip"
+                  label="Zip"
+                  required
+                >
+                  <div style={{ top: "auto" }} className="invalid-tooltip">
+                    Please provide a valid zip.
+                  </div>
+                  <div style={{ top: "auto" }} className="valid-tooltip">
+                    Looks good!
+                  </div>
+                </MDBInput>
+              </MDBCol>
+            </MDBRow>
+            <MDBBtn className="mt-4" color="unique" type="submit">
+              Submit Form
+            </MDBBtn>
+          </form>
+        </SectionContainer>
       </MDBContainer>
     );
   }
