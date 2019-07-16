@@ -1,27 +1,14 @@
 import React from "react";
 import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer } from "mdbreact";
 import DocsLink from "../components/docsLink";
+import SectionContainer from "../components/sectionContainer";
 
 const DropdownPage = () => {
   return (
     <MDBContainer>
-      <DocsLink
-        title="MDBDropdown"
-        href="https://mdbootstrap.com/docs/react/components/dropdowns/"
-      />
-      <div className="container">
-        <h2>Basic example</h2>
-        <MDBDropdown>
-          <MDBDropdownToggle caret color="primary">
-            Material dropdown
-          </MDBDropdownToggle>
-          <MDBDropdownMenu>
-            <MDBDropdownItem>Action</MDBDropdownItem>
-            <MDBDropdownItem>Another Action</MDBDropdownItem>
-            <MDBDropdownItem>Something else here</MDBDropdownItem>
-            <MDBDropdownItem>Something else here</MDBDropdownItem>
-          </MDBDropdownMenu>
-        </MDBDropdown>
+      <DocsLink title="MDBDropdown" href="https://mdbootstrap.com/docs/react/components/dropdowns/" />
+
+      <SectionContainer header="Basic example">
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             Dropdown
@@ -130,8 +117,9 @@ const DropdownPage = () => {
             <MDBDropdownItem>Separated link</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-        <br />
-        <h2>Sizing</h2>
+      </SectionContainer>
+
+      <SectionContainer header="Sizing">
         <MDBDropdown size="lg">
           <MDBDropdownToggle caret>Large Button</MDBDropdownToggle>
           <MDBDropdownMenu>
@@ -154,8 +142,9 @@ const DropdownPage = () => {
             <MDBDropdownItem>Separated link</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-        <br />
-        <h2>Dropup variation</h2>
+      </SectionContainer>
+
+      <SectionContainer header="Dropup variation">
         <MDBDropdown dropup>
           <MDBDropdownToggle caret color="primary">
             Dropup
@@ -168,8 +157,9 @@ const DropdownPage = () => {
             <MDBDropdownItem>Separated link</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-        <br />
-        <h2>Alignment</h2>
+      </SectionContainer>
+
+      <SectionContainer header="Alignment">
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             This dropdown&apos;s menu is right-aligned
@@ -180,8 +170,9 @@ const DropdownPage = () => {
             <MDBDropdownItem>Something else here</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-        <br />
-        <h2>Menu headers</h2>
+      </SectionContainer>
+
+      <SectionContainer header="Menu headers">
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             MDBDropdown
@@ -193,8 +184,9 @@ const DropdownPage = () => {
             <MDBDropdownItem>Something else here</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-        <br />
-        <h2>Menu dividers</h2>
+      </SectionContainer>
+
+      <SectionContainer header="Menu dividers">
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             MDBDropdown
@@ -207,8 +199,9 @@ const DropdownPage = () => {
             <MDBDropdownItem>Separated link</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-        <br />
-        <h2>Disabled menu items</h2>
+      </SectionContainer>
+
+      <SectionContainer header="Disabled menu items">
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             MDBDropdown
@@ -221,9 +214,9 @@ const DropdownPage = () => {
             <MDBDropdownItem href="#">Another link</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-      </div>
+      </SectionContainer>
     </MDBContainer>
   );
-}
+};
 
 export default DropdownPage;
