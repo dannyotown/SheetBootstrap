@@ -24,12 +24,12 @@ const SectionContainer = ({
     <>
       {title && (
         <h2 className="mb-3">
-          <strong>{title}</strong>
+          {title}
         </h2>
       )}
       {header && (
         <h4 className="mb-2">
-          <strong>{header}</strong>
+          {header}
         </h4>
       )}
       {description && <p>{description}</p>}

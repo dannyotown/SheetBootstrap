@@ -263,33 +263,35 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Dynamically change state">
-          <MDBCol md="6">
-            <MDBSelect
-              selectAll
-              outline
-              search
-              multiple
-              color="secondary"
-              getValue={this.handleDisabled}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.dynamicOptions}
-              selected="Choose your option"
-              label="Dynamically change state"
-              labelClass="labelBg"
-            />
-          </MDBCol>
-          <MDBCol md="6">
-            <MDBBtn onClick={this.addOption} color="success">
-              Add option
-            </MDBBtn>
-            <MDBBtn
-              onClick={this.removeOption}
-              color="danger"
-              disabled={this.state.disabled}
-            >
-              Remove option
-            </MDBBtn>
-          </MDBCol>
+          <MDBRow className="flex-column">
+            <MDBCol md="6">
+              <MDBSelect
+                selectAll
+                outline
+                search
+                multiple
+                color="secondary"
+                getValue={this.handleDisabled}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.dynamicOptions}
+                selected="Choose your option"
+                label="Dynamically change state"
+                labelClass="labelBg"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBBtn onClick={this.addOption} color="success">
+                Add option
+              </MDBBtn>
+              <MDBBtn
+                onClick={this.removeOption}
+                color="danger"
+                disabled={this.state.disabled}
+              >
+                Remove option
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
         </SectionContainer>
 
         <hr className="my-5 mdb-color lighten-3" />
