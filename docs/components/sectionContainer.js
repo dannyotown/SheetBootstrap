@@ -2,42 +2,30 @@ import React from "react";
 import { MDBContainer } from "mdbreact";
 import classNames from "classnames";
 
-const SectionContainer = ({
+let SectionContainer = ({
   children,
   className,
   description,
-  fluid,
   header,
   noBorder,
-  tag,
-  title,
+  noBottom,
   style,
-  noBottom
+  title
 }) => {
-  const classes = classNames(
-    "section",
-    !noBottom && "mb-5",
-    !noBorder ? "border p-3" : "px-0",
-    className
-  );
+  const classes = classNames("section", !noBottom && "mb-5", !noBorder ? "border p-3" : "px-0", className);
+
+  description = description ? <p>{description}</p> : "";
+  title = title ? <h2 className="mb-3">{title}</h2> : "";
+  header = header ? <h4 className="mb-2">{header}</h4> : "";
+
   return (
     <>
-      {title && (
-        <h2 className="mb-3">
-          {title}
-        </h2>
-      )}
-      {header && (
-        <h4 className="mb-2">
-          {header}
-        </h4>
-      )}
-      {description && <p>{description}</p>}
-      {children && (
-        <MDBContainer fluid={fluid} tag={tag} className={classes} style={style}>
-          {children}
-        </MDBContainer>
-      )}
+      {title}
+      {header}
+      <MDBContainer fluid className={classes} style={style}>
+        {description}
+        {children}
+      </MDBContainer>
     </>
   );
 };
