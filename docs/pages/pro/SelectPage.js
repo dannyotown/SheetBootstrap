@@ -92,20 +92,6 @@ class SelectPage extends Component {
     });
   };
 
-  renderDynamicOptions = () => {
-    if (this.state.dynamicOptions.length) {
-      return (
-        <ul>
-          {this.state.dynamicOptions.map((e, i) => (
-            <li key={i} className={e.checked ? "green-text font-weight-bold" : ""}>
-              {e.text}
-            </li>
-          ))}
-        </ul>
-      );
-    }
-  };
-
   handleSubmitBtnColor = value => {
     this.setState({ submitBtnColor: value.length ? "success" : "primary" });
   };
@@ -124,34 +110,32 @@ class SelectPage extends Component {
           href="https://mdbootstrap.com/docs/react/forms/select/"
         />
 
-        <SectionContainer title="Controlled Select" noBorder>
+        <SectionContainer title="Controlled Select" header="Basic example">
           <MDBRow>
             <MDBCol md="6">
-              <SectionContainer header="Basic example">
-                <MDBSelect
-                  color="primary"
-                  getValue={this.getValueOfSelect}
-                  getTextContent={this.getValueOfSelect}
-                  options={this.state.basicOptions}
-                  label="Basic example"
-                  labelClass="labelBg"
-                />
-              </SectionContainer>
-            </MDBCol>
-            <MDBCol md="6">
-              <SectionContainer header="Basic outline example">
-                <MDBSelect
-                  outline
-                  color="primary"
-                  getValue={this.getValueOfSelect}
-                  getTextContent={this.getValueOfSelect}
-                  options={this.state.basicOutlineOptions}
-                  label="Basic outline example"
-                  labelClass="labelBg"
-                />
-              </SectionContainer>
+              <MDBSelect
+                color="primary"
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.basicOptions}
+                label="Basic example"
+                labelClass="labelBg"
+              />
             </MDBCol>
           </MDBRow>
+        </SectionContainer>
+        <SectionContainer header="Basic outline example">
+          <MDBCol md="6">
+            <MDBSelect
+              outline
+              color="primary"
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.basicOutlineOptions}
+              label="Basic outline example"
+              labelClass="labelBg"
+            />
+          </MDBCol>
         </SectionContainer>
 
         <SectionContainer header="Search enabled">
@@ -279,102 +263,78 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Dynamically change state">
-          <MDBRow>
-            <MDBCol md="6">
-              <MDBSelect
-                selectAll
-                outline
-                search
-                multiple
-                color="secondary"
-                getValue={this.handleDisabled}
-                getTextContent={this.getValueOfSelect}
-                options={this.state.dynamicOptions}
-                selected="Choose your option"
-                label="Dynamically change state"
-                labelClass="labelBg"
-              />
-            </MDBCol>
-            <MDBCol md="2" className="text-center mt-3">
-              <MDBBtn
-                floating
-                color="success"
-                onClick={this.addOption}
-                size="sm"
-              >
-                <MDBIcon icon="plus" />
-              </MDBBtn>
-              <MDBBtn
-                floating
-                color="danger"
-                size="sm"
-                onClick={this.removeOption}
-                disabled={this.state.disabled}
-              >
-                <MDBIcon icon="minus" />
-              </MDBBtn>
-            </MDBCol>
-            <MDBCol md="4" className="d-flex justify-content-center">
-              {this.renderDynamicOptions()}
-            </MDBCol>
-          </MDBRow>
+          <MDBCol md="6">
+            <MDBSelect
+              selectAll
+              outline
+              search
+              multiple
+              color="secondary"
+              getValue={this.handleDisabled}
+              getTextContent={this.getValueOfSelect}
+              options={this.state.dynamicOptions}
+              selected="Choose your option"
+              label="Dynamically change state"
+              labelClass="labelBg"
+            />
+          </MDBCol>
+          <MDBCol md="6">
+            <MDBBtn onClick={this.addOption} color="success">
+              Add option
+            </MDBBtn>
+            <MDBBtn
+              onClick={this.removeOption}
+              color="danger"
+              disabled={this.state.disabled}
+            >
+              Remove option
+            </MDBBtn>
+          </MDBCol>
         </SectionContainer>
 
         <hr className="my-5 mdb-color lighten-3" />
 
-        <SectionContainer title="Uncontrolled Select" noBorder>
+        <SectionContainer title="Uncontrolled Select" header="Basic example">
           <MDBRow>
             <MDBCol md="6">
-              <SectionContainer header="Basic example">
-                <MDBRow>
-                  <MDBCol size="12">
-                    <MDBSelect
-                      getValue={this.getValueOfSelect}
-                      getTextContent={this.getValueOfSelect}
-                      label="Example label"
-                    >
-                      <MDBSelectInput selected="Choose your option" />
-                      <MDBSelectOptions>
-                        <MDBSelectOption disabled>
-                          Choose your option
-                        </MDBSelectOption>
-                        <MDBSelectOption>Option nr 1</MDBSelectOption>
-                        <MDBSelectOption>Option nr 2</MDBSelectOption>
-                        <MDBSelectOption>Option nr 3</MDBSelectOption>
-                        <MDBSelectOption>Option nr 4</MDBSelectOption>
-                        <MDBSelectOption selected>Option nr 5</MDBSelectOption>
-                      </MDBSelectOptions>
-                    </MDBSelect>
-                  </MDBCol>
-                </MDBRow>
-              </SectionContainer>
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                label="Example label"
+              >
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption>Option nr 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 2</MDBSelectOption>
+                  <MDBSelectOption>Option nr 3</MDBSelectOption>
+                  <MDBSelectOption>Option nr 4</MDBSelectOption>
+                  <MDBSelectOption selected>Option nr 5</MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
             </MDBCol>
-            <MDBCol md="6">
-              <SectionContainer header="Basic outline example">
-                <MDBRow>
-                  <MDBCol size="12">
-                    <MDBSelect
-                      getValue={this.getValueOfSelect}
-                      getTextContent={this.getValueOfSelect}
-                      label="Example label"
-                      outline
-                      labelClass="labelBg"
-                    >
-                      <MDBSelectInput />
-                      <MDBSelectOptions>
-                        <MDBSelectOption disabled>
-                          Choose your option
-                        </MDBSelectOption>
-                        <MDBSelectOption>Option nr 1</MDBSelectOption>
-                        <MDBSelectOption>Option nr 2</MDBSelectOption>
-                        <MDBSelectOption>Option nr 3</MDBSelectOption>
-                        <MDBSelectOption>Option nr 4</MDBSelectOption>
-                        <MDBSelectOption>Option nr 5</MDBSelectOption>
-                      </MDBSelectOptions>
-                    </MDBSelect>
-                  </MDBCol>
-                </MDBRow>
-              </SectionContainer>
+          </MDBRow>
+        </SectionContainer>
+        <SectionContainer header="Basic outline example">
+          <MDBRow>
+            <MDBCol size="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                label="Example label"
+                outline
+                labelClass="labelBg"
+              >
+                <MDBSelectInput />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption>Option nr 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 2</MDBSelectOption>
+                  <MDBSelectOption>Option nr 3</MDBSelectOption>
+                  <MDBSelectOption>Option nr 4</MDBSelectOption>
+                  <MDBSelectOption>Option nr 5</MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
             </MDBCol>
           </MDBRow>
         </SectionContainer>
