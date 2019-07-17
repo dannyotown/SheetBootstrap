@@ -1,10 +1,24 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBRow, MDBIcon,   MDBBadge, MDBCol, MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
+import {
+  MDBContainer,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBModalHeader,
+  MDBModalFooter,
+  MDBRow,
+  MDBIcon,
+  MDBBadge,
+  MDBCol,
+  MDBTable,
+  MDBTableBody,
+  MDBTableHead
+} from "mdbreact";
 import "./ModalExamplesPage.css";
 import DocsLink from "./../components/docsLink";
+import SectionContainer from "./../components/sectionContainer";
 
 class ModalExamplesPage extends Component {
-
   state = {
     modal1: false,
     modal2: false,
@@ -17,7 +31,7 @@ class ModalExamplesPage extends Component {
     modal10: false,
     modal11: false,
     modal12: false
-  }
+  };
 
   toggle = nr => () => {
     let modalNumber = "modal" + nr;
@@ -25,7 +39,7 @@ class ModalExamplesPage extends Component {
       ...this.state,
       [modalNumber]: !this.state[modalNumber]
     });
-  }
+  };
 
   render() {
     return (
@@ -34,8 +48,8 @@ class ModalExamplesPage extends Component {
           title="Modal Templates & Examples"
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
-        <h4 className="mt-4">Modal Cookies</h4>
-        <MDBRow>
+
+        <SectionContainer title="Modal Cookies">
           <MDBBtn onClick={this.toggle(1)}>Launch Modal</MDBBtn>
           <MDBModal
             position="top"
@@ -59,10 +73,9 @@ class ModalExamplesPage extends Component {
               </MDBRow>
             </MDBModalBody>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Modal Coupon</h4>
-        <MDBRow>
+        <SectionContainer title="Modal Coupon">
           <MDBBtn onClick={this.toggle(2)}>Launch Modal</MDBBtn>
           <MDBModal
             position="bottom"
@@ -90,10 +103,9 @@ class ModalExamplesPage extends Component {
               </MDBRow>
             </MDBModalBody>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Modal Discount</h4>
-        <MDBRow>
+        <SectionContainer title="Modal Discount">
           <MDBBtn onClick={this.toggle(3)}>Launch Modal</MDBBtn>
           <MDBModal
             size="lg"
@@ -142,10 +154,9 @@ class ModalExamplesPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Modal Related content</h4>
-        <MDBRow>
+        <SectionContainer title="Modal Related content">
           <MDBBtn onClick={this.toggle(4)}>Launch Modal</MDBBtn>
           <MDBModal
             className="modal-notify modal-info text-white"
@@ -186,10 +197,9 @@ class ModalExamplesPage extends Component {
               </MDBRow>
             </MDBModalBody>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Modal Abandoned cart</h4>
-        <MDBRow>
+        <SectionContainer title="Modal Abandoned cart">
           <MDBBtn onClick={this.toggle(5)}>Launch Modal</MDBBtn>
           <MDBModal
             className="modal-notify modal-info text-white"
@@ -228,10 +238,9 @@ class ModalExamplesPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Modal Confirm delete</h4>
-        <MDBRow>
+        <SectionContainer title="Modal Confirm delete">
           <MDBBtn onClick={this.toggle(6)}>Launch Modal</MDBBtn>
           <MDBModal
             modalStyle="danger"
@@ -263,9 +272,9 @@ class ModalExamplesPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
-        <h4 className="mt-4">Modal Cart</h4>
-        <MDBRow>
+        </SectionContainer>
+
+        <SectionContainer title="Modal Cart">
           <MDBBtn onClick={this.toggle(10)}>Launch Modal</MDBBtn>
           <MDBModal isOpen={this.state.modal10} toggle={this.toggle(10)}>
             <MDBModalHeader toggle={this.toggle(10)}>Your cart</MDBModalHeader>
@@ -326,10 +335,9 @@ class ModalExamplesPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Modal Push</h4>
-        <MDBRow>
+        <SectionContainer title="Modal Push">
           <MDBBtn onClick={this.toggle(7)}>Launch Modal</MDBBtn>
           <MDBModal
             className="modal-notify modal-info text-white"
@@ -340,7 +348,11 @@ class ModalExamplesPage extends Component {
               Be always up to date
             </MDBModalHeader>
             <MDBModalBody className="text-center">
-              <MDBIcon icon="bell" size="4x" className="animated rotateIn mb-4" />
+              <MDBIcon
+                icon="bell"
+                size="4x"
+                className="animated rotateIn mb-4"
+              />
               <p>
                 Do you want to receive the push notification about the newest
                 posts?
@@ -355,10 +367,9 @@ class ModalExamplesPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Modal YouTube</h4>
-        <MDBRow>
+        <SectionContainer title="Modal YouTube">
           <MDBBtn onClick={this.toggle(11)}>Launch Modal</MDBBtn>
           <MDBModal
             size="lg"
@@ -401,10 +412,9 @@ class ModalExamplesPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Modal Vimeo</h4>
-        <MDBRow>
+        <SectionContainer title="Modal Vimeo">
           <MDBBtn onClick={this.toggle(12)}>Launch Modal</MDBBtn>
           <MDBModal
             size="lg"
@@ -424,16 +434,16 @@ class ModalExamplesPage extends Component {
             <MDBModalFooter className="justify-content-center">
               <span className="mr-4">Spread the word!</span>
               <MDBBtn tag="a" size="sm" floating social="fb">
-                <MDBIcon icon="facebook" />
+                <MDBIcon icon="facebook-f" fab />
               </MDBBtn>
               <MDBBtn tag="a" size="sm" floating social="tw">
-                <MDBIcon icon="twitter" />
+                <MDBIcon icon="twitter" fab />
               </MDBBtn>
               <MDBBtn tag="a" size="sm" floating social="gplus">
-                <MDBIcon icon="google-plus" />
+                <MDBIcon icon="google-plus" fab />
               </MDBBtn>
               <MDBBtn tag="a" size="sm" floating social="li">
-                <MDBIcon icon="linkedin" />
+                <MDBIcon icon="linkedin" fab />
               </MDBBtn>
               <MDBBtn
                 color="primary"
@@ -447,7 +457,7 @@ class ModalExamplesPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
       </MDBContainer>
     );
   }
