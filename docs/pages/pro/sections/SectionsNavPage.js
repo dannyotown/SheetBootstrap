@@ -30,7 +30,6 @@ const SectionsNavPage = () => {
                   <MenuLink to="/sections/social" title="Social" />
                   <MenuLink to="/sections/team" title="Team" />
                   <MenuLink to="/sections/testimonials" title="Testimonials" />
-                  <MenuLink to="/sections/testimonialsMulti" title="Testimonials Multi Item" />
                   <MenuLink to="/sections/minimalistic-intro" title="Minimalistic Intro" />
                   <MenuLink to="/sections/parallax-intro" title="Parallax Effect Intro" />
                   <MenuLink to="/sections/call-to-action-intro" title="Call to Action Intro" />
