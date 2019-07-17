@@ -1,6 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from "mdbreact";
 import DocsLink from "../../../components/docsLink";
+import SectionContainer from "../../../components/sectionContainer";
 
 const FeaturesPage = () => {
   return (
@@ -9,7 +10,7 @@ const FeaturesPage = () => {
         title="Features Sections"
         href="https://mdbootstrap.com/docs/react/sections/features/"
       />
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Features v.1" className="text-center">
         <h2 className="h1-responsive font-weight-bold my-5">
           Why is it so great?
         </h2>
@@ -44,9 +45,9 @@ const FeaturesPage = () => {
             </p>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="my-5">
+      <SectionContainer tag="section" title="Features v.2">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Why is it so great?
         </h2>
@@ -112,9 +113,9 @@ const FeaturesPage = () => {
             </MDBRow>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="my-5">
+      <SectionContainer tag="section" title="Features v.3">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Why is it so great?
         </h2>
@@ -174,9 +175,9 @@ const FeaturesPage = () => {
             </MDBRow>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="my-5">
+      <SectionContainer tag="section" title="Features v.4">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Why is it so great?
         </h2>
@@ -281,7 +282,7 @@ const FeaturesPage = () => {
             </MDBRow>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
     </MDBContainer>
   );
 }
