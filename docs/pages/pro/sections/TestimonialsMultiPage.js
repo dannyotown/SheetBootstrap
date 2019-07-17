@@ -1,6 +1,7 @@
 import React  from "react";
 import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBContainer, MDBRow, MDBCol, MDBTestimonial, MDBAvatar, MDBIcon } from "mdbreact";
 import DocsLink from "../../../components/docsLink";
+import SectionContainer from "../../../components/sectionContainer";
 
 const TestimonialsMultiPage = () => {
   return (

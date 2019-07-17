@@ -1,22 +1,38 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardUp, MDBAvatar, MDBCardBody, MDBIcon, MDBCarousel, MDBCarouselInner, MDBCarouselItem,   MDBTestimonial } from "mdbreact";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardUp,
+  MDBAvatar,
+  MDBCardBody,
+  MDBIcon,
+  MDBCarousel,
+  MDBCarouselInner,
+  MDBCarouselItem,
+  MDBTestimonial
+} from "mdbreact";
 import DocsLink from "../../../components/docsLink";
+import SectionContainer from "../../../components/sectionContainer";
 
-const  TestimonialsPage = () => {
+const TestimonialsPage = () => {
   return (
     <MDBContainer>
       <DocsLink
         title="Testimonials"
         href="https://mdbootstrap.com/docs/react/sections/testimonials/"
       />
-      <section className="text-center my-5">
-        <h2 className="h1-responsive font-weight-bold my-5">
-          Testimonials v.1
-        </h2>
+      <SectionContainer
+        header="Example v.1"
+        tag="section"
+        className="text-center"
+      >
+        <h2 className="h1-responsive my-5">Testimonials</h2>
         <p className="dark-grey-text w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
 
         <MDBRow>
@@ -84,12 +100,14 @@ const  TestimonialsPage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
-        <h2 className="h1-responsive font-weight-bold my-5">
-          Testimonials v.2
-        </h2>
+      <SectionContainer
+        header="Example v.2"
+        tag="section"
+        className="text-center"
+      >
+        <h2 className="h1-responsive my-5">Testimonials</h2>
 
         <MDBCarousel
           activeItem={1}
@@ -111,17 +129,14 @@ const  TestimonialsPage = () => {
                 </MDBAvatar>
                 <p>
                   <MDBIcon icon="quote-left" /> Lorem ipsum dolor sit amet,
-                  consectetur adipisicing elit. Quod eos id officiis hic
-                  tenetur quae quaerat ad velit ab. Lorem ipsum dolor sit
-                  amet, consectetur adipisicing elit. Dolore cum accusamus
-                  eveniet molestias voluptatum inventore laboriosam labore
-                  sit, aspernatur praesentium iste impedit quidem dolor
-                  veniam.
+                  consectetur adipisicing elit. Quod eos id officiis hic tenetur
+                  quae quaerat ad velit ab. Lorem ipsum dolor sit amet,
+                  consectetur adipisicing elit. Dolore cum accusamus eveniet
+                  molestias voluptatum inventore laboriosam labore sit,
+                  aspernatur praesentium iste impedit quidem dolor veniam.
                 </p>
                 <h4 className="font-weight-bold">Anna Deynah</h4>
-                <h6 className="font-weight-bold my-3">
-                  Founder at ET Company
-                </h6>
+                <h6 className="font-weight-bold my-3">Founder at ET Company</h6>
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
                 <MDBIcon icon="star" className="blue-text" />
@@ -168,8 +183,8 @@ const  TestimonialsPage = () => {
                 </MDBAvatar>
                 <p>
                   <MDBIcon icon="quote-left" /> Duis aute irure dolor in
-                  reprehenderit in voluptate velit esse cillum dolore eu
-                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                  reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                  nulla pariatur. Excepteur sint occaecat cupidatat non
                   proident, sunt in culpa qui officia deserunt mollit anim id
                   est laborum. Sed ut perspiciatis unde omnis iste natus error
                   sit voluptatem accusantium doloremque laudantium.
@@ -187,16 +202,18 @@ const  TestimonialsPage = () => {
             </MDBCarouselItem>
           </MDBCarouselInner>
         </MDBCarousel>
-      </section>
+      </SectionContainer>
 
-      <section className="team-section text-center my-5">
-        <h2 className="h1-responsive font-weight-bold my-5">
-          Testimonials v.3
-        </h2>
+      <SectionContainer
+        header="Example v.3"
+        tag="section"
+        className="team-section text-center"
+      >
+        <h2 className="h1-responsive my-5">Testimonials</h2>
         <p className="dark-grey-text w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
 
         <MDBRow className="text-center">
@@ -212,9 +229,7 @@ const  TestimonialsPage = () => {
               <h4 className="font-weight-bold dark-grey-text mt-4">
                 Anna Deynah
               </h4>
-              <h6 className="font-weight-bold blue-text my-3">
-                Web Designer
-              </h6>
+              <h6 className="font-weight-bold blue-text my-3">Web Designer</h6>
               <p className="font-weight-normal dark-grey-text">
                 <MDBIcon icon="quote-left" className="pr-2" />
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
@@ -239,12 +254,8 @@ const  TestimonialsPage = () => {
                   className="rounded-circle z-depth-1 img-fluid"
                 />
               </MDBAvatar>
-              <h4 className="font-weight-bold dark-grey-text mt-4">
-                John Doe
-              </h4>
-              <h6 className="font-weight-bold blue-text my-3">
-                Web Developer
-              </h6>
+              <h4 className="font-weight-bold dark-grey-text mt-4">John Doe</h4>
+              <h6 className="font-weight-bold blue-text my-3">Web Developer</h6>
               <p className="font-weight-normal dark-grey-text">
                 <MDBIcon icon="quote-left" className="pr-2" />
                 Ut enim ad minima veniam, quis nostrum exercitationem ullam
@@ -271,9 +282,7 @@ const  TestimonialsPage = () => {
               <h4 className="font-weight-bold dark-grey-text mt-4">
                 Maria Kate
               </h4>
-              <h6 className="font-weight-bold blue-text my-3">
-                Photographer
-              </h6>
+              <h6 className="font-weight-bold blue-text my-3">Photographer</h6>
               <p className="font-weight-normal dark-grey-text">
                 <MDBIcon icon="quote-left" className="pr-2" />
                 At vero eos et accusamus et iusto odio dignissimos ducimus qui
@@ -289,9 +298,9 @@ const  TestimonialsPage = () => {
             </MDBTestimonial>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
     </MDBContainer>
   );
-}
+};
 
 export default TestimonialsPage;
