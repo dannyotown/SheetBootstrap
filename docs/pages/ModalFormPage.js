@@ -6,7 +6,6 @@ import {
   MDBModalBody,
   MDBModalHeader,
   MDBModalFooter,
-  MDBRow,
   MDBInput,
   MDBIcon
 } from "mdbreact";
@@ -37,7 +36,7 @@ class ModalFormPage extends Component {
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
 
-        <SectionContainer header="Simple modal login">
+        <SectionContainer header="Simple modal login" flexCenter>
           <MDBBtn rounded onClick={this.toggle(1)}>
             Launch Modal Login Form
           </MDBBtn>
@@ -75,7 +74,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Simple Modal register">
+        <SectionContainer header="Simple modal register" flexCenter>
           <MDBBtn rounded onClick={this.toggle(2)}>
             Launch Modal Register Form
           </MDBBtn>
@@ -124,7 +123,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Simple modal subscription">
+        <SectionContainer header="Simple modal subscription" flexCenter>
           <MDBBtn rounded onClick={this.toggle(3)}>
             Launch Modal subscription Form
           </MDBBtn>
@@ -165,7 +164,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Simple modal contact">
+        <SectionContainer header="Simple modal contact" flexCenter>
           <MDBBtn rounded onClick={this.toggle(4)}>
             Launch Modal Contact Form
           </MDBBtn>
@@ -213,7 +212,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Modal with avatar">
+        <SectionContainer header="Modal with avatar" flexCenter>
           <MDBBtn rounded onClick={this.toggle(5)}>
             Launch Modal Login With Avatar
           </MDBBtn>
@@ -251,7 +250,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Subscription modal with orange header">
+        <SectionContainer header="Subscription modal with orange header" flexCenter>
           <MDBBtn rounded onClick={this.toggle(6)}>
             Launch Modal Subscription
           </MDBBtn>

@@ -67,7 +67,7 @@ class ModalPage extends Component {
           title="Modal"
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
-        <SectionContainer header="Basic example">
+        <SectionContainer header="Basic example" flexCenter>
           <MDBBtn color="danger" onClick={this.toggle(1)}>
             Modal
           </MDBBtn>
@@ -92,7 +92,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Central modal">
+        <SectionContainer header="Central modal" flexCenter>
           <MDBBtn color="primary" onClick={this.toggle(2)}>
             Medium modal
           </MDBBtn>
@@ -112,7 +112,7 @@ class ModalPage extends Component {
             </MDBModalFooter>
           </MDBModal>
 
-          <MDBBtn color="primary" onClick={this.toggle(3)}>
+          <MDBBtn color="primary" onClick={this.toggle(3)} flexCenter>
             Small modal
           </MDBBtn>
           <MDBModal
@@ -182,7 +182,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Side modal">
+        <SectionContainer header="Side modal" flexCenter>
           <MDBBtn color="secondary" onClick={this.toggle(6)}>
             Top right
           </MDBBtn>
@@ -232,7 +232,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Fluid modal">
+        <SectionContainer header="Fluid modal" flexCenter>
           <MDBBtn color="info" onClick={this.toggle(8)}>
             Right
           </MDBBtn>
@@ -282,7 +282,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Frame modal">
+        <SectionContainer header="Frame modal" flexCenter>
           <MDBBtn color="warning" onClick={this.toggle(10)}>
             Bottom
           </MDBBtn>
@@ -321,7 +321,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Remove backdrop">
+        <SectionContainer header="Remove backdrop" flexCenter>
           <MDBBtn onClick={this.toggle(12)}>Modal</MDBBtn>
           <MDBModal
             isOpen={this.state.modal12}
@@ -346,7 +346,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Scrolling long contetn">
+        <SectionContainer header="Scrolling long contetn" flexCenter>
           <MDBBtn color="primary" onClick={this.toggle(13)}>
             Modal
           </MDBBtn>
@@ -410,7 +410,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Vertically centered">
+        <SectionContainer header="Vertically centered" flexCenter>
           <MDBBtn color="primary" onClick={this.toggle(14)}>
             Modal
           </MDBBtn>
@@ -437,7 +437,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Tooltips and popovers">
+        <SectionContainer header="Tooltips and popovers" flexCenter>
           <MDBBtn color="primary" onClick={this.toggle(15)}>
             Modal
           </MDBBtn>
@@ -478,7 +478,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Using the grid">
+        <SectionContainer header="Using the grid" flexCenter>
           <MDBBtn onClick={this.toggle(16)}>Modal</MDBBtn>
           <MDBModal isOpen={this.state.modal16} toggle={this.toggle(16)}>
             <MDBModalHeader toggle={this.toggle(16)}>
@@ -533,7 +533,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Varying modal content">
+        <SectionContainer header="Varying modal content" flexCenter>
           <MDBBtn color="primary" onClick={this.toggle(17)}>
             Open modal for {this.state.mailAddress}
           </MDBBtn>
@@ -556,7 +556,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Modal Events">
+        <SectionContainer header="Modal Events" flexCenter>
           <MDBBtn color="warning" onClick={this.toggle(18)}>
             Modal events
           </MDBBtn>
