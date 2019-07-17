@@ -1,9 +1,23 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBCard, MDBCardBody, MDBRow, MDBCol, MDBListGroup, MDBListGroupItem, MDBAvatar,  MDBBadge, MDBIcon, MDBBtn, MDBScrollbar } from "mdbreact";
+import {
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBRow,
+  MDBCol,
+  MDBListGroup,
+  MDBListGroupItem,
+  MDBAvatar,
+  MDBBadge,
+  MDBIcon,
+  MDBBtn,
+  MDBScrollbar
+} from "mdbreact";
 import DocsLink from "./../../components/docsLink";
+import SectionContainer from "./../../components/sectionContainer";
+import "./ChatPage.css";
 
 class ChatPage extends Component {
-
   state = {
     friends: [
       {
@@ -266,7 +280,13 @@ class ChatPage extends Component {
       }
     ]
   };
-
+  componentDidMount() {
+    this.scrollToLast(".chat-message");
+  }
+  scrollToLast = selector => {
+    let message = document.querySelectorAll(selector);
+    message[message.length - 1].scrollIntoView();
+  };
   render() {
     return (
       <MDBContainer>
@@ -274,77 +294,87 @@ class ChatPage extends Component {
           title="Chat"
           href="https://mdbootstrap.com/plugins/react/chat/"
         />
-        <h3>Basic chat</h3>
-        <MDBCard className="grey lighten-3 chat-room">
-          <MDBCardBody>
-            <MDBRow className="px-lg-2 px-2">
-              <MDBCol md="6" xl="4" className="px-0 mb-2 mb-md-0">
-                <h6 className="font-weight-bold mb-3 text-lg-left">Member</h6>
-                <div className="white z-depth-1 p-3">
-                  <MDBListGroup className="friend-list">
-                    {this.state.friends.map(friend => (
-                      <Friend key={friend.name} friend={friend} />
-                    ))}
-                  </MDBListGroup>
-                </div>
-              </MDBCol>
-              <MDBCol md="6" xl="8" className="pl-md-3 px-lg-auto mt-2 mt-md-0">
-                <MDBRow>
-                  <MDBListGroup className="list-unstyled pl-3">
-                    {this.state.messages.map(message => (
-                      <ChatMessage
-                        key={message.author + message.when}
-                        message={message}
-                      />
-                    ))}
-                    <li>
-                      <div className="form-group basic-textarea">
-                        <textarea
-                          className="form-control pl-2 my-0"
-                          id="exampleFormControlTextarea2"
-                          rows="3"
-                          placeholder="Type your message here..."
+
+        <SectionContainer title="Basic chat">
+          <MDBCard className="grey lighten-3 chat-room">
+            <MDBCardBody>
+              <MDBRow className="px-lg-2 px-2">
+                <MDBCol md="6" xl="4" className="px-0 mb-2 mb-md-0">
+                  <h6 className="font-weight-bold mb-3 text-lg-left">Member</h6>
+                  <div className="white z-depth-1 p-3">
+                    <MDBListGroup className="friend-list">
+                      {this.state.friends.map(friend => (
+                        <Friend key={friend.name} friend={friend} />
+                      ))}
+                    </MDBListGroup>
+                  </div>
+                </MDBCol>
+                <MDBCol
+                  md="6"
+                  xl="8"
+                  className="pl-md-3 px-lg-auto mt-2 mt-md-0"
+                >
+                  <MDBRow>
+                    <MDBListGroup className="list-unstyled pl-3">
+                      {this.state.messages.map(message => (
+                        <ChatMessage
+                          key={message.author + message.when}
+                          message={message}
                         />
-                        <MDBBtn
-                          color="info"
-                          rounded
-                          size="sm"
-                          className="float-right mt-4"
-                        >
-                          Send
-                        </MDBBtn>
-                      </div>
-                    </li>
-                  </MDBListGroup>
-                </MDBRow>
-              </MDBCol>
-            </MDBRow>
-          </MDBCardBody>
-        </MDBCard>
+                      ))}
+                      <li>
+                        <div className="form-group basic-textarea">
+                          <textarea
+                            className="form-control pl-2 my-0"
+                            id="exampleFormControlTextarea2"
+                            rows="3"
+                            placeholder="Type your message here..."
+                          />
+                          <MDBBtn
+                            color="info"
+                            rounded
+                            size="sm"
+                            className="float-right mt-4"
+                          >
+                            Send
+                          </MDBBtn>
+                        </div>
+                      </li>
+                    </MDBListGroup>
+                  </MDBRow>
+                </MDBCol>
+              </MDBRow>
+            </MDBCardBody>
+          </MDBCard>
+        </SectionContainer>
 
         <hr className="my-5" />
 
-        <h3>Chat with scrollbar</h3>
-
-        <MDBCard className="grey lighten-3 chat-room">
-          <MDBCardBody>
-            <MDBRow className="px-lg-2 px-2">
-              <MDBCol md="6" xl="4" className="px-0 mb-4 mb-md-0 scrollable-friends-list">
-                <h6 className="font-weight-bold mb-3 text-lg-left">Member</h6>
-                <MDBScrollbar>
-                  <div className="white z-depth-1 p-3">
+        <SectionContainer title="Chat with scrollbar">
+          <MDBCard className="grey lighten-3 chat-room">
+            <MDBCardBody>
+              <MDBRow className="px-lg-2 px-2">
+                <MDBCol
+                  md="6"
+                  xl="4"
+                  className="px-0 mb-4 mb-md-0 scrollable-friends-list"
+                >
+                  <h6 className="font-weight-bold mb-3 text-lg-left">Member</h6>
+                  <MDBScrollbar className="white z-depth-1 p-3">
                     <MDBListGroup className="friend-list">
                       {this.state.friendsToScroll.map(friend => (
                         <Friend key={friend.name} friend={friend} />
                       ))}
                     </MDBListGroup>
-                  </div>
-                </MDBScrollbar>
-              </MDBCol>
-              <MDBCol md="6" xl="8" className="pl-md-3 mt-4 mt-md-0 px-lg-auto">
-                <div className="scrollable-chat">
-                  <MDBScrollbar>
-                    <MDBListGroup className="list-unstyled pl-3 pr-3">
+                  </MDBScrollbar>
+                </MDBCol>
+                <MDBCol
+                  md="6"
+                  xl="8"
+                  className="pl-md-3 mt-4 mt-md-0 px-lg-auto"
+                >
+                  <MDBScrollbar className="scrollable-chat">
+                    <MDBListGroup className="list-unstyled px-3">
                       {this.state.messagesToScroll.map(message => (
                         <ChatMessage
                           key={message.author + message.when}
@@ -353,27 +383,28 @@ class ChatPage extends Component {
                       ))}
                     </MDBListGroup>
                   </MDBScrollbar>
-                </div>
-                <div className="form-group basic-textarea">
-                  <textarea
-                    className="form-control pl-2 my-0"
-                    id="exampleFormControlTextarea2"
-                    rows="3"
-                    placeholder="Type your message here..."
-                  />
-                  <MDBBtn
-                    color="info"
-                    rounded
-                    size="sm"
-                    className="float-right mt-4"
-                  >
-                    Send
-                  </MDBBtn>
-                </div>
-              </MDBCol>
-            </MDBRow>
-          </MDBCardBody>
-        </MDBCard>
+
+                  <div className="form-group basic-textarea">
+                    <textarea
+                      className="form-control pl-2 my-0"
+                      id="exampleFormControlTextarea2"
+                      rows="3"
+                      placeholder="Type your message here..."
+                    />
+                    <MDBBtn
+                      color="info"
+                      rounded
+                      size="sm"
+                      className="float-right mt-4"
+                    >
+                      Send
+                    </MDBBtn>
+                  </div>
+                </MDBCol>
+              </MDBRow>
+            </MDBCardBody>
+          </MDBCard>
+        </SectionContainer>
       </MDBContainer>
     );
   }

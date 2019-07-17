@@ -5,6 +5,7 @@ import classNames from "classnames";
 let SectionContainer = ({
   children,
   className,
+  dark,
   description,
   header,
   noBorder,
@@ -19,6 +20,7 @@ let SectionContainer = ({
     "section",
     !noBottom && "mb-5",
     !noBorder ? "border p-3" : "px-0",
+    dark && "grey darken-3",
     flexCenter && "d-flex justify-content-center align-items-center",
     flexCenterVert && "d-flex align-items-center",
     flexColumn && "flex-column",

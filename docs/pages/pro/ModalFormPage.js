@@ -1,7 +1,24 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, ModalHeader, MDBModalFooter, MDBRow, MDBInput,  MDBIcon, MDBCol, MDBTabContent, MDBTabPane, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
+import {
+  MDBContainer,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  ModalHeader,
+  MDBModalFooter,
+  MDBRow,
+  MDBInput,
+  MDBIcon,
+  MDBCol,
+  MDBTabContent,
+  MDBTabPane,
+  MDBNav,
+  MDBNavItem,
+  MDBNavLink
+} from "mdbreact";
 import "./ModalFormPage.css";
 import DocsLink from "./../../components/docsLink";
+import SectionContainer from "./../../components/sectionContainer";
 
 class ModalFormPage extends Component {
   state = {
@@ -9,14 +26,14 @@ class ModalFormPage extends Component {
     modal2: false,
     modal3: false,
     activeItem: "1"
-  }
+  };
 
   toggle = nr => () => {
     let modalNumber = "modal" + nr;
     this.setState({
       [modalNumber]: !this.state[modalNumber]
     });
-  }
+  };
 
   toggleTab = tab => () => {
     if (this.state.activeItem !== tab) {
@@ -24,7 +41,7 @@ class ModalFormPage extends Component {
         activeItem: tab
       });
     }
-  }
+  };
 
   render() {
     return (
@@ -33,8 +50,8 @@ class ModalFormPage extends Component {
           title="Modal Form"
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
-        <h4 className="mt-4">Cascading modal register / login</h4>
-        <MDBRow>
+
+        <SectionContainer title="Cascading modal register / login">
           <MDBBtn rounded onClick={this.toggle(1)}>
             Launch Modal Login/Register
           </MDBBtn>
@@ -183,10 +200,9 @@ class ModalFormPage extends Component {
               </MDBTabPane>
             </MDBTabContent>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Elegant modal login</h4>
-        <MDBRow>
+        <SectionContainer title="Elegant modal login">
           <MDBBtn rounded onClick={this.toggle(2)}>
             Launch Modal Login Form
           </MDBBtn>
@@ -205,31 +221,43 @@ class ModalFormPage extends Component {
             <MDBModalBody className="mx-3">
               <form className=" mx-3 grey-text">
                 <MDBInput label="Your email" group type="email" validate />
-                <MDBInput label="Your password" group type="password" validate />
+                <MDBInput
+                  label="Your password"
+                  group
+                  type="password"
+                  validate
+                />
                 <p className="font-small blue-text text-right">
                   Forgot password?
                 </p>
               </form>
             </MDBModalBody>
             <MDBModalFooter className="justify-content-center mx-4">
-              <MDBBtn
-                block
-                rounded
-                gradient="blue"
-                onClick={this.toggle(2)}
-              >
+              <MDBBtn block rounded gradient="blue" onClick={this.toggle(2)}>
                 SIGN IN
               </MDBBtn>
               <p className="font-small dark-grey-text my-4">or Sign in with:</p>
               <MDBRow className="py-3">
                 <MDBBtn rounded color="white" className="mr-md-3">
-                  <MDBIcon fab icon="facebook" className="text-center blue-text" />
+                  <MDBIcon
+                    fab
+                    icon="facebook"
+                    className="text-center blue-text"
+                  />
                 </MDBBtn>
                 <MDBBtn rounded color="white" className="mr-md-3">
-                  <MDBIcon fab icon="twitter" className="text-center blue-text" />
+                  <MDBIcon
+                    fab
+                    icon="twitter"
+                    className="text-center blue-text"
+                  />
                 </MDBBtn>
                 <MDBBtn rounded color="white" className="mr-md-3">
-                  <MDBIcon fab icon="google-plus" className="text-center blue-text" />
+                  <MDBIcon
+                    fab
+                    icon="google-plus"
+                    className="text-center blue-text"
+                  />
                 </MDBBtn>
               </MDBRow>
               <MDBRow
@@ -242,10 +270,9 @@ class ModalFormPage extends Component {
               </MDBRow>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Dark modal register</h4>
-        <MDBRow>
+        <SectionContainer title="Dark modal register">
           <MDBBtn rounded onClick={this.toggle(3)}>
             Launch Modal Register Form
           </MDBBtn>
@@ -267,7 +294,12 @@ class ModalFormPage extends Component {
               <MDBModalBody>
                 <form className="mx-3 grey-text">
                   <MDBInput label="Your email" group type="email" validate />
-                  <MDBInput label="Your password" group type="password" validate />
+                  <MDBInput
+                    label="Your password"
+                    group
+                    type="password"
+                    validate
+                  />
                   <input
                     className="form-check-input"
                     type="checkbox"
@@ -304,7 +336,7 @@ class ModalFormPage extends Component {
               </MDBModalFooter>
             </div>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
       </MDBContainer>
     );
   }

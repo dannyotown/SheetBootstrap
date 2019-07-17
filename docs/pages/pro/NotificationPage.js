@@ -1,6 +1,7 @@
 import React from "react";
 import { toast, ToastContainer, MDBContainer } from "mdbreact";
 import DocsLink from "../../components/docsLink";
+import SectionContainer from "../../components/sectionContainer";
 
 const NotificationPage = () => {
   const notify = type => {
@@ -34,19 +35,19 @@ const NotificationPage = () => {
         title="Notifications"
         href="https://mdbootstrap.com/docs/react/addons/notification/"
       />
-      <div>
+      <SectionContainer title="Simple examples">
         <button className="btn btn-info" onClick={notify("info")}>
           Info
         </button>
-        <hr />
+       
         <button className="btn btn-success" onClick={notify("success")}>
           Success
         </button>
-        <hr />
+      
         <button className="btn btn-warning" onClick={notify("warning")}>
           Warning
         </button>
-        <hr />
+       
         <button className="btn btn-danger" onClick={notify("error")}>
           Error
         </button>
@@ -55,7 +56,7 @@ const NotificationPage = () => {
           newestOnTop={true}
           autoClose={5000}
         />
-      </div>
+      </SectionContainer>
     </MDBContainer>
   );
 };
