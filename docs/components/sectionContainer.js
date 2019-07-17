@@ -5,6 +5,7 @@ import classNames from "classnames";
 let SectionContainer = ({
   children,
   className,
+  dark,
   description,
   header,
   noBorder,
@@ -12,7 +13,7 @@ let SectionContainer = ({
   style,
   title
 }) => {
-  const classes = classNames("section", !noBottom && "mb-5", !noBorder ? "border p-3" : "px-0", className);
+  const classes = classNames("section", !noBottom && "mb-5", !noBorder ? "border p-3" : "px-0", dark && "grey darken-3" , className);
 
   description = description ? <p>{description}</p> : "";
   title = title ? <h2 className="mb-3">{title}</h2> : "";
