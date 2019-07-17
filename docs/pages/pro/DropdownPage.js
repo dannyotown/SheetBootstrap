@@ -8,7 +8,7 @@ const DropdownPage = () => {
     <MDBContainer className="mb-5">
       <DocsLink title="Material Dropdowns" href="https://mdbootstrap.com/docs/react/components/dropdowns/" />
 
-      <SectionContainer header="Basic example" flexCenterVert flexColumn>
+      <SectionContainer header="Basic example" flexCenter className="flex-wrap">
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             Dropdown
@@ -118,10 +118,10 @@ const DropdownPage = () => {
         </MDBDropdown>
       </SectionContainer>
 
-      <SectionContainer header="Sizing" flexCenterVert flexColumn>
+      <SectionContainer header="Sizing"  flexCenter>
         <MDBDropdown size="sm">
           <MDBDropdownToggle caret color="primary">
-            Small Button
+            Small dropdown
           </MDBDropdownToggle>
           <MDBDropdownMenu>
             <MDBDropdownItem>Action</MDBDropdownItem>
@@ -134,7 +134,7 @@ const DropdownPage = () => {
 
         <MDBDropdown>
           <MDBDropdownToggle caret color="success">
-            Default Button
+            Default dropdown
           </MDBDropdownToggle>
           <MDBDropdownMenu>
             <MDBDropdownItem>Action</MDBDropdownItem>
@@ -146,7 +146,7 @@ const DropdownPage = () => {
         </MDBDropdown>
 
         <MDBDropdown size="lg">
-          <MDBDropdownToggle caret>Large Button</MDBDropdownToggle>
+          <MDBDropdownToggle caret color="danger">Large dropdown</MDBDropdownToggle>
           <MDBDropdownMenu>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>

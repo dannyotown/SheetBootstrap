@@ -8,7 +8,7 @@ const DropdownPage = () => {
     <MDBContainer>
       <DocsLink title="MDBDropdown" href="https://mdbootstrap.com/docs/react/components/dropdowns/" />
 
-      <SectionContainer header="Basic example">
+      <SectionContainer header="Basic example"  flexCenter className="flex-wrap">
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             Dropdown
@@ -119,9 +119,9 @@ const DropdownPage = () => {
         </MDBDropdown>
       </SectionContainer>
 
-      <SectionContainer header="Sizing">
+      <SectionContainer header="Sizing" flexCenter>
         <MDBDropdown size="lg">
-          <MDBDropdownToggle caret>Large Button</MDBDropdownToggle>
+          <MDBDropdownToggle caret color="danger">Large dropdown</MDBDropdownToggle>
           <MDBDropdownMenu>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
@@ -130,9 +130,23 @@ const DropdownPage = () => {
             <MDBDropdownItem>Separated link</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
+
+        <MDBDropdown>
+          <MDBDropdownToggle caret color="success">
+            Small dropdown
+          </MDBDropdownToggle>
+          <MDBDropdownMenu>
+            <MDBDropdownItem>Action</MDBDropdownItem>
+            <MDBDropdownItem>Another Action</MDBDropdownItem>
+            <MDBDropdownItem>Something else here</MDBDropdownItem>
+            <MDBDropdownItem divider />
+            <MDBDropdownItem>Separated link</MDBDropdownItem>
+          </MDBDropdownMenu>
+        </MDBDropdown>
+
         <MDBDropdown size="sm">
           <MDBDropdownToggle caret color="primary">
-            Small Button
+            Small dropdown
           </MDBDropdownToggle>
           <MDBDropdownMenu>
             <MDBDropdownItem>Action</MDBDropdownItem>
@@ -144,7 +158,20 @@ const DropdownPage = () => {
         </MDBDropdown>
       </SectionContainer>
 
-      <SectionContainer header="Dropup variation">
+      <SectionContainer header="Drop variations" flexCenter>
+        <MDBDropdown dropleft>
+          <MDBDropdownToggle caret color="primary">
+            Dropleft
+          </MDBDropdownToggle>
+          <MDBDropdownMenu>
+            <MDBDropdownItem>Action</MDBDropdownItem>
+            <MDBDropdownItem>Another Action</MDBDropdownItem>
+            <MDBDropdownItem>Something else here</MDBDropdownItem>
+            <MDBDropdownItem divider />
+            <MDBDropdownItem>Separated link</MDBDropdownItem>
+          </MDBDropdownMenu>
+        </MDBDropdown>
+
         <MDBDropdown dropup>
           <MDBDropdownToggle caret color="primary">
             Dropup
@@ -157,9 +184,33 @@ const DropdownPage = () => {
             <MDBDropdownItem>Separated link</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
+
+        <MDBDropdown dropright>
+          <MDBDropdownToggle caret color="primary">
+            Dropright
+          </MDBDropdownToggle>
+          <MDBDropdownMenu>
+            <MDBDropdownItem>Action</MDBDropdownItem>
+            <MDBDropdownItem>Another Action</MDBDropdownItem>
+            <MDBDropdownItem>Something else here</MDBDropdownItem>
+            <MDBDropdownItem divider />
+            <MDBDropdownItem>Separated link</MDBDropdownItem>
+          </MDBDropdownMenu>
+        </MDBDropdown>
       </SectionContainer>
 
-      <SectionContainer header="Alignment">
+      <SectionContainer header="Alignment" flexCenter>
+        <MDBDropdown>
+          <MDBDropdownToggle caret color="primary">
+            This dropdown&apos;s menu is left-aligned
+          </MDBDropdownToggle>
+          <MDBDropdownMenu left>
+            <MDBDropdownItem>Action</MDBDropdownItem>
+            <MDBDropdownItem>Another Action</MDBDropdownItem>
+            <MDBDropdownItem>Something else here</MDBDropdownItem>
+          </MDBDropdownMenu>
+        </MDBDropdown>
+        
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             This dropdown&apos;s menu is right-aligned
@@ -172,7 +223,7 @@ const DropdownPage = () => {
         </MDBDropdown>
       </SectionContainer>
 
-      <SectionContainer header="Menu headers">
+      <SectionContainer header="Menu headers" flexCenter>
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             MDBDropdown
@@ -186,7 +237,7 @@ const DropdownPage = () => {
         </MDBDropdown>
       </SectionContainer>
 
-      <SectionContainer header="Menu dividers">
+      <SectionContainer header="Menu dividers" flexCenter>
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             MDBDropdown
@@ -201,7 +252,7 @@ const DropdownPage = () => {
         </MDBDropdown>
       </SectionContainer>
 
-      <SectionContainer header="Disabled menu items">
+      <SectionContainer header="Disabled menu items" flexCenter>
         <MDBDropdown>
           <MDBDropdownToggle caret color="primary">
             MDBDropdown
