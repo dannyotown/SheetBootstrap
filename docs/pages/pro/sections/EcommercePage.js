@@ -1,6 +1,24 @@
 import React from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBIcon, MDBTooltip, MDBBadge, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBBtn } from "mdbreact";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardImage,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText,
+  MDBCardFooter,
+  MDBIcon,
+  MDBTooltip,
+  MDBBadge,
+  MDBCarousel,
+  MDBCarouselInner,
+  MDBCarouselItem,
+  MDBBtn
+} from "mdbreact";
 import DocsLink from "../../../components/docsLink";
+import SectionContainer from "../../../components/sectionContainer";
 
 const EcommercePage = () => {
   return (
@@ -9,14 +27,14 @@ const EcommercePage = () => {
         title="eCommerce Sections"
         href="https://mdbootstrap.com/docs/react/sections/e-commerce/"
       />
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Product card v.1">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
@@ -62,25 +80,16 @@ const EcommercePage = () => {
                     <strong>49$</strong>
                   </span>
                   <span className="float-right">
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-shopping-cart grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-shopping-cart grey-text ml-3" />
                       <span>Add to cart</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-share-alt grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-share-alt grey-text ml-3" />
                       <span>Share</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-heart ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-heart ml-3" />
                       <span>Added to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -131,25 +140,16 @@ const EcommercePage = () => {
                     <strong>89$</strong>
                   </span>
                   <span className="float-right">
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-shopping-cart grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-shopping-cart grey-text ml-3" />
                       <span>Add to cart</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-share-alt grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-share-alt grey-text ml-3" />
                       <span>Share</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-heart ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-heart ml-3" />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -200,25 +200,16 @@ const EcommercePage = () => {
                     <strong>59$</strong>
                   </span>
                   <span className="float-right">
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-shopping-cart grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-shopping-cart grey-text ml-3" />
                       <span>Add to cart</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-share-alt grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-share-alt grey-text ml-3" />
                       <span>Share</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-heart ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-heart ml-3" />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -269,25 +260,16 @@ const EcommercePage = () => {
                     <strong>119$</strong>
                   </span>
                   <span className="float-right">
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-shopping-cart grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-shopping-cart grey-text ml-3" />
                       <span>Add to cart</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-share-alt grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-share-alt grey-text ml-3" />
                       <span>Share</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-heart ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-heart ml-3" />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -296,16 +278,16 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Product card v.2">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
@@ -334,18 +316,12 @@ const EcommercePage = () => {
                     <strong>1439$</strong>
                   </span>
                   <span className="float-right">
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-eye grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-eye grey-text ml-3" />
                       <span>Quick look</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-heart grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-heart grey-text ml-3" />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -379,18 +355,12 @@ const EcommercePage = () => {
                     <strong>1160$</strong>
                   </span>
                   <span className="float-right">
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-eye grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-eye grey-text ml-3" />
                       <span>Quick look</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-heart grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-heart grey-text ml-3" />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -424,18 +394,12 @@ const EcommercePage = () => {
                     <strong>2160$</strong>
                   </span>
                   <span className="float-right">
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-eye grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-eye grey-text ml-3" />
                       <span>Quick look</span>
                     </MDBTooltip>
-                    <MDBTooltip
-                      domElement
-                      placement="top"
-                    >
-                      <i className="fa fa-heart grey-text ml-3"></i>
+                    <MDBTooltip domElement placement="top">
+                      <i className="fa fa-heart grey-text ml-3" />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -444,16 +408,16 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Product card v.3" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
@@ -563,16 +527,16 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Product card v.4" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
@@ -648,16 +612,16 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Product card v.5" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBCarousel
           activeItem={1}
@@ -694,18 +658,12 @@ const EcommercePage = () => {
                       <MDBCardFooter className="px-1">
                         <span className="float-left">69$</span>
                         <span className="float-right">
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-eye grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-eye grey-text ml-3" />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-heart grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-heart grey-text ml-3" />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -737,18 +695,12 @@ const EcommercePage = () => {
                       <MDBCardFooter className="px-1">
                         <span className="float-left">99$</span>
                         <span className="float-right">
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-eye grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-eye grey-text ml-3" />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-heart grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-heart grey-text ml-3" />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -780,18 +732,12 @@ const EcommercePage = () => {
                       <MDBCardFooter className="px-1">
                         <span className="float-left">49$</span>
                         <span className="float-right">
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-eye grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-eye grey-text ml-3" />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-heart grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-heart grey-text ml-3" />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -825,18 +771,12 @@ const EcommercePage = () => {
                       <MDBCardFooter className="px-1">
                         <span className="float-left">69$</span>
                         <span className="float-right">
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-eye grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-eye grey-text ml-3" />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-heart grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-heart grey-text ml-3" />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -868,18 +808,12 @@ const EcommercePage = () => {
                       <MDBCardFooter className="px-1">
                         <span className="float-left">99$</span>
                         <span className="float-right">
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-eye grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-eye grey-text ml-3" />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-heart grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-heart grey-text ml-3" />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -911,18 +845,12 @@ const EcommercePage = () => {
                       <MDBCardFooter className="px-1">
                         <span className="float-left">49$</span>
                         <span className="float-right">
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-eye grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-eye grey-text ml-3" />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-heart grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-heart grey-text ml-3" />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -956,18 +884,12 @@ const EcommercePage = () => {
                       <MDBCardFooter className="px-1">
                         <span className="float-left">69$</span>
                         <span className="float-right">
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-eye grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-eye grey-text ml-3" />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-heart grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-heart grey-text ml-3" />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -999,18 +921,12 @@ const EcommercePage = () => {
                       <MDBCardFooter className="px-1">
                         <span className="float-left">99$</span>
                         <span className="float-right">
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-eye grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-eye grey-text ml-3" />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-heart grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-heart grey-text ml-3" />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -1042,18 +958,12 @@ const EcommercePage = () => {
                       <MDBCardFooter className="px-1">
                         <span className="float-left">49$</span>
                         <span className="float-right">
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-eye grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-eye grey-text ml-3" />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip
-                            domElement
-                            placement="top"
-                          >
-                            <i className="fa fa-heart grey-text ml-3"></i>
+                          <MDBTooltip domElement placement="top">
+                            <i className="fa fa-heart grey-text ml-3" />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -1065,16 +975,16 @@ const EcommercePage = () => {
             </MDBRow>
           </MDBCarouselInner>
         </MDBCarousel>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Our pricing v.1" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
@@ -1095,8 +1005,8 @@ const EcommercePage = () => {
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />2 Email
-                      Accounts
+                      <MDBIcon icon="check" className="green-text pr-2" />2
+                      Email Accounts
                     </p>
                   </li>
                   <li>
@@ -1140,8 +1050,8 @@ const EcommercePage = () => {
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />4 Email
-                      Accounts
+                      <MDBIcon icon="check" className="green-text pr-2" />4
+                      Email Accounts
                     </p>
                   </li>
                   <li>
@@ -1185,8 +1095,8 @@ const EcommercePage = () => {
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />5 Email
-                      Accounts
+                      <MDBIcon icon="check" className="green-text pr-2" />5
+                      Email Accounts
                     </p>
                   </li>
                   <li>
@@ -1213,16 +1123,16 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Our pricing v.2" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
@@ -1370,16 +1280,16 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Our pricing v.3" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
@@ -1394,8 +1304,7 @@ const EcommercePage = () => {
                 <h2 className="font-weight-bold my-4">59$</h2>
                 <p className="grey-text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Culpa pariatur id nobis accusamus deleniti cumque hic
-                  laborum.
+                  Culpa pariatur id nobis accusamus deleniti cumque hic laborum.
                 </p>
                 <MDBBtn rounded color="light-blue">
                   Buy now
@@ -1445,16 +1354,16 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Our pricing v.4" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
@@ -1469,8 +1378,7 @@ const EcommercePage = () => {
                 <h2 className="font-weight-bold my-4">59$</h2>
                 <p className="grey-text">
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Culpa pariatur id nobis accusamus deleniti cumque hic
-                  laborum.
+                  Culpa pariatur id nobis accusamus deleniti cumque hic laborum.
                 </p>
                 <MDBBtn rounded color="indigo">
                   Buy now
@@ -1519,16 +1427,16 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Our pricing v.5" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
@@ -1660,16 +1568,16 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer tag="section" title="Our pricing v.6" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
         <p className="grey-text text-center w-responsive mx-auto mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
-          error amet numquam iure provident voluptate esse quasi, veritatis
-          totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error
+          amet numquam iure provident voluptate esse quasi, veritatis totam
+          voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
           <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
@@ -1805,9 +1713,9 @@ const EcommercePage = () => {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
     </MDBContainer>
   );
-}
+};
 
 export default EcommercePage;
