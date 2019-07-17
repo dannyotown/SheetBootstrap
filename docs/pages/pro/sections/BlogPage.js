@@ -21,7 +21,7 @@ const BlogPage = () => {
         href="https://mdbootstrap.com/docs/react/sections/blog/"
       />
       <SectionContainer header="Blog listing v.1" noBorder>
-        <MDBCard className="my-5 px-5 pb-5">
+        <MDBCard className="mb-5 px-5 pb-5">
           <MDBCardBody>
             <h2 className="h1-responsive font-weight-bold text-center my-5">
               Recent posts
@@ -73,7 +73,7 @@ const BlogPage = () => {
                 </MDBBtn>
               </MDBCol>
             </MDBRow>
-            <hr className="my-5" />
+            
             <MDBRow>
               <MDBCol lg="7">
                 <a href="#!" className="pink-text">
@@ -119,7 +119,7 @@ const BlogPage = () => {
                 </MDBView>
               </MDBCol>
             </MDBRow>
-            <hr className="my-5" />
+            
             <MDBRow>
               <MDBCol lg="5">
                 <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
@@ -165,10 +165,10 @@ const BlogPage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <hr className="my-5" />
+      
 
       <SectionContainer header="Blog listing v.2" noBorder>
-        <MDBCard className="my-5 px-5 pb-5">
+        <MDBCard className="mb-5 px-5 pb-5">
           <MDBCardBody className="text-center">
             <h2 className="h1-responsive font-weight-bold text-center my-5">
               Recent posts
@@ -286,10 +286,10 @@ const BlogPage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <hr className="my-5" />
+      
 
       <SectionContainer header="Blog listing v.3" noBorder>
-        <MDBCard className="my-5 px-5 pb-5">
+        <MDBCard className="mb-5 px-5 pb-5">
           <MDBCardBody>
             <h2 className="h1-responsive font-weight-bold text-center my-5">
               Recent posts
@@ -336,7 +336,7 @@ const BlogPage = () => {
                 </MDBBtn>
               </MDBCol>
             </MDBRow>
-            <hr className="my-5" />
+            
             <MDBRow>
               <MDBCol lg="5" xl="4">
                 <MDBView hover className="rounded z-depth-1-half mb-lg-0 mb-4">
@@ -373,7 +373,7 @@ const BlogPage = () => {
                 </MDBBtn>
               </MDBCol>
             </MDBRow>
-            <hr className="my-5" />
+            
             <MDBRow>
               <MDBCol lg="5" xl="4">
                 <MDBView hover className="rounded z-depth-1-half mb-lg-0 mb-4">
@@ -414,10 +414,10 @@ const BlogPage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <hr className="my-5" />
+      
 
       <SectionContainer header="Blog listing v.4" noBorder>
-        <MDBCard className="my-5 px-5 pb-5">
+        <MDBCard className="mb-5 px-5 pb-5">
           <MDBCardBody>
             <MDBRow>
               <MDBCol md="12">

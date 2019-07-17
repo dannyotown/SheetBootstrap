@@ -32,15 +32,9 @@ class SocialPage extends Component {
   render() {
     return (
       <MDBContainer style={{ maxWidth: "80%" }}>
-        <DocsLink
-          title="Social Sections"
-          href="https://mdbootstrap.com/docs/react/sections/social/"
-        />
-        <SectionContainer header="Social newsfeed v.1" noBorder>
-          <MDBCard
-            className="my-5 px-5 pt-4"
-            style={{ fontWeight: 300, maxWidth: 600 }}
-          >
+        <DocsLink title="Social Sections" href="https://mdbootstrap.com/docs/react/sections/social/" />
+        <SectionContainer header="Social newsfeed v.1"  flexCenter>
+          <MDBCard className="mb-5 px-5 pt-4" style={{ fontWeight: 300, maxWidth: 600 }}>
             <MDBCardBody className="py-0">
               <MDBRow>
                 <div className="mdb-feed">
@@ -150,10 +144,8 @@ class SocialPage extends Component {
                         <div className="date">2 days ago</div>
                       </div>
                       <div className="added-text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Vero inventore, iste quas libero eius? Vitae sint
-                        neque animi alias sunt dolor, accusantium ducimus, non
-                        placeat voluptate.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero inventore, iste quas libero
+                        eius? Vitae sint neque animi alias sunt dolor, accusantium ducimus, non placeat voluptate.
                       </div>
                       <div className="feed-footer">
                         <a href="#!" className="like">
@@ -205,11 +197,9 @@ class SocialPage extends Component {
             </MDBCardBody>
           </MDBCard>
         </SectionContainer>
-        <SectionContainer header="Social newsfeed v.2" noBorder>
-          <MDBCard
-            className="my-5 px-5 pt-4"
-            style={{ fontWeight: 300, maxWidth: 600 }}
-          >
+
+        <SectionContainer header="Social newsfeed v.2"  flexCenter>
+          <MDBCard className="mb-5 px-5 pt-4" style={{ fontWeight: 300, maxWidth: 600 }}>
             <MDBCardBody className="py-0">
               <MDBRow>
                 <div className="mdb-feed">
@@ -257,10 +247,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse
-                          id="collapseExample-1"
-                          isOpen={this.state.collapseID}
-                        >
+                        <MDBCollapse id="collapseExample-1" isOpen={this.state.collapseID}>
                           <MDBCard className="card-body mt-1">
                             <MDBInput type="textarea" label="Add comment" />
                             <div className="d-flex justify-content-end">
@@ -333,10 +320,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse
-                          id="collapseExample-2"
-                          isOpen={this.state.collapseID}
-                        >
+                        <MDBCollapse id="collapseExample-2" isOpen={this.state.collapseID}>
                           <MDBCard className="card-body mt-1">
                             <MDBInput type="textarea" label="Add comment" />
                             <div className="d-flex justify-content-end">
@@ -397,10 +381,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse
-                          id="collapseExample-3"
-                          isOpen={this.state.collapseID}
-                        >
+                        <MDBCollapse id="collapseExample-3" isOpen={this.state.collapseID}>
                           <MDBCard className="card-body mt-1">
                             <MDBInput type="textarea" label="Add comment" />
                             <div className="d-flex justify-content-end">
@@ -434,10 +415,8 @@ class SocialPage extends Component {
                         <div className="date">2 days ago</div>
                       </div>
                       <div className="added-text">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Vero inventore, iste quas libero eius? Vitae sint
-                        neque animi alias sunt dolor, accusantium ducimus, non
-                        placeat voluptate.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero inventore, iste quas libero
+                        eius? Vitae sint neque animi alias sunt dolor, accusantium ducimus, non placeat voluptate.
                       </div>
                       <div className="feed-footer">
                         <div className="d-flex">
@@ -467,10 +446,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse
-                          id="collapseExample-4"
-                          isOpen={this.state.collapseID}
-                        >
+                        <MDBCollapse id="collapseExample-4" isOpen={this.state.collapseID}>
                           <MDBCard className="card-body mt-1">
                             <MDBInput type="textarea" label="Add comment" />
                             <div className="d-flex justify-content-end">
@@ -543,10 +519,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse
-                          id="collapseExample-5"
-                          isOpen={this.state.collapseID}
-                        >
+                        <MDBCollapse id="collapseExample-5" isOpen={this.state.collapseID}>
                           <MDBCard className="card-body mt-1">
                             <MDBInput type="textarea" label="Add comment" />
                             <div className="d-flex justify-content-end">
@@ -567,10 +540,11 @@ class SocialPage extends Component {
             </MDBCardBody>
           </MDBCard>
         </SectionContainer>
-        <SectionContainer header="Personal card" noBorder>
-          <MDBRow>
+
+        <SectionContainer header="Personal card" >
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6" lg="4">
-              <MDBCard personal className="my-5">
+              <MDBCard personal className="mb-5">
                 <MDBCardImage
                   top
                   src="https://mdbootstrap.com/img/Photos/Avatars/img%20(29).jpg"
@@ -583,9 +557,7 @@ class SocialPage extends Component {
                     </a>
                   </MDBCardTitle>
                   <p className="card-meta">Joined in 2013</p>
-                  <MDBCardText>
-                    Clara is an photographer living in Madrid.
-                  </MDBCardText>
+                  <MDBCardText>Clara is an photographer living in Madrid.</MDBCardText>
                   <hr />
                   <a href="#!" className="card-meta">
                     <span>
@@ -598,8 +570,9 @@ class SocialPage extends Component {
             </MDBCol>
           </MDBRow>
         </SectionContainer>
-        <SectionContainer header="Social news car" noBorder>
-          <MDBRow>
+
+        <SectionContainer header="Social news car" >
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6" lg="4">
               <MDBCard news className="my-5">
                 <MDBCardBody>
@@ -613,11 +586,7 @@ class SocialPage extends Component {
                     Kate
                   </div>
                 </MDBCardBody>
-                <MDBCardImage
-                  top
-                  src="https://mdbootstrap.com/img/Photos/Others/girl1.jpg"
-                  alt=""
-                />
+                <MDBCardImage top src="https://mdbootstrap.com/img/Photos/Others/girl1.jpg" alt="" />
                 <MDBCardBody>
                   <div className="social-meta">
                     <p>Another great adventure! </p>
@@ -637,8 +606,9 @@ class SocialPage extends Component {
             </MDBCol>
           </MDBRow>
         </SectionContainer>
-        <SectionContainer header="Social card with vide" noBorder>
-          <MDBRow>
+
+        <SectionContainer header="Social card with vide" >
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6" lg="4">
               <MDBCard news className="my-5">
                 <MDBCardBody>
@@ -663,9 +633,7 @@ class SocialPage extends Component {
                 </div>
                 <MDBCardBody>
                   <div className="social-meta">
-                    <p className="blue-text">
-                      #awesome #bboy #battle #breaking #cool
-                    </p>
+                    <p className="blue-text">#awesome #bboy #battle #breaking #cool</p>
                     <span>
                       <MDBIcon className="mr-2" icon="heart" />
                       265 likes
@@ -682,8 +650,9 @@ class SocialPage extends Component {
             </MDBCol>
           </MDBRow>
         </SectionContainer>
+
         <SectionContainer header="Group of personal card">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="12">
               <div className="card-group my-5">
                 <MDBCard personal className="mb-md-0 mb-4">
@@ -704,9 +673,7 @@ class SocialPage extends Component {
                     <a href="#!" className="card-meta">
                       Friends
                     </a>
-                    <MDBCardText>
-                      Anna is a web designer living in New York.
-                    </MDBCardText>
+                    <MDBCardText>Anna is a web designer living in New York.</MDBCardText>
                     <hr />
                     <a href="#!" className="card-meta">
                       <span>
@@ -736,9 +703,7 @@ class SocialPage extends Component {
                     <a href="#!" className="card-meta">
                       Coworker
                     </a>
-                    <MDBCardText>
-                      John is a copywriter living in Seattle.
-                    </MDBCardText>
+                    <MDBCardText>John is a copywriter living in Seattle.</MDBCardText>
                     <hr />
                     <a href="#!" className="card-meta">
                       <span>
@@ -768,9 +733,7 @@ class SocialPage extends Component {
                     <a href="#!" className="card-meta">
                       Coworker
                     </a>
-                    <MDBCardText>
-                      Sara is a video maker living in Tokyo.
-                    </MDBCardText>
+                    <MDBCardText>Sara is a video maker living in Tokyo.</MDBCardText>
                     <hr />
                     <a href="#!" className="card-meta">
                       <span>

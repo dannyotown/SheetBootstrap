@@ -26,10 +26,10 @@ const MagazinePage = () => {
         href="https://mdbootstrap.com/docs/react/sections/magazine/"
       />
 
-      <SectionContainer header="Magazine newsfeed v.1" noBorder>
+      <SectionContainer header="Newsfeed v.1" noBorder>
         <MDBCard
-          className="my-5 px-5 mx-auto"
-          style={{ fontWeight: 300, maxWidth: "90%" }}
+          className="mb-5 px-5 mx-auto"
+          style={{ fontWeight: 300 }}
         >
           <MDBCardBody style={{ paddingTop: 0 }}>
             <h2 className="h1-responsive font-weight-bold my-5 text-center">
@@ -331,10 +331,10 @@ const MagazinePage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <SectionContainer header="Magazine newsfeed v.2" noBorder>
+      <SectionContainer header="Newsfeed v.2" noBorder>
         <MDBCard
-          className="my-5 px-5 mx-auto"
-          style={{ fontWeight: 300, maxWidth: "90%" }}
+          className="mb-5 px-5 mx-auto"
+          style={{ fontWeight: 300 }}
         >
           <MDBCardBody style={{ paddingTop: 0 }}>
             <h2 className="h1-responsive font-weight-bold my-5 text-center">
@@ -533,10 +533,10 @@ const MagazinePage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <SectionContainer header="Magazine newsfeed v.3" noBorder>
+      <SectionContainer header="Newsfeed v.3" noBorder>
         <MDBCard
-          className="my-5 px-5 mx-auto"
-          style={{ fontWeight: 300, maxWidth: "90%" }}
+          className="mb-5 px-5 mx-auto"
+          style={{ fontWeight: 300 }}
         >
           <MDBCardBody style={{ paddingTop: 0 }}>
             <h2 className="h1-responsive font-weight-bold my-5 text-center">
