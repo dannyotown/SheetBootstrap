@@ -8,7 +8,7 @@ const FaPage = props => {
     <MDBContainer className="mt-3">
       <DocsLink title="Icons" href="https://mdbootstrap.com/docs/react/content/icons-usage/" />
 
-      <SectionContainer title="Sizing" className="text-center">
+      <SectionContainer header="Sizing" className="text-center">
         <p>
           <MDBIcon icon="camera-retro" />
         </p>
@@ -29,7 +29,7 @@ const FaPage = props => {
         </p>
       </SectionContainer>
 
-      <SectionContainer title="Colors" className="text-center">
+      <SectionContainer header="Colors" className="text-center">
         <p>
           <MDBIcon icon="bolt" size="3x" className="amber-text pr-3" />
         </p>
@@ -47,12 +47,12 @@ const FaPage = props => {
         </p>
       </SectionContainer>
 
-      <SectionContainer title="Position" style={{ minHeight: "100px" }}>
+      <SectionContainer header="Position" style={{ minHeight: "100px" }}>
         <MDBIcon icon="quote-left" size="3x" border pull="right" />
         <MDBIcon icon="quote-left" size="3x" border pull="left" />
       </SectionContainer>
 
-      <SectionContainer title="Animation" className="text-center">
+      <SectionContainer header="Animation" className="text-center">
         <p>
           <MDBIcon icon="spinner" size="5x" spin />
         </p>
@@ -70,7 +70,7 @@ const FaPage = props => {
         </p>
       </SectionContainer>
 
-      <SectionContainer title="Rotation" className="text-center">
+      <SectionContainer header="Rotation" className="text-center">
         <p>
           <MDBIcon icon="camera-retro" size="5x" rotate="90" />
         </p>

@@ -11,7 +11,7 @@ const HoverPage = () => {
         href="https://mdbootstrap.com/docs/react/css/hover-effects/"
       />
 
-      <SectionContainer title="Overlay">
+      <SectionContainer header="Overlay">
         <MDBRow>
           <MDBCol md="4">
             <MDBView hover>

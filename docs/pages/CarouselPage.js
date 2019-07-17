@@ -19,7 +19,7 @@ const CarouselPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/carousel/"
       />
       {/* Slides Only */}
-      <SectionContainer title="Slides Only">
+      <SectionContainer header="Slides Only">
         <MDBCarousel
           activeItem={1}
           length={3}
@@ -60,7 +60,7 @@ const CarouselPage = () => {
       </SectionContainer>
 
       {/* With Captions*/}
-      <SectionContainer title="With Captions">
+      <SectionContainer header="With Captions">
         <MDBCarousel
           activeItem={1}
           length={4}
@@ -130,7 +130,7 @@ const CarouselPage = () => {
       </SectionContainer>
 
       {/* With controls */}
-      <SectionContainer title="With Controls">
+      <SectionContainer header="With Controls">
         <MDBCarousel
           activeItem={1}
           length={3}
@@ -171,7 +171,7 @@ const CarouselPage = () => {
       </SectionContainer>
 
       {/* With Indicators */}
-      <SectionContainer title="With Indicators">
+      <SectionContainer header="With Indicators">
         <MDBCarousel
           activeItem={1}
           length={3}
@@ -211,7 +211,7 @@ const CarouselPage = () => {
         </MDBCarousel>
       </SectionContainer>
 
-      <SectionContainer title="Stop when mouse is on the carousel">
+      <SectionContainer header="Stop when mouse is on the carousel">
         <MDBCarousel
           interval={1500}
           activeItem={1}

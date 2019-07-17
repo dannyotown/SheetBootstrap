@@ -194,7 +194,7 @@ class SearchPagePro extends Component {
             />
           </SectionContainer>
 
-          <SectionContainer title="Within select">
+          <SectionContainer header="Within select">
             <MDBSelect multiple search options={this.state.options} label="Choose your option" color="secondary" />
           </SectionContainer>
 

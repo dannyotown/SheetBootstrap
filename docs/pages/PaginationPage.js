@@ -327,7 +327,7 @@ const PaginationPage = props => {
 
       <MDBRow>
         <MDBCol>
-          <SectionContainer title="Sizing" className="d-flex align-items-center flex-column">
+          <SectionContainer header="Sizing" className="d-flex align-items-center flex-column">
             <MDBPagination style={{ marginTop: "1rem" }} size="lg">
               <MDBPageItem>
                 <MDBPageNav aria-label="Previous">
