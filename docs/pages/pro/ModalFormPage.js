@@ -51,7 +51,7 @@ class ModalFormPage extends Component {
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
 
-        <SectionContainer title="Cascading modal register / login">
+        <SectionContainer header="Cascading modal register / login">
           <MDBBtn rounded onClick={this.toggle(1)}>
             Launch Modal Login/Register
           </MDBBtn>
@@ -202,7 +202,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Elegant modal login">
+        <SectionContainer header="Elegant modal login">
           <MDBBtn rounded onClick={this.toggle(2)}>
             Launch Modal Login Form
           </MDBBtn>
@@ -272,7 +272,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Dark modal register">
+        <SectionContainer header="Dark modal register">
           <MDBBtn rounded onClick={this.toggle(3)}>
             Launch Modal Register Form
           </MDBBtn>

@@ -21,7 +21,7 @@ class DatePickerPage extends Component {
           title="Date Picker"
           href="https://mdbootstrap.com/docs/react/forms/date-picker/"
         />
-        <SectionContainer title="Defaults" className="row">
+        <SectionContainer header="Defaults" className="d-flex">
           <MDBDatePicker
             clearable
             valueDefault={null}
@@ -50,7 +50,7 @@ class DatePickerPage extends Component {
         </SectionContainer>
 
 
-        <SectionContainer title="With setDate" className="d-flex align-items-center">
+        <SectionContainer header="With setDate" className="d-flex align-items-center">
           <MDBDatePicker
             value={this.state.date}
             getValue={this.updateStateValue}

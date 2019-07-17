@@ -23,7 +23,7 @@ const MultiCarouselPage = () => {
         title="Multi-item MDBCarousel"
         href="https://mdbootstrap.com/docs/react/advanced/carousel/#multi-item"
       />
-      <SectionContainer title="Example">
+      <SectionContainer header="Example">
         <MDBCarousel
           activeItem={1}
           length={3}

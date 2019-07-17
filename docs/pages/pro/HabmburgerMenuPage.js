@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,   MDBContainer, MDBIcon, MDBHamburgerToggler } from "mdbreact";
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBContainer,
+  MDBIcon,
+  MDBHamburgerToggler
+} from "mdbreact";
 import DocsLink from "./../../components/docsLink";
+import SectionContainer from "./../../components/sectionContainer";
 
 class HabmburgerMenuPage extends Component {
   state = {
+    collapse0: false,
     collapse1: false,
     collapse2: true,
     collapse3: false,
@@ -32,8 +45,44 @@ class HabmburgerMenuPage extends Component {
           href="https://mdbootstrap.com/docs/react/navigation/navbar/"
         />
         <Router>
-          <div className="pb-5">
-            <MDBNavbar color="amber lighten-4" style={{ marginTop: "20px" }} light>
+          <SectionContainer header="Basic example">
+            <MDBNavbar
+              color="light-blue lighten-4"
+              style={{ marginTop: "20px" }}
+              light
+            >
+              <MDBContainer>
+                <MDBNavbarBrand>Navbar</MDBNavbarBrand>
+                <MDBNavbarToggler
+                  onClick={this.toggleCollapse("navbarCollapse0")}
+                />
+                <MDBCollapse
+                  id="navbarCollapse0"
+                  isOpen={this.state.collapseID}
+                  navbar
+                >
+                  <MDBNavbarNav left>
+                    <MDBNavItem active>
+                      <MDBNavLink to="#!">Home</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Link</MDBNavLink>
+                    </MDBNavItem>
+                    <MDBNavItem>
+                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                    </MDBNavItem>
+                  </MDBNavbarNav>
+                </MDBCollapse>
+              </MDBContainer>
+            </MDBNavbar>
+          </SectionContainer>
+
+          <SectionContainer header="Icon animations">
+            <MDBNavbar
+              color="amber lighten-4"
+              style={{ marginTop: "20px" }}
+              light
+            >
               <MDBContainer>
                 <MDBNavbarBrand>Navbar</MDBNavbarBrand>
                 <MDBHamburgerToggler
@@ -81,7 +130,11 @@ class HabmburgerMenuPage extends Component {
               </MDBContainer>
             </MDBNavbar>
 
-            <MDBNavbar color="indigo darken-2" style={{ marginTop: "20px" }} dark>
+            <MDBNavbar
+              color="indigo darken-2"
+              style={{ marginTop: "20px" }}
+              dark
+            >
               <MDBContainer>
                 <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
                 <MDBHamburgerToggler
@@ -103,7 +156,9 @@ class HabmburgerMenuPage extends Component {
                 </MDBCollapse>
               </MDBContainer>
             </MDBNavbar>
+          </SectionContainer>
 
+          <SectionContainer header="Menu icons">
             <MDBNavbar style={{ marginTop: "20px" }} light>
               <MDBContainer>
                 <MDBNavbarBrand>Navbar</MDBNavbarBrand>
@@ -157,7 +212,10 @@ class HabmburgerMenuPage extends Component {
               </MDBContainer>
             </MDBNavbar>
 
-            <MDBNavbar color="light-blue lighten-4" style={{ marginTop: "20px" }}>
+            <MDBNavbar
+              color="light-blue lighten-4"
+              style={{ marginTop: "20px" }}
+            >
               <MDBContainer>
                 <MDBNavbarBrand>Navbar</MDBNavbarBrand>
                 <MDBNavbarToggler
@@ -184,7 +242,11 @@ class HabmburgerMenuPage extends Component {
               </MDBContainer>
             </MDBNavbar>
 
-            <MDBNavbar color="pink lighten-4" style={{ marginTop: "20px" }} dark>
+            <MDBNavbar
+              color="pink lighten-4"
+              style={{ marginTop: "20px" }}
+              dark
+            >
               <MDBContainer>
                 <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
                 <MDBNavbarToggler
@@ -211,7 +273,11 @@ class HabmburgerMenuPage extends Component {
               </MDBContainer>
             </MDBNavbar>
 
-            <MDBNavbar color="pink lighten-2" style={{ marginTop: "20px" }} dark>
+            <MDBNavbar
+              color="pink lighten-2"
+              style={{ marginTop: "20px" }}
+              dark
+            >
               <MDBContainer>
                 <MDBNavbarBrand className="white-text">Navbar</MDBNavbarBrand>
                 <MDBNavbarToggler
@@ -376,7 +442,9 @@ class HabmburgerMenuPage extends Component {
                 </MDBCollapse>
               </MDBContainer>
             </MDBNavbar>
+          </SectionContainer>
 
+          <SectionContainer header="Icon with background">
             <MDBNavbar
               color="orange lighten-4"
               style={{ marginTop: "20px" }}
@@ -413,7 +481,11 @@ class HabmburgerMenuPage extends Component {
               </MDBContainer>
             </MDBNavbar>
 
-            <MDBNavbar color="green lighten-4" style={{ marginTop: "20px" }} light>
+            <MDBNavbar
+              color="green lighten-4"
+              style={{ marginTop: "20px" }}
+              light
+            >
               <MDBContainer>
                 <MDBNavbarBrand>Navbar</MDBNavbarBrand>
                 <MDBNavbarToggler
@@ -512,7 +584,7 @@ class HabmburgerMenuPage extends Component {
                 </MDBCollapse>
               </MDBContainer>
             </MDBNavbar>
-          </div>
+          </SectionContainer>
         </Router>
       </MDBContainer>
     );

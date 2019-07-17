@@ -52,7 +52,7 @@ class ScrollSpyPage extends Component {
           title="ScrollSpy"
           href="https://mdbootstrap.com/docs/react/navigation/scrollspy/"
         />
-        <SectionContainer title="Basic example">
+        <SectionContainer header="Basic example">
           <MDBScrollspyBox>
             <MDBScrollspyList
               color="grey"

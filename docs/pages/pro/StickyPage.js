@@ -53,7 +53,7 @@ const StickyPage = () => {
         title="Sticky Content"
         href="https://mdbootstrap.com/docs/react/advanced/sticky/"
       />
-      <SectionContainer title="Demo" className="stickyContentDemo">
+      <SectionContainer header="Demo" className="stickyContentDemo">
         <div style={wrapper} className="mt-4">
           <div style={background}>
             <div style={mainWrapper}>

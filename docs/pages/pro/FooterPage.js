@@ -11,7 +11,7 @@ const FooterPagePro = () => {
         href="https://mdbootstrap.com/docs/react/navigation/footer/"
       />
 
-      <SectionContainer title="Advanced footer">
+      <SectionContainer header="Advanced footer">
         <MDBFooter
           color="stylish-color-dark"
           className="page-footer font-small pt-4 mt-4"
@@ -142,7 +142,7 @@ const FooterPagePro = () => {
         </MDBFooter>
       </SectionContainer>
 
-      <SectionContainer title="Purple Panel">
+      <SectionContainer header="Purple Panel">
         <MDBFooter
           color="unique-color-dark"
           className="page-footer font-small mt-4 pt-0"
@@ -290,7 +290,7 @@ const FooterPagePro = () => {
         </MDBFooter>
       </SectionContainer>
 
-      <SectionContainer title="Teal Panel">
+      <SectionContainer header="Teal Panel">
         <MDBFooter
           color="blue-grey"
           className="page-footer font-small lighten-5 mt-4 pt-0"
@@ -454,7 +454,7 @@ const FooterPagePro = () => {
         </MDBFooter>
       </SectionContainer>
 
-      <SectionContainer title="Social Icons">
+      <SectionContainer header="Social Icons">
         <MDBFooter color="cyan" className="font-small darken-3 mt-4 pt-0">
           <MDBContainer>
             <MDBRow>

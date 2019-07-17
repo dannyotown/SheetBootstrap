@@ -49,7 +49,7 @@ class ModalExamplesPage extends Component {
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
 
-        <SectionContainer title="Modal Cookies">
+        <SectionContainer header="Modal Cookies">
           <MDBBtn onClick={this.toggle(1)}>Launch Modal</MDBBtn>
           <MDBModal
             position="top"
@@ -75,7 +75,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Coupon">
+        <SectionContainer header="Modal Coupon">
           <MDBBtn onClick={this.toggle(2)}>Launch Modal</MDBBtn>
           <MDBModal
             position="bottom"
@@ -105,7 +105,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Discount">
+        <SectionContainer header="Modal Discount">
           <MDBBtn onClick={this.toggle(3)}>Launch Modal</MDBBtn>
           <MDBModal
             size="lg"
@@ -156,7 +156,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Related content">
+        <SectionContainer header="Modal Related content">
           <MDBBtn onClick={this.toggle(4)}>Launch Modal</MDBBtn>
           <MDBModal
             className="modal-notify modal-info text-white"
@@ -199,7 +199,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Abandoned cart">
+        <SectionContainer header="Modal Abandoned cart">
           <MDBBtn onClick={this.toggle(5)}>Launch Modal</MDBBtn>
           <MDBModal
             className="modal-notify modal-info text-white"
@@ -240,7 +240,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Confirm delete">
+        <SectionContainer header="Modal Confirm delete">
           <MDBBtn onClick={this.toggle(6)}>Launch Modal</MDBBtn>
           <MDBModal
             modalStyle="danger"
@@ -274,7 +274,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Cart">
+        <SectionContainer header="Modal Cart">
           <MDBBtn onClick={this.toggle(10)}>Launch Modal</MDBBtn>
           <MDBModal isOpen={this.state.modal10} toggle={this.toggle(10)}>
             <MDBModalHeader toggle={this.toggle(10)}>Your cart</MDBModalHeader>
@@ -337,7 +337,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Push">
+        <SectionContainer header="Modal Push">
           <MDBBtn onClick={this.toggle(7)}>Launch Modal</MDBBtn>
           <MDBModal
             className="modal-notify modal-info text-white"
@@ -369,7 +369,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal YouTube">
+        <SectionContainer header="Modal YouTube">
           <MDBBtn onClick={this.toggle(11)}>Launch Modal</MDBBtn>
           <MDBModal
             size="lg"
@@ -380,7 +380,7 @@ class ModalExamplesPage extends Component {
               <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                 <iframe
                   className="embed-responsive-item"
-                  title="This is a unique title"
+                  header="This is a unique title"
                   src="https://www.youtube.com/embed/A3PDXmYoF5U"
                   allowFullScreen
                 />
@@ -414,7 +414,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Vimeo">
+        <SectionContainer header="Modal Vimeo">
           <MDBBtn onClick={this.toggle(12)}>Launch Modal</MDBBtn>
           <MDBModal
             size="lg"
@@ -425,7 +425,7 @@ class ModalExamplesPage extends Component {
               <div className="embed-responsive embed-responsive-16by9 z-depth-1-half">
                 <iframe
                   className="embed-responsive-item"
-                  title="embed-responsive-item-1"
+                  header="embed-responsive-item-1"
                   src="https://player.vimeo.com/video/115098447"
                   allowFullScreen
                 />

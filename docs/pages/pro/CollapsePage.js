@@ -39,7 +39,7 @@ class AccordionPage extends Component {
         />
 
         {/* Basic Accordion */}
-        <SectionContainer title="Basic Accordion" className="md-accordion p-5">
+        <SectionContainer header="Basic Accordion" className="md-accordion p-5">
           <MDBCard className="mt-3">
             <MDBCollapseHeader onClick={this.toggleCollapse("collapse1")}>
               Collapsible Group Item #1
@@ -126,7 +126,7 @@ class AccordionPage extends Component {
 
         {/* Accordion with gradient background */}
         <SectionContainer
-          title="Accordion with gradient background"
+          header="Accordion with gradient background"
           className="accordion-gradient-bcg p-5"
         >
           <MDBCard
@@ -225,7 +225,7 @@ class AccordionPage extends Component {
         {/* Accordion with a picture */}
 
         <SectionContainer
-          title="Accordion with a picture"
+          header="Accordion with a picture"
           className="accordion md-accordion accordion-1 p-5"
         >
           <MDBCard className="transparent">
@@ -356,7 +356,7 @@ class AccordionPage extends Component {
 
         {/* Accordion with icons */}
         <SectionContainer
-          title="Accordion with icons"
+          header="Accordion with icons"
           className="accordion md-accordion accordion-3 z-depth-1-half"
         >
           <MDBNav className="justify-content-center pt-5">
@@ -489,7 +489,7 @@ class AccordionPage extends Component {
 
         {/* Accordion with teal cards  */}
         <SectionContainer
-          title="Accordion with teal cards"
+          header="Accordion with teal cards"
           className="accordion md-accordion accordion-4 p-5"
         >
           <MDBCard>
@@ -651,7 +651,7 @@ class AccordionPage extends Component {
         <hr className="my-5" />
 
         {/* Accordion with a photo in the background */}
-        <SectionContainer title="Accordion with a photo in background">
+        <SectionContainer header="Accordion with a photo in background">
           <MDBCard
             className="card-image mb-5"
             style={{

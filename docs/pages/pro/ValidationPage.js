@@ -29,7 +29,7 @@ class FormsPage extends React.Component {
           title="Form Validation"
           href="https://mdbootstrap.com/docs/react/forms/validation/"
         />
-        <SectionContainer title="Material example">
+        <SectionContainer header="Material example">
           <form
             className="needs-validation"
             onSubmit={this.submitHandler}
@@ -146,9 +146,7 @@ class FormsPage extends React.Component {
           </form>
         </SectionContainer>
 
-        <hr className="my-5" />
-
-        <SectionContainer title="Browser defualt validation">
+        <SectionContainer header="Browser defualt validation">
           <form>
             <MDBRow>
               <MDBCol md="4">
@@ -234,9 +232,7 @@ class FormsPage extends React.Component {
           </form>
         </SectionContainer>
 
-        <hr className="my-5" />
-
-        <SectionContainer title="Supported elements">
+        <SectionContainer header="Supported elements">
           <MDBRow className="mt-6">
             <MDBCol md="4">
               <form className="was-validated" noValidate>
@@ -275,9 +271,7 @@ class FormsPage extends React.Component {
           </MDBRow>
         </SectionContainer>
 
-        <hr className="my-5" />
-
-        <SectionContainer title="Tooltips">
+        <SectionContainer header="Tooltips">
           <form
             className="needs-validation"
             onSubmit={this.submitHandler}

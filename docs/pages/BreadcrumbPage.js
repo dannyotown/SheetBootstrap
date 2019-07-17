@@ -18,7 +18,7 @@ const BreadcrumbPage = props => {
         href="https://mdbootstrap.com/docs/react/navigation/breadcrumb/"
       />
 
-      <SectionContainer title="Basic examples">
+      <SectionContainer header="Basic examples">
         <MDBBreadcrumb>
           <MDBBreadcrumbItem active>Home</MDBBreadcrumbItem>
         </MDBBreadcrumb>
@@ -35,7 +35,7 @@ const BreadcrumbPage = props => {
         </MDBBreadcrumb>
       </SectionContainer>
 
-      <SectionContainer title="With dark background">
+      <SectionContainer header="With dark background">
         <MDBBreadcrumb light color="default">
           <MDBBreadcrumbItem>Home</MDBBreadcrumbItem>
           <MDBBreadcrumbItem active>Library</MDBBreadcrumbItem>
@@ -53,7 +53,7 @@ const BreadcrumbPage = props => {
         </MDBBreadcrumb>
       </SectionContainer>
 
-      <SectionContainer title="With light background">
+      <SectionContainer header="With light background">
         <MDBBreadcrumb color="cyan lighten-4">
           <MDBBreadcrumbItem>Home</MDBBreadcrumbItem>
           <MDBBreadcrumbItem>Library</MDBBreadcrumbItem>
@@ -71,7 +71,7 @@ const BreadcrumbPage = props => {
         </MDBBreadcrumb>
       </SectionContainer>
 
-      <SectionContainer title="With uppercases">
+      <SectionContainer header="With uppercases">
         <MDBBreadcrumb uppercase color="cyan lighten-4">
           <MDBBreadcrumbItem>Home</MDBBreadcrumbItem>
           <MDBBreadcrumbItem active>Library</MDBBreadcrumbItem>
@@ -83,7 +83,7 @@ const BreadcrumbPage = props => {
         </MDBBreadcrumb>
       </SectionContainer>
 
-      <SectionContainer title="With icons">
+      <SectionContainer header="With icons">
         <MDBBreadcrumb light color="pink lighten-4">
           <MDBBreadcrumbItem icon="star">Home</MDBBreadcrumbItem>
         </MDBBreadcrumb>
@@ -104,7 +104,7 @@ const BreadcrumbPage = props => {
         </MDBBreadcrumb>
       </SectionContainer>
 
-      <SectionContainer title="With arrows">
+      <SectionContainer header="With arrows">
         <MDBBreadcrumb color="indigo lighten-4">
           <MDBBreadcrumbItem appendIcon icon="caret-right">
             Home
@@ -178,7 +178,7 @@ const BreadcrumbPage = props => {
         </MDBBreadcrumb>
       </SectionContainer>
 
-      <SectionContainer title="With hamburger button">
+      <SectionContainer header="With hamburger button">
         <MDBNavbar color="indigo" style={{ marginTop: "20px" }} dark>
           <span className="navbar-toggler-icon" />
           <MDBNavbarNav left>

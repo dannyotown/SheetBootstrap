@@ -107,7 +107,7 @@ class NavsPage extends Component {
 
         <hr className="my-5" />
 
-        <SectionContainer title="Navs with bold font" noBorder>
+        <SectionContainer header="Navs with bold font" noBorder>
           <MDBRow>
             <MDBCol md="6">
               <SectionContainer>
@@ -140,7 +140,7 @@ class NavsPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer title="Navs with various font and background color">
+        <SectionContainer header="Navs with various font and background color">
           <MDBRow>
             <MDBCol>
               <MDBNav color="grey" className="flex-column font-weight-bold">
@@ -189,7 +189,7 @@ class NavsPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer title="Navs with gradient background">
+        <SectionContainer header="Navs with gradient background">
           <MDBRow>
             <MDBCol md="6">
               <MDBNav

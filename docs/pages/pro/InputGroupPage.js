@@ -145,8 +145,6 @@ class InputGroupPage extends React.Component {
           />
         </SectionContainer>
 
-        <hr className="my-5" />
-
         <SectionContainer title="Checkboxes and radios" noBorder>
           <MDBRow>
             <MDBCol md="6" tag="section">
@@ -226,8 +224,6 @@ class InputGroupPage extends React.Component {
           </MDBRow>
         </SectionContainer>
 
-        <hr className="my-5" />
-
         <SectionContainer title="Buttons with dropdowns">
           <MDBInputGroup
             material
@@ -278,7 +274,7 @@ class InputGroupPage extends React.Component {
           />
         </SectionContainer>
 
-        <SectionContainer title="Segmented buttons">
+        <SectionContainer header="Segmented buttons">
           <MDBInputGroup
             material
             containerClassName="mb-3 mt-0"

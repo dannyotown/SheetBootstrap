@@ -9,7 +9,7 @@ const ScrollBarPage = () => {
   return (
     <MDBContainer>
       <DocsLink title="ScrollBar" href="https://mdbootstrap.com/docs/react/" />
-      <SectionContainer title="Primary ScrollBar" className="py-5">
+      <SectionContainer header="Primary ScrollBar" className="py-5">
         <div
           className="scrollbar scrollbar-primary m-auto"
           style={scrollContainerStyle}
@@ -21,7 +21,7 @@ const ScrollBarPage = () => {
         </div>
       </SectionContainer>
 
-      <SectionContainer title="Default ScrollBar" className="py-5">
+      <SectionContainer header="Default ScrollBar" className="py-5">
         <div className="scrollbar mx-auto" style={scrollContainerStyle}>
           <img
             alt=""
