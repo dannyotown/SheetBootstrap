@@ -1,6 +1,17 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBRow, MDBInput,  MDBIcon } from "mdbreact";
+import {
+  MDBContainer,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBModalHeader,
+  MDBModalFooter,
+  MDBRow,
+  MDBInput,
+  MDBIcon
+} from "mdbreact";
 import DocsLink from "./../components/docsLink";
+import SectionContainer from "./../components/sectionContainer";
 
 class ModalFormPage extends Component {
   state = {
@@ -9,14 +20,14 @@ class ModalFormPage extends Component {
     modal3: false,
     modal4: false,
     modal5: false
-  }
+  };
 
-  toggle = nr => () =>  {
+  toggle = nr => () => {
     let modalNumber = "modal" + nr;
     this.setState({
       [modalNumber]: !this.state[modalNumber]
     });
-  }
+  };
 
   render() {
     return (
@@ -25,8 +36,8 @@ class ModalFormPage extends Component {
           title="Modal Form"
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
-        <h4 className="mt-4">Simple modal login</h4>
-        <MDBRow>
+
+        <SectionContainer title="Simple modal login">
           <MDBBtn rounded onClick={this.toggle(1)}>
             Launch Modal Login Form
           </MDBBtn>
@@ -62,10 +73,9 @@ class ModalFormPage extends Component {
               <MDBBtn onClick={this.toggle(1)}>Login</MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Simple modal register</h4>
-        <MDBRow>
+        <SectionContainer title="Simple Modal register">
           <MDBBtn rounded onClick={this.toggle(2)}>
             Launch Modal Register Form
           </MDBBtn>
@@ -112,10 +122,9 @@ class ModalFormPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Simple modal subscription</h4>
-        <MDBRow>
+        <SectionContainer title="Simple modal subscription">
           <MDBBtn rounded onClick={this.toggle(3)}>
             Launch Modal subscription Form
           </MDBBtn>
@@ -154,10 +163,9 @@ class ModalFormPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Simple modal contact</h4>
-        <MDBRow>
+        <SectionContainer title="Simple modal contact">
           <MDBBtn rounded onClick={this.toggle(4)}>
             Launch Modal Contact Form
           </MDBBtn>
@@ -203,10 +211,9 @@ class ModalFormPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Modal with avatar</h4>
-        <MDBRow>
+        <SectionContainer title="Modal with avatar">
           <MDBBtn rounded onClick={this.toggle(5)}>
             Launch Modal Login With Avatar
           </MDBBtn>
@@ -227,7 +234,12 @@ class ModalFormPage extends Component {
             <MDBModalBody className="text-center mb-1">
               <h5 className="mt-1 mb-2">Maria Doe</h5>
               <form className="mx-3 grey-text">
-                <MDBInput label="Enter password" group type="password" validate />
+                <MDBInput
+                  label="Enter password"
+                  group
+                  type="password"
+                  validate
+                />
               </form>
             </MDBModalBody>
             <MDBModalFooter className="justify-content-center">
@@ -237,10 +249,9 @@ class ModalFormPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4">Subscription modal with orange header</h4>
-        <MDBRow>
+        <SectionContainer title="Subscription modal with orange header">
           <MDBBtn rounded onClick={this.toggle(6)}>
             Launch Modal Subscription
           </MDBBtn>
@@ -287,7 +298,7 @@ class ModalFormPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
       </MDBContainer>
     );
   }

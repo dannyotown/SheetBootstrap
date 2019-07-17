@@ -52,29 +52,30 @@ const HoverPage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer header="Effects">
+      <SectionContainer noBorder>
         <MDBRow>
           <MDBCol md="6">
-            <MDBView hover zoom>
-              <img
-                src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(66).jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <MDBMask className="flex-center">
-                <p className="white-text">Zoom effect</p>
-              </MDBMask>
-            </MDBView>
+            <SectionContainer header="Zoom">
+              <MDBView hover zoom>
+                <img
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(66).jpg"
+                  className="img-fluid"
+                  alt=""
+                />
+                <MDBMask className="flex-center">
+                  <p className="white-text">Zoom effect</p>
+                </MDBMask>
+              </MDBView>
+            </SectionContainer>
           </MDBCol>
           <MDBCol md="6">
-            <img
-              src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(42).jpg"
-              className="img-fluid hoverable"
-              alt=""
-            />
-            <MDBMask className="flex-center">
-              <p>Zoom effect</p>
-            </MDBMask>
+            <SectionContainer header="Shadow">
+              <img
+                src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img%20(42).jpg"
+                className="img-fluid hoverable"
+                alt=""
+              />
+            </SectionContainer>
           </MDBCol>
         </MDBRow>
       </SectionContainer>
