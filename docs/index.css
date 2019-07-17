@@ -41,3 +41,7 @@
 .list-unstyled .list-group-item-action:hover i {
   color: #283593;
 }
+
+.nav-link:focus{
+  outline: none;
+}
