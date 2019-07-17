@@ -16,7 +16,7 @@ const ChartsPagePro = () => {
         title="Minimalist charts"
         href="https://mdbootstrap.com/docs/react/advanced/charts/#usage-minimalist"
       />
-      <SectionContainer header="Examples" className="p-5">
+      <SectionContainer header="Basic examples" className="p-5">
         <MDBRow className="text-center">
           <MDBCol sm="4">
             <MDBSimpleChart

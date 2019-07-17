@@ -23,7 +23,7 @@ class eCommercePage extends Component {
         />
 
         {/* Author Box v.1 */}
-        <SectionContainer tag="section" title="Author Box v.1">
+        <SectionContainer tag="section" header="Author Box v.1">
           <MDBCardHeader className="border-0 font-weight-bold d-flex justify-content-between">
             <p className="mr-4 mb-0">About the author</p>
             <ul className="list-unstyled list-inline mb-0">
@@ -58,7 +58,7 @@ class eCommercePage extends Component {
         </SectionContainer>
 
         {/* Author Box v.2 */}
-        <SectionContainer tag="section" title="Author Box v.2">
+        <SectionContainer tag="section" header="Author Box v.2">
           <MDBCardHeader className="border-0  font-weight-bold d-flex justify-content-between">
             <p className="mr-4 mb-0">About the author</p>
             <ul className="list-unstyled text-default list-inline mb-0">
@@ -132,7 +132,7 @@ class eCommercePage extends Component {
         </SectionContainer>
 
         {/* Comments List v.1 */}
-        <SectionContainer tag="section" title="Comments List v.1">
+        <SectionContainer tag="section" header="Comments List v.1">
           <MDBCardHeader className="border-0 font-weight-bold">
             <p className="mr-4 mb-0">4 comments</p>
           </MDBCardHeader>
@@ -262,7 +262,7 @@ class eCommercePage extends Component {
         </SectionContainer>
 
         {/* Comments List v.2 */}
-        <SectionContainer tag="section" title="Comments List v.2">
+        <SectionContainer tag="section" header="Comments List v.2">
           <MDBCardHeader className="border-0 font-weight-bold">
             <p className="mr-4 mb-0">4 comments</p>
           </MDBCardHeader>
@@ -391,7 +391,7 @@ class eCommercePage extends Component {
         </SectionContainer>
 
         {/* Reply Form v.1 */}
-        <SectionContainer tag="section" title="Reply Form v.1">
+        <SectionContainer tag="section" header="Reply Form v.1">
           <MDBCardHeader className="border-0  font-weight-bold d-flex justify-content-between">
             <p className="mr-4 mb-0">Leave a reply</p>
           </MDBCardHeader>
@@ -418,7 +418,7 @@ class eCommercePage extends Component {
         </SectionContainer>
 
         {/* Reply Form v.2 */}
-        <SectionContainer tag="section" title="Reply Form v.2">
+        <SectionContainer tag="section" header="Reply Form v.2">
           <MDBCardHeader className="border-0  font-weight-bold d-flex justify-content-between">
             <p className="mr-4 mb-0">Leave a reply</p>
           </MDBCardHeader>
@@ -437,7 +437,7 @@ class eCommercePage extends Component {
         </SectionContainer>
 
         {/* Reply Form v.3 */}
-        <SectionContainer tag="section" title="Reply Form v.3">
+        <SectionContainer tag="section" header="Reply Form v.3">
           <MDBCardHeader className="border-0  font-weight-bold d-flex justify-content-between">
             <p className="mr-4 mb-0">Leave a reply</p>
           </MDBCardHeader>
@@ -509,7 +509,7 @@ class eCommercePage extends Component {
         </SectionContainer>
 
         {/* Reply Form v.4 */}
-        <SectionContainer tag="section" title="Reply Form v.4">
+        <SectionContainer tag="section" header="Reply Form v.4">
           <MDBCardHeader className="border-0  font-weight-bold d-flex justify-content-between">
             <p className="mr-4 mb-0">Leave a reply</p>
           </MDBCardHeader>
@@ -542,7 +542,7 @@ class eCommercePage extends Component {
         </SectionContainer>
 
         {/* Reply Form (logged in user) v.1 */}
-        <SectionContainer tag="section" title="Author Reply Form v.1">
+        <SectionContainer tag="section" header="Author Reply Form v.1">
           <MDBCardHeader className="border-0 font-weight-bold d-flex justify-content-between">
             <p className="mr-4 mb-0">Leave a reply (logged in user)</p>
           </MDBCardHeader>
@@ -567,7 +567,7 @@ class eCommercePage extends Component {
         </SectionContainer>
 
         {/* Reply Form (logged in user) v.2 */}
-        <SectionContainer title="Author Reply Form v.2">
+        <SectionContainer header="Author Reply Form v.2">
           <MDBCardHeader className="border-0 font-weight-bold d-flex justify-content-between">
             <p className="mr-4 mb-0">Leave a reply (logged in user)</p>
           </MDBCardHeader>

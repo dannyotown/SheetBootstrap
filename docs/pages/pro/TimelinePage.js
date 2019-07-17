@@ -11,7 +11,7 @@ const TimelinePage = () => {
         href="https://mdbootstrap.com/plugins/react/timeline/"
       />
 
-      <SectionContainer tag="section" title="Basic example" className="p-5">
+      <SectionContainer tag="section" header="Basic example" className="p-5">
         <MDBTimeline>
           <MDBTimelineStep icon="check">
             <h4 className="font-weight-bold">Ut enim ad minim veniam</h4>
@@ -69,7 +69,7 @@ const TimelinePage = () => {
 
       <hr className="my-5" />
 
-      <SectionContainer tag="section" title="Colorful example" className="p-5">
+      <SectionContainer tag="section" header="Colorful" className="p-5">
         <MDBTimeline>
           <MDBTimelineStep colorful icon="check" color="red darken-2">
             <h4 className="font-weight-bold red darken-2 white-text p-3">
@@ -156,7 +156,7 @@ const TimelinePage = () => {
 
       <SectionContainer
         tag="section"
-        title="Hoverable timeline"
+        header="Hoverable timeline"
         className="p-5"
       >
         <MDBTimeline>
@@ -240,7 +240,7 @@ const TimelinePage = () => {
 
       <hr className="my-5" />
 
-      <SectionContainer tag="section" title="Timeline images" className="p-5">
+      <SectionContainer tag="section" header="Timeline images" className="p-5">
         <MDBTimeline>
           <MDBTimelineStep colorful hoverable color="cyan" label="1">
             <img

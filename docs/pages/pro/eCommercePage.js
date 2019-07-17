@@ -148,7 +148,7 @@ class eCommercePage extends Component {
           href="https://mdbootstrap.com/plugins/react/e-commerce-components/"
         />
 
-        <SectionContainer title="Product cards">
+        <SectionContainer header="Product cards">
           <MDBRow center>
             {/* Product card v.1 */}
             <MDBCard
@@ -396,7 +396,7 @@ class eCommercePage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer title="Collection cards">
+        <SectionContainer header="Collection cards">
           <MDBRow className="my-2" center>
             {/* Collection cards */}
             <MDBCard className="mx-4" style={{ width: "20rem" }} collection>
@@ -432,7 +432,7 @@ class eCommercePage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer title="Shopping Cart Table" className="px-4" noBorder>
+        <SectionContainer header="Shopping Cart Table" className="px-4" noBorder>
           <MDBRow className="my-2" center>
             <MDBCard className="w-100">
               <MDBCardBody>
@@ -449,7 +449,7 @@ class eCommercePage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer title="Checkout panel" className="px-4" noBorder>
+        <SectionContainer header="Checkout panel" className="px-4" noBorder>
           <MDBRow className="my-2" center>
             <MDBCard className="w-100">
               <MDBCardBody>

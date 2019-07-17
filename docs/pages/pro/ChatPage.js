@@ -295,7 +295,7 @@ class ChatPage extends Component {
           href="https://mdbootstrap.com/plugins/react/chat/"
         />
 
-        <SectionContainer title="Basic chat">
+        <SectionContainer header="Basic chat">
           <MDBCard className="grey lighten-3 chat-room">
             <MDBCardBody>
               <MDBRow className="px-lg-2 px-2">
@@ -350,7 +350,7 @@ class ChatPage extends Component {
 
         <hr className="my-5" />
 
-        <SectionContainer title="Chat with scrollbar">
+        <SectionContainer header="Chat with scrollbar">
           <MDBCard className="grey lighten-3 chat-room">
             <MDBCardBody>
               <MDBRow className="px-lg-2 px-2">

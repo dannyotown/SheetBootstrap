@@ -19,7 +19,7 @@ const ContactPage = () => {
         title="Contact Sections"
         href="https://mdbootstrap.com/docs/react/sections/contact/"
       />
-      <SectionContainer tag="section" title="Simple example">
+      <SectionContainer tag="section" title="Basic example">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Contact us
         </h2>

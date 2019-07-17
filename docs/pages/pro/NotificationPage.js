@@ -35,7 +35,7 @@ const NotificationPage = () => {
         title="Notifications"
         href="https://mdbootstrap.com/docs/react/addons/notification/"
       />
-      <SectionContainer title="Simple examples">
+      <SectionContainer header="Basic examples" flexCenter>
         <button className="btn btn-info" onClick={notify("info")}>
           Info
         </button>

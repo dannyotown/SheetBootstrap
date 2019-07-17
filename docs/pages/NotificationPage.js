@@ -12,7 +12,7 @@ class NotificationPage extends Component {
           href="https://mdbootstrap.com/docs/react/addons/notification/"
         />
 
-        <SectionContainer title="Default">
+        <SectionContainer header="Default">
           <MDBNotification
             iconClassName="text-primary"
             show
@@ -38,7 +38,7 @@ class NotificationPage extends Component {
           />
         </SectionContainer>
 
-        <SectionContainer title="Custom icons">
+        <SectionContainer header="Custom icons">
           <MDBNotification
             iconClassName="green-text"
             icon="envelope"
@@ -50,7 +50,7 @@ class NotificationPage extends Component {
           />
         </SectionContainer>
 
-        <SectionContainer title="Translucent" dark>
+        <SectionContainer header="Translucent" dark>
           <MDBNotification
             iconClassName="text-primary"
             show
@@ -61,7 +61,7 @@ class NotificationPage extends Component {
           />
         </SectionContainer>
 
-        <SectionContainer title="Stacking">
+        <SectionContainer header="Stacking">
           <MDBNotification
             iconClassName="text-primary"
             show
@@ -80,7 +80,7 @@ class NotificationPage extends Component {
           />
         </SectionContainer>
 
-        <SectionContainer title="Placement" noBorder>
+        <SectionContainer header="Placement" noBorder>
           <SectionContainer dark>
             <div style={{ minHeight: "200px", position: "relative" }}>
               <MDBNotification
@@ -143,7 +143,7 @@ class NotificationPage extends Component {
           </SectionContainer>
         </SectionContainer>
 
-        <SectionContainer title="Customizable">
+        <SectionContainer header="Customizable">
           <MDBNotification
             autohide={0} // by default = ∞ ms
             bodyClassName="p-5 font-weight-bold white-text"

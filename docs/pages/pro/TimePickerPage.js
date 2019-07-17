@@ -15,7 +15,7 @@ class TimePickerPage extends Component {
           title="Time Picker"
           href="https://mdbootstrap.com/docs/react/forms/time-picker/"
         />
-        <SectionContainer header="Examples">
+        <SectionContainer header="Basic examples">
           <MDBRow>
             <MDBCol md="3">
               <MDBTimePicker
