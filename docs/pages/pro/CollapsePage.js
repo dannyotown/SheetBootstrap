@@ -33,36 +33,23 @@ class AccordionPage extends Component {
     };
     return (
       <MDBContainer>
-        <DocsLink
-          title="Accordion"
-          href="https://mdbootstrap.com/docs/react/advanced/accordion/"
-        />
+        <DocsLink title="Accordion" href="https://mdbootstrap.com/docs/react/advanced/accordion/" />
 
-        {/* Basic Accordion */}
-        <SectionContainer header="Basic Accordion" className="md-accordion p-5">
+        <SectionContainer header="Basic example" className="md-accordion p-5">
           <MDBCard className="mt-3">
             <MDBCollapseHeader onClick={this.toggleCollapse("collapse1")}>
               Collapsible Group Item #1
-              <i
-                className={
-                  collapseID === "collapse1"
-                    ? "fa fa-angle-down rotate-icon"
-                    : "fa fa-angle-down"
-                }
-              />
+              <i className={collapseID === "collapse1" ? "fa fa-angle-down rotate-icon" : "fa fa-angle-down"} />
             </MDBCollapseHeader>
             <MDBCollapse id="collapse1" isOpen={collapseID}>
               <MDBCardBody>
-                Pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                terry richardson ad squid. 3 wolf moon officia aute, non
-                cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a
-                bird on it squid single-origin coffee nulla assumenda shoreditch
-                et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                raw denim aesthetic synth nesciunt you probably haven&apos;t
-                heard of them accusamus labore sustainable VHS.
+                Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus
+                labore sustainable VHS.
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
@@ -70,26 +57,17 @@ class AccordionPage extends Component {
           <MDBCard>
             <MDBCollapseHeader onClick={this.toggleCollapse("collapse2")}>
               Collapsible Group Item #2
-              <i
-                className={
-                  collapseID === "collapse2"
-                    ? "fa fa-angle-down rotate-icon"
-                    : "fa fa-angle-down"
-                }
-              />
+              <i className={collapseID === "collapse2" ? "fa fa-angle-down rotate-icon" : "fa fa-angle-down"} />
             </MDBCollapseHeader>
             <MDBCollapse id="collapse2" isOpen={collapseID}>
               <MDBCardBody>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                wes anderson cred nesciunt sapiente ea proident. Ad vegan
-                excepteur butcher vice lomo. Leggings occaecat craft beer
-                farm-to-table, raw denim aesthetic synth nesciunt you probably
-                haven&apos;t heard of them accusamus labore sustainable VHS.
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus
+                labore sustainable VHS.
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
@@ -97,26 +75,17 @@ class AccordionPage extends Component {
           <MDBCard>
             <MDBCollapseHeader onClick={this.toggleCollapse("collapse3")}>
               Collapsible Group Item #3
-              <i
-                className={
-                  collapseID === "collapse3"
-                    ? "fa fa-angle-down rotate-icon"
-                    : "fa fa-angle-down"
-                }
-              />
+              <i className={collapseID === "collapse3" ? "fa fa-angle-down rotate-icon" : "fa fa-angle-down"} />
             </MDBCollapseHeader>
             <MDBCollapse id="collapse3" isOpen={collapseID}>
               <MDBCardBody>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                non cupidatat skateboard dolor brunch. Food truck quinoa
-                nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                put a bird on it squid single-origin coffee nulla assumenda
-                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore
-                wes anderson cred nesciunt sapiente ea proident. Ad vegan
-                excepteur butcher vice lomo. Leggings occaecat craft beer
-                farm-to-table, raw denim aesthetic synth nesciunt you probably
-                haven&apos;t heard of them accusamus labore sustainable VHS.
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus
+                labore sustainable VHS.
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
@@ -124,39 +93,25 @@ class AccordionPage extends Component {
 
         <hr className="my-5" />
 
-        {/* Accordion with gradient background */}
-        <SectionContainer
-          header="Accordion with gradient background"
-          className="accordion-gradient-bcg p-5"
-        >
-          <MDBCard
-            style={{ backgroundColor: "rgba(0,0,0,.03)" }}
-            className="my-1"
-          >
+        <SectionContainer header="With gradient background" className="accordion-gradient-bcg p-5">
+          <MDBCard style={{ backgroundColor: "rgba(0,0,0,.03)" }} className="my-1">
             <MDBCollapseHeader onClick={this.toggleCollapse("collapse4")}>
               <span className="white-text">#1</span>
               <MDBIcon
-                icon={
-                  this.state.collapseID === "collapse4"
-                    ? "angle-up"
-                    : "angle-down"
-                }
+                icon={this.state.collapseID === "collapse4" ? "angle-up" : "angle-down"}
                 className="white-text"
                 style={{ float: "right" }}
               />
             </MDBCollapseHeader>
             <MDBCollapse id="collapse4" isOpen={this.state.collapseID}>
               <MDBCardBody className="rgba-grey-light white-text">
-                Pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                terry richardson ad squid. 3 wolf moon officia aute, non
-                cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a
-                bird on it squid single-origin coffee nulla assumenda shoreditch
-                et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                raw denim aesthetic synth nesciunt you probably haven&apos;t
-                heard of them accusamus labore sustainable VHS.
+                Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus
+                labore sustainable VHS.
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
@@ -165,27 +120,20 @@ class AccordionPage extends Component {
             <MDBCollapseHeader onClick={this.toggleCollapse("collapse5")}>
               <span className="white-text">#2</span>
               <MDBIcon
-                icon={
-                  this.state.collapseID === "collapse5"
-                    ? "angle-up"
-                    : "angle-down"
-                }
+                icon={this.state.collapseID === "collapse5" ? "angle-up" : "angle-down"}
                 className="white-text"
                 style={{ float: "right" }}
               />
             </MDBCollapseHeader>
             <MDBCollapse id="collapse5" isOpen={this.state.collapseID}>
               <MDBCardBody className="rgba-grey-light white-text">
-                Pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                terry richardson ad squid. 3 wolf moon officia aute, non
-                cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a
-                bird on it squid single-origin coffee nulla assumenda shoreditch
-                et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                raw denim aesthetic synth nesciunt you probably haven&apos;t
-                heard of them accusamus labore sustainable VHS.
+                Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus
+                labore sustainable VHS.
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
@@ -194,27 +142,20 @@ class AccordionPage extends Component {
             <MDBCollapseHeader onClick={this.toggleCollapse("collapse6")}>
               <span className="white-text">#3</span>
               <MDBIcon
-                icon={
-                  this.state.collapseID === "collapse6"
-                    ? "angle-up"
-                    : "angle-down"
-                }
+                icon={this.state.collapseID === "collapse6" ? "angle-up" : "angle-down"}
                 className="white-text"
                 style={{ float: "right" }}
               />
             </MDBCollapseHeader>
             <MDBCollapse id="collapse6" isOpen={this.state.collapseID}>
               <MDBCardBody className="rgba-grey-light white-text">
-                Pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                terry richardson ad squid. 3 wolf moon officia aute, non
-                cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a
-                bird on it squid single-origin coffee nulla assumenda shoreditch
-                et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
-                butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                raw denim aesthetic synth nesciunt you probably haven&apos;t
-                heard of them accusamus labore sustainable VHS.
+                Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                farm-to-table, raw denim aesthetic synth nesciunt you probably haven&apos;t heard of them accusamus
+                labore sustainable VHS.
               </MDBCardBody>
             </MDBCollapse>
           </MDBCard>
@@ -222,37 +163,27 @@ class AccordionPage extends Component {
 
         <hr className="my-5" />
 
-        {/* Accordion with a picture */}
-
-        <SectionContainer
-          header="Accordion with a picture"
-          className="accordion md-accordion accordion-1 p-5"
-        >
+        <SectionContainer header="With a picture" className="accordion md-accordion accordion-1 p-5">
           <MDBCard className="transparent">
             <MDBCollapseHeader
               onClick={this.toggleCollapse("collapse7")}
               className="text-uppercase blue lighten-3 z-depth-1"
             >
-              <span className="white-text font-weight-bold">
-                I am the first title of accordion
-              </span>
+              <span className="white-text font-weight-bold">I am the first title of accordion</span>
             </MDBCollapseHeader>
             <MDBCollapse id="collapse7" isOpen={this.state.collapseID}>
               <MDBCardBody>
                 <MDBRow className="my-4">
                   <MDBCol md="8">
-                    <h2 className="font-weight-bold mb-3 black-text">
-                      Hi! I am the first one.
-                    </h2>
+                    <h2 className="font-weight-bold mb-3 black-text">Hi! I am the first one.</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                      laboris
                     </p>
                     <p className="mb-0 ">
-                      Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur.
+                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                      pariatur.
                     </p>
                   </MDBCol>
                   <MDBCol md="4" className="mt-3 pt-2">
@@ -274,26 +205,21 @@ class AccordionPage extends Component {
               onClick={this.toggleCollapse("collapse8")}
               className="text-uppercase blue lighten-3 z-depth-1"
             >
-              <span className="white-text font-weight-bold">
-                I am the second title of accordion
-              </span>
+              <span className="white-text font-weight-bold">I am the second title of accordion</span>
             </MDBCollapseHeader>
             <MDBCollapse id="collapse8" isOpen={this.state.collapseID}>
               <MDBCardBody>
                 <MDBRow className="my-4">
                   <MDBCol md="8">
-                    <h2 className="font-weight-bold mb-3 black-text">
-                      Hi! I am the second one.
-                    </h2>
+                    <h2 className="font-weight-bold mb-3 black-text">Hi! I am the second one.</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                      laboris
                     </p>
                     <p className="mb-0 ">
-                      Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur.
+                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                      pariatur.
                     </p>
                   </MDBCol>
                   <MDBCol md="4" className="mt-3 pt-2">
@@ -315,26 +241,21 @@ class AccordionPage extends Component {
               onClick={this.toggleCollapse("collapse9")}
               className="text-uppercase blue lighten-3 z-depth-1"
             >
-              <span className="white-text font-weight-bold">
-                I am the third title of accordion
-              </span>
+              <span className="white-text font-weight-bold">I am the third title of accordion</span>
             </MDBCollapseHeader>
             <MDBCollapse id="collapse9" isOpen={this.state.collapseID}>
               <MDBCardBody>
                 <MDBRow className="my-4">
                   <MDBCol md="8">
-                    <h2 className="font-weight-bold mb-3 black-text">
-                      Hi! I am the third one.
-                    </h2>
+                    <h2 className="font-weight-bold mb-3 black-text">Hi! I am the third one.</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                      sed do eiusmod tempor incididunt ut labore et dolore magna
-                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                      ullamco laboris
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                      laboris
                     </p>
                     <p className="mb-0 ">
-                      Duis aute irure dolor in reprehenderit in voluptate velit
-                      esse cillum dolore eu fugiat nulla pariatur.
+                      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                      pariatur.
                     </p>
                   </MDBCol>
                   <MDBCol md="4" className="mt-3 pt-2">
@@ -354,11 +275,7 @@ class AccordionPage extends Component {
 
         <hr className="my-5" />
 
-        {/* Accordion with icons */}
-        <SectionContainer
-          header="Accordion with icons"
-          className="accordion md-accordion accordion-3 z-depth-1-half"
-        >
+        <SectionContainer header="With icons" className="accordion md-accordion accordion-3 z-depth-1-half">
           <MDBNav className="justify-content-center pt-5">
             <MDBNavLink to="#!">
               <MDBIcon icon="anchor" className="red-text" size="2x" />
@@ -384,11 +301,7 @@ class AccordionPage extends Component {
             >
               How awesome accordion I am?
               <MDBIcon
-                icon={
-                  this.state.collapseID === "collapse10"
-                    ? "angle-up"
-                    : "angle-down"
-                }
+                icon={this.state.collapseID === "collapse10" ? "angle-up" : "angle-down"}
                 className="red-text"
                 size="2x"
               />
@@ -396,17 +309,13 @@ class AccordionPage extends Component {
             <MDBCollapse id="collapse10" isOpen={this.state.collapseID}>
               <MDBCardBody className="pt-0">
                 <p>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                  beer labore wes anderson cred nesciunt sapiente ea proident.
-                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer farm-to-table, raw denim aesthetic synth nesciunt you
-                  probably haven't heard of them accusamus labore sustainable
-                  VHS.
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                  nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                  farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                  labore sustainable VHS.
                 </p>
               </MDBCardBody>
             </MDBCollapse>
@@ -420,11 +329,7 @@ class AccordionPage extends Component {
             >
               You're the greatest accordion!
               <MDBIcon
-                icon={
-                  this.state.collapseID === "collapse11"
-                    ? "angle-up"
-                    : "angle-down"
-                }
+                icon={this.state.collapseID === "collapse11" ? "angle-up" : "angle-down"}
                 className="red-text"
                 size="2x"
               />
@@ -432,17 +337,13 @@ class AccordionPage extends Component {
             <MDBCollapse id="collapse11" isOpen={this.state.collapseID}>
               <MDBCardBody className="pt-0">
                 <p>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                  beer labore wes anderson cred nesciunt sapiente ea proident.
-                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer farm-to-table, raw denim aesthetic synth nesciunt you
-                  probably haven't heard of them accusamus labore sustainable
-                  VHS.
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                  nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                  farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                  labore sustainable VHS.
                 </p>
               </MDBCardBody>
             </MDBCollapse>
@@ -456,11 +357,7 @@ class AccordionPage extends Component {
             >
               Thank you my dear!
               <MDBIcon
-                icon={
-                  this.state.collapseID === "collapse12"
-                    ? "angle-up"
-                    : "angle-down"
-                }
+                icon={this.state.collapseID === "collapse12" ? "angle-up" : "angle-down"}
                 className="red-text"
                 size="2x"
               />
@@ -468,17 +365,13 @@ class AccordionPage extends Component {
             <MDBCollapse id="collapse12" isOpen={this.state.collapseID}>
               <MDBCardBody className="pt-0">
                 <p>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                  beer labore wes anderson cred nesciunt sapiente ea proident.
-                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer farm-to-table, raw denim aesthetic synth nesciunt you
-                  probably haven't heard of them accusamus labore sustainable
-                  VHS.
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
+                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                  nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                  farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+                  labore sustainable VHS.
                 </p>
               </MDBCardBody>
             </MDBCollapse>
@@ -487,11 +380,7 @@ class AccordionPage extends Component {
 
         <hr className="my-5" />
 
-        {/* Accordion with teal cards  */}
-        <SectionContainer
-          header="Accordion with teal cards"
-          className="accordion md-accordion accordion-4 p-5"
-        >
+        <SectionContainer header="With teal cards" className="accordion md-accordion accordion-4 p-5">
           <MDBCard>
             <MDBCollapseHeader
               onClick={this.toggleCollapse("collapse13")}
@@ -504,20 +393,16 @@ class AccordionPage extends Component {
             <MDBCollapse id="collapse13" isOpen={this.state.collapseID}>
               <MDBCardBody className="rgba-teal-strong white-text">
                 <p>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
                   assumenda shoreditch et.
                 </p>
 
                 <p>
-                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                  cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                  vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                  denim aesthetic synth nesciunt you probably haven't heard of
-                  them accusamus labore.
+                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore.
                 </p>
               </MDBCardBody>
             </MDBCollapse>
@@ -535,20 +420,16 @@ class AccordionPage extends Component {
             <MDBCollapse id="collapse14" isOpen={this.state.collapseID}>
               <MDBCardBody className="rgba-teal-strong white-text">
                 <p>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
                   assumenda shoreditch et.
                 </p>
 
                 <p>
-                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                  cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                  vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                  denim aesthetic synth nesciunt you probably haven't heard of
-                  them accusamus labore.
+                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore.
                 </p>
               </MDBCardBody>
             </MDBCollapse>
@@ -566,20 +447,16 @@ class AccordionPage extends Component {
             <MDBCollapse id="collapse15" isOpen={this.state.collapseID}>
               <MDBCardBody className="rgba-teal-strong white-text">
                 <p>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
                   assumenda shoreditch et.
                 </p>
 
                 <p>
-                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                  cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                  vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                  denim aesthetic synth nesciunt you probably haven't heard of
-                  them accusamus labore.
+                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore.
                 </p>
               </MDBCardBody>
             </MDBCollapse>
@@ -597,20 +474,16 @@ class AccordionPage extends Component {
             <MDBCollapse id="collapse16" isOpen={this.state.collapseID}>
               <MDBCardBody className="rgba-teal-strong white-text">
                 <p>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
                   assumenda shoreditch et.
                 </p>
 
                 <p>
-                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                  cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                  vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                  denim aesthetic synth nesciunt you probably haven't heard of
-                  them accusamus labore.
+                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore.
                 </p>
               </MDBCardBody>
             </MDBCollapse>
@@ -628,20 +501,16 @@ class AccordionPage extends Component {
             <MDBCollapse id="collapse17" isOpen={this.state.collapseID}>
               <MDBCardBody className="rgba-teal-strong white-text">
                 <p>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
+                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
+                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla
                   assumenda shoreditch et.
                 </p>
 
                 <p>
-                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                  cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                  vice lomo. Leggings occaecat craft beer farm-to-table, raw
-                  denim aesthetic synth nesciunt you probably haven't heard of
-                  them accusamus labore.
+                  Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
+                  aesthetic synth nesciunt you probably haven't heard of them accusamus labore.
                 </p>
               </MDBCardBody>
             </MDBCollapse>
@@ -650,8 +519,7 @@ class AccordionPage extends Component {
 
         <hr className="my-5" />
 
-        {/* Accordion with a photo in the background */}
-        <SectionContainer header="Accordion with a photo in background">
+        <SectionContainer header="With a photo in background">
           <MDBCard
             className="card-image"
             style={{
@@ -661,10 +529,7 @@ class AccordionPage extends Component {
             <div className="rgba-black-strong py-5 px-4">
               <MDBRow className="d-flex justify-content-center">
                 <MDBCol md="10" xl="8">
-                  <MDBContainer
-                    className="accordion md-accordion accordion-5"
-                    style={{ resetPadding }}
-                  >
+                  <MDBContainer className="accordion md-accordion accordion-5" style={{ resetPadding }}>
                     <MDBCard className="mb-4">
                       <MDBCollapseHeader
                         onClick={this.toggleCollapse("collapse1")}
@@ -676,28 +541,18 @@ class AccordionPage extends Component {
                           className="d-flex justify-content-center align-items-center mr-4"
                           style={{ backgroundColor: "#fff", minWidth: "100px" }}
                         >
-                          <MDBIcon
-                            icon="cloud"
-                            size="2x"
-                            className="m-3 black-text"
-                          />
+                          <MDBIcon icon="cloud" size="2x" className="m-3 black-text" />
                         </div>
                         Item #1
                       </MDBCollapseHeader>
 
-                      <MDBCollapse
-                        id="collapse1"
-                        isOpen={this.state.collapseID}
-                      >
+                      <MDBCollapse id="collapse1" isOpen={this.state.collapseID}>
                         <MDBCardBody className="rgba-black-light white-text z-depth-1">
                           <p className="p-md-4 mb-0">
-                            Anim pariatur cliche reprehenderit, enim eiusmod
-                            high life accusamus terry richardson ad squid. 3
-                            wolf moon officia aute, non cupidatat skateboard
-                            dolor brunch. Food truck quinoa nesciunt laborum
-                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put
-                            a bird on it squid single-origin coffee nulla
-                            assumenda shoreditch et.
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
+                            ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                            quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on
+                            it squid single-origin coffee nulla assumenda shoreditch et.
                           </p>
                         </MDBCardBody>
                       </MDBCollapse>
@@ -714,28 +569,18 @@ class AccordionPage extends Component {
                           className="d-flex justify-content-center align-items-center mr-4"
                           style={{ backgroundColor: "#fff", minWidth: "100px" }}
                         >
-                          <MDBIcon
-                            icon="comment-alt"
-                            size="2x"
-                            className="m-3 black-text"
-                          />
+                          <MDBIcon icon="comment-alt" size="2x" className="m-3 black-text" />
                         </div>
                         Item #2
                       </MDBCollapseHeader>
 
-                      <MDBCollapse
-                        id="collapse18"
-                        isOpen={this.state.collapseID}
-                      >
+                      <MDBCollapse id="collapse18" isOpen={this.state.collapseID}>
                         <MDBCardBody className="rgba-black-light white-text z-depth-1">
                           <p className="p-md-4 mb-0">
-                            Anim pariatur cliche reprehenderit, enim eiusmod
-                            high life accusamus terry richardson ad squid. 3
-                            wolf moon officia aute, non cupidatat skateboard
-                            dolor brunch. Food truck quinoa nesciunt laborum
-                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put
-                            a bird on it squid single-origin coffee nulla
-                            assumenda shoreditch et.
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
+                            ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                            quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on
+                            it squid single-origin coffee nulla assumenda shoreditch et.
                           </p>
                         </MDBCardBody>
                       </MDBCollapse>
@@ -752,28 +597,18 @@ class AccordionPage extends Component {
                           className="d-flex justify-content-center align-items-center mr-4"
                           style={{ backgroundColor: "#fff", minWidth: "100px" }}
                         >
-                          <MDBIcon
-                            icon="cogs"
-                            size="2x"
-                            className="m-3 black-text"
-                          />
+                          <MDBIcon icon="cogs" size="2x" className="m-3 black-text" />
                         </div>
                         Item #3
                       </MDBCollapseHeader>
 
-                      <MDBCollapse
-                        id="collapse19"
-                        isOpen={this.state.collapseID}
-                      >
+                      <MDBCollapse id="collapse19" isOpen={this.state.collapseID}>
                         <MDBCardBody className="rgba-black-light white-text z-depth-1">
                           <p className="p-md-4 mb-0">
-                            Anim pariatur cliche reprehenderit, enim eiusmod
-                            high life accusamus terry richardson ad squid. 3
-                            wolf moon officia aute, non cupidatat skateboard
-                            dolor brunch. Food truck quinoa nesciunt laborum
-                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put
-                            a bird on it squid single-origin coffee nulla
-                            assumenda shoreditch et.
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
+                            ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck
+                            quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on
+                            it squid single-origin coffee nulla assumenda shoreditch et.
                           </p>
                         </MDBCardBody>
                       </MDBCollapse>

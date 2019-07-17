@@ -12,7 +12,7 @@ const TooltipsPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/tooltips/"
       />
 
-      <SectionContainer header="Position of tooltip" className="text-center p-5">
+      <SectionContainer header="Positioning" className="text-center p-5">
         <MDBTooltip placement="top">
           <MDBBtn>Top tooltip</MDBBtn>
           <div>MDBTooltip on top</div>
@@ -40,7 +40,7 @@ const TooltipsPage = () => {
         </MDBTooltip>
       </SectionContainer>
 
-      <SectionContainer header="Tooltip on text">
+      <SectionContainer header="On text">
         <p className="mt-4">
           Lorem ipsum dolor sit amet,
           <MDBTooltip
@@ -63,7 +63,7 @@ const TooltipsPage = () => {
         </p>
       </SectionContainer>
 
-      <SectionContainer header="Tooltip on click" flexCenter>
+      <SectionContainer header="On click" flexCenter>
         <MDBTooltip placement="top" clickable>
           <MDBBtn
             color="indigo"

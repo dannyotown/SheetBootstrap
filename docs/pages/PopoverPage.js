@@ -20,7 +20,7 @@ const PopoverPage = () => {
       />
 
       <SectionContainer
-        header="Popover with text"
+        header="With text"
         className="d-flex justify-content-center py-5"
       >
         <MDBPopover
@@ -84,7 +84,7 @@ const PopoverPage = () => {
       </SectionContainer>
 
       <SectionContainer
-        header="Popover with image"
+        header="With image"
         className="d-flex justify-content-center py-5"
       >
         <MDBPopover placement="left" popover isVisible clickable id="popper5">
