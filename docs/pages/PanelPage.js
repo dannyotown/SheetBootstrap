@@ -15,7 +15,6 @@ import {
   MDBNavItem,
   MDBNavLink,
   MDBCardGroup,
-  MDBJumbotron,
   MDBContainer
 } from "mdbreact";
 import DocsLink from "../components/docsLink";

@@ -11,7 +11,7 @@ const PaginationPage = props => {
       <MDBRow>
         <MDBCol>
           <SectionContainer header="Basic example" className="d-flex justify-content-center">
-            <MDBPagination style={{ marginTop: "1rem" }} style={{ marginTop: "1rem" }}>
+            <MDBPagination style={{ marginTop: "1rem" }}>
               <MDBPageItem disabled>
                 <MDBPageNav aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
