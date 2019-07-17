@@ -63,7 +63,7 @@ const TooltipsPage = () => {
         </p>
       </SectionContainer>
 
-      <SectionContainer header="Tooltip on click" className="pt-5">
+      <SectionContainer header="Tooltip on click" flexCenter>
         <MDBTooltip placement="top" clickable>
           <MDBBtn
             color="indigo"
