@@ -36,7 +36,7 @@ class NavbarPage extends Component {
           href="https://mdbootstrap.com/docs/react/navigation/navbar/"
         />
 
-        <SectionContainer title="Basic example">
+        <SectionContainer header="Basic example">
           <MDBNavbar color="indigo" dark expand="md">
             <MDBNavbarBrand>
               <strong className="white-text">Navbar</strong>
@@ -104,7 +104,7 @@ class NavbarPage extends Component {
           </MDBNavbar>
         </SectionContainer>
 
-        <SectionContainer title="Color schemes">
+        <SectionContainer header="Color schemes">
           <MDBNavbar
             color="bg-danger"
             style={{ marginTop: "20px" }}
@@ -293,7 +293,7 @@ class NavbarPage extends Component {
           </MDBNavbar>
         </SectionContainer>
 
-        <SectionContainer title="With dropdown">
+        <SectionContainer header="With dropdown">
           <MDBNavbar
             color="indigo"
             dark
@@ -439,7 +439,7 @@ class NavbarPage extends Component {
           </MDBNavbar>
         </SectionContainer>
 
-        <SectionContainer title="Supportet Content">
+        <SectionContainer header="Supportet Content">
           <MDBNavbar
             color="info-color"
             dark
