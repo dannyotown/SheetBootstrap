@@ -32,7 +32,7 @@ class ValidationPage extends Component {
         />
 
 
-        <SectionContainer title="Validations">
+        <SectionContainer header="Validations">
           <form
             className="needs-validation"
             onSubmit={this.submitHandler}
@@ -190,7 +190,7 @@ class ValidationPage extends Component {
         </SectionContainer>
         <hr className="my-5" />
 
-        <SectionContainer title="Browser defualt validation">
+        <SectionContainer header="Browser defualt validation">
           <form>
             <MDBRow>
               <MDBCol md="4">
@@ -278,7 +278,7 @@ class ValidationPage extends Component {
 
         <hr className="my-5" />
 
-        <SectionContainer title="Supported elements">
+        <SectionContainer header="Supported elements">
           <MDBCol md="4">
             <form className="was-validated" noValidate>
               <div className="custom-control custom-checkbox mb-3">
@@ -368,7 +368,7 @@ class ValidationPage extends Component {
 
         <hr className="my-5" />
       
-        <SectionContainer title="Tooltips">
+        <SectionContainer header="Tooltips">
           <MDBCol md="">
             <form
               className="needs-validation"

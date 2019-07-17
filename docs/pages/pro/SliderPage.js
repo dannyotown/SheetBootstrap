@@ -31,7 +31,7 @@ class SliderPage extends Component {
           href="https://mdbootstrap.com/docs/react/forms/slider/"
         />
 
-        <SectionContainer title="Example range">
+        <SectionContainer header="Example range">
           <div className="mb-3">
             <label htmlFor="customRange1">Example</label>
             <input type="range" className="custom-range" id="customRange1" />
@@ -40,7 +40,7 @@ class SliderPage extends Component {
         </SectionContainer>
 
         <SectionContainer
-          title="Slider with different width"
+          header="Slider with different width"
           className="d-flex flex-column"
         >
           <MDBRangeInput
@@ -73,7 +73,7 @@ class SliderPage extends Component {
           />
         </SectionContainer>
 
-        <SectionContainer title="With span">
+        <SectionContainer header="With span">
           <MDBRow center>
             <span className="font-weight-bold indigo-text mr-2">0</span>
             <MDBRangeInput
@@ -109,7 +109,7 @@ class SliderPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer title="Examples">
+        <SectionContainer header="Examples">
           <MDBRow className="my-5" center>
             <MDBCol sm="4">
               <MDBCard>

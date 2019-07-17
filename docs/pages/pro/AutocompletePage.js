@@ -310,7 +310,7 @@ class AutocompletePage extends Component {
           title="Autocomplete"
           href="https://mdbootstrap.com/docs/react/forms/autocomplete/"
         />
-        <SectionContainer title="Autocomplete">
+        <SectionContainer header="Autocomplete">
           <MDBAutocomplete
             data={states}
             label="Choose your favorite state"
@@ -327,7 +327,7 @@ class AutocompletePage extends Component {
 
         <hr className="my-5" />
 
-        <SectionContainer title="Autocomplete with register cart">
+        <SectionContainer header="Autocomplete with register cart">
           <MDBCol md="9" lg="7" xl="5" className="mx-auto mt-3">
             <MDBCard>
               <MDBCardBody className="mx-4">
@@ -417,7 +417,7 @@ class AutocompletePage extends Component {
 
         <hr className="my-5" />
 
-        <SectionContainer title="Autocomplete in Contact Form">
+        <SectionContainer header="Autocomplete in Contact Form">
           <MDBBtn onClick={this.toggle} rounded className="mx-auto">
             launch modal contact
           </MDBBtn>
