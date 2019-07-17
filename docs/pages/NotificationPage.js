@@ -12,7 +12,7 @@ class NotificationPage extends Component {
           href="https://mdbootstrap.com/docs/react/addons/notification/"
         />
 
-        <SectionContainer header="Default">
+        <SectionContainer header="Default"z>
           <MDBNotification
             iconClassName="text-primary"
             show

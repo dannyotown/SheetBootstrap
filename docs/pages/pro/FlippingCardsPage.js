@@ -36,7 +36,7 @@ class FlippingCardPage extends Component {
           href="https://mdbootstrap.com/plugins/react/flipping-cards/"
         />
 
-        <SectionContainer header="On click text">
+        <SectionContainer header="On click text" flexCenter>
           <MDBCol style={{ minHeight: "26rem", maxWidth: "22rem" }}>
             <MDBRotatingCard
               flipped={this.state.flipped1}
@@ -117,7 +117,7 @@ class FlippingCardPage extends Component {
           </MDBCol>
         </SectionContainer>
 
-        <SectionContainer header="On share icon">
+        <SectionContainer header="On share icon" flexCenter>
           <MDBCol style={{ minHeight: "26rem", maxWidth: "22rem" }}>
             <MDBRotatingCard
               flipped={this.state.flipped2}
