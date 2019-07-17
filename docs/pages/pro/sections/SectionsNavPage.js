@@ -21,6 +21,9 @@ const SectionsNavPage = () => {
                   <MenuLink to="/sections/contactform" title="Contact Form intro" />
                   <MenuLink to="/sections/classicform" title="Classic Register Form intro" />
                   <MenuLink to="/sections/videobackground" title="Video Background intro" />
+                  <MenuLink to="/sections/minimalistic-intro" title="Minimalistic Intro" />
+                  <MenuLink to="/sections/parallax-intro" title="Parallax Effect Intro" />
+                  <MenuLink to="/sections/call-to-action-intro" title="Call to Action Intro" />
                   <MenuLink to="/sections/contact" title="Contact" />
                   <MenuLink to="/sections/blog" title="Blog" />
                   <MenuLink to="/sections/ecommerce" title="E-commerce" />
@@ -30,9 +33,6 @@ const SectionsNavPage = () => {
                   <MenuLink to="/sections/social" title="Social" />
                   <MenuLink to="/sections/team" title="Team" />
                   <MenuLink to="/sections/testimonials" title="Testimonials" />
-                  <MenuLink to="/sections/minimalistic-intro" title="Minimalistic Intro" />
-                  <MenuLink to="/sections/parallax-intro" title="Parallax Effect Intro" />
-                  <MenuLink to="/sections/call-to-action-intro" title="Call to Action Intro" />
                 </ul>
               </MDBJumbotron>
             </MDBCol>

@@ -19,7 +19,7 @@ const ContactPage = () => {
         title="Contact Sections"
         href="https://mdbootstrap.com/docs/react/sections/contact/"
       />
-      <SectionContainer tag="section" title="Basic example">
+      <SectionContainer tag="section" header="Basic example">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Contact us
         </h2>
@@ -101,7 +101,7 @@ const ContactPage = () => {
 
       <SectionContainer
         tag="section"
-        title="Contact information"
+        header="Contact information"
         className="contact-section"
       >
         <MDBCard>
@@ -214,7 +214,7 @@ const ContactPage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="With map">
+      <SectionContainer tag="section" header="With map">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Contact us
         </h2>

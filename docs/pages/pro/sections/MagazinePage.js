@@ -26,7 +26,7 @@ const MagazinePage = () => {
         href="https://mdbootstrap.com/docs/react/sections/magazine/"
       />
 
-      <SectionContainer title="Magazine newsfeed v.1" noBorder>
+      <SectionContainer header="Magazine newsfeed v.1" noBorder>
         <MDBCard
           className="my-5 px-5 mx-auto"
           style={{ fontWeight: 300, maxWidth: "90%" }}
@@ -331,7 +331,7 @@ const MagazinePage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <SectionContainer title="Magazine newsfeed v.2" noBorder>
+      <SectionContainer header="Magazine newsfeed v.2" noBorder>
         <MDBCard
           className="my-5 px-5 mx-auto"
           style={{ fontWeight: 300, maxWidth: "90%" }}
@@ -533,7 +533,7 @@ const MagazinePage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <SectionContainer title="Magazine newsfeed v.3" noBorder>
+      <SectionContainer header="Magazine newsfeed v.3" noBorder>
         <MDBCard
           className="my-5 px-5 mx-auto"
           style={{ fontWeight: 300, maxWidth: "90%" }}
