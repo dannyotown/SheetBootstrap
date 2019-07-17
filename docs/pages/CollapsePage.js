@@ -22,7 +22,7 @@ class CollapsePage extends Component {
           href="https://mdbootstrap.com/docs/react/advanced/collapse/"
         />
 
-        <SectionContainer title="Basic examples">
+        <SectionContainer header="Basic examples">
           <MDBBtn
             color="primary"
             onClick={this.toggleCollapse("basicCollapse")}
@@ -47,7 +47,7 @@ class CollapsePage extends Component {
           </MDBCollapse>
         </SectionContainer>
 
-        <SectionContainer title="Accordion without icon">
+        <SectionContainer header="Accordion without icon">
           <div>
             <div>
               <MDBBtn

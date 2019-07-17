@@ -56,7 +56,7 @@ class LightboxPage extends Component {
           title="Lightbox"
           href="https://mdbootstrap.com/docs/react/advanced/lightbox/"
         />
-        <SectionContainer title="Lightbox example" className="p-4">
+        <SectionContainer header="Lightbox example" className="p-4">
           <div className="mdb-lightbox no-margin">
             <MDBRow>
               {this.renderImages()}

@@ -170,27 +170,27 @@ const ChartsPage = () => {
         href="https://mdbootstrap.com/docs/react/advanced/charts/"
       />
 
-      <SectionContainer title="Line chart">
+      <SectionContainer header="Line chart">
         <Line data={dataLine} options={{ responsive: true }} />
       </SectionContainer>
 
-      <SectionContainer title="Radar chart">
+      <SectionContainer header="Radar chart">
         <Radar data={dataRadar} options={{ responsive: true }} />
       </SectionContainer>
 
-      <SectionContainer title="Bar chart">
+      <SectionContainer header="Bar chart">
         <Bar data={dataBar} options={barChartOptions} />
       </SectionContainer>
 
-      <SectionContainer title="Polar chart">
+      <SectionContainer header="Polar chart">
         <Polar data={dataPolar} options={{ responsive: true }} />
       </SectionContainer>
 
-      <SectionContainer title="Pie chart">
+      <SectionContainer header="Pie chart">
         <Pie data={dataPie} options={{ responsive: true }} />
       </SectionContainer>
 
-      <SectionContainer title="Doughnut chart">
+      <SectionContainer header="Doughnut chart">
         <Doughnut data={dataDoughnut} options={{ responsive: true }} />
       </SectionContainer>
     </MDBContainer>

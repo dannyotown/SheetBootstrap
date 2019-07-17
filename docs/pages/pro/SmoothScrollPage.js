@@ -31,7 +31,7 @@ class NavbarPage extends Component {
           title="SmoothScroll"
           href="https://mdbootstrap.com/docs/react/advanced/scroll"
         />
-        <SectionContainer title="SmoothScroll with NavBar" className="p-5">
+        <SectionContainer header="SmoothScroll with NavBar" className="p-5">
           <MDBSmoothScroll
             size="lg"
             fixed
