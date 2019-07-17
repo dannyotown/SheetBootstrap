@@ -27,7 +27,7 @@ const EcommercePage = () => {
         title="eCommerce Sections"
         href="https://mdbootstrap.com/docs/react/sections/e-commerce/"
       />
-      <SectionContainer tag="section" title="Product card v.1">
+      <SectionContainer tag="section" header="Product card v.1">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
@@ -280,7 +280,7 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Product card v.2">
+      <SectionContainer tag="section" header="Product card v.2">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
@@ -410,7 +410,7 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Product card v.3" className="text-center">
+      <SectionContainer tag="section" header="Product card v.3" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
@@ -529,7 +529,7 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Product card v.4" className="text-center">
+      <SectionContainer tag="section" header="Product card v.4" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
@@ -614,7 +614,7 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Product card v.5" className="text-center">
+      <SectionContainer tag="section" header="Product card v.5" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our bestsellers
         </h2>
@@ -977,7 +977,7 @@ const EcommercePage = () => {
         </MDBCarousel>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Our pricing v.1" className="text-center">
+      <SectionContainer tag="section" header="Our pricing v.1" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
@@ -1125,7 +1125,7 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Our pricing v.2" className="text-center">
+      <SectionContainer tag="section" header="Our pricing v.2" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
@@ -1282,7 +1282,7 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Our pricing v.3" className="text-center">
+      <SectionContainer tag="section" header="Our pricing v.3" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
@@ -1356,7 +1356,7 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Our pricing v.4" className="text-center">
+      <SectionContainer tag="section" header="Our pricing v.4" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
@@ -1429,7 +1429,7 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Our pricing v.5" className="text-center">
+      <SectionContainer tag="section" header="Our pricing v.5" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>
@@ -1570,7 +1570,7 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" title="Our pricing v.6" className="text-center">
+      <SectionContainer tag="section" header="Our pricing v.6" className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our pricing plans
         </h2>

@@ -20,7 +20,7 @@ const TeamPage = () => {
         href="https://mdbootstrap.com/docs/react/sections/team/"
       />
 
-      <SectionContainer title="Team v.1" noBorder>
+      <SectionContainer header="Team v.1" noBorder>
         <MDBCard className="my-5 px-5 pb-5 text-center">
           <MDBCardBody>
             <h2 className="h1-responsive font-weight-bold my-5">
@@ -137,7 +137,7 @@ const TeamPage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <SectionContainer title="Team v.2" noBorder>
+      <SectionContainer header="Team v.2" noBorder>
         <MDBCard className="my-5 px-1 pb-5 text-center">
           <MDBCardBody>
             <h2 className="h1-responsive font-weight-bold my-5">
@@ -241,7 +241,7 @@ const TeamPage = () => {
         </MDBCard>
       </SectionContainer>
 
-      <SectionContainer title="Team v.3" noBorder>
+      <SectionContainer header="Team v.3" noBorder>
         <MDBCard className="my-5 px-5 pb-1 text-center">
           <MDBCardBody>
             <h2 className="h1-responsive font-weight-bold my-5">

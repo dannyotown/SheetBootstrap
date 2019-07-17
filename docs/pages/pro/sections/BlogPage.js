@@ -20,7 +20,7 @@ const BlogPage = () => {
         title="Blog Sections"
         href="https://mdbootstrap.com/docs/react/sections/blog/"
       />
-      <SectionContainer title="Blog listing v.1" noBorder>
+      <SectionContainer header="Blog listing v.1" noBorder>
         <MDBCard className="my-5 px-5 pb-5">
           <MDBCardBody>
             <h2 className="h1-responsive font-weight-bold text-center my-5">
@@ -167,7 +167,7 @@ const BlogPage = () => {
 
       <hr className="my-5" />
 
-      <SectionContainer title="Blog listing v.2" noBorder>
+      <SectionContainer header="Blog listing v.2" noBorder>
         <MDBCard className="my-5 px-5 pb-5">
           <MDBCardBody className="text-center">
             <h2 className="h1-responsive font-weight-bold text-center my-5">
@@ -288,7 +288,7 @@ const BlogPage = () => {
 
       <hr className="my-5" />
 
-      <SectionContainer title="Blog listing v.3" noBorder>
+      <SectionContainer header="Blog listing v.3" noBorder>
         <MDBCard className="my-5 px-5 pb-5">
           <MDBCardBody>
             <h2 className="h1-responsive font-weight-bold text-center my-5">
@@ -416,7 +416,7 @@ const BlogPage = () => {
 
       <hr className="my-5" />
 
-      <SectionContainer title="Blog listing v.4" noBorder>
+      <SectionContainer header="Blog listing v.4" noBorder>
         <MDBCard className="my-5 px-5 pb-5">
           <MDBCardBody>
             <MDBRow>

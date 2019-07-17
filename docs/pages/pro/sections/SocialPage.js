@@ -36,7 +36,7 @@ class SocialPage extends Component {
           title="Social Sections"
           href="https://mdbootstrap.com/docs/react/sections/social/"
         />
-        <SectionContainer title="Social newsfeed v.1" noBorder>
+        <SectionContainer header="Social newsfeed v.1" noBorder>
           <MDBCard
             className="my-5 px-5 pt-4"
             style={{ fontWeight: 300, maxWidth: 600 }}
@@ -205,7 +205,7 @@ class SocialPage extends Component {
             </MDBCardBody>
           </MDBCard>
         </SectionContainer>
-        <SectionContainer title="Social newsfeed v.2" noBorder>
+        <SectionContainer header="Social newsfeed v.2" noBorder>
           <MDBCard
             className="my-5 px-5 pt-4"
             style={{ fontWeight: 300, maxWidth: 600 }}
@@ -567,7 +567,7 @@ class SocialPage extends Component {
             </MDBCardBody>
           </MDBCard>
         </SectionContainer>
-        <SectionContainer title="Personal card" noBorder>
+        <SectionContainer header="Personal card" noBorder>
           <MDBRow>
             <MDBCol md="6" lg="4">
               <MDBCard personal className="my-5">
@@ -598,7 +598,7 @@ class SocialPage extends Component {
             </MDBCol>
           </MDBRow>
         </SectionContainer>
-        <SectionContainer title="Social news car" noBorder>
+        <SectionContainer header="Social news car" noBorder>
           <MDBRow>
             <MDBCol md="6" lg="4">
               <MDBCard news className="my-5">
@@ -637,7 +637,7 @@ class SocialPage extends Component {
             </MDBCol>
           </MDBRow>
         </SectionContainer>
-        <SectionContainer title="Social card with vide" noBorder>
+        <SectionContainer header="Social card with vide" noBorder>
           <MDBRow>
             <MDBCol md="6" lg="4">
               <MDBCard news className="my-5">
@@ -682,7 +682,7 @@ class SocialPage extends Component {
             </MDBCol>
           </MDBRow>
         </SectionContainer>
-        <SectionContainer title="Group of personal card">
+        <SectionContainer header="Group of personal card">
           <MDBRow>
             <MDBCol md="12">
               <div className="card-group my-5">
