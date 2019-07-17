@@ -92,7 +92,7 @@ class NavsPage extends Component {
             </MDBCol>
             <MDBCol md="6">
               <SectionContainer className="pb-4">
-                <MDBNav pills className="nav-justified" className="mb-2">
+                <MDBNav pills className="nav-justified mb-2">
                   <MDBNavItem>
                     <MDBNavLink active to="#!">
                       Active

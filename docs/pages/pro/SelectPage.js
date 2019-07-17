@@ -11,7 +11,6 @@ import {
 } from "mdbreact";
 import DocsLink from "../../components/docsLink";
 import SectionContainer from "../../components/sectionContainer";
-import { MDBIcon } from "../../../src/components/Fa";
 
 class SelectPage extends Component {
   state = {
