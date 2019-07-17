@@ -10,7 +10,7 @@ const ScrollBarPage = () => {
     <MDBContainer>
       <DocsLink title="ScrollBar" href="https://mdbootstrap.com/docs/react/" />
 
-      <SectionContainer header="Example with primary color" className="p-5">
+      <SectionContainer header="With primary color" className="p-5">
         <div style={outerContainerStyle} className="mx-auto">
           <MDBScrollbar className="scrollbar-primary">
             <img
@@ -21,7 +21,7 @@ const ScrollBarPage = () => {
         </div>
       </SectionContainer>
 
-      <SectionContainer header="Example with default color" className="p-5">
+      <SectionContainer header="With default color" className="p-5">
         <div style={outerContainerStyle} className="mx-auto">
           <MDBScrollbar>
             <img
