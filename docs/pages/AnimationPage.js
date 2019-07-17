@@ -7,6 +7,7 @@ import {
   MDBSelect
 } from "mdbreact";
 import DocsLink from "../components/docsLink";
+import SectionContainer from "../components/sectionContainer";
 
 class AnimationPage extends React.Component {
   constructor(props) {
@@ -203,7 +204,9 @@ class AnimationPage extends React.Component {
     );
   };
 
-  setAnimation = ({ animations, infinite, loop, duration, delay } = this.state) => {
+  setAnimation = (
+    { animations, infinite, loop, duration, delay } = this.state
+  ) => {
     this.setState({
       animation: this.animation(animations, infinite, loop, duration, delay)
     });
@@ -229,8 +232,8 @@ class AnimationPage extends React.Component {
       this.setAnimation()
     );
 
-    render() {
-      const { animation, selects } = this.state;
+  render() {
+    const { animation, selects } = this.state;
     return (
       <MDBContainer className="mt-5">
         <DocsLink
@@ -238,283 +241,273 @@ class AnimationPage extends React.Component {
           href="https://mdbootstrap.com/docs/react/css/animations/"
         />
 
-        <h2>Examples & customizations</h2>
-        <MDBRow>
-          <MDBCol tag="section">
-            <MDBContainer className="border p-3">
-              <MDBRow className="d-flex align-items-center justify-content-center">
-                {animation}
-              </MDBRow>
-              <MDBRow className="d-flex justify-content-center">
-                <MDBCol md="2">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getValue={this.getCount}
-                    getTextContent={this.renderAnimation}
-                    options={selects.count}
-                    label="Loops"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="2">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getDuration}
-                    options={selects.duration}
-                    label="Duration"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="2">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getDelay}
-                    options={selects.delay}
-                    label="Delay"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-              </MDBRow>
-              <hr className="my-4" />
+        <SectionContainer header="Examples & customizations">
+          <MDBRow className="d-flex align-items-center justify-content-center">
+            {animation}
+          </MDBRow>
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="2">
+              <MDBSelect
+                outline
+                color="ins"
+                getValue={this.getCount}
+                getTextContent={this.renderAnimation}
+                options={selects.count}
+                label="Loops"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="2">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getDuration}
+                options={selects.duration}
+                label="Duration"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="2">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getDelay}
+                options={selects.delay}
+                label="Delay"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+          </MDBRow>
+          <hr className="my-4" />
 
-              <MDBRow className="d-flex flex-wrap">
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.attentionSeekers}
-                    label="ATTENTION SPEEKERS"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.specials}
-                    label="FLIPPERS"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.bouncingEntrances}
-                    label="BOUNCING ENTRANCES"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.bouncingExits}
-                    label="BOUNCING EXITS"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.fadingEntrances}
-                    label="FADING ENTRANCES"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.fadingExits}
-                    label="FADING EXITS"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.flippers}
-                    label="FLIPPERS"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.lightSpeed}
-                    label="LIGHT SPEED"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.rotatingEntrances}
-                    label="ROTATING ENTRANCES"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.rotatingExits}
-                    label="ROTATING EXITS"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.slidingEntrances}
-                    label="SLIDING ENTRANCES"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.slidingExits}
-                    label="SLIDING EXITS"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.zoomEntrances}
-                    label="ZOOM ENTRANCES"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-                <MDBCol md="6">
-                  <MDBSelect
-                    outline
-                    color="ins"
-                    getTextContent={this.getValueOfSelect}
-                    options={selects.zoomExits}
-                    label="ZOOM EXITS"
-                    labelClass="labelBg"
-                    className="my-0"
-                  />
-                </MDBCol>
-              </MDBRow>
-            </MDBContainer>
-          </MDBCol>
-        </MDBRow>
+          <MDBRow className="d-flex flex-wrap">
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.attentionSeekers}
+                label="ATTENTION SPEEKERS"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.specials}
+                label="FLIPPERS"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.bouncingEntrances}
+                label="BOUNCING ENTRANCES"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.bouncingExits}
+                label="BOUNCING EXITS"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.fadingEntrances}
+                label="FADING ENTRANCES"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.fadingExits}
+                label="FADING EXITS"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.flippers}
+                label="FLIPPERS"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.lightSpeed}
+                label="LIGHT SPEED"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.rotatingEntrances}
+                label="ROTATING ENTRANCES"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.rotatingExits}
+                label="ROTATING EXITS"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.slidingEntrances}
+                label="SLIDING ENTRANCES"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.slidingExits}
+                label="SLIDING EXITS"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.zoomEntrances}
+                label="ZOOM ENTRANCES"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                color="ins"
+                getTextContent={this.getValueOfSelect}
+                options={selects.zoomExits}
+                label="ZOOM EXITS"
+                labelClass="labelBg"
+                className="my-0"
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h2 style={{marginTop: "150px"}}>Reveal animations when scrolling</h2>
-        <MDBRow className="mb-5">
-          <MDBCol tag="section">
-            <MDBContainer className="border p-3">
-              <MDBRow className="mb-4">
-                <MDBCol md="4">
-                  <MDBAnimation reveal type="bounceInUp">
-                    <img
-                      alt="A view on mountains."
-                      className="img-fluid"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(31).jpg"
-                    />
-                  </MDBAnimation>
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBAnimation reveal type="tada">
-                    <img
-                      alt="Cottage on a lake surrounded by mountains."
-                      className="img-fluid"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(32).jpg"
-                    />
-                  </MDBAnimation>
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBAnimation reveal type="fadeInLeft">
-                    <img
-                      alt="A boat floating on an ocean"
-                      className="img-fluid"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
-                    />
-                  </MDBAnimation>
-                </MDBCol>
-              </MDBRow>
+        <SectionContainer header="Reveal animations when scrolling">
+          <MDBRow className="mb-4">
+            <MDBCol md="4">
+              <MDBAnimation reveal type="bounceInUp">
+                <img
+                  alt="A view on mountains."
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(31).jpg"
+                />
+              </MDBAnimation>
+            </MDBCol>
+            <MDBCol md="4">
+              <MDBAnimation reveal type="tada">
+                <img
+                  alt="Cottage on a lake surrounded by mountains."
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(32).jpg"
+                />
+              </MDBAnimation>
+            </MDBCol>
+            <MDBCol md="4">
+              <MDBAnimation reveal type="fadeInLeft">
+                <img
+                  alt="A boat floating on an ocean"
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+                />
+              </MDBAnimation>
+            </MDBCol>
+          </MDBRow>
 
-              <MDBRow className="mb-4">
-                <MDBCol md="4">
-                  <MDBAnimation reveal type="fadeInRight">
-                    <img
-                      alt="View on mountains from mountain top."
-                      className="img-fluid"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                    />
-                  </MDBAnimation>
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBAnimation reveal type="fadeInRight">
-                    <img
-                      alt="Rocky shore in the morning."
-                      className="img-fluid"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(14).jpg"
-                    />
-                  </MDBAnimation>
-                </MDBCol>
-                <MDBCol md="4">
-                  <MDBAnimation
-                    reveal
-                    type="fadeInUp"
-                    onAnimationEnd={() =>
-                      console.log("The last picture has been revealed")
-                    }
-                  >
-                    <img
-                      alt="Rocky shore in the morning."
-                      className="img-fluid"
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
-                    />
-                  </MDBAnimation>
-                </MDBCol>
-              </MDBRow>
-            </MDBContainer>
-          </MDBCol>
-        </MDBRow>
+          <MDBRow className="mb-4">
+            <MDBCol md="4">
+              <MDBAnimation reveal type="fadeInRight">
+                <img
+                  alt="View on mountains from mountain top."
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                />
+              </MDBAnimation>
+            </MDBCol>
+            <MDBCol md="4">
+              <MDBAnimation reveal type="fadeInRight">
+                <img
+                  alt="Rocky shore in the morning."
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(14).jpg"
+                />
+              </MDBAnimation>
+            </MDBCol>
+            <MDBCol md="4">
+              <MDBAnimation
+                reveal
+                type="fadeInUp"
+                onAnimationEnd={() =>
+                  console.log("The last picture has been revealed")
+                }
+              >
+                <img
+                  alt="Rocky shore in the morning."
+                  className="img-fluid"
+                  src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+                />
+              </MDBAnimation>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
       </MDBContainer>
     );
   }
