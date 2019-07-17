@@ -37,7 +37,7 @@ class ModalFormPage extends Component {
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
 
-        <SectionContainer title="Simple modal login">
+        <SectionContainer header="Simple modal login">
           <MDBBtn rounded onClick={this.toggle(1)}>
             Launch Modal Login Form
           </MDBBtn>
@@ -75,7 +75,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Simple Modal register">
+        <SectionContainer header="Simple Modal register">
           <MDBBtn rounded onClick={this.toggle(2)}>
             Launch Modal Register Form
           </MDBBtn>
@@ -124,7 +124,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Simple modal subscription">
+        <SectionContainer header="Simple modal subscription">
           <MDBBtn rounded onClick={this.toggle(3)}>
             Launch Modal subscription Form
           </MDBBtn>
@@ -165,7 +165,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Simple modal contact">
+        <SectionContainer header="Simple modal contact">
           <MDBBtn rounded onClick={this.toggle(4)}>
             Launch Modal Contact Form
           </MDBBtn>
@@ -213,7 +213,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal with avatar">
+        <SectionContainer header="Modal with avatar">
           <MDBBtn rounded onClick={this.toggle(5)}>
             Launch Modal Login With Avatar
           </MDBBtn>
@@ -251,7 +251,7 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Subscription modal with orange header">
+        <SectionContainer header="Subscription modal with orange header">
           <MDBBtn rounded onClick={this.toggle(6)}>
             Launch Modal Subscription
           </MDBBtn>

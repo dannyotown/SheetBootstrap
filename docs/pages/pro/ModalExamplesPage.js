@@ -65,7 +65,7 @@ class ModalExamplesPage extends Component {
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
 
-        <SectionContainer title="Modal Poll">
+        <SectionContainer header="Modal Poll">
           <MDBBtn onClick={this.toggle(9)}>Launch Modal</MDBBtn>
           <MDBModal
             fullHeight
@@ -130,7 +130,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Product">
+        <SectionContainer header="Modal Product">
           <MDBBtn onClick={this.toggle(13)}>Launch Modal</MDBBtn>
           <MDBModal
             size="lg"
@@ -305,7 +305,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer title="Modal Social share">
+        <SectionContainer header="Modal Social share">
           <MDBBtn onClick={this.toggle(8)}>Launch Modal</MDBBtn>
           <MDBModal
             cascading
