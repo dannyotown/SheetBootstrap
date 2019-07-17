@@ -10,9 +10,20 @@ let SectionContainer = ({
   noBorder,
   noBottom,
   style,
-  title
+  title,
+  flexCenter,
+  flexCenterVert,
+  flexColumn
 }) => {
-  const classes = classNames("section", !noBottom && "mb-5", !noBorder ? "border p-3" : "px-0", className);
+  const classes = classNames(
+    "section",
+    !noBottom && "mb-5",
+    !noBorder ? "border p-3" : "px-0",
+    flexCenter && "d-flex justify-content-center align-items-center",
+    flexCenterVert && "d-flex align-items-center",
+    flexColumn && "flex-column",
+    className
+  );
 
   description = description ? <p>{description}</p> : "";
   title = title ? <h2 className="mb-3">{title}</h2> : "";
