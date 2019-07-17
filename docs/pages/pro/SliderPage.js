@@ -26,92 +26,43 @@ class SliderPage extends Component {
   render() {
     return (
       <MDBContainer className="my-5">
-        <DocsLink
-          title="Slider"
-          href="https://mdbootstrap.com/docs/react/forms/slider/"
-        />
+        <DocsLink title="Slider" href="https://mdbootstrap.com/docs/react/forms/slider/" />
 
-        <SectionContainer header="Example range">
-          <div className="mb-3">
-            <label htmlFor="customRange1">Example</label>
+        <SectionContainer header="Basic examples">
+          <div className="my-3">
             <input type="range" className="custom-range" id="customRange1" />
           </div>
           <MDBRangeInput min={0} max={100} value={50} />
         </SectionContainer>
 
-        <SectionContainer
-          header="Slider with different width"
-          className="d-flex flex-column"
-        >
-          <MDBRangeInput
-            getValue={this.handleChange}
-            min={0}
-            max={100}
-            value={50}
-            formClassName="w-25"
-          />
-          <MDBRangeInput
-            getValue={this.handleChange}
-            min={0}
-            max={100}
-            value={50}
-            formClassName="w-50"
-          />
-          <MDBRangeInput
-            getValue={this.handleChange}
-            min={0}
-            max={100}
-            value={50}
-            formClassName="w-75"
-          />
-          <MDBRangeInput
-            getValue={this.handleChange}
-            min={0}
-            max={100}
-            value={50}
-            formClassName="w-100"
-          />
+        <SectionContainer header="With different width" className="d-flex flex-column">
+          <MDBRangeInput getValue={this.handleChange} min={0} max={100} value={50} formClassName="w-25" />
+          <MDBRangeInput getValue={this.handleChange} min={0} max={100} value={50} formClassName="w-50" />
+          <MDBRangeInput getValue={this.handleChange} min={0} max={100} value={50} formClassName="w-75" />
+          <MDBRangeInput getValue={this.handleChange} min={0} max={100} value={50} formClassName="w-100" />
         </SectionContainer>
 
         <SectionContainer header="With span">
           <MDBRow center>
             <span className="font-weight-bold indigo-text mr-2">0</span>
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-25"
-            />
+            <MDBRangeInput getValue={this.handleChange} min={0} max={100} value={50} formClassName="w-25" />
             <span className="font-weight-bold indigo-text ml-2">100</span>
           </MDBRow>
           <MDBRow center>
             <span className="font-weight-bold blue-text mr-2">0</span>
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-50"
-            />
+            <MDBRangeInput getValue={this.handleChange} min={0} max={100} value={50} formClassName="w-50" />
             <span className="font-weight-bold blue-text ml-2">100</span>
           </MDBRow>
           <MDBRow center>
             <span className="font-weight-bold purple-text mr-2">0</span>
-            <MDBRangeInput
-              getValue={this.handleChange}
-              min={0}
-              max={100}
-              value={50}
-              formClassName="w-75"
-            />
+            <MDBRangeInput getValue={this.handleChange} min={0} max={100} value={50} formClassName="w-75" />
             <span className="font-weight-bold purple-text ml-2">100</span>
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer header="Examples">
+        <SectionContainer header="Additional examples">
           <MDBRow className="my-5" center>
-            <MDBCol sm="4">
+            <MDBCol md="6">
               <MDBCard>
                 <MDBCardBody>
                   <h3 className="text-center font-weight-bold blue-text mt-3 mb-4 pb-4">
@@ -152,7 +103,7 @@ class SliderPage extends Component {
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>
-            <MDBCol sm="4">
+            <MDBCol md="6">
               <MDBCard>
                 <MDBCardImage
                   top
@@ -166,52 +117,19 @@ class SliderPage extends Component {
                   <MDBCardTitle>Choose your slider option</MDBCardTitle>
                   <hr />
                   <MDBRow className="my-4" center>
-                    <MDBIcon
-                      className="font-weight-bold blue-text mr-2 mt-1"
-                      icon="thumbs-down"
-                    />
-                    <MDBRangeInput
-                      min={0}
-                      max={100}
-                      value={50}
-                      formClassName="w-75"
-                    />
-                    <MDBIcon
-                      className="font-weight-bold blue-text ml-2 mt-1"
-                      icon="thumbs-up"
-                    />
+                    <MDBIcon className="font-weight-bold blue-text mr-2 mt-1" icon="thumbs-down" />
+                    <MDBRangeInput min={0} max={100} value={50} formClassName="w-75" />
+                    <MDBIcon className="font-weight-bold blue-text ml-2 mt-1" icon="thumbs-up" />
                   </MDBRow>
                   <MDBRow className="my-4" center>
-                    <MDBIcon
-                      className="font-weight-bold indigo-text mr-2 mt-1"
-                      icon="dollar-sign"
-                    />
-                    <MDBRangeInput
-                      min={0}
-                      max={100}
-                      value={50}
-                      formClassName="w-75"
-                    />
-                    <MDBIcon
-                      className="font-weight-bold indigo-text ml-2 mt-1"
-                      icon="euro-sign"
-                    />
+                    <MDBIcon className="font-weight-bold indigo-text mr-2 mt-1" icon="dollar-sign" />
+                    <MDBRangeInput min={0} max={100} value={50} formClassName="w-75" />
+                    <MDBIcon className="font-weight-bold indigo-text ml-2 mt-1" icon="euro-sign" />
                   </MDBRow>
                   <MDBRow className="my-4" center>
-                    <MDBIcon
-                      className="font-weight-bold indigo-text mr-2 mt-1"
-                      icon="minus"
-                    />
-                    <MDBRangeInput
-                      min={0}
-                      max={100}
-                      value={50}
-                      formClassName="w-75"
-                    />
-                    <MDBIcon
-                      className="font-weight-bold indigo-text ml-2 mt-1"
-                      icon="plus"
-                    />
+                    <MDBIcon className="font-weight-bold indigo-text mr-2 mt-1" icon="minus" />
+                    <MDBRangeInput min={0} max={100} value={50} formClassName="w-75" />
+                    <MDBIcon className="font-weight-bold indigo-text ml-2 mt-1" icon="plus" />
                   </MDBRow>
                 </MDBCardBody>
               </MDBCard>

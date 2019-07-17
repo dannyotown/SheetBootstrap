@@ -104,13 +104,10 @@ class SelectPage extends Component {
   render() {
     return (
       <MDBContainer>
-        <DocsLink
-          title="Select"
-          href="https://mdbootstrap.com/docs/react/forms/select/"
-        />
+        <DocsLink title="Select" href="https://mdbootstrap.com/docs/react/forms/select/" />
 
         <SectionContainer title="Controlled Select" header="Basic example">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect
                 color="primary"
@@ -123,7 +120,8 @@ class SelectPage extends Component {
             </MDBCol>
           </MDBRow>
         </SectionContainer>
-        <SectionContainer header="Basic outline example">
+
+        <SectionContainer header="Basic outline example" flexCenter>
           <MDBCol md="6">
             <MDBSelect
               outline
@@ -138,7 +136,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Search enabled">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect
                 search
@@ -154,7 +152,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Multiple select">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect
                 search
@@ -171,7 +169,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Colorful select">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect
                 search
@@ -188,7 +186,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Select All option">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect
                 selectAll
@@ -206,7 +204,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Without label">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect
                 outline
@@ -223,7 +221,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Without color">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect
                 selectAll
@@ -239,7 +237,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="With required property">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <form onSubmit={e => e.preventDefault()}>
                 <MDBSelect
@@ -253,16 +251,18 @@ class SelectPage extends Component {
                   label="With required property"
                   required
                 />
-                <MDBBtn type="submit" color={this.state.submitBtnColor}>
-                  Submit
-                </MDBBtn>
+                <MDBCol className="d-flex justify-content-center">
+                  <MDBBtn type="submit" color={this.state.submitBtnColor}>
+                    Submit
+                  </MDBBtn>
+                </MDBCol>
               </form>
             </MDBCol>
           </MDBRow>
         </SectionContainer>
 
         <SectionContainer header="Dynamically change state">
-          <MDBRow className="flex-column">
+          <MDBRow className="d-flex justify-content-center flex-column align-items-center">
             <MDBCol md="6">
               <MDBSelect
                 selectAll
@@ -278,15 +278,11 @@ class SelectPage extends Component {
                 labelClass="labelBg"
               />
             </MDBCol>
-            <MDBCol md="6">
+            <MDBCol md="6" className="d-flex justify-content-center">
               <MDBBtn onClick={this.addOption} color="success">
                 Add option
               </MDBBtn>
-              <MDBBtn
-                onClick={this.removeOption}
-                color="danger"
-                disabled={this.state.disabled}
-              >
+              <MDBBtn onClick={this.removeOption} color="danger" disabled={this.state.disabled}>
                 Remove option
               </MDBBtn>
             </MDBCol>
@@ -296,7 +292,7 @@ class SelectPage extends Component {
         <hr className="my-5 mdb-color lighten-3" />
 
         <SectionContainer title="Uncontrolled Select" header="Basic example">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect
                 getValue={this.getValueOfSelect}
@@ -316,8 +312,9 @@ class SelectPage extends Component {
             </MDBCol>
           </MDBRow>
         </SectionContainer>
+
         <SectionContainer header="Basic outline example">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol size="6">
               <MDBSelect
                 getValue={this.getValueOfSelect}
@@ -341,7 +338,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Multiple select">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect
                 getValue={this.getValueOfSelect}
@@ -352,21 +349,13 @@ class SelectPage extends Component {
                 <MDBSelectInput selected="Choose your option" />
                 <MDBSelectOptions search>
                   <MDBSelectOption disabled>Choose your option</MDBSelectOption>
-                  <MDBSelectOption value="value nr 1">
-                    Option nr 1
-                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 1">Option nr 1</MDBSelectOption>
                   <MDBSelectOption selected value="value nr 2">
                     Option nr 2
                   </MDBSelectOption>
-                  <MDBSelectOption value="value nr 3">
-                    Option nr 3
-                  </MDBSelectOption>
-                  <MDBSelectOption value="value nr 4">
-                    Option nr 4
-                  </MDBSelectOption>
-                  <MDBSelectOption value="value nr 5">
-                    Option nr 5
-                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 3">Option nr 3</MDBSelectOption>
+                  <MDBSelectOption value="value nr 4">Option nr 4</MDBSelectOption>
+                  <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
                 </MDBSelectOptions>
               </MDBSelect>
             </MDBCol>
@@ -374,31 +363,17 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Colorful select">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center ">
             <MDBCol md="6">
-              <MDBSelect
-                getValue={this.getValueOfSelect}
-                color="primary"
-                label="Blue select"
-              >
+              <MDBSelect getValue={this.getValueOfSelect} color="primary" label="Blue select">
                 <MDBSelectInput selected="Choose your option" />
                 <MDBSelectOptions>
                   <MDBSelectOption disabled>Choose your option</MDBSelectOption>
-                  <MDBSelectOption value="value nr 1">
-                    Option nr 1
-                  </MDBSelectOption>
-                  <MDBSelectOption value="value nr 2">
-                    Option nr 2
-                  </MDBSelectOption>
-                  <MDBSelectOption value="value nr 3">
-                    Option nr 3
-                  </MDBSelectOption>
-                  <MDBSelectOption value="value nr 4">
-                    Option nr 4
-                  </MDBSelectOption>
-                  <MDBSelectOption value="value nr 5">
-                    Option nr 5
-                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 1">Option nr 1</MDBSelectOption>
+                  <MDBSelectOption value="value nr 2">Option nr 2</MDBSelectOption>
+                  <MDBSelectOption value="value nr 3">Option nr 3</MDBSelectOption>
+                  <MDBSelectOption value="value nr 4">Option nr 4</MDBSelectOption>
+                  <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
                 </MDBSelectOptions>
               </MDBSelect>
             </MDBCol>
@@ -406,7 +381,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="MDBSelect with icons">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect getValue={this.getValueOfSelect} label="Example label">
                 <MDBSelectInput selected="Choose your option" />
@@ -437,7 +412,7 @@ class SelectPage extends Component {
         </SectionContainer>
 
         <SectionContainer header="Options groups">
-          <MDBRow>
+          <MDBRow className="d-flex justify-content-center">
             <MDBCol md="6">
               <MDBSelect getValue={this.getValueOfSelect} label="Example label">
                 <MDBSelectInput selected="Choose your option" />

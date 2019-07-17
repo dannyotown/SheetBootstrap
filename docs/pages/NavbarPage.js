@@ -439,7 +439,7 @@ class NavbarPage extends Component {
           </MDBNavbar>
         </SectionContainer>
 
-        <SectionContainer header="Supportet Content">
+        <SectionContainer header="Supportet content">
           <MDBNavbar
             color="info-color"
             dark

@@ -33,7 +33,7 @@ class SideNavPage extends Component {
             title="Slim Sidenav"
             href="https://mdbootstrap.com/docs/react/navigation/sidenav/"
           />
-          <SectionContainer header="Slim">
+          <SectionContainer header="Slim" flexCenter>
             <MDBBtn onClick={this.sidenavToggle("Left")}>
               <MDBIcon size="lg" icon="bars" />
             </MDBBtn>

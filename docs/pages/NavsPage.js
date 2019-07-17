@@ -19,7 +19,7 @@ class NavsPage extends Component {
           href="https://mdbootstrap.com/docs/react/navigation/navs/"
         />
 
-        <SectionContainer title="Basic Navs" noBorder>
+        <SectionContainer title="Basic examples" noBorder>
           <SectionContainer header="Left">
             <MDBNav>
               <MDBNavItem>
@@ -107,7 +107,7 @@ class NavsPage extends Component {
 
         <hr className="my-5" />
 
-        <SectionContainer header="Navs with bold font" noBorder>
+        <SectionContainer header="With bold font" noBorder>
           <MDBRow>
             <MDBCol md="6">
               <SectionContainer>
@@ -140,7 +140,7 @@ class NavsPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer header="Navs with various font and background color">
+        <SectionContainer header="With various font and background color">
           <MDBRow>
             <MDBCol>
               <MDBNav color="grey" className="flex-column font-weight-bold">
@@ -189,7 +189,7 @@ class NavsPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer header="Navs with gradient background">
+        <SectionContainer header="With gradient background">
           <MDBRow>
             <MDBCol md="6">
               <MDBNav
@@ -270,7 +270,7 @@ class NavsPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer title="Tabs & Pills in Navs" noBorder>
+        <SectionContainer title="Wtih tabs & pills" noBorder>
           <MDBRow>
             <MDBCol md="6">
               <SectionContainer header="Tabs">

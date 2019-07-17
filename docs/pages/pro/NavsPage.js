@@ -23,7 +23,7 @@ class NavsPage extends Component {
           href="https://mdbootstrap.com/docs/react/navigation/navs/"
         />
 
-        <SectionContainer header="Basic MDB Navs with Tabs & Pills" noBorder>
+        <SectionContainer header="Basic examples with Tabs & Pills" noBorder>
           <MDBRow>
             <MDBCol md="6">
               <SectionContainer className="pb-5">
@@ -68,7 +68,7 @@ class NavsPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer header="Justified Navs with Tabs & Pills" noBorder>
+        <SectionContainer header="Justified with Tabs & Pills" noBorder>
           <MDBRow>
             <MDBCol md="6">
               <SectionContainer className="pb-5">
@@ -113,7 +113,7 @@ class NavsPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer header="Navs with Tabs & Pills with dropdown" noBorder>
+        <SectionContainer header="With Tabs & Pills with dropdown" noBorder>
           <MDBRow>
             <MDBCol md="6">
               <SectionContainer className="pb-5">
