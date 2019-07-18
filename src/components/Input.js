@@ -104,7 +104,7 @@ class Input extends React.Component {
       validate,
       value,
       valueDefault,
-      wrapperTag: WrapperTag,     
+      tag: Tag,     
       ...attributes
     } = this.props;
     
@@ -159,7 +159,7 @@ class Input extends React.Component {
     );
 
     return (
-      <WrapperTag className={containerClassFix}>
+      <Tag className={containerClassFix}>
         {
           icon &&
           <Fa
@@ -200,7 +200,7 @@ class Input extends React.Component {
           </label>
         }
         {children}
-      </WrapperTag>
+      </Tag>
     );
   }
 }
@@ -244,7 +244,7 @@ Input.propTypes = {
   validate: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   valueDefault: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  wrapperTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
 };
 
 Input.defaultProps = {
@@ -270,7 +270,7 @@ Input.defaultProps = {
   labelClass: "",
   size: "",
   success: "",
-  wrapperTag: "div",
+  tag: "div",
   type: "text",
   validate: false,
   valueDefault: ""

@@ -66,7 +66,7 @@ class InputPage extends Component {
         <MDBContainer style={{ textAlign: "initial" }}>
           <div>
             <MDBInput
-              wrapperTag="form"
+              tag="span"
               label="Material input"
               getValue={this.getValue}
               valueDefault="Uncontrolled input with default value"
