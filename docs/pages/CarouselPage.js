@@ -18,7 +18,7 @@ const CarouselPage = () => {
         title="Carousel"
         href="https://mdbootstrap.com/docs/react/advanced/carousel/"
       />
-      {/* Slides Only */}
+
       <SectionContainer header="Slides Only">
         <MDBCarousel
           activeItem={1}
@@ -26,6 +26,7 @@ const CarouselPage = () => {
           showControls={false}
           showIndicators={false}
           className="z-depth-1"
+          slide
         >
           <MDBCarouselInner>
             <MDBCarouselItem itemId="1">
@@ -59,7 +60,6 @@ const CarouselPage = () => {
         </MDBCarousel>
       </SectionContainer>
 
-      {/* With Captions*/}
       <SectionContainer header="With Captions">
         <MDBCarousel
           activeItem={1}
@@ -67,6 +67,7 @@ const CarouselPage = () => {
           showControls={true}
           showIndicators={true}
           className="z-depth-1"
+          slide
         >
           <MDBCarouselInner>
             <MDBCarouselItem itemId="1">
@@ -129,7 +130,46 @@ const CarouselPage = () => {
         </MDBCarousel>
       </SectionContainer>
 
-      {/* With controls */}
+      <SectionContainer header="Fade effect">
+        <MDBCarousel
+          activeItem={1}
+          length={3}
+          showControls
+          className="z-depth-1"
+          
+        >
+          <MDBCarouselInner>
+            <MDBCarouselItem itemId="1">
+              <MDBView>
+                <img
+                  className="d-block w-100"
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(92).jpg"
+                  alt="First slide"
+                />
+              </MDBView>
+            </MDBCarouselItem>
+            <MDBCarouselItem itemId="2">
+              <MDBView>
+                <img
+                  className="d-block w-100"
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(90).jpg"
+                  alt="Second slide"
+                />
+              </MDBView>
+            </MDBCarouselItem>
+            <MDBCarouselItem itemId="3">
+              <MDBView>
+                <img
+                  className="d-block w-100"
+                  src="https://mdbootstrap.com/img/Photos/Slides/img%20(91).jpg"
+                  alt="Third slide"
+                />
+              </MDBView>
+            </MDBCarouselItem>
+          </MDBCarouselInner>
+        </MDBCarousel>
+      </SectionContainer>
+
       <SectionContainer header="With Controls">
         <MDBCarousel
           activeItem={1}
@@ -170,7 +210,6 @@ const CarouselPage = () => {
         </MDBCarousel>
       </SectionContainer>
 
-      {/* With Indicators */}
       <SectionContainer header="With Indicators">
         <MDBCarousel
           activeItem={1}
