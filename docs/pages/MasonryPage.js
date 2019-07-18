@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { MDBContainer, MDBRow } from "mdbreact";
 import DocsLink from "../components/docsLink";
 import SectionContainer from "../components/sectionContainer";
+import './Masonry.css'; 
+
 class MasonryPage extends React.Component {
   constructor() {
     super();
