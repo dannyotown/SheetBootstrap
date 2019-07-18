@@ -101,23 +101,27 @@ class Input extends React.Component {
       labelClass,
       size,
       success,
+      tag: Tag,  
       type,
       validate,
       value,
       valueDefault,
-      tag: Tag,     
       ...attributes
     } = this.props;
-    
-    let isNotEmpty = !!this.state.innerValue || !!hint || this.state.isFocused || this.state.innerValue === 0 ;
+
+    let isNotEmpty =
+      (!!this.state.innerValue ||
+        !!hint ||
+        this.state.isFocused ||
+        this.state.innerValue === 0) &&
+      (type !== "checkbox" && type !== "radio");
     let TagInput = "";
     let formControlClass = "";
 
     if (type === "textarea") {
       formControlClass = outline ? "form-control" : "md-textarea form-control";
       TagInput = "textarea";
-    }
-    else {
+    } else {
       formControlClass = "form-control";
       TagInput = "input";
       attributes.type = type;
@@ -171,11 +175,9 @@ class Input extends React.Component {
         : false,
       labelClass
     );
-
-    return (
-      <Tag className={containerClassFix}>
-        {
-          icon &&
+    const renderFunction = () => (
+      <>
+        {icon && (
           <Fa
             icon={icon}
             size={iconSize}
@@ -189,7 +191,7 @@ class Input extends React.Component {
             onMouseEnter={onIconMouseEnter}
             onMouseLeave={onIconMouseLeave}
           />
-        }
+        )}
         <TagInput
           {...attributes}
           className={classes}
@@ -215,7 +217,13 @@ class Input extends React.Component {
           </label>
         )}
         {children}
-      </Tag>
+      </>
+    );
+
+    return noTag ? (
+      renderFunction()
+    ) : (
+      <Tag className={containerClassFix}>{renderFunction()}</Tag>
     );
   }
 }
@@ -257,11 +265,11 @@ Input.propTypes = {
   outline: PropTypes.bool,
   size: PropTypes.string,
   success: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   type: PropTypes.string,
   validate: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  valueDefault: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  valueDefault: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 Input.defaultProps = {
