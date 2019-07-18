@@ -92,7 +92,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Central modal" flexCenter>
+        <SectionContainer header="Central modal" flexCenter className="flex-wrap">
           <MDBBtn color="primary" onClick={this.toggle(2)}>
             Medium modal
           </MDBBtn>
@@ -112,7 +112,7 @@ class ModalPage extends Component {
             </MDBModalFooter>
           </MDBModal>
 
-          <MDBBtn color="primary" onClick={this.toggle(3)} flexCenter>
+          <MDBBtn color="primary" onClick={this.toggle(3)}>
             Small modal
           </MDBBtn>
           <MDBModal
