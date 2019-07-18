@@ -441,6 +441,8 @@ class AnimationPage extends React.Component {
           </MDBRow>
         </SectionContainer>
 
+        <hr style={{opacity: "0", marginBottom: "50px"}}/>
+
         <SectionContainer header="Reveal animations when scrolling">
           <MDBRow className="mb-4">
             <MDBCol md="4">
