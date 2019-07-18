@@ -65,7 +65,7 @@ class InputRange extends React.Component {
   };
 
   render() {
-    const { className, formClassName, min, max, tag: Tag } = this.props;
+    const { className, formClassName, min, max, step, tag: Tag } = this.props;
 
     const inputClass = classNames(className);
 
@@ -83,6 +83,7 @@ class InputRange extends React.Component {
           className={inputClass}
           min={min}
           max={max}
+          step={step}
           value={this.state.value}
           type="range"
           onChange={this.rangeChange}
@@ -112,6 +113,7 @@ InputRange.propTypes = {
   max: PropTypes.number,
   value: PropTypes.number,
   getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  step: PropTypes.number,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 

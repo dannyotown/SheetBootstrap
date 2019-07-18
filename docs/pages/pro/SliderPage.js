@@ -120,9 +120,10 @@ class SliderPage extends Component {
                       icon="minus"
                     />
                     <MDBRangeInput
-                      min={0}
-                      max={100}
-                      value={50}
+                      min={-10}
+                      max={10}
+                      value={0}
+                      step={0.5}
                       formClassName="w-75"
                     />
                     <MDBIcon
