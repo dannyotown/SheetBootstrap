@@ -35,6 +35,10 @@ class SliderPage extends Component {
           <MDBRangeInput min={0} max={100} value={50} />
         </SectionContainer>
 
+        <SectionContainer header="With step property">
+          <MDBRangeInput min={0} max={100} value={50} step={10} />
+        </SectionContainer>
+
         <SectionContainer header="With different width" className="d-flex flex-column">
           <MDBRangeInput getValue={this.handleChange} min={0} max={100} value={50} formClassName="w-25" />
           <MDBRangeInput getValue={this.handleChange} min={0} max={100} value={50} formClassName="w-50" />
