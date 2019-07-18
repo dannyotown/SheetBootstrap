@@ -1,16 +1,30 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBCol, MDBRow, MDBCard, MDBCardUp, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBAvatar, MDBRotatingCard, MDBIcon, MDBBtn } from "mdbreact";
+import {
+  MDBContainer,
+  MDBCol,
+  MDBRow,
+  MDBCard,
+  MDBCardUp,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCardTitle,
+  MDBCardText,
+  MDBAvatar,
+  MDBRotatingCard,
+  MDBIcon,
+  MDBBtn
+} from "mdbreact";
 import DocsLink from "../../components/docsLink";
+import SectionContainer from "../../components/sectionContainer";
 
 class CardPage extends Component {
-
   state = {
     flipped: false
-  }
+  };
 
   handleFlipping = () => {
     this.setState({ flipped: !this.state.flipped });
-  }
+  };
   render() {
     const colStyle = { maxWidth: "22rem" };
 
@@ -20,9 +34,12 @@ class CardPage extends Component {
           title="Cards"
           href="https://mdbootstrap.com/docs/react/components/cards/"
         />
-        <MDBContainer>
-          <h2>Stylish cards</h2>
-          <MDBRow className="mt-2">
+
+        <MDBRow className="mt-2">
+          <SectionContainer
+            header="Stylish"
+            className="d-flex justify-content-center"
+          >
             <MDBCol style={colStyle}>
               <MDBCard>
                 <MDBCardImage
@@ -57,6 +74,7 @@ class CardPage extends Component {
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>
+
             <MDBCol style={colStyle}>
               <MDBCard>
                 <MDBCardImage
@@ -91,12 +109,14 @@ class CardPage extends Component {
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>
-          </MDBRow>
+          </SectionContainer>
+        </MDBRow>
 
-          <hr className="my-5" />
-          <h2>Testimonial cards</h2>
-
-          <MDBRow className="mt-2">
+        <MDBRow className="mt-2">
+          <SectionContainer
+            header="Testimonial"
+            className="d-flex justify-content-center"
+          >
             <MDBCol style={colStyle}>
               <MDBCard testimonial>
                 <MDBCardUp className="indigo lighten-1" />
@@ -135,12 +155,14 @@ class CardPage extends Component {
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>
-          </MDBRow>
+          </SectionContainer>
+        </MDBRow>
 
-          <hr className="my-5" />
-          <h2>Image Overlay</h2>
-
-          <MDBRow>
+        <MDBRow>
+          <SectionContainer
+            header="Image overlay"
+            className="d-flex justify-content-center"
+          >
             <MDBCol>
               <MDBCard
                 className="card-image"
@@ -199,13 +221,15 @@ class CardPage extends Component {
                 </div>
               </MDBCard>
             </MDBCol>
-          </MDBRow>
+          </SectionContainer>
+        </MDBRow>
 
-          <hr className="my-5" />
-          <h2>Flipping card</h2>
-
-          <MDBRow>
-            <MDBCol style={{ minHeight: '26rem' }}>
+        <MDBRow>
+          <SectionContainer header="Flipping">
+            <MDBCol
+              style={{ minHeight: "26rem" }}
+              className="d-flex justify-content-center"
+            >
               <MDBRotatingCard
                 flipped={this.state.flipped}
                 className="text-center h-100 w-100"
@@ -284,12 +308,14 @@ class CardPage extends Component {
                 </MDBCard>
               </MDBRotatingCard>
             </MDBCol>
-          </MDBRow>
+          </SectionContainer>
+        </MDBRow>
 
-          <hr className="my-5" />
-          <h2>Action button and footer</h2>
-
-          <MDBRow>
+        <MDBRow>
+          <SectionContainer
+            header="Action button and footer"
+            className="d-flex justify-content-center"
+          >
             <MDBCol style={colStyle}>
               <MDBCard cascade>
                 <MDBCardImage
@@ -336,8 +362,8 @@ class CardPage extends Component {
                 </div>
               </MDBCard>
             </MDBCol>
-          </MDBRow>
-        </MDBContainer>
+          </SectionContainer>
+        </MDBRow>
       </MDBContainer>
     );
   }

@@ -1,6 +1,20 @@
 import React from "react";
-import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardHeader, MDBInput, MDBTable,   MDBTableBody, MDBTableHead, MDBIcon } from "mdbreact";
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBCardHeader,
+  MDBInput,
+  MDBTable,
+  MDBTableBody,
+  MDBTableHead,
+  MDBIcon
+} from "mdbreact";
 import DocsLink from "./../../components/docsLink";
+import SectionContainer from "../../components/sectionContainer";
 
 const TableStylesPage = () => {
   const data_checkboxes = {
@@ -143,82 +157,55 @@ const TableStylesPage = () => {
       />
       <MDBRow className="py-3">
         <MDBCol md="12">
-          <MDBCard>
-            <MDBCardBody>
-              <h2 className="h2-responsive pb-4">Table with checkboxes</h2>
-              <MDBTable btn fixed>
-                <MDBTableHead columns={data_checkboxes.columns} />
-                <MDBTableBody rows={data_checkboxes.rows} />
-              </MDBTable>
-            </MDBCardBody>
-          </MDBCard>
+          <SectionContainer header="With checkboxes" noBorder>
+            <MDBCard>
+              <MDBCardBody>
+                <MDBTable btn fixed>
+                  <MDBTableHead columns={data_checkboxes.columns} />
+                  <MDBTableBody rows={data_checkboxes.rows} />
+                </MDBTable>
+              </MDBCardBody>
+            </MDBCard>
+          </SectionContainer>
         </MDBCol>
       </MDBRow>
 
       <MDBRow className="py-3">
         <MDBCol md="12">
-          <MDBCard narrow>
-            <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
-              <div>
-                <MDBBtn
-                  outline
-                  rounded
-                  size="sm"
-                  color="white"
-                  className="px-2"
-                >
-                  <MDBIcon icon="th-large"/>
-                </MDBBtn>
-                <MDBBtn
-                  outline
-                  rounded
-                  size="sm"
-                  color="white"
-                  className="px-2"
-                >
-                  <MDBIcon icon="columns" />
-                </MDBBtn>
-              </div>
-              <a href="#!" className="white-text mx-3">
-                Table name
-              </a>
-              <div>
-                <MDBBtn
-                  outline
-                  rounded
-                  size="sm"
-                  color="white"
-                  className="px-2"
-                >
-                  <MDBIcon icon="pencil-alt" />
-                </MDBBtn>
-                <MDBBtn
-                  outline
-                  rounded
-                  size="sm"
-                  color="white"
-                  className="px-2"
-                >
-                  <MDBIcon icon="times" />
-                </MDBBtn>
-                <MDBBtn
-                  outline
-                  rounded
-                  size="sm"
-                  color="white"
-                  className="px-2"
-                >
-                  <MDBIcon icon="info-circle" />
-                </MDBBtn>
-              </div>
-            </MDBCardHeader>
-            <MDBCardBody cascade>
-              <MDBTable btn fixed>
-                <MDBTableHead columns={data_panel.columns} />
-                <MDBTableBody rows={data_panel.rows} />
-              </MDBTable>
-            </MDBCardBody>
-          </MDBCard>
+          <SectionContainer header="With panel" noBorder className="mt-4">
+            <MDBCard narrow>
+              <MDBCardHeader className="view view-cascade gradient-card-header blue-gradient d-flex justify-content-between align-items-center py-2 mx-4 mb-3">
+                <div>
+                  <MDBBtn outline rounded size="sm" color="white" className="px-2">
+                    <MDBIcon icon="th-large" />
+                  </MDBBtn>
+                  <MDBBtn outline rounded size="sm" color="white" className="px-2">
+                    <MDBIcon icon="columns" />
+                  </MDBBtn>
+                </div>
+                <a href="#!" className="white-text mx-3">
+                  Table name
+                </a>
+                <div>
+                  <MDBBtn outline rounded size="sm" color="white" className="px-2">
+                    <MDBIcon icon="pencil-alt" />
+                  </MDBBtn>
+                  <MDBBtn outline rounded size="sm" color="white" className="px-2">
+                    <MDBIcon icon="times" />
+                  </MDBBtn>
+                  <MDBBtn outline rounded size="sm" color="white" className="px-2">
+                    <MDBIcon icon="info-circle" />
+                  </MDBBtn>
+                </div>
+              </MDBCardHeader>
+              <MDBCardBody cascade>
+                <MDBTable btn fixed>
+                  <MDBTableHead columns={data_panel.columns} />
+                  <MDBTableBody rows={data_panel.rows} />
+                </MDBTable>
+              </MDBCardBody>
+            </MDBCard>
+          </SectionContainer>
         </MDBCol>
       </MDBRow>
     </MDBContainer>

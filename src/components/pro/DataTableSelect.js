@@ -15,7 +15,7 @@ const DataTableSelect = ({ value, onChange, entries, label, barReverse }) => (
     )}
   >
     <label className="mt-4">{label}</label>
-    <Select getValue={onChange}>
+    <Select getValue={onChange} className="my-0">
       <SelectInput selected={value} />
       <SelectOptions>
         {entries.map((entry, index) => (

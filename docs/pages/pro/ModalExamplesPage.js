@@ -1,17 +1,38 @@
 import React, { Component } from "react";
 import {
-  MDBContainer, MDBBtn, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBRow, MDBIcon, MDBCol, MDBSelect, MDBSelectOption,  MDBSelectOptions, MDBSelectInput, MDBCollapseHeader, MDBCard, MDBCollapse, MDBCardBody, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBInput } from "mdbreact";
+  MDBContainer,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBModalHeader,
+  MDBModalFooter,
+  MDBRow,
+  MDBIcon,
+  MDBCol,
+  MDBSelect,
+  MDBSelectOption,
+  MDBSelectOptions,
+  MDBSelectInput,
+  MDBCollapseHeader,
+  MDBCard,
+  MDBCollapse,
+  MDBCardBody,
+  MDBCarousel,
+  MDBCarouselInner,
+  MDBCarouselItem,
+  MDBInput
+} from "mdbreact";
 import "./../ModalExamplesPage.css";
 import DocsLink from "./../../components/docsLink";
+import SectionContainer from "./../../components/sectionContainer";
 
 class ModalExamplesPage extends Component {
-
   state = {
     accordion: 1,
     modal8: false,
     modal9: false,
     modal13: false
-  }
+  };
 
   toggle = nr => () => {
     let modalNumber = "modal" + nr;
@@ -19,7 +40,7 @@ class ModalExamplesPage extends Component {
       ...this.state,
       [modalNumber]: !this.state[modalNumber]
     });
-  }
+  };
 
   onClick = number => () => {
     let state;
@@ -43,8 +64,8 @@ class ModalExamplesPage extends Component {
           title="Modal Templates & Examples"
           href="https://mdbootstrap.com/docs/react/modals/basic/"
         />
-        <h4 className="mt-4">Modal Poll</h4>
-        <MDBRow>
+
+        <SectionContainer header="Poll" flexCenter>
           <MDBBtn onClick={this.toggle(9)}>Launch Modal</MDBBtn>
           <MDBModal
             fullHeight
@@ -72,11 +93,26 @@ class ModalExamplesPage extends Component {
               {/* Radio */}
               <p className="mb-3">Your rating</p>
               <div className="text-left">
-                <MDBInput label="Very good" type="radio" id="radio1" />
-                <MDBInput label="Good" type="radio" id="radio2" />
-                <MDBInput label="Mediocre" type="radio" id="radio3" />
-                <MDBInput label="Bad" type="radio" id="radio4" />
-                <MDBInput label="Very bad" type="radio" id="radio5" />
+                <MDBInput
+                  label="Very good"
+                  type="radio"
+                  id="radio1"
+                  name="rating"
+                />
+                <MDBInput label="Good" type="radio" id="radio2" name="rating" />
+                <MDBInput
+                  label="Mediocre"
+                  type="radio"
+                  id="radio3"
+                  name="rating"
+                />
+                <MDBInput label="Bad" type="radio" id="radio4" name="rating" />
+                <MDBInput
+                  label="Very bad"
+                  type="radio"
+                  id="radio5"
+                  name="rating"
+                />
               </div>
               {/* Textarea */}
               <p className="mb-3">What could we improve?</p>
@@ -92,9 +128,9 @@ class ModalExamplesPage extends Component {
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
-        </MDBRow>
-        <h4 className="mt-4">Modal Product</h4>
-        <MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header="Product" flexCenter>
           <MDBBtn onClick={this.toggle(13)}>Launch Modal</MDBBtn>
           <MDBModal
             size="lg"
@@ -222,7 +258,9 @@ class ModalExamplesPage extends Component {
                     <MDBSelect>
                       <MDBSelectInput />
                       <MDBSelectOptions>
-                        <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                        <MDBSelectOption disabled>
+                          Choose your option
+                        </MDBSelectOption>
                         <MDBSelectOption>White</MDBSelectOption>
                         <MDBSelectOption>Black</MDBSelectOption>
                         <MDBSelectOption>Pink</MDBSelectOption>
@@ -234,7 +272,9 @@ class ModalExamplesPage extends Component {
                     <MDBSelect>
                       <MDBSelectInput />
                       <MDBSelectOptions>
-                        <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                        <MDBSelectOption disabled>
+                          Choose your option
+                        </MDBSelectOption>
                         <MDBSelectOption>White</MDBSelectOption>
                         <MDBSelectOption>Black</MDBSelectOption>
                         <MDBSelectOption>Pink</MDBSelectOption>
@@ -263,9 +303,9 @@ class ModalExamplesPage extends Component {
               </MDBCol>
             </MDBModalBody>
           </MDBModal>
-        </MDBRow>
-        <h4 className="mt-4">Modal Social share</h4>
-        <MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header="Social share" flexCenter>
           <MDBBtn onClick={this.toggle(8)}>Launch Modal</MDBBtn>
           <MDBModal
             cascading
@@ -326,7 +366,7 @@ class ModalExamplesPage extends Component {
               </MDBBtn>
             </MDBModalBody>
           </MDBModal>
-        </MDBRow>
+        </SectionContainer>
       </MDBContainer>
     );
   }

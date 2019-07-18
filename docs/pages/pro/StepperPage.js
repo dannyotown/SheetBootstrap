@@ -1,17 +1,27 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBStepper, MDBStep, MDBIcon, MDBBtn, MDBCard, MDBCardBody, MDBInput } from "mdbreact";
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBStepper,
+  MDBStep,
+  MDBIcon,
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBInput
+} from "mdbreact";
 import DocsLink from "../../components/docsLink";
-
+import SectionContainer from "../../components/sectionContainer";
 class StepperPage extends Component {
-
-  state={
+  state = {
     formActivePanel1: 1,
     formActivePanel1Changed: false,
     formActivePanel2: 1,
     formActivePanel2Changed: false,
     formActivePanel3: 1,
     formActivePanel3Changed: false
-  }
+  };
 
   swapFormActive = a => param => e => {
     this.setState({
@@ -44,8 +54,8 @@ class StepperPage extends Component {
           title="Steppers"
           href="https://mdbootstrap.com/docs/react/components/stepper/"
         />
-        <MDBContainer className="mt-5">
-          <h2>Horizontal stepper</h2>
+
+        <SectionContainer header="Horizontal">
           <MDBStepper>
             <MDBStep className="completed">
               <a href="#!">
@@ -68,10 +78,9 @@ class StepperPage extends Component {
               </a>
             </MDBStep>
           </MDBStepper>
+        </SectionContainer>
 
-          <hr className="my-5" />
-          <h2>Vertical stepper</h2>
-
+        <SectionContainer header="Vertical">
           <MDBStepper vertical>
             <MDBStep className="completed">
               <a href="#!">
@@ -126,11 +135,10 @@ class StepperPage extends Component {
               </MDBCol>
             </MDBRow>
           </MDBStepper>
+        </SectionContainer>
 
-          <hr className="my-5" />
-          <h2>Steps within form</h2>
-
-          <MDBRow>
+        <SectionContainer header="Stepper with form">
+          <MDBRow className="justify-content-center d-flex">
             <MDBCol xl="6" lg="7" md="10">
               <MDBCard>
                 <MDBCardBody>
@@ -268,10 +276,9 @@ class StepperPage extends Component {
               </MDBCard>
             </MDBCol>
           </MDBRow>
+        </SectionContainer>
 
-          <hr className="my-5" />
-          <h2>Registration form with steps</h2>
-
+        <SectionContainer header="Registration form with steps" noBorder>
           <MDBCard>
             <MDBCardBody>
               <h2 className="text-center font-weight-bold pt-4 pb-5 mb-2">
@@ -421,10 +428,9 @@ class StepperPage extends Component {
               </form>
             </MDBCardBody>
           </MDBCard>
+        </SectionContainer>
 
-          <hr className="my-5" />
-          <h2>Vertical registration form steps</h2>
-
+        <SectionContainer header="Vertical registration form steps" noBorder>
           <MDBCard>
             <MDBCardBody>
               <MDBRow className="pt-5 justify-content-center">
@@ -576,7 +582,7 @@ class StepperPage extends Component {
               </MDBRow>
             </MDBCardBody>
           </MDBCard>
-        </MDBContainer>
+        </SectionContainer>
       </MDBContainer>
     );
   }

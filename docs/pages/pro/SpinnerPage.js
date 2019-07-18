@@ -1,39 +1,36 @@
 import React from "react";
 import { MDBSpinner, MDBContainer } from "mdbreact";
 import DocsLink from "../../components/docsLink";
+import SectionContainer from "../../components/sectionContainer";
 
 const SpinnerPage = props => {
   return (
     <MDBContainer>
-      <DocsLink
-        title="Loader/Spinner"
-        href="https://mdbootstrap.com/docs/react/components/spinners/"
-      />
+      <DocsLink title="Loader/Spinner" href="https://mdbootstrap.com/docs/react/components/spinners/" />
 
-      <h2>Colorful</h2>
-      <div className="my-5 d-flex justify-content-around">
-        <MDBSpinner red />
-        <MDBSpinner />
-        <MDBSpinner yellow />
-        <MDBSpinner green />
-        <MDBSpinner multicolor />
-      </div>
+      <SectionContainer header="Colorful">
+        <div className="my-5 d-flex justify-content-around">
+          <MDBSpinner red />
+          <MDBSpinner />
+          <MDBSpinner yellow />
+          <MDBSpinner green />
+          <MDBSpinner multicolor />
+        </div>
+      </SectionContainer>
 
-      <hr />
+      <SectionContainer header="Sizes">
+        <div className="my-5 d-flex justify-content-around">
+          <MDBSpinner small />
+          <MDBSpinner />
+          <MDBSpinner big />
+        </div>
+      </SectionContainer>
 
-      <h2 className="mt-5">Sizes</h2>
-      <div className="my-5 d-flex justify-content-around">
-        <MDBSpinner small />
-        <MDBSpinner />
-        <MDBSpinner big />
-      </div>
-
-      <hr />
-
-      <h2 className="mt-5">Crazy speed</h2>
-      <div className="my-5 d-flex justify-content-around">
-        <MDBSpinner crazy big />
-      </div>
+      <SectionContainer header="Crazy speed">
+        <div className="my-5 d-flex justify-content-around">
+          <MDBSpinner crazy big />
+        </div>
+      </SectionContainer>
     </MDBContainer>
   );
 };

@@ -1,16 +1,14 @@
 import React from "react";
 import { MDBContainer, MDBBtn, MDBIcon } from "mdbreact";
 import DocsLink from "../../components/docsLink";
+import SectionContainer from "../../components/sectionContainer";
 
 const SocialButtonsPage = props => {
   return (
     <MDBContainer>
-      <DocsLink
-        title="Social Buttons"
-        href="https://mdbootstrap.com/docs/react/components/buttons/"
-      />
-      <MDBContainer>
-        <h4 className="mt-4">Full name social button</h4>
+      <DocsLink title="Social Buttons" href="https://mdbootstrap.com/docs/react/components/buttons/" />
+
+      <SectionContainer header="Full name" flexCenter className="flex-wrap">
         <MDBBtn social="fb">
           <MDBIcon brand icon="facebook" className="pr-1" /> Facebook
         </MDBBtn>
@@ -53,11 +51,9 @@ const SocialButtonsPage = props => {
         <MDBBtn social="dribbble">
           <MDBIcon brand icon="dribbble" className="pr-1" /> Dribbble
         </MDBBtn>
-        <h4 className="mt-4">Large button</h4>
-        <MDBBtn social="fb" size="lg">
-          <MDBIcon brand icon="facebook" className="pr-1" /> Facebook
-        </MDBBtn>
-        <h4 className="mt-4">Simple social button</h4>
+      </SectionContainer>
+
+      <SectionContainer header="Simple social" flexCenter className="flex-wrap">
         <MDBBtn social="fb">
           <MDBIcon brand icon="facebook" />
         </MDBBtn>
@@ -100,11 +96,9 @@ const SocialButtonsPage = props => {
         <MDBBtn social="dribbble">
           <MDBIcon brand icon="dribbble" />
         </MDBBtn>
-        <h4 className="mt-4">Large button</h4>
-        <MDBBtn social="fb" size="lg">
-          <MDBIcon brand icon="facebook" />
-        </MDBBtn>
-        <h4 className="mt-4">Floating social buttons</h4>
+      </SectionContainer>
+
+      <SectionContainer header="Floating" flexCenter className="flex-wrap">
         <MDBBtn size="lg" tag="a" floating social="fb">
           <MDBIcon brand icon="facebook" />
         </MDBBtn>
@@ -147,17 +141,53 @@ const SocialButtonsPage = props => {
         <MDBBtn size="lg" tag="a" floating social="dribbble">
           <MDBIcon brand icon="dribbble" />
         </MDBBtn>
-        <h4 className="mt-4">Sizes</h4>
-        <MDBBtn size="lg" tag="a" floating social="fb">
-          <MDBIcon brand icon="facebook" />
-        </MDBBtn>
-        <MDBBtn tag="a" floating social="fb">
-          <MDBIcon brand icon="facebook" />
-        </MDBBtn>
-        <MDBBtn size="sm" tag="a" floating social="fb">
-          <MDBIcon brand icon="facebook" />
-        </MDBBtn>
-        <h4 className="mt-4">Full name social counters</h4>
+      </SectionContainer>
+
+      <SectionContainer header="Sizing" flexCenter>
+        <div className="d-flex flex-column justify-content-center align-items-center mr-4">
+          <MDBBtn social="fb" size="sm">
+            <MDBIcon brand icon="facebook" className="pr-1" /> Facebook
+          </MDBBtn>
+
+          <MDBBtn social="fb">
+            <MDBIcon brand icon="facebook" className="pr-1" /> Facebook
+          </MDBBtn>
+
+          <MDBBtn social="fb" size="lg">
+            <MDBIcon brand icon="facebook" className="pr-1" /> Facebook
+          </MDBBtn>
+        </div>
+
+        <div className="d-flex flex-column justify-content-center align-items-center mr-4">
+          <MDBBtn social="fb" size="lg">
+            <MDBIcon brand icon="facebook" />
+          </MDBBtn>
+
+          <MDBBtn social="fb">
+            <MDBIcon brand icon="facebook" />
+          </MDBBtn>
+
+          <MDBBtn social="fb" size="sm">
+            <MDBIcon brand icon="facebook" />
+          </MDBBtn>
+        </div>
+
+        <div className="d-flex flex-column justify-content-center align-items-center">
+          <MDBBtn size="sm" tag="a" floating social="fb">
+            <MDBIcon brand icon="facebook" />
+          </MDBBtn>
+
+          <MDBBtn tag="a" floating social="fb">
+            <MDBIcon brand icon="facebook" />
+          </MDBBtn>
+
+          <MDBBtn size="lg" tag="a" floating social="fb">
+            <MDBIcon brand icon="facebook" />
+          </MDBBtn>
+        </div>
+      </SectionContainer>
+
+      <SectionContainer header="Full name social counters" flexCenter className="flex-wrap">
         <MDBBtn social="fb">
           <MDBIcon brand icon="facebook" className="pr-1" /> Facebook
         </MDBBtn>
@@ -214,7 +244,9 @@ const SocialButtonsPage = props => {
           <MDBIcon brand icon="dribbble" className="pr-1" /> Dribbble
         </MDBBtn>
         <span className="counter">22</span>
-        <h4 className="mt-4">Simple social counters </h4>
+      </SectionContainer>
+
+      <SectionContainer header="Simple social counters" flexCenter className="flex-wrap">
         <MDBBtn size="lg" social="fb">
           <MDBIcon brand icon="facebook" />
         </MDBBtn>
@@ -271,50 +303,52 @@ const SocialButtonsPage = props => {
           <MDBIcon brand icon="dribbble" />
         </MDBBtn>
         <span className="counter">22</span>
-        <h4 className="mt-4">Social brand icons</h4>
+      </SectionContainer>
+
+      <SectionContainer header="Social brand icons" flexCenter className="flex-wrap">
         <a href="#!" className="fb-ic mr-3">
-          <MDBIcon brand icon="facebook" />
+          <MDBIcon brand size="3x" icon="facebook" />
         </a>
         <a href="#!" className="tw-ic mr-3">
-          <MDBIcon brand icon="twitter" />
+          <MDBIcon brand size="3x" icon="twitter" />
         </a>
         <a href="#!" className="gplus-ic mr-3">
-          <MDBIcon brand icon="google-plus" />
+          <MDBIcon brand size="3x" icon="google-plus" />
         </a>
         <a href="#!" className="li-ic mr-3">
-          <MDBIcon brand icon="linkedin" />
+          <MDBIcon brand size="3x" icon="linkedin" />
         </a>
         <a href="#!" className="ins-ic mr-3">
-          <MDBIcon brand icon="instagram" />
+          <MDBIcon brand size="3x" icon="instagram" />
         </a>
         <a href="#!" className="pin-ic mr-3">
-          <MDBIcon brand icon="pinterest" />
+          <MDBIcon brand size="3x" icon="pinterest" />
         </a>
         <a href="#!" className="yt-ic mr-3">
-          <MDBIcon brand icon="youtube" />
+          <MDBIcon brand size="3x" icon="youtube" />
         </a>
         <a href="#!" className="vk-ic mr-3">
-          <MDBIcon brand icon="vk" />
+          <MDBIcon brand size="3x" icon="vk" />
         </a>
         <a href="#!" className="so-ic mr-3">
-          <MDBIcon brand icon="stack-overflow" />
+          <MDBIcon brand size="3x" icon="stack-overflow" />
         </a>
         <a href="#!" className="slack-ic mr-3">
-          <MDBIcon brand icon="slack" />
+          <MDBIcon brand size="3x" icon="slack" />
         </a>
         <a href="#!" className="git-ic mr-3">
-          <MDBIcon brand icon="github" />
+          <MDBIcon brand size="3x" icon="github" />
         </a>
         <a href="#!" className="comm-ic mr-3">
-          <MDBIcon icon="comments" />
+          <MDBIcon size="3x" icon="comments" />
         </a>
         <a href="#!" className="email-ic mr-3">
-          <MDBIcon icon="envelope" />
+          <MDBIcon size="3x" icon="envelope" />
         </a>
         <a href="#!" className="dribbble-ic mr-3">
-          <MDBIcon brand icon="dribbble" />
+          <MDBIcon brand size="3x" icon="dribbble" />
         </a>
-      </MDBContainer>
+      </SectionContainer>
     </MDBContainer>
   );
 };

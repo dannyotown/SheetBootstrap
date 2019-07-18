@@ -1,6 +1,7 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBView, MDBMask, MDBCardBody, MDBBtn, MDBIcon, MDBCard } from "mdbreact";
 import DocsLink from "../../../components/docsLink";
+import SectionContainer from "../../../components/sectionContainer";
 
 const ProjectsPage = () =>  {
   return (
@@ -9,7 +10,7 @@ const ProjectsPage = () =>  {
         title="Project Sections"
         href="https://mdbootstrap.com/docs/react/sections/projects/"
       />
-      <section className="text-center my-5">
+      <SectionContainer header="Projects v.1" tag="section" className="text-center">
         <h2 className="h1-responsive font-weight-bold my-5">
           Our best projects
         </h2>
@@ -88,9 +89,9 @@ const ProjectsPage = () =>  {
             </MDBCardBody>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer header="Projects v.2" tag="section" className="text-center">
         <h2 className="h1-responsive font-weight-bold my-5">
           Our best projects
         </h2>
@@ -219,9 +220,9 @@ const ProjectsPage = () =>  {
             </MDBCardBody>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="my-5">
+      <SectionContainer header="Projects v.3" tag="section">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Our best projects
         </h2>
@@ -333,9 +334,9 @@ const ProjectsPage = () =>  {
             />
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
 
-      <section className="text-center my-5">
+      <SectionContainer header="Projects v.4" tag="section" className="text-center">
         <h2 className="h1-responsive font-weight-bold my-5">
           Our best projects
         </h2>
@@ -438,7 +439,7 @@ const ProjectsPage = () =>  {
             </MDBCard>
           </MDBCol>
         </MDBRow>
-      </section>
+      </SectionContainer>
     </MDBContainer>
   );
 }

@@ -23,7 +23,7 @@ const TableEditablePage = props => {
           <MDBCard>
             <MDBCardHeader
               tag="h3"
-              className="text-center font-weight-bold text-uppercase py-4"
+              className="text-center text-uppercase py-4"
             >
               Table Editable
             </MDBCardHeader>

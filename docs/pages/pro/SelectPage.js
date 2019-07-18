@@ -10,7 +10,7 @@ import {
   MDBCol
 } from "mdbreact";
 import DocsLink from "../../components/docsLink";
-import "../InputPage.css";
+import SectionContainer from "../../components/sectionContainer";
 
 class SelectPage extends Component {
   state = {
@@ -81,50 +81,47 @@ class SelectPage extends Component {
   addOption = () => {
     const dynamicOptions = [...this.state.dynamicOptions];
     const newOption = {
-        checked: true,
-        text: `Option ${this.state.dynamicOptions.length + 1}`,
-        value: `${this.state.dynamicOptions.length + 1}`
-    }
+      checked: true,
+      text: `Option ${this.state.dynamicOptions.length + 1}`,
+      value: `${this.state.dynamicOptions.length + 1}`
+    };
 
     this.setState({
       dynamicOptions: [...dynamicOptions, newOption]
-    })
-  }
+    });
+  };
 
   handleSubmitBtnColor = value => {
     this.setState({ submitBtnColor: value.length ? "success" : "primary" });
-  }
+  };
 
   handleDisabled = () => {
-    this.setState({ disabled: this.state.dynamicOptions.length ? false : true })
-  }
+    this.setState({
+      disabled: this.state.dynamicOptions.length ? false : true
+    });
+  };
 
   render() {
     return (
       <MDBContainer>
-        <DocsLink
-          title="Select"
-          href="https://mdbootstrap.com/docs/react/forms/select/"
-        />
+        <DocsLink title="Select" href="https://mdbootstrap.com/docs/react/forms/select/" />
 
-        <h2 className="text-center my-5 text-primary">Controlled Select</h2>
+        <SectionContainer title="Controlled Select" header="Basic example">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect
+                color="primary"
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.basicOptions}
+                label="Basic example"
+                labelClass="labelBg"
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 indigo-text">Basic example</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              color="primary"
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.basicOptions}
-              label="Basic example"
-              labelClass="labelBg"
-            />
-          </MDBCol>
-        </MDBRow>
-
-        <h4 className="mt-4 indigo-text">Basic outline example</h4>
-        <MDBRow>
+        <SectionContainer header="Basic outline example" flexCenter>
           <MDBCol md="6">
             <MDBSelect
               outline
@@ -136,329 +133,303 @@ class SelectPage extends Component {
               labelClass="labelBg"
             />
           </MDBCol>
-        </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 indigo-text">Search enabled</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              search
-              color="primary"
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.searchOptions}
-              label="Search enabled"
-              labelClass="labelBg"
-            />
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Search enabled">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect
+                search
+                color="primary"
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.searchOptions}
+                label="Search enabled"
+                labelClass="labelBg"
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 indigo-text">Multiple select</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              search
-              multiple
-              color="primary"
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.multipleOptions}
-              label="Multiple select"
-              labelClass="labelBg"
-            />
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Multiple select">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect
+                search
+                multiple
+                color="primary"
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.multipleOptions}
+                label="Multiple select"
+                labelClass="labelBg"
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 indigo-text">Colorful select</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              search
-              multiple
-              color="secondary"
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.colorfulOptions}
-              label="Colorful select"
-              labelClass="labelBg"
-            />
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Colorful select">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect
+                search
+                multiple
+                color="secondary"
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.colorfulOptions}
+                label="Colorful select"
+                labelClass="labelBg"
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 indigo-text">Select All option</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              selectAll
-              search
-              multiple
-              color="secondary"
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.selectAllOptions}
-              label="Select All option"
-              labelClass="labelBg"
-            />
-          </MDBCol>
-        </MDBRow>
-
-        <h4 className="mt-4 indigo-text">Without label</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              outline
-              search
-              multiple
-              color="secondary"
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.withoutLabelOptions}
-              selected="Choose your option"
-            />
-          </MDBCol>
-        </MDBRow>
-
-        <h4 className="mt-4 indigo-text">Without color</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              selectAll
-              multiple
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.withoutLabelOptions}
-              label="Without color"
-              selected="Choose your option"
-            />
-          </MDBCol>
-        </MDBRow>
-
-        <h4 className="mt-4 indigo-text">With required property</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <form onSubmit={e => e.preventDefault()}>
+        <SectionContainer header="Select All option">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
               <MDBSelect
                 selectAll
                 search
                 multiple
-                color="primary"
-                getValue={this.handleSubmitBtnColor}
+                color="secondary"
+                getValue={this.getValueOfSelect}
                 getTextContent={this.getValueOfSelect}
-                options={this.state.requiredOptions}
-                label="With required property"
-                required
+                options={this.state.selectAllOptions}
+                label="Select All option"
+                labelClass="labelBg"
               />
-              <MDBBtn type="submit" color={this.state.submitBtnColor}>
-                Submit
-              </MDBBtn>
-            </form>
-          </MDBCol>
-        </MDBRow>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 indigo-text">Dynamically change state</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              selectAll
-              outline
-              search
-              multiple
-              color="secondary"
-              getValue={this.handleDisabled}
-              getTextContent={this.getValueOfSelect}
-              options={this.state.dynamicOptions}
-              selected="Choose your option"
-              label="Dynamically change state"
-              labelClass="labelBg"
-            />
+        <SectionContainer header="Without label">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect
+                outline
+                search
+                multiple
+                color="secondary"
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.withoutLabelOptions}
+                selected="Choose your option"
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header="Without color">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect
+                selectAll
+                multiple
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.withoutLabelOptions}
+                label="Without color"
+                selected="Choose your option"
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header="With required property">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <form onSubmit={e => e.preventDefault()}>
+                <MDBSelect
+                  selectAll
+                  search
+                  multiple
+                  color="primary"
+                  getValue={this.handleSubmitBtnColor}
+                  getTextContent={this.getValueOfSelect}
+                  options={this.state.requiredOptions}
+                  label="With required property"
+                  required
+                />
+                <MDBCol className="d-flex justify-content-center">
+                  <MDBBtn type="submit" color={this.state.submitBtnColor}>
+                    Submit
+                  </MDBBtn>
+                </MDBCol>
+              </form>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header="Dynamically change state">
+          <MDBRow className="d-flex justify-content-center flex-column align-items-center">
+            <MDBCol md="6">
+              <MDBSelect
+                selectAll
+                outline
+                search
+                multiple
+                color="secondary"
+                getValue={this.handleDisabled}
+                getTextContent={this.getValueOfSelect}
+                options={this.state.dynamicOptions}
+                selected="Choose your option"
+                label="Dynamically change state"
+                labelClass="labelBg"
+              />
+            </MDBCol>
+            <MDBCol md="6" className="d-flex justify-content-center">
               <MDBBtn onClick={this.addOption} color="success">
                 Add option
               </MDBBtn>
-              <MDBBtn
-                onClick={this.removeOption}
-                color="danger"
-                disabled={this.state.disabled}
-              >
+              <MDBBtn onClick={this.removeOption} color="danger" disabled={this.state.disabled}>
                 Remove option
               </MDBBtn>
-          </MDBCol>
-        </MDBRow>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h2 className="text-center my-5 text-primary">
-          Uncontrolled Select
-        </h2>
+        <hr className="my-5 mdb-color lighten-3" />
 
-        <h4 className="mt-4 indigo-text">Basic example</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              label="Example label"
-            >
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions>
-                <MDBSelectOption disabled>
-                  Choose your option
-                </MDBSelectOption>
-                <MDBSelectOption>Option nr 1</MDBSelectOption>
-                <MDBSelectOption>Option nr 2</MDBSelectOption>
-                <MDBSelectOption>Option nr 3</MDBSelectOption>
-                <MDBSelectOption>Option nr 4</MDBSelectOption>
-                <MDBSelectOption selected>Option nr 5</MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer title="Uncontrolled Select" header="Basic example">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                label="Example label"
+              >
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption>Option nr 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 2</MDBSelectOption>
+                  <MDBSelectOption>Option nr 3</MDBSelectOption>
+                  <MDBSelectOption>Option nr 4</MDBSelectOption>
+                  <MDBSelectOption selected>Option nr 5</MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 indigo-text">Basic outline example</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              label="Example label"
-              outline
-              labelClass="labelBg"
-            >
-              <MDBSelectInput />
-              <MDBSelectOptions>
-                <MDBSelectOption disabled>
-                  Choose your option
-                </MDBSelectOption>
-                <MDBSelectOption>Option nr 1</MDBSelectOption>
-                <MDBSelectOption>Option nr 2</MDBSelectOption>
-                <MDBSelectOption>Option nr 3</MDBSelectOption>
-                <MDBSelectOption>Option nr 4</MDBSelectOption>
-                <MDBSelectOption>Option nr 5</MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Basic outline example">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol size="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                label="Example label"
+                outline
+                labelClass="labelBg"
+              >
+                <MDBSelectInput />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption>Option nr 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 2</MDBSelectOption>
+                  <MDBSelectOption>Option nr 3</MDBSelectOption>
+                  <MDBSelectOption>Option nr 4</MDBSelectOption>
+                  <MDBSelectOption>Option nr 5</MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 teal-text">Multiple select</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              getTextContent={this.getValueOfSelect}
-              label="Example label"
-              multiple
-            >
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions search>
-                <MDBSelectOption disabled>
-                  Choose your option
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 1">
-                  Option nr 1
-                </MDBSelectOption>
-                <MDBSelectOption selected value="value nr 2">
-                  Option nr 2
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 3">
-                  Option nr 3
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 4">
-                  Option nr 4
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 5">
-                  Option nr 5
-                </MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Multiple select">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                label="Example label"
+                multiple
+              >
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions search>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption value="value nr 1">Option nr 1</MDBSelectOption>
+                  <MDBSelectOption selected value="value nr 2">
+                    Option nr 2
+                  </MDBSelectOption>
+                  <MDBSelectOption value="value nr 3">Option nr 3</MDBSelectOption>
+                  <MDBSelectOption value="value nr 4">Option nr 4</MDBSelectOption>
+                  <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 deep-orange-text">Colorful select</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              color="primary"
-              label="Blue select"
-            >
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions>
-                <MDBSelectOption disabled>
-                  Choose your option
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 1">
-                  Option nr 1
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 2">
-                  Option nr 2
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 3">
-                  Option nr 3
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 4">
-                  Option nr 4
-                </MDBSelectOption>
-                <MDBSelectOption value="value nr 5">
-                  Option nr 5
-                </MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Colorful select">
+          <MDBRow className="d-flex justify-content-center ">
+            <MDBCol md="6">
+              <MDBSelect getValue={this.getValueOfSelect} color="primary" label="Blue select">
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption value="value nr 1">Option nr 1</MDBSelectOption>
+                  <MDBSelectOption value="value nr 2">Option nr 2</MDBSelectOption>
+                  <MDBSelectOption value="value nr 3">Option nr 3</MDBSelectOption>
+                  <MDBSelectOption value="value nr 4">Option nr 4</MDBSelectOption>
+                  <MDBSelectOption value="value nr 5">Option nr 5</MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 blue-grey-text">MDBSelect with icons</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              label="Example label"
-            >
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions search>
-                <MDBSelectOption disabled>
-                  Choose your option
-                </MDBSelectOption>
-                <MDBSelectOption
-                  value="User nr 1"
-                  icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg"
-                >
-                  Option nr 1
-                </MDBSelectOption>
-                <MDBSelectOption
-                  value="User nr 2"
-                  icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
-                >
-                  Option nr 2
-                </MDBSelectOption>
-                <MDBSelectOption
-                  value="User nr 3"
-                  icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg"
-                >
-                  Option nr 3
-                </MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="MDBSelect with icons">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect getValue={this.getValueOfSelect} label="Example label">
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions search>
+                  <MDBSelectOption disabled>Choose your option</MDBSelectOption>
+                  <MDBSelectOption
+                    value="User nr 1"
+                    icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg"
+                  >
+                    Option nr 1
+                  </MDBSelectOption>
+                  <MDBSelectOption
+                    value="User nr 2"
+                    icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
+                  >
+                    Option nr 2
+                  </MDBSelectOption>
+                  <MDBSelectOption
+                    value="User nr 3"
+                    icon="https://mdbootstrap.com/img/Photos/Avatars/avatar-3.jpg"
+                  >
+                    Option nr 3
+                  </MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <h4 className="mt-4 deep-purple-text">Options groups</h4>
-        <MDBRow>
-          <MDBCol md="6">
-            <MDBSelect
-              getValue={this.getValueOfSelect}
-              label="Example label"
-            >
-              <MDBSelectInput selected="Choose your option" />
-              <MDBSelectOptions>
-                <MDBSelectOption disabled>team 1</MDBSelectOption>
-                <MDBSelectOption>Option nr 1</MDBSelectOption>
-                <MDBSelectOption>Option nr 2</MDBSelectOption>
-                <MDBSelectOption separator>team 2</MDBSelectOption>
-                <MDBSelectOption>Option nr 3</MDBSelectOption>
-                <MDBSelectOption>Option nr 4</MDBSelectOption>
-              </MDBSelectOptions>
-            </MDBSelect>
-          </MDBCol>
-        </MDBRow>
+        <SectionContainer header="Options groups">
+          <MDBRow className="d-flex justify-content-center">
+            <MDBCol md="6">
+              <MDBSelect getValue={this.getValueOfSelect} label="Example label">
+                <MDBSelectInput selected="Choose your option" />
+                <MDBSelectOptions>
+                  <MDBSelectOption disabled>team 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 1</MDBSelectOption>
+                  <MDBSelectOption>Option nr 2</MDBSelectOption>
+                  <MDBSelectOption separator>team 2</MDBSelectOption>
+                  <MDBSelectOption>Option nr 3</MDBSelectOption>
+                  <MDBSelectOption>Option nr 4</MDBSelectOption>
+                </MDBSelectOptions>
+              </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
 
-        <div style={{ marginTop: "250px" }} />
+        <div style={{ marginTop: "175px" }} />
       </MDBContainer>
     );
   }
