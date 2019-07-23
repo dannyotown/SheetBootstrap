@@ -75,6 +75,7 @@ import Tooltip from './components/Popper';
 import View from './components/View';
 import Iframe from './components/Iframe';
 import Dropdown from './components/Dropdown';
+import Treeview from './components/Treeview';
 
 // PRO-START
 import Autocomplete from './components/pro/Autocomplete';
@@ -201,6 +202,7 @@ import { MDBTooltip } from './components/Popper';
 import { MDBView } from './components/View';
 import { MDBIframe } from './components/Iframe';
 import { MDBDropdown } from './components/Dropdown';
+import { MDBTreeview } from './components/Treeview';
 
 // PRO-START
 import { MDBAutocomplete } from './components/pro/Autocomplete';
@@ -327,6 +329,7 @@ export {
   Tooltip,
   View,
   Iframe,
+  Treeview,
   // PRO-START
   Autocomplete,
   Avatar,
@@ -450,6 +453,7 @@ export {
   MDBTableFoot,
   MDBTooltip,
   MDBView,
+  MDBTreeview,
   // PRO-START
   MDBAutocomplete,
   MDBAvatar,
