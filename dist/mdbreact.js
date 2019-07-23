@@ -498,137 +498,88 @@ Animation.defaultProps = {
   count: 1
 };
 
-var Alert =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Alert, _Component);
+var Alert = function Alert(props) {
+  var _useState = React.useState(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      isOpen = _useState2[0],
+      setIsOpen = _useState2[1];
 
-  function Alert() {
-    var _getPrototypeOf2;
+  var closeAlert = function closeAlert() {
+    setIsOpen(false);
+  };
 
-    var _this;
+  var handleOnExit = function handleOnExit(node) {
+    node.classList.add("fade");
+    props.onClose && props.onClose();
+  };
 
-    _classCallCheck(this, Alert);
+  var handleOnExited = function handleOnExited(node) {
+    props.onClosed && props.onClosed();
+  };
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+  var className = props.className,
+      color = props.color,
+      children = props.children,
+      dismiss = props.dismiss;
+  var alertClasses = classNames("alert", color && "alert-".concat(color), className);
+  var alertComponent;
 
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Alert)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      isOpen: true
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "closeAlert", function () {
-      _this.setState({
-        isOpen: false
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleOnExit", function (node) {
-      node.classList.add("fade");
-      _this.props.onClose && _this.props.onClose();
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleOnExited", function (node) {
-      _this.props.onClosed && _this.props.onClosed();
-    });
-
-    return _this;
+  if (dismiss) {
+    alertComponent = React__default.createElement(reactTransitionGroup.Transition, {
+      "in": isOpen,
+      timeout: 150,
+      unmountOnExit: true,
+      onExit: function onExit(node) {
+        return handleOnExit(node);
+      },
+      onExited: function onExited(node) {
+        return handleOnExited(node);
+      }
+    }, React__default.createElement("div", {
+      className: alertClasses,
+      role: "alert"
+    }, children, React__default.createElement("button", {
+      onClick: closeAlert,
+      type: "button",
+      className: "close",
+      "data-dismiss": "alert",
+      "aria-label": "Close"
+    }, React__default.createElement("span", {
+      "aria-hidden": "true"
+    }, "\xD7"))));
+  } else {
+    alertComponent = React__default.createElement("div", {
+      className: alertClasses,
+      role: "alert"
+    }, children);
   }
 
-  _createClass(Alert, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var _this$props = this.props,
-          className = _this$props.className,
-          color = _this$props.color,
-          children = _this$props.children,
-          dismiss = _this$props.dismiss;
-      var alertClasses = classNames("alert", color && "alert-".concat(color), className);
-      var alertComponent;
-
-      if (dismiss) {
-        alertComponent = React__default.createElement(reactTransitionGroup.Transition, {
-          "in": this.state.isOpen,
-          timeout: 150,
-          unmountOnExit: true,
-          onExit: function onExit(node) {
-            return _this2.handleOnExit(node);
-          },
-          onExited: function onExited(node) {
-            return _this2.handleOnExited(node);
-          }
-        }, React__default.createElement("div", {
-          className: alertClasses,
-          role: "alert"
-        }, children, React__default.createElement("button", {
-          onClick: this.closeAlert,
-          type: "button",
-          className: "close",
-          "data-dismiss": "alert",
-          "aria-label": "Close"
-        }, React__default.createElement("span", {
-          "aria-hidden": "true"
-        }, "\xD7"))));
-      } else {
-        alertComponent = React__default.createElement("div", {
-          className: alertClasses,
-          role: "alert"
-        }, children);
-      }
-
-      return alertComponent;
-    }
-  }]);
-
-  return Alert;
-}(React.Component);
+  return alertComponent;
+};
 
 Alert.defaultProps = {
   color: "primary"
 };
 Alert.propTypes = {
   className: propTypes.string,
-  color: propTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']),
+  color: propTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]),
   onClose: propTypes.func,
   onClosed: propTypes.func
 };
 
-var Badge =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Badge, _React$Component);
+var Badge = function Badge(props) {
+  var Tag = props.tag,
+      className = props.className,
+      children = props.children,
+      color = props.color,
+      pill = props.pill,
+      attributes = _objectWithoutProperties(props, ["tag", "className", "children", "color", "pill"]);
 
-  function Badge() {
-    _classCallCheck(this, Badge);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Badge).apply(this, arguments));
-  }
-
-  _createClass(Badge, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          Tag = _this$props.tag,
-          className = _this$props.className,
-          children = _this$props.children,
-          color = _this$props.color,
-          pill = _this$props.pill,
-          attributes = _objectWithoutProperties(_this$props, ["tag", "className", "children", "color", "pill"]);
-
-      var classes = classNames("badge", color, "badge-" + color, pill ? "badge-pill" : false, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), this.props.children);
-    }
-  }]);
-
-  return Badge;
-}(React__default.Component);
+  var classes = classNames("badge", color, "badge-" + color, pill ? "badge-pill" : false, className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 Badge.defaultProps = {
   tag: "span",
@@ -719,52 +670,34 @@ Breadcrumb.propTypes = {
   bold: propTypes.bool
 };
 
-var Fa =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Fa, _React$Component);
+var Fa = function Fa(props) {
+  var border = props.border,
+      brand = props.brand,
+      className = props.className,
+      fab = props.fab,
+      fal = props.fal,
+      far = props.far,
+      fixed = props.fixed,
+      flip = props.flip,
+      icon = props.icon,
+      inverse = props.inverse,
+      light = props.light,
+      list = props.list,
+      pull = props.pull,
+      pulse = props.pulse,
+      regular = props.regular,
+      rotate = props.rotate,
+      size = props.size,
+      spin = props.spin,
+      stack = props.stack,
+      attributes = _objectWithoutProperties(props, ["border", "brand", "className", "fab", "fal", "far", "fixed", "flip", "icon", "inverse", "light", "list", "pull", "pulse", "regular", "rotate", "size", "spin", "stack"]);
 
-  function Fa() {
-    _classCallCheck(this, Fa);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Fa).apply(this, arguments));
-  }
-
-  _createClass(Fa, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          border = _this$props.border,
-          brand = _this$props.brand,
-          className = _this$props.className,
-          fab = _this$props.fab,
-          fal = _this$props.fal,
-          far = _this$props.far,
-          fixed = _this$props.fixed,
-          flip = _this$props.flip,
-          icon = _this$props.icon,
-          inverse = _this$props.inverse,
-          light = _this$props.light,
-          list = _this$props.list,
-          pull = _this$props.pull,
-          pulse = _this$props.pulse,
-          regular = _this$props.regular,
-          rotate = _this$props.rotate,
-          size = _this$props.size,
-          spin = _this$props.spin,
-          stack = _this$props.stack,
-          attributes = _objectWithoutProperties(_this$props, ["border", "brand", "className", "fab", "fal", "far", "fixed", "flip", "icon", "inverse", "light", "list", "pull", "pulse", "regular", "rotate", "size", "spin", "stack"]);
-
-      var iconPrefix = brand || fab ? "fab" : light || fal ? "fal" : regular || far ? "far" : "fa";
-      var classes = classNames(iconPrefix, list ? "fa-li" : false, icon ? "fa-".concat(icon) : false, size ? "fa-".concat(size) : false, fixed ? "fa-fw" : false, pull ? "fa-pull-".concat(pull) : false, border ? "fa-border" : false, spin ? "fa-spin" : false, pulse ? "fa-pulse" : false, rotate ? "fa-rotate-".concat(rotate) : false, flip ? "fa-flip-".concat(flip) : false, inverse ? "fa-inverse" : false, stack ? "fa-".concat(stack) : false, className);
-      return React__default.createElement("i", _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return Fa;
-}(React__default.Component);
+  var iconPrefix = brand || fab ? "fab" : light || fal ? "fal" : regular || far ? "far" : "fa";
+  var classes = classNames(iconPrefix, list ? "fa-li" : false, icon ? "fa-".concat(icon) : false, size ? "fa-".concat(size) : false, fixed ? "fa-fw" : false, pull ? "fa-pull-".concat(pull) : false, border ? "fa-border" : false, spin ? "fa-spin" : false, pulse ? "fa-pulse" : false, rotate ? "fa-rotate-".concat(rotate) : false, flip ? "fa-flip-".concat(flip) : false, inverse ? "fa-inverse" : false, stack ? "fa-".concat(stack) : false, className);
+  return React__default.createElement("i", _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 Fa.propTypes = {
   icon: propTypes.string.isRequired,
@@ -994,94 +927,77 @@ Waves.propTypes = {
   children: propTypes.node
 };
 
-var Button =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Button, _React$Component);
+var Button = function Button(props) {
+  var _classNames;
 
-  function Button(props) {
-    var _this;
+  var _useState = React.useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
 
-    _classCallCheck(this, Button);
+  var handleClick = function handleClick(e) {
+    e.stopPropagation(); // Waves - Get Cursor Position
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Button).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
-      e.stopPropagation(); // Waves - Get Cursor Position
-
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-
-      _this.setState({
-        cursorPos: cursorPos
-      });
-    });
-
-    _this.state = {
-      cursorPos: {}
+    var cursorPos = {
+      top: e.clientY,
+      left: e.clientX,
+      time: Date.now()
     };
-    return _this;
+    setCursorPos(cursorPos);
+  };
+
+  var active = props.active,
+      block = props.block,
+      circle = props.circle,
+      className = props.className,
+      color = props.color,
+      disabled = props.disabled,
+      download = props.download,
+      outline = props.outline,
+      size = props.size,
+      rounded = props.rounded,
+      gradient = props.gradient,
+      floating = props.floating,
+      flat = props.flat,
+      role = props.role,
+      type = props.type,
+      social = props.social,
+      action = props.action,
+      Tag = props.tag,
+      target = props.target,
+      innerRef = props.innerRef,
+      attributes = _objectWithoutProperties(props, ["active", "block", "circle", "className", "color", "disabled", "download", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "social", "action", "tag", "target", "innerRef"]);
+
+  var classes = classNames(flat ? "btn-flat" : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? "-outline" : "", "-").concat(color), "btn", "Ripple-parent", className, (_classNames = {
+    active: active,
+    "btn-floating": floating,
+    "btn-rounded": rounded,
+    "btn-circle": circle,
+    "btn-block": block,
+    "btn-action": action
+  }, _defineProperty(_classNames, "btn-".concat(social), social), _defineProperty(_classNames, "btn-".concat(size), size), _defineProperty(_classNames, "disabled", disabled), _classNames));
+
+  if (attributes.href && Tag === "button") {
+    Tag = "a";
   }
 
-  _createClass(Button, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          active = _this$props.active,
-          block = _this$props.block,
-          circle = _this$props.circle,
-          className = _this$props.className,
-          color = _this$props.color,
-          disabled = _this$props.disabled,
-          download = _this$props.download,
-          outline = _this$props.outline,
-          size = _this$props.size,
-          rounded = _this$props.rounded,
-          gradient = _this$props.gradient,
-          floating = _this$props.floating,
-          flat = _this$props.flat,
-          role = _this$props.role,
-          type = _this$props.type,
-          social = _this$props.social,
-          action = _this$props.action,
-          Tag = _this$props.tag,
-          target = _this$props.target,
-          innerRef = _this$props.innerRef,
-          attributes = _objectWithoutProperties(_this$props, ["active", "block", "circle", "className", "color", "disabled", "download", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "social", "action", "tag", "target", "innerRef"]);
-
-      var classes = classNames(floating ? "btn-floating btn" : "btn", flat ? "btn-flat" : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? "-outline" : "", "-").concat(color), size ? "btn-".concat(size) : false, rounded ? "btn-rounded" : false, circle && "btn-circle", block ? "btn-block" : false, social ? "btn-" + social : false, action ? "btn-action" : false, "Ripple-parent", className, {
-        active: active,
-        disabled: disabled
-      });
-
-      if (attributes.href && Tag === "button") {
-        Tag = "a";
-      }
-
-      return React__default.createElement(Tag, _extends({
-        type: Tag === "button" && !type ? "button" : type,
-        target: target,
-        role: Tag === "a" && !role ? "button" : role,
-        className: classes,
-        ref: innerRef,
-        onMouseUp: this.handleClick,
-        onTouchStart: this.handleClick
-      }, attributes, {
-        download: download,
-        disabled: disabled
-      }), this.props.children, this.props.disabled ? false : React__default.createElement(Waves, {
-        cursorPos: this.state.cursorPos,
-        outline: outline,
-        flat: flat
-      }));
-    }
-  }]);
-
-  return Button;
-}(React__default.Component);
+  return React__default.createElement(Tag, _extends({
+    type: Tag === "button" && !type ? "button" : type,
+    target: target,
+    role: Tag === "a" && !role ? "button" : role,
+    className: classes,
+    ref: innerRef,
+    onMouseUp: handleClick,
+    onTouchStart: handleClick
+  }, attributes, {
+    download: download,
+    disabled: disabled
+  }), props.children, disabled ? false : React__default.createElement(Waves, {
+    cursorPos: cursorPos,
+    outline: outline,
+    flat: flat
+  }));
+};
 
 Button.defaultProps = {
   color: "default",
@@ -1115,35 +1031,17 @@ Button.propTypes = {
 var css$2 = ".btn-group-vertical>.btn,\n.btn-group-vertical>.btn+.btn-group,\n.btn-group-vertical>.btn-group+.btn,\n.btn-group-vertical>.btn-group+.btn-group {\n  margin-left: 0px;\n}\n\n.btn-group-lg>.btn {\n  font-size: 0.9rem;\n  padding: 1rem 2.4rem;\n}\n\n.btn-group-sm>.btn {\n  font-size: 0.6rem;\n  padding: 0.5rem 1.6rem;\n}\n\n.btn-floating.btn.btn-sm,\n.btn-floating.btn.btn-lg {\n  padding: 0;\n}\n";
 styleInject(css$2);
 
-var ButtonGroup =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(ButtonGroup, _React$Component);
+var ButtonGroup = function ButtonGroup(props) {
+  var className = props.className,
+      size = props.size,
+      vertical = props.vertical,
+      attributes = _objectWithoutProperties(props, ["className", "size", "vertical"]);
 
-  function ButtonGroup() {
-    _classCallCheck(this, ButtonGroup);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ButtonGroup).apply(this, arguments));
-  }
-
-  _createClass(ButtonGroup, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          size = _this$props.size,
-          vertical = _this$props.vertical,
-          attributes = _objectWithoutProperties(_this$props, ["className", "size", "vertical"]);
-
-      var classes = classNames(className, size ? "btn-group-" + size : false, vertical ? "btn-group-vertical" : "btn-group");
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes
-      }), this.props.children);
-    }
-  }]);
-
-  return ButtonGroup;
-}(React__default.Component);
+  var classes = classNames(className, size ? "btn-group-" + size : false, vertical ? "btn-group-vertical" : "btn-group");
+  return React__default.createElement("div", _extends({}, attributes, {
+    className: classes
+  }), props.children);
+};
 
 ButtonGroup.propTypes = {
   "aria-label": propTypes.string,
@@ -1157,33 +1055,15 @@ ButtonGroup.defaultProps = {
   role: "group"
 };
 
-var ButtonToolbar =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(ButtonToolbar, _React$Component);
+var ButtonToolbar = function ButtonToolbar(props) {
+  var className = props.className,
+      attributes = _objectWithoutProperties(props, ["className"]);
 
-  function ButtonToolbar() {
-    _classCallCheck(this, ButtonToolbar);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ButtonToolbar).apply(this, arguments));
-  }
-
-  _createClass(ButtonToolbar, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          attributes = _objectWithoutProperties(_this$props, ["className"]);
-
-      var classes = classNames(className, "btn-toolbar");
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes
-      }), this.props.children);
-    }
-  }]);
-
-  return ButtonToolbar;
-}(React__default.Component);
+  var classes = classNames(className, "btn-toolbar");
+  return React__default.createElement("div", _extends({}, attributes, {
+    className: classes
+  }), props.children);
+};
 
 ButtonToolbar.propTypes = {
   "aria-label": propTypes.string,
@@ -1195,47 +1075,42 @@ ButtonToolbar.defaultProps = {
   role: "toolbar"
 };
 
-var Card =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Card, _Component);
+var Card = function Card(props) {
+  var _classNames;
 
-  function Card() {
-    _classCallCheck(this, Card);
+  var className = props.className,
+      Tag = props.tag,
+      cascade = props.cascade,
+      wide = props.wide,
+      narrow = props.narrow,
+      reverse = props.reverse,
+      testimonial = props.testimonial,
+      ecommerce = props.ecommerce,
+      collection = props.collection,
+      pricing = props.pricing,
+      personal = props.personal,
+      news = props.news,
+      color = props.color,
+      text = props.text,
+      border = props.border,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "cascade", "wide", "narrow", "reverse", "testimonial", "ecommerce", "collection", "pricing", "personal", "news", "color", "text", "border"]);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Card).apply(this, arguments));
-  }
-
-  _createClass(Card, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          cascade = _this$props.cascade,
-          wide = _this$props.wide,
-          narrow = _this$props.narrow,
-          reverse = _this$props.reverse,
-          testimonial = _this$props.testimonial,
-          ecommerce = _this$props.ecommerce,
-          collection = _this$props.collection,
-          pricing = _this$props.pricing,
-          personal = _this$props.personal,
-          news = _this$props.news,
-          color = _this$props.color,
-          text = _this$props.text,
-          border = _this$props.border,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "cascade", "wide", "narrow", "reverse", "testimonial", "ecommerce", "collection", "pricing", "personal", "news", "color", "text", "border"]);
-
-      var classes = classNames("card", cascade && "card-cascade", wide && "card-cascade wider", narrow && "card-cascade narrower", reverse && "card-cascade wider reverse", testimonial && "testimonial-card", ecommerce && "card-ecommerce", collection && "collection-card", pricing && "pricing-card", personal && "card-personal", news && "news-card", color && color, text && text + "-text", border && "border-" + border, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return Card;
-}(React.Component);
+  var classes = classNames((_classNames = {
+    "card-cascade": cascade,
+    "card-cascade wider": wide,
+    "card-cascade narrower": narrow,
+    "card-cascade wider reverse": reverse,
+    "testimonial-card": testimonial,
+    "card-ecommerce": ecommerce,
+    "collection-card": collection,
+    "pricing-card": pricing,
+    "card-personal": personal,
+    "news-card": news
+  }, _defineProperty(_classNames, "".concat(text, "-text"), text), _defineProperty(_classNames, "border-".concat(border), border), _classNames), "card", color, className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 Card.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -1247,35 +1122,17 @@ Card.defaultProps = {
   tag: "div"
 };
 
-var CardBody =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CardBody, _Component);
+var CardBody = function CardBody(props) {
+  var className = props.className,
+      Tag = props.tag,
+      cascade = props.cascade,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "cascade"]);
 
-  function CardBody() {
-    _classCallCheck(this, CardBody);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardBody).apply(this, arguments));
-  }
-
-  _createClass(CardBody, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          cascade = _this$props.cascade,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "cascade"]);
-
-      var classes = classNames("card-body", cascade && "card-body-cascade", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return CardBody;
-}(React.Component);
+  var classes = classNames("card-body", cascade && "card-body-cascade", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 CardBody.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -1286,48 +1143,34 @@ CardBody.defaultProps = {
   tag: "div"
 };
 
-var CardFooter =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CardFooter, _Component);
+var CardFooter = function CardFooter(props) {
+  var _classNames;
 
-  function CardFooter() {
-    _classCallCheck(this, CardFooter);
+  var className = props.className,
+      Tag = props.tag,
+      color = props.color,
+      text = props.text,
+      border = props.border,
+      transparent = props.transparent,
+      small = props.small,
+      muted = props.muted,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "color", "text", "border", "transparent", "small", "muted"]);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardFooter).apply(this, arguments));
+  var classes = classNames((_classNames = {
+    " white-text": color && !text
+  }, _defineProperty(_classNames, "border-".concat(border), border), _defineProperty(_classNames, "bg-transparent", transparent), _defineProperty(_classNames, "text-muted", muted), _defineProperty(_classNames, "color", color), _defineProperty(_classNames, "text", text), _classNames), "card-footer", className);
+  var component = React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+
+  if (small) {
+    component = React__default.createElement(Tag, _extends({}, attributes, {
+      className: classes
+    }), React__default.createElement("small", null, " ", props.children, " "));
   }
 
-  _createClass(CardFooter, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          color = _this$props.color,
-          text = _this$props.text,
-          border = _this$props.border,
-          transparent = _this$props.transparent,
-          small = _this$props.small,
-          muted = _this$props.muted,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "color", "text", "border", "transparent", "small", "muted"]);
-
-      var classes = classNames("card-footer", color && color, text && text, color && !text && " white-text", border && "border-" + border, transparent && "bg-transparent", muted && "text-muted", className);
-      var component = React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-
-      if (small) {
-        component = React__default.createElement(Tag, _extends({}, attributes, {
-          className: classes
-        }), React__default.createElement("small", null, " ", this.props.children, " "));
-      }
-
-      return component;
-    }
-  }]);
-
-  return CardFooter;
-}(React.Component);
+  return component;
+};
 
 CardFooter.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -1343,36 +1186,18 @@ CardFooter.defaultProps = {
   tag: "div"
 };
 
-var CardGroup =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CardGroup, _Component);
+var CardGroup = function CardGroup(props) {
+  var className = props.className,
+      Tag = props.tag,
+      deck = props.deck,
+      column = props.column,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "deck", "column"]);
 
-  function CardGroup() {
-    _classCallCheck(this, CardGroup);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardGroup).apply(this, arguments));
-  }
-
-  _createClass(CardGroup, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          deck = _this$props.deck,
-          column = _this$props.column,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "deck", "column"]);
-
-      var classes = classNames(deck ? "card-deck" : column ? "card-columns" : "card-group", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return CardGroup;
-}(React.Component);
+  var classes = classNames(deck ? "card-deck" : column ? "card-columns" : "card-group", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 CardGroup.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -1384,38 +1209,24 @@ CardGroup.defaultProps = {
   tag: "div"
 };
 
-var CardHeader =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CardHeader, _Component);
+var CardHeader = function CardHeader(props) {
+  var _classNames;
 
-  function CardHeader() {
-    _classCallCheck(this, CardHeader);
+  var className = props.className,
+      Tag = props.tag,
+      color = props.color,
+      text = props.text,
+      border = props.border,
+      transparent = props.transparent,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "color", "text", "border", "transparent"]);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardHeader).apply(this, arguments));
-  }
-
-  _createClass(CardHeader, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          color = _this$props.color,
-          text = _this$props.text,
-          border = _this$props.border,
-          transparent = _this$props.transparent,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "color", "text", "border", "transparent"]);
-
-      var classes = classNames("card-header", color && color, text && text, color && !text && " white-text", border && "border-" + border, transparent && "bg-transparent", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return CardHeader;
-}(React.Component);
+  var classes = classNames((_classNames = {
+    " white-text": color && !text
+  }, _defineProperty(_classNames, "border-".concat(border), border), _defineProperty(_classNames, "bg-transparent", transparent), _classNames), "card-header", className, color, text);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 CardHeader.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -1429,37 +1240,19 @@ CardHeader.defaultProps = {
   tag: "div"
 };
 
-var Mask =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Mask, _React$Component);
+var Mask = function Mask(props) {
+  var children = props.children,
+      className = props.className,
+      overlay = props.overlay,
+      pattern = props.pattern,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["children", "className", "overlay", "pattern", "tag"]);
 
-  function Mask() {
-    _classCallCheck(this, Mask);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Mask).apply(this, arguments));
-  }
-
-  _createClass(Mask, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          overlay = _this$props.overlay,
-          pattern = _this$props.pattern,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "overlay", "pattern", "tag"]);
-
-      var classes = classNames("mask", pattern && "pattern-".concat(pattern), overlay && "rgba-".concat(overlay), className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), this.props.children);
-    }
-  }]);
-
-  return Mask;
-}(React__default.Component);
+  var classes = classNames("mask", pattern && "pattern-".concat(pattern), overlay && "rgba-".concat(overlay), className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 Mask.propTypes = {
   children: propTypes.node,
@@ -1475,74 +1268,52 @@ Mask.defaultProps = {
   tag: "div"
 };
 
-var View =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(View, _React$Component);
+var View = function View(props) {
+  var _useState = React.useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
 
-  function View(props) {
-    var _this;
-
-    _classCallCheck(this, View);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(View).call(this, props));
-    _this.state = {
-      cursorPos: {}
+  var handleClick = function handleClick(e) {
+    // Get Cursor Position
+    var cursorPos = {
+      top: e.clientY,
+      left: e.clientX,
+      time: Date.now()
     };
-    return _this;
-  }
+    setCursorPos(cursorPos);
+  };
 
-  _createClass(View, [{
-    key: "handleClick",
-    value: function handleClick(e) {
-      // Get Cursor Position
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({
-        cursorPos: cursorPos
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          cascade = _this$props.cascade,
-          children = _this$props.children,
-          className = _this$props.className,
-          hover = _this$props.hover,
-          rounded = _this$props.rounded,
-          src = _this$props.src,
-          Tag = _this$props.tag,
-          waves = _this$props.waves,
-          zoom = _this$props.zoom,
-          fixed = _this$props.fixed,
-          attributes = _objectWithoutProperties(_this$props, ["cascade", "children", "className", "hover", "rounded", "src", "tag", "waves", "zoom", "fixed"]);
+  var cascade = props.cascade,
+      children = props.children,
+      className = props.className,
+      hover = props.hover,
+      rounded = props.rounded,
+      src = props.src,
+      Tag = props.tag,
+      waves = props.waves,
+      zoom = props.zoom,
+      fixed = props.fixed,
+      attributes = _objectWithoutProperties(props, ["cascade", "children", "className", "hover", "rounded", "src", "tag", "waves", "zoom", "fixed"]);
 
-      var classes = classNames("view", rounded && "rounded", zoom && "zoom", hover && "overlay", cascade && "view-cascade", waves ? "Ripple-parent" : false, className);
-      var viewStyle = src ? {
-        backgroundImage: "url(\"".concat(src, "\")"),
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-        height: "100vh",
-        backgroundAttachment: fixed ? "fixed" : null
-      } : {};
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes,
-        onMouseDown: this.handleClick.bind(this) // onTouchStart={this.handleClick.bind(this)}
-        ,
-        style: viewStyle
-      }), children, waves && React__default.createElement(Waves, {
-        cursorPos: this.state.cursorPos
-      }));
-    }
-  }]);
-
-  return View;
-}(React__default.Component);
+  var classes = classNames("view", rounded && "rounded", zoom && "zoom", hover && "overlay", cascade && "view-cascade", waves ? "Ripple-parent" : false, className);
+  var viewStyle = src ? {
+    backgroundImage: "url(\"".concat(src, "\")"),
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center center",
+    height: "100vh",
+    backgroundAttachment: fixed ? "fixed" : null
+  } : {};
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes,
+    onMouseDown: handleClick,
+    onTouchStart: handleClick,
+    style: viewStyle
+  }), children, waves && React__default.createElement(Waves, {
+    cursorPos: cursorPos
+  }));
+};
 
 View.defaultProps = {
   cascade: false,
@@ -1566,80 +1337,58 @@ View.propTypes = {
   zoom: propTypes.bool
 };
 
-var CardImage =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CardImage, _Component);
+var CardImage = function CardImage(props) {
+  var _useState = React.useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
 
-  function CardImage(props) {
-    var _this;
-
-    _classCallCheck(this, CardImage);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(CardImage).call(this, props));
-    _this.state = {
-      cursorPos: {}
+  var handleClick = function handleClick(e) {
+    // Get Cursor Position
+    var cursorPos = {
+      top: e.clientY,
+      left: e.clientX,
+      time: Date.now()
     };
-    return _this;
-  }
+    setCursorPos(cursorPos);
+  };
 
-  _createClass(CardImage, [{
-    key: "handleClick",
-    value: function handleClick(e) {
-      // Get Cursor Position
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({
-        cursorPos: cursorPos
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          overlay = _this$props.overlay,
-          top = _this$props.top,
-          waves = _this$props.waves,
-          hover = _this$props.hover,
-          cascade = _this$props.cascade,
-          tag = _this$props.tag,
-          zoom = _this$props.zoom,
-          attributes = _objectWithoutProperties(_this$props, ["className", "overlay", "top", "waves", "hover", "cascade", "tag", "zoom"]);
+  var className = props.className,
+      overlay = props.overlay,
+      top = props.top,
+      waves = props.waves,
+      hover = props.hover,
+      cascade = props.cascade,
+      tag = props.tag,
+      zoom = props.zoom,
+      attributes = _objectWithoutProperties(props, ["className", "overlay", "top", "waves", "hover", "cascade", "tag", "zoom"]);
 
-      var classes = classNames(top && "card-img-top", className);
-      var Tag = tag;
-      var innerContent = React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), this.props.children);
+  var classes = classNames(top && "card-img-top", className);
+  var Tag = tag;
+  var innerContent = React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), props.children);
 
-      if (this.props.src) {
-        return React__default.createElement(View, {
-          zoom: zoom,
-          hover: this.props.hover,
-          cascade: this.props.cascade
-        }, React__default.createElement("div", {
-          className: "Ripple-parent",
-          onMouseDown: this.handleClick.bind(this),
-          style: {
-            touchAction: "unset"
-          }
-        }, innerContent, React__default.createElement(Mask, {
-          overlay: overlay
-        }), this.props.waves && React__default.createElement(Waves, {
-          cursorPos: this.state.cursorPos
-        })));
-      } else {
-        return React__default.createElement("div", null, innerContent);
+  if (props.src) {
+    return React__default.createElement(View, {
+      zoom: zoom,
+      hover: hover,
+      cascade: cascade
+    }, React__default.createElement("div", {
+      className: "Ripple-parent",
+      onMouseDown: handleClick,
+      style: {
+        touchAction: "unset"
       }
-    }
-  }]);
-
-  return CardImage;
-}(React.Component);
+    }, innerContent, React__default.createElement(Mask, {
+      overlay: overlay
+    }), waves && React__default.createElement(Waves, {
+      cursorPos: cursorPos
+    })));
+  } else {
+    return React__default.createElement("div", null, innerContent);
+  }
+};
 
 CardImage.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -1662,44 +1411,26 @@ CardImage.defaultProps = {
   zoom: false
 };
 
-var CardText =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CardText, _Component);
+var CardText = function CardText(props) {
+  var className = props.className,
+      Tag = props.tag,
+      muted = props.muted,
+      small = props.small,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "muted", "small"]);
 
-  function CardText() {
-    _classCallCheck(this, CardText);
+  var classes = classNames("card-text", muted && "text-muted", className);
+  var text = React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardText).apply(this, arguments));
+  if (small) {
+    text = React__default.createElement(Tag, _extends({}, attributes, {
+      className: classes
+    }), React__default.createElement("small", null, " ", props.children, " "));
   }
 
-  _createClass(CardText, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          muted = _this$props.muted,
-          small = _this$props.small,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "muted", "small"]);
-
-      var classes = classNames("card-text", muted && "text-muted", className);
-      var text = React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-
-      if (small) {
-        text = React__default.createElement(Tag, _extends({}, attributes, {
-          className: classes
-        }), React__default.createElement("small", null, " ", this.props.children, " "));
-      }
-
-      return text;
-    }
-  }]);
-
-  return CardText;
-}(React.Component);
+  return text;
+};
 
 CardText.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -1711,35 +1442,17 @@ CardText.defaultProps = {
   tag: "p"
 };
 
-var CardTitle =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CardTitle, _Component);
+var CardTitle = function CardTitle(props) {
+  var className = props.className,
+      Tag = props.tag,
+      sub = props.sub,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "sub"]);
 
-  function CardTitle() {
-    _classCallCheck(this, CardTitle);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardTitle).apply(this, arguments));
-  }
-
-  _createClass(CardTitle, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          sub = _this$props.sub,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "sub"]);
-
-      var classes = classNames(sub ? "card-subtitle" : "card-title", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return CardTitle;
-}(React.Component);
+  var classes = classNames(sub ? "card-subtitle" : "card-title", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 CardTitle.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -1751,69 +1464,51 @@ CardTitle.defaultProps = {
   sub: false
 };
 
-var Control =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Control, _Component);
+var Control = function Control(props) {
+  var direction = props.direction,
+      className = props.className,
+      onClick = props.onClick,
+      Tag = props.tag,
+      iconLeft = props.iconLeft,
+      iconRight = props.iconRight,
+      testimonial = props.testimonial,
+      multiItem = props.multiItem;
+  var text;
 
-  function Control() {
-    _classCallCheck(this, Control);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Control).apply(this, arguments));
+  if (direction === "prev") {
+    text = "Previous";
+  } else if (direction === "next") {
+    text = "Next";
   }
 
-  _createClass(Control, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          direction = _this$props.direction,
-          className = _this$props.className,
-          onClick = _this$props.onClick,
-          Tag = _this$props.tag,
-          iconLeft = _this$props.iconLeft,
-          iconRight = _this$props.iconRight,
-          testimonial = _this$props.testimonial,
-          multiItem = _this$props.multiItem;
-      var text;
+  var classes = classNames("carousel-control-" + direction, className);
+  var caretClasses = classNames("carousel-control-" + direction + "-icon");
 
-      if (direction === "prev") {
-        text = "Previous";
-      } else if (direction === "next") {
-        text = "Next";
-      }
+  if (testimonial) {
+    var arrow = direction === "prev" ? "left" : "right";
+    classes = classNames("carousel-control-" + direction, arrow, "carousel-control", className);
+    caretClasses = classNames("icon-" + direction);
+  }
 
-      var classes = classNames("carousel-control-" + direction, className);
-      var caretClasses = classNames("carousel-control-" + direction + "-icon");
+  if (multiItem) {
+    classes = classNames("btn-floating");
+  }
 
-      if (testimonial) {
-        var arrow = direction === "prev" ? "left" : "right";
-        classes = classNames("carousel-control-" + direction, arrow, "carousel-control", className);
-        caretClasses = classNames("icon-" + direction);
-      }
-
-      if (multiItem) {
-        classes = classNames("btn-floating");
-      }
-
-      return React__default.createElement(Tag, {
-        className: classes,
-        "data-slide": direction,
-        onClick: onClick
-      }, iconLeft ? React__default.createElement(Fa, {
-        icon: "chevron-left"
-      }) : iconRight ? React__default.createElement(Fa, {
-        icon: "chevron-right"
-      }) : React__default.createElement("div", null, React__default.createElement("span", {
-        className: caretClasses,
-        "aria-hidden": "true"
-      }), React__default.createElement("span", {
-        className: "sr-only"
-      }, text)));
-    }
-  }]);
-
-  return Control;
-}(React.Component);
+  return React__default.createElement(Tag, {
+    className: classes,
+    "data-slide": direction,
+    onClick: onClick
+  }, iconLeft ? React__default.createElement(Fa, {
+    icon: "chevron-left"
+  }) : iconRight ? React__default.createElement(Fa, {
+    icon: "chevron-right"
+  }) : React__default.createElement("div", null, React__default.createElement("span", {
+    className: caretClasses,
+    "aria-hidden": "true"
+  }), React__default.createElement("span", {
+    className: "sr-only"
+  }, text)));
+};
 
 Control.propTypes = {
   onClick: propTypes.any,
@@ -1829,34 +1524,16 @@ Control.defaultProps = {
   tag: "a"
 };
 
-var CarouselIndicators =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CarouselIndicators, _Component);
+var CarouselIndicators = function CarouselIndicators(props) {
+  var children = props.children,
+      className = props.className,
+      attributes = _objectWithoutProperties(props, ["children", "className"]);
 
-  function CarouselIndicators() {
-    _classCallCheck(this, CarouselIndicators);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CarouselIndicators).apply(this, arguments));
-  }
-
-  _createClass(CarouselIndicators, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className"]);
-
-      var classes = classNames("carousel-indicators", className);
-      return React__default.createElement("ol", _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return CarouselIndicators;
-}(React.Component);
+  var classes = classNames("carousel-indicators", className);
+  return React__default.createElement("ol", _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 CarouselIndicators.propTypes = {
   children: propTypes.node,
@@ -1866,41 +1543,23 @@ CarouselIndicators.defaultProps = {
   className: ""
 };
 
-var CarouselIndicator =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CarouselIndicator, _Component);
+var CarouselIndicator = function CarouselIndicator(props) {
+  var active = props.active,
+      children = props.children,
+      className = props.className,
+      img = props.img,
+      alt = props.alt,
+      attributes = _objectWithoutProperties(props, ["active", "children", "className", "img", "alt"]);
 
-  function CarouselIndicator() {
-    _classCallCheck(this, CarouselIndicator);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CarouselIndicator).apply(this, arguments));
-  }
-
-  _createClass(CarouselIndicator, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          active = _this$props.active,
-          children = _this$props.children,
-          className = _this$props.className,
-          img = _this$props.img,
-          alt = _this$props.alt,
-          attributes = _objectWithoutProperties(_this$props, ["active", "children", "className", "img", "alt"]);
-
-      var classes = classNames(this.props.active ? "active" : "", className);
-      return React__default.createElement("li", _extends({}, attributes, {
-        className: classes
-      }), this.props.img && React__default.createElement("img", {
-        src: this.props.img,
-        alt: this.props.alt,
-        className: "img-fluid"
-      }), children);
-    }
-  }]);
-
-  return CarouselIndicator;
-}(React.Component);
+  var classes = classNames(active && "active", className);
+  return React__default.createElement("li", _extends({}, attributes, {
+    className: classes
+  }), img && React__default.createElement("img", {
+    src: img,
+    alt: alt,
+    className: "img-fluid"
+  }), children);
+};
 
 CarouselIndicator.propTypes = {
   active: propTypes.bool.isRequired,
@@ -2203,35 +1862,17 @@ Carousel.childContextTypes = {
   slide: propTypes.any
 };
 
-var CarouselCaption =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CarouselCaption, _Component);
+var CarouselCaption = function CarouselCaption(props) {
+  var children = props.children,
+      className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["children", "className", "tag"]);
 
-  function CarouselCaption() {
-    _classCallCheck(this, CarouselCaption);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CarouselCaption).apply(this, arguments));
-  }
-
-  _createClass(CarouselCaption, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag"]);
-
-      var classes = classNames("carousel-caption", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return CarouselCaption;
-}(React.Component);
+  var classes = classNames("carousel-caption", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 CarouselCaption.propTypes = {
   active: propTypes.string,
@@ -2387,43 +2028,25 @@ CarouselItem.contextTypes = {
   slide: propTypes.any
 };
 
-var Col =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Col, _Component);
+var Col = function Col(props) {
+  var xs = props.xs,
+      sm = props.sm,
+      md = props.md,
+      lg = props.lg,
+      xl = props.xl,
+      top = props.top,
+      bottom = props.bottom,
+      middle = props.middle,
+      size = props.size,
+      className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["xs", "sm", "md", "lg", "xl", "top", "bottom", "middle", "size", "className", "tag"]);
 
-  function Col() {
-    _classCallCheck(this, Col);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Col).apply(this, arguments));
-  }
-
-  _createClass(Col, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          xs = _this$props.xs,
-          sm = _this$props.sm,
-          md = _this$props.md,
-          lg = _this$props.lg,
-          xl = _this$props.xl,
-          top = _this$props.top,
-          bottom = _this$props.bottom,
-          middle = _this$props.middle,
-          size = _this$props.size,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["xs", "sm", "md", "lg", "xl", "top", "bottom", "middle", "size", "className", "tag"]);
-
-      var classes = classNames(size && "col-" + size, xs && "col-xs-" + xs, sm && "col-sm-" + sm, md && "col-md-" + md, lg && "col-lg-" + lg, xl && "col-xl-" + xl, !size && !xs && !sm && !md && !lg && !xl ? "col" : "", top && "align-self-start", middle && "align-self-center", bottom && "align-self-end", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return Col;
-}(React.Component);
+  var classes = classNames(size && "col-" + size, xs && "col-xs-" + xs, sm && "col-sm-" + sm, md && "col-md-" + md, lg && "col-lg-" + lg, xl && "col-xl-" + xl, !size && !xs && !sm && !md && !lg && !xl ? "col" : "", top && "align-self-start", middle && "align-self-center", bottom && "align-self-end", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 Col.propTypes = {
   size: propTypes.string,
@@ -2635,35 +2258,17 @@ Collapse.defaultProps = {
   onClosed: function onClosed() {}
 };
 
-var Container =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Container, _Component);
+var Container = function Container(props) {
+  var fluid = props.fluid,
+      className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["fluid", "className", "tag"]);
 
-  function Container() {
-    _classCallCheck(this, Container);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Container).apply(this, arguments));
-  }
-
-  _createClass(Container, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          fluid = _this$props.fluid,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["fluid", "className", "tag"]);
-
-      var classes = classNames(fluid ? "container-fluid" : "container", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return Container;
-}(React.Component);
+  var classes = classNames(fluid ? "container-fluid" : "container", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 Container.propTypes = {
   fluid: propTypes.bool,
@@ -2678,75 +2283,57 @@ Container.defaultProps = {
 var css$4 = ".table-wrapper-scroll-y {\n  display: block;\n  max-height: 200px;\n  overflow-y: auto;\n  -ms-overflow-style: -ms-autohiding-scrollbar;\n}\n";
 styleInject(css$4);
 
-var Table =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Table, _React$Component);
+var Table = function Table(props) {
+  var autoWidth = props.autoWidth,
+      bordered = props.bordered,
+      borderless = props.borderless,
+      btn = props.btn,
+      children = props.children,
+      dark = props.dark,
+      fixed = props.fixed,
+      theadColor = props.theadColor,
+      hover = props.hover,
+      maxHeight = props.maxHeight,
+      responsive = props.responsive,
+      responsiveSm = props.responsiveSm,
+      responsiveMd = props.responsiveMd,
+      responsiveLg = props.responsiveLg,
+      responsiveXl = props.responsiveXl,
+      scrollY = props.scrollY,
+      small = props.small,
+      striped = props.striped,
+      className = props.className,
+      attributes = _objectWithoutProperties(props, ["autoWidth", "bordered", "borderless", "btn", "children", "dark", "fixed", "theadColor", "hover", "maxHeight", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "scrollY", "small", "striped", "className"]);
 
-  function Table() {
-    _classCallCheck(this, Table);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Table).apply(this, arguments));
-  }
-
-  _createClass(Table, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          autoWidth = _this$props.autoWidth,
-          bordered = _this$props.bordered,
-          borderless = _this$props.borderless,
-          btn = _this$props.btn,
-          children = _this$props.children,
-          dark = _this$props.dark,
-          fixed = _this$props.fixed,
-          theadColor = _this$props.theadColor,
-          hover = _this$props.hover,
-          maxHeight = _this$props.maxHeight,
-          responsive = _this$props.responsive,
-          responsiveSm = _this$props.responsiveSm,
-          responsiveMd = _this$props.responsiveMd,
-          responsiveLg = _this$props.responsiveLg,
-          responsiveXl = _this$props.responsiveXl,
-          scrollY = _this$props.scrollY,
-          small = _this$props.small,
-          striped = _this$props.striped,
-          className = _this$props.className,
-          attributes = _objectWithoutProperties(_this$props, ["autoWidth", "bordered", "borderless", "btn", "children", "dark", "fixed", "theadColor", "hover", "maxHeight", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "scrollY", "small", "striped", "className"]);
-
-      var tableClasses = classNames("table", {
-        "w-auto": autoWidth,
-        "table-bordered": bordered,
-        "table-borderless": borderless,
-        "btn-table": btn,
-        "table-fixed": fixed,
-        "table-hover": hover,
-        "table-sm": small,
-        "table-striped": striped
-      }, className);
-      var wrapperClasses = classNames({
-        "table-dark": dark,
-        "table-responsive": responsive,
-        "table-responsive-sm": responsiveSm,
-        "table-responsive-md": responsiveMd,
-        "table-responsive-lg": responsiveLg,
-        "table-responsive-xl": responsiveXl,
-        "table-wrapper-scroll-y": scrollY
-      });
-      var wrapperStyles = {
-        maxHeight: maxHeight ? "".concat(maxHeight) : null
-      };
-      return React__default.createElement("div", {
-        className: wrapperClasses,
-        style: wrapperStyles
-      }, React__default.createElement("table", _extends({}, attributes, {
-        className: tableClasses
-      }), children));
-    }
-  }]);
-
-  return Table;
-}(React__default.Component);
+  var tableClasses = classNames("table", {
+    "w-auto": autoWidth,
+    "table-bordered": bordered,
+    "table-borderless": borderless,
+    "btn-table": btn,
+    "table-fixed": fixed,
+    "table-hover": hover,
+    "table-sm": small,
+    "table-striped": striped
+  }, className);
+  var wrapperClasses = classNames({
+    "table-dark": dark,
+    "table-responsive": responsive,
+    "table-responsive-sm": responsiveSm,
+    "table-responsive-md": responsiveMd,
+    "table-responsive-lg": responsiveLg,
+    "table-responsive-xl": responsiveXl,
+    "table-wrapper-scroll-y": scrollY
+  });
+  var wrapperStyles = {
+    maxHeight: maxHeight ? "".concat(maxHeight) : null
+  };
+  return React__default.createElement("div", {
+    className: wrapperClasses,
+    style: wrapperStyles
+  }, React__default.createElement("table", _extends({}, attributes, {
+    className: tableClasses
+  }), children));
+};
 
 Table.propTypes = {
   autoWidth: propTypes.bool,
@@ -3310,7 +2897,7 @@ function (_React$Component) {
           regular: iconRegular,
           className: iconClassFix,
           onClick: function onClick(e) {
-            onIconClick ? onIconClick() : _this2.setFocus(e);
+            onIconClick ? onIconClick(e) : _this2.setFocus(e);
           },
           onMouseEnter: onIconMouseEnter,
           onMouseLeave: onIconMouseLeave
@@ -3909,7 +3496,7 @@ function (_React$Component) {
           isControlledEmpty = _this$state2.isControlledEmpty,
           isOpened = _this$state2.dropdown,
           selectTextContent = _this$state2.selectTextContent;
-      var classes = classNames("select-wrapper mdb-select md-form", color ? "colorful-select dropdown-" + color : "", outline && "md-outline", className);
+      var classes = classNames("select-wrapper mdb-select md-form", color ? "colorful-select dropdown-" + color : "", outline ? "md-outline" : className);
       var labelClasses = classNames(!outline && "mdb-main-label", labelClass, children ? (!isEmpty || isOpened) && "active text-primary" : (!isControlledEmpty || isOpened) && "active text-primary");
       var needToMoveOutline = outline && isEmpty && !isOpened;
       var uncontrolledLabelStyles = {
@@ -4606,38 +4193,24 @@ DataTableInfo.defaultProps = {
   label: ["Showing", "to", "of", "entries"]
 };
 
-var Pagination =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Pagination, _Component);
+var Pagination = function Pagination(props) {
+  var _classNames;
 
-  function Pagination() {
-    _classCallCheck(this, Pagination);
+  var children = props.children,
+      circle = props.circle,
+      className = props.className,
+      color = props.color,
+      Tag = props.tag,
+      size = props.size,
+      attributes = _objectWithoutProperties(props, ["children", "circle", "className", "color", "tag", "size"]);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Pagination).apply(this, arguments));
-  }
-
-  _createClass(Pagination, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          circle = _this$props.circle,
-          className = _this$props.className,
-          color = _this$props.color,
-          Tag = _this$props.tag,
-          size = _this$props.size,
-          attributes = _objectWithoutProperties(_this$props, ["children", "circle", "className", "color", "tag", "size"]);
-
-      var classes = classNames("pagination", circle && "pagination-circle", color && "pg-" + color, size ? "pagination-".concat(size) : false, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return Pagination;
-}(React.Component);
+  var classes = classNames((_classNames = {
+    "pagination-circle": circle
+  }, _defineProperty(_classNames, "pg-".concat(color), color), _defineProperty(_classNames, "pagination-".concat(size), size), _classNames), "pagination", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 Pagination.propTypes = {
   children: propTypes.node,
@@ -4645,7 +4218,7 @@ Pagination.propTypes = {
   className: propTypes.string,
   color: propTypes.string,
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
-  size: propTypes.oneOf(['lg', 'sm'])
+  size: propTypes.oneOf(["lg", "sm"])
 };
 Pagination.defaultProps = {
   circle: false,
@@ -4654,37 +4227,19 @@ Pagination.defaultProps = {
   tag: "ul"
 };
 
-var PageItem =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(PageItem, _Component);
+var PageItem = function PageItem(props) {
+  var active = props.active,
+      className = props.className,
+      children = props.children,
+      disabled = props.disabled,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["active", "className", "children", "disabled", "tag"]);
 
-  function PageItem() {
-    _classCallCheck(this, PageItem);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(PageItem).apply(this, arguments));
-  }
-
-  _createClass(PageItem, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          active = _this$props.active,
-          className = _this$props.className,
-          children = _this$props.children,
-          disabled = _this$props.disabled,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["active", "className", "children", "disabled", "tag"]);
-
-      var classes = classNames("page-item", disabled ? "disabled" : "", active ? "active" : "", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return PageItem;
-}(React.Component);
+  var classes = classNames("page-item", disabled && "disabled", active && "active", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 PageItem.propTypes = {
   active: propTypes.bool,
@@ -4700,35 +4255,17 @@ PageItem.defaultProps = {
   tag: "li"
 };
 
-var PageLink =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(PageLink, _Component);
+var PageLink = function PageLink(props) {
+  var children = props.children,
+      className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["children", "className", "tag"]);
 
-  function PageLink() {
-    _classCallCheck(this, PageLink);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(PageLink).apply(this, arguments));
-  }
-
-  _createClass(PageLink, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag"]);
-
-      var classes = classNames("page-link", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return PageLink;
-}(React.Component);
+  var classes = classNames("page-link", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 PageLink.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -5809,35 +5346,17 @@ DropdownToggle.contextTypes = {
   toggle: propTypes.func.isRequired
 };
 
-var EdgeHeader =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(EdgeHeader, _Component);
+var EdgeHeader = function EdgeHeader(props) {
+  var color = props.color,
+      className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["color", "className", "tag"]);
 
-  function EdgeHeader() {
-    _classCallCheck(this, EdgeHeader);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(EdgeHeader).apply(this, arguments));
-  }
-
-  _createClass(EdgeHeader, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          color = _this$props.color,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["color", "className", "tag"]);
-
-      var classes = classNames("edge-header", color, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return EdgeHeader;
-}(React.Component);
+  var classes = classNames("edge-header", color, className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 EdgeHeader.propTypes = {
   color: propTypes.string,
@@ -5849,58 +5368,36 @@ EdgeHeader.defaultProps = {
   tag: "div"
 };
 
-var FormInline =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(FormInline, _React$Component);
+var FormInline = function FormInline(props) {
+  var _useState = React.useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
 
-  function FormInline(props) {
-    var _this;
-
-    _classCallCheck(this, FormInline);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(FormInline).call(this, props));
-    _this.state = {
-      cursorPos: {}
+  var handleClick = function handleClick(e) {
+    // Get Cursor Position
+    var cursorPos = {
+      top: e.clientY,
+      left: e.clientX,
+      time: Date.now()
     };
-    return _this;
-  }
+    setCursorPos(cursorPos);
+  };
 
-  _createClass(FormInline, [{
-    key: "handleClick",
-    value: function handleClick(e) {
-      // Get Cursor Position
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({
-        cursorPos: cursorPos
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          waves = _this$props.waves,
-          children = _this$props.children,
-          attributes = _objectWithoutProperties(_this$props, ["className", "waves", "children"]);
+  var className = props.className,
+      waves = props.waves,
+      children = props.children,
+      attributes = _objectWithoutProperties(props, ["className", "waves", "children"]);
 
-      var classes = classNames("form-inline", this.props.waves ? "Ripple-parent" : false, className);
-      return React__default.createElement("form", _extends({}, attributes, {
-        className: classes,
-        onMouseDown: this.handleClick.bind(this),
-        onTouchStart: this.handleClick.bind(this)
-      }), this.props.children, this.props.waves && React__default.createElement(Waves, {
-        cursorPos: this.state.cursorPos
-      }));
-    }
-  }]);
-
-  return FormInline;
-}(React__default.Component);
+  var classes = classNames("form-inline", props.waves && "Ripple-parent", className);
+  return React__default.createElement("form", _extends({}, attributes, {
+    className: classes,
+    onMouseDown: handleClick,
+    onTouchStart: handleClick
+  }), props.children, props.waves && React__default.createElement(Waves, {
+    cursorPos: cursorPos
+  }));
+};
 
 FormInline.propTypes = {
   children: propTypes.node,
@@ -5908,36 +5405,18 @@ FormInline.propTypes = {
   waves: propTypes.bool
 };
 
-var Footer =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Footer, _Component);
+var Footer = function Footer(props) {
+  var color = props.color,
+      children = props.children,
+      className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["color", "children", "className", "tag"]);
 
-  function Footer() {
-    _classCallCheck(this, Footer);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Footer).apply(this, arguments));
-  }
-
-  _createClass(Footer, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          color = _this$props.color,
-          children = _this$props.children,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["color", "children", "className", "tag"]);
-
-      var classes = classNames("page-footer", color ? color : "", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return Footer;
-}(React.Component);
+  var classes = classNames("page-footer", color && color, className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 Footer.propTypes = {
   color: propTypes.string,
@@ -5949,34 +5428,16 @@ Footer.defaultProps = {
   tag: "footer"
 };
 
-var FreeBird =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(FreeBird, _Component);
+var FreeBird = function FreeBird(props) {
+  var className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["className", "tag"]);
 
-  function FreeBird() {
-    _classCallCheck(this, FreeBird);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(FreeBird).apply(this, arguments));
-  }
-
-  _createClass(FreeBird, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag"]);
-
-      var classes = classNames("container free-bird", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return FreeBird;
-}(React.Component);
+  var classes = classNames("container free-bird", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 FreeBird.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -5989,67 +5450,37 @@ FreeBird.defaultProps = {
 var css$7 = ".hamburger-button__checkbox {\n  display: none;\n}\n\n.hamburger-button__button {\n  background-color: transparent;\n  height: 100%;\n  width: 100%;\n  text-align: center;\n  cursor: pointer;\n  top: -5px;\n}\n\nlabel.hamburger-button__button {\n  margin-bottom: 0;\n}\n\n#nav-icon1 {\n  width: 1.5em;\n  height: 1.5em;\n  position: relative;\n  -webkit-transform: rotate(0deg);\n  -moz-transform: rotate(0deg);\n  -o-transform: rotate(0deg);\n  transform: rotate(0deg);\n  -webkit-transition: .5s ease-in-out;\n  -moz-transition: .5s ease-in-out;\n  -o-transition: .5s ease-in-out;\n  transition: .5s ease-in-out;\n  cursor: pointer;\n}\n\n#nav-icon1 span {\n  display: block;\n  position: absolute;\n  height: 3px;\n  width: 100%;\n  border-radius: 1px;\n  background-color: #fff;\n  opacity: 1;\n  left: 0;\n  -webkit-transform: rotate(0deg);\n  -moz-transform: rotate(0deg);\n  -o-transform: rotate(0deg);\n  transform: rotate(0deg);\n  -webkit-transition: .25s ease-in-out;\n  -moz-transition: .25s ease-in-out;\n  -o-transition: .25s ease-in-out;\n  transition: .25s ease-in-out;\n}\n\n#nav-icon1 span:nth-child(1) {\n  top: 5px;\n}\n\n#nav-icon1 span:nth-child(2) {\n  top: 16px;\n}\n\n#nav-icon1 span:nth-child(3) {\n  top: 27px;\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(1) {\n  top: 16px;\n  -webkit-transform: rotate(135deg);\n  -moz-transform: rotate(135deg);\n  -o-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(2) {\n  opacity: 0;\n  left: -60px;\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(3) {\n  top: 16px;\n  -webkit-transform: rotate(-135deg);\n  -moz-transform: rotate(-135deg);\n  -o-transform: rotate(-135deg);\n  transform: rotate(-135deg);\n}\n";
 styleInject(css$7);
 
-var HamburgerToggler =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(HamburgerToggler, _React$Component);
-
-  function HamburgerToggler() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, HamburgerToggler);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+var HamburgerToggler = function HamburgerToggler(props) {
+  var id = props.id,
+      color = props.color,
+      className = props.className,
+      isOpen = props.isOpen,
+      onClick = props.onClick;
+  var classes = classNames("hamburger-button__button", className);
+  return React__default.createElement(React__default.Fragment, null, React__default.createElement("input", {
+    type: "checkbox",
+    defaultChecked: isOpen || false,
+    onChange: onClick,
+    className: "hamburger-button__checkbox",
+    id: id
+  }), React__default.createElement("label", {
+    id: "nav-icon1",
+    className: classes,
+    htmlFor: id
+  }, React__default.createElement("span", {
+    style: {
+      background: color
     }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(HamburgerToggler)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      checked: _this.props.isOpen || false
-    });
-
-    return _this;
-  }
-
-  _createClass(HamburgerToggler, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          id = _this$props.id,
-          color = _this$props.color,
-          className = _this$props.className;
-      var classes = classNames("hamburger-button__button", className);
-      return React__default.createElement(React__default.Fragment, null, React__default.createElement("input", {
-        type: "checkbox",
-        defaultChecked: this.state.checked,
-        onChange: this.props.onClick,
-        className: "hamburger-button__checkbox",
-        id: id
-      }), React__default.createElement("label", {
-        id: "nav-icon1",
-        className: classes,
-        htmlFor: id
-      }, React__default.createElement("span", {
-        style: {
-          background: color
-        }
-      }), React__default.createElement("span", {
-        style: {
-          background: color
-        }
-      }), React__default.createElement("span", {
-        style: {
-          background: color
-        }
-      })));
+  }), React__default.createElement("span", {
+    style: {
+      background: color
     }
-  }]);
-
-  return HamburgerToggler;
-}(React__default.Component);
+  }), React__default.createElement("span", {
+    style: {
+      background: color
+    }
+  })));
+};
 
 HamburgerToggler.propTypes = {
   id: propTypes.string,
@@ -6141,84 +5572,38 @@ InputGroup.defaultProps = {
   type: "text"
 };
 
-var InputNumeric =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(InputNumeric, _React$Component);
+var InputNumeric = function InputNumeric(props) {
+  var onChangeHandler = function onChangeHandler(value) {
+    props.getValue && props.getValue(value);
+  };
 
-  function InputNumeric() {
-    var _getPrototypeOf2;
+  var className = props.className,
+      getValue = props.getValue,
+      attributes = _objectWithoutProperties(props, ["className", "getValue"]);
 
-    var _this;
-
-    _classCallCheck(this, InputNumeric);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(InputNumeric)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "onChangeHandler", function (value) {
-      _this.props.getValue && _this.props.getValue(value);
-    });
-
-    return _this;
-  }
-
-  _createClass(InputNumeric, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          getValue = _this$props.getValue,
-          attributes = _objectWithoutProperties(_this$props, ["className", "getValue"]);
-
-      var classes = classNames("form-control", className);
-      return React__default.createElement(NumericInput, _extends({}, attributes, {
-        onChange: this.onChangeHandler,
-        className: classes
-      }));
-    }
-  }]);
-
-  return InputNumeric;
-}(React__default.Component);
+  var classes = classNames("form-control", className);
+  return React__default.createElement(NumericInput, _extends({}, attributes, {
+    onChange: onChangeHandler,
+    className: classes
+  }));
+};
 
 InputNumeric.propTypes = {
   className: propTypes.string,
   getValue: propTypes.func
 };
 
-var Jumbotron =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Jumbotron, _React$Component);
+var Jumbotron = function Jumbotron(props) {
+  var className = props.className,
+      children = props.children,
+      fluid = props.fluid,
+      attributes = _objectWithoutProperties(props, ["className", "children", "fluid"]);
 
-  function Jumbotron() {
-    _classCallCheck(this, Jumbotron);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Jumbotron).apply(this, arguments));
-  }
-
-  _createClass(Jumbotron, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          children = _this$props.children,
-          fluid = _this$props.fluid,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "fluid"]);
-
-      var classes = classNames("jumbotron", fluid ? "jumbotron-fluid" : false, className);
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return Jumbotron;
-}(React__default.Component);
+  var classes = classNames("jumbotron", fluid ? "jumbotron-fluid" : false, className);
+  return React__default.createElement("div", _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 Jumbotron.propTypes = {
   fluid: propTypes.bool,
@@ -6226,35 +5611,17 @@ Jumbotron.propTypes = {
   className: propTypes.string
 };
 
-var ListGroup =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(ListGroup, _Component);
+var ListGroup = function ListGroup(props) {
+  var children = props.children,
+      className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["children", "className", "tag"]);
 
-  function ListGroup() {
-    _classCallCheck(this, ListGroup);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ListGroup).apply(this, arguments));
-  }
-
-  _createClass(ListGroup, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag"]);
-
-      var classes = classNames("list-group", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return ListGroup;
-}(React.Component);
+  var classes = classNames("list-group", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 ListGroup.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -6265,48 +5632,35 @@ ListGroup.defaultProps = {
   tag: "ul"
 };
 
-var ListGroupItem =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(ListGroupItem, _Component);
+var ListGroupItem = function ListGroupItem(props) {
+  var _classNames;
 
-  function ListGroupItem() {
-    _classCallCheck(this, ListGroupItem);
+  var active = props.active,
+      children = props.children,
+      className = props.className,
+      color = props.color,
+      disabled = props.disabled,
+      hover = props.hover,
+      success = props.success,
+      info = props.info,
+      warning = props.warning,
+      danger = props.danger,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["active", "children", "className", "color", "disabled", "hover", "success", "info", "warning", "danger", "tag"]);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ListGroupItem).apply(this, arguments));
+  var classes = classNames("list-group-item", className, (_classNames = {
+    active: active,
+    disabled: disabled
+  }, _defineProperty(_classNames, "list-group-item-".concat(color), " color"), _defineProperty(_classNames, "list-group-item-action", hover), _classNames));
+
+  if (attributes.href && Tag === "li") {
+    Tag = "a";
   }
 
-  _createClass(ListGroupItem, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          active = _this$props.active,
-          children = _this$props.children,
-          className = _this$props.className,
-          color = _this$props.color,
-          disabled = _this$props.disabled,
-          hover = _this$props.hover,
-          success = _this$props.success,
-          info = _this$props.info,
-          warning = _this$props.warning,
-          danger = _this$props.danger,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["active", "children", "className", "color", "disabled", "hover", "success", "info", "warning", "danger", "tag"]);
-
-      var classes = classNames("list-group-item", color && "list-group-item-".concat(color), active ? "active" : "", disabled ? "disabled" : "", hover ? "list-group-item-action" : "", success ? "list-group-item-success" : "", info ? "list-group-item-info" : "", warning ? "list-group-item-warning" : "", danger ? "list-group-item-danger" : "", className);
-
-      if (attributes.href && Tag === "li") {
-        Tag = "a";
-      }
-
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return ListGroupItem;
-}(React.Component);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 ListGroupItem.propTypes = {
   active: propTypes.bool,
@@ -6319,75 +5673,74 @@ ListGroupItem.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
   className: propTypes.string,
   children: propTypes.node,
-  color: propTypes.oneOf(['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'])
+  color: propTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"])
 };
 ListGroupItem.defaultProps = {
   tag: "li"
 };
 
-var Media =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Media, _React$Component);
+var Media = function Media(props) {
+  var body = props.body,
+      bottom = props.bottom,
+      className = props.className,
+      heading = props.heading,
+      left = props.left,
+      list = props.list,
+      middle = props.middle,
+      object = props.object,
+      right = props.right,
+      round = props.round,
+      thumbnail = props.thumbnail,
+      figure = props.figure,
+      figImg = props.figImg,
+      figCap = props.figCap,
+      figCapRight = props.figCapRight,
+      figCapLeft = props.figCapLeft,
+      tag = props.tag,
+      top = props.top,
+      attributes = _objectWithoutProperties(props, ["body", "bottom", "className", "heading", "left", "list", "middle", "object", "right", "round", "thumbnail", "figure", "figImg", "figCap", "figCapRight", "figCapLeft", "tag", "top"]);
 
-  function Media() {
-    _classCallCheck(this, Media);
+  var defaultTag;
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Media).apply(this, arguments));
+  if (heading) {
+    defaultTag = "h4";
+  } else if (left || right) {
+    defaultTag = "a";
+  } else if (object || figImg) {
+    defaultTag = "img";
+  } else if (list) {
+    defaultTag = "ul";
+  } else if (figure) {
+    defaultTag = "figure";
+  } else if (figCap || figCapRight || figCapLeft) {
+    defaultTag = "figcaption";
+  } else {
+    defaultTag = "div";
   }
 
-  _createClass(Media, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          body = _this$props.body,
-          bottom = _this$props.bottom,
-          className = _this$props.className,
-          heading = _this$props.heading,
-          left = _this$props.left,
-          list = _this$props.list,
-          middle = _this$props.middle,
-          object = _this$props.object,
-          right = _this$props.right,
-          round = _this$props.round,
-          thumbnail = _this$props.thumbnail,
-          figure = _this$props.figure,
-          figImg = _this$props.figImg,
-          figCap = _this$props.figCap,
-          figCapRight = _this$props.figCapRight,
-          figCapLeft = _this$props.figCapLeft,
-          tag = _this$props.tag,
-          top = _this$props.top,
-          attributes = _objectWithoutProperties(_this$props, ["body", "bottom", "className", "heading", "left", "list", "middle", "object", "right", "round", "thumbnail", "figure", "figImg", "figCap", "figCapRight", "figCapLeft", "tag", "top"]);
-
-      var defaultTag;
-
-      if (heading) {
-        defaultTag = "h4";
-      } else if (left || right) {
-        defaultTag = "a";
-      } else if (object || figImg) {
-        defaultTag = "img";
-      } else if (list) {
-        defaultTag = "ul";
-      } else if (figure) {
-        defaultTag = "figure";
-      } else if (figCap || figCapRight || figCapLeft) {
-        defaultTag = "figcaption";
-      } else {
-        defaultTag = "div";
-      }
-
-      var Tag = tag || defaultTag;
-      var classes = classNames(body ? "media-body" : false, heading ? "mt-0" : false, left ? "media-left" : false, right ? "media-right" : false, top ? "align-self-start" : false, middle ? "align-self-center" : false, bottom ? "align-self-end" : false, object ? "media-object" : false, thumbnail ? "img-thumbnail" : false, list ? "media-list" : false, figure ? "figure" : false, figImg ? "figure-img" : false, figCap ? "figure-caption text-center" : false, figCapRight ? "figure-caption text-right" : false, figCapLeft ? "figure-caption text-left" : false, round ? "rounded-circle z-depth-1-half" : false, !body && !heading && !left && !right && !top && !bottom && !middle && !object && !list && !figCap && !figCapRight && !figCapRight && !figImg && !figure ? "media" : false, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return Media;
-}(React__default.Component);
+  var Tag = tag || defaultTag;
+  var classes = classNames({
+    "media-body": body,
+    "mt-0": heading,
+    "media-left": left,
+    "media-right": right,
+    "align-self-start": top,
+    "align-self-center": middle,
+    "align-self-end": bottom,
+    "media-object": object,
+    "img-thumbnail": thumbnail,
+    "media-list": list,
+    figure: figure,
+    "figure-img": figImg,
+    "figure-caption text-center": figCap,
+    "figure-caption text-right": figCapRight,
+    "figure-caption text-left": figCapLeft,
+    "rounded-circle z-depth-1-half": round
+  }, !body && !heading && !left && !right && !top && !bottom && !middle && !object && !list && !figCap && !figCapRight && !figCapRight && !figImg && !figure ? "media" : false, className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 Media.propTypes = {
   body: propTypes.bool,
@@ -6620,128 +5973,80 @@ Modal.propTypes = {
   hideModal: propTypes.func
 };
 
-var ModalBody =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(ModalBody, _React$Component);
+var ModalBody = function ModalBody(props) {
+  var className = props.className,
+      children = props.children,
+      attributes = _objectWithoutProperties(props, ["className", "children"]);
 
-  function ModalBody() {
-    _classCallCheck(this, ModalBody);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ModalBody).apply(this, arguments));
-  }
-
-  _createClass(ModalBody, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          children = _this$props.children,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children"]);
-
-      var classes = classNames("modal-body", className);
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return ModalBody;
-}(React__default.Component);
+  var classes = classNames("modal-body", className);
+  return React__default.createElement("div", _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 ModalBody.propTypes = {
   className: propTypes.string,
   children: propTypes.node
 };
 
-var ModalFooter =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(ModalFooter, _React$Component);
+var ModalFooter = function ModalFooter(props) {
+  var className = props.className,
+      children = props.children,
+      center = props.center,
+      start = props.start,
+      end = props.end,
+      around = props.around,
+      between = props.between,
+      attributes = _objectWithoutProperties(props, ["className", "children", "center", "start", "end", "around", "between"]);
 
-  function ModalFooter() {
-    _classCallCheck(this, ModalFooter);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ModalFooter).apply(this, arguments));
-  }
-
-  _createClass(ModalFooter, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          children = _this$props.children,
-          center = _this$props.center,
-          start = _this$props.start,
-          end = _this$props.end,
-          around = _this$props.around,
-          between = _this$props.between,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "center", "start", "end", "around", "between"]);
-
-      var classes = classNames("modal-footer", start && "justify-content-start", end && "justify-content-end", center && "justify-content-center", between && "justify-content-between", around && "justify-content-around", className);
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return ModalFooter;
-}(React__default.Component);
+  var classes = classNames("modal-footer", className, {
+    "justify-content-start": start,
+    "justify-content-end": end,
+    "justify-content-center": center,
+    "justify-content-between": between,
+    "justify-content-around": around
+  });
+  return React__default.createElement("div", _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 ModalFooter.propTypes = {
   className: propTypes.string,
   children: propTypes.node
 };
 
-var ModalHeader =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(ModalHeader, _React$Component);
+var ModalHeader = function ModalHeader(props) {
+  var closeButton;
 
-  function ModalHeader() {
-    _classCallCheck(this, ModalHeader);
+  var className = props.className,
+      children = props.children,
+      toggle = props.toggle,
+      Tag = props.tag,
+      closeAriaLabel = props.closeAriaLabel,
+      titleClass = props.titleClass,
+      attributes = _objectWithoutProperties(props, ["className", "children", "toggle", "tag", "closeAriaLabel", "titleClass"]);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ModalHeader).apply(this, arguments));
+  var classes = classNames("modal-header", className);
+  var titleClasses = classNames("modal-title", titleClass);
+
+  if (toggle) {
+    closeButton = React__default.createElement("button", {
+      type: "button",
+      onClick: toggle,
+      className: "close",
+      "aria-label": closeAriaLabel
+    }, React__default.createElement("span", {
+      "aria-hidden": "true"
+    }, String.fromCharCode(215)));
   }
 
-  _createClass(ModalHeader, [{
-    key: "render",
-    value: function render() {
-      var closeButton;
-
-      var _this$props = this.props,
-          className = _this$props.className,
-          children = _this$props.children,
-          toggle = _this$props.toggle,
-          Tag = _this$props.tag,
-          closeAriaLabel = _this$props.closeAriaLabel,
-          titleClass = _this$props.titleClass,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "toggle", "tag", "closeAriaLabel", "titleClass"]);
-
-      var classes = classNames("modal-header", className);
-      var titleClasses = classNames("modal-title", this.props.titleClass);
-
-      if (toggle) {
-        closeButton = React__default.createElement("button", {
-          type: "button",
-          onClick: toggle,
-          className: "close",
-          "aria-label": closeAriaLabel
-        }, React__default.createElement("span", {
-          "aria-hidden": "true"
-        }, String.fromCharCode(215)));
-      }
-
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes
-      }), React__default.createElement(Tag, {
-        className: titleClasses
-      }, children), closeButton);
-    }
-  }]);
-
-  return ModalHeader;
-}(React__default.Component);
+  return React__default.createElement("div", _extends({}, attributes, {
+    className: classes
+  }), React__default.createElement(Tag, {
+    className: titleClasses
+  }, children), closeButton);
+};
 
 ModalHeader.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -6755,40 +6060,22 @@ ModalHeader.defaultProps = {
   closeAriaLabel: "Close"
 };
 
-var Nav =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Nav, _Component);
+var Nav = function Nav(props) {
+  var children = props.children,
+      className = props.className,
+      Tag = props.tag,
+      tabs = props.tabs,
+      color = props.color,
+      classicTabs = props.classicTabs,
+      pills = props.pills,
+      header = props.header,
+      attributes = _objectWithoutProperties(props, ["children", "className", "tag", "tabs", "color", "classicTabs", "pills", "header"]);
 
-  function Nav() {
-    _classCallCheck(this, Nav);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Nav).apply(this, arguments));
-  }
-
-  _createClass(Nav, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          tabs = _this$props.tabs,
-          color = _this$props.color,
-          classicTabs = _this$props.classicTabs,
-          pills = _this$props.pills,
-          header = _this$props.header,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "tag", "tabs", "color", "classicTabs", "pills", "header"]);
-
-      var classes = classNames("nav", tabs && "md-tabs", pills && "md-pills", header && "nav-pills card-header-pills", color && !tabs && !classicTabs && !pills ? color : false, pills && color ? "pills-" + color : false, (tabs || classicTabs) && color ? "tabs-" + color : false, className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return Nav;
-}(React.Component);
+  var classes = classNames("nav", tabs && "md-tabs", pills && "md-pills", header && "nav-pills card-header-pills", color && !tabs && !classicTabs && !pills ? color : false, pills && color ? "pills-" + color : false, (tabs || classicTabs) && color ? "tabs-" + color : false, className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 Nav.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -6942,37 +6229,19 @@ NavbarBrand.propTypes = {
   href: propTypes.string
 };
 
-var NavbarNav =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(NavbarNav, _Component);
+var NavbarNav = function NavbarNav(props) {
+  var children = props.children,
+      className = props.className,
+      right = props.right,
+      left = props.left,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["children", "className", "right", "left", "tag"]);
 
-  function NavbarNav() {
-    _classCallCheck(this, NavbarNav);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(NavbarNav).apply(this, arguments));
-  }
-
-  _createClass(NavbarNav, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          right = _this$props.right,
-          left = _this$props.left,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "right", "left", "tag"]);
-
-      var classes = classNames("navbar-nav", right ? "ml-auto" : left ? "mr-auto" : "justify-content-around w-100", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return NavbarNav;
-}(React.Component);
+  var classes = classNames("navbar-nav", right ? "ml-auto" : left ? "mr-auto" : "justify-content-around w-100", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 NavbarNav.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -6985,45 +6254,30 @@ NavbarNav.defaultProps = {
   tag: "ul"
 };
 
-var NavbarToggler =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(NavbarToggler, _Component);
+var NavbarToggler = function NavbarToggler(props) {
+  var right = props.right,
+      left = props.left,
+      children = props.children,
+      className = props.className,
+      Tag = props.tag,
+      image = props.image,
+      attributes = _objectWithoutProperties(props, ["right", "left", "children", "className", "tag", "image"]);
 
-  function NavbarToggler() {
-    _classCallCheck(this, NavbarToggler);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(NavbarToggler).apply(this, arguments));
-  }
-
-  _createClass(NavbarToggler, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          right = _this$props.right,
-          left = _this$props.left,
-          children = _this$props.children,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          image = _this$props.image,
-          attributes = _objectWithoutProperties(_this$props, ["right", "left", "children", "className", "tag", "image"]);
-
-      var classes = classNames("navbar-toggler", right && "navbar-toggler-right", left && "navbar-toggler-left", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children ? children : image ? React__default.createElement("span", {
-        className: "navbar-toggler-icon",
-        style: {
-          backgroundImage: "url(\"".concat(image, "\")")
-        }
-      }) : React__default.createElement("span", {
-        className: "navbar-toggler-icon"
-      }));
+  var classes = classNames({
+    "navbar-toggler-right": right,
+    "navbar-toggler-left": left
+  }, "navbar-toggler", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children ? children : image ? React__default.createElement("span", {
+    className: "navbar-toggler-icon",
+    style: {
+      backgroundImage: "url(\"".concat(image, "\")")
     }
-  }]);
-
-  return NavbarToggler;
-}(React.Component);
+  }) : React__default.createElement("span", {
+    className: "navbar-toggler-icon"
+  }));
+};
 
 NavbarToggler.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -7039,37 +6293,19 @@ NavbarToggler.defaultProps = {
   type: "button"
 };
 
-var NavItem =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(NavItem, _Component);
+var NavItem = function NavItem(props) {
+  var children = props.children,
+      className = props.className,
+      active = props.active,
+      text = props.text,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["children", "className", "active", "text", "tag"]);
 
-  function NavItem() {
-    _classCallCheck(this, NavItem);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(NavItem).apply(this, arguments));
-  }
-
-  _createClass(NavItem, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          active = _this$props.active,
-          text = _this$props.text,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "active", "text", "tag"]);
-
-      var classes = classNames("nav-item", active ? "active" : "", text ? "navbar-text" : "", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return NavItem;
-}(React.Component);
+  var classes = classNames("nav-item", active && "active", text && "navbar-text", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 NavItem.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -7081,65 +6317,42 @@ NavItem.defaultProps = {
   tag: "li"
 };
 
-var NavLink =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(NavLink, _Component);
+var NavLink = function NavLink(props) {
+  var _useState = React.useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
 
-  function NavLink(props) {
-    var _this;
+  var handleClick = function handleClick(e) {
+    if (!props.disabled) {
+      e.stopPropagation(); // Waves - Get Cursor Position
 
-    _classCallCheck(this, NavLink);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(NavLink).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
-      if (!_this.props.disabled) {
-        e.stopPropagation(); // Waves - Get Cursor Position
-
-        var cursorPos = {
-          top: e.clientY,
-          left: e.clientX,
-          time: Date.now()
-        };
-
-        _this.setState({
-          cursorPos: cursorPos
-        });
-      }
-    });
-
-    _this.state = {
-      cursorPos: {}
-    };
-    return _this;
-  }
-
-  _createClass(NavLink, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          disabled = _this$props.disabled,
-          active = _this$props.active,
-          to = _this$props.to,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to"]);
-
-      var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
-      return React__default.createElement(reactRouterDom.NavLink, _extends({
-        className: classes,
-        onMouseUp: this.handleClick,
-        onTouchStart: this.handleClick,
-        to: to
-      }, attributes), children, this.props.disabled ? false : React__default.createElement(Waves, {
-        cursorPos: this.state.cursorPos
-      }));
+      var _cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      setCursorPos(_cursorPos);
     }
-  }]);
+  };
 
-  return NavLink;
-}(React.Component);
+  var children = props.children,
+      className = props.className,
+      disabled = props.disabled,
+      active = props.active,
+      to = props.to,
+      attributes = _objectWithoutProperties(props, ["children", "className", "disabled", "active", "to"]);
+
+  var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", className);
+  return React__default.createElement(reactRouterDom.NavLink, _extends({
+    className: classes,
+    onMouseUp: handleClick,
+    onTouchStart: handleClick,
+    to: to
+  }, attributes), children, props.disabled ? false : React__default.createElement(Waves, {
+    cursorPos: cursorPos
+  }));
+};
 
 NavLink.propTypes = {
   children: propTypes.node,
@@ -7549,42 +6762,24 @@ Progress.defaultProps = {
   value: 0
 };
 
-var Row =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Row, _Component);
+var Row = function Row(props) {
+  var className = props.className,
+      Tag = props.tag,
+      center = props.center,
+      start = props.start,
+      end = props.end,
+      around = props.around,
+      between = props.between,
+      top = props.top,
+      bottom = props.bottom,
+      middle = props.middle,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "center", "start", "end", "around", "between", "top", "bottom", "middle"]);
 
-  function Row() {
-    _classCallCheck(this, Row);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Row).apply(this, arguments));
-  }
-
-  _createClass(Row, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          center = _this$props.center,
-          start = _this$props.start,
-          end = _this$props.end,
-          around = _this$props.around,
-          between = _this$props.between,
-          top = _this$props.top,
-          bottom = _this$props.bottom,
-          middle = _this$props.middle,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "center", "start", "end", "around", "between", "top", "bottom", "middle"]);
-
-      var classes = classNames("row", end && "justify-content-end", start && "justify-content-start", center && "justify-content-center", between && "justify-content-between", around && "justify-content-around", top && "align-self-start", middle && "align-self-center", bottom && "align-self-end", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return Row;
-}(React.Component);
+  var classes = classNames("row", end && "justify-content-end", start && "justify-content-start", center && "justify-content-center", between && "justify-content-between", around && "justify-content-around", top && "align-self-start", middle && "align-self-center", bottom && "align-self-end", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 Row.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -8317,36 +7512,18 @@ Autocomplete.defaultProps = {
   valueDefault: ""
 };
 
-var Avatar =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Avatar, _Component);
+var Avatar = function Avatar(props) {
+  var className = props.className,
+      Tag = props.tag,
+      round = props.round,
+      circle = props.circle,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "round", "circle"]);
 
-  function Avatar() {
-    _classCallCheck(this, Avatar);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Avatar).apply(this, arguments));
-  }
-
-  _createClass(Avatar, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          round = _this$props.round,
-          circle = _this$props.circle,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "round", "circle"]);
-
-      var classes = classNames("avatar", round && "rounded", circle && "rounded-circle", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return Avatar;
-}(React.Component);
+  var classes = classNames("avatar", round && "rounded", circle && "rounded-circle", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 Avatar.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -8617,36 +7794,18 @@ ButtonFixed$1.propTypes = {
   buttonStyle: propTypes.object
 };
 
-var CardUp =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(CardUp, _Component);
+var CardUp = function CardUp(props) {
+  var className = props.className,
+      Tag = props.tag,
+      color = props.color,
+      gradient = props.gradient,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "color", "gradient"]);
 
-  function CardUp() {
-    _classCallCheck(this, CardUp);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CardUp).apply(this, arguments));
-  }
-
-  _createClass(CardUp, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          color = _this$props.color,
-          gradient = _this$props.gradient,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "color", "gradient"]);
-
-      var classes = classNames("card-up", color && color + "-color", gradient && gradient + "-gradient", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return CardUp;
-}(React.Component);
+  var classes = classNames("card-up", color && color + "-color", gradient && gradient + "-gradient", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 CardUp.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -8659,83 +7818,59 @@ CardUp.defaultProps = {
 var css$8 = ".chip.chip-md {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-md img {\n  height: 42px;\n  width: 42px;\n}\n.chip.chip-md .close {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-lg {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n.chip.chip-lg img {\n  height: 52px;\n  width: 52px;\n}\n.chip.chip-lg .close {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n";
 styleInject(css$8);
 
-var Chip =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Chip, _Component);
+var Chip = function Chip(props) {
+  var _useState = React.useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
 
-  function Chip(props) {
-    var _this;
-
-    _classCallCheck(this, Chip);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Chip).call(this, props));
-    _this.state = {
-      cursorPos: {}
+  var handleClick = function handleClick(e) {
+    // Get Cursor Position
+    e.stopPropagation();
+    e.preventDefault();
+    var cursorPos = {
+      top: e.clientY,
+      left: e.clientX,
+      time: Date.now()
     };
-    _this.handleCloseClick = _this.handleCloseClick.bind(_assertThisInitialized(_this));
-    return _this;
-  }
+    setCursorPos(cursorPos);
+  };
 
-  _createClass(Chip, [{
-    key: "handleClick",
-    value: function handleClick(e) {
-      // Get Cursor Position
-      e.stopPropagation();
-      e.preventDefault();
-      var cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      this.setState({
-        cursorPos: cursorPos
-      });
+  var handleCloseClick = function handleCloseClick(e) {
+    if (props.handleClose) {
+      props.handleClose(e);
     }
-  }, {
-    key: "handleCloseClick",
-    value: function handleCloseClick(e) {
-      if (this.props.handleClose) {
-        this.props.handleClose(e);
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          size = _this$props.size,
-          bgColor = _this$props.bgColor,
-          text = _this$props.text,
-          gradient = _this$props.gradient,
-          src = _this$props.src,
-          alt = _this$props.alt,
-          close = _this$props.close,
-          waves = _this$props.waves,
-          handleClose = _this$props.handleClose,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "size", "bgColor", "text", "gradient", "src", "alt", "close", "waves", "handleClose"]);
+  };
 
-      var classes = classNames("chip", size && "chip-" + size, bgColor && bgColor, text && text + "-text", gradient && gradient + "-gradient", waves && "Ripple-parent", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes,
-        onMouseDown: this.handleClick.bind(this),
-        onTouchStart: this.handleClick.bind(this)
-      }), src && React__default.createElement("img", {
-        src: src,
-        alt: alt
-      }), this.props.children, waves && React__default.createElement(Waves, {
-        cursorPos: this.state.cursorPos
-      }), close && React__default.createElement(Fa, {
-        icon: "times",
-        className: "close",
-        onClick: this.handleCloseClick
-      }));
-    }
-  }]);
+  var className = props.className,
+      Tag = props.tag,
+      size = props.size,
+      bgColor = props.bgColor,
+      text = props.text,
+      gradient = props.gradient,
+      src = props.src,
+      alt = props.alt,
+      close = props.close,
+      waves = props.waves,
+      handleClose = props.handleClose,
+      attributes = _objectWithoutProperties(props, ["className", "tag", "size", "bgColor", "text", "gradient", "src", "alt", "close", "waves", "handleClose"]);
 
-  return Chip;
-}(React.Component);
+  var classes = classNames("chip", size && "chip-" + size, bgColor && bgColor, text && text + "-text", gradient && gradient + "-gradient", waves && "Ripple-parent", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes,
+    onMouseDown: handleClick,
+    onTouchStart: handleClick
+  }), src && React__default.createElement("img", {
+    src: src,
+    alt: alt
+  }), props.children, waves && React__default.createElement(Waves, {
+    cursorPos: cursorPos
+  }), close && React__default.createElement(Fa, {
+    icon: "times",
+    className: "close",
+    onClick: handleCloseClick
+  }));
+};
 
 Chip.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -8935,43 +8070,25 @@ ChipsInput.defaultProps = {
   chips: []
 };
 
-var CollapseHeader =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(CollapseHeader, _React$Component);
+var CollapseHeader = function CollapseHeader(props) {
+  var className = props.className,
+      tagClassName = props.tagClassName,
+      children = props.children,
+      Tag = props.tag,
+      triggerOnClick = props.triggerOnClick,
+      attributes = _objectWithoutProperties(props, ["className", "tagClassName", "children", "tag", "triggerOnClick"]);
 
-  function CollapseHeader() {
-    _classCallCheck(this, CollapseHeader);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(CollapseHeader).apply(this, arguments));
-  }
-
-  _createClass(CollapseHeader, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          tagClassName = _this$props.tagClassName,
-          children = _this$props.children,
-          Tag = _this$props.tag,
-          triggerOnClick = _this$props.triggerOnClick,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tagClassName", "children", "tag", "triggerOnClick"]);
-
-      var classes = classNames("card-header", className);
-      var tagClasses = classNames("mb-0", tagClassName);
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes,
-        style: {
-          cursor: "pointer"
-        }
-      }), React__default.createElement(Tag, {
-        className: tagClasses
-      }, children));
+  var classes = classNames("card-header", className);
+  var tagClasses = classNames("mb-0", tagClassName);
+  return React__default.createElement("div", _extends({}, attributes, {
+    className: classes,
+    style: {
+      cursor: "pointer"
     }
-  }]);
-
-  return CollapseHeader;
-}(React__default.Component);
+  }), React__default.createElement(Tag, {
+    className: tagClasses
+  }, children));
+};
 
 CollapseHeader.defaultProps = {
   tag: "h5"
@@ -9208,111 +8325,80 @@ RotatingCard.defaultProps = {
 var css$a = ".file-field .file-field-right .file-path-wrapper {\n  padding-left: 0;\n  padding-right: 10px;\n}\n";
 styleInject(css$a);
 
-var InputFile =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(InputFile, _React$Component);
+var InputFile = function InputFile(props) {
+  var _useState = React.useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      files = _useState2[0],
+      setFiles = _useState2[1];
 
-  function InputFile(props) {
-    var _this;
+  var fileChange = function fileChange(files) {
+    if (files.length > 0) {
+      if (files.length > 1) {
+        var filesNames = [];
 
-    _classCallCheck(this, InputFile);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(InputFile).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "onChangeHandler", function (e) {
-      _this.fileChange(e.target.files);
-
-      _this.props.getValue && _this.props.getValue(e.target.files);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "resetFiles", function () {
-      _this.state.files && _this.setState({
-        files: false
-      });
-    });
-
-    _this.state = {
-      files: false
-    };
-    _this.fileChange = _this.fileChange.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(InputFile, [{
-    key: "fileChange",
-    value: function fileChange(files) {
-      if (files.length > 0) {
-        if (files.length > 1) {
-          var filesNames = [];
-
-          for (var i = 0; i < files.length; i++) {
-            filesNames.push(files[i].name);
-          }
-
-          this.setState({
-            files: filesNames
-          });
-        } else {
-          this.setState({
-            files: files[0].name
-          });
+        for (var i = 0; i < files.length; i++) {
+          filesNames.push(files[i].name);
         }
+
+        setFiles(filesNames);
       } else {
-        this.setState({
-          files: false
-        });
+        setFiles(files[0].name);
       }
+    } else {
+      setFiles(false);
     }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          btnTitle = _this$props.btnTitle,
-          btnColor = _this$props.btnColor,
-          textFieldTitle = _this$props.textFieldTitle,
-          multiple = _this$props.multiple,
-          reset = _this$props.reset,
-          resetClassName = _this$props.resetClassName,
-          resetAriaLabel = _this$props.resetAriaLabel,
-          reverse = _this$props.reverse;
-      var btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", reverse ? "float-right" : "float-left");
-      var inputFieldClass = classNames("file-path", "validate", this.state.files ? "valid" : false, className);
-      var wrapperClass = classNames("file-field", "md-form", reverse && "file-field-right");
-      return React__default.createElement("div", {
-        className: wrapperClass
-      }, React__default.createElement("div", {
-        className: btnClass
-      }, React__default.createElement("span", null, btnTitle), React__default.createElement("input", {
-        multiple: multiple,
-        onChange: this.onChangeHandler,
-        type: "file"
-      })), React__default.createElement("div", {
-        className: "file-path-wrapper"
-      }, React__default.createElement("input", {
-        className: inputFieldClass,
-        type: "text",
-        placeholder: this.state.files ? this.state.files : textFieldTitle,
-        style: {
-          position: reset ? "relative" : null
-        }
-      })), reset && React__default.createElement(MDBCloseIcon, {
-        onClick: this.resetFiles,
-        className: resetClassName,
-        ariaLabel: resetAriaLabel ? resetAriaLabel : null,
-        style: {
-          position: "absolute",
-          top: "50%",
-          right: "0",
-          transform: "translateY(-50%)"
-        }
-      }));
-    }
-  }]);
+  };
 
-  return InputFile;
-}(React__default.Component);
+  var onChangeHandler = function onChangeHandler(e) {
+    fileChange(e.target.files);
+    props.getValue && props.getValue(e.target.files);
+  };
+
+  var resetFiles = function resetFiles() {
+    files && setFiles(false);
+  };
+
+  var className = props.className,
+      btnTitle = props.btnTitle,
+      btnColor = props.btnColor,
+      textFieldTitle = props.textFieldTitle,
+      multiple = props.multiple,
+      reset = props.reset,
+      resetClassName = props.resetClassName,
+      resetAriaLabel = props.resetAriaLabel,
+      reverse = props.reverse;
+  var btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", reverse ? "float-right" : "float-left");
+  var inputFieldClass = classNames("file-path", "validate", files ? "valid" : false, className);
+  var wrapperClass = classNames("file-field", "md-form", reverse && "file-field-right");
+  return React__default.createElement("div", {
+    className: wrapperClass
+  }, React__default.createElement("div", {
+    className: btnClass
+  }, React__default.createElement("span", null, btnTitle), React__default.createElement("input", {
+    multiple: multiple,
+    onChange: onChangeHandler,
+    type: "file"
+  })), React__default.createElement("div", {
+    className: "file-path-wrapper"
+  }, React__default.createElement("input", {
+    className: inputFieldClass,
+    type: "text",
+    placeholder: files ? files : textFieldTitle,
+    style: {
+      position: reset ? "relative" : null
+    }
+  })), reset && React__default.createElement(MDBCloseIcon, {
+    onClick: resetFiles,
+    className: resetClassName,
+    ariaLabel: resetAriaLabel ? resetAriaLabel : null,
+    style: {
+      position: "absolute",
+      top: "50%",
+      right: "0",
+      transform: "translateY(-50%)"
+    }
+  }));
+};
 
 InputFile.propTypes = {
   className: propTypes.string,
@@ -9695,70 +8781,34 @@ ScrollBar.propTypes = {
   onXReachEnd: propTypes.func
 };
 
-var ScrollBox =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(ScrollBox, _Component);
+var ScrollBox = function ScrollBox(props) {
+  var className = props.className,
+      children = props.children,
+      attributes = _objectWithoutProperties(props, ["className", "children"]);
 
-  function ScrollBox() {
-    _classCallCheck(this, ScrollBox);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ScrollBox).apply(this, arguments));
-  }
-
-  _createClass(ScrollBox, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          children = _this$props.children,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children"]);
-
-      var classes = classNames("scroll-box", className);
-      return React__default.createElement("div", _extends({}, attributes, {
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return ScrollBox;
-}(React.Component);
+  var classes = classNames("scroll-box", className);
+  return React__default.createElement("div", _extends({}, attributes, {
+    className: classes
+  }), children);
+};
 
 ScrollBox.propTypes = {
   className: propTypes.string,
   children: propTypes.node
 };
 
-var ScrollSpyList =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(ScrollSpyList, _Component);
+var ScrollSpyList = function ScrollSpyList(props) {
+  var className = props.className,
+      children = props.children,
+      color = props.color,
+      attributes = _objectWithoutProperties(props, ["className", "children", "color"]);
 
-  function ScrollSpyList() {
-    _classCallCheck(this, ScrollSpyList);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ScrollSpyList).apply(this, arguments));
-  }
-
-  _createClass(ScrollSpyList, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          children = _this$props.children,
-          color = _this$props.color,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "color"]);
-
-      var classes = classNames("nav md-tabs horizontal-spy", color ? color : false, className);
-      return React__default.createElement("ul", _extends({}, attributes, {
-        role: "navigation",
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return ScrollSpyList;
-}(React.Component);
+  var classes = classNames("nav md-tabs horizontal-spy", color ? color : false, className);
+  return React__default.createElement("ul", _extends({}, attributes, {
+    role: "navigation",
+    className: classes
+  }), children);
+};
 
 ScrollSpyList.propTypes = {
   className: propTypes.string,
@@ -9766,38 +8816,20 @@ ScrollSpyList.propTypes = {
   color: propTypes.string
 };
 
-var ScrollSpyListItem =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(ScrollSpyListItem, _Component);
+var ScrollSpyListItem = function ScrollSpyListItem(props) {
+  var className = props.className,
+      children = props.children,
+      active = props.active,
+      attributes = _objectWithoutProperties(props, ["className", "children", "active"]);
 
-  function ScrollSpyListItem() {
-    _classCallCheck(this, ScrollSpyListItem);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ScrollSpyListItem).apply(this, arguments));
-  }
-
-  _createClass(ScrollSpyListItem, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          children = _this$props.children,
-          active = _this$props.active,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "active"]);
-
-      var classes = classNames("nav-link ", active ? "active" : false, className);
-      return React__default.createElement("li", {
-        className: "nav-item"
-      }, React__default.createElement("a", _extends({}, attributes, {
-        className: classes,
-        role: "tab"
-      }), children));
-    }
-  }]);
-
-  return ScrollSpyListItem;
-}(React.Component);
+  var classes = classNames("nav-link ", active ? "active" : false, className);
+  return React__default.createElement("li", {
+    className: "nav-item"
+  }, React__default.createElement("a", _extends({}, attributes, {
+    className: classes,
+    role: "tab"
+  }), children));
+};
 
 ScrollSpyListItem.propTypes = {
   className: propTypes.string,
@@ -9805,36 +8837,18 @@ ScrollSpyListItem.propTypes = {
   active: propTypes.bool
 };
 
-var ScrollSpyText =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(ScrollSpyText, _Component);
+var ScrollSpyText = function ScrollSpyText(props) {
+  var className = props.className,
+      children = props.children,
+      scrollSpyRef = props.scrollSpyRef,
+      attributes = _objectWithoutProperties(props, ["className", "children", "scrollSpyRef"]);
 
-  function ScrollSpyText() {
-    _classCallCheck(this, ScrollSpyText);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ScrollSpyText).apply(this, arguments));
-  }
-
-  _createClass(ScrollSpyText, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          children = _this$props.children,
-          scrollSpyRef = _this$props.scrollSpyRef,
-          attributes = _objectWithoutProperties(_this$props, ["className", "children", "scrollSpyRef"]);
-
-      var classes = classNames("scrollspy-example z-depth-1", className);
-      return React__default.createElement("div", _extends({}, attributes, {
-        ref: this.props.scrollSpyRef,
-        className: classes
-      }), children);
-    }
-  }]);
-
-  return ScrollSpyText;
-}(React.Component);
+  var classes = classNames("scrollspy-example z-depth-1", className);
+  return React__default.createElement("div", _extends({}, attributes, {
+    ref: props.scrollSpyRef,
+    className: classes
+  }), children);
+};
 
 ScrollSpyText.propTypes = {
   className: propTypes.string,
@@ -9921,7 +8935,7 @@ function (_React$Component) {
         });
 
         var sidenav = ReactDOM.findDOMNode(_this.sideNavRef.current);
-        sidenav.classList.toggle('slim');
+        sidenav.classList.toggle("slim");
       };
     });
 
@@ -10045,7 +9059,7 @@ function (_React$Component) {
       var _this$state = this.state,
           isOpen = _this$state.isOpen,
           isFixed = _this$state.isFixed;
-      var classes = classNames("side-nav", 'wide', right && "right-aligned", this.state.slimInitial && "slim", className);
+      var classes = classNames("side-nav", "wide", right && "right-aligned", this.state.slimInitial && "slim", className);
       var overlay = React__default.createElement("div", {
         id: "sidenav-overlay",
         onClick: this.handleOverlayClick
@@ -10119,13 +9133,13 @@ SideNav.propTypes = {
   slim: propTypes.bool
 };
 SideNav.defaultProps = {
-  bg: '',
+  bg: "",
   breakWidth: 1400,
-  className: '',
+  className: "",
   hidden: false,
   href: "#",
-  logo: '',
-  mask: '',
+  logo: "",
+  mask: "",
   onOverlayClick: function onOverlayClick() {},
   right: false,
   triggerOpening: false,
@@ -10279,72 +9293,49 @@ SideNavCat.defaultProps = {
   tag: "li"
 };
 
-var SideNavItem =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(SideNavItem, _React$Component);
+var SideNavItem = function SideNavItem(props) {
+  var _useState = React.useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
 
-  function SideNavItem(props) {
-    var _this;
+  var handleClick = function handleClick(e) {
+    if (!props.disabled) {
+      // Waves - Get Cursor Position
+      var _cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      setCursorPos(_cursorPos); // do the passed in callback:
 
-    _classCallCheck(this, SideNavItem);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SideNavItem).call(this, props));
-    _this.state = {
-      cursorPos: {}
-    };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(SideNavItem, [{
-    key: "handleClick",
-    value: function handleClick(e) {
-      if (!this.props.disabled) {
-        // Waves - Get Cursor Position
-        var cursorPos = {
-          top: e.clientY,
-          left: e.clientX,
-          time: Date.now()
-        };
-        this.setState({
-          cursorPos: cursorPos
-        }); // do the passed in callback:
-
-        if (this.props.onClick) {
-          this.props.onClick(e);
-        }
-
-        e.stopPropagation();
+      if (props.onClick) {
+        props.onClick(e);
       }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          Tag = _this$props.tag,
-          children = _this$props.children,
-          href = _this$props.href,
-          className = _this$props.className,
-          innerRef = _this$props.innerRef,
-          attributes = _objectWithoutProperties(_this$props, ["tag", "children", "href", "className", "innerRef"]);
 
-      var classes = classNames("Ripple-parent", className);
-      return React__default.createElement(Tag, _extends({
-        className: classes,
-        ref: innerRef,
-        onClick: this.handleClick
-      }, attributes), React__default.createElement("a", {
-        className: classes,
-        href: href
-      }, children, React__default.createElement(Waves, {
-        cursorPos: this.state.cursorPos
-      })));
+      e.stopPropagation();
     }
-  }]);
+  };
 
-  return SideNavItem;
-}(React__default.Component);
+  var Tag = props.tag,
+      children = props.children,
+      href = props.href,
+      className = props.className,
+      innerRef = props.innerRef,
+      attributes = _objectWithoutProperties(props, ["tag", "children", "href", "className", "innerRef"]);
+
+  var classes = classNames("Ripple-parent", className);
+  return React__default.createElement(Tag, _extends({
+    className: classes,
+    ref: innerRef,
+    onClick: handleClick
+  }, attributes), React__default.createElement("a", {
+    className: classes,
+    href: href
+  }, children, React__default.createElement(Waves, {
+    cursorPos: cursorPos
+  })));
+};
 
 SideNavItem.propTypes = {
   children: propTypes.node,
@@ -10652,132 +9643,113 @@ SimpleChart.propTypes = {
   style: propTypes.object
 };
 
-var Spinner =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Spinner, _Component);
+var Spinner = function Spinner(props) {
+  var theChosenColorSpinner = function theChosenColorSpinner(spinnerClasses) {
+    if (props.multicolor) {
+      var theSpinnerItself = React__default.createElement("div", null, React__default.createElement("div", {
+        className: "spinner-layer spinner-blue"
+      }, React__default.createElement("div", {
+        className: "circle-clipper left"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "gap-patch"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "circle-clipper right"
+      }, React__default.createElement("div", {
+        className: "circle"
+      }))), React__default.createElement("div", {
+        className: "spinner-layer spinner-red"
+      }, React__default.createElement("div", {
+        className: "circle-clipper left"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "gap-patch"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "circle-clipper right"
+      }, React__default.createElement("div", {
+        className: "circle"
+      }))), React__default.createElement("div", {
+        className: "spinner-layer spinner-yellow"
+      }, React__default.createElement("div", {
+        className: "circle-clipper left"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "gap-patch"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "circle-clipper right"
+      }, React__default.createElement("div", {
+        className: "circle"
+      }))), React__default.createElement("div", {
+        className: "spinner-layer spinner-green"
+      }, React__default.createElement("div", {
+        className: "circle-clipper left"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "gap-patch"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "circle-clipper right"
+      }, React__default.createElement("div", {
+        className: "circle"
+      }))));
+      return theSpinnerItself;
+    } else {
+      var _theSpinnerItself = React__default.createElement("div", {
+        className: spinnerClasses
+      }, React__default.createElement("div", {
+        className: "circle-clipper left"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "gap-patch"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })), React__default.createElement("div", {
+        className: "circle-clipper right"
+      }, React__default.createElement("div", {
+        className: "circle"
+      })));
 
-  function Spinner() {
-    _classCallCheck(this, Spinner);
+      return _theSpinnerItself;
+    }
+  };
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Spinner).apply(this, arguments));
+  var className = props.className,
+      big = props.big,
+      small = props.small,
+      red = props.red,
+      green = props.green,
+      yellow = props.yellow;
+  var wrapperClasses = classNames("preloader-wrapper", "active", big ? "big" : false, small ? "small" : false, className);
+  var spinnerClasses = classNames("spinner-layer", red ? "spinner-red-only" : false, green ? "spinner-green-only" : false, yellow ? "spinner-yellow-only" : "spinner-blue-only", className);
+
+  if (props.crazy) {
+    return React__default.createElement("div", {
+      className: wrapperClasses
+    }, React__default.createElement("div", {
+      className: wrapperClasses
+    }, React__default.createElement("div", {
+      className: wrapperClasses
+    }, React__default.createElement("div", {
+      className: wrapperClasses
+    }, theChosenColorSpinner(spinnerClasses)))));
+  } else {
+    return React__default.createElement("div", {
+      className: wrapperClasses
+    }, theChosenColorSpinner(spinnerClasses));
   }
-
-  _createClass(Spinner, [{
-    key: "theChosenColorSpinner",
-    value: function theChosenColorSpinner(spinnerClasses) {
-      if (this.props.multicolor) {
-        var theSpinnerItself = React__default.createElement("div", null, React__default.createElement("div", {
-          className: "spinner-layer spinner-blue"
-        }, React__default.createElement("div", {
-          className: "circle-clipper left"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "gap-patch"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "circle-clipper right"
-        }, React__default.createElement("div", {
-          className: "circle"
-        }))), React__default.createElement("div", {
-          className: "spinner-layer spinner-red"
-        }, React__default.createElement("div", {
-          className: "circle-clipper left"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "gap-patch"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "circle-clipper right"
-        }, React__default.createElement("div", {
-          className: "circle"
-        }))), React__default.createElement("div", {
-          className: "spinner-layer spinner-yellow"
-        }, React__default.createElement("div", {
-          className: "circle-clipper left"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "gap-patch"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "circle-clipper right"
-        }, React__default.createElement("div", {
-          className: "circle"
-        }))), React__default.createElement("div", {
-          className: "spinner-layer spinner-green"
-        }, React__default.createElement("div", {
-          className: "circle-clipper left"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "gap-patch"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "circle-clipper right"
-        }, React__default.createElement("div", {
-          className: "circle"
-        }))));
-        return theSpinnerItself;
-      } else {
-        var _theSpinnerItself = React__default.createElement("div", {
-          className: spinnerClasses
-        }, React__default.createElement("div", {
-          className: "circle-clipper left"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "gap-patch"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })), React__default.createElement("div", {
-          className: "circle-clipper right"
-        }, React__default.createElement("div", {
-          className: "circle"
-        })));
-
-        return _theSpinnerItself;
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          big = _this$props.big,
-          small = _this$props.small,
-          red = _this$props.red,
-          green = _this$props.green,
-          yellow = _this$props.yellow;
-      var wrapperClasses = classNames("preloader-wrapper", "active", big ? "big" : false, small ? "small" : false, className);
-      var spinnerClasses = classNames("spinner-layer", red ? "spinner-red-only" : false, green ? "spinner-green-only" : false, yellow ? "spinner-yellow-only" : "spinner-blue-only", className);
-
-      if (this.props.crazy) {
-        return React__default.createElement("div", {
-          className: wrapperClasses
-        }, React__default.createElement("div", {
-          className: wrapperClasses
-        }, React__default.createElement("div", {
-          className: wrapperClasses
-        }, React__default.createElement("div", {
-          className: wrapperClasses
-        }, this.theChosenColorSpinner(spinnerClasses)))));
-      } else {
-        return React__default.createElement("div", {
-          className: wrapperClasses
-        }, this.theChosenColorSpinner(spinnerClasses));
-      }
-    }
-  }]);
-
-  return Spinner;
-}(React.Component);
+};
 
 Spinner.propTypes = {
   className: propTypes.string,
@@ -10793,68 +9765,50 @@ Spinner.defaultProps = {
   tag: "div"
 };
 
-var Step =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Step, _React$Component);
+var Step = function Step(props) {
+  var Tag = props.tag,
+      form = props.form,
+      icon = props.icon,
+      stepName = props.stepName,
+      vertical = props.vertical;
+  var iconClass = classNames("fa fa-" + icon, "Ripple-parent");
+  var stepClass = classNames(form ? "steps-step" : icon && vertical ? "steps-step-3" : icon && !vertical ? "steps-step-2" : null, props.className);
+  var step;
 
-  function Step() {
-    _classCallCheck(this, Step);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Step).apply(this, arguments));
+  if (form) {
+    step = React__default.createElement(Tag, {
+      className: stepClass
+    }, props.children);
+  } else if (icon && !vertical) {
+    step = React__default.createElement(Tag, {
+      className: stepClass,
+      onClick: props.onClick
+    }, React__default.createElement(Popper, {
+      placement: "top"
+    }, React__default.createElement(Button, {
+      className: "btn-circle-2 btn-blue-grey"
+    }, React__default.createElement("i", {
+      className: iconClass
+    })), React__default.createElement("div", null, stepName)));
+  } else if (icon && vertical) {
+    step = React__default.createElement(Tag, {
+      className: stepClass,
+      onClick: props.onClick
+    }, React__default.createElement(Popper, {
+      placement: "top"
+    }, React__default.createElement(Button, {
+      className: "btn-circle-3 btn-blue-grey"
+    }, React__default.createElement("i", {
+      className: iconClass
+    })), React__default.createElement("div", null, stepName)));
+  } else {
+    step = React__default.createElement("li", {
+      className: stepClass
+    }, props.children);
   }
 
-  _createClass(Step, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          Tag = _this$props.tag,
-          form = _this$props.form,
-          icon = _this$props.icon,
-          stepName = _this$props.stepName,
-          vertical = _this$props.vertical;
-      var iconClass = classNames("fa fa-" + icon, "Ripple-parent");
-      var stepClass = classNames(form ? "steps-step" : icon && vertical ? "steps-step-3" : icon && !vertical ? "steps-step-2" : null, this.props.className);
-      var step;
-
-      if (form) {
-        step = React__default.createElement(Tag, {
-          className: stepClass
-        }, this.props.children);
-      } else if (icon && !vertical) {
-        step = React__default.createElement(Tag, {
-          className: stepClass,
-          onClick: this.props.onClick
-        }, React__default.createElement(Popper, {
-          placement: "top"
-        }, React__default.createElement(Button, {
-          className: "btn-circle-2 btn-blue-grey"
-        }, React__default.createElement("i", {
-          className: iconClass
-        })), React__default.createElement("div", null, stepName)));
-      } else if (icon && vertical) {
-        step = React__default.createElement(Tag, {
-          className: stepClass,
-          onClick: this.props.onClick
-        }, React__default.createElement(Popper, {
-          placement: "top"
-        }, React__default.createElement(Button, {
-          className: "btn-circle-3 btn-blue-grey"
-        }, React__default.createElement("i", {
-          className: iconClass
-        })), React__default.createElement("div", null, stepName)));
-      } else {
-        step = React__default.createElement("li", {
-          className: stepClass
-        }, this.props.children);
-      }
-
-      return step;
-    }
-  }]);
-
-  return Step;
-}(React__default.Component);
+  return step;
+};
 
 Step.defaultProps = {
   tag: "div",
@@ -10865,51 +9819,29 @@ Step.defaultProps = {
 var css$f = "/* Stepper Form */\n\n/* Stepper v.2 (Form) */\n.steps-form {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form .steps-row {\n  display: table-row; }\n.steps-form .steps-row:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 100%;\n  height: 1px;\n  background-color: #ccc; }\n.steps-form .steps-row .steps-step {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form .steps-row .steps-step p {\n  margin-top: 0.5rem; }\n.steps-form .steps-row .steps-step button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form .steps-row .steps-step .btn-circle {\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  padding: 6px 0;\n  font-size: 12px;\n  line-height: 1.428571429;\n  border-radius: 15px;\n  margin-top: 0; }\n\n/* Stepper v.3 (Icons) */\n.steps-form-2 {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form-2 .steps-row-2 {\n  display: table-row; }\n.steps-form-2 .steps-row-2:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 99%;\n  height: 2px;\n  background-color: #7283a7; }\n.steps-form-2 .steps-row-2 .steps-step-2 {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form-2 .steps-row-2 .steps-step-2 p {\n  margin-top: 0.5rem; }\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\n  width: 70px;\n  height: 70px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 22px 18px 15px 18px;\n  margin-top: -22px; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {\n  font-size: 1.7rem; }\n .steps-row-2:first-child .btn {\n  margin-left: 0\n}\n.steps-row-2:last-child .btn {\n  margin-right: 0\n}\n\n\n/* Stepper v.4 (Icon-vertical) */\n\n.steps-form-3 {\n  width: 2px;\nheight: 470px;\n  position: relative; }\n.steps-form-3 .steps-row-3 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column; }\n.steps-form-3 .steps-row-3:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \"\";\n  width: 2px;\n  height: 100%;\n  background-color: #7283a7; }\n.steps-form-3 .steps-row-3 .steps-step-3 {\n  height: 150px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  position: relative; }\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\n  height: 50px; }\n.steps-form-3 .steps-row-3 .steps-step-3 p {\nmargin-top: 0.5rem; }\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\n  width: 60px;\n  height: 60px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 18px 18px 15px 15px;\n  margin-top: -22px; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa {\n  font-size: 1.7rem; }\n";
 styleInject(css$f);
 
-var Stepper =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Stepper, _React$Component);
+var Stepper = function Stepper(props) {
+  var vertical = props.vertical,
+      form = props.form,
+      icon = props.icon;
+  var stepperClass = classNames(form ? "steps-form" : icon && vertical ? "steps-form-3" : icon && !vertical ? "steps-form-2" : "stepper", vertical && !icon ? "stepper-vertical" : form || icon ? null : "stepper-horizontal", props.className);
+  var wrapperFix = classNames(form ? "steps-row" : icon && vertical ? "steps-row-3 d-flex justify-content-between" : icon && !vertical ? "steps-row-2 d-flex justify-content-between" : null); // wrapper shim in case props.form
 
-  function Stepper(props) {
-    var _this;
+  var stepper;
 
-    _classCallCheck(this, Stepper);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Stepper).call(this, props));
-    _this.state = {};
-    return _this;
+  if (form || icon) {
+    stepper = React__default.createElement("div", {
+      className: stepperClass
+    }, React__default.createElement("div", {
+      className: wrapperFix
+    }, props.children));
+  } else {
+    stepper = React__default.createElement("ul", {
+      className: stepperClass
+    }, props.children);
   }
 
-  _createClass(Stepper, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          vertical = _this$props.vertical,
-          form = _this$props.form,
-          icon = _this$props.icon;
-      var stepperClass = classNames(form ? "steps-form" : icon && vertical ? "steps-form-3" : icon && !vertical ? "steps-form-2" : "stepper", vertical && !icon ? "stepper-vertical" : form || icon ? null : "stepper-horizontal", this.props.className);
-      var wrapperFix = classNames(form ? "steps-row" : icon && vertical ? "steps-row-3 d-flex justify-content-between" : icon && !vertical ? "steps-row-2 d-flex justify-content-between" : null); // wrapper shim in case this.props.form
-
-      var stepper;
-
-      if (form || icon) {
-        stepper = React__default.createElement("div", {
-          className: stepperClass
-        }, React__default.createElement("div", {
-          className: wrapperFix
-        }, this.props.children));
-      } else {
-        stepper = React__default.createElement("ul", {
-          className: stepperClass
-        }, this.props.children);
-      }
-
-      return stepper;
-    }
-  }]);
-
-  return Stepper;
-}(React__default.Component);
+  return stepper;
+};
 
 Stepper.propTypes = {
   vertical: propTypes.bool,
@@ -11401,34 +10333,16 @@ _defineProperty(Container$1, "childContextTypes", {
   getParent: propTypes.func
 });
 
-var Testimonial =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Testimonial, _Component);
+var Testimonial = function Testimonial(props) {
+  var className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["className", "tag"]);
 
-  function Testimonial() {
-    _classCallCheck(this, Testimonial);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Testimonial).apply(this, arguments));
-  }
-
-  _createClass(Testimonial, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          Tag = _this$props.tag,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag"]);
-
-      var classes = classNames("testimonial", className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
-        className: classes
-      }));
-    }
-  }]);
-
-  return Testimonial;
-}(React.Component);
+  var classes = classNames("testimonial", className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }));
+};
 
 Testimonial.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
@@ -12269,96 +11183,73 @@ TimePicker.defaultProps = defaultProps$2;
 var css$j = ".Toastify__toast-container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 320px;\n  box-sizing: border-box;\n  color: #fff; }\n  .Toastify__toast-container--top-left {\n    top: 1em;\n    left: 1em; }\n  .Toastify__toast-container--top-center {\n    top: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--top-right {\n    top: 1em;\n    right: 1em; }\n  .Toastify__toast-container--bottom-left {\n    bottom: 1em;\n    left: 1em; }\n  .Toastify__toast-container--bottom-center {\n    bottom: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--bottom-right {\n    bottom: 1em;\n    right: 1em; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast-container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0; }\n    .Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right {\n      top: 0; }\n    .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right {\n      bottom: 0; }\n    .Toastify__toast-container--rtl {\n      right: 0;\n      left: initial; } }\n\n.Toastify__toast {\n  position: relative;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 8px;\n  border-radius: 1px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  max-height: 800px;\n  overflow: hidden;\n  font-family: sans-serif;\n  cursor: pointer;\n  direction: ltr; }\n  .Toastify__toast--rtl {\n    direction: rtl; }\n  .Toastify__toast--default {\n    background: #fff;\n    color: #aaa; }\n  .Toastify__toast--info {\n    background: #3498db; }\n  .Toastify__toast--success {\n    background: #07bc0c; }\n  .Toastify__toast--warning {\n    background: #f1c40f; }\n  .Toastify__toast--error {\n    background: #e74c3c; }\n  .Toastify__toast-body {\n    margin: auto 0;\n    -ms-flex: 1;\n        flex: 1; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast {\n    margin-bottom: 0; } }\n\n.Toastify__close-button {\n  color: #fff;\n  font-weight: bold;\n  font-size: 14px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  opacity: 0.7;\n  transition: 0.3s ease;\n  -ms-flex-item-align: start;\n      align-self: flex-start; }\n  .Toastify__close-button--default {\n    color: #000;\n    opacity: 0.3; }\n  .Toastify__close-button:hover, .Toastify__close-button:focus {\n    opacity: 1; }\n\n@keyframes Toastify__trackProgress {\n  0% {\n    transform: scaleX(1); }\n  100% {\n    transform: scaleX(0); } }\n\n.Toastify__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 9999;\n  opacity: 0.7;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left; }\n  .Toastify__progress-bar--animated {\n    animation: Toastify__trackProgress linear 1 forwards; }\n  .Toastify__progress-bar--controlled {\n    transition: transform .2s; }\n  .Toastify__progress-bar--rtl {\n    right: 0;\n    left: initial;\n    transform-origin: right; }\n  .Toastify__progress-bar--default {\n    background: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55); }\n\n@keyframes Toastify__bounceInRight {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0); }\n  75% {\n    transform: translate3d(10px, 0, 0); }\n  90% {\n    transform: translate3d(-5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInLeft {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0); }\n  75% {\n    transform: translate3d(-10px, 0, 0); }\n  90% {\n    transform: translate3d(5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInUp {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  75% {\n    transform: translate3d(0, 10px, 0); }\n  90% {\n    transform: translate3d(0, -5px, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0); } }\n\n@keyframes Toastify__bounceInDown {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    transform: translate3d(0, 5px, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0); } }\n\n.Toastify__bounce-enter--top-left, .Toastify__bounce-enter--bottom-left {\n  animation-name: Toastify__bounceInLeft; }\n\n.Toastify__bounce-enter--top-right, .Toastify__bounce-enter--bottom-right {\n  animation-name: Toastify__bounceInRight; }\n\n.Toastify__bounce-enter--top-center {\n  animation-name: Toastify__bounceInDown; }\n\n.Toastify__bounce-enter--bottom-center {\n  animation-name: Toastify__bounceInUp; }\n\n.Toastify__bounce-exit--top-left, .Toastify__bounce-exit--bottom-left {\n  animation-name: Toastify__bounceOutLeft; }\n\n.Toastify__bounce-exit--top-right, .Toastify__bounce-exit--bottom-right {\n  animation-name: Toastify__bounceOutRight; }\n\n.Toastify__bounce-exit--top-center {\n  animation-name: Toastify__bounceOutUp; }\n\n.Toastify__bounce-exit--bottom-center {\n  animation-name: Toastify__bounceOutDown; }\n\n@keyframes Toastify__zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  50% {\n    opacity: 1; } }\n\n@keyframes Toastify__zoomOut {\n  from {\n    opacity: 1; }\n  50% {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  to {\n    opacity: 0; } }\n\n.Toastify__zoom-enter {\n  animation-name: Toastify__zoomIn; }\n\n.Toastify__zoom-exit {\n  animation-name: Toastify__zoomOut; }\n\n@keyframes Toastify__flipIn {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0; }\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in; }\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1; }\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }\n  to {\n    transform: perspective(400px); } }\n\n@keyframes Toastify__flipOut {\n  from {\n    transform: perspective(400px); }\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1; }\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0; } }\n\n.Toastify__flip-enter {\n  animation-name: Toastify__flipIn; }\n\n.Toastify__flip-exit {\n  animation-name: Toastify__flipOut; }\n\n@keyframes Toastify__slideInRight {\n  from {\n    transform: translate3d(110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInLeft {\n  from {\n    transform: translate3d(-110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInUp {\n  from {\n    transform: translate3d(0, 110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInDown {\n  from {\n    transform: translate3d(0, -110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(110%, 0, 0); } }\n\n@keyframes Toastify__slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(-110%, 0, 0); } }\n\n@keyframes Toastify__slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 500px, 0); } }\n\n@keyframes Toastify__slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -500px, 0); } }\n\n.Toastify__slide-enter--top-left, .Toastify__slide-enter--bottom-left {\n  animation-name: Toastify__slideInLeft; }\n\n.Toastify__slide-enter--top-right, .Toastify__slide-enter--bottom-right {\n  animation-name: Toastify__slideInRight; }\n\n.Toastify__slide-enter--top-center {\n  animation-name: Toastify__slideInDown; }\n\n.Toastify__slide-enter--bottom-center {\n  animation-name: Toastify__slideInUp; }\n\n.Toastify__slide-exit--top-left, .Toastify__slide-exit--bottom-left {\n  animation-name: Toastify__slideOutLeft; }\n\n.Toastify__slide-exit--top-right, .Toastify__slide-exit--bottom-right {\n  animation-name: Toastify__slideOutRight; }\n\n.Toastify__slide-exit--top-center {\n  animation-name: Toastify__slideOutUp; }\n\n.Toastify__slide-exit--bottom-center {\n  animation-name: Toastify__slideOutDown; }";
 styleInject(css$j);
 
-var SmoothScroll =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(SmoothScroll, _Component);
+var SmoothScroll = function SmoothScroll(props) {
+  var _useState = React.useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
 
-  function SmoothScroll(props) {
-    var _this;
+  var handleClick = function handleClick(e) {
+    if (!props.disabled) {
+      e.stopPropagation(); // Waves - Get Cursor Position
 
-    _classCallCheck(this, SmoothScroll);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SmoothScroll).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
-      if (!_this.props.disabled) {
-        e.stopPropagation(); // Waves - Get Cursor Position
-
-        var cursorPos = {
-          top: e.clientY,
-          left: e.clientX,
-          time: Date.now()
-        };
-
-        _this.setState({
-          cursorPos: cursorPos
-        });
-      }
-    });
-
-    _this.state = {
-      cursorPos: {}
-    };
-    return _this;
-  }
-
-  _createClass(SmoothScroll, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          children = _this$props.children,
-          className = _this$props.className,
-          disabled = _this$props.disabled,
-          active = _this$props.active,
-          to = _this$props.to,
-          spy = _this$props.spy,
-          smooth = _this$props.smooth,
-          offset = _this$props.offset,
-          duration = _this$props.duration,
-          block = _this$props.block,
-          color = _this$props.color,
-          outline = _this$props.outline,
-          size = _this$props.size,
-          rounded = _this$props.rounded,
-          gradient = _this$props.gradient,
-          floating = _this$props.floating,
-          flat = _this$props.flat,
-          social = _this$props.social,
-          btn = _this$props.btn,
-          fixed = _this$props.fixed,
-          bottom = _this$props.bottom,
-          right = _this$props.right,
-          top = _this$props.top,
-          left = _this$props.left,
-          attributes = _objectWithoutProperties(_this$props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration", "block", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "social", "btn", "fixed", "bottom", "right", "top", "left"]);
-
-      var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", (btn || floating) && "btn", floating && "btn-floating", flat ? "btn-flat" : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? "-outline" : "", "-").concat(color), size ? "btn-".concat(size) : false, rounded ? "btn-rounded" : false, block ? "btn-block" : false, social ? "btn-" + social : false, "Ripple-parent", className);
-      var fixedStyles = {
-        position: "fixed",
-        top: top ? "".concat(top, "px") : null,
-        bottom: bottom ? "".concat(bottom, "px") : !top ? '45px' : null,
-        left: left ? "".concat(left, "px") : null,
-        right: right ? "".concat(right, "px") : !left ? '24px' : null
+      var _cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
       };
-      return React__default.createElement(reactScroll.Link, _extends({
-        className: classes,
-        onMouseUp: this.handleClick,
-        onTouchStart: this.handleClick,
-        to: to,
-        spy: spy,
-        smooth: smooth,
-        offset: offset,
-        duration: duration,
-        style: fixed ? fixedStyles : null
-      }, attributes), children, this.props.disabled ? false : React__default.createElement(Waves, {
-        cursorPos: this.state.cursorPos
-      }));
+      setCursorPos(_cursorPos);
     }
-  }]);
+  };
 
-  return SmoothScroll;
-}(React.Component);
+  var children = props.children,
+      className = props.className,
+      disabled = props.disabled,
+      active = props.active,
+      to = props.to,
+      spy = props.spy,
+      smooth = props.smooth,
+      offset = props.offset,
+      duration = props.duration,
+      block = props.block,
+      color = props.color,
+      outline = props.outline,
+      size = props.size,
+      rounded = props.rounded,
+      gradient = props.gradient,
+      floating = props.floating,
+      flat = props.flat,
+      social = props.social,
+      btn = props.btn,
+      fixed = props.fixed,
+      bottom = props.bottom,
+      right = props.right,
+      top = props.top,
+      left = props.left,
+      attributes = _objectWithoutProperties(props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration", "block", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "social", "btn", "fixed", "bottom", "right", "top", "left"]);
+
+  var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", (btn || floating) && "btn", floating && "btn-floating", flat ? "btn-flat" : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? "-outline" : "", "-").concat(color), size ? "btn-".concat(size) : false, rounded ? "btn-rounded" : false, block ? "btn-block" : false, social ? "btn-" + social : false, "Ripple-parent", className);
+  var fixedStyles = {
+    position: "fixed",
+    top: top ? "".concat(top, "px") : null,
+    bottom: bottom ? "".concat(bottom, "px") : !top ? "45px" : null,
+    left: left ? "".concat(left, "px") : null,
+    right: right ? "".concat(right, "px") : !left ? "24px" : null
+  };
+  return React__default.createElement(reactScroll.Link, _extends({
+    className: classes,
+    onMouseUp: handleClick,
+    onTouchStart: handleClick,
+    to: to,
+    spy: spy,
+    smooth: smooth,
+    offset: offset,
+    duration: duration,
+    style: fixed ? fixedStyles : null
+  }, attributes), children, props.disabled ? false : React__default.createElement(Waves, {
+    cursorPos: cursorPos
+  }));
+};
 
 SmoothScroll.propTypes = {
   to: propTypes.string.isRequired,
@@ -12379,7 +11270,6 @@ SmoothScroll.propTypes = {
   floating: propTypes.bool,
   flat: propTypes.bool,
   social: propTypes.string,
-  action: propTypes.bool,
   fixed: propTypes.bool,
   top: propTypes.string,
   bottom: propTypes.string,
