@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { Reference } from "react-popper";
-import Button from "../Button";
+import Button from "../../Button";
 
 class DropdownToggle extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { omit } from "../utils";
+import { omit } from "../../utils";
 
 const propTypes = {
   children: PropTypes.node,
