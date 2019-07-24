@@ -8,7 +8,7 @@ import DataTableInfo from "./DataTableInfo";
 import DataTablePagination from "./DataTablePagination";
 import classnames from "classnames";
 // PRO-START
-import ExportToCsvBtn from "../pro/ExportToCSV";
+import ExportToCsvBtn from "../pro/DataTable/ExportToCSV";
 // PRO-END
 
 class DataTable extends Component {

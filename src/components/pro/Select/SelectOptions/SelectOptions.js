@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './Fade.css';
-import Input from '../../Input';
+import Input from '../../../Input';
 
 class Options extends React.Component {
   constructor(props) {

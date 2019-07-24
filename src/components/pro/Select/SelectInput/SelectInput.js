@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import selectContextHOC from "../Select/SelectContext";
+import selectContextHOC from "../SelectContext";
 
 class SelectInput extends React.Component {
   componentDidMount() {

@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Select from "../Select";
-import SelectInput from "../SelectInput";
-import SelectOptions from "../SelectOptions";
-import SelectOption from "../SelectOption";
+import Select from "../../Select";
+import SelectInput from "../../Select/SelectInput";
+import SelectOptions from "../../Select/SelectOptions";
+import SelectOption from "../../Select/SelectOption";
 import classNames from "classnames";
 
 const DataTableSelect = ({ value, onChange, entries, label, barReverse }) => (

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import selectContextHOC from "../Select/SelectContext";
+import selectContextHOC from "../SelectContext";
 
 class Option extends React.Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // PRO-START
-import DataTableSelect from '../../pro/DataTableSelect';
+import DataTableSelect from '../../pro/DataTable/DataTableSelect';
 /*
 // PRO-END
 import DataTableSelect from './DataTableSelect';
