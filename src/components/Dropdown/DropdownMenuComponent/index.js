@@ -1,2 +1,2 @@
-export { default } from './DropdownToggle';
-export * from './DropdownToggle';
+export { default } from './DropdownMenuComponent';
+export * from './DropdownMenuComponent';
