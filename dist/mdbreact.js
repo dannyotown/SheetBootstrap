@@ -1524,25 +1524,6 @@ Control.defaultProps = {
   tag: "a"
 };
 
-var CarouselIndicators = function CarouselIndicators(props) {
-  var children = props.children,
-      className = props.className,
-      attributes = _objectWithoutProperties(props, ["children", "className"]);
-
-  var classes = classNames("carousel-indicators", className);
-  return React__default.createElement("ol", _extends({}, attributes, {
-    className: classes
-  }), children);
-};
-
-CarouselIndicators.propTypes = {
-  children: propTypes.node,
-  className: propTypes.string
-};
-CarouselIndicators.defaultProps = {
-  className: ""
-};
-
 var CarouselIndicator = function CarouselIndicator(props) {
   var active = props.active,
       children = props.children,
@@ -1572,6 +1553,25 @@ CarouselIndicator.defaultProps = {
   alt: "Carousel thumbnail",
   className: "",
   img: ""
+};
+
+var CarouselIndicators = function CarouselIndicators(props) {
+  var children = props.children,
+      className = props.className,
+      attributes = _objectWithoutProperties(props, ["children", "className"]);
+
+  var classes = classNames("carousel-indicators", className);
+  return React__default.createElement("ol", _extends({}, attributes, {
+    className: classes
+  }), children);
+};
+
+CarouselIndicators.propTypes = {
+  children: propTypes.node,
+  className: propTypes.string
+};
+CarouselIndicators.defaultProps = {
+  className: ""
 };
 
 var css$3 = ".carousel-inner {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n\n.carousel-fade .carousel-item {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  display: block !important;\n  opacity: 0;\n  z-index: 0;\n  transition: transform 0ms ease-in-out, opacity 0.8s ease-out;\n}\n\n.carousel-fade .carousel-item.active {\n  position: relative;\n  z-index: 1;\n  opacity: 1;\n}\n\n.carousel-multi-item .carousel-item {\n  display: inline-block !important;\n}\n\n.carousel .carousel-slide-item {\n  transition: left 0.5s;\n}\n\n.carousel-control-prev, .carousel-control-next, .carousel-item-prev, .carousel-item-next {\n  z-index: 2;\n}\n";
@@ -2280,6 +2280,54 @@ Container.defaultProps = {
   fluid: false
 };
 
+var DataTableHead = function DataTableHead(props) {
+  var color = props.color,
+      columns = props.columns,
+      handleSort = props.handleSort,
+      scrollX = props.scrollX,
+      scrollY = props.scrollY,
+      sortable = props.sortable,
+      sorted = props.sorted,
+      textWhite = props.textWhite;
+  var theadClasses = classNames(color && (color !== "dark" && color !== "light" ? color : "thead-".concat(color)), textWhite && "text-white");
+  return React__default.createElement(React.Fragment, null, (scrollY || scrollX) && React__default.createElement("colgroup", null, columns.map(function (col) {
+    return React__default.createElement("col", {
+      key: col.field,
+      style: {
+        width: "".concat(col.width, "px") || "auto",
+        minWidth: "".concat(col.width, "px") || "auto"
+      }
+    });
+  })), React__default.createElement("thead", {
+    className: theadClasses || undefined
+  }, React__default.createElement("tr", null, columns.map(function (col) {
+    return React__default.createElement("th", _extends({
+      onClick: function onClick() {
+        return sortable && handleSort(col.field, col.sort);
+      },
+      key: col.field,
+      className: classNames(col.hasOwnProperty("minimal") ? "th-".concat(col.minimal) : null, sortable && col.sort !== 'disabled' && (sorted && col.sort ? "sorting_".concat(col.sort === 'asc' ? 'desc' : 'asc') : 'sorting'))
+    }, col.attributes), col.label);
+  }))));
+};
+
+DataTableHead.propTypes = {
+  sorted: propTypes.bool.isRequired,
+  color: propTypes.string,
+  columns: propTypes.arrayOf(propTypes.object),
+  handleSort: propTypes.func,
+  scrollX: propTypes.bool,
+  scrollY: propTypes.bool,
+  sortable: propTypes.bool,
+  textWhite: propTypes.bool
+};
+DataTableHead.defaultProps = {
+  scrollX: false,
+  scrollY: false,
+  sortable: true,
+  textWhite: false
+};
+
 var css$4 = ".table-wrapper-scroll-y {\n  display: block;\n  max-height: 200px;\n  overflow-y: auto;\n  -ms-overflow-style: -ms-autohiding-scrollbar;\n}\n";
 styleInject(css$4);
 
@@ -2355,54 +2403,6 @@ Table.propTypes = {
   small: propTypes.bool,
   striped: propTypes.bool,
   className: propTypes.string
-};
-
-var DataTableHead = function DataTableHead(props) {
-  var color = props.color,
-      columns = props.columns,
-      handleSort = props.handleSort,
-      scrollX = props.scrollX,
-      scrollY = props.scrollY,
-      sortable = props.sortable,
-      sorted = props.sorted,
-      textWhite = props.textWhite;
-  var theadClasses = classNames(color && (color !== "dark" && color !== "light" ? color : "thead-".concat(color)), textWhite && "text-white");
-  return React__default.createElement(React.Fragment, null, (scrollY || scrollX) && React__default.createElement("colgroup", null, columns.map(function (col) {
-    return React__default.createElement("col", {
-      key: col.field,
-      style: {
-        width: "".concat(col.width, "px") || "auto",
-        minWidth: "".concat(col.width, "px") || "auto"
-      }
-    });
-  })), React__default.createElement("thead", {
-    className: theadClasses || undefined
-  }, React__default.createElement("tr", null, columns.map(function (col) {
-    return React__default.createElement("th", _extends({
-      onClick: function onClick() {
-        return sortable && handleSort(col.field, col.sort);
-      },
-      key: col.field,
-      className: classNames(col.hasOwnProperty("minimal") ? "th-".concat(col.minimal) : null, sortable && col.sort !== 'disabled' && (sorted && col.sort ? "sorting_".concat(col.sort === 'asc' ? 'desc' : 'asc') : 'sorting'))
-    }, col.attributes), col.label);
-  }))));
-};
-
-DataTableHead.propTypes = {
-  sorted: propTypes.bool.isRequired,
-  color: propTypes.string,
-  columns: propTypes.arrayOf(propTypes.object),
-  handleSort: propTypes.func,
-  scrollX: propTypes.bool,
-  scrollY: propTypes.bool,
-  sortable: propTypes.bool,
-  textWhite: propTypes.bool
-};
-DataTableHead.defaultProps = {
-  scrollX: false,
-  scrollY: false,
-  sortable: true,
-  textWhite: false
 };
 
 var TableBody = function TableBody(props) {

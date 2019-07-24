@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // PRO-START
-import DataTableInput from '../../pro/DataTableInput';
+import DataTableInput from '../../pro/DataTable/DataTableInput';
 /*
 // PRO-END
 import DataTableInput from './DataTableInput';
