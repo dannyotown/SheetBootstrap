@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Fa from '../Fa';
+import Fa from '../../Fa';
 import "./Breadcrumb.css";
 
 const BreadcrumbItem = props => {
