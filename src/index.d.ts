@@ -48,7 +48,7 @@ import MDBInputGroup from './components/InputGroup';
 import MDBInputNumeric from './components/InputNumeric';
 import MDBHamburgerToggler from './components/HamburgerToggler';
 import MDBListGroup from './components/ListGroup';
-import MDBListGroupItem from './components/ListGroupItem';
+import MDBListGroupItem from './components/ListGroup/ListGroupItem';
 import MDBNav from './components/Nav';
 import MDBNavbar from './components/Navbar';
 import MDBNavbarBrand from './components/Navbar/NavbarBrand';
