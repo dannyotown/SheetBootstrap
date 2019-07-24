@@ -291,7 +291,7 @@ export {
   Fa as MDBIcon,
   Input as MDBInput,
   InputGroup as MDBInputGroup,
-  SelectInput as MDBInputSelect,
+  InputNumeric as MDBInputSelect,
   Jumbotron as MDBJumbotron,
   ListGroup as MDBListGroup,
   ListGroupItem as MDBListGroupItem,
