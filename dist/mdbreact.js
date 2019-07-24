@@ -2280,6 +2280,37 @@ Container.defaultProps = {
   fluid: false
 };
 
+var MDBCloseIcon = function MDBCloseIcon(_ref) {
+  var onClick = _ref.onClick,
+      className = _ref.className,
+      ariaLabel = _ref.ariaLabel,
+      props = _objectWithoutProperties(_ref, ["onClick", "className", "ariaLabel"]);
+
+  var onClickHandler = function onClickHandler(e) {
+    onClick && onClick(e);
+  };
+
+  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
+  return React__default.createElement("button", _extends({
+    "data-test": "close-button",
+    type: "button"
+  }, props, {
+    className: btnClasses.join(" "),
+    onClick: onClickHandler,
+    "aria-label": ariaLabel
+  }), React__default.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7"));
+};
+MDBCloseIcon.defaultProps = {
+  ariaLabel: "Close"
+};
+MDBCloseIcon.propTypes = {
+  className: propTypes.string,
+  ariaLabel: propTypes.string,
+  onClick: propTypes.func
+};
+
 var DataTableHead = function DataTableHead(props) {
   var color = props.color,
       columns = props.columns,
@@ -3721,7 +3752,7 @@ var selectContextHOC = function selectContextHOC(Component) {
   );
 };
 
-exports.MDBSelectInput =
+var SelectInput =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(SelectInput, _React$Component);
@@ -3768,15 +3799,15 @@ function (_React$Component) {
   return SelectInput;
 }(React__default.Component);
 
-exports.MDBSelectInput.propTypes = {
+SelectInput.propTypes = {
   context: propTypes.object.isRequired,
   className: propTypes.string,
   selected: propTypes.oneOfType([propTypes.string, propTypes.number])
 };
-exports.MDBSelectInput.defaultProps = {
+SelectInput.defaultProps = {
   className: ""
 };
-var SelectInput = exports.MDBSelectInput = selectContextHOC(exports.MDBSelectInput);
+var SelectInput$1 = SelectInput = selectContextHOC(SelectInput);
 
 var css$5 = ".fadeElement {\n  -webkit-transition: 0.5s;\n  -moz-transition: 0.5s;\n  -o-transition: 0.5s;\n  transition: 0.5s;\n  display: block;\n  width: 100%;\n  top: 0;\n  opacity: 0;\n  transform-origin:top;\n  transform:scaleY(0.7);\n  visibility: hidden;\n  pointer-events: none;\n}\n.fadeElement.fadeIn {\n  transform:scaleY(1);\n  opacity: 1;\n  visibility: visible;\n  pointer-events: auto;\n}\n";
 styleInject(css$5);
@@ -3866,7 +3897,7 @@ Options.defaultProps = {
   searchId: 'selectSearchInput'
 };
 
-exports.MDBSelectOption =
+var Option =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(Option, _React$Component);
@@ -4021,7 +4052,7 @@ function (_React$Component) {
   return Option;
 }(React__default.Component);
 
-exports.MDBSelectOption.propTypes = {
+Option.propTypes = {
   children: propTypes.node,
   checked: propTypes.bool,
   className: propTypes.string,
@@ -4031,7 +4062,7 @@ exports.MDBSelectOption.propTypes = {
   value: propTypes.any,
   separator: propTypes.bool
 };
-exports.MDBSelectOption.defaultProps = {
+Option.defaultProps = {
   children: "span",
   checked: false,
   className: "",
@@ -4041,7 +4072,7 @@ exports.MDBSelectOption.defaultProps = {
   triggerOptionClick: function triggerOptionClick() {},
   value: ""
 };
-var SelectOption = exports.MDBSelectOption = selectContextHOC(exports.MDBSelectOption);
+var SelectOption = Option = selectContextHOC(Option);
 
 var DataTableSelect = function DataTableSelect(_ref) {
   var value = _ref.value,
@@ -4056,7 +4087,7 @@ var DataTableSelect = function DataTableSelect(_ref) {
   }, label), React__default.createElement(Select, {
     getValue: onChange,
     className: "my-0"
-  }, React__default.createElement(SelectInput, {
+  }, React__default.createElement(SelectInput$1, {
     selected: value
   }), React__default.createElement(Options, null, entries.map(function (entry, index) {
     return React__default.createElement(SelectOption, {
@@ -4075,12 +4106,9 @@ DataTableSelect.propTypes = {
   value: propTypes.number.isRequired
 };
 
-/*
-// PRO-END
-import DataTableSelect from './DataTableSelect';
-// PRO-START
-*/
-// PRO-END
+// FREE START
+// import DataTableSelect from '../DataTableSelect';
+// FREE-END
 
 var DataTableEntries = function DataTableEntries(props) {
   var handleEntriesChange = props.handleEntriesChange,
@@ -4134,12 +4162,9 @@ DataTableInput.propTypes = {
   value: propTypes.string
 };
 
-/*
-// PRO-END
-import DataTableInput from './DataTableInput';
-// PRO-START
-*/
-// PRO-END
+// FREE START
+// import DataTableInput from '../DataTableInput';
+// FREE END
 
 var DataTableSearch = function DataTableSearch(props) {
   var handleSearchChange = props.handleSearchChange,
@@ -6365,37 +6390,6 @@ NavLink.defaultProps = {
   active: false,
   className: "",
   disabled: false
-};
-
-var MDBCloseIcon = function MDBCloseIcon(_ref) {
-  var onClick = _ref.onClick,
-      className = _ref.className,
-      ariaLabel = _ref.ariaLabel,
-      props = _objectWithoutProperties(_ref, ["onClick", "className", "ariaLabel"]);
-
-  var onClickHandler = function onClickHandler(e) {
-    onClick && onClick(e);
-  };
-
-  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
-  return React__default.createElement("button", _extends({
-    "data-test": "close-button",
-    type: "button"
-  }, props, {
-    className: btnClasses.join(" "),
-    onClick: onClickHandler,
-    "aria-label": ariaLabel
-  }), React__default.createElement("span", {
-    "aria-hidden": "true"
-  }, "\xD7"));
-};
-MDBCloseIcon.defaultProps = {
-  ariaLabel: "Close"
-};
-MDBCloseIcon.propTypes = {
-  className: propTypes.string,
-  ariaLabel: propTypes.string,
-  onClick: propTypes.func
 };
 
 var Notification =
@@ -10219,6 +10213,55 @@ _defineProperty(Sticky, "contextTypes", {
   getParent: propTypes.func
 });
 
+var MDBStreak = function MDBStreak(_ref) {
+  var children = _ref.children,
+      by = _ref.by,
+      byClass = _ref.byClass,
+      wrapperClass = _ref.wrapperClass,
+      size = _ref.size,
+      quoteClass = _ref.quoteClass,
+      photo = _ref.photo,
+      overlayClass = _ref.overlayClass;
+  var byClasses = classNames("text-center", "font-italic", "mb-0", byClass);
+  var wrapperClasses = classNames("streak", photo && "streak-photo", size && "streak-".concat(size), wrapperClass);
+  var quoteClasses = classNames("h2-responsive", quoteClass);
+  var overlayClasses = classNames("flex-center", overlayClass);
+  return React__default.createElement("div", {
+    className: wrapperClasses,
+    style: {
+      backgroundImage: "url(\"".concat(photo, "\")"),
+      backgroundAttachment: "fixed"
+    }
+  }, React__default.createElement("div", {
+    className: overlayClasses
+  }, React__default.createElement("ul", {
+    className: "mb-0 list-unstyled"
+  }, React__default.createElement("li", null, React__default.createElement("h2", {
+    className: quoteClasses
+  }, React__default.createElement(Fa, {
+    icon: "quote-left"
+  }), " ", children, " ", React__default.createElement(Fa, {
+    icon: "quote-right"
+  }))), React__default.createElement("li", {
+    className: "mb-0"
+  }, React__default.createElement("h5", {
+    className: byClasses
+  }, "~ ", by)))));
+};
+
+MDBStreak.propTypes = {
+  size: propTypes.oneOf(['lg', 'md']),
+  by: propTypes.string,
+  wrapperClass: propTypes.string,
+  byClass: propTypes.string,
+  quoteClass: propTypes.string,
+  photo: propTypes.string,
+  overlayClass: propTypes.string
+};
+MDBStreak.defaultProps = {
+  wrapperClass: "grey lighten-3"
+};
+
 var Container$1 =
 /*#__PURE__*/
 function (_PureComponent) {
@@ -11286,55 +11329,6 @@ SmoothScroll.defaultProps = {
   duration: 500
 };
 
-var MDBStreak = function MDBStreak(_ref) {
-  var children = _ref.children,
-      by = _ref.by,
-      byClass = _ref.byClass,
-      wrapperClass = _ref.wrapperClass,
-      size = _ref.size,
-      quoteClass = _ref.quoteClass,
-      photo = _ref.photo,
-      overlayClass = _ref.overlayClass;
-  var byClasses = classNames("text-center", "font-italic", "mb-0", byClass);
-  var wrapperClasses = classNames("streak", photo && "streak-photo", size && "streak-".concat(size), wrapperClass);
-  var quoteClasses = classNames("h2-responsive", quoteClass);
-  var overlayClasses = classNames("flex-center", overlayClass);
-  return React__default.createElement("div", {
-    className: wrapperClasses,
-    style: {
-      backgroundImage: "url(\"".concat(photo, "\")"),
-      backgroundAttachment: "fixed"
-    }
-  }, React__default.createElement("div", {
-    className: overlayClasses
-  }, React__default.createElement("ul", {
-    className: "mb-0 list-unstyled"
-  }, React__default.createElement("li", null, React__default.createElement("h2", {
-    className: quoteClasses
-  }, React__default.createElement(Fa, {
-    icon: "quote-left"
-  }), " ", children, " ", React__default.createElement(Fa, {
-    icon: "quote-right"
-  }))), React__default.createElement("li", {
-    className: "mb-0"
-  }, React__default.createElement("h5", {
-    className: byClasses
-  }, "~ ", by)))));
-};
-
-MDBStreak.propTypes = {
-  size: propTypes.oneOf(['lg', 'md']),
-  by: propTypes.string,
-  wrapperClass: propTypes.string,
-  byClass: propTypes.string,
-  quoteClass: propTypes.string,
-  photo: propTypes.string,
-  overlayClass: propTypes.string
-};
-MDBStreak.defaultProps = {
-  wrapperClass: "grey lighten-3"
-};
-
 // FREE
 
 Object.defineProperty(exports, 'MDBToast', {
@@ -11484,7 +11478,7 @@ exports.MDBIcon = Fa;
 exports.MDBIframe = Iframe;
 exports.MDBInput = Input;
 exports.MDBInputGroup = InputGroup;
-exports.MDBInputSelect = InputNumeric;
+exports.MDBInputSelect = SelectInput$1;
 exports.MDBJumbotron = Jumbotron;
 exports.MDBListGroup = ListGroup;
 exports.MDBListGroupItem = ListGroupItem;
@@ -11519,6 +11513,8 @@ exports.MDBScrollspyList = ScrollSpyList;
 exports.MDBScrollspyListItem = ScrollSpyListItem;
 exports.MDBScrollspyText = ScrollSpyText;
 exports.MDBSelect = Select;
+exports.MDBSelectInput = SelectInput$1;
+exports.MDBSelectOption = SelectOption;
 exports.MDBSelectOptions = Options;
 exports.MDBSideNav = SideNav;
 exports.MDBSideNavCat = SideNavCat;
@@ -11577,7 +11573,7 @@ exports.ScrollSpyList = ScrollSpyList;
 exports.ScrollSpyListItem = ScrollSpyListItem;
 exports.ScrollSpyText = ScrollSpyText;
 exports.Select = Select;
-exports.SelectInput = SelectInput;
+exports.SelectInput = SelectInput$1;
 exports.SelectOption = SelectOption;
 exports.SelectOptions = Options;
 exports.SideNav = SideNav;

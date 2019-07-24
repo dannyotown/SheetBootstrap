@@ -25,6 +25,7 @@ import CarouselIndicator from './components/Carousel/CarouselIndicator';
 import Col from './components/Col';
 import Collapse from './components/Collapse';
 import Container from './components/Container';
+import CloseIcon from './components/CloseIcon';
 import DataTable from './components/DataTable';
 import DropdownItem from './components/Dropdown/DropdownItem';
 import DropdownMenu from './components/Dropdown/DropdownMenu';
@@ -112,6 +113,7 @@ import Step from './components/pro/Step';
 import Stepper from './components/pro/Stepper';
 import TableEditable from './components/pro/TableEditable';
 import Sticky from './components/pro/Sticky';
+import Streak from './components/pro/Streak';
 import StickyContainer from './components/pro/StickyContainer';
 import Testimonial from './components/pro/Testimonial';
 import Timeline from './components/pro/Timeline';
@@ -121,132 +123,6 @@ import { toast } from './components/pro/Toast';
 import { ToastContainer } from './components/pro/Toast';
 import { cssTransition } from './components/pro/Toast';
 import SmoothScroll from './components/pro/SmoothScroll';
-// PRO-END
-
-// MDB FREE
-import { MDBAnimation } from './components/Animation';
-import { MDBBadge } from './components/Badge';
-import { MDBAlert } from './components/Alert';
-import { MDBBreadcrumb } from './components/Breadcrumb';
-import { MDBBreadcrumbItem } from './components/Breadcrumb/BreadcrumbItem';
-import { MDBBtn } from './components/Button';
-import { MDBBtnGroup } from './components/ButtonGroup';
-import { MDBBtnToolbar } from './components/ButtonToolbar';
-import { MDBCard } from './components/Card';
-import { MDBCloseIcon } from './components/CloseIcon'
-import { MDBCardBody } from './components/Card/CardBody';
-import { MDBCardFooter } from './components/Card/CardFooter';
-import { MDBCardGroup } from './components/Card/CardGroup';
-import { MDBCardHeader } from './components/Card/CardHeader';
-import { MDBCardImage } from './components/Card/CardImage';
-import { MDBCardText } from './components/Card/CardText';
-import { MDBCardTitle } from './components/Card/CardTitle';
-import { MDBCarousel } from './components/Carousel';
-import { MDBCarouselCaption } from './components/Carousel/CarouselCaption';
-import { MDBControl } from './components/Carousel/CarouselControl';
-import { MDBCarouselInner } from './components/Carousel/CarouselInner';
-import { MDBCarouselItem } from './components/Carousel/CarouselItem';
-import { MDBCarouselIndicators } from './components/Carousel/CarouselIndicators';
-import { MDBCarouselIndicator } from './components/Carousel/CarouselIndicator';
-import { MDBCol } from './components/Col';
-import { MDBCollapse } from './components/Collapse';
-import { MDBContainer } from './components/Container';
-import { MDBDataTable } from './components/DataTable';
-import { MDBDropdownItem } from './components/Dropdown/DropdownItem';
-import { MDBDropdownMenu } from './components/Dropdown/DropdownMenu';
-import { MDBDropdownToggle } from './components/Dropdown/DropdownToggle';
-import { MDBEdgeHeader } from './components/EdgeHeader';
-import { MDBFormInline } from './components/FormInline';
-import { MDBFooter } from './components/Footer';
-import { MDBFreeBird } from './components/FreeBird';
-import { MDBHamburgerToggler } from './components/HamburgerToggler';
-import { MDBIcon } from './components/Fa';
-import { MDBInput } from './components/Input';
-import { MDBInputGroup } from './components/InputGroup';
-import { MDBInputSelect } from './components/InputNumeric';
-import { MDBJumbotron } from './components/Jumbotron';
-import { MDBListGroup } from './components/ListGroup';
-import { MDBListGroupItem } from './components/ListGroup/ListGroupItem';
-import { MDBMask } from './components/Mask';
-import { MDBMedia } from './components/Media';
-import { MDBModal } from './components/Modal';
-import { MDBModalBody } from './components/Modal/ModalBody';
-import { MDBModalFooter } from './components/Modal/ModalFooter';
-import { MDBModalHeader } from './components/Modal/ModalHeader';
-import { MDBNav } from './components/Nav';
-import { MDBNavbar } from './components/Navbar';
-import { MDBNavbarBrand } from './components/Navbar/NavbarBrand';
-import { MDBNavbarNav } from './components/Navbar/NavbarNav';
-import { MDBNavbarToggler } from './components/Navbar/NavbarToggler';
-import { MDBNavItem } from './components/Navbar/NavItem';
-import { MDBNavLink } from './components/Navbar/NavLink';
-import { MDBNotification } from './components/Notification';
-import { MDBPagination } from './components/Pagination';
-import { MDBPageItem } from './components/Pagination/PageItem';
-import { MDBPageNav } from './components/Pagination/PageLink';
-import { MDBPopover } from './components/Popper';
-import { MDBPopper } from './components/Popper';
-import { MDBPopoverBody } from './components/Popper/PopoverBody';
-import { MDBPopoverHeader } from './components/Popper/PopoverHeader';
-import { MDBProgress } from './components/Progress';
-import { MDBWaves } from './components/Waves';
-import { MDBRow } from './components/Row';
-import { MDBTabPane } from './components/TabPane';
-import { MDBTabContent } from './components/TabContent';
-import { MDBTable } from './components/Table';
-import { MDBTableBody } from './components/Table/TableBody';
-import { MDBTableHead } from './components/Table/TableHead';
-import { MDBTableFoot } from './components/Table/TableFoot';
-import { MDBTooltip } from './components/Popper';
-import { MDBView } from './components/View';
-import { MDBIframe } from './components/Iframe';
-import { MDBDropdown } from './components/Dropdown';
-
-// PRO-START
-import { MDBAutocomplete } from './components/pro/Autocomplete';
-import { MDBAvatar } from './components/pro/Avatar';
-import { MDBBtnFixed } from './components/pro/ButtonFixed';
-import { MDBBtnFixedItem } from './components/pro/ButtonFixed/ButtonFixedItem';
-import { MDBCardUp } from './components/pro/CardUp';
-import { MDBChip } from './components/pro/Chip';
-import { MDBChipsInput } from './components/pro/ChipsInput';
-import { MDBCollapseHeader } from './components/pro/CollapseHeader';
-import { MDBDatePicker } from './components/pro/DatePicker';
-import { MDBExportToCSV } from './components/pro/DataTable/ExportToCSV';
-import { MDBTimePicker } from './components/pro/TimePicker/TimePicker';
-import { MDBRotatingCard } from './components/pro/FlippingCard';
-import { MDBFileInput } from './components/pro/InputFile';
-import { MDBRangeInput } from './components/pro/InputRange';
-import { MDBSwitch } from './components/pro/InputSwitch';
-import { MDBScrollbar } from './components/pro/PerfectScrollbar';
-import { MDBScrollspyBox } from './components/pro/ScrollSpy/ScrollSpyBox';
-import { MDBScrollspyList } from './components/pro/ScrollSpy/ScrollSpyList';
-import { MDBScrollspyListItem } from './components/pro/ScrollSpy/ScrollSpyListItem';
-import { MDBScrollspyText } from './components/pro/ScrollSpy/ScrollSpyText';
-import { MDBSideNav } from './components/pro/SideNav';
-import { MDBSideNavCat } from './components/pro/SideNav/SideNavCat';
-import { MDBSideNavItem } from './components/pro/SideNav/SideNavItem';
-import { MDBSideNavLink } from './components/pro/SideNav/SideNavLink';
-import { MDBSideNavNav } from './components/pro/SideNav/SideNavNav';
-import { MDBSimpleChart } from './components/pro/SimpleChart';
-import { MDBSelect } from './components/pro/Select';
-import { MDBSelectInput } from './components/pro/Select/SelectInput';
-import { MDBSelectOptions } from './components/pro/Select/SelectOptions';
-import { MDBSelectOption } from './components/pro/Select/SelectOption';
-import { MDBSpinner } from './components/pro/Spinner';
-import { MDBStep } from './components/pro/Step';
-import { MDBStepper } from './components/pro/Stepper';
-import { MDBTableEditable } from './components/pro/TableEditable';
-import { MDBSticky } from './components/pro/Sticky';
-import { MDBStickyContent } from './components/pro/StickyContainer';
-import { MDBTestimonial } from './components/pro/Testimonial';
-import { MDBTimeline } from './components/pro/Timeline';
-import { MDBTimelineStep } from './components/pro/Timeline/TimelineStep';
-import { MDBToast } from './components/pro/Toast';
-import { MDBToastContainer } from './components/pro/Toast';
-import { MDBcssTransition } from './components/pro/Toast';
-import MDBStreak from './components/pro/Streak';
-import { MDBSmoothScroll } from './components/pro/SmoothScroll';
 // PRO-END
 
 export {
@@ -373,127 +249,128 @@ export {
   ToastContainer,
   SmoothScroll,
   // PRO-END
-  MDBIframe,
-  MDBAnimation,
-  MDBBadge,
-  MDBAlert,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
-  MDBBtn,
-  MDBBtnGroup,
-  MDBBtnToolbar,
-  MDBCard,
-  MDBCloseIcon,
-  MDBCardBody,
-  MDBCardFooter,
-  MDBCardGroup,
-  MDBCardHeader,
-  MDBCardImage,
-  MDBCardText,
-  MDBCardTitle,
-  MDBCarousel,
-  MDBCarouselCaption,
-  MDBControl,
-  MDBCarouselInner,
-  MDBCarouselItem,
-  MDBCarouselIndicators,
-  MDBCarouselIndicator,
-  MDBCol,
-  MDBCollapse,
-  MDBContainer,
-  MDBDataTable,
-  MDBDropdown,
-  MDBDropdownItem,
-  MDBDropdownMenu,
-  MDBDropdownToggle,
-  MDBEdgeHeader,
-  MDBFormInline,
-  MDBFooter,
-  MDBFreeBird,
-  MDBHamburgerToggler,
-  MDBIcon,
-  MDBInput,
-  MDBInputGroup,
-  MDBInputSelect,
-  MDBJumbotron,
-  MDBListGroup,
-  MDBListGroupItem,
-  MDBMask,
-  MDBMedia,
-  MDBModal,
-  MDBModalBody,
-  MDBModalFooter,
-  MDBModalHeader,
-  MDBNav,
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavbarToggler,
-  MDBNavItem,
-  MDBNavLink,
-  MDBNotification,
-  MDBPagination,
-  MDBPageItem,
-  MDBPageNav,
-  MDBPopover,
-  MDBPopper,
-  MDBPopoverBody,
-  MDBPopoverHeader,
-  MDBProgress,
-  MDBWaves,
-  MDBRow,
-  MDBTabPane,
-  MDBTabContent,
-  MDBTable,
-  MDBTableBody,
-  MDBTableHead,
-  MDBTableFoot,
-  MDBTooltip,
-  MDBView,
+
+  Iframe as MDBIframe,
+  Animation as MDBAnimation,
+  Badge as MDBBadge,
+  Alert as MDBAlert,
+  Breadcrumb as MDBBreadcrumb,
+  BreadcrumbItem as MDBBreadcrumbItem,
+  Button as MDBBtn,
+  ButtonGroup as MDBBtnGroup,
+  ButtonToolbar as MDBBtnToolbar,
+  Card as MDBCard,
+  CloseIcon as MDBCloseIcon,
+  CardBody as MDBCardBody,
+  CardFooter as MDBCardFooter,
+  CardGroup as MDBCardGroup,
+  CardHeader as MDBCardHeader,
+  CardImage as MDBCardImage,
+  CardText as MDBCardText,
+  CardTitle as MDBCardTitle,
+  Carousel as MDBCarousel,
+  CarouselCaption as MDBCarouselCaption,
+  CarouselControl as MDBControl,
+  CarouselInner as MDBCarouselInner,
+  CarouselItem as MDBCarouselItem,
+  CarouselIndicators as MDBCarouselIndicators,
+  CarouselIndicator as MDBCarouselIndicator,
+  Col as MDBCol,
+  Collapse as MDBCollapse,
+  Container as MDBContainer,
+  DataTable as MDBDataTable,
+  Dropdown as MDBDropdown,
+  DropdownItem as MDBDropdownItem,
+  DropdownMenu as MDBDropdownMenu,
+  DropdownToggle as MDBDropdownToggle,
+  EdgeHeader as MDBEdgeHeader,
+  FormInline as MDBFormInline,
+  Footer as MDBFooter,
+  FreeBird as MDBFreeBird,
+  HamburgerToggler as MDBHamburgerToggler,
+  Fa as MDBIcon,
+  Input as MDBInput,
+  InputGroup as MDBInputGroup,
+  SelectInput as MDBInputSelect,
+  Jumbotron as MDBJumbotron,
+  ListGroup as MDBListGroup,
+  ListGroupItem as MDBListGroupItem,
+  Mask as MDBMask,
+  Media as MDBMedia,
+  Modal as MDBModal,
+  ModalBody as MDBModalBody,
+  ModalFooter as MDBModalFooter,
+  ModalHeader as MDBModalHeader,
+  Nav as MDBNav,
+  Navbar as MDBNavbar,
+  NavbarBrand as MDBNavbarBrand,
+  NavbarNav as MDBNavbarNav,
+  NavbarToggler as MDBNavbarToggler,
+  NavItem as MDBNavItem,
+  NavLink as MDBNavLink,
+  Notification as MDBNotification,
+  Pagination as MDBPagination,
+  PageItem as MDBPageItem,
+  PageLink as MDBPageNav,
+  Popover as MDBPopover,
+  Popper as MDBPopper,
+  PopoverBody as MDBPopoverBody,
+  PopoverHeader as MDBPopoverHeader,
+  Progress as MDBProgress,
+  Waves as MDBWaves,
+  Row as MDBRow,
+  TabPane as MDBTabPane,
+  TabContent as MDBTabContent,
+  Table as MDBTable,
+  TableBody as MDBTableBody,
+  TableHead as MDBTableHead,
+  TableFoot as MDBTableFoot,
+  Tooltip as MDBTooltip,
+  View as MDBView,
   // PRO-START
-  MDBAutocomplete,
-  MDBAvatar,
-  MDBBtnFixed,
-  MDBBtnFixedItem,
-  MDBCardUp,
-  MDBChip,
-  MDBChipsInput,
-  MDBCollapseHeader,
-  MDBcssTransition,
-  MDBExportToCSV,
-  MDBDatePicker,
-  MDBTimePicker,
-  MDBRotatingCard,
-  MDBFileInput,
-  MDBRangeInput,
-  MDBSwitch,
-  MDBScrollbar,
-  MDBScrollspyBox,
-  MDBScrollspyList,
-  MDBScrollspyListItem,
-  MDBScrollspyText,
-  MDBSideNav,
-  MDBSideNavCat,
-  MDBSideNavItem,
-  MDBSideNavLink,
-  MDBSideNavNav,
-  MDBSimpleChart,
-  MDBSelect,
-  MDBSelectInput,
-  MDBSelectOptions,
-  MDBSelectOption,
-  MDBSpinner,
-  MDBTableEditable,
-  MDBStep,
-  MDBStepper,
-  MDBSticky,
-  MDBStickyContent,
-  MDBTestimonial,
-  MDBTimeline,
-  MDBTimelineStep,
-  MDBToast,
-  MDBToastContainer,
-  MDBStreak,
-  MDBSmoothScroll
+  Autocomplete as MDBAutocomplete,
+  Avatar as MDBAvatar,
+  ButtonFixed as MDBBtnFixed,
+  ButtonFixedItem as MDBBtnFixedItem,
+  CardUp as MDBCardUp,
+  Chip as MDBChip,
+  ChipsInput as MDBChipsInput,
+  CollapseHeader as MDBCollapseHeader,
+  cssTransition as MDBcssTransition,
+  ExportToCSV as MDBExportToCSV,
+  DatePicker as MDBDatePicker,
+  TimePicker as MDBTimePicker,
+  FlippingCard as MDBRotatingCard,
+  InputFile as MDBFileInput,
+  InputRange as MDBRangeInput,
+  InputSwitch as MDBSwitch,
+  PerfectScrollbar as MDBScrollbar,
+  ScrollSpyBox as MDBScrollspyBox,
+  ScrollSpyList as MDBScrollspyList,
+  ScrollSpyListItem as MDBScrollspyListItem,
+  ScrollSpyText as MDBScrollspyText,
+  SideNav as MDBSideNav,
+  SideNavCat as MDBSideNavCat,
+  SideNavItem as MDBSideNavItem,
+  SideNavLink as MDBSideNavLink,
+  SideNavNav as MDBSideNavNav,
+  SimpleChart as MDBSimpleChart,
+  Select as MDBSelect,
+  SelectInput as MDBSelectInput,
+  SelectOptions as MDBSelectOptions,
+  SelectOption as MDBSelectOption,
+  Spinner as MDBSpinner,
+  TableEditable as MDBTableEditable,
+  Step as MDBStep,
+  Stepper as MDBStepper,
+  Sticky as MDBSticky,
+  StickyContainer as MDBStickyContent,
+  Testimonial as MDBTestimonial,
+  Timeline as MDBTimeline,
+  TimelineStep as MDBTimelineStep,
+  toast as MDBToast,
+  ToastContainer as MDBToastContainer,
+  Streak as MDBStreak,
+  SmoothScroll as MDBSmoothScroll
   // PRO-END
 };

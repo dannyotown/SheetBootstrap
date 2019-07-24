@@ -2273,6 +2273,37 @@ Container.defaultProps = {
   fluid: false
 };
 
+var MDBCloseIcon = function MDBCloseIcon(_ref) {
+  var onClick = _ref.onClick,
+      className = _ref.className,
+      ariaLabel = _ref.ariaLabel,
+      props = _objectWithoutProperties(_ref, ["onClick", "className", "ariaLabel"]);
+
+  var onClickHandler = function onClickHandler(e) {
+    onClick && onClick(e);
+  };
+
+  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
+  return React.createElement("button", _extends({
+    "data-test": "close-button",
+    type: "button"
+  }, props, {
+    className: btnClasses.join(" "),
+    onClick: onClickHandler,
+    "aria-label": ariaLabel
+  }), React.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7"));
+};
+MDBCloseIcon.defaultProps = {
+  ariaLabel: "Close"
+};
+MDBCloseIcon.propTypes = {
+  className: propTypes.string,
+  ariaLabel: propTypes.string,
+  onClick: propTypes.func
+};
+
 var DataTableHead = function DataTableHead(props) {
   var color = props.color,
       columns = props.columns,
@@ -4068,12 +4099,9 @@ DataTableSelect.propTypes = {
   value: propTypes.number.isRequired
 };
 
-/*
-// PRO-END
-import DataTableSelect from './DataTableSelect';
-// PRO-START
-*/
-// PRO-END
+// FREE START
+// import DataTableSelect from '../DataTableSelect';
+// FREE-END
 
 var DataTableEntries = function DataTableEntries(props) {
   var handleEntriesChange = props.handleEntriesChange,
@@ -4127,12 +4155,9 @@ DataTableInput.propTypes = {
   value: propTypes.string
 };
 
-/*
-// PRO-END
-import DataTableInput from './DataTableInput';
-// PRO-START
-*/
-// PRO-END
+// FREE START
+// import DataTableInput from '../DataTableInput';
+// FREE END
 
 var DataTableSearch = function DataTableSearch(props) {
   var handleSearchChange = props.handleSearchChange,
@@ -6358,37 +6383,6 @@ NavLink.defaultProps = {
   active: false,
   className: "",
   disabled: false
-};
-
-var MDBCloseIcon = function MDBCloseIcon(_ref) {
-  var onClick = _ref.onClick,
-      className = _ref.className,
-      ariaLabel = _ref.ariaLabel,
-      props = _objectWithoutProperties(_ref, ["onClick", "className", "ariaLabel"]);
-
-  var onClickHandler = function onClickHandler(e) {
-    onClick && onClick(e);
-  };
-
-  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
-  return React.createElement("button", _extends({
-    "data-test": "close-button",
-    type: "button"
-  }, props, {
-    className: btnClasses.join(" "),
-    onClick: onClickHandler,
-    "aria-label": ariaLabel
-  }), React.createElement("span", {
-    "aria-hidden": "true"
-  }, "\xD7"));
-};
-MDBCloseIcon.defaultProps = {
-  ariaLabel: "Close"
-};
-MDBCloseIcon.propTypes = {
-  className: propTypes.string,
-  ariaLabel: propTypes.string,
-  onClick: propTypes.func
 };
 
 var Notification =
@@ -10212,6 +10206,55 @@ _defineProperty(Sticky, "contextTypes", {
   getParent: propTypes.func
 });
 
+var MDBStreak = function MDBStreak(_ref) {
+  var children = _ref.children,
+      by = _ref.by,
+      byClass = _ref.byClass,
+      wrapperClass = _ref.wrapperClass,
+      size = _ref.size,
+      quoteClass = _ref.quoteClass,
+      photo = _ref.photo,
+      overlayClass = _ref.overlayClass;
+  var byClasses = classNames("text-center", "font-italic", "mb-0", byClass);
+  var wrapperClasses = classNames("streak", photo && "streak-photo", size && "streak-".concat(size), wrapperClass);
+  var quoteClasses = classNames("h2-responsive", quoteClass);
+  var overlayClasses = classNames("flex-center", overlayClass);
+  return React.createElement("div", {
+    className: wrapperClasses,
+    style: {
+      backgroundImage: "url(\"".concat(photo, "\")"),
+      backgroundAttachment: "fixed"
+    }
+  }, React.createElement("div", {
+    className: overlayClasses
+  }, React.createElement("ul", {
+    className: "mb-0 list-unstyled"
+  }, React.createElement("li", null, React.createElement("h2", {
+    className: quoteClasses
+  }, React.createElement(Fa, {
+    icon: "quote-left"
+  }), " ", children, " ", React.createElement(Fa, {
+    icon: "quote-right"
+  }))), React.createElement("li", {
+    className: "mb-0"
+  }, React.createElement("h5", {
+    className: byClasses
+  }, "~ ", by)))));
+};
+
+MDBStreak.propTypes = {
+  size: propTypes.oneOf(['lg', 'md']),
+  by: propTypes.string,
+  wrapperClass: propTypes.string,
+  byClass: propTypes.string,
+  quoteClass: propTypes.string,
+  photo: propTypes.string,
+  overlayClass: propTypes.string
+};
+MDBStreak.defaultProps = {
+  wrapperClass: "grey lighten-3"
+};
+
 var Container$1 =
 /*#__PURE__*/
 function (_PureComponent) {
@@ -11279,55 +11322,6 @@ SmoothScroll.defaultProps = {
   duration: 500
 };
 
-var MDBStreak = function MDBStreak(_ref) {
-  var children = _ref.children,
-      by = _ref.by,
-      byClass = _ref.byClass,
-      wrapperClass = _ref.wrapperClass,
-      size = _ref.size,
-      quoteClass = _ref.quoteClass,
-      photo = _ref.photo,
-      overlayClass = _ref.overlayClass;
-  var byClasses = classNames("text-center", "font-italic", "mb-0", byClass);
-  var wrapperClasses = classNames("streak", photo && "streak-photo", size && "streak-".concat(size), wrapperClass);
-  var quoteClasses = classNames("h2-responsive", quoteClass);
-  var overlayClasses = classNames("flex-center", overlayClass);
-  return React.createElement("div", {
-    className: wrapperClasses,
-    style: {
-      backgroundImage: "url(\"".concat(photo, "\")"),
-      backgroundAttachment: "fixed"
-    }
-  }, React.createElement("div", {
-    className: overlayClasses
-  }, React.createElement("ul", {
-    className: "mb-0 list-unstyled"
-  }, React.createElement("li", null, React.createElement("h2", {
-    className: quoteClasses
-  }, React.createElement(Fa, {
-    icon: "quote-left"
-  }), " ", children, " ", React.createElement(Fa, {
-    icon: "quote-right"
-  }))), React.createElement("li", {
-    className: "mb-0"
-  }, React.createElement("h5", {
-    className: byClasses
-  }, "~ ", by)))));
-};
-
-MDBStreak.propTypes = {
-  size: propTypes.oneOf(['lg', 'md']),
-  by: propTypes.string,
-  wrapperClass: propTypes.string,
-  byClass: propTypes.string,
-  quoteClass: propTypes.string,
-  photo: propTypes.string,
-  overlayClass: propTypes.string
-};
-MDBStreak.defaultProps = {
-  wrapperClass: "grey lighten-3"
-};
-
 // FREE
 
-export { Alert, Animation, Autocomplete, Avatar, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, CardUp, Carousel, CarouselCaption, Control as CarouselControl, CarouselIndicator, CarouselIndicators, CarouselInner, CarouselItem, Chip, ChipsInput, Col, Collapse, CollapseHeader, Container, DataTable, DatePicker, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, ExportToCSV, Fa, RotatingCard as FlippingCard, Footer, FormInline, FreeBird, HamburgerToggler, Iframe, Input, InputFile, InputGroup, InputNumeric, InputRange, InputSwitch, Jumbotron, css$c as LightboxStyles, ListGroup, ListGroupItem, Alert as MDBAlert, Animation as MDBAnimation, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, Badge as MDBBadge, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, CardUp as MDBCardUp, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, CarouselIndicator as MDBCarouselIndicator, CarouselIndicators as MDBCarouselIndicators, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, Chip as MDBChip, ChipsInput as MDBChipsInput, MDBCloseIcon, Col as MDBCol, Collapse as MDBCollapse, CollapseHeader as MDBCollapseHeader, Container as MDBContainer, Control as MDBControl, DataTable as MDBDataTable, DatePicker as MDBDatePicker, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, ExportToCSV as MDBExportToCSV, InputFile as MDBFileInput, Footer as MDBFooter, FormInline as MDBFormInline, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Iframe as MDBIframe, Input as MDBInput, InputGroup as MDBInputGroup, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, NavItem as MDBNavItem, NavLink as MDBNavLink, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, Notification as MDBNotification, PageItem as MDBPageItem, PageLink as MDBPageNav, Pagination as MDBPagination, Popper as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Popper as MDBPopper, Progress as MDBProgress, InputRange as MDBRangeInput, RotatingCard as MDBRotatingCard, Row as MDBRow, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, Select as MDBSelect, SelectInput as MDBSelectInput, Option as MDBSelectOption, Options as MDBSelectOptions, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, SmoothScroll as MDBSmoothScroll, Spinner as MDBSpinner, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, MDBStreak, InputSwitch as MDBSwitch, TabContent as MDBTabContent, TabPane as MDBTabPane, Table as MDBTable, TableBody as MDBTableBody, TableEditable as MDBTableEditable, TableFoot as MDBTableFoot, TableHead as MDBTableHead, Testimonial as MDBTestimonial, TimePicker as MDBTimePicker, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, Popper as MDBTooltip, View as MDBView, Waves as MDBWaves, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Notification, PageItem, PageLink, Pagination, ScrollBar as PerfectScrollbar, Popper as Popover, PopoverBody, PopoverHeader, Popper, Progress, Row, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, Select, SelectInput$1 as SelectInput, SelectOption, Options as SelectOptions, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, SmoothScroll, Spinner, Step, Stepper, Sticky, Container$1 as StickyContainer, TabContent, TabPane, Table, TableBody, TableEditable, TableFoot, TableHead, Testimonial, TimePicker, Timeline, TimelineStep, Popper as Tooltip, View, Waves };
+export { Alert, Animation, Autocomplete, Avatar, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, CardUp, Carousel, CarouselCaption, Control as CarouselControl, CarouselIndicator, CarouselIndicators, CarouselInner, CarouselItem, Chip, ChipsInput, Col, Collapse, CollapseHeader, Container, DataTable, DatePicker, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, ExportToCSV, Fa, RotatingCard as FlippingCard, Footer, FormInline, FreeBird, HamburgerToggler, Iframe, Input, InputFile, InputGroup, InputNumeric, InputRange, InputSwitch, Jumbotron, css$c as LightboxStyles, ListGroup, ListGroupItem, Alert as MDBAlert, Animation as MDBAnimation, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, Badge as MDBBadge, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, CardUp as MDBCardUp, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, CarouselIndicator as MDBCarouselIndicator, CarouselIndicators as MDBCarouselIndicators, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, Chip as MDBChip, ChipsInput as MDBChipsInput, MDBCloseIcon, Col as MDBCol, Collapse as MDBCollapse, CollapseHeader as MDBCollapseHeader, Container as MDBContainer, Control as MDBControl, DataTable as MDBDataTable, DatePicker as MDBDatePicker, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, ExportToCSV as MDBExportToCSV, InputFile as MDBFileInput, Footer as MDBFooter, FormInline as MDBFormInline, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Iframe as MDBIframe, Input as MDBInput, InputGroup as MDBInputGroup, SelectInput$1 as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, NavItem as MDBNavItem, NavLink as MDBNavLink, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, Notification as MDBNotification, PageItem as MDBPageItem, PageLink as MDBPageNav, Pagination as MDBPagination, Popper as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Popper as MDBPopper, Progress as MDBProgress, InputRange as MDBRangeInput, RotatingCard as MDBRotatingCard, Row as MDBRow, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, Select as MDBSelect, SelectInput$1 as MDBSelectInput, SelectOption as MDBSelectOption, Options as MDBSelectOptions, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, SmoothScroll as MDBSmoothScroll, Spinner as MDBSpinner, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, MDBStreak, InputSwitch as MDBSwitch, TabContent as MDBTabContent, TabPane as MDBTabPane, Table as MDBTable, TableBody as MDBTableBody, TableEditable as MDBTableEditable, TableFoot as MDBTableFoot, TableHead as MDBTableHead, Testimonial as MDBTestimonial, TimePicker as MDBTimePicker, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, Popper as MDBTooltip, View as MDBView, Waves as MDBWaves, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Notification, PageItem, PageLink, Pagination, ScrollBar as PerfectScrollbar, Popper as Popover, PopoverBody, PopoverHeader, Popper, Progress, Row, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, Select, SelectInput$1 as SelectInput, SelectOption, Options as SelectOptions, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, SmoothScroll, Spinner, Step, Stepper, Sticky, Container$1 as StickyContainer, TabContent, TabPane, Table, TableBody, TableEditable, TableFoot, TableHead, Testimonial, TimePicker, Timeline, TimelineStep, Popper as Tooltip, View, Waves };
