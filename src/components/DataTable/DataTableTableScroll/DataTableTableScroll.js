@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Table from "../../Table";
+import TableBody from "../../Table/TableBody";
 import DataTableHead from "../DataTableHead";
-import TableBody from "../../TableBody";
 
 const DataTableTableScroll = props => {
   const {

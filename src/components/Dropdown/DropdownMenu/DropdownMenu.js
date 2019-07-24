@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Popper } from 'react-popper';
 import './DropdownMenu.css';
 // PRO-START
-import DropdownMenuComponent from '../pro/DropdownMenuProComponent';
+import DropdownMenuComponent from '../../pro/DropdownMenuProComponent';
 // FREE-START
 /*
 // PRO-END

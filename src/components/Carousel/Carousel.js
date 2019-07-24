@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import CarouselControl from "../CarouselControl";
-import CarouselIndicators from "../CarouselIndicators";
-import CarouselIndicator from "../CarouselIndicator";
+import CarouselControl from "./CarouselControl";
+import CarouselIndicator from "./CarouselIndicator";
+import CarouselIndicators from "./CarouselIndicators";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import "./Carousel.css";

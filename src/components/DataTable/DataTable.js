@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import DataTableTable from "../DataTableComponents/DataTableTable";
-import DataTableTableScroll from "../DataTableComponents/DataTableTableScroll";
-import DataTableEntries from "../DataTableComponents/DataTableEntries";
-import DataTableSearch from "../DataTableComponents/DataTableSearch";
-import DataTableInfo from "../DataTableComponents/DataTableInfo";
-import DataTablePagination from "../DataTableComponents/DataTablePagination";
+import DataTableTable from "./DataTableTable";
+import DataTableTableScroll from "./DataTableTableScroll";
+import DataTableEntries from "./DataTableEntries";
+import DataTableSearch from "./DataTableSearch";
+import DataTableInfo from "./DataTableInfo";
+import DataTablePagination from "./DataTablePagination";
 import classnames from "classnames";
 // PRO-START
 import ExportToCsvBtn from "../pro/ExportToCSV";

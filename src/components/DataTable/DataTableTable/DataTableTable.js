@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Table from "../../Table";
 import DataTableHead from "../DataTableHead";
-import TableBody from "../../TableBody";
-import TableFoot from "../../TableFoot";
+import Table from "../../Table";
+import TableBody from "../../Table/TableBody";
+import TableFoot from "../../Table/TableFoot";
 
 const DataTableTable = props => {
   const {
