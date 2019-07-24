@@ -1,17 +1,35 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import { MDBIcon } from "mdbreact";
+import { MDBIcon, MDBBtn, MDBCollapse } from "mdbreact";
 
 class Treeview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: this.props.open
     };
   }
 
-  openFolder = () => this.setState({ open: !this.state.open });
+  openFolder = e => {
+    this.setState({ open: !this.state.open });
+
+    if (e.target.closest(".treeview-animated-items").children.length < 2) {
+      let isOpen = e.target.closest("span").classList.contains("open");
+      let container = e.target.closest(".treeview-animated");
+      if (container) {
+        let children = Array.from(
+          container.querySelectorAll(".treeview-animated-items")
+        );
+        children
+          .filter(child => child.children.length < 2)
+          .map(child => child.querySelector("span"))
+          .map(child => child.classList.remove("open"));
+
+        !isOpen && e.target.closest("span").classList.toggle("open");
+      }
+    } else e.target.closest("span").classList.toggle("open");
+  };
 
   render() {
     const {
@@ -26,49 +44,75 @@ class Treeview extends Component {
       fab,
       fal,
       tag,
+      animated,
       ...attributes
     } = this.props;
 
     const { open } = this.state;
 
-    const classes = classNames(!item && "treeview border", className);
-    const nestedClasses = classNames(
-      "nested list-unstyled ml-4 pl-3",
-      open && "active"
+    const classes = classNames(
+      header && "border",
+
+      header ? (animated ? "treeview-animated" : "treeview") : "", //for div
+      !header && "treeview-animated-items", //for li
+
+      className
     );
 
-    let Tag = item ? "li" : "div";
+    const ulClasses = classNames(
+      "mb-1 pl-3 pb-2",
+      animated && "treeview-animated-list"
+    );
 
+    const nestedClasses = classNames(
+      "nested list-unstyled overflow-hidden",
+      animated ? "pl-4" : "pl-5",
+      open && "active"
+    );
+    const childClasses = classNames(
+      "treeview-animated-element d-block closed px-0"
+    );
+
+    let Tag = header ? "div" : "li";
     return (
       <Tag {...attributes} className={classes}>
         {header && (
           <>
             <h6 className="pt-3 pl-3">{header}</h6>
             <hr />
-            <ul className="mb-1 pl-3 pb-2">{children}</ul>
+            <ul className={ulClasses}>{children}</ul>
           </>
         )}
         {!header && (
           <>
-            {nested && (
+            <span className={childClasses} onClick={this.openFolder}>
+              {nested && (
+                <MDBBtn flat className="m-0 py-0 px-2 z-depth-0" onClick={this.openFolder}>
+                  <MDBIcon
+                    icon="angle-right"
+                    rotate={open ? "90" : "0"}
+                    className="rotate"
+                  />
+                </MDBBtn>
+              )}
+
               <MDBIcon
-                icon="angle-right"
-                rotate={open ? "90" : "0"}
-                className="rotate mr-2 ml-1"
-                onClick={this.openFolder}
+                icon={icon}
+                far={far}
+                fab={fab}
+                fal={fal}
+                className={nested ? "ml-1 mr-2" : "mx-2"}
               />
+              {title}
+            </span>
+            {children && animated && (
+              <MDBCollapse isOpen={open}>
+                <ul className={nestedClasses}>{children}</ul>
+              </MDBCollapse>
             )}
-
-            <MDBIcon
-              icon={icon}
-              far={far}
-              fab={fab}
-              fal={fal}
-              className="mr-2"
-            />
-            <span>{title}</span>
-
-            {children && <ul className={nestedClasses}>{children}</ul>}
+            {children && !animated && (
+              <ul className={nestedClasses}>{children}</ul>
+            )}
           </>
         )}
       </Tag>
@@ -84,7 +128,9 @@ Treeview.propTypes = {
   nested: PropTypes.bool,
   fab: PropTypes.bool,
   fal: PropTypes.bool,
-  far: PropTypes.bool
+  far: PropTypes.bool,
+  open: PropTypes.bool,
+  animated: PropTypes.bool
 };
 
 Treeview.defaultProps = {
@@ -92,7 +138,9 @@ Treeview.defaultProps = {
   tag: "div",
   fab: false,
   fal: false,
-  far: false
+  far: false,
+  open: false,
+  animated: false
 };
 
 export default Treeview;
