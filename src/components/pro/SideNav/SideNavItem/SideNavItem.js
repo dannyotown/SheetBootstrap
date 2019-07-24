@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Waves from "../../Waves";
+import Waves from "../../../Waves";
 
 const SideNavItem = props => {
   const [cursorPos, setCursorPos] = useState({});

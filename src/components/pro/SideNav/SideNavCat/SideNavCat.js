@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Collapse from "../../Collapse";
-import Waves from "../../Waves";
-import Fa from '../../Fa';
-import SideNavContext from '../SideNav/SideNavContext';
+import Collapse from "../../../Collapse";
+import Waves from "../../../Waves";
+import Fa from '../../../Fa';
+import SideNavContext from '../SideNavContext';
 
 class SideNavCat extends React.Component {
   constructor(props) {

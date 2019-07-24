@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import Fa from "../../Fa";
-import Waves from "../../Waves";
+import Fa from "../../../Fa";
+import Waves from "../../../Waves";
 
 class ButtonFixed extends React.Component {
   constructor(props) {

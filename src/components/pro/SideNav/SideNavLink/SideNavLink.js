@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Waves from '../../Waves';
+import Waves from '../../../Waves';
 import { NavLink as Link } from 'react-router-dom';
-import SideNavContext from '../SideNav/SideNavContext';
+import SideNavContext from '../SideNavContext';
 
 
 class SideNavLink extends React.Component {
