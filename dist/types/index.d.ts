@@ -1712,7 +1712,7 @@ declare const MDBTimePicker: FunctionComponent<{
   label?:  string;
   minutes?: number;
   placeholder?: string;
-  startFromInner?: boolean
+  startFromInner?: boolean;
   getValue?: (value: string) => void;
   [rest: string]: any;
 }>;

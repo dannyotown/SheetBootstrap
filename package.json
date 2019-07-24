@@ -6,6 +6,7 @@
   "main": "dist/mdbreact.js",
   "module": "dist/mdbreact.esm.js",
   "license": "SEE LICENSE IN <license.pdf>",
+  "types": "dist/types/index.d.ts",
   "files": [
     "dist/*"
   ],
@@ -68,6 +69,7 @@
     "rollup": "1.11.3",
     "rollup-plugin-babel": "4.3.2",
     "rollup-plugin-commonjs": "9.3.4",
+    "rollup-plugin-dts": "^1.1.5",
     "rollup-plugin-node-resolve": "4.2.4",
     "rollup-plugin-peer-deps-external": "2.2.0",
     "rollup-plugin-postcss": "2.0.3",
