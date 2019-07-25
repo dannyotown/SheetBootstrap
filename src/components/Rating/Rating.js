@@ -37,18 +37,27 @@ const Rating = props => {
     }
   };
 
-  const { tag: Tag, icon, iconSize, iconClassName, tooltips: tips } = props;
+  // ['angry', 'frown', 'meh', 'smile', 'laugh']
+
+  const { tag: Tag, icon, iconSize, iconClassName, iconFaces, tooltips: tips, empty } = props;
 
   const containerClasses = classNames('mdb-rating', 'd-flex', 'justify-content-start', 'align-items-center');
   const iconClasses = classNames('py-2 px-1', iconClassName);
 
   const renderedIcons = [...new Array(5)].map((_, index) => {
     const toFill = choosed.index ? index <= choosed.index : index <= hovered;
+    let renderIcon = icon;
+    
+    if (iconFaces){
+      const faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
+      renderIcon = faces[choosed.index ? choosed.index : hovered];
+    }
+    
 
     return (
       <Fa
         key={tips[index]}
-        icon={icon}
+        icon={renderIcon}
         size={iconSize}
         onMouseEnter={() => handleMouseEnter(tooltips[index], index)}
         onMouseLeave={() => handleMouseLeave(tooltips[index], index)}
@@ -57,6 +66,7 @@ const Rating = props => {
         data-index={index}
         data-original-title={tooltips[index]}
         className={`${toFill ? 'fiveStars' : 'rate-popover'} ${iconClasses}`}
+        far={empty && !toFill}
       />
     );
   });
@@ -65,6 +75,8 @@ const Rating = props => {
 };
 
 Rating.propTypes = {
+  empty: PropTypes.bool,
+  getValue: PropTypes.func,
   icon: PropTypes.string,
   iconSize: PropTypes.oneOf(['1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
   iconClassName: PropTypes.string,
@@ -73,6 +85,7 @@ Rating.propTypes = {
 };
 
 Rating.defaultProps = {
+  empty: false,
   icon: 'star',
   iconSize: '1x',
   iconClassName: '',
