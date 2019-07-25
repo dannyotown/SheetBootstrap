@@ -13,11 +13,11 @@ const RatingPage = () => {
       </SectionContainer>
 
       <SectionContainer header='Empty five stars' flexCenter>
-        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} iconSize="3x" empty />
+        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} iconSize="3x" far />
       </SectionContainer>
 
       <SectionContainer header='Faces rating' flexCenter>
-        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} iconFaces iconSize="3x" empty />
+        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} iconFaces iconSize="3x" far />
       </SectionContainer>
     </MDBContainer>
   );

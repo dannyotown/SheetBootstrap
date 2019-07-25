@@ -44,7 +44,7 @@ const Rating = props => {
     iconClassName,
     iconFaces,
     tooltips: tips,
-    empty,
+    far,
     fillClassName,
     containerClassName
   } = props;
@@ -80,7 +80,11 @@ const Rating = props => {
       const faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
       renderIcon = 'meh-blank';
 
-      if (index <= (isChoosed ? choosed.index : hovered)) {
+      if (isChoosed && index <= choosed.index) {
+        renderIcon = faces[choosed.index];
+
+        if (isHovered) renderIcon = faces[hovered];
+      } else if (isHovered && index <= hovered) {
         renderIcon = faces[hovered];
       }
     }
@@ -97,7 +101,7 @@ const Rating = props => {
         data-index={index}
         data-original-title={tooltips[index]}
         className={iconClasses}
-        far={empty && !toFill}
+        far={far && !toFill}
       />
     );
   });
@@ -107,7 +111,7 @@ const Rating = props => {
 
 Rating.propTypes = {
   containerClassName: PropTypes.string,
-  empty: PropTypes.bool,
+  far: PropTypes.bool,
   fillClassName: PropTypes.string,
   getValue: PropTypes.func,
   icon: PropTypes.string,
@@ -119,7 +123,7 @@ Rating.propTypes = {
 
 Rating.defaultProps = {
   containerClassName: '',
-  empty: false,
+  far: false,
   fillClassName: 'fiveStars',
   icon: 'star',
   iconSize: '1x',
