@@ -21,20 +21,22 @@ class Treeview extends Component {
   }
 
   openFolder = e => {
-    if (e.target.nextSibling) this.setState({ open: !this.state.open });
+    if (e.target.closest(".treeview-animated-element").nextSibling) {
+      this.setState({ open: !this.state.open });
+    }
   };
 
   handleClick = e => {
-    const target = ReactDOM.findDOMNode(this).querySelector(
-      ".treeview-animated-element"
-    );
-    if (e.target === target && !target.nextSibling) {
+    const target = ReactDOM.findDOMNode(this).querySelector(".treeview-animated-element");
+    const eTarget = e.target.closest(".treeview-animated-element");
+    if (eTarget === target && !target.nextSibling) {
       this.setState({ open: !this.state.open });
     } else if (
-      e.target !== target &&
-      !e.target.nextSibling &&
+      eTarget &&
+      eTarget !== target &&
+      !eTarget.nextSibling &&
       !target.nextSibling &&
-      e.target.closest(".treeview-animated")
+      eTarget.closest(".treeview-animated")
     ) {
       this.setState({ open: false });
     }
@@ -80,6 +82,10 @@ class Treeview extends Component {
       "treeview-animated-element d-block closed px-0",
       open && "open"
     );
+    const iconClasses = classNames(
+      nested ? "ml-1 mr-2" : "mx-2",
+      open && "white-text"
+    );
 
     let Tag = tag ? tag : header ? "div" : "li";
     return (
@@ -107,7 +113,7 @@ class Treeview extends Component {
                 >
                   <MDBIcon
                     icon="angle-right"
-                    rotate={open ? "90" : "0"}
+                    rotate={open ? "90 white-text" : "0"}
                     className="rotate"
                   />
                 </MDBBtn>
@@ -118,9 +124,9 @@ class Treeview extends Component {
                 far={far}
                 fab={fab}
                 fal={fal}
-                className={nested ? "ml-1 mr-2" : "mx-2"}
+                className={iconClasses}
               />
-              {title}
+              <span>{title}</span>
             </span>
             {children && animated && (
               <MDBCollapse isOpen={open}>
