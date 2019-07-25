@@ -8,8 +8,16 @@ const RatingPage = () => {
     <MDBContainer>
       <DocsLink title='Rating' href='https://mdbootstrap.com/docs/react/components/progress-bar/' />
 
-      <SectionContainer header='Basic Example'>
-        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} iconFaces empty fillClassName="mdb-color-text"/>
+      <SectionContainer header='Basic Example' flexCenter>
+        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]}  iconSize="3x" />
+      </SectionContainer>
+
+      <SectionContainer header='Empty five stars' flexCenter>
+        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} iconSize="3x" empty />
+      </SectionContainer>
+
+      <SectionContainer header='Faces rating' flexCenter>
+        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} iconFaces iconSize="3x" empty />
       </SectionContainer>
     </MDBContainer>
   );

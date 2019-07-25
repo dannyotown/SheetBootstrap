@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Rating = props => {
   const [tooltips, setTooltips] = useState([]);
-  const [hovered, setHovered] = useState(0);
+  const [hovered, setHovered] = useState(null);
   const [choosed, setChoosed] = useState({
     title: '',
     index: null
@@ -26,7 +26,7 @@ const Rating = props => {
   };
 
   const handleMouseLeave = () => {
-    setHovered(0);
+    setHovered(null);
   };
 
   const handleClick = (title, index) => {
@@ -37,19 +37,52 @@ const Rating = props => {
     }
   };
 
-  const { tag: Tag, icon, iconSize, iconClassName, iconFaces, tooltips: tips, empty, fillClassName, containerClassName } = props;
+  const {
+    tag: Tag,
+    icon,
+    iconSize,
+    iconClassName,
+    iconFaces,
+    tooltips: tips,
+    empty,
+    fillClassName,
+    containerClassName
+  } = props;
 
-  const containerClasses = classNames('mdb-rating', 'd-flex', 'justify-content-start', 'align-items-center', containerClassName);
+  const containerClasses = classNames(
+    'mdb-rating',
+    'd-flex',
+    'justify-content-start',
+    'align-items-center',
+    containerClassName
+  );
 
   const renderedIcons = [...new Array(5)].map((_, index) => {
-    const toFill = choosed.index ? index <= choosed.index : index <= hovered;
-    const iconClasses = classNames('py-2 px-1', iconClassName, toFill ? fillClassName : 'rate-popover');
+    const isChoosed = choosed.index !== null;
+    const isHovered = hovered !== null;
+    let toFill = false;
+
+    if (isChoosed) {
+      toFill = index <= choosed.index;
+
+      if (isHovered && hovered > choosed.index) {
+        toFill = index <= hovered;
+      }
+    } else if (isHovered) {
+      toFill = index <= hovered;
+    }
+
+    const iconClasses = classNames('py-2 px-1', toFill ? fillClassName : 'rate-popover', iconClassName);
 
     let renderIcon = icon;
 
     if (iconFaces) {
       const faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
-      renderIcon = faces[choosed.index ? choosed.index : hovered];
+      renderIcon = 'meh-blank';
+
+      if (index <= (isChoosed ? choosed.index : hovered)) {
+        renderIcon = faces[hovered];
+      }
     }
 
     return (
@@ -60,11 +93,10 @@ const Rating = props => {
         onMouseEnter={() => handleMouseEnter(tooltips[index], index)}
         onMouseLeave={() => handleMouseLeave(tooltips[index], index)}
         onClick={() => handleClick(tooltips[index], index)}
-        style={{ cursor: 'pointer', transition: 'all .2s' }}
+        style={{ cursor: 'pointer', transition: 'all .3s' }}
         data-index={index}
         data-original-title={tooltips[index]}
         className={iconClasses}
-        // className={`${toFill ? 'fiveStars' : 'rate-popover'} ${iconClasses}`}
         far={empty && !toFill}
       />
     );
