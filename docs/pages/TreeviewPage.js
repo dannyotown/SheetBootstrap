@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBTreeview } from "mdbreact";
+import {
+  MDBContainer,
+  MDBTreeview,
+  MDBTreeviewList,
+  MDBTreeviewItem,
+  MDBCol
+} from "mdbreact";
 import DocsLink from "../components/docsLink";
 import SectionContainer from "../components/sectionContainer";
 
@@ -12,67 +18,72 @@ class TreeviewPage extends Component {
           href="https://mdbootstrap.com/docs/react/components/tabs/"
         />
         <SectionContainer header="Basic example">
-          <MDBTreeview header="Folders" className="w-20" tag="section">
-            <MDBTreeview nested far icon="envelope-open" title="Mail">
-              <MDBTreeview far icon="bell" title="Offers" />
-              <MDBTreeview far icon="address-book" title="Contact" />
-              <MDBTreeview nested far icon="calendar-alt" title="Calendar">
-                <MDBTreeview far icon="clock" title="Deadlines" />
-                <MDBTreeview icon="users" title="Meetings" />
-                <MDBTreeview icon="basketball-ball" title="Workouts" />
-                <MDBTreeview icon="mug-hot" title="Events" />
-              </MDBTreeview>
+          <MDBCol md="4">
+          <MDBTreeview header="Folders" className="w-20">
+              <MDBTreeviewList icon="envelope-open" title="Mail" far >
+                <MDBTreeviewItem icon="address-book" title="Contact" far />
+                <MDBTreeviewItem icon="bell" title="Offer" far />
+                <MDBTreeviewList icon="calendar" title="Calendar" far>
+                  <MDBTreeviewItem icon="clock" title="Deadlines" far />
+                  <MDBTreeviewItem icon="users" title="Meetings" />
+                  <MDBTreeviewItem icon="basketball-ball" title="Workouts" />
+                  <MDBTreeviewItem icon="mug-hot" title="Events" />
+                </MDBTreeviewList>
+              </MDBTreeviewList>
+              <MDBTreeviewList title="Inbox" far >
+                <MDBTreeviewItem title="Admin" far />
+                <MDBTreeviewItem title="Corporate" far />
+                <MDBTreeviewItem title="Finance" far />
+                <MDBTreeviewItem title="Other" far />
+              </MDBTreeviewList>
+              <MDBTreeviewList icon="gem" title="Favourites" far >
+                <MDBTreeviewItem icon="pepper-hot" title="Restaurants" />
+                <MDBTreeviewItem icon="eye" title="Places" />
+                <MDBTreeviewItem icon="gamepad" title="Games" />
+                <MDBTreeviewItem icon="cocktail" title="Cocktails" />
+                <MDBTreeviewItem icon="pizza-slice" title="Food" />
+              </MDBTreeviewList>
+              <MDBTreeviewItem icon="comment" title="Notes" far />
+              <MDBTreeviewItem icon="cog" title="Settings" />
+              <MDBTreeviewItem icon="desktop" title="Devices" />
+              <MDBTreeviewItem icon="trash-alt" title="Deleted items" />
             </MDBTreeview>
-            <MDBTreeview far nested title="Inbox">
-              <MDBTreeview far title="Admin" />
-              <MDBTreeview far title="Corporate" />
-              <MDBTreeview far title="Finance" />
-              <MDBTreeview far title="Other" />
-            </MDBTreeview>
-            <MDBTreeview nested far icon="gem" title="Favourites">
-              <MDBTreeview icon="pepper-hot" title="Restaurants" />
-              <MDBTreeview icon="eye" title="Places" />
-              <MDBTreeview icon="gamepad" title="Games" />
-              <MDBTreeview icon="cocktail" title="Cocktails" />
-              <MDBTreeview icon="pizza-slice" title="Food" />
-            </MDBTreeview>
-            <MDBTreeview far icon="comment" title="Notes" />
-            <MDBTreeview icon="cog" title="Settings" />
-            <MDBTreeview icon="desktop" title="Devices" />
-            <MDBTreeview icon="trash-alt" title="Deleted items" />
-          </MDBTreeview>
+          
+          </MDBCol>
         </SectionContainer>
 
         <SectionContainer header="Animated">
-          <MDBTreeview header="Folders" className="w-20" animated>
-            <MDBTreeview nested animated far icon="envelope-open" title="Mail">
-              <MDBTreeview far icon="address-book" title="Contact" />
-              <MDBTreeview far icon="bell" title="Offers" />
-              <MDBTreeview nested animated far icon="calendar" title="Calendar">
-                <MDBTreeview far icon="clock" title="Deadlines" />
-                <MDBTreeview icon="users" title="Meetings" />
-                <MDBTreeview icon="basketball-ball" title="Workouts" />
-                <MDBTreeview icon="mug-hot" title="Events" />
-              </MDBTreeview>
+          <MDBCol md="4">
+            <MDBTreeview animated header="Folders" className="w-20">
+              <MDBTreeviewList icon="envelope-open" title="Mail" far >
+                <MDBTreeviewItem icon="address-book" title="Contact" far />
+                <MDBTreeviewItem icon="bell" title="Offer" far />
+                <MDBTreeviewList icon="calendar" title="Calendar" far>
+                  <MDBTreeviewItem icon="clock" title="Deadlines" far />
+                  <MDBTreeviewItem icon="users" title="Meetings" />
+                  <MDBTreeviewItem icon="basketball-ball" title="Workouts" />
+                  <MDBTreeviewItem icon="mug-hot" title="Events" />
+                </MDBTreeviewList>
+              </MDBTreeviewList>
+              <MDBTreeviewList title="Inbox" far >
+                <MDBTreeviewItem title="Admin" far />
+                <MDBTreeviewItem title="Corporate" far />
+                <MDBTreeviewItem title="Finance" far />
+                <MDBTreeviewItem title="Other" far />
+              </MDBTreeviewList>
+              <MDBTreeviewList icon="gem" title="Favourites" far >
+                <MDBTreeviewItem icon="pepper-hot" title="Restaurants" />
+                <MDBTreeviewItem icon="eye" title="Places" />
+                <MDBTreeviewItem icon="gamepad" title="Games" />
+                <MDBTreeviewItem icon="cocktail" title="Cocktails" />
+                <MDBTreeviewItem icon="pizza-slice" title="Food" />
+              </MDBTreeviewList>
+              <MDBTreeviewItem icon="comment" title="Notes" far />
+              <MDBTreeviewItem icon="cog" title="Settings" />
+              <MDBTreeviewItem icon="desktop" title="Devices" />
+              <MDBTreeviewItem icon="trash-alt" title="Deleted items" />
             </MDBTreeview>
-            <MDBTreeview far nested animated title="Inbox">
-              <MDBTreeview far title="Admin" />
-              <MDBTreeview far title="Corporate" />
-              <MDBTreeview far title="Finance" />
-              <MDBTreeview far title="Other" />
-            </MDBTreeview>
-            <MDBTreeview nested animated far icon="gem" title="Favourites">
-              <MDBTreeview icon="pepper-hot" title="Restaurants" />
-              <MDBTreeview icon="eye" title="Places" />
-              <MDBTreeview icon="gamepad" title="Games" />
-              <MDBTreeview icon="cocktail" title="Cocktails" />
-              <MDBTreeview icon="pizza-slice" title="Food" />
-            </MDBTreeview>
-            <MDBTreeview far icon="comment" title="Notes" />
-            <MDBTreeview icon="cog" title="Settings" />
-            <MDBTreeview icon="desktop" title="Devices" />
-            <MDBTreeview icon="trash-alt" title="Deleted items" />
-          </MDBTreeview>
+          </MDBCol>
         </SectionContainer>
       </MDBContainer>
     );
