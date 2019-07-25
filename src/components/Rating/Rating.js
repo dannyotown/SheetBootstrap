@@ -16,10 +16,10 @@ const Rating = props => {
   }, [props.tooltips]);
 
   useEffect(() => {
-    if (props.getValue){
+    if (props.getValue) {
       props.getValue(choosed.title);
     }
-  }, [choosed])
+  }, [choosed]);
 
   const handleMouseEnter = (_, index) => {
     setHovered(index);
@@ -37,22 +37,20 @@ const Rating = props => {
     }
   };
 
-  // ['angry', 'frown', 'meh', 'smile', 'laugh']
+  const { tag: Tag, icon, iconSize, iconClassName, iconFaces, tooltips: tips, empty, fillClassName, containerClassName } = props;
 
-  const { tag: Tag, icon, iconSize, iconClassName, iconFaces, tooltips: tips, empty } = props;
-
-  const containerClasses = classNames('mdb-rating', 'd-flex', 'justify-content-start', 'align-items-center');
-  const iconClasses = classNames('py-2 px-1', iconClassName);
+  const containerClasses = classNames('mdb-rating', 'd-flex', 'justify-content-start', 'align-items-center', containerClassName);
 
   const renderedIcons = [...new Array(5)].map((_, index) => {
     const toFill = choosed.index ? index <= choosed.index : index <= hovered;
+    const iconClasses = classNames('py-2 px-1', iconClassName, toFill ? fillClassName : 'rate-popover');
+
     let renderIcon = icon;
-    
-    if (iconFaces){
+
+    if (iconFaces) {
       const faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
       renderIcon = faces[choosed.index ? choosed.index : hovered];
     }
-    
 
     return (
       <Fa
@@ -65,7 +63,8 @@ const Rating = props => {
         style={{ cursor: 'pointer', transition: 'all .2s' }}
         data-index={index}
         data-original-title={tooltips[index]}
-        className={`${toFill ? 'fiveStars' : 'rate-popover'} ${iconClasses}`}
+        className={iconClasses}
+        // className={`${toFill ? 'fiveStars' : 'rate-popover'} ${iconClasses}`}
         far={empty && !toFill}
       />
     );
@@ -75,7 +74,9 @@ const Rating = props => {
 };
 
 Rating.propTypes = {
+  containerClassName: PropTypes.string,
   empty: PropTypes.bool,
+  fillClassName: PropTypes.string,
   getValue: PropTypes.func,
   icon: PropTypes.string,
   iconSize: PropTypes.oneOf(['1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
@@ -85,7 +86,9 @@ Rating.propTypes = {
 };
 
 Rating.defaultProps = {
+  containerClassName: '',
   empty: false,
+  fillClassName: 'fiveStars',
   icon: 'star',
   iconSize: '1x',
   iconClassName: '',
