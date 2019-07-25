@@ -77,6 +77,8 @@ import View from './components/View';
 import Iframe from './components/Iframe';
 import Dropdown from './components/Dropdown';
 
+import Rating from './components/Rating'
+
 // PRO-START
 import Autocomplete from './components/pro/Autocomplete';
 import Avatar from './components/pro/Avatar';
@@ -203,6 +205,8 @@ export {
   Tooltip,
   View,
   Iframe,
+
+  Rating,
   // PRO-START
   Autocomplete,
   Avatar,
@@ -327,6 +331,9 @@ export {
   TableFoot as MDBTableFoot,
   Tooltip as MDBTooltip,
   View as MDBView,
+
+  Rating as MDBRating,
+  
   // PRO-START
   Autocomplete as MDBAutocomplete,
   Avatar as MDBAvatar,
