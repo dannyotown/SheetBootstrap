@@ -15,6 +15,12 @@ const Rating = props => {
     setTooltips(props.tooltips);
   }, [props.tooltips]);
 
+  useEffect(() => {
+    if (props.getValue){
+      props.getValue(choosed.title);
+    }
+  }, [choosed])
+
   const handleMouseEnter = (_, index) => {
     setHovered(index);
   };

@@ -9,7 +9,7 @@ const RatingPage = () => {
       <DocsLink title='Rating' href='https://mdbootstrap.com/docs/react/components/progress-bar/' />
 
       <SectionContainer header='Basic Example'>
-        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]}/>
+        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} getValue={value => console.log(value)}/>
       </SectionContainer>
     </MDBContainer>
   );
