@@ -12,7 +12,7 @@ class TreeviewPage extends Component {
           href="https://mdbootstrap.com/docs/react/components/tabs/"
         />
         <SectionContainer header="Basic example">
-          <MDBTreeview header="Folders" className="w-20">
+          <MDBTreeview header="Folders" className="w-20" tag="section">
             <MDBTreeview nested far icon="envelope-open" title="Mail">
               <MDBTreeview far icon="bell" title="Offers" />
               <MDBTreeview far icon="address-book" title="Contact" />

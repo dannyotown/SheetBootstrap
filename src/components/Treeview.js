@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { MDBIcon, MDBBtn, MDBCollapse } from "mdbreact";
@@ -11,24 +12,32 @@ class Treeview extends Component {
     };
   }
 
+  componentDidMount() {
+    document.addEventListener("click", this.handleClick);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("scroll", this.handleClick);
+  }
+
   openFolder = e => {
-    this.setState({ open: !this.state.open });
+    if (e.target.nextSibling) this.setState({ open: !this.state.open });
+  };
 
-    if (e.target.closest(".treeview-animated-items").children.length < 2) {
-      let isOpen = e.target.closest("span").classList.contains("open");
-      let container = e.target.closest(".treeview-animated");
-      if (container) {
-        let children = Array.from(
-          container.querySelectorAll(".treeview-animated-items")
-        );
-        children
-          .filter(child => child.children.length < 2)
-          .map(child => child.querySelector("span"))
-          .map(child => child.classList.remove("open"));
-
-        !isOpen && e.target.closest("span").classList.toggle("open");
-      }
-    } else e.target.closest("span").classList.toggle("open");
+  handleClick = e => {
+    const target = ReactDOM.findDOMNode(this).querySelector(
+      ".treeview-animated-element"
+    );
+    if (e.target === target && !target.nextSibling) {
+      this.setState({ open: !this.state.open });
+    } else if (
+      e.target !== target &&
+      !e.target.nextSibling &&
+      !target.nextSibling &&
+      e.target.closest(".treeview-animated")
+    ) {
+      this.setState({ open: false });
+    }
   };
 
   render() {
@@ -52,10 +61,8 @@ class Treeview extends Component {
 
     const classes = classNames(
       header && "border",
-
       header ? (animated ? "treeview-animated" : "treeview") : "", //for div
       !header && "treeview-animated-items", //for li
-
       className
     );
 
@@ -70,10 +77,11 @@ class Treeview extends Component {
       open && "active"
     );
     const childClasses = classNames(
-      "treeview-animated-element d-block closed px-0"
+      "treeview-animated-element d-block closed px-0",
+      open && "open"
     );
 
-    let Tag = header ? "div" : "li";
+    let Tag = tag ? tag : header ? "div" : "li";
     return (
       <Tag {...attributes} className={classes}>
         {header && (
@@ -85,9 +93,18 @@ class Treeview extends Component {
         )}
         {!header && (
           <>
-            <span className={childClasses} onClick={this.openFolder}>
+            <span
+              className={childClasses}
+              onClick={e =>
+                e.target.closest(".treeview-animated") && this.openFolder(e)
+              }
+            >
               {nested && (
-                <MDBBtn flat className="m-0 py-0 px-2 z-depth-0" onClick={this.openFolder}>
+                <MDBBtn
+                  flat
+                  className="m-0 py-0 px-2 z-depth-0"
+                  onClick={this.openFolder}
+                >
                   <MDBIcon
                     icon="angle-right"
                     rotate={open ? "90" : "0"}
@@ -135,7 +152,6 @@ Treeview.propTypes = {
 
 Treeview.defaultProps = {
   icon: "folder-open",
-  tag: "div",
   fab: false,
   fal: false,
   far: false,
