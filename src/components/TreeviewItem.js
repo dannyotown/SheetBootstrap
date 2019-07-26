@@ -7,72 +7,68 @@ import { MDBIcon } from "mdbreact";
 class TreeviewItem extends React.Component {
   constructor(prop) {
     super(prop);
-    this.state={
-      thisTarget: ''
-    }
+    this.state = {
+      thisTarget: ""
+    };
   }
 
   componentDidMount() {
     this.setState({
       thisTarget: ReactDOM.findDOMNode(this)
-    })
+    });
   }
-  
 
-  handleClick = (e) => {
-    this.context.getActive(e.target)
-  }
-  
+  handleClick = e => {
+    this.context.getActive(e.target);
+  };
+
   render() {
-    const { icon, title, tag: Tag, fab, fal, far } = this.props;
+    const { fab, fal, far, icon, tag: Tag, title, ...attributes } = this.props;
     const { thisTarget } = this.state;
     const { animated } = this.context;
 
     //class
     const classes = classNames(animated && "treeview-animated-items");
     const iconClasses = classNames("mr-2");
-    let context = this.context.active.closest("a") || false;
-    const folder = classNames(animated && "closed", context && context == thisTarget.querySelector("a.closed") ? "open" : "");
-
-
+    let context = this.context.active.closest(".closed") || false;
+    const folder = classNames(
+      animated && "closed",
+      context && context === thisTarget.querySelector(".closed") ? "open" : ""
+    );
 
     return (
-      <Tag className={classes}>
-        <a className={folder} onClick={(e)=>this.handleClick(e)}>
-          <span>
-            <MDBIcon
-              icon={icon}
-              far={far}
-              fab={fab}
-              fal={fal}
-              className={iconClasses}
-            />
-            {title}
-          </span>
-        </a>
+      <Tag {...attributes} className={classes}>
+        <span className={folder} onClick={e => this.handleClick(e)}>
+          <MDBIcon
+            className={iconClasses}
+            fab={fab}
+            fal={fal}
+            far={far}
+            icon={icon}
+          />
+          <span>{title}</span>
+        </span>
       </Tag>
     );
   }
 }
 
 TreeviewItem.propTypes = {
-  animated: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  open: PropTypes.bool,
   fab: PropTypes.bool,
   fal: PropTypes.bool,
   far: PropTypes.bool,
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  open: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 TreeviewItem.defaultProps = {
-  animated: false,
-  tag: "li",
-  open: false,
   fab: false,
   fal: false,
   far: false,
-  icon: "folder-open"
+  icon: "folder-open",
+  open: false,
+  tag: "li"
 };
 TreeviewItem.contextTypes = {
   animated: PropTypes.bool,

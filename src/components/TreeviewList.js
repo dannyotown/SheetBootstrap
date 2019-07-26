@@ -18,7 +18,16 @@ class TreeviewList extends React.Component {
   };
 
   render() {
-    const { icon, title, children, tag: Tag, fab, fal, far } = this.props;
+    const {
+      children,
+      fab,
+      fal,
+      far,
+      icon,
+      tag: Tag,
+      title,
+      ...attributes
+    } = this.props;
     const { open } = this.state;
     const { animated } = this.context;
 
@@ -30,14 +39,14 @@ class TreeviewList extends React.Component {
 
     //render
     const child = children && <ul className={nestedClasses}>{children}</ul>;
-    const collapse = animated && children && (
+    const collapse = animated && (
       <MDBCollapse isOpen={open}>{child}</MDBCollapse>
     );
     const btn = children && (
       <MDBBtn
         flat
-        className="m-0 py-0 pl-0 pr-2 z-depth-0"
-        onClick={e => this.handleSwitch(e)}
+        className="m-0 py-0 pl-0 px-2 z-depth-0"
+        onClick={this.handleSwitch}
       >
         <MDBIcon
           icon="angle-right"
@@ -48,20 +57,23 @@ class TreeviewList extends React.Component {
     );
 
     return (
-      <Tag className={classes}>
-        <a onClick={e => animated && this.handleSwitch(e)} className={folder}>
+      <Tag {...attributes} className={classes}>
+        <span
+          className={folder}
+          onClick={e => animated && this.handleSwitch(e)}
+        >
           {btn}
           <span>
             <MDBIcon
-              icon={icon}
-              far={far}
+              className={iconClasses}
               fab={fab}
               fal={fal}
-              className={iconClasses}
+              far={far}
+              icon={icon}
             />
             {title}
           </span>
-        </a>
+        </span>
         {collapse || child}
       </Tag>
     );
@@ -69,26 +81,26 @@ class TreeviewList extends React.Component {
 }
 
 TreeviewList.propTypes = {
-  animated: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  open: PropTypes.bool,
   fab: PropTypes.bool,
   fal: PropTypes.bool,
   far: PropTypes.bool,
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  open: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 TreeviewList.defaultProps = {
-  animated: false,
-  tag: "li",
-  open: false,
   fab: false,
   fal: false,
   far: false,
-  icon: "folder-open"
+  icon: "folder-open",
+  open: false,
+  tag: "li"
 };
+
 TreeviewList.contextTypes = {
   animated: PropTypes.bool
 };
+
 export default TreeviewList;
 export { TreeviewList as MDBTreeviewList };

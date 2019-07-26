@@ -19,8 +19,12 @@ class TreeviewPage extends Component {
         />
         <SectionContainer header="Basic example">
           <MDBCol md="4">
-          <MDBTreeview header="Folders" className="w-20">
-              <MDBTreeviewList icon="envelope-open" title="Mail" far >
+            <MDBTreeview
+              header="Folders"
+              className="w-20"
+              getActive={e => console.log(e)}
+            >
+              <MDBTreeviewList icon="envelope-open" title="Mail" far>
                 <MDBTreeviewItem icon="address-book" title="Contact" far />
                 <MDBTreeviewItem icon="bell" title="Offer" far />
                 <MDBTreeviewList icon="calendar" title="Calendar" far>
@@ -30,13 +34,13 @@ class TreeviewPage extends Component {
                   <MDBTreeviewItem icon="mug-hot" title="Events" />
                 </MDBTreeviewList>
               </MDBTreeviewList>
-              <MDBTreeviewList title="Inbox" far >
+              <MDBTreeviewList title="Inbox" far>
                 <MDBTreeviewItem title="Admin" far />
                 <MDBTreeviewItem title="Corporate" far />
                 <MDBTreeviewItem title="Finance" far />
                 <MDBTreeviewItem title="Other" far />
               </MDBTreeviewList>
-              <MDBTreeviewList icon="gem" title="Favourites" far >
+              <MDBTreeviewList icon="gem" title="Favourites" far>
                 <MDBTreeviewItem icon="pepper-hot" title="Restaurants" />
                 <MDBTreeviewItem icon="eye" title="Places" />
                 <MDBTreeviewItem icon="gamepad" title="Games" />
@@ -48,14 +52,18 @@ class TreeviewPage extends Component {
               <MDBTreeviewItem icon="desktop" title="Devices" />
               <MDBTreeviewItem icon="trash-alt" title="Deleted items" />
             </MDBTreeview>
-          
           </MDBCol>
         </SectionContainer>
 
         <SectionContainer header="Animated">
           <MDBCol md="4">
-            <MDBTreeview animated header="Folders" className="w-20">
-              <MDBTreeviewList icon="envelope-open" title="Mail" far >
+            <MDBTreeview
+              animated
+              header="Folders"
+              className="w-20"
+              getActive={e => console.log(e)}
+            >
+              <MDBTreeviewList icon="envelope-open" title="Mail" far>
                 <MDBTreeviewItem icon="address-book" title="Contact" far />
                 <MDBTreeviewItem icon="bell" title="Offer" far />
                 <MDBTreeviewList icon="calendar" title="Calendar" far>
@@ -65,13 +73,13 @@ class TreeviewPage extends Component {
                   <MDBTreeviewItem icon="mug-hot" title="Events" />
                 </MDBTreeviewList>
               </MDBTreeviewList>
-              <MDBTreeviewList title="Inbox" far >
+              <MDBTreeviewList title="Inbox" far>
                 <MDBTreeviewItem title="Admin" far />
                 <MDBTreeviewItem title="Corporate" far />
                 <MDBTreeviewItem title="Finance" far />
                 <MDBTreeviewItem title="Other" far />
               </MDBTreeviewList>
-              <MDBTreeviewList icon="gem" title="Favourites" far >
+              <MDBTreeviewList icon="gem" title="Favourites" far>
                 <MDBTreeviewItem icon="pepper-hot" title="Restaurants" />
                 <MDBTreeviewItem icon="eye" title="Places" />
                 <MDBTreeviewItem icon="gamepad" title="Games" />

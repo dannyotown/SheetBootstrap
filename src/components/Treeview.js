@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
@@ -10,24 +9,29 @@ class Treeview extends React.Component {
 
   getChildContext() {
     return {
+      active: this.state.active,
       animated: this.props.animated,
-      getActive: this.getActive,
-      active: this.state.active 
+      getActive: this.getActive
     };
   }
 
   getActive = target => {
-    this.setState({active: target})
-    return target
-  }
+    this.setState({ active: target });
+    return target;
+  };
 
+  componentDidUpdate() {
+    this.props.getActive &&
+      this.props.getActive(this.state.active.closest("li"));
+  }
   render() {
     const {
-      header,
       animated,
-      tag: Tag,
-      className,
       children,
+      className,
+      getActive,
+      header,
+      tag: Tag,
       ...attributes
     } = this.props;
 
@@ -58,23 +62,25 @@ class Treeview extends React.Component {
 }
 
 Treeview.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  animated: PropTypes.bool,
   className: PropTypes.string,
-  item: PropTypes.bool,
+  getActive: PropTypes.func,
   header: PropTypes.string,
+  item: PropTypes.bool,
   nested: PropTypes.bool,
-  animated: PropTypes.bool
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 Treeview.defaultProps = {
-  tag: "div",
-  animated: false
+  animated: false,
+  getActive: () => {},
+  tag: "div"
 };
 
 Treeview.childContextTypes = {
+  active: PropTypes.any,
   animated: PropTypes.bool,
-  getActive: PropTypes.any,
-  active: PropTypes.any
+  getActive: PropTypes.func
 };
 
 export default Treeview;
