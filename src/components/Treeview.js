@@ -10,7 +10,7 @@ class Treeview extends React.Component {
   getChildContext() {
     return {
       active: this.state.active,
-      animated: this.props.animated,
+      theme: this.props.theme,
       getActive: this.getActive
     };
   }
@@ -26,7 +26,7 @@ class Treeview extends React.Component {
   }
   render() {
     const {
-      animated,
+      theme,
       children,
       className,
       getActive,
@@ -37,12 +37,13 @@ class Treeview extends React.Component {
 
     const classes = classNames(
       "border",
-      animated ? "treeview-animated" : "treeview",
+      theme ? `treeview-${theme}` : "treeview",
       className
     );
     const ulClasses = classNames(
-      "mb-1 pl-3 pb-2",
-      animated && "treeview-animated-list"
+      "mb-1 pb-2",
+      theme && `treeview-${theme}-list`,
+      theme === "animated" && "pl-3"
     );
 
     const head = header && (
@@ -62,7 +63,7 @@ class Treeview extends React.Component {
 }
 
 Treeview.propTypes = {
-  animated: PropTypes.bool,
+  theme: PropTypes.string,
   className: PropTypes.string,
   getActive: PropTypes.func,
   header: PropTypes.string,
@@ -72,14 +73,14 @@ Treeview.propTypes = {
 };
 
 Treeview.defaultProps = {
-  animated: false,
+  theme: "",
   getActive: () => {},
   tag: "div"
 };
 
 Treeview.childContextTypes = {
   active: PropTypes.any,
-  animated: PropTypes.bool,
+  theme: PropTypes.string,
   getActive: PropTypes.func
 };
 

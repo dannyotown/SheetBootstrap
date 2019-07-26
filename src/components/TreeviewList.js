@@ -29,19 +29,20 @@ class TreeviewList extends React.Component {
       ...attributes
     } = this.props;
     const { open } = this.state;
-    const { animated } = this.context;
+    const { theme } = this.context;
 
     //class
-    const classes = classNames(animated && "treeview-animated-items");
+    const classes = classNames(theme && `treeview-${theme}-items`);
     const iconClasses = classNames("mr-2");
     const nestedClasses = classNames("nested", open && "active");
-    const folder = classNames(animated && "closed", open && "open");
+    const folder = classNames(
+      theme && `closed treeview-${theme}-element d-block`,
+      open && "opened"
+    );
 
     //render
     const child = children && <ul className={nestedClasses}>{children}</ul>;
-    const collapse = animated && (
-      <MDBCollapse isOpen={open}>{child}</MDBCollapse>
-    );
+    const collapse = theme && <MDBCollapse isOpen={open}>{child}</MDBCollapse>;
     const btn = children && (
       <MDBBtn
         flat
@@ -49,8 +50,8 @@ class TreeviewList extends React.Component {
         onClick={this.handleSwitch}
       >
         <MDBIcon
-          icon="angle-right"
-          rotate={open ? "90 down" : "0"}
+          icon={theme !== "colorful" ? "angle-right" : open ? "minus-circle" : "plus-circle"}
+          rotate={theme !== "colorful" ? open ? "90 down" : "0" : ""}
           className="rotate"
         />
       </MDBBtn>
@@ -58,10 +59,7 @@ class TreeviewList extends React.Component {
 
     return (
       <Tag {...attributes} className={classes}>
-        <span
-          className={folder}
-          onClick={e => animated && this.handleSwitch(e)}
-        >
+        <span className={folder} onClick={e => theme && this.handleSwitch(e)}>
           {btn}
           <span>
             <MDBIcon
@@ -99,7 +97,7 @@ TreeviewList.defaultProps = {
 };
 
 TreeviewList.contextTypes = {
-  animated: PropTypes.bool
+  theme: PropTypes.string
 };
 
 export default TreeviewList;

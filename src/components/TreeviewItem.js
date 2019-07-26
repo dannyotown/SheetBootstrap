@@ -25,20 +25,20 @@ class TreeviewItem extends React.Component {
   render() {
     const { fab, fal, far, icon, tag: Tag, title, ...attributes } = this.props;
     const { thisTarget } = this.state;
-    const { animated } = this.context;
+    const { theme } = this.context;
 
     //class
-    const classes = classNames(animated && "treeview-animated-items");
+    const classes = classNames(theme && `treeview-${theme}-items`);
     const iconClasses = classNames("mr-2");
     let context = this.context.active.closest(".closed") || false;
-    const folder = classNames(
-      animated && "closed",
-      context && context === thisTarget.querySelector(".closed") ? "open" : ""
+    const item = classNames(
+      theme && `closed treeview-${theme}-element d-block`,
+      context && context === thisTarget.querySelector(".closed") ? "opened" : ""
     );
 
     return (
       <Tag {...attributes} className={classes}>
-        <span className={folder} onClick={e => this.handleClick(e)}>
+        <span className={item} onClick={e => this.handleClick(e)}>
           <MDBIcon
             className={iconClasses}
             fab={fab}
@@ -71,7 +71,7 @@ TreeviewItem.defaultProps = {
   tag: "li"
 };
 TreeviewItem.contextTypes = {
-  animated: PropTypes.bool,
+  theme: PropTypes.string,
   active: PropTypes.any,
   getActive: PropTypes.func
 };
