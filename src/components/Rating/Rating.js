@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 const Rating = props => {
-  const [tooltips, setTooltips] = useState([]);
+  const [icons, setIcons] = useState([]);
   const [hovered, setHovered] = useState(null);
   const [choosed, setChoosed] = useState({
     title: '',
@@ -12,8 +12,14 @@ const Rating = props => {
   });
 
   useEffect(() => {
-    setTooltips(props.tooltips);
-  }, [props.tooltips]);
+    setIcons(props.icons);
+  }, [props.icons]);
+
+  useEffect(() => {
+    const choosedIndex = icons.findIndex(item => item.choosed);
+
+    if (choosedIndex !== -1) setChoosed({ title: icons[choosedIndex].tooltip, index: choosedIndex });
+  }, [icons]);
 
   useEffect(() => {
     if (props.getValue) {
@@ -37,17 +43,7 @@ const Rating = props => {
     }
   };
 
-  const {
-    tag: Tag,
-    icon,
-    iconSize,
-    iconClassName,
-    iconFaces,
-    tooltips: tips,
-    far,
-    fillClassName,
-    containerClassName
-  } = props;
+  const { tag: Tag, icons: data, iconClassName, iconFaces, fillClassName, containerClassName } = props;
 
   const containerClasses = classNames(
     'mdb-rating',
@@ -57,7 +53,7 @@ const Rating = props => {
     containerClassName
   );
 
-  const renderedIcons = [...new Array(5)].map((_, index) => {
+  const renderedIcons = data.map(({ icon = 'star', tooltip, far = false, size = '2x' }, index) => {
     const isChoosed = choosed.index !== null;
     const isHovered = hovered !== null;
     let toFill = false;
@@ -91,15 +87,15 @@ const Rating = props => {
 
     return (
       <Fa
-        key={tips[index]}
+        key={tooltip}
         icon={renderIcon}
-        size={iconSize}
-        onMouseEnter={() => handleMouseEnter(tooltips[index], index)}
-        onMouseLeave={() => handleMouseLeave(tooltips[index], index)}
-        onClick={() => handleClick(tooltips[index], index)}
+        size={size}
+        onMouseEnter={() => handleMouseEnter(tooltip, index)}
+        onMouseLeave={() => handleMouseLeave()}
+        onClick={() => handleClick(tooltip, index)}
         style={{ cursor: 'pointer', transition: 'all .3s' }}
         data-index={index}
-        data-original-title={tooltips[index]}
+        data-original-title={tooltip}
         className={iconClasses}
         far={far && !toFill}
       />
@@ -111,11 +107,9 @@ const Rating = props => {
 
 Rating.propTypes = {
   containerClassName: PropTypes.string,
-  far: PropTypes.bool,
   fillClassName: PropTypes.string,
   getValue: PropTypes.func,
-  icon: PropTypes.string,
-  iconSize: PropTypes.oneOf(['1x', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x']),
+  icons: PropTypes.arrayOf(PropTypes.shape({ icon: PropTypes.string, tooltip: PropTypes.string })),
   iconClassName: PropTypes.string,
   tag: PropTypes.string,
   tooltips: PropTypes.arrayOf(PropTypes.string)
@@ -123,13 +117,36 @@ Rating.propTypes = {
 
 Rating.defaultProps = {
   containerClassName: '',
-  far: false,
   fillClassName: 'fiveStars',
-  icon: 'star',
-  iconSize: '1x',
+  icons: [
+    {
+      icon: 'star',
+      tooltip: 'Very Bad',
+      far: true
+    },
+    {
+      icon: 'star',
+      tooltip: 'Poor',
+      far: true
+    },
+    {
+      icon: 'star',
+      tooltip: 'Ok',
+      far: true
+    },
+    {
+      icon: 'star',
+      tooltip: 'Good',
+      far: true
+    },
+    {
+      icon: 'star',
+      tooltip: 'Excellent',
+      far: true
+    }
+  ],
   iconClassName: '',
-  tag: 'div',
-  tooltips: ['Very bad', 'Poor', 'Ok', 'Good', 'Excellent']
+  tag: 'div'
 };
 
 export default Rating;
