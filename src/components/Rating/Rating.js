@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 const Rating = props => {
-  const [icons, setIcons] = useState([]);
+  const [data, setData] = useState([]);
   const [hovered, setHovered] = useState(null);
   const [choosed, setChoosed] = useState({
     title: '',
@@ -12,20 +12,23 @@ const Rating = props => {
   });
 
   useEffect(() => {
-    setIcons(props.icons);
-  }, [props.icons]);
+    setData(props.data);
+  }, [props.data]);
 
   useEffect(() => {
-    const choosedIndex = icons.findIndex(item => item.choosed);
+    const choosedIndex = data.findIndex(item => item.choosed);
 
-    if (choosedIndex !== -1) setChoosed({ title: icons[choosedIndex].tooltip, index: choosedIndex });
-  }, [icons]);
+    if (choosedIndex !== -1) setChoosed({ title: data[choosedIndex].tooltip, index: choosedIndex });
+  }, [data]);
 
   useEffect(() => {
     if (props.getValue) {
-      props.getValue(choosed.title);
+      let { title, index } = choosed;
+      index = index !== null ? index + 1 : index;
+
+      props.getValue({ title, value: index });
     }
-  }, [choosed]);
+  }, [choosed, props]);
 
   const handleMouseEnter = (_, index) => {
     setHovered(index);
@@ -43,7 +46,16 @@ const Rating = props => {
     }
   };
 
-  const { tag: Tag, icons: data, iconClassName, iconFaces, fillClassName, containerClassName } = props;
+  const {
+    tag: Tag,
+    iconClassName,
+    iconFaces,
+    iconSize,
+    iconRegular,
+    fillClassName,
+    containerClassName,
+    fillColors
+  } = props;
 
   const containerClasses = classNames(
     'mdb-rating',
@@ -53,54 +65,97 @@ const Rating = props => {
     containerClassName
   );
 
-  const renderedIcons = data.map(({ icon = 'star', tooltip, far = false, size = '2x' }, index) => {
-    const isChoosed = choosed.index !== null;
-    const isHovered = hovered !== null;
-    let toFill = false;
+  let renderedIcons = [];
 
-    if (isChoosed) {
-      toFill = index <= choosed.index;
+  if (data.length) {
+    renderedIcons = data.map(({ icon = 'star', tooltip, far, size, choosed: _, ...attributes }, index) => {
+      const isChoosed = choosed.index !== null;
+      const isHovered = hovered !== null;
+      let toFill = false;
 
-      if (isHovered && hovered > choosed.index) {
+      if (isChoosed) {
+        toFill = index <= choosed.index;
+
+        if (isHovered && hovered > choosed.index) {
+          toFill = index <= hovered;
+        }
+      } else if (isHovered) {
         toFill = index <= hovered;
       }
-    } else if (isHovered) {
-      toFill = index <= hovered;
-    }
 
-    const iconClasses = classNames('py-2 px-1', toFill ? fillClassName : 'rate-popover', iconClassName);
+      
+      let fillColor = '';
+      
+      if (fillColors) {
+        let current = null;
 
-    let renderIcon = icon;
+        if (isChoosed) {
+          current = choosed.index;
+          if (isHovered) current = hovered;
+        } else if (isHovered) current = hovered;
 
-    if (iconFaces) {
-      const faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
-      renderIcon = 'meh-blank';
+        const isCustom = Array.isArray(fillColors);
 
-      if (isChoosed && index <= choosed.index) {
-        renderIcon = faces[choosed.index];
-
-        if (isHovered) renderIcon = faces[hovered];
-      } else if (isHovered && index <= hovered) {
-        renderIcon = faces[hovered];
+        switch (current) {
+          case 0:
+            fillColor = isCustom ? fillColors[0] : 'oneStar';
+            break;
+          case 1:
+            fillColor = isCustom ? fillColors[1] : 'twoStars';
+            break;
+          case 2:
+            fillColor = isCustom ? fillColors[2] : 'threeStars';
+            break;
+          case 3:
+            fillColor = isCustom ? fillColors[3] : 'fourStars';
+            break;
+          case 4:
+            fillColor = isCustom ? fillColors[4] : 'fiveStars';
+            break;
+          default:
+            break;
+        }
       }
-    }
 
-    return (
-      <Fa
-        key={tooltip}
-        icon={renderIcon}
-        size={size}
-        onMouseEnter={() => handleMouseEnter(tooltip, index)}
-        onMouseLeave={() => handleMouseLeave()}
-        onClick={() => handleClick(tooltip, index)}
-        style={{ cursor: 'pointer', transition: 'all .3s' }}
-        data-index={index}
-        data-original-title={tooltip}
-        className={iconClasses}
-        far={far && !toFill}
-      />
-    );
-  });
+      const iconClasses = classNames(
+        'py-2 px-1 rate-popover',
+        toFill && (fillColors ? fillColor : fillClassName),
+        iconClassName
+      );
+
+      let renderIcon = icon;
+
+      if (iconFaces) {
+        const faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
+        renderIcon = 'meh-blank';
+
+        if (isChoosed && index <= choosed.index) {
+          renderIcon = faces[choosed.index];
+
+          if (isHovered) renderIcon = faces[hovered];
+        } else if (isHovered && index <= hovered) {
+          renderIcon = faces[hovered];
+        }
+      }
+
+      return (
+        <Fa
+          style={{ cursor: 'pointer', transition: 'all .2s linear' }}
+          {...attributes}
+          key={tooltip}
+          icon={renderIcon}
+          size={size || iconSize}
+          far={(far || iconRegular) && !toFill}
+          className={iconClasses}
+          data-index={index}
+          data-original-title={tooltip}
+          onMouseEnter={() => handleMouseEnter(tooltip, index)}
+          onMouseLeave={() => handleMouseLeave()}
+          onMouseDown={() => handleClick(tooltip, index)}
+        />
+      );
+    });
+  }
 
   return <Tag className={containerClasses}>{renderedIcons}</Tag>;
 };
@@ -109,8 +164,10 @@ Rating.propTypes = {
   containerClassName: PropTypes.string,
   fillClassName: PropTypes.string,
   getValue: PropTypes.func,
-  icons: PropTypes.arrayOf(PropTypes.shape({ icon: PropTypes.string, tooltip: PropTypes.string })),
+  data: PropTypes.arrayOf(PropTypes.shape({ icon: PropTypes.string, tooltip: PropTypes.string })),
   iconClassName: PropTypes.string,
+  iconSize: PropTypes.string,
+  iconRegular: PropTypes.bool,
   tag: PropTypes.string,
   tooltips: PropTypes.arrayOf(PropTypes.string)
 };
@@ -118,34 +175,26 @@ Rating.propTypes = {
 Rating.defaultProps = {
   containerClassName: '',
   fillClassName: 'fiveStars',
-  icons: [
+  data: [
     {
-      icon: 'star',
-      tooltip: 'Very Bad',
-      far: true
+      tooltip: 'Very Bad'
     },
     {
-      icon: 'star',
-      tooltip: 'Poor',
-      far: true
+      tooltip: 'Poor'
     },
     {
-      icon: 'star',
-      tooltip: 'Ok',
-      far: true
+      tooltip: 'Ok'
     },
     {
-      icon: 'star',
-      tooltip: 'Good',
-      far: true
+      tooltip: 'Good'
     },
     {
-      icon: 'star',
-      tooltip: 'Excellent',
-      far: true
+      tooltip: 'Excellent'
     }
   ],
   iconClassName: '',
+  iconSize: '1x',
+  iconRegular: false,
   tag: 'div'
 };
 

@@ -6,37 +6,48 @@ import SectionContainer from '../components/sectionContainer';
 const RatingPage = () => {
   const [basic] = useState([
     {
-      tooltip: 'Very Bad'
+      tooltip: 'Very Bad',
     },
     {
-      tooltip: 'Poor'
+      tooltip: 'Poor',
     },
     {
       tooltip: 'Ok',
       choosed: true
     },
     {
-      tooltip: 'Good'
+      tooltip: 'Good',
     },
     {
       tooltip: 'Excellent'
     }
   ]);
+
+
   return (
     <MDBContainer>
       <DocsLink title='Rating' href='https://mdbootstrap.com/docs/react/components/progress-bar/' />
 
       <SectionContainer header='Basic Example' flexCenter>
-        <MDBRating icons={basic} iconSize='3x' />
+        <MDBRating data={basic} icon="star" iconSize='2x' />
       </SectionContainer>
-      {/* 
+
       <SectionContainer header='Empty five stars' flexCenter>
-        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} iconSize="3x" far />
+        <MDBRating iconSize='2x' iconRegular />
       </SectionContainer>
 
       <SectionContainer header='Faces rating' flexCenter>
-        <MDBRating tooltips={["Very bad", "Poor", "Ok", "Good", "Excellent"]} iconFaces iconSize="3x" far />
-      </SectionContainer> */}
+        <MDBRating iconFaces iconSize='2x' iconRegular />
+      </SectionContainer>
+      
+      <SectionContainer header='Fill color on hover' flexCenter>
+        <MDBRating iconSize='2x' iconRegular fillColors />
+      </SectionContainer>
+
+      <SectionContainer header='Custom fill colors on hover' flexCenter>
+        <MDBRating iconSize='2x' iconRegular fillColors={["red-text", 'orange-text', 'yellow-text', 'lime-text', 'green-text']} />
+      </SectionContainer>
+
     </MDBContainer>
   );
 };
