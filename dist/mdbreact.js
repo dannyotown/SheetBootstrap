@@ -12,6 +12,7 @@ var ReactDOM = _interopDefault(require('react-dom'));
 var reactPopper = require('react-popper');
 var NumericInput = _interopDefault(require('react-numeric-input'));
 var reactRouterDom = require('react-router-dom');
+var mdbreact = require('mdbreact');
 var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
 var moment = _interopDefault(require('moment'));
@@ -5006,6 +5007,206 @@ DataTable.defaultProps = {
   tbodyTextWhite: false
 };
 
+var Dropdown =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Dropdown, _React$Component);
+
+  function Dropdown(props) {
+    var _this;
+
+    _classCallCheck(this, Dropdown);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dropdown).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "toggle", function () {
+      _this.setState({
+        isOpen: !_this.state.isOpen
+      });
+    });
+
+    _this.state = {
+      isOpen: false
+    };
+    _this.addEvents = _this.addEvents.bind(_assertThisInitialized(_this));
+    _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_this));
+    _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_this));
+    _this.removeEvents = _this.removeEvents.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Dropdown, [{
+    key: "getChildContext",
+    value: function getChildContext() {
+      return {
+        isOpen: this.state.isOpen,
+        dropup: this.props.dropup,
+        dropright: this.props.dropright,
+        dropleft: this.props.dropleft,
+        toggle: this.toggle
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.handleEventsBinding();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.removeEvents();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.handleEventsBinding();
+    }
+  }, {
+    key: "handleEventsBinding",
+    value: function handleEventsBinding() {
+      if (this.state.isOpen) {
+        this.addEvents();
+      } else {
+        this.removeEvents();
+      }
+    }
+  }, {
+    key: "getContainer",
+    value: function getContainer() {
+      return ReactDOM.findDOMNode(this);
+    }
+  }, {
+    key: "addEvents",
+    value: function addEvents() {
+      var _this2 = this;
+
+      ["click", "touchstart", "keyup"].forEach(function (event) {
+        return document.addEventListener(event, _this2.handleDocumentClick, true);
+      });
+    }
+  }, {
+    key: "removeEvents",
+    value: function removeEvents() {
+      var _this3 = this;
+
+      ["click", "touchstart", "keyup"].forEach(function (event) {
+        return document.removeEventListener(event, _this3.handleDocumentClick, true);
+      });
+    }
+  }, {
+    key: "handleDocumentClick",
+    value: function handleDocumentClick(e) {
+      if (e && (e.which === 3 || e.type === "keyup" && e.which !== keyCodes.tab)) return;
+      var container = this.getContainer();
+
+      if (container.contains(e.target) && container !== e.target && (e.type !== "keyup" || e.which === keyCodes.tab)) {
+        return;
+      }
+
+      this.toggle(e);
+    }
+  }, {
+    key: "handleKeyDown",
+    value: function handleKeyDown(e) {
+      if ([keyCodes.esc, keyCodes.up, keyCodes.down, keyCodes.space].indexOf(e.which) === -1 || /button/i.test(e.target.tagName) && e.which === keyCodes.space || /input|textarea/i.test(e.target.tagName)) {
+        return;
+      }
+
+      e.preventDefault();
+      if (this.props.disabled) return;
+      var container = this.getContainer();
+
+      if (e.which === keyCodes.space && this.state.isOpen && container !== e.target) {
+        e.target.click();
+      }
+
+      if (e.which === keyCodes.esc || !this.state.isOpen) {
+        this.toggle(e);
+        container.querySelector("[aria-expanded]").focus();
+        return;
+      }
+
+      var menuClass = "dropdown-menu";
+      var itemClass = "dropdown-item";
+      var disabledClass = "disabled";
+      var items = container.querySelectorAll(".".concat(menuClass, " .").concat(itemClass, ":not(.").concat(disabledClass, ")"));
+      if (!items.length) return;
+      var index = -1;
+
+      for (var i = 0; i < items.length; i += 1) {
+        if (items[i] === e.target) {
+          index = i;
+          break;
+        }
+      }
+
+      if (e.which === keyCodes.up && index > 0) {
+        index -= 1;
+      }
+
+      if (e.which === keyCodes.down && index < items.length - 1) {
+        index += 1;
+      }
+
+      if (index < 0) {
+        index = 0;
+      }
+
+      items[index].focus();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _classNames;
+
+      var _omit = omit(this.props, ["toggle", "disabled"]),
+          className = _omit.className,
+          children = _omit.children,
+          dropup = _omit.dropup,
+          group = _omit.group,
+          size = _omit.size,
+          dropright = _omit.dropright,
+          dropleft = _omit.dropleft;
+
+      var classes = classNames((_classNames = {
+        "btn-group": group
+      }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _defineProperty(_classNames, "dropright", dropright), _defineProperty(_classNames, "dropleft", dropleft), _classNames), className);
+      return React__default.createElement(reactPopper.Manager, null, React__default.createElement("div", {
+        className: classes,
+        onKeyDown: this.handleKeyDown
+      }, children));
+    }
+  }]);
+
+  return Dropdown;
+}(React__default.Component);
+
+Dropdown.propTypes = {
+  disabled: propTypes.bool,
+  dropup: propTypes.bool,
+  dropright: propTypes.bool,
+  dropleft: propTypes.bool,
+  group: propTypes.bool,
+  size: propTypes.string,
+  tag: propTypes.string,
+  toggle: propTypes.func,
+  children: propTypes.node,
+  className: propTypes.string
+};
+Dropdown.defaultProps = {
+  dropup: false,
+  dropright: false,
+  dropleft: false,
+  tag: "div"
+};
+Dropdown.childContextTypes = {
+  toggle: propTypes.func.isRequired,
+  isOpen: propTypes.bool.isRequired,
+  dropup: propTypes.bool.isRequired,
+  dropright: propTypes.bool.isRequired,
+  dropleft: propTypes.bool.isRequired
+};
+
 var propTypes$1 = {
   children: propTypes.node,
   active: propTypes.bool,
@@ -6756,6 +6957,231 @@ Progress.defaultProps = {
   value: 0
 };
 
+var Rating = function Rating(props) {
+  var _useState = React.useState([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  var _useState3 = React.useState(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      hovered = _useState4[0],
+      setHovered = _useState4[1];
+
+  var _useState5 = React.useState({
+    title: '',
+    index: null
+  }),
+      _useState6 = _slicedToArray(_useState5, 2),
+      choosed = _useState6[0],
+      setChoosed = _useState6[1];
+
+  React.useEffect(function () {
+    setData(props.data);
+  }, [props.data]);
+  React.useEffect(function () {
+    var choosedIndex = data.findIndex(function (item) {
+      return item.choosed;
+    });
+    if (choosedIndex !== -1) setChoosed({
+      title: data[choosedIndex].tooltip,
+      index: choosedIndex
+    });
+  }, [data]);
+  React.useEffect(function () {
+    if (props.getValue) {
+      var title = choosed.title,
+          index = choosed.index;
+      index = index !== null ? index + 1 : index;
+      props.getValue({
+        title: title,
+        value: index
+      });
+    }
+  }, [choosed, props]);
+
+  var handleMouseEnter = function handleMouseEnter(_, index) {
+    setHovered(index);
+  };
+
+  var handleMouseLeave = function handleMouseLeave() {
+    setHovered(null);
+  };
+
+  var handleClick = function handleClick(title, index) {
+    if (title === choosed.title && index === choosed.index) {
+      setChoosed({
+        title: '',
+        index: null
+      });
+    } else {
+      setChoosed({
+        title: title,
+        index: index
+      });
+    }
+  };
+
+  var Tag = props.tag,
+      containerClassName = props.containerClassName,
+      iconClassName = props.iconClassName,
+      iconFaces = props.iconFaces,
+      iconSize = props.iconSize,
+      iconRegular = props.iconRegular,
+      fillClassName = props.fillClassName,
+      fillColors = props.fillColors,
+      getValue = props.getValue,
+      commonAttributes = _objectWithoutProperties(props, ["tag", "containerClassName", "iconClassName", "iconFaces", "iconSize", "iconRegular", "fillClassName", "fillColors", "getValue"]);
+
+  var containerClasses = classNames('mdb-rating', 'd-flex', 'justify-content-start', 'align-items-center', containerClassName);
+  var renderedIcons = [];
+
+  if (data.length) {
+    renderedIcons = data.map(function (_ref, index) {
+      var _ref$icon = _ref.icon,
+          icon = _ref$icon === void 0 ? 'star' : _ref$icon,
+          tooltip = _ref.tooltip,
+          far = _ref.far,
+          size = _ref.size,
+          _ = _ref.choosed,
+          itemAttributes = _objectWithoutProperties(_ref, ["icon", "tooltip", "far", "size", "choosed"]);
+
+      var isChoosed = choosed.index !== null;
+      var isHovered = hovered !== null;
+      var toFill = false;
+
+      if (isChoosed) {
+        toFill = index <= choosed.index;
+
+        if (isHovered && hovered > choosed.index) {
+          toFill = index <= hovered;
+        }
+      } else if (isHovered) {
+        toFill = index <= hovered;
+      }
+
+      var fillColor = '';
+
+      if (fillColors) {
+        var current = null;
+
+        if (isChoosed) {
+          current = choosed.index;
+          if (isHovered) current = hovered;
+        } else if (isHovered) current = hovered;
+
+        var isCustom = Array.isArray(fillColors);
+
+        switch (current) {
+          case 0:
+            fillColor = isCustom ? fillColors[0] : 'oneStar';
+            break;
+
+          case 1:
+            fillColor = isCustom ? fillColors[1] : 'twoStars';
+            break;
+
+          case 2:
+            fillColor = isCustom ? fillColors[2] : 'threeStars';
+            break;
+
+          case 3:
+            fillColor = isCustom ? fillColors[3] : 'fourStars';
+            break;
+
+          case 4:
+            fillColor = isCustom ? fillColors[4] : 'fiveStars';
+            break;
+
+          default:
+            break;
+        }
+      }
+
+      var iconClasses = classNames('py-2 px-1 rate-popover', toFill && (fillColors ? fillColor : fillClassName), iconClassName);
+      var renderIcon = icon;
+
+      if (iconFaces) {
+        var faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
+        renderIcon = 'meh-blank';
+
+        if (isChoosed && index <= choosed.index) {
+          renderIcon = faces[choosed.index];
+          if (isHovered) renderIcon = faces[hovered];
+        } else if (isHovered && index <= hovered) {
+          renderIcon = faces[hovered];
+        }
+      }
+
+      return React__default.createElement(mdbreact.MDBTooltip, {
+        placement: "top",
+        domElement: true,
+        key: tooltip
+      }, React__default.createElement("span", null, React__default.createElement(mdbreact.Fa, _extends({
+        style: {
+          cursor: 'pointer'
+        }
+      }, commonAttributes, itemAttributes, {
+        icon: renderIcon,
+        size: size || iconSize,
+        far: far || iconRegular,
+        className: iconClasses,
+        "data-index": index,
+        "data-original-title": tooltip,
+        onMouseEnter: function onMouseEnter() {
+          return handleMouseEnter(tooltip, index);
+        },
+        onMouseLeave: function onMouseLeave() {
+          return handleMouseLeave();
+        },
+        onMouseDown: function onMouseDown() {
+          return handleClick(tooltip, index);
+        }
+      }))), React__default.createElement("span", null, tooltip));
+    });
+  }
+
+  return React__default.createElement(Tag, {
+    className: containerClasses
+  }, renderedIcons);
+};
+
+Rating.propTypes = {
+  containerClassName: propTypes.string,
+  data: propTypes.arrayOf(propTypes.shape({
+    icon: propTypes.string,
+    tooltip: propTypes.string,
+    choosed: propTypes.bool
+  })),
+  fillClassName: propTypes.string,
+  fillColors: propTypes.oneOfType([propTypes.bool, propTypes.arrayOf(propTypes.string)]),
+  iconClassName: propTypes.string,
+  iconFaces: propTypes.bool,
+  iconSize: propTypes.string,
+  iconRegular: propTypes.bool,
+  tag: propTypes.string,
+  getValue: propTypes.func
+};
+Rating.defaultProps = {
+  containerClassName: '',
+  data: [{
+    tooltip: 'Very Bad'
+  }, {
+    tooltip: 'Poor'
+  }, {
+    tooltip: 'Ok'
+  }, {
+    tooltip: 'Good'
+  }, {
+    tooltip: 'Excellent'
+  }],
+  fillClassName: 'fiveStars',
+  iconClassName: '',
+  iconSize: '1x',
+  iconRegular: false,
+  tag: 'div'
+};
+
 var Row = function Row(props) {
   var className = props.className,
       Tag = props.tag,
@@ -7034,206 +7460,6 @@ Iframe.propTypes = {
   styles: propTypes.object,
   width: propTypes.number,
   title: propTypes.string
-};
-
-var Dropdown =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Dropdown, _React$Component);
-
-  function Dropdown(props) {
-    var _this;
-
-    _classCallCheck(this, Dropdown);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dropdown).call(this, props));
-
-    _defineProperty(_assertThisInitialized(_this), "toggle", function () {
-      _this.setState({
-        isOpen: !_this.state.isOpen
-      });
-    });
-
-    _this.state = {
-      isOpen: false
-    };
-    _this.addEvents = _this.addEvents.bind(_assertThisInitialized(_this));
-    _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_this));
-    _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_this));
-    _this.removeEvents = _this.removeEvents.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(Dropdown, [{
-    key: "getChildContext",
-    value: function getChildContext() {
-      return {
-        isOpen: this.state.isOpen,
-        dropup: this.props.dropup,
-        dropright: this.props.dropright,
-        dropleft: this.props.dropleft,
-        toggle: this.toggle
-      };
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.handleEventsBinding();
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.removeEvents();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.handleEventsBinding();
-    }
-  }, {
-    key: "handleEventsBinding",
-    value: function handleEventsBinding() {
-      if (this.state.isOpen) {
-        this.addEvents();
-      } else {
-        this.removeEvents();
-      }
-    }
-  }, {
-    key: "getContainer",
-    value: function getContainer() {
-      return ReactDOM.findDOMNode(this);
-    }
-  }, {
-    key: "addEvents",
-    value: function addEvents() {
-      var _this2 = this;
-
-      ["click", "touchstart", "keyup"].forEach(function (event) {
-        return document.addEventListener(event, _this2.handleDocumentClick, true);
-      });
-    }
-  }, {
-    key: "removeEvents",
-    value: function removeEvents() {
-      var _this3 = this;
-
-      ["click", "touchstart", "keyup"].forEach(function (event) {
-        return document.removeEventListener(event, _this3.handleDocumentClick, true);
-      });
-    }
-  }, {
-    key: "handleDocumentClick",
-    value: function handleDocumentClick(e) {
-      if (e && (e.which === 3 || e.type === "keyup" && e.which !== keyCodes.tab)) return;
-      var container = this.getContainer();
-
-      if (container.contains(e.target) && container !== e.target && (e.type !== "keyup" || e.which === keyCodes.tab)) {
-        return;
-      }
-
-      this.toggle(e);
-    }
-  }, {
-    key: "handleKeyDown",
-    value: function handleKeyDown(e) {
-      if ([keyCodes.esc, keyCodes.up, keyCodes.down, keyCodes.space].indexOf(e.which) === -1 || /button/i.test(e.target.tagName) && e.which === keyCodes.space || /input|textarea/i.test(e.target.tagName)) {
-        return;
-      }
-
-      e.preventDefault();
-      if (this.props.disabled) return;
-      var container = this.getContainer();
-
-      if (e.which === keyCodes.space && this.state.isOpen && container !== e.target) {
-        e.target.click();
-      }
-
-      if (e.which === keyCodes.esc || !this.state.isOpen) {
-        this.toggle(e);
-        container.querySelector("[aria-expanded]").focus();
-        return;
-      }
-
-      var menuClass = "dropdown-menu";
-      var itemClass = "dropdown-item";
-      var disabledClass = "disabled";
-      var items = container.querySelectorAll(".".concat(menuClass, " .").concat(itemClass, ":not(.").concat(disabledClass, ")"));
-      if (!items.length) return;
-      var index = -1;
-
-      for (var i = 0; i < items.length; i += 1) {
-        if (items[i] === e.target) {
-          index = i;
-          break;
-        }
-      }
-
-      if (e.which === keyCodes.up && index > 0) {
-        index -= 1;
-      }
-
-      if (e.which === keyCodes.down && index < items.length - 1) {
-        index += 1;
-      }
-
-      if (index < 0) {
-        index = 0;
-      }
-
-      items[index].focus();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _classNames;
-
-      var _omit = omit(this.props, ["toggle", "disabled"]),
-          className = _omit.className,
-          children = _omit.children,
-          dropup = _omit.dropup,
-          group = _omit.group,
-          size = _omit.size,
-          dropright = _omit.dropright,
-          dropleft = _omit.dropleft;
-
-      var classes = classNames((_classNames = {
-        "btn-group": group
-      }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _defineProperty(_classNames, "dropright", dropright), _defineProperty(_classNames, "dropleft", dropleft), _classNames), className);
-      return React__default.createElement(reactPopper.Manager, null, React__default.createElement("div", {
-        className: classes,
-        onKeyDown: this.handleKeyDown
-      }, children));
-    }
-  }]);
-
-  return Dropdown;
-}(React__default.Component);
-
-Dropdown.propTypes = {
-  disabled: propTypes.bool,
-  dropup: propTypes.bool,
-  dropright: propTypes.bool,
-  dropleft: propTypes.bool,
-  group: propTypes.bool,
-  size: propTypes.string,
-  tag: propTypes.string,
-  toggle: propTypes.func,
-  children: propTypes.node,
-  className: propTypes.string
-};
-Dropdown.defaultProps = {
-  dropup: false,
-  dropright: false,
-  dropleft: false,
-  tag: "div"
-};
-Dropdown.childContextTypes = {
-  toggle: propTypes.func.isRequired,
-  isOpen: propTypes.bool.isRequired,
-  dropup: propTypes.bool.isRequired,
-  dropright: propTypes.bool.isRequired,
-  dropleft: propTypes.bool.isRequired
 };
 
 var Autocomplete =
@@ -11478,7 +11704,7 @@ exports.MDBIcon = Fa;
 exports.MDBIframe = Iframe;
 exports.MDBInput = Input;
 exports.MDBInputGroup = InputGroup;
-exports.MDBInputSelect = SelectInput$1;
+exports.MDBInputSelect = InputNumeric;
 exports.MDBJumbotron = Jumbotron;
 exports.MDBListGroup = ListGroup;
 exports.MDBListGroupItem = ListGroupItem;
@@ -11505,6 +11731,7 @@ exports.MDBPopoverHeader = PopoverHeader;
 exports.MDBPopper = Popper;
 exports.MDBProgress = Progress;
 exports.MDBRangeInput = InputRange;
+exports.MDBRating = Rating;
 exports.MDBRotatingCard = RotatingCard;
 exports.MDBRow = Row;
 exports.MDBScrollbar = ScrollBar;
@@ -11567,6 +11794,7 @@ exports.PopoverBody = PopoverBody;
 exports.PopoverHeader = PopoverHeader;
 exports.Popper = Popper;
 exports.Progress = Progress;
+exports.Rating = Rating;
 exports.Row = Row;
 exports.ScrollSpyBox = ScrollBox;
 exports.ScrollSpyList = ScrollSpyList;
