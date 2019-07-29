@@ -35,11 +35,10 @@ class TreeviewItem extends React.Component {
     let context;
     if (this.context.active) {
       context = this.context.active.closest(".closed");
-      console.log(context)
     }
     const item = classNames(
       theme && `closed treeview-${theme}-element d-block`,
-      context && context === target.querySelector(".closed") ? "opened" : ""
+      context && context === target.childNodes[0] && !context.classList.contains("opened") ? "opened" : ""
     );
 
     return (
