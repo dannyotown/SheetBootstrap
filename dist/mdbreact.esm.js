@@ -1,4 +1,4 @@
-import React, { Component, useState, Fragment, useEffect, PureComponent } from 'react';
+import React, { useState, Component, Fragment, useEffect, PureComponent } from 'react';
 import classNames from 'classnames';
 import { Transition, CSSTransition } from 'react-transition-group';
 import ReactDOM from 'react-dom';
@@ -11,9 +11,9 @@ import { MuiPickersUtilsProvider, DatePicker as DatePicker$1 } from 'material-ui
 import moment from 'moment';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import PerfectScrollbar from 'perfect-scrollbar';
+import { Link } from 'react-scroll';
 import raf from 'raf';
 export { toast as MDBToast, ToastContainer as MDBToastContainer, cssTransition as MDBcssTransition, ToastContainer, cssTransition, toast } from 'react-toastify';
-import { Link } from 'react-scroll';
 
 function _typeof(obj) {
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
@@ -326,6 +326,75 @@ var propTypes = createCommonjsModule(function (module) {
 }
 });
 
+var Alert = function Alert(props) {
+  var _useState = useState(true),
+      _useState2 = _slicedToArray(_useState, 2),
+      isOpen = _useState2[0],
+      setIsOpen = _useState2[1];
+
+  var closeAlert = function closeAlert() {
+    setIsOpen(false);
+  };
+
+  var handleOnExit = function handleOnExit(node) {
+    node.classList.add("fade");
+    props.onClose && props.onClose();
+  };
+
+  var handleOnExited = function handleOnExited(node) {
+    props.onClosed && props.onClosed();
+  };
+
+  var className = props.className,
+      color = props.color,
+      children = props.children,
+      dismiss = props.dismiss;
+  var alertClasses = classNames("alert", color && "alert-".concat(color), className);
+  var alertComponent;
+
+  if (dismiss) {
+    alertComponent = React.createElement(Transition, {
+      "in": isOpen,
+      timeout: 150,
+      unmountOnExit: true,
+      onExit: function onExit(node) {
+        return handleOnExit(node);
+      },
+      onExited: function onExited(node) {
+        return handleOnExited(node);
+      }
+    }, React.createElement("div", {
+      className: alertClasses,
+      role: "alert"
+    }, children, React.createElement("button", {
+      onClick: closeAlert,
+      type: "button",
+      className: "close",
+      "data-dismiss": "alert",
+      "aria-label": "Close"
+    }, React.createElement("span", {
+      "aria-hidden": "true"
+    }, "\xD7"))));
+  } else {
+    alertComponent = React.createElement("div", {
+      className: alertClasses,
+      role: "alert"
+    }, children);
+  }
+
+  return alertComponent;
+};
+
+Alert.defaultProps = {
+  color: "primary"
+};
+Alert.propTypes = {
+  className: propTypes.string,
+  color: propTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]),
+  onClose: propTypes.func,
+  onClosed: propTypes.func
+};
+
 var Animation =
 /*#__PURE__*/
 function (_Component) {
@@ -490,75 +559,6 @@ Animation.defaultProps = {
   reveal: false,
   duration: 1,
   count: 1
-};
-
-var Alert = function Alert(props) {
-  var _useState = useState(true),
-      _useState2 = _slicedToArray(_useState, 2),
-      isOpen = _useState2[0],
-      setIsOpen = _useState2[1];
-
-  var closeAlert = function closeAlert() {
-    setIsOpen(false);
-  };
-
-  var handleOnExit = function handleOnExit(node) {
-    node.classList.add("fade");
-    props.onClose && props.onClose();
-  };
-
-  var handleOnExited = function handleOnExited(node) {
-    props.onClosed && props.onClosed();
-  };
-
-  var className = props.className,
-      color = props.color,
-      children = props.children,
-      dismiss = props.dismiss;
-  var alertClasses = classNames("alert", color && "alert-".concat(color), className);
-  var alertComponent;
-
-  if (dismiss) {
-    alertComponent = React.createElement(Transition, {
-      "in": isOpen,
-      timeout: 150,
-      unmountOnExit: true,
-      onExit: function onExit(node) {
-        return handleOnExit(node);
-      },
-      onExited: function onExited(node) {
-        return handleOnExited(node);
-      }
-    }, React.createElement("div", {
-      className: alertClasses,
-      role: "alert"
-    }, children, React.createElement("button", {
-      onClick: closeAlert,
-      type: "button",
-      className: "close",
-      "data-dismiss": "alert",
-      "aria-label": "Close"
-    }, React.createElement("span", {
-      "aria-hidden": "true"
-    }, "\xD7"))));
-  } else {
-    alertComponent = React.createElement("div", {
-      className: alertClasses,
-      role: "alert"
-    }, children);
-  }
-
-  return alertComponent;
-};
-
-Alert.defaultProps = {
-  color: "primary"
-};
-Alert.propTypes = {
-  className: propTypes.string,
-  color: propTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]),
-  onClose: propTypes.func,
-  onClosed: propTypes.func
 };
 
 var Badge = function Badge(props) {
@@ -2022,6 +2022,37 @@ CarouselItem.contextTypes = {
   slide: propTypes.any
 };
 
+var MDBCloseIcon = function MDBCloseIcon(_ref) {
+  var onClick = _ref.onClick,
+      className = _ref.className,
+      ariaLabel = _ref.ariaLabel,
+      props = _objectWithoutProperties(_ref, ["onClick", "className", "ariaLabel"]);
+
+  var onClickHandler = function onClickHandler(e) {
+    onClick && onClick(e);
+  };
+
+  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
+  return React.createElement("button", _extends({
+    "data-test": "close-button",
+    type: "button"
+  }, props, {
+    className: btnClasses.join(" "),
+    onClick: onClickHandler,
+    "aria-label": ariaLabel
+  }), React.createElement("span", {
+    "aria-hidden": "true"
+  }, "\xD7"));
+};
+MDBCloseIcon.defaultProps = {
+  ariaLabel: "Close"
+};
+MDBCloseIcon.propTypes = {
+  className: propTypes.string,
+  ariaLabel: propTypes.string,
+  onClick: propTypes.func
+};
+
 var Col = function Col(props) {
   var xs = props.xs,
       sm = props.sm,
@@ -2272,37 +2303,6 @@ Container.propTypes = {
 Container.defaultProps = {
   tag: "div",
   fluid: false
-};
-
-var MDBCloseIcon = function MDBCloseIcon(_ref) {
-  var onClick = _ref.onClick,
-      className = _ref.className,
-      ariaLabel = _ref.ariaLabel,
-      props = _objectWithoutProperties(_ref, ["onClick", "className", "ariaLabel"]);
-
-  var onClickHandler = function onClickHandler(e) {
-    onClick && onClick(e);
-  };
-
-  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
-  return React.createElement("button", _extends({
-    "data-test": "close-button",
-    type: "button"
-  }, props, {
-    className: btnClasses.join(" "),
-    onClick: onClickHandler,
-    "aria-label": ariaLabel
-  }), React.createElement("span", {
-    "aria-hidden": "true"
-  }, "\xD7"));
-};
-MDBCloseIcon.defaultProps = {
-  ariaLabel: "Close"
-};
-MDBCloseIcon.propTypes = {
-  className: propTypes.string,
-  ariaLabel: propTypes.string,
-  onClick: propTypes.func
 };
 
 var DataTableHead = function DataTableHead(props) {
@@ -5587,6 +5587,29 @@ EdgeHeader.defaultProps = {
   tag: "div"
 };
 
+var Footer = function Footer(props) {
+  var color = props.color,
+      children = props.children,
+      className = props.className,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["color", "children", "className", "tag"]);
+
+  var classes = classNames("page-footer", color && color, className);
+  return React.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), children);
+};
+
+Footer.propTypes = {
+  color: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node
+};
+Footer.defaultProps = {
+  tag: "footer"
+};
+
 var FormInline = function FormInline(props) {
   var _useState = useState({}),
       _useState2 = _slicedToArray(_useState, 2),
@@ -5622,29 +5645,6 @@ FormInline.propTypes = {
   children: propTypes.node,
   className: propTypes.string,
   waves: propTypes.bool
-};
-
-var Footer = function Footer(props) {
-  var color = props.color,
-      children = props.children,
-      className = props.className,
-      Tag = props.tag,
-      attributes = _objectWithoutProperties(props, ["color", "children", "className", "tag"]);
-
-  var classes = classNames("page-footer", color && color, className);
-  return React.createElement(Tag, _extends({}, attributes, {
-    className: classes
-  }), children);
-};
-
-Footer.propTypes = {
-  color: propTypes.string,
-  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
-  className: propTypes.string,
-  children: propTypes.node
-};
-Footer.defaultProps = {
-  tag: "footer"
 };
 
 var FreeBird = function FreeBird(props) {
@@ -5705,6 +5705,124 @@ HamburgerToggler.propTypes = {
   id: propTypes.string,
   color: propTypes.string,
   className: propTypes.string
+};
+
+var Iframe =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Iframe, _Component);
+
+  function Iframe() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Iframe);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Iframe)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      width: "",
+      height: "",
+      ratio: ""
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      var width = _this.props.width;
+      var height = _this.props.height;
+      var ratio = 9 / 16;
+
+      if (_this.props.ratio) {
+        var newRatio = _this.props.ratio.split("by")[0] / _this.props.ratio.split("by")[1];
+
+        if (typeof ratio === "number") ratio = newRatio;
+      }
+
+      if (_this.props.width && _this.props.height) {
+        return;
+      } else if (_this.props.width) {
+        height = _this.props.width * ratio;
+      } else if (_this.props.height) {
+        width = _this.props.height * (1 / ratio);
+      }
+
+      _this.setState(_objectSpread({}, _this.state, {
+        width: width,
+        height: height,
+        ratio: ratio
+      }));
+    });
+
+    return _this;
+  }
+
+  _createClass(Iframe, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          allowFullScreen = _this$props.allowFullScreen,
+          className = _this$props.className,
+          id = _this$props.id,
+          name = _this$props.name,
+          onMouseOver = _this$props.onMouseOver,
+          onMouseOut = _this$props.onMouseOut,
+          onLoad = _this$props.onLoad,
+          sandbox = _this$props.sandbox,
+          src = _this$props.src,
+          style = _this$props.style,
+          title = _this$props.title,
+          ratio = _this$props.ratio,
+          height = _this$props.height,
+          width = _this$props.width;
+      var classes = classNames("embed-responsive-item", className);
+      var wrapperClasses = classNames(!(height || width) && "embed-responsive", ratio ? "embed-responsive-".concat(ratio) : "embed-responsive-16by9", className);
+      var iframeAttributes = {
+        src: src,
+        id: id || false,
+        frameBorder: "0",
+        target: "_parent",
+        allowFullScreen: allowFullScreen || true,
+        height: this.state.height || "100%",
+        name: name || undefined,
+        width: this.state.width || "100%",
+        onLoad: onLoad || undefined,
+        onMouseOver: onMouseOver || undefined,
+        onMouseOut: onMouseOut || undefined,
+        sandbox: sandbox || undefined,
+        style: style || undefined
+      };
+      iframeAttributes = returnAttributes(iframeAttributes);
+      return React.createElement("div", {
+        className: wrapperClasses
+      }, React.createElement("iframe", _extends({
+        title: title || "",
+        className: classes
+      }, iframeAttributes)));
+    }
+  }]);
+
+  return Iframe;
+}(Component);
+
+Iframe.propTypes = {
+  allowFullScreen: propTypes.bool,
+  className: propTypes.string,
+  height: propTypes.number,
+  id: propTypes.string,
+  name: propTypes.string,
+  onMouseOver: propTypes.func,
+  onMouseOut: propTypes.func,
+  onLoad: propTypes.func,
+  ratio: propTypes.string,
+  sandbox: propTypes.string,
+  src: propTypes.string.isRequired,
+  styles: propTypes.object,
+  width: propTypes.number,
+  title: propTypes.string
 };
 
 var InputGroup = function InputGroup(_ref) {
@@ -7210,46 +7328,6 @@ Row.defaultProps = {
   tag: "div"
 };
 
-var TabPane =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(TabPane, _React$Component);
-
-  function TabPane() {
-    _classCallCheck(this, TabPane);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(TabPane).apply(this, arguments));
-  }
-
-  _createClass(TabPane, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          className = _this$props.className,
-          tabId = _this$props.tabId,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tabId"]);
-
-      var classes = classNames("tab-pane", {
-        active: tabId === this.context.activeItemId
-      }, className);
-      return React.createElement("div", _extends({}, attributes, {
-        className: classes,
-        role: "tabpanel"
-      }));
-    }
-  }]);
-
-  return TabPane;
-}(React.Component);
-
-TabPane.contextTypes = {
-  activeItemId: propTypes.any
-};
-TabPane.propTypes = {
-  tabId: propTypes.any,
-  className: propTypes.string
-};
-
 var propTypes$2 = {
   activeItem: propTypes.any,
   tabId: propTypes.any,
@@ -7307,6 +7385,46 @@ TabContent.childContextTypes = {
 };
 TabContent.propTypes = propTypes$2;
 
+var TabPane =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(TabPane, _React$Component);
+
+  function TabPane() {
+    _classCallCheck(this, TabPane);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(TabPane).apply(this, arguments));
+  }
+
+  _createClass(TabPane, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          className = _this$props.className,
+          tabId = _this$props.tabId,
+          attributes = _objectWithoutProperties(_this$props, ["className", "tabId"]);
+
+      var classes = classNames("tab-pane", {
+        active: tabId === this.context.activeItemId
+      }, className);
+      return React.createElement("div", _extends({}, attributes, {
+        className: classes,
+        role: "tabpanel"
+      }));
+    }
+  }]);
+
+  return TabPane;
+}(React.Component);
+
+TabPane.contextTypes = {
+  activeItemId: propTypes.any
+};
+TabPane.propTypes = {
+  tabId: propTypes.any,
+  className: propTypes.string
+};
+
 var TableHead = function TableHead(props) {
   var children = props.children,
       color = props.color,
@@ -7335,124 +7453,6 @@ TableHead.propTypes = {
 };
 TableHead.defaultProps = {
   textWhite: false
-};
-
-var Iframe =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Iframe, _Component);
-
-  function Iframe() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, Iframe);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Iframe)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      width: "",
-      height: "",
-      ratio: ""
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
-      var width = _this.props.width;
-      var height = _this.props.height;
-      var ratio = 9 / 16;
-
-      if (_this.props.ratio) {
-        var newRatio = _this.props.ratio.split("by")[0] / _this.props.ratio.split("by")[1];
-
-        if (typeof ratio === "number") ratio = newRatio;
-      }
-
-      if (_this.props.width && _this.props.height) {
-        return;
-      } else if (_this.props.width) {
-        height = _this.props.width * ratio;
-      } else if (_this.props.height) {
-        width = _this.props.height * (1 / ratio);
-      }
-
-      _this.setState(_objectSpread({}, _this.state, {
-        width: width,
-        height: height,
-        ratio: ratio
-      }));
-    });
-
-    return _this;
-  }
-
-  _createClass(Iframe, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          allowFullScreen = _this$props.allowFullScreen,
-          className = _this$props.className,
-          id = _this$props.id,
-          name = _this$props.name,
-          onMouseOver = _this$props.onMouseOver,
-          onMouseOut = _this$props.onMouseOut,
-          onLoad = _this$props.onLoad,
-          sandbox = _this$props.sandbox,
-          src = _this$props.src,
-          style = _this$props.style,
-          title = _this$props.title,
-          ratio = _this$props.ratio,
-          height = _this$props.height,
-          width = _this$props.width;
-      var classes = classNames("embed-responsive-item", className);
-      var wrapperClasses = classNames(!(height || width) && "embed-responsive", ratio ? "embed-responsive-".concat(ratio) : "embed-responsive-16by9", className);
-      var iframeAttributes = {
-        src: src,
-        id: id || false,
-        frameBorder: "0",
-        target: "_parent",
-        allowFullScreen: allowFullScreen || true,
-        height: this.state.height || "100%",
-        name: name || undefined,
-        width: this.state.width || "100%",
-        onLoad: onLoad || undefined,
-        onMouseOver: onMouseOver || undefined,
-        onMouseOut: onMouseOut || undefined,
-        sandbox: sandbox || undefined,
-        style: style || undefined
-      };
-      iframeAttributes = returnAttributes(iframeAttributes);
-      return React.createElement("div", {
-        className: wrapperClasses
-      }, React.createElement("iframe", _extends({
-        title: title || "",
-        className: classes
-      }, iframeAttributes)));
-    }
-  }]);
-
-  return Iframe;
-}(Component);
-
-Iframe.propTypes = {
-  allowFullScreen: propTypes.bool,
-  className: propTypes.string,
-  height: propTypes.number,
-  id: propTypes.string,
-  name: propTypes.string,
-  onMouseOver: propTypes.func,
-  onMouseOut: propTypes.func,
-  onLoad: propTypes.func,
-  ratio: propTypes.string,
-  sandbox: propTypes.string,
-  src: propTypes.string.isRequired,
-  styles: propTypes.object,
-  width: propTypes.number,
-  title: propTypes.string
 };
 
 var Autocomplete =
@@ -9856,6 +9856,109 @@ SimpleChart.propTypes = {
   style: propTypes.object
 };
 
+var SmoothScroll = function SmoothScroll(props) {
+  var _useState = useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
+
+  var handleClick = function handleClick(e) {
+    if (!props.disabled) {
+      e.stopPropagation(); // Waves - Get Cursor Position
+
+      var _cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      setCursorPos(_cursorPos);
+    }
+  };
+
+  var children = props.children,
+      className = props.className,
+      disabled = props.disabled,
+      active = props.active,
+      to = props.to,
+      spy = props.spy,
+      smooth = props.smooth,
+      offset = props.offset,
+      duration = props.duration,
+      block = props.block,
+      color = props.color,
+      outline = props.outline,
+      size = props.size,
+      rounded = props.rounded,
+      gradient = props.gradient,
+      floating = props.floating,
+      flat = props.flat,
+      social = props.social,
+      btn = props.btn,
+      fixed = props.fixed,
+      bottom = props.bottom,
+      right = props.right,
+      top = props.top,
+      left = props.left,
+      attributes = _objectWithoutProperties(props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration", "block", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "social", "btn", "fixed", "bottom", "right", "top", "left"]);
+
+  var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", (btn || floating) && "btn", floating && "btn-floating", flat ? "btn-flat" : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? "-outline" : "", "-").concat(color), size ? "btn-".concat(size) : false, rounded ? "btn-rounded" : false, block ? "btn-block" : false, social ? "btn-" + social : false, "Ripple-parent", className);
+  var fixedStyles = {
+    position: "fixed",
+    top: top ? "".concat(top, "px") : null,
+    bottom: bottom ? "".concat(bottom, "px") : !top ? "45px" : null,
+    left: left ? "".concat(left, "px") : null,
+    right: right ? "".concat(right, "px") : !left ? "24px" : null
+  };
+  return React.createElement(Link, _extends({
+    className: classes,
+    onMouseUp: handleClick,
+    onTouchStart: handleClick,
+    to: to,
+    spy: spy,
+    smooth: smooth,
+    offset: offset,
+    duration: duration,
+    style: fixed ? fixedStyles : null
+  }, attributes), children, props.disabled ? false : React.createElement(Waves, {
+    cursorPos: cursorPos
+  }));
+};
+
+SmoothScroll.propTypes = {
+  to: propTypes.string.isRequired,
+  children: propTypes.node,
+  className: propTypes.string,
+  disabled: propTypes.bool,
+  active: propTypes.bool,
+  spy: propTypes.bool,
+  smooth: propTypes.bool,
+  offset: propTypes.number,
+  duration: propTypes.number,
+  block: propTypes.bool,
+  color: propTypes.string,
+  outline: propTypes.bool,
+  size: propTypes.string,
+  rounded: propTypes.bool,
+  gradient: propTypes.string,
+  floating: propTypes.bool,
+  flat: propTypes.bool,
+  social: propTypes.string,
+  fixed: propTypes.bool,
+  top: propTypes.string,
+  bottom: propTypes.string,
+  right: propTypes.string,
+  left: propTypes.string
+};
+SmoothScroll.defaultProps = {
+  active: false,
+  className: "",
+  disabled: false,
+  spy: true,
+  smooth: true,
+  offset: -70,
+  duration: 500
+};
+
 var Spinner = function Spinner(props) {
   var theChosenColorSpinner = function theChosenColorSpinner(spinnerClasses) {
     if (props.multicolor) {
@@ -10065,6 +10168,305 @@ Stepper.propTypes = {
 };
 Stepper.defaultProps = {
   form: false
+};
+
+var Sticky =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Sticky, _Component);
+
+  function Sticky() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Sticky);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Sticky)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      isSticky: false,
+      wasSticky: false,
+      style: {}
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleContainerEvent", function (_ref) {
+      var distanceFromTop = _ref.distanceFromTop,
+          distanceFromBottom = _ref.distanceFromBottom,
+          eventSource = _ref.eventSource;
+
+      var parent = _this.context.getParent();
+
+      var preventingStickyStateChanges = false;
+
+      if (_this.props.relative) {
+        preventingStickyStateChanges = eventSource !== parent;
+        distanceFromTop = -(eventSource.scrollTop + eventSource.offsetTop) + _this.placeholder.offsetTop;
+      }
+
+      var placeholderClientRect = _this.placeholder.getBoundingClientRect();
+
+      var contentClientRect = _this.content.getBoundingClientRect();
+
+      var calculatedHeight = contentClientRect.height;
+      var bottomDifference = distanceFromBottom - _this.props.bottomOffset - calculatedHeight;
+      var wasSticky = !!_this.state.isSticky;
+      var isSticky = preventingStickyStateChanges ? wasSticky : distanceFromTop <= -_this.props.topOffset && distanceFromBottom > -_this.props.bottomOffset;
+      distanceFromBottom = (_this.props.relative ? parent.scrollHeight - parent.scrollTop : distanceFromBottom) - calculatedHeight;
+      var style = !isSticky ? {} : {
+        position: "fixed",
+        top: bottomDifference > 0 ? _this.props.relative ? parent.offsetTop - parent.offsetParent.scrollTop : 0 : bottomDifference,
+        left: placeholderClientRect.left,
+        width: placeholderClientRect.width
+      };
+
+      if (!_this.props.disableHardwareAcceleration) {
+        style.transform = "translateZ(0)";
+      }
+
+      _this.setState({
+        isSticky: isSticky,
+        wasSticky: wasSticky,
+        distanceFromTop: distanceFromTop,
+        distanceFromBottom: distanceFromBottom,
+        calculatedHeight: calculatedHeight,
+        style: style
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(Sticky, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      if (!this.context.subscribe) throw new TypeError("Expected Sticky to be mounted within StickyContainer");
+      this.context.subscribe(this.handleContainerEvent);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.context.unsubscribe(this.handleContainerEvent);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.placeholder.style.paddingBottom = this.props.disableCompensation ? 0 : "".concat(this.state.isSticky ? this.state.calculatedHeight : 0, "px");
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var element = React.cloneElement(this.props.children({
+        isSticky: this.state.isSticky,
+        wasSticky: this.state.wasSticky,
+        distanceFromTop: this.state.distanceFromTop,
+        distanceFromBottom: this.state.distanceFromBottom,
+        calculatedHeight: this.state.calculatedHeight,
+        style: this.state.style
+      }), {
+        ref: function ref(content) {
+          _this2.content = ReactDOM.findDOMNode(content);
+        }
+      });
+      return React.createElement("div", null, React.createElement("div", {
+        ref: function ref(placeholder) {
+          return _this2.placeholder = placeholder;
+        }
+      }), element);
+    }
+  }]);
+
+  return Sticky;
+}(Component);
+
+_defineProperty(Sticky, "propTypes", {
+  topOffset: propTypes.number,
+  bottomOffset: propTypes.number,
+  relative: propTypes.bool,
+  children: propTypes.func.isRequired
+});
+
+_defineProperty(Sticky, "defaultProps", {
+  relative: false,
+  topOffset: 0,
+  bottomOffset: 0,
+  disableCompensation: false,
+  disableHardwareAcceleration: false
+});
+
+_defineProperty(Sticky, "contextTypes", {
+  subscribe: propTypes.func,
+  unsubscribe: propTypes.func,
+  getParent: propTypes.func
+});
+
+var Container$1 =
+/*#__PURE__*/
+function (_PureComponent) {
+  _inherits(Container, _PureComponent);
+
+  function Container() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, Container);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Container)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "events", ["resize", "scroll", "touchstart", "touchmove", "touchend", "pageshow", "load"]);
+
+    _defineProperty(_assertThisInitialized(_this), "subscribers", []);
+
+    _defineProperty(_assertThisInitialized(_this), "subscribe", function (handler) {
+      _this.subscribers = _this.subscribers.concat(handler);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "unsubscribe", function (handler) {
+      _this.subscribers = _this.subscribers.filter(function (current) {
+        return current !== handler;
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "notifySubscribers", function (evt) {
+      if (!_this.framePending) {
+        var currentTarget = evt.currentTarget;
+        raf(function () {
+          _this.framePending = false;
+
+          var _this$node$getBoundin = _this.node.getBoundingClientRect(),
+              top = _this$node$getBoundin.top,
+              bottom = _this$node$getBoundin.bottom;
+
+          _this.subscribers.forEach(function (handler) {
+            return handler({
+              distanceFromTop: top,
+              distanceFromBottom: bottom,
+              eventSource: currentTarget === window ? document.body : _this.node
+            });
+          });
+        });
+        _this.framePending = true;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "getParent", function () {
+      return _this.node;
+    });
+
+    return _this;
+  }
+
+  _createClass(Container, [{
+    key: "getChildContext",
+    value: function getChildContext() {
+      return {
+        subscribe: this.subscribe,
+        unsubscribe: this.unsubscribe,
+        getParent: this.getParent
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.events.forEach(function (event) {
+        return window.addEventListener(event, _this2.notifySubscribers);
+      });
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      var _this3 = this;
+
+      this.events.forEach(function (event) {
+        return window.removeEventListener(event, _this3.notifySubscribers);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return React.createElement("div", _extends({}, this.props, {
+        ref: function ref(node) {
+          return _this4.node = node;
+        },
+        onScroll: this.notifySubscribers,
+        onTouchStart: this.notifySubscribers,
+        onTouchMove: this.notifySubscribers,
+        onTouchEnd: this.notifySubscribers
+      }));
+    }
+  }]);
+
+  return Container;
+}(PureComponent);
+
+_defineProperty(Container$1, "childContextTypes", {
+  subscribe: propTypes.func,
+  unsubscribe: propTypes.func,
+  getParent: propTypes.func
+});
+
+var MDBStreak = function MDBStreak(_ref) {
+  var children = _ref.children,
+      by = _ref.by,
+      byClass = _ref.byClass,
+      wrapperClass = _ref.wrapperClass,
+      size = _ref.size,
+      quoteClass = _ref.quoteClass,
+      photo = _ref.photo,
+      overlayClass = _ref.overlayClass;
+  var byClasses = classNames("text-center", "font-italic", "mb-0", byClass);
+  var wrapperClasses = classNames("streak", photo && "streak-photo", size && "streak-".concat(size), wrapperClass);
+  var quoteClasses = classNames("h2-responsive", quoteClass);
+  var overlayClasses = classNames("flex-center", overlayClass);
+  return React.createElement("div", {
+    className: wrapperClasses,
+    style: {
+      backgroundImage: "url(\"".concat(photo, "\")"),
+      backgroundAttachment: "fixed"
+    }
+  }, React.createElement("div", {
+    className: overlayClasses
+  }, React.createElement("ul", {
+    className: "mb-0 list-unstyled"
+  }, React.createElement("li", null, React.createElement("h2", {
+    className: quoteClasses
+  }, React.createElement(Fa, {
+    icon: "quote-left"
+  }), " ", children, " ", React.createElement(Fa, {
+    icon: "quote-right"
+  }))), React.createElement("li", {
+    className: "mb-0"
+  }, React.createElement("h5", {
+    className: byClasses
+  }, "~ ", by)))));
+};
+
+MDBStreak.propTypes = {
+  size: propTypes.oneOf(['lg', 'md']),
+  by: propTypes.string,
+  wrapperClass: propTypes.string,
+  byClass: propTypes.string,
+  quoteClass: propTypes.string,
+  photo: propTypes.string,
+  overlayClass: propTypes.string
+};
+MDBStreak.defaultProps = {
+  wrapperClass: "grey lighten-3"
 };
 
 var css$g = ".react-bootstrap-table {\n  padding-top: 65px;\n}\n\n.react-bootstrap-table .caret {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 2px;\n  vertical-align: middle;\n  border-top: 4px dashed;\n  border-top: 4px solid\\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n\n.react-bootstrap-table .dropup .caret {\n  content: \"\";\n  border-top: 0;\n  border-bottom: 4px dashed;\n  border-bottom: 4px solid\\9;\n}\n\n.react-bootstrap-table-pagination .pagination {\n  float: right;\n}\n\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\n  background-color: #09c;\n}\n\n.react-bootstrap-table-pagination .select-wrapper {\n  display: inline-block;\n  width: 100px;\n  margin: 0 15px;\n}\n\n.react-bootstrap-table-pagination .dropdown-item {\n  padding: 0;\n}\n\n.react-bootstrap-table-pagination-total {\n  display: block;\n}\n\n.react-bootstrap-table .md-form {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  width: 200px;\n}\n\n.react-bootstrap-table-pagination > * {\n  position: inherit;\n}\n\n.react-bs-table-sizePerPage-dropdown {\n  position: absolute;\n  top: 0;\n  left: 0;\n}";
@@ -10295,305 +10697,6 @@ TableEditable.propTypes = {
   responsiveLg: propTypes.bool,
   responsiveXl: propTypes.bool
 };
-
-var Sticky =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Sticky, _Component);
-
-  function Sticky() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, Sticky);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Sticky)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
-      isSticky: false,
-      wasSticky: false,
-      style: {}
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "handleContainerEvent", function (_ref) {
-      var distanceFromTop = _ref.distanceFromTop,
-          distanceFromBottom = _ref.distanceFromBottom,
-          eventSource = _ref.eventSource;
-
-      var parent = _this.context.getParent();
-
-      var preventingStickyStateChanges = false;
-
-      if (_this.props.relative) {
-        preventingStickyStateChanges = eventSource !== parent;
-        distanceFromTop = -(eventSource.scrollTop + eventSource.offsetTop) + _this.placeholder.offsetTop;
-      }
-
-      var placeholderClientRect = _this.placeholder.getBoundingClientRect();
-
-      var contentClientRect = _this.content.getBoundingClientRect();
-
-      var calculatedHeight = contentClientRect.height;
-      var bottomDifference = distanceFromBottom - _this.props.bottomOffset - calculatedHeight;
-      var wasSticky = !!_this.state.isSticky;
-      var isSticky = preventingStickyStateChanges ? wasSticky : distanceFromTop <= -_this.props.topOffset && distanceFromBottom > -_this.props.bottomOffset;
-      distanceFromBottom = (_this.props.relative ? parent.scrollHeight - parent.scrollTop : distanceFromBottom) - calculatedHeight;
-      var style = !isSticky ? {} : {
-        position: "fixed",
-        top: bottomDifference > 0 ? _this.props.relative ? parent.offsetTop - parent.offsetParent.scrollTop : 0 : bottomDifference,
-        left: placeholderClientRect.left,
-        width: placeholderClientRect.width
-      };
-
-      if (!_this.props.disableHardwareAcceleration) {
-        style.transform = "translateZ(0)";
-      }
-
-      _this.setState({
-        isSticky: isSticky,
-        wasSticky: wasSticky,
-        distanceFromTop: distanceFromTop,
-        distanceFromBottom: distanceFromBottom,
-        calculatedHeight: calculatedHeight,
-        style: style
-      });
-    });
-
-    return _this;
-  }
-
-  _createClass(Sticky, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      if (!this.context.subscribe) throw new TypeError("Expected Sticky to be mounted within StickyContainer");
-      this.context.subscribe(this.handleContainerEvent);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.context.unsubscribe(this.handleContainerEvent);
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.placeholder.style.paddingBottom = this.props.disableCompensation ? 0 : "".concat(this.state.isSticky ? this.state.calculatedHeight : 0, "px");
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var element = React.cloneElement(this.props.children({
-        isSticky: this.state.isSticky,
-        wasSticky: this.state.wasSticky,
-        distanceFromTop: this.state.distanceFromTop,
-        distanceFromBottom: this.state.distanceFromBottom,
-        calculatedHeight: this.state.calculatedHeight,
-        style: this.state.style
-      }), {
-        ref: function ref(content) {
-          _this2.content = ReactDOM.findDOMNode(content);
-        }
-      });
-      return React.createElement("div", null, React.createElement("div", {
-        ref: function ref(placeholder) {
-          return _this2.placeholder = placeholder;
-        }
-      }), element);
-    }
-  }]);
-
-  return Sticky;
-}(Component);
-
-_defineProperty(Sticky, "propTypes", {
-  topOffset: propTypes.number,
-  bottomOffset: propTypes.number,
-  relative: propTypes.bool,
-  children: propTypes.func.isRequired
-});
-
-_defineProperty(Sticky, "defaultProps", {
-  relative: false,
-  topOffset: 0,
-  bottomOffset: 0,
-  disableCompensation: false,
-  disableHardwareAcceleration: false
-});
-
-_defineProperty(Sticky, "contextTypes", {
-  subscribe: propTypes.func,
-  unsubscribe: propTypes.func,
-  getParent: propTypes.func
-});
-
-var MDBStreak = function MDBStreak(_ref) {
-  var children = _ref.children,
-      by = _ref.by,
-      byClass = _ref.byClass,
-      wrapperClass = _ref.wrapperClass,
-      size = _ref.size,
-      quoteClass = _ref.quoteClass,
-      photo = _ref.photo,
-      overlayClass = _ref.overlayClass;
-  var byClasses = classNames("text-center", "font-italic", "mb-0", byClass);
-  var wrapperClasses = classNames("streak", photo && "streak-photo", size && "streak-".concat(size), wrapperClass);
-  var quoteClasses = classNames("h2-responsive", quoteClass);
-  var overlayClasses = classNames("flex-center", overlayClass);
-  return React.createElement("div", {
-    className: wrapperClasses,
-    style: {
-      backgroundImage: "url(\"".concat(photo, "\")"),
-      backgroundAttachment: "fixed"
-    }
-  }, React.createElement("div", {
-    className: overlayClasses
-  }, React.createElement("ul", {
-    className: "mb-0 list-unstyled"
-  }, React.createElement("li", null, React.createElement("h2", {
-    className: quoteClasses
-  }, React.createElement(Fa, {
-    icon: "quote-left"
-  }), " ", children, " ", React.createElement(Fa, {
-    icon: "quote-right"
-  }))), React.createElement("li", {
-    className: "mb-0"
-  }, React.createElement("h5", {
-    className: byClasses
-  }, "~ ", by)))));
-};
-
-MDBStreak.propTypes = {
-  size: propTypes.oneOf(['lg', 'md']),
-  by: propTypes.string,
-  wrapperClass: propTypes.string,
-  byClass: propTypes.string,
-  quoteClass: propTypes.string,
-  photo: propTypes.string,
-  overlayClass: propTypes.string
-};
-MDBStreak.defaultProps = {
-  wrapperClass: "grey lighten-3"
-};
-
-var Container$1 =
-/*#__PURE__*/
-function (_PureComponent) {
-  _inherits(Container, _PureComponent);
-
-  function Container() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, Container);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Container)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "events", ["resize", "scroll", "touchstart", "touchmove", "touchend", "pageshow", "load"]);
-
-    _defineProperty(_assertThisInitialized(_this), "subscribers", []);
-
-    _defineProperty(_assertThisInitialized(_this), "subscribe", function (handler) {
-      _this.subscribers = _this.subscribers.concat(handler);
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "unsubscribe", function (handler) {
-      _this.subscribers = _this.subscribers.filter(function (current) {
-        return current !== handler;
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "notifySubscribers", function (evt) {
-      if (!_this.framePending) {
-        var currentTarget = evt.currentTarget;
-        raf(function () {
-          _this.framePending = false;
-
-          var _this$node$getBoundin = _this.node.getBoundingClientRect(),
-              top = _this$node$getBoundin.top,
-              bottom = _this$node$getBoundin.bottom;
-
-          _this.subscribers.forEach(function (handler) {
-            return handler({
-              distanceFromTop: top,
-              distanceFromBottom: bottom,
-              eventSource: currentTarget === window ? document.body : _this.node
-            });
-          });
-        });
-        _this.framePending = true;
-      }
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "getParent", function () {
-      return _this.node;
-    });
-
-    return _this;
-  }
-
-  _createClass(Container, [{
-    key: "getChildContext",
-    value: function getChildContext() {
-      return {
-        subscribe: this.subscribe,
-        unsubscribe: this.unsubscribe,
-        getParent: this.getParent
-      };
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      this.events.forEach(function (event) {
-        return window.addEventListener(event, _this2.notifySubscribers);
-      });
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      var _this3 = this;
-
-      this.events.forEach(function (event) {
-        return window.removeEventListener(event, _this3.notifySubscribers);
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this4 = this;
-
-      return React.createElement("div", _extends({}, this.props, {
-        ref: function ref(node) {
-          return _this4.node = node;
-        },
-        onScroll: this.notifySubscribers,
-        onTouchStart: this.notifySubscribers,
-        onTouchMove: this.notifySubscribers,
-        onTouchEnd: this.notifySubscribers
-      }));
-    }
-  }]);
-
-  return Container;
-}(PureComponent);
-
-_defineProperty(Container$1, "childContextTypes", {
-  subscribe: propTypes.func,
-  unsubscribe: propTypes.func,
-  getParent: propTypes.func
-});
 
 var Testimonial = function Testimonial(props) {
   var className = props.className,
@@ -11445,109 +11548,6 @@ TimePicker.defaultProps = defaultProps$2;
 var css$j = ".Toastify__toast-container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 320px;\n  box-sizing: border-box;\n  color: #fff; }\n  .Toastify__toast-container--top-left {\n    top: 1em;\n    left: 1em; }\n  .Toastify__toast-container--top-center {\n    top: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--top-right {\n    top: 1em;\n    right: 1em; }\n  .Toastify__toast-container--bottom-left {\n    bottom: 1em;\n    left: 1em; }\n  .Toastify__toast-container--bottom-center {\n    bottom: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--bottom-right {\n    bottom: 1em;\n    right: 1em; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast-container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0; }\n    .Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right {\n      top: 0; }\n    .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right {\n      bottom: 0; }\n    .Toastify__toast-container--rtl {\n      right: 0;\n      left: initial; } }\n\n.Toastify__toast {\n  position: relative;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 8px;\n  border-radius: 1px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  max-height: 800px;\n  overflow: hidden;\n  font-family: sans-serif;\n  cursor: pointer;\n  direction: ltr; }\n  .Toastify__toast--rtl {\n    direction: rtl; }\n  .Toastify__toast--default {\n    background: #fff;\n    color: #aaa; }\n  .Toastify__toast--info {\n    background: #3498db; }\n  .Toastify__toast--success {\n    background: #07bc0c; }\n  .Toastify__toast--warning {\n    background: #f1c40f; }\n  .Toastify__toast--error {\n    background: #e74c3c; }\n  .Toastify__toast-body {\n    margin: auto 0;\n    -ms-flex: 1;\n        flex: 1; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast {\n    margin-bottom: 0; } }\n\n.Toastify__close-button {\n  color: #fff;\n  font-weight: bold;\n  font-size: 14px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  opacity: 0.7;\n  transition: 0.3s ease;\n  -ms-flex-item-align: start;\n      align-self: flex-start; }\n  .Toastify__close-button--default {\n    color: #000;\n    opacity: 0.3; }\n  .Toastify__close-button:hover, .Toastify__close-button:focus {\n    opacity: 1; }\n\n@keyframes Toastify__trackProgress {\n  0% {\n    transform: scaleX(1); }\n  100% {\n    transform: scaleX(0); } }\n\n.Toastify__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 9999;\n  opacity: 0.7;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left; }\n  .Toastify__progress-bar--animated {\n    animation: Toastify__trackProgress linear 1 forwards; }\n  .Toastify__progress-bar--controlled {\n    transition: transform .2s; }\n  .Toastify__progress-bar--rtl {\n    right: 0;\n    left: initial;\n    transform-origin: right; }\n  .Toastify__progress-bar--default {\n    background: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55); }\n\n@keyframes Toastify__bounceInRight {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0); }\n  75% {\n    transform: translate3d(10px, 0, 0); }\n  90% {\n    transform: translate3d(-5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInLeft {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0); }\n  75% {\n    transform: translate3d(-10px, 0, 0); }\n  90% {\n    transform: translate3d(5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInUp {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  75% {\n    transform: translate3d(0, 10px, 0); }\n  90% {\n    transform: translate3d(0, -5px, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0); } }\n\n@keyframes Toastify__bounceInDown {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    transform: translate3d(0, 5px, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0); } }\n\n.Toastify__bounce-enter--top-left, .Toastify__bounce-enter--bottom-left {\n  animation-name: Toastify__bounceInLeft; }\n\n.Toastify__bounce-enter--top-right, .Toastify__bounce-enter--bottom-right {\n  animation-name: Toastify__bounceInRight; }\n\n.Toastify__bounce-enter--top-center {\n  animation-name: Toastify__bounceInDown; }\n\n.Toastify__bounce-enter--bottom-center {\n  animation-name: Toastify__bounceInUp; }\n\n.Toastify__bounce-exit--top-left, .Toastify__bounce-exit--bottom-left {\n  animation-name: Toastify__bounceOutLeft; }\n\n.Toastify__bounce-exit--top-right, .Toastify__bounce-exit--bottom-right {\n  animation-name: Toastify__bounceOutRight; }\n\n.Toastify__bounce-exit--top-center {\n  animation-name: Toastify__bounceOutUp; }\n\n.Toastify__bounce-exit--bottom-center {\n  animation-name: Toastify__bounceOutDown; }\n\n@keyframes Toastify__zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  50% {\n    opacity: 1; } }\n\n@keyframes Toastify__zoomOut {\n  from {\n    opacity: 1; }\n  50% {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  to {\n    opacity: 0; } }\n\n.Toastify__zoom-enter {\n  animation-name: Toastify__zoomIn; }\n\n.Toastify__zoom-exit {\n  animation-name: Toastify__zoomOut; }\n\n@keyframes Toastify__flipIn {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0; }\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in; }\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1; }\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }\n  to {\n    transform: perspective(400px); } }\n\n@keyframes Toastify__flipOut {\n  from {\n    transform: perspective(400px); }\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1; }\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0; } }\n\n.Toastify__flip-enter {\n  animation-name: Toastify__flipIn; }\n\n.Toastify__flip-exit {\n  animation-name: Toastify__flipOut; }\n\n@keyframes Toastify__slideInRight {\n  from {\n    transform: translate3d(110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInLeft {\n  from {\n    transform: translate3d(-110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInUp {\n  from {\n    transform: translate3d(0, 110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInDown {\n  from {\n    transform: translate3d(0, -110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(110%, 0, 0); } }\n\n@keyframes Toastify__slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(-110%, 0, 0); } }\n\n@keyframes Toastify__slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 500px, 0); } }\n\n@keyframes Toastify__slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -500px, 0); } }\n\n.Toastify__slide-enter--top-left, .Toastify__slide-enter--bottom-left {\n  animation-name: Toastify__slideInLeft; }\n\n.Toastify__slide-enter--top-right, .Toastify__slide-enter--bottom-right {\n  animation-name: Toastify__slideInRight; }\n\n.Toastify__slide-enter--top-center {\n  animation-name: Toastify__slideInDown; }\n\n.Toastify__slide-enter--bottom-center {\n  animation-name: Toastify__slideInUp; }\n\n.Toastify__slide-exit--top-left, .Toastify__slide-exit--bottom-left {\n  animation-name: Toastify__slideOutLeft; }\n\n.Toastify__slide-exit--top-right, .Toastify__slide-exit--bottom-right {\n  animation-name: Toastify__slideOutRight; }\n\n.Toastify__slide-exit--top-center {\n  animation-name: Toastify__slideOutUp; }\n\n.Toastify__slide-exit--bottom-center {\n  animation-name: Toastify__slideOutDown; }";
 styleInject(css$j);
 
-var SmoothScroll = function SmoothScroll(props) {
-  var _useState = useState({}),
-      _useState2 = _slicedToArray(_useState, 2),
-      cursorPos = _useState2[0],
-      setCursorPos = _useState2[1];
-
-  var handleClick = function handleClick(e) {
-    if (!props.disabled) {
-      e.stopPropagation(); // Waves - Get Cursor Position
-
-      var _cursorPos = {
-        top: e.clientY,
-        left: e.clientX,
-        time: Date.now()
-      };
-      setCursorPos(_cursorPos);
-    }
-  };
-
-  var children = props.children,
-      className = props.className,
-      disabled = props.disabled,
-      active = props.active,
-      to = props.to,
-      spy = props.spy,
-      smooth = props.smooth,
-      offset = props.offset,
-      duration = props.duration,
-      block = props.block,
-      color = props.color,
-      outline = props.outline,
-      size = props.size,
-      rounded = props.rounded,
-      gradient = props.gradient,
-      floating = props.floating,
-      flat = props.flat,
-      social = props.social,
-      btn = props.btn,
-      fixed = props.fixed,
-      bottom = props.bottom,
-      right = props.right,
-      top = props.top,
-      left = props.left,
-      attributes = _objectWithoutProperties(props, ["children", "className", "disabled", "active", "to", "spy", "smooth", "offset", "duration", "block", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "social", "btn", "fixed", "bottom", "right", "top", "left"]);
-
-  var classes = classNames("nav-link", disabled ? "disabled" : "Ripple-parent", active && "active", (btn || floating) && "btn", floating && "btn-floating", flat ? "btn-flat" : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? "-outline" : "", "-").concat(color), size ? "btn-".concat(size) : false, rounded ? "btn-rounded" : false, block ? "btn-block" : false, social ? "btn-" + social : false, "Ripple-parent", className);
-  var fixedStyles = {
-    position: "fixed",
-    top: top ? "".concat(top, "px") : null,
-    bottom: bottom ? "".concat(bottom, "px") : !top ? "45px" : null,
-    left: left ? "".concat(left, "px") : null,
-    right: right ? "".concat(right, "px") : !left ? "24px" : null
-  };
-  return React.createElement(Link, _extends({
-    className: classes,
-    onMouseUp: handleClick,
-    onTouchStart: handleClick,
-    to: to,
-    spy: spy,
-    smooth: smooth,
-    offset: offset,
-    duration: duration,
-    style: fixed ? fixedStyles : null
-  }, attributes), children, props.disabled ? false : React.createElement(Waves, {
-    cursorPos: cursorPos
-  }));
-};
-
-SmoothScroll.propTypes = {
-  to: propTypes.string.isRequired,
-  children: propTypes.node,
-  className: propTypes.string,
-  disabled: propTypes.bool,
-  active: propTypes.bool,
-  spy: propTypes.bool,
-  smooth: propTypes.bool,
-  offset: propTypes.number,
-  duration: propTypes.number,
-  block: propTypes.bool,
-  color: propTypes.string,
-  outline: propTypes.bool,
-  size: propTypes.string,
-  rounded: propTypes.bool,
-  gradient: propTypes.string,
-  floating: propTypes.bool,
-  flat: propTypes.bool,
-  social: propTypes.string,
-  fixed: propTypes.bool,
-  top: propTypes.string,
-  bottom: propTypes.string,
-  right: propTypes.string,
-  left: propTypes.string
-};
-SmoothScroll.defaultProps = {
-  active: false,
-  className: "",
-  disabled: false,
-  spy: true,
-  smooth: true,
-  offset: -70,
-  duration: 500
-};
-
 // FREE
 
-export { Alert, Animation, Autocomplete, Avatar, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, CardUp, Carousel, CarouselCaption, Control as CarouselControl, CarouselIndicator, CarouselIndicators, CarouselInner, CarouselItem, Chip, ChipsInput, Col, Collapse, CollapseHeader, Container, DataTable, DatePicker, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, ExportToCSV, Fa, RotatingCard as FlippingCard, Footer, FormInline, FreeBird, HamburgerToggler, Iframe, Input, InputFile, InputGroup, InputNumeric, InputRange, InputSwitch, Jumbotron, css$c as LightboxStyles, ListGroup, ListGroupItem, Alert as MDBAlert, Animation as MDBAnimation, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, Badge as MDBBadge, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, CardUp as MDBCardUp, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, CarouselIndicator as MDBCarouselIndicator, CarouselIndicators as MDBCarouselIndicators, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, Chip as MDBChip, ChipsInput as MDBChipsInput, MDBCloseIcon, Col as MDBCol, Collapse as MDBCollapse, CollapseHeader as MDBCollapseHeader, Container as MDBContainer, Control as MDBControl, DataTable as MDBDataTable, DatePicker as MDBDatePicker, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, ExportToCSV as MDBExportToCSV, InputFile as MDBFileInput, Footer as MDBFooter, FormInline as MDBFormInline, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Iframe as MDBIframe, Input as MDBInput, InputGroup as MDBInputGroup, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, NavItem as MDBNavItem, NavLink as MDBNavLink, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, Notification as MDBNotification, PageItem as MDBPageItem, PageLink as MDBPageNav, Pagination as MDBPagination, Popper as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Popper as MDBPopper, Progress as MDBProgress, InputRange as MDBRangeInput, Rating as MDBRating, RotatingCard as MDBRotatingCard, Row as MDBRow, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, Select as MDBSelect, SelectInput$1 as MDBSelectInput, SelectOption as MDBSelectOption, Options as MDBSelectOptions, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, SmoothScroll as MDBSmoothScroll, Spinner as MDBSpinner, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, MDBStreak, InputSwitch as MDBSwitch, TabContent as MDBTabContent, TabPane as MDBTabPane, Table as MDBTable, TableBody as MDBTableBody, TableEditable as MDBTableEditable, TableFoot as MDBTableFoot, TableHead as MDBTableHead, Testimonial as MDBTestimonial, TimePicker as MDBTimePicker, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, Popper as MDBTooltip, View as MDBView, Waves as MDBWaves, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Notification, PageItem, PageLink, Pagination, ScrollBar as PerfectScrollbar, Popper as Popover, PopoverBody, PopoverHeader, Popper, Progress, Rating, Row, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, Select, SelectInput$1 as SelectInput, SelectOption, Options as SelectOptions, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, SmoothScroll, Spinner, Step, Stepper, Sticky, Container$1 as StickyContainer, TabContent, TabPane, Table, TableBody, TableEditable, TableFoot, TableHead, Testimonial, TimePicker, Timeline, TimelineStep, Popper as Tooltip, View, Waves };
+export { Alert, Animation, Autocomplete, Avatar, Badge, Breadcrumb, BreadcrumbItem, Button, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, CardUp, Carousel, CarouselCaption, Control as CarouselControl, CarouselIndicator, CarouselIndicators, CarouselInner, CarouselItem, Chip, ChipsInput, MDBCloseIcon as CloseIcon, Col, Collapse, CollapseHeader, Container, DataTable, DatePicker, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, ExportToCSV, Fa, RotatingCard as FlippingCard, Footer, FormInline, FreeBird, HamburgerToggler, Iframe, Input, InputFile, InputGroup, InputNumeric, InputRange, InputSwitch, Jumbotron, css$c as LightboxStyles, ListGroup, ListGroupItem, Alert as MDBAlert, Animation as MDBAnimation, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, Badge as MDBBadge, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, CardUp as MDBCardUp, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, CarouselIndicator as MDBCarouselIndicator, CarouselIndicators as MDBCarouselIndicators, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, Chip as MDBChip, ChipsInput as MDBChipsInput, MDBCloseIcon, Col as MDBCol, Collapse as MDBCollapse, CollapseHeader as MDBCollapseHeader, Container as MDBContainer, Control as MDBControl, DataTable as MDBDataTable, DatePicker as MDBDatePicker, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, ExportToCSV as MDBExportToCSV, InputFile as MDBFileInput, Footer as MDBFooter, FormInline as MDBFormInline, FreeBird as MDBFreeBird, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Iframe as MDBIframe, Input as MDBInput, InputGroup as MDBInputGroup, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, NavItem as MDBNavItem, NavLink as MDBNavLink, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, Notification as MDBNotification, PageItem as MDBPageItem, PageLink as MDBPageNav, Pagination as MDBPagination, Popper as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Popper as MDBPopper, Progress as MDBProgress, InputRange as MDBRangeInput, Rating as MDBRating, RotatingCard as MDBRotatingCard, Row as MDBRow, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, Select as MDBSelect, SelectInput$1 as MDBSelectInput, SelectOption as MDBSelectOption, Options as MDBSelectOptions, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, SmoothScroll as MDBSmoothScroll, Spinner as MDBSpinner, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, MDBStreak, InputSwitch as MDBSwitch, TabContent as MDBTabContent, TabPane as MDBTabPane, Table as MDBTable, TableBody as MDBTableBody, TableEditable as MDBTableEditable, TableFoot as MDBTableFoot, TableHead as MDBTableHead, Testimonial as MDBTestimonial, TimePicker as MDBTimePicker, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, Popper as MDBTooltip, View as MDBView, Waves as MDBWaves, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Notification, PageItem, PageLink, Pagination, ScrollBar as PerfectScrollbar, Popper as Popover, PopoverBody, PopoverHeader, Popper, Progress, Rating, Row, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, Select, SelectInput$1 as SelectInput, SelectOption, Options as SelectOptions, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, SmoothScroll, Spinner, Step, Stepper, Sticky, Container$1 as StickyContainer, MDBStreak as Streak, TabContent, TabPane, Table, TableBody, TableEditable, TableFoot, TableHead, Testimonial, TimePicker, Timeline, TimelineStep, Popper as Tooltip, View, Waves };

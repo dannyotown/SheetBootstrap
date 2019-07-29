@@ -59,8 +59,8 @@ import TabsPage from './pages/TabsPage';
 import PillsPage from './pages/PillsPage';
 import NotificationPage from './pages/NotificationPage';
 import InputGroupPage from './pages/InputGroupPage'
-
 import RatingPage from './pages/RatingPage'
+
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
