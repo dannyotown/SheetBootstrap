@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Fa } from 'mdbreact';
+import { Fa, MDBTooltip } from 'mdbreact';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -84,9 +84,8 @@ const Rating = props => {
         toFill = index <= hovered;
       }
 
-      
       let fillColor = '';
-      
+
       if (fillColors) {
         let current = null;
 
@@ -140,21 +139,25 @@ const Rating = props => {
       }
 
       return (
-        <Fa
-          style={{ cursor: 'pointer' }}
-          {...commonAttributes}
-          {...itemAttributes}
-          key={tooltip}
-          icon={renderIcon}
-          size={size || iconSize}
-          far={far || iconRegular}
-          className={iconClasses}
-          data-index={index}
-          data-original-title={tooltip}
-          onMouseEnter={() => handleMouseEnter(tooltip, index)}
-          onMouseLeave={() => handleMouseLeave()}
-          onMouseDown={() => handleClick(tooltip, index)}
-        />
+        <MDBTooltip placement='top' domElement key={tooltip}>
+          <span>
+            <Fa
+              style={{ cursor: 'pointer' }}
+              {...commonAttributes}
+              {...itemAttributes}
+              icon={renderIcon}
+              size={size || iconSize}
+              far={far || iconRegular}
+              className={iconClasses}
+              data-index={index}
+              data-original-title={tooltip}
+              onMouseEnter={() => handleMouseEnter(tooltip, index)}
+              onMouseLeave={() => handleMouseLeave()}
+              onMouseDown={() => handleClick(tooltip, index)}
+            />
+          </span>
+          <span>{tooltip}</span>
+        </MDBTooltip>
       );
     });
   }
