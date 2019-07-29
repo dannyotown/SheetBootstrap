@@ -48,13 +48,14 @@ const Rating = props => {
 
   const {
     tag: Tag,
+    containerClassName,
     iconClassName,
     iconFaces,
     iconSize,
     iconRegular,
     fillClassName,
-    containerClassName,
     fillColors,
+    getValue,
     ...commonAttributes
   } = props;
 
