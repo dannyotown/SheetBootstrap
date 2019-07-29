@@ -158,7 +158,7 @@ const Rating = props => {
                 data-index={index}
                 data-original-title={tooltip}
                 onMouseEnter={() => handleMouseEnter(tooltip, index)}
-                onMouseLeave={() => handleMouseLeave()}
+                onMouseLeave={handleMouseLeave}
                 onMouseDown={() => handleClick(tooltip, index)}
               />
             </span>
@@ -217,3 +217,4 @@ Rating.defaultProps = {
 };
 
 export default Rating;
+export { Rating as MDBRating };
