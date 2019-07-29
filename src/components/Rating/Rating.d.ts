@@ -1,12 +1,16 @@
-import * as React from "react";
+import * as React from 'react';
 
 declare const MDBRating: React.FunctionComponent<{
-  children?: React.ReactNode;
-  
-  
-  
+  containerClassName?: string;
+  data?: { icon?: string; tooltip?: string; choosed?: boolean; [rest: string]: any; };
+  fillClassName?: string;
+  fillColors?: boolean | string[];
+  iconClassName?: string;
+  iconFaces?: boolean;
+  iconSize?: string;
+  iconRegular?: boolean;
   tag?: string;
-  
+  getValue?: () => void;
   [rest: string]: any;
 }>;
 

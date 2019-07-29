@@ -18,7 +18,8 @@ const Rating = props => {
   useEffect(() => {
     const choosedIndex = data.findIndex(item => item.choosed);
 
-    if (choosedIndex !== -1) setChoosed({ title: data[choosedIndex].tooltip, index: choosedIndex });
+    if (choosedIndex !== -1)
+      setChoosed({ title: data[choosedIndex].tooltip, index: choosedIndex });
   }, [data]);
 
   useEffect(() => {
@@ -70,97 +71,102 @@ const Rating = props => {
   let renderedIcons = [];
 
   if (data.length) {
-    renderedIcons = data.map(({ icon = 'star', tooltip, far, size, choosed: _, ...itemAttributes }, index) => {
-      const isChoosed = choosed.index !== null;
-      const isHovered = hovered !== null;
-      let toFill = false;
-
-      if (isChoosed) {
-        toFill = index <= choosed.index;
-
-        if (isHovered && hovered > choosed.index) {
-          toFill = index <= hovered;
-        }
-      } else if (isHovered) {
-        toFill = index <= hovered;
-      }
-
-      let fillColor = '';
-
-      if (fillColors) {
-        let current = null;
+    renderedIcons = data.map(
+      (
+        { icon = 'star', tooltip, far, size, choosed: _, ...itemAttributes },
+        index
+      ) => {
+        const isChoosed = choosed.index !== null;
+        const isHovered = hovered !== null;
+        let toFill = false;
 
         if (isChoosed) {
-          current = choosed.index;
-          if (isHovered) current = hovered;
-        } else if (isHovered) current = hovered;
+          toFill = index <= choosed.index;
 
-        const isCustom = Array.isArray(fillColors);
-
-        switch (current) {
-          case 0:
-            fillColor = isCustom ? fillColors[0] : 'oneStar';
-            break;
-          case 1:
-            fillColor = isCustom ? fillColors[1] : 'twoStars';
-            break;
-          case 2:
-            fillColor = isCustom ? fillColors[2] : 'threeStars';
-            break;
-          case 3:
-            fillColor = isCustom ? fillColors[3] : 'fourStars';
-            break;
-          case 4:
-            fillColor = isCustom ? fillColors[4] : 'fiveStars';
-            break;
-          default:
-            break;
+          if (isHovered && hovered > choosed.index) {
+            toFill = index <= hovered;
+          }
+        } else if (isHovered) {
+          toFill = index <= hovered;
         }
-      }
 
-      const iconClasses = classNames(
-        'py-2 px-1 rate-popover',
-        toFill && (fillColors ? fillColor : fillClassName),
-        iconClassName
-      );
+        let fillColor = '';
 
-      let renderIcon = icon;
+        if (fillColors) {
+          let current = null;
 
-      if (iconFaces) {
-        const faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
-        renderIcon = 'meh-blank';
+          if (isChoosed) {
+            current = choosed.index;
+            if (isHovered) current = hovered;
+          } else if (isHovered) current = hovered;
 
-        if (isChoosed && index <= choosed.index) {
-          renderIcon = faces[choosed.index];
+          const isCustom = Array.isArray(fillColors);
 
-          if (isHovered) renderIcon = faces[hovered];
-        } else if (isHovered && index <= hovered) {
-          renderIcon = faces[hovered];
+          switch (current) {
+            case 0:
+              fillColor = isCustom ? fillColors[0] : 'oneStar';
+              break;
+            case 1:
+              fillColor = isCustom ? fillColors[1] : 'twoStars';
+              break;
+            case 2:
+              fillColor = isCustom ? fillColors[2] : 'threeStars';
+              break;
+            case 3:
+              fillColor = isCustom ? fillColors[3] : 'fourStars';
+              break;
+            case 4:
+              fillColor = isCustom ? fillColors[4] : 'fiveStars';
+              break;
+            default:
+              break;
+          }
         }
-      }
 
-      return (
-        <MDBTooltip placement='top' domElement key={tooltip}>
-          <span>
-            <Fa
-              style={{ cursor: 'pointer' }}
-              {...commonAttributes}
-              {...itemAttributes}
-              icon={renderIcon}
-              size={size || iconSize}
-              far={far || iconRegular}
-              className={iconClasses}
-              data-index={index}
-              data-original-title={tooltip}
-              onMouseEnter={() => handleMouseEnter(tooltip, index)}
-              onMouseLeave={() => handleMouseLeave()}
-              onMouseDown={() => handleClick(tooltip, index)}
-            />
-          </span>
-          <span>{tooltip}</span>
-        </MDBTooltip>
-      );
-    });
+        const iconClasses = classNames(
+          'py-2 px-1 rate-popover',
+          toFill && (fillColors ? fillColor : fillClassName),
+          iconClassName
+        );
+
+        let renderIcon = icon;
+
+        if (iconFaces) {
+          const faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
+          renderIcon = 'meh-blank';
+
+          if (isChoosed && index <= choosed.index) {
+            renderIcon = faces[choosed.index];
+
+            if (isHovered) renderIcon = faces[hovered];
+          } else if (isHovered && index <= hovered) {
+            renderIcon = faces[hovered];
+          }
+        }
+
+        return (
+          <MDBTooltip placement='top' domElement key={tooltip}>
+            <span>
+              <Fa
+                style={{ cursor: 'pointer' }}
+                {...commonAttributes}
+                {...itemAttributes}
+                icon={renderIcon}
+                size={size || iconSize}
+                far={far || iconRegular}
+                className={iconClasses}
+                data-index={index}
+                data-original-title={tooltip}
+                onMouseEnter={() => handleMouseEnter(tooltip, index)}
+                onMouseLeave={() => handleMouseLeave()}
+                onMouseDown={() => handleClick(tooltip, index)}
+              />
+            </span>
+            <span>{tooltip}</span>
+          </MDBTooltip>
+        );
+      }
+    );
   }
 
   return <Tag className={containerClasses}>{renderedIcons}</Tag>;
@@ -168,19 +174,24 @@ const Rating = props => {
 
 Rating.propTypes = {
   containerClassName: PropTypes.string,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({ icon: PropTypes.string, tooltip: PropTypes.string, choosed: PropTypes.bool })
+  ),
   fillClassName: PropTypes.string,
-  getValue: PropTypes.func,
-  data: PropTypes.arrayOf(PropTypes.shape({ icon: PropTypes.string, tooltip: PropTypes.string })),
+  fillColors: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.arrayOf(PropTypes.string)
+  ]),
   iconClassName: PropTypes.string,
+  iconFaces: PropTypes.bool,
   iconSize: PropTypes.string,
   iconRegular: PropTypes.bool,
   tag: PropTypes.string,
-  tooltips: PropTypes.arrayOf(PropTypes.string)
+  getValue: PropTypes.func
 };
 
 Rating.defaultProps = {
   containerClassName: '',
-  fillClassName: 'fiveStars',
   data: [
     {
       tooltip: 'Very Bad'
@@ -198,6 +209,7 @@ Rating.defaultProps = {
       tooltip: 'Excellent'
     }
   ],
+  fillClassName: 'fiveStars',
   iconClassName: '',
   iconSize: '1x',
   iconRegular: false,

@@ -27,6 +27,7 @@ import Collapse from './components/Collapse';
 import Container from './components/Container';
 import CloseIcon from './components/CloseIcon';
 import DataTable from './components/DataTable';
+import Dropdown from './components/Dropdown';
 import DropdownItem from './components/Dropdown/DropdownItem';
 import DropdownMenu from './components/Dropdown/DropdownMenu';
 import DropdownToggle from './components/Dropdown/DropdownToggle';
@@ -64,7 +65,7 @@ import Popper from './components/Popper';
 import PopoverBody from './components/Popper/PopoverBody';
 import PopoverHeader from './components/Popper/PopoverHeader';
 import Progress from './components/Progress';
-import Waves from './components/Waves';
+import Rating from './components/Rating'
 import Row from './components/Row';
 import TabPane from './components/TabPane';
 import TabContent from './components/TabContent';
@@ -75,9 +76,7 @@ import TableFoot from './components/Table/TableFoot';
 import Tooltip from './components/Popper';
 import View from './components/View';
 import Iframe from './components/Iframe';
-import Dropdown from './components/Dropdown';
-
-import Rating from './components/Rating'
+import Waves from './components/Waves';
 
 // PRO-START
 import Autocomplete from './components/pro/Autocomplete';
@@ -195,6 +194,7 @@ export {
   PopoverHeader,
   Progress,
   Waves,
+  Rating,
   Row,
   TabPane,
   TabContent,
@@ -205,8 +205,7 @@ export {
   Tooltip,
   View,
   Iframe,
-
-  Rating,
+  
   // PRO-START
   Autocomplete,
   Avatar,
@@ -322,6 +321,7 @@ export {
   PopoverHeader as MDBPopoverHeader,
   Progress as MDBProgress,
   Waves as MDBWaves,
+  Rating as MDBRating,
   Row as MDBRow,
   TabPane as MDBTabPane,
   TabContent as MDBTabContent,
@@ -331,8 +331,6 @@ export {
   TableFoot as MDBTableFoot,
   Tooltip as MDBTooltip,
   View as MDBView,
-
-  Rating as MDBRating,
   
   // PRO-START
   Autocomplete as MDBAutocomplete,
