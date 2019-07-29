@@ -1,6 +1,6 @@
 // FREE
-import Animation from './components/Animation';
 import Alert from './components/Alert';
+import Animation from './components/Animation';
 import Badge from './components/Badge';
 import Breadcrumb from './components/Breadcrumb';
 import BreadcrumbItem from './components/Breadcrumb/BreadcrumbItem';
@@ -18,24 +18,26 @@ import CardTitle from './components/Card/CardTitle';
 import Carousel from './components/Carousel';
 import CarouselCaption from './components/Carousel/CarouselCaption';
 import CarouselControl from './components/Carousel/CarouselControl';
+import CarouselIndicator from './components/Carousel/CarouselIndicator';
+import CarouselIndicators from './components/Carousel/CarouselIndicators';
 import CarouselInner from './components/Carousel/CarouselInner';
 import CarouselItem from './components/Carousel/CarouselItem';
-import CarouselIndicators from './components/Carousel/CarouselIndicators';
-import CarouselIndicator from './components/Carousel/CarouselIndicator';
+import CloseIcon from './components/CloseIcon';
 import Col from './components/Col';
 import Collapse from './components/Collapse';
 import Container from './components/Container';
-import CloseIcon from './components/CloseIcon';
 import DataTable from './components/DataTable';
+import Dropdown from './components/Dropdown';
 import DropdownItem from './components/Dropdown/DropdownItem';
 import DropdownMenu from './components/Dropdown/DropdownMenu';
 import DropdownToggle from './components/Dropdown/DropdownToggle';
 import EdgeHeader from './components/EdgeHeader';
 import Fa from './components/Fa';
-import FormInline from './components/FormInline';
 import Footer from './components/Footer';
+import FormInline from './components/FormInline';
 import FreeBird from './components/FreeBird';
 import HamburgerToggler from './components/HamburgerToggler';
+import Iframe from './components/Iframe';
 import Input from './components/Input';
 import InputGroup from './components/InputGroup';
 import InputNumeric from './components/InputNumeric';
@@ -60,22 +62,19 @@ import Pagination from './components/Pagination';
 import PageItem from './components/Pagination/PageItem';
 import PageLink from './components/Pagination/PageLink';
 import Popover from './components/Popper';
-import Popper from './components/Popper';
 import PopoverBody from './components/Popper/PopoverBody';
 import PopoverHeader from './components/Popper/PopoverHeader';
 import Progress from './components/Progress';
-import Waves from './components/Waves';
 import Row from './components/Row';
-import TabPane from './components/TabPane';
 import TabContent from './components/TabContent';
+import TabPane from './components/TabPane';
 import Table from './components/Table';
 import TableBody from './components/Table/TableBody';
-import TableHead from './components/Table/TableHead';
 import TableFoot from './components/Table/TableFoot';
+import TableHead from './components/Table/TableHead';
 import Tooltip from './components/Popper';
 import View from './components/View';
-import Iframe from './components/Iframe';
-import Dropdown from './components/Dropdown';
+import Waves from './components/Waves';
 
 // PRO-START
 import Autocomplete from './components/pro/Autocomplete';
@@ -98,37 +97,35 @@ import ScrollSpyBox from './components/pro/ScrollSpy/ScrollSpyBox';
 import ScrollSpyList from './components/pro/ScrollSpy/ScrollSpyList';
 import ScrollSpyListItem from './components/pro/ScrollSpy/ScrollSpyListItem';
 import ScrollSpyText from './components/pro/ScrollSpy/ScrollSpyText';
+import Select from './components/pro/Select';
+import SelectInput from './components/pro/Select/SelectInput';
+import SelectOption from './components/pro/Select/SelectOption';
+import SelectOptions from './components/pro/Select/SelectOptions';
 import SideNav from './components/pro/SideNav';
 import SideNavCat from './components/pro/SideNav/SideNavCat';
 import SideNavItem from './components/pro/SideNav/SideNavItem';
 import SideNavLink from './components/pro/SideNav/SideNavLink';
 import SideNavNav from './components/pro/SideNav/SideNavNav';
 import SimpleChart from './components/pro/SimpleChart';
-import Select from './components/pro/Select';
-import SelectInput from './components/pro/Select/SelectInput';
-import SelectOptions from './components/pro/Select/SelectOptions';
-import SelectOption from './components/pro/Select/SelectOption';
+import SmoothScroll from './components/pro/SmoothScroll';
 import Spinner from './components/pro/Spinner';
 import Step from './components/pro/Step';
 import Stepper from './components/pro/Stepper';
-import TableEditable from './components/pro/TableEditable';
 import Sticky from './components/pro/Sticky';
-import Streak from './components/pro/Streak';
 import StickyContainer from './components/pro/StickyContainer';
+import Streak from './components/pro/Streak';
+import TableEditable from './components/pro/TableEditable';
 import Testimonial from './components/pro/Testimonial';
 import Timeline from './components/pro/Timeline';
 import TimelineStep from './components/pro/Timeline/TimelineStep';
 import TimePicker from './components/pro/TimePicker/TimePicker';
-import { toast } from './components/pro/Toast';
-import { ToastContainer } from './components/pro/Toast';
-import { cssTransition } from './components/pro/Toast';
-import SmoothScroll from './components/pro/SmoothScroll';
+import { toast, ToastContainer, cssTransition } from './components/pro/Toast';
 // PRO-END
 
 export {
   // FREE
-  Animation,
   Alert,
+  Animation,
   Badge,
   Breadcrumb,
   BreadcrumbItem,
@@ -146,10 +143,11 @@ export {
   Carousel,
   CarouselCaption,
   CarouselControl,
+  CarouselIndicator,
+  CarouselIndicators,
   CarouselInner,
   CarouselItem,
-  CarouselIndicators,
-  CarouselIndicator,
+  CloseIcon,
   Col,
   Collapse,
   Container,
@@ -160,10 +158,11 @@ export {
   DropdownToggle,
   EdgeHeader,
   Fa,
-  FormInline,
   Footer,
+  FormInline,
   FreeBird,
   HamburgerToggler,
+  Iframe,
   Input,
   InputGroup,
   InputNumeric,
@@ -188,21 +187,21 @@ export {
   PageItem,
   PageLink,
   Popover,
-  Popper,
+  Popover as Popper,
   PopoverBody,
   PopoverHeader,
   Progress,
-  Waves,
   Row,
-  TabPane,
   TabContent,
+  TabPane,
   Table,
   TableBody,
-  TableHead,
   TableFoot,
+  TableHead,
   Tooltip,
   View,
-  Iframe,
+  Waves,
+  
   // PRO-START
   Autocomplete,
   Avatar,
@@ -225,42 +224,41 @@ export {
   ScrollSpyList,
   ScrollSpyListItem,
   ScrollSpyText,
+  Select,
+  SelectInput,
+  SelectOption,
+  SelectOptions,
   SideNav,
   SideNavCat,
   SideNavItem,
   SideNavLink,
   SideNavNav,
   SimpleChart,
-  Select,
-  SelectInput,
-  SelectOptions,
-  SelectOption,
+  SmoothScroll,
   Spinner,
   Step,
   Stepper,
-  TableEditable,
   Sticky,
   StickyContainer,
+  Streak,
+  TableEditable,
   Testimonial,
   Timeline,
   TimelineStep,
   TimePicker,
   toast,
   ToastContainer,
-  SmoothScroll,
   // PRO-END
 
-  Iframe as MDBIframe,
+  Alert as MDBAlert,
   Animation as MDBAnimation,
   Badge as MDBBadge,
-  Alert as MDBAlert,
   Breadcrumb as MDBBreadcrumb,
   BreadcrumbItem as MDBBreadcrumbItem,
   Button as MDBBtn,
   ButtonGroup as MDBBtnGroup,
   ButtonToolbar as MDBBtnToolbar,
   Card as MDBCard,
-  CloseIcon as MDBCloseIcon,
   CardBody as MDBCardBody,
   CardFooter as MDBCardFooter,
   CardGroup as MDBCardGroup,
@@ -272,9 +270,10 @@ export {
   CarouselCaption as MDBCarouselCaption,
   CarouselControl as MDBControl,
   CarouselInner as MDBCarouselInner,
-  CarouselItem as MDBCarouselItem,
-  CarouselIndicators as MDBCarouselIndicators,
   CarouselIndicator as MDBCarouselIndicator,
+  CarouselIndicators as MDBCarouselIndicators,
+  CarouselItem as MDBCarouselItem,
+  CloseIcon as MDBCloseIcon,
   Col as MDBCol,
   Collapse as MDBCollapse,
   Container as MDBContainer,
@@ -284,11 +283,12 @@ export {
   DropdownMenu as MDBDropdownMenu,
   DropdownToggle as MDBDropdownToggle,
   EdgeHeader as MDBEdgeHeader,
-  FormInline as MDBFormInline,
+  Fa as MDBIcon,
   Footer as MDBFooter,
+  FormInline as MDBFormInline,
   FreeBird as MDBFreeBird,
   HamburgerToggler as MDBHamburgerToggler,
-  Fa as MDBIcon,
+  Iframe as MDBIframe,
   Input as MDBInput,
   InputGroup as MDBInputGroup,
   InputNumeric as MDBInputSelect,
@@ -313,20 +313,21 @@ export {
   PageItem as MDBPageItem,
   PageLink as MDBPageNav,
   Popover as MDBPopover,
-  Popper as MDBPopper,
+  Popover as MDBPopper,
   PopoverBody as MDBPopoverBody,
   PopoverHeader as MDBPopoverHeader,
   Progress as MDBProgress,
-  Waves as MDBWaves,
   Row as MDBRow,
   TabPane as MDBTabPane,
   TabContent as MDBTabContent,
   Table as MDBTable,
   TableBody as MDBTableBody,
-  TableHead as MDBTableHead,
   TableFoot as MDBTableFoot,
+  TableHead as MDBTableHead,
   Tooltip as MDBTooltip,
   View as MDBView,
+  Waves as MDBWaves,
+  
   // PRO-START
   Autocomplete as MDBAutocomplete,
   Avatar as MDBAvatar,
@@ -337,9 +338,8 @@ export {
   ChipsInput as MDBChipsInput,
   CollapseHeader as MDBCollapseHeader,
   cssTransition as MDBcssTransition,
-  ExportToCSV as MDBExportToCSV,
   DatePicker as MDBDatePicker,
-  TimePicker as MDBTimePicker,
+  ExportToCSV as MDBExportToCSV,
   FlippingCard as MDBRotatingCard,
   InputFile as MDBFileInput,
   InputRange as MDBRangeInput,
@@ -349,28 +349,29 @@ export {
   ScrollSpyList as MDBScrollspyList,
   ScrollSpyListItem as MDBScrollspyListItem,
   ScrollSpyText as MDBScrollspyText,
+  Select as MDBSelect,
+  SelectInput as MDBSelectInput,
+  SelectOption as MDBSelectOption,
+  SelectOptions as MDBSelectOptions,
   SideNav as MDBSideNav,
   SideNavCat as MDBSideNavCat,
   SideNavItem as MDBSideNavItem,
   SideNavLink as MDBSideNavLink,
   SideNavNav as MDBSideNavNav,
   SimpleChart as MDBSimpleChart,
-  Select as MDBSelect,
-  SelectInput as MDBSelectInput,
-  SelectOptions as MDBSelectOptions,
-  SelectOption as MDBSelectOption,
+  SmoothScroll as MDBSmoothScroll,
   Spinner as MDBSpinner,
-  TableEditable as MDBTableEditable,
   Step as MDBStep,
   Stepper as MDBStepper,
   Sticky as MDBSticky,
   StickyContainer as MDBStickyContent,
+  Streak as MDBStreak,
+  TableEditable as MDBTableEditable,
   Testimonial as MDBTestimonial,
   Timeline as MDBTimeline,
   TimelineStep as MDBTimelineStep,
+  TimePicker as MDBTimePicker,
   toast as MDBToast,
   ToastContainer as MDBToastContainer,
-  Streak as MDBStreak,
-  SmoothScroll as MDBSmoothScroll
   // PRO-END
 };

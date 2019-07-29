@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode, SyntheticEvent, Component, RefObject, FormEvent } from 'react';
+import { FunctionComponent, ReactNode, Component, RefObject, SyntheticEvent, FormEvent } from 'react';
 
 declare const MDBAlert: FunctionComponent<{
     color?: 'default' | 'primary'| 'secondary'| 'success'| 'danger'| 'warning'| 'info'| 'light'| 'dark';
@@ -7,13 +7,6 @@ declare const MDBAlert: FunctionComponent<{
     dismiss?: boolean;
     onClose?: () => void;
     onClosed?: () => void;
-}>;
-
-declare const MDBCloseIcon: FunctionComponent<{
-    ariaLabel?: string;
-    className?: string;
-    onClick?: (event: SyntheticEvent<HTMLButtonElement>) => void;
-    [rest: string]: any;
 }>;
 
 declare class MDBAnimation extends Component<
@@ -275,20 +268,20 @@ declare const MDBCardFooter: FunctionComponent<{
   [rest: string]: any;
 }>;
 
-declare const MDBCardGroup: FunctionComponent<{
-  className?: string;
-  deck?: boolean;
-  column?: boolean;
-  tag?: string;
-  [rest: string]: any;
-}>;
-
 declare const MDBCardHeader: FunctionComponent<{
   color?: string;
   text?: string;
   border?: string;
   transparent?: boolean;
   className?: string;
+  tag?: string;
+  [rest: string]: any;
+}>;
+
+declare const MDBCardGroup: FunctionComponent<{
+  className?: string;
+  deck?: boolean;
+  column?: boolean;
   tag?: string;
   [rest: string]: any;
 }>;
@@ -398,6 +391,13 @@ declare class MDBCarouselItem extends Component<{
   itemId?: number | string;
   [rest: string]: any;
 }, any> {}
+
+declare const MDBCloseIcon: FunctionComponent<{
+    ariaLabel?: string;
+    className?: string;
+    onClick?: (event: SyntheticEvent<HTMLButtonElement>) => void;
+    [rest: string]: any;
+}>;
 
 declare const MDBCol: FunctionComponent<{
     bottom?: boolean;
@@ -580,80 +580,10 @@ declare const MDBFreeBird: FunctionComponent<{
   [rest: string]: any;
 }>;
 
-declare const MDBRow: FunctionComponent<{
-  around?: boolean;
-  between?: boolean;
-  bottom?: boolean;
-  center?: boolean;
-  className?: string;
-  end?: boolean;
-  middle?: boolean;
-  start?: boolean;
-  tag?: string;
-  top?: boolean;
-  [rest: string]: any;
-}>;
-
-declare const MDBJumbotron: FunctionComponent<{
-  children?: ReactNode;
-  className?: string;
-  fluid?: boolean;
-  [rest: string]: any;
-}>;
-
-declare const MDBTable: FunctionComponent<{
-  autoWidth?: boolean;
-  bordered?: boolean;
-  borderless?: boolean;
-  btn?: boolean;
-  children?: ReactNode;
-  className?: string;
-  dark?: boolean;
-  fixed?: boolean;
-  theadColor?: string;
-  hover?: boolean;
-  maxHeight?: string;
-  responsive?: boolean;
-  responsiveSm?: boolean;
-  responsiveMd?: boolean;
-  responsiveLg?: boolean;
-  responsiveXl?: boolean;
-  scrollY?: boolean;
-  small?: boolean;
-  striped?: boolean;
-  [rest: string]: any;
-}>;
-
-declare const MDBTableBody: FunctionComponent<{
-  children?: ReactNode;
+declare const MDBHamburgerToggler: FunctionComponent<{
   color?: string;
-  rows?: {
-    clickEvent?: () => void;
-    colspan?: number;
-    [rest: string]: any;
-  }[];
-  textWhite?: boolean;
-  [rest: string]: any;
-}>;
-
-declare const MDBTableFoot: FunctionComponent<{
-  children?: ReactNode;
-  color?: string;
-  columns?: {}[];
-  textWhite?: boolean;
-  [rest: string]: any;
-}>;
-
-declare const MDBTableHead: FunctionComponent<{
-  children?: ReactNode;
-  color?: string;
-  columns?: {
-    label?: string;
-    field?: string;
-    minimal?: "sm" | "lg";
-    [rest: string]: any;
-  }[];
-  textWhite?: boolean;
+  className?: string;
+  id?: string;
   [rest: string]: any;
 }>;
 
@@ -754,10 +684,10 @@ declare const MDBInputSelect: FunctionComponent<{
   [rest: string]: any;
 }>;
 
-declare const MDBHamburgerToggler: FunctionComponent<{
-  color?: string;
+declare const MDBJumbotron: FunctionComponent<{
+  children?: ReactNode;
   className?: string;
-  id?: string;
+  fluid?: boolean;
   [rest: string]: any;
 }>;
 
@@ -781,6 +711,91 @@ declare const MDBListGroupItem: FunctionComponent<{
   success?: boolean;
   tag?: string;
   warning?: boolean;
+  [rest: string]: any;
+}>;
+
+declare const MDBMask: FunctionComponent<{
+  children?: ReactNode;
+  className?: string;
+  overlay?: string;
+  pattern?: string | number;
+  tag?: string;
+  [rest: string]: any;
+}>;
+
+declare const MDBMedia: FunctionComponent<{
+  body?: boolean;
+  bottom?: boolean;
+  children?: ReactNode;
+  className?: string;
+  heading?: boolean;
+  figure?: boolean;
+  figImg?: boolean;
+  figCap?: boolean;
+  figCapRight?: boolean;
+  figCapLeft?: boolean;
+  left?: boolean;
+  list?: boolean;
+  middle?: boolean;
+  object?: boolean;
+  thumbnail?: boolean;
+  round?: boolean;
+  right?: boolean;
+  tag?: string;
+  top?: boolean;
+  [rest: string]: any;
+}>;
+
+declare class MDBModal extends Component<{
+  animation?: "top" | "bottom" | "left" | "right";
+  autoFocus?: boolean;
+  backdrop?: boolean;
+  backdropClassName?: string;
+  cascading?: boolean;
+  centered?: boolean;
+  className?: string;
+  contentClassName?: string;
+  children?: ReactNode;
+  fade?: boolean;
+  frame?: boolean;
+  fullHeight?: boolean;
+  isOpen?: boolean;
+  id?: string;
+  labelledBy?: string;
+  modalClassName?: string;
+  modalStyle?: "success" | "info" | "danger" | "warning";
+  position?: string;
+  side?: boolean;
+  size?: "sm" | "md" | "lg" | "fluid";
+  role?: string;
+  tabIndex?: string;
+  wrapClassName?: boolean;
+  toggle?: () => void;
+  hiddenModal?: () => void;
+  hideModal?: () => void;
+  showModal?: () => void;
+  [rest: string]: any;
+}, any> {}
+
+declare const MDBModalBody: FunctionComponent<{
+  className?: string;
+  children?: ReactNode;
+  [rest: string]: any;
+}>;
+
+declare const MDBModalFooter: FunctionComponent<{
+  className?: string;
+  children?: ReactNode;
+  [rest: string]: any;
+}>;
+
+declare const MDBModalHeader: FunctionComponent<{
+  className?: string;
+  closeAriaLabel?: string;
+  children?: ReactNode;
+  tag?: string;
+  titleClass?: string;
+  toggle?: () => void;
   [rest: string]: any;
 }>;
 
@@ -876,88 +891,13 @@ declare class MDBNotification extends Component<{
   [rest: string]: any;
 }, any> {}
 
-declare const MDBMask: FunctionComponent<{
+declare const MDBPagination: FunctionComponent<{
   children?: ReactNode;
   className?: string;
-  overlay?: string;
-  pattern?: string | number;
+  circle?: boolean;
+  color?:  "blue"| "red"| "teal"| "dark-grey"| "dark" | "blue-grey"| "amber"| "purple";
+  size?: "sm" | "lg";
   tag?: string;
-  [rest: string]: any;
-}>;
-
-declare const MDBMedia: FunctionComponent<{
-  body?: boolean;
-  bottom?: boolean;
-  children?: ReactNode;
-  className?: string;
-  heading?: boolean;
-  figure?: boolean;
-  figImg?: boolean;
-  figCap?: boolean;
-  figCapRight?: boolean;
-  figCapLeft?: boolean;
-  left?: boolean;
-  list?: boolean;
-  middle?: boolean;
-  object?: boolean;
-  thumbnail?: boolean;
-  round?: boolean;
-  right?: boolean;
-  tag?: string;
-  top?: boolean;
-  [rest: string]: any;
-}>;
-
-declare class MDBModal extends Component<{
-  animation?: "top" | "bottom" | "left" | "right";
-  autoFocus?: boolean;
-  backdrop?: boolean;
-  backdropClassName?: string;
-  cascading?: boolean;
-  centered?: boolean;
-  className?: string;
-  contentClassName?: string;
-  children?: ReactNode;
-  fade?: boolean;
-  frame?: boolean;
-  fullHeight?: boolean;
-  isOpen?: boolean;
-  id?: string;
-  labelledBy?: string;
-  modalClassName?: string;
-  modalStyle?: "success" | "info" | "danger" | "warning";
-  position?: string;
-  side?: boolean;
-  size?: "sm" | "md" | "lg" | "fluid";
-  role?: string;
-  tabIndex?: string;
-  wrapClassName?: boolean;
-  toggle?: () => void;
-  hiddenModal?: () => void;
-  hideModal?: () => void;
-  showModal?: () => void;
-  [rest: string]: any;
-}, any> {}
-
-declare const MDBModalBody: FunctionComponent<{
-  className?: string;
-  children?: ReactNode;
-  [rest: string]: any;
-}>;
-
-declare const MDBModalHeader: FunctionComponent<{
-  className?: string;
-  closeAriaLabel?: string;
-  children?: ReactNode;
-  tag?: string;
-  titleClass?: string;
-  toggle?: () => void;
-  [rest: string]: any;
-}>;
-
-declare const MDBModalFooter: FunctionComponent<{
-  className?: string;
-  children?: ReactNode;
   [rest: string]: any;
 }>;
 
@@ -974,33 +914,6 @@ declare const MDBPageLink: FunctionComponent<{
   className?: string;
   children?: ReactNode;
   tag?: string;
-  [rest: string]: any;
-}>;
-
-declare const MDBPagination: FunctionComponent<{
-  children?: ReactNode;
-  className?: string;
-  circle?: boolean;
-  color?:  "blue"| "red"| "teal"| "dark-grey"| "dark" | "blue-grey"| "amber"| "purple";
-  size?: "sm" | "lg";
-  tag?: string;
-  [rest: string]: any;
-}>;
-
-declare const MDBProgress: FunctionComponent<{
-  animated?: boolean;
-  barClassName?: string;
-  children?: ReactNode;
-  color?: string;
-  heigth?: string;
-  material?: boolean;
-  max?: number;
-  min?: number;
-  preloader?: boolean;
-  striped?: boolean;
-  id?: string;
-  wrappedStyle?: {};
-  value?: number;
   [rest: string]: any;
 }>;
 
@@ -1033,12 +946,36 @@ declare const MDBPopoverHeader: FunctionComponent<{
   [rest: string]: any;
 }>;
 
-declare class MDBTabPane extends Component<{
-  activeItemId?: any;
-  className?: string;
-  tabId?: any;
+declare const MDBProgress: FunctionComponent<{
+  animated?: boolean;
+  barClassName?: string;
+  children?: ReactNode;
+  color?: string;
+  heigth?: string;
+  material?: boolean;
+  max?: number;
+  min?: number;
+  preloader?: boolean;
+  striped?: boolean;
+  id?: string;
+  wrappedStyle?: {};
+  value?: number;
   [rest: string]: any;
-}, any> {}
+}>;
+
+declare const MDBRow: FunctionComponent<{
+  around?: boolean;
+  between?: boolean;
+  bottom?: boolean;
+  center?: boolean;
+  className?: string;
+  end?: boolean;
+  middle?: boolean;
+  start?: boolean;
+  tag?: string;
+  top?: boolean;
+  [rest: string]: any;
+}>;
 
 declare class MDBTabContent extends Component<{
   activeItem?: any;
@@ -1046,6 +983,69 @@ declare class MDBTabContent extends Component<{
   className?: string;
   [rest: string]: any;
 }, any> {}
+
+declare class MDBTabPane extends Component<{
+  activeItemId?: any;
+  className?: string;
+  tabId?: any;
+  [rest: string]: any;
+}, any> {}
+
+declare const MDBTable: FunctionComponent<{
+  autoWidth?: boolean;
+  bordered?: boolean;
+  borderless?: boolean;
+  btn?: boolean;
+  children?: ReactNode;
+  className?: string;
+  dark?: boolean;
+  fixed?: boolean;
+  theadColor?: string;
+  hover?: boolean;
+  maxHeight?: string;
+  responsive?: boolean;
+  responsiveSm?: boolean;
+  responsiveMd?: boolean;
+  responsiveLg?: boolean;
+  responsiveXl?: boolean;
+  scrollY?: boolean;
+  small?: boolean;
+  striped?: boolean;
+  [rest: string]: any;
+}>;
+
+declare const MDBTableBody: FunctionComponent<{
+  children?: ReactNode;
+  color?: string;
+  rows?: {
+    clickEvent?: () => void;
+    colspan?: number;
+    [rest: string]: any;
+  }[];
+  textWhite?: boolean;
+  [rest: string]: any;
+}>;
+
+declare const MDBTableFoot: FunctionComponent<{
+  children?: ReactNode;
+  color?: string;
+  columns?: {}[];
+  textWhite?: boolean;
+  [rest: string]: any;
+}>;
+
+declare const MDBTableHead: FunctionComponent<{
+  children?: ReactNode;
+  color?: string;
+  columns?: {
+    label?: string;
+    field?: string;
+    minimal?: "sm" | "lg";
+    [rest: string]: any;
+  }[];
+  textWhite?: boolean;
+  [rest: string]: any;
+}>;
 
 declare const MDBView: FunctionComponent<{
   cascade?: boolean;
@@ -1289,14 +1289,27 @@ declare class MDBDatePicker extends Component<{
   [rest: string]: any;
 }, any> {}
 
-declare const MDBRotatingCard: FunctionComponent<{
-  className?: string;
-  children?: ReactNode;
-  flipped?: boolean;
-  tag?: string;
-  innerTag?: string;
-  [rest: string]: any;
-}>;
+declare class MDBExportToCSV extends Component<
+  {
+    active?: boolean,
+    block?: boolean,
+    columns: object[],
+    color?: string,
+    circle?: boolean,
+    children?: ReactNode,
+    className?: string
+    data: [],
+    disabled?: boolean,
+    floating?: boolean,
+    flat?: boolean,
+    gradient?: string,
+    outline?: boolean,
+    rounded?: boolean,
+    size?: string,
+    [rest: string]: any;
+  },
+  any
+> {}
 
 declare const MDBFileInput: FunctionComponent<{
   className?: string;
@@ -1350,6 +1363,15 @@ declare class MDBPerfectScrollbar extends Component<{
   [rest: string]: any;
 }, any> {}
 
+declare const MDBRotatingCard: FunctionComponent<{
+  className?: string;
+  children?: ReactNode;
+  flipped?: boolean;
+  tag?: string;
+  innerTag?: string;
+  [rest: string]: any;
+}>;
+
 declare const MDBScrollSpyBox: FunctionComponent<{
   children?: ReactNode,
   className?: string,
@@ -1370,190 +1392,71 @@ declare const MDBScrollSpyListItem: FunctionComponent<{
   [rest: string]: any;
 }>
 
-declare const MDBScrollSpyText: FunctionComponent<{
-  className?: string;
-  children?: ReactNode;
-  scrollSpyRef?: ((ref: RefObject<HTMLElement>) => void) | RefObject<HTMLElement> | null;
-  [rest: string]: any;
-}>
-
-declare const MDBStepper: FunctionComponent<{
-  className?: string;
-  children?: ReactNode;
-  form?: boolean;
-  icon?: boolean;
-  vertical?: boolean;
-  [rest: string]: any;
-}>;
-
-declare const MDBSpinner: FunctionComponent<{
-  className?: string;
-  big?: boolean;
-  small?: boolean;
-  crazy?: boolean;
-  red?: boolean;
-  green?: boolean;
-  yellow?: boolean;
-  multicolor?: boolean;
-  tag?: string;
-  [rest: string]: any;
-}>;
-
-declare const MDBStep: FunctionComponent<{
-  form?: boolean;
-  tag?: string;
-  icon?: string; 
-  iconClass?: string;
-  stepName?: string;
-  vertical?: boolean;
-  [rest: string]: any;
-}>;
-
-declare const MDBTimeline: FunctionComponent<{
-  form?: boolean;
-  tag?: string;
-  icon?: string; 
-  iconClass?: string;
-  stepName?: string;
-  vertical?: boolean;
-  [rest: string]: any;
-}>;
-
-declare const MDBTimelineStep: FunctionComponent<{
-  className?: string,
-  color?: string,
-  colorful?: boolean;
-  children?: ReactNode;
-  hoverable?: boolean;
-  href?: string,
-  size?: string,
-  inverted?: boolean;
-  icon?: string,
-  iconBrand?: boolean,
-  iconClass?: string,
-  iconLight?: boolean,
-  iconRegular?: boolean,
-  iconSize?: "lg" | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
-  label?: string;
-  [rest: string]: any;
-}>;
-
-declare const MDBTestimonial: FunctionComponent<{
-  className?: string;
-  tag?: string;
-  [rest: string]: any;
-}>;
-
-declare const MDBStreak: FunctionComponent<{
-  by?: string;
-  byClass?: string;
-  children?: ReactNode;
-  size?: 'lg'| 'md';
-  quoteClass?: string;
-  overlayClass?: string;
-  photo?: string;
-  wrapperClass?: string;
-  [rest: string]: any;
-}>;
-
-declare const MDBSmoothScroll: FunctionComponent<{
-  active?: boolean;
-  disabled?: boolean;
-  block?: boolean;
-  bottom?: string;
-  color?: string;
-  className?: string;
-  children?: ReactNode;
-  duration?: number;
-  floating?: boolean;
-  flat?: boolean;
-  fixed?: boolean;
-  gradient?: string;
-  offset?: number;
-  outline?: boolean;
-  right?: string;
-  rounded?: boolean;
-  spy?: boolean;
-  smooth?: boolean;
-  size?: string;
-  social?: string;
-  to: string;
-  top?: string;
-  left?: string;
-  [rest: string]: any;
-}>;
-
-declare const MDBSimpleChart: FunctionComponent<{
-  endAngle?: number;
-  fillColor?: string;
-  height?: number;
-  labelColor?: string;
-  labelFontWeight?: string;
-  labelFontSize?: string;
-  percent?: number;
-  padding?: number;
-  radius?: number;
-  railColor? : string;
-  startAngle?: number;
-  strokeWidth?: number;
-  strokeColor?: string;
-  style?: object;
-  width?: number;
-  [rest: string]: any;
-}>;
-
-declare class MDBSticky extends Component<
+declare class MDBSelect extends Component<
   {
-    bottomOffset?: number;
-    children: ReactNode;
-    disableCompensation?: boolean;
-    disableHardwareAcceleration?: boolean;
-    relative?: boolean;
-    topOffset?: number;
-    [rest: string]: any;
-  },
-  any
-> {}
-
-declare class MDBStickyContent extends Component<any, any> {}
-
-declare class MDBTableEditable extends Component<
-  {
-    bordered?: boolean;
-    className?: string;
-    columns?: string[];
     children?: ReactNode;
-    data?: (string | number)[][];
-    hover?: boolean;
-    responsive?: boolean;
-    responsiveSm?: boolean;
-    responsiveMd?: boolean;
-    responsiveLg?: boolean;
-    responsiveXl?: boolean;
-    small?: boolean;
-    striped?: boolean;
+    className?: string;
+    color?: string;
+    focusShadow?: string;
+    focusBackgroundColor?: string;
+    label?: string;
+    labelClass?: string;
+    multiple?: boolean;
+    options?: {
+      checked?: boolean;
+      disabled?: boolean;
+      icon?: string;
+      text?: string;
+      value?: string;
+    }[];
+    outline?: boolean;
+    required?: boolean;
+    search?: boolean;
+    searchLabel?: string;
+    searchId?: string;
+    selected?: string;
+    selectAll?: boolean;
+    selectAllClassName?: string;
+    selectAllLabel?: string;
+    selectAllValue?: string;
+    getTextContent?: (value: string) => void;
+    getValue?: (value: string[]) => void;
     [rest: string]: any;
   },
   any
 > {}
 
-declare class MDBExportToCSV extends Component<
+declare class MDBSelectInput extends Component<
   {
-    active?: boolean,
-    block?: boolean,
-    columns: object[],
-    color?: string,
-    circle?: boolean,
+    className?: string;
+    selected?: string | number;
+    [rest: string]: any;
+  },
+  any
+> {}
+
+declare class MDBSelectOption extends Component<
+  {
     children?: ReactNode,
-    className?: string
-    data: [],
+    checked?: boolean,
+    className?: string,
     disabled?: boolean,
-    floating?: boolean,
-    flat?: boolean,
-    gradient?: string,
-    outline?: boolean,
-    rounded?: boolean,
-    size?: string,
+    icon?: string,
+    value?: string | number,
+    separator?: boolean
+    triggerOptionClick?: () => void,
+    [rest: string]: any;
+  },
+  any
+> {}
+
+declare class MDBSelectOptions extends Component<
+  {
+    children?: ReactNode,
+    className?: string,
+    search?: boolean,
+    searchLabel?: string,
+    searchId?: string
     [rest: string]: any;
   },
   any
@@ -1626,75 +1529,172 @@ declare class MDBSideNavNav extends Component<{
   [rest: string]: any;
 }, any> {}
 
-declare class MDBSelect extends Component<
+declare const MDBSimpleChart: FunctionComponent<{
+  endAngle?: number;
+  fillColor?: string;
+  height?: number;
+  labelColor?: string;
+  labelFontWeight?: string;
+  labelFontSize?: string;
+  percent?: number;
+  padding?: number;
+  radius?: number;
+  railColor? : string;
+  startAngle?: number;
+  strokeWidth?: number;
+  strokeColor?: string;
+  style?: object;
+  width?: number;
+  [rest: string]: any;
+}>;
+
+declare const MDBSmoothScroll: FunctionComponent<{
+  active?: boolean;
+  disabled?: boolean;
+  block?: boolean;
+  bottom?: string;
+  color?: string;
+  className?: string;
+  children?: ReactNode;
+  duration?: number;
+  floating?: boolean;
+  flat?: boolean;
+  fixed?: boolean;
+  gradient?: string;
+  offset?: number;
+  outline?: boolean;
+  right?: string;
+  rounded?: boolean;
+  spy?: boolean;
+  smooth?: boolean;
+  size?: string;
+  social?: string;
+  to: string;
+  top?: string;
+  left?: string;
+  [rest: string]: any;
+}>;
+
+declare const MDBSpinner: FunctionComponent<{
+  className?: string;
+  big?: boolean;
+  small?: boolean;
+  crazy?: boolean;
+  red?: boolean;
+  green?: boolean;
+  yellow?: boolean;
+  multicolor?: boolean;
+  tag?: string;
+  [rest: string]: any;
+}>;
+
+declare const MDBStep: FunctionComponent<{
+  form?: boolean;
+  tag?: string;
+  icon?: string; 
+  iconClass?: string;
+  stepName?: string;
+  vertical?: boolean;
+  [rest: string]: any;
+}>;
+
+declare const MDBStepper: FunctionComponent<{
+  className?: string;
+  children?: ReactNode;
+  form?: boolean;
+  icon?: boolean;
+  vertical?: boolean;
+  [rest: string]: any;
+}>;
+
+declare class MDBSticky extends Component<
   {
+    bottomOffset?: number;
+    children: ReactNode;
+    disableCompensation?: boolean;
+    disableHardwareAcceleration?: boolean;
+    relative?: boolean;
+    topOffset?: number;
+    [rest: string]: any;
+  },
+  any
+> {}
+
+declare class MDBStickyContent extends Component<any, any> {}
+
+declare const MDBStreak: FunctionComponent<{
+  by?: string;
+  byClass?: string;
+  children?: ReactNode;
+  size?: 'lg'| 'md';
+  quoteClass?: string;
+  overlayClass?: string;
+  photo?: string;
+  wrapperClass?: string;
+  [rest: string]: any;
+}>;
+
+declare const MDBScrollSpyText: FunctionComponent<{
+  className?: string;
+  children?: ReactNode;
+  scrollSpyRef?: ((ref: RefObject<HTMLElement>) => void) | RefObject<HTMLElement> | null;
+  [rest: string]: any;
+}>
+
+declare class MDBTableEditable extends Component<
+  {
+    bordered?: boolean;
+    className?: string;
+    columns?: string[];
     children?: ReactNode;
-    className?: string;
-    color?: string;
-    focusShadow?: string;
-    focusBackgroundColor?: string;
-    label?: string;
-    labelClass?: string;
-    multiple?: boolean;
-    options?: {
-      checked?: boolean;
-      disabled?: boolean;
-      icon?: string;
-      text?: string;
-      value?: string;
-    }[];
-    outline?: boolean;
-    required?: boolean;
-    search?: boolean;
-    searchLabel?: string;
-    searchId?: string;
-    selected?: string;
-    selectAll?: boolean;
-    selectAllClassName?: string;
-    selectAllLabel?: string;
-    selectAllValue?: string;
-    getTextContent?: (value: string) => void;
-    getValue?: (value: string[]) => void;
+    data?: (string | number)[][];
+    hover?: boolean;
+    responsive?: boolean;
+    responsiveSm?: boolean;
+    responsiveMd?: boolean;
+    responsiveLg?: boolean;
+    responsiveXl?: boolean;
+    small?: boolean;
+    striped?: boolean;
     [rest: string]: any;
   },
   any
 > {}
 
-declare class MDBSelectInput extends Component<
-  {
-    className?: string;
-    selected?: string | number;
-    [rest: string]: any;
-  },
-  any
-> {}
+declare const MDBTestimonial: FunctionComponent<{
+  className?: string;
+  tag?: string;
+  [rest: string]: any;
+}>;
 
-declare class MDBSelectOption extends Component<
-  {
-    children?: ReactNode,
-    checked?: boolean,
-    className?: string,
-    disabled?: boolean,
-    icon?: string,
-    value?: string | number,
-    separator?: boolean
-    triggerOptionClick?: () => void,
-    [rest: string]: any;
-  },
-  any
-> {}
+declare const MDBTimeline: FunctionComponent<{
+  form?: boolean;
+  tag?: string;
+  icon?: string; 
+  iconClass?: string;
+  stepName?: string;
+  vertical?: boolean;
+  [rest: string]: any;
+}>;
 
-declare class MDBSelectOptions extends Component<
-  {
-    children?: ReactNode,
-    className?: string,
-    search?: boolean,
-    searchLabel?: string,
-    searchId?: string
-    [rest: string]: any;
-  },
-  any
-> {}
+declare const MDBTimelineStep: FunctionComponent<{
+  className?: string,
+  color?: string,
+  colorful?: boolean;
+  children?: ReactNode;
+  hoverable?: boolean;
+  href?: string,
+  size?: string,
+  inverted?: boolean;
+  icon?: string,
+  iconBrand?: boolean,
+  iconClass?: string,
+  iconLight?: boolean,
+  iconRegular?: boolean,
+  iconSize?: "lg" | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
+  label?: string;
+  [rest: string]: any;
+}>;
 
 declare const MDBTimePicker: FunctionComponent<{
   id: string;
