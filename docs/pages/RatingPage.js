@@ -29,7 +29,7 @@ const RatingPage = () => {
       <DocsLink title='Rating' href='https://mdbootstrap.com/docs/react/components/progress-bar/' />
 
       <SectionContainer header='Basic Example' flexCenter>
-        <MDBRating data={basic} icon="star" iconSize='2x' />
+        <MDBRating data={basic} iconSize='2x' />
       </SectionContainer>
 
       <SectionContainer header='Empty five stars' flexCenter>
@@ -37,15 +37,15 @@ const RatingPage = () => {
       </SectionContainer>
 
       <SectionContainer header='Faces rating' flexCenter>
-        <MDBRating iconFaces iconSize='2x' iconRegular />
+        <MDBRating iconFaces fillClassName="black-text" iconSize='2x' iconRegular />
       </SectionContainer>
       
       <SectionContainer header='Fill color on hover' flexCenter>
-        <MDBRating iconSize='2x' iconRegular fillColors />
+        <MDBRating iconSize='2x' fillColors />
       </SectionContainer>
 
       <SectionContainer header='Custom fill colors on hover' flexCenter>
-        <MDBRating iconSize='2x' iconRegular fillColors={["red-text", 'orange-text', 'yellow-text', 'lime-text', 'green-text']} />
+        <MDBRating iconFaces iconSize='2x' iconRegular fillColors={["red-text", 'orange-text', 'yellow-text', 'lime-text', 'light-green-text']} />
       </SectionContainer>
 
     </MDBContainer>

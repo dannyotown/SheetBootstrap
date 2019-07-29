@@ -54,7 +54,8 @@ const Rating = props => {
     iconRegular,
     fillClassName,
     containerClassName,
-    fillColors
+    fillColors,
+    ...commonAttributes
   } = props;
 
   const containerClasses = classNames(
@@ -68,7 +69,7 @@ const Rating = props => {
   let renderedIcons = [];
 
   if (data.length) {
-    renderedIcons = data.map(({ icon = 'star', tooltip, far, size, choosed: _, ...attributes }, index) => {
+    renderedIcons = data.map(({ icon = 'star', tooltip, far, size, choosed: _, ...itemAttributes }, index) => {
       const isChoosed = choosed.index !== null;
       const isHovered = hovered !== null;
       let toFill = false;
@@ -140,12 +141,13 @@ const Rating = props => {
 
       return (
         <Fa
-          style={{ cursor: 'pointer', transition: 'all .2s linear' }}
-          {...attributes}
+          style={{ cursor: 'pointer' }}
+          {...commonAttributes}
+          {...itemAttributes}
           key={tooltip}
           icon={renderIcon}
           size={size || iconSize}
-          far={(far || iconRegular) && !toFill}
+          far={far || iconRegular}
           className={iconClasses}
           data-index={index}
           data-original-title={tooltip}
