@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 class Treeview extends React.Component {
   state = {
-    active: document.querySelector("body")
+    active: null
   };
 
   getChildContext() {
@@ -16,14 +16,21 @@ class Treeview extends React.Component {
   }
 
   getActive = target => {
-    this.setState({ active: target });
-    return target;
+    this.setState({ active: target }, () => this.state.active);
   };
 
-  componentDidUpdate() {
-    this.props.getActive &&
-      this.props.getActive(this.state.active.closest("li"));
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.getActive) {
+      if (prevState.active !== this.state.active) {
+        this.props.getActive({
+          item: this.state.active.closest("li"),
+          value: this.state.active.closest("li").childNodes[0].childNodes[1]
+            .textContent
+        });
+      }
+    }
   }
+
   render() {
     const {
       theme,
@@ -41,7 +48,7 @@ class Treeview extends React.Component {
       className
     );
     const ulClasses = classNames(
-      "mb-1 pb-2",
+      header ? "pb-2 mb-1" : "py-2 my-1",
       theme && `treeview-${theme}-list`,
       theme === "animated" && "pl-3"
     );
@@ -67,8 +74,6 @@ Treeview.propTypes = {
   className: PropTypes.string,
   getActive: PropTypes.func,
   header: PropTypes.string,
-  item: PropTypes.bool,
-  nested: PropTypes.bool,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 

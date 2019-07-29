@@ -31,7 +31,6 @@ class TreeviewList extends React.Component {
     const { open } = this.state;
     const { theme } = this.context;
 
-    //class
     const classes = classNames(theme && `treeview-${theme}-items`);
     const iconClasses = classNames("mr-2");
     const nestedClasses = classNames("nested", open && "active");
@@ -40,7 +39,6 @@ class TreeviewList extends React.Component {
       open && "opened"
     );
 
-    //render
     const child = children && <ul className={nestedClasses}>{children}</ul>;
     const collapse = theme && <MDBCollapse isOpen={open}>{child}</MDBCollapse>;
     const btn = children && (
@@ -50,8 +48,14 @@ class TreeviewList extends React.Component {
         onClick={this.handleSwitch}
       >
         <MDBIcon
-          icon={theme !== "colorful" ? "angle-right" : open ? "minus-circle" : "plus-circle"}
-          rotate={theme !== "colorful" ? open ? "90 down" : "0" : ""}
+          icon={
+            theme !== "colorful"
+              ? "angle-right"
+              : open
+              ? "minus-circle"
+              : "plus-circle"
+          }
+          rotate={theme !== "colorful" ? (open ? "90 down" : "0") : ""}
           className="rotate"
         />
       </MDBBtn>

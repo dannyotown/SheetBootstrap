@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { MDBIcon } from "mdbreact";
@@ -8,14 +7,18 @@ class TreeviewItem extends React.Component {
   constructor(prop) {
     super(prop);
     this.state = {
-      thisTarget: ""
+      target: ""
     };
+
+    this.targetRef = React.createRef();
   }
 
   componentDidMount() {
-    this.setState({
-      thisTarget: ReactDOM.findDOMNode(this)
-    });
+    if (this.targetRef && this.targetRef.current) {
+      this.setState({
+        target: this.targetRef.current
+      });
+    }
   }
 
   handleClick = e => {
@@ -24,20 +27,23 @@ class TreeviewItem extends React.Component {
 
   render() {
     const { fab, fal, far, icon, tag: Tag, title, ...attributes } = this.props;
-    const { thisTarget } = this.state;
+    const { target } = this.state;
     const { theme } = this.context;
 
-    //class
     const classes = classNames(theme && `treeview-${theme}-items`);
     const iconClasses = classNames("mr-2");
-    let context = this.context.active.closest(".closed") || false;
+    let context;
+    if (this.context.active) {
+      context = this.context.active.closest(".closed");
+      console.log(context)
+    }
     const item = classNames(
       theme && `closed treeview-${theme}-element d-block`,
-      context && context === thisTarget.querySelector(".closed") ? "opened" : ""
+      context && context === target.querySelector(".closed") ? "opened" : ""
     );
 
     return (
-      <Tag {...attributes} className={classes}>
+      <Tag {...attributes} className={classes} ref={this.targetRef}>
         <span className={item} onClick={e => this.handleClick(e)}>
           <MDBIcon
             className={iconClasses}
