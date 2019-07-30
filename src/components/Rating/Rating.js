@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Fa, MDBTooltip } from 'mdbreact';
+import {
+  Fa,
+  MDBTooltip,
+  MDBBtn,
+  MDBPopoverHeader,
+  MDBPopoverBody
+} from 'mdbreact';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -10,6 +16,19 @@ const Rating = props => {
     title: '',
     index: null
   });
+  const [feedbackValue, setFeedbackValue] = useState('');
+  const [openedForm, setOpenedForm] = useState(null);
+
+  const onDocumentClick = e => {
+    if (!e.target.closest('.popover')) {
+      setOpenedForm(null);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('click', onDocumentClick);
+    return () => window.removeEventListener('click', onDocumentClick);
+  }, []);
 
   useEffect(() => {
     setData(props.data);
@@ -42,9 +61,20 @@ const Rating = props => {
   const handleClick = (title, index) => {
     if (title === choosed.title && index === choosed.index) {
       setChoosed({ title: '', index: null });
+      feedback && setOpenedForm(null);
     } else {
       setChoosed({ title, index });
+      feedback && setOpenedForm(index);
     }
+  };
+
+  const onCloseHanlder = () => {
+    setFeedbackValue('');
+    setOpenedForm(null);
+  };
+
+  const feedbackValueHandler = e => {
+    setFeedbackValue(e.target.value);
   };
 
   const {
@@ -57,6 +87,8 @@ const Rating = props => {
     fillClassName,
     fillColors,
     getValue,
+    feedback,
+    submitHandler,
     ...commonAttributes
   } = props;
 
@@ -78,6 +110,8 @@ const Rating = props => {
       ) => {
         const isChoosed = choosed.index !== null;
         const isHovered = hovered !== null;
+        const isFormOpened = openedForm !== null;
+
         let toFill = false;
 
         if (isChoosed) {
@@ -144,8 +178,54 @@ const Rating = props => {
           }
         }
 
+        let tooltipContent = tooltip;
+        const isFormActive = feedback && isFormOpened && openedForm === index;
+
+        if (isFormActive) {
+          tooltipContent = (
+            <form
+              onSubmit={e =>
+                submitHandler(e, tooltip, openedForm + 1, feedbackValue)
+              }
+            >
+              <MDBPopoverHeader>{tooltip}</MDBPopoverHeader>
+              <MDBPopoverBody>
+                <textarea
+                  type='text'
+                  className='md-textarea form-control py-0'
+                  value={feedbackValue}
+                  onChange={feedbackValueHandler}
+                />
+                <div className='d-flex align-items-center justify-content-around mt-2'>
+                  <MDBBtn type='submit' color='primary' size='sm'>
+                    Submit!
+                  </MDBBtn>
+                  <button
+                    onClick={onCloseHanlder}
+                    style={{
+                      backgroundColor: '#fff',
+                      border: 'none',
+                      padding: '0.5rem 1.6rem'
+                    }}
+                  >
+                    Close
+                  </button>
+                </div>
+              </MDBPopoverBody>
+            </form>
+          );
+        }
+
         return (
-          <MDBTooltip placement='top' domElement key={tooltip}>
+          <MDBTooltip
+            key={tooltip}
+            domElement
+            placement='top'
+            tag='span'
+            popover={isFormActive}
+            isVisible={isFormActive}
+            clickable={isFormActive}
+          >
             <span>
               <Fa
                 style={{ cursor: 'pointer' }}
@@ -162,7 +242,7 @@ const Rating = props => {
                 onMouseDown={() => handleClick(tooltip, index)}
               />
             </span>
-            <span>{tooltip}</span>
+            <div>{tooltipContent}</div>
           </MDBTooltip>
         );
       }
@@ -175,7 +255,11 @@ const Rating = props => {
 Rating.propTypes = {
   containerClassName: PropTypes.string,
   data: PropTypes.arrayOf(
-    PropTypes.shape({ icon: PropTypes.string, tooltip: PropTypes.string, choosed: PropTypes.bool })
+    PropTypes.shape({
+      icon: PropTypes.string,
+      tooltip: PropTypes.string,
+      choosed: PropTypes.bool
+    })
   ),
   fillClassName: PropTypes.string,
   fillColors: PropTypes.oneOfType([
@@ -187,7 +271,8 @@ Rating.propTypes = {
   iconSize: PropTypes.string,
   iconRegular: PropTypes.bool,
   tag: PropTypes.string,
-  getValue: PropTypes.func
+  getValue: PropTypes.func,
+  submitHandler: PropTypes.func
 };
 
 Rating.defaultProps = {
@@ -213,7 +298,8 @@ Rating.defaultProps = {
   iconClassName: '',
   iconSize: '1x',
   iconRegular: false,
-  tag: 'div'
+  tag: 'div',
+  submitHandler: e => e.preventDefault()
 };
 
 export default Rating;

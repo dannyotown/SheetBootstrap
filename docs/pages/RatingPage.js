@@ -27,7 +27,7 @@ const RatingPage = () => {
     <MDBContainer>
       <DocsLink
         title='Rating'
-        href='https://mdbootstrap.com/docs/react/components/progress-bar/'
+        href='https://mdbootstrap.com/plugins/react/rating/'
       />
 
       <SectionContainer header='Basic Example' flexCenter>
@@ -64,6 +64,10 @@ const RatingPage = () => {
             'light-green-text'
           ]}
         />
+      </SectionContainer>
+
+      <SectionContainer header='With feedback' flexCenter>
+        <MDBRating iconSize='2x' feedback />
       </SectionContainer>
     </MDBContainer>
   );
