@@ -21,38 +21,31 @@ class TreeviewItem extends React.Component {
     }
   }
 
-  handleClick = e => {
-    this.context.getActive(e.target);
+  handleClick = () => {
+    this.state.target.classList.contains("opened")
+      ? this.context.getActive(null)
+      : this.context.getActive(this.state.target);
   };
 
   render() {
     const { fab, fal, far, icon, tag: Tag, title, ...attributes } = this.props;
     const { target } = this.state;
-    const { theme } = this.context;
+    const { theme, active } = this.context;
 
-    const classes = classNames(theme && `treeview-${theme}-items`);
-    const iconClasses = classNames("mr-2");
-    let context;
-    if (this.context.active) {
-      context = this.context.active.closest(".closed");
-    }
-    const item = classNames(
-      theme && `closed treeview-${theme}-element d-block`,
-      context && context === target.childNodes[0] && !context.classList.contains("opened") ? "opened" : ""
+    const classes = classNames(
+      theme && `treeview-${theme}-items treeview-${theme}-element closed mb-1`,
+      active === target && !active.classList.contains("opened") ? "opened" : ""
     );
-
     return (
-      <Tag {...attributes} className={classes} ref={this.targetRef}>
-        <span className={item} onClick={e => this.handleClick(e)}>
-          <MDBIcon
-            className={iconClasses}
-            fab={fab}
-            fal={fal}
-            far={far}
-            icon={icon}
-          />
-          <span>{title}</span>
-        </span>
+      <Tag
+        {...attributes}
+        className={classes}
+        ref={this.targetRef}
+        onClick={this.handleClick}
+        style={{ transform: "translateY(0.3em)" }}
+      >
+        <MDBIcon className="mr-2" fab={fab} fal={fal} far={far} icon={icon} />
+        <span>{title}</span>
       </Tag>
     );
   }

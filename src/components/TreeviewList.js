@@ -31,40 +31,50 @@ class TreeviewList extends React.Component {
     const { open } = this.state;
     const { theme } = this.context;
 
-    const classes = classNames(theme && `treeview-${theme}-items`);
-    const iconClasses = classNames("mr-2");
+    const classes = classNames(theme && `treeview-${theme}-items px-0`);
+    const iconClasses = classNames(theme ? "mx-2" : "mr-2");
     const nestedClasses = classNames("nested", open && "active");
     const folder = classNames(
       theme && `closed treeview-${theme}-element d-block`,
       open && "opened"
     );
 
-    const child = children && <ul className={nestedClasses}>{children}</ul>;
+    const child = children && (
+      <ul
+        className={nestedClasses}
+        style={{ height: "calc(100% + 0.6rem)", marginLeft: "2px" }}
+      >
+        {children}
+      </ul>
+    );
     const collapse = theme && <MDBCollapse isOpen={open}>{child}</MDBCollapse>;
+    const arrow = (
+      <MDBIcon
+        icon={
+          theme !== "colorful"
+            ? "angle-right"
+            : open
+            ? "minus-circle"
+            : "plus-circle"
+        }
+        rotate={theme !== "colorful" ? (open ? "90 down" : "0") : ""}
+        className="rotate"
+      />
+    );
     const btn = children && (
       <MDBBtn
         flat
-        className="m-0 py-0 pl-0 px-2 z-depth-0"
+        className="m-0 py-0 px-1 mr-1 z-depth-0"
         onClick={this.handleSwitch}
       >
-        <MDBIcon
-          icon={
-            theme !== "colorful"
-              ? "angle-right"
-              : open
-              ? "minus-circle"
-              : "plus-circle"
-          }
-          rotate={theme !== "colorful" ? (open ? "90 down" : "0") : ""}
-          className="rotate"
-        />
+        {arrow}
       </MDBBtn>
     );
 
     return (
       <Tag {...attributes} className={classes}>
         <span className={folder} onClick={e => theme && this.handleSwitch(e)}>
-          {btn}
+          {theme ? arrow : btn}
           <span>
             <MDBIcon
               className={iconClasses}

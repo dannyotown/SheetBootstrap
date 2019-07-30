@@ -21,11 +21,10 @@ class Treeview extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.getActive) {
-      if (prevState.active !== this.state.active) {
+      if (this.state.active && prevState.active !== this.state.active) {
         this.props.getActive({
           item: this.state.active.closest("li"),
-          value: this.state.active.closest("li").childNodes[0].childNodes[1]
-            .textContent
+          value: this.state.active.closest("li").childNodes[1].textContent
         });
       }
     }
@@ -38,6 +37,7 @@ class Treeview extends React.Component {
       className,
       getActive,
       header,
+      listClassName,
       tag: Tag,
       ...attributes
     } = this.props;
@@ -48,9 +48,11 @@ class Treeview extends React.Component {
       className
     );
     const ulClasses = classNames(
+      "list-unstyled",
       header ? "pb-2 mb-1" : "py-2 my-1",
       theme && `treeview-${theme}-list`,
-      theme === "animated" && "pl-3"
+      theme === "animated" || !theme && "pl-3",
+      listClassName
     );
 
     const head = header && (
@@ -74,6 +76,7 @@ Treeview.propTypes = {
   className: PropTypes.string,
   getActive: PropTypes.func,
   header: PropTypes.string,
+  listClassName: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
