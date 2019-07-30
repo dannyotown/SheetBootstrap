@@ -7242,9 +7242,7 @@ var Rating = function Rating(props) {
         onMouseEnter: function onMouseEnter() {
           return handleMouseEnter(tooltip, index);
         },
-        onMouseLeave: function onMouseLeave() {
-          return handleMouseLeave();
-        },
+        onMouseLeave: handleMouseLeave,
         onMouseDown: function onMouseDown() {
           return handleClick(tooltip, index);
         }

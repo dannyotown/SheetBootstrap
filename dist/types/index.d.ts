@@ -1,4 +1,13 @@
-import { Component, ReactNode, FunctionComponent, RefObject, SyntheticEvent, FormEvent } from 'react';
+import { FunctionComponent, ReactNode, Component, RefObject, SyntheticEvent, FormEvent } from 'react';
+
+declare const MDBAlert: FunctionComponent<{
+    color?: 'default' | 'primary'| 'secondary'| 'success'| 'danger'| 'warning'| 'info'| 'light'| 'dark';
+    className?: string;
+    children?: ReactNode;
+    dismiss?: boolean;
+    onClose?: () => void;
+    onClosed?: () => void;
+}>;
 
 declare class MDBAnimation extends Component<
   {
@@ -94,15 +103,6 @@ declare class MDBAnimation extends Component<
   },
   any
 > {}
-
-declare const MDBAlert: FunctionComponent<{
-    color?: 'default' | 'primary'| 'secondary'| 'success'| 'danger'| 'warning'| 'info'| 'light'| 'dark';
-    className?: string;
-    children?: ReactNode;
-    dismiss?: boolean;
-    onClose?: () => void;
-    onClosed?: () => void;
-}>;
 
 declare const MDBBadge: FunctionComponent<{
   color?: string;
@@ -965,15 +965,47 @@ declare const MDBProgress: FunctionComponent<{
 
 declare const MDBRating: FunctionComponent<{
   containerClassName?: string;
-  data?: { icon?: string; tooltip?: string; choosed?: boolean; [rest: string]: any; };
+  data?: {
+    icon?: string;
+    tooltip?: string;
+    choosed?: boolean;
+    [rest: string]: any;
+  };
   fillClassName?: string;
   fillColors?: boolean | string[];
   iconClassName?: string;
   iconFaces?: boolean;
-  iconSize?: string;
+  iconSize?:
+    | 'lg'
+    | '1x'
+    | '2x'
+    | '3x'
+    | '4x'
+    | '5x'
+    | '6x'
+    | '7x'
+    | '8x'
+    | '9x'
+    | '10x';
   iconRegular?: boolean;
   tag?: string;
-  getValue?: () => void;
+  getValue?: (value: {
+    tooltip?: string;
+    icon?: string;
+    size?:
+      | 'lg'
+      | '1x'
+      | '2x'
+      | '3x'
+      | '4x'
+      | '5x'
+      | '6x'
+      | '7x'
+      | '8x'
+      | '9x'
+      | '10x';
+    [rest: string]: any;
+  }) => void;
   [rest: string]: any;
 }>;
 
