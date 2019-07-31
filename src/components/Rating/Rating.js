@@ -136,24 +136,16 @@ const Rating = props => {
 
           const isCustom = Array.isArray(fillColors);
 
-          switch (current) {
-            case 0:
-              fillColor = isCustom ? fillColors[0] : 'oneStar';
-              break;
-            case 1:
-              fillColor = isCustom ? fillColors[1] : 'twoStars';
-              break;
-            case 2:
-              fillColor = isCustom ? fillColors[2] : 'threeStars';
-              break;
-            case 3:
-              fillColor = isCustom ? fillColors[3] : 'fourStars';
-              break;
-            case 4:
-              fillColor = isCustom ? fillColors[4] : 'fiveStars';
-              break;
-            default:
-              break;
+          const defaultFillColors = [
+            'oneStar',
+            'twoStars',
+            'threeStars',
+            'fourStars',
+            'fiveStars'
+          ];
+
+          if (current !== null) {
+            fillColor = isCustom ? fillColors[current] : defaultFillColors[current];
           }
         }
 
