@@ -185,9 +185,7 @@ class Input extends React.Component {
             light={iconLight}
             regular={iconRegular}
             className={iconClassFix}
-            onClick={e => {
-              onIconClick ? onIconClick(e) : this.setFocus(e);
-            }}
+            onClick={onIconClick ? onIconClick : this.setFocus}
             onMouseEnter={onIconMouseEnter}
             onMouseLeave={onIconMouseLeave}
           />
