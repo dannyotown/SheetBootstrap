@@ -5,7 +5,7 @@ import { MDBBtn, MDBIcon, MDBCollapse } from "mdbreact";
 import { TreeviewContext } from "../Treeview";
 
 const TreeviewList = props => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(props.open);
 
   useEffect(() => {
     setOpen(props.open);
@@ -31,7 +31,10 @@ const TreeviewList = props => {
   const { theme } = useContext(TreeviewContext);
 
   const nestedClasses = classNames("nested", open && "active");
-  const folder = classNames(theme && `closed treeview-${theme}-element d-block`,open && "opened");
+  const folder = classNames(
+    theme && `closed treeview-${theme}-element d-block`,
+    open && "opened"
+  );
   const classes = classNames(theme && `treeview-${theme}-items px-0`);
   const iconClasses = classNames(theme ? "mx-2" : "mr-2");
 

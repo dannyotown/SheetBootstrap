@@ -42,7 +42,7 @@ class TreeviewPage extends Component {
               </MDBTreeviewList>
               <MDBTreeviewList icon="gem" title="Favourites" far>
                 <MDBTreeviewItem icon="pepper-hot" title="Restaurants" />
-                <MDBTreeviewItem icon="eye" title="Places" />
+                <MDBTreeviewItem icon="eye" title="Places" far />
                 <MDBTreeviewItem icon="gamepad" title="Games" />
                 <MDBTreeviewItem icon="cocktail" title="Cocktails" />
                 <MDBTreeviewItem icon="pizza-slice" title="Food" />
@@ -63,12 +63,12 @@ class TreeviewPage extends Component {
               className="w-20"
               getValue={e => console.log(e)}
             >
-              <MDBTreeviewList icon="envelope-open" title="Mail" far>
+              <MDBTreeviewList icon="envelope-open" title="Mail" far open>
                 <MDBTreeviewItem icon="address-book" title="Contact" far />
                 <MDBTreeviewItem icon="bell" title="Offer" far />
-                <MDBTreeviewList icon="calendar" title="Calendar" far>
+                <MDBTreeviewList icon="calendar" title="Calendar" far open>
                   <MDBTreeviewItem icon="clock" title="Deadlines" far />
-                  <MDBTreeviewItem icon="users" title="Meetings" />
+                  <MDBTreeviewItem icon="users" title="Meetings" open />
                   <MDBTreeviewItem icon="basketball-ball" title="Workouts" />
                   <MDBTreeviewItem icon="mug-hot" title="Events" />
                 </MDBTreeviewList>
@@ -81,7 +81,7 @@ class TreeviewPage extends Component {
               </MDBTreeviewList>
               <MDBTreeviewList icon="gem" title="Favourites" far>
                 <MDBTreeviewItem icon="pepper-hot" title="Restaurants" />
-                <MDBTreeviewItem icon="eye" title="Places" />
+                <MDBTreeviewItem icon="eye" title="Places" far />
                 <MDBTreeviewItem icon="gamepad" title="Games" />
                 <MDBTreeviewItem icon="cocktail" title="Cocktails" />
                 <MDBTreeviewItem icon="pizza-slice" title="Food" />
@@ -120,7 +120,7 @@ class TreeviewPage extends Component {
               </MDBTreeviewList>
               <MDBTreeviewList icon="gem" title="Favourites" far>
                 <MDBTreeviewItem icon="pepper-hot" title="Restaurants" />
-                <MDBTreeviewItem icon="eye" title="Places" />
+                <MDBTreeviewItem icon="eye" title="Places" far />
                 <MDBTreeviewItem icon="gamepad" title="Games" />
                 <MDBTreeviewItem icon="cocktail" title="Cocktails" />
                 <MDBTreeviewItem icon="pizza-slice" title="Food" />

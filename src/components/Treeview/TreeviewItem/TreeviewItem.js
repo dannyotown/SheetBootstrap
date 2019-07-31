@@ -8,12 +8,13 @@ const TreeviewItem = props => {
   const [target, setTarget] = useState("");
   const targetRef = useRef(null);
 
-  const { fab, fal, far, icon, tag: Tag, title, ...attributes } = props;
+  const { fab, fal, far, icon, open, tag: Tag, title, ...attributes } = props;
   const { theme, active, getActive } = useContext(TreeviewContext);
 
   useEffect(() => {
     if (targetRef && targetRef.current) {
       setTarget(targetRef.current);
+      open && getActive(targetRef.current);
     }
   }, []);
 
