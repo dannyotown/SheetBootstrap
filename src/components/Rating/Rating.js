@@ -58,7 +58,8 @@ const Rating = props => {
     setHovered(null);
   };
 
-  const handleClick = (title, index) => {
+  const handleClick = (title, index, e) => {
+    e.stopPropagation();
     if (title === choosed.title && index === choosed.index) {
       setChoosed({ title: '', index: null });
       feedback && setOpenedForm(null);
@@ -145,7 +146,9 @@ const Rating = props => {
           ];
 
           if (current !== null) {
-            fillColor = isCustom ? fillColors[current] : defaultFillColors[current];
+            fillColor = isCustom
+              ? fillColors[current]
+              : defaultFillColors[current];
           }
         }
 
@@ -176,9 +179,10 @@ const Rating = props => {
         if (isFormActive) {
           tooltipContent = (
             <form
-              onSubmit={e =>
-                submitHandler(e, tooltip, openedForm + 1, feedbackValue)
-              }
+              onSubmit={e => {
+                submitHandler(e, tooltip, openedForm + 1, feedbackValue);
+                onCloseHanlder();
+              }}
             >
               <MDBPopoverHeader>{tooltip}</MDBPopoverHeader>
               <MDBPopoverBody>
@@ -193,7 +197,7 @@ const Rating = props => {
                     Submit!
                   </MDBBtn>
                   <button
-                    onClick={onCloseHanlder}
+                    onMouseDown={onCloseHanlder}
                     style={{
                       backgroundColor: '#fff',
                       border: 'none',
@@ -231,7 +235,7 @@ const Rating = props => {
                 data-original-title={tooltip}
                 onMouseEnter={() => handleMouseEnter(tooltip, index)}
                 onMouseLeave={handleMouseLeave}
-                onMouseDown={() => handleClick(tooltip, index)}
+                onClick={e => handleClick(tooltip, index, e)}
               />
             </span>
             <div>{tooltipContent}</div>
