@@ -1,96 +1,93 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { MDBBtn, MDBIcon, MDBCollapse } from "mdbreact";
+import { TreeviewContext } from "./Treeview";
 
-class TreeviewList extends React.Component {
-  constructor(prop) {
-    super(prop);
-    this.state = {
-      open: this.props.open
-    };
-  }
+const TreeviewList = props => {
+  const [open, setOpen] = useState(false);
 
-  handleSwitch = () => {
-    if (this.props.children) {
-      this.setState({ open: !this.state.open });
+  useEffect(() => {
+    setOpen(props.open);
+  }, [props.open]);
+
+  const handleSwitch = () => {
+    if (props.children) {
+      setOpen(!open);
     }
   };
 
-  render() {
-    const {
-      children,
-      fab,
-      fal,
-      far,
-      icon,
-      tag: Tag,
-      title,
-      ...attributes
-    } = this.props;
-    const { open } = this.state;
-    const { theme } = this.context;
+  const {
+    children,
+    fab,
+    fal,
+    far,
+    icon,
+    tag: Tag,
+    title,
+    ...attributes
+  } = props;
 
-    const classes = classNames(theme && `treeview-${theme}-items px-0`);
-    const iconClasses = classNames(theme ? "mx-2" : "mr-2");
-    const nestedClasses = classNames("nested", open && "active");
-    const folder = classNames(
-      theme && `closed treeview-${theme}-element d-block`,
-      open && "opened"
-    );
+  const { theme } = useContext(TreeviewContext);
 
-    const child = children && (
-      <ul
-        className={nestedClasses}
-        style={{ height: "calc(100% + 0.6rem)", marginLeft: "2px" }}
-      >
-        {children}
-      </ul>
-    );
-    const collapse = theme && <MDBCollapse isOpen={open}>{child}</MDBCollapse>;
-    const arrow = (
-      <MDBIcon
-        icon={
-          theme !== "colorful"
-            ? "angle-right"
-            : open
-            ? "minus-circle"
-            : "plus-circle"
-        }
-        rotate={theme !== "colorful" ? (open ? "90 down" : "0") : ""}
-        className="rotate"
-      />
-    );
-    const btn = children && (
-      <MDBBtn
-        flat
-        className="m-0 py-0 px-1 mr-1 z-depth-0"
-        onClick={this.handleSwitch}
-      >
-        {arrow}
-      </MDBBtn>
-    );
+  const nestedClasses = classNames("nested", open && "active");
+  const folder = classNames(theme && `closed treeview-${theme}-element d-block`,open && "opened");
+  const classes = classNames(theme && `treeview-${theme}-items px-0`);
+  const iconClasses = classNames(theme ? "mx-2" : "mr-2");
 
-    return (
-      <Tag {...attributes} className={classes}>
-        <span className={folder} onClick={e => theme && this.handleSwitch(e)}>
-          {theme ? arrow : btn}
-          <span>
-            <MDBIcon
-              className={iconClasses}
-              fab={fab}
-              fal={fal}
-              far={far}
-              icon={icon}
-            />
-            {title}
-          </span>
+  const child = children && (
+    <ul
+      className={nestedClasses}
+      style={{ height: "calc(100% + 0.6rem)", marginLeft: "2px" }}
+    >
+      {children}
+    </ul>
+  );
+  const collapse = theme && <MDBCollapse isOpen={open}>{child}</MDBCollapse>;
+  const iconArrow =
+    theme !== "colorful"
+      ? "angle-right"
+      : open
+      ? "minus-circle"
+      : "plus-circle";
+
+  const arrow = (
+    <MDBIcon
+      icon={iconArrow}
+      rotate={theme !== "colorful" ? (open ? "90 down" : "0") : ""}
+      className="rotate"
+    />
+  );
+
+  const btn = children && (
+    <MDBBtn
+      flat
+      className="m-0 py-0 px-1 mr-1 z-depth-0"
+      onClick={handleSwitch}
+    >
+      {arrow}
+    </MDBBtn>
+  );
+
+  return (
+    <Tag {...attributes} className={classes}>
+      <span className={folder} onClick={e => theme && handleSwitch(e)}>
+        {theme ? arrow : btn}
+        <span>
+          <MDBIcon
+            className={iconClasses}
+            fab={fab}
+            fal={fal}
+            far={far}
+            icon={icon}
+          />
+          {title}
         </span>
-        {collapse || child}
-      </Tag>
-    );
-  }
-}
+      </span>
+      {collapse || child}
+    </Tag>
+  );
+};
 
 TreeviewList.propTypes = {
   fab: PropTypes.bool,

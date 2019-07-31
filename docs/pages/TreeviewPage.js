@@ -22,7 +22,7 @@ class TreeviewPage extends Component {
             <MDBTreeview
               header="Folders"
               className="w-20"
-              getActive={e => console.log(e)}
+              getValue={e => console.log(e)}
             >
               <MDBTreeviewList icon="envelope-open" title="Mail" far>
                 <MDBTreeviewItem icon="address-book" title="Contact" far />
@@ -61,7 +61,7 @@ class TreeviewPage extends Component {
               theme="animated"
               header="Folders"
               className="w-20"
-              getActive={e => console.log(e)}
+              getValue={e => console.log(e)}
             >
               <MDBTreeviewList icon="envelope-open" title="Mail" far>
                 <MDBTreeviewItem icon="address-book" title="Contact" far />
@@ -100,7 +100,7 @@ class TreeviewPage extends Component {
               theme="colorful"
               header="Folders"
               className="border-secondary w-20 "
-              getActive={e => console.log(e)}
+              getValue={e => console.log(e)}
             >
               <MDBTreeviewList icon="envelope-open" title="Mail" far>
                 <MDBTreeviewItem icon="address-book" title="Contact" far />
