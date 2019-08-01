@@ -19,6 +19,7 @@ const TreeviewList = props => {
 
   const {
     children,
+    disabled,
     fab,
     fal,
     far,
@@ -74,7 +75,7 @@ const TreeviewList = props => {
 
   return (
     <Tag {...attributes} className={classes}>
-      <span className={folder} onClick={e => theme && handleSwitch(e)}>
+      <span className={folder} onClick={e => !disabled && theme && handleSwitch(e)}>
         {theme ? arrow : btn}
         <span>
           <MDBIcon
@@ -93,6 +94,7 @@ const TreeviewList = props => {
 };
 
 TreeviewList.propTypes = {
+  disabled: PropTypes.bool,
   fab: PropTypes.bool,
   fal: PropTypes.bool,
   far: PropTypes.bool,
@@ -102,6 +104,7 @@ TreeviewList.propTypes = {
 };
 
 TreeviewList.defaultProps = {
+  disabled: false,
   fab: false,
   fal: false,
   far: false,

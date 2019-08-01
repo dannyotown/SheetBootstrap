@@ -4,12 +4,24 @@ import {
   MDBTreeview,
   MDBTreeviewList,
   MDBTreeviewItem,
-  MDBCol
+  MDBCol,
+  MDBSwitch,
+  MDBRow
 } from "mdbreact";
 import DocsLink from "../components/docsLink";
 import SectionContainer from "../components/sectionContainer";
 
 class TreeviewPage extends Component {
+  state = {
+    folderOpen: false
+  }
+
+  handleSwitchChange = () => {
+    this.setState({
+      folderOpen: !this.state.folderOpen
+    });
+  }
+
   render() {
     return (
       <MDBContainer>
@@ -131,6 +143,42 @@ class TreeviewPage extends Component {
               <MDBTreeviewItem icon="trash-alt" title="Deleted items" />
             </MDBTreeview>
           </MDBCol>
+        </SectionContainer>
+
+        <SectionContainer header="Control elements">
+          <MDBRow>
+          <MDBCol md="4">
+            <MDBTreeview
+              theme="animated"
+              header="Open and disabled elements"
+              className="border-secondary w-20 "
+              getValue={e => console.log(e)}
+            >
+              <MDBTreeviewList icon="envelope-open" title="Normal folder" far>
+                <MDBTreeviewItem icon="address-book" title="Contact" far />
+                <MDBTreeviewItem icon="bell" title="Offer" far />
+                <MDBTreeviewList icon="calendar" title="Calendar" far>
+                  <MDBTreeviewItem icon="clock" title="Deadlines" far />
+                  <MDBTreeviewItem icon="users" title="Meetings" />
+                  <MDBTreeviewItem icon="basketball-ball" title="Workouts" />
+                  <MDBTreeviewItem icon="mug-hot" title="Events" />
+                </MDBTreeviewList>
+              </MDBTreeviewList>
+              <MDBTreeviewList title="Disabled folder" icon="folder-minus" disabled />
+              <MDBTreeviewList icon="gem" title="Opened folder" open far>
+                <MDBTreeviewItem icon="pepper-hot" title="Restaurants" />
+                <MDBTreeviewItem icon="eye" title="Places" far />
+                <MDBTreeviewItem icon="gamepad" title="Games" />
+              </MDBTreeviewList>
+              <MDBTreeviewList icon="folder-open" title="Opened and disabled folder" open disabled>
+                <MDBTreeviewItem icon="folder" title="Normal item" />
+                <MDBTreeviewItem icon="folder-minus" title="Disabled item" disabled/>
+                <MDBTreeviewItem icon="folder" far title="Opened item" open/>
+              </MDBTreeviewList>
+            </MDBTreeview>
+            
+          </MDBCol>
+          </MDBRow>
         </SectionContainer>
       </MDBContainer>
     );

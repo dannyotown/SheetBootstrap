@@ -8,7 +8,17 @@ const TreeviewItem = props => {
   const [target, setTarget] = useState("");
   const targetRef = useRef(null);
 
-  const { fab, fal, far, icon, open, tag: Tag, title, ...attributes } = props;
+  const {
+    disabled,
+    fab,
+    fal,
+    far,
+    icon,
+    open,
+    tag: Tag,
+    title,
+    ...attributes
+  } = props;
   const { theme, active, getActive } = useContext(TreeviewContext);
 
   useEffect(() => {
@@ -18,9 +28,8 @@ const TreeviewItem = props => {
     }
   }, []);
 
-  const handleClick = () => {
+  const handleClick = () =>
     target.classList.contains("opened") ? getActive(null) : getActive(target);
-  };
 
   const classes = classNames(
     theme && `treeview-${theme}-items treeview-${theme}-element closed mb-1`,
@@ -31,7 +40,7 @@ const TreeviewItem = props => {
       {...attributes}
       className={classes}
       ref={targetRef}
-      onClick={handleClick}
+      onClick={e=> !disabled && handleClick(e)}
       style={{ transform: "translateY(0.3em)" }}
     >
       <MDBIcon className="mr-2" fab={fab} fal={fal} far={far} icon={icon} />
@@ -41,6 +50,7 @@ const TreeviewItem = props => {
 };
 
 TreeviewItem.propTypes = {
+  disabled: PropTypes.bool,
   fab: PropTypes.bool,
   fal: PropTypes.bool,
   far: PropTypes.bool,
@@ -50,6 +60,7 @@ TreeviewItem.propTypes = {
 };
 
 TreeviewItem.defaultProps = {
+  disabled: false,
   fab: false,
   fal: false,
   far: false,
