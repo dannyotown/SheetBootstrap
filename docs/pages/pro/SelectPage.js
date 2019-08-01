@@ -115,7 +115,6 @@ class SelectPage extends Component {
                 getTextContent={this.getValueOfSelect}
                 options={this.state.basicOptions}
                 label="Basic example"
-                labelClass="labelBg"
               />
             </MDBCol>
           </MDBRow>
@@ -130,7 +129,6 @@ class SelectPage extends Component {
               getTextContent={this.getValueOfSelect}
               options={this.state.basicOutlineOptions}
               label="Basic outline example"
-              labelClass="labelBg"
             />
           </MDBCol>
         </SectionContainer>
@@ -145,7 +143,6 @@ class SelectPage extends Component {
                 getTextContent={this.getValueOfSelect}
                 options={this.state.searchOptions}
                 label="Search enabled"
-                labelClass="labelBg"
               />
             </MDBCol>
           </MDBRow>
@@ -162,7 +159,6 @@ class SelectPage extends Component {
                 getTextContent={this.getValueOfSelect}
                 options={this.state.multipleOptions}
                 label="Multiple select"
-                labelClass="labelBg"
               />
             </MDBCol>
           </MDBRow>
@@ -179,7 +175,6 @@ class SelectPage extends Component {
                 getTextContent={this.getValueOfSelect}
                 options={this.state.colorfulOptions}
                 label="Colorful select"
-                labelClass="labelBg"
               />
             </MDBCol>
           </MDBRow>
@@ -197,7 +192,6 @@ class SelectPage extends Component {
                 getTextContent={this.getValueOfSelect}
                 options={this.state.selectAllOptions}
                 label="Select All option"
-                labelClass="labelBg"
               />
             </MDBCol>
           </MDBRow>
@@ -275,7 +269,6 @@ class SelectPage extends Component {
                 options={this.state.dynamicOptions}
                 selected="Choose your option"
                 label="Dynamically change state"
-                labelClass="labelBg"
               />
             </MDBCol>
             <MDBCol md="6" className="d-flex justify-content-center">
@@ -321,7 +314,6 @@ class SelectPage extends Component {
                 getTextContent={this.getValueOfSelect}
                 label="Example label"
                 outline
-                labelClass="labelBg"
               >
                 <MDBSelectInput />
                 <MDBSelectOptions>
