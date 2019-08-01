@@ -172,8 +172,8 @@ class TreeviewPage extends Component {
               </MDBTreeviewList>
               <MDBTreeviewList icon="folder-open" title="Opened and disabled folder" open disabled>
                 <MDBTreeviewItem icon="folder" title="Normal item" />
-                <MDBTreeviewItem icon="folder-minus" title="Disabled item" disabled/>
-                <MDBTreeviewItem icon="folder" far title="Opened item" open/>
+                <MDBTreeviewItem icon="folder-minus" title="Disabled item" disabled />
+                <MDBTreeviewItem icon="folder" far title="Opened item" open />
               </MDBTreeviewList>
             </MDBTreeview>
             

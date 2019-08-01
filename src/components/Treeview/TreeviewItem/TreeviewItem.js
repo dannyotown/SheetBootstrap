@@ -40,7 +40,7 @@ const TreeviewItem = props => {
       {...attributes}
       className={classes}
       ref={targetRef}
-      onClick={e=> !disabled && handleClick(e)}
+      onMouseDown={e=> !disabled && handleClick(e)}
       style={{ transform: "translateY(0.3em)" }}
     >
       <MDBIcon className="mr-2" fab={fab} fal={fal} far={far} icon={icon} />
