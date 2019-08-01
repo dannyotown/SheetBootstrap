@@ -72,6 +72,9 @@ import MDBTable from './components/Table';
 import MDBTableBody from './components/Table/TableBody';
 import MDBTableFoot from './components/Table/TableFoot';
 import MDBTableHead from './components/Table/TableHead';
+import MDBTreeview from './components/Treeview';
+import MDBTreeviewItem from './components/Treeview/TreeviewItem';
+import MDBTreeviewList from './components/Treeview/TreeviewList';
 import MDBView from './components/View';
 import MDBWaves from './components/Waves';
 //FREE
@@ -197,6 +200,9 @@ export {
   MDBTableBody,
   MDBTableFoot,
   MDBTableHead,
+  MDBTreeview,
+  MDBTreeviewItem,
+  MDBTreeviewList,
   MDBView,
   MDBWaves,
   //FREE

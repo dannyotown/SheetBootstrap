@@ -7234,6 +7234,236 @@ TableHead.defaultProps = {
   textWhite: false
 };
 
+var TreeviewContext = React__default.createContext();
+
+var Treeview = function Treeview(props) {
+  var _useState = React.useState(null),
+      _useState2 = _slicedToArray(_useState, 2),
+      active = _useState2[0],
+      setActive = _useState2[1];
+
+  React.useEffect(function () {
+    if (props.getValue) {
+      props.getValue({
+        item: active ? active.closest('li') : active,
+        value: active ? active.closest('li').childNodes[1].textContent : active
+      });
+    }
+  }, [active, props]);
+
+  var getActive = function getActive(target) {
+    setActive(target);
+    return target;
+  };
+
+  var theme = props.theme,
+      children = props.children,
+      className = props.className,
+      getValue = props.getValue,
+      header = props.header,
+      listClassName = props.listClassName,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["theme", "children", "className", "getValue", "header", "listClassName", "tag"]);
+
+  var classes = classNames('border', theme ? "treeview-".concat(theme) : 'treeview', className);
+  var ulClasses = classNames('list-unstyled', header ? 'pb-2 mb-1' : 'py-2 my-1', theme && "treeview-".concat(theme, "-list"), theme === 'animated' || !theme && 'pl-3', listClassName);
+  var head = header && React__default.createElement(React__default.Fragment, null, React__default.createElement("h6", {
+    className: "pt-3 pl-3"
+  }, header), React__default.createElement("hr", null));
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), head, React__default.createElement("ul", {
+    className: ulClasses
+  }, React__default.createElement(TreeviewContext.Provider, {
+    value: {
+      active: active,
+      theme: theme,
+      getActive: getActive
+    }
+  }, children)));
+};
+
+Treeview.propTypes = {
+  className: propTypes.string,
+  header: propTypes.string,
+  listClassName: propTypes.string,
+  tag: propTypes.string,
+  theme: propTypes.string,
+  getValue: propTypes.func
+};
+Treeview.defaultProps = {
+  tag: 'div',
+  theme: '',
+  getValue: function getValue() {}
+};
+
+var TreeviewItem = function TreeviewItem(props) {
+  var _useState = React.useState(''),
+      _useState2 = _slicedToArray(_useState, 2),
+      target = _useState2[0],
+      setTarget = _useState2[1];
+
+  var targetRef = React.useRef(null);
+
+  var className = props.className,
+      disabled = props.disabled,
+      disabledClassName = props.disabledClassName,
+      fab = props.fab,
+      fal = props.fal,
+      far = props.far,
+      icon = props.icon,
+      opened = props.opened,
+      Tag = props.tag,
+      title = props.title,
+      attributes = _objectWithoutProperties(props, ["className", "disabled", "disabledClassName", "fab", "fal", "far", "icon", "opened", "tag", "title"]);
+
+  var _useContext = React.useContext(TreeviewContext),
+      theme = _useContext.theme,
+      active = _useContext.active,
+      getActive = _useContext.getActive;
+
+  React.useEffect(function () {
+    if (targetRef && targetRef.current) {
+      setTarget(targetRef.current);
+      opened && getActive(targetRef.current);
+    }
+  }, []);
+
+  var handleClick = function handleClick() {
+    return target.classList.contains('opened') ? getActive(null) : getActive(target);
+  };
+
+  var classes = classNames(disabled && disabledClassName, theme && "treeview-".concat(theme, "-items treeview-").concat(theme, "-element closed mb-1"), active === target && !active.classList.contains('opened') ? 'opened' : '', className);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes,
+    ref: targetRef,
+    onMouseDown: !disabled ? handleClick : null,
+    style: {
+      transform: 'translateY(0.3em)'
+    }
+  }), React__default.createElement(Fa, {
+    className: "mr-2",
+    fab: fab,
+    fal: fal,
+    far: far,
+    icon: icon
+  }), React__default.createElement("span", null, title));
+};
+
+TreeviewItem.propTypes = {
+  className: propTypes.string,
+  disabled: propTypes.bool,
+  disabledClassName: propTypes.string,
+  fab: propTypes.bool,
+  fal: propTypes.bool,
+  far: propTypes.bool,
+  icon: propTypes.string,
+  opened: propTypes.bool,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string])
+};
+TreeviewItem.defaultProps = {
+  disabled: false,
+  fab: false,
+  fal: false,
+  far: false,
+  icon: 'folder-open',
+  opened: false,
+  tag: 'li'
+};
+
+var TreeviewList = function TreeviewList(props) {
+  var _useState = React.useState(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      opened = _useState2[0],
+      setOpen = _useState2[1];
+
+  React.useEffect(function () {
+    setOpen(props.opened);
+  }, [props.opened]);
+
+  var handleSwitch = function handleSwitch() {
+    return setOpen(!opened);
+  };
+
+  var children = props.children,
+      className = props.className,
+      disabled = props.disabled,
+      disabledClassName = props.disabledClassName,
+      fab = props.fab,
+      fal = props.fal,
+      far = props.far,
+      icon = props.icon,
+      _ = props.opened,
+      Tag = props.tag,
+      title = props.title,
+      attributes = _objectWithoutProperties(props, ["children", "className", "disabled", "disabledClassName", "fab", "fal", "far", "icon", "opened", "tag", "title"]);
+
+  var _useContext = React.useContext(TreeviewContext),
+      theme = _useContext.theme;
+
+  var nestedClasses = classNames('nested', opened && 'active');
+  var folder = classNames(theme && "closed treeview-".concat(theme, "-element d-block"), !children && 'ml-2', opened && 'opened', disabled && disabledClassName);
+  var classes = classNames(theme && "treeview-".concat(theme, "-items px-0"), className);
+  var iconClasses = classNames(theme ? 'mx-2' : 'mr-2');
+  var child = children && React__default.createElement("ul", {
+    className: nestedClasses,
+    style: {
+      height: 'calc(100% + 0.6rem)',
+      marginLeft: '2px'
+    }
+  }, children);
+  var collapse = theme && React__default.createElement(Collapse, {
+    isOpen: opened
+  }, child);
+  var iconArrow = theme !== 'colorful' ? 'angle-right' : opened ? 'minus-circle' : 'plus-circle';
+  var arrow = children && React__default.createElement(Fa, {
+    icon: iconArrow,
+    rotate: theme !== 'colorful' ? opened ? '90 down' : '0' : '',
+    className: "rotate"
+  });
+  var btn = children && React__default.createElement(Button, {
+    flat: true,
+    className: "m-0 py-0 px-1 mr-1 z-depth-0",
+    onClick: handleSwitch
+  }, arrow);
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: classes
+  }), React__default.createElement("span", {
+    className: folder,
+    onClick: !disabled && theme ? handleSwitch : null
+  }, theme ? arrow : btn, React__default.createElement("span", null, React__default.createElement(Fa, {
+    className: iconClasses,
+    fab: fab,
+    fal: fal,
+    far: far,
+    icon: icon
+  }), title)), collapse || child);
+};
+
+TreeviewList.propTypes = {
+  className: propTypes.string,
+  disabled: propTypes.bool,
+  disabledClassName: propTypes.string,
+  fab: propTypes.bool,
+  fal: propTypes.bool,
+  far: propTypes.bool,
+  icon: propTypes.string,
+  opened: propTypes.bool,
+  tag: propTypes.string
+};
+TreeviewList.defaultProps = {
+  disabled: false,
+  fab: false,
+  fal: false,
+  far: false,
+  icon: 'folder-open',
+  opened: false,
+  tag: 'li'
+};
+TreeviewList.contextTypes = {
+  theme: propTypes.string
+};
+
 var Autocomplete =
 /*#__PURE__*/
 function (_Component) {
@@ -11541,6 +11771,9 @@ exports.MDBTimePicker = TimePicker;
 exports.MDBTimeline = Timeline;
 exports.MDBTimelineStep = TimelineStep;
 exports.MDBTooltip = Popper;
+exports.MDBTreeview = Treeview;
+exports.MDBTreeviewItem = TreeviewItem;
+exports.MDBTreeviewList = TreeviewList;
 exports.MDBView = View;
 exports.MDBWaves = Waves;
 exports.Mask = Mask;
@@ -11600,5 +11833,8 @@ exports.TimePicker = TimePicker;
 exports.Timeline = Timeline;
 exports.TimelineStep = TimelineStep;
 exports.Tooltip = Popper;
+exports.Treeview = Treeview;
+exports.TreeviewItem = TreeviewItem;
+exports.TreeviewList = TreeviewList;
 exports.View = View;
 exports.Waves = Waves;

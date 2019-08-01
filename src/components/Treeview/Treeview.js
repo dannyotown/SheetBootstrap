@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 export const TreeviewContext = React.createContext();
 
@@ -10,11 +10,11 @@ const Treeview = props => {
   useEffect(() => {
     if (props.getValue) {
       props.getValue({
-        item: active ? active.closest("li") : active,
-        value: active ? active.closest("li").childNodes[1].textContent : active
+        item: active ? active.closest('li') : active,
+        value: active ? active.closest('li').childNodes[1].textContent : active
       });
     }
-  }, [active]);
+  }, [active, props]);
 
   const getActive = target => {
     setActive(target);
@@ -33,21 +33,21 @@ const Treeview = props => {
   } = props;
 
   const classes = classNames(
-    "border",
-    theme ? `treeview-${theme}` : "treeview",
+    'border',
+    theme ? `treeview-${theme}` : 'treeview',
     className
   );
   const ulClasses = classNames(
-    "list-unstyled",
-    header ? "pb-2 mb-1" : "py-2 my-1",
+    'list-unstyled',
+    header ? 'pb-2 mb-1' : 'py-2 my-1',
     theme && `treeview-${theme}-list`,
-    theme === "animated" || (!theme && "pl-3"),
+    theme === 'animated' || (!theme && 'pl-3'),
     listClassName
   );
 
   const head = header && (
     <>
-      <h6 className="pt-3 pl-3">{header}</h6>
+      <h6 className='pt-3 pl-3'>{header}</h6>
       <hr />
     </>
   );
@@ -60,7 +60,7 @@ const Treeview = props => {
           value={{
             active,
             theme,
-            getActive: getActive
+            getActive
           }}
         >
           {children}
@@ -71,18 +71,18 @@ const Treeview = props => {
 };
 
 Treeview.propTypes = {
-  theme: PropTypes.string,
   className: PropTypes.string,
-  getValue: PropTypes.func,
   header: PropTypes.string,
   listClassName: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+  tag: PropTypes.string,
+  theme: PropTypes.string,
+  getValue: PropTypes.func
 };
 
 Treeview.defaultProps = {
-  theme: "",
-  getValue: () => {},
-  tag: "div"
+  tag: 'div',
+  theme: '',
+  getValue: () => {}
 };
 
 export default Treeview;

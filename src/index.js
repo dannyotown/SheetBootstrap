@@ -73,6 +73,9 @@ import TableBody from './components/Table/TableBody';
 import TableFoot from './components/Table/TableFoot';
 import TableHead from './components/Table/TableHead';
 import Tooltip from './components/Popper';
+import Treeview from './components/Treeview';
+import TreeviewItem from './components/Treeview/TreeviewItem';
+import TreeviewList from './components/Treeview/TreeviewList';
 import View from './components/View';
 import Waves from './components/Waves';
 
@@ -198,6 +201,9 @@ export {
   TableBody,
   TableFoot,
   TableHead,
+  Treeview,
+  TreeviewItem,
+  TreeviewList,
   Tooltip,
   View,
   Waves,
@@ -324,6 +330,9 @@ export {
   TableBody as MDBTableBody,
   TableFoot as MDBTableFoot,
   TableHead as MDBTableHead,
+  Treeview as MDBTreeview,
+  TreeviewItem as MDBTreeviewItem,
+  TreeviewList as MDBTreeviewList,
   Tooltip as MDBTooltip,
   View as MDBView,
   Waves as MDBWaves,
