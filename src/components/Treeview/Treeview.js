@@ -60,7 +60,7 @@ const Treeview = props => {
           value={{
             active,
             theme,
-            getActive: getActive
+            getActive
           }}
         >
           {children}
@@ -71,18 +71,18 @@ const Treeview = props => {
 };
 
 Treeview.propTypes = {
-  theme: PropTypes.string,
   className: PropTypes.string,
-  getValue: PropTypes.func,
   header: PropTypes.string,
   listClassName: PropTypes.string,
-  tag: PropTypes.string
+  tag: PropTypes.string,
+  theme: PropTypes.string,
+  getValue: PropTypes.func
 };
 
 Treeview.defaultProps = {
+  tag: "div",
   theme: "",
-  getValue: () => {},
-  tag: "div"
+  getValue: () => {}
 };
 
 export default Treeview;

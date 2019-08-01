@@ -9,12 +9,14 @@ const TreeviewItem = props => {
   const targetRef = useRef(null);
 
   const {
+    className,
     disabled,
+    disabledClassName,
     fab,
     fal,
     far,
     icon,
-    open,
+    opened,
     tag: Tag,
     title,
     ...attributes
@@ -24,7 +26,7 @@ const TreeviewItem = props => {
   useEffect(() => {
     if (targetRef && targetRef.current) {
       setTarget(targetRef.current);
-      open && getActive(targetRef.current);
+      opened && getActive(targetRef.current);
     }
   }, []);
 
@@ -32,15 +34,17 @@ const TreeviewItem = props => {
     target.classList.contains("opened") ? getActive(null) : getActive(target);
 
   const classes = classNames(
+    disabled && disabledClassName,
     theme && `treeview-${theme}-items treeview-${theme}-element closed mb-1`,
-    active === target && !active.classList.contains("opened") ? "opened" : ""
+    active === target && !active.classList.contains("opened") ? "opened" : "",
+    className
   );
   return (
     <Tag
       {...attributes}
       className={classes}
       ref={targetRef}
-      onMouseDown={e=> !disabled && handleClick(e)}
+      onMouseDown={!disabled ? handleClick : null}
       style={{ transform: "translateY(0.3em)" }}
     >
       <MDBIcon className="mr-2" fab={fab} fal={fal} far={far} icon={icon} />
@@ -50,12 +54,14 @@ const TreeviewItem = props => {
 };
 
 TreeviewItem.propTypes = {
+  className: PropTypes.string,
   disabled: PropTypes.bool,
+  disabledClassName: PropTypes.string,
   fab: PropTypes.bool,
   fal: PropTypes.bool,
   far: PropTypes.bool,
   icon: PropTypes.string,
-  open: PropTypes.bool,
+  opened: PropTypes.bool,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
@@ -65,13 +71,8 @@ TreeviewItem.defaultProps = {
   fal: false,
   far: false,
   icon: "folder-open",
-  open: false,
+  opened: false,
   tag: "li"
-};
-TreeviewItem.contextTypes = {
-  theme: PropTypes.string,
-  active: PropTypes.any,
-  getActive: PropTypes.func
 };
 
 export default TreeviewItem;

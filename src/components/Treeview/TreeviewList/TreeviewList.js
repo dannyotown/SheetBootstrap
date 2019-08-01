@@ -5,25 +5,24 @@ import { MDBBtn, MDBIcon, MDBCollapse } from "mdbreact";
 import { TreeviewContext } from "../Treeview";
 
 const TreeviewList = props => {
-  const [open, setOpen] = useState(props.open);
+  const [opened, setOpen] = useState(false);
 
   useEffect(() => {
-    setOpen(props.open);
-  }, [props.open]);
+    setOpen(props.opened);
+  }, [props.opened]);
 
-  const handleSwitch = () => {
-    if (props.children) {
-      setOpen(!open);
-    }
-  };
+  const handleSwitch = () => setOpen(!opened);
 
   const {
     children,
+    className,
     disabled,
+    disabledClassName,
     fab,
     fal,
     far,
     icon,
+    opened:_,
     tag: Tag,
     title,
     ...attributes
@@ -31,12 +30,14 @@ const TreeviewList = props => {
 
   const { theme } = useContext(TreeviewContext);
 
-  const nestedClasses = classNames("nested", open && "active");
+  const nestedClasses = classNames("nested", opened && "active");
   const folder = classNames(
     theme && `closed treeview-${theme}-element d-block`,
-    open && "opened"
+    !children && "ml-2",
+    opened && "opened",
+    disabled && disabledClassName
   );
-  const classes = classNames(theme && `treeview-${theme}-items px-0`);
+  const classes = classNames(theme && `treeview-${theme}-items px-0`, className);
   const iconClasses = classNames(theme ? "mx-2" : "mr-2");
 
   const child = children && (
@@ -47,18 +48,18 @@ const TreeviewList = props => {
       {children}
     </ul>
   );
-  const collapse = theme && <MDBCollapse isOpen={open}>{child}</MDBCollapse>;
+  const collapse = theme && <MDBCollapse isOpen={opened}>{child}</MDBCollapse>;
   const iconArrow =
     theme !== "colorful"
       ? "angle-right"
-      : open
+      : opened
       ? "minus-circle"
       : "plus-circle";
 
-  const arrow = (
+  const arrow = children && (
     <MDBIcon
       icon={iconArrow}
-      rotate={theme !== "colorful" ? (open ? "90 down" : "0") : ""}
+      rotate={theme !== "colorful" ? (opened ? "90 down" : "0") : ""}
       className="rotate"
     />
   );
@@ -75,7 +76,7 @@ const TreeviewList = props => {
 
   return (
     <Tag {...attributes} className={classes}>
-      <span className={folder} onClick={e => !disabled && theme && handleSwitch(e)}>
+      <span className={folder} onClick={!disabled && theme ? handleSwitch : null}>
         {theme ? arrow : btn}
         <span>
           <MDBIcon
@@ -94,12 +95,14 @@ const TreeviewList = props => {
 };
 
 TreeviewList.propTypes = {
+  className: PropTypes.string,
   disabled: PropTypes.bool,
+  disabledClassName: PropTypes.string,
   fab: PropTypes.bool,
   fal: PropTypes.bool,
   far: PropTypes.bool,
   icon: PropTypes.string,
-  open: PropTypes.bool,
+  opened: PropTypes.bool,
   tag: PropTypes.string
 };
 
@@ -109,7 +112,7 @@ TreeviewList.defaultProps = {
   fal: false,
   far: false,
   icon: "folder-open",
-  open: false,
+  opened: false,
   tag: "li"
 };
 
