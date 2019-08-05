@@ -12,10 +12,7 @@ const defaultProps = {
   onClick: mockCallback
 };
 
-const setup = (props = {}) => {
-  const setupProps = { ...defaultProps, ...props };
-  return shallow(<CloseIcon {...setupProps} />);
-};
+const setup = (props = {}) => shallow(<CloseIcon {...props} />);
 
 describe('<CloseIcon />', () => {
   let wrapper;
@@ -26,6 +23,9 @@ describe('<CloseIcon />', () => {
 
   test(`does not throw warnings with expected props`, () => {
     checkProps(CloseIcon, defaultProps);
+  });
+
+  test(`does not throw warnings with default props`, () => {
     checkProps(CloseIcon, {});
   });
 
@@ -40,6 +40,7 @@ describe('<CloseIcon />', () => {
   });
 
   test(`invokes callback function passed as a prop after clicking a button`, () => {
+    wrapper = setup({ onClick: mockCallback });
     const closeBtn = findByTestAttr(wrapper, 'close-button');
     closeBtn.simulate('click');
 
@@ -54,10 +55,9 @@ describe('<CloseIcon />', () => {
   });
 
   test(`adds custom class passed as props`, () => {
-    const className = `testClassName`;
-    wrapper = setup({ className });
+    wrapper = setup({ className: 'testClassName' });
 
-    expect(checkClass(wrapper, className).length).toBe(1);
+    checkClass(wrapper, 'testClassName');
   });
 
   test(`allows to set custom aria-label attribute`, () => {
