@@ -8,6 +8,7 @@ const ControlledSelectInput = React.forwardRef(
         type="text"
         ref={inputRef}
         required={required ? required : false}
+        readOnly
         value={value}
         onChange={() => {}}
         className="select-dropdown"
