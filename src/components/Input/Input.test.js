@@ -64,7 +64,7 @@ describe('<Input />', () => {
     checkProps(wrapper, expectedProps);
   });
 
-  test(`does not throw warnings with default props`, () => {
+  test(`does not throw warnings without props`, () => {
     checkProps(wrapper, {});
   });
 
@@ -101,5 +101,17 @@ describe('<Input />', () => {
     wrapper = setup({ tag: 'a' });
 
     checkTag(wrapper, 'a');
+  });
+
+  test('adds icon', () => {
+    wrapper = setup({ icon: 'star' });
+
+    expect(wrapper.find('Fa').length).toBe(1);
+  });
+
+  test('adds label', () => {
+    wrapper = setup({ label: 'test' });
+
+    expect(wrapper.find('label').length).toBe(1);
   });
 });

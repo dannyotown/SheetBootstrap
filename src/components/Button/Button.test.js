@@ -59,7 +59,7 @@ describe('<Button />', () => {
     checkProps(wrapper, expectedProps);
   });
 
-  test('does not throw warnings with default props', () => {
+  test('does not throw warnings without props', () => {
     checkProps(wrapper, {});
   });
 
