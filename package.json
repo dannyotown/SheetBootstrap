@@ -25,7 +25,8 @@
     "sass-compile": "node-sass dist/scss -o dist/css",
     "webpack": "concurrently \"webpack-dev-server --watch\" \"yarn run test\"",
     "start": "yarn run webpack",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "dependencies": {
     "@date-io/moment": "1.3.5",
