@@ -5,7 +5,7 @@ import { findByTestAttr, checkProps, checkClass } from '../../tests/utils';
 import CloseIcon from './CloseIcon';
 
 const mockCallback = jest.fn();
-const defaultProps = {
+const expectedProps = {
   className: 'mockClassName',
   type: 'submit',
   style: { background: 'red' },
@@ -22,11 +22,12 @@ describe('<CloseIcon />', () => {
   });
 
   test(`does not throw warnings with expected props`, () => {
-    checkProps(CloseIcon, defaultProps);
+    wrapper = setup(expectedProps);
+    checkProps(wrapper, expectedProps);
   });
 
   test(`does not throw warnings with default props`, () => {
-    checkProps(CloseIcon, {});
+    checkProps(wrapper, {});
   });
 
   test(`renders without errors`, () => {
@@ -50,8 +51,9 @@ describe('<CloseIcon />', () => {
   test(`adds custom attributes passed as props`, () => {
     wrapper = setup({ 'data-custom-attr': 'custom' });
     const closeBtn = findByTestAttr(wrapper, 'close-button');
-
+    
     expect(closeBtn.props()['data-custom-attr']).toBe('custom');
+    expect(wrapper.find(`[data-custom-attr="custom"]`).length).toBe(1);
   });
 
   test(`adds custom class passed as props`, () => {
