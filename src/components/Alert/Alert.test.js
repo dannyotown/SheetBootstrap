@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass
-} from '../../tests/utils';
+import { findByTestAttr, checkProps, checkClass } from '../../tests/utils';
 import Alert from './Alert';
 
 const setup = (props = {}) => shallow(<Alert {...props} />);
@@ -51,25 +47,30 @@ describe('<Alert />', () => {
     checkClass(wrapper, 'testClassName');
   });
 
-  test('adds transition when dismiss property is passed', () => {
-    wrapper = setup({ dismiss: true });
-
-    expect(wrapper.find('Transition').length).toBe(1);
-  });
-
   test('adds color class', () => {
     wrapper = setup({ color: 'secondary' });
 
     expect(wrapper.find(`[className*="alert-secondary"]`).length).toBe(1);
   });
 
-  test('closes alert after click on the close button', () => {
-      wrapper = setup({ dismiss: true });
-      const closeButton = wrapper.find('button');
-      
-      closeButton.simulate('click');
-      expect(wrapper.prop('in')).toBe(false);
+  test('does not render Transition when dismiss is not passed', () => {
+    expect(wrapper.find('Transition').length).toBe(0);
   })
 
+  describe('Dismiss', () => {
+    beforeEach(() => {
+      wrapper = setup({ dismiss: true });
+    });
 
+    test('adds Transition', () => {
+      expect(wrapper.find('Transition').length).toBe(1);
+    });
+
+    test('closes alert after click on the close button', () => {
+      const closeButton = wrapper.find('button');
+
+      closeButton.simulate('click');
+      expect(wrapper.prop('in')).toBe(false);
+    });
+  });
 });
