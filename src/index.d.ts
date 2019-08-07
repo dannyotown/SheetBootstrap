@@ -93,6 +93,7 @@ import MDBExportToCSV from './components/pro/DataTable/ExportToCSV';
 import MDBFileInput from './components/pro/InputFile';
 import MDBInputRange from './components/pro/InputRange';
 import MDBInputSwitch from './components/pro/InputSwitch';
+import MDBLightBox from './components/pro/Lightbox';
 import MDBPerfectScrollbar from './components/pro/PerfectScrollbar';
 import MDBRotatingCard from './components/pro/FlippingCard';
 import MDBScrollspyBox from './components/pro/ScrollSpy/ScrollSpyBox';
@@ -220,6 +221,7 @@ export {
   MDBExportToCSV,
   MDBRotatingCard,
   MDBFileInput,
+  MDBLightBox,
   MDBInputRange as MDBRangeInput,
   MDBInputSwitch as MDBSwitch,
   MDBPerfectScrollbar,

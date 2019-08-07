@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-import Lightbox from "react-image-lightbox";
+import { MDBContainer, MDBLightBox } from "mdbreact";
 import DocsLink from "./../../components/docsLink";
-import SectionContainer from "./../../components/sectionContainer";
-import "./Lightbox.css";
+import SectionContainer from "../../components/sectionContainer";
+
 
 class LightboxPage extends Component {
 
   state = {
-    photoIndex: 0,
-    isOpen: false,
      images: [
       'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(117).jpg',
       'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg',
@@ -23,33 +20,7 @@ class LightboxPage extends Component {
     ]
   }
 
-  renderImages = () => {
-    let photoIndex = -1;
-    const { images } = this.state;
-
-    return images.map(imageSrc => {
-      photoIndex++;
-      const privateKey = photoIndex;
-      return (
-      <MDBCol md="4" key={photoIndex}>
-        <figure>
-          <img
-            src={imageSrc}
-            alt="Gallery"
-            className="img-fluid"
-            onClick={() =>
-              this.setState({ photoIndex: privateKey, isOpen: true })
-            }
-          />
-        </figure>
-      </MDBCol>
-      );
-    })
-
-  }
-
   render() {
-    const { photoIndex, isOpen, images } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -57,30 +28,7 @@ class LightboxPage extends Component {
           href="https://mdbootstrap.com/docs/react/advanced/lightbox/"
         />
         <SectionContainer header="Basic example" className="p-4">
-          <div className="mdb-lightbox no-margin">
-            <MDBRow>
-              {this.renderImages()}
-            </MDBRow>
-          </div>
-          {isOpen && (
-            <Lightbox
-              mainSrc={images[photoIndex]}
-              nextSrc={images[(photoIndex + 1) % images.length]}
-              prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-              imageTitle={photoIndex + 1 + "/" + images.length}
-              onCloseRequest={() => this.setState({ isOpen: false })}
-              onMovePrevRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + images.length - 1) % images.length
-                })
-              }
-              onMoveNextRequest={() =>
-                this.setState({
-                  photoIndex: (photoIndex + 1) % images.length
-                })
-              }
-            />
-          )}
+          <MDBLightBox images={this.state.images}/>
         </SectionContainer>
       </MDBContainer>
     );
