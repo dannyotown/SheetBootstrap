@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { findByTestAttr, checkProps, checkClass, checkTag } from '../../tests/utils';
+import {
+  findByTestAttr,
+  checkProps,
+  checkClass,
+  checkTag
+} from '../../tests/utils';
 import Row from './Row';
 
 const setup = (props = {}) => shallow(<Row {...props} />);
@@ -45,18 +50,16 @@ describe('<Row />', () => {
     checkProps(wrapper, {});
   });
 
-  test(`adds custom class passed as property`, () => {
-    wrapper = setup({ className: 'testClassName' });
-
-    checkClass(wrapper, 'testClassName');
-  });
-
   test('sets custom wrapper tag', () => {
     wrapper = setup({ tag: 'a' });
     checkTag(wrapper, 'a');
   });
 
-  describe('set classes', () => {
+  describe('sets classes', () => {
+    test('adds row class by default', () => {
+      checkClass(wrapper, 'row');
+    });
+
     test('adds justify-content-end class', () => {
       wrapper = setup({ end: true });
       checkClass(wrapper, 'justify-content-end');
@@ -91,10 +94,16 @@ describe('<Row />', () => {
       wrapper = setup({ middle: true });
       checkClass(wrapper, 'align-self-center');
     });
-    
+
     test('adds align-self-end class', () => {
       wrapper = setup({ bottom: true });
       checkClass(wrapper, 'align-self-end');
+    });
+
+    test(`adds custom class passed as property`, () => {
+      wrapper = setup({ className: 'testClassName' });
+
+      checkClass(wrapper, 'testClassName');
     });
   });
 });

@@ -49,14 +49,14 @@ describe('<Jumbotron />', () => {
   });
 
   describe('sets classes', () => {
-    test('adds jumbotron class', () => {
-      expect(wrapper.find(`[className="jumbotron"]`).length).toBe(1);
+    test('adds jumbotron class by default', () => {
+      checkClass(wrapper, 'jumbotron');
     });
 
     test('adds jumbotron-fluid class', () => {
       wrapper = setup({ fluid: true });
 
-      expect(wrapper.find(`[className*="jumbotron-fluid"]`).length).toBe(1);
+      checkClass(wrapper, 'jumbotron-fluid');
     });
 
     test('does not add jumbotron-fluid class', () => {

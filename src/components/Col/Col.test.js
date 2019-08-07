@@ -46,14 +46,7 @@ describe('<Col />', () => {
     checkProps(wrapper, {});
   });
 
-  test(`adds custom class passed as property`, () => {
-    wrapper = setup({ className: 'testClassName' });
-
-    checkClass(wrapper, 'testClassName');
-  });
-
   describe('sets classes', () => {
-
     test('adds col size class', () => {
       wrapper = setup({ size: '1' });
 
@@ -76,6 +69,12 @@ describe('<Col />', () => {
       wrapper = setup({ bottom: true });
 
       expect(wrapper.find(`[className*="align-self-end"]`).length).toBe(1);
+    });
+
+    test(`adds custom class passed as property`, () => {
+      wrapper = setup({ className: 'testClassName' });
+
+      checkClass(wrapper, 'testClassName');
     });
   });
 });

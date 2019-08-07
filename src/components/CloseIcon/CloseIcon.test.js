@@ -51,15 +51,9 @@ describe('<CloseIcon />', () => {
   test(`adds custom attributes passed as props`, () => {
     wrapper = setup({ 'data-custom-attr': 'custom' });
     const closeBtn = findByTestAttr(wrapper, 'close-button');
-    
+
     expect(closeBtn.props()['data-custom-attr']).toBe('custom');
     expect(wrapper.find(`[data-custom-attr="custom"]`).length).toBe(1);
-  });
-
-  test(`adds custom class passed as props`, () => {
-    wrapper = setup({ className: 'testClassName' });
-
-    checkClass(wrapper, 'testClassName');
   });
 
   test(`allows to set custom aria-label attribute`, () => {
@@ -67,5 +61,17 @@ describe('<CloseIcon />', () => {
     const closeBtn = wrapper.find(`[aria-label="custom"]`);
 
     expect(closeBtn.length).toBe(1);
+  });
+
+  describe('sets classes', () => {
+    test(`adds close class by default`, () => {
+      checkClass(wrapper, 'close');
+    });
+
+    test(`adds custom class passed as props`, () => {
+      wrapper = setup({ className: 'testClassName' });
+
+      checkClass(wrapper, 'testClassName');
+    });
   });
 });

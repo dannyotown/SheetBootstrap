@@ -43,12 +43,6 @@ describe('<Badge />', () => {
     checkProps(wrapper, {});
   });
 
-  test(`adds custom class passed as property`, () => {
-    wrapper = setup({ className: 'testClassName' });
-
-    checkClass(wrapper, 'testClassName');
-  });
-
   test(`adds custom attributes passed as property`, () => {
     wrapper = setup({ customAttr: 'custom' });
 
@@ -62,7 +56,10 @@ describe('<Badge />', () => {
   });
 
   describe('sets classes', () => {
-      
+    test('adds badge class by default', () => {
+      checkClass(wrapper, 'badge');
+    });
+
     test('adds color class', () => {
       wrapper = setup({ color: 'primary' });
       checkClass(wrapper, 'primary');
@@ -76,6 +73,12 @@ describe('<Badge />', () => {
     test('adds badge-pill class', () => {
       wrapper = setup({ pill: true });
       checkClass(wrapper, 'badge-pill');
+    });
+
+    test(`adds custom class passed as property`, () => {
+      wrapper = setup({ className: 'testClassName' });
+
+      checkClass(wrapper, 'testClassName');
     });
   });
 });

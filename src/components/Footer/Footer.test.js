@@ -42,12 +42,6 @@ describe('<Footer />', () => {
     checkProps(wrapper, {});
   });
 
-  test(`adds custom class passed as property`, () => {
-    wrapper = setup({ className: 'testClassName' });
-
-    checkClass(wrapper, 'testClassName');
-  });
-
   test(`adds custom attributes passed as property`, () => {
     wrapper = setup({ customAttr: 'custom' });
 
@@ -60,8 +54,19 @@ describe('<Footer />', () => {
     checkTag(wrapper, 'a');
   });
 
-  test('adds color class', () => {
-    wrapper = setup({ color: 'primary' });
-    expect(wrapper.find(`[className*="primary"]`).length).toBe(1);
+  describe('sets classes', () => {
+    test('adds page-footer class by default', () => {
+      checkClass(wrapper, 'page-footer');
+    });
+    test('adds color class', () => {
+      wrapper = setup({ color: 'primary' });
+      checkClass(wrapper, 'primary');
+    });
+
+    test(`adds custom class passed as property`, () => {
+      wrapper = setup({ className: 'testClassName' });
+
+      checkClass(wrapper, 'testClassName');
+    });
   });
 });

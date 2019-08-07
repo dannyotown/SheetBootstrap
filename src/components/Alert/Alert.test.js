@@ -41,23 +41,29 @@ describe('<Alert />', () => {
     checkProps(wrapper, {});
   });
 
-  test(`adds custom class passed as property`, () => {
-    wrapper = setup({ className: 'testClassName' });
-
-    checkClass(wrapper, 'testClassName');
-  });
-
-  test('adds color class', () => {
-    wrapper = setup({ color: 'secondary' });
-
-    expect(wrapper.find(`[className*="alert-secondary"]`).length).toBe(1);
-  });
-
   test('does not render Transition when dismiss is not passed', () => {
     expect(wrapper.find('Transition').length).toBe(0);
-  })
+  });
 
-  describe('Dismiss', () => {
+  describe('sets classes', () => {
+    test(`adds alert class by default`, () => {
+      checkClass(wrapper, 'alert');
+    });
+
+    test('adds color class', () => {
+      wrapper = setup({ color: 'secondary' });
+
+      expect(wrapper.find(`[className*="alert-secondary"]`).length).toBe(1);
+    });
+
+    test(`adds custom class passed as property`, () => {
+      wrapper = setup({ className: 'testClassName' });
+
+      checkClass(wrapper, 'testClassName');
+    });
+  });
+
+  describe('dismiss', () => {
     beforeEach(() => {
       wrapper = setup({ dismiss: true });
     });

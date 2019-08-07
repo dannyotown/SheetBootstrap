@@ -29,14 +29,14 @@ describe('<View />', () => {
 
   test('does not throw warnings with expected props', () => {
     const expectedProps = {
-        cascade: false,
-        className: "",
-        hover: false,
-        rounded: false,
-        src: "",
-        tag: "div",
-        waves: false,
-        zoom: false
+      cascade: false,
+      className: '',
+      hover: false,
+      rounded: false,
+      src: '',
+      tag: 'div',
+      waves: false,
+      zoom: false
     };
 
     wrapper = setup(expectedProps);
@@ -45,12 +45,6 @@ describe('<View />', () => {
 
   test('does not throw warnings without props', () => {
     checkProps(wrapper, {});
-  });
-
-  test(`adds custom class passed as property`, () => {
-    wrapper = setup({ className: 'testClassName' });
-
-    checkClass(wrapper, 'testClassName');
   });
 
   test(`adds custom attributes passed as property`, () => {
@@ -66,45 +60,53 @@ describe('<View />', () => {
   });
 
   test('renders Waves', () => {
-      wrapper = setup({ waves: true });
-      expect(wrapper.find('Waves').length).toBe(1);
-  })
+    wrapper = setup({ waves: true });
+    expect(wrapper.find('Waves').length).toBe(1);
+  });
 
   test('does not renders Waves', () => {
-      expect(wrapper.find('Waves').length).toBe(0);
-  })
+    expect(wrapper.find('Waves').length).toBe(0);
+  });
 
   describe('sets classes', () => {
+    test('adds view class by default', () => {
+      checkClass(wrapper, 'view');
+    });
 
     test('adds rounded class', () => {
       wrapper = setup({ rounded: true });
 
-      expect(wrapper.find(`[className*="rounded"]`).length).toBe(1);
+      checkClass(wrapper, 'rounded');
     });
 
     test('adds zoom class', () => {
       wrapper = setup({ zoom: true });
 
-      expect(wrapper.find(`[className*="zoom"]`).length).toBe(1);
+      checkClass(wrapper, 'zoom');
     });
 
     test('adds overlay class', () => {
       wrapper = setup({ hover: true });
 
-      expect(wrapper.find(`[className*="overlay"]`).length).toBe(1);
+      checkClass(wrapper, 'overlay');
     });
 
     test('adds view-cascade class', () => {
       wrapper = setup({ cascade: true });
 
-      expect(wrapper.find(`[className*="view-cascade"]`).length).toBe(1);
+      checkClass(wrapper, 'view-cascade');
     });
 
     test('adds Ripple-parent class', () => {
       wrapper = setup({ waves: true });
 
-      expect(wrapper.find(`[className*="Ripple-parent"]`).length).toBe(1);
+      checkClass(wrapper, 'Ripple-parent');
+    });
+
+    test(`adds custom class passed as property`, () => {
+      wrapper = setup({ className: 'testClassName' });
+
+      checkClass(wrapper, 'testClassName');
     });
   });
-
 });

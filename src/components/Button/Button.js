@@ -85,7 +85,7 @@ const Button = props => {
       {disabled ? (
         false
       ) : (
-        <Waves data-test="waves" cursorPos={cursorPos} outline={outline} flat={flat} />
+        <Waves cursorPos={cursorPos} outline={outline} flat={flat} />
       )}
     </Tag>
   );
