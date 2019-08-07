@@ -19,9 +19,7 @@ describe('<Badge />', () => {
   });
 
   test(`renders`, () => {
-    console.log(wrapper.debug());
-    const badge = findByTestAttr(wrapper, 'badge');
-    expect(badge.length).toBe(1);
+    expect(findByTestAttr(wrapper, 'badge').length).toBe(1);
   });
 
   test(`renders without errors`, () => {

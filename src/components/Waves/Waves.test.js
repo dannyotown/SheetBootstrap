@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { findByTestAttr, checkProps, checkClass } from '../../tests/utils';
+import { findByTestAttr, checkProps } from '../../tests/utils';
 import Waves from './Waves';
 
 const setup = (props = {}) => shallow(<Waves {...props} />);
@@ -14,9 +14,7 @@ describe('<Waves />', () => {
   });
 
   test(`renders`, () => {
-    console.log(wrapper.debug());
-    const waves = findByTestAttr(wrapper, 'waves');
-    expect(waves.length).toBe(1);
+    expect(findByTestAttr(wrapper, 'waves').length).toBe(1);
   });
 
   test(`renders without errors`, () => {
@@ -49,7 +47,6 @@ describe('<Waves />', () => {
   });
 
   describe('should add Ripple-outline class', () => {
-
     test('when outline property is passed', () => {
       wrapper = setup({ outline: true });
       expect(wrapper.find('[className*="Ripple-outline"]').length).toBe(1);
@@ -67,8 +64,8 @@ describe('<Waves />', () => {
   });
 
   test('adds is-reppling class', () => {
-      wrapper = setup({ cursorPos: { time: 0, top: 0, left: 0 } })
-    
+    wrapper = setup({ cursorPos: { time: 0, top: 0, left: 0 } });
+
     wrapper.setState({ animate: true });
     expect(wrapper.find('[className*="is-reppling"]').length).toBe(1);
   });

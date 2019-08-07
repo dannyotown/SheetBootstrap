@@ -19,9 +19,7 @@ describe('<Container />', () => {
   });
 
   test(`renders`, () => {
-    console.log(wrapper.debug());
-    const container = findByTestAttr(wrapper, 'container');
-    expect(container.length).toBe(1);
+    expect(findByTestAttr(wrapper, 'container').length).toBe(1);
   });
 
   test(`renders without errors`, () => {

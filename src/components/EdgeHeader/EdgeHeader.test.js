@@ -7,11 +7,11 @@ import {
   checkClass,
   checkTag
 } from '../../tests/utils';
-import Footer from './Footer';
+import EdgeHeader from './EdgeHeader';
 
-const setup = (props = {}) => shallow(<Footer {...props} />);
+const setup = (props = {}) => shallow(<EdgeHeader {...props} />);
 
-describe('<Footer />', () => {
+describe('<EdgeHeader />', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -19,19 +19,19 @@ describe('<Footer />', () => {
   });
 
   test(`renders`, () => {
-    expect(findByTestAttr(wrapper, 'footer').length).toBe(1);
+    expect(findByTestAttr(wrapper, 'edgeHeader').length).toBe(1);
   });
 
   test(`renders without errors`, () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Footer />, div);
+    ReactDOM.render(<EdgeHeader />, div);
   });
 
   test('does not throw warnings with expected props', () => {
     const expectedProps = {
       color: 'primary',
-      tag: 'a',
-      className: 'testClassName'
+      className: 'testClassName',
+      tag: 'div'
     };
 
     wrapper = setup(expectedProps);
@@ -61,7 +61,8 @@ describe('<Footer />', () => {
   });
 
   test('adds color class', () => {
-    wrapper = setup({ color: 'primary' });
-    expect(wrapper.find(`[className*="primary"]`).length).toBe(1);
-  });
+      wrapper = setup({ color: 'primary' });
+      expect(wrapper.find(`[className*="primary"]`).length).toBe(1);
+  })
+
 });
