@@ -52,7 +52,7 @@ describe('<Col />', () => {
     checkClass(wrapper, 'testClassName');
   });
 
-  describe('set classes', () => {
+  describe('sets classes', () => {
 
     test('adds col size class', () => {
       wrapper = setup({ size: '1' });

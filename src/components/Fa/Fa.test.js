@@ -75,7 +75,7 @@ describe('<Fa />', () => {
     expect(wrapper.find('[customAttr="custom"]').length).toBe(1);
   });
 
-  describe('set classes', () => {
+  describe('sets classes', () => {
     test('adds fa-li class', () => {
       wrapper = setup({ list: true });
       checkClass(wrapper, 'fa-li');
