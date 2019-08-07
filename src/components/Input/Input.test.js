@@ -11,6 +11,38 @@ import Input from './Input';
 
 const setup = (props = {}) => shallow(<Input {...props} />);
 
+const expectedProps = {
+  className: 'testClassName',
+  containerClass: '',
+  disabled: false,
+  error: '',
+  filled: false,
+  gap: false,
+  group: false,
+  hint: '',
+  icon: 'star',
+  iconBrand: false,
+  iconClass: '',
+  iconLight: false,
+  iconRegular: false,
+  iconSize: '1x',
+  id: '',
+  noTag: false,
+  outline: false,
+  label: 'test',
+  labelClass: '',
+  size: '',
+  success: '',
+  tag: 'a',
+  type: 'text',
+  value: 'testValue',
+  validate: false,
+  valueDefault: '',
+  getValue: () => {},
+  onIconMouseEnter: () => {},
+  onIconMouseLeave: () => {}
+};
+
 describe('<Input />', () => {
   let wrapper;
 
@@ -29,37 +61,6 @@ describe('<Input />', () => {
   });
 
   test(`does not throw warnings with expected props`, () => {
-    const expectedProps = {
-      className: '',
-      containerClass: '',
-      disabled: false,
-      error: '',
-      filled: false,
-      gap: false,
-      group: false,
-      hint: undefined,
-      icon: '',
-      iconBrand: false,
-      iconClass: '',
-      iconLight: false,
-      iconRegular: false,
-      iconSize: undefined,
-      id: undefined,
-      noTag: false,
-      outline: false,
-      label: '',
-      labelClass: '',
-      size: '',
-      success: '',
-      tag: 'div',
-      type: 'text',
-      validate: false,
-      valueDefault: '',
-      getValue: () => {},
-      onIconMouseEnter: () => {},
-      onIconMouseLeave: () => {}
-    };
-
     wrapper = setup(expectedProps);
     checkProps(wrapper, expectedProps);
   });
@@ -69,8 +70,8 @@ describe('<Input />', () => {
   });
 
   test('sets correct value after receiving a `value` property', () => {
-    wrapper = setup({ value: 'testValue' });
-    expect(wrapper.state('innerValue')).toBe('testValue');
+    wrapper = setup({ value: expectedProps.value });
+    expect(wrapper.state('innerValue')).toBe(expectedProps.value);
   });
 
   test('sets correct value during onChange', () => {
@@ -78,16 +79,16 @@ describe('<Input />', () => {
 
     input.simulate('change', {
       stopPropagation() {},
-      target: { value: 'testValue' }
+      target: { value: expectedProps.value }
     });
 
-    expect(wrapper.state('innerValue')).toBe('testValue');
+    expect(wrapper.state('innerValue')).toBe(expectedProps.value);
   });
 
   test(`adds custom class passed as property`, () => {
-    wrapper = setup({ className: 'testClassName' });
+    wrapper = setup({ className: expectedProps.className });
 
-    checkClass(wrapper, 'testClassName');
+    checkClass(wrapper, expectedProps.className);
   });
 
   test(`adds custom attributes passed as property`, () => {
@@ -98,20 +99,26 @@ describe('<Input />', () => {
   });
 
   test('sets custom wrapper tag', () => {
-    wrapper = setup({ tag: 'a' });
+    wrapper = setup({ tag: expectedProps.tag });
 
-    checkTag(wrapper, 'a');
+    checkTag(wrapper, expectedProps.tag);
   });
 
   test('adds icon', () => {
-    wrapper = setup({ icon: 'star' });
+    wrapper = setup({ icon: expectedProps.icon });
 
     expect(wrapper.find('Fa').length).toBe(1);
   });
 
   test('adds label', () => {
-    wrapper = setup({ label: 'test' });
+    wrapper = setup({ label: expectedProps.label });
 
     expect(wrapper.find('label').length).toBe(1);
+  });
+
+  test('Update value after state change', () => {
+    wrapper.setState({ innerValue: 'testValue' });
+
+    expect(wrapper.find('[value="testValue"]').length).toBe(1);
   });
 });
