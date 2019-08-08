@@ -22,9 +22,9 @@ const CardFooter = props => {
       'bg-transparent': transparent,
       'text-muted': muted,
       [`${text}-text`]: text,
-      [`${color}-color`]: color
     },
     'card-footer',
+    color,
     className
   );
 

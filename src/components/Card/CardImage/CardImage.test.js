@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
+
 import {
   findByTestAttr,
   checkProps,
@@ -8,7 +9,6 @@ import {
   checkTag
 } from '../../../tests/utils';
 import CardImage from './CardImage';
-import { wrap } from 'module';
 
 const setup = (props = {}) => shallow(<CardImage {...props} />);
 
@@ -72,12 +72,12 @@ describe('<CardImage />', () => {
   });
 
   test('should render Waves when src and mask properties are passed', () => {
-      wrapper = setup({ src: 'test', waves: true })
+    wrapper = setup({ src: 'test', waves: true });
     expect(wrapper.find('Waves').length).toBe(1);
   });
 
   test('should not render Waves when src property is not passed', () => {
-      wrapper = setup({ waves: true })
+    wrapper = setup({ waves: true });
     expect(wrapper.find('Waves').length).toBe(0);
   });
 

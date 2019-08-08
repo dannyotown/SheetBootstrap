@@ -84,9 +84,9 @@ describe('<CardFooter />', () => {
       checkClass(wrapper, 'text-muted');
     });
 
-    test('adds primary-color class', () => {
+    test('adds primary class', () => {
       wrapper = setup({ color: 'primary' });
-      checkClass(wrapper, 'primary-color');
+      checkClass(wrapper, 'primary');
     });
 
     test('adds red-text class', () => {
