@@ -14,7 +14,8 @@
     "verbose": true,
     "clearMocks": true,
     "setupFiles": [
-      "<rootDir>/src/tests/setupTests.js"
+      "<rootDir>/src/tests/setupTests.js",
+      "<rootDir>/src/tests/throw-on-prop-type-error.js"
     ],
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/src/tests/styleMock.js"
