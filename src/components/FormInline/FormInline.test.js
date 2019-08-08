@@ -26,25 +26,8 @@ describe('<FormInline />', () => {
 
   test('does not throw warnings with expected props', () => {
     const expectedProps = {
-      border: false,
-      brand: false,
       className: '',
-      icon: 'star',
-      FormInlineb: false,
-      FormInlinel: false,
-      FormInliner: false,
-      fixed: false,
-      flip: '',
-      inverse: true,
-      light: false,
-      list: false,
-      pull: '',
-      pulse: false,
-      regular: false,
-      rotate: '',
-      spin: false,
-      size: '',
-      stack: ''
+      waves: true
     };
 
     wrapper = setup(expectedProps);
