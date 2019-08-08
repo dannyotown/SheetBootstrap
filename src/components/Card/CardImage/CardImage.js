@@ -20,13 +20,11 @@ const CardImage = props => {
 
   const {
     className,
-    children,
     overlay,
     top,
     waves,
     hover,
     cascade,
-    src,
     tag,
     zoom,
     ...attributes
@@ -37,12 +35,12 @@ const CardImage = props => {
   const Tag = tag;
 
   const innerContent = (
-    <Tag data-test='card-image' {...attributes} className={classes}>
-      {children}
+    <Tag data-test="card-image" {...attributes} className={classes}>
+      {props.children}
     </Tag>
   );
 
-  if (src) {
+  if (props.src) {
     return (
       <View zoom={zoom} hover={hover} cascade={cascade}>
         <div
