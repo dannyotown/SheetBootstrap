@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass,
-} from '../../tests/utils';
+import { findByTestAttr, checkProps, checkClass } from '../../tests/utils';
 import checkPropTypes from 'check-prop-types';
 import Fa from './Fa';
 
-const setup = (props = {}) => shallow(<Fa {...props} />);
+const setup = (props = {}) => shallow(<Fa {...props} icon='star' />);
 
 describe('<Fa />', () => {
   let wrapper;
@@ -19,14 +15,13 @@ describe('<Fa />', () => {
   });
 
   test(`renders`, () => {
-    wrapper = setup({ icon: 'star' });
     const fa = findByTestAttr(wrapper, 'fa');
     expect(fa.length).toBe(1);
   });
 
   test(`renders without errors`, () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Fa />, div);
+    ReactDOM.render(<Fa icon='star' />, div);
   });
 
   test('does not throw warnings with expected props', () => {
@@ -34,7 +29,7 @@ describe('<Fa />', () => {
       border: false,
       brand: false,
       className: '',
-      icon: 'start',
+      icon: 'star',
       fab: false,
       fal: false,
       far: false,
@@ -56,20 +51,12 @@ describe('<Fa />', () => {
     checkProps(wrapper, expectedProps);
   });
 
-  test('throw warnings without props', () => {
-    const result = checkPropTypes(Fa.propTypes, {}, 'props', Fa.name);
-
-    expect(result).not.toBeUndefined();
-  });
-
-  test(`adds custom class passed as property`, () => {
-    wrapper = setup({ className: 'testClassName' });
-
-    checkClass(wrapper, 'testClassName');
+  test('does not throw warnings without props(except `icon`)', () => {
+    checkPropTypes(wrapper);
   });
 
   test(`adds custom attributes passed as property`, () => {
-    wrapper = setup({ customAttr: 'custom' });
+    wrapper = setup({ icon: 'star', customAttr: 'custom' });
 
     expect(wrapper.props()['customAttr']).toBe('custom');
     expect(wrapper.find('[customAttr="custom"]').length).toBe(1);
@@ -134,6 +121,12 @@ describe('<Fa />', () => {
     test('adds fa-stack class', () => {
       wrapper = setup({ stack: '1x' });
       checkClass(wrapper, 'fa-1x');
+    });
+
+    test(`adds custom class passed as property`, () => {
+      wrapper = setup({ className: 'testClassName' });
+
+      checkClass(wrapper, 'testClassName');
     });
   });
 });
