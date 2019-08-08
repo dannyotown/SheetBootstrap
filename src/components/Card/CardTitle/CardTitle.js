@@ -18,8 +18,7 @@ CardTitle.propTypes = {
 
 CardTitle.defaultProps = {
   tag: 'h4',
-  sub: false,
-  className: true
+  sub: false
 };
 
 export default CardTitle;
