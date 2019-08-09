@@ -5,7 +5,7 @@ import { findByTestAttr, checkProps, checkClass } from '../../tests/utils';
 import checkPropTypes from 'check-prop-types';
 import InputNumeric from './InputNumeric';
 
-const setup = (props = {}) => shallow(<InputNumeric {...props} src='test' />);
+const setup = (props = {}) => shallow(<InputNumeric {...props} />);
 
 describe('<InputNumeric />', () => {
   let wrapper;
@@ -22,7 +22,7 @@ describe('<InputNumeric />', () => {
 
   test(`renders without errors`, () => {
     const div = document.createElement('div');
-    ReactDOM.render(<InputNumeric src='test' />, div);
+    ReactDOM.render(<InputNumeric />, div);
   });
 
   test('does not throw warnings with expected props', () => {
@@ -51,9 +51,8 @@ describe('<InputNumeric />', () => {
     wrapper = setup({ getValue: mockFn });
 
     wrapper.simulate('change', 'testValue');
-    const value = mockFn.mock.calls[0][0];
-
-    expect(value).toEqual('testValue');
+    
+    expect(mockFn).toBeCalledWith('testValue');
   });
 
   describe('sets classes', () => {
