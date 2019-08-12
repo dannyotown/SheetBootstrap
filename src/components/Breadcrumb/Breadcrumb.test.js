@@ -44,6 +44,12 @@ describe('<Breadcrumb />', () => {
     checkPropTypes(wrapper);
   });
 
+  test(`adds custom attributes passed as property`, () => {
+    wrapper = setup({ 'data-custom-attr': 'custom' });
+
+    expect(wrapper.find(`[data-custom-attr="custom"]`).length).toBe(1);
+  });
+
   describe('sets classes', () => {
     test('adds breadcrumb class by default', () => {
       checkClass(wrapper, 'breadcrumb');

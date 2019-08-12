@@ -48,6 +48,12 @@ describe('<BreadcrumbItem />', () => {
     checkPropTypes(wrapper);
   });
 
+  test(`adds custom attributes passed as property`, () => {
+    wrapper = setup({ 'data-custom-attr': 'custom' });
+
+    expect(wrapper.find(`[data-custom-attr="custom"]`).length).toBe(1);
+  });
+
   test('adds `strong` tag', () => {
     wrapper = mounted({ bold: true, children: 'children text node' });
     expect(wrapper.find('strong').length).toBe(1);
