@@ -60,35 +60,26 @@ class Carousel extends Component {
     }
   };
 
-  updateActiveItem = activeItem => {
-    this.setState({
-      ...this.state,
-      activeItem
-    });
-  };
-
   next = () => {
     const nextIndex = this.state.activeItem + 1;
     const nextItem = nextIndex > this.state.length ? 1 : nextIndex;
 
-    this.updateActiveItem(nextItem);
-
-    this.restartInterval();
+    this.goToIndex(nextItem);
   };
 
   prev = () => {
     const prevIndex = this.state.activeItem - 1;
     const prevItem = prevIndex < 1 ? this.state.length : prevIndex;
 
-    this.updateActiveItem(prevItem);
-
-    this.restartInterval();
+    this.goToIndex(prevItem);
   };
 
   goToIndex = item => {
-    if (this.state.activeItem !== item) {
-      this.updateActiveItem(item);
-    }
+    this.setState({
+      ...this.state,
+      activeItem: item
+    });
+
     this.restartInterval();
   };
 
@@ -105,7 +96,7 @@ class Carousel extends Component {
     });
 
     const { initialX, initialY } = this.state;
-    
+
     if (initialX === null || initialY === null) {
       return;
     }
