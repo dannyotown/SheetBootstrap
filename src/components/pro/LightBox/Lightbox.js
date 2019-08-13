@@ -13,35 +13,45 @@ class LightBox extends React.Component {
       activeID: null,
       activePosition: null,
       background: '',
+      diffY: 0,
+      direction: null,
       drag: false,
       dragAnimation: true,
       dragPercent: 0,
       dragPos: null,
       duration: 400,
-      direction: null,
       fullscreen: false,
       image: null,
       lastPosition: null,
       objectFit: true,
       padding: '0',
+      showImage: false,
       sliderPos: null,
       transform: 'translate(0%, 0%)',
       transformSliders: null,
-      showImage: false
+      zoomedImage: 'translate(0%,0%)'
     };
 
+    this.activeDivRef = React.createRef();
     this.slideRefs = [];
   }
+  loadImage = e => {
+    let data = e.target;
+    this.setState({
+      image: e.target,
+      activePosition: data.getBoundingClientRect()
+    });
+  };
 
   activeSet = (e, id) => {
     let data = e.target;
     let render = this.state.activeID;
     this.setState(
       {
-        activePosition: data.getBoundingClientRect(),
-        image: e.target.src,
-        lastPosition: data,
-        activeID: id + 1
+        activeID: id + 1,
+        // activePosition: data.getBoundingClientRect(),
+        // image: e.target,
+        lastPosition: data
       },
       () => {
         !render &&
@@ -53,8 +63,8 @@ class LightBox extends React.Component {
                 x: '0%',
                 y: '0%'
               },
-              padding: '50px 0',
-              background: 'black'
+              background: 'black',
+              padding: '50px 0'
             });
           }, 1);
       }
@@ -62,7 +72,13 @@ class LightBox extends React.Component {
   };
 
   dragStart = e => {
-    if (e.target.tagName !== 'BUTTON' && !this.state.drag) {
+    if (
+      e.target.tagName === 'IMG' &&
+      e.button === 0 &&
+      !e.nativeEvent.sourceCapabilities.firesTouchEvents &&
+      !this.state.drag &&
+      this.state.dragPercent === 0
+    ) {
       let dragPos = {
         x: e.clientX,
         y: e.clientY
@@ -74,103 +90,203 @@ class LightBox extends React.Component {
     }
   };
 
-  dragMove = e => {
-    this.setState({ drag: true });
-    let dragPos = {
-      x: e.clientX,
-      y: e.clientY
-    };
+  dragMoveSlide = e => {
+    if (this.state.drag) {
+      let dragPos = {
+        x: e.clientX,
+        y: e.clientY
+      };
 
-    let diffX = dragPos.x - this.state.dragPos.x;
-    let diffY = dragPos.y - this.state.dragPos.y;
+      let diffX = dragPos.x - this.state.dragPos.x;
+      let diffY = dragPos.y - this.state.dragPos.y;
 
-    if (this.state.direction === null) {
-      setTimeout(() => {
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-          this.setState({ direction: 'x' });
-        } else {
-          this.setState({ direction: 'y' });
-        }
-      }, 25);
+      if (this.state.direction === null) {
+        setTimeout(() => {
+          if (Math.abs(diffX) > Math.abs(diffY)) {
+            this.setState({ direction: 'x' });
+          } else {
+            this.setState({ direction: 'y' });
+          }
+        }, 25);
+      }
+
+      if (this.state.direction === 'x') {
+        this.setState({
+          sliderPos: `${diffX}px`,
+          transformSliders: `translate3d(${diffX}px, 0, 0)`,
+          dragPercent: Math.abs((diffX / window.innerWidth) * 100)
+        });
+      } else if (this.state.direction === 'y') {
+        this.setState({
+          sliderPos: `${diffY}px`,
+          transformSliders: `translate3d(0, ${diffY}px, 0)`,
+          dragPercent: Math.abs((diffY / window.innerHeight) * 100)
+        });
+      }
     }
+  };
 
-    if (this.state.direction === 'x') {
+  dragStopSlide = e => {
+    if (
+      this.state.drag &&
+      e.button === 0 &&
+      !e.nativeEvent.sourceCapabilities.firesTouchEvents
+    ) {
+      const {
+        activeID,
+        direction,
+        dragPercent,
+        duration,
+        padding,
+        sliderPos
+      } = this.state;
+      if (dragPercent >= 20) {
+        this.setState({ drag: false });
+        if (direction === 'x') {
+          let pos =
+            parseInt(sliderPos) > 0
+              ? window.innerWidth + parseInt(padding.split(' ')[0])
+              : -window.innerWidth - parseInt(padding.split(' ')[0]);
+
+          this.setState(
+            { transformSliders: `translate3d(${pos}px, 0, 0)` },
+            () => {
+              setTimeout(() => {
+                let next = this.slideRefs[activeID]
+                  ? this.slideRefs[activeID]
+                  : this.slideRefs[0];
+                let prev =
+                  this.slideRefs[activeID - 2] ||
+                  this.slideRefs[this.slideRefs.length - 1];
+
+                this.setState(
+                  {
+                    dragAnimation: false,
+                    image: pos < 0 ? next : prev
+                  },
+                  () => {
+                    setTimeout(() => {
+                      pos < 0 ? this.nextSlide() : this.prevSlide();
+                      this.setState({ dragAnimation: true });
+                    }, duration + 100);
+                  }
+                );
+              }, duration - 1);
+            }
+          );
+        } else {
+          this.setState({ transformSliders: null });
+          this.close();
+        }
+        setTimeout(() => {
+          this.setState({
+            direction: null,
+            drag: false,
+            dragPercent: 0,
+            transformSliders: null
+          });
+        }, duration * 2 - 10);
+      } else {
+        let dragPos = {
+          x: e.clientX,
+          y: e.clientY
+        };
+
+        if (
+          dragPos.x === this.state.dragPos.x &&
+          dragPos.y === this.state.dragPos.y
+        ) {
+          this.toggleZoom();
+        }
+
+        this.setState({
+          direction: null,
+          drag: false,
+          dragPercent: 0,
+          transformSliders: null
+        });
+      }
+    } else if (!!this.state.direction) {
+      setTimeout(() => {
+        this.setState({
+          direction: null
+        });
+      }, this.state.duration);
+    }
+  };
+
+  dragMoveZoomed = e => {
+    if (this.state.drag) {
+      let dragPos = {
+        x: e.clientX,
+        y: e.clientY
+      };
+
+      let diffX = dragPos.x - this.state.dragPos.x;
+      let diffY = dragPos.y - this.state.dragPos.y + this.state.diffY;
+
       this.setState({
-        sliderPos: `${diffX}px`,
-        transformSliders: `translate3d(${diffX}px, 0, 0)`,
-        dragPercent: Math.abs((diffX / document.body.clientWidth) * 100)
-      });
-    } else if (this.state.direction === 'y') {
-      this.setState({
-        sliderPos: `${diffY}px`,
-        transformSliders: `translate3d(0, ${diffY}px, 0)`,
-        dragPercent: Math.abs((diffY / document.body.clientHeight) * 100)
+        transformSliders: `translate3d(${diffX}px, ${diffY}px, 0)`,
+        dragPercent: Math.abs((diffY / window.innerWidth) * 100)
       });
     }
   };
 
-  dragStop = () => {
-    const {
-      drag,
-      dragPercent,
-      direction,
-      duration,
-      sliderPos,
-      padding,
-      activeID
-    } = this.state;
-    if (dragPercent >= 20) {
-      this.setState({ drag: false });
-      if (direction === 'x') {
-        let pos =
-          parseInt(sliderPos) > 0
-            ? document.body.clientWidth + parseInt(padding.split(' ')[0])
-            : -document.body.clientWidth - parseInt(padding.split(' ')[0]);
+  dragStopZoomed = e => {
+    if (this.state.drag && this.state.transformSliders) {
+      let diff = Number(
+        this.state.transformSliders
+          .match(/\-*[0-9]*\.?[0-9]+px/g)[1]
+          .replace('px', '')
+      );
 
-        this.setState(
-          { transformSliders: `translate3d(${pos}px, 0, 0)` },
-          () => {
-            setTimeout(() => {
-              let next = this.slideRefs[activeID]
-                ? this.slideRefs[activeID]
-                : this.slideRefs[0];
-              let prev =
-                this.slideRefs[activeID - 2] ||
-                this.slideRefs[this.slideRefs.length - 1];
-
-              this.setState(
-                {
-                  image: pos < 0 ? next.src : prev.src,
-                  dragAnimation: false
-                },
-                () => {
-                  setTimeout(() => {
-                    pos < 0 ? this.nextSlide() : this.prevSlide();
-                    this.setState({ dragAnimation: true });
-                  }, duration);
-                }
-              );
-            }, duration - 1);
-          }
-        );
-      } else {
-        this.setState({ transformSliders: null });
-        this.close();
+      if (this.state.dragPercent >= 15) {
+        let percent = 1.45;
+        diff = diff * percent - diff;
       }
-      setTimeout(() => {
+      this.setState({
+        direction: null,
+        dragPercent: 0,
+        diffY: diff,
+        transformSliders: `translate3d(0px, ${diff}px, 0px)`
+      });
+    } else {
+      if (
+        this.state.dragPercent === 0 &&
+        !e.nativeEvent.sourceCapabilities.firesTouchEvents
+      ) {
         this.setState({
-          drag: false,
-          direction: null,
-          transformSliders: null,
-          dragPercent: 0
+          objectFit: true
         });
-      }, duration * 2 - 10);
+      }
+    }
+
+    this.setState({
+      drag: false
+    });
+  };
+
+  touchStart = e => {
+    if (this.state.objectFit) {
+      let size = e.target.getBoundingClientRect();
+      let dragPos = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY - size.y
+      };
+
+      let percent = {
+        x: (dragPos.x / size.width) * 100,
+        y: (dragPos.y / size.height) * 100
+      };
+
+      this.setState({
+        objectFit: false,
+        zoomedImage: `translate(${-percent.x + 50}%,${-percent.y + 50}%)`
+      });
     } else {
       this.setState({
-        drag: false,
-        direction: null,
-        transformSliders: null,
-        dragPercent: 0
+        objectFit: true,
+        zoomedImage: 'translate(0%,0%)'
       });
     }
   };
@@ -180,12 +296,15 @@ class LightBox extends React.Component {
       {
         activePosition: this.state.lastPosition.getBoundingClientRect(),
         background: '',
+        diffY: 0,
+        zoomedImage: 'translate(0%,0%)',
+        objectFit: true,
         padding: '0',
-        objectFit: true
+        transformSliders: null
       },
       () => {
         setTimeout(() => {
-          this.setState({ activePosition: null, activeID: null });
+          this.setState({ activeID: null });
         }, this.state.duration);
       }
     );
@@ -193,6 +312,8 @@ class LightBox extends React.Component {
       document.exitFullscreen();
     }
   };
+
+  closeDiv = e => e.target === this.activeDivRef.current && this.close();
 
   toggleFullscreen = () => {
     if (document.fullscreenElement) {
@@ -203,19 +324,25 @@ class LightBox extends React.Component {
     this.setState({ fullscreen: !this.state.fullscreen });
   };
 
-  toggleZoom = () => this.setState({ objectFit: !this.state.objectFit });
+  toggleZoom = () => {
+    if (!this.state.objectFit) {
+      this.setState({
+        zoomedImage: 'translate(0%,0%)'
+      });
+    }
+
+    this.state.dragPercent === 0 &&
+      this.setState({ objectFit: !this.state.objectFit });
+  };
 
   nextSlide = () => {
-    let next = this.slideRefs[this.state.activeID]
-      ? this.slideRefs[this.state.activeID]
-      : this.slideRefs[0];
+    let next = this.slideRefs[this.state.activeID] || this.slideRefs[0];
     let index = this.slideRefs[this.state.activeID]
       ? this.state.activeID + 1
       : 1;
-
     this.setState({
       activeID: index,
-      image: next.src,
+      image: next,
       lastPosition: next
     });
   };
@@ -231,32 +358,34 @@ class LightBox extends React.Component {
 
     this.setState({
       activeID: index,
-      image: prev.src,
+      image: prev,
       lastPosition: prev
     });
   };
 
   render() {
-    const { images, noMargin } = this.props;
+    const { images, noMargins, lg, md, sm, size, xl, xs } = this.props;
     const {
-      activePosition,
       activeID,
+      activePosition,
       background,
-      duration,
       direction,
       drag,
       dragAnimation,
+      duration,
       fullscreen,
       image,
-      transform,
-      padding,
       objectFit,
-      transformSliders
+      padding,
+      transform,
+      transformSliders,
+      zoomedImage
     } = this.state;
 
+    const { innerWidth, innerHeight } = window;
     const lightboxClassNames = classNames(
       'mdb-lightbox d-flex flex-wrap',
-      noMargin && 'no-margin'
+      !noMargins && 'no-margin'
     );
     const lightboxUiClassNames = classNames(
       background,
@@ -273,13 +402,13 @@ class LightBox extends React.Component {
       position: 'fixed',
       left: '0',
       top: '0',
-      zIndex: activePosition ? '99999' : '-999',
+      zIndex: activeID ? '99999' : '-999',
       transition: '0.2s',
       userSelect: 'none'
     };
     const sliderStyles = {
       transform: direction === 'x' && transformSliders,
-      transition: !drag && dragAnimation && `${duration}ms`
+      transition: !drag && dragAnimation && `${duration / 1.5}ms`
     };
     const arrowsDivStyles = {
       transition: `${duration}ms`,
@@ -294,49 +423,83 @@ class LightBox extends React.Component {
       marginTop: '-100px'
     };
     const prevImgStyles = {
-      objectFit: objectFit ? 'contain' : 'cover',
+      objectFit: 'contain',
       position: 'fixed',
       height: activePosition && activePosition.height,
       width: activePosition && activePosition.width,
-      left: 'calc(-100% - 50px)',
       top: activePosition && activePosition.y,
+      left: 'calc(-100% - 65px)',
       padding
     };
     const nextImgStyles = {
       ...prevImgStyles,
-      left: 'calc(+100% + 50px)'
+      left: 'calc(+100% + 65px)'
     };
-    const activeImgStyles = {
+    const activeDivStyles = {
       ...prevImgStyles,
       left: activePosition && activePosition.x,
       transition: !drag && `${duration}ms`,
-      transform: direction === 'y' ? transformSliders : transform,
-      padding: objectFit ? padding : '0',
-      cursor: objectFit ? 'zoom-in' : 'grab'
+      transform: !objectFit || direction === 'y' ? transformSliders : transform,
+      padding: '0',
+
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    };
+    const activeImgStyles = {
+      width: background
+        ? objectFit
+          ? innerWidth > innerHeight
+            ? 'calc(78% + 2px)'
+            : '100%'
+          : innerWidth > innerHeight
+          ? '90%'
+          : '300%'
+        : '100%',
+      cursor: objectFit ? 'zoom-in' : 'grab',
+      transition: activeID && `${duration}ms`,
+      position: 'relative',
+      transform: zoomedImage,
+      zIndex: activeID ? '99999' : '-999',
+      display: activeID ? '' : 'none'
     };
 
-    let prevImgSrc;
-    let nextImgSrc;
+    let prevImg;
+    let nextImg;
 
     if (this.slideRefs.length) {
-      prevImgSrc = this.slideRefs[this.state.activeID - 2]
-        ? this.slideRefs[this.state.activeID - 2].src
-        : this.slideRefs[this.slideRefs.length - 1].src;
-      nextImgSrc = this.slideRefs[this.state.activeID]
-        ? this.slideRefs[this.state.activeID].src
-        : this.slideRefs[0].src;
+      prevImg = this.slideRefs[this.state.activeID - 2]
+        ? this.slideRefs[this.state.activeID - 2]
+        : this.slideRefs[this.slideRefs.length - 1];
+      nextImg = this.slideRefs[this.state.activeID]
+        ? this.slideRefs[this.state.activeID]
+        : this.slideRefs[0];
     }
 
     const items = images.map((image, id) => (
-      <MDBCol tag='figure' md='4' className='figure' key={id}>
+      <MDBCol
+        tag='figure'
+        lg={lg || image.lg}
+        md={md || image.md}
+        sm={sm || image.sm}
+        size={size || image.size}
+        xl={xl || image.xl}
+        xs={xs || image.xs}
+        className='figure'
+        key={id}
+      >
         <img
-          src={image}
+          src={image.src}
           className='figure-img img-fluid z-depth-1 m-0'
           onClick={e => this.activeSet(e, id)}
-          alt=''
+          onMouseEnter={this.loadImage}
+          alt={image.alt || `image ${id + 1}`}
           ref={img => (this.slideRefs[id] = img)}
           style={{ userSelect: 'none' }}
         />
+        {image.head && (
+          <p className='text-uppercase font-weight-bold mt-4'>{image.head}</p>
+        )}
       </MDBCol>
     ));
     return (
@@ -346,49 +509,52 @@ class LightBox extends React.Component {
           className={lightboxUiClassNames}
           style={containerStyles}
           draggable='false'
+          onMouseLeave={
+            objectFit && drag ? this.dragStopSlide : this.dragStopZoomed
+          }
+          onMouseUp={objectFit ? this.dragStopSlide : this.dragStopZoomed}
         >
-          {activePosition && (
+          {image && (
             <>
               <div
                 className='d-flex position-absolute w-100'
                 style={sliderStyles}
                 draggable='false'
               >
-                {background && (
+                {background && objectFit && (
                   <img
-                    alt='1'
-                    src={prevImgSrc}
+                    alt={prevImg.alt}
+                    src={prevImg.src}
                     style={prevImgStyles}
                     draggable='false'
                   />
                 )}
-                <img
-                  alt='2'
-                  src={image}
-                  style={activeImgStyles}
-                  draggable='false'
-                  onMouseDown={e =>
-                    !drag &&
-                    objectFit &&
-                    dragAnimation &&
-                    !direction &&
-                    this.dragStart(e)
-                  }
-                  onMouseMove={e =>
-                    objectFit && drag ? this.dragMove(e) : false
-                  }
-                  onMouseUp={() =>
-                    objectFit ? this.dragStop() : this.toggleZoom()
-                  }
-                  onMouseLeave={() =>
-                    objectFit && drag ? this.dragStop() : false
-                  }
-                  onWheel={this.close}
-                />
-                {background && (
+                <div
+                  style={activeDivStyles}
+                  ref={this.activeDivRef}
+                  onClick={this.closeDiv}
+                >
                   <img
-                    alt='3'
-                    src={nextImgSrc}
+                    alt={image.alt}
+                    style={activeImgStyles}
+                    src={image.src}
+                    draggable='false'
+                    onTouchStart={this.touchStart}
+                    onMouseDown={
+                      !drag && dragAnimation && !direction
+                        ? this.dragStart
+                        : () => {}
+                    }
+                    onMouseMove={
+                      objectFit ? this.dragMoveSlide : this.dragMoveZoomed
+                    }
+                    onWheel={objectFit ? this.close : () => {}}
+                  />
+                </div>
+                {background && objectFit && (
+                  <img
+                    alt={nextImg.alt}
+                    src={nextImg.src}
                     style={nextImgStyles}
                     draggable='false'
                   />
@@ -448,11 +614,17 @@ class LightBox extends React.Component {
 
 LightBox.propTypes = {
   images: PropTypes.array,
-  noMargin: PropTypes.bool
+  noMargins: PropTypes.bool,
+  lg: PropTypes.string,
+  md: PropTypes.string,
+  sm: PropTypes.string,
+  size: PropTypes.string,
+  xl: PropTypes.string,
+  xs: PropTypes.string
 };
 
 LightBox.defaultProps = {
-  noMargin: false
+  noMargins: false
 };
 
 export default LightBox;
