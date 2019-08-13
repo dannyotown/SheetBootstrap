@@ -3,32 +3,25 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 class CarouselItem extends Component {
-  constructor(props) {
-    super(props);
-    this.moveForward = this.moveForward.bind(this);
-    this.moveBackwards = this.moveBackwards.bind(this);
-    this.makeVisible = this.makeVisible.bind(this);
-  }
-
-  moveForward() {
+  moveForward = () => {
     this.style = {
       position: 'absolute',
       left: '100%'
     };
-  }
+  };
 
-  moveBackwards() {
+  moveBackwards = () => {
     this.style = {
       position: 'absolute',
       left: '-100%'
     };
-  }
+  };
 
-  makeVisible() {
+  makeVisible = () => {
     this.style = {
       left: '0'
     };
-  }
+  };
 
   render() {
     let {
