@@ -35,6 +35,7 @@ class InputSwitch extends React.Component {
       getValue,
       labelLeft,
       labelRight,
+      onChange,
       ...attributes
     } = this.props;
 
@@ -47,7 +48,7 @@ class InputSwitch extends React.Component {
             disabled={this.props.disabled}
             value={this.state.value}
             checked={this.state.value}
-            onChange={event => this.handleChange(event)}
+            onChange={this.handleChange}
             type="checkbox"
           />
           <span className="lever" />
