@@ -14,8 +14,8 @@ const PageItem = props => {
 
   const classes = classNames(
     {
-      disabled: 'disabled',
-      active: 'active'
+      'disabled': disabled,
+      'active': active
     },
     'page-item',
     className
