@@ -1,7 +1,8 @@
 import checkPropTypes from 'check-prop-types';
 
-export const findByTestAttr = (component, testAttr) =>
-  component.find(`[data-test="${testAttr}"]`);
+export const findByTestAttr = (component, testAttr) => {
+  return component.find(`[data-test="${testAttr}"]`);
+};
 
 export const checkProps = (component, expectedProps) => {
   const result = checkPropTypes(
@@ -14,5 +15,10 @@ export const checkProps = (component, expectedProps) => {
   expect(result).toBeUndefined();
 };
 
-export const checkClass = (component, className) =>
-  component.find(`.${className}`);
+export const checkClass = (component, className) => {
+  return expect(component.find(`.${className}`).length).toBe(1);
+};
+
+export const checkTag = (component, tag) => {
+  return expect(component.is(tag)).toBe(true);
+};

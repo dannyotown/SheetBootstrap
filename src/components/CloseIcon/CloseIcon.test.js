@@ -5,17 +5,14 @@ import { findByTestAttr, checkProps, checkClass } from '../../tests/utils';
 import CloseIcon from './CloseIcon';
 
 const mockCallback = jest.fn();
-const defaultProps = {
+const expectedProps = {
   className: 'mockClassName',
   type: 'submit',
   style: { background: 'red' },
   onClick: mockCallback
 };
 
-const setup = (props = {}) => {
-  const setupProps = { ...defaultProps, ...props };
-  return shallow(<CloseIcon {...setupProps} />);
-};
+const setup = (props = {}) => shallow(<CloseIcon {...props} />);
 
 describe('<CloseIcon />', () => {
   let wrapper;
@@ -25,8 +22,12 @@ describe('<CloseIcon />', () => {
   });
 
   test(`does not throw warnings with expected props`, () => {
-    checkProps(CloseIcon, defaultProps);
-    checkProps(CloseIcon, {});
+    wrapper = setup(expectedProps);
+    checkProps(wrapper, expectedProps);
+  });
+
+  test(`does not throw warnings without props`, () => {
+    checkProps(wrapper, {});
   });
 
   test(`renders without errors`, () => {
@@ -40,6 +41,7 @@ describe('<CloseIcon />', () => {
   });
 
   test(`invokes callback function passed as a prop after clicking a button`, () => {
+    wrapper = setup({ onClick: mockCallback });
     const closeBtn = findByTestAttr(wrapper, 'close-button');
     closeBtn.simulate('click');
 
@@ -51,13 +53,7 @@ describe('<CloseIcon />', () => {
     const closeBtn = findByTestAttr(wrapper, 'close-button');
 
     expect(closeBtn.props()['data-custom-attr']).toBe('custom');
-  });
-
-  test(`adds custom class passed as props`, () => {
-    const className = `testClassName`;
-    wrapper = setup({ className });
-
-    expect(checkClass(wrapper, className).length).toBe(1);
+    expect(wrapper.find(`[data-custom-attr="custom"]`).length).toBe(1);
   });
 
   test(`allows to set custom aria-label attribute`, () => {
@@ -65,5 +61,17 @@ describe('<CloseIcon />', () => {
     const closeBtn = wrapper.find(`[aria-label="custom"]`);
 
     expect(closeBtn.length).toBe(1);
+  });
+
+  describe('sets classes', () => {
+    test(`adds close class by default`, () => {
+      checkClass(wrapper, 'close');
+    });
+
+    test(`adds custom class passed as props`, () => {
+      wrapper = setup({ className: 'testClassName' });
+
+      checkClass(wrapper, 'testClassName');
+    });
   });
 });
