@@ -132,42 +132,42 @@ class LightboxPage extends Component {
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(135).jpg',
-        head: '| Lorem Ipsum Dolor Sit Amet'
+        header: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(128).jpg',
-        head: '| Lorem Ipsum Dolor Sit Amet'
+        header: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(133).jpg',
-        head: '| Lorem Ipsum Dolor Sit Amet'
+        header: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(131).jpg',
-        head: '| Lorem Ipsum Dolor Sit Amet'
+        header: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(130).jpg',
-        head: '| Lorem Ipsum Dolor Sit Amet'
+        header: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(132).jpg',
-        head: '| Lorem Ipsum Dolor Sit Amet'
+        header: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(134).jpg',
-        head: '| Lorem Ipsum Dolor Sit Amet'
+        header: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(1).jpg',
-        head: '| Lorem Ipsum Dolor Sit Amet'
+        header: '| Lorem Ipsum Dolor Sit Amet'
       }
     ],
     mixed: [
@@ -251,7 +251,7 @@ class LightboxPage extends Component {
           <MDBLightBox md='4' images={this.state.images} />
         </SectionContainer>
 
-        <SectionContainer header='Gallery with margins' className='p-4'>
+        {/* <SectionContainer header='Gallery with margins' className='p-4'>
           <MDBLightBox md='4' images={this.state.noMargins} noMargins />
         </SectionContainer>
 
@@ -279,7 +279,7 @@ class LightboxPage extends Component {
 
         <SectionContainer header='Gallery with mixed content' className='p-4'>
           <MDBLightBox images={this.state.mixed} noMargins />
-        </SectionContainer>
+        </SectionContainer> */}
       </MDBContainer>
     );
   }
