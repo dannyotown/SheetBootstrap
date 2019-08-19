@@ -75,8 +75,9 @@ describe('<Dropdown />', () => {
 
     toggle();
     expect(document.addEventListener).toHaveBeenCalledTimes(3);
-
+    
     toggle();
+    expect(document.addEventListener).toHaveBeenCalledTimes(3);
     //for the first time it was invoked 3 times after mounting(isOpen === false)
     expect(document.removeEventListener).toHaveBeenCalledTimes(6);
   });
@@ -117,7 +118,7 @@ describe('<Dropdown />', () => {
   test(`handleDocumentClick method should not be fired if 
         container.contains(e.target) && 
         container !== e.target && 
-        e.type !== keyup && e.type === 'tab'`, () => {
+        e.type !== keyup || e.type === 'tab'`, () => {
     wrapper = mount(<Dropdown />);
 
     let { handleDocumentClick } = wrapper.instance();
@@ -140,7 +141,7 @@ describe('<Dropdown />', () => {
   });
 
   test(`handleKeyDown's "e.preventDefault()" method should be fired 
-        if esc || keyUp || keyDown || space was pressed`, () => {
+        if (esc || keyUp || keyDown || space) was pressed`, () => {
     wrapper = mount(<Dropdown />);
 
     let { handleKeyDown } = wrapper.instance();
@@ -191,7 +192,7 @@ describe('<Dropdown />', () => {
   });
 
   test(`handleKeyDown's "e.preventDefault()" method should not be fired 
-        if esc || keyUp || keyDown || space wasn't pressed`, () => {
+        if (esc || keyUp || keyDown || space) wasn't pressed`, () => {
     wrapper = mount(<Dropdown />);
 
     let { handleKeyDown } = wrapper.instance();
