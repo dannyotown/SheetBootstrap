@@ -4282,8 +4282,8 @@ var PageItem = function PageItem(props) {
       attributes = _objectWithoutProperties(props, ["active", "className", "children", "disabled", "tag"]);
 
   var classes = classNames({
-    disabled: 'disabled',
-    active: 'active'
+    'disabled': disabled,
+    'active': active
   }, 'page-item', className);
   return React__default.createElement(Tag, _extends({
     "data-test": "page-item"
