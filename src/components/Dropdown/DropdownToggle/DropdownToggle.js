@@ -40,7 +40,7 @@ class DropdownToggle extends React.Component {
       <span className='sr-only'>{ariaLabel}</span>
     );
 
-    let Tag;
+    let Tag = tag;
 
     if (nav && !tag) {
       Tag = 'a';
@@ -48,8 +48,6 @@ class DropdownToggle extends React.Component {
     } else if (!tag) {
       Tag = Button;
       props.color = color;
-    } else {
-      Tag = tag;
     }
 
     return (
