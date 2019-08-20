@@ -50,7 +50,9 @@ class DropdownMenu extends Component {
         : this.context.dropleft
         ? 'left'
         : 'bottom';
+
       const position2 = right ? 'end' : 'start';
+
       attrs.placement = `${position1}-${position2}`;
       attrs.component = tag;
       attrs.modifiers = !flip ? noFlipModifier : undefined;
@@ -62,10 +64,10 @@ class DropdownMenu extends Component {
         eventsEnabled={true}
         positionFixed={false}
         placement={attrs.placement}
+        data-test='dropdown-menu'
       >
         {({ placement, ref, style }) => (
           <Tag
-            data-test='dropdown-menu'
             ref={ref}
             style={style}
             data-placement={placement}
