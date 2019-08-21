@@ -153,9 +153,9 @@ class DataTable extends Component {
       prevState => {
         const { sortRows } = this.props;
         const { rows, columns } = prevState;
-        const sortDirection = sort === 'desc' ? 'desc' : 'asc';
+        const direction = sort === 'desc' ? 'desc' : 'asc';
 
-        this.sort(rows, sortRows, field, sortDirection);
+        this.sort(rows, sortRows, field, direction);
 
         columns.forEach(col => {
           if (col.sort === 'disabled') return;
