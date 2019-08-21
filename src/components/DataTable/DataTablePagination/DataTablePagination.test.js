@@ -1,6 +1,6 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
-import { findByTestAttr, checkClass, checkProps } from '../../../tests/utils';
+import { shallow } from 'enzyme';
+import { findByTestAttr, checkClass } from '../../../tests/utils';
 import DataTablePagination from './DataTablePagination';
 
 const expectedProps = {
@@ -25,20 +25,17 @@ describe('<DataTablePagination />', () => {
     expect(findByTestAttr(wrapper, 'datatable-pagination').length).toBe(1);
   });
 
-  // test(`sets active property for PageItem`, () => {
-  //   wrapper = setup({ activePage: 2 });
-  //   let node = wrapper.find('PageItem').at(3);
-  //   expect(node.prop('active')).toEqual(true);
-    
-  //   let active = wrapper.find('PageItem');
-    
-  //   console.log(wrapper.find('PageItem').filter('active')).toEqual(true);
-    
-  //   console.log(active.debug())
-  //   // let active = wrapper.prop('active').toEqual(true);
-  //   // console.log(active.length)
-  //   // expect(active.length).toBe(1);
-  // });
+  test(`sets active property for PageItem`, () => {
+    wrapper = setup({ activePage: 2 });
+    let node = wrapper.find('PageItem').at(3);
+    expect(node.prop('active')).toEqual(true);
+
+    const active = wrapper
+      .find('PageItem')
+      .filterWhere(n => n.prop('active') === true);
+
+    expect(active.length).toEqual(1);
+  });
 
   describe(`sets disabled property`, () => {
     test(`sets disabled property for prev & next buttons`, () => {
@@ -70,9 +67,9 @@ describe('<DataTablePagination />', () => {
   test('invokes onClick callback on PageLink', () => {
     const cb = jest.fn();
     wrapper = setup({ changeActivePage: cb });
-    
+
     wrapper.find('PageItem PageLink').forEach(node => {
-      node.simulate('click')
+      node.simulate('click');
     });
     expect(cb).toHaveBeenCalledTimes(6);
   });
