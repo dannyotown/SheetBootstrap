@@ -49,6 +49,31 @@ const data = {
   ]
 };
 
+const Fields = ({ searchValue }) => <a href='!#'>{searchValue}</a>;
+
+const sortRows = {
+  columns: [
+    {
+      label: 'Link',
+      field: 'link'
+    }
+  ],
+  rows: [
+    {
+      link: <Fields searchValue='Garrett_' />
+    },
+    {
+      link: <Fields searchValue='Ashton_' />
+    },
+    {
+      link: <Fields searchValue='Cedric_' />
+    },
+    {
+      link: <Fields searchValue='Airic_' />
+    }
+  ]
+};
+
 const getAgeValue = (wrapper, position) => {
   return wrapper
     .find('tbody tr')
@@ -64,6 +89,13 @@ const getNameValue = (wrapper, position) => {
     .at(position)
     .find('td')
     .at(0)
+    .text();
+};
+
+const getSortRowValue = (wrapper, position) => {
+  return wrapper
+    .find('tbody Fields a')
+    .at(position)
     .text();
 };
 
@@ -258,6 +290,16 @@ describe('<DataTable />', () => {
       expect(first < second).toBeTruthy();
       expect(second < third).toBeTruthy();
     });
+
+    test('does not invoke `sort()` if `sort==="disabled"`', () => {
+      const cb = jest.fn();
+
+      wrapper.instance().setState = cb;
+
+      wrapper.instance().handleSort('name', 'disabled');
+
+      expect(cb).not.toBeCalled();
+    });
   });
 
   test('invokes fetchData when props update if (typeof data===string)', () => {
@@ -340,10 +382,6 @@ describe('<DataTable />', () => {
     expect(wrapper.state('search')).toEqual('test');
     expect(cb).toBeCalled();
   });
-
-  // test('return correct fieldValue from `checkFieldValue`', () => {
-  //   expect(wrapper.instance().checkField([{ age: '22', name: 'Test' }], 'age')).toEqual('22');
-  // });
 
   test('returns correct count of filtered rows ', () => {
     let columns = [
@@ -433,84 +471,11 @@ describe('<DataTable />', () => {
       {
         label: 'Name',
         field: 'name'
-      },
-      {
-        label: 'Position',
-        field: 'position'
       }
     ];
 
-    //17
-    const rows = [
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Tiger Nixon',
-        position: 'System Architect'
-      },
-      {
-        name: 'Garrett Winters',
-        position: 'Accountant'
-      }
-    ];
+    const obj = { name: 'Tiger Nixon' };
+    const rows = [...new Array(17).fill(obj)];
 
     const data = {
       rows,
@@ -548,6 +513,41 @@ describe('<DataTable />', () => {
     wrapper.instance().handleTableBodyScroll({ target: { scrollLeft: 255 } });
 
     expect(wrapper.state('translateScrollHead')).toEqual(255);
+  });
+
+  describe('sortRows works correctly', () => {
+    test('`checkFieldValue()`returns `searchValue` instead of value', () => {
+      wrapper = mount(<DataTable data={sortRows} sortRows={['link']} />);
+
+      expect(
+        wrapper.instance().checkFieldValue(sortRows.rows[0], 'link')
+      ).toEqual('Garrett_');
+    });
+
+    test('`checkField()` returns correct result of sort depending on `sort direction`', () => {
+      wrapper = mount(<DataTable data={sortRows} sortRows={['link']} />);
+
+      expect(
+        wrapper
+          .instance()
+          .checkField('link', sortRows.rows[0], sortRows.rows[1], 'asc')
+      ).toEqual(true);
+
+      expect(
+        wrapper
+          .instance()
+          .checkField('link', sortRows.rows[0], sortRows.rows[1], 'desc')
+      ).toEqual(false);
+    });
+
+    test('`sort()` invokes `checkField()` instead of regular comparison', () => {
+      wrapper = setup({ data: sortRows, sortRows: ['link'] });
+      const cb = jest.fn();
+      wrapper.instance().checkField = cb;
+
+      wrapper.instance().sort(sortRows.rows, ['link'], 'link', 'asc');
+      expect(cb).toBeCalled();
+    });
   });
 
   describe('sets classes', () => {
