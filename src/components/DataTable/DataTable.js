@@ -203,7 +203,7 @@ class DataTable extends Component {
           return false;
         });
 
-        if (!filteredRows.length === 0)
+        if (filteredRows.length === 0)
           filteredRows.push({
             message: 'No matching records found',
             colspan: prevState.columns.length
@@ -222,11 +222,13 @@ class DataTable extends Component {
       const { paging } = this.props;
 
       pages = [];
+
       if (paging) {
         for (let i = 1; i <= pagesAmount; i++) {
           const pageEndIndex = i * entries;
           pages.push(filteredRows.slice(pageEndIndex - entries, pageEndIndex));
         }
+
         activePage =
           activePage < pages.length || activePage === 0
             ? activePage
@@ -236,7 +238,7 @@ class DataTable extends Component {
         activePage = 0;
       }
 
-      return { pages, entries, filteredRows, activePage };
+      return { pages, filteredRows, activePage };
     });
   };
 
