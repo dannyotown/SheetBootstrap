@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAttr, checkClass } from '../../../tests/utils';
+import { findByTestAttr, checkClass, checkProps } from '../../../tests/utils';
 import DataTablePagination from './DataTablePagination';
 
 const expectedProps = {
@@ -35,6 +35,19 @@ describe('<DataTablePagination />', () => {
       .filterWhere(n => n.prop('active') === true);
 
     expect(active.length).toEqual(1);
+  });
+
+  test('does not throw warnings with expected props', () => {
+    const expectedProps = {
+      activePage: 3,
+      pages: [[{}, {}, {}], [{}, {}, {}], [{}, {}, {}], [{}, {}, {}], [{}]],
+      pagesAmount: 5,
+      label: ['label1', 'label2'],
+      changeActivePage: () => {}
+    };
+
+    wrapper = setup(expectedProps);
+    checkProps(wrapper, expectedProps);
   });
 
   describe(`sets disabled property`, () => {
