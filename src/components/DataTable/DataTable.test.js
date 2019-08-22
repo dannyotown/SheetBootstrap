@@ -341,8 +341,213 @@ describe('<DataTable />', () => {
     expect(cb).toBeCalled();
   });
 
-  test('return correct fieldValue from `checkFieldValue`', () => {
-    expect(wrapper.instance().checkField([{ age: '22', name: 'Test' }], 'age')).toEqual('22');
+  // test('return correct fieldValue from `checkFieldValue`', () => {
+  //   expect(wrapper.instance().checkField([{ age: '22', name: 'Test' }], 'age')).toEqual('22');
+  // });
+
+  test('returns correct count of filtered rows ', () => {
+    let columns = [
+      {
+        label: 'Name',
+        field: 'name'
+      },
+      {
+        label: 'Position',
+        field: 'position'
+      }
+    ];
+
+    const rows = [
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Garrett Winters',
+        position: 'Accountant'
+      }
+    ];
+
+    const data = {
+      rows,
+      columns
+    };
+
+    wrapper = setup({ data });
+
+    wrapper.setState({ search: 'System' });
+    wrapper.instance().filterRows();
+    expect(wrapper.state('filteredRows')).toHaveLength(1);
+
+    wrapper.setState({ search: 'Systems' });
+    wrapper.instance().filterRows();
+    expect(wrapper.state('filteredRows')[0].message).toBeTruthy();
+
+    wrapper.setState({ search: 'e' });
+    wrapper.instance().filterRows();
+    expect(wrapper.state('filteredRows')).toHaveLength(2);
+  });
+
+  test('returns correct count of filtered rows if field`s searchable===false', () => {
+    let columns = [
+      {
+        label: 'Name',
+        field: 'name',
+        searchable: false
+      },
+      {
+        label: 'Position',
+        field: 'position'
+      }
+    ];
+
+    const rows = [
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Garrett Winters',
+        position: 'Accountant'
+      }
+    ];
+
+    const data = {
+      rows,
+      columns
+    };
+
+    wrapper = setup({ data });
+
+    wrapper.setState({ search: 'Tiger' });
+    wrapper.instance().filterRows();
+    expect(wrapper.state('filteredRows')[0].message).toBeTruthy();
+
+    wrapper.setState({ search: 'e' });
+    wrapper.instance().filterRows();
+    expect(wrapper.state('filteredRows')).toHaveLength(1);
+  });
+
+  test('correctly paginates rows', () => {
+    let columns = [
+      {
+        label: 'Name',
+        field: 'name'
+      },
+      {
+        label: 'Position',
+        field: 'position'
+      }
+    ];
+
+    //17
+    const rows = [
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Tiger Nixon',
+        position: 'System Architect'
+      },
+      {
+        name: 'Garrett Winters',
+        position: 'Accountant'
+      }
+    ];
+
+    const data = {
+      rows,
+      columns
+    };
+
+    wrapper = setup({ data });
+
+    wrapper.setState({ entries: 5 });
+    wrapper.instance().paginateRows();
+    expect(wrapper.state('pages')).toHaveLength(4);
+
+    wrapper.setState({ entries: 3 });
+    wrapper.instance().paginateRows();
+    expect(wrapper.state('pages')).toHaveLength(6);
+
+    wrapper.setState({ entries: 20 });
+    wrapper.instance().paginateRows();
+    expect(wrapper.state('pages')).toHaveLength(1);
+
+    data.rows.length = data.rows.length - 1;
+    wrapper = setup({ data });
+    wrapper.setState({ entries: 8 });
+    wrapper.instance().paginateRows();
+    expect(wrapper.state('pages')).toHaveLength(2);
+  });
+
+  test('changes active page correctly', () => {
+    wrapper.instance().changeActivePage(3);
+
+    expect(wrapper.state('activePage')).toEqual(3);
+  });
+
+  test('changes translateScrollHead  correctly', () => {
+    wrapper.instance().handleTableBodyScroll({ target: { scrollLeft: 255 } });
+
+    expect(wrapper.state('translateScrollHead')).toEqual(255);
   });
 
   describe('sets classes', () => {
