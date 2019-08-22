@@ -37,19 +37,6 @@ describe('<DataTablePagination />', () => {
     expect(active.length).toEqual(1);
   });
 
-  test('does not throw warnings with expected props', () => {
-    const expectedProps = {
-      activePage: 3,
-      pages: [[{}, {}, {}], [{}, {}, {}], [{}, {}, {}], [{}, {}, {}], [{}]],
-      pagesAmount: 5,
-      label: ['label1', 'label2'],
-      changeActivePage: () => {}
-    };
-
-    wrapper = setup(expectedProps);
-    checkProps(wrapper, expectedProps);
-  });
-
   describe(`sets disabled property`, () => {
     test(`sets disabled property for prev & next buttons`, () => {
       wrapper = setup({ activePage: 0 });
