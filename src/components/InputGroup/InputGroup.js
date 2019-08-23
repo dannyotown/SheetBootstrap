@@ -53,7 +53,7 @@ const InputGroup = ({
           {label}
         </label>
       )}
-      <Tag {...attributes} className={containerClassNames} id={containerId}>
+      <Tag data-test="input-group" {...attributes} className={containerClassNames} id={containerId}>
         {prepend && (
           <div className={prependClassNames}>
             {typeof prepend === "string" ? (
