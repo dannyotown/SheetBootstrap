@@ -36,6 +36,7 @@ const Popper = ({ children, clickable, domElement, modifiers, id, isVisible, onC
   const contentClasses = classNames(
     !popover && "tooltip-inner"
   );
+  
   return (
     <Manager data-test="popper">
       <Reference>

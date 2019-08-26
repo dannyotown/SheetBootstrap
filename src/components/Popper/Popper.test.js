@@ -1,12 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 
-import {
-  findByTestAttr,
-  checkClass,
-  checkProps,
-  checkTag
-} from '../../tests/utils';
+import { findByTestAttr, checkClass, checkProps } from '../../tests/utils';
 import Popper from './Popper';
 
 const Wrapper = props => <button>{props.children}</button>;
@@ -88,6 +83,22 @@ describe('<Popper />', () => {
     const section = wrapper.find('section');
     //Tag is used 2 times
     expect(section).toHaveLength(2);
+  });
+
+  test('renders Wrapper with `innerRef` if (!domElement)', () => {
+    wrapper = setup({ domElement: false });
+
+    expect(wrapper.find('Wrapper').props()['innerRef']).toBeTruthy();
+  });
+
+  test('should not render Wrapper with `innerRef` if (domElement)', () => {
+    wrapper = setup({ domElement: true });
+
+    expect(wrapper.find('Wrapper').props()['innerRef']).not.toBeTruthy();
+  });
+
+  test('renders Content.props.children', () => {
+    expect(wrapper.find('div').text()).toBe('Body');
   });
 
   describe('sets classes', () => {
