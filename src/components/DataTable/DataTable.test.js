@@ -49,31 +49,6 @@ const data = {
   ]
 };
 
-const Fields = ({ searchValue }) => <a href='!#'>{searchValue}</a>;
-
-const sortRows = {
-  columns: [
-    {
-      label: 'Link',
-      field: 'link'
-    }
-  ],
-  rows: [
-    {
-      link: <Fields searchValue='Garrett_' />
-    },
-    {
-      link: <Fields searchValue='Ashton_' />
-    },
-    {
-      link: <Fields searchValue='Cedric_' />
-    },
-    {
-      link: <Fields searchValue='Airic_' />
-    }
-  ]
-};
-
 const getAgeValue = (wrapper, position) => {
   return wrapper
     .find('tbody tr')
@@ -89,13 +64,6 @@ const getNameValue = (wrapper, position) => {
     .at(position)
     .find('td')
     .at(0)
-    .text();
-};
-
-const getSortRowValue = (wrapper, position) => {
-  return wrapper
-    .find('tbody Fields a')
-    .at(position)
     .text();
 };
 
@@ -516,17 +484,49 @@ describe('<DataTable />', () => {
   });
 
   describe('sortRows works correctly', () => {
-    test('`checkFieldValue()`returns `searchValue` instead of value', () => {
-      wrapper = mount(<DataTable data={sortRows} sortRows={['link']} />);
+    const Fields = ({ searchValue }) => <a href='!#'>{searchValue}</a>;
 
+    const sortRows = {
+      columns: [
+        {
+          label: 'Link',
+          field: 'link'
+        }
+      ],
+      rows: [
+        {
+          link: <Fields searchValue='Cedric_' />
+        },
+        {
+          link: <Fields searchValue='Ashton_' />
+        },
+        {
+          link: <Fields searchValue='Garrett_' />
+        },
+        {
+          link: <Fields searchValue='Airic_' />
+        }
+      ]
+    };
+
+    const mounted = (props = {}) =>
+      mount(<DataTable data={sortRows} sortRows={['link']} {...props} />);
+
+    beforeEach(() => {
+      wrapper = mounted();
+    });
+
+    afterEach(() => {
+      wrapper.unmount();
+    });
+
+    test('`checkFieldValue()`returns `searchValue` instead of value', () => {
       expect(
         wrapper.instance().checkFieldValue(sortRows.rows[0], 'link')
-      ).toEqual('Garrett_');
+      ).toEqual('Cedric_');
     });
 
     test('`checkField()` returns correct result of sort depending on `sort direction`', () => {
-      wrapper = mount(<DataTable data={sortRows} sortRows={['link']} />);
-
       expect(
         wrapper
           .instance()
