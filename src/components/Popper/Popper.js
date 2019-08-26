@@ -37,7 +37,7 @@ const Popper = ({ children, clickable, domElement, modifiers, id, isVisible, onC
     !popover && "tooltip-inner"
   );
   return (
-    <Manager>
+    <Manager data-test="popper">
       <Reference>
         {
           ({ ref }) => (
