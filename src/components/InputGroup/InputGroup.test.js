@@ -49,7 +49,9 @@ describe('<InputGroup />', () => {
       textClassName: 'string',
       type: 'string',
       value: 'string',
-      valueDefault: 'string'
+      valueDefault: 'string',
+      getValue: () => {},
+      onChange: () => {}
     };
 
     wrapper = setup(expectedProps);
@@ -96,6 +98,62 @@ describe('<InputGroup />', () => {
     checkClass(wrapper, 'input-group-lg');
   });
 
+  test('invokes getValue() after input value changes', () => {
+    const getValue = jest.fn();
+    wrapper = setup({ getValue });
+
+    wrapper.find('Input').simulate('change', {
+      persist: () => {},
+      target: {
+        value: 'testValue'
+      }
+    });
+
+    expect(getValue).toBeCalled();
+  });
+
+  test('invokes onChange() after input value changes', () => {
+    const onChange = jest.fn();
+    wrapper = setup({ onChange });
+
+    wrapper.find('Input').simulate('change', {
+      persist: () => {},
+      target: {
+        value: 'testValue'
+      }
+    });
+
+    expect(onChange).toBeCalled();
+  });
+
+  test('returns correct value from getValue()', () => {
+    const getValue = jest.fn(value => value);
+    wrapper = setup({ getValue });
+
+    wrapper.find('Input').simulate('change', {
+      persist: () => {},
+      target: {
+        value: 'testValue'
+      }
+    });
+
+    expect(getValue).toBeCalledWith('testValue');
+  });
+
+  test('returns event from onChange()', () => {
+    const onChange = jest.fn(event => event);
+    wrapper = setup({ onChange });
+
+    wrapper.find('Input').simulate('change', {
+      persist: () => {},
+      target: {
+        value: 'testValue'
+      }
+    });
+
+    expect(onChange.mock.calls[0][0].target.value).toEqual('testValue');
+  });
+
   describe('Renders elements', () => {
     test(`render label`, () => {
       const label = setup({ label: 'label' }).find('label');
@@ -125,18 +183,18 @@ describe('<InputGroup />', () => {
     });
 
     test(`render prepend node`, () => {
-        wrapper = setup({ prepend: <div data-test='prepend-node' /> });
-        const prepend = wrapper.find('div[data-test="prepend-node"]');
-  
-        expect(prepend.length).toBe(1);
-      });
+      wrapper = setup({ prepend: <div data-test='prepend-node' /> });
+      const prepend = wrapper.find('div[data-test="prepend-node"]');
 
-      test(`render append node`, () => {
-        wrapper = setup({ prepend: <div data-test='append-node' /> });
-        const append = wrapper.find('div[data-test="append-node"]');
-  
-        expect(append.length).toBe(1);
-      });
+      expect(prepend.length).toBe(1);
+    });
+
+    test(`render append node`, () => {
+      wrapper = setup({ prepend: <div data-test='append-node' /> });
+      const append = wrapper.find('div[data-test="append-node"]');
+
+      expect(append.length).toBe(1);
+    });
 
     test('custom input(s)', () => {
       let input = <input data-test='inputs' />;
