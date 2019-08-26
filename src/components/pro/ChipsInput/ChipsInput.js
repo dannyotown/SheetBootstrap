@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import Chip from "../Chip";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Chip from '../Chip';
 
 class ChipsInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
       chipsList: this.props.chips,
-      inputValue: "",
+      inputValue: '',
       isTouched: false,
       isReadyToDelete: false
     };
@@ -43,20 +43,20 @@ class ChipsInput extends Component {
       // 3.5) of the string is already in the array, delete input value and return
       if (this.state.chipsList.includes(newChipString)) {
         this.setState({
-          inputValue: ""
+          inputValue: ''
         });
         return;
       }
 
       // 4) else: add the input value to the array and reset it on input:
       this.setState({
-        inputValue: "",
+        inputValue: '',
         chipsList: [...this.state.chipsList, newChipString]
       });
     }
 
     // 5) in case the keyboard events caused the input to be empty, prepare to delete chips:
-    if (this.state.inputValue === "") {
+    if (this.state.inputValue === '') {
       this.setState({
         isReadyToDelete: true
       });
@@ -64,36 +64,35 @@ class ChipsInput extends Component {
   };
 
   handleBackspace = e => {
-    // 1) if the input is already empty (is ready to delete chips) and Backspace is pressed:
+    //if the input is already empty (is ready to delete chips) and Backspace is pressed:
     if (this.state.isReadyToDelete && e.which === 8) {
-      // 2) grab the array
-      const array = this.state.chipsList;
+      const { chipsList } = this.state;
 
-      // 3) delete its last element
-      // const popTheArray = array.pop();
+      chipsList.pop();
 
-      // 4) and update the state with the new array.
       this.setState({
-        chipsList: array
+        chipsList
       });
     }
   };
 
-  handleClose = param => e => {
-    // Close functionality:
-    // 1) get the chips list from state:
-    const currentChipsList = this.state.chipsList;
+  handleClose = param => {
+    const { chipsList } = this.state;
+    const { handleClose } = this.props;
 
-    // 2) check the chip's index in the said array:
     const index = this.state.chipsList.indexOf(param);
+    const itemToDelete = chipsList[index];
 
-    // 3) delete the array item using splice:
-    currentChipsList.splice(index, 1);
+    chipsList.splice(index, 1);
 
-    // 4) update state with the new chips list.
-    this.setState({
-      chipsList: currentChipsList
-    });
+    this.setState(
+      {
+        chipsList
+      },
+      () => {
+        handleClose && handleClose(itemToDelete);
+      }
+    );
   };
 
   handleOutsideClick = () => {
@@ -121,7 +120,7 @@ class ChipsInput extends Component {
       return (
         <Chip
           close
-          handleClose={this.handleClose(chip)}
+          handleClose={() => this.handleClose(chip)}
           key={chip.toString()}
           size={chipSize}
           bgColor={chipColor}
@@ -142,8 +141,8 @@ class ChipsInput extends Component {
     }
 
     const classes = classNames(
-      "chips",
-      this.state.isTouched && "focus",
+      'chips',
+      this.state.isTouched && 'focus',
       className
     );
 
@@ -156,8 +155,8 @@ class ChipsInput extends Component {
       >
         {renderedChips}
         <input
-          className="input"
-          type="text"
+          className='input'
+          type='text'
           placeholder={calculatePlaceholder}
           ref={this.inputRef}
           onKeyUp={this.handleEnter}
@@ -182,7 +181,7 @@ ChipsInput.propTypes = {
 };
 
 ChipsInput.defaultProps = {
-  tag: "div",
+  tag: 'div',
   chips: []
 };
 
