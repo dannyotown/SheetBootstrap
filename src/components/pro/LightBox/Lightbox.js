@@ -39,14 +39,15 @@ class LightBox extends React.Component {
   reset = () => {
     return {
       activeKey: null,
-      zoomedImg: '',
-      zoomedImgData: null,
+      openedImg: '',
+      openedImgData: null,
       screenSize: {
         x: window.innerWidth,
         y: window.innerHeight
       },
       scale: 0,
-      zoomedScale: 0
+      zoomedScale: 0,
+      scaleWheel: false
     };
   };
 
@@ -95,8 +96,8 @@ class LightBox extends React.Component {
     let { screenSize } = this.state;
     let data = {
       activeKey: this.slideRefs.indexOf(img),
-      zoomedImg: img,
-      zoomedImgData: {
+      openedImg: img,
+      openedImgData: {
         realW: img.naturalWidth,
         realH: img.naturalHeight,
         size: img.getBoundingClientRect()
@@ -106,22 +107,22 @@ class LightBox extends React.Component {
           ? img.getBoundingClientRect().width / img.naturalWidth
           : img.getBoundingClientRect().width / screenSize.x
     };
-    data.zoomedScale = this.setScale(data.zoomedImgData);
+    data.zoomedScale = this.setScale(data.openedImgData);
     return data;
   };
 
   zoom = e => {
-    let { zoomedImg } = this.state;
+    let { openedImg } = this.state;
     let t = e;
     let img = t.target;
-    if (!zoomedImg) {
+    if (!openedImg) {
       let data = this.setData(img);
       this.setState(data, () => {
         document.body.classList.add('overflow-hidden');
         img.style.cssText = `
           top: 0;
           left: 0;
-          transform:  translate(${data.zoomedImgData.size.left}px, ${data.zoomedImgData.size.top}px) scale(${data.scale});
+          transform:  translate(${data.openedImgData.size.left}px, ${data.openedImgData.size.top}px) scale(${data.scale});
           position: fixed;
         `;
         setTimeout(() => {
@@ -129,7 +130,7 @@ class LightBox extends React.Component {
           transition: ${
             this.props.transition
           }ms; transform: scale(${this.setScale(
-            data.zoomedImgData
+            data.openedImgData
           )}) translate(-50%,-50%) `;
           img.classList.add('zoom');
           this.overlay.current.classList.add('active');
@@ -143,52 +144,72 @@ class LightBox extends React.Component {
   };
 
   closeZoom = () => {
-    let { zoomedImg, zoomedImgData } = this.state;
-    if (zoomedImg) {
+    let { openedImg, openedImgData } = this.state;
+    if (openedImg) {
       document.body.classList.remove('overflow-hidden');
-      zoomedImg.classList.remove('active');
-      zoomedImg.style.cssText = `
+      openedImg.classList.remove('active');
+      openedImg.style.cssText = `
             transition: ${this.props.transition}ms;
             z-index: 9999;
             top: 0;
             left: 0;
-            transform:  translate(${zoomedImgData.size.left}px, ${zoomedImgData.size.top}px) scale(${this.state.scale});
+            transform:  translate(${openedImgData.size.left}px, ${openedImgData.size.top}px) scale(${this.state.scale});
             position: fixed;
           `;
-      zoomedImg.classList.remove('zoom');
+      openedImg.classList.remove('zoom');
       this.overlay.current.classList.remove('active');
 
       setTimeout(() => {
-        zoomedImg.style.cssText = ``;
+        openedImg.style.cssText = ``;
         this.setState(this.reset());
       }, this.props.transition);
     }
   };
 
   scrollZoom = e => {
-    let data = e.target.getBoundingClientRect()
-    let mouseData = {
-      y:e.clientY-data.y-(data.height/2),
-      x:e.clientX-data.x-(data.width/2)
-    }
-    let cssText = e.target.style.cssText;
-    console.log(cssText)
+    // let data = this.state.openedImgData.size;
+    // let data = e.target.getBoundingClientRect();
+    // let mouseData = {
+    //   y: e.clientY - data.top*1.1 - data.height*1.1 / 2,
+    //   x: e.clientX - data.left*1.1 - data.width*1.1 / 2
+    // };
 
+    // let mouseData = {
+    //   y: (e.clientY - data.y - data.y / 4),
+    //   x: (e.clientX - data.x - data.x / 4)
+    // };
+
+    // let mouseData = {
+    //   y: e.clientY - data.y,
+    //   x: e.clientX - data.x
+    // };
+    // console.log(mouseData, data);
+    // console.log(data)
+
+    let cssText = e.target.style.cssText;
     let scale = cssText.match(/scale\([0-9]+(\.)?[0-9]*\)/gi)[0];
     let scaleValue = Number(scale.match(/[0-9]+(\.)?[0-9]*/gi)[0]);
     if (e.deltaY < 0)
-      scaleValue * 1.1 >= 15
-        ? (cssText = cssText.replace(scale, `scale(15)`))
-        : (cssText = cssText.replace(scale, `scale(${scaleValue * 1.1})`));
+      scaleValue * 1.1 >= this.state.zoomedScale * 1.2
+        ? (scaleValue = this.state.zoomedScale * 1.2)
+        : (scaleValue = 1.2);
 
-        cssText = `${cssText} translate3d(${mouseData.x}px, ${mouseData.y}px,0)` 
     if (e.deltaY > 0) {
-      scaleValue - 0.9 <= this.state.zoomedScale
-        ? (cssText = cssText.replace(scale, `scale(${this.state.zoomedScale})`))
-        : (cssText = cssText.replace(scale, `scale(${scaleValue * 0.9})`));
+      scaleValue * 0.9 <= this.state.zoomedScale
+        ? (scaleValue = this.state.zoomedScale)
+        : (scaleValue *= 0.9);
     }
-    
+
+    if (scaleValue == this.state.zoomedScale)
+      this.setState({ scaleWheel: false });
+    else this.setState({ scaleWheel: true });
+
+
+    cssText = cssText.replace(scale, `scale(${scaleValue})`);
     e.target.style.cssText = cssText;
+    
+    // cssText = `${cssText} transform-origin: ${-mouseData.x}px ${mouseData.y}px;`;
+    // console.log(e.target.getBoundingClientRect())
   };
 
   toggleFullscreen = () => {
@@ -199,16 +220,16 @@ class LightBox extends React.Component {
     }
   };
 
-  changeSlide = e => {
-    const { activeKey, zoomedImg, screenSize } = this.state;
+  changeSlide = direction => {
+    const { activeKey, openedImg, screenSize } = this.state;
     let img;
-    if (e.target.classList.contains('next'))
+    if (direction === 'next')
       img = this.slideRefs[activeKey + 1] || this.slideRefs[0];
-    else if (e.target.classList.contains('prev'))
+    else
       img =
         this.slideRefs[activeKey - 1] ||
         this.slideRefs[this.slideRefs.length - 1];
-    let imgLast = zoomedImg;
+    let imgLast = openedImg;
     let imgStyle = img.style;
     let imgLastStyle = imgLast.style;
     let data = this.setData(img);
@@ -216,7 +237,7 @@ class LightBox extends React.Component {
     img.style = imgLastStyle;
     imgLast.style = imgStyle;
     img.style.cssText = `transform: scale(${this.setScale(
-      data.zoomedImgData
+      data.openedImgData
     )}) translate(-50%,-50%)`;
     imgLast.classList.remove('zoom', 'active');
     img.classList.add('zoom', 'active');
@@ -238,7 +259,7 @@ class LightBox extends React.Component {
       xs,
       transition
     } = this.props;
-    const { activeKey, zoomedImg, zoomedImgData } = this.state;
+    const { activeKey, openedImg, openedImgData } = this.state;
 
     const lightboxClassNames = classNames(
       'mdb-lightbox d-flex flex-wrap',
@@ -276,17 +297,17 @@ class LightBox extends React.Component {
             alt={image.alt || `image ${id + 1}`}
             ref={img => (this.slideRefs[id] = img)}
             onClick={this.zoom}
-            draggable={!zoomedImg}
+            draggable={!openedImg}
             onWheel={
-              this.slideRefs[id] === zoomedImg ? this.scrollZoom : () => {}
+              this.slideRefs[id] === openedImg ? this.scrollZoom : () => {}
             }
           />
-          {this.slideRefs[id] === zoomedImg && (
+          {this.slideRefs[id] === openedImg && (
             <div
               className='block'
               style={{
-                height: `${zoomedImgData.size.height}px`,
-                width: `${zoomedImgData.size.width}px`
+                height: `${openedImgData.size.height}px`,
+                width: `${openedImgData.size.width}px`
               }}
             />
           )}
@@ -298,7 +319,7 @@ class LightBox extends React.Component {
     ));
     return (
       <MDBContainer className='zoom-effect'>
-        {zoomedImg && (
+        {openedImg && (
           <div className='ui-controls'>
             <p className='float-left text-white-50 mt-3 ml-3'>
               {activeKey + 1}/{images.length}
@@ -332,14 +353,14 @@ class LightBox extends React.Component {
                   'pswp__button d-block z-depth-0 pswp__button--arrow--left prev'
                 }
                 style={arrowStyles}
-                onClick={this.changeSlide}
+                onClick={() => this.changeSlide('prev')}
               />
               <div
                 className={
                   'pswp__button d-block z-depth-0 pswp__button--arrow--right next'
                 }
                 style={arrowStyles}
-                onClick={this.changeSlide}
+                onClick={() => this.changeSlide('next')}
               />
             </div>
           </div>
