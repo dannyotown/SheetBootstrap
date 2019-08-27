@@ -14,6 +14,8 @@ class Notification extends React.Component {
   }
 
   hide = (time = 0) => {
+    if (typeof time === 'object') time = 0;
+
     setTimeout(() => {
       this.setState({ componentState: '' }, () => {
         setTimeout(() => {
