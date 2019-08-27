@@ -274,10 +274,10 @@ class Select extends React.Component {
     const needToMoveOutline = outline && isEmpty && !isOpened;
 
     const uncontrolledLabelStyles = {
-      transform: needToMoveOutline && "translateY(23px)",
+      transform: needToMoveOutline && "translateY(7px)",
       fontSize: needToMoveOutline && "1rem",
       fontWeight: needToMoveOutline && "300",
-      left: !outline && isEmpty && !isOpened && "15px"
+      zIndex: isEmpty && !isOpened ? 1 : 2
     };
 
     const controlledLabelStyles = {
@@ -356,12 +356,12 @@ class Select extends React.Component {
           >
             <span className="caret">▼</span>
             {children}
-          </div>
           {label && (
             <label className={labelClasses} style={uncontrolledLabelStyles}>
               {label}
             </label>
           )}
+          </div>
         </SelectContext.Provider>
       );
     }
