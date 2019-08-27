@@ -96,6 +96,15 @@ describe('<Notification />', () => {
     expect(wrapper.state('componentState')).toBe('hide');
   });
 
+  test('hides norification if (autohide) property is passed', () => {
+    jest.useFakeTimers();
+    wrapper = setup({ show: true, autohide: 3000 });
+    expect(wrapper.state('componentState')).toBe('show');
+
+    jest.runAllTimers();
+    expect(wrapper.state('componentState')).toBe('hide');
+  });
+
   describe('sets classes', () => {
     test(`adds 'toast' class by default`, () => {
       checkClass(wrapper, 'toast');
