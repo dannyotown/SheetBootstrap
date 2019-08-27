@@ -45,7 +45,8 @@ class LightBox extends React.Component {
         x: window.innerWidth,
         y: window.innerHeight
       },
-      scale: 0
+      scale: 0,
+      zoomedScale: 0
     };
   };
 
@@ -90,25 +91,31 @@ class LightBox extends React.Component {
     }
   };
 
+  setData = img => {
+    let { screenSize } = this.state;
+    let data = {
+      activeKey: this.slideRefs.indexOf(img),
+      zoomedImg: img,
+      zoomedImgData: {
+        realW: img.naturalWidth,
+        realH: img.naturalHeight,
+        size: img.getBoundingClientRect()
+      },
+      scale:
+        screenSize.x > screenSize.y
+          ? img.getBoundingClientRect().width / img.naturalWidth
+          : img.getBoundingClientRect().width / screenSize.x
+    };
+    data.zoomedScale = this.setScale(data.zoomedImgData);
+    return data;
+  };
+
   zoom = e => {
-    let { zoomedImg, screenSize } = this.state;
+    let { zoomedImg } = this.state;
     let t = e;
     let img = t.target;
     if (!zoomedImg) {
-      let data = {
-        activeKey: this.slideRefs.indexOf(img),
-        zoomedImg: img,
-        zoomedImgData: {
-          realW: img.naturalWidth,
-          realH: img.naturalHeight,
-          size: img.getBoundingClientRect()
-        },
-        scale:
-          screenSize.x > screenSize.y
-            ? img.getBoundingClientRect().width / img.naturalWidth
-            : img.getBoundingClientRect().width / screenSize.x
-      };
-
+      let data = this.setData(img);
       this.setState(data, () => {
         document.body.classList.add('overflow-hidden');
         img.style.cssText = `
@@ -158,13 +165,38 @@ class LightBox extends React.Component {
     }
   };
 
+  scrollZoom = e => {
+    let data = e.target.getBoundingClientRect()
+    let mouseData = {
+      y:e.clientY-data.y-(data.height/2),
+      x:e.clientX-data.x-(data.width/2)
+    }
+    let cssText = e.target.style.cssText;
+    console.log(cssText)
+
+    let scale = cssText.match(/scale\([0-9]+(\.)?[0-9]*\)/gi)[0];
+    let scaleValue = Number(scale.match(/[0-9]+(\.)?[0-9]*/gi)[0]);
+    if (e.deltaY < 0)
+      scaleValue * 1.1 >= 15
+        ? (cssText = cssText.replace(scale, `scale(15)`))
+        : (cssText = cssText.replace(scale, `scale(${scaleValue * 1.1})`));
+
+        cssText = `${cssText} translate3d(${mouseData.x}px, ${mouseData.y}px,0)` 
+    if (e.deltaY > 0) {
+      scaleValue - 0.9 <= this.state.zoomedScale
+        ? (cssText = cssText.replace(scale, `scale(${this.state.zoomedScale})`))
+        : (cssText = cssText.replace(scale, `scale(${scaleValue * 0.9})`));
+    }
+    
+    e.target.style.cssText = cssText;
+  };
+
   toggleFullscreen = () => {
     if (document.fullscreenElement) {
       document.exitFullscreen();
     } else {
       document.documentElement.requestFullscreen();
     }
-    this.setState({ fullscreen: !this.state.fullscreen });
   };
 
   changeSlide = e => {
@@ -179,20 +211,7 @@ class LightBox extends React.Component {
     let imgLast = zoomedImg;
     let imgStyle = img.style;
     let imgLastStyle = imgLast.style;
-
-    let data = {
-      activeKey: this.slideRefs.indexOf(img),
-      zoomedImg: img,
-      zoomedImgData: {
-        realW: img.naturalWidth,
-        realH: img.naturalHeight,
-        size: img.getBoundingClientRect()
-      },
-      scale:
-        screenSize.x > screenSize.y
-          ? img.getBoundingClientRect().width / img.naturalWidth
-          : img.getBoundingClientRect().width / screenSize.x
-    };
+    let data = this.setData(img);
 
     img.style = imgLastStyle;
     imgLast.style = imgStyle;
@@ -202,6 +221,9 @@ class LightBox extends React.Component {
     imgLast.classList.remove('zoom', 'active');
     img.classList.add('zoom', 'active');
     this.setState(data);
+    setTimeout(() => {
+      img.style.cssText = `${img.style.cssText}; transition: ${this.props.transition}ms`;
+    }, 0);
   };
 
   render() {
@@ -255,6 +277,9 @@ class LightBox extends React.Component {
             ref={img => (this.slideRefs[id] = img)}
             onClick={this.zoom}
             draggable={!zoomedImg}
+            onWheel={
+              this.slideRefs[id] === zoomedImg ? this.scrollZoom : () => {}
+            }
           />
           {this.slideRefs[id] === zoomedImg && (
             <div
