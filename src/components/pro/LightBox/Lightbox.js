@@ -3,65 +3,155 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { MDBContainer } from '../../Container';
 import { MDBCol } from '../../Col';
-import { MDBBtnGroup } from '../../ButtonGroup';
-import { MDBBtn } from '../../Button';
+import './Lightbox.css';
+// import { MDBBtnGroup } from '../../ButtonGroup';
+// import { MDBBtn } from '../../Button';
 
 class LightBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.reset();
 
-    this.activeDivRef = React.createRef();
+    this.overlay = React.createRef();
     this.slideRefs = [];
+
+    // Get the scrollbar width
   }
+
+  componentDidMount() {
+    window.addEventListener('click', () => {
+      console.log(this.state);
+    });
+    window.addEventListener('resize', () => {
+      this.setState({
+        screenSize: {
+          x: window.innerWidth,
+          y: window.innerHeight
+        }
+      });
+    });
+  }
+
   reset = () => {
     return {
-      activeSlider: false,
-      target: null,
-      targetData: { position: { height: 0, width: 0 }, value: '' },
-      targetSaveData: null
+      zoomedImg: '',
+      zoomedImgData: null,
+      screenSize: {
+        x: window.innerWidth,
+        y: window.innerHeight
+      },
+      scale: 0
     };
   };
 
-  loadTarget = e => {
-    let target = e.target;
-    this.setState(
-      {
-        target: target,
-        targetData: {
-          position: target.getBoundingClientRect(),
-          value: 'px',
-          origin: `${target.getBoundingClientRect().top}px ${target.getBoundingClientRect().left}px`,
-          scale: target.getBoundingClientRect().width / target.naturalWidth,
-          display: 'none'
-        }
-      },
-      () => {
-        this.setState({
-          targetSaveData: this.state.targetData
-        });
+  resetState = () => this.setState(this.reset);
+
+  updateScreenSize = () => {
+    let d = document;
+    let e = d.documentElement;
+    let g = d.getElementsByTagName('body')[0];
+    this.setState({
+      screenSize: {
+        x: window.innerWidth || e.clientWidth || g.clientWidth,
+        y: window.innerHeight || e.clientHeight || g.clientHeight
       }
-    );
+    });
   };
 
-  activeSlider = e => {
-    setTimeout(() => {
-      this.setState({
-        activeSlider: true,
-        targetData: {
-          position: {
-            x: 0,
-            y: 0
-          },
-          value: '%',
-          origin: 'top left',
-          // scale: 1,
-          display: 'block',
-          transition: this.props.transition
+  zoom = e => {
+    let { zoomedImg, zoomedImgData, screenSize } = this.state;
+    let t = e;
+    let img = t.target;
+    if (!zoomedImg) {
+      const setScale = e => {
+        const { screenSize } = this.state;
+        const { height, width } = e.size;
+        const margin = 150;
+        let scale = 1;
+        if (screenSize.x > screenSize.y) {
+          if (e.realH > height) {
+            if (height === width && screenSize.y > screenSize.x) {
+              scale = (screenSize.x - margin) / width;
+            } else if (height === width && screenSize.y < screenSize.x) {
+              scale = (screenSize.y - margin) / height;
+            } else if (height > width) {
+              scale = (screenSize.y - margin) / height;
+              if (scale * width > screenSize.x) {
+                scale = (screenSize.x - margin) / width;
+              }
+            } else if (height < width) {
+              scale = (screenSize.x - margin) / width;
+              if (scale * height > screenSize.y) {
+                scale = (screenSize.y - margin) / height;
+              }
+            }
+          }
+          return scale * (height / e.realH);
+        } else {
+          return scale;
         }
+      };
+
+      let data = {
+        zoomedImg: img,
+        zoomedImgData: {
+          realW: img.naturalWidth,
+          realH: img.naturalHeight,
+          size: img.getBoundingClientRect()
+        },
+        scale:
+          screenSize.x > screenSize.y
+            ? img.getBoundingClientRect().width / img.naturalWidth
+            : img.getBoundingClientRect().width / screenSize.x
+      };
+
+      this.setState(data, () => {
+        document.body.classList.add('overflow-hidden');
+        img.style.cssText = `
+          top: 0;
+          left: 0;
+          transform:  translate(${data.zoomedImgData.size.left}px, ${data.zoomedImgData.size.top}px) scale(${data.scale});
+          position: fixed;
+        `;
+        setTimeout(() => {
+          img.style.cssText = `
+          transition: ${this.props.transition}ms; transform: scale(${setScale(
+            data.zoomedImgData
+          )}) translate(-50%,-50%) `;
+          img.classList.add('zoom');
+          this.overlay.current.classList.add('active');
+
+          setTimeout(() => {
+            img.classList.add('active');
+          }, this.props.transition);
+        }, 0);
       });
-      console.log(this.state);
-    }, 10);
+    }
+  };
+
+  closeZoom = e => {
+    let { zoomedImg, zoomedImgData } = this.state;
+    if (zoomedImg) {
+      document.body.classList.remove('overflow-hidden');
+      zoomedImg.classList.remove('active');
+      setTimeout(() => {
+        zoomedImg.style.cssText = `
+            transition: ${this.props.transition}ms;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            transform:  translate(${zoomedImgData.size.left}px, ${zoomedImgData.size.top}px) scale(${this.state.scale});
+            position: fixed;
+          `;
+        zoomedImg.classList.remove('zoom');
+        this.overlay.current.classList.remove('active');
+
+        setTimeout(() => {
+          zoomedImg.style.cssText = ``;
+          this.setState(this.reset());
+        }, this.props.transition);
+      }, this.props.transition);
+    }
   };
 
   render() {
@@ -76,51 +166,12 @@ class LightBox extends React.Component {
       xs,
       transition
     } = this.props;
-    const { activeSlider, target, targetData } = this.state;
+    const { zoomedImg, zoomedImgData } = this.state;
 
     const lightboxClassNames = classNames(
       'mdb-lightbox d-flex flex-wrap',
       !noMargins && 'no-margin'
     );
-    const sliderClassNames = classNames('d-flex align-items-center');
-
-    const lightboxUiClassNames = classNames();
-    // background,
-    // !objectFit && 'pswp--zoomed-in',
-    // fullscreen && 'pswp--fs'
-
-    const sliderStyles = {
-      height: '100vh',
-      width: '100vw',
-      left: '0',
-      top: '0',
-      position: 'fixed',
-      zIndex: activeSlider ? '9999' : '-999',
-      display: activeSlider && 'flex'
-    };
-    const slideStyles = {
-      height: activeSlider && `90vh` ,
-      width: activeSlider && '100vw',
-      position: 'relative'
-    };
-
-    const aroundImagesStyles = {
-      transform: `scale(${targetData.scale}) `
-    };
-    const targetStyles = {
-      transition: `1000ms`,
-      transform: `scale(${targetData.scale})`, // translate3d(${-targetData.position.x + targetData.value}, ${-targetData.position.y +targetData.value}, 0)`, // translate3d(${-targetData.position.x + targetData.value}, ${-targetData.position.y +targetData.value}, 0)
-      transformOrigin: targetData.origin,
-      position: 'absolute',
-      display: targetData.display,
-      objectFit: 'contain',
-      // maxHeight: activeSlider && '100vh',
-      // maxWidth: activeSlider && '100vw',
-      height: '100%',
-      width:'100%',
-      // padding: activeSlider ? '50px 0px' : '0px 0px'
-      // margin: activeSlider ? '0 50%' : '0 0',
-    };
 
     const items = images.map((image, id) => (
       <MDBCol
@@ -131,37 +182,44 @@ class LightBox extends React.Component {
         xl={xl || image.xl}
         xs={xs || image.xs}
         size={size || image.size}
-        className='figure'
+        className=''
         key={id}
       >
-        <img
-          src={image.src}
-          className='figure-img img-fluid z-depth-1 m-0'
-          alt={image.alt || `image ${id + 1}`}
-          ref={img => (this.slideRefs[id] = img)}
-          style={{ userSelect: 'none' }}
-          onMouseDown={this.loadTarget}
-          onMouseMove={this.loadTarget}
-          onTouchStart={this.loadTarget}
-          onClick={this.activeSlider}
-        />
+        <div>
+          <img
+            src={image.src}
+            className={`figure-img img-fluid z-depth-1 m-0`}
+            alt={image.alt || `image ${id + 1}`}
+            ref={img => (this.slideRefs[id] = img)}
+            onClick={this.zoom}
+          />
+          {this.slideRefs[id] === zoomedImg && (
+            <div
+              className='block'
+              style={{
+                height: `${zoomedImgData.size.height}px`,
+                width: `${zoomedImgData.size.width}px`
+              }}
+            />
+          )}
+        </div>
         {image.header && (
           <p className='text-uppercase font-weight-bold mt-4'>{image.header}</p>
         )}
       </MDBCol>
     ));
     return (
-      <MDBContainer>
-        <div id='mdb-lightbox-ui' className={lightboxUiClassNames}>
-          <div className={sliderClassNames} style={sliderStyles}>
-            {/* {activeSlider && <img src={target.src} alt={target.alt} style={targetStyles} />} */}
-            {target && (
-              <div className='' style={slideStyles}>
-                <img src={target.src} alt={target.alt} style={targetStyles} />
-              </div>
-            )}
-          </div>
-          <div className='UI'>dsadsa</div>
+      <MDBContainer className='zoom-effect'>
+        {zoomedImg && (
+            <div className='ui-controls'>
+              <button onClick={this.closeZoom}>X</button>
+            </div>
+          )}
+        <div
+          className='overlay'
+          ref={this.overlay}
+          style={{ transition: `${transition}ms` }}
+        >
         </div>
         <div className={lightboxClassNames}>{items}</div>
       </MDBContainer>
@@ -183,7 +241,7 @@ LightBox.propTypes = {
 
 LightBox.defaultProps = {
   noMargins: false,
-  transition: 10000
+  transition: 400
 };
 
 export default LightBox;

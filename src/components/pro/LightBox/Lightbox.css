@@ -1,0 +1,40 @@
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -100;
+}
+.ui-controls {
+  z-index: 99999;
+  /* width: 100vw; */
+  /* height: 100vh; */
+  top: 0;
+  left: 0;
+  position: fixed
+}
+.overlay.active {
+  z-index: 9999;
+  background-color: black;
+}
+
+img {
+  transform-origin: top left;
+}
+img.zoom,
+img.active {
+  z-index: 9999;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.mdb-lightbox figure img.active:hover {
+  opacity: 1;
+}
+
+.block {
+  display: block;
+}

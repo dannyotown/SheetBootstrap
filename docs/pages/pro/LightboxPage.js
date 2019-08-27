@@ -225,7 +225,11 @@ class LightboxPage extends Component {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(76).jpg',
         md: '3'
-      }
+      },
+      { src: 'https://wallpaperaccess.com/full/167767.jpg', md: '3' },
+      { src: 'https://wallpaperaccess.com/full/167767.jpg', md: '3' },
+      { src: 'https://wallpaperaccess.com/full/167767.jpg', md: '3' },
+      { src: 'https://wallpaperaccess.com/full/167767.jpg', md: '3' }
     ]
     // heading: [
     //   {src: '1'},
@@ -250,16 +254,13 @@ class LightboxPage extends Component {
         <SectionContainer header='Basic example' className='p-4'>
           <MDBLightBox md='4' images={this.state.images} />
         </SectionContainer>
-
-        {/* <SectionContainer header='Gallery with margins' className='p-4'>
+        <SectionContainer header='Gallery with margins' className='p-4'>
           <MDBLightBox md='4' images={this.state.noMargins} noMargins />
         </SectionContainer>
-
         <SectionContainer header='Gallery with heading' className='p-4'>
           <h2 className='font-weight-bold my-5 text-center'>My Projects</h2>
           <MDBLightBox md='4' images={this.state.heading} noMargins />
         </SectionContainer>
-
         <SectionContainer header='Projects presentation' className='p-4'>
           <h2 className='h1 text-center text-uppercase font-weight-bold mt-5 mb-3 mt-5'>
             My projects
@@ -279,7 +280,7 @@ class LightboxPage extends Component {
 
         <SectionContainer header='Gallery with mixed content' className='p-4'>
           <MDBLightBox images={this.state.mixed} noMargins />
-        </SectionContainer> */}
+        </SectionContainer>
       </MDBContainer>
     );
   }
