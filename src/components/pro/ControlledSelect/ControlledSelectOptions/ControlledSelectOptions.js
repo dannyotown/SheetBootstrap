@@ -17,7 +17,8 @@ class ControlledSelectOptions extends Component {
   }
 
   componentDidMount() {
-    if (this.props.inputRef.current) this.inputRef = this.props.inputRef.current;
+    if (this.props.inputRef.current)
+      this.inputRef = this.props.inputRef.current;
     this.inputRef.addEventListener('keydown', this.handleFocus);
   }
 
@@ -34,8 +35,8 @@ class ControlledSelectOptions extends Component {
     }
   }
 
-  search = (value) => {
-    const filteredOptions = this.state.options.filter((option) => {
+  search = value => {
+    const filteredOptions = this.state.options.filter(option => {
       if (option.text) {
         return option.text.toLowerCase().match(value.toLowerCase().trim());
       } else {
@@ -44,10 +45,12 @@ class ControlledSelectOptions extends Component {
     });
 
     this.props.changeFocus(null);
-    this.setState({ filteredOptions }, () => this.props.setFilteredOptions(this.state.filteredOptions));
+    this.setState({ filteredOptions }, () =>
+      this.props.setFilteredOptions(this.state.filteredOptions)
+    );
   };
 
-  handleFocus = (e) => {
+  handleFocus = e => {
     const {
       focused,
       selectOption,
@@ -82,7 +85,7 @@ class ControlledSelectOptions extends Component {
         focused < filteredOptions.length - 1 && changeFocus(1);
       }
     }
-    
+
     if (UP) {
       focused >= (selectAll ? 0 : 1) &&
         filteredOptions.length > 1 &&
@@ -91,55 +94,75 @@ class ControlledSelectOptions extends Component {
   };
 
   render() {
-    const { multiple, search, searchLabel, searchId, selected, selectOption, selectAll } = this.props;
+    const {
+      allChecked,
+      focused,
+      focusShadow,
+      focusBackgroundColor,
+      multiple,
+      search,
+      searchLabel,
+      searchId,
+      selected,
+      selectOption,
+      selectAll,
+      selectAllLabel,
+      selectAllValue,
+      selectAllClassName
+    } = this.props;
 
-    const classes = classNames('dropdown-content', 'select-dropdown', 'fadeElement');
+    const classes = classNames(
+      'dropdown-content',
+      'select-dropdown',
+      'fadeElement'
+    );
 
     return (
       <ul className={classes}>
-        {
-          search && (
-            <Input
-              label={searchLabel}
-              id={searchId}
-              getValue={this.search}
-              data-search="true"
-              onKeyDown={this.handleFocus}
-            />
-          )
-        }
-        <ControlledSelectOption checked={false} disabled={true} icon={null} value={selected} />
-        {
-          selectAll && multiple && this.state.filteredOptions.length > 1 &&
+        {search && (
+          <Input
+            label={searchLabel}
+            id={searchId}
+            getValue={this.search}
+            data-search='true'
+            onKeyDown={this.handleFocus}
+          />
+        )}
+        <ControlledSelectOption
+          checked={false}
+          disabled={true}
+          icon={null}
+          value={selected}
+        />
+        {selectAll && multiple && this.state.filteredOptions.length > 1 && (
           <ControlledSelectOption
-            text={this.props.selectAllLabel}
-            value={this.props.selectAllValue}
-            selectAllClassName={this.props.selectAllClassName}
-            checked={this.props.allChecked}
+            text={selectAllLabel}
+            value={selectAllValue}
+            selectAllClassName={selectAllClassName}
+            checked={allChecked}
             multiple={true}
             selectOption={selectOption}
-            isFocused={this.props.focused === -1}
-            focusShadow={this.props.focusShadow}
-            focusBackgroundColor={this.props.focusBackgroundColor}
+            isFocused={focused === -1}
+            focusShadow={focusShadow}
+            focusBackgroundColor={focusBackgroundColor}
           />
-        }
-        {
-          this.state.filteredOptions.map((option, index) => (
-            <ControlledSelectOption
-              key={`${option.value}-${index}`}
-              checked={option.checked}
-              disabled={option.disabled}
-              multiple={multiple}
-              icon={option.icon}
-              text={option.text}
-              value={option.value}
-              separator={option.separator}
-              selectOption={selectOption}
-              isFocused={index === this.props.focused}
-              focusShadow={this.props.focusShadow}
-              focusBackgroundColor={this.props.focusBackgroundColor}
-            />
-          ))}
+        )}
+        {this.state.filteredOptions.map((option, index) => (
+          <ControlledSelectOption
+            key={`${option.value}-${index}`}
+            checked={option.checked}
+            disabled={option.disabled}
+            multiple={multiple}
+            icon={option.icon}
+            text={option.text}
+            value={option.value}
+            separator={option.separator}
+            selectOption={selectOption}
+            isFocused={index === focused}
+            focusShadow={focusShadow}
+            focusBackgroundColor={focusBackgroundColor}
+          />
+        ))}
       </ul>
     );
   }
@@ -151,7 +174,11 @@ ControlledSelectOptions.propTypes = {
   focused: PropTypes.number,
   focusShadow: PropTypes.string,
   focusBackgroundColor: PropTypes.string,
-  inputRef: PropTypes.shape({ current: PropTypes.instanceOf(typeof Element === 'undefined' ? function(){} : Element) }),
+  inputRef: PropTypes.shape({
+    current: PropTypes.instanceOf(
+      typeof Element === 'undefined' ? function() {} : Element
+    )
+  }),
   multiple: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -160,13 +187,10 @@ ControlledSelectOptions.propTypes = {
       disabled: PropTypes.bool,
       icon: PropTypes.string,
       image: PropTypes.string,
-      text: PropTypes.oneOfType([
-        PropTypes.object,
-        PropTypes.string
-      ]),
+      text: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       value: PropTypes.string
     })
-    ),
+  ),
   selected: PropTypes.string.isRequired,
   selectOption: PropTypes.func.isRequired,
   search: PropTypes.bool,
@@ -175,7 +199,7 @@ ControlledSelectOptions.propTypes = {
   selectAllClassName: PropTypes.string,
   selectAllLabel: PropTypes.string,
   selectAllValue: PropTypes.string,
-  setFilteredOptions: PropTypes.func,
+  setFilteredOptions: PropTypes.func
 };
 
 ControlledSelectOptions.defaultProps = {
@@ -185,7 +209,7 @@ ControlledSelectOptions.defaultProps = {
   search: false,
   selectAllLabel: 'Select All',
   searchId: 'selectSearchInput',
-  searchLabel: 'Search',
+  searchLabel: 'Search'
 };
 
 export default ControlledSelectOptions;
