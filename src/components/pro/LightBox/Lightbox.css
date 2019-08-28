@@ -11,7 +11,7 @@
   height: 100vh;
   top: 0;
   left: 0;
-  position: absolute
+  position: absolute;
 }
 .ui-controls * {
   position: fixed;
@@ -34,7 +34,17 @@ img.active {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.mdb-lightbox figure img.active:hover {
+.next-img,
+.prev-img {
+  left: 150% !important;
+  /* transform-origin: center */
+}
+
+.prev-img {
+  left: -50% !important;
+}
+
+.mdb-lightbox figure img.zoom:hover {
   opacity: 1;
 }
 
