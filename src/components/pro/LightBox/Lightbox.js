@@ -21,11 +21,11 @@ class LightBox extends React.Component {
     // window.addEventListener('click', () => {
     //   console.log(this.state);
     // });
-    window.addEventListener('resize', this.setScreenSize());
+    // window.addEventListener('resize', this.setScreenSize());
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.setScreenSize());
+    // window.removeEventListener('resize', this.setScreenSize());
   }
 
   setScreenSize = () => {
@@ -120,6 +120,7 @@ class LightBox extends React.Component {
     let { openedImg } = this.state;
     let t = e;
     let img = t.target;
+
     if (!openedImg) {
       let data = this.setData(img);
       this.setState(data, () => {
@@ -177,49 +178,41 @@ class LightBox extends React.Component {
     }
   };
 
-  scrollZoom = (e, scale = 0.1) => {
-    // let data = this.state.openedImgData.size;
-    // let data = e.target.getBoundingClientRect();
-    // let mouseData = {
-    //   y: e.clientY - data.top*1.1 - data.height*1.1 / 2,
-    //   x: e.clientX - data.left*1.1 - data.width*1.1 / 2
-    // };
+  scrollZoom = e => {
+    const SCALE_RATIO = this.props.scale || 0.1;
+    const SCALE_UP = 1 + SCALE_RATIO;
+    const SCALE_DOWN = 1 - SCALE_RATIO;
+    const WHEEL_UP = e.deltaY < 0;
+    const WHEEL_DOWN = e.deltaY > 0;
+    const MAX_ZOOM_RATIO = this.state.zoomedScale * 4;
 
-    // let mouseData = {
-    //   y: (e.clientY - data.y - data.y / 4),
-    //   x: (e.clientX - data.x - data.x / 4)
-    // };
+    let scaleTransform = e.target.style.transform.split(' ')
+    let scaleValue = scaleTransform[0].match(/[0-9]+(\.)?[0-9]*/gi)[0];
 
-    // let mouseData = {
-    //   y: e.clientY - data.y,
-    //   x: e.clientX - data.x
-    // };
-    // console.log(mouseData, data);
-    // console.log(data)
-
+    console.log(e.target.style.transform.split(' '))
+    // console.log(cssScale)
     let cssText = e.target.style.cssText;
-    let scaleText = cssText.match(/scale\([0-9]+(\.)?[0-9]*\)/gi)[0];
-    let scaleValue = Number(scaleText.match(/[0-9]+(\.)?[0-9]*/gi)[0]);
-    if (e.deltaY < 0)
-      scaleValue * (1 + scale) >= this.state.zoomedScale * 1.5
-        ? (scaleValue = this.state.zoomedScale * 1.5)
-        : (scaleValue *= 1 + scale);
-    console.log(scaleValue);
-    if (e.deltaY > 0) {
-      scaleValue * (1 - scale) <= this.state.zoomedScale
+    // let scaleText =
+    //   cssText.match(/scale\([0-9]+(\.)?[0-9]*\)/gi)[0] || 'scale(1)';
+    // let scaleValue = Number(scaleText.match(/[0-9]+(\.)?[0-9]*/gi)[0]);
+
+    if (WHEEL_UP)
+      scaleValue * SCALE_DOWN >= MAX_ZOOM_RATIO
+        ? (scaleValue = MAX_ZOOM_RATIO)
+        : (scaleValue *= SCALE_UP);
+
+    if (WHEEL_DOWN) {
+      scaleValue * SCALE_DOWN <= this.state.zoomedScale
         ? (scaleValue = this.state.zoomedScale)
-        : (scaleValue *= 1 - scale);
+        : (scaleValue *= SCALE_DOWN);
     }
 
-    if (scaleValue === this.state.zoomedScale)
-      this.setState({ scaleWheel: false });
-    else this.setState({ scaleWheel: true });
+    // if (scaleValue === this.state.zoomedScale)
+    //   this.setState({ scaleWheel: false });
+    // else this.setState({ scaleWheel: true });
 
-    cssText = cssText.replace(scaleText, `scale(${scaleValue})`);
-    e.target.style.cssText = cssText;
-
-    // cssText = `${cssText} transform-origin: ${-mouseData.x}px ${mouseData.y}px;`;
-    // console.log(e.target.getBoundingClientRect())
+    // cssText = cssText.replace(scaleText, `scale(${scaleValue})`);
+    e.target.style.transform = `scale(${scaleValue}) ${scaleTransform[1]} ${scaleTransform[2]}`;
   };
 
   toggleFullscreen = () => {
@@ -373,7 +366,6 @@ class LightBox extends React.Component {
             this.changeSlide('prev');
             prev.classList.add('zoom');
             this.state.openedImg.style.cssText = `transform: scale(${this.state.scale}) translate(-50%, -50%)`;
-
           } else if (dragPercent < -dragPercentScale) {
             this.changeSlide('next');
             next.classList.add('zoom');
@@ -448,7 +440,7 @@ class LightBox extends React.Component {
               realW: this.slideRefs[id].naturalWidth,
               realH: this.slideRefs[id].naturalHeight,
               size: this.slideRefs[id].getBoundingClientRect()
-            })})`,
+            })})`
         };
         return style;
       }
@@ -522,7 +514,7 @@ class LightBox extends React.Component {
               <MDBBtn
                 className={`pswp__button d-block z-depth-0 pswp__button--zoom`}
                 color='transparent'
-                onClick={this.toggleZoom}
+                onClick={this.scrollZoom}
               />
               <MDBBtn
                 className={`pswp__button d-block z-depth-0 pswp__button--fs`}
