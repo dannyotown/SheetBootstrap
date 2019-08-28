@@ -53,7 +53,7 @@ const DataTableTableScroll = props => {
               position: 'relative',
               transform: `translateX(-${translateScrollHead}px)`,
               boxSizing: 'content-box',
-              paddingRight: '15px',
+              paddingRight: scrollY ? '15px' : null,
               minWidth
             }}
           >
