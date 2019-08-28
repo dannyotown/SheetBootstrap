@@ -48,34 +48,45 @@ class ControlledSelectOptions extends Component {
   };
 
   handleFocus = (e) => {
-    const { focused } = this.props;
+    const {
+      focused,
+      selectOption,
+      selectAllValue,
+      changeFocus,
+      selectAll
+    } = this.props;
 
-    (e.keyCode === 40 || e.keyCode === 38 || e.keyCode === 13) && e.preventDefault();
+    const { filteredOptions } = this.state;
 
-    //Enter
-    if (e.keyCode === 13 && focused !== null) {
+    const ENTER = e.keyCode === 13;
+    const ESC = e.keyCode === 27;
+    const UP = e.keyCode === 38;
+    const DOWN = e.keyCode === 40;
+
+    (DOWN || UP || ENTER) && e.preventDefault();
+
+    if (ENTER && focused !== null) {
       focused === -1
-        ? this.props.selectOption(this.props.selectAllValue)
-        : this.props.selectOption(this.state.filteredOptions[focused].value);
+        ? selectOption(selectAllValue)
+        : selectOption(filteredOptions[focused].value);
     }
 
-    //Esc
-    e.keyCode === 27 && this.props.changeFocus(null);
+    ESC && changeFocus(null);
 
-    //Down
-    if (e.keyCode === 40) {
+    if (DOWN) {
       if (focused === null) {
-        this.props.selectAll && this.state.filteredOptions.length !== 1
-          ? this.props.changeFocus(-1)
-          : this.props.changeFocus(0)
+        selectAll && filteredOptions.length !== 1
+          ? changeFocus(-1)
+          : changeFocus(0);
       } else {
-        focused < this.state.filteredOptions.length - 1 && this.props.changeFocus(1);
+        focused < filteredOptions.length - 1 && changeFocus(1);
       }
     }
-
-    //Up
-    if (e.keyCode === 38) {
-      focused >= (this.props.selectAll ? 0 : 1) && this.state.filteredOptions.length > 1 && this.props.changeFocus(-1);
+    
+    if (UP) {
+      focused >= (selectAll ? 0 : 1) &&
+        filteredOptions.length > 1 &&
+        changeFocus(-1);
     }
   };
 
