@@ -121,7 +121,8 @@ describe('<DataTable />', () => {
       theadColor: 'test',
       theadTextWhite: true,
       tbodyColor: 'test',
-      tbodyTextWhite: true
+      tbodyTextWhite: true,
+      noRecordsFoundLabel: 'test'
     };
 
     wrapper = setup(expectedProps);
@@ -481,6 +482,32 @@ describe('<DataTable />', () => {
     wrapper.instance().handleTableBodyScroll({ target: { scrollLeft: 255 } });
 
     expect(wrapper.state('translateScrollHead')).toEqual(255);
+  });
+
+  test('show noRecordsLabel correctly', () => {
+    wrapper = mount(
+      <DataTable data={data} noRecordsFoundLabel='testNoRecordsLabel' />
+    );
+
+    wrapper.instance().handleSearchChange({
+      target: { value: 'it shouldn`t find any records' }
+    });
+    wrapper.update();
+
+    expect(wrapper.find('tbody tr td').text()).toBe('testNoRecordsLabel');
+  });
+
+  test('show noRecordsLabel`s default value correctly', () => {
+    wrapper = mount(<DataTable data={data} />);
+
+    wrapper.instance().handleSearchChange({
+      target: { value: 'it shouldn`t find any records' }
+    });
+    wrapper.update();
+
+    expect(wrapper.find('tbody tr td').text()).toBe(
+      'No matching records found'
+    );
   });
 
   describe('sortRows works correctly', () => {

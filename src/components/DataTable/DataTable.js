@@ -176,7 +176,7 @@ class DataTable extends Component {
 
   filterRows = () => {
     const { unsearchable, search } = this.state;
-    const { sortRows } = this.props;
+    const { sortRows, noRecordsFoundLabel } = this.props;
 
     this.setState(
       prevState => {
@@ -205,7 +205,7 @@ class DataTable extends Component {
 
         if (filteredRows.length === 0)
           filteredRows.push({
-            message: 'No matching records found',
+            message: noRecordsFoundLabel,
             colspan: prevState.columns.length
           });
         return { filteredRows, activePage: 0 };
@@ -291,6 +291,7 @@ class DataTable extends Component {
       theadColor,
       theadTextWhite,
       sortRows,
+      noRecordsFoundLabel,
       ...attributes
     } = this.props;
 
@@ -471,7 +472,8 @@ DataTable.propTypes = {
   theadColor: PropTypes.string,
   theadTextWhite: PropTypes.bool,
   tbodyColor: PropTypes.string,
-  tbodyTextWhite: PropTypes.bool
+  tbodyTextWhite: PropTypes.bool,
+  noRecordsFoundLabel: PropTypes.string
 };
 
 DataTable.defaultProps = {
@@ -494,6 +496,7 @@ DataTable.defaultProps = {
   hover: false,
   info: true,
   infoLabel: ['Showing', 'to', 'of', 'entries'],
+  noRecordsFoundLabel: 'No matching records found',
   order: [],
   pagesAmount: 8,
   paging: true,
