@@ -191,6 +191,7 @@ class LightBox extends React.Component {
     let scaleTransform = e.target.style.transform.split(' ');
     let scaleValue = Number(
       scaleTransform
+
         .filter(el => !el.search('scale'))[0]
         .replace('scale(', '')
         .replace(')', '')
@@ -251,48 +252,69 @@ class LightBox extends React.Component {
     let CURRENT_IMG = openedImg;
     let PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
     let NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
-    let ACTUAL_KEY;
+    let actual_key;
+    const trans3d_Unset = target => {
+      let scale = Number(
+        target.style.transform
+          .split(' ')
+          .filter(el => !el.search('scale'))[0]
+          .replace('scale(', '')
+          .replace(')', '')
+      );
+      return `translate3d(0px, 0px, 0px) translate(-50%, -50%) scale(${scale})`;
+    };
 
-    console.log(PREV_IMG, CURRENT_IMG, NEXT_IMG);
+    const change = () => {
+      setTimeout(() => {
+        //   // Not work correctly yet
+        this.setState({ activeKey: actual_key });
+        //   PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${0}ms`;
+
+        //   img.classList.add('zoom', 'active');
+
+        //   setTimeout(() => {
+        //     img.style.cssText = `
+        //         transform:
+        //           translate(-50%,-50%)
+        //           scale(${this.setScale(dataOfImage.openedImgData)})
+        //       `;
+
+        //     this.setState({
+        //       sliderOpened: true
+        //     });
+        //   }, this.props.transition);
+      }, transition);
+    };
+
     PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${transition}ms`;
 
+    PREV_IMG.style.transform = trans3d_Unset(PREV_IMG);
+    CURRENT_IMG.style.transform = trans3d_Unset(CURRENT_IMG);
+    NEXT_IMG.style.transform = trans3d_Unset(NEXT_IMG);
+
+    // console.log(
+    //   PREV_IMG.style.transform,
+    //   CURRENT_IMG.style.transform,
+    //   NEXT_IMG.style.transform
+    // );
     if (direction === 'prev') {
       console.log('next');
       CURRENT_IMG.classList.add('next-img');
       PREV_IMG.classList.remove('prev-img');
       this.setState({ openedImg: PREV_IMG });
-      ACTUAL_KEY = this.slideRefs.indexOf(PREV_IMG);
-    } else {
+      actual_key = this.slideRefs.indexOf(PREV_IMG);
+      change();
+    } else if (direction === 'next') {
       console.log('prev');
       CURRENT_IMG.classList.add('prev-img');
       CURRENT_IMG.classList.remove('active');
       NEXT_IMG.classList.remove('next-img');
       this.setState({ openedImg: NEXT_IMG });
-      ACTUAL_KEY = this.slideRefs.indexOf(NEXT_IMG);
+      actual_key = this.slideRefs.indexOf(NEXT_IMG);
+      change();
     }
 
-    // setTimeout(() => {
-    //   // Not work correctly yet
-    //   this.setState({ activeKey: ACTUAL_KEY });
-    //   PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${0}ms`;
-
-    //   img.classList.add('zoom', 'active');
-
-    //   setTimeout(() => {
-    //     img.style.cssText = `
-    //         transform: 
-    //           translate(-50%,-50%)
-    //           scale(${this.setScale(dataOfImage.openedImgData)}) 
-    //       `;
-
-    //     this.setState({
-    //       sliderOpened: true
-    //     });
-    //   }, this.props.transition);
-    // }, transition);
-
-    console.log(PREV_IMG.style, CURRENT_IMG.style, NEXT_IMG.style);
-    console.log('change', direction);
+    
   };
 
   dragStart = e => {
@@ -337,16 +359,15 @@ class LightBox extends React.Component {
               .replace(')', '')
           );
 
-          console.log(valueScale);
-          return `
+          return `transform: 
             translate3d(${diffX}px, 0, 0)  
             translate(-50%,-50%)
             scale(${valueScale})`;
         };
 
-        CURRENT_IMG.style.transform = styleSlide(CURRENT_IMG.style.transform);
-        PREV_IMG.style.transform = styleSlide(PREV_IMG.style.transform);
-        NEXT_IMG.style.transform = styleSlide(NEXT_IMG.style.transform);
+        CURRENT_IMG.style.cssText = styleSlide(CURRENT_IMG.style.transform);
+        PREV_IMG.style.cssText = styleSlide(PREV_IMG.style.transform);
+        NEXT_IMG.style.cssText = styleSlide(NEXT_IMG.style.transform);
         // PREV_IMG.style.transformOrigin = 'top left';
         // NEXT_IMG.style.transformOrigin = 'top right';
 
@@ -369,82 +390,38 @@ class LightBox extends React.Component {
     if (this.state.dragImg) {
       // e.target.style.cssText = `transform: scale(${this.state.zoomedScale}) translate(-50%,-50%)`;
       const { activeKey, dragPercent, dragDirection } = this.state;
-      const galleryStyles = id => {
-        let style = {
-          transform: `
-            translate(-50%, -50%) 
-            scale(${this.setScale({
-              realW: this.slideRefs[id].naturalWidth,
-              realH: this.slideRefs[id].naturalHeight,
-              size: this.slideRefs[id].getBoundingClientRect()
-            })})
-          `
-        };
-        return style;
-      };
-
       let dragPercentScale = 20;
 
-      if (dragDirection === 'x') {
-        if (dragPercent > dragPercentScale) {
-          console.log(this.slideRefs[activeKey - 1]);
-          this.slideRefs[activeKey - 1].style.cssText = `
-            transition: ${this.props.transition}ms;
-            transform: 
-              translate(-50%,-50%);
-              scale(${this.state.zoomedScale}) 
-            left: 50% !important;
-          `;
-          e.target.style.cssText = `
-            transition: ${this.props.transition}ms;
-            transform: 
-              translate(-50%,-50%);
-              scale(${this.state.zoomedScale}) 
-            left: 150% !important;
-          `;
-          console.log('prev');
-        } else if (dragPercent < -dragPercentScale) {
-          this.slideRefs[activeKey + 1].style.cssText = `
-            transition: ${this.props.transition}ms;
-            transform: 
-              translate(-50%,-50%);
-              scale(${this.state.zoomedScale}) 
-            left: 50% !important;
-          `;
-          e.target.style.cssText = `
-            transition: ${this.props.transition}ms;
-            transform: 
-              translate(-50%,-50%);
-              scale(${this.state.zoomedScale}) 
-            left: -50% !important;
-          `;
-          console.log('next');
-        }
-
-        setTimeout(() => {
-          let prev = this.slideRefs[activeKey - 1];
-          let next = this.slideRefs[activeKey + 1];
-
-          // prev.style = galleryStyles(activeKey-1);
-          // next.style = galleryStyles(activeKey+1);
-
-          // this.slideRefs[activeKey].style = galleryStyles(activeKey+1);
-          if (dragPercent > dragPercentScale) {
-            this.changeSlide('prev');
-            prev.classList.add('zoom');
-            this.state.openedImg.style.cssText = `transform: translate(-50%, -50%) scale(${this.state.scale}) `;
-          } else if (dragPercent < -dragPercentScale) {
-            this.changeSlide('next');
-            next.classList.add('zoom');
-            this.state.openedImg.style.cssText = `transform: translate(-50%, -50%) scale(${this.state.scale})`;
-          }
-        }, this.props.transition);
-      } else if (dragDirection === 'y') {
+      if (dragPercent > dragPercentScale) {
+        this.changeSlide('prev');
+      } else if (dragPercent < -dragPercentScale) {
+        this.changeSlide('next');
+      } else {
+        this.changeSlide(null);
       }
+
+      // setTimeout(() => {
+      //   let prev = this.slideRefs[activeKey - 1];
+      //   let next = this.slideRefs[activeKey + 1];
+
+      //   // prev.style = galleryStyles(activeKey-1);
+      //   // next.style = galleryStyles(activeKey+1);
+
+      //   // this.slideRefs[activeKey].style = galleryStyles(activeKey+1);
+      //   if (dragPercent > dragPercentScale) {
+      //     this.changeSlide('prev');
+      //     prev.classList.add('zoom');
+      //     this.state.openedImg.style.cssText = `transform: translate(-50%, -50%) scale(${this.state.scale}) `;
+      //   } else if (dragPercent < -dragPercentScale) {
+      //     this.changeSlide('next');
+      //     next.classList.add('zoom');
+      //     this.state.openedImg.style.cssText = `transform: translate(-50%, -50%) scale(${this.state.scale})`;
+      //   }
+      // }, this.props.transition);
 
       this.setState({
         dragImg: false,
-        dragDirection: null,
+        // dragDirection: null,
         dragPercent: 0
       });
     }
