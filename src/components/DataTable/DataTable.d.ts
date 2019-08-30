@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 declare class MDBDataTable extends React.Component<
   {
@@ -34,6 +34,7 @@ declare class MDBDataTable extends React.Component<
     info?: boolean;
     infoLabel?: string[];
     maxHeight?: string;
+    noBottomColumns?: boolean;
     order?: string[];
     pagesAmount?: number;
     paging?: boolean;

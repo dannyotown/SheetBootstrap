@@ -483,6 +483,17 @@ describe('<DataTable />', () => {
     expect(wrapper.state('translateScrollHead')).toEqual(255);
   });
 
+  test('should not render bottom header with columns if (noBottomColumns)', () => {
+    wrapper = mount(<DataTable noBottomColumns />);
+    expect(wrapper.find('[data-test="table-foot"]')).toHaveLength(0);
+  });
+
+  test('should render bottom header with columns if (!noBottomColumns)', () => {
+    wrapper = mount(<DataTable noBottomColumns={false} />);
+
+    expect(wrapper.find('[data-test="table-foot"]')).toHaveLength(1);
+  });
+
   describe('sortRows works correctly', () => {
     const Fields = ({ searchValue }) => <a href='!#'>{searchValue}</a>;
 
