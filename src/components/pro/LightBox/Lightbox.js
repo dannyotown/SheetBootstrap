@@ -188,37 +188,24 @@ class LightBox extends React.Component {
     const WHEEL_UP = e.deltaY < 0;
     const WHEEL_DOWN = e.deltaY > 0;
     const MAX_ZOOM_RATIO = this.state.zoomedScale * 4;
-
     let scaleTransform = e.target.style.transform.split(' ');
-    let scaleValue = scaleTransform[0].match(/[0-9]+(\.)?[0-9]*/gi)[0];
-
-    console.log(e.target.style.transform.split(' '));
-    // console.log(cssScale)
-    let cssText = e.target.style.cssText;
-    // let scaleText =
-    //   cssText.match(/scale\([0-9]+(\.)?[0-9]*\)/gi)[0] || 'scale(1)';
-    // let scaleValue = Number(scaleText.match(/[0-9]+(\.)?[0-9]*/gi)[0]);
+    let scaleValue = Number(
+      scaleTransform
+        .filter(el => !el.search('scale'))[0]
+        .replace('scale(', '')
+        .replace(')', '')
+    );
 
     if (WHEEL_UP)
-      scaleValue * SCALE_DOWN >= MAX_ZOOM_RATIO
-        ? (scaleValue = MAX_ZOOM_RATIO)
-        : (scaleValue *= SCALE_UP);
-
+      if (scaleValue * SCALE_UP < MAX_ZOOM_RATIO) {
+        scaleValue *= SCALE_UP;
+      }
     if (WHEEL_DOWN) {
-      scaleValue * SCALE_DOWN <= this.state.zoomedScale
-        ? (scaleValue = this.state.zoomedScale)
-        : (scaleValue *= SCALE_DOWN);
+      if (scaleValue * SCALE_DOWN >= this.state.zoomedScale) {
+        scaleValue *= SCALE_DOWN;
+      }
     }
-
-    // if (scaleValue === this.state.zoomedScale)
-    //   this.setState({ scaleWheel: false });
-    // else this.setState({ scaleWheel: true });
-
-    // cssText = cssText.replace(scaleText, `scale(${scaleValue})`);
-    e.target.style.transform = `
-      ${scaleTransform[1]} ${scaleTransform[2]} 
-      scale(${scaleValue}) 
-    `;
+    e.target.style.transform = `translate(-50%, -50%) scale(${scaleValue}) `;
   };
 
   toggleFullscreen = () => {
@@ -273,43 +260,36 @@ class LightBox extends React.Component {
       console.log('next');
       CURRENT_IMG.classList.add('next-img');
       PREV_IMG.classList.remove('prev-img');
-      this.setState({openedImg: PREV_IMG})
-      ACTUAL_KEY = this.slideRefs.indexOf(PREV_IMG)
-
+      this.setState({ openedImg: PREV_IMG });
+      ACTUAL_KEY = this.slideRefs.indexOf(PREV_IMG);
     } else {
       console.log('prev');
       CURRENT_IMG.classList.add('prev-img');
       CURRENT_IMG.classList.remove('active');
       NEXT_IMG.classList.remove('next-img');
-      this.setState({openedImg: NEXT_IMG})
-      ACTUAL_KEY = this.slideRefs.indexOf(NEXT_IMG)
-
+      this.setState({ openedImg: NEXT_IMG });
+      ACTUAL_KEY = this.slideRefs.indexOf(NEXT_IMG);
     }
-    
-    setTimeout(() => {
-      this.setState({ activeKey: ACTUAL_KEY });
-      PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${0}ms`;
 
+    // setTimeout(() => {
+    //   // Not work correctly yet
+    //   this.setState({ activeKey: ACTUAL_KEY });
+    //   PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${0}ms`;
 
-        img.classList.add('zoom', 'active');
-        this.overlay.current.classList.add('active');
+    //   img.classList.add('zoom', 'active');
 
-        setTimeout(() => {
-          img.style.cssText = `
-            transform: 
-              translate(-50%,-50%)
-              scale(${this.setScale(dataOfImage.openedImgData)}) 
-          `;
+    //   setTimeout(() => {
+    //     img.style.cssText = `
+    //         transform: 
+    //           translate(-50%,-50%)
+    //           scale(${this.setScale(dataOfImage.openedImgData)}) 
+    //       `;
 
-          this.setState({
-            sliderOpened: true
-          });
-        }, this.props.transition);
-      }, 0);
-
-
-    }, transition);
-
+    //     this.setState({
+    //       sliderOpened: true
+    //     });
+    //   }, this.props.transition);
+    // }, transition);
 
     console.log(PREV_IMG.style, CURRENT_IMG.style, NEXT_IMG.style);
     console.log('change', direction);
