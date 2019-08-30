@@ -22,27 +22,33 @@
   background-color: black;
 }
 
-img {
+.next-img,
+.prev-img {
+  transform-origin: center
+}
+.next-img {
+  left: 150% !important;
+}
+.prev-img {
+  left: -50% !important;
+}
+
+img:not(.zoom) {
   transform-origin: top left;
 }
 img.zoom,
 img.active {
   z-index: 9999;
   position: fixed;
-  left: 50%;
   top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%) scale(1);
 }
 
-.next-img,
-.prev-img {
-  left: 150% !important;
-  /* transform-origin: center */
+.active {
+  transform-origin: center;
 }
 
-.prev-img {
-  left: -50% !important;
-}
 
 .mdb-lightbox figure img.zoom:hover {
   opacity: 1;
