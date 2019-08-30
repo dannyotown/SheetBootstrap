@@ -255,7 +255,12 @@ class DataTable extends Component {
   };
 
   changeActivePage = page => {
+    const { onPageChange } = this.props;
     this.setState({ activePage: page });
+
+    onPageChange &&
+      typeof onPageChange === 'function' &&
+      onPageChange({ activePage: page + 1, pagesAmount: this.pagesAmount() });
   };
 
   handleTableBodyScroll = e => {
@@ -305,6 +310,7 @@ class DataTable extends Component {
       sortRows,
       onSearch,
       onSort,
+      onPageChange,
       ...attributes
     } = this.props;
 
@@ -487,7 +493,8 @@ DataTable.propTypes = {
   tbodyColor: PropTypes.string,
   tbodyTextWhite: PropTypes.bool,
   onSearch: PropTypes.func,
-  onSort: PropTypes.func
+  onSort: PropTypes.func,
+  onPageChange: PropTypes.func
 };
 
 DataTable.defaultProps = {
