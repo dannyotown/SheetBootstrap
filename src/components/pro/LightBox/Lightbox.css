@@ -24,7 +24,7 @@
 
 .next-img,
 .prev-img {
-  transform-origin: center
+  transform-origin: center;
 }
 .next-img {
   left: 150% !important;
@@ -36,19 +36,23 @@
 img:not(.zoom) {
   transform-origin: top left;
 }
-img.zoom,
-img.active {
+img.zoom {
   z-index: 9999;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: text;
+  /* pointer-events: none; */
 }
 
 .active {
   transform-origin: center;
 }
-
 
 .mdb-lightbox figure img.zoom:hover {
   opacity: 1;
