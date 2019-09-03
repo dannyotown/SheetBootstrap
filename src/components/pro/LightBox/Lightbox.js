@@ -16,19 +16,6 @@ class LightBox extends React.Component {
     this.slideRefs = [];
   }
 
-  componentDidMount() {
-    // window.addEventListener('click', () => {
-    //   console.log(this.state);
-    // });
-    // window.addEventListener('resize', this.setScreenSize());
-    this.updateGalleryData;
-    // window.addEventListener('scroll', this.updateGalleryData, false);
-  }
-
-  componentWillUnmount() {
-    // window.removeEventListener('resize', this.setScreenSize());
-  }
-
   setScreenSize = () => {
     this.setState({
       screenSize: {
@@ -45,8 +32,13 @@ class LightBox extends React.Component {
     dragImgPos: {},
     dragPercent: 0,
     galleryImagesData: [],
-    openedImg: null,
-    openedImgData: null,
+    imgSrc: null,
+    imgSrcData: null,
+    resize: false,
+    resizePos: {
+      x: 0,
+      y: 0
+    },
     scale: 0,
     scaleWheel: false,
     screenSize: {
@@ -65,8 +57,8 @@ class LightBox extends React.Component {
   };
 
   updateScreenSize = () => {
-    let e = d.documentElement;
-    let g = d.getElementsByTagName('body')[0];
+    let e = document.documentElement;
+    let g = document.getElementsByTagName('body')[0];
     this.setState({
       screenSize: {
         x: window.innerWidth || e.clientWidth || g.clientWidth,
@@ -108,8 +100,8 @@ class LightBox extends React.Component {
     let { screenSize } = this.state;
     let data = {
       activeKey: this.slideRefs.indexOf(img),
-      openedImg: img,
-      openedImgData: {
+      imgSrc: img,
+      imgSrcData: {
         realW: img.naturalWidth,
         realH: img.naturalHeight,
         size: img.getBoundingClientRect()
@@ -119,25 +111,25 @@ class LightBox extends React.Component {
           ? img.getBoundingClientRect().width / img.naturalWidth
           : img.getBoundingClientRect().width / screenSize.x
     };
-    data.zoomedScale = this.setScale(data.openedImgData);
+    data.zoomedScale = this.setScale(data.imgSrcData);
     return data;
   };
 
   zoom = e => {
-    let { openedImg } = this.state;
+    let { imgSrc } = this.state;
     const { transition } = this.props;
     const img = e.target;
 
-    if (!openedImg) {
+    if (!imgSrc) {
       this.updateGalleryData();
       const dataOfImage = this.setData(img);
-      const { left, top } = dataOfImage.openedImgData.size;
+      const { left, top } = dataOfImage.imgSrcData.size;
 
       this.setState(dataOfImage, () => {
         img.style.cssText = `
           top: 0;
           left: 0;
-          transform:  translate(${left}px, ${top}px) scale(${dataOfImage.scale});
+          transform:  translate(${left}px, ${top}px) translate3d(0,0,0) scale(${dataOfImage.scale}) ;
           position: fixed;
         `;
 
@@ -148,7 +140,8 @@ class LightBox extends React.Component {
             transition:${transition}ms; 
             transform: 
               translate(-50%,-50%) 
-              scale(${this.setScale(dataOfImage.openedImgData)}) 
+              translate3d(0,0,0)
+              scale(${this.setScale(dataOfImage.imgSrcData)}) 
           `;
 
           img.classList.add('zoom');
@@ -157,7 +150,6 @@ class LightBox extends React.Component {
           setTimeout(() => {
             img.style.transition = `0ms`;
             this.setState({ sliderOpened: true });
-            console.log(this.state);
           }, this.props.transition);
         }, 5);
       });
@@ -165,8 +157,8 @@ class LightBox extends React.Component {
   };
 
   closeZoom = () => {
-    let { openedImg, galleryImagesData, activeKey } = this.state;
-    if (openedImg) {
+    let { imgSrc, galleryImagesData, activeKey } = this.state;
+    if (imgSrc) {
       this.setState({ sliderOpened: false });
       let PREV_IMG =
         this.slideRefs[activeKey - 1] ||
@@ -177,52 +169,86 @@ class LightBox extends React.Component {
       NEXT_IMG.style.cssText = '';
 
       document.body.classList.remove('overflow-hidden');
-      openedImg.classList.remove('zoom');
-      openedImg.style.cssText = `
+      imgSrc.classList.remove('zoom');
+      imgSrc.style.cssText = `
         transition: ${this.props.transition}ms;
         z-index: 9999;
         top: 0;
         left: 0;
-        transform: translate(${galleryImagesData[activeKey].openedImgData.size.left}px, ${galleryImagesData[activeKey].openedImgData.size.top}px) scale(${galleryImagesData[activeKey].scale});
+        transform: translate(${galleryImagesData[activeKey].imgSrcData.size.left}px, ${galleryImagesData[activeKey].imgSrcData.size.top}px) translate3d(0,0,0) scale(${galleryImagesData[activeKey].scale}) ;
         position: fixed;
       `;
 
       this.overlay.current.classList.remove('active');
       setTimeout(() => {
-        openedImg.style.cssText = '';
+        imgSrc.style.cssText = '';
         this.setState(this.reset());
       }, this.props.transition);
     }
   };
 
   scrollZoom = e => {
-    const SCALE_RATIO = this.props.scale || 0.1;
-    const SCALE_UP = 1 + SCALE_RATIO;
-    const SCALE_DOWN = 1 - SCALE_RATIO;
-    const WHEEL_UP = e.deltaY < 0;
-    const WHEEL_DOWN = e.deltaY > 0;
-    const IMG_SCALE = this.state.galleryImagesData[this.state.activeKey]
-      .zoomedScale;
-    let scaleTransform = e.target.style.transform.split(' ');
-    let scaleValue = Number(
-      scaleTransform
-        .filter(el => !el.search('scale'))[0]
-        .replace('scale(', '')
-        .replace(')', '')
-    );
+    if (this.slideRefs[this.state.activeKey] === this.state.imgSrc) {
+      const SCALE_RATIO = this.props.scale || 0.1;
+      const SCALE_UP = 1 + SCALE_RATIO;
+      const SCALE_DOWN = 1 - SCALE_RATIO;
+      const WHEEL_UP = e.deltaY < 0;
+      const WHEEL_DOWN = e.deltaY > 0;
+      const IMG_DATA = this.state.zoomedScale;
+      const TARGET = e.target;
 
-    if (WHEEL_UP)
-      if (scaleValue * SCALE_UP < IMG_SCALE * 4) {
-        scaleValue *= SCALE_UP;
+      let scaleTransform = e.target.style.transform.split(' ');
+      let scaleValue = Number(
+        scaleTransform
+          .filter(el => !el.search('scale'))[0]
+          .replace('scale(', '')
+          .replace(')', '')
+      );
+
+      let trans3d = this.slideRefs[this.state.activeKey].style.transform
+        .split(') ')
+        .filter(el => !el.search('translate3d'))
+        .map(el => el.replace('translate3d(', ''))
+        .map(el => el.replace(',', ''))[0]
+        .split(' ')
+        .map(el => Number(el.replace('px', '').replace(',', '')));
+
+      // e.target.style.transition = `${this.props.transition}ms`;
+
+      if (WHEEL_UP) {
+        if (scaleValue * SCALE_UP < IMG_DATA * 4) {
+          scaleValue *= SCALE_UP;
+        }
+        this.setState({ resize: true });
       }
-    if (WHEEL_DOWN) {
-      if (
-        scaleValue * SCALE_DOWN >= IMG_SCALE
-      ) {
-        scaleValue *= SCALE_DOWN;
+      if (WHEEL_DOWN) {
+        if (scaleValue * SCALE_DOWN >= IMG_DATA) {
+          scaleValue *= SCALE_DOWN;
+          trans3d[0] *= SCALE_DOWN / 1.15;
+          trans3d[1] *= SCALE_DOWN / 1.15;
+        } else {
+          scaleValue = IMG_DATA;
+          this.setState({ resize: false });
+          trans3d[0] = 0;
+          trans3d[1] = 0;
+          this.setState({
+            resizePos: {
+              x: 0,
+              y: 0
+            }
+          });
+          // setTimeout(() => {
+          // TARGET.style.transition = `${0}ms`;
+          // }, this.props.transition);
+        }
       }
+
+      e.target.style.transform = `
+        translate(-50%, -50%) 
+        translate3d(${trans3d[0]}px,${trans3d[1]}px, 0px)
+        scale(${scaleValue}) 
+      `;
     }
-    e.target.style.transform = `translate(-50%, -50%) scale(${scaleValue}) `;
   };
 
   toggleFullscreen = () => {
@@ -234,24 +260,24 @@ class LightBox extends React.Component {
   };
 
   changeSlide = direction => {
-    const { activeKey, changeSlide, openedImg, galleryImagesData } = this.state;
+    const { activeKey, changeSlide, imgSrc, galleryImagesData } = this.state;
     const { transition } = this.props;
 
     let { slideRefs } = this;
-    let CURRENT_IMG = openedImg;
+    let CURRENT_IMG = imgSrc;
     let PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
     let NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
     let actual_key;
     const trans3d_Unset = index => `
-      translate3d(0px, 0px, 0px) 
       translate(-50%, -50%) 
+      translate3d(0px, 0px, 0px) 
       scale(${galleryImagesData[index].zoomedScale})
     `;
 
     const change = () => {
       setTimeout(() => {
         PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${0}ms`;
-        let CURRENT = this.state.openedImg;
+        let CURRENT = this.state.imgSrc;
         const dataOfImage = this.setData(CURRENT);
 
         this.setState(dataOfImage, () => {
@@ -259,7 +285,8 @@ class LightBox extends React.Component {
           CURRENT.style.cssText = `
             transform: 
               translate(-50%,-50%)
-              scale(${this.setScale(dataOfImage.openedImgData)}) 
+              translate3d(0,0,0)
+              scale(${this.setScale(dataOfImage.imgSrcData)})
           `;
           this.setState({ changeSlide: false });
         });
@@ -278,38 +305,40 @@ class LightBox extends React.Component {
 
         CURRENT_IMG.classList.add('next-img');
         PREV_IMG.classList.remove('prev-img');
-        this.setState({ openedImg: PREV_IMG });
+        this.setState({ imgSrc: PREV_IMG });
         change(actual_key);
       } else if (direction === 'next') {
         actual_key = this.slideRefs.indexOf(NEXT_IMG);
 
         CURRENT_IMG.classList.add('prev-img');
         NEXT_IMG.classList.remove('next-img');
-        this.setState({ openedImg: NEXT_IMG });
+        this.setState({ imgSrc: NEXT_IMG });
         change(actual_key);
       }
-    } else {
-      this.setState({ changeSlide: false });
     }
   };
 
   dragStart = e => {
-    if (!this.state.dragImg && this.state.openedImg) {
+    if (!this.state.dragImg && this.state.imgSrc && !this.state.changeSlide) {
       let dragImgPos = {
         x: e.clientX,
         y: e.clientY
       };
       this.setState({
         dragImg: true,
-        dragImgPos: dragImgPos
+        dragImgPos
+      });
+    } else {
+      this.setState({
+        changeSlide: false
       });
     }
   };
 
   dragMoveSlide = e => {
-    if (this.state.dragImg) {
-      const { activeKey, galleryImagesData } = this.state;
-      const { slideRefs } = this;
+    const { activeKey, galleryImagesData, resize } = this.state;
+    const { slideRefs } = this;
+    if (this.state.dragImg && e.button === 0 && !resize) {
       let CURRENT_IMG = e.target;
       let PREV_IMG =
         slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
@@ -328,8 +357,8 @@ class LightBox extends React.Component {
 
         let styleSlide = index =>
           `transform: 
-          translate3d(${diffX}px, 0, 0)  
           translate(-50%,-50%)
+          translate3d(${diffX}px, 0, 0)  
           scale(${galleryImagesData[index].zoomedScale})
         `;
 
@@ -337,20 +366,67 @@ class LightBox extends React.Component {
         PREV_IMG.style.cssText = styleSlide(this.slideRefs.indexOf(PREV_IMG));
         NEXT_IMG.style.cssText = styleSlide(this.slideRefs.indexOf(NEXT_IMG));
       }
+    } else if (this.state.dragImg && e.button === 0 && resize) {
+      let CURRENT_IMG = e.target;
+      let dragPos = {
+        x: e.clientX,
+        y: e.clientY
+      };
+      let CRR = galleryImagesData[activeKey];
+      let scaleValue = Number(
+        CURRENT_IMG.style.transform
+          .split(' ')
+          .filter(el => !el.search('scale'))[0]
+          .replace('scale(', '')
+          .replace(')', '')
+      );
+
+      let diffX = dragPos.x - this.state.dragImgPos.x + this.state.resizePos.x;
+      let diffY = dragPos.y - this.state.dragImgPos.y + this.state.resizePos.y;
+
+      let scaleX = (CRR.imgSrcData.realW * scaleValue) / 3;
+      let scaleY = (CRR.imgSrcData.realH * scaleValue) / 3;
+
+      if (diffX > scaleX) diffX = scaleX;
+      else if (diffX < -scaleX) diffX = -scaleX;
+
+      if (diffY > scaleY) diffY = scaleY;
+      else if (diffY < -scaleY) diffY = -scaleY;
+
+      CURRENT_IMG.style.cssText = `transform: 
+        translate(-50%,-50%)
+        translate3d(${diffX}px, ${diffY}px, 0)
+        scale(${scaleValue})
+      `;
     }
   };
 
   dragStop = e => {
     if (this.state.dragImg) {
-      const { dragPercent } = this.state;
+      const { activeKey, dragPercent } = this.state;
       let dragPercentScale = 20;
-
-      if (dragPercent > dragPercentScale) {
-        this.changeSlide('prev');
-      } else if (dragPercent < -dragPercentScale) {
-        this.changeSlide('next');
+      if (!this.state.resize) {
+        if (dragPercent > dragPercentScale) {
+          this.changeSlide('prev');
+        } else if (dragPercent < -dragPercentScale) {
+          this.changeSlide('next');
+        } else {
+          this.changeSlide(null);
+        }
       } else {
-        this.changeSlide(null);
+        let trans3d = this.slideRefs[activeKey].style.transform
+          .split(') ')
+          .filter(el => !el.search('translate3d'))
+          .map(el => el.replace('translate3d(', ''))
+          .map(el => el.replace(',', ''))[0]
+          .split(' ')
+          .map(el => Number(el.replace('px', '').replace(',', '')));
+        this.setState({
+          resizePos: {
+            x: trans3d[0],
+            y: trans3d[1]
+          }
+        });
       }
 
       this.setState({
@@ -373,13 +449,7 @@ class LightBox extends React.Component {
       transition
     } = this.props;
 
-    const {
-      activeKey,
-      galleryImagesData,
-      openedImg,
-      sliderOpened,
-      dragImg
-    } = this.state;
+    const { activeKey, galleryImagesData, imgSrc, sliderOpened } = this.state;
 
     const lightboxClassNames = classNames(
       'mdb-lightbox d-flex flex-wrap',
@@ -413,7 +483,7 @@ class LightBox extends React.Component {
           transform:
             sliderOpened &&
             (next || prev || second || last || first) &&
-            `translate(-50%, -50%) scale(${this.setScale({
+            `translate(-50%, -50%) translate3d(0,0,0) scale(${this.setScale({
               realW: this.slideRefs[id].naturalWidth,
               realH: this.slideRefs[id].naturalHeight,
               size: this.slideRefs[id].getBoundingClientRect()
@@ -452,35 +522,33 @@ class LightBox extends React.Component {
           className={galleryClassNames(id)}
           alt={image.alt || `image ${id + 1}`}
           ref={img => (this.slideRefs[id] = img)}
+          style={galleryStyles(id)}
+          draggable={!imgSrc}
           onClick={this.zoom}
-          draggable={!openedImg}
           onDragStart={e => e.preventDefault()}
           onMouseDown={this.dragStart}
-          onMouseMove={dragImg ? this.dragMoveSlide : () => {}}
-          onMouseLeave={dragImg ? this.dragStop : () => {}}
-          onMouseUp={dragImg ? this.dragStop : () => {}}
-          onWheel={
-            this.slideRefs[id] === openedImg ? this.scrollZoom : () => {}
-          }
-          style={galleryStyles(id)}
+          onMouseMove={this.dragMoveSlide}
+          onMouseLeave={this.dragStop}
+          onMouseUp={this.dragStop}
+          onWheel={this.scrollZoom}
         />
-        {this.slideRefs[id] === openedImg && (
+        {this.slideRefs[id] === imgSrc && (
           <div
             className='block'
             style={{
-              height: `${galleryImagesData[activeKey].openedImgData.size.height}px`,
-              width: `${galleryImagesData[activeKey].openedImgData.size.width}px`
+              height: `${galleryImagesData[activeKey].imgSrcData.size.height}px`,
+              width: `${galleryImagesData[activeKey].imgSrcData.size.width}px`
             }}
           />
         )}
-        {image.header && (
-          <p className='text-uppercase font-weight-bold mt-4'>{image.header}</p>
+        {image.description && (
+          <p className='text-uppercase font-weight-bold mt-4'>{image.description}</p>
         )}
       </MDBCol>
     ));
     return (
-      <MDBContainer className='zoom-effect'>
-        {openedImg && (
+      <MDBContainer className='mdb-lightbox'>
+        {imgSrc && (
           <div className='ui-controls'>
             <p className='float-left text-white-50 mt-3 ml-3'>
               {activeKey + 1}/{images.length}

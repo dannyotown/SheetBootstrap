@@ -132,42 +132,42 @@ class LightboxPage extends Component {
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(135).jpg',
-        header: '| Lorem Ipsum Dolor Sit Amet'
+        description: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(128).jpg',
-        header: '| Lorem Ipsum Dolor Sit Amet'
+        description: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(133).jpg',
-        header: '| Lorem Ipsum Dolor Sit Amet'
+        description: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(131).jpg',
-        header: '| Lorem Ipsum Dolor Sit Amet'
+        description: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(130).jpg',
-        header: '| Lorem Ipsum Dolor Sit Amet'
+        description: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(132).jpg',
-        header: '| Lorem Ipsum Dolor Sit Amet'
+        description: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(134).jpg',
-        header: '| Lorem Ipsum Dolor Sit Amet'
+        description: '| Lorem Ipsum Dolor Sit Amet'
       },
       {
         src:
           'https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(1).jpg',
-        header: '| Lorem Ipsum Dolor Sit Amet'
+        description: '| Lorem Ipsum Dolor Sit Amet'
       }
     ],
     mixed: [
@@ -226,22 +226,7 @@ class LightboxPage extends Component {
           'https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(76).jpg',
         md: '3'
       },
-      { src: 'https://wallpaperaccess.com/full/167767.jpg', md: '3' },
-      { src: 'https://wallpaperaccess.com/full/167767.jpg', md: '3' },
-      { src: 'https://wallpaperaccess.com/full/167767.jpg', md: '3' },
-      { src: 'https://wallpaperaccess.com/full/167767.jpg', md: '3' }
     ]
-    // heading: [
-    //   {src: '1'},
-    //   {src: '2'},
-    //   {src: '3'},
-    //   {src: '4'},
-    //   {src: '5'},
-    //   {src: '6'},
-    //   {src: '7'},
-    //   {src: '8'},
-    //   {src: '9'}
-    // ]
   };
 
   render() {
