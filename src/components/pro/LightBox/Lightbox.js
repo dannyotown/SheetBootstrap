@@ -195,9 +195,13 @@ class LightBox extends React.Component {
       const WHEEL_UP = e.deltaY < 0;
       const WHEEL_DOWN = e.deltaY > 0;
       const IMG_DATA = this.state.zoomedScale;
-      const TARGET = e.target;
+      let target;
 
-      let scaleTransform = e.target.style.transform.split(' ');
+      e.target.tagName === 'BUTTON'
+        ? (target = this.slideRefs[this.state.activeKey])
+        : (target = e.target);
+
+      let scaleTransform = target.style.transform.split(' ');
       let scaleValue = Number(
         scaleTransform
           .filter(el => !el.search('scale'))[0]
@@ -213,15 +217,23 @@ class LightBox extends React.Component {
         .split(' ')
         .map(el => Number(el.replace('px', '').replace(',', '')));
 
-      // e.target.style.transition = `${this.props.transition}ms`;
+      target.style.transition = `${0}ms`;
 
-      if (WHEEL_UP) {
+      if (
+        WHEEL_UP ||
+        (e.button === 0 &&
+          !e.target.classList.contains('lb-zoom-out') &&
+          e.target.tagName === 'BUTTON')
+      ) {
         if (scaleValue * SCALE_UP < IMG_DATA * 4) {
           scaleValue *= SCALE_UP;
         }
         this.setState({ resize: true });
       }
-      if (WHEEL_DOWN) {
+      if (
+        WHEEL_DOWN ||
+        (e.button === 0 && e.target.classList.contains('lb-zoom-out'))
+      ) {
         if (scaleValue * SCALE_DOWN >= IMG_DATA) {
           scaleValue *= SCALE_DOWN;
           trans3d[0] *= SCALE_DOWN / 1.15;
@@ -237,13 +249,9 @@ class LightBox extends React.Component {
               y: 0
             }
           });
-          // setTimeout(() => {
-          // TARGET.style.transition = `${0}ms`;
-          // }, this.props.transition);
         }
       }
-
-      e.target.style.transform = `
+      target.style.transform = `
         translate(-50%, -50%) 
         translate3d(${trans3d[0]}px,${trans3d[1]}px, 0px)
         scale(${scaleValue}) 
@@ -251,11 +259,13 @@ class LightBox extends React.Component {
     }
   };
 
-  toggleFullscreen = () => {
+  toggleFullscreen = (e) => {
     if (document.fullscreenElement) {
       document.exitFullscreen();
+      e.target.classList.remove('fullscreen')
     } else {
       document.documentElement.requestFullscreen();
+      e.target.classList.add('fullscreen')
     }
   };
 
@@ -321,8 +331,8 @@ class LightBox extends React.Component {
   dragStart = e => {
     if (!this.state.dragImg && this.state.imgSrc && !this.state.changeSlide) {
       let dragImgPos = {
-        x: e.clientX,
-        y: e.clientY
+        x: e.clientX || e.touches[0].clientX,
+        y: e.clientY || e.touches[0].clientY
       };
       this.setState({
         dragImg: true,
@@ -338,15 +348,15 @@ class LightBox extends React.Component {
   dragMoveSlide = e => {
     const { activeKey, galleryImagesData, resize } = this.state;
     const { slideRefs } = this;
-    if (this.state.dragImg && e.button === 0 && !resize) {
+    if (this.state.dragImg && !resize) {
       let CURRENT_IMG = e.target;
       let PREV_IMG =
         slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
       let NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
 
       let dragPos = {
-        x: e.clientX,
-        y: e.clientY
+        x: e.clientX || e.touches[0].clientX,
+        y: e.clientY || e.touches[0].clientY
       };
 
       let diffX = dragPos.x - this.state.dragImgPos.x;
@@ -366,11 +376,11 @@ class LightBox extends React.Component {
         PREV_IMG.style.cssText = styleSlide(this.slideRefs.indexOf(PREV_IMG));
         NEXT_IMG.style.cssText = styleSlide(this.slideRefs.indexOf(NEXT_IMG));
       }
-    } else if (this.state.dragImg && e.button === 0 && resize) {
+    } else if (this.state.dragImg && resize) {
       let CURRENT_IMG = e.target;
       let dragPos = {
-        x: e.clientX,
-        y: e.clientY
+        x: e.clientX || e.touches[0].clientX,
+        y: e.clientY || e.touches[0].clientY
       };
       let CRR = galleryImagesData[activeKey];
       let scaleValue = Number(
@@ -456,6 +466,9 @@ class LightBox extends React.Component {
       !noMargins && 'no-margin'
     );
 
+    const pswp__button = button =>
+      classNames(`pswp__button d-block z-depth-0 pswp__button--${button}`);
+
     const galleryClassNames = id =>
       classNames(
         `figure-img img-fluid z-depth-1 m-0`,
@@ -527,9 +540,12 @@ class LightBox extends React.Component {
           onClick={this.zoom}
           onDragStart={e => e.preventDefault()}
           onMouseDown={this.dragStart}
+          onTouchStart={this.dragStart}
           onMouseMove={this.dragMoveSlide}
+          onTouchMove={this.dragMoveSlide}
           onMouseLeave={this.dragStop}
           onMouseUp={this.dragStop}
+          onTouchEnd={this.dragStop}
           onWheel={this.scrollZoom}
         />
         {this.slideRefs[id] === imgSrc && (
@@ -542,7 +558,9 @@ class LightBox extends React.Component {
           />
         )}
         {image.description && (
-          <p className='text-uppercase font-weight-bold mt-4'>{image.description}</p>
+          <p className='text-uppercase font-weight-bold mt-4'>
+            {image.description}
+          </p>
         )}
       </MDBCol>
     ));
@@ -558,17 +576,24 @@ class LightBox extends React.Component {
               style={{ transition: `${transition / 2}ms`, right: '0' }}
             >
               <MDBBtn
-                className={`pswp__button d-block z-depth-0 pswp__button--zoom`}
+                className={pswp__button('zoom')}
                 color='transparent'
                 onClick={this.scrollZoom}
               />
+
               <MDBBtn
-                className={`pswp__button d-block z-depth-0 pswp__button--fs`}
+                className={pswp__button('zoom lb-zoom-out')}
+                color='transparent'
+                onClick={this.scrollZoom}
+              />
+
+              <MDBBtn
+                className={pswp__button('fs')}
                 color='transparent'
                 onClick={this.toggleFullscreen}
               />
               <MDBBtn
-                className={`pswp__button d-block z-depth-0 pswp__button--close`}
+                className={pswp__button('close')}
                 color='transparent'
                 onClick={this.closeZoom}
               />
@@ -578,16 +603,12 @@ class LightBox extends React.Component {
               style={arrowsDivStyles}
             >
               <div
-                className={
-                  'pswp__button d-block z-depth-0 pswp__button--arrow--left prev'
-                }
+                className={pswp__button('arrow--left prev')}
                 style={arrowStyles}
                 onClick={() => this.changeSlide('prev')}
               />
               <div
-                className={
-                  'pswp__button d-block z-depth-0 pswp__button--arrow--right next'
-                }
+                className={pswp__button('arrow--right next')}
                 style={arrowStyles}
                 onClick={() => this.changeSlide('next')}
               />
