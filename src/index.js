@@ -94,7 +94,7 @@ import FlippingCard from './components/pro/FlippingCard';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
-import LightboxStyles from './components/pro/Lightbox.css';
+import LightBox from './components/pro/LightBox';
 import PerfectScrollbar from './components/pro/PerfectScrollbar';
 import ScrollSpyBox from './components/pro/ScrollSpy/ScrollSpyBox';
 import ScrollSpyList from './components/pro/ScrollSpy/ScrollSpyList';
@@ -224,7 +224,7 @@ export {
   InputFile,
   InputRange,
   InputSwitch,
-  LightboxStyles,
+  LightBox,
   PerfectScrollbar,
   ScrollSpyBox,
   ScrollSpyList,
@@ -353,6 +353,7 @@ export {
   InputFile as MDBFileInput,
   InputRange as MDBRangeInput,
   InputSwitch as MDBSwitch,
+  LightBox as MDBLightBox,
   PerfectScrollbar as MDBScrollbar,
   ScrollSpyBox as MDBScrollspyBox,
   ScrollSpyList as MDBScrollspyList,
