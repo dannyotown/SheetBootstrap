@@ -1,14 +1,17 @@
 import * as React from "react";
 
-declare class MDBInputSwitch extends React.Component<{
-  // className?: string;
-  // disabled?: boolean,
-  // checked?: boolean,
-  // labelLeft?: string;
-  // labelRight?: string;
-  // getValue?: (value: boolean) => void;
-  // onChange?: () => void;
+declare class MDBLightBox extends React.Component<{
+  images?: [],
+  noMargins?: boolean,
+  marginSpace?: number,
+  lg?: string,
+  md?: string,
+  sm?: string,
+  size?: string,
+  xl?: string,
+  xs?: string,
+  transition?: number
   [rest: string]: any;
 }, any> {}
 
-export default MDBInputSwitch;
+export default MDBLightBox;
