@@ -70,7 +70,7 @@ class LightBox extends React.Component {
   setScale = e => {
     const { screenSize } = this.state;
     const { height, width } = e.size;
-    const margin = 150;
+    const margin = this.props.marginSpace;
     let scale = 1;
     if (screenSize.x > screenSize.y) {
       if (e.realH > height) {
@@ -158,19 +158,18 @@ class LightBox extends React.Component {
 
   closeZoom = () => {
     let { imgSrc, galleryImagesData, activeKey } = this.state;
-    if (imgSrc) {
-      this.setState({ sliderOpened: false });
-      let PREV_IMG =
-        this.slideRefs[activeKey - 1] ||
-        this.slideRefs[this.slideRefs.length - 1];
-      let NEXT_IMG = this.slideRefs[activeKey + 1] || this.slideRefs[0];
+    this.setState({ sliderOpened: false });
+    let PREV_IMG =
+      this.slideRefs[activeKey - 1] ||
+      this.slideRefs[this.slideRefs.length - 1];
+    let NEXT_IMG = this.slideRefs[activeKey + 1] || this.slideRefs[0];
 
-      PREV_IMG.style.cssText = '';
-      NEXT_IMG.style.cssText = '';
+    PREV_IMG.style.cssText = '';
+    NEXT_IMG.style.cssText = '';
 
-      document.body.classList.remove('overflow-hidden');
-      imgSrc.classList.remove('zoom');
-      imgSrc.style.cssText = `
+    document.body.classList.remove('overflow-hidden');
+    imgSrc.classList.remove('zoom');
+    imgSrc.style.cssText = `
         transition: ${this.props.transition}ms;
         z-index: 9999;
         top: 0;
@@ -179,12 +178,11 @@ class LightBox extends React.Component {
         position: fixed;
       `;
 
-      this.overlay.current.classList.remove('active');
-      setTimeout(() => {
-        imgSrc.style.cssText = '';
-        this.setState(this.reset());
-      }, this.props.transition);
-    }
+    this.overlay.current.classList.remove('active');
+    setTimeout(() => {
+      imgSrc.style.cssText = '';
+      this.setState(this.reset());
+    }, this.props.transition);
   };
 
   scrollZoom = e => {
@@ -259,13 +257,13 @@ class LightBox extends React.Component {
     }
   };
 
-  toggleFullscreen = (e) => {
+  toggleFullscreen = e => {
     if (document.fullscreenElement) {
       document.exitFullscreen();
-      e.target.classList.remove('fullscreen')
+      e.target.classList.remove('fullscreen');
     } else {
       document.documentElement.requestFullscreen();
-      e.target.classList.add('fullscreen')
+      e.target.classList.add('fullscreen');
     }
   };
 
@@ -411,7 +409,7 @@ class LightBox extends React.Component {
     }
   };
 
-  dragStop = e => {
+  dragStop = () => {
     if (this.state.dragImg) {
       const { activeKey, dragPercent } = this.state;
       let dragPercentScale = 20;
@@ -448,6 +446,7 @@ class LightBox extends React.Component {
 
   render() {
     const {
+      className,
       images,
       noMargins,
       lg,
@@ -461,9 +460,10 @@ class LightBox extends React.Component {
 
     const { activeKey, galleryImagesData, imgSrc, sliderOpened } = this.state;
 
-    const lightboxClassNames = classNames(
+    const lightBoxClasses = classNames(
       'mdb-lightbox d-flex flex-wrap',
-      !noMargins && 'no-margin'
+      !noMargins && 'no-margin',
+      className
     );
 
     const pswp__button = button =>
@@ -506,26 +506,14 @@ class LightBox extends React.Component {
       }
     };
 
-    const arrowsDivStyles = {
-      transition: `${transition}ms`,
-      top: '55%',
-      transform: 'translateY(-50%)'
-    };
-
-    const arrowStyles = {
-      width: '0px',
-      height: '0px',
-      marginTop: '-100px'
-    };
-
     const items = images.map((image, id) => (
       <MDBCol
         tag='figure'
-        lg={lg || image.lg}
-        md={md || image.md}
-        sm={sm || image.sm}
-        xl={xl || image.xl}
-        xs={xs || image.xs}
+        lg={image.lg || lg}
+        md={image.md || md}
+        sm={image.sm || sm}
+        xl={image.xl || xl}
+        xs={image.xs || xs}
         size={size || image.size}
         className=''
         key={id}
@@ -565,7 +553,7 @@ class LightBox extends React.Component {
       </MDBCol>
     ));
     return (
-      <MDBContainer className='mdb-lightbox'>
+      <MDBContainer className='mdb-lightbox' data-test='light-box'>
         {imgSrc && (
           <div className='ui-controls'>
             <p className='float-left text-white-50 mt-3 ml-3'>
@@ -599,17 +587,15 @@ class LightBox extends React.Component {
               />
             </MDBBtnGroup>
             <div
-              className='d-flex justify-content-between w-100'
-              style={arrowsDivStyles}
+              className='d-flex justify-content-between w-100 arrow-container'
+              style={{ transition: `${transition}ms` }}
             >
               <div
                 className={pswp__button('arrow--left prev')}
-                style={arrowStyles}
                 onClick={() => this.changeSlide('prev')}
               />
               <div
                 className={pswp__button('arrow--right next')}
-                style={arrowStyles}
                 onClick={() => this.changeSlide('next')}
               />
             </div>
@@ -620,8 +606,8 @@ class LightBox extends React.Component {
           ref={this.overlay}
           style={{ transition: `${transition}ms` }}
           onClick={this.closeZoom}
-        ></div>
-        <div className={lightboxClassNames}>{items}</div>
+        />
+        <div className={lightBoxClasses}>{items}</div>
       </MDBContainer>
     );
   }
@@ -630,6 +616,7 @@ class LightBox extends React.Component {
 LightBox.propTypes = {
   images: PropTypes.array,
   noMargins: PropTypes.bool,
+  marginSpace: PropTypes.number,
   lg: PropTypes.string,
   md: PropTypes.string,
   sm: PropTypes.string,
@@ -641,7 +628,9 @@ LightBox.propTypes = {
 
 LightBox.defaultProps = {
   noMargins: false,
-  transition: 400
+  transition: 400,
+  marginSpace: 150
 };
 
 export default LightBox;
+export { LightBox as MDBLightBox };
