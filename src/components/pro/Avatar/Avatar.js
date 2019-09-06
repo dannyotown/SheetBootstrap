@@ -1,13 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Avatar = props => {
   const { className, tag: Tag, round, circle, ...attributes } = props;
 
-  const classes = classNames("avatar", round && "rounded", circle && "rounded-circle", className);
+  const classes = classNames(
+    'avatar',
+    round && 'rounded',
+    circle && 'rounded-circle',
+    className
+  );
 
-  return <Tag {...attributes} className={classes} />;
+  return <Tag data-test='avatar' {...attributes} className={classes} />;
 };
 
 Avatar.propTypes = {
@@ -18,7 +23,7 @@ Avatar.propTypes = {
 };
 
 Avatar.defaultProps = {
-  tag: "div",
+  tag: 'div',
   round: false,
   circle: false
 };
