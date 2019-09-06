@@ -56,17 +56,6 @@ class LightBox extends React.Component {
     this.setState({ galleryImagesData: gallery });
   };
 
-  updateScreenSize = () => {
-    let e = document.documentElement;
-    let g = document.getElementsByTagName('body')[0];
-    this.setState({
-      screenSize: {
-        x: window.innerWidth || e.clientWidth || g.clientWidth,
-        y: window.innerHeight || e.clientHeight || g.clientHeight
-      }
-    });
-  };
-
   setScale = e => {
     const { screenSize } = this.state;
     const { height, width } = e.size;
@@ -137,7 +126,7 @@ class LightBox extends React.Component {
           document.body.classList.add('overflow-hidden');
 
           img.style.cssText = `
-            transition:${transition}ms; 
+            transition: ${transition}ms; 
             transform: 
               translate(-50%,-50%) 
               translate3d(0,0,0)
@@ -448,6 +437,8 @@ class LightBox extends React.Component {
     const {
       className,
       images,
+      itemClassName,
+      descriptionClassName,
       noMargins,
       lg,
       md,
@@ -464,6 +455,11 @@ class LightBox extends React.Component {
       'mdb-lightbox d-flex flex-wrap',
       !noMargins && 'no-margin',
       className
+    );
+
+    const descriptionClasses = classNames(
+      'text-uppercase font-weight-bold mt-4',
+      descriptionClassName
     );
 
     const pswp__button = button =>
@@ -515,7 +511,7 @@ class LightBox extends React.Component {
         xl={image.xl || xl}
         xs={image.xs || xs}
         size={size || image.size}
-        className=''
+        className={image.className || itemClassName}
         key={id}
       >
         <img
@@ -546,14 +542,12 @@ class LightBox extends React.Component {
           />
         )}
         {image.description && (
-          <p className='text-uppercase font-weight-bold mt-4'>
-            {image.description}
-          </p>
+          <p className={descriptionClasses}>{image.description}</p>
         )}
       </MDBCol>
     ));
     return (
-      <MDBContainer className='mdb-lightbox' data-test='light-box'>
+      <MDBContainer data-test='light-box'>
         {imgSrc && (
           <div className='ui-controls'>
             <p className='float-left text-white-50 mt-3 ml-3'>
@@ -615,6 +609,7 @@ class LightBox extends React.Component {
 
 LightBox.propTypes = {
   images: PropTypes.array,
+  itemClassName: PropTypes.string,
   noMargins: PropTypes.bool,
   marginSpace: PropTypes.number,
   lg: PropTypes.string,
@@ -627,9 +622,10 @@ LightBox.propTypes = {
 };
 
 LightBox.defaultProps = {
+  images: [],
   noMargins: false,
-  transition: 400,
-  marginSpace: 150
+  marginSpace: 150,
+  transition: 400
 };
 
 export default LightBox;

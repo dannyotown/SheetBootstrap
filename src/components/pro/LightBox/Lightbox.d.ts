@@ -1,7 +1,9 @@
 import * as React from "react";
 
 declare class MDBLightBox extends React.Component<{
-  images?: [],
+  images: [],
+  itemClassName?: string,
+  descriptionClasses?: string,
   noMargins?: boolean,
   marginSpace?: number,
   lg?: string,
@@ -10,6 +12,7 @@ declare class MDBLightBox extends React.Component<{
   size?: string,
   xl?: string,
   xs?: string,
+  tag?: string;
   transition?: number
   [rest: string]: any;
 }, any> {}
