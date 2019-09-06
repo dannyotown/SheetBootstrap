@@ -45,6 +45,12 @@ describe('<Avatar />', () => {
     checkProps(wrapper, {});
   });
 
+  test('sets custom tag', () => {
+    wrapper = setup({ tag: 'section' });
+    checkTag(wrapper, 'section')
+  })
+  
+
   describe('sets classes', () => {
     test('adds avatar class by default ', () => {
       checkClass(wrapper, 'avatar');
