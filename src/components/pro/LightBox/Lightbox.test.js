@@ -57,59 +57,6 @@ describe('<LightBox />', () => {
   });
 
   describe('callback functions', () => {
-    {
-      /*
-     // test(`invokes callback function passed as a prop after clicking a button`, () => {
-    //   wrapper = setup({ onClick: mockCallback });
-    //   wrapper.simulate('click');
-
-    //   expect(mockCallback).toHaveBeenCalledTimes(1);
-    // });
-    test('mock setTimeout test', done => {
-      console.log('TIME 1');
-      wrapper = mounted({
-        images: [{ src: 'src1' }, { src: 'src2' }],
-        transition: 1
-        // onClick: mockCallback
-      });
-      console.log(wrapper.debug());
-
-      wrapper
-        .find('img')
-        .first()
-        .simulate('click');
-
-      setTimeout(() => {
-        console.log('TIME 2');
-        console.log(wrapper.debug());
-        done();
-      }, 5000);
-    });
-
-
-    // test('adds overlay class for overlay by default', async () => {
-    //   wrapper = mounted({
-    //     images: [{ src: 'src1' }, { src: 'src2' }],
-    //     transition: 0,
-    //     // onClick: mockCallback
-    //   });
-    //   wrapper
-    //     .find('img')
-    //     .first()
-    //     .simulate('click');
-    //   // setTimeout(() => {
-    //   // const gallery = wrapper.find('.overlay');
-
-    //   await new Promise(resolve => setTimeout(resolve, 1));
-    //   console.log(wrapper.find('.overlay').debug());
-    //   // }, 450);
-    //   // jest.runAllTimers();
-
-    //   // checkClass(gallery, 'overlay.active');
-    // });
-  */
-    }
-
     test('invokes onScroll callback onLoad page', () => {
       wrapper.instance().setScreenSize();
       expect(wrapper.state('screenSize').x).toBeGreaterThan(1);
