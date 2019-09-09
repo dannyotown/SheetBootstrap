@@ -148,6 +148,7 @@ class ChipsInput extends Component {
 
     return (
       <Tag
+        data-test='chips-input'
         {...attributes}
         className={classes}
         onClick={this.handleClick}
