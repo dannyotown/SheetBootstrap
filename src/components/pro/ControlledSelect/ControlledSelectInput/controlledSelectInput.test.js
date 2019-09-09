@@ -43,12 +43,10 @@ describe('<ControlledSelectInput />', () => {
   });
 
   test('sets required property', () => {
-      expect(wrapper.find('input[required=false]').length).toBe(1);
-      wrapper=setup({required: true})
-      expect(wrapper.find('input[required=true]').length).toBe(1);
-
-  })
-  
+    expect(wrapper.find('input[required=false]').length).toBe(1);
+    wrapper = setup({ required: true });
+    expect(wrapper.find('input[required=true]').length).toBe(1);
+  });
 
   describe('sets classes', () => {
     test('adds select-dropdown class by default', () => {
