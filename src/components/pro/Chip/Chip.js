@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import Waves from "../../Waves";
-import "./Chip.css";
-import Fa from "../../Fa";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Waves from '../../Waves';
+import './Chip.css';
+import Fa from '../../Fa';
 
 const Chip = props => {
   const [cursorPos, setCursorPos] = useState({});
@@ -42,17 +42,18 @@ const Chip = props => {
   } = props;
 
   const classes = classNames(
-    "chip",
-    size && "chip-" + size,
+    'chip',
+    size && 'chip-' + size,
     bgColor && bgColor,
-    text && text + "-text",
-    gradient && gradient + "-gradient",
-    waves && "Ripple-parent",
+    text && text + '-text',
+    gradient && gradient + '-gradient',
+    waves && 'Ripple-parent',
     className
   );
 
   return (
     <Tag
+      data-test='chip'
       {...attributes}
       className={classes}
       onMouseDown={handleClick}
@@ -61,7 +62,9 @@ const Chip = props => {
       {src && <img src={src} alt={alt} />}
       {props.children}
       {waves && <Waves cursorPos={cursorPos} />}
-      {close && <Fa icon="times" className="close" onClick={handleCloseClick} />}
+      {close && (
+        <Fa icon='times' className='close' onClick={handleCloseClick} />
+      )}
     </Tag>
   );
 };
@@ -80,7 +83,7 @@ Chip.propTypes = {
 };
 
 Chip.defaultProps = {
-  tag: "div"
+  tag: 'div'
 };
 
 export default Chip;
