@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import Fa from "../../Fa";
-import Waves from "../../Waves";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Fa from '../../Fa';
+import Waves from '../../Waves';
 
 class ButtonFixed extends React.Component {
   constructor(props) {
@@ -56,35 +56,35 @@ class ButtonFixed extends React.Component {
       ...attributes
     } = this.props;
 
-    const buttonFixedClasses = classNames("fixed-action-btn active");
+    const buttonFixedClasses = classNames('fixed-action-btn active');
 
     const classes = classNames(
-      floating ? "btn-floating" : "btn",
-      flat ? "btn-flat" : gradient ? `${gradient}-gradient` : `${color}`,
+      floating ? 'btn-floating' : 'btn',
+      flat ? 'btn-flat' : gradient ? `${gradient}-gradient` : `${color}`,
       size ? `btn-${size}` : false,
-      rounded ? "btn-rounded" : false,
-      block ? "btn-block" : false,
-      "Ripple-parent",
+      rounded ? 'btn-rounded' : false,
+      block ? 'btn-block' : false,
+      'Ripple-parent',
       className,
       { active, disabled: this.props.disabled }
     );
 
     return (
       <div
+        data-test='button-fixed'
         className={buttonFixedClasses}
         ref={innerRef}
-        style={{ bottom: "45px", right: "24px" }}
+        style={{ bottom: '45px', right: '24px' }}
         {...attributes}
       >
         <a
-          href={this.props.topSection ? this.props.topSection : "#"}
+          href={this.props.topSection ? this.props.topSection : '#'}
           className={classes}
           onClick={this.onClick}
           onMouseDown={this.handleClick.bind(this)}
           onTouchStart={this.handleClick.bind(this)}
         >
-          {
-            icon &&
+          {icon && (
             <Fa
               icon={icon}
               size={iconSize}
@@ -93,25 +93,25 @@ class ButtonFixed extends React.Component {
               regular={iconRegular}
               className={iconClass}
             />
-          }
+          )}
           {this.props.disabled ? (
             false
           ) : (
-              <Waves
-                cursorPos={this.state.cursorPos}
-                outline={outline}
-                flat={flat}
-              />
-            )}
+            <Waves
+              cursorPos={this.state.cursorPos}
+              outline={outline}
+              flat={flat}
+            />
+          )}
         </a>
-        <ul className="list-unstyled">{this.props.children}</ul>
+        <ul className='list-unstyled'>{this.props.children}</ul>
       </div>
     );
   }
 }
 
 ButtonFixed.defaultProps = {
-  color: "default"
+  color: 'default'
 };
 
 ButtonFixed.propTypes = {

@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import Fa from "../../../Fa";
-import Waves from "../../../Waves";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Fa from '../../../Fa';
+import Waves from '../../../Waves';
 
 class ButtonFixed extends React.Component {
   constructor(props) {
@@ -10,8 +10,8 @@ class ButtonFixed extends React.Component {
     this.state = {
       cursorPos: {},
       buttonStyle: {
-        transform: "scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)",
-        opacity: "0"
+        transform: 'scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)',
+        opacity: '0'
       }
     };
   }
@@ -32,8 +32,8 @@ class ButtonFixed extends React.Component {
       return;
     }
 
-    this.props.onClick && this.props.onClick()
-  }
+    this.props.onClick && this.props.onClick();
+  };
 
   render() {
     let {
@@ -62,14 +62,14 @@ class ButtonFixed extends React.Component {
 
     const classes = classNames(
       size && `btn-${size}`,
-      "btn-floating",
+      'btn-floating',
       color ? color : false,
-      "Ripple-parent",
+      'Ripple-parent',
       className
     );
 
     return (
-      <li>
+      <li data-test='button-fixed-item'>
         <a
           {...attributes}
           style={this.props.buttonStyle}
@@ -78,8 +78,7 @@ class ButtonFixed extends React.Component {
           onTouchStart={this.handleClick.bind(this)}
           className={classes}
         >
-          {
-            icon &&
+          {icon && (
             <Fa
               icon={icon}
               size={iconSize}
@@ -88,16 +87,16 @@ class ButtonFixed extends React.Component {
               regular={iconRegular}
               className={iconClass}
             />
-          }
+          )}
           {this.props.disabled ? (
             false
           ) : (
-              <Waves
-                cursorPos={this.state.cursorPos}
-                outline={outline}
-                flat={flat}
-              />
-            )}
+            <Waves
+              cursorPos={this.state.cursorPos}
+              outline={outline}
+              flat={flat}
+            />
+          )}
         </a>
       </li>
     );
@@ -105,7 +104,7 @@ class ButtonFixed extends React.Component {
 }
 
 ButtonFixed.defaultProps = {
-  color: "default"
+  color: 'default'
 };
 
 ButtonFixed.propTypes = {
