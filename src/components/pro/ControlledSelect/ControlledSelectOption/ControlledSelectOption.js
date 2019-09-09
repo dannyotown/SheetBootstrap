@@ -16,30 +16,43 @@ const ControlledSelectOption = ({
   focusBackgroundColor,
   selectAllClassName
 }) => {
-  const classes = classNames((disabled || separator) && 'disabled', separator && 'optgroup', checked && 'active', );
-  const spanClasses = classNames('filtrable', selectAllClassName && selectAllClassName);
+  const classes = classNames(
+    (disabled || separator) && 'disabled',
+    separator && 'optgroup',
+    checked && 'active'
+  );
+  const spanClasses = classNames(
+    'filtrable',
+    selectAllClassName && selectAllClassName
+  );
   const focusedStyles = {
     backgroundColor: isFocused ? focusBackgroundColor : null,
     boxShadow: isFocused ? focusShadow : null
   };
 
   return (
-    <li data-multiple={multiple} className={classes} onClick={() => selectOption(value)} style={focusedStyles}>
-      {
-        icon && <img src={icon} alt="" className="rounded-circle" />
-      }
+    <li
+      data-test='controlled-select-option'
+      data-multiple={multiple}
+      className={classes}
+      onClick={() => selectOption(value)}
+      style={focusedStyles}
+    >
+      {icon && <img src={icon} alt='' className='rounded-circle' />}
       <span data-multiple={multiple} className={spanClasses}>
         {multiple && (
           <React.Fragment>
             <input
-              type="checkbox"
+              type='checkbox'
               value={value}
-              className="form-check-input"
+              className='form-check-input'
               checked={checked}
               disabled={disabled}
               onChange={() => {}}
             />
-            {!separator && <label style={{ height: '10px' }} data-multiple={multiple} />}
+            {!separator && (
+              <label style={{ height: '10px' }} data-multiple={multiple} />
+            )}
           </React.Fragment>
         )}
         {text ? text : value}
@@ -58,12 +71,9 @@ ControlledSelectOption.propTypes = {
   multiple: PropTypes.bool,
   selectAllClassName: PropTypes.string,
   separator: PropTypes.bool,
-  selectOption: PropTypes.func,
-  text: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ]),
+  text: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   value: PropTypes.string,
+  selectOption: PropTypes.func
 };
 
 ControlledSelectOption.defaultProps = {
@@ -74,7 +84,7 @@ ControlledSelectOption.defaultProps = {
   icon: '',
   isFocused: false,
   multiple: false,
-  separator: false,
+  separator: false
 };
 
 export default ControlledSelectOption;
