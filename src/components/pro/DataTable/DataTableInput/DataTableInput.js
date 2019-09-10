@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 
 const DataTableInput = ({ value, onChange, label, barReverse }) => (
-  <div className={classNames(
+  <div
+  data-test='datatable-input' 
+  className={classNames(
     "dataTables_filter",
     "md-form",
     "flex-row",

@@ -81,6 +81,7 @@ class ExportToCSV extends Component {
         {...attributes}
         href={this.state.href}
         download="export.csv"
+        data-test='export-to-csv'
       >
         {children}
       </Button>
