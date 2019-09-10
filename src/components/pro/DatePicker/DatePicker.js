@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 /* eslint-disable */
 import MomentUtils from '@date-io/moment';
@@ -16,30 +16,36 @@ class DatePicker extends Component {
     super(props);
     this.state = {
       selectedDate: props.value || props.valueDefault,
-      muiTheme: createMuiTheme({...props.theme, typography: {
-        useNextVariants: true,
-      }})
-    }
+      muiTheme: createMuiTheme({
+        ...props.theme,
+        typography: {
+          useNextVariants: true
+        }
+      })
+    };
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(this.props.getValue && prevState.selectedDate !== this.state.selectedDate) {
+    if (
+      this.props.getValue &&
+      prevState.selectedDate !== this.state.selectedDate
+    ) {
       this.props.getValue(this.state.selectedDate);
     }
-    
-    if(this.props.value !== prevProps.value) {
+
+    if (this.props.value !== prevProps.value) {
       this.setState({ selectedDate: this.props.value });
     }
-    
-    if(prevProps.theme !== this.props.theme) {
+
+    if (prevProps.theme !== this.props.theme) {
       this.setState({ muiTheme: createMuiTheme(this.props.theme) });
     }
   }
-  
-  handleDateChange = (date) => {
+
+  handleDateChange = date => {
     this.setState({ selectedDate: date ? date._d : this.props.value });
-  }
-  
+  };
+
   render() {
     const {
       theme,
@@ -83,15 +89,16 @@ class DatePicker extends Component {
       ...attributes
     } = this.props;
 
-    const classes = classNames(
-      'md-form',
-      className
-    );
+    const classes = classNames('md-form', className);
 
     return (
-      <Tag className={classes}>
+      <Tag data-test='date-picker' className={classes}>
         <MuiThemeProvider theme={this.state.muiTheme}>
-          <MuiPickersUtilsProvider locale={locale} moment={moment} utils={MomentUtils}>
+          <MuiPickersUtilsProvider
+            locale={locale}
+            moment={moment}
+            utils={MomentUtils}
+          >
             <UIDatePicker
               {...attributes}
               adornmentPosition={adornmentPosition}
@@ -124,7 +131,7 @@ class DatePicker extends Component {
               showTodayButton={showTodayButton}
               TextFieldComponent={TextFieldComponent}
               todayLabel={todayLabel}
-              format={format || "DD MMMM, YYYY"}
+              format={format || 'DD MMMM, YYYY'}
               value={this.state.selectedDate}
               onChange={this.handleDateChange}
             />
