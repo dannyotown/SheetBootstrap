@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 function RotatingCard(props) {
   const {
@@ -12,13 +12,13 @@ function RotatingCard(props) {
   } = props;
 
   const classes = classNames(
-    "card-rotating effect__click",
-    props.flipped && "flipped",
+    'card-rotating effect__click',
+    props.flipped && 'flipped',
     className
   );
 
   return (
-    <Tag {...attributes} className="card-wrapper">
+    <Tag data-test='flipping-card' {...attributes} className='card-wrapper'>
       <InnerTag className={classes}>{props.children}</InnerTag>
     </Tag>
   );
@@ -33,8 +33,8 @@ RotatingCard.propTypes = {
 };
 
 RotatingCard.defaultProps = {
-  tag: "div",
-  innerTag: "div",
+  tag: 'div',
+  innerTag: 'div',
   flipped: false
 };
 
