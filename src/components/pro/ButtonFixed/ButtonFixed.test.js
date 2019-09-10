@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import { findByTestAttr, checkProps, checkClass } from '../../../tests/utils';
+import { findByTestAttr, checkProps, checkClass, checkCallBack } from '../../../tests/utils';
 import ButtonFixed from './ButtonFixed';
 
 const setup = (props = {}) => shallow(<ButtonFixed {...props} />);
@@ -67,13 +67,7 @@ describe('<ButtonFixed />', () => {
   });
 
   test('invokes onClick callback', () => {
-    const cb = jest.fn();
-    wrapper = mounted({ onClick: cb });
-
-    const a = wrapper.find('a');
-    a.simulate('click');
-
-    expect(cb).toBeCalled();
+    checkCallBack(mounted(), 'onClick', 'click', {}, 'a');
   });
 
   describe('sets classes', () => {

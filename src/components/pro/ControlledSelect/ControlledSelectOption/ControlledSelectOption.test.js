@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import {
   checkClass,
   checkProps,
-  findByTestAttr
+  findByTestAttr,
+  checkCallBack
 } from '../../../../tests/utils';
 import ControlledSelectOption from './ControlledSelectOption';
 
@@ -52,10 +53,7 @@ describe('<ControlledSelectOption />', () => {
   });
 
   test('invoke selectOption(value) onClick', () => {
-    const cb = jest.fn();
-    wrapper = setup({ selectOption: cb });
-    wrapper.simulate('click');
-    expect(cb).toBeCalled();
+    checkCallBack(wrapper, 'selectOption')
   });
 
   test('sets checked property', () => {
