@@ -118,7 +118,7 @@ class ControlledSelectOptions extends Component {
     );
 
     return (
-      <ul className={classes}>
+      <ul data-test='controlled-select-options' className={classes}>
         {search && (
           <Input
             label={searchLabel}
