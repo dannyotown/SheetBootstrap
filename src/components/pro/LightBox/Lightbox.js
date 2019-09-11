@@ -6,6 +6,7 @@ import { MDBBtnGroup } from '../../ButtonGroup';
 import { MDBCol } from '../../Col';
 import { MDBContainer } from '../../Container';
 import './Lightbox.css';
+import { thisExpression } from '@babel/types';
 
 class LightBox extends React.Component {
   constructor(props) {
@@ -45,6 +46,8 @@ class LightBox extends React.Component {
       x: window.innerWidth,
       y: window.innerHeight
     },
+    showLeft: false,
+    showRight: false,
     sliderOpened: false,
     zoomedScale: 0
   });
@@ -138,7 +141,17 @@ class LightBox extends React.Component {
 
           setTimeout(() => {
             img.style.transition = `0ms`;
-            this.setState({ sliderOpened: true });
+            this.setState(
+              {
+                sliderOpened: true
+              },
+              () => {
+                this.setState({
+                  showRight: this.checkSiblings('next'),
+                  showLeft: this.checkSiblings('prev')
+                });
+              }
+            );
           }, this.props.transition);
         }, 5);
       });
@@ -163,7 +176,7 @@ class LightBox extends React.Component {
         z-index: 9999;
         top: 0;
         left: 0;
-        transform: translate(${galleryImagesData[activeKey].imgSrcData.size.left}px, ${galleryImagesData[activeKey].imgSrcData.size.top}px) translate3d(0,0,0) scale(${galleryImagesData[activeKey].scale}) ;
+        transform: translate(${galleryImagesData[activeKey].imgSrcData.size.left}px, ${galleryImagesData[activeKey].imgSrcData.size.top}px) translate3d(0,0,0) scale(${galleryImagesData[activeKey].scale});
         position: fixed;
       `;
 
@@ -175,7 +188,10 @@ class LightBox extends React.Component {
   };
 
   scrollZoom = e => {
-    if (this.slideRefs[this.state.activeKey] === this.state.imgSrc) {
+    if (
+      this.slideRefs[this.state.activeKey] === this.state.imgSrc &&
+      this.state.sliderOpened
+    ) {
       const SCALE_RATIO = this.props.scale || 0.1;
       const SCALE_UP = 1 + SCALE_RATIO;
       const SCALE_DOWN = 1 - SCALE_RATIO;
@@ -285,7 +301,11 @@ class LightBox extends React.Component {
               translate3d(0,0,0)
               scale(${this.setScale(dataOfImage.imgSrcData)})
           `;
-          this.setState({ changeSlide: false });
+          this.setState({
+            changeSlide: false,
+            showRight: this.checkSiblings('next'),
+            showLeft: this.checkSiblings('prev')
+          });
         });
       }, transition);
     };
@@ -311,12 +331,20 @@ class LightBox extends React.Component {
         NEXT_IMG.classList.remove('next-img');
         this.setState({ imgSrc: NEXT_IMG });
         change(actual_key);
+      } else {
+        this.setState({ dragImg: false, changeSlide: false });
       }
     }
   };
 
   dragStart = e => {
-    if (!this.state.dragImg && this.state.imgSrc && !this.state.changeSlide) {
+    if (
+      !this.state.dragImg &&
+      this.state.imgSrc &&
+      !this.state.changeSlide &&
+      this.state.sliderOpened &&
+      this.state.dragPercent === 0
+    ) {
       let dragImgPos = {
         x: e.clientX || e.touches[0].clientX,
         y: e.clientY || e.touches[0].clientY
@@ -404,9 +432,13 @@ class LightBox extends React.Component {
       let dragPercentScale = 20;
       if (!this.state.resize) {
         if (dragPercent > dragPercentScale) {
-          this.changeSlide('prev');
+          this.checkSiblings('prev')
+            ? this.changeSlide('prev')
+            : this.changeSlide(null);
         } else if (dragPercent < -dragPercentScale) {
-          this.changeSlide('next');
+          this.checkSiblings('next')
+            ? this.changeSlide('next')
+            : this.changeSlide(null);
         } else {
           this.changeSlide(null);
         }
@@ -432,6 +464,11 @@ class LightBox extends React.Component {
       });
     }
   };
+
+  checkSiblings = direction =>
+    this.slideRefs.filter(target =>
+      target.classList.contains(`${direction}-img`)
+    ).length > 0;
 
   render() {
     const {
@@ -465,21 +502,33 @@ class LightBox extends React.Component {
     const pswp__button = button =>
       classNames(`pswp__button d-block z-depth-0 pswp__button--${button}`);
 
-    const galleryClassNames = id =>
-      classNames(
+    const galleryClassNames = id => {
+      const sliders1 = this.slideRefs.length > 1;
+      const sliders2 = this.slideRefs.length > 2;
+      return classNames(
         `figure-img img-fluid z-depth-1 m-0`,
-        sliderOpened && id === activeKey + 1 && 'zoom next-img',
-        sliderOpened && id === activeKey - 1 && 'zoom prev-img',
-        sliderOpened &&
+        sliders1 && sliderOpened && id === activeKey + 1 && 'zoom next-img',
+        sliders1 && sliderOpened && id === activeKey - 1 && 'zoom prev-img',
+        sliders1 &&
+          sliders2 &&
+          sliderOpened &&
           id === 0 &&
           activeKey + 1 > this.slideRefs.length - 1 &&
           'zoom next-img',
-        sliderOpened &&
+        sliders1 &&
+          sliders2 &&
+          sliderOpened &&
           id === this.slideRefs.length - 1 &&
           activeKey === 0 &&
           'zoom prev-img',
-        sliderOpened && id === 1 && activeKey === 0 && 'zoom next-img'
+        sliders1 &&
+          sliders2 &&
+          sliderOpened &&
+          id === 1 &&
+          activeKey === 0 &&
+          'zoom next-img'
       );
+    };
 
     const galleryStyles = id => {
       if (this.slideRefs[id]) {
@@ -490,6 +539,7 @@ class LightBox extends React.Component {
         let first = id === 1 && activeKey === 0;
         let style = {
           transform:
+            this.slideRefs.length > 1 &&
             sliderOpened &&
             (next || prev || second || last || first) &&
             `translate(-50%, -50%) translate3d(0,0,0) scale(${this.setScale({
@@ -584,14 +634,18 @@ class LightBox extends React.Component {
               className='d-flex justify-content-between w-100 arrow-container'
               style={{ transition: `${transition}ms` }}
             >
-              <div
-                className={pswp__button('arrow--left prev')}
-                onClick={() => this.changeSlide('prev')}
-              />
-              <div
-                className={pswp__button('arrow--right next')}
-                onClick={() => this.changeSlide('next')}
-              />
+              {this.state.showLeft && (
+                <div
+                  className={pswp__button('arrow--left prev')}
+                  onClick={() => this.changeSlide('prev')}
+                />
+              )}
+              {this.state.showRight && (
+                <div
+                  className={pswp__button('arrow--right next')}
+                  onClick={() => this.changeSlide('next')}
+                />
+              )}
             </div>
           </div>
         )}
