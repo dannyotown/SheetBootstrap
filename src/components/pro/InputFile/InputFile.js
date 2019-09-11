@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import "./InputFile.css";
-import CloseIcon from "../../CloseIcon";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import './InputFile.css';
+import CloseIcon from '../../CloseIcon';
 
 const InputFile = props => {
   const [files, setFiles] = useState(false);
@@ -44,24 +44,38 @@ const InputFile = props => {
     reverse
   } = props;
 
-  const btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", reverse ? "float-right" : "float-left");
+  const btnClass = classNames(
+    'btn',
+    'btn-' + btnColor,
+    'btn-sm',
+    reverse ? 'float-right' : 'float-left'
+  );
 
-  const inputFieldClass = classNames("file-path", "validate", files ? "valid" : false, className);
+  const inputFieldClass = classNames(
+    'file-path',
+    'validate',
+    files ? 'valid' : false,
+    className
+  );
 
-  const wrapperClass = classNames("file-field", "md-form", reverse && "file-field-right");
+  const wrapperClass = classNames(
+    'file-field',
+    'md-form',
+    reverse && 'file-field-right'
+  );
 
   return (
-    <div className={wrapperClass}>
+    <div data-test='input-file' className={wrapperClass}>
       <div className={btnClass}>
         <span>{btnTitle}</span>
-        <input multiple={multiple} onChange={onChangeHandler} type="file" />
+        <input multiple={multiple} onChange={onChangeHandler} type='file' />
       </div>
-      <div className="file-path-wrapper">
+      <div className='file-path-wrapper'>
         <input
           className={inputFieldClass}
-          type="text"
+          type='text'
           placeholder={files ? files : textFieldTitle}
-          style={{ position: reset ? "relative" : null }}
+          style={{ position: reset ? 'relative' : null }}
         />
       </div>
       {reset && (
@@ -70,10 +84,10 @@ const InputFile = props => {
           className={resetClassName}
           ariaLabel={resetAriaLabel ? resetAriaLabel : null}
           style={{
-            position: "absolute",
-            top: "50%",
-            right: "0",
-            transform: "translateY(-50%)"
+            position: 'absolute',
+            top: '50%',
+            right: '0',
+            transform: 'translateY(-50%)'
           }}
         />
       )}
@@ -94,9 +108,9 @@ InputFile.propTypes = {
 };
 
 InputFile.defaultProps = {
-  btnTitle: "Choose file",
-  textFieldTitle: "Upload your file",
-  btnColor: "primary",
+  btnTitle: 'Choose file',
+  textFieldTitle: 'Upload your file',
+  btnColor: 'primary',
   reset: false,
   reverse: false
 };
