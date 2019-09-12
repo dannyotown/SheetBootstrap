@@ -597,7 +597,7 @@ class LightBox extends React.Component {
       </MDBCol>
     ));
     return (
-      <MDBContainer data-test='light-box'>
+      <MDBContainer data-test='light-box' className='mdb-lightbox'>
         {imgSrc && (
           <div className='ui-controls'>
             <p className='float-left text-white-50 mt-3 ml-3'>
