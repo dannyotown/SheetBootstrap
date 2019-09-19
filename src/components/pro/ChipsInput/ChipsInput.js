@@ -30,6 +30,8 @@ class ChipsInput extends Component {
   };
 
   handleEnter = e => {
+    const { chipsList } = this.state;
+
     // 1) get the value:
     const newChipString = this.inputRef.current.value;
 
@@ -41,7 +43,7 @@ class ChipsInput extends Component {
       }
 
       // 3.5) of the string is already in the array, delete input value and return
-      if (this.state.chipsList.includes(newChipString)) {
+      if (chipsList.includes(newChipString)) {
         this.setState({
           inputValue: ''
         });
@@ -51,8 +53,11 @@ class ChipsInput extends Component {
       // 4) else: add the input value to the array and reset it on input:
       this.setState({
         inputValue: '',
-        chipsList: [...this.state.chipsList, newChipString]
-      });
+        chipsList: [...chipsList, newChipString]
+      }, () => { console.log('My chips enter:', [...chipsList, newChipString]) });
+
+
+
     }
 
     // 5) in case the keyboard events caused the input to be empty, prepare to delete chips:
@@ -61,6 +66,7 @@ class ChipsInput extends Component {
         isReadyToDelete: true
       });
     }
+
   };
 
   handleBackspace = e => {
@@ -68,10 +74,14 @@ class ChipsInput extends Component {
     if (this.state.isReadyToDelete && e.which === 8) {
       const { chipsList } = this.state;
 
+      console.log('Removed backspace:', `"${chipsList[chipsList.length - 1]}"`, 'ID:', chipsList.length - 1);
+
       chipsList.pop();
 
       this.setState({
         chipsList
+      }, () => {
+        console.log('My chips backspace:', chipsList);
       });
     }
   };
@@ -80,8 +90,10 @@ class ChipsInput extends Component {
     const { chipsList } = this.state;
     const { handleClose } = this.props;
 
-    const index = this.state.chipsList.indexOf(param);
+    const index = chipsList.indexOf(param);
     const itemToDelete = chipsList[index];
+
+    console.log('Removed:', `"${itemToDelete}"`, 'ID:', index);
 
     chipsList.splice(index, 1);
 
@@ -91,6 +103,7 @@ class ChipsInput extends Component {
       },
       () => {
         handleClose && handleClose(itemToDelete);
+        console.log('My chips close click:', chipsList);
       }
     );
   };
