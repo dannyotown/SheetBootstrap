@@ -54,10 +54,13 @@ class ChipsInput extends Component {
       this.setState({
         inputValue: '',
         chipsList: [...chipsList, newChipString]
-      }, () => { console.log('My chips enter:', [...chipsList, newChipString]) });
-
-
-
+      }, () => {
+        this.props.getValue && this.props.getValue({
+          id: chipsList.length,
+          value: newChipString,
+          chipsList: [...chipsList, newChipString]
+        });;
+      });
     }
 
     // 5) in case the keyboard events caused the input to be empty, prepare to delete chips:
@@ -66,7 +69,6 @@ class ChipsInput extends Component {
         isReadyToDelete: true
       });
     }
-
   };
 
   handleBackspace = e => {
@@ -74,14 +76,16 @@ class ChipsInput extends Component {
     if (this.state.isReadyToDelete && e.which === 8) {
       const { chipsList } = this.state;
 
-      console.log('Removed backspace:', `"${chipsList[chipsList.length - 1]}"`, 'ID:', chipsList.length - 1);
-
-      chipsList.pop();
+      const deletedChips = chipsList.pop();
 
       this.setState({
         chipsList
       }, () => {
-        console.log('My chips backspace:', chipsList);
+        this.props.getValue && this.props.getValue({
+          id: chipsList.length,
+          value: deletedChips,
+          chipsList: chipsList
+        });
       });
     }
   };
@@ -93,8 +97,6 @@ class ChipsInput extends Component {
     const index = chipsList.indexOf(param);
     const itemToDelete = chipsList[index];
 
-    console.log('Removed:', `"${itemToDelete}"`, 'ID:', index);
-
     chipsList.splice(index, 1);
 
     this.setState(
@@ -103,7 +105,11 @@ class ChipsInput extends Component {
       },
       () => {
         handleClose && handleClose(itemToDelete);
-        console.log('My chips close click:', chipsList);
+        this.props.getValue && this.props.getValue({
+          id: index,
+          value: itemToDelete,
+          chipsList: chipsList
+        });
       }
     );
   };
@@ -126,6 +132,7 @@ class ChipsInput extends Component {
       chipText,
       chipGradient,
       chipWaves,
+      getValue,
       ...attributes
     } = this.props;
 

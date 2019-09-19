@@ -423,8 +423,11 @@ class ChipsPage extends Component {
           </SectionContainer>
 
           <SectionContainer header="Basic examples">
-            <MDBChipsInput placeholder="+Tag" secondaryPlaceholder="Enter a tag" />
-            <MDBChipsInput chips={["Tag 1", "Tag 2", "Tag 3"]} />
+            <MDBChipsInput placeholder="+Tag" secondaryPlaceholder="Enter a tag"
+              getValue={(value) => console.log(value)} />
+            <MDBChipsInput
+              chips={["Tag 1", "Tag 2", "Tag 3"]}
+              getValue={(value) => console.log(value)} />
           </SectionContainer>
         </MDBContainer>
       </MDBContainer>
