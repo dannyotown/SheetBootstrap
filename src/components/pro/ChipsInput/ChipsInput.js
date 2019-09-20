@@ -30,13 +30,16 @@ class ChipsInput extends Component {
   };
 
   handleEnter = e => {
+    // 1) get the value:
     const { chipsList } = this.state;
 
-    // 1) get the value:
     const newChipString = this.inputRef.current.value;
+    const chipsListUpdate = [...chipsList, newChipString]
+    const target = e.target
 
     // 2) upon pressing Enter:
     if (e.which === 13) {
+
       // 3) if the string is empty or consists only of spaces: return
       if (/^ *$/.test(newChipString)) {
         return;
@@ -51,16 +54,19 @@ class ChipsInput extends Component {
       }
 
       // 4) else: add the input value to the array and reset it on input:
-      this.setState({
-        inputValue: '',
-        chipsList: [...chipsList, newChipString]
-      }, () => {
-        this.props.getValue && this.props.getValue({
-          id: chipsList.length,
-          value: newChipString,
-          chipsList: [...chipsList, newChipString]
-        });;
-      });
+      this.setState(
+        {
+          inputValue: '',
+          chipsList: chipsListUpdate,
+        }, () => {
+
+          this.props.getValue && this.props.getValue({
+            id: chipsList.length - 1,
+            value: newChipString,
+            target: target.previousElementSibling
+          });
+          this.props.getChipsList && this.props.getChipsList({ chipsList: chipsList })
+        });
     }
 
     // 5) in case the keyboard events caused the input to be empty, prepare to delete chips:
@@ -71,11 +77,11 @@ class ChipsInput extends Component {
     }
   };
 
-  handleBackspace = e => {
+  handleBackspace = (e) => {
     //if the input is already empty (is ready to delete chips) and Backspace is pressed:
     if (this.state.isReadyToDelete && e.which === 8) {
       const { chipsList } = this.state;
-
+      const target = e.target.previousElementSibling
       const deletedChips = chipsList.pop();
 
       this.setState({
@@ -84,18 +90,20 @@ class ChipsInput extends Component {
         this.props.getValue && this.props.getValue({
           id: chipsList.length,
           value: deletedChips,
-          chipsList: chipsList
+          target: target
         });
+        this.props.getChipsList && this.props.getChipsList({ chipsList: chipsList })
       });
     }
   };
 
-  handleClose = param => {
+  handleClose = (param, e) => {
     const { chipsList } = this.state;
     const { handleClose } = this.props;
 
     const index = chipsList.indexOf(param);
     const itemToDelete = chipsList[index];
+    const target = e.currentTarget.parentNode
 
     chipsList.splice(index, 1);
 
@@ -108,8 +116,9 @@ class ChipsInput extends Component {
         this.props.getValue && this.props.getValue({
           id: index,
           value: itemToDelete,
-          chipsList: chipsList
+          target: target
         });
+        this.props.getChipsList && this.props.getChipsList({ chipsList: chipsList })
       }
     );
   };
@@ -133,6 +142,7 @@ class ChipsInput extends Component {
       chipGradient,
       chipWaves,
       getValue,
+      getChipsList,
       ...attributes
     } = this.props;
 
@@ -140,7 +150,7 @@ class ChipsInput extends Component {
       return (
         <Chip
           close
-          handleClose={() => this.handleClose(chip)}
+          handleClose={(e) => this.handleClose(chip, e)}
           key={chip.toString()}
           size={chipSize}
           bgColor={chipColor}
