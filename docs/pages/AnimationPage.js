@@ -137,12 +137,6 @@ class AnimationPage extends React.Component {
           { text: "10", value: "10" }
         ],
         duration: [
-          // {
-          //   text: "s/ms, default: 1s",
-          //   value: "0",
-          //   selected: true,
-          //   disabled: true
-          // },
           { text: "500ms", value: "1" },
           { text: "600ms", value: "2" },
           { text: "700ms", value: "3" },
@@ -155,12 +149,6 @@ class AnimationPage extends React.Component {
           { text: "5s", value: "10" }
         ],
         delay: [
-          // {
-          //   text: "s/ms, default: 0",
-          //   value: "0",
-          //   selected: true,
-          //   disabled: true
-          // },
           { text: "0", value: "1" },
           { text: "500ms", value: "2" },
           { text: "600ms", value: "3" },
@@ -259,7 +247,6 @@ class AnimationPage extends React.Component {
                 onChange={this.getCount}
                 id="animationLoops"
                 defaultValue={this.state.loop}
-
               >
                 {selects.count.map(select => (
                   <option key={select.value} value={select.value} >{select.text}</option>
@@ -274,7 +261,6 @@ class AnimationPage extends React.Component {
                 onChange={this.getDuration}
                 id="animationDuration"
                 defaultValue={this.state.duration}
-
               >
                 {selects.duration.map(select => (
                   <option key={select.value} value={select.text} >{select.text}</option>
