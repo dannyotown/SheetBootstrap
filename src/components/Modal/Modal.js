@@ -67,8 +67,8 @@ class Modal extends Component {
     }
   };
 
-  handleEscape = e => {
-    if (e.keyCode === 27) {
+  handleEscape = (e) => {
+    if (this.props.keyboard && e.keyCode === 27) {
       e.preventDefault();
       this.props.toggle();
     }
@@ -172,6 +172,7 @@ class Modal extends Component {
             data-test='modal'
             onKeyUp={this.handleEscape}
             className={wrapperClasses}
+
             {...modalAttributes}
           >
             <div className={modalDialogClasses} role='document'>
@@ -198,7 +199,8 @@ Modal.defaultProps = {
   modalTransitionTimeout: 300,
   role: 'dialog',
   tabIndex: '-1',
-  zIndex: 1050
+  zIndex: 1050,
+  keyboard: true
 };
 
 Modal.propTypes = {
@@ -224,7 +226,8 @@ Modal.propTypes = {
   side: PropTypes.bool,
   showModal: PropTypes.func,
   tabIndex: PropTypes.string,
-  wrapClassName: PropTypes.string
+  wrapClassName: PropTypes.string,
+  keyboard: PropTypes.bool
 };
 
 export default Modal;
