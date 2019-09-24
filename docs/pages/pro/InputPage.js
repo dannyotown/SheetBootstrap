@@ -116,31 +116,31 @@ class InputPage extends Component {
             <MDBFormInline>
               <MDBInput
                 label='Classic checkbox'
+                labelClass="mr-5"
                 type='checkbox'
                 value='example'
                 id='checkbox5'
                 onChange={this.handleChange}
                 containerClass='my-3'
-                labelClass="mr-5"
               />
               <MDBInput
                 label='Filled-in checkbox'
                 filled
+                labelClass="mr-5"
                 value='example2'
                 type='checkbox'
                 id='checkbox6'
                 onChange={this.handleChange}
                 containerClass='my-3'
-                labelClass="mr-5"
               />
               <MDBInput
                 label='Classic checkbox'
+                labelClass="mr-5"
                 type='checkbox'
                 value='example3'
                 id='checkbox7'
                 onChange={this.handleChange}
                 containerClass='my-3'
-                labelClass="mr-5"
               />
             </MDBFormInline>
           </SectionContainer>
@@ -223,25 +223,25 @@ class InputPage extends Component {
                 onChange={this.radioInputHandler(3, 7)}
                 checked={radioSet3 === 7}
                 label='Option 1'
+                labelClass="mr-5"
                 type='radio'
                 id='radio7'
-                labelClass="mr-5"
               />
               <MDBInput
                 onChange={this.radioInputHandler(3, 8)}
                 checked={radioSet3 === 8}
                 label='Option 2'
+                labelClass="mr-5"
                 type='radio'
                 id='radio8'
-                labelClass="mr-5"
               />
               <MDBInput
                 onChange={this.radioInputHandler(3, 9)}
                 checked={radioSet3 === 9}
                 label='Option 3'
+                labelClass="mr-5"
                 type='radio'
                 id='radio9'
-                labelClass="mr-5"
               />
             </MDBFormInline>
           </SectionContainer>
