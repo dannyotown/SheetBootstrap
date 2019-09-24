@@ -48,7 +48,7 @@ class HomePage extends React.Component {
                   </p>
                   <MDBRow className="d-flex flex-row justify-content-center row">
                     <a
-                      className="border nav-link border-light rounded mx-2"
+                      className="border nav-link border-light rounded mr-1"
                       href="https://mdbootstrap.com/react/"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -57,7 +57,7 @@ class HomePage extends React.Component {
                       <span className="font-weight-bold">Official Documentation</span>
                     </a>
                     <a
-                      className="border nav-link border-light rounded mx-2"
+                      className="border nav-link border-light rounded mx-2 ml-3"
                       href="https://mdbootstrap.com/products/react-ui-kit/"
                       target="_blank"
                       rel="noopener noreferrer"
