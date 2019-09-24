@@ -196,11 +196,11 @@ Modal.defaultProps = {
   backdropTransitionTimeout: 150,
   fade: true,
   isOpen: false,
+  keyboard: true,
   modalTransitionTimeout: 300,
   role: 'dialog',
   tabIndex: '-1',
-  zIndex: 1050,
-  keyboard: true
+  zIndex: 1050
 };
 
 Modal.propTypes = {
@@ -218,6 +218,7 @@ Modal.propTypes = {
   hiddenModal: PropTypes.func,
   hideModal: PropTypes.func,
   id: PropTypes.string,
+  keyboard: PropTypes.bool,
   modalClassName: PropTypes.string,
   modalStyle: PropTypes.string,
   position: PropTypes.string,
@@ -227,7 +228,6 @@ Modal.propTypes = {
   showModal: PropTypes.func,
   tabIndex: PropTypes.string,
   wrapClassName: PropTypes.string,
-  keyboard: PropTypes.bool
 };
 
 export default Modal;
