@@ -121,6 +121,7 @@ class InputPage extends Component {
                 id='checkbox5'
                 onChange={this.handleChange}
                 containerClass='my-3'
+                labelClass="mr-5"
               />
               <MDBInput
                 label='Filled-in checkbox'
@@ -130,6 +131,7 @@ class InputPage extends Component {
                 id='checkbox6'
                 onChange={this.handleChange}
                 containerClass='my-3'
+                labelClass="mr-5"
               />
               <MDBInput
                 label='Classic checkbox'
@@ -138,6 +140,7 @@ class InputPage extends Component {
                 id='checkbox7'
                 onChange={this.handleChange}
                 containerClass='my-3'
+                labelClass="mr-5"
               />
             </MDBFormInline>
           </SectionContainer>
@@ -222,6 +225,7 @@ class InputPage extends Component {
                 label='Option 1'
                 type='radio'
                 id='radio7'
+                labelClass="mr-5"
               />
               <MDBInput
                 onChange={this.radioInputHandler(3, 8)}
@@ -229,6 +233,7 @@ class InputPage extends Component {
                 label='Option 2'
                 type='radio'
                 id='radio8'
+                labelClass="mr-5"
               />
               <MDBInput
                 onChange={this.radioInputHandler(3, 9)}
@@ -236,6 +241,7 @@ class InputPage extends Component {
                 label='Option 3'
                 type='radio'
                 id='radio9'
+                labelClass="mr-5"
               />
             </MDBFormInline>
           </SectionContainer>
