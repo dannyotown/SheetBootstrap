@@ -118,7 +118,7 @@ describe('<ChipsInput />', () => {
 
     test('invoke handleAdd() on input', () => {
       const cb = jest.fn();
-      wrapper = mounted().setState({ chipsList: ['test', 'test2'], handleAdd: cb });
+      wrapper = mounted({ handleAdd: cb }).setState({ chipsList: ['test', 'test2'] });
       const input = wrapper.find('input');
       input.simulate('change', { target: { value: 'setValue' } });
       input.simulate('keyUp', { which: 13 });
