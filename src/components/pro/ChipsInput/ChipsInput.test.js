@@ -115,6 +115,17 @@ describe('<ChipsInput />', () => {
 
       expect(wrapper.state('isTouched')).toEqual(false);
     });
+
+    test('invoke handleAdd() on input', () => {
+      const cb = jest.fn();
+      wrapper = mounted().setState({ chipsList: ['test', 'test2'], handleAdd: cb });
+      const input = wrapper.find('input');
+      input.simulate('change', { target: { value: 'setValue' } });
+      input.simulate('keyUp', { which: 13 });
+      expect(cb).toHaveBeenCalledTimes(1);
+    });
+
+
   });
 
   describe('sets classes', () => {
