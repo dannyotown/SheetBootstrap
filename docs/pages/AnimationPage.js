@@ -4,7 +4,6 @@ import {
   MDBRow,
   MDBCol,
   MDBAnimation,
-  MDBSelect
 } from "mdbreact";
 import DocsLink from "../components/docsLink";
 import SectionContainer from "../components/sectionContainer";
@@ -15,7 +14,7 @@ class AnimationPage extends React.Component {
     this.state = {
       animations: "",
       delay: "0",
-      duration: "800ms",
+      duration: "1s",
       infinite: true,
       loop: 0,
       animation: this.animation("", false, 0),
@@ -125,7 +124,7 @@ class AnimationPage extends React.Component {
           { text: "zoomOutUp", value: "5" }
         ],
         count: [
-          { text: "Infinity", value: "0", checked: true },
+          { text: "Infinity", value: "0" },
           { text: "1", value: "1" },
           { text: "2", value: "2" },
           { text: "3", value: "3" },
@@ -138,12 +137,6 @@ class AnimationPage extends React.Component {
           { text: "10", value: "10" }
         ],
         duration: [
-          {
-            text: "s/ms, default: 1s",
-            value: "0",
-            selected: true,
-            disabled: true
-          },
           { text: "500ms", value: "1" },
           { text: "600ms", value: "2" },
           { text: "700ms", value: "3" },
@@ -156,12 +149,6 @@ class AnimationPage extends React.Component {
           { text: "5s", value: "10" }
         ],
         delay: [
-          {
-            text: "s/ms, default: 0",
-            value: "0",
-            selected: true,
-            disabled: true
-          },
           { text: "0", value: "1" },
           { text: "500ms", value: "2" },
           { text: "600ms", value: "3" },
@@ -209,28 +196,35 @@ class AnimationPage extends React.Component {
   ) => {
     this.setState({
       animation: this.animation(animations, infinite, loop, duration, delay)
+    }, () => {
     });
   };
 
   getValueOfSelect = value => {
-    this.setState({ animations: value }, () => this.setAnimation());
+    const val = value.target.value
+    this.setState({ animations: val.replace(/\s+/g, '') }, () => this.setAnimation());
   };
 
   getCount = v => {
-    Number(v[0]) === 0
+    Number(v.target.value) === 0
       ? this.setState({ loop: 0, infinite: true })
-      : this.setState({ loop: Number(v[0]), infinite: false });
+      : this.setState({ loop: Number(v.target.value), infinite: false });
     this.setState({ animation: null }, () => this.setAnimation());
   };
 
-  getDuration = v =>
-    this.setState({ animation: null, duration: v || "800ms" }, () =>
+  getDuration = v => {
+    console.log(v.target.value)
+    this.setState({ animation: null, duration: v.target.value || "800ms" }, () =>
       this.setAnimation()
     );
-  getDelay = v =>
-    this.setState({ animation: null, delay: v || "0" }, () =>
+  }
+
+  getDelay = v => {
+    console.log(v.target.value)
+    this.setState({ animation: null, delay: v.target.value || "0" }, () =>
       this.setAnimation()
     );
+  }
 
   render() {
     const { animation, selects } = this.state;
@@ -247,201 +241,166 @@ class AnimationPage extends React.Component {
           </MDBRow>
           <MDBRow className="d-flex justify-content-center">
             <MDBCol md="2">
-              <MDBSelect
-                outline
-                color="ins"
-                getValue={this.getCount}
-                getTextContent={this.renderAnimation}
-                options={selects.count}
-                label="Loops"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <label htmlFor="animationLoops">Loops</label>
+              <select
+                className="browser-default custom-select mb-4"
+                onChange={this.getCount}
+                id="animationLoops"
+                defaultValue={this.state.loop}
+              >
+                {selects.count.map(select => (
+                  <option key={select.value} value={select.value} >{select.text}</option>
+                ))}
+              </select>
+
             </MDBCol>
             <MDBCol md="2">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getDuration}
-                options={selects.duration}
-                label="Duration"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <label htmlFor="animationDuration">Duration</label>
+              <select
+                className="browser-default custom-select mb-4"
+                onChange={this.getDuration}
+                id="animationDuration"
+                defaultValue={this.state.duration}
+              >
+                {selects.duration.map(select => (
+                  <option key={select.value} value={select.text} >{select.text}</option>
+                ))}
+              </select>
+
             </MDBCol>
             <MDBCol md="2">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getDelay}
-                options={selects.delay}
-                label="Delay"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <label htmlFor="animationDelay">Delay</label>
+              <select className="browser-default custom-select my-0"
+                onChange={this.getDelay}
+                id="animationDelay"
+                defaultValue={this.state.delay}
+              >
+                {selects.delay.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
           </MDBRow>
+
           <hr className="my-4" />
 
           <MDBRow className="d-flex flex-wrap">
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.attentionSeekers}
-                label="ATTENTION SPEEKERS"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>ATTENTION SPEEKERS</option>
+                {selects.attentionSeekers.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.specials}
-                label="FLIPPERS"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>FLIPPERS</option>
+                {selects.specials.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.bouncingEntrances}
-                label="BOUNCING ENTRANCES"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>BOUNCING ENTRANCES</option>
+                {selects.bouncingEntrances.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.bouncingExits}
-                label="BOUNCING EXITS"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>BOUNCING EXITS</option>
+                {selects.bouncingExits.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.fadingEntrances}
-                label="FADING ENTRANCES"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>FADING ENTRANCES</option>
+                {selects.fadingEntrances.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.fadingExits}
-                label="FADING EXITS"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>FADING EXITS</option>
+                {selects.fadingExits.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.flippers}
-                label="FLIPPERS"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>FLIPPERS</option>
+                {selects.flippers.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.lightSpeed}
-                label="LIGHT SPEED"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>LIGHT SPEED</option>
+                {selects.lightSpeed.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.rotatingEntrances}
-                label="ROTATING ENTRANCES"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>ROTATING ENTRANCES</option>
+                {selects.rotatingEntrances.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.rotatingExits}
-                label="ROTATING EXITS"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>ROTATING EXITS</option>
+                {selects.rotatingExits.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.slidingEntrances}
-                label="SLIDING ENTRANCES"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>SLIDING ENTRANCES</option>
+                {selects.slidingEntrances.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.slidingExits}
-                label="SLIDING EXITS"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>SLIDING EXITS</option>
+                {selects.slidingExits.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.zoomEntrances}
-                label="ZOOM ENTRANCES"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>ZOOM ENTRANCES</option>
+                {selects.zoomEntrances.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
             <MDBCol md="6">
-              <MDBSelect
-                outline
-                color="ins"
-                getTextContent={this.getValueOfSelect}
-                options={selects.zoomExits}
-                label="ZOOM EXITS"
-                labelClass="labelBg"
-                className="my-0"
-              />
+              <select className="browser-default custom-select my-4" onChange={this.getValueOfSelect}>
+                <option>ZOOM EXITS</option>
+                {selects.zoomExits.map(select => (
+                  <option key={select.value} value={select.text}>{select.text}</option>
+                ))}
+              </select>
             </MDBCol>
           </MDBRow>
         </SectionContainer>
 
-        <hr style={{opacity: "0", marginBottom: "50px"}}/>
+        <hr style={{ opacity: "0", marginBottom: "50px" }} />
 
         <SectionContainer header="Reveal animations when scrolling">
           <MDBRow className="mb-4">
