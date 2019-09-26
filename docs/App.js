@@ -148,6 +148,7 @@ class App extends Component {
                       className='nav-link Ripple-parent' 
                       href='https://mdbootstrap.com/products/react-ui-kit/'
                       target='_blank'
+                      rel="noopener noreferrer" 
                     >
                       <strong><MDBIcon far icon="gem" /></strong>
                     </a>
@@ -160,6 +161,7 @@ class App extends Component {
                       className='nav-link Ripple-parent' 
                       href='https://mdbootstrap.com/docs/react/getting-started/download/'
                       target='_blank'
+                      rel="noopener noreferrer" 
                     >
                       <strong><MDBIcon icon="download" /></strong>
                     </a>
