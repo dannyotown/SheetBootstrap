@@ -287,6 +287,7 @@ class DataTable extends Component {
       info,
       infoLabel,
       maxHeight,
+      noBottomColumns,
       order,
       pagesAmount,
       paging,
@@ -359,6 +360,7 @@ class DataTable extends Component {
               dark={dark}
               fixed={fixed}
               hover={hover}
+              noBottomColumns={noBottomColumns}
               responsive={responsive}
               responsiveSm={responsiveSm}
               responsiveMd={responsiveMd}
@@ -471,6 +473,7 @@ DataTable.propTypes = {
   info: PropTypes.bool,
   infoLabel: PropTypes.arrayOf(PropTypes.string),
   maxHeight: PropTypes.string,
+  noBottomColumns: PropTypes.bool,
   order: PropTypes.arrayOf(PropTypes.string),
   pagesAmount: PropTypes.number,
   paging: PropTypes.bool,
@@ -518,6 +521,7 @@ DataTable.defaultProps = {
   info: true,
   infoLabel: ['Showing', 'to', 'of', 'entries'],
   noRecordsFoundLabel: 'No matching records found',
+  noBottomColumns: false,
   order: [],
   pagesAmount: 8,
   paging: true,
