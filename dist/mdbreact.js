@@ -367,7 +367,7 @@ var Alert = function Alert(props) {
         return handleOnExit(node);
       },
       onExited: function onExited(node) {
-        return handleOnExited(node);
+        return handleOnExited();
       }
     }, React__default.createElement("div", {
       "data-test": "alert",
@@ -2778,15 +2778,16 @@ var ControlledSelectInput = React__default.forwardRef(function (_ref, inputRef) 
   var value = _ref.value,
       required = _ref.required;
   return React__default.createElement("input", {
+    "data-test": "controlled-select-input",
     type: "text",
     ref: inputRef,
-    required: required ? required : false,
+    required: required,
     readOnly: true,
     value: value,
     onChange: function onChange() {},
     className: "select-dropdown",
     onFocus: function onFocus(e) {
-      return e.target.style.caretColor = "transparent";
+      return e.target.style.caretColor = 'transparent';
     }
   });
 });
@@ -3079,6 +3080,7 @@ var ControlledSelectOption = function ControlledSelectOption(_ref) {
     boxShadow: isFocused ? focusShadow : null
   };
   return React__default.createElement("li", {
+    "data-test": "controlled-select-option",
     "data-multiple": multiple,
     className: classes,
     onClick: function onClick() {
@@ -3117,9 +3119,9 @@ ControlledSelectOption.propTypes = {
   multiple: propTypes.bool,
   selectAllClassName: propTypes.string,
   separator: propTypes.bool,
-  selectOption: propTypes.func,
   text: propTypes.oneOfType([propTypes.object, propTypes.string]),
-  value: propTypes.string
+  value: propTypes.string,
+  selectOption: propTypes.func
 };
 ControlledSelectOption.defaultProps = {
   checked: false,
@@ -3245,6 +3247,7 @@ function (_Component) {
           selectAllClassName = _this$props2.selectAllClassName;
       var classes = classNames('dropdown-content', 'select-dropdown', 'fadeElement');
       return React__default.createElement("ul", {
+        "data-test": "controlled-select-options",
         className: classes
       }, search && React__default.createElement(Input, {
         label: searchLabel,
@@ -4113,7 +4116,8 @@ var DataTableSelect = function DataTableSelect(_ref) {
       label = _ref.label,
       barReverse = _ref.barReverse;
   return React__default.createElement("div", {
-    className: classNames("dataTables_length", "d-flex", "flex-row", barReverse && "justify-content-end")
+    "data-test": "datatable-select",
+    className: classNames('dataTables_length', 'd-flex', 'flex-row', barReverse && 'justify-content-end')
   }, React__default.createElement("label", {
     className: "mt-4"
   }, label), React__default.createElement(Select, {
@@ -4178,6 +4182,7 @@ var DataTableInput = function DataTableInput(_ref) {
       label = _ref.label,
       barReverse = _ref.barReverse;
   return React__default.createElement("div", {
+    "data-test": "datatable-input",
     className: classNames("dataTables_filter", "md-form", "flex-row", barReverse && "text-left")
   }, React__default.createElement("input", {
     value: value,
@@ -4551,7 +4556,8 @@ function (_Component) {
         type: "link"
       }, attributes, {
         href: this.state.href,
-        download: "export.csv"
+        download: "export.csv",
+        "data-test": "export-to-csv"
       }), children);
     }
   }]);
@@ -7771,8 +7777,8 @@ function (_Component) {
       if (_this.suggestionsList && _this.state.filteredSuggestions) {
         var suggestionsListNodes = _this.suggestionsList.childNodes;
         suggestionsListNodes.length >= 5 && suggestionsListNodes[_this.state.focusedListItem].scrollIntoView({
-          block: "center",
-          behavior: "smooth"
+          block: 'center',
+          behavior: 'smooth'
         });
 
         if (e.keyCode === 13) {
@@ -7861,8 +7867,9 @@ function (_Component) {
           valueDefault = _this$props.valueDefault;
       var btnStyles = classNames(clearClass, 'mdb-autocomplete-clear');
       return React__default.createElement("div", {
+        "data-test": "auto-complete",
         style: {
-          position: "relative"
+          position: 'relative'
         }
       }, React__default.createElement(Input, {
         icon: icon,
@@ -7886,7 +7893,7 @@ function (_Component) {
         onClick: this.handleClear,
         className: btnStyles,
         style: {
-          visibility: "visible"
+          visibility: 'visible'
         }
       }, React__default.createElement("svg", {
         fill: clearColor,
@@ -7905,7 +7912,7 @@ function (_Component) {
         },
         className: "mdb-autocomplete-wrap",
         style: {
-          marginTop: "-15px"
+          marginTop: '-15px'
         },
         onClick: this.handleSelect
       }, filteredSuggestions.map(function (el, index) {
@@ -7947,23 +7954,23 @@ Autocomplete.propTypes = {
 };
 Autocomplete.defaultProps = {
   clear: false,
-  clearColor: "#a6a6a6",
-  clearSize: "24",
+  clearColor: '#a6a6a6',
+  clearSize: '24',
   data: [],
   disabled: false,
-  id: "",
-  label: "",
-  className: "",
-  clearClass: "",
-  labelClass: "",
-  icon: "",
+  id: '',
+  label: '',
+  className: '',
+  clearClass: '',
+  labelClass: '',
+  icon: '',
   iconBrand: false,
-  iconSize: "",
+  iconSize: '',
   iconLight: false,
   iconRegular: false,
-  iconClassName: "",
-  placeholder: "",
-  valueDefault: ""
+  iconClassName: '',
+  placeholder: '',
+  valueDefault: ''
 };
 
 var Avatar = function Avatar(props) {
@@ -7973,8 +7980,10 @@ var Avatar = function Avatar(props) {
       circle = props.circle,
       attributes = _objectWithoutProperties(props, ["className", "tag", "round", "circle"]);
 
-  var classes = classNames("avatar", round && "rounded", circle && "rounded-circle", className);
-  return React__default.createElement(Tag, _extends({}, attributes, {
+  var classes = classNames('avatar', round && 'rounded', circle && 'rounded-circle', className);
+  return React__default.createElement(Tag, _extends({
+    "data-test": "avatar"
+  }, attributes, {
     className: classes
   }));
 };
@@ -7986,7 +7995,7 @@ Avatar.propTypes = {
   circle: propTypes.bool
 };
 Avatar.defaultProps = {
-  tag: "div",
+  tag: 'div',
   round: false,
   circle: false
 };
@@ -8057,20 +8066,21 @@ function (_React$Component) {
           topSection = _this$props.topSection,
           attributes = _objectWithoutProperties(_this$props, ["active", "block", "className", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "innerRef", "topSection"]);
 
-      var buttonFixedClasses = classNames("fixed-action-btn active");
-      var classes = classNames(floating ? "btn-floating" : "btn", flat ? "btn-flat" : gradient ? "".concat(gradient, "-gradient") : "".concat(color), size ? "btn-".concat(size) : false, rounded ? "btn-rounded" : false, block ? "btn-block" : false, "Ripple-parent", className, {
+      var buttonFixedClasses = classNames('fixed-action-btn active');
+      var classes = classNames(floating ? 'btn-floating' : 'btn', flat ? 'btn-flat' : gradient ? "".concat(gradient, "-gradient") : "".concat(color), size ? "btn-".concat(size) : false, rounded ? 'btn-rounded' : false, block ? 'btn-block' : false, 'Ripple-parent', className, {
         active: active,
         disabled: this.props.disabled
       });
       return React__default.createElement("div", _extends({
+        "data-test": "button-fixed",
         className: buttonFixedClasses,
         ref: innerRef,
         style: {
-          bottom: "45px",
-          right: "24px"
+          bottom: '45px',
+          right: '24px'
         }
       }, attributes), React__default.createElement("a", {
-        href: this.props.topSection ? this.props.topSection : "#",
+        href: this.props.topSection ? this.props.topSection : '#',
         className: classes,
         onClick: this.onClick,
         onMouseDown: this.handleClick.bind(this),
@@ -8096,7 +8106,7 @@ function (_React$Component) {
 }(React__default.Component);
 
 ButtonFixed.defaultProps = {
-  color: "default"
+  color: 'default'
 };
 ButtonFixed.propTypes = {
   active: propTypes.bool,
@@ -8148,8 +8158,8 @@ function (_React$Component) {
     _this.state = {
       cursorPos: {},
       buttonStyle: {
-        transform: "scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)",
-        opacity: "0"
+        transform: 'scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)',
+        opacity: '0'
       }
     };
     return _this;
@@ -8194,8 +8204,10 @@ function (_React$Component) {
           buttonStyle = _this$props.buttonStyle,
           attributes = _objectWithoutProperties(_this$props, ["active", "block", "className", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "innerRef", "buttonStyle"]);
 
-      var classes = classNames(size && "btn-".concat(size), "btn-floating", color ? color : false, "Ripple-parent", className);
-      return React__default.createElement("li", null, React__default.createElement("a", _extends({}, attributes, {
+      var classes = classNames(size && "btn-".concat(size), 'btn-floating', color ? color : false, 'Ripple-parent', className);
+      return React__default.createElement("li", {
+        "data-test": "button-fixed-item"
+      }, React__default.createElement("a", _extends({}, attributes, {
         style: this.props.buttonStyle,
         onClick: this.onClick,
         onMouseDown: this.handleClick.bind(this),
@@ -8220,7 +8232,7 @@ function (_React$Component) {
 }(React__default.Component);
 
 ButtonFixed$1.defaultProps = {
-  color: "default"
+  color: 'default'
 };
 ButtonFixed$1.propTypes = {
   active: propTypes.bool,
@@ -8255,8 +8267,10 @@ var CardUp = function CardUp(props) {
       gradient = props.gradient,
       attributes = _objectWithoutProperties(props, ["className", "tag", "color", "gradient"]);
 
-  var classes = classNames("card-up", color && color + "-color", gradient && gradient + "-gradient", className);
-  return React__default.createElement(Tag, _extends({}, attributes, {
+  var classes = classNames('card-up', color && color + '-color', gradient && gradient + '-gradient', className);
+  return React__default.createElement(Tag, _extends({
+    "data-test": "card-up"
+  }, attributes, {
     className: classes
   }));
 };
@@ -8266,7 +8280,7 @@ CardUp.propTypes = {
   className: propTypes.string
 };
 CardUp.defaultProps = {
-  tag: "div"
+  tag: 'div'
 };
 
 var css$8 = ".chip.chip-md {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-md img {\n  height: 42px;\n  width: 42px;\n}\n.chip.chip-md .close {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-lg {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n.chip.chip-lg img {\n  height: 52px;\n  width: 52px;\n}\n.chip.chip-lg .close {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n";
@@ -8309,8 +8323,10 @@ var Chip = function Chip(props) {
       handleClose = props.handleClose,
       attributes = _objectWithoutProperties(props, ["className", "tag", "size", "bgColor", "text", "gradient", "src", "alt", "close", "waves", "handleClose"]);
 
-  var classes = classNames("chip", size && "chip-" + size, bgColor && bgColor, text && text + "-text", gradient && gradient + "-gradient", waves && "Ripple-parent", className);
-  return React__default.createElement(Tag, _extends({}, attributes, {
+  var classes = classNames('chip', size && 'chip-' + size, bgColor && bgColor, text && text + '-text', gradient && gradient + '-gradient', waves && 'Ripple-parent', className);
+  return React__default.createElement(Tag, _extends({
+    "data-test": "chip"
+  }, attributes, {
     className: classes,
     onMouseDown: handleClick,
     onTouchStart: handleClick
@@ -8339,7 +8355,7 @@ Chip.propTypes = {
   handleClose: propTypes.func
 };
 Chip.defaultProps = {
-  tag: "div"
+  tag: 'div'
 };
 
 var ChipsInput =
@@ -8488,7 +8504,9 @@ function (_Component) {
       }
 
       var classes = classNames('chips', this.state.isTouched && 'focus', className);
-      return React__default.createElement(Tag, _extends({}, attributes, {
+      return React__default.createElement(Tag, _extends({
+        "data-test": "chips-input"
+      }, attributes, {
         className: classes,
         onClick: this.handleClick,
         onKeyUp: this.handleBackspace
@@ -8528,15 +8546,16 @@ var CollapseHeader = function CollapseHeader(props) {
       tagClassName = props.tagClassName,
       children = props.children,
       Tag = props.tag,
-      triggerOnClick = props.triggerOnClick,
-      attributes = _objectWithoutProperties(props, ["className", "tagClassName", "children", "tag", "triggerOnClick"]);
+      attributes = _objectWithoutProperties(props, ["className", "tagClassName", "children", "tag"]);
 
-  var classes = classNames("card-header", className);
-  var tagClasses = classNames("mb-0", tagClassName);
-  return React__default.createElement("div", _extends({}, attributes, {
+  var classes = classNames('card-header', className);
+  var tagClasses = classNames('mb-0', tagClassName);
+  return React__default.createElement("div", _extends({
+    "data-test": "collapse-header"
+  }, attributes, {
     className: classes,
     style: {
-      cursor: "pointer"
+      cursor: 'pointer'
     }
   }), React__default.createElement(Tag, {
     className: tagClasses
@@ -8544,14 +8563,13 @@ var CollapseHeader = function CollapseHeader(props) {
 };
 
 CollapseHeader.defaultProps = {
-  tag: "h5"
+  tag: 'h5'
 };
 CollapseHeader.propTypes = {
   children: propTypes.node,
   className: propTypes.string,
   tagClassName: propTypes.string,
-  tag: propTypes.string,
-  triggerOnClick: propTypes.func
+  tag: propTypes.string
 };
 
 var css$9 = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
@@ -8651,6 +8669,7 @@ function (_Component) {
 
       var classes = classNames('md-form', className);
       return React__default.createElement(Tag, {
+        "data-test": "date-picker",
         className: classes
       }, React__default.createElement(core.MuiThemeProvider, {
         theme: this.state.muiTheme
@@ -8689,7 +8708,7 @@ function (_Component) {
         showTodayButton: showTodayButton,
         TextFieldComponent: TextFieldComponent,
         todayLabel: todayLabel,
-        format: format || "DD MMMM, YYYY",
+        format: format || 'DD MMMM, YYYY',
         value: this.state.selectedDate,
         onChange: this.handleDateChange
       })))));
@@ -8754,8 +8773,10 @@ function RotatingCard(props) {
       flipped = props.flipped,
       attributes = _objectWithoutProperties(props, ["className", "tag", "innerTag", "flipped"]);
 
-  var classes = classNames("card-rotating effect__click", props.flipped && "flipped", className);
-  return React__default.createElement(Tag, _extends({}, attributes, {
+  var classes = classNames('card-rotating effect__click', props.flipped && 'flipped', className);
+  return React__default.createElement(Tag, _extends({
+    "data-test": "flipping-card"
+  }, attributes, {
     className: "card-wrapper"
   }), React__default.createElement(InnerTag, {
     className: classes
@@ -8770,8 +8791,8 @@ RotatingCard.propTypes = {
   flipped: propTypes.bool
 };
 RotatingCard.defaultProps = {
-  tag: "div",
-  innerTag: "div",
+  tag: 'div',
+  innerTag: 'div',
   flipped: false
 };
 
@@ -8820,10 +8841,11 @@ var InputFile = function InputFile(props) {
       resetClassName = props.resetClassName,
       resetAriaLabel = props.resetAriaLabel,
       reverse = props.reverse;
-  var btnClass = classNames("btn", "btn-" + btnColor, "btn-sm", reverse ? "float-right" : "float-left");
-  var inputFieldClass = classNames("file-path", "validate", files ? "valid" : false, className);
-  var wrapperClass = classNames("file-field", "md-form", reverse && "file-field-right");
+  var btnClass = classNames('btn', 'btn-' + btnColor, 'btn-sm', reverse ? 'float-right' : 'float-left');
+  var inputFieldClass = classNames('file-path', 'validate', files ? 'valid' : false, className);
+  var wrapperClass = classNames('file-field', 'md-form', reverse && 'file-field-right');
   return React__default.createElement("div", {
+    "data-test": "input-file",
     className: wrapperClass
   }, React__default.createElement("div", {
     className: btnClass
@@ -8838,17 +8860,17 @@ var InputFile = function InputFile(props) {
     type: "text",
     placeholder: files ? files : textFieldTitle,
     style: {
-      position: reset ? "relative" : null
+      position: reset ? 'relative' : null
     }
   })), reset && React__default.createElement(MDBCloseIcon, {
     onClick: resetFiles,
     className: resetClassName,
     ariaLabel: resetAriaLabel ? resetAriaLabel : null,
     style: {
-      position: "absolute",
-      top: "50%",
-      right: "0",
-      transform: "translateY(-50%)"
+      position: 'absolute',
+      top: '50%',
+      right: '0',
+      transform: 'translateY(-50%)'
     }
   }));
 };
@@ -8865,9 +8887,9 @@ InputFile.propTypes = {
   reverse: propTypes.bool
 };
 InputFile.defaultProps = {
-  btnTitle: "Choose file",
-  textFieldTitle: "Upload your file",
-  btnColor: "primary",
+  btnTitle: 'Choose file',
+  textFieldTitle: 'Upload your file',
+  btnColor: 'primary',
   reset: false,
   reverse: false
 };
@@ -9099,8 +9121,642 @@ InputSwitch.defaultProps = {
   labelRight: "On"
 };
 
-var css$c = ".ReactModal__Overlay {\n    z-index: 2000 !important;\n}";
+var css$c = ".mdb-lightbox .overlay {\n  height: 120vh;\n  width: 100vw;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: -100;\n}\n.mdb-lightbox .ui-controls {\n  width: 99vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  position: absolute;\n}\n.mdb-lightbox .ui-controls > * {\n  position: fixed;\n  z-index: 999999;\n}\n.mdb-lightbox .overlay.active {\n  z-index: 9999;\n  background-color: black;\n}\n\n.mdb-lightbox .next-img,\n.mdb-lightbox .prev-img {\n  transform-origin: center;\n}\n.mdb-lightbox .next-img {\n  left: 150% !important;\n}\n.mdb-lightbox .prev-img {\n  left: -50% !important;\n}\n\n.mdb-lightbox img:not(.zoom) {\n  transform-origin: top left;\n}\n/* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */\n.mdb-lightbox img.zoom {\n  z-index: 9999;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%) scale(1) translate3d(0, 0, 0);\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -o-user-select: none;\n  user-select: text;\n  /* pointer-events: none; */\n  transform-origin: center;\n}\n\n.mdb-lightbox .mdb-lightbox figure img.zoom:hover {\n  opacity: 1;\n}\n\n.mdb-lightbox .block {\n  display: block;\n}\n\n.mdb-lightbox .pswp__button.lb-zoom-out {\n  background-position: -132px 0;\n}\n.mdb-lightbox .pswp__button.pswp__button--fs.fullscreen {\n  background-position: -44px 0;\n}\n\n.mdb-lightbox .arrow-container {\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.mdb-lightbox .pswp__button--left,\n.mdb-lightbox .pswp__button--right {\n  width: 0px;\n  height: 0px;\n  margin-top: -100px;\n}\n";
 styleInject(css$c);
+
+var Lightbox =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Lightbox, _React$Component);
+
+  function Lightbox(props) {
+    var _this;
+
+    _classCallCheck(this, Lightbox);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Lightbox).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "setScreenSize", function () {
+      _this.setState({
+        screenSize: {
+          x: window.innerWidth,
+          y: window.innerHeight
+        }
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "reset", function () {
+      return {
+        activeKey: null,
+        changeSlide: false,
+        dragImg: false,
+        dragImgPos: {},
+        dragPercent: 0,
+        galleryImagesData: [],
+        imgSrc: null,
+        imgSrcData: null,
+        resize: false,
+        resizePos: {
+          x: 0,
+          y: 0
+        },
+        scale: 0,
+        scaleWheel: false,
+        screenSize: {
+          x: window.innerWidth,
+          y: window.innerHeight
+        },
+        showLeft: false,
+        showRight: false,
+        sliderOpened: false,
+        zoomedScale: 0
+      };
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "updateGalleryData", function () {
+      var gallery = [];
+      if (_this.slideRefs) _this.slideRefs.map(function (el) {
+        return gallery.push(_this.setData(el));
+      });
+
+      _this.setState({
+        galleryImagesData: gallery
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setScale", function (e) {
+      var screenSize = _this.state.screenSize;
+      var _e$size = e.size,
+          height = _e$size.height,
+          width = _e$size.width;
+      var margin = _this.props.marginSpace;
+      var scale = 1;
+
+      if (screenSize.x > screenSize.y) {
+        if (e.realH > height) {
+          if (height === width && screenSize.y > screenSize.x) {
+            scale = (screenSize.x - margin) / width;
+          } else if (height === width && screenSize.y < screenSize.x) {
+            scale = (screenSize.y - margin) / height;
+          } else if (height > width) {
+            scale = (screenSize.y - margin) / height;
+
+            if (scale * width > screenSize.x) {
+              scale = (screenSize.x - margin) / width;
+            }
+          } else if (height < width) {
+            scale = (screenSize.x - margin) / width;
+
+            if (scale * height > screenSize.y) {
+              scale = (screenSize.y - margin) / height;
+            }
+          }
+        }
+
+        return scale * (height / e.realH);
+      } else {
+        return scale;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setData", function (img) {
+      var screenSize = _this.state.screenSize;
+      var data = {
+        activeKey: _this.slideRefs.indexOf(img),
+        imgSrc: img,
+        imgSrcData: {
+          realW: img.naturalWidth,
+          realH: img.naturalHeight,
+          size: img.getBoundingClientRect()
+        },
+        scale: screenSize.x > screenSize.y ? img.getBoundingClientRect().width / img.naturalWidth : img.getBoundingClientRect().width / screenSize.x
+      };
+      data.zoomedScale = _this.setScale(data.imgSrcData);
+      return data;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "zoom", function (e) {
+      var imgSrc = _this.state.imgSrc;
+      var transition = _this.props.transition;
+      var img = e.target;
+
+      if (!imgSrc) {
+        _this.updateGalleryData();
+
+        var dataOfImage = _this.setData(img);
+
+        var _dataOfImage$imgSrcDa = dataOfImage.imgSrcData.size,
+            left = _dataOfImage$imgSrcDa.left,
+            top = _dataOfImage$imgSrcDa.top;
+
+        _this.setState(dataOfImage, function () {
+          img.style.cssText = "\n          top: 0;\n          left: 0;\n          transform:  translate(".concat(left, "px, ").concat(top, "px) translate3d(0,0,0) scale(").concat(dataOfImage.scale, ") ;\n          position: fixed;\n        ");
+          setTimeout(function () {
+            document.body.classList.add('overflow-hidden');
+            img.style.cssText = "\n            transition: ".concat(transition, "ms; \n            transform: \n              translate(-50%,-50%) \n              translate3d(0,0,0)\n              scale(").concat(_this.setScale(dataOfImage.imgSrcData), ") \n          ");
+            img.classList.add('zoom');
+
+            _this.overlay.current.classList.add('active');
+
+            setTimeout(function () {
+              img.style.transition = "0ms";
+
+              _this.setState({
+                sliderOpened: true
+              }, function () {
+                _this.setState({
+                  showRight: _this.checkSiblings('next'),
+                  showLeft: _this.checkSiblings('prev')
+                });
+              });
+            }, _this.props.transition);
+          }, 5);
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "closeZoom", function () {
+      var _this$state = _this.state,
+          imgSrc = _this$state.imgSrc,
+          galleryImagesData = _this$state.galleryImagesData,
+          activeKey = _this$state.activeKey;
+
+      _this.setState({
+        sliderOpened: false
+      });
+
+      var PREV_IMG = _this.slideRefs[activeKey - 1] || _this.slideRefs[_this.slideRefs.length - 1];
+      var NEXT_IMG = _this.slideRefs[activeKey + 1] || _this.slideRefs[0];
+      PREV_IMG.style.cssText = '';
+      NEXT_IMG.style.cssText = '';
+      document.body.classList.remove('overflow-hidden');
+      imgSrc.classList.remove('zoom');
+      imgSrc.style.cssText = "\n        transition: ".concat(_this.props.transition, "ms;\n        z-index: 9999;\n        top: 0;\n        left: 0;\n        transform: translate(").concat(galleryImagesData[activeKey].imgSrcData.size.left, "px, ").concat(galleryImagesData[activeKey].imgSrcData.size.top, "px) translate3d(0,0,0) scale(").concat(galleryImagesData[activeKey].scale, ");\n        position: fixed;\n      ");
+
+      _this.overlay.current.classList.remove('active');
+
+      setTimeout(function () {
+        imgSrc.style.cssText = '';
+
+        _this.setState(_this.reset());
+      }, _this.props.transition);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "scrollZoom", function (e) {
+      if (_this.slideRefs[_this.state.activeKey] === _this.state.imgSrc && _this.state.sliderOpened) {
+        var SCALE_RATIO = _this.props.scale || 0.1;
+        var SCALE_UP = 1 + SCALE_RATIO;
+        var SCALE_DOWN = 1 - SCALE_RATIO;
+        var WHEEL_UP = e.deltaY < 0;
+        var WHEEL_DOWN = e.deltaY > 0;
+        var IMG_DATA = _this.state.zoomedScale;
+        var target;
+        e.target.tagName === 'BUTTON' ? target = _this.slideRefs[_this.state.activeKey] : target = e.target;
+        var scaleTransform = target.style.transform.split(' ');
+        var scaleValue = Number(scaleTransform.filter(function (el) {
+          return !el.search('scale');
+        })[0].replace('scale(', '').replace(')', ''));
+
+        var trans3d = _this.slideRefs[_this.state.activeKey].style.transform.split(') ').filter(function (el) {
+          return !el.search('translate3d');
+        }).map(function (el) {
+          return el.replace('translate3d(', '');
+        }).map(function (el) {
+          return el.replace(',', '');
+        })[0].split(' ').map(function (el) {
+          return Number(el.replace('px', '').replace(',', ''));
+        });
+
+        target.style.transition = "".concat(0, "ms");
+
+        if (WHEEL_UP || e.button === 0 && !e.target.classList.contains('lb-zoom-out') && e.target.tagName === 'BUTTON') {
+          if (scaleValue * SCALE_UP < IMG_DATA * 4) {
+            scaleValue *= SCALE_UP;
+          }
+
+          _this.setState({
+            resize: true
+          });
+        }
+
+        if (WHEEL_DOWN || e.button === 0 && e.target.classList.contains('lb-zoom-out')) {
+          if (scaleValue * SCALE_DOWN >= IMG_DATA) {
+            scaleValue *= SCALE_DOWN;
+            trans3d[0] *= SCALE_DOWN / 1.15;
+            trans3d[1] *= SCALE_DOWN / 1.15;
+          } else {
+            scaleValue = IMG_DATA;
+
+            _this.setState({
+              resize: false
+            });
+
+            trans3d[0] = 0;
+            trans3d[1] = 0;
+
+            _this.setState({
+              resizePos: {
+                x: 0,
+                y: 0
+              }
+            });
+          }
+        }
+
+        target.style.transform = "\n        translate(-50%, -50%) \n        translate3d(".concat(trans3d[0], "px,").concat(trans3d[1], "px, 0px)\n        scale(").concat(scaleValue, ") \n      ");
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "toggleFullscreen", function (e) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+        e.target.classList.remove('fullscreen');
+      } else {
+        document.documentElement.requestFullscreen();
+        e.target.classList.add('fullscreen');
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "changeSlide", function (direction) {
+      var _this$state2 = _this.state,
+          activeKey = _this$state2.activeKey,
+          changeSlide = _this$state2.changeSlide,
+          imgSrc = _this$state2.imgSrc,
+          galleryImagesData = _this$state2.galleryImagesData;
+      var transition = _this.props.transition;
+
+      var _assertThisInitialize = _assertThisInitialized(_this),
+          slideRefs = _assertThisInitialize.slideRefs;
+
+      var CURRENT_IMG = imgSrc;
+      var PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
+      var NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
+      var actual_key;
+
+      var trans3d_Unset = function trans3d_Unset(index) {
+        return "\n      translate(-50%, -50%) \n      translate3d(0px, 0px, 0px) \n      scale(".concat(galleryImagesData[index].zoomedScale, ")\n    ");
+      };
+
+      var change = function change() {
+        setTimeout(function () {
+          PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(0, "ms");
+          var CURRENT = _this.state.imgSrc;
+
+          var dataOfImage = _this.setData(CURRENT);
+
+          _this.setState(dataOfImage, function () {
+            CURRENT.classList.add('zoom');
+            CURRENT.style.cssText = "\n            transform: \n              translate(-50%,-50%)\n              translate3d(0,0,0)\n              scale(".concat(_this.setScale(dataOfImage.imgSrcData), ")\n          ");
+
+            _this.setState({
+              changeSlide: false,
+              showRight: _this.checkSiblings('next'),
+              showLeft: _this.checkSiblings('prev')
+            });
+          });
+        }, transition);
+      };
+
+      PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(transition, "ms");
+      CURRENT_IMG.style.transform = trans3d_Unset(activeKey);
+      PREV_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(PREV_IMG));
+      NEXT_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(NEXT_IMG));
+
+      if (!changeSlide) {
+        _this.setState({
+          changeSlide: true
+        });
+
+        if (direction === 'prev') {
+          actual_key = _this.slideRefs.indexOf(PREV_IMG);
+          CURRENT_IMG.classList.add('next-img');
+          PREV_IMG.classList.remove('prev-img');
+
+          _this.setState({
+            imgSrc: PREV_IMG
+          });
+
+          change();
+        } else if (direction === 'next') {
+          actual_key = _this.slideRefs.indexOf(NEXT_IMG);
+          CURRENT_IMG.classList.add('prev-img');
+          NEXT_IMG.classList.remove('next-img');
+
+          _this.setState({
+            imgSrc: NEXT_IMG
+          });
+
+          change();
+        } else {
+          _this.setState({
+            dragImg: false,
+            changeSlide: false
+          });
+        }
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "dragStart", function (e) {
+      if (!_this.state.dragImg && _this.state.imgSrc && !_this.state.changeSlide && _this.state.sliderOpened && _this.state.dragPercent === 0) {
+        var dragImgPos = {
+          x: e.clientX || e.touches[0].clientX,
+          y: e.clientY || e.touches[0].clientY
+        };
+
+        _this.setState({
+          dragImg: true,
+          dragImgPos: dragImgPos
+        });
+      } else {
+        _this.setState({
+          changeSlide: false
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "dragMoveSlide", function (e) {
+      var _this$state3 = _this.state,
+          activeKey = _this$state3.activeKey,
+          galleryImagesData = _this$state3.galleryImagesData,
+          resize = _this$state3.resize;
+
+      var _assertThisInitialize2 = _assertThisInitialized(_this),
+          slideRefs = _assertThisInitialize2.slideRefs;
+
+      if (_this.state.dragImg && !resize) {
+        var CURRENT_IMG = e.target;
+        var PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
+        var NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
+        var dragPos = {
+          x: e.clientX || e.touches[0].clientX,
+          y: e.clientY || e.touches[0].clientY
+        };
+        var diffX = dragPos.x - _this.state.dragImgPos.x;
+        var diffY = dragPos.y - _this.state.dragImgPos.y;
+
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          _this.setState({
+            dragPercent: diffX / window.innerWidth * 100
+          });
+
+          var styleSlide = function styleSlide(index) {
+            return "transform: \n          translate(-50%,-50%)\n          translate3d(".concat(diffX, "px, 0, 0)  \n          scale(").concat(galleryImagesData[index].zoomedScale, ")\n        ");
+          };
+
+          CURRENT_IMG.style.cssText = styleSlide(activeKey);
+          PREV_IMG.style.cssText = styleSlide(_this.slideRefs.indexOf(PREV_IMG));
+          NEXT_IMG.style.cssText = styleSlide(_this.slideRefs.indexOf(NEXT_IMG));
+        }
+      } else if (_this.state.dragImg && resize) {
+        var _CURRENT_IMG = e.target;
+        var _dragPos = {
+          x: e.clientX || e.touches[0].clientX,
+          y: e.clientY || e.touches[0].clientY
+        };
+        var CRR = galleryImagesData[activeKey];
+        var scaleValue = Number(_CURRENT_IMG.style.transform.split(' ').filter(function (el) {
+          return !el.search('scale');
+        })[0].replace('scale(', '').replace(')', ''));
+
+        var _diffX = _dragPos.x - _this.state.dragImgPos.x + _this.state.resizePos.x;
+
+        var _diffY = _dragPos.y - _this.state.dragImgPos.y + _this.state.resizePos.y;
+
+        var scaleX = CRR.imgSrcData.realW * scaleValue / 3;
+        var scaleY = CRR.imgSrcData.realH * scaleValue / 3;
+        if (_diffX > scaleX) _diffX = scaleX;else if (_diffX < -scaleX) _diffX = -scaleX;
+        if (_diffY > scaleY) _diffY = scaleY;else if (_diffY < -scaleY) _diffY = -scaleY;
+        _CURRENT_IMG.style.cssText = "transform: \n        translate(-50%,-50%)\n        translate3d(".concat(_diffX, "px, ").concat(_diffY, "px, 0)\n        scale(").concat(scaleValue, ")\n      ");
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "dragStop", function () {
+      if (_this.state.dragImg) {
+        var _this$state4 = _this.state,
+            activeKey = _this$state4.activeKey,
+            dragPercent = _this$state4.dragPercent;
+        var dragPercentScale = 20;
+
+        if (!_this.state.resize) {
+          if (dragPercent > dragPercentScale) {
+            _this.checkSiblings('prev') ? _this.changeSlide('prev') : _this.changeSlide(null);
+          } else if (dragPercent < -dragPercentScale) {
+            _this.checkSiblings('next') ? _this.changeSlide('next') : _this.changeSlide(null);
+          } else {
+            _this.changeSlide(null);
+          }
+        } else {
+          var trans3d = _this.slideRefs[activeKey].style.transform.split(') ').filter(function (el) {
+            return !el.search('translate3d');
+          }).map(function (el) {
+            return el.replace('translate3d(', '');
+          }).map(function (el) {
+            return el.replace(',', '');
+          })[0].split(' ').map(function (el) {
+            return Number(el.replace('px', '').replace(',', ''));
+          });
+
+          _this.setState({
+            resizePos: {
+              x: trans3d[0],
+              y: trans3d[1]
+            }
+          });
+        }
+
+        _this.setState({
+          dragImg: false,
+          dragPercent: 0
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "checkSiblings", function (direction) {
+      return _this.slideRefs.filter(function (target) {
+        return target.classList.contains("".concat(direction, "-img"));
+      }).length > 0;
+    });
+
+    _this.state = _this.reset();
+    _this.overlay = React__default.createRef();
+    _this.slideRefs = [];
+    return _this;
+  }
+
+  _createClass(Lightbox, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props = this.props,
+          className = _this$props.className,
+          images = _this$props.images,
+          itemClassName = _this$props.itemClassName,
+          descriptionClassName = _this$props.descriptionClassName,
+          noMargins = _this$props.noMargins,
+          lg = _this$props.lg,
+          md = _this$props.md,
+          sm = _this$props.sm,
+          size = _this$props.size,
+          xl = _this$props.xl,
+          xs = _this$props.xs,
+          transition = _this$props.transition;
+      var _this$state5 = this.state,
+          activeKey = _this$state5.activeKey,
+          galleryImagesData = _this$state5.galleryImagesData,
+          imgSrc = _this$state5.imgSrc,
+          sliderOpened = _this$state5.sliderOpened;
+      var lightboxClasses = classNames('mdb-lightbox d-flex flex-wrap', !noMargins && 'no-margin', className);
+      var descriptionClasses = classNames('text-uppercase font-weight-bold mt-4', descriptionClassName);
+
+      var pswp__button = function pswp__button(button) {
+        return classNames("pswp__button d-block z-depth-0 pswp__button--".concat(button));
+      };
+
+      var galleryClassNames = function galleryClassNames(id) {
+        var sliders1 = _this2.slideRefs.length > 1;
+        var sliders2 = _this2.slideRefs.length > 2;
+        return classNames("figure-img img-fluid z-depth-1 m-0", sliders1 && sliderOpened && id === activeKey + 1 && 'zoom next-img', sliders1 && sliderOpened && id === activeKey - 1 && 'zoom prev-img', sliders1 && sliders2 && sliderOpened && id === 0 && activeKey + 1 > _this2.slideRefs.length - 1 && 'zoom next-img', sliders1 && sliders2 && sliderOpened && id === _this2.slideRefs.length - 1 && activeKey === 0 && 'zoom prev-img', sliders1 && sliders2 && sliderOpened && id === 1 && activeKey === 0 && 'zoom next-img');
+      };
+
+      var galleryStyles = function galleryStyles(id) {
+        if (_this2.slideRefs[id]) {
+          var next = id === activeKey + 1;
+          var prev = id === activeKey - 1;
+          var second = id === 0 && activeKey + 1 > _this2.slideRefs.length - 1;
+          var last = id === _this2.slideRefs.length - 1 && activeKey === 0;
+          var first = id === 1 && activeKey === 0;
+          var style = {
+            transform: _this2.slideRefs.length > 1 && sliderOpened && (next || prev || second || last || first) && "translate(-50%, -50%) translate3d(0,0,0) scale(".concat(_this2.setScale({
+              realW: _this2.slideRefs[id].naturalWidth,
+              realH: _this2.slideRefs[id].naturalHeight,
+              size: _this2.slideRefs[id].getBoundingClientRect()
+            }), ")")
+          };
+          return style;
+        }
+      };
+
+      var items = images.map(function (image, id) {
+        return React__default.createElement(Col, {
+          tag: "figure",
+          lg: image.lg || lg,
+          md: image.md || md,
+          sm: image.sm || sm,
+          xl: image.xl || xl,
+          xs: image.xs || xs,
+          size: size || image.size,
+          className: image.className || itemClassName,
+          key: id
+        }, React__default.createElement("img", {
+          src: image.src,
+          className: galleryClassNames(id),
+          alt: image.alt || "image ".concat(id + 1),
+          ref: function ref(img) {
+            return _this2.slideRefs[id] = img;
+          },
+          style: galleryStyles(id),
+          draggable: !imgSrc,
+          onClick: _this2.zoom,
+          onDragStart: function onDragStart(e) {
+            return e.preventDefault();
+          },
+          onMouseDown: _this2.dragStart,
+          onTouchStart: _this2.dragStart,
+          onMouseMove: _this2.dragMoveSlide,
+          onTouchMove: _this2.dragMoveSlide,
+          onMouseLeave: _this2.dragStop,
+          onMouseUp: _this2.dragStop,
+          onTouchEnd: _this2.dragStop,
+          onWheel: _this2.scrollZoom
+        }), _this2.slideRefs[id] === imgSrc && React__default.createElement("div", {
+          className: "block",
+          style: {
+            height: "".concat(galleryImagesData[activeKey].imgSrcData.size.height, "px"),
+            width: "".concat(galleryImagesData[activeKey].imgSrcData.size.width, "px")
+          }
+        }), image.description && React__default.createElement("p", {
+          className: descriptionClasses
+        }, image.description));
+      });
+      return React__default.createElement(Container, {
+        "data-test": "light-box",
+        className: "mdb-lightbox"
+      }, imgSrc && React__default.createElement("div", {
+        className: "ui-controls"
+      }, React__default.createElement("p", {
+        className: "float-left text-white-50 mt-3 ml-3"
+      }, activeKey + 1, "/", images.length), React__default.createElement(ButtonGroup, {
+        style: {
+          transition: "".concat(transition / 2, "ms"),
+          right: '0'
+        }
+      }, React__default.createElement(Button, {
+        className: pswp__button('zoom'),
+        color: "transparent",
+        onClick: this.scrollZoom
+      }), React__default.createElement(Button, {
+        className: pswp__button('zoom lb-zoom-out'),
+        color: "transparent",
+        onClick: this.scrollZoom
+      }), React__default.createElement(Button, {
+        className: pswp__button('fs'),
+        color: "transparent",
+        onClick: this.toggleFullscreen
+      }), React__default.createElement(Button, {
+        className: pswp__button('close'),
+        color: "transparent",
+        onClick: this.closeZoom
+      })), React__default.createElement("div", {
+        className: "d-flex justify-content-between w-100 arrow-container",
+        style: {
+          transition: "".concat(transition, "ms")
+        }
+      }, this.state.showLeft && React__default.createElement("div", {
+        className: pswp__button('arrow--left prev'),
+        onClick: function onClick() {
+          return _this2.changeSlide('prev');
+        }
+      }), this.state.showRight && React__default.createElement("div", {
+        className: pswp__button('arrow--right next'),
+        onClick: function onClick() {
+          return _this2.changeSlide('next');
+        }
+      }))), React__default.createElement("div", {
+        className: "overlay",
+        ref: this.overlay,
+        style: {
+          transition: "".concat(transition, "ms")
+        },
+        onClick: this.closeZoom
+      }), React__default.createElement("div", {
+        className: lightboxClasses
+      }, items));
+    }
+  }]);
+
+  return Lightbox;
+}(React__default.Component);
+
+Lightbox.propTypes = {
+  images: propTypes.array,
+  itemClassName: propTypes.string,
+  noMargins: propTypes.bool,
+  marginSpace: propTypes.number,
+  lg: propTypes.string,
+  md: propTypes.string,
+  sm: propTypes.string,
+  size: propTypes.string,
+  xl: propTypes.string,
+  xs: propTypes.string,
+  transition: propTypes.number
+};
+Lightbox.defaultProps = {
+  images: [],
+  noMargins: false,
+  marginSpace: 150,
+  transition: 400
+};
 
 var css$d = "\n/*\n * Container style\n */\n .ps {\n  overflow: hidden !important;\n  overflow-anchor: none;\n  -ms-overflow-style: none;\n  touch-action: auto;\n  -ms-touch-action: auto;\n}\n\n/*\n * Scrollbar rail styles\n */\n.ps__rail-x {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  height: 15px;\n  /* there must be 'bottom' or 'top' for ps__rail-x */\n  bottom: 0px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-y {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  width: 15px;\n  /* there must be 'right' or 'left' for ps__rail-y */\n  right: 0;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps--active-x > .ps__rail-x,\n.ps--active-y > .ps__rail-y {\n  display: block;\n  background-color: transparent;\n}\n\n.ps:hover > .ps__rail-x,\n.ps:hover > .ps__rail-y,\n.ps--focus > .ps__rail-x,\n.ps--focus > .ps__rail-y,\n.ps--scrolling-x > .ps__rail-x,\n.ps--scrolling-y > .ps__rail-y {\n  opacity: 0.6;\n}\n\n.ps__rail-x:hover,\n.ps__rail-y:hover,\n.ps__rail-x:focus,\n.ps__rail-y:focus {\n  background-color: #eee;\n  opacity: 0.9;\n}\n\n/*\n * Scrollbar thumb styles\n */\n.ps__thumb-x {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, height .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, height .2s ease-in-out;\n  height: 6px;\n  /* there must be 'bottom' for ps__thumb-x */\n  bottom: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__thumb-y {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, width .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, width .2s ease-in-out;\n  width: 6px;\n  /* there must be 'right' for ps__thumb-y */\n  right: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-x:hover > .ps__thumb-x,\n.ps__rail-x:focus > .ps__thumb-x {\n  background-color: #999;\n  height: 11px;\n}\n\n.ps__rail-y:hover > .ps__thumb-y,\n.ps__rail-y:focus > .ps__thumb-y {\n  background-color: #999;\n  width: 11px;\n}\n\n/* MS supports */\n@supports (-ms-overflow-style: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n\n.scrollbar-container {\n  position: relative;\n  height: 100%;\n}\n";
 styleInject(css$d);
@@ -11782,11 +12438,6 @@ function (_Component) {
 TimePicker.propTypes = propTypes$7;
 TimePicker.defaultProps = defaultProps$1;
 
-var css$j = ".Toastify__toast-container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 320px;\n  box-sizing: border-box;\n  color: #fff; }\n  .Toastify__toast-container--top-left {\n    top: 1em;\n    left: 1em; }\n  .Toastify__toast-container--top-center {\n    top: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--top-right {\n    top: 1em;\n    right: 1em; }\n  .Toastify__toast-container--bottom-left {\n    bottom: 1em;\n    left: 1em; }\n  .Toastify__toast-container--bottom-center {\n    bottom: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--bottom-right {\n    bottom: 1em;\n    right: 1em; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast-container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0; }\n    .Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right {\n      top: 0; }\n    .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right {\n      bottom: 0; }\n    .Toastify__toast-container--rtl {\n      right: 0;\n      left: initial; } }\n\n.Toastify__toast {\n  position: relative;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 8px;\n  border-radius: 1px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  max-height: 800px;\n  overflow: hidden;\n  font-family: sans-serif;\n  cursor: pointer;\n  direction: ltr; }\n  .Toastify__toast--rtl {\n    direction: rtl; }\n  .Toastify__toast--default {\n    background: #fff;\n    color: #aaa; }\n  .Toastify__toast--info {\n    background: #3498db; }\n  .Toastify__toast--success {\n    background: #07bc0c; }\n  .Toastify__toast--warning {\n    background: #f1c40f; }\n  .Toastify__toast--error {\n    background: #e74c3c; }\n  .Toastify__toast-body {\n    margin: auto 0;\n    -ms-flex: 1;\n        flex: 1; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast {\n    margin-bottom: 0; } }\n\n.Toastify__close-button {\n  color: #fff;\n  font-weight: bold;\n  font-size: 14px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  opacity: 0.7;\n  transition: 0.3s ease;\n  -ms-flex-item-align: start;\n      align-self: flex-start; }\n  .Toastify__close-button--default {\n    color: #000;\n    opacity: 0.3; }\n  .Toastify__close-button:hover, .Toastify__close-button:focus {\n    opacity: 1; }\n\n@keyframes Toastify__trackProgress {\n  0% {\n    transform: scaleX(1); }\n  100% {\n    transform: scaleX(0); } }\n\n.Toastify__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 9999;\n  opacity: 0.7;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left; }\n  .Toastify__progress-bar--animated {\n    animation: Toastify__trackProgress linear 1 forwards; }\n  .Toastify__progress-bar--controlled {\n    transition: transform .2s; }\n  .Toastify__progress-bar--rtl {\n    right: 0;\n    left: initial;\n    transform-origin: right; }\n  .Toastify__progress-bar--default {\n    background: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55); }\n\n@keyframes Toastify__bounceInRight {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0); }\n  75% {\n    transform: translate3d(10px, 0, 0); }\n  90% {\n    transform: translate3d(-5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInLeft {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0); }\n  75% {\n    transform: translate3d(-10px, 0, 0); }\n  90% {\n    transform: translate3d(5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInUp {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  75% {\n    transform: translate3d(0, 10px, 0); }\n  90% {\n    transform: translate3d(0, -5px, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0); } }\n\n@keyframes Toastify__bounceInDown {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    transform: translate3d(0, 5px, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0); } }\n\n.Toastify__bounce-enter--top-left, .Toastify__bounce-enter--bottom-left {\n  animation-name: Toastify__bounceInLeft; }\n\n.Toastify__bounce-enter--top-right, .Toastify__bounce-enter--bottom-right {\n  animation-name: Toastify__bounceInRight; }\n\n.Toastify__bounce-enter--top-center {\n  animation-name: Toastify__bounceInDown; }\n\n.Toastify__bounce-enter--bottom-center {\n  animation-name: Toastify__bounceInUp; }\n\n.Toastify__bounce-exit--top-left, .Toastify__bounce-exit--bottom-left {\n  animation-name: Toastify__bounceOutLeft; }\n\n.Toastify__bounce-exit--top-right, .Toastify__bounce-exit--bottom-right {\n  animation-name: Toastify__bounceOutRight; }\n\n.Toastify__bounce-exit--top-center {\n  animation-name: Toastify__bounceOutUp; }\n\n.Toastify__bounce-exit--bottom-center {\n  animation-name: Toastify__bounceOutDown; }\n\n@keyframes Toastify__zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  50% {\n    opacity: 1; } }\n\n@keyframes Toastify__zoomOut {\n  from {\n    opacity: 1; }\n  50% {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  to {\n    opacity: 0; } }\n\n.Toastify__zoom-enter {\n  animation-name: Toastify__zoomIn; }\n\n.Toastify__zoom-exit {\n  animation-name: Toastify__zoomOut; }\n\n@keyframes Toastify__flipIn {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0; }\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in; }\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1; }\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }\n  to {\n    transform: perspective(400px); } }\n\n@keyframes Toastify__flipOut {\n  from {\n    transform: perspective(400px); }\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1; }\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0; } }\n\n.Toastify__flip-enter {\n  animation-name: Toastify__flipIn; }\n\n.Toastify__flip-exit {\n  animation-name: Toastify__flipOut; }\n\n@keyframes Toastify__slideInRight {\n  from {\n    transform: translate3d(110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInLeft {\n  from {\n    transform: translate3d(-110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInUp {\n  from {\n    transform: translate3d(0, 110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInDown {\n  from {\n    transform: translate3d(0, -110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(110%, 0, 0); } }\n\n@keyframes Toastify__slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(-110%, 0, 0); } }\n\n@keyframes Toastify__slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 500px, 0); } }\n\n@keyframes Toastify__slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -500px, 0); } }\n\n.Toastify__slide-enter--top-left, .Toastify__slide-enter--bottom-left {\n  animation-name: Toastify__slideInLeft; }\n\n.Toastify__slide-enter--top-right, .Toastify__slide-enter--bottom-right {\n  animation-name: Toastify__slideInRight; }\n\n.Toastify__slide-enter--top-center {\n  animation-name: Toastify__slideInDown; }\n\n.Toastify__slide-enter--bottom-center {\n  animation-name: Toastify__slideInUp; }\n\n.Toastify__slide-exit--top-left, .Toastify__slide-exit--bottom-left {\n  animation-name: Toastify__slideOutLeft; }\n\n.Toastify__slide-exit--top-right, .Toastify__slide-exit--bottom-right {\n  animation-name: Toastify__slideOutRight; }\n\n.Toastify__slide-exit--top-center {\n  animation-name: Toastify__slideOutUp; }\n\n.Toastify__slide-exit--bottom-center {\n  animation-name: Toastify__slideOutDown; }";
-styleInject(css$j);
-
-// FREE
-
 Object.defineProperty(exports, 'MDBToast', {
   enumerable: true,
   get: function () {
@@ -11880,7 +12531,7 @@ exports.InputNumeric = InputNumeric;
 exports.InputRange = InputRange;
 exports.InputSwitch = InputSwitch;
 exports.Jumbotron = Jumbotron;
-exports.LightboxStyles = css$c;
+exports.Lightbox = Lightbox;
 exports.ListGroup = ListGroup;
 exports.ListGroupItem = ListGroupItem;
 exports.MDBAlert = Alert;
@@ -11937,6 +12588,7 @@ exports.MDBInput = Input;
 exports.MDBInputGroup = InputGroup;
 exports.MDBInputSelect = InputNumeric;
 exports.MDBJumbotron = Jumbotron;
+exports.MDBLightbox = Lightbox;
 exports.MDBListGroup = ListGroup;
 exports.MDBListGroupItem = ListGroupItem;
 exports.MDBMask = Mask;

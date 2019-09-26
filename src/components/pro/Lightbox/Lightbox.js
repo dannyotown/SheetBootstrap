@@ -6,9 +6,8 @@ import { MDBBtnGroup } from '../../ButtonGroup';
 import { MDBCol } from '../../Col';
 import { MDBContainer } from '../../Container';
 import './Lightbox.css';
-import { thisExpression } from '@babel/types';
 
-class LightBox extends React.Component {
+class Lightbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.reset();
@@ -488,7 +487,7 @@ class LightBox extends React.Component {
 
     const { activeKey, galleryImagesData, imgSrc, sliderOpened } = this.state;
 
-    const lightBoxClasses = classNames(
+    const lightboxClasses = classNames(
       'mdb-lightbox d-flex flex-wrap',
       !noMargins && 'no-margin',
       className
@@ -655,13 +654,13 @@ class LightBox extends React.Component {
           style={{ transition: `${transition}ms` }}
           onClick={this.closeZoom}
         />
-        <div className={lightBoxClasses}>{items}</div>
+        <div className={lightboxClasses}>{items}</div>
       </MDBContainer>
     );
   }
 }
 
-LightBox.propTypes = {
+Lightbox.propTypes = {
   images: PropTypes.array,
   itemClassName: PropTypes.string,
   noMargins: PropTypes.bool,
@@ -675,12 +674,12 @@ LightBox.propTypes = {
   transition: PropTypes.number
 };
 
-LightBox.defaultProps = {
+Lightbox.defaultProps = {
   images: [],
   noMargins: false,
   marginSpace: 150,
   transition: 400
 };
 
-export default LightBox;
-export { LightBox as MDBLightBox };
+export default Lightbox;
+export { Lightbox as MDBLightbox };
