@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBContainer, MDBLightBox } from 'mdbreact';
+import { MDBContainer, MDBLightbox } from 'mdbreact';
 import DocsLink from './../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
 
@@ -237,14 +237,14 @@ class LightboxPage extends Component {
           href='https://mdbootstrap.com/docs/react/advanced/lightbox/'
         />
         <SectionContainer header='Basic example' className='p-4'>
-          <MDBLightBox md='4' images={this.state.images} />
+          <MDBLightbox md='4' images={this.state.images} />
         </SectionContainer>
         <SectionContainer header='Gallery with margins' className='p-4'>
-          <MDBLightBox md='4' images={this.state.noMargins} noMargins />
+          <MDBLightbox md='4' images={this.state.noMargins} noMargins />
         </SectionContainer>
         <SectionContainer header='Gallery with heading' className='p-4'>
           <h2 className='font-weight-bold my-5 text-center'>My Projects</h2>
-          <MDBLightBox md='4' images={this.state.heading} noMargins />
+          <MDBLightbox md='4' images={this.state.heading} noMargins />
         </SectionContainer>
         <SectionContainer header='Projects presentation' className='p-4'>
           <h2 className='h1 text-center text-uppercase font-weight-bold mt-5 mb-3 mt-5'>
@@ -260,11 +260,11 @@ class LightboxPage extends Component {
             veniam. At ab ea a molestiae corrupti numquam quo beatae minima
             ratione magni accusantium repellat eveniet quia vitae.
           </p>
-          <MDBLightBox md='3' images={this.state.presentation} noMargins />
+          <MDBLightbox md='3' images={this.state.presentation} noMargins />
         </SectionContainer>
 
         <SectionContainer header='Gallery with mixed content' className='p-4'>
-          <MDBLightBox images={this.state.mixed} noMargins />
+          <MDBLightbox images={this.state.mixed} noMargins />
         </SectionContainer>
       </MDBContainer>
     );

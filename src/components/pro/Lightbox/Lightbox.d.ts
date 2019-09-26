@@ -1,6 +1,6 @@
 import * as React from "react";
 
-declare class MDBLightBox extends React.Component<{
+declare class MDBLightbox extends React.Component<{
   images: [],
   itemClassName?: string,
   descriptionClasses?: string,
@@ -17,4 +17,4 @@ declare class MDBLightBox extends React.Component<{
   [rest: string]: any;
 }, any> {}
 
-export default MDBLightBox;
+export default MDBLightbox;
