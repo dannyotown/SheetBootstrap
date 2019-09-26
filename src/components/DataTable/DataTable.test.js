@@ -121,7 +121,8 @@ describe('<DataTable />', () => {
       theadColor: 'test',
       theadTextWhite: true,
       tbodyColor: 'test',
-      tbodyTextWhite: true
+      tbodyTextWhite: true,
+      noRecordsFoundLabel: 'test'
     };
 
     wrapper = setup(expectedProps);

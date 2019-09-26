@@ -34,6 +34,7 @@ declare class MDBDataTable extends React.Component<
     hover?: boolean;
     info?: boolean;
     infoLabel?: string[];
+    noRecordsFoundLabel?: string;
     maxHeight?: string;
     order?: string[];
     pagesAmount?: number;
