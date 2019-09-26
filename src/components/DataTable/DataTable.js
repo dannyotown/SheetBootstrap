@@ -40,7 +40,7 @@ class DataTable extends Component {
     const { order, columns } = this.state;
 
     if (typeof data === 'string') {
-      this.fetchData(data);
+      this.fetchData(data, this.paginateRows);
     }
 
     order.length && this.handleSort(order[0], order[1]);
@@ -83,10 +83,10 @@ class DataTable extends Component {
     this.setState({ unsearchable });
   };
 
-  fetchData = link => {
+  fetchData = (link, isPaginateRows) => {
     fetch(link)
       .then(res => res.json())
-      .then(json => this.setData(json.rows, json.columns))
+      .then(json => this.setData(json.rows, json.columns, isPaginateRows ? this.paginateRows : null))
       .catch(err => console.log(err));
   };
 
@@ -147,8 +147,8 @@ class DataTable extends Component {
           ? -1
           : 1
         : a[field] > b[field]
-        ? -1
-        : 1;
+          ? -1
+          : 1;
     });
   };
 
