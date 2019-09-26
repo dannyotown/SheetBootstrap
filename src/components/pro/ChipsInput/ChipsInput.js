@@ -29,6 +29,29 @@ class ChipsInput extends Component {
     });
   };
 
+  handleProps = (id, value, target, array) => {
+    const {
+      handleRemove,
+      handleAdd,
+      getValue
+    } = this.props
+
+    if (!target) {
+      handleRemove && handleRemove({
+        id: id,
+        value: value,
+      });
+    } else {
+      handleAdd && handleAdd({
+        id: id,
+        value: value,
+        target: target
+      });
+    }
+    getValue && getValue(array)
+  }
+
+
   handleEnter = e => {
     // 1) get the value:
     const { chipsList } = this.state;
@@ -59,13 +82,7 @@ class ChipsInput extends Component {
           inputValue: '',
           chipsList: chipsListUpdate,
         }, () => {
-
-          this.props.getValue && this.props.getValue({
-            id: chipsList.length - 1,
-            value: newChipString,
-            target: target.previousElementSibling
-          });
-          this.props.getChipsList && this.props.getChipsList({ chipsList: chipsList })
+          this.handleProps(chipsList.length, newChipString, target.previousElementSibling, chipsListUpdate)
         });
     }
 
@@ -81,44 +98,31 @@ class ChipsInput extends Component {
     //if the input is already empty (is ready to delete chips) and Backspace is pressed:
     if (this.state.isReadyToDelete && e.which === 8) {
       const { chipsList } = this.state;
-      const target = e.target.previousElementSibling
-      const deletedChips = chipsList.pop();
+      const itemToDelete = chipsList.pop();
 
       this.setState({
         chipsList
       }, () => {
-        this.props.getValue && this.props.getValue({
-          id: chipsList.length,
-          value: deletedChips,
-          target: target
-        });
-        this.props.getChipsList && this.props.getChipsList({ chipsList: chipsList })
+        this.handleProps(chipsList.length, itemToDelete, false, chipsList)
       });
     }
   };
 
-  handleClose = (param, e) => {
+  handleClose = (param) => {
     const { chipsList } = this.state;
     const { handleClose } = this.props;
 
     const index = chipsList.indexOf(param);
     const itemToDelete = chipsList[index];
-    const target = e.currentTarget.parentNode
 
     chipsList.splice(index, 1);
 
-    this.setState(
-      {
-        chipsList
-      },
+    this.setState({
+      chipsList
+    },
       () => {
         handleClose && handleClose(itemToDelete);
-        this.props.getValue && this.props.getValue({
-          id: index,
-          value: itemToDelete,
-          target: target
-        });
-        this.props.getChipsList && this.props.getChipsList({ chipsList: chipsList })
+        this.handleProps(index, itemToDelete, false, chipsList)
       }
     );
   };
@@ -134,6 +138,8 @@ class ChipsInput extends Component {
       className,
       tag: Tag,
       handleClose,
+      handleAdd,
+      handleRemove,
       placeholder,
       secondaryPlaceholder,
       chipSize,
@@ -142,7 +148,6 @@ class ChipsInput extends Component {
       chipGradient,
       chipWaves,
       getValue,
-      getChipsList,
       ...attributes
     } = this.props;
 
