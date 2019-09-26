@@ -131,6 +131,7 @@ class App extends Component {
                     <strong>Addons</strong>
                   </MDBNavLink>
                 </MDBNavItem>
+                
                 {/* PRO-START */}
                 <MDBNavItem>
                   <MDBNavLink
