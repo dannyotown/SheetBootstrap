@@ -6,7 +6,6 @@ import { MDBBtnGroup } from '../../ButtonGroup';
 import { MDBCol } from '../../Col';
 import { MDBContainer } from '../../Container';
 import './Lightbox.css';
-import { thisExpression } from '@babel/types';
 
 class Lightbox extends React.Component {
   constructor(props) {
