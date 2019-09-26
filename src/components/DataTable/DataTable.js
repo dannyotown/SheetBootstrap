@@ -112,7 +112,13 @@ class DataTable extends Component {
   };
 
   handleSearchChange = e => {
-    this.setState({ search: e.target.value }, () => this.filterRows());
+    this.setState(
+      { search: e.target.value },
+      () => this.filterRows(),
+      this.props.onSearch &&
+        typeof this.props.onSearch === 'function' &&
+        this.props.onSearch(e.target.value)
+    );
   };
 
   checkFieldValue = (array, field) => {
@@ -147,6 +153,8 @@ class DataTable extends Component {
   };
 
   handleSort = (field, sort) => {
+    const { onSort } = this.props;
+
     if (sort === 'disabled') return;
 
     this.setState(
@@ -172,6 +180,10 @@ class DataTable extends Component {
       },
       () => this.filterRows()
     );
+
+    onSort &&
+      typeof onSort === 'function' &&
+      onSort({ column: field, direction: sort === 'desc' ? 'desc' : 'asc' });
   };
 
   filterRows = () => {
@@ -243,7 +255,12 @@ class DataTable extends Component {
   };
 
   changeActivePage = page => {
+    const { onPageChange } = this.props;
     this.setState({ activePage: page });
+
+    onPageChange &&
+      typeof onPageChange === 'function' &&
+      onPageChange({ activePage: page + 1, pagesAmount: this.pagesAmount() });
   };
 
   handleTableBodyScroll = e => {
@@ -291,6 +308,9 @@ class DataTable extends Component {
       theadColor,
       theadTextWhite,
       sortRows,
+      onSearch,
+      onSort,
+      onPageChange,
       ...attributes
     } = this.props;
 
@@ -471,7 +491,10 @@ DataTable.propTypes = {
   theadColor: PropTypes.string,
   theadTextWhite: PropTypes.bool,
   tbodyColor: PropTypes.string,
-  tbodyTextWhite: PropTypes.bool
+  tbodyTextWhite: PropTypes.bool,
+  onSearch: PropTypes.func,
+  onSort: PropTypes.func,
+  onPageChange: PropTypes.func
 };
 
 DataTable.defaultProps = {

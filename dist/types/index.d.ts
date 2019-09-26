@@ -489,8 +489,10 @@ declare class MDBDataTable extends Component<
     theadTextWhite?: boolean;
     tbodyColor?: string;
     tbodyTextWhite?: boolean;
-
     tag?: string;
+    onSearch?: (value: string) => string | void,
+    onSort?: (obj: { column: string, direction: string }) => object | void,
+    onPageChange?: (obj: { activePage: number , pagesAmount: number }) => object | void, 
     [rest: string]: any;
   },
   any
