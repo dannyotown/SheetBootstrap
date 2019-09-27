@@ -288,6 +288,7 @@ class DataTable extends Component {
       infoLabel,
       maxHeight,
       noBottomColumns,
+      noRecordsFoundLabel,
       order,
       pagesAmount,
       paging,
