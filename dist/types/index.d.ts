@@ -1,12 +1,22 @@
 import { FunctionComponent, ReactNode, Component, RefObject, SyntheticEvent, FormEvent } from 'react';
 
 declare const MDBAlert: FunctionComponent<{
-    color?: 'default' | 'primary'| 'secondary'| 'success'| 'danger'| 'warning'| 'info'| 'light'| 'dark';
-    className?: string;
-    children?: ReactNode;
-    dismiss?: boolean;
-    onClose?: () => void;
-    onClosed?: () => void;
+  color?:
+    | "default"
+    | "primary"
+    | "secondary"
+    | "success"
+    | "danger"
+    | "warning"
+    | "info"
+    | "light"
+    | "dark";
+  className?: string;
+  children?: ReactNode;
+  dismiss?: boolean;
+  tag?: string;
+  onClose?: () => void;
+  onClosed?: () => void;
 }>;
 
 declare class MDBAnimation extends Component<
@@ -468,7 +478,9 @@ declare class MDBDataTable extends Component<
     hover?: boolean;
     info?: boolean;
     infoLabel?: string[];
+    noRecordsFoundLabel?: string;
     maxHeight?: string;
+    noBottomColumns?: boolean;
     order?: string[];
     pagesAmount?: number;
     paging?: boolean;
@@ -748,36 +760,40 @@ declare const MDBMedia: FunctionComponent<{
   [rest: string]: any;
 }>;
 
-declare class MDBModal extends Component<{
-  animation?: "top" | "bottom" | "left" | "right";
-  autoFocus?: boolean;
-  backdrop?: boolean;
-  backdropClassName?: string;
-  cascading?: boolean;
-  centered?: boolean;
-  className?: string;
-  contentClassName?: string;
-  children?: ReactNode;
-  fade?: boolean;
-  frame?: boolean;
-  fullHeight?: boolean;
-  isOpen?: boolean;
-  id?: string;
-  labelledBy?: string;
-  modalClassName?: string;
-  modalStyle?: "success" | "info" | "danger" | "warning";
-  position?: string;
-  side?: boolean;
-  size?: "sm" | "md" | "lg" | "fluid";
-  role?: string;
-  tabIndex?: string;
-  wrapClassName?: boolean;
-  toggle?: () => void;
-  hiddenModal?: () => void;
-  hideModal?: () => void;
-  showModal?: () => void;
-  [rest: string]: any;
-}, any> {}
+declare class MDBModal extends Component<
+  {
+    animation?: 'top' | 'bottom' | 'left' | 'right';
+    autoFocus?: boolean;
+    backdrop?: boolean;
+    backdropClassName?: string;
+    cascading?: boolean;
+    centered?: boolean;
+    className?: string;
+    contentClassName?: string;
+    children?: ReactNode;
+    fade?: boolean;
+    frame?: boolean;
+    fullHeight?: boolean;
+    isOpen?: boolean;
+    id?: string;
+    labelledBy?: string;
+    modalClassName?: string;
+    modalStyle?: 'success' | 'info' | 'danger' | 'warning';
+    position?: string;
+    side?: boolean;
+    size?: 'sm' | 'md' | 'lg' | 'fluid';
+    role?: string;
+    tabIndex?: string;
+    wrapClassName?: boolean;
+    keyboard?: boolean;
+    toggle?: () => void;
+    hiddenModal?: () => void;
+    hideModal?: () => void;
+    showModal?: () => void;
+    [rest: string]: any;
+  },
+  any
+> {}
 
 declare const MDBModalBody: FunctionComponent<{
   className?: string;
