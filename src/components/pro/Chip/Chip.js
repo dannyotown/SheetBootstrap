@@ -11,7 +11,6 @@ const Chip = props => {
   const handleClick = e => {
     // Get Cursor Position
     e.stopPropagation();
-    e.preventDefault();
     let cursorPos = {
       top: e.clientY,
       left: e.clientX,
