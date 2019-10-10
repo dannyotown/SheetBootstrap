@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import SideNavContext from '../SideNavContext';
 
 class SideNavNav extends React.Component {
@@ -12,7 +12,7 @@ class SideNavNav extends React.Component {
   }
 
   onClick = number => () => {
-    let state = "";
+    let state = '';
     if (this.state.accordion !== number) {
       state = number;
     } else {
@@ -24,18 +24,24 @@ class SideNavNav extends React.Component {
   };
 
   render() {
-    const { tag: Tag, children, className, ...attributes } = this.props;
+    const {
+      tag: Tag,
+      toggleNavLabel,
+      children,
+      className,
+      ...attributes
+    } = this.props;
 
     const { accordion } = this.state;
 
     const classes = classNames(
-      "collapsible",
-      "collapsible-accordion",
+      'collapsible',
+      'collapsible-accordion',
       className
     );
 
     const modified = React.Children.map(this.props.children, (child, i) => {
-      if (child.type.displayName === "SideNavCat") {
+      if (child.type.displayName === 'SideNavCat') {
         return React.cloneElement(child, {
           onClick: this.onClick(i),
           isOpen: accordion === i
@@ -48,12 +54,11 @@ class SideNavNav extends React.Component {
     return (
       <SideNavContext.Consumer>
         {({ slim, slimInitial, toggleSlim, right }) => {
-
-          const iconClass = ['mr-2', "sv-slim-icon", "fas", "icon-rotate"];
-          (right & slim) && iconClass.push('fa-angle-double-left');
-          (right & !slim) && iconClass.push('fa-angle-double-right');
-          (!right & !slim) && iconClass.push('fa-angle-double-left');
-          (!right & slim) && iconClass.push('fa-angle-double-right');
+          const iconClass = ['mr-2', 'sv-slim-icon', 'fas', 'icon-rotate'];
+          right & slim && iconClass.push('fa-angle-double-left');
+          right & !slim && iconClass.push('fa-angle-double-right');
+          !right & !slim && iconClass.push('fa-angle-double-left');
+          !right & slim && iconClass.push('fa-angle-double-right');
 
           return (
             <>
@@ -62,19 +67,17 @@ class SideNavNav extends React.Component {
                   {modified}
                   {slimInitial && (
                     <li onClick={toggleSlim()}>
-                      <a href="#!" className="waves-effect">
-                        <i className={iconClass.join(" ")}></i>
-                        Minimize
-                            menu
+                      <a className='waves-effect'>
+                        <i className={iconClass.join(' ')}></i>
+                        {this.props.toggleNavLabel}
                       </a>
                     </li>
                   )}
                 </Tag>
               </li>
             </>
-          )
+          );
         }}
-
       </SideNavContext.Consumer>
     );
   }
@@ -83,11 +86,13 @@ class SideNavNav extends React.Component {
 SideNavNav.propTypes = {
   children: PropTypes.node,
   tag: PropTypes.string,
+  toggleNavLabel: PropTypes.string,
   className: PropTypes.string
 };
 
 SideNavNav.defaultProps = {
-  tag: "ul"
+  tag: 'ul',
+  toggleNavLabel: 'Minimize menu'
 };
 
 export default SideNavNav;
