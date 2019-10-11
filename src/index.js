@@ -1,4 +1,4 @@
-// FREE
+/* FREE-START */
 import Alert from './components/Alert';
 import Animation from './components/Animation';
 import Badge from './components/Badge';
@@ -79,7 +79,7 @@ import TreeviewList from './components/Treeview/TreeviewList';
 import View from './components/View';
 import Waves from './components/Waves';
 
-// PRO-START
+/* PRO-START */
 import Autocomplete from './components/pro/Autocomplete';
 import Avatar from './components/pro/Avatar';
 import ButtonFixed from './components/pro/ButtonFixed';
@@ -123,10 +123,10 @@ import Timeline from './components/pro/Timeline';
 import TimelineStep from './components/pro/Timeline/TimelineStep';
 import TimePicker from './components/pro/TimePicker/TimePicker';
 import { toast, ToastContainer, cssTransition } from './components/pro/Toast';
-// PRO-END
+/* PRO-END */
 
 export {
-  // FREE
+  /* FREE-START */
   Alert,
   Animation,
   Badge,
@@ -337,7 +337,7 @@ export {
   View as MDBView,
   Waves as MDBWaves,
   
-  // PRO-START
+  /* PRO-START */
   Autocomplete as MDBAutocomplete,
   Avatar as MDBAvatar,
   ButtonFixed as MDBBtnFixed,
@@ -383,5 +383,5 @@ export {
   TimePicker as MDBTimePicker,
   toast as MDBToast,
   ToastContainer as MDBToastContainer,
-  // PRO-END
+  /* PRO-END */
 };

@@ -1,4 +1,4 @@
-//FREE
+/* FREE-START */
 import MDBAlert from './components/Alert';
 import MDBAnimation from './components/Animation';
 import MDBBadge from './components/Badge';
@@ -77,9 +77,9 @@ import MDBTreeviewItem from './components/Treeview/TreeviewItem';
 import MDBTreeviewList from './components/Treeview/TreeviewList';
 import MDBView from './components/View';
 import MDBWaves from './components/Waves';
-//FREE
+/* FREE-END */
 
-//PRO
+/* PRO-START */
 import MDBAutocomplete from './components/pro/Autocomplete';
 import MDBAvatar from './components/pro/Avatar';
 import MDBButtonFixed from './components/pro/ButtonFixed';
@@ -123,10 +123,10 @@ import MDBTimeline from './components/pro/Timeline';
 import MDBTimelineStep from './components/pro/Timeline/TimelineStep';
 import MDBTimePicker from './components/pro/TimePicker/TimePicker';
 import { MDBToast, MDBToastContainer } from './components/pro/Toast/';
-//PRO
+/* PRO-END */
 
 export {
-  //FREE
+  /* FREE-START */
   MDBAlert,
   MDBAnimation,
   MDBBadge,
@@ -206,9 +206,9 @@ export {
   MDBTreeviewList,
   MDBView,
   MDBWaves,
-  //FREE
+  /* PRO-END */
   
-  //PRO
+  /* PRO-START */
   MDBAutocomplete,
   MDBAvatar,
   MDBButtonFixed,
@@ -253,5 +253,5 @@ export {
   MDBTimePicker,
   MDBToast,
   MDBToastContainer
-  //PRO
+  /* PRO-END */
 };
