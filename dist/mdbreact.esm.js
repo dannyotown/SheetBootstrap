@@ -847,7 +847,7 @@ BreadcrumbItem.defaultProps = {
   iconSize: ""
 };
 
-var css$1 = ".Ripple {\n  position: absolute;\n  background: rgba(255, 255, 255, 0.3);\n  border-radius: 50%;\n  opacity: 1;\n  transform: scale(0);\n}\n\n.Ripple-outline {\n  background: rgba(0, 0, 0, 0.2);\n}\n\n.Ripple.is-reppling {\n  animation: ripple 0.5s linear;\n}\n\n.Ripple-parent {\n  position: relative;\n  overflow: hidden;\n  touch-action: none;\n}\n\n@keyframes ripple {\n  100% {\n    opacity: 0;\n    transform: scale(3);\n  }\n}\n";
+var css$1 = ".Ripple {\n  position: absolute;\n  background: rgba(255, 255, 255, 0.3);\n  border-radius: 50%;\n  opacity: 1;\n  transform: scale(0);\n}\n\n.Ripple-outline {\n  background: rgba(0, 0, 0, 0.2);\n}\n\n.Ripple.is-reppling {\n  animation: ripple 0.5s linear;\n}\n\n.Ripple-parent {\n  position: relative;\n  overflow: hidden;\n  cursor: pointer;\n}\n\n@keyframes ripple {\n  100% {\n    opacity: 0;\n    transform: scale(3);\n  }\n}\n";
 styleInject(css$1);
 
 var Waves =
@@ -1674,10 +1674,12 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "startTouch", function (e) {
-      _this.setState({
-        initialX: e.touches[0].clientX,
-        initialY: e.touches[0].clientY
-      });
+      if (_this.props.mobileGesture !== false) {
+        _this.setState({
+          initialX: e.touches[0].clientX,
+          initialY: e.touches[0].clientY
+        });
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "moveTouch", function (e) {
@@ -1771,6 +1773,7 @@ function (_Component) {
           activeItem = _this$props.activeItem,
           children = _this$props.children,
           className = _this$props.className,
+          mobileGesture = _this$props.mobileGesture,
           multiItem = _this$props.multiItem,
           slide = _this$props.slide,
           thumbnails = _this$props.thumbnails,
@@ -1781,7 +1784,7 @@ function (_Component) {
           showControls = _this$props.showControls,
           showIndicators = _this$props.showIndicators,
           onHoverStop = _this$props.onHoverStop,
-          attributes = _objectWithoutProperties(_this$props, ["activeItem", "children", "className", "multiItem", "slide", "thumbnails", "interval", "testimonial", "tag", "length", "showControls", "showIndicators", "onHoverStop"]);
+          attributes = _objectWithoutProperties(_this$props, ["activeItem", "children", "className", "mobileGesture", "multiItem", "slide", "thumbnails", "interval", "testimonial", "tag", "length", "showControls", "showIndicators", "onHoverStop"]);
 
       var swipeAvailable = this.state.swipeAvailable;
       var ariaLabel = 'carousel';
@@ -1858,6 +1861,7 @@ Carousel.propTypes = {
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
   className: propTypes.string,
   children: propTypes.node,
+  mobileGesture: propTypes.bool,
   multiItem: propTypes.bool,
   interval: propTypes.oneOfType([propTypes.number, propTypes.bool]),
   thumbnails: propTypes.bool,
@@ -1869,6 +1873,7 @@ Carousel.propTypes = {
   onHoverStop: propTypes.bool
 };
 Carousel.defaultProps = {
+  mobileGesture: true,
   tag: 'div',
   interval: 6000,
   showControls: true,
@@ -8323,7 +8328,6 @@ var Chip = function Chip(props) {
   var handleClick = function handleClick(e) {
     // Get Cursor Position
     e.stopPropagation();
-    e.preventDefault();
     var cursorPos = {
       top: e.clientY,
       left: e.clientX,
@@ -10645,7 +10649,7 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "onClick", function (number) {
       return function () {
-        var state = "";
+        var state = '';
 
         if (_this.state.accordion !== number) {
           state = number;
@@ -10672,14 +10676,15 @@ function (_React$Component) {
 
       var _this$props = this.props,
           Tag = _this$props.tag,
+          toggleNavLabel = _this$props.toggleNavLabel,
           children = _this$props.children,
           className = _this$props.className,
-          attributes = _objectWithoutProperties(_this$props, ["tag", "children", "className"]);
+          attributes = _objectWithoutProperties(_this$props, ["tag", "toggleNavLabel", "children", "className"]);
 
       var accordion = this.state.accordion;
-      var classes = classNames("collapsible", "collapsible-accordion", className);
+      var classes = classNames('collapsible', 'collapsible-accordion', className);
       var modified = React.Children.map(this.props.children, function (child, i) {
-        if (child.type.displayName === "SideNavCat") {
+        if (child.type.displayName === 'SideNavCat') {
           return React.cloneElement(child, {
             onClick: _this2.onClick(i),
             isOpen: accordion === i
@@ -10693,7 +10698,7 @@ function (_React$Component) {
             slimInitial = _ref.slimInitial,
             toggleSlim = _ref.toggleSlim,
             right = _ref.right;
-        var iconClass = ['mr-2', "sv-slim-icon", "fas", "icon-rotate"];
+        var iconClass = ['mr-2', 'sv-slim-icon', 'fas', 'icon-rotate'];
         right & slim && iconClass.push('fa-angle-double-left');
         right & !slim && iconClass.push('fa-angle-double-right');
         !right & !slim && iconClass.push('fa-angle-double-left');
@@ -10703,11 +10708,10 @@ function (_React$Component) {
         }), modified, slimInitial && React.createElement("li", {
           onClick: toggleSlim()
         }, React.createElement("a", {
-          href: "#!",
           className: "waves-effect"
         }, React.createElement("i", {
-          className: iconClass.join(" ")
-        }), "Minimize menu")))));
+          className: iconClass.join(' ')
+        }), _this2.props.toggleNavLabel)))));
       });
     }
   }]);
@@ -10718,10 +10722,12 @@ function (_React$Component) {
 SideNavNav.propTypes = {
   children: propTypes.node,
   tag: propTypes.string,
+  toggleNavLabel: propTypes.string,
   className: propTypes.string
 };
 SideNavNav.defaultProps = {
-  tag: "ul"
+  tag: 'ul',
+  toggleNavLabel: 'Minimize menu'
 };
 
 var SimpleChart = function SimpleChart(props) {

@@ -331,6 +331,7 @@ declare class MDBCarousel extends Component<
     activeItem?: number;
     className?: string;
     children?: ReactNode;
+    mobileGesture?: boolean;
     multiItem?: boolean;
     interval?: number;
     thumbnails?: boolean;
@@ -484,7 +485,7 @@ declare class MDBDataTable extends Component<
     order?: string[];
     pagesAmount?: number;
     paging?: boolean;
-    pagingLabel?: string[];
+    paginationLabel?: string[];
     responsive?: boolean;
     responsiveSm?: boolean;
     responsiveMd?: boolean;
@@ -1596,12 +1597,16 @@ declare class MDBSideNavLink extends Component<{
   [rest: string]: any;
 }, any> {}
 
-declare class MDBSideNavNav extends Component<{
-  children?: ReactNode,
-  className?: string
-  tag?: string,
-  [rest: string]: any;
-}, any> {}
+declare class MDBSideNavNav extends Component<
+  {
+    children?: ReactNode;
+    className?: string;
+    tag?: string;
+    toggleNavLabel?: string;
+    [rest: string]: any;
+  },
+  any
+> {}
 
 declare const MDBSimpleChart: FunctionComponent<{
   endAngle?: number;
