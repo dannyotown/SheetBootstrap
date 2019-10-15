@@ -86,7 +86,13 @@ class DataTable extends Component {
   fetchData = (link, isPaginateRows) => {
     fetch(link)
       .then(res => res.json())
-      .then(json => this.setData(json.rows, json.columns, isPaginateRows ? this.paginateRows : null))
+      .then(json =>
+        this.setData(
+          json.rows,
+          json.columns,
+          isPaginateRows ? this.paginateRows : null
+        )
+      )
       .catch(err => console.log(err));
   };
 
@@ -133,7 +139,12 @@ class DataTable extends Component {
       this.checkFieldValue(b, field)
     ];
 
-    return direction === 'desc' ? aField < bField : aField > bField;
+    let comp = aField > bField ? -1 : 1;
+    if (direction === 'desc') {
+      comp *= -1;
+    }
+
+    return comp;
   };
 
   sort = (rows, sortRows, field, direction) => {
@@ -147,8 +158,8 @@ class DataTable extends Component {
           ? -1
           : 1
         : a[field] > b[field]
-          ? -1
-          : 1;
+        ? -1
+        : 1;
     });
   };
 

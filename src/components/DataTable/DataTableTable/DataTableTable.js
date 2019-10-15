@@ -63,7 +63,7 @@ const DataTableTable = props => {
           sortable={sortable}
           sorted={sorted}
         />
-        <TableBody color={tbodyColor} textWhite={tbodyTextWhite} rows={rows} />
+        <TableBody color={tbodyColor} textWhite={tbodyTextWhite} rows={rows} columns={columns} />
         {!noBottomColumns && (
           <TableFoot
             color={theadColor}
