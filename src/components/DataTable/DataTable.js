@@ -129,7 +129,7 @@ class DataTable extends Component {
 
   checkFieldValue = (array, field) => {
     return array[field] && typeof array[field] !== 'string'
-      ? array[field].props.searchValue
+      ? array[field].props.searchvalue
       : array[field];
   };
 
@@ -140,9 +140,7 @@ class DataTable extends Component {
     ];
 
     let comp = aField > bField ? -1 : 1;
-    if (direction === 'desc') {
-      comp *= -1;
-    }
+    if (direction === 'asc') comp *= -1;
 
     return comp;
   };
@@ -212,7 +210,17 @@ class DataTable extends Component {
               let stringValue = '';
 
               if (sortRows && typeof row[key] !== 'string') {
-                stringValue = row[key].props.searchValue;
+                let content = [];
+                const getContent = element =>
+                  typeof element === 'object'
+                    ? element.props.children &&
+                      Array.from(element.props.children).map(el =>
+                        getContent(el)
+                      )
+                    : content.push(element);
+
+                getContent(row[key]);
+                stringValue = content.join('');
               } else {
                 if (row[key]) {
                   stringValue = row[key].toString();

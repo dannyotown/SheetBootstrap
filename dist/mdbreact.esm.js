@@ -2453,34 +2453,55 @@ Table.propTypes = {
 var TableBody = function TableBody(props) {
   var children = props.children,
       color = props.color,
+      columns = props.columns,
       rows = props.rows,
       textWhite = props.textWhite,
-      attributes = _objectWithoutProperties(props, ["children", "color", "rows", "textWhite"]);
+      attributes = _objectWithoutProperties(props, ["children", "color", "columns", "rows", "textWhite"]);
 
   var classes = classNames(color, {
-    "text-white": textWhite
+    'text-white': textWhite
   });
+
+  var renderTD = function renderTD(field, key, array, row) {
+    if (field === 'clickEvent') return null; // if (typeof row[field] === 'object') row[field] = row[field].render
+    // console.log(row[field])
+    // console.log(typeof row[field])
+    // {
+    //   age: '61',
+    //   badge: { order: 0, render: <span>dsadsa</span> },
+    //   clickEvent: () => {},
+    //   date: '2011/04/25',
+    //   name: 'Tiger Nixon',
+    //   office: 'Edinburgh',
+    //   position: 'System Architect',
+    //   salary: '$320'
+    // };
+
+    if (field !== 'colspan') {
+      return array[key + 1] !== 'colspan' ? React.createElement("td", {
+        key: key
+      }, row[field]) : null;
+    } else {
+      return React.createElement("td", {
+        key: key,
+        colSpan: row[key]
+      }, row[array[key - 1]]);
+    }
+  };
+
   return React.createElement("tbody", _extends({
     "data-test": "table-body"
   }, attributes, {
     className: classes || undefined
   }), rows && rows.map(function (row, index) {
     return React.createElement("tr", {
-      onClick: row.hasOwnProperty("clickEvent") ? row.clickEvent : undefined,
+      onClick: row.hasOwnProperty('clickEvent') ? row.clickEvent : undefined,
       key: index
-    }, Object.keys(row).map(function (key, index, array) {
-      if (key === "clickEvent") return null;
-
-      if (key !== "colspan") {
-        return array[index + 1] !== "colspan" ? React.createElement("td", {
-          key: key
-        }, row[key]) : null;
-      } else {
-        return React.createElement("td", {
-          key: key,
-          colSpan: row[key]
-        }, row[array[index - 1]]);
-      }
+    }, columns ? columns.map(function (_ref, key, array) {
+      var field = _ref.field;
+      return renderTD(field, key, array, row);
+    }) : Object.keys(row).map(function (field, key, array) {
+      return renderTD(field, key, array, row);
     }));
   }), children);
 };
@@ -2587,7 +2608,8 @@ var DataTableTable = function DataTableTable(props) {
   }), React.createElement(TableBody, {
     color: tbodyColor,
     textWhite: tbodyTextWhite,
-    rows: rows
+    rows: rows,
+    columns: columns
   }), !noBottomColumns && React.createElement(TableFoot, {
     color: theadColor,
     textWhite: theadTextWhite,
@@ -2742,7 +2764,8 @@ var DataTableTableScroll = function DataTableTableScroll(props) {
   })), React.createElement(TableBody, {
     color: tbodyColor,
     textWhite: tbodyTextWhite,
-    rows: rows
+    rows: rows,
+    columns: columns
   }), children))));
 };
 
@@ -4680,7 +4703,13 @@ function (_Component) {
       var _ref = [_this.checkFieldValue(a, field), _this.checkFieldValue(b, field)],
           aField = _ref[0],
           bField = _ref[1];
-      return direction === 'desc' ? aField < bField : aField > bField;
+      var comp = aField > bField ? -1 : 1;
+
+      if (direction === 'desc') {
+        comp *= -1;
+      }
+
+      return comp;
     });
 
     _defineProperty(_assertThisInitialized(_this), "sort", function (rows, sortRows, field, direction) {

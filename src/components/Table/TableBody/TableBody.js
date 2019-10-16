@@ -9,7 +9,7 @@ const TableBody = props => {
     'text-white': textWhite
   });
 
-  const renderTD = (field, key, row, array) => {
+  const renderTD = (field, key, array, row) => {
     if (field === 'clickEvent') return null;
 
     if (field !== 'colspan') {
@@ -40,11 +40,11 @@ const TableBody = props => {
             key={index}
           >
             {columns
-              ? columns.map(({ field } = column, key, array) =>
-                  renderTD(field, key, row, array)
+              ? columns.map(({ field }, key, array) =>
+                  renderTD(field, key, array, row)
                 )
               : Object.keys(row).map((field, key, array) =>
-                  renderTD(field, key, row, array)
+                  renderTD(field, key, array, row)
                 )}
           </tr>
         ))}
