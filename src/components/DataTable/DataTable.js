@@ -44,12 +44,14 @@ class DataTable extends Component {
     }
 
     order.length && this.handleSort(order[0], order[1]);
+    // console.log(object)
 
     this.setUnsearchable(columns);
   }
 
-  componentDidUpdate(prevProps, _) {
+  componentDidUpdate(prevProps, prevState) {
     const { data } = this.props;
+    const { sorted, columns } = this.state;
 
     if (prevProps.data !== data) {
       typeof data === 'string'
@@ -57,6 +59,22 @@ class DataTable extends Component {
         : this.setData(data.rows, data.columns, this.paginateRows);
 
       this.setUnsearchable(this.state.columns);
+      this.filterRows();
+    }
+    if (sorted && columns.filter(el => el.sort).length === 0) {
+      // console.log()
+      // console.log(this.state.activePage)
+      // this.setState({ columns: prevState.columns }, () => {
+      let col = prevState.columns.filter(el => el.sort)[0];
+      let sort = col.sort === 'asc' ? 'desc' : 'asc';
+      console.log(prevState.columns, this.state.columns);
+      this.handleSort(col.field, sort);
+      setTimeout(() => {
+        this.setState({
+          activePage: prevState.activePage,
+          // columns: prevState.columns
+        });
+      }, 0);
     }
   }
 
@@ -268,7 +286,7 @@ class DataTable extends Component {
         pages.push(filteredRows);
         activePage = 0;
       }
-
+      // console.log(pages, filteredRows, activePage)
       return { pages, filteredRows, activePage };
     });
   };
@@ -381,6 +399,7 @@ class DataTable extends Component {
               fixed={fixed}
               hover={hover}
               noBottomColumns={noBottomColumns}
+              noRecordsFoundLabel={noRecordsFoundLabel}
               responsive={responsive}
               responsiveSm={responsiveSm}
               responsiveMd={responsiveMd}
@@ -445,6 +464,7 @@ class DataTable extends Component {
               info={info}
               pages={pages}
               label={infoLabel}
+              noRecordsFoundLabel={noRecordsFoundLabel}
             />
             <DataTablePagination
               activePage={activePage}
@@ -494,6 +514,7 @@ DataTable.propTypes = {
   infoLabel: PropTypes.arrayOf(PropTypes.string),
   maxHeight: PropTypes.string,
   noBottomColumns: PropTypes.bool,
+  noRecordsFoundLabel: PropTypes.string,
   order: PropTypes.arrayOf(PropTypes.string),
   pagesAmount: PropTypes.number,
   paging: PropTypes.bool,

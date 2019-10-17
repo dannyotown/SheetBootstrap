@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const TableBody = props => {
   const { children, color, columns, rows, textWhite, ...attributes } = props;
@@ -8,17 +8,26 @@ const TableBody = props => {
   const classes = classNames(color, {
     'text-white': textWhite
   });
-
   const renderTD = (field, key, array, row) => {
     if (field === 'clickEvent') return null;
-
     if (field !== 'colspan') {
-      return array[key + 1] !== 'colspan' ? (
-        <td key={key}>{row[field]}</td>
-      ) : null;
+      if (row.message) {
+        return (
+          key === 0 && (
+            <td key={key} colSpan={row.colspan}>
+              {row.message}
+            </td>
+          )
+        );
+      } else {
+        return (
+          array[key + 1] !== 'colspan' &&
+          row[field] && <td key={key}>{row[field]}</td>
+        );
+      }
     } else {
       return (
-        <td key={key} colSpan={row[key]}>
+        <td key={key} colSpan={row['colspan']}>
           {row[array[key - 1]]}
         </td>
       );
