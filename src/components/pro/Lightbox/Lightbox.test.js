@@ -84,7 +84,9 @@ describe('<Lightbox />', () => {
           y: window.innerHeight
         },
         sliderOpened: false,
-        zoomedScale: 0
+        zoomedScale: 0,
+        showLeft: false,
+        showRight: false
       };
 
       const expectedProps = {
@@ -243,9 +245,9 @@ describe('<Lightbox />', () => {
   });
 
   describe('sets classes', () => {
-    // test('adds mdb-lightbox class by default', () => {
-    //   checkClass(wrapper, 'mdb-lightbox');
-    // });
+    test('adds mdb-lightbox class by default', () => {
+      checkClass(wrapper, 'mdb-lightbox', 2);
+    });
 
     test('adds d-flex flex-wrap classes for gallery by default', () => {
       const gallery = wrapper.children().last();
