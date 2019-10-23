@@ -31,7 +31,7 @@ const RatingPage = () => {
       />
 
       <SectionContainer header='Basic Example' flexCenter>
-        <MDBRating data={basic} iconSize='2x' />
+        <MDBRating data={basic} />
       </SectionContainer>
 
       <SectionContainer header='Empty five stars' flexCenter>
