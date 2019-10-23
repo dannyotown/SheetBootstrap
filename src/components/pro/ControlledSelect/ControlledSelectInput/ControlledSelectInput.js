@@ -9,11 +9,16 @@ const ControlledSelectInput = React.forwardRef(
         type='text'
         ref={inputRef}
         required={required}
-        readOnly
         value={value}
         onChange={() => {}}
+        onTouchStart={e => {
+          e.stopPropagation();
+          e.target.setAttribute('readonly', 'true');
+        }}
         className='select-dropdown'
-        onFocus={e => (e.target.style.caretColor = 'transparent')}
+        onFocus={e => {
+          e.target.style.caretColor = 'transparent';
+        }}
       />
     );
   }
