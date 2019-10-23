@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import classNames from 'classnames';
 import {
   Fa,
-  MDBTooltip,
   MDBBtn,
+  MDBPopoverBody,
   MDBPopoverHeader,
-  MDBPopoverBody
+  MDBTooltip
 } from 'mdbreact';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 
 const Rating = props => {
   const [data, setData] = useState([]);
@@ -60,12 +60,36 @@ const Rating = props => {
 
   const handleClick = (title, index, e) => {
     e.stopPropagation();
+    if (feedback) {
+      const unHoverPopper = document.createElement('div');
+      const size = 50;
+
+      unHoverPopper.classList.add('to-remove');
+      unHoverPopper.style.cssText = `
+      display: block;
+      height: ${size}px;
+      width: ${size}px;
+      position: absolute;
+      top: ${e.pageY - size / 2}px;
+      left: ${e.pageX - size / 2}px;
+      cursor: pointer
+    `;
+      e.target.closest('.mdb-rating').appendChild(unHoverPopper);
+      unHoverPopper.addEventListener('mouseout', () => unHoverPopper.remove());
+      setTimeout(() => {
+        unHoverPopper.remove();
+      }, 100);
+    }
+
     if (title === choosed.title && index === choosed.index) {
       setChoosed({ title: '', index: null });
       feedback && setOpenedForm(null);
     } else {
       setChoosed({ title, index });
-      feedback && setOpenedForm(index);
+      feedback &&
+        setTimeout(() => {
+          setOpenedForm(index);
+        }, 1);
     }
   };
 
@@ -112,6 +136,7 @@ const Rating = props => {
         const isChoosed = choosed.index !== null;
         const isHovered = hovered !== null;
         const isFormOpened = openedForm !== null;
+        const isFormActive = feedback && isFormOpened && openedForm === index;
 
         let toFill = false;
 
@@ -174,7 +199,6 @@ const Rating = props => {
         }
 
         let tooltipContent = tooltip;
-        const isFormActive = feedback && isFormOpened && openedForm === index;
 
         if (isFormActive) {
           tooltipContent = (
@@ -191,6 +215,7 @@ const Rating = props => {
                   className='md-textarea form-control py-0'
                   value={feedbackValue}
                   onChange={feedbackValueHandler}
+                  style={{ resize: 'none' }}
                 />
                 <div className='d-flex align-items-center justify-content-around mt-2'>
                   <MDBBtn type='submit' color='primary' size='sm'>
