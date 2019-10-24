@@ -60,6 +60,8 @@ import PillsPage from './pages/PillsPage';
 import NotificationPage from './pages/NotificationPage';
 import InputGroupPage from './pages/InputGroupPage'
 import TreeviewPage from './pages/TreeviewPage'
+import RatingPage from './pages/RatingPage'
+
 
 // PRO-START
 import SectionsNavPage from "./pages/pro/sections/SectionsNavPage";
@@ -146,6 +148,7 @@ class Routes extends React.Component {
         <Route path="/addons/edge-header" component={EdgeHeaderPage} />
         <Route path="/addons/notifications" component={NotificationPage} />
         <Route path="/addons/treeview" component={TreeviewPage} />
+        <Route path="/addons/Rating" component={RatingPage} />
         <Route path="/advanced/carousel" component={CarouselPage} />
         <Route path="/advanced/collapse" component={CollapsePage} />
         <Route path="/advanced/videocarousel" component={VideoCarouselPage} />
@@ -191,7 +194,7 @@ class Routes extends React.Component {
         <Route path="/tables/table-styles" component={TableStylesPage} />
         <Route path="/tables/datatable-api" component={DatatableApiPage} />
         <Route path="/tables/datatable" component={DatatablePage} />
-        
+
         {/* PRO-START */}
         <Route exact path="/sections" component={SectionsNavPage} />
         <Route path="/addons/pro/flipping-cards" component={FlippingCardsPage} />

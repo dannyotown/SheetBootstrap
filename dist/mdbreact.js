@@ -12,6 +12,7 @@ var ReactDOM = _interopDefault(require('react-dom'));
 var reactPopper = require('react-popper');
 var NumericInput = _interopDefault(require('react-numeric-input'));
 var reactRouterDom = require('react-router-dom');
+var mdbreact = require('mdbreact');
 var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
 var moment = _interopDefault(require('moment'));
@@ -352,7 +353,10 @@ var Alert = function Alert(props) {
   };
 
   var className = props.className,
+<<<<<<< HEAD
       Tag = props.tag,
+=======
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
       color = props.color,
       children = props.children,
       dismiss = props.dismiss;
@@ -368,10 +372,16 @@ var Alert = function Alert(props) {
         return handleOnExit(node);
       },
       onExited: function onExited(node) {
+<<<<<<< HEAD
         return handleOnExited();
       }
     }, React__default.createElement(Tag, {
       "data-test": "alert",
+=======
+        return handleOnExited(node);
+      }
+    }, React__default.createElement("div", {
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
       className: alertClasses,
       role: "alert"
     }, children, React__default.createElement("button", {
@@ -384,8 +394,12 @@ var Alert = function Alert(props) {
       "aria-hidden": "true"
     }, "\xD7"))));
   } else {
+<<<<<<< HEAD
     alertComponent = React__default.createElement(Tag, {
       "data-test": "alert",
+=======
+    alertComponent = React__default.createElement("div", {
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
       className: alertClasses,
       role: "alert"
     }, children);
@@ -395,15 +409,23 @@ var Alert = function Alert(props) {
 };
 
 Alert.defaultProps = {
+<<<<<<< HEAD
   color: "primary",
   tag: "div"
+=======
+  color: "primary"
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
 };
 Alert.propTypes = {
   className: propTypes.string,
   color: propTypes.oneOf(["primary", "secondary", "success", "danger", "warning", "info", "light", "dark"]),
   onClose: propTypes.func,
+<<<<<<< HEAD
   onClosed: propTypes.func,
   tag: propTypes.string
+=======
+  onClosed: propTypes.func
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
 };
 
 var Animation =
@@ -2052,12 +2074,20 @@ var MDBCloseIcon = function MDBCloseIcon(_ref) {
     onClick && onClick(e);
   };
 
+<<<<<<< HEAD
   var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(' '))) : ['close'];
+=======
+  var btnClasses = className ? ['close'].concat(_toConsumableArray(className.split(" "))) : ['close'];
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
   return React__default.createElement("button", _extends({
     "data-test": "close-button",
     type: "button"
   }, props, {
+<<<<<<< HEAD
     className: btnClasses.join(' '),
+=======
+    className: btnClasses.join(" "),
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
     onClick: onClickHandler,
     "aria-label": ariaLabel
   }), React__default.createElement("span", {
@@ -2065,7 +2095,11 @@ var MDBCloseIcon = function MDBCloseIcon(_ref) {
   }, "\xD7"));
 };
 MDBCloseIcon.defaultProps = {
+<<<<<<< HEAD
   ariaLabel: 'Close'
+=======
+  ariaLabel: "Close"
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
 };
 MDBCloseIcon.propTypes = {
   className: propTypes.string,
@@ -5157,14 +5191,20 @@ var Dropdown =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(Dropdown, _React$Component);
+<<<<<<< HEAD
 
   function Dropdown() {
     var _getPrototypeOf2;
 
+=======
+
+  function Dropdown(props) {
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
     var _this;
 
     _classCallCheck(this, Dropdown);
 
+<<<<<<< HEAD
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
@@ -5217,6 +5257,244 @@ function (_React$Component) {
           target = e.target;
       var UP = keyCode === up;
       var DOWN = keyCode === down;
+=======
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dropdown).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "toggle", function () {
+      _this.setState({
+        isOpen: !_this.state.isOpen
+      });
+    });
+
+    _this.state = {
+      isOpen: false
+    };
+    _this.addEvents = _this.addEvents.bind(_assertThisInitialized(_this));
+    _this.handleDocumentClick = _this.handleDocumentClick.bind(_assertThisInitialized(_this));
+    _this.handleKeyDown = _this.handleKeyDown.bind(_assertThisInitialized(_this));
+    _this.removeEvents = _this.removeEvents.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(Dropdown, [{
+    key: "getChildContext",
+    value: function getChildContext() {
+      return {
+        isOpen: this.state.isOpen,
+        dropup: this.props.dropup,
+        dropright: this.props.dropright,
+        dropleft: this.props.dropleft,
+        toggle: this.toggle
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.handleEventsBinding();
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.removeEvents();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.handleEventsBinding();
+    }
+  }, {
+    key: "handleEventsBinding",
+    value: function handleEventsBinding() {
+      if (this.state.isOpen) {
+        this.addEvents();
+      } else {
+        this.removeEvents();
+      }
+    }
+  }, {
+    key: "getContainer",
+    value: function getContainer() {
+      return ReactDOM.findDOMNode(this);
+    }
+  }, {
+    key: "addEvents",
+    value: function addEvents() {
+      var _this2 = this;
+
+      ["click", "touchstart", "keyup"].forEach(function (event) {
+        return document.addEventListener(event, _this2.handleDocumentClick, true);
+      });
+    }
+  }, {
+    key: "removeEvents",
+    value: function removeEvents() {
+      var _this3 = this;
+
+      ["click", "touchstart", "keyup"].forEach(function (event) {
+        return document.removeEventListener(event, _this3.handleDocumentClick, true);
+      });
+    }
+  }, {
+    key: "handleDocumentClick",
+    value: function handleDocumentClick(e) {
+      if (e && (e.which === 3 || e.type === "keyup" && e.which !== keyCodes.tab)) return;
+      var container = this.getContainer();
+
+      if (container.contains(e.target) && container !== e.target && (e.type !== "keyup" || e.which === keyCodes.tab)) {
+        return;
+      }
+
+      this.toggle(e);
+    }
+  }, {
+    key: "handleKeyDown",
+    value: function handleKeyDown(e) {
+      if ([keyCodes.esc, keyCodes.up, keyCodes.down, keyCodes.space].indexOf(e.which) === -1 || /button/i.test(e.target.tagName) && e.which === keyCodes.space || /input|textarea/i.test(e.target.tagName)) {
+        return;
+      }
+
+      e.preventDefault();
+      if (this.props.disabled) return;
+      var container = this.getContainer();
+
+      if (e.which === keyCodes.space && this.state.isOpen && container !== e.target) {
+        e.target.click();
+      }
+
+      if (e.which === keyCodes.esc || !this.state.isOpen) {
+        this.toggle(e);
+        container.querySelector("[aria-expanded]").focus();
+        return;
+      }
+
+      var menuClass = "dropdown-menu";
+      var itemClass = "dropdown-item";
+      var disabledClass = "disabled";
+      var items = container.querySelectorAll(".".concat(menuClass, " .").concat(itemClass, ":not(.").concat(disabledClass, ")"));
+      if (!items.length) return;
+      var index = -1;
+
+      for (var i = 0; i < items.length; i += 1) {
+        if (items[i] === e.target) {
+          index = i;
+          break;
+        }
+      }
+
+      if (e.which === keyCodes.up && index > 0) {
+        index -= 1;
+      }
+
+      if (e.which === keyCodes.down && index < items.length - 1) {
+        index += 1;
+      }
+
+      if (index < 0) {
+        index = 0;
+      }
+
+      items[index].focus();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _classNames;
+
+      var _omit = omit(this.props, ["toggle", "disabled"]),
+          className = _omit.className,
+          children = _omit.children,
+          dropup = _omit.dropup,
+          group = _omit.group,
+          size = _omit.size,
+          dropright = _omit.dropright,
+          dropleft = _omit.dropleft;
+
+      var classes = classNames((_classNames = {
+        "btn-group": group
+      }, _defineProperty(_classNames, "btn-group-".concat(size), !!size), _defineProperty(_classNames, "dropdown", !group), _defineProperty(_classNames, "show", this.state.isOpen), _defineProperty(_classNames, "dropup", dropup), _defineProperty(_classNames, "dropright", dropright), _defineProperty(_classNames, "dropleft", dropleft), _classNames), className);
+      return React__default.createElement(reactPopper.Manager, null, React__default.createElement("div", {
+        className: classes,
+        onKeyDown: this.handleKeyDown
+      }, children));
+    }
+  }]);
+
+  return Dropdown;
+}(React__default.Component);
+
+Dropdown.propTypes = {
+  disabled: propTypes.bool,
+  dropup: propTypes.bool,
+  dropright: propTypes.bool,
+  dropleft: propTypes.bool,
+  group: propTypes.bool,
+  size: propTypes.string,
+  tag: propTypes.string,
+  toggle: propTypes.func,
+  children: propTypes.node,
+  className: propTypes.string
+};
+Dropdown.defaultProps = {
+  dropup: false,
+  dropright: false,
+  dropleft: false,
+  tag: "div"
+};
+Dropdown.childContextTypes = {
+  toggle: propTypes.func.isRequired,
+  isOpen: propTypes.bool.isRequired,
+  dropup: propTypes.bool.isRequired,
+  dropright: propTypes.bool.isRequired,
+  dropleft: propTypes.bool.isRequired
+};
+
+var propTypes$1 = {
+  children: propTypes.node,
+  active: propTypes.bool,
+  disabled: propTypes.bool,
+  divider: propTypes.bool,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  header: propTypes.bool,
+  onClick: propTypes.func,
+  className: propTypes.string,
+  toggle: propTypes.bool
+};
+var contextTypes = {
+  toggle: propTypes.func
+};
+var defaultProps = {
+  tag: "button",
+  toggle: true
+};
+
+var DropdownItem =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(DropdownItem, _React$Component);
+
+  function DropdownItem(props) {
+    var _this;
+
+    _classCallCheck(this, DropdownItem);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(DropdownItem).call(this, props));
+    _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
+    _this.getTabIndex = _this.getTabIndex.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(DropdownItem, [{
+    key: "onClick",
+    value: function onClick(e) {
+      if (this.props.disabled || this.props.header || this.props.divider) {
+        e.preventDefault();
+        return;
+      }
+
+      if (this.props.onClick) {
+        this.props.onClick(e);
+      }
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
 
       var index = _toConsumableArray(items).findIndex(function (item) {
         return item === target;
@@ -5791,9 +6069,13 @@ var Footer = function Footer(props) {
       attributes = _objectWithoutProperties(props, ["color", "children", "className", "tag"]);
 
   var classes = classNames("page-footer", color && color, className);
+<<<<<<< HEAD
   return React__default.createElement(Tag, _extends({
     "data-test": "footer"
   }, attributes, {
+=======
+  return React__default.createElement(Tag, _extends({}, attributes, {
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
     className: classes
   }), children);
 };
@@ -5853,9 +6135,13 @@ var FreeBird = function FreeBird(props) {
       attributes = _objectWithoutProperties(props, ["className", "tag"]);
 
   var classes = classNames("container free-bird", className);
+<<<<<<< HEAD
   return React__default.createElement(Tag, _extends({
     "data-test": "freebird"
   }, attributes, {
+=======
+  return React__default.createElement(Tag, _extends({}, attributes, {
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
     className: classes
   }));
 };
@@ -5929,9 +6215,15 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Iframe)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
+<<<<<<< HEAD
       width: '',
       height: '',
       ratio: ''
+=======
+      width: "",
+      height: "",
+      ratio: ""
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
     });
 
     _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
@@ -5940,9 +6232,15 @@ function (_Component) {
       var ratio = 9 / 16;
 
       if (_this.props.ratio) {
+<<<<<<< HEAD
         var newRatio = _this.props.ratio.split('by')[0] / _this.props.ratio.split('by')[1];
 
         if (typeof ratio === 'number') ratio = newRatio;
+=======
+        var newRatio = _this.props.ratio.split("by")[0] / _this.props.ratio.split("by")[1];
+
+        if (typeof ratio === "number") ratio = newRatio;
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
       }
 
       if (_this.props.width && _this.props.height) {
@@ -5977,6 +6275,7 @@ function (_Component) {
           sandbox = _this$props.sandbox,
           src = _this$props.src,
           style = _this$props.style,
+<<<<<<< HEAD
           _this$props$title = _this$props.title,
           title = _this$props$title === void 0 ? "" : _this$props$title,
           ratio = _this$props.ratio,
@@ -5993,6 +6292,23 @@ function (_Component) {
         height: this.state.height || '100%',
         name: name || undefined,
         width: this.state.width || '100%',
+=======
+          title = _this$props.title,
+          ratio = _this$props.ratio,
+          height = _this$props.height,
+          width = _this$props.width;
+      var classes = classNames("embed-responsive-item", className);
+      var wrapperClasses = classNames(!(height || width) && "embed-responsive", ratio ? "embed-responsive-".concat(ratio) : "embed-responsive-16by9", className);
+      var iframeAttributes = {
+        src: src,
+        id: id || false,
+        frameBorder: "0",
+        target: "_parent",
+        allowFullScreen: allowFullScreen || true,
+        height: this.state.height || "100%",
+        name: name || undefined,
+        width: this.state.width || "100%",
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
         onLoad: onLoad || undefined,
         onMouseOver: onMouseOver || undefined,
         onMouseOut: onMouseOut || undefined,
@@ -6001,10 +6317,16 @@ function (_Component) {
       };
       iframeAttributes = returnAttributes(iframeAttributes);
       return React__default.createElement("div", {
+<<<<<<< HEAD
         "data-test": "iframe",
         className: wrapperClasses
       }, React__default.createElement("iframe", _extends({
         title: title,
+=======
+        className: wrapperClasses
+      }, React__default.createElement("iframe", _extends({
+        title: title || "",
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
         className: classes
       }, iframeAttributes)));
     }
@@ -7353,6 +7675,229 @@ Progress.defaultProps = {
   value: 0
 };
 
+var Rating = function Rating(props) {
+  var _useState = React.useState([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      data = _useState2[0],
+      setData = _useState2[1];
+
+  var _useState3 = React.useState(null),
+      _useState4 = _slicedToArray(_useState3, 2),
+      hovered = _useState4[0],
+      setHovered = _useState4[1];
+
+  var _useState5 = React.useState({
+    title: '',
+    index: null
+  }),
+      _useState6 = _slicedToArray(_useState5, 2),
+      choosed = _useState6[0],
+      setChoosed = _useState6[1];
+
+  React.useEffect(function () {
+    setData(props.data);
+  }, [props.data]);
+  React.useEffect(function () {
+    var choosedIndex = data.findIndex(function (item) {
+      return item.choosed;
+    });
+    if (choosedIndex !== -1) setChoosed({
+      title: data[choosedIndex].tooltip,
+      index: choosedIndex
+    });
+  }, [data]);
+  React.useEffect(function () {
+    if (props.getValue) {
+      var title = choosed.title,
+          index = choosed.index;
+      index = index !== null ? index + 1 : index;
+      props.getValue({
+        title: title,
+        value: index
+      });
+    }
+  }, [choosed, props]);
+
+  var handleMouseEnter = function handleMouseEnter(_, index) {
+    setHovered(index);
+  };
+
+  var handleMouseLeave = function handleMouseLeave() {
+    setHovered(null);
+  };
+
+  var handleClick = function handleClick(title, index) {
+    if (title === choosed.title && index === choosed.index) {
+      setChoosed({
+        title: '',
+        index: null
+      });
+    } else {
+      setChoosed({
+        title: title,
+        index: index
+      });
+    }
+  };
+
+  var Tag = props.tag,
+      containerClassName = props.containerClassName,
+      iconClassName = props.iconClassName,
+      iconFaces = props.iconFaces,
+      iconSize = props.iconSize,
+      iconRegular = props.iconRegular,
+      fillClassName = props.fillClassName,
+      fillColors = props.fillColors,
+      getValue = props.getValue,
+      commonAttributes = _objectWithoutProperties(props, ["tag", "containerClassName", "iconClassName", "iconFaces", "iconSize", "iconRegular", "fillClassName", "fillColors", "getValue"]);
+
+  var containerClasses = classNames('mdb-rating', 'd-flex', 'justify-content-start', 'align-items-center', containerClassName);
+  var renderedIcons = [];
+
+  if (data.length) {
+    renderedIcons = data.map(function (_ref, index) {
+      var _ref$icon = _ref.icon,
+          icon = _ref$icon === void 0 ? 'star' : _ref$icon,
+          tooltip = _ref.tooltip,
+          far = _ref.far,
+          size = _ref.size,
+          _ = _ref.choosed,
+          itemAttributes = _objectWithoutProperties(_ref, ["icon", "tooltip", "far", "size", "choosed"]);
+
+      var isChoosed = choosed.index !== null;
+      var isHovered = hovered !== null;
+      var toFill = false;
+
+      if (isChoosed) {
+        toFill = index <= choosed.index;
+
+        if (isHovered && hovered > choosed.index) {
+          toFill = index <= hovered;
+        }
+      } else if (isHovered) {
+        toFill = index <= hovered;
+      }
+
+      var fillColor = '';
+
+      if (fillColors) {
+        var current = null;
+
+        if (isChoosed) {
+          current = choosed.index;
+          if (isHovered) current = hovered;
+        } else if (isHovered) current = hovered;
+
+        var isCustom = Array.isArray(fillColors);
+
+        switch (current) {
+          case 0:
+            fillColor = isCustom ? fillColors[0] : 'oneStar';
+            break;
+
+          case 1:
+            fillColor = isCustom ? fillColors[1] : 'twoStars';
+            break;
+
+          case 2:
+            fillColor = isCustom ? fillColors[2] : 'threeStars';
+            break;
+
+          case 3:
+            fillColor = isCustom ? fillColors[3] : 'fourStars';
+            break;
+
+          case 4:
+            fillColor = isCustom ? fillColors[4] : 'fiveStars';
+            break;
+
+          default:
+            break;
+        }
+      }
+
+      var iconClasses = classNames('py-2 px-1 rate-popover', toFill && (fillColors ? fillColor : fillClassName), iconClassName);
+      var renderIcon = icon;
+
+      if (iconFaces) {
+        var faces = ['angry', 'frown', 'meh', 'smile', 'laugh'];
+        renderIcon = 'meh-blank';
+
+        if (isChoosed && index <= choosed.index) {
+          renderIcon = faces[choosed.index];
+          if (isHovered) renderIcon = faces[hovered];
+        } else if (isHovered && index <= hovered) {
+          renderIcon = faces[hovered];
+        }
+      }
+
+      return React__default.createElement(mdbreact.MDBTooltip, {
+        placement: "top",
+        domElement: true,
+        key: tooltip
+      }, React__default.createElement("span", null, React__default.createElement(mdbreact.Fa, _extends({
+        style: {
+          cursor: 'pointer'
+        }
+      }, commonAttributes, itemAttributes, {
+        icon: renderIcon,
+        size: size || iconSize,
+        far: far || iconRegular,
+        className: iconClasses,
+        "data-index": index,
+        "data-original-title": tooltip,
+        onMouseEnter: function onMouseEnter() {
+          return handleMouseEnter(tooltip, index);
+        },
+        onMouseLeave: handleMouseLeave,
+        onMouseDown: function onMouseDown() {
+          return handleClick(tooltip, index);
+        }
+      }))), React__default.createElement("span", null, tooltip));
+    });
+  }
+
+  return React__default.createElement(Tag, {
+    className: containerClasses
+  }, renderedIcons);
+};
+
+Rating.propTypes = {
+  containerClassName: propTypes.string,
+  data: propTypes.arrayOf(propTypes.shape({
+    icon: propTypes.string,
+    tooltip: propTypes.string,
+    choosed: propTypes.bool
+  })),
+  fillClassName: propTypes.string,
+  fillColors: propTypes.oneOfType([propTypes.bool, propTypes.arrayOf(propTypes.string)]),
+  iconClassName: propTypes.string,
+  iconFaces: propTypes.bool,
+  iconSize: propTypes.string,
+  iconRegular: propTypes.bool,
+  tag: propTypes.string,
+  getValue: propTypes.func
+};
+Rating.defaultProps = {
+  containerClassName: '',
+  data: [{
+    tooltip: 'Very Bad'
+  }, {
+    tooltip: 'Poor'
+  }, {
+    tooltip: 'Ok'
+  }, {
+    tooltip: 'Good'
+  }, {
+    tooltip: 'Excellent'
+  }],
+  fillClassName: 'fiveStars',
+  iconClassName: '',
+  iconSize: '1x',
+  iconRegular: false,
+  tag: 'div'
+};
+
 var Row = function Row(props) {
   var className = props.className,
       Tag = props.tag,
@@ -7390,7 +7935,11 @@ Row.defaultProps = {
   tag: "div"
 };
 
+<<<<<<< HEAD
 var propTypes$1 = {
+=======
+var propTypes$2 = {
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
   activeItem: propTypes.any,
   tabId: propTypes.any,
   className: propTypes.string
@@ -7455,6 +8004,7 @@ function (_React$Component) {
 TabContent.childContextTypes = {
   activeItemId: propTypes.any
 };
+<<<<<<< HEAD
 TabContent.propTypes = propTypes$1;
 
 var TabPane =
@@ -7771,6 +8321,80 @@ TreeviewList.contextTypes = {
   theme: propTypes.string
 };
 
+=======
+TabContent.propTypes = propTypes$2;
+
+var TabPane =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(TabPane, _React$Component);
+
+  function TabPane() {
+    _classCallCheck(this, TabPane);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(TabPane).apply(this, arguments));
+  }
+
+  _createClass(TabPane, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          className = _this$props.className,
+          tabId = _this$props.tabId,
+          attributes = _objectWithoutProperties(_this$props, ["className", "tabId"]);
+
+      var classes = classNames("tab-pane", {
+        active: tabId === this.context.activeItemId
+      }, className);
+      return React__default.createElement("div", _extends({}, attributes, {
+        className: classes,
+        role: "tabpanel"
+      }));
+    }
+  }]);
+
+  return TabPane;
+}(React__default.Component);
+
+TabPane.contextTypes = {
+  activeItemId: propTypes.any
+};
+TabPane.propTypes = {
+  tabId: propTypes.any,
+  className: propTypes.string
+};
+
+var TableHead = function TableHead(props) {
+  var children = props.children,
+      color = props.color,
+      columns = props.columns,
+      textWhite = props.textWhite,
+      attributes = _objectWithoutProperties(props, ["children", "color", "columns", "textWhite"]);
+
+  var classes = classNames(color !== "dark" && color !== "light" ? color : "thead-".concat(color), {
+    "text-white": textWhite
+  });
+  return React__default.createElement("thead", _extends({}, attributes, {
+    className: classes
+  }), columns && React__default.createElement("tr", null, columns.map(function (col) {
+    return React__default.createElement("th", {
+      key: col.field,
+      className: col.hasOwnProperty("minimal") ? "th-".concat(col.minimal) : ""
+    }, col.label);
+  })), children);
+};
+
+TableHead.propTypes = {
+  children: propTypes.node,
+  color: propTypes.string,
+  columns: propTypes.arrayOf(propTypes.object),
+  textWhite: propTypes.bool
+};
+TableHead.defaultProps = {
+  textWhite: false
+};
+
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
 var Autocomplete =
 /*#__PURE__*/
 function (_Component) {
@@ -11302,6 +11926,8 @@ _defineProperty(Sticky, "contextTypes", {
 });
 
 var Container$1 =
+<<<<<<< HEAD
+=======
 /*#__PURE__*/
 function (_PureComponent) {
   _inherits(Container, _PureComponent);
@@ -11362,6 +11988,227 @@ function (_PureComponent) {
     return _this;
   }
 
+  _createClass(Container, [{
+    key: "getChildContext",
+    value: function getChildContext() {
+      return {
+        subscribe: this.subscribe,
+        unsubscribe: this.unsubscribe,
+        getParent: this.getParent
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      this.events.forEach(function (event) {
+        return window.addEventListener(event, _this2.notifySubscribers);
+      });
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      var _this3 = this;
+
+      this.events.forEach(function (event) {
+        return window.removeEventListener(event, _this3.notifySubscribers);
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this4 = this;
+
+      return React__default.createElement("div", _extends({}, this.props, {
+        ref: function ref(node) {
+          return _this4.node = node;
+        },
+        onScroll: this.notifySubscribers,
+        onTouchStart: this.notifySubscribers,
+        onTouchMove: this.notifySubscribers,
+        onTouchEnd: this.notifySubscribers
+      }));
+    }
+  }]);
+
+  return Container;
+}(React.PureComponent);
+
+_defineProperty(Container$1, "childContextTypes", {
+  subscribe: propTypes.func,
+  unsubscribe: propTypes.func,
+  getParent: propTypes.func
+});
+
+var MDBStreak = function MDBStreak(_ref) {
+  var children = _ref.children,
+      by = _ref.by,
+      byClass = _ref.byClass,
+      wrapperClass = _ref.wrapperClass,
+      size = _ref.size,
+      quoteClass = _ref.quoteClass,
+      photo = _ref.photo,
+      overlayClass = _ref.overlayClass;
+  var byClasses = classNames("text-center", "font-italic", "mb-0", byClass);
+  var wrapperClasses = classNames("streak", photo && "streak-photo", size && "streak-".concat(size), wrapperClass);
+  var quoteClasses = classNames("h2-responsive", quoteClass);
+  var overlayClasses = classNames("flex-center", overlayClass);
+  return React__default.createElement("div", {
+    className: wrapperClasses,
+    style: {
+      backgroundImage: "url(\"".concat(photo, "\")"),
+      backgroundAttachment: "fixed"
+    }
+  }, React__default.createElement("div", {
+    className: overlayClasses
+  }, React__default.createElement("ul", {
+    className: "mb-0 list-unstyled"
+  }, React__default.createElement("li", null, React__default.createElement("h2", {
+    className: quoteClasses
+  }, React__default.createElement(Fa, {
+    icon: "quote-left"
+  }), " ", children, " ", React__default.createElement(Fa, {
+    icon: "quote-right"
+  }))), React__default.createElement("li", {
+    className: "mb-0"
+  }, React__default.createElement("h5", {
+    className: byClasses
+  }, "~ ", by)))));
+};
+
+MDBStreak.propTypes = {
+  size: propTypes.oneOf(['lg', 'md']),
+  by: propTypes.string,
+  wrapperClass: propTypes.string,
+  byClass: propTypes.string,
+  quoteClass: propTypes.string,
+  photo: propTypes.string,
+  overlayClass: propTypes.string
+};
+MDBStreak.defaultProps = {
+  wrapperClass: "grey lighten-3"
+};
+
+var css$g = ".react-bootstrap-table {\n  padding-top: 65px;\n}\n\n.react-bootstrap-table .caret {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 2px;\n  vertical-align: middle;\n  border-top: 4px dashed;\n  border-top: 4px solid\\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n\n.react-bootstrap-table .dropup .caret {\n  content: \"\";\n  border-top: 0;\n  border-bottom: 4px dashed;\n  border-bottom: 4px solid\\9;\n}\n\n.react-bootstrap-table-pagination .pagination {\n  float: right;\n}\n\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\n  background-color: #09c;\n}\n\n.react-bootstrap-table-pagination .select-wrapper {\n  display: inline-block;\n  width: 100px;\n  margin: 0 15px;\n}\n\n.react-bootstrap-table-pagination .dropdown-item {\n  padding: 0;\n}\n\n.react-bootstrap-table-pagination-total {\n  display: block;\n}\n\n.react-bootstrap-table .md-form {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  width: 200px;\n}\n\n.react-bootstrap-table-pagination > * {\n  position: inherit;\n}\n\n.react-bs-table-sizePerPage-dropdown {\n  position: absolute;\n  top: 0;\n  left: 0;\n}";
+styleInject(css$g);
+
+var TableEditable =
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(TableEditable, _React$Component);
+
+  function TableEditable() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, TableEditable);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(TableEditable)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      data: []
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
+      _this.props.data && _this.setState(_objectSpread({}, _this.state, {
+        data: _this.props.data
+      }));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "addRow", function () {
+      var newData = _toConsumableArray(_this.state.data);
+
+      var newRow = [];
+
+      _this.props.columns.forEach(function () {
+        newRow.push("");
+      });
+
+      newData.push(newRow);
+
+      _this.setState(_objectSpread({}, _this.state.data, {
+        data: newData
+      }));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "removeRow", function (index) {
+      var newData = _toConsumableArray(_this.state.data);
+
+      newData = [].concat(_toConsumableArray(newData.slice(0, index)), _toConsumableArray(newData.slice(index + 1)));
+
+      _this.setState(_objectSpread({}, _this.state, {
+        data: newData
+      }));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "decreaseIndex", function (index) {
+      if (index === 0) return;
+
+      var newData = _this.changeArrayOrder(index, index - 1);
+
+      _this.setState(_objectSpread({}, _this.state, {
+        data: newData
+      }));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "increaseIndex", function (index) {
+      if (index === _this.state.data.length - 1) return;
+
+      var newData = _this.changeArrayOrder(index, index + 1);
+
+      _this.setState(_objectSpread({}, _this.state, {
+        data: newData
+      }));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "changeArrayOrder", function (oldIndex, newIndex) {
+      var array = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : _toConsumableArray(_this.state.data);
+      var newArray = array;
+
+      var oldIndexValue = _toConsumableArray(newArray[oldIndex]);
+
+      var newIndexValue = _toConsumableArray(newArray[newIndex]);
+
+      newArray.splice(oldIndex, 1, newIndexValue);
+      newArray.splice(newIndex, 1, oldIndexValue);
+      return newArray;
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onBlurHandler", function (trIndex, tdIndex, e) {
+      var value = e.target.innerText;
+
+      var newData = _toConsumableArray(_this.state.data);
+
+      newData = newData.map(function (item, index) {
+        if (index !== trIndex) {
+          return item;
+        }
+
+        return item.map(function (tdItem, index) {
+          if (index !== tdIndex) {
+            return tdItem;
+          }
+
+          return tdItem = value;
+        });
+      });
+
+      _this.setState(_objectSpread({}, _this.state, {
+        data: newData
+      }));
+    });
+
+    return _this;
+  }
+
+<<<<<<< HEAD
   _createClass(Container, [{
     key: "getChildContext",
     value: function getChildContext() {
@@ -11581,6 +12428,8 @@ function (_React$Component) {
     return _this;
   }
 
+=======
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
   _createClass(TableEditable, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
@@ -12537,8 +13386,18 @@ function (_Component) {
   return TimePicker;
 }(React.Component);
 
+<<<<<<< HEAD
 TimePicker.propTypes = propTypes$7;
 TimePicker.defaultProps = defaultProps$1;
+=======
+TimePicker.propTypes = propTypes$8;
+TimePicker.defaultProps = defaultProps$2;
+
+var css$j = ".Toastify__toast-container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 320px;\n  box-sizing: border-box;\n  color: #fff; }\n  .Toastify__toast-container--top-left {\n    top: 1em;\n    left: 1em; }\n  .Toastify__toast-container--top-center {\n    top: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--top-right {\n    top: 1em;\n    right: 1em; }\n  .Toastify__toast-container--bottom-left {\n    bottom: 1em;\n    left: 1em; }\n  .Toastify__toast-container--bottom-center {\n    bottom: 1em;\n    left: 50%;\n    margin-left: -160px; }\n  .Toastify__toast-container--bottom-right {\n    bottom: 1em;\n    right: 1em; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast-container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0; }\n    .Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right {\n      top: 0; }\n    .Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right {\n      bottom: 0; }\n    .Toastify__toast-container--rtl {\n      right: 0;\n      left: initial; } }\n\n.Toastify__toast {\n  position: relative;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 8px;\n  border-radius: 1px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n      justify-content: space-between;\n  max-height: 800px;\n  overflow: hidden;\n  font-family: sans-serif;\n  cursor: pointer;\n  direction: ltr; }\n  .Toastify__toast--rtl {\n    direction: rtl; }\n  .Toastify__toast--default {\n    background: #fff;\n    color: #aaa; }\n  .Toastify__toast--info {\n    background: #3498db; }\n  .Toastify__toast--success {\n    background: #07bc0c; }\n  .Toastify__toast--warning {\n    background: #f1c40f; }\n  .Toastify__toast--error {\n    background: #e74c3c; }\n  .Toastify__toast-body {\n    margin: auto 0;\n    -ms-flex: 1;\n        flex: 1; }\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast {\n    margin-bottom: 0; } }\n\n.Toastify__close-button {\n  color: #fff;\n  font-weight: bold;\n  font-size: 14px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  opacity: 0.7;\n  transition: 0.3s ease;\n  -ms-flex-item-align: start;\n      align-self: flex-start; }\n  .Toastify__close-button--default {\n    color: #000;\n    opacity: 0.3; }\n  .Toastify__close-button:hover, .Toastify__close-button:focus {\n    opacity: 1; }\n\n@keyframes Toastify__trackProgress {\n  0% {\n    transform: scaleX(1); }\n  100% {\n    transform: scaleX(0); } }\n\n.Toastify__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 9999;\n  opacity: 0.7;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left; }\n  .Toastify__progress-bar--animated {\n    animation: Toastify__trackProgress linear 1 forwards; }\n  .Toastify__progress-bar--controlled {\n    transition: transform .2s; }\n  .Toastify__progress-bar--rtl {\n    right: 0;\n    left: initial;\n    transform-origin: right; }\n  .Toastify__progress-bar--default {\n    background: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55); }\n\n@keyframes Toastify__bounceInRight {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0); }\n  75% {\n    transform: translate3d(10px, 0, 0); }\n  90% {\n    transform: translate3d(-5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInLeft {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0); }\n  75% {\n    transform: translate3d(-10px, 0, 0); }\n  90% {\n    transform: translate3d(5px, 0, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0); } }\n\n@keyframes Toastify__bounceInUp {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  75% {\n    transform: translate3d(0, 10px, 0); }\n  90% {\n    transform: translate3d(0, -5px, 0); }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0); } }\n\n@keyframes Toastify__bounceInDown {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0); }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0); }\n  75% {\n    transform: translate3d(0, -10px, 0); }\n  90% {\n    transform: translate3d(0, 5px, 0); }\n  to {\n    transform: none; } }\n\n@keyframes Toastify__bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0); }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0); }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0); } }\n\n.Toastify__bounce-enter--top-left, .Toastify__bounce-enter--bottom-left {\n  animation-name: Toastify__bounceInLeft; }\n\n.Toastify__bounce-enter--top-right, .Toastify__bounce-enter--bottom-right {\n  animation-name: Toastify__bounceInRight; }\n\n.Toastify__bounce-enter--top-center {\n  animation-name: Toastify__bounceInDown; }\n\n.Toastify__bounce-enter--bottom-center {\n  animation-name: Toastify__bounceInUp; }\n\n.Toastify__bounce-exit--top-left, .Toastify__bounce-exit--bottom-left {\n  animation-name: Toastify__bounceOutLeft; }\n\n.Toastify__bounce-exit--top-right, .Toastify__bounce-exit--bottom-right {\n  animation-name: Toastify__bounceOutRight; }\n\n.Toastify__bounce-exit--top-center {\n  animation-name: Toastify__bounceOutUp; }\n\n.Toastify__bounce-exit--bottom-center {\n  animation-name: Toastify__bounceOutDown; }\n\n@keyframes Toastify__zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  50% {\n    opacity: 1; } }\n\n@keyframes Toastify__zoomOut {\n  from {\n    opacity: 1; }\n  50% {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3); }\n  to {\n    opacity: 0; } }\n\n.Toastify__zoom-enter {\n  animation-name: Toastify__zoomIn; }\n\n.Toastify__zoom-exit {\n  animation-name: Toastify__zoomOut; }\n\n@keyframes Toastify__flipIn {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0; }\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in; }\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1; }\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }\n  to {\n    transform: perspective(400px); } }\n\n@keyframes Toastify__flipOut {\n  from {\n    transform: perspective(400px); }\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1; }\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0; } }\n\n.Toastify__flip-enter {\n  animation-name: Toastify__flipIn; }\n\n.Toastify__flip-exit {\n  animation-name: Toastify__flipOut; }\n\n@keyframes Toastify__slideInRight {\n  from {\n    transform: translate3d(110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInLeft {\n  from {\n    transform: translate3d(-110%, 0, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInUp {\n  from {\n    transform: translate3d(0, 110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideInDown {\n  from {\n    transform: translate3d(0, -110%, 0);\n    visibility: visible; }\n  to {\n    transform: translate3d(0, 0, 0); } }\n\n@keyframes Toastify__slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(110%, 0, 0); } }\n\n@keyframes Toastify__slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(-110%, 0, 0); } }\n\n@keyframes Toastify__slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 500px, 0); } }\n\n@keyframes Toastify__slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0); }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -500px, 0); } }\n\n.Toastify__slide-enter--top-left, .Toastify__slide-enter--bottom-left {\n  animation-name: Toastify__slideInLeft; }\n\n.Toastify__slide-enter--top-right, .Toastify__slide-enter--bottom-right {\n  animation-name: Toastify__slideInRight; }\n\n.Toastify__slide-enter--top-center {\n  animation-name: Toastify__slideInDown; }\n\n.Toastify__slide-enter--bottom-center {\n  animation-name: Toastify__slideInUp; }\n\n.Toastify__slide-exit--top-left, .Toastify__slide-exit--bottom-left {\n  animation-name: Toastify__slideOutLeft; }\n\n.Toastify__slide-exit--top-right, .Toastify__slide-exit--bottom-right {\n  animation-name: Toastify__slideOutRight; }\n\n.Toastify__slide-exit--top-center {\n  animation-name: Toastify__slideOutUp; }\n\n.Toastify__slide-exit--bottom-center {\n  animation-name: Toastify__slideOutDown; }";
+styleInject(css$j);
+
+// FREE
+>>>>>>> 85ac398ad05f7c1d4397b49333ea8fa78ac38a23
 
 Object.defineProperty(exports, 'MDBToast', {
   enumerable: true,
@@ -12716,6 +13575,7 @@ exports.MDBPopoverHeader = PopoverHeader;
 exports.MDBPopper = Popper;
 exports.MDBProgress = Progress;
 exports.MDBRangeInput = InputRange;
+exports.MDBRating = Rating;
 exports.MDBRotatingCard = RotatingCard;
 exports.MDBRow = Row;
 exports.MDBScrollbar = ScrollBar;
@@ -12781,6 +13641,7 @@ exports.PopoverBody = PopoverBody;
 exports.PopoverHeader = PopoverHeader;
 exports.Popper = Popper;
 exports.Progress = Progress;
+exports.Rating = Rating;
 exports.Row = Row;
 exports.ScrollSpyBox = ScrollBox;
 exports.ScrollSpyList = ScrollSpyList;
