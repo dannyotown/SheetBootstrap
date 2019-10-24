@@ -9,20 +9,7 @@ import {
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
-const Rating = ({
-  tag: Tag,
-  containerClassName,
-  iconClassName,
-  iconFaces,
-  iconSize,
-  iconRegular,
-  fillClassName,
-  fillColors,
-  getValue,
-  feedback,
-  submitHandler,
-  ...commonAttributes
-}) => {
+const Rating = props => {
   const [data, setData] = useState([]);
   const [hovered, setHovered] = useState(null);
   const [choosed, setChoosed] = useState({
@@ -44,8 +31,8 @@ const Rating = ({
   }, []);
 
   useEffect(() => {
-    setData(data);
-  }, [data]);
+    setData(props.data);
+  }, [props.data]);
 
   useEffect(() => {
     const choosedIndex = data.findIndex(item => item.choosed);
@@ -55,11 +42,11 @@ const Rating = ({
   }, [data]);
 
   useEffect(() => {
-    if (getValue) {
+    if (props.getValue) {
       let { title, index } = choosed;
       index = index !== null ? index + 1 : index;
 
-      getValue({ title, value: index });
+      props.getValue({ title, value: index });
     }
   }, [choosed, props]);
 
@@ -114,6 +101,21 @@ const Rating = ({
   const feedbackValueHandler = e => {
     setFeedbackValue(e.target.value);
   };
+
+  const {
+    tag: Tag,
+    containerClassName,
+    iconClassName,
+    iconFaces,
+    iconSize,
+    iconRegular,
+    fillClassName,
+    fillColors,
+    getValue,
+    feedback,
+    submitHandler,
+    ...commonAttributes
+  } = props;
 
   const containerClasses = classNames(
     'mdb-rating',

@@ -8,6 +8,7 @@ declare const MDBRating: React.FunctionComponent<{
     choosed?: boolean;
     [rest: string]: any;
   };
+  feedback?: boolean;
   fillClassName?: string;
   fillColors?: boolean | string[];
   iconClassName?: string;
