@@ -6,8 +6,7 @@ import {
   MDBCol,
   MDBCard,
   MDBCardBody,
-  MDBBadge,
-  MDBBtn
+  MDBBadge
 } from 'mdbreact';
 import DocsLink from './../components/docsLink';
 import SectionContainer from '../components/sectionContainer';
