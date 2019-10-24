@@ -59,9 +59,8 @@ const Rating = props => {
   };
 
   const handleClick = (title, index, e) => {
-    const { feedback } = props;
     e.stopPropagation();
-    if (feedback) {
+    if (props.feedback) {
       const unHoverPopper = document.createElement('div');
       const size = 50;
 
@@ -84,10 +83,10 @@ const Rating = props => {
 
     if (title === choosed.title && index === choosed.index) {
       setChoosed({ title: '', index: null });
-      feedback && setOpenedForm(null);
+      props.feedback && setOpenedForm(null);
     } else {
       setChoosed({ title, index });
-      feedback &&
+      props.feedback &&
         setTimeout(() => {
           setOpenedForm(index);
         }, 1);
