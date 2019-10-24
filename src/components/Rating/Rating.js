@@ -59,6 +59,7 @@ const Rating = props => {
   };
 
   const handleClick = (title, index, e) => {
+    const { feedback } = props;
     e.stopPropagation();
     if (feedback) {
       const unHoverPopper = document.createElement('div');
