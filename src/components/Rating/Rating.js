@@ -282,6 +282,7 @@ Rating.propTypes = {
       choosed: PropTypes.bool
     })
   ),
+  feedback: PropTypes.bool,
   fillClassName: PropTypes.string,
   fillColors: PropTypes.oneOfType([
     PropTypes.bool,
@@ -315,6 +316,7 @@ Rating.defaultProps = {
       tooltip: 'Excellent'
     }
   ],
+  feedback: false,
   fillClassName: 'fiveStars',
   iconClassName: '',
   iconSize: '1x',
