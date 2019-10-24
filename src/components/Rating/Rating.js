@@ -9,7 +9,20 @@ import {
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
-const Rating = props => {
+const Rating = ({
+  tag: Tag,
+  containerClassName,
+  iconClassName,
+  iconFaces,
+  iconSize,
+  iconRegular,
+  fillClassName,
+  fillColors,
+  getValue,
+  feedback,
+  submitHandler,
+  ...commonAttributes
+}) => {
   const [data, setData] = useState([]);
   const [hovered, setHovered] = useState(null);
   const [choosed, setChoosed] = useState({
@@ -31,8 +44,8 @@ const Rating = props => {
   }, []);
 
   useEffect(() => {
-    setData(props.data);
-  }, [props.data]);
+    setData(data);
+  }, [data]);
 
   useEffect(() => {
     const choosedIndex = data.findIndex(item => item.choosed);
@@ -42,11 +55,11 @@ const Rating = props => {
   }, [data]);
 
   useEffect(() => {
-    if (props.getValue) {
+    if (getValue) {
       let { title, index } = choosed;
       index = index !== null ? index + 1 : index;
 
-      props.getValue({ title, value: index });
+      getValue({ title, value: index });
     }
   }, [choosed, props]);
 
@@ -60,7 +73,7 @@ const Rating = props => {
 
   const handleClick = (title, index, e) => {
     e.stopPropagation();
-    if (props.feedback) {
+    if (feedback) {
       const unHoverPopper = document.createElement('div');
       const size = 50;
 
@@ -83,10 +96,10 @@ const Rating = props => {
 
     if (title === choosed.title && index === choosed.index) {
       setChoosed({ title: '', index: null });
-      props.feedback && setOpenedForm(null);
+      feedback && setOpenedForm(null);
     } else {
       setChoosed({ title, index });
-      props.feedback &&
+      feedback &&
         setTimeout(() => {
           setOpenedForm(index);
         }, 1);
@@ -101,21 +114,6 @@ const Rating = props => {
   const feedbackValueHandler = e => {
     setFeedbackValue(e.target.value);
   };
-
-  const {
-    tag: Tag,
-    containerClassName,
-    iconClassName,
-    iconFaces,
-    iconSize,
-    iconRegular,
-    fillClassName,
-    fillColors,
-    getValue,
-    feedback,
-    submitHandler,
-    ...commonAttributes
-  } = props;
 
   const containerClasses = classNames(
     'mdb-rating',
