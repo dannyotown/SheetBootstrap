@@ -1,5 +1,4 @@
 import { FunctionComponent, ReactNode, Component, RefObject, SyntheticEvent, FormEvent } from 'react';
-import 'prop-types';
 
 declare const MDBAlert: FunctionComponent<{
   color?:
