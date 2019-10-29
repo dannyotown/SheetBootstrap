@@ -152,7 +152,6 @@ class TimePicker extends Component {
             this.state.computedMinutes
           }AM`;
         } else {
-          console.log(this.state.dayTime);
           value = `${this.state.computedHours}:${
             this.state.computedMinutes
           }${this.state.dayTime.toUpperCase()}`;
