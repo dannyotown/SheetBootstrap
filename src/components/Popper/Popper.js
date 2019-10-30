@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import classNames from 'classnames';
 import Popper from 'popper.js';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from 'react';
 import './Popper.css';
 
 class Popover extends React.Component {
@@ -9,10 +9,10 @@ class Popover extends React.Component {
     super(props);
     this.state = {
       popperJS: null,
-      visible: props.isVisible
+      visible: props.isVisible,
+      showPopper: props.isVisible
     };
 
-    this.popoverRef = React.createRef();
     this.popoverWrapperRef = React.createRef();
     this.referenceElm = React.createRef();
   }
@@ -35,34 +35,47 @@ class Popover extends React.Component {
   }
 
   setPopperJS = () => {
-    this.state.popperJS
-      ? this.state.popperJS.scheduleUpdate()
-      : this.createPopper();
-    setTimeout(() => clearInterval(this.timer), 1000);
+    if (this.state.showPopper) {
+      this.state.popperJS
+        ? this.state.popperJS.scheduleUpdate()
+        : this.createPopper();
+      setTimeout(() => clearInterval(this.timer), 1000);
+    }
   };
 
   createPopper = () => {
-    this.state.popperJS = new Popper(
-      this.referenceElm,
-      this.popoverWrapperRef,
-      {
+    this.setState({
+      popperJS: new Popper(this.referenceElm, this.popoverWrapperRef, {
         placement: this.props.placement,
         ...this.props.modifiers
+      })
+    });
+  };
+
+  doToggle = toggler => {
+    this.setState(
+      {
+        showPopper: toggler && true
+      },
+      () => {
+        if (this.state.showPopper)
+          this.setState(
+            {
+              visible:
+                typeof toggler !== 'undefined' ? toggler : !this.state.visible
+            },
+            () => {
+              this.createPopper();
+              this.state.popperJS.scheduleUpdate()
+            }
+          );
       }
     );
   };
 
-  doToggle = toggler => {
-    if (this.referenceElm) {
-      this.setState({
-        visible: typeof toggler !== 'undefined' ? toggler : !this.state.visible
-      });
-    }
-  };
-
   handleClick = e => {
     const { target } = e;
-    if (this.popoverWrapperRef) {
+    if (this.popoverWrapperRef && this.state.showPopper) {
       if (
         this.popoverWrapperRef.contains(target) ||
         this.referenceElm.contains(target) ||
@@ -90,7 +103,7 @@ class Popover extends React.Component {
       ...attributes
     } = this.props;
 
-    const { visible } = this.state;
+    const { visible, showPopper } = this.state;
     // const [visible, setVisible] = useState(isVisible);
 
     // useEffect(() => {
@@ -144,7 +157,7 @@ class Popover extends React.Component {
             onMouseLeave={() => !clickable && this.doToggle(false)}
             onTouchStart={() => !clickable && this.doToggle(true)}
             onTouchEnd={() => !clickable && this.doToggle(false)}
-            onMouseDown={() => clickable && this.doToggle(!visible)}
+            onMouseDown={() => clickable && this.doToggle(!showPopper)}
             innerRef={ref => (this.referenceElm = ref)}
             data-popper={id}
           />
@@ -157,23 +170,25 @@ class Popover extends React.Component {
             }
             onTouchStart={() => !clickable && this.doToggle(true)}
             onTouchEnd={() => !clickable && this.doToggle(false)}
-            onMouseDown={() => clickable && this.doToggle(!visible)}
+            onMouseDown={() => clickable && this.doToggle(!showPopper)}
             ref={ref => (this.referenceElm = ref)}
             data-popper={id}
           />
         )}
-        <Tag
-          ref={ref => (this.popoverWrapperRef = ref)}
-          className={classNames(
-            visible && 'show',
-            popover ? 'popover' : 'tooltip px-2',
-            className
-          )}
-          {...attributes}
-        >
-          {popper}
-          <span x-arrow='' className='popover_arrow'></span>
-        </Tag>
+        {showPopper && (
+          <Tag
+            ref={ref => (this.popoverWrapperRef = ref)}
+            className={classNames(
+              visible && 'show',
+              popover ? 'popover' : 'tooltip px-2',
+              className
+            )}
+            {...attributes}
+          >
+            {popper}
+            <span x-arrow='' className='popover_arrow'></span>
+          </Tag>
+        )}
       </>
     );
   }
