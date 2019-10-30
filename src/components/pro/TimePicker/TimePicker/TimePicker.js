@@ -70,30 +70,33 @@ class TimePicker extends Component {
   }
 
   componentDidMount() {
+    const { hours, minutes } = this.state;
     this.setState(
       {
-        computedHours: this.computeTimeNumber(this.state.hours),
-        computedMinutes: this.computeTimeNumber(this.state.minutes)
+        computedHours: this.computeTimeNumber(hours),
+        computedMinutes: this.computeTimeNumber(minutes)
       },
       () => this.setInputText()
     );
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.minutes !== this.state.minutes) {
+    const { hours, minutes, value } = this.state;
+
+    if (prevState.minutes !== minutes) {
       this.setState({
-        computedMinutes: this.computeTimeNumber(this.state.minutes)
+        computedMinutes: this.computeTimeNumber(minutes)
       });
     }
 
-    if (prevState.hours !== this.state.hours) {
+    if (prevState.hours !== hours) {
       this.setState({
-        computedHours: this.computeTimeNumber(this.state.hours)
+        computedHours: this.computeTimeNumber(hours)
       });
     }
 
-    if (prevState.value !== this.state.value) {
-      this.props.getValue(this.state.value);
+    if (prevState.value !== value) {
+      this.props.getValue(value);
     }
 
     if (prevProps.hours !== this.props.hours) {
@@ -119,6 +122,7 @@ class TimePicker extends Component {
         }
       );
     }
+
     if (prevProps.dayTime !== this.props.dayTime) {
       this.setState(
         {
@@ -134,37 +138,38 @@ class TimePicker extends Component {
   setInputText = () => {
     let value = '';
 
+    const {
+      hours,
+      minutes,
+      dayTime,
+      computedHours,
+      computedMinutes
+    } = this.state;
+
     if (
-      this.state.hours !== null &&
-      this.state.minutes !== null &&
-      this.state.hours < 25 &&
-      this.state.hours >= 0 &&
-      this.state.minutes < 60 &&
-      this.state.minutes >= 0
+      hours !== null &&
+      minutes !== null &&
+      hours < 25 &&
+      hours >= 0 &&
+      minutes < 60 &&
+      minutes >= 0
     ) {
       if (this.props.hoursFormat === 12) {
-        if (this.state.hours > 12 && this.state.hours < 24) {
-          value = `${this.state.computedHours - 12}:${
-            this.state.computedMinutes
-          }PM`;
-        } else if (this.state.hours === 24 || this.state.hours === 0) {
-          value = `${parseInt(this.state.computedHours) + 12}:${
-            this.state.computedMinutes
-          }AM`;
+        if (hours > 12 && hours < 24) {
+          value = `${computedHours - 12}:${computedMinutes}PM`;
+        } else if (hours === 24 || hours === 0) {
+          value = `${parseInt(computedHours) + 12}:${computedMinutes}AM`;
         } else {
-          value = `${this.state.computedHours}:${
-            this.state.computedMinutes
-          }${this.state.dayTime.toUpperCase()}`;
+          value = `${computedHours}:${computedMinutes}${dayTime.toUpperCase()}`;
         }
       } else {
-        value = `${this.state.computedHours}:${this.state.computedMinutes}`;
+        value = `${computedHours}:${computedMinutes}`;
       }
     }
 
     this.setState({
       value,
-      unitsMode: 'h',
-      dayTime: 'am'
+      unitsMode: 'h'
     });
   };
 
