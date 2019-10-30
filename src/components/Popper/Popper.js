@@ -18,14 +18,21 @@ class Popover extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    const { showPopper } = this.state;
+    const { isVisible, onChange } = this.props;
+
     this.setPopperJS();
-    // if (
-    //   prevProps.isVisible !== this.props.isVisible ||
-    //   (this.props.isVisible !== this.state.showPopper &&
-    //     this.state.showPopper !== prevProps.showPopper)
-    // ) {
-    //   this.setState({ showPopper: this.props.isVisible });
-    // }
+
+    if (
+      prevProps.isVisible !== isVisible &&
+      isVisible !== showPopper &&
+      showPopper !== prevProps.showPopper
+    )
+      this.setState({ showPopper: isVisible });
+
+    if (onChange && showPopper !== prevState.showPopper) onChange(showPopper);
+
+    if (showPopper && prevState.showPopper !== showPopper) this.createPopper();
   }
 
   componentDidMount() {
@@ -44,12 +51,21 @@ class Popover extends React.Component {
   };
 
   createPopper = () => {
-    this.setState({
-      popperJS: new Popper(this.referenceElm, this.popoverWrapperRef, {
-        placement: this.props.placement,
-        ...this.props.modifiers
-      })
-    });
+    if (this.referenceElm && this.popoverWrapperRef)
+      this.setState({
+        popperJS: new Popper(
+          this.referenceElm,
+          this.popoverWrapperRef,
+          {
+            placement: this.props.placement,
+            ...this.props.modifiers
+          },
+          () =>
+            setTimeout(() => {
+              this.state.popperJS.scheduleUpdate();
+            }, 10)
+        )
+      });
   };
 
   doToggle = toggler => {
@@ -66,7 +82,7 @@ class Popover extends React.Component {
             },
             () => {
               this.createPopper();
-              this.state.popperJS.scheduleUpdate()
+              this.state.popperJS.scheduleUpdate();
             }
           );
       }
@@ -82,8 +98,9 @@ class Popover extends React.Component {
         target === this.referenceElm
       )
         return;
+
+      this.doToggle(false);
     }
-    this.doToggle(false);
   };
 
   render() {
@@ -104,47 +121,7 @@ class Popover extends React.Component {
     } = this.props;
 
     const { visible, showPopper } = this.state;
-    // const [visible, setVisible] = useState(isVisible);
 
-    // useEffect(() => {
-    //   setVisible(isVisible);
-    // }, [isVisible]);
-
-    // useEffect(() => {
-    //   onChange && onChange(visible);
-    // }, [onChange, visible]);
-
-    // useEffect(() => {
-    //   window.addEventListener('click', handleClick);
-
-    //   return () => window.removeEventListener('click', handleClick);
-    // });
-
-    // function handleClick(e) {
-    //   const element = document
-    //     .elementsFromPoint(e.clientX, e.clientY)
-    //     .find(el => el.dataset.popper === id);
-    //   if (element) return;
-
-    //   setVisible(false);
-    // }
-
-    // const Wrapper = children[0];
-    // const Content = children[1];
-    // console.log('Wrapper:', Wrapper);
-    // console.log('Content:', Content);
-    // const Tag = tag;
-
-    // const tooltipClasses = classNames(
-    //   'fade',
-    //   popover
-    //     ? `popover bs-popover-${placement} popover-enter-done`
-    //     : `tooltip bs-tooltip-${placement}`,
-    //   showPopper && 'show',
-    //   className && className
-    // );
-
-    // const popperClasses = classNames(popover ? 'popover' : 'tooltip px-2');
 
     const popper = children[1];
     const Wrapper = children[0];
@@ -154,10 +131,15 @@ class Popover extends React.Component {
           <Wrapper.type
             {...Wrapper.props}
             onMouseEnter={() => !clickable && this.doToggle(true)}
-            onMouseLeave={() => !clickable && this.doToggle(false)}
+            onMouseLeave={() =>
+              !clickable &&
+              !popover &&
+              setTimeout(() => this.doToggle(false), 0)
+            }
             onTouchStart={() => !clickable && this.doToggle(true)}
-            onTouchEnd={() => !clickable && this.doToggle(false)}
+            onTouchEnd={() => !clickable && !popover && this.doToggle(false)}
             onMouseDown={() => clickable && this.doToggle(!showPopper)}
+            onMouseUp={() => setTimeout(() => this.setPopperJS(), 0)}
             innerRef={ref => (this.referenceElm = ref)}
             data-popper={id}
           />
@@ -166,11 +148,14 @@ class Popover extends React.Component {
             {...Wrapper.props}
             onMouseEnter={() => !clickable && this.doToggle(true)}
             onMouseLeave={() =>
-              !clickable && setTimeout(() => this.doToggle(false), 100)
+              !clickable &&
+              !popover &&
+              setTimeout(() => this.doToggle(false), 0)
             }
             onTouchStart={() => !clickable && this.doToggle(true)}
-            onTouchEnd={() => !clickable && this.doToggle(false)}
+            onTouchEnd={() => !clickable && !popover && this.doToggle(false)}
             onMouseDown={() => clickable && this.doToggle(!showPopper)}
+            onMouseUp={() => setTimeout(() => this.setPopperJS(), 0)}
             ref={ref => (this.referenceElm = ref)}
             data-popper={id}
           />
@@ -185,7 +170,9 @@ class Popover extends React.Component {
             )}
             {...attributes}
           >
-            {popper}
+            {React.cloneElement(popper, {
+              onChange: () => setTimeout(() => this.setPopperJS, 10)
+            })}
             <span x-arrow='' className='popover_arrow'></span>
           </Tag>
         )}
@@ -223,4 +210,3 @@ export { Popover as MDBPopper };
 export { Popover as MDBTooltip };
 export { Popover as Tooltip };
 export { Popover as MDBPopover };
-// export { Popover as Popover };

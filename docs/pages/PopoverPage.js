@@ -31,7 +31,7 @@ const PopoverPage = () => {
           modifiers={{
             placement: 'top'
           }}
-          onChange={val => setVisibility(val)}
+          onChange={val => {setVisibility(val); console.log(val)}}
         >
           <MDBBtn>popover on top</MDBBtn>
           <div>
