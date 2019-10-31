@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import {
   Fa,
@@ -7,7 +8,6 @@ import {
   MDBTooltip
 } from 'mdbreact';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
 
 const Rating = props => {
   const [data, setData] = useState([]);
