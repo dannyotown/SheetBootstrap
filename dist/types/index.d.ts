@@ -505,7 +505,7 @@ declare class MDBDataTable extends Component<
     tag?: string;
     onSearch?: (value: string) => string | void,
     onSort?: (obj: { column: string, direction: string }) => object | void,
-    onPageChange?: (obj: { activePage: number , pagesAmount: number }) => object | void,
+    onPageChange?: (obj: { activePage: number , pagesAmount: number }) => object | void, 
     [rest: string]: any;
   },
   any
@@ -647,6 +647,7 @@ declare class MDBInput extends Component<
     outline?: boolean;
     label?: string | boolean;
     labelClass?: string;
+    labelId?: string;
     noTag?: boolean;
     size?: "sm" | "lg";
     success?: string;
@@ -761,36 +762,40 @@ declare const MDBMedia: FunctionComponent<{
   [rest: string]: any;
 }>;
 
-declare class MDBModal extends Component<{
-  animation?: "top" | "bottom" | "left" | "right";
-  autoFocus?: boolean;
-  backdrop?: boolean;
-  backdropClassName?: string;
-  cascading?: boolean;
-  centered?: boolean;
-  className?: string;
-  contentClassName?: string;
-  children?: ReactNode;
-  fade?: boolean;
-  frame?: boolean;
-  fullHeight?: boolean;
-  isOpen?: boolean;
-  id?: string;
-  labelledBy?: string;
-  modalClassName?: string;
-  modalStyle?: "success" | "info" | "danger" | "warning";
-  position?: string;
-  side?: boolean;
-  size?: "sm" | "md" | "lg" | "fluid";
-  role?: string;
-  tabIndex?: string;
-  wrapClassName?: boolean;
-  toggle?: () => void;
-  hiddenModal?: () => void;
-  hideModal?: () => void;
-  showModal?: () => void;
-  [rest: string]: any;
-}, any> {}
+declare class MDBModal extends Component<
+  {
+    animation?: 'top' | 'bottom' | 'left' | 'right';
+    autoFocus?: boolean;
+    backdrop?: boolean;
+    backdropClassName?: string;
+    cascading?: boolean;
+    centered?: boolean;
+    className?: string;
+    contentClassName?: string;
+    children?: ReactNode;
+    fade?: boolean;
+    frame?: boolean;
+    fullHeight?: boolean;
+    isOpen?: boolean;
+    id?: string;
+    labelledBy?: string;
+    modalClassName?: string;
+    modalStyle?: 'success' | 'info' | 'danger' | 'warning';
+    position?: string;
+    side?: boolean;
+    size?: 'sm' | 'md' | 'lg' | 'fluid';
+    role?: string;
+    tabIndex?: string;
+    wrapClassName?: boolean;
+    keyboard?: boolean;
+    toggle?: () => void;
+    hiddenModal?: () => void;
+    hideModal?: () => void;
+    showModal?: () => void;
+    [rest: string]: any;
+  },
+  any
+> {}
 
 declare const MDBModalBody: FunctionComponent<{
   className?: string;
@@ -884,6 +889,7 @@ declare const MDBNavLink: FunctionComponent<{
   disabled?: boolean;
   to?: string;
   [rest: string]: any;
+  link?: boolean;
 }>;
 
 declare class MDBNotification extends Component<{
@@ -986,6 +992,7 @@ declare const MDBRating: FunctionComponent<{
     choosed?: boolean;
     [rest: string]: any;
   };
+  feedback?: boolean;
   fillClassName?: string;
   fillColors?: boolean | string[];
   iconClassName?: string;
@@ -1045,18 +1052,12 @@ declare class MDBTabContent extends Component<{
   [rest: string]: any;
 }, any> {}
 
-declare const MDBTreeviewItem: FunctionComponent<{
+declare class MDBTabPane extends Component<{
+  activeItemId?: any;
   className?: string;
-  disabled?: boolean;
-  disabledClassName?: string;
-  fab?: boolean;
-  fal?: boolean;
-  far?: boolean;
-  icon?: string;
-  opened?: boolean;
-  tag?: string;
+  tabId?: any;
   [rest: string]: any;
-}>;
+}, any> {}
 
 declare const MDBTable: FunctionComponent<{
   autoWidth?: boolean;
@@ -1114,6 +1115,45 @@ declare const MDBTableHead: FunctionComponent<{
   [rest: string]: any;
 }>;
 
+declare const MDBTreeview: FunctionComponent<{
+  className?: string;
+  header?: string;
+  listClassName?: string;
+  tag?: string;
+  theme?: string;
+  getValue?: (value: {
+    item: HTMLLIElement | null;
+    value: string | null;
+  }) => void;
+  [rest: string]: any;
+}>;
+
+declare const MDBTreeviewItem: FunctionComponent<{
+  className?: string;
+  disabled?: boolean;
+  disabledClassName?: string;
+  fab?: boolean;
+  fal?: boolean;
+  far?: boolean;
+  icon?: string;
+  opened?: boolean;
+  tag?: string;
+  [rest: string]: any;
+}>;
+
+declare const MDBTreeviewList: FunctionComponent<{
+  className?: string;
+  disabled?: boolean;
+  disabledClassName?: string;
+  fab?: boolean;
+  fal?: boolean;
+  far?: boolean;
+  icon?: string;
+  opened?: boolean;
+  tag?: string;
+  [rest: string]: any;
+}>;
+
 declare const MDBView: FunctionComponent<{
   cascade?: boolean;
   children?: ReactNode;
@@ -1142,24 +1182,24 @@ declare class MDBWaves extends Component<
 
 declare class MDBAutocomplete extends Component<{
   data?: string[];
-  disabled?: boolean;
+  disabled?: boolean; 
   className?: string;
-  clear?: boolean;
-  clearColor?: string;
-  clearSize?: string;
-  id?: string;
-  label?: string;
-  labelClass?: string;
-  icon?: string;
-  iconBrand?: boolean;
-  iconLight?: boolean;
-  iconRegular?: boolean;
+  clear?: boolean; 
+  clearColor?: string; 
+  clearSize?: string; 
+  id?: string; 
+  label?: string; 
+  labelClass?: string; 
+  icon?: string; 
+  iconBrand?: boolean; 
+  iconLight?: boolean; 
+  iconRegular?: boolean; 
   iconSize?: "lg" | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
-  iconClassName?: string;
-  placeholder?: string;
-  valueDefault?: string;
-
-  getValue?: (value: string) => void;
+  iconClassName?: string; 
+  placeholder?: string; 
+  valueDefault?: string; 
+  
+  getValue?: (value: string) => void; 
   [rest: string]: any;
 }, any> {}
 
@@ -1606,12 +1646,16 @@ declare class MDBSideNavLink extends Component<{
   [rest: string]: any;
 }, any> {}
 
-declare class MDBSideNavNav extends Component<{
-  children?: ReactNode,
-  className?: string
-  tag?: string,
-  [rest: string]: any;
-}, any> {}
+declare class MDBSideNavNav extends Component<
+  {
+    children?: ReactNode;
+    className?: string;
+    tag?: string;
+    toggleNavLabel?: string;
+    [rest: string]: any;
+  },
+  any
+> {}
 
 declare const MDBSimpleChart: FunctionComponent<{
   endAngle?: number;
@@ -1675,7 +1719,7 @@ declare const MDBSpinner: FunctionComponent<{
 declare const MDBStep: FunctionComponent<{
   form?: boolean;
   tag?: string;
-  icon?: string;
+  icon?: string; 
   iconClass?: string;
   stepName?: string;
   vertical?: boolean;
@@ -1754,7 +1798,7 @@ declare const MDBTestimonial: FunctionComponent<{
 declare const MDBTimeline: FunctionComponent<{
   form?: boolean;
   tag?: string;
-  icon?: string;
+  icon?: string; 
   iconClass?: string;
   stepName?: string;
   vertical?: boolean;
@@ -1805,4 +1849,4 @@ declare class MDBToast extends Component<any, any> {}
 
 declare class MDBToastContainer extends Component<any, any> {}
 
-export { MDBAlert, MDBAnimation, MDBAutocomplete, MDBAvatar, MDBBadge, MDBBreadcrumb, MDBBreadcrumbItem, MDBBtn, MDBBtnGroup, MDBBtnToolbar, MDBBtnFixed as MDBButtonFixed, MDBBtnFixedItem as MDBButtonFixedItem, MDBCard, MDBCardBody, MDBCardFooter, MDBCardGroup, MDBCardHeader, MDBCardImage, MDBCardText, MDBCardTitle, MDBCardUp, MDBCarousel, MDBCarouselCaption, MDBCarouselControl, MDBCarouselIndicator, MDBCarouselIndicators, MDBCarouselInner, MDBCarouselItem, MDBChip, MDBChipsInput, MDBCloseIcon, MDBCol, MDBCollapse, MDBCollapseHeader, MDBContainer, MDBDataTable, MDBDatePicker, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBEdgeHeader, MDBExportToCSV, MDBFileInput, MDBFooter, MDBFormInline, MDBFreeBird, MDBHamburgerToggler, MDBIcon, MDBIframe, MDBInput, MDBInputGroup, MDBInputSelect as MDBInputNumeric, MDBJumbotron, MDBListGroup, MDBListGroupItem, MDBMask, MDBMedia, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBNav, MDBNavItem, MDBNavLink, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNotification, MDBPageItem, MDBPageLink as MDBPageNav, MDBPagination, MDBPerfectScrollbar, MDBPopper as MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBPopper, MDBProgress, MDBInputRange as MDBRangeInput, MDBRating, MDBRotatingCard, MDBRow, MDBScrollSpyBox as MDBScrollspyBox, MDBScrollSpyList as MDBScrollspyList, MDBScrollSpyListItem as MDBScrollspyListItem, MDBScrollSpyText as MDBScrollspyText, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions, MDBSideNav, MDBSideNavCat, MDBSideNavItem, MDBSideNavLink, MDBSideNavNav, MDBSimpleChart, MDBSmoothScroll, MDBSpinner, MDBStep, MDBStepper, MDBSticky, MDBStickyContent, MDBStreak, MDBInputSwitch as MDBSwitch, MDBTabContent, MDBTabPane, MDBTable, MDBTableBody, MDBTableEditable, MDBTableFoot, MDBTableHead, MDBTestimonial, MDBTimePicker, MDBTimeline, MDBTimelineStep, MDBToast, MDBToastContainer, MDBView, MDBWaves };
+export { MDBAlert, MDBAnimation, MDBAutocomplete, MDBAvatar, MDBBadge, MDBBreadcrumb, MDBBreadcrumbItem, MDBBtn, MDBBtnGroup, MDBBtnToolbar, MDBBtnFixed as MDBButtonFixed, MDBBtnFixedItem as MDBButtonFixedItem, MDBCard, MDBCardBody, MDBCardFooter, MDBCardGroup, MDBCardHeader, MDBCardImage, MDBCardText, MDBCardTitle, MDBCardUp, MDBCarousel, MDBCarouselCaption, MDBCarouselControl, MDBCarouselIndicator, MDBCarouselIndicators, MDBCarouselInner, MDBCarouselItem, MDBChip, MDBChipsInput, MDBCloseIcon, MDBCol, MDBCollapse, MDBCollapseHeader, MDBContainer, MDBDataTable, MDBDatePicker, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBEdgeHeader, MDBExportToCSV, MDBFileInput, MDBFooter, MDBFormInline, MDBFreeBird, MDBHamburgerToggler, MDBIcon, MDBIframe, MDBInput, MDBInputGroup, MDBInputSelect as MDBInputNumeric, MDBJumbotron, MDBLightbox, MDBListGroup, MDBListGroupItem, MDBMask, MDBMedia, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBNav, MDBNavItem, MDBNavLink, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNotification, MDBPageItem, MDBPageLink as MDBPageNav, MDBPagination, MDBPerfectScrollbar, MDBPopper as MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBPopper, MDBProgress, MDBInputRange as MDBRangeInput, MDBRating, MDBRotatingCard, MDBRow, MDBScrollSpyBox as MDBScrollspyBox, MDBScrollSpyList as MDBScrollspyList, MDBScrollSpyListItem as MDBScrollspyListItem, MDBScrollSpyText as MDBScrollspyText, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions, MDBSideNav, MDBSideNavCat, MDBSideNavItem, MDBSideNavLink, MDBSideNavNav, MDBSimpleChart, MDBSmoothScroll, MDBSpinner, MDBStep, MDBStepper, MDBSticky, MDBStickyContent, MDBStreak, MDBInputSwitch as MDBSwitch, MDBTabContent, MDBTabPane, MDBTable, MDBTableBody, MDBTableEditable, MDBTableFoot, MDBTableHead, MDBTestimonial, MDBTimePicker, MDBTimeline, MDBTimelineStep, MDBToast, MDBToastContainer, MDBTreeview, MDBTreeviewItem, MDBTreeviewList, MDBView, MDBWaves };
