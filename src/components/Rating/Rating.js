@@ -242,7 +242,7 @@ const Rating = props => {
                 onClick={e => handleClick(tooltip, index, e)}
               />
             </span>
-            <div>{tooltipContent}</div>
+            <div style={{ userSelect: 'none' }}>{tooltipContent}</div>
           </MDBTooltip>
         );
       }

@@ -122,7 +122,6 @@ class Popover extends React.Component {
 
     const { visible, showPopper } = this.state;
 
-
     const popper = children[1];
     const Wrapper = children[0];
     return (
@@ -138,7 +137,10 @@ class Popover extends React.Component {
             }
             onTouchStart={() => !clickable && this.doToggle(true)}
             onTouchEnd={() => !clickable && !popover && this.doToggle(false)}
-            onMouseDown={() => clickable && this.doToggle(!showPopper)}
+            onMouseDown={() => {
+              clickable && this.doToggle(!showPopper);
+              setTimeout(() => this.setPopperJS(), 100);
+            }}
             onMouseUp={() => setTimeout(() => this.setPopperJS(), 0)}
             innerRef={ref => (this.referenceElm = ref)}
             data-popper={id}
@@ -168,11 +170,10 @@ class Popover extends React.Component {
               popover ? 'popover' : 'tooltip px-2',
               className
             )}
+            data-popper={id}
             {...attributes}
           >
-            {React.cloneElement(popper, {
-              onChange: () => setTimeout(() => this.setPopperJS, 10)
-            })}
+            {popper}
             <span x-arrow='' className='popover_arrow'></span>
           </Tag>
         )}
