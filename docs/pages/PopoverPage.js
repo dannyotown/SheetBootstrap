@@ -13,7 +13,7 @@ const PopoverPage = () => {
   const [visible, setVisibility] = useState(true);
 
   return (
-    <MDBContainer style={{ height: '2000px' }}>
+    <MDBContainer>
       <DocsLink
         title='Popovers'
         href='https://mdbootstrap.com/docs/react/advanced/popovers/'
