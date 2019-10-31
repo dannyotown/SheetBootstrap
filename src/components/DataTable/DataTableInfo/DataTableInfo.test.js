@@ -8,7 +8,8 @@ const expectedProps = {
   entries: 10,
   filteredRows: [],
   info: true,
-  pages: []
+  pages: [],
+  noRecordsFoundLabel: 'test'
 };
 
 const setup = (props = {}) =>
@@ -22,6 +23,7 @@ describe('<DataTableInfo />', () => {
   });
 
   test(`renders`, () => {
+    console.log(wrapper.debug())
     expect(findByTestAttr(wrapper, 'datatable-info').length).toBe(1);
   });
 

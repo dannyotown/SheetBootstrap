@@ -44,14 +44,12 @@ class DataTable extends Component {
     }
 
     order.length && this.handleSort(order[0], order[1]);
-    // console.log(object)
 
     this.setUnsearchable(columns);
   }
 
   componentDidUpdate(prevProps, prevState) {
     const { data } = this.props;
-    const { sorted, columns } = this.state;
 
     if (prevProps.data !== data) {
       typeof data === 'string'
@@ -60,21 +58,6 @@ class DataTable extends Component {
 
       this.setUnsearchable(this.state.columns);
       this.filterRows();
-    }
-    if (sorted && columns.filter(el => el.sort).length === 0) {
-      // console.log()
-      // console.log(this.state.activePage)
-      // this.setState({ columns: prevState.columns }, () => {
-      let col = prevState.columns.filter(el => el.sort)[0];
-      let sort = col.sort === 'asc' ? 'desc' : 'asc';
-      console.log(prevState.columns, this.state.columns);
-      this.handleSort(col.field, sort);
-      setTimeout(() => {
-        this.setState({
-          activePage: prevState.activePage,
-          // columns: prevState.columns
-        });
-      }, 0);
     }
   }
 
@@ -286,7 +269,6 @@ class DataTable extends Component {
         pages.push(filteredRows);
         activePage = 0;
       }
-      // console.log(pages, filteredRows, activePage)
       return { pages, filteredRows, activePage };
     });
   };
