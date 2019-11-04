@@ -1,6 +1,6 @@
 .mdb-lightbox .overlay {
-  height: 120vh;
-  width: 100vw;
+  height: 150vh;
+  width: 150vw;
   position: fixed;
   top: 0;
   left: 0;
@@ -11,8 +11,12 @@
   height: 100vh;
   top: 0;
   left: 0;
-  position: absolute;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: 10000;
 }
+
 .mdb-lightbox .ui-controls > * {
   position: fixed;
   z-index: 999999;
@@ -38,7 +42,7 @@
 }
 /* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */
 .mdb-lightbox img.zoom {
-  z-index: 9999;
+  z-index: 10001;
   position: fixed;
   top: 50%;
   left: 50%;
