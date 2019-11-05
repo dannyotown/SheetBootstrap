@@ -77,7 +77,7 @@ class InputRange extends React.Component {
     );
 
     return (
-      <Tag className={formClass}>
+      <Tag className={formClass} data-test='input-range'>
         <input
           ref={this.inputRef}
           className={inputClass}
@@ -109,6 +109,7 @@ class InputRange extends React.Component {
 
 InputRange.propTypes = {
   className: PropTypes.string,
+  formClassName: PropTypes.string,
   min: PropTypes.number,
   max: PropTypes.number,
   value: PropTypes.number,
