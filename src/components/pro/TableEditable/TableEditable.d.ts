@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 declare class MDBTableEditable extends React.Component<
   {
@@ -15,6 +15,8 @@ declare class MDBTableEditable extends React.Component<
     responsiveXl?: boolean;
     small?: boolean;
     striped?: boolean;
+    getValue?: () => void;
+    onChange?: () => void;
     [rest: string]: any;
   },
   any
