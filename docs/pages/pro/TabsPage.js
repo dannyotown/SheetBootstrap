@@ -173,7 +173,7 @@ class TabsPage extends Component {
                 </MDBTabContent>
               </SectionContainer>
 
-              <SectionContainer header="With dropdown" className="pt-4 pb-5">
+              <SectionContainer header="With dropdown" className="pt-4 pb-5 position-relative" style={{zIndex:2}}>
                 <MDBNav tabs>
                   <MDBNavItem>
                     <MDBNavLink active to="#!">
@@ -203,7 +203,7 @@ class TabsPage extends Component {
                 </MDBNav>
               </SectionContainer>
 
-              <SectionContainer header="Tabs justified">
+              <SectionContainer header="Tabs justified" className="position-relative" style={{zIndex:1}}>
                 <MDBNav tabs className="nav-justified" color="indigo">
                   <MDBNavItem>
                     <MDBNavLink
