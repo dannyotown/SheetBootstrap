@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import DataTableTable from './DataTableTable';
-import DataTableTableScroll from './DataTableTableScroll';
-import DataTableEntries from './DataTableEntries';
-import DataTableSearch from './DataTableSearch';
-import DataTableInfo from './DataTableInfo';
-import DataTablePagination from './DataTablePagination';
-import classnames from 'classnames';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import DataTableTable from "./DataTableTable";
+import DataTableTableScroll from "./DataTableTableScroll";
+import DataTableEntries from "./DataTableEntries";
+import DataTableSearch from "./DataTableSearch";
+import DataTableInfo from "./DataTableInfo";
+import DataTablePagination from "./DataTablePagination";
+import classnames from "classnames";
 // PRO-START
-import ExportToCsvBtn from '../pro/DataTable/ExportToCSV';
+import ExportToCsvBtn from "../pro/DataTable/ExportToCSV";
 // PRO-END
 
 class DataTable extends Component {
@@ -22,7 +22,7 @@ class DataTable extends Component {
       order: props.order || [],
       pages: [],
       rows: props.data.rows || [],
-      search: '',
+      search: "",
       sorted: false,
       translateScrollHead: 0,
       unsearchable: []
@@ -39,7 +39,7 @@ class DataTable extends Component {
     const { data } = this.props;
     const { order, columns } = this.state;
 
-    if (typeof data === 'string') {
+    if (typeof data === "string") {
       this.fetchData(data, this.paginateRows);
     }
 
@@ -52,9 +52,7 @@ class DataTable extends Component {
     const { data } = this.props;
 
     if (prevProps.data !== data) {
-      typeof data === 'string'
-        ? this.fetchData(data)
-        : this.setData(data.rows, data.columns, this.paginateRows);
+      typeof data === "string" ? this.fetchData(data) : this.setData(data.rows, data.columns, this.paginateRows);
 
       this.setUnsearchable(this.state.columns);
       this.filterRows();
@@ -66,9 +64,9 @@ class DataTable extends Component {
       () => ({
         columns,
         rows,
-        filteredRows: rows
+        filteredRows: this.props.disableRetreatAfterSorting ? this.filterRows() : rows
       }),
-      callback && typeof callback === 'function' && (() => callback())
+      callback && typeof callback === "function" && (() => callback())
     );
   };
 
@@ -87,19 +85,12 @@ class DataTable extends Component {
   fetchData = (link, isPaginateRows) => {
     fetch(link)
       .then(res => res.json())
-      .then(json =>
-        this.setData(
-          json.rows,
-          json.columns,
-          isPaginateRows ? this.paginateRows : null
-        )
-      )
+      .then(json => this.setData(json.rows, json.columns, isPaginateRows ? this.paginateRows : null))
       .catch(err => console.log(err));
   };
 
   // findout how many pages there are need to be, then slice rows into pages
-  pagesAmount = () =>
-    Math.ceil(this.state.filteredRows.length / this.state.entries);
+  pagesAmount = () => Math.ceil(this.state.filteredRows.length / this.state.entries);
 
   paginateRowsInitialy = () => {
     let { rows, entries, pages } = this.state;
@@ -113,35 +104,26 @@ class DataTable extends Component {
   };
 
   handleEntriesChange = value => {
-    this.setState({ entries: Array.isArray(value) ? value[0] : value }, () =>
-      this.paginateRows()
-    );
+    this.setState({ entries: Array.isArray(value) ? value[0] : value }, () => this.paginateRows());
   };
 
   handleSearchChange = e => {
     this.setState(
       { search: e.target.value },
       () => this.filterRows(),
-      this.props.onSearch &&
-        typeof this.props.onSearch === 'function' &&
-        this.props.onSearch(e.target.value)
+      this.props.onSearch && typeof this.props.onSearch === "function" && this.props.onSearch(e.target.value)
     );
   };
 
   checkFieldValue = (array, field) => {
-    return array[field] && typeof array[field] !== 'string'
-      ? array[field].props.searchvalue
-      : array[field];
+    return array[field] && typeof array[field] !== "string" ? array[field].props.searchvalue : array[field];
   };
 
   checkField = (field, a, b, direction) => {
-    let [aField, bField] = [
-      this.checkFieldValue(a, field),
-      this.checkFieldValue(b, field)
-    ];
+    let [aField, bField] = [this.checkFieldValue(a, field), this.checkFieldValue(b, field)];
 
     let comp = aField > bField ? -1 : 1;
-    if (direction === 'asc') comp *= -1;
+    if (direction === "asc") comp *= -1;
 
     return comp;
   };
@@ -152,34 +134,27 @@ class DataTable extends Component {
         return this.checkField(field, a, b, direction);
       }
 
-      return direction === 'asc'
-        ? a[field] < b[field]
-          ? -1
-          : 1
-        : a[field] > b[field]
-        ? -1
-        : 1;
+      return direction === "asc" ? (a[field] < b[field] ? -1 : 1) : a[field] > b[field] ? -1 : 1;
     });
   };
 
   handleSort = (field, sort) => {
     const { onSort } = this.props;
 
-    if (sort === 'disabled') return;
+    if (sort === "disabled") return;
 
     this.setState(
       prevState => {
         const { sortRows } = this.props;
         const { rows, columns } = prevState;
-        const direction = sort === 'desc' ? 'desc' : 'asc';
+        const direction = sort === "desc" ? "desc" : "asc";
 
         this.sort(rows, sortRows, field, direction);
 
         columns.forEach(col => {
-          if (col.sort === 'disabled') return;
+          if (col.sort === "disabled") return;
 
-          col.sort =
-            col.field === field ? (col.sort === 'desc' ? 'asc' : 'desc') : '';
+          col.sort = col.field === field ? (col.sort === "desc" ? "asc" : "desc") : "";
         });
 
         return {
@@ -191,9 +166,7 @@ class DataTable extends Component {
       () => this.filterRows()
     );
 
-    onSort &&
-      typeof onSort === 'function' &&
-      onSort({ column: field, direction: sort === 'desc' ? 'desc' : 'asc' });
+    onSort && typeof onSort === "function" && onSort({ column: field, direction: sort === "desc" ? "desc" : "asc" });
   };
 
   filterRows = () => {
@@ -204,32 +177,25 @@ class DataTable extends Component {
       prevState => {
         const filteredRows = prevState.rows.filter(row => {
           for (let key in row) {
-            if (
-              (!unsearchable.length || !unsearchable.includes(key)) &&
-              typeof row[key] !== 'function'
-            ) {
-              let stringValue = '';
+            if ((!unsearchable.length || !unsearchable.includes(key)) && typeof row[key] !== "function") {
+              let stringValue = "";
 
-              if (sortRows && typeof row[key] !== 'string') {
+              if (sortRows && typeof row[key] !== "string") {
                 let content = [];
                 const getContent = element =>
-                  typeof element === 'object'
-                    ? element.props.children &&
-                      Array.from(element.props.children).map(el =>
-                        getContent(el)
-                      )
+                  typeof element === "object"
+                    ? element.props.children && Array.from(element.props.children).map(el => getContent(el))
                     : content.push(element);
 
                 getContent(row[key]);
-                stringValue = content.join('');
+                stringValue = content.join("");
               } else {
                 if (row[key]) {
                   stringValue = row[key].toString();
                 }
               }
 
-              if (stringValue.toLowerCase().includes(search.toLowerCase()))
-                return true;
+              if (stringValue.toLowerCase().includes(search.toLowerCase())) return true;
             }
           }
           return false;
@@ -240,7 +206,20 @@ class DataTable extends Component {
             message: noRecordsFoundLabel,
             colspan: prevState.columns.length
           });
-        return { filteredRows, activePage: 0 };
+        let test = {};
+        if (this.props.disableRetreatAfterSorting) {
+          test = {
+            filteredRows,
+            activePage: (prevState.activePage =
+              prevState.activePage < prevState.pages.length || prevState.activePage === 0
+                ? prevState.activePage
+                : prevState.pages.length - 1)
+          };
+        } else if (!this.props.disableRetreatAfterSorting) {
+          test = { filteredRows, activePage: 0 };
+        }
+
+        return test;
       },
       () => this.paginateRows()
     );
@@ -251,7 +230,7 @@ class DataTable extends Component {
 
     this.setState(prevState => {
       let { pages, entries, filteredRows, activePage } = prevState;
-      const { paging } = this.props;
+      const { paging, disableRetreatAfterSorting } = this.props;
 
       pages = [];
 
@@ -260,11 +239,9 @@ class DataTable extends Component {
           const pageEndIndex = i * entries;
           pages.push(filteredRows.slice(pageEndIndex - entries, pageEndIndex));
         }
-
-        activePage =
-          activePage < pages.length || activePage === 0
-            ? activePage
-            : pages.length - 1;
+        if (!disableRetreatAfterSorting) {
+          activePage = activePage < pages.length || activePage === 0 ? activePage : pages.length - 1;
+        }
       } else {
         pages.push(filteredRows);
         activePage = 0;
@@ -278,7 +255,7 @@ class DataTable extends Component {
     this.setState({ activePage: page });
 
     onPageChange &&
-      typeof onPageChange === 'function' &&
+      typeof onPageChange === "function" &&
       onPageChange({ activePage: page + 1, pagesAmount: this.pagesAmount() });
   };
 
@@ -335,24 +312,13 @@ class DataTable extends Component {
       ...attributes
     } = this.props;
 
-    const {
-      columns,
-      entries,
-      filteredRows,
-      pages,
-      activePage,
-      search,
-      translateScrollHead
-    } = this.state;
+    const { columns, entries, filteredRows, pages, activePage, search, translateScrollHead } = this.state;
 
-    const tableClasses = classnames(
-      'dataTables_wrapper dt-bootstrap4',
-      className
-    );
+    const tableClasses = classnames("dataTables_wrapper dt-bootstrap4", className);
 
     return (
-      <div data-test='datatable' className={tableClasses}>
-        <div className={`row${barReverse ? ' flex-row-reverse' : ''}`}>
+      <div data-test="datatable" className={tableClasses}>
+        <div className={`row${barReverse ? " flex-row-reverse" : ""}`}>
           <DataTableEntries
             paging={paging}
             displayEntries={displayEntries}
@@ -371,7 +337,7 @@ class DataTable extends Component {
           />
         </div>
         {!scrollY && !scrollX && (
-          <div className='row'>
+          <div className="row">
             <DataTableTable
               autoWidth={autoWidth}
               bordered={bordered}
@@ -403,7 +369,7 @@ class DataTable extends Component {
           </div>
         )}
         {(scrollY || scrollX) && (
-          <div className='row'>
+          <div className="row">
             <DataTableTableScroll
               autoWidth={autoWidth}
               bordered={bordered}
@@ -438,7 +404,7 @@ class DataTable extends Component {
           </div>
         )}
         {paging && (
-          <div className='row'>
+          <div className="row">
             <DataTableInfo
               activePage={activePage}
               entries={entries}
@@ -459,8 +425,8 @@ class DataTable extends Component {
         )}
         {/* PRO-START */}
         {exportToCSV && (
-          <div className='row justify-content-end'>
-            <ExportToCsvBtn columns={columns} data={pages} color='primary'>
+          <div className="row justify-content-end">
+            <ExportToCsvBtn columns={columns} data={pages} color="primary">
               Download CSV
             </ExportToCsvBtn>
           </div>
@@ -481,13 +447,10 @@ DataTable.propTypes = {
   children: PropTypes.node,
   dark: PropTypes.bool,
   data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  disableRetreatAfterSorting: PropTypes.bool,
   displayEntries: PropTypes.bool,
   entries: PropTypes.number,
-  entriesLabel: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]),
+  entriesLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
   entriesOptions: PropTypes.arrayOf(PropTypes.number),
   exportToCSV: PropTypes.bool,
   fixed: PropTypes.bool,
@@ -534,36 +497,37 @@ DataTable.defaultProps = {
     columns: [],
     rows: []
   },
+  disableRetreatAfterSorting: false,
   displayEntries: true,
   entries: 10,
-  entriesLabel: 'Show entries',
+  entriesLabel: "Show entries",
   entriesOptions: [10, 20, 50, 100],
   exportToCSV: false,
   fixed: false,
   hover: false,
   info: true,
-  infoLabel: ['Showing', 'to', 'of', 'entries'],
-  noRecordsFoundLabel: 'No matching records found',
+  infoLabel: ["Showing", "to", "of", "entries"],
+  noRecordsFoundLabel: "No matching records found",
   noBottomColumns: false,
   order: [],
   pagesAmount: 8,
   paging: true,
-  paginationLabel: ['Previous', 'Next'],
+  paginationLabel: ["Previous", "Next"],
   responsive: false,
   responsiveSm: false,
   responsiveMd: false,
   responsiveLg: false,
   responsiveXl: false,
   searching: true,
-  searchLabel: 'Search',
+  searchLabel: "Search",
   scrollX: false,
   scrollY: false,
   sortable: true,
   small: false,
   striped: false,
-  theadColor: '',
+  theadColor: "",
   theadTextWhite: false,
-  tbodyColor: '',
+  tbodyColor: "",
   tbodyTextWhite: false
 };
 
