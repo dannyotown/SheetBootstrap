@@ -12,6 +12,7 @@ var ReactDOM = _interopDefault(require('react-dom'));
 var reactPopper = require('react-popper');
 var NumericInput = _interopDefault(require('react-numeric-input'));
 var reactRouterDom = require('react-router-dom');
+var Popper = _interopDefault(require('popper.js'));
 var mdbreact = require('mdbreact');
 var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
@@ -782,7 +783,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".bc-icons.breadcrumb-item::before,\r\n.bc-icons.breadcrumb-item::after {\r\n  content: none;\r\n}\r\n\r\n.bc-icons.breadcrumb-item + .active.breadcrumb-item::before,\r\n.bc-icons.breadcrumb-item + .active.breadcrumb-item::after{\r\n  content: none;\r\n}\r\n\r\n.bc-icons.breadcrumb-item.active {\r\n  color: #eeeeee;\r\n}\r\n";
+var css = ".bc-icons.breadcrumb-item::before,\n.bc-icons.breadcrumb-item::after {\n  content: none;\n}\n\n.bc-icons.breadcrumb-item + .active.breadcrumb-item::before,\n.bc-icons.breadcrumb-item + .active.breadcrumb-item::after{\n  content: none;\n}\n\n.bc-icons.breadcrumb-item.active {\n  color: #eeeeee;\n}\n";
 styleInject(css);
 
 var BreadcrumbItem = function BreadcrumbItem(props) {
@@ -855,7 +856,7 @@ BreadcrumbItem.defaultProps = {
   iconSize: ""
 };
 
-var css$1 = ".Ripple {\r\n  position: absolute;\r\n  background: rgba(255, 255, 255, 0.3);\r\n  border-radius: 50%;\r\n  opacity: 1;\r\n  transform: scale(0);\r\n}\r\n\r\n.Ripple-outline {\r\n  background: rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.Ripple.is-reppling {\r\n  animation: ripple 0.5s linear;\r\n}\r\n\r\n.Ripple-parent {\r\n  position: relative;\r\n  overflow: hidden;\r\n  cursor: pointer;\r\n}\r\n\r\n@keyframes ripple {\r\n  100% {\r\n    opacity: 0;\r\n    transform: scale(3);\r\n  }\r\n}\r\n";
+var css$1 = ".Ripple {\n  position: absolute;\n  background: rgba(255, 255, 255, 0.3);\n  border-radius: 50%;\n  opacity: 1;\n  transform: scale(0);\n}\n\n.Ripple-outline {\n  background: rgba(0, 0, 0, 0.2);\n}\n\n.Ripple.is-reppling {\n  animation: ripple 0.5s linear;\n}\n\n.Ripple-parent {\n  position: relative;\n  overflow: hidden;\n  cursor: pointer;\n}\n\n@keyframes ripple {\n  100% {\n    opacity: 0;\n    transform: scale(3);\n  }\n}\n";
 styleInject(css$1);
 
 var Waves =
@@ -1046,7 +1047,7 @@ Button.propTypes = {
   className: propTypes.string
 };
 
-var css$2 = ".btn-group-vertical>.btn,\r\n.btn-group-vertical>.btn+.btn-group,\r\n.btn-group-vertical>.btn-group+.btn,\r\n.btn-group-vertical>.btn-group+.btn-group {\r\n  margin-left: 0px;\r\n}\r\n\r\n.btn-group-lg>.btn {\r\n  font-size: 0.9rem;\r\n  padding: 1rem 2.4rem;\r\n}\r\n\r\n.btn-group-sm>.btn {\r\n  font-size: 0.6rem;\r\n  padding: 0.5rem 1.6rem;\r\n}\r\n\r\n.btn-floating.btn.btn-sm,\r\n.btn-floating.btn.btn-lg {\r\n  padding: 0;\r\n}\r\n";
+var css$2 = ".btn-group-vertical>.btn,\n.btn-group-vertical>.btn+.btn-group,\n.btn-group-vertical>.btn-group+.btn,\n.btn-group-vertical>.btn-group+.btn-group {\n  margin-left: 0px;\n}\n\n.btn-group-lg>.btn {\n  font-size: 0.9rem;\n  padding: 1rem 2.4rem;\n}\n\n.btn-group-sm>.btn {\n  font-size: 0.6rem;\n  padding: 0.5rem 1.6rem;\n}\n\n.btn-floating.btn.btn-sm,\n.btn-floating.btn.btn-lg {\n  padding: 0;\n}\n";
 styleInject(css$2);
 
 var ButtonGroup = function ButtonGroup(props) {
@@ -1626,7 +1627,7 @@ CarouselIndicators.defaultProps = {
   className: ""
 };
 
-var css$3 = ".carousel-inner {\r\n  position: relative;\r\n  overflow: hidden;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.carousel-fade .carousel-item {\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  display: block !important;\r\n  opacity: 0;\r\n  z-index: 0;\r\n  transition: transform 0ms ease-in-out, opacity 0.8s ease-out;\r\n}\r\n\r\n.carousel-fade .carousel-item.active {\r\n  position: relative;\r\n  z-index: 1;\r\n  opacity: 1;\r\n}\r\n\r\n.carousel-multi-item .carousel-item {\r\n  display: inline-block !important;\r\n}\r\n\r\n.carousel .carousel-slide-item {\r\n  transition: left 0.5s;\r\n}\r\n\r\n.carousel-control-prev, .carousel-control-next, .carousel-item-prev, .carousel-item-next {\r\n  z-index: 2;\r\n}\r\n";
+var css$3 = ".carousel-inner {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  height: 100%;\n}\n\n.carousel-fade .carousel-item {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  display: block !important;\n  opacity: 0;\n  z-index: 0;\n  transition: transform 0ms ease-in-out, opacity 0.8s ease-out;\n}\n\n.carousel-fade .carousel-item.active {\n  position: relative;\n  z-index: 1;\n  opacity: 1;\n}\n\n.carousel-multi-item .carousel-item {\n  display: inline-block !important;\n}\n\n.carousel .carousel-slide-item {\n  transition: left 0.5s;\n}\n\n.carousel-control-prev, .carousel-control-next, .carousel-item-prev, .carousel-item-next {\n  z-index: 2;\n}\n";
 styleInject(css$3);
 
 var Carousel =
@@ -2380,7 +2381,7 @@ DataTableHead.defaultProps = {
   textWhite: false
 };
 
-var css$4 = ".table-wrapper-scroll-y {\r\n  display: block;\r\n  max-height: 200px;\r\n  overflow-y: auto;\r\n  -ms-overflow-style: -ms-autohiding-scrollbar;\r\n}\r\n";
+var css$4 = ".table-wrapper-scroll-y {\n  display: block;\n  max-height: 200px;\n  overflow-y: auto;\n  -ms-overflow-style: -ms-autohiding-scrollbar;\n}\n";
 styleInject(css$4);
 
 var Table = function Table(props) {
@@ -3881,7 +3882,7 @@ SelectInput.defaultProps = {
 };
 var SelectInput$1 = SelectInput = selectContextHOC(SelectInput);
 
-var css$5 = ".fadeElement {\r\n  -webkit-transition: 0.5s;\r\n  -moz-transition: 0.5s;\r\n  -o-transition: 0.5s;\r\n  transition: 0.5s;\r\n  display: block;\r\n  width: 100%;\r\n  top: 0;\r\n  opacity: 0;\r\n  transform-origin:top;\r\n  transform:scaleY(0.7);\r\n  visibility: hidden;\r\n  pointer-events: none;\r\n}\r\n.fadeElement.fadeIn {\r\n  transform:scaleY(1);\r\n  opacity: 1;\r\n  visibility: visible;\r\n  pointer-events: auto;\r\n}\r\n";
+var css$5 = ".fadeElement {\n  -webkit-transition: 0.5s;\n  -moz-transition: 0.5s;\n  -o-transition: 0.5s;\n  transition: 0.5s;\n  display: block;\n  width: 100%;\n  top: 0;\n  opacity: 0;\n  transform-origin:top;\n  transform:scaleY(0.7);\n  visibility: hidden;\n  pointer-events: none;\n}\n.fadeElement.fadeIn {\n  transform:scaleY(1);\n  opacity: 1;\n  visibility: visible;\n  pointer-events: auto;\n}\n";
 styleInject(css$5);
 
 var Options =
@@ -5542,7 +5543,7 @@ DropdownItem.contextTypes = {
   toggle: propTypes.func
 };
 
-var css$6 = ".dropup .dropdown-menu {\r\n  top: auto !important;\r\n  bottom: 100% !important;\r\n  transform: translate3d(5px, 5px, 0px) !important;\r\n}\r\n\r\n.dropdown-menu-right {\r\n  left: 0 !important;\r\n  right: auto !important;\r\n}\r\n";
+var css$6 = ".dropup .dropdown-menu {\n  top: auto !important;\n  bottom: 100% !important;\n  transform: translate3d(5px, 5px, 0px) !important;\n}\n\n.dropdown-menu-right {\n  left: 0 !important;\n  right: auto !important;\n}\n";
 styleInject(css$6);
 
 var DropdownMenuProComponent = function DropdownMenuProComponent(_ref) {
@@ -5919,7 +5920,7 @@ FreeBird.defaultProps = {
   tag: "div"
 };
 
-var css$7 = ".hamburger-button__checkbox {\r\n  display: none;\r\n}\r\n\r\n.hamburger-button__button {\r\n  background-color: transparent;\r\n  height: 100%;\r\n  width: 100%;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  top: -5px;\r\n}\r\n\r\nlabel.hamburger-button__button {\r\n  margin-bottom: 0;\r\n}\r\n\r\n#nav-icon1 {\r\n  width: 1.5em;\r\n  height: 1.5em;\r\n  position: relative;\r\n  -webkit-transform: rotate(0deg);\r\n  -moz-transform: rotate(0deg);\r\n  -o-transform: rotate(0deg);\r\n  transform: rotate(0deg);\r\n  -webkit-transition: .5s ease-in-out;\r\n  -moz-transition: .5s ease-in-out;\r\n  -o-transition: .5s ease-in-out;\r\n  transition: .5s ease-in-out;\r\n  cursor: pointer;\r\n}\r\n\r\n#nav-icon1 span {\r\n  display: block;\r\n  position: absolute;\r\n  height: 3px;\r\n  width: 100%;\r\n  border-radius: 1px;\r\n  background-color: #fff;\r\n  opacity: 1;\r\n  left: 0;\r\n  -webkit-transform: rotate(0deg);\r\n  -moz-transform: rotate(0deg);\r\n  -o-transform: rotate(0deg);\r\n  transform: rotate(0deg);\r\n  -webkit-transition: .25s ease-in-out;\r\n  -moz-transition: .25s ease-in-out;\r\n  -o-transition: .25s ease-in-out;\r\n  transition: .25s ease-in-out;\r\n}\r\n\r\n#nav-icon1 span:nth-child(1) {\r\n  top: 5px;\r\n}\r\n\r\n#nav-icon1 span:nth-child(2) {\r\n  top: 16px;\r\n}\r\n\r\n#nav-icon1 span:nth-child(3) {\r\n  top: 27px;\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(1) {\r\n  top: 16px;\r\n  -webkit-transform: rotate(135deg);\r\n  -moz-transform: rotate(135deg);\r\n  -o-transform: rotate(135deg);\r\n  transform: rotate(135deg);\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(2) {\r\n  opacity: 0;\r\n  left: -60px;\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(3) {\r\n  top: 16px;\r\n  -webkit-transform: rotate(-135deg);\r\n  -moz-transform: rotate(-135deg);\r\n  -o-transform: rotate(-135deg);\r\n  transform: rotate(-135deg);\r\n}\r\n";
+var css$7 = ".hamburger-button__checkbox {\n  display: none;\n}\n\n.hamburger-button__button {\n  background-color: transparent;\n  height: 100%;\n  width: 100%;\n  text-align: center;\n  cursor: pointer;\n  top: -5px;\n}\n\nlabel.hamburger-button__button {\n  margin-bottom: 0;\n}\n\n#nav-icon1 {\n  width: 1.5em;\n  height: 1.5em;\n  position: relative;\n  -webkit-transform: rotate(0deg);\n  -moz-transform: rotate(0deg);\n  -o-transform: rotate(0deg);\n  transform: rotate(0deg);\n  -webkit-transition: .5s ease-in-out;\n  -moz-transition: .5s ease-in-out;\n  -o-transition: .5s ease-in-out;\n  transition: .5s ease-in-out;\n  cursor: pointer;\n}\n\n#nav-icon1 span {\n  display: block;\n  position: absolute;\n  height: 3px;\n  width: 100%;\n  border-radius: 1px;\n  background-color: #fff;\n  opacity: 1;\n  left: 0;\n  -webkit-transform: rotate(0deg);\n  -moz-transform: rotate(0deg);\n  -o-transform: rotate(0deg);\n  transform: rotate(0deg);\n  -webkit-transition: .25s ease-in-out;\n  -moz-transition: .25s ease-in-out;\n  -o-transition: .25s ease-in-out;\n  transition: .25s ease-in-out;\n}\n\n#nav-icon1 span:nth-child(1) {\n  top: 5px;\n}\n\n#nav-icon1 span:nth-child(2) {\n  top: 16px;\n}\n\n#nav-icon1 span:nth-child(3) {\n  top: 27px;\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(1) {\n  top: 16px;\n  -webkit-transform: rotate(135deg);\n  -moz-transform: rotate(135deg);\n  -o-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(2) {\n  opacity: 0;\n  left: -60px;\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(3) {\n  top: 16px;\n  -webkit-transform: rotate(-135deg);\n  -moz-transform: rotate(-135deg);\n  -o-transform: rotate(-135deg);\n  transform: rotate(-135deg);\n}\n";
 styleInject(css$7);
 
 var HamburgerToggler = function HamburgerToggler(props) {
@@ -7166,122 +7167,199 @@ Notification.defaultProps = {
   closeClassName: 'text-dark'
 };
 
-var Popper = function Popper(_ref) {
-  var children = _ref.children,
-      className = _ref.className,
-      clickable = _ref.clickable,
-      domElement = _ref.domElement,
-      modifiers = _ref.modifiers,
-      id = _ref.id,
-      isVisible = _ref.isVisible,
-      onChange = _ref.onChange,
-      placement = _ref.placement,
-      popover = _ref.popover,
-      style = _ref.style,
-      tag = _ref.tag;
+var css$8 = ".popover {\n  width: auto;\n  background-color: white;\n  color: #97999b;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  font-size: 0.83em;\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 10;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  background-color: #fff;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show.popover {\n  opacity: 1;\n  visibility: visible;\n}\n\n.popover-body {\n  color: #6c6e71;\n}\n\n.popover .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.popover[x-placement^='top'] {\n  margin-bottom: 15px;\n}\n\n.popover[x-placement^='top'] .popover_arrow {\n  border-width: 8px 8px 0 8px;\n  border-color: #d6d6d6 transparent transparent transparent;\n  bottom: -8px;\n  margin-bottom: 0;\n}\n\n.popover[x-placement^='top'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 8px 8px 0 8px;\n  border-color: white transparent transparent transparent;\n}\n\n.popover[x-placement^='bottom'] {\n  margin-top: 15px;\n}\n\n.popover[x-placement^='bottom'] .popover_arrow {\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent #d6d6d6 transparent;\n  top: -8px;\n  margin-top: 0;\n}\n\n.popover[x-placement^='bottom'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent white transparent;\n}\n\n.popover[x-placement^='right'] {\n  margin-left: 15px;\n}\n\n.popover[x-placement^='right'] .popover_arrow {\n  border-width: 8px 8px 8px 0;\n  border-color: transparent #d6d6d6 transparent transparent;\n  left: -8px;\n  margin-left: 0;\n}\n\n.popover[x-placement^='right'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  left: 1.45px;\n  border: solid;\n  border-width: 8px 8px 8px 0;\n  border-color: transparent white transparent transparent;\n}\n\n.popover[x-placement^='left'] {\n  margin-right: 15px;\n}\n\n.popover[x-placement^='left'] .popover_arrow {\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent #d6d6d6;\n  right: -8px;\n  margin-right: 0;\n}\n\n.popover[x-placement^='left'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  right: 1.45px;\n  border: solid;\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent white;\n}\n\n\n.tooltip {\n  width: auto;\n  background-color: black;\n  color: white;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  /* font-size: 0.83em; */\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 15;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show.tooltip {\n  opacity: 1;\n  visibility: visible;\n}\n\n\n.tooltip .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.tooltip[x-placement^='top'] {\n  margin-bottom: 5px;\n}\n\n.tooltip[x-placement^='top'] .popover_arrow {\n  border-width: 6px 6px 0 6px;\n  border-color: #131313 transparent transparent transparent;\n  bottom: -6px;\n  margin-bottom: 0;\n}\n\n.tooltip[x-placement^='top'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 6px 6px 0 6px;\n  border-color: black transparent transparent transparent;\n}\n\n.tooltip[x-placement^='bottom'] {\n  margin-top: 5px;\n}\n\n.tooltip[x-placement^='bottom'] .popover_arrow {\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent #131313 transparent;\n  top: -6px;\n  margin-top: 0;\n}\n\n.tooltip[x-placement^='bottom'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent black transparent;\n}\n\n.tooltip[x-placement^='right'] {\n  margin-left: 5px;\n}\n\n.tooltip[x-placement^='right'] .popover_arrow {\n  border-width: 6px 6px 6px 0;\n  border-color: transparent #131313 transparent transparent;\n  left: -6px;\n  margin-left: 0;\n}\n\n.tooltip[x-placement^='right'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  left: 1.45px;\n  border: solid;\n  border-width: 6px 6px 6px 0;\n  border-color: transparent black transparent transparent;\n}\n\n.tooltip[x-placement^='left'] {\n  margin-right: 5px;\n}\n\n.tooltip[x-placement^='left'] .popover_arrow {\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent #131313;\n  right: -6px;\n  margin-right: 0;\n}\n\n.tooltip[x-placement^='left'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  right: 1.45px;\n  border: solid;\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent black;\n}\n\n";
+styleInject(css$8);
 
-  var _useState = React.useState(isVisible),
-      _useState2 = _slicedToArray(_useState, 2),
-      visible = _useState2[0],
-      setVisible = _useState2[1];
+var Popover =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Popover, _React$Component);
 
-  React.useEffect(function () {
-    setVisible(isVisible);
-  }, [isVisible]);
-  React.useEffect(function () {
-    onChange && onChange(visible);
-  }, [onChange, visible]);
-  React.useEffect(function () {
-    window.addEventListener('click', handleClick);
-    return function () {
-      return window.removeEventListener('click', handleClick);
-    };
-  });
+  function Popover(props) {
+    var _this;
 
-  function handleClick(e) {
-    var element = document.elementsFromPoint(e.clientX, e.clientY).find(function (el) {
-      return el.dataset.popper === id;
+    _classCallCheck(this, Popover);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Popover).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "setPopperJS", function () {
+      if (_this.state.showPopper) {
+        _this.state.popperJS ? _this.state.popperJS.scheduleUpdate() : _this.createPopper();
+        setTimeout(function () {
+          return clearInterval(_this.timer);
+        }, 1000);
+      }
     });
-    if (element) return;
-    setVisible(false);
+
+    _defineProperty(_assertThisInitialized(_this), "createPopper", function () {
+      if (_this.referenceElm && _this.popoverWrapperRef) _this.setState({
+        popperJS: new Popper(_this.referenceElm, _this.popoverWrapperRef, _objectSpread({
+          placement: _this.props.placement
+        }, _this.props.modifiers), function () {
+          return setTimeout(function () {
+            _this.state.popperJS.scheduleUpdate();
+          }, 10);
+        })
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "doToggle", function (toggler) {
+      _this.setState({
+        showPopper: toggler && true
+      }, function () {
+        if (_this.state.showPopper) _this.setState({
+          visible: typeof toggler !== 'undefined' ? toggler : !_this.state.visible
+        }, function () {
+          _this.createPopper();
+
+          _this.state.popperJS.scheduleUpdate();
+        });
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleClick", function (e) {
+      var target = e.target;
+
+      if (_this.popoverWrapperRef && _this.state.showPopper) {
+        if (_this.popoverWrapperRef.contains(target) || _this.referenceElm.contains(target) || target === _this.referenceElm) return;
+
+        _this.doToggle(false);
+      }
+    });
+
+    _this.state = {
+      popperJS: null,
+      visible: props.isVisible,
+      showPopper: props.isVisible
+    };
+    _this.popoverWrapperRef = React__default.createRef();
+    _this.referenceElm = React__default.createRef();
+    return _this;
   }
 
-  var Wrapper = children[0];
-  var Content = children[1];
-  var Tag = tag;
-  var tooltipClasses = classNames("fade", popover ? "popover bs-popover-".concat(placement, " popover-enter-done") : "tooltip bs-tooltip-".concat(placement), visible ? "show" : "", className ? className : "");
-  var contentClasses = classNames(!popover && "tooltip-inner");
-  return React__default.createElement(reactPopper.Manager, {
-    "data-test": "popper"
-  }, React__default.createElement(reactPopper.Reference, null, function (_ref2) {
-    var ref = _ref2.ref;
-    return !domElement ? React__default.createElement(Wrapper.type, _extends({}, Wrapper.props, {
-      onMouseEnter: function onMouseEnter() {
-        return !clickable && setVisible(true);
-      },
-      onMouseLeave: function onMouseLeave() {
-        return !clickable && setVisible(false);
-      },
-      onTouchStart: function onTouchStart() {
-        return !clickable && setVisible(true);
-      },
-      onTouchEnd: function onTouchEnd() {
-        return !clickable && setVisible(false);
-      },
-      onMouseDown: function onMouseDown() {
-        return clickable && setVisible(!visible);
-      },
-      innerRef: ref,
-      "data-popper": id
-    })) : React__default.createElement(Wrapper.type, _extends({}, Wrapper.props, {
-      onMouseEnter: function onMouseEnter() {
-        return !clickable && setVisible(true);
-      },
-      onMouseLeave: function onMouseLeave() {
-        return !clickable && setVisible(false);
-      },
-      onTouchStart: function onTouchStart() {
-        return !clickable && setVisible(true);
-      },
-      onTouchEnd: function onTouchEnd() {
-        return !clickable && setVisible(false);
-      },
-      onMouseDown: function onMouseDown() {
-        return clickable && setVisible(!visible);
-      },
-      ref: ref,
-      "data-popper": id
-    }));
-  }), visible && Content.props.children && React__default.createElement(Tag, {
-    style: style
-  }, React__default.createElement(reactPopper.Popper, {
-    modifiers: modifiers,
-    eventsEnabled: true,
-    positionFixed: false,
-    placement: placement
-  }, function (_ref3) {
-    var placement = _ref3.placement,
-        ref = _ref3.ref,
-        style = _ref3.style,
-        arrowProps = _ref3.arrowProps;
-    return React__default.createElement(Tag, {
-      ref: ref,
-      style: style,
-      "data-placement": placement,
-      className: tooltipClasses,
-      "data-popper": id
-    }, React__default.createElement(Content.type, _extends({}, Content.props, {
-      className: contentClasses
-    }), Content.props.children), React__default.createElement("span", {
-      ref: arrowProps.ref,
-      style: arrowProps.style,
-      "data-placement": placement,
-      className: "arrow"
-    }));
-  })));
-};
+  _createClass(Popover, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      var showPopper = this.state.showPopper;
+      var _this$props = this.props,
+          isVisible = _this$props.isVisible,
+          onChange = _this$props.onChange;
+      this.setPopperJS();
+      if (prevProps.isVisible !== isVisible && isVisible !== showPopper && showPopper !== prevProps.showPopper) this.setState({
+        showPopper: isVisible
+      });
+      if (onChange && showPopper !== prevState.showPopper) onChange(showPopper);
+      if (showPopper && prevState.showPopper !== showPopper) this.createPopper();
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
 
-Popper.propTypes = {
+      this.timer = setInterval(function () {
+        return _this2.setPopperJS();
+      }, 3);
+      document.addEventListener('click', this.handleClick);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var _this$props2 = this.props,
+          children = _this$props2.children,
+          className = _this$props2.className,
+          clickable = _this$props2.clickable,
+          domElement = _this$props2.domElement,
+          modifiers = _this$props2.modifiers,
+          id = _this$props2.id,
+          isVisible = _this$props2.isVisible,
+          onChange = _this$props2.onChange,
+          placement = _this$props2.placement,
+          popover = _this$props2.popover,
+          style = _this$props2.style,
+          Tag = _this$props2.tag,
+          attributes = _objectWithoutProperties(_this$props2, ["children", "className", "clickable", "domElement", "modifiers", "id", "isVisible", "onChange", "placement", "popover", "style", "tag"]);
+
+      var _this$state = this.state,
+          visible = _this$state.visible,
+          showPopper = _this$state.showPopper;
+      var popper = children[1];
+      var Wrapper = children[0];
+      return React__default.createElement(React__default.Fragment, null, !domElement ? React__default.createElement(Wrapper.type, _extends({}, Wrapper.props, {
+        onMouseEnter: function onMouseEnter() {
+          return !clickable && _this3.doToggle(true);
+        },
+        onMouseLeave: function onMouseLeave() {
+          return !clickable && !popover && setTimeout(function () {
+            return _this3.doToggle(false);
+          }, 0);
+        },
+        onTouchStart: function onTouchStart() {
+          return !clickable && _this3.doToggle(true);
+        },
+        onTouchEnd: function onTouchEnd() {
+          return !clickable && !popover && _this3.doToggle(false);
+        },
+        onMouseDown: function onMouseDown() {
+          clickable && _this3.doToggle(!showPopper);
+          setTimeout(function () {
+            return _this3.setPopperJS();
+          }, 100);
+        },
+        onMouseUp: function onMouseUp() {
+          return setTimeout(function () {
+            return _this3.setPopperJS();
+          }, 0);
+        },
+        innerRef: function innerRef(ref) {
+          return _this3.referenceElm = ref;
+        },
+        "data-popper": id
+      })) : React__default.createElement(Wrapper.type, _extends({}, Wrapper.props, {
+        onMouseEnter: function onMouseEnter() {
+          return !clickable && _this3.doToggle(true);
+        },
+        onMouseLeave: function onMouseLeave() {
+          return !clickable && !popover && setTimeout(function () {
+            return _this3.doToggle(false);
+          }, 0);
+        },
+        onTouchStart: function onTouchStart() {
+          return !clickable && _this3.doToggle(true);
+        },
+        onTouchEnd: function onTouchEnd() {
+          return !clickable && !popover && _this3.doToggle(false);
+        },
+        onMouseDown: function onMouseDown() {
+          return clickable && _this3.doToggle(!showPopper);
+        },
+        onMouseUp: function onMouseUp() {
+          return setTimeout(function () {
+            return _this3.setPopperJS();
+          }, 0);
+        },
+        ref: function ref(_ref) {
+          return _this3.referenceElm = _ref;
+        },
+        "data-popper": id
+      })), showPopper && React__default.createElement(Tag, _extends({
+        ref: function ref(_ref2) {
+          return _this3.popoverWrapperRef = _ref2;
+        },
+        className: classNames(visible && 'show', popover ? 'popover' : 'tooltip px-2', className),
+        "data-popper": id
+      }, attributes), popper, React__default.createElement("span", {
+        "x-arrow": "",
+        className: "popover_arrow"
+      })));
+    }
+  }]);
+
+  return Popover;
+}(React__default.Component);
+
+Popover.propTypes = {
   children: propTypes.node,
   clickable: propTypes.bool,
   domElement: propTypes.bool,
@@ -7293,7 +7371,7 @@ Popper.propTypes = {
   style: propTypes.objectOf(propTypes.string),
   tag: propTypes.string
 };
-Popper.defaultProps = {
+Popover.defaultProps = {
   clickable: false,
   domElement: false,
   id: 'popper',
@@ -7500,20 +7578,6 @@ var Rating = function Rating(props) {
   var handleClick = function handleClick(title, index, e) {
     e.stopPropagation();
 
-    if (feedback) {
-      var unHoverPopper = document.createElement('div');
-      var size = 50;
-      unHoverPopper.classList.add('to-remove');
-      unHoverPopper.style.cssText = "\n      display: block;\n      height: ".concat(size, "px;\n      width: ").concat(size, "px;\n      position: absolute;\n      top: ").concat(e.pageY - size / 2, "px;\n      left: ").concat(e.pageX - size / 2, "px;\n      cursor: pointer\n    ");
-      e.target.closest('.mdb-rating').appendChild(unHoverPopper);
-      unHoverPopper.addEventListener('mouseout', function () {
-        return unHoverPopper.remove();
-      });
-      setTimeout(function () {
-        unHoverPopper.remove();
-      }, 100);
-    }
-
     if (title === choosed.title && index === choosed.index) {
       setChoosed({
         title: '',
@@ -7627,10 +7691,8 @@ var Rating = function Rating(props) {
           type: "text",
           className: "md-textarea form-control py-0",
           value: feedbackValue,
-          onChange: feedbackValueHandler,
-          style: {
-            resize: 'none'
-          }
+          onChange: feedbackValueHandler // style={{ resize: 'none' }}
+
         }), React__default.createElement("div", {
           className: "d-flex align-items-center justify-content-around mt-2"
         }, React__default.createElement(mdbreact.MDBBtn, {
@@ -7673,7 +7735,11 @@ var Rating = function Rating(props) {
         onClick: function onClick(e) {
           return handleClick(tooltip, index, e);
         }
-      }))), React__default.createElement("div", null, tooltipContent));
+      }))), React__default.createElement("div", {
+        style: {
+          userSelect: 'none'
+        }
+      }, tooltipContent));
     });
   }
 
@@ -8723,8 +8789,8 @@ CardUp.defaultProps = {
   tag: 'div'
 };
 
-var css$8 = ".chip.chip-md {\r\n  height: 42px;\r\n  line-height: 42px;\r\n  border-radius: 21px;\r\n}\r\n.chip.chip-md img {\r\n  height: 42px;\r\n  width: 42px;\r\n}\r\n.chip.chip-md .close {\r\n  height: 42px;\r\n  line-height: 42px;\r\n  border-radius: 21px;\r\n}\r\n.chip.chip-lg {\r\n  height: 52px;\r\n  line-height: 52px;\r\n  border-radius: 26px;\r\n}\r\n.chip.chip-lg img {\r\n  height: 52px;\r\n  width: 52px;\r\n}\r\n.chip.chip-lg .close {\r\n  height: 52px;\r\n  line-height: 52px;\r\n  border-radius: 26px;\r\n}\r\n";
-styleInject(css$8);
+var css$9 = ".chip.chip-md {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-md img {\n  height: 42px;\n  width: 42px;\n}\n.chip.chip-md .close {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-lg {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n.chip.chip-lg img {\n  height: 52px;\n  width: 52px;\n}\n.chip.chip-lg .close {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n";
+styleInject(css$9);
 
 var Chip = function Chip(props) {
   var _useState = React.useState({}),
@@ -9043,8 +9109,8 @@ CollapseHeader.propTypes = {
   tag: propTypes.string
 };
 
-var css$9 = "/* fallback */\r\n@font-face {\r\n  font-family: 'Material Icons';\r\n  font-style: normal;\r\n  font-weight: 400;\r\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\r\n}\r\n\r\n.material-icons {\r\n  font-family: 'Material Icons';\r\n  font-weight: normal;\r\n  font-style: normal;\r\n  font-size: 24px;\r\n  line-height: 1;\r\n  letter-spacing: normal;\r\n  text-transform: none;\r\n  display: inline-block;\r\n  white-space: nowrap;\r\n  word-wrap: normal;\r\n  direction: ltr;\r\n  -webkit-font-feature-settings: 'liga';\r\n  -webkit-font-smoothing: antialiased;\r\n}\r\n";
-styleInject(css$9);
+var css$a = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
+styleInject(css$a);
 
 var DatePicker =
 /*#__PURE__*/
@@ -9267,8 +9333,8 @@ RotatingCard.defaultProps = {
   flipped: false
 };
 
-var css$a = ".file-field .file-field-right .file-path-wrapper {\r\n  padding-left: 0;\r\n  padding-right: 10px;\r\n}\r\n";
-styleInject(css$a);
+var css$b = ".file-field .file-field-right .file-path-wrapper {\n  padding-left: 0;\n  padding-right: 10px;\n}\n";
+styleInject(css$b);
 
 var InputFile = function InputFile(props) {
   var _useState = React.useState(false),
@@ -9365,8 +9431,8 @@ InputFile.defaultProps = {
   reverse: false
 };
 
-var css$b = ".thumb {\r\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\r\n}\r\n\r\ninput[type=\"range\"] {\r\n  -webkit-appearance: none;\r\n}\r\n\r\n/* thumb */\r\n\r\ninput[type=range]::-webkit-slider-thumb {\r\n  -webkit-appearance: none;\r\n  border: none;\r\n  height: 14px;\r\n  width: 14px;\r\n  border-radius: 50%;\r\n  background-color: #4285f4;\r\n  transform-origin: 50% 50%;\r\n  margin: -5px 0 0 0;\r\n  transition: 0.3s; }\r\n  input[type=range]:focus::-webkit-slider-runnable-track {\r\n    background: #ccc; }\r\n  input[type=range]::-moz-range-track {\r\n    /*required for proper track sizing in FF*/\r\n    height: 3px;\r\n    background: #c2c0c2;\r\n    border: none; }\r\n  input[type=range]::-moz-range-thumb {\r\n    border: none;\r\n    height: 14px;\r\n    width: 14px;\r\n    border-radius: 50%;\r\n    background: #4285f4;\r\n    margin-top: -5px; }\r\n  input[type=range]:-moz-focusring {\r\n    /*hide the outline behind the border*/\r\n    outline: 1px solid #ffffff;\r\n    outline-offset: -1px; }\r\n  input[type=range]:focus::-moz-range-track {\r\n    background: #c2c0c2; }\r\n  input[type=range]::-ms-track {\r\n    height: 3px;\r\n    background: transparent;\r\n    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */\r\n    border-color: transparent;\r\n    /*leave room for the larger thumb to overflow with a transparent border */\r\n    border-width: 6px 0;\r\n    color: transparent;\r\n    /*remove default tick marks*/ }\r\n  input[type=range]::-ms-fill-lower {\r\n    background: #c2c0c2; }\r\n  input[type=range]::-ms-fill-upper {\r\n    background: #c2c0c2; }\r\n  input[type=range]::-ms-thumb {\r\n    border: none;\r\n    height: 14px;\r\n    width: 14px;\r\n    border-radius: 50%;\r\n    background: #4285f4; }\r\n  input[type=range]:focus::-ms-fill-lower {\r\n    background: #c2c0c2; }\r\n  input[type=range]:focus::-ms-fill-upper {\r\n    background: #c2c0c2; }";
-styleInject(css$b);
+var css$c = ".thumb {\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\n}\n\ninput[type=\"range\"] {\n  -webkit-appearance: none;\n}\n\n/* thumb */\n\ninput[type=range]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  border: none;\n  height: 14px;\n  width: 14px;\n  border-radius: 50%;\n  background-color: #4285f4;\n  transform-origin: 50% 50%;\n  margin: -5px 0 0 0;\n  transition: 0.3s; }\n  input[type=range]:focus::-webkit-slider-runnable-track {\n    background: #ccc; }\n  input[type=range]::-moz-range-track {\n    /*required for proper track sizing in FF*/\n    height: 3px;\n    background: #c2c0c2;\n    border: none; }\n  input[type=range]::-moz-range-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4;\n    margin-top: -5px; }\n  input[type=range]:-moz-focusring {\n    /*hide the outline behind the border*/\n    outline: 1px solid #ffffff;\n    outline-offset: -1px; }\n  input[type=range]:focus::-moz-range-track {\n    background: #c2c0c2; }\n  input[type=range]::-ms-track {\n    height: 3px;\n    background: transparent;\n    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */\n    border-color: transparent;\n    /*leave room for the larger thumb to overflow with a transparent border */\n    border-width: 6px 0;\n    color: transparent;\n    /*remove default tick marks*/ }\n  input[type=range]::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]::-ms-fill-upper {\n    background: #c2c0c2; }\n  input[type=range]::-ms-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4; }\n  input[type=range]:focus::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]:focus::-ms-fill-upper {\n    background: #c2c0c2; }";
+styleInject(css$c);
 
 var InputRange =
 /*#__PURE__*/
@@ -9592,8 +9658,8 @@ InputSwitch.defaultProps = {
   labelRight: "On"
 };
 
-var css$c = ".mdb-lightbox .overlay {\r\n  height: 120vh;\r\n  width: 100vw;\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  z-index: -100;\r\n}\r\n.mdb-lightbox .ui-controls {\r\n  width: 99vw;\r\n  height: 100vh;\r\n  top: 0;\r\n  left: 0;\r\n  position: absolute;\r\n}\r\n.mdb-lightbox .ui-controls > * {\r\n  position: fixed;\r\n  z-index: 999999;\r\n}\r\n.mdb-lightbox .overlay.active {\r\n  z-index: 9999;\r\n  background-color: black;\r\n}\r\n\r\n.mdb-lightbox .next-img,\r\n.mdb-lightbox .prev-img {\r\n  transform-origin: center;\r\n}\r\n.mdb-lightbox .next-img {\r\n  left: 150% !important;\r\n}\r\n.mdb-lightbox .prev-img {\r\n  left: -50% !important;\r\n}\r\n\r\n.mdb-lightbox img:not(.zoom) {\r\n  transform-origin: top left;\r\n}\r\n/* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */\r\n.mdb-lightbox img.zoom {\r\n  z-index: 9999;\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%) scale(1) translate3d(0, 0, 0);\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -o-user-select: none;\r\n  user-select: text;\r\n  /* pointer-events: none; */\r\n  transform-origin: center;\r\n}\r\n\r\n.mdb-lightbox .mdb-lightbox figure img.zoom:hover {\r\n  opacity: 1;\r\n}\r\n\r\n.mdb-lightbox .block {\r\n  display: block;\r\n}\r\n\r\n.mdb-lightbox .pswp__button.lb-zoom-out {\r\n  background-position: -132px 0;\r\n}\r\n.mdb-lightbox .pswp__button.pswp__button--fs.fullscreen {\r\n  background-position: -44px 0;\r\n}\r\n\r\n.mdb-lightbox .arrow-container {\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n}\r\n\r\n.mdb-lightbox .pswp__button--left,\r\n.mdb-lightbox .pswp__button--right {\r\n  width: 0px;\r\n  height: 0px;\r\n  margin-top: -100px;\r\n}\r\n";
-styleInject(css$c);
+var css$d = ".mdb-lightbox .overlay {\n  height: 120vh;\n  width: 100vw;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: -100;\n}\n.mdb-lightbox .ui-controls {\n  width: 99vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  position: absolute;\n}\n.mdb-lightbox .ui-controls > * {\n  position: fixed;\n  z-index: 999999;\n}\n.mdb-lightbox .overlay.active {\n  z-index: 9999;\n  background-color: black;\n}\n\n.mdb-lightbox .next-img,\n.mdb-lightbox .prev-img {\n  transform-origin: center;\n}\n.mdb-lightbox .next-img {\n  left: 150% !important;\n}\n.mdb-lightbox .prev-img {\n  left: -50% !important;\n}\n\n.mdb-lightbox img:not(.zoom) {\n  transform-origin: top left;\n}\n/* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */\n.mdb-lightbox img.zoom {\n  z-index: 9999;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%) scale(1) translate3d(0, 0, 0);\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -o-user-select: none;\n  user-select: text;\n  /* pointer-events: none; */\n  transform-origin: center;\n}\n\n.mdb-lightbox .mdb-lightbox figure img.zoom:hover {\n  opacity: 1;\n}\n\n.mdb-lightbox .block {\n  display: block;\n}\n\n.mdb-lightbox .pswp__button.lb-zoom-out {\n  background-position: -132px 0;\n}\n.mdb-lightbox .pswp__button.pswp__button--fs.fullscreen {\n  background-position: -44px 0;\n}\n\n.mdb-lightbox .arrow-container {\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.mdb-lightbox .pswp__button--left,\n.mdb-lightbox .pswp__button--right {\n  width: 0px;\n  height: 0px;\n  margin-top: -100px;\n}\n";
+styleInject(css$d);
 
 var Lightbox =
 /*#__PURE__*/
@@ -10229,8 +10295,8 @@ Lightbox.defaultProps = {
   transition: 400
 };
 
-var css$d = "\r\n/*\r\n * Container style\r\n */\r\n .ps {\r\n  overflow: hidden !important;\r\n  overflow-anchor: none;\r\n  -ms-overflow-style: none;\r\n  touch-action: auto;\r\n  -ms-touch-action: auto;\r\n}\r\n\r\n/*\r\n * Scrollbar rail styles\r\n */\r\n.ps__rail-x {\r\n  display: none;\r\n  opacity: 0;\r\n  transition: background-color .2s linear, opacity .2s linear;\r\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\r\n  height: 15px;\r\n  /* there must be 'bottom' or 'top' for ps__rail-x */\r\n  bottom: 0px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__rail-y {\r\n  display: none;\r\n  opacity: 0;\r\n  transition: background-color .2s linear, opacity .2s linear;\r\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\r\n  width: 15px;\r\n  /* there must be 'right' or 'left' for ps__rail-y */\r\n  right: 0;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps--active-x > .ps__rail-x,\r\n.ps--active-y > .ps__rail-y {\r\n  display: block;\r\n  background-color: transparent;\r\n}\r\n\r\n.ps:hover > .ps__rail-x,\r\n.ps:hover > .ps__rail-y,\r\n.ps--focus > .ps__rail-x,\r\n.ps--focus > .ps__rail-y,\r\n.ps--scrolling-x > .ps__rail-x,\r\n.ps--scrolling-y > .ps__rail-y {\r\n  opacity: 0.6;\r\n}\r\n\r\n.ps__rail-x:hover,\r\n.ps__rail-y:hover,\r\n.ps__rail-x:focus,\r\n.ps__rail-y:focus {\r\n  background-color: #eee;\r\n  opacity: 0.9;\r\n}\r\n\r\n/*\r\n * Scrollbar thumb styles\r\n */\r\n.ps__thumb-x {\r\n  background-color: #aaa;\r\n  border-radius: 6px;\r\n  transition: background-color .2s linear, height .2s ease-in-out;\r\n  -webkit-transition: background-color .2s linear, height .2s ease-in-out;\r\n  height: 6px;\r\n  /* there must be 'bottom' for ps__thumb-x */\r\n  bottom: 2px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__thumb-y {\r\n  background-color: #aaa;\r\n  border-radius: 6px;\r\n  transition: background-color .2s linear, width .2s ease-in-out;\r\n  -webkit-transition: background-color .2s linear, width .2s ease-in-out;\r\n  width: 6px;\r\n  /* there must be 'right' for ps__thumb-y */\r\n  right: 2px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__rail-x:hover > .ps__thumb-x,\r\n.ps__rail-x:focus > .ps__thumb-x {\r\n  background-color: #999;\r\n  height: 11px;\r\n}\r\n\r\n.ps__rail-y:hover > .ps__thumb-y,\r\n.ps__rail-y:focus > .ps__thumb-y {\r\n  background-color: #999;\r\n  width: 11px;\r\n}\r\n\r\n/* MS supports */\r\n@supports (-ms-overflow-style: none) {\r\n  .ps {\r\n    overflow: auto !important;\r\n  }\r\n}\r\n\r\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {\r\n  .ps {\r\n    overflow: auto !important;\r\n  }\r\n}\r\n\r\n.scrollbar-container {\r\n  position: relative;\r\n  height: 100%;\r\n}\r\n";
-styleInject(css$d);
+var css$e = "\n/*\n * Container style\n */\n .ps {\n  overflow: hidden !important;\n  overflow-anchor: none;\n  -ms-overflow-style: none;\n  touch-action: auto;\n  -ms-touch-action: auto;\n}\n\n/*\n * Scrollbar rail styles\n */\n.ps__rail-x {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  height: 15px;\n  /* there must be 'bottom' or 'top' for ps__rail-x */\n  bottom: 0px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-y {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  width: 15px;\n  /* there must be 'right' or 'left' for ps__rail-y */\n  right: 0;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps--active-x > .ps__rail-x,\n.ps--active-y > .ps__rail-y {\n  display: block;\n  background-color: transparent;\n}\n\n.ps:hover > .ps__rail-x,\n.ps:hover > .ps__rail-y,\n.ps--focus > .ps__rail-x,\n.ps--focus > .ps__rail-y,\n.ps--scrolling-x > .ps__rail-x,\n.ps--scrolling-y > .ps__rail-y {\n  opacity: 0.6;\n}\n\n.ps__rail-x:hover,\n.ps__rail-y:hover,\n.ps__rail-x:focus,\n.ps__rail-y:focus {\n  background-color: #eee;\n  opacity: 0.9;\n}\n\n/*\n * Scrollbar thumb styles\n */\n.ps__thumb-x {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, height .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, height .2s ease-in-out;\n  height: 6px;\n  /* there must be 'bottom' for ps__thumb-x */\n  bottom: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__thumb-y {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, width .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, width .2s ease-in-out;\n  width: 6px;\n  /* there must be 'right' for ps__thumb-y */\n  right: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-x:hover > .ps__thumb-x,\n.ps__rail-x:focus > .ps__thumb-x {\n  background-color: #999;\n  height: 11px;\n}\n\n.ps__rail-y:hover > .ps__thumb-y,\n.ps__rail-y:focus > .ps__thumb-y {\n  background-color: #999;\n  width: 11px;\n}\n\n/* MS supports */\n@supports (-ms-overflow-style: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n\n.scrollbar-container {\n  position: relative;\n  height: 100%;\n}\n";
+styleInject(css$e);
 
 var handlerNameByEvent = {
   'ps-scroll-y': 'onScrollY',
@@ -10433,8 +10499,8 @@ ScrollSpyText.propTypes = {
   scrollSpyRef: propTypes.oneOfType([propTypes.func, propTypes.object])
 };
 
-var css$e = ".popover-enter {\r\n  opacity: 0.01;\r\n  transform: scale(0.9) translateY(50%);\r\n}\r\n\r\n.popover-enter-active {\r\n  opacity: 1;\r\n  transform: scale(1);\r\n  transition: scale 300ms ease-out, opacity 300ms ease;\r\n}\r\n\r\n.popover-enter-done {\r\n  opacity: 1;\r\n  transform: scale(1);\r\n}\r\n\r\n.popover-exit {\r\n  opacity: 1;\r\n  transform: scale(0.8);\r\n  transition: all 300ms ease-out;\r\n}\r\n\r\n.popover-exit-active {\r\n  opacity: 0;\r\n  transform: scale(0.8);\r\n  transition: all 300ms ease-out;\r\n}\r\n\r\n/* slide from side */\r\n\r\n.side-slide-enter, .side-slide-appear {\r\n  opacity: 0.2;\r\n  transform: translateX(-100%);\r\n}\r\n\r\n.side-slide-enter-active, .side-slide-appear-active {\r\n  opacity: 1;\r\n  transform: translateX(0%);\r\n  transition: transform 300ms ease-out, opacity 300ms ease;\r\n}\r\n\r\n.side-slide-enter-done {\r\n  opacity: 1;\r\n  transform: translateX(0);\r\n}\r\n\r\n.side-slide-exit {\r\n  opacity: 1;\r\n  transform: translateX(0%);\r\n  transition: all 300ms ease-out;\r\n}\r\n\r\n.side-slide-exit-active {\r\n  opacity: 0.2;\r\n  transform: translateX(-100%);\r\n  transition: all 300ms ease-out;\r\n}\r\n\r\n.right-side-slide-enter, .right-side-slide-appear {\r\n  opacity: 0.2;\r\n  transform: translateX(100%);\r\n}\r\n\r\n.right-side-slide-enter-active, .right-side-slide-appear-active {\r\n  opacity: 1;\r\n  transform: translateX(0%) !important;\r\n  transition: transform 300ms ease-out, opacity 300ms ease;\r\n}\r\n\r\n.right-side-slide-enter-done {\r\n  opacity: 1;\r\n  transform: translateX(0%) !important;\r\n}\r\n\r\n.right-side-slide-exit {\r\n  opacity: 1;\r\n  transform: translateX(0%);\r\n  transition: all 300ms ease-out;\r\n}\r\n\r\n.right-side-slide-exit-active {\r\n  opacity: 0.2;\r\n  transform: translateX(100%);\r\n  transition: all 300ms ease-out;\r\n}\r\n\r\n.side-nav[data-animate=\"false\"]{\r\n  transform: translateX(0%);\r\n}\r\n\r\n\r\n.side-nav.wide {\r\n    transition-property: all;\r\n    transition-duration: 300ms;\r\n    transition-timing-function: ease-out;\r\n}\r\n\r\n\r\n.side-nav.wide.slim {\r\n    width: 3.75rem;\r\n    transition-property: all;\r\n    transition-duration: 300ms;\r\n    transition-timing-function: ease-out;\r\n    right: 3.75rem;\r\n}\r\n\r\n.right-aligned.side-nav.wide.slim {\r\n    right: 0;\r\n}\r\n\r\n\r\n";
-styleInject(css$e);
+var css$f = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter, .side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active, .side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter, .right-side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active, .right-side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n\n.side-nav[data-animate=\"false\"]{\n  transform: translateX(0%);\n}\n\n\n.side-nav.wide {\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n}\n\n\n.side-nav.wide.slim {\n    width: 3.75rem;\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n    right: 3.75rem;\n}\n\n.right-aligned.side-nav.wide.slim {\n    right: 0;\n}\n\n\n";
+styleInject(css$f);
 
 var defaultValue = {
   slim: false
@@ -11465,7 +11531,7 @@ var Step = function Step(props) {
     step = React__default.createElement(Tag, {
       className: stepClass,
       onClick: props.onClick
-    }, React__default.createElement(Popper, {
+    }, React__default.createElement(Popover, {
       placement: "top"
     }, React__default.createElement(Button, {
       className: "btn-circle-2 btn-blue-grey"
@@ -11476,7 +11542,7 @@ var Step = function Step(props) {
     step = React__default.createElement(Tag, {
       className: stepClass,
       onClick: props.onClick
-    }, React__default.createElement(Popper, {
+    }, React__default.createElement(Popover, {
       placement: "top"
     }, React__default.createElement(Button, {
       className: "btn-circle-3 btn-blue-grey"
@@ -11498,8 +11564,8 @@ Step.defaultProps = {
   vertical: false
 };
 
-var css$f = "/* Stepper Form */\r\n\r\n/* Stepper v.2 (Form) */\r\n.steps-form {\r\n  display: table;\r\n  width: 100%;\r\n  position: relative; }\r\n.steps-form .steps-row {\r\n  display: table-row; }\r\n.steps-form .steps-row:before {\r\n  top: 14px;\r\n  bottom: 0;\r\n  position: absolute;\r\n  content: \" \";\r\n  width: 100%;\r\n  height: 1px;\r\n  background-color: #ccc; }\r\n.steps-form .steps-row .steps-step {\r\n  display: table-cell;\r\n  text-align: center;\r\n  position: relative; }\r\n.steps-form .steps-row .steps-step p {\r\n  margin-top: 0.5rem; }\r\n.steps-form .steps-row .steps-step button[disabled] {\r\n  opacity: 1 !important;\r\n  filter: alpha(opacity=100) !important; }\r\n.steps-form .steps-row .steps-step .btn-circle {\r\n  width: 30px;\r\n  height: 30px;\r\n  text-align: center;\r\n  padding: 6px 0;\r\n  font-size: 12px;\r\n  line-height: 1.428571429;\r\n  border-radius: 15px;\r\n  margin-top: 0; }\r\n\r\n/* Stepper v.3 (Icons) */\r\n.steps-form-2 {\r\n  display: table;\r\n  width: 100%;\r\n  position: relative; }\r\n.steps-form-2 .steps-row-2 {\r\n  display: table-row; }\r\n.steps-form-2 .steps-row-2:before {\r\n  top: 14px;\r\n  bottom: 0;\r\n  position: absolute;\r\n  content: \" \";\r\n  width: 99%;\r\n  height: 2px;\r\n  background-color: #7283a7; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 {\r\n  display: table-cell;\r\n  text-align: center;\r\n  position: relative; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 p {\r\n  margin-top: 0.5rem; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\r\n  opacity: 1 !important;\r\n  filter: alpha(opacity=100) !important; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\r\n  width: 70px;\r\n  height: 70px;\r\n  border: 2px solid #59698D;\r\n  background-color: white !important;\r\n  color: #59698D !important;\r\n  border-radius: 50%;\r\n  padding: 22px 18px 15px 18px;\r\n  margin-top: -22px; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\r\n  border: 2px solid #4285F4;\r\n  color: #4285F4 !important;\r\n  background-color: white !important; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {\r\n  font-size: 1.7rem; }\r\n .steps-row-2:first-child .btn {\r\n  margin-left: 0\r\n}\r\n.steps-row-2:last-child .btn {\r\n  margin-right: 0\r\n}\r\n\r\n\r\n/* Stepper v.4 (Icon-vertical) */\r\n\r\n.steps-form-3 {\r\n  width: 2px;\r\nheight: 470px;\r\n  position: relative; }\r\n.steps-form-3 .steps-row-3 {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column; }\r\n.steps-form-3 .steps-row-3:before {\r\n  top: 14px;\r\n  bottom: 0;\r\n  position: absolute;\r\n  content: \"\";\r\n  width: 2px;\r\n  height: 100%;\r\n  background-color: #7283a7; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 {\r\n  height: 150px;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  text-align: center;\r\n  position: relative; }\r\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\r\n  height: 50px; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 p {\r\nmargin-top: 0.5rem; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\r\n  opacity: 1 !important;\r\n  filter: alpha(opacity=100) !important; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\r\n  width: 60px;\r\n  height: 60px;\r\n  border: 2px solid #59698D;\r\n  background-color: white !important;\r\n  color: #59698D !important;\r\n  border-radius: 50%;\r\n  padding: 18px 18px 15px 15px;\r\n  margin-top: -22px; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\r\n  border: 2px solid #4285F4;\r\n  color: #4285F4 !important;\r\n  background-color: white !important; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa {\r\n  font-size: 1.7rem; }\r\n";
-styleInject(css$f);
+var css$g = "/* Stepper Form */\n\n/* Stepper v.2 (Form) */\n.steps-form {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form .steps-row {\n  display: table-row; }\n.steps-form .steps-row:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 100%;\n  height: 1px;\n  background-color: #ccc; }\n.steps-form .steps-row .steps-step {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form .steps-row .steps-step p {\n  margin-top: 0.5rem; }\n.steps-form .steps-row .steps-step button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form .steps-row .steps-step .btn-circle {\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  padding: 6px 0;\n  font-size: 12px;\n  line-height: 1.428571429;\n  border-radius: 15px;\n  margin-top: 0; }\n\n/* Stepper v.3 (Icons) */\n.steps-form-2 {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form-2 .steps-row-2 {\n  display: table-row; }\n.steps-form-2 .steps-row-2:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 99%;\n  height: 2px;\n  background-color: #7283a7; }\n.steps-form-2 .steps-row-2 .steps-step-2 {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form-2 .steps-row-2 .steps-step-2 p {\n  margin-top: 0.5rem; }\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\n  width: 70px;\n  height: 70px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 22px 18px 15px 18px;\n  margin-top: -22px; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {\n  font-size: 1.7rem; }\n .steps-row-2:first-child .btn {\n  margin-left: 0\n}\n.steps-row-2:last-child .btn {\n  margin-right: 0\n}\n\n\n/* Stepper v.4 (Icon-vertical) */\n\n.steps-form-3 {\n  width: 2px;\nheight: 470px;\n  position: relative; }\n.steps-form-3 .steps-row-3 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column; }\n.steps-form-3 .steps-row-3:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \"\";\n  width: 2px;\n  height: 100%;\n  background-color: #7283a7; }\n.steps-form-3 .steps-row-3 .steps-step-3 {\n  height: 150px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  position: relative; }\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\n  height: 50px; }\n.steps-form-3 .steps-row-3 .steps-step-3 p {\nmargin-top: 0.5rem; }\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\n  width: 60px;\n  height: 60px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 18px 18px 15px 15px;\n  margin-top: -22px; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa {\n  font-size: 1.7rem; }\n";
+styleInject(css$g);
 
 var Stepper = function Stepper(props) {
   var vertical = props.vertical,
@@ -11835,8 +11901,8 @@ MDBStreak.defaultProps = {
   wrapperClass: "grey lighten-3"
 };
 
-var css$g = ".react-bootstrap-table {\r\n  padding-top: 65px;\r\n}\r\n\r\n.react-bootstrap-table .caret {\r\n  display: inline-block;\r\n  width: 0;\r\n  height: 0;\r\n  margin-left: 2px;\r\n  vertical-align: middle;\r\n  border-top: 4px dashed;\r\n  border-top: 4px solid\\9;\r\n  border-right: 4px solid transparent;\r\n  border-left: 4px solid transparent;\r\n}\r\n\r\n.react-bootstrap-table .dropup .caret {\r\n  content: \"\";\r\n  border-top: 0;\r\n  border-bottom: 4px dashed;\r\n  border-bottom: 4px solid\\9;\r\n}\r\n\r\n.react-bootstrap-table-pagination .pagination {\r\n  float: right;\r\n}\r\n\r\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\r\n  background-color: #09c;\r\n}\r\n\r\n.react-bootstrap-table-pagination .select-wrapper {\r\n  display: inline-block;\r\n  width: 100px;\r\n  margin: 0 15px;\r\n}\r\n\r\n.react-bootstrap-table-pagination .dropdown-item {\r\n  padding: 0;\r\n}\r\n\r\n.react-bootstrap-table-pagination-total {\r\n  display: block;\r\n}\r\n\r\n.react-bootstrap-table .md-form {\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  margin: 0;\r\n  width: 200px;\r\n}\r\n\r\n.react-bootstrap-table-pagination > * {\r\n  position: inherit;\r\n}\r\n\r\n.react-bs-table-sizePerPage-dropdown {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n}";
-styleInject(css$g);
+var css$h = ".react-bootstrap-table {\n  padding-top: 65px;\n}\n\n.react-bootstrap-table .caret {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 2px;\n  vertical-align: middle;\n  border-top: 4px dashed;\n  border-top: 4px solid\\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n\n.react-bootstrap-table .dropup .caret {\n  content: \"\";\n  border-top: 0;\n  border-bottom: 4px dashed;\n  border-bottom: 4px solid\\9;\n}\n\n.react-bootstrap-table-pagination .pagination {\n  float: right;\n}\n\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\n  background-color: #09c;\n}\n\n.react-bootstrap-table-pagination .select-wrapper {\n  display: inline-block;\n  width: 100px;\n  margin: 0 15px;\n}\n\n.react-bootstrap-table-pagination .dropdown-item {\n  padding: 0;\n}\n\n.react-bootstrap-table-pagination-total {\n  display: block;\n}\n\n.react-bootstrap-table .md-form {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  width: 200px;\n}\n\n.react-bootstrap-table-pagination > * {\n  position: inherit;\n}\n\n.react-bs-table-sizePerPage-dropdown {\n  position: absolute;\n  top: 0;\n  left: 0;\n}";
+styleInject(css$h);
 
 var TableEditable =
 /*#__PURE__*/
@@ -12083,8 +12149,8 @@ Testimonial.defaultProps = {
   tag: "div"
 };
 
-var css$h = "@media (max-width: 1025px) {\r\n  .stepper.timeline li {\r\n    -webkit-box-align: end;\r\n    -webkit-align-items: flex-end;\r\n    -ms-flex-align: end;\r\n    align-items: flex-end;\r\n  }\r\n}\r\n\r\n.stepper.timeline li a {\r\n  padding: 0px 24px;\r\n  left: 50%;\r\n}\r\n@media (max-width: 450px) {\r\n  .stepper.timeline li a {\r\n    left: 6%;\r\n  }\r\n}\r\n@media (min-width: 451px) and (max-width: 1025px) {\r\n  .stepper.timeline li a {\r\n    left: 6%;\r\n  }\r\n}\r\n.stepper.timeline li a .circle {\r\n  width: 50px;\r\n  height: 50px;\r\n  line-height: 50px;\r\n  font-size: 1.4em;\r\n  text-align: center;\r\n  position: absolute;\r\n  top: 16px;\r\n  margin-left: -50px;\r\n  background-color: #fff;\r\n  z-index: 2;\r\n}\r\n\r\n.stepper.timeline li .step-content {\r\n  width: 45%;\r\n  float: left;\r\n  border-radius: 2px;\r\n  position: relative;\r\n  background-color: #fff;\r\n}\r\n.stepper.timeline li .step-content:before {\r\n  position: absolute;\r\n  top: 26px;\r\n  right: -15px;\r\n  display: inline-block;\r\n  border-top: 15px solid transparent;\r\n  border-left: 15px solid #e0e0e0;\r\n  border-right: 0 solid #e0e0e0;\r\n  border-bottom: 15px solid transparent;\r\n  content: \" \";\r\n}\r\n.stepper.timeline li .step-content:after {\r\n  position: absolute;\r\n  top: 27px;\r\n  right: -14px;\r\n  display: inline-block;\r\n  border-top: 14px solid transparent;\r\n  border-left: 14px solid #fff;\r\n  border-right: 0 solid #fff;\r\n  border-bottom: 14px solid transparent;\r\n  content: \" \";\r\n}\r\n@media (max-width: 450px) {\r\n  .stepper.timeline li .step-content {\r\n    width: 80%;\r\n    left: 3rem;\r\n    margin-right: 3rem;\r\n    margin-bottom: 2rem;\r\n    float: right;\r\n  }\r\n  .stepper.timeline li .step-content:before {\r\n    border-left-width: 0;\r\n    border-right-width: 15px;\r\n    left: -15px;\r\n    right: auto;\r\n  }\r\n  .stepper.timeline li .step-content:after {\r\n    border-left-width: 0;\r\n    border-right-width: 14px;\r\n    left: -14px;\r\n    right: auto;\r\n  }\r\n}\r\n@media (min-width: 451px) and (max-width: 1025px) {\r\n  .stepper.timeline li .step-content {\r\n    width: 85%;\r\n    left: 3rem;\r\n    margin-right: 3rem;\r\n    margin-bottom: 2rem;\r\n    float: right;\r\n  }\r\n  .stepper.timeline li .step-content:before {\r\n    border-left-width: 0;\r\n    border-right-width: 15px;\r\n    left: -15px;\r\n    right: auto;\r\n  }\r\n  .stepper.timeline li .step-content:after {\r\n    border-left-width: 0;\r\n    border-right-width: 14px;\r\n    left: -14px;\r\n    right: auto;\r\n  }\r\n}\r\n\r\n.stepper.timeline li.timeline-inverted {\r\n  -webkit-box-align: end;\r\n  -webkit-align-items: flex-end;\r\n  -ms-flex-align: end;\r\n  align-items: flex-end;\r\n}\r\n.stepper.timeline li.timeline-inverted .step-content {\r\n  float: right;\r\n}\r\n.stepper.timeline li.timeline-inverted .step-content:before {\r\n  border-left-width: 0;\r\n  border-right-width: 15px;\r\n  left: -15px;\r\n  right: auto;\r\n}\r\n.stepper.timeline li.timeline-inverted .step-content:after {\r\n  border-left-width: 0;\r\n  border-right-width: 14px;\r\n  left: -14px;\r\n  right: auto;\r\n}\r\n\r\n.stepper.timeline.stepper-vertical li:not(:last-child):after {\r\n  content: \" \";\r\n  position: absolute;\r\n  width: 3px;\r\n  background-color: #e0e0e0;\r\n  left: 50%;\r\n  top: 57px;\r\n  margin-left: -1.5px;\r\n}\r\n@media (max-width: 450px) {\r\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\r\n    left: 6%;\r\n  }\r\n}\r\n@media (min-width: 451px) and (max-width: 1025px) {\r\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\r\n    left: 6%;\r\n  }\r\n}\r\n";
-styleInject(css$h);
+var css$i = "@media (max-width: 1025px) {\n  .stepper.timeline li {\n    -webkit-box-align: end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: end;\n    align-items: flex-end;\n  }\n}\n\n.stepper.timeline li a {\n  padding: 0px 24px;\n  left: 50%;\n}\n@media (max-width: 450px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n.stepper.timeline li a .circle {\n  width: 50px;\n  height: 50px;\n  line-height: 50px;\n  font-size: 1.4em;\n  text-align: center;\n  position: absolute;\n  top: 16px;\n  margin-left: -50px;\n  background-color: #fff;\n  z-index: 2;\n}\n\n.stepper.timeline li .step-content {\n  width: 45%;\n  float: left;\n  border-radius: 2px;\n  position: relative;\n  background-color: #fff;\n}\n.stepper.timeline li .step-content:before {\n  position: absolute;\n  top: 26px;\n  right: -15px;\n  display: inline-block;\n  border-top: 15px solid transparent;\n  border-left: 15px solid #e0e0e0;\n  border-right: 0 solid #e0e0e0;\n  border-bottom: 15px solid transparent;\n  content: \" \";\n}\n.stepper.timeline li .step-content:after {\n  position: absolute;\n  top: 27px;\n  right: -14px;\n  display: inline-block;\n  border-top: 14px solid transparent;\n  border-left: 14px solid #fff;\n  border-right: 0 solid #fff;\n  border-bottom: 14px solid transparent;\n  content: \" \";\n}\n@media (max-width: 450px) {\n  .stepper.timeline li .step-content {\n    width: 80%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li .step-content {\n    width: 85%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n\n.stepper.timeline li.timeline-inverted {\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n  -ms-flex-align: end;\n  align-items: flex-end;\n}\n.stepper.timeline li.timeline-inverted .step-content {\n  float: right;\n}\n.stepper.timeline li.timeline-inverted .step-content:before {\n  border-left-width: 0;\n  border-right-width: 15px;\n  left: -15px;\n  right: auto;\n}\n.stepper.timeline li.timeline-inverted .step-content:after {\n  border-left-width: 0;\n  border-right-width: 14px;\n  left: -14px;\n  right: auto;\n}\n\n.stepper.timeline.stepper-vertical li:not(:last-child):after {\n  content: \" \";\n  position: absolute;\n  width: 3px;\n  background-color: #e0e0e0;\n  left: 50%;\n  top: 57px;\n  margin-left: -1.5px;\n}\n@media (max-width: 450px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n";
+styleInject(css$i);
 
 var Timeline = function Timeline(props) {
   var children = props.children;
@@ -12145,8 +12211,8 @@ TimelineStep.defaultProps = {
   href: "#"
 };
 
-var css$i = ".time-picker-clock {\r\n  border-radius: 100%;\r\n  position: relative;\r\n  /* transition: 0.3s cubic-bezier(.25,.8,.50,1); */\r\n  user-select: none;\r\n  background: #f0f0f0;\r\n  animation: show-up-clock 0.2s linear;\r\n}\r\n@keyframes show-up-clock {\r\n  0% {\r\n    opacity: 0;\r\n    transform: scale(0.7);\r\n  }\r\n  100% {\r\n    opacity: 1;\r\n    transform: scale(1);\r\n  }\r\n}\r\n.time-picker-clock__container {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  padding: 10px;\r\n}\r\n.time-picker-clock__hand {\r\n  height: calc(50% - 28px);\r\n  width: 2px;\r\n  bottom: 50%;\r\n  left: calc(50% - 1px);\r\n  transform-origin: center bottom;\r\n  position: absolute;\r\n  will-change: transform;\r\n  z-index: 1;\r\n  background-color: rgba(0, 150, 136, 0.25);\r\n}\r\n\r\n.time-picker-clock__hand.between .time-picker-clock__hand--ring {\r\n  background-color: rgba(0, 150, 136, 0.25);\r\n  border-color: inherit;\r\n  border-radius: 100%;\r\n  width: 2.5rem;\r\n  height: 2.5rem;\r\n  content: \"\";\r\n  position: absolute;\r\n  top: -3%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.time-picker-clock__hand.between .time-picker-clock__hand--ring:before {\r\n  background-color: rgba(0, 77, 64, 0.75);\r\n  border-color: inherit;\r\n  border-radius: 100%;\r\n  width: 10px;\r\n  height: 10px;\r\n  content: \"\";\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%);\r\n}\r\n\r\n.time-picker-clock__hand:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  height: 6px;\r\n  width: 6px;\r\n  top: 100%;\r\n  left: 50%;\r\n  border-radius: 50%;\r\n  background-color: rgba(0, 77, 64, 0.75);\r\n  opacity: 0.75;\r\n  transform: translate(-50%, -50%);\r\n}\r\n.time-picker-clock > span {\r\n  align-items: center;\r\n  border-radius: 100%;\r\n  cursor: default;\r\n  display: flex;\r\n  font-size: 1rem;\r\n  line-height: 1.2;\r\n  justify-content: center;\r\n  left: calc(50% - 40px / 2);\r\n  height: 40px;\r\n  position: absolute;\r\n  text-align: center;\r\n  top: calc(50% - 40px / 2);\r\n  width: 40px;\r\n  user-select: none;\r\n}\r\n.time-picker-clock > span:hover,\r\n.time-picker-clock > span.active:hover {\r\n  cursor: pointer;\r\n}\r\n.time-picker-clock > span:active:hover,\r\n.time-picker-clock > span.active:active:hover {\r\n  cursor: move;\r\n}\r\n.time-picker-clock:active:hover {\r\n  cursor: move;\r\n}\r\n.time-picker-clock > span > span {\r\n  z-index: 1;\r\n}\r\n\r\n.time-picker-clock > span:before,\r\n.time-picker-clock > span:after {\r\n  content: \"\";\r\n  border-radius: 100%;\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  height: 14px;\r\n  width: 14px;\r\n  transform: translate(-50%, -50%);\r\n}\r\n.time-picker-clock > span > span:after,\r\n.time-picker-clock > span > span:before {\r\n  height: 40px;\r\n  width: 40px;\r\n}\r\n.time-picker-clock > span.active {\r\n  color: #fff;\r\n  cursor: default;\r\n  z-index: 2;\r\n  background: blue;\r\n}\r\n.time-picker-clock > span > span.disabled {\r\n  pointer-events: none;\r\n}\r\n\r\n.picker__footer .clockpicker-button {\r\n  padding-left: 10px;\r\n  padding-right: 10px;\r\n}\r\n";
-styleInject(css$i);
+var css$j = ".time-picker-clock {\n  border-radius: 100%;\n  position: relative;\n  /* transition: 0.3s cubic-bezier(.25,.8,.50,1); */\n  user-select: none;\n  background: #f0f0f0;\n  animation: show-up-clock 0.2s linear;\n}\n@keyframes show-up-clock {\n  0% {\n    opacity: 0;\n    transform: scale(0.7);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n.time-picker-clock__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\n.time-picker-clock__hand {\n  height: calc(50% - 28px);\n  width: 2px;\n  bottom: 50%;\n  left: calc(50% - 1px);\n  transform-origin: center bottom;\n  position: absolute;\n  will-change: transform;\n  z-index: 1;\n  background-color: rgba(0, 150, 136, 0.25);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring {\n  background-color: rgba(0, 150, 136, 0.25);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 2.5rem;\n  height: 2.5rem;\n  content: \"\";\n  position: absolute;\n  top: -3%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring:before {\n  background-color: rgba(0, 77, 64, 0.75);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 10px;\n  height: 10px;\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand:after {\n  content: \"\";\n  position: absolute;\n  height: 6px;\n  width: 6px;\n  top: 100%;\n  left: 50%;\n  border-radius: 50%;\n  background-color: rgba(0, 77, 64, 0.75);\n  opacity: 0.75;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span {\n  align-items: center;\n  border-radius: 100%;\n  cursor: default;\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.2;\n  justify-content: center;\n  left: calc(50% - 40px / 2);\n  height: 40px;\n  position: absolute;\n  text-align: center;\n  top: calc(50% - 40px / 2);\n  width: 40px;\n  user-select: none;\n}\n.time-picker-clock > span:hover,\n.time-picker-clock > span.active:hover {\n  cursor: pointer;\n}\n.time-picker-clock > span:active:hover,\n.time-picker-clock > span.active:active:hover {\n  cursor: move;\n}\n.time-picker-clock:active:hover {\n  cursor: move;\n}\n.time-picker-clock > span > span {\n  z-index: 1;\n}\n\n.time-picker-clock > span:before,\n.time-picker-clock > span:after {\n  content: \"\";\n  border-radius: 100%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 14px;\n  width: 14px;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span > span:after,\n.time-picker-clock > span > span:before {\n  height: 40px;\n  width: 40px;\n}\n.time-picker-clock > span.active {\n  color: #fff;\n  cursor: default;\n  z-index: 2;\n  background: blue;\n}\n.time-picker-clock > span > span.disabled {\n  pointer-events: none;\n}\n\n.picker__footer .clockpicker-button {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n";
+styleInject(css$j);
 
 var propTypes$2 = {
   color: propTypes.string.isRequired,
@@ -12911,8 +12977,8 @@ function (_Component) {
 TimePicker.propTypes = propTypes$7;
 TimePicker.defaultProps = defaultProps$1;
 
-var css$j = ".Toastify__toast-container {\r\n  z-index: 9999;\r\n  position: fixed;\r\n  padding: 4px;\r\n  width: 320px;\r\n  box-sizing: border-box;\r\n  color: #fff;\r\n}\r\n.Toastify__toast-container--top-left {\r\n  top: 1em;\r\n  left: 1em;\r\n}\r\n.Toastify__toast-container--top-center {\r\n  top: 1em;\r\n  left: 50%;\r\n  margin-left: -160px;\r\n}\r\n.Toastify__toast-container--top-right {\r\n  top: 1em;\r\n  right: 1em;\r\n}\r\n.Toastify__toast-container--bottom-left {\r\n  bottom: 1em;\r\n  left: 1em;\r\n}\r\n.Toastify__toast-container--bottom-center {\r\n  bottom: 1em;\r\n  left: 50%;\r\n  margin-left: -160px;\r\n}\r\n.Toastify__toast-container--bottom-right {\r\n  bottom: 1em;\r\n  right: 1em;\r\n}\r\n\r\n@media only screen and (max-width: 480px) {\r\n  .Toastify__toast-container {\r\n    width: 100vw;\r\n    padding: 0;\r\n    left: 0;\r\n    margin: 0;\r\n  }\r\n  .Toastify__toast-container--top-left,\r\n  .Toastify__toast-container--top-center,\r\n  .Toastify__toast-container--top-right {\r\n    top: 0;\r\n  }\r\n  .Toastify__toast-container--bottom-left,\r\n  .Toastify__toast-container--bottom-center,\r\n  .Toastify__toast-container--bottom-right {\r\n    bottom: 0;\r\n  }\r\n  .Toastify__toast-container--rtl {\r\n    right: 0;\r\n    left: initial;\r\n  }\r\n}\r\n\r\n.Toastify__toast {\r\n  position: relative;\r\n  min-height: 64px;\r\n  box-sizing: border-box;\r\n  margin-bottom: 1rem;\r\n  padding: 8px;\r\n  border-radius: 1px;\r\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -ms-flex-pack: justify;\r\n  justify-content: space-between;\r\n  max-height: 800px;\r\n  overflow: hidden;\r\n  font-family: sans-serif;\r\n  cursor: pointer;\r\n  direction: ltr;\r\n}\r\n.Toastify__toast--rtl {\r\n  direction: rtl;\r\n}\r\n.Toastify__toast--default {\r\n  background: #fff;\r\n  color: #aaa;\r\n}\r\n.Toastify__toast--info {\r\n  background: #3498db;\r\n}\r\n.Toastify__toast--success {\r\n  background: #07bc0c;\r\n}\r\n.Toastify__toast--warning {\r\n  background: #f1c40f;\r\n}\r\n.Toastify__toast--error {\r\n  background: #e74c3c;\r\n}\r\n.Toastify__toast-body {\r\n  margin: auto 0;\r\n  -ms-flex: 1;\r\n  flex: 1;\r\n}\r\n\r\n@media only screen and (max-width: 480px) {\r\n  .Toastify__toast {\r\n    margin-bottom: 0;\r\n  }\r\n}\r\n\r\n.Toastify__close-button {\r\n  color: #fff;\r\n  font-weight: bold;\r\n  font-size: 14px;\r\n  background: transparent;\r\n  outline: none;\r\n  border: none;\r\n  padding: 0;\r\n  cursor: pointer;\r\n  opacity: 0.7;\r\n  transition: 0.3s ease;\r\n  -ms-flex-item-align: start;\r\n  align-self: flex-start;\r\n}\r\n.Toastify__close-button--default {\r\n  color: #000;\r\n  opacity: 0.3;\r\n}\r\n.Toastify__close-button:hover,\r\n.Toastify__close-button:focus {\r\n  opacity: 1;\r\n}\r\n\r\n@keyframes Toastify__trackProgress {\r\n  0% {\r\n    transform: scaleX(1);\r\n  }\r\n  100% {\r\n    transform: scaleX(0);\r\n  }\r\n}\r\n\r\n.Toastify__progress-bar {\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 5px;\r\n  z-index: 9999;\r\n  opacity: 0.7;\r\n  background-color: rgba(255, 255, 255, 0.7);\r\n  transform-origin: left;\r\n}\r\n.Toastify__progress-bar--animated {\r\n  animation: Toastify__trackProgress linear 1 forwards;\r\n}\r\n.Toastify__progress-bar--controlled {\r\n  transition: transform 0.2s;\r\n}\r\n.Toastify__progress-bar--rtl {\r\n  right: 0;\r\n  left: initial;\r\n  transform-origin: right;\r\n}\r\n.Toastify__progress-bar--default {\r\n  background: linear-gradient(\r\n    to right,\r\n    #4cd964,\r\n    #5ac8fa,\r\n    #007aff,\r\n    #34aadc,\r\n    #5856d6,\r\n    #ff2d55\r\n  );\r\n}\r\n\r\n@keyframes Toastify__bounceInRight {\r\n  from,\r\n  60%,\r\n  75%,\r\n  90%,\r\n  to {\r\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\r\n  }\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(3000px, 0, 0);\r\n  }\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(-25px, 0, 0);\r\n  }\r\n  75% {\r\n    transform: translate3d(10px, 0, 0);\r\n  }\r\n  90% {\r\n    transform: translate3d(-5px, 0, 0);\r\n  }\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes Toastify__bounceOutRight {\r\n  20% {\r\n    opacity: 1;\r\n    transform: translate3d(-20px, 0, 0);\r\n  }\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(2000px, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__bounceInLeft {\r\n  from,\r\n  60%,\r\n  75%,\r\n  90%,\r\n  to {\r\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\r\n  }\r\n  0% {\r\n    opacity: 0;\r\n    transform: translate3d(-3000px, 0, 0);\r\n  }\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(25px, 0, 0);\r\n  }\r\n  75% {\r\n    transform: translate3d(-10px, 0, 0);\r\n  }\r\n  90% {\r\n    transform: translate3d(5px, 0, 0);\r\n  }\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes Toastify__bounceOutLeft {\r\n  20% {\r\n    opacity: 1;\r\n    transform: translate3d(20px, 0, 0);\r\n  }\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(-2000px, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__bounceInUp {\r\n  from,\r\n  60%,\r\n  75%,\r\n  90%,\r\n  to {\r\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\r\n  }\r\n  from {\r\n    opacity: 0;\r\n    transform: translate3d(0, 3000px, 0);\r\n  }\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(0, -20px, 0);\r\n  }\r\n  75% {\r\n    transform: translate3d(0, 10px, 0);\r\n  }\r\n  90% {\r\n    transform: translate3d(0, -5px, 0);\r\n  }\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__bounceOutUp {\r\n  20% {\r\n    transform: translate3d(0, -10px, 0);\r\n  }\r\n  40%,\r\n  45% {\r\n    opacity: 1;\r\n    transform: translate3d(0, 20px, 0);\r\n  }\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, -2000px, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__bounceInDown {\r\n  from,\r\n  60%,\r\n  75%,\r\n  90%,\r\n  to {\r\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\r\n  }\r\n  0% {\r\n    opacity: 0;\r\n    transform: translate3d(0, -3000px, 0);\r\n  }\r\n  60% {\r\n    opacity: 1;\r\n    transform: translate3d(0, 25px, 0);\r\n  }\r\n  75% {\r\n    transform: translate3d(0, -10px, 0);\r\n  }\r\n  90% {\r\n    transform: translate3d(0, 5px, 0);\r\n  }\r\n  to {\r\n    transform: none;\r\n  }\r\n}\r\n\r\n@keyframes Toastify__bounceOutDown {\r\n  20% {\r\n    transform: translate3d(0, 10px, 0);\r\n  }\r\n  40%,\r\n  45% {\r\n    opacity: 1;\r\n    transform: translate3d(0, -20px, 0);\r\n  }\r\n  to {\r\n    opacity: 0;\r\n    transform: translate3d(0, 2000px, 0);\r\n  }\r\n}\r\n\r\n.Toastify__bounce-enter--top-left,\r\n.Toastify__bounce-enter--bottom-left {\r\n  animation-name: Toastify__bounceInLeft;\r\n}\r\n\r\n.Toastify__bounce-enter--top-right,\r\n.Toastify__bounce-enter--bottom-right {\r\n  animation-name: Toastify__bounceInRight;\r\n}\r\n\r\n.Toastify__bounce-enter--top-center {\r\n  animation-name: Toastify__bounceInDown;\r\n}\r\n\r\n.Toastify__bounce-enter--bottom-center {\r\n  animation-name: Toastify__bounceInUp;\r\n}\r\n\r\n.Toastify__bounce-exit--top-left,\r\n.Toastify__bounce-exit--bottom-left {\r\n  animation-name: Toastify__bounceOutLeft;\r\n}\r\n\r\n.Toastify__bounce-exit--top-right,\r\n.Toastify__bounce-exit--bottom-right {\r\n  animation-name: Toastify__bounceOutRight;\r\n}\r\n\r\n.Toastify__bounce-exit--top-center {\r\n  animation-name: Toastify__bounceOutUp;\r\n}\r\n\r\n.Toastify__bounce-exit--bottom-center {\r\n  animation-name: Toastify__bounceOutDown;\r\n}\r\n\r\n@keyframes Toastify__zoomIn {\r\n  from {\r\n    opacity: 0;\r\n    transform: scale3d(0.3, 0.3, 0.3);\r\n  }\r\n  50% {\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes Toastify__zoomOut {\r\n  from {\r\n    opacity: 1;\r\n  }\r\n  50% {\r\n    opacity: 0;\r\n    transform: scale3d(0.3, 0.3, 0.3);\r\n  }\r\n  to {\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.Toastify__zoom-enter {\r\n  animation-name: Toastify__zoomIn;\r\n}\r\n\r\n.Toastify__zoom-exit {\r\n  animation-name: Toastify__zoomOut;\r\n}\r\n\r\n@keyframes Toastify__flipIn {\r\n  from {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\r\n    animation-timing-function: ease-in;\r\n    opacity: 0;\r\n  }\r\n  40% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\r\n    animation-timing-function: ease-in;\r\n  }\r\n  60% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\r\n    opacity: 1;\r\n  }\r\n  80% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\r\n  }\r\n  to {\r\n    transform: perspective(400px);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__flipOut {\r\n  from {\r\n    transform: perspective(400px);\r\n  }\r\n  30% {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\r\n    opacity: 1;\r\n  }\r\n  to {\r\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\r\n    opacity: 0;\r\n  }\r\n}\r\n\r\n.Toastify__flip-enter {\r\n  animation-name: Toastify__flipIn;\r\n}\r\n\r\n.Toastify__flip-exit {\r\n  animation-name: Toastify__flipOut;\r\n}\r\n\r\n@keyframes Toastify__slideInRight {\r\n  from {\r\n    transform: translate3d(110%, 0, 0);\r\n    visibility: visible;\r\n  }\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__slideInLeft {\r\n  from {\r\n    transform: translate3d(-110%, 0, 0);\r\n    visibility: visible;\r\n  }\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__slideInUp {\r\n  from {\r\n    transform: translate3d(0, 110%, 0);\r\n    visibility: visible;\r\n  }\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__slideInDown {\r\n  from {\r\n    transform: translate3d(0, -110%, 0);\r\n    visibility: visible;\r\n  }\r\n  to {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__slideOutRight {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(110%, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__slideOutLeft {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(-110%, 0, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__slideOutDown {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(0, 500px, 0);\r\n  }\r\n}\r\n\r\n@keyframes Toastify__slideOutUp {\r\n  from {\r\n    transform: translate3d(0, 0, 0);\r\n  }\r\n  to {\r\n    visibility: hidden;\r\n    transform: translate3d(0, -500px, 0);\r\n  }\r\n}\r\n\r\n.Toastify__slide-enter--top-left,\r\n.Toastify__slide-enter--bottom-left {\r\n  animation-name: Toastify__slideInLeft;\r\n}\r\n\r\n.Toastify__slide-enter--top-right,\r\n.Toastify__slide-enter--bottom-right {\r\n  animation-name: Toastify__slideInRight;\r\n}\r\n\r\n.Toastify__slide-enter--top-center {\r\n  animation-name: Toastify__slideInDown;\r\n}\r\n\r\n.Toastify__slide-enter--bottom-center {\r\n  animation-name: Toastify__slideInUp;\r\n}\r\n\r\n.Toastify__slide-exit--top-left,\r\n.Toastify__slide-exit--bottom-left {\r\n  animation-name: Toastify__slideOutLeft;\r\n}\r\n\r\n.Toastify__slide-exit--top-right,\r\n.Toastify__slide-exit--bottom-right {\r\n  animation-name: Toastify__slideOutRight;\r\n}\r\n\r\n.Toastify__slide-exit--top-center {\r\n  animation-name: Toastify__slideOutUp;\r\n}\r\n\r\n.Toastify__slide-exit--bottom-center {\r\n  animation-name: Toastify__slideOutDown;\r\n}\r\n";
-styleInject(css$j);
+var css$k = ".Toastify__toast-container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 320px;\n  box-sizing: border-box;\n  color: #fff;\n}\n.Toastify__toast-container--top-left {\n  top: 1em;\n  left: 1em;\n}\n.Toastify__toast-container--top-center {\n  top: 1em;\n  left: 50%;\n  margin-left: -160px;\n}\n.Toastify__toast-container--top-right {\n  top: 1em;\n  right: 1em;\n}\n.Toastify__toast-container--bottom-left {\n  bottom: 1em;\n  left: 1em;\n}\n.Toastify__toast-container--bottom-center {\n  bottom: 1em;\n  left: 50%;\n  margin-left: -160px;\n}\n.Toastify__toast-container--bottom-right {\n  bottom: 1em;\n  right: 1em;\n}\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast-container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0;\n  }\n  .Toastify__toast-container--top-left,\n  .Toastify__toast-container--top-center,\n  .Toastify__toast-container--top-right {\n    top: 0;\n  }\n  .Toastify__toast-container--bottom-left,\n  .Toastify__toast-container--bottom-center,\n  .Toastify__toast-container--bottom-right {\n    bottom: 0;\n  }\n  .Toastify__toast-container--rtl {\n    right: 0;\n    left: initial;\n  }\n}\n\n.Toastify__toast {\n  position: relative;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 8px;\n  border-radius: 1px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  max-height: 800px;\n  overflow: hidden;\n  font-family: sans-serif;\n  cursor: pointer;\n  direction: ltr;\n}\n.Toastify__toast--rtl {\n  direction: rtl;\n}\n.Toastify__toast--default {\n  background: #fff;\n  color: #aaa;\n}\n.Toastify__toast--info {\n  background: #3498db;\n}\n.Toastify__toast--success {\n  background: #07bc0c;\n}\n.Toastify__toast--warning {\n  background: #f1c40f;\n}\n.Toastify__toast--error {\n  background: #e74c3c;\n}\n.Toastify__toast-body {\n  margin: auto 0;\n  -ms-flex: 1;\n  flex: 1;\n}\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast {\n    margin-bottom: 0;\n  }\n}\n\n.Toastify__close-button {\n  color: #fff;\n  font-weight: bold;\n  font-size: 14px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  opacity: 0.7;\n  transition: 0.3s ease;\n  -ms-flex-item-align: start;\n  align-self: flex-start;\n}\n.Toastify__close-button--default {\n  color: #000;\n  opacity: 0.3;\n}\n.Toastify__close-button:hover,\n.Toastify__close-button:focus {\n  opacity: 1;\n}\n\n@keyframes Toastify__trackProgress {\n  0% {\n    transform: scaleX(1);\n  }\n  100% {\n    transform: scaleX(0);\n  }\n}\n\n.Toastify__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 9999;\n  opacity: 0.7;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left;\n}\n.Toastify__progress-bar--animated {\n  animation: Toastify__trackProgress linear 1 forwards;\n}\n.Toastify__progress-bar--controlled {\n  transition: transform 0.2s;\n}\n.Toastify__progress-bar--rtl {\n  right: 0;\n  left: initial;\n  transform-origin: right;\n}\n.Toastify__progress-bar--default {\n  background: linear-gradient(\n    to right,\n    #4cd964,\n    #5ac8fa,\n    #007aff,\n    #34aadc,\n    #5856d6,\n    #ff2d55\n  );\n}\n\n@keyframes Toastify__bounceInRight {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(-5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceInLeft {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(-10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceInUp {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  75% {\n    transform: translate3d(0, 10px, 0);\n  }\n  90% {\n    transform: translate3d(0, -5px, 0);\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0);\n  }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n@keyframes Toastify__bounceInDown {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0);\n  }\n  75% {\n    transform: translate3d(0, -10px, 0);\n  }\n  90% {\n    transform: translate3d(0, 5px, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0);\n  }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n.Toastify__bounce-enter--top-left,\n.Toastify__bounce-enter--bottom-left {\n  animation-name: Toastify__bounceInLeft;\n}\n\n.Toastify__bounce-enter--top-right,\n.Toastify__bounce-enter--bottom-right {\n  animation-name: Toastify__bounceInRight;\n}\n\n.Toastify__bounce-enter--top-center {\n  animation-name: Toastify__bounceInDown;\n}\n\n.Toastify__bounce-enter--bottom-center {\n  animation-name: Toastify__bounceInUp;\n}\n\n.Toastify__bounce-exit--top-left,\n.Toastify__bounce-exit--bottom-left {\n  animation-name: Toastify__bounceOutLeft;\n}\n\n.Toastify__bounce-exit--top-right,\n.Toastify__bounce-exit--bottom-right {\n  animation-name: Toastify__bounceOutRight;\n}\n\n.Toastify__bounce-exit--top-center {\n  animation-name: Toastify__bounceOutUp;\n}\n\n.Toastify__bounce-exit--bottom-center {\n  animation-name: Toastify__bounceOutDown;\n}\n\n@keyframes Toastify__zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3);\n  }\n  50% {\n    opacity: 1;\n  }\n}\n\n@keyframes Toastify__zoomOut {\n  from {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3);\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n.Toastify__zoom-enter {\n  animation-name: Toastify__zoomIn;\n}\n\n.Toastify__zoom-exit {\n  animation-name: Toastify__zoomOut;\n}\n\n@keyframes Toastify__flipIn {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in;\n  }\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1;\n  }\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\n  }\n  to {\n    transform: perspective(400px);\n  }\n}\n\n@keyframes Toastify__flipOut {\n  from {\n    transform: perspective(400px);\n  }\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1;\n  }\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n.Toastify__flip-enter {\n  animation-name: Toastify__flipIn;\n}\n\n.Toastify__flip-exit {\n  animation-name: Toastify__flipOut;\n}\n\n@keyframes Toastify__slideInRight {\n  from {\n    transform: translate3d(110%, 0, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInLeft {\n  from {\n    transform: translate3d(-110%, 0, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInUp {\n  from {\n    transform: translate3d(0, 110%, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInDown {\n  from {\n    transform: translate3d(0, -110%, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(110%, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(-110%, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 500px, 0);\n  }\n}\n\n@keyframes Toastify__slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -500px, 0);\n  }\n}\n\n.Toastify__slide-enter--top-left,\n.Toastify__slide-enter--bottom-left {\n  animation-name: Toastify__slideInLeft;\n}\n\n.Toastify__slide-enter--top-right,\n.Toastify__slide-enter--bottom-right {\n  animation-name: Toastify__slideInRight;\n}\n\n.Toastify__slide-enter--top-center {\n  animation-name: Toastify__slideInDown;\n}\n\n.Toastify__slide-enter--bottom-center {\n  animation-name: Toastify__slideInUp;\n}\n\n.Toastify__slide-exit--top-left,\n.Toastify__slide-exit--bottom-left {\n  animation-name: Toastify__slideOutLeft;\n}\n\n.Toastify__slide-exit--top-right,\n.Toastify__slide-exit--bottom-right {\n  animation-name: Toastify__slideOutRight;\n}\n\n.Toastify__slide-exit--top-center {\n  animation-name: Toastify__slideOutUp;\n}\n\n.Toastify__slide-exit--bottom-center {\n  animation-name: Toastify__slideOutDown;\n}\n";
+styleInject(css$k);
 
 Object.defineProperty(exports, 'MDBToast', {
   enumerable: true,
@@ -13084,10 +13150,10 @@ exports.MDBNotification = Notification;
 exports.MDBPageItem = PageItem;
 exports.MDBPageNav = PageLink;
 exports.MDBPagination = Pagination;
-exports.MDBPopover = Popper;
+exports.MDBPopover = Popover;
 exports.MDBPopoverBody = PopoverBody;
 exports.MDBPopoverHeader = PopoverHeader;
-exports.MDBPopper = Popper;
+exports.MDBPopper = Popover;
 exports.MDBProgress = Progress;
 exports.MDBRangeInput = InputRange;
 exports.MDBRating = Rating;
@@ -13127,7 +13193,7 @@ exports.MDBTestimonial = Testimonial;
 exports.MDBTimePicker = TimePicker;
 exports.MDBTimeline = Timeline;
 exports.MDBTimelineStep = TimelineStep;
-exports.MDBTooltip = Popper;
+exports.MDBTooltip = Popover;
 exports.MDBTreeview = Treeview;
 exports.MDBTreeviewItem = TreeviewItem;
 exports.MDBTreeviewList = TreeviewList;
@@ -13151,10 +13217,10 @@ exports.PageItem = PageItem;
 exports.PageLink = PageLink;
 exports.Pagination = Pagination;
 exports.PerfectScrollbar = ScrollBar;
-exports.Popover = Popper;
+exports.Popover = Popover;
 exports.PopoverBody = PopoverBody;
 exports.PopoverHeader = PopoverHeader;
-exports.Popper = Popper;
+exports.Popper = Popover;
 exports.Progress = Progress;
 exports.Rating = Rating;
 exports.Row = Row;
@@ -13190,7 +13256,7 @@ exports.Testimonial = Testimonial;
 exports.TimePicker = TimePicker;
 exports.Timeline = Timeline;
 exports.TimelineStep = TimelineStep;
-exports.Tooltip = Popper;
+exports.Tooltip = Popover;
 exports.Treeview = Treeview;
 exports.TreeviewItem = TreeviewItem;
 exports.TreeviewList = TreeviewList;

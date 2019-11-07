@@ -39,6 +39,7 @@
     "material-ui-pickers": "2.2.4",
     "moment": "2.24.0",
     "perfect-scrollbar": "1.4.0",
+    "popper.js": "^1.16.0",
     "raf": "3.4.1",
     "react-chartjs-2": "2.7.6",
     "react-image-lightbox": "5.1.0",
