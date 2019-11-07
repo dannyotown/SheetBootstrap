@@ -36,6 +36,7 @@
     "bootstrap-css-only": "4.3.1",
     "chart.js": "2.8.0",
     "classnames": "2.2.6",
+    "focus-trap-react": "^6.0.0",
     "material-ui-pickers": "2.2.4",
     "moment": "2.24.0",
     "perfect-scrollbar": "1.4.0",
