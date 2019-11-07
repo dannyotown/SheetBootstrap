@@ -774,6 +774,7 @@ declare class MDBModal extends Component<
     contentClassName?: string;
     children?: ReactNode;
     fade?: boolean;
+    focusTrap?: boolean;
     frame?: boolean;
     fullHeight?: boolean;
     isOpen?: boolean;
@@ -1784,6 +1785,8 @@ declare class MDBTableEditable extends Component<
     responsiveXl?: boolean;
     small?: boolean;
     striped?: boolean;
+    getValue?: () => void;
+    onChange?: () => void;
     [rest: string]: any;
   },
   any

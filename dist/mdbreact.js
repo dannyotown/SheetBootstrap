@@ -11,6 +11,7 @@ var reactTransitionGroup = require('react-transition-group');
 var ReactDOM = _interopDefault(require('react-dom'));
 var reactPopper = require('react-popper');
 var NumericInput = _interopDefault(require('react-numeric-input'));
+var FocusTrap = _interopDefault(require('focus-trap-react'));
 var reactRouterDom = require('react-router-dom');
 var Popper = _interopDefault(require('popper.js'));
 var mdbreact = require('mdbreact');
@@ -92,20 +93,35 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
-function _objectSpread(target) {
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly) symbols = symbols.filter(function (sym) {
+      return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+    });
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
-    var ownKeys = Object.keys(source);
 
-    if (typeof Object.getOwnPropertySymbols === 'function') {
-      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-      }));
+    if (i % 2) {
+      ownKeys(source, true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(source).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
     }
-
-    ownKeys.forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    });
   }
 
   return target;
@@ -219,6 +235,10 @@ function _iterableToArray(iter) {
 }
 
 function _iterableToArrayLimit(arr, i) {
+  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
+    return;
+  }
+
   var _arr = [];
   var _n = true;
   var _d = false;
@@ -1675,7 +1695,7 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "goToIndex", function (item) {
-      _this.setState(_objectSpread({}, _this.state, {
+      _this.setState(_objectSpread2({}, _this.state, {
         activeItem: item
       }));
 
@@ -1750,7 +1770,7 @@ function (_Component) {
         var srcArray = Array.prototype.map.call(CarouselItemsArray, function (item) {
           return item.src;
         });
-        this.setState(_objectSpread({}, this.state, {
+        this.setState(_objectSpread2({}, this.state, {
           srcArray: srcArray
         }));
       }
@@ -2276,7 +2296,7 @@ function (_Component) {
       return React__default.createElement("div", _extends({
         "data-test": "collapse"
       }, attributes, {
-        style: _objectSpread({}, attributes.style, style),
+        style: _objectSpread2({}, attributes.style, {}, style),
         className: classes,
         ref: function ref(c) {
           _this2.element = c;
@@ -4180,9 +4200,13 @@ DataTableSelect.propTypes = {
   value: propTypes.number.isRequired
 };
 
-// FREE START
-// import DataTableSelect from '../DataTableSelect';
+/*
+// PRO-END
+import DataTableSelect from '../DataTableSelect';
+// PRO-START
+*/
 // FREE-END
+// PRO-END
 
 var DataTableEntries = function DataTableEntries(props) {
   var handleEntriesChange = props.handleEntriesChange,
@@ -4238,9 +4262,13 @@ DataTableInput.propTypes = {
   value: propTypes.string
 };
 
-// FREE START
-// import DataTableInput from '../DataTableInput';
-// FREE END
+/*
+// PRO-END
+import DataTableInput from '../DataTableInput';
+// PRO-START
+*/
+// FREE-END
+// PRO-END
 
 var DataTableSearch = function DataTableSearch(props) {
   var handleSearchChange = props.handleSearchChange,
@@ -4652,9 +4680,9 @@ function (_Component) {
         return {
           columns: columns,
           rows: rows,
-          filteredRows: rows
+          filteredRows: _this.props.disableRetreatAfterSorting ? _this.filterRows() : rows
         };
-      }, callback && typeof callback === 'function' && function () {
+      }, callback && typeof callback === "function" && function () {
         return callback();
       });
     });
@@ -4713,11 +4741,11 @@ function (_Component) {
         search: e.target.value
       }, function () {
         return _this.filterRows();
-      }, _this.props.onSearch && typeof _this.props.onSearch === 'function' && _this.props.onSearch(e.target.value));
+      }, _this.props.onSearch && typeof _this.props.onSearch === "function" && _this.props.onSearch(e.target.value));
     });
 
     _defineProperty(_assertThisInitialized(_this), "checkFieldValue", function (array, field) {
-      return array[field] && typeof array[field] !== 'string' ? array[field].props.searchvalue : array[field];
+      return array[field] && typeof array[field] !== "string" ? array[field].props.searchvalue : array[field];
     });
 
     _defineProperty(_assertThisInitialized(_this), "checkField", function (field, a, b, direction) {
@@ -4725,7 +4753,7 @@ function (_Component) {
           aField = _ref[0],
           bField = _ref[1];
       var comp = aField > bField ? -1 : 1;
-      if (direction === 'asc') comp *= -1;
+      if (direction === "asc") comp *= -1;
       return comp;
     });
 
@@ -4735,25 +4763,25 @@ function (_Component) {
           return _this.checkField(field, a, b, direction);
         }
 
-        return direction === 'asc' ? a[field] < b[field] ? -1 : 1 : a[field] > b[field] ? -1 : 1;
+        return direction === "asc" ? a[field] < b[field] ? -1 : 1 : a[field] > b[field] ? -1 : 1;
       });
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleSort", function (field, sort) {
       var onSort = _this.props.onSort;
-      if (sort === 'disabled') return;
+      if (sort === "disabled") return;
 
       _this.setState(function (prevState) {
         var sortRows = _this.props.sortRows;
         var rows = prevState.rows,
             columns = prevState.columns;
-        var direction = sort === 'desc' ? 'desc' : 'asc';
+        var direction = sort === "desc" ? "desc" : "asc";
 
         _this.sort(rows, sortRows, field, direction);
 
         columns.forEach(function (col) {
-          if (col.sort === 'disabled') return;
-          col.sort = col.field === field ? col.sort === 'desc' ? 'asc' : 'desc' : '';
+          if (col.sort === "disabled") return;
+          col.sort = col.field === field ? col.sort === "desc" ? "asc" : "desc" : "";
         });
         return {
           rows: rows,
@@ -4764,9 +4792,9 @@ function (_Component) {
         return _this.filterRows();
       });
 
-      onSort && typeof onSort === 'function' && onSort({
+      onSort && typeof onSort === "function" && onSort({
         column: field,
-        direction: sort === 'desc' ? 'desc' : 'asc'
+        direction: sort === "desc" ? "desc" : "asc"
       });
     });
 
@@ -4781,21 +4809,21 @@ function (_Component) {
       _this.setState(function (prevState) {
         var filteredRows = prevState.rows.filter(function (row) {
           for (var key in row) {
-            if ((!unsearchable.length || !unsearchable.includes(key)) && typeof row[key] !== 'function') {
-              var stringValue = '';
+            if ((!unsearchable.length || !unsearchable.includes(key)) && typeof row[key] !== "function") {
+              var stringValue = "";
 
-              if (sortRows && typeof row[key] !== 'string') {
+              if (sortRows && typeof row[key] !== "string") {
                 (function () {
                   var content = [];
 
                   var getContent = function getContent(element) {
-                    return _typeof(element) === 'object' ? element.props.children && Array.from(element.props.children).map(function (el) {
+                    return _typeof(element) === "object" ? element.props.children && Array.from(element.props.children).map(function (el) {
                       return getContent(el);
                     }) : content.push(element);
                   };
 
                   getContent(row[key]);
-                  stringValue = content.join('');
+                  stringValue = content.join("");
                 })();
               } else {
                 if (row[key]) {
@@ -4813,10 +4841,21 @@ function (_Component) {
           message: noRecordsFoundLabel,
           colspan: prevState.columns.length
         });
-        return {
-          filteredRows: filteredRows,
-          activePage: 0
-        };
+        var test = {};
+
+        if (_this.props.disableRetreatAfterSorting) {
+          test = {
+            filteredRows: filteredRows,
+            activePage: prevState.activePage = prevState.activePage < prevState.pages.length || prevState.activePage === 0 ? prevState.activePage : prevState.pages.length - 1
+          };
+        } else if (!_this.props.disableRetreatAfterSorting) {
+          test = {
+            filteredRows: filteredRows,
+            activePage: 0
+          };
+        }
+
+        return test;
       }, function () {
         return _this.paginateRows();
       });
@@ -4830,7 +4869,9 @@ function (_Component) {
             entries = prevState.entries,
             filteredRows = prevState.filteredRows,
             activePage = prevState.activePage;
-        var paging = _this.props.paging;
+        var _this$props2 = _this.props,
+            paging = _this$props2.paging,
+            disableRetreatAfterSorting = _this$props2.disableRetreatAfterSorting;
         pages = [];
 
         if (paging) {
@@ -4839,12 +4880,13 @@ function (_Component) {
             pages.push(filteredRows.slice(pageEndIndex - entries, pageEndIndex));
           }
 
-          activePage = activePage < pages.length || activePage === 0 ? activePage : pages.length - 1;
+          if (!disableRetreatAfterSorting) {
+            activePage = activePage < pages.length || activePage === 0 ? activePage : pages.length - 1;
+          }
         } else {
           pages.push(filteredRows);
           activePage = 0;
-        } // console.log(pages, filteredRows, activePage)
-
+        }
 
         return {
           pages: pages,
@@ -4861,7 +4903,7 @@ function (_Component) {
         activePage: page
       });
 
-      onPageChange && typeof onPageChange === 'function' && onPageChange({
+      onPageChange && typeof onPageChange === "function" && onPageChange({
         activePage: page + 1,
         pagesAmount: _this.pagesAmount()
       });
@@ -4881,7 +4923,7 @@ function (_Component) {
       order: props.order || [],
       pages: [],
       rows: props.data.rows || [],
-      search: '',
+      search: "",
       sorted: false,
       translateScrollHead: 0,
       unsearchable: []
@@ -4904,114 +4946,88 @@ function (_Component) {
           order = _this$state3.order,
           columns = _this$state3.columns;
 
-      if (typeof data === 'string') {
+      if (typeof data === "string") {
         this.fetchData(data, this.paginateRows);
       }
 
-      order.length && this.handleSort(order[0], order[1]); // console.log(object)
-
+      order.length && this.handleSort(order[0], order[1]);
       this.setUnsearchable(columns);
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
-      var _this2 = this;
-
       var data = this.props.data;
-      var _this$state4 = this.state,
-          sorted = _this$state4.sorted,
-          columns = _this$state4.columns;
 
       if (prevProps.data !== data) {
-        typeof data === 'string' ? this.fetchData(data) : this.setData(data.rows, data.columns, this.paginateRows);
+        typeof data === "string" ? this.fetchData(data) : this.setData(data.rows, data.columns, this.paginateRows);
         this.setUnsearchable(this.state.columns);
         this.filterRows();
-      }
-
-      if (sorted && columns.filter(function (el) {
-        return el.sort;
-      }).length === 0) {
-        // console.log()
-        // console.log(this.state.activePage)
-        // this.setState({ columns: prevState.columns }, () => {
-        var col = prevState.columns.filter(function (el) {
-          return el.sort;
-        })[0];
-        var sort = col.sort === 'asc' ? 'desc' : 'asc';
-        console.log(prevState.columns, this.state.columns);
-        this.handleSort(col.field, sort);
-        setTimeout(function () {
-          _this2.setState({
-            activePage: prevState.activePage // columns: prevState.columns
-
-          });
-        }, 0);
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this$props2 = this.props,
-          autoWidth = _this$props2.autoWidth,
-          bordered = _this$props2.bordered,
-          borderless = _this$props2.borderless,
-          barReverse = _this$props2.barReverse,
-          btn = _this$props2.btn,
-          className = _this$props2.className,
-          children = _this$props2.children,
-          dark = _this$props2.dark,
-          data = _this$props2.data,
-          displayEntries = _this$props2.displayEntries,
-          entriesOptions = _this$props2.entriesOptions,
-          entriesLabel = _this$props2.entriesLabel,
-          exportToCSV = _this$props2.exportToCSV,
-          fixed = _this$props2.fixed,
-          hover = _this$props2.hover,
-          info = _this$props2.info,
-          infoLabel = _this$props2.infoLabel,
-          maxHeight = _this$props2.maxHeight,
-          noBottomColumns = _this$props2.noBottomColumns,
-          noRecordsFoundLabel = _this$props2.noRecordsFoundLabel,
-          order = _this$props2.order,
-          pagesAmount = _this$props2.pagesAmount,
-          paging = _this$props2.paging,
-          paginationLabel = _this$props2.paginationLabel,
-          responsive = _this$props2.responsive,
-          responsiveSm = _this$props2.responsiveSm,
-          responsiveMd = _this$props2.responsiveMd,
-          responsiveLg = _this$props2.responsiveLg,
-          responsiveXl = _this$props2.responsiveXl,
-          searching = _this$props2.searching,
-          searchLabel = _this$props2.searchLabel,
-          scrollX = _this$props2.scrollX,
-          scrollY = _this$props2.scrollY,
-          small = _this$props2.small,
-          sortable = _this$props2.sortable,
-          striped = _this$props2.striped,
-          tbodyColor = _this$props2.tbodyColor,
-          tbodyTextWhite = _this$props2.tbodyTextWhite,
-          theadColor = _this$props2.theadColor,
-          theadTextWhite = _this$props2.theadTextWhite,
-          sortRows = _this$props2.sortRows,
-          onSearch = _this$props2.onSearch,
-          onSort = _this$props2.onSort,
-          onPageChange = _this$props2.onPageChange,
-          attributes = _objectWithoutProperties(_this$props2, ["autoWidth", "bordered", "borderless", "barReverse", "btn", "className", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "noBottomColumns", "noRecordsFoundLabel", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows", "onSearch", "onSort", "onPageChange"]);
+      var _this$props3 = this.props,
+          autoWidth = _this$props3.autoWidth,
+          bordered = _this$props3.bordered,
+          borderless = _this$props3.borderless,
+          barReverse = _this$props3.barReverse,
+          btn = _this$props3.btn,
+          className = _this$props3.className,
+          children = _this$props3.children,
+          dark = _this$props3.dark,
+          data = _this$props3.data,
+          displayEntries = _this$props3.displayEntries,
+          entriesOptions = _this$props3.entriesOptions,
+          entriesLabel = _this$props3.entriesLabel,
+          exportToCSV = _this$props3.exportToCSV,
+          fixed = _this$props3.fixed,
+          hover = _this$props3.hover,
+          info = _this$props3.info,
+          infoLabel = _this$props3.infoLabel,
+          maxHeight = _this$props3.maxHeight,
+          noBottomColumns = _this$props3.noBottomColumns,
+          noRecordsFoundLabel = _this$props3.noRecordsFoundLabel,
+          order = _this$props3.order,
+          pagesAmount = _this$props3.pagesAmount,
+          paging = _this$props3.paging,
+          paginationLabel = _this$props3.paginationLabel,
+          responsive = _this$props3.responsive,
+          responsiveSm = _this$props3.responsiveSm,
+          responsiveMd = _this$props3.responsiveMd,
+          responsiveLg = _this$props3.responsiveLg,
+          responsiveXl = _this$props3.responsiveXl,
+          searching = _this$props3.searching,
+          searchLabel = _this$props3.searchLabel,
+          scrollX = _this$props3.scrollX,
+          scrollY = _this$props3.scrollY,
+          small = _this$props3.small,
+          sortable = _this$props3.sortable,
+          striped = _this$props3.striped,
+          tbodyColor = _this$props3.tbodyColor,
+          tbodyTextWhite = _this$props3.tbodyTextWhite,
+          theadColor = _this$props3.theadColor,
+          theadTextWhite = _this$props3.theadTextWhite,
+          sortRows = _this$props3.sortRows,
+          onSearch = _this$props3.onSearch,
+          onSort = _this$props3.onSort,
+          onPageChange = _this$props3.onPageChange,
+          attributes = _objectWithoutProperties(_this$props3, ["autoWidth", "bordered", "borderless", "barReverse", "btn", "className", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "noBottomColumns", "noRecordsFoundLabel", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows", "onSearch", "onSort", "onPageChange"]);
 
-      var _this$state5 = this.state,
-          columns = _this$state5.columns,
-          entries = _this$state5.entries,
-          filteredRows = _this$state5.filteredRows,
-          pages = _this$state5.pages,
-          activePage = _this$state5.activePage,
-          search = _this$state5.search,
-          translateScrollHead = _this$state5.translateScrollHead;
-      var tableClasses = classNames('dataTables_wrapper dt-bootstrap4', className);
+      var _this$state4 = this.state,
+          columns = _this$state4.columns,
+          entries = _this$state4.entries,
+          filteredRows = _this$state4.filteredRows,
+          pages = _this$state4.pages,
+          activePage = _this$state4.activePage,
+          search = _this$state4.search,
+          translateScrollHead = _this$state4.translateScrollHead;
+      var tableClasses = classNames("dataTables_wrapper dt-bootstrap4", className);
       return React__default.createElement("div", {
         "data-test": "datatable",
         className: tableClasses
       }, React__default.createElement("div", {
-        className: "row".concat(barReverse ? ' flex-row-reverse' : '')
+        className: "row".concat(barReverse ? " flex-row-reverse" : "")
       }, React__default.createElement(DataTableEntries, {
         paging: paging,
         displayEntries: displayEntries,
@@ -5124,6 +5140,7 @@ DataTable.propTypes = {
   children: propTypes.node,
   dark: propTypes.bool,
   data: propTypes.oneOfType([propTypes.object, propTypes.string]),
+  disableRetreatAfterSorting: propTypes.bool,
   displayEntries: propTypes.bool,
   entries: propTypes.number,
   entriesLabel: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
@@ -5172,36 +5189,37 @@ DataTable.defaultProps = {
     columns: [],
     rows: []
   },
+  disableRetreatAfterSorting: false,
   displayEntries: true,
   entries: 10,
-  entriesLabel: 'Show entries',
+  entriesLabel: "Show entries",
   entriesOptions: [10, 20, 50, 100],
   exportToCSV: false,
   fixed: false,
   hover: false,
   info: true,
-  infoLabel: ['Showing', 'to', 'of', 'entries'],
-  noRecordsFoundLabel: 'No matching records found',
+  infoLabel: ["Showing", "to", "of", "entries"],
+  noRecordsFoundLabel: "No matching records found",
   noBottomColumns: false,
   order: [],
   pagesAmount: 8,
   paging: true,
-  paginationLabel: ['Previous', 'Next'],
+  paginationLabel: ["Previous", "Next"],
   responsive: false,
   responsiveSm: false,
   responsiveMd: false,
   responsiveLg: false,
   responsiveXl: false,
   searching: true,
-  searchLabel: 'Search',
+  searchLabel: "Search",
   scrollX: false,
   scrollY: false,
   sortable: true,
   small: false,
   striped: false,
-  theadColor: '',
+  theadColor: "",
   theadTextWhite: false,
-  tbodyColor: '',
+  tbodyColor: "",
   tbodyTextWhite: false
 };
 
@@ -5492,8 +5510,8 @@ function (_React$Component) {
           props = _objectWithoutProperties(_omit, ["className", "divider", "tag", "header", "href", "active", "disabled"]);
 
       var classes = classNames({
-        'active': active,
-        'disabled': disabled,
+        active: active,
+        disabled: disabled,
         'dropdown-item': !divider && !header,
         'dropdown-header': header,
         'dropdown-divider': divider
@@ -5516,7 +5534,8 @@ function (_React$Component) {
       }, props, {
         tabIndex: tabIndex,
         className: classes,
-        onClick: this.onClick
+        onClick: this.onClick,
+        href: href
       }));
     }
   }]);
@@ -6005,7 +6024,7 @@ function (_Component) {
         width = _this.props.height * (1 / ratio);
       }
 
-      _this.setState(_objectSpread({}, _this.state, {
+      _this.setState(_objectSpread2({}, _this.state, {
         width: width,
         height: height,
         ratio: ratio
@@ -6484,6 +6503,7 @@ function (_Component) {
           className = _this$props.className,
           size = _this$props.size,
           side = _this$props.side,
+          focusTrap = _this$props.focusTrap,
           fullHeight = _this$props.fullHeight,
           frame = _this$props.frame,
           centered = _this$props.centered,
@@ -6549,7 +6569,19 @@ function (_Component) {
         onExit: function onExit(node) {
           return _this2.handleOnExit('modal', node);
         }
-      }, React__default.createElement("div", _extends({
+      }, focusTrap ? React__default.createElement(FocusTrap, null, React__default.createElement("div", _extends({
+        "data-test": "modal",
+        onKeyUp: this.handleEscape,
+        className: wrapperClasses
+      }, modalAttributes), React__default.createElement("div", {
+        className: modalDialogClasses,
+        role: "document"
+      }, React__default.createElement("div", {
+        ref: function ref(elem) {
+          return _this2.modalContent = elem;
+        },
+        className: contentClasses
+      }, children)))) : React__default.createElement("div", _extends({
         "data-test": "modal",
         onKeyUp: this.handleEscape,
         className: wrapperClasses
@@ -6573,6 +6605,7 @@ Modal.defaultProps = {
   backdrop: true,
   backdropTransitionTimeout: 150,
   fade: true,
+  focusTrap: true,
   isOpen: false,
   keyboard: true,
   modalTransitionTimeout: 300,
@@ -6590,6 +6623,7 @@ Modal.propTypes = {
   className: propTypes.string,
   contentClassName: propTypes.string,
   fade: propTypes.bool,
+  focusTrap: propTypes.bool,
   frame: propTypes.bool,
   fullHeight: propTypes.bool,
   hiddenModal: propTypes.func,
@@ -7193,7 +7227,7 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "createPopper", function () {
       if (_this.referenceElm && _this.popoverWrapperRef) _this.setState({
-        popperJS: new Popper(_this.referenceElm, _this.popoverWrapperRef, _objectSpread({
+        popperJS: new Popper(_this.referenceElm, _this.popoverWrapperRef, _objectSpread2({
           placement: _this.props.placement
         }, _this.props.modifiers), function () {
           return setTimeout(function () {
@@ -7450,7 +7484,7 @@ var Progress = function Progress(_ref) {
   var progressBarClasses = classNames(preloader ? 'indeterminate' : 'progress-bar', barClassName ? barClassName : null, animated ? 'progress-bar-animated' : null, color ? "bg-".concat(color) : null, striped || animated ? 'progress-bar-striped' : null);
   var computedHeight = height ? height : children && '1rem';
 
-  var computedWrapperStyle = _objectSpread({}, wrapperStyle, {
+  var computedWrapperStyle = _objectSpread2({}, wrapperStyle, {
     height: computedHeight
   });
 
@@ -8710,7 +8744,7 @@ function (_React$Component) {
           buttonStyle = _this$props.buttonStyle,
           attributes = _objectWithoutProperties(_this$props, ["active", "block", "className", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "innerRef", "buttonStyle"]);
 
-      var classes = classNames(size && "btn-".concat(size), 'btn-floating', color ? color : false, 'Ripple-parent', className);
+      var classes = classNames(size && "btn-".concat(size), 'btn-floating', flat ? 'btn-flat' : gradient ? "".concat(gradient, "-gradient") : "".concat(color), 'Ripple-parent', className);
       return React__default.createElement("li", {
         "data-test": "button-fixed-item"
       }, React__default.createElement("a", _extends({}, attributes, {
@@ -9132,7 +9166,7 @@ function (_Component) {
 
     _this.state = {
       selectedDate: props.value || props.valueDefault,
-      muiTheme: core.createMuiTheme(_objectSpread({}, props.theme, {
+      muiTheme: core.createMuiTheme(_objectSpread2({}, props.theme, {
         typography: {
           useNextVariants: true
         }
@@ -9521,7 +9555,8 @@ function (_React$Component) {
       var formClass = classNames("range-field", formClassName);
       var thumbClass = classNames("thumb", this.state.thumbActive ? "active" : false);
       return React__default.createElement(Tag, {
-        className: formClass
+        className: formClass,
+        "data-test": "input-range"
       }, React__default.createElement("input", {
         ref: this.inputRef,
         className: inputClass,
@@ -9553,6 +9588,7 @@ function (_React$Component) {
 
 InputRange.propTypes = {
   className: propTypes.string,
+  formClassName: propTypes.string,
   min: propTypes.number,
   max: propTypes.number,
   value: propTypes.number,
@@ -9626,7 +9662,8 @@ function (_React$Component) {
 
       var classes = classNames("switch", className);
       return React__default.createElement("div", _extends({}, attributes, {
-        className: classes
+        className: classes,
+        "data-test": "input-switch"
       }), React__default.createElement("label", null, labelLeft, React__default.createElement("input", {
         disabled: this.props.disabled,
         value: this.state.value,
@@ -9658,7 +9695,7 @@ InputSwitch.defaultProps = {
   labelRight: "On"
 };
 
-var css$d = ".mdb-lightbox .overlay {\n  height: 120vh;\n  width: 100vw;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: -100;\n}\n.mdb-lightbox .ui-controls {\n  width: 99vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  position: absolute;\n}\n.mdb-lightbox .ui-controls > * {\n  position: fixed;\n  z-index: 999999;\n}\n.mdb-lightbox .overlay.active {\n  z-index: 9999;\n  background-color: black;\n}\n\n.mdb-lightbox .next-img,\n.mdb-lightbox .prev-img {\n  transform-origin: center;\n}\n.mdb-lightbox .next-img {\n  left: 150% !important;\n}\n.mdb-lightbox .prev-img {\n  left: -50% !important;\n}\n\n.mdb-lightbox img:not(.zoom) {\n  transform-origin: top left;\n}\n/* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */\n.mdb-lightbox img.zoom {\n  z-index: 9999;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%) scale(1) translate3d(0, 0, 0);\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -o-user-select: none;\n  user-select: text;\n  /* pointer-events: none; */\n  transform-origin: center;\n}\n\n.mdb-lightbox .mdb-lightbox figure img.zoom:hover {\n  opacity: 1;\n}\n\n.mdb-lightbox .block {\n  display: block;\n}\n\n.mdb-lightbox .pswp__button.lb-zoom-out {\n  background-position: -132px 0;\n}\n.mdb-lightbox .pswp__button.pswp__button--fs.fullscreen {\n  background-position: -44px 0;\n}\n\n.mdb-lightbox .arrow-container {\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.mdb-lightbox .pswp__button--left,\n.mdb-lightbox .pswp__button--right {\n  width: 0px;\n  height: 0px;\n  margin-top: -100px;\n}\n";
+var css$d = ".mdb-lightbox .overlay {\n  height: 150vh;\n  width: 150vw;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: -100;\n}\n.mdb-lightbox .ui-controls {\n  width: 99vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  position: fixed;\n  z-index: 10000;\n}\n\n.mdb-lightbox .ui-controls > * {\n  position: fixed;\n  z-index: 999999;\n}\n.mdb-lightbox .overlay.active {\n  z-index: 9999;\n  background-color: black;\n}\n\n.mdb-lightbox .next-img,\n.mdb-lightbox .prev-img {\n  transform-origin: center;\n}\n.mdb-lightbox .next-img {\n  left: 150% !important;\n}\n.mdb-lightbox .prev-img {\n  left: -50% !important;\n}\n\n.mdb-lightbox img:not(.zoom) {\n  transform-origin: top left;\n}\n/* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */\n.mdb-lightbox img.zoom {\n  z-index: 10001;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%) scale(1) translate3d(0, 0, 0);\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -o-user-select: none;\n  user-select: text;\n  /* pointer-events: none; */\n  transform-origin: center;\n}\n\n.mdb-lightbox .mdb-lightbox figure img.zoom:hover {\n  opacity: 1;\n}\n\n.mdb-lightbox .block {\n  display: block;\n}\n\n.mdb-lightbox .pswp__button.lb-zoom-out {\n  background-position: -132px 0;\n}\n.mdb-lightbox .pswp__button.pswp__button--fs.fullscreen {\n  background-position: -44px 0;\n}\n\n.mdb-lightbox .arrow-container {\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.mdb-lightbox .pswp__button--left,\n.mdb-lightbox .pswp__button--right {\n  width: 0px;\n  height: 0px;\n  margin-top: -100px;\n}\n";
 styleInject(css$d);
 
 var Lightbox =
@@ -9672,6 +9709,10 @@ function (_React$Component) {
     _classCallCheck(this, Lightbox);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Lightbox).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "componentWillUnmount", function () {
+      _this.setState(_this.reset());
+    });
 
     _defineProperty(_assertThisInitialized(_this), "setScreenSize", function () {
       _this.setState({
@@ -9840,7 +9881,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "scrollZoom", function (e) {
-      if (_this.slideRefs[_this.state.activeKey] === _this.state.imgSrc && _this.state.sliderOpened) {
+      if (_this.slideRefs[_this.state.activeKey] === _this.state.imgSrc && _this.state.sliderOpened && !e.target.classList.contains('next-img') && !e.target.classList.contains('prev-img')) {
         var SCALE_RATIO = _this.props.scale || 0.1;
         var SCALE_UP = 1 + SCALE_RATIO;
         var SCALE_DOWN = 1 - SCALE_RATIO;
@@ -10220,7 +10261,10 @@ function (_React$Component) {
         "data-test": "light-box",
         className: "mdb-lightbox"
       }, imgSrc && React__default.createElement("div", {
-        className: "ui-controls"
+        className: "ui-controls",
+        onClick: function onClick(e) {
+          e.target.classList.contains('ui-controls') && _this2.closeZoom();
+        }
       }, React__default.createElement("p", {
         className: "float-left text-white-50 mt-3 ml-3"
       }, activeKey + 1, "/", images.length), React__default.createElement(ButtonGroup, {
@@ -10276,7 +10320,17 @@ function (_React$Component) {
 }(React__default.Component);
 
 Lightbox.propTypes = {
-  images: propTypes.array,
+  images: propTypes.arrayOf(propTypes.shape({
+    src: propTypes.string,
+    description: propTypes.oneOfType([propTypes.node, propTypes.string]),
+    alt: propTypes.string,
+    lg: propTypes.string,
+    md: propTypes.string,
+    sm: propTypes.string,
+    xl: propTypes.string,
+    xs: propTypes.string,
+    size: propTypes.string
+  })),
   itemClassName: propTypes.string,
   noMargins: propTypes.bool,
   marginSpace: propTypes.number,
@@ -10384,7 +10438,8 @@ function (_Component) {
           className = _this$props.className;
       return React__default.createElement("div", {
         className: "scrollbar-container ".concat(className),
-        ref: this.handleRef
+        ref: this.handleRef,
+        "data-test": "perfect-scrollbar"
       }, children);
     }
   }]);
@@ -11231,7 +11286,7 @@ var SimpleChart = function SimpleChart(props) {
   return React__default.createElement("svg", {
     className: "react-chart ".concat(props.type),
     width: props.width,
-    style: _objectSpread({
+    style: _objectSpread2({
       overflow: 'visible',
       border: props.border
     }, props.style),
@@ -11927,7 +11982,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
-      _this.props.data && _this.setState(_objectSpread({}, _this.state, {
+      _this.props.data && _this.setState(_objectSpread2({}, _this.state, {
         data: _this.props.data
       }));
     });
@@ -11938,12 +11993,12 @@ function (_React$Component) {
       var newRow = [];
 
       _this.props.columns.forEach(function () {
-        newRow.push("");
+        newRow.push('');
       });
 
       newData.push(newRow);
 
-      _this.setState(_objectSpread({}, _this.state.data, {
+      _this.setState(_objectSpread2({}, _this.state.data, {
         data: newData
       }));
     });
@@ -11953,7 +12008,7 @@ function (_React$Component) {
 
       newData = [].concat(_toConsumableArray(newData.slice(0, index)), _toConsumableArray(newData.slice(index + 1)));
 
-      _this.setState(_objectSpread({}, _this.state, {
+      _this.setState(_objectSpread2({}, _this.state, {
         data: newData
       }));
     });
@@ -11963,7 +12018,7 @@ function (_React$Component) {
 
       var newData = _this.changeArrayOrder(index, index - 1);
 
-      _this.setState(_objectSpread({}, _this.state, {
+      _this.setState(_objectSpread2({}, _this.state, {
         data: newData
       }));
     });
@@ -11973,7 +12028,7 @@ function (_React$Component) {
 
       var newData = _this.changeArrayOrder(index, index + 1);
 
-      _this.setState(_objectSpread({}, _this.state, {
+      _this.setState(_objectSpread2({}, _this.state, {
         data: newData
       }));
     });
@@ -12010,9 +12065,18 @@ function (_React$Component) {
         });
       });
 
-      _this.setState(_objectSpread({}, _this.state, {
+      _this.setState(_objectSpread2({}, _this.state, {
         data: newData
       }));
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "onChangeTd", function (e, row, column) {
+      return {
+        target: e.target,
+        event: e,
+        row: row,
+        column: column
+      };
     });
 
     return _this;
@@ -12021,10 +12085,18 @@ function (_React$Component) {
   _createClass(TableEditable, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
-      if (prevProps.data !== this.props.data && this.props.data !== this.state.data) {
+      var _this$props = this.props,
+          data = _this$props.data,
+          getValue = _this$props.getValue;
+
+      if (prevProps.data !== data && data !== this.state.data) {
         this.setState({
-          data: this.props.data
+          data: data
         });
+      }
+
+      if (prevState.data !== this.state.data) {
+        if (getValue) getValue(this.state.data);
       }
     }
   }, {
@@ -12032,23 +12104,25 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var _this$props = this.props,
-          className = _this$props.className,
-          small = _this$props.small,
-          bordered = _this$props.bordered,
-          striped = _this$props.striped,
-          hover = _this$props.hover,
-          data = _this$props.data,
-          columns = _this$props.columns,
-          responsive = _this$props.responsive,
-          responsiveSm = _this$props.responsiveSm,
-          responsiveMd = _this$props.responsiveMd,
-          responsiveLg = _this$props.responsiveLg,
-          responsiveXl = _this$props.responsiveXl,
-          attributes = _objectWithoutProperties(_this$props, ["className", "small", "bordered", "striped", "hover", "data", "columns", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl"]);
+      var _this$props2 = this.props,
+          className = _this$props2.className,
+          small = _this$props2.small,
+          bordered = _this$props2.bordered,
+          striped = _this$props2.striped,
+          hover = _this$props2.hover,
+          data = _this$props2.data,
+          columns = _this$props2.columns,
+          responsive = _this$props2.responsive,
+          responsiveSm = _this$props2.responsiveSm,
+          responsiveMd = _this$props2.responsiveMd,
+          responsiveLg = _this$props2.responsiveLg,
+          responsiveXl = _this$props2.responsiveXl,
+          getValue = _this$props2.getValue,
+          onChange = _this$props2.onChange,
+          attributes = _objectWithoutProperties(_this$props2, ["className", "small", "bordered", "striped", "hover", "data", "columns", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "getValue", "onChange"]);
 
-      var classes = classNames("table", small && "table-sm", bordered && "table-bordered", striped && "table-striped", hover && "table-hover", className);
-      var wrapperClasses = classNames("table-editable text-center", responsive && "table-responsive", responsiveSm && "table-responsive-sm", responsiveMd && "table-responsive-md", responsiveLg && "table-responsive-lg", responsiveXl && "table-responsive-xl");
+      var classes = classNames('table', small && 'table-sm', bordered && 'table-bordered', striped && 'table-striped', hover && 'table-hover', className);
+      var wrapperClasses = classNames('table-editable text-center', responsive && 'table-responsive', responsiveSm && 'table-responsive-sm', responsiveMd && 'table-responsive-md', responsiveLg && 'table-responsive-lg', responsiveXl && 'table-responsive-xl');
       return React__default.createElement("div", {
         className: wrapperClasses
       }, React__default.createElement("span", {
@@ -12076,6 +12150,9 @@ function (_React$Component) {
             suppressContentEditableWarning: "true",
             onBlur: function onBlur(e) {
               return _this2.onBlurHandler(trIndex, tdIndex, e);
+            },
+            onKeyUp: function onKeyUp(e) {
+              return onChange(_this2.onChangeTd(e, trIndex, tdIndex));
             }
           }, td);
         }), React__default.createElement("td", null, React__default.createElement("span", {
@@ -12127,7 +12204,13 @@ TableEditable.propTypes = {
   responsiveSm: propTypes.bool,
   responsiveMd: propTypes.bool,
   responsiveLg: propTypes.bool,
-  responsiveXl: propTypes.bool
+  responsiveXl: propTypes.bool,
+  getValue: propTypes.func,
+  onChange: propTypes.func
+};
+TableEditable.defaultProps = {
+  getValue: function getValue() {},
+  onChange: function onChange() {}
 };
 
 var Testimonial = function Testimonial(props) {
@@ -12691,6 +12774,7 @@ var propTypes$7 = {
   clearText: propTypes.string,
   closeOnCancel: propTypes.bool,
   color: propTypes.string,
+  dayTime: propTypes.string,
   doneText: propTypes.string,
   getValue: propTypes.func,
   hours: propTypes.number,
@@ -12709,6 +12793,7 @@ var defaultProps$1 = {
   clearText: 'Clear',
   closeOnCancel: false,
   color: 'primary',
+  dayTime: 'am',
   doneText: 'Done',
   getValue: function getValue() {},
   hours: 12,
@@ -12733,9 +12818,25 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_this), "setInputText", function () {
       var value = '';
+      var _this$state = _this.state,
+          hours = _this$state.hours,
+          minutes = _this$state.minutes,
+          dayTime = _this$state.dayTime,
+          computedHours = _this$state.computedHours,
+          computedMinutes = _this$state.computedMinutes;
 
-      if (_this.state.hours !== null && _this.state.minutes !== null) {
-        value = _this.props.hoursFormat === 12 ? "".concat(_this.state.computedHours, ":").concat(_this.state.computedMinutes).concat(_this.state.dayTime.toUpperCase()) : "".concat(_this.state.computedHours, ":").concat(_this.state.computedMinutes);
+      if (hours !== null && minutes !== null && hours < 25 && hours >= 0 && minutes < 60 && minutes >= 0) {
+        if (_this.props.hoursFormat === 12) {
+          if (hours > 12 && hours < 24) {
+            value = "".concat(computedHours - 12, ":").concat(computedMinutes, "PM");
+          } else if (hours === 24 || hours === 0) {
+            value = "".concat(parseInt(computedHours) + 12, ":").concat(computedMinutes, "AM");
+          } else {
+            value = "".concat(computedHours, ":").concat(computedMinutes).concat(dayTime.toUpperCase());
+          }
+        } else {
+          value = "".concat(computedHours, ":").concat(computedMinutes);
+        }
       }
 
       _this.setState({
@@ -12823,7 +12924,7 @@ function (_Component) {
       allowedValues: [],
       computedHours: '',
       computedMinutes: '',
-      dayTime: 'am',
+      dayTime: _this.props.dayTime,
       hours: _this.props.hours,
       minutes: _this.props.minutes,
       pickerDialogOpen: false,
@@ -12838,9 +12939,12 @@ function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
+      var _this$state2 = this.state,
+          hours = _this$state2.hours,
+          minutes = _this$state2.minutes;
       this.setState({
-        computedHours: this.computeTimeNumber(this.state.hours),
-        computedMinutes: this.computeTimeNumber(this.state.minutes)
+        computedHours: this.computeTimeNumber(hours),
+        computedMinutes: this.computeTimeNumber(minutes)
       }, function () {
         return _this2.setInputText();
       });
@@ -12848,34 +12952,67 @@ function (_Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps, prevState) {
-      if (prevState.minutes !== this.state.minutes) {
+      var _this3 = this;
+
+      var _this$state3 = this.state,
+          hours = _this$state3.hours,
+          minutes = _this$state3.minutes,
+          value = _this$state3.value;
+
+      if (prevState.minutes !== minutes) {
         this.setState({
-          computedMinutes: this.computeTimeNumber(this.state.minutes)
+          computedMinutes: this.computeTimeNumber(minutes)
         });
       }
 
-      if (prevState.hours !== this.state.hours) {
+      if (prevState.hours !== hours) {
         this.setState({
-          computedHours: this.computeTimeNumber(this.state.hours)
+          computedHours: this.computeTimeNumber(hours)
         });
       }
 
-      if (prevState.value !== this.state.value) {
-        this.props.getValue(this.state.value);
+      if (prevState.value !== value) {
+        this.props.getValue(value);
+      }
+
+      if (prevProps.hours !== this.props.hours) {
+        this.setState({
+          computedHours: this.computeTimeNumber(this.props.hours),
+          hours: this.props.hours
+        }, function () {
+          _this3.setInputText();
+        });
+      }
+
+      if (prevProps.minutes !== this.props.minutes) {
+        this.setState({
+          computedMinutes: this.computeTimeNumber(this.props.minutes),
+          minutes: this.props.minutes
+        }, function () {
+          _this3.setInputText();
+        });
+      }
+
+      if (prevProps.dayTime !== this.props.dayTime) {
+        this.setState({
+          dayTime: this.props.dayTime
+        }, function () {
+          _this3.setInputText();
+        });
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var _this$state = this.state,
-          computedHours = _this$state.computedHours,
-          computedMinutes = _this$state.computedMinutes,
-          dayTime = _this$state.dayTime,
-          hours = _this$state.hours,
-          minutes = _this$state.minutes,
-          pickerDialogOpen = _this$state.pickerDialogOpen,
-          unitsMode = _this$state.unitsMode,
-          value = _this$state.value;
+      var _this$state4 = this.state,
+          computedHours = _this$state4.computedHours,
+          computedMinutes = _this$state4.computedMinutes,
+          dayTime = _this$state4.dayTime,
+          hours = _this$state4.hours,
+          minutes = _this$state4.minutes,
+          pickerDialogOpen = _this$state4.pickerDialogOpen,
+          unitsMode = _this$state4.unitsMode,
+          value = _this$state4.value;
       var _this$props = this.props,
           allowedValues = _this$props.allowedValues,
           autoSwitch = _this$props.autoSwitch,
@@ -12890,10 +13027,10 @@ function (_Component) {
           label = _this$props.label,
           placeholder = _this$props.placeholder,
           startFromInner = _this$props.startFromInner;
-      var inputClasses = classNames("form-control", "timepicker", pickerDialogOpen && "picker__input picker__input--active");
-      var clockClasses = classNames("clockpicker", "picker", pickerDialogOpen && "picker--opened");
-      var hoursClasses = classNames("clockpicker-hours", unitsMode !== "h" && "clockpicker-dial-out");
-      var minutesClasses = classNames("clockpicker-minutes", unitsMode !== "m" && "clockpicker-dial-out");
+      var inputClasses = classNames('form-control', 'timepicker', pickerDialogOpen && 'picker__input picker__input--active');
+      var clockClasses = classNames('clockpicker', 'picker', pickerDialogOpen && 'picker--opened');
+      var hoursClasses = classNames('clockpicker-hours', unitsMode !== 'h' && 'clockpicker-dial-out');
+      var minutesClasses = classNames('clockpicker-minutes', unitsMode !== 'm' && 'clockpicker-dial-out');
       return React__default.createElement("div", {
         className: "md-form"
       }, React__default.createElement("input", {
