@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import "./DataTable.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import './DataTable.css';
 import Fa from '../../Fa';
 
 class TableEditable extends React.Component {
@@ -18,16 +18,22 @@ class TableEditable extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevProps.data !== this.props.data && this.props.data !== this.state.data) {
-      this.setState({ data: this.props.data });
+    const { data, getValue } = this.props;
+
+    if (prevProps.data !== data && data !== this.state.data) {
+      this.setState({ data });
+    }
+
+    if (prevState.data !== this.state.data) {
+      if (getValue) getValue(this.state.data);
     }
   }
-  
+
   addRow = () => {
     let newData = [...this.state.data];
     let newRow = [];
     this.props.columns.forEach(() => {
-      newRow.push("");
+      newRow.push('');
     });
     newData.push(newRow);
 
@@ -97,6 +103,13 @@ class TableEditable extends React.Component {
     });
   };
 
+  onChangeTd = (e, row, column) => ({
+    target: e.target,
+    event: e,
+    row,
+    column
+  });
+
   render() {
     const {
       className,
@@ -111,32 +124,34 @@ class TableEditable extends React.Component {
       responsiveMd,
       responsiveLg,
       responsiveXl,
+      getValue,
+      onChange,
       ...attributes
     } = this.props;
 
     const classes = classNames(
-      "table",
-      small && "table-sm",
-      bordered && "table-bordered",
-      striped && "table-striped",
-      hover && "table-hover",
+      'table',
+      small && 'table-sm',
+      bordered && 'table-bordered',
+      striped && 'table-striped',
+      hover && 'table-hover',
       className
     );
 
     const wrapperClasses = classNames(
-      "table-editable text-center",
-      responsive && "table-responsive",
-      responsiveSm && "table-responsive-sm",
-      responsiveMd && "table-responsive-md",
-      responsiveLg && "table-responsive-lg",
-      responsiveXl && "table-responsive-xl"
+      'table-editable text-center',
+      responsive && 'table-responsive',
+      responsiveSm && 'table-responsive-sm',
+      responsiveMd && 'table-responsive-md',
+      responsiveLg && 'table-responsive-lg',
+      responsiveXl && 'table-responsive-xl'
     );
 
     return (
       <div className={wrapperClasses}>
-        <span onClick={this.addRow} className="table-add float-right mb-3 mr-2">
-          <a href="#!" className="text-success">
-            <Fa icon="plus" size="2x" />
+        <span onClick={this.addRow} className='table-add float-right mb-3 mr-2'>
+          <a href='#!' className='text-success'>
+            <Fa icon='plus' size='2x' />
           </a>
         </span>
         <table {...attributes} className={classes}>
@@ -159,8 +174,11 @@ class TableEditable extends React.Component {
                       <td
                         key={tdIndex}
                         contentEditable
-                        suppressContentEditableWarning="true"
+                        suppressContentEditableWarning='true'
                         onBlur={e => this.onBlurHandler(trIndex, tdIndex, e)}
+                        onKeyUp={e =>
+                          onChange(this.onChangeTd(e, trIndex, tdIndex))
+                        }
                       >
                         {td}
                       </td>
@@ -169,29 +187,29 @@ class TableEditable extends React.Component {
                   <td>
                     <span
                       onClick={() => this.decreaseIndex(trIndex)}
-                      className="table-up"
+                      className='table-up'
                     >
-                      <a href="#!" className="indigo-text">
-                        <Fa icon="long-arrow-alt-up" />
+                      <a href='#!' className='indigo-text'>
+                        <Fa icon='long-arrow-alt-up' />
                       </a>
                     </span>
                     <span
                       onClick={() => this.increaseIndex(trIndex)}
-                      className="table-down"
+                      className='table-down'
                     >
-                      <a href="#!" className="indigo-text">
-                        <Fa icon="long-arrow-alt-down" />
+                      <a href='#!' className='indigo-text'>
+                        <Fa icon='long-arrow-alt-down' />
                       </a>
                     </span>
                   </td>
                   <td>
                     <span
                       onClick={() => this.removeRow(trIndex)}
-                      className="table-remove"
+                      className='table-remove'
                     >
                       <button
-                        type="button"
-                        className="btn btn-danger btn-rounded btn-sm my-0"
+                        type='button'
+                        className='btn btn-danger btn-rounded btn-sm my-0'
                       >
                         Remove
                       </button>
@@ -220,7 +238,14 @@ TableEditable.propTypes = {
   responsiveSm: PropTypes.bool,
   responsiveMd: PropTypes.bool,
   responsiveLg: PropTypes.bool,
-  responsiveXl: PropTypes.bool
+  responsiveXl: PropTypes.bool,
+  getValue: PropTypes.func,
+  onChange: PropTypes.func
+};
+
+TableEditable.defaultProps = {
+  getValue: () => {},
+  onChange: () => {}
 };
 
 export default TableEditable;
