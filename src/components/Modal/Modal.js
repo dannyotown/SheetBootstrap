@@ -84,7 +84,7 @@ class Modal extends Component {
       className,
       size,
       side,
-      focusTrap,
+      disableFocusTrap,
       fullHeight,
       frame,
       centered,
@@ -188,7 +188,7 @@ class Modal extends Component {
           onEntered={node => this.handleOnEntered('modal', node)}
           onExit={node => this.handleOnExit('modal', node)}
         >
-          {focusTrap ? <FocusTrap>{modal}</FocusTrap> : modal}
+          {!disableFocusTrap ? <FocusTrap>{modal}</FocusTrap> : modal}
         </Transition>
       </Fragment>
     );
@@ -200,7 +200,7 @@ Modal.defaultProps = {
   backdrop: true,
   backdropTransitionTimeout: 150,
   fade: true,
-  focusTrap: false,
+  disableFocusTrap: false,
   isOpen: false,
   keyboard: true,
   modalTransitionTimeout: 300,
@@ -219,7 +219,7 @@ Modal.propTypes = {
   className: PropTypes.string,
   contentClassName: PropTypes.string,
   fade: PropTypes.bool,
-  focusTrap: PropTypes.bool,
+  disableFocusTrap: PropTypes.bool,
   frame: PropTypes.bool,
   fullHeight: PropTypes.bool,
   hiddenModal: PropTypes.func,
