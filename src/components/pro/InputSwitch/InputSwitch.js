@@ -41,7 +41,7 @@ class InputSwitch extends React.Component {
 
     const classes = classNames("switch", className);
     return (
-      <div {...attributes} className={classes}>
+      <div {...attributes} className={classes} data-test="input-switch">
         <label>
           {labelLeft}
           <input
