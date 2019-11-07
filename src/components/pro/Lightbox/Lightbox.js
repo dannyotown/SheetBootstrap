@@ -16,6 +16,10 @@ class Lightbox extends React.Component {
     this.slideRefs = [];
   }
 
+  componentWillUnmount = () => {
+    this.setState(this.reset());
+  };
+
   setScreenSize = () => {
     this.setState({
       screenSize: {
@@ -189,7 +193,9 @@ class Lightbox extends React.Component {
   scrollZoom = e => {
     if (
       this.slideRefs[this.state.activeKey] === this.state.imgSrc &&
-      this.state.sliderOpened
+      this.state.sliderOpened &&
+      !e.target.classList.contains('next-img') &&
+      !e.target.classList.contains('prev-img')
     ) {
       const SCALE_RATIO = this.props.scale || 0.1;
       const SCALE_UP = 1 + SCALE_RATIO;
@@ -598,7 +604,12 @@ class Lightbox extends React.Component {
     return (
       <MDBContainer data-test='light-box' className='mdb-lightbox'>
         {imgSrc && (
-          <div className='ui-controls'>
+          <div
+            className='ui-controls'
+            onClick={e => {
+              e.target.classList.contains('ui-controls') && this.closeZoom();
+            }}
+          >
             <p className='float-left text-white-50 mt-3 ml-3'>
               {activeKey + 1}/{images.length}
             </p>
@@ -661,7 +672,19 @@ class Lightbox extends React.Component {
 }
 
 Lightbox.propTypes = {
-  images: PropTypes.array,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string,
+      description: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+      alt: PropTypes.string,
+      lg: PropTypes.string,
+      md: PropTypes.string,
+      sm: PropTypes.string,
+      xl: PropTypes.string,
+      xs: PropTypes.string,
+      size: PropTypes.string
+    })
+  ),
   itemClassName: PropTypes.string,
   noMargins: PropTypes.bool,
   marginSpace: PropTypes.number,
