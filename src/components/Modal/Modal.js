@@ -200,7 +200,7 @@ Modal.defaultProps = {
   backdrop: true,
   backdropTransitionTimeout: 150,
   fade: true,
-  focusTrap: true,
+  focusTrap: false,
   isOpen: false,
   keyboard: true,
   modalTransitionTimeout: 300,
