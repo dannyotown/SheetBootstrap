@@ -63,7 +63,7 @@ class ButtonFixed extends React.Component {
     const classes = classNames(
       size && `btn-${size}`,
       'btn-floating',
-      color ? color : false,
+      flat ? 'btn-flat' : gradient ? `${gradient}-gradient` : `${color}`,
       'Ripple-parent',
       className
     );
