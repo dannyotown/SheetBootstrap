@@ -18,13 +18,14 @@ const propTypes = {
   clearText: PropTypes.string,
   closeOnCancel: PropTypes.bool,
   color: PropTypes.string,
+  dayTime: PropTypes.string,
   doneText: PropTypes.string,
   getValue: PropTypes.func,
   hours: PropTypes.number,
   hoursFormat: PropTypes.number,
   label: PropTypes.oneOfType([
-    PropTypes.string, 
-    PropTypes.number, 
+    PropTypes.string,
+    PropTypes.number,
     PropTypes.object
   ]),
   minutes: PropTypes.number,
@@ -41,6 +42,7 @@ const defaultProps = {
   clearText: 'Clear',
   closeOnCancel: false,
   color: 'primary',
+  dayTime: 'am',
   doneText: 'Done',
   getValue: () => {},
   hours: 12,
@@ -58,7 +60,7 @@ class TimePicker extends Component {
       allowedValues: [],
       computedHours: '',
       computedMinutes: '',
-      dayTime: 'am',
+      dayTime: this.props.dayTime,
       hours: this.props.hours,
       minutes: this.props.minutes,
       pickerDialogOpen: false,
@@ -68,79 +70,148 @@ class TimePicker extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      computedHours: this.computeTimeNumber(this.state.hours),
-      computedMinutes: this.computeTimeNumber(this.state.minutes)
-    }, () => this.setInputText());
+    const { hours, minutes } = this.state;
+    this.setState(
+      {
+        computedHours: this.computeTimeNumber(hours),
+        computedMinutes: this.computeTimeNumber(minutes)
+      },
+      () => this.setInputText()
+    );
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.minutes !== this.state.minutes) {
-      this.setState({ computedMinutes: this.computeTimeNumber(this.state.minutes) });
+    const { hours, minutes, value } = this.state;
+
+    if (prevState.minutes !== minutes) {
+      this.setState({
+        computedMinutes: this.computeTimeNumber(minutes)
+      });
     }
 
-    if(prevState.hours !== this.state.hours) {
-      this.setState({ computedHours: this.computeTimeNumber(this.state.hours) });
+    if (prevState.hours !== hours) {
+      this.setState({
+        computedHours: this.computeTimeNumber(hours)
+      });
     }
 
-    if(prevState.value !== this.state.value) {
-      this.props.getValue(this.state.value);
+    if (prevState.value !== value) {
+      this.props.getValue(value);
+    }
+
+    if (prevProps.hours !== this.props.hours) {
+      this.setState(
+        {
+          computedHours: this.computeTimeNumber(this.props.hours),
+          hours: this.props.hours
+        },
+        () => {
+          this.setInputText();
+        }
+      );
+    }
+
+    if (prevProps.minutes !== this.props.minutes) {
+      this.setState(
+        {
+          computedMinutes: this.computeTimeNumber(this.props.minutes),
+          minutes: this.props.minutes
+        },
+        () => {
+          this.setInputText();
+        }
+      );
+    }
+
+    if (prevProps.dayTime !== this.props.dayTime) {
+      this.setState(
+        {
+          dayTime: this.props.dayTime
+        },
+        () => {
+          this.setInputText();
+        }
+      );
     }
   }
 
   setInputText = () => {
     let value = '';
 
-    if(this.state.hours !== null && this.state.minutes !== null) {
-      value = this.props.hoursFormat === 12 
-      ? `${this.state.computedHours}:${this.state.computedMinutes}${this.state.dayTime.toUpperCase()}` 
-      : `${this.state.computedHours}:${this.state.computedMinutes}`;
+    const {
+      hours,
+      minutes,
+      dayTime,
+      computedHours,
+      computedMinutes
+    } = this.state;
+
+    if (
+      hours !== null &&
+      minutes !== null &&
+      hours < 25 &&
+      hours >= 0 &&
+      minutes < 60 &&
+      minutes >= 0
+    ) {
+      if (this.props.hoursFormat === 12) {
+        if (hours > 12 && hours < 24) {
+          value = `${computedHours - 12}:${computedMinutes}PM`;
+        } else if (hours === 24 || hours === 0) {
+          value = `${parseInt(computedHours) + 12}:${computedMinutes}AM`;
+        } else {
+          value = `${computedHours}:${computedMinutes}${dayTime.toUpperCase()}`;
+        }
+      } else {
+        value = `${computedHours}:${computedMinutes}`;
+      }
     }
 
     this.setState({
-      value, 
-      unitsMode: 'h'  
+      value,
+      unitsMode: 'h'
     });
-  }
-  
-  computeTimeNumber = (number) => {
-    if(number !== null) {
-      number = (this.state.unitsMode === 'h' && number === 24) ? 0 : number; 
+  };
+
+  computeTimeNumber = number => {
+    if (number !== null) {
+      number = this.state.unitsMode === 'h' && number === 24 ? 0 : number;
       return number < 10 ? `0${number.toString()}` : `${number.toString()}`;
     }
 
     return '';
-  }
+  };
 
-  handlePickerDialogOpen = () => this.setState({ pickerDialogOpen: !this.state.pickerDialogOpen });
+  handlePickerDialogOpen = () =>
+    this.setState({ pickerDialogOpen: !this.state.pickerDialogOpen });
 
-  handleModeChange = (unitsMode) => this.setState({ unitsMode });
+  handleModeChange = unitsMode => this.setState({ unitsMode });
 
-  handleDayTimeChange = (dayTime) => this.setState({ dayTime });
+  handleDayTimeChange = dayTime => this.setState({ dayTime });
 
-  handleMinutesChange = (minutes) => this.setState({ minutes });
+  handleMinutesChange = minutes => this.setState({ minutes });
 
-  handleHoursChange = (hours) => {
+  handleHoursChange = hours => {
     this.setState({ hours });
-  }
+  };
 
-  handleBackdropClick = (e) => {
-    if(e.target.classList.value === 'picker__holder') {
+  handleBackdropClick = e => {
+    if (e.target.classList.value === 'picker__holder') {
       this.handlePickerDialogOpen();
     }
-  }
+  };
 
   handleDoneClick = () => {
     this.setInputText();
     this.handlePickerDialogOpen();
-  }
+  };
 
   handleClearClick = () => {
     this.handleHoursChange(null);
     this.handleMinutesChange(null);
     this.handleModeChange('h');
     this.handleDayTimeChange('am');
-  }
+  };
 
   handleCancelClick = () => {
     this.handleHoursChange(this.props.hours);
@@ -148,10 +219,10 @@ class TimePicker extends Component {
     this.handleModeChange('h');
     this.handleDayTimeChange('am');
 
-    if(this.props.closeOnCancel) {
+    if (this.props.closeOnCancel) {
       this.handlePickerDialogOpen();
     }
-  }
+  };
 
   render() {
     const {
@@ -182,113 +253,113 @@ class TimePicker extends Component {
     } = this.props;
 
     const inputClasses = classNames(
-      "form-control",
-      "timepicker",
-      pickerDialogOpen && "picker__input picker__input--active"
+      'form-control',
+      'timepicker',
+      pickerDialogOpen && 'picker__input picker__input--active'
     );
 
     const clockClasses = classNames(
-      "clockpicker",
-      "picker",
-      pickerDialogOpen && "picker--opened"
+      'clockpicker',
+      'picker',
+      pickerDialogOpen && 'picker--opened'
     );
 
     const hoursClasses = classNames(
-      "clockpicker-hours",
-      unitsMode !== "h" && "clockpicker-dial-out"
+      'clockpicker-hours',
+      unitsMode !== 'h' && 'clockpicker-dial-out'
     );
 
     const minutesClasses = classNames(
-      "clockpicker-minutes",
-      unitsMode !== "m" && "clockpicker-dial-out"
+      'clockpicker-minutes',
+      unitsMode !== 'm' && 'clockpicker-dial-out'
     );
 
     return (
-      <div className="md-form">
-        <input 
-          type="text" 
-          placeholder={placeholder} 
-          id={id} 
+      <div className='md-form'>
+        <input
+          type='text'
+          placeholder={placeholder}
+          id={id}
           className={inputClasses}
-          value={value} 
+          value={value}
           onClick={this.handlePickerDialogOpen}
           readOnly
         />
-        <label htmlFor={id} className="active">{label}</label>
-        
-        { 
-          pickerDialogOpen && 
-          <div className={clockClasses} >
-            <div className="picker__holder" onClick={this.handleBackdropClick}>
-              <div className="picker__frame">
-                <div className="picker__wrap">
-                  <div className="picker__box">
-                    <TimePickerDisplay 
+        <label htmlFor={id} className='active'>
+          {label}
+        </label>
+
+        {pickerDialogOpen && (
+          <div className={clockClasses}>
+            <div className='picker__holder' onClick={this.handleBackdropClick}>
+              <div className='picker__frame'>
+                <div className='picker__wrap'>
+                  <div className='picker__box'>
+                    <TimePickerDisplay
                       color={color}
                       hours={computedHours}
-                      minutes={computedMinutes} 
-                      dayTime={dayTime} 
-                      unitsMode={unitsMode} 
-                      handleModeChange={this.handleModeChange} 
-                      hoursFormat={hoursFormat} 
+                      minutes={computedMinutes}
+                      dayTime={dayTime}
+                      unitsMode={unitsMode}
+                      handleModeChange={this.handleModeChange}
+                      hoursFormat={hoursFormat}
                     />
-                    <div className="picker__calendar-container">
-                      <div className="clockpicker-plate">
-                        {
-                          unitsMode === 'h' 
-                          ? (
-                            <TimePickerClock
-                              allowedValues={allowedValues}
-                              autoSwitch={autoSwitch}
-                              className={hoursClasses}
-                              color={color}
-                              double={hoursFormat === 24}
-                              handleChange={this.handleHoursChange}
-                              handleModeChange={this.handleModeChange}
-                              min={1} 
-                              max={hoursFormat} 
-                              step={1}
-                              rotate={30} 
-                              startFromInner={startFromInner}
-                              value={hours}
-                            />
-                          )
-                          : (
-                            <TimePickerClock
-                              className={minutesClasses}
-                              color={color}
-                              handleChange={this.handleMinutesChange}
-                              min={0} 
-                              max={59} 
-                              step={5}
-                              rotate={0} 
-                              startFromInner={startFromInner}
-                              value={minutes}
-                            />
-                          )
-                        }
+                    <div className='picker__calendar-container'>
+                      <div className='clockpicker-plate'>
+                        {unitsMode === 'h' ? (
+                          <TimePickerClock
+                            allowedValues={allowedValues}
+                            autoSwitch={autoSwitch}
+                            className={hoursClasses}
+                            color={color}
+                            double={hoursFormat === 24}
+                            handleChange={this.handleHoursChange}
+                            handleModeChange={this.handleModeChange}
+                            min={1}
+                            max={hoursFormat}
+                            step={1}
+                            rotate={30}
+                            startFromInner={startFromInner}
+                            value={hours}
+                          />
+                        ) : (
+                          <TimePickerClock
+                            className={minutesClasses}
+                            color={color}
+                            handleChange={this.handleMinutesChange}
+                            min={0}
+                            max={59}
+                            step={5}
+                            rotate={0}
+                            startFromInner={startFromInner}
+                            value={minutes}
+                          />
+                        )}
                       </div>
-                      {
-                        hoursFormat === 12 &&
-                        <TimePickerAmPmBlock color={color} dayTime={dayTime} handleDayTimeChange={this.handleDayTimeChange} />
-                      }
+                      {hoursFormat === 12 && (
+                        <TimePickerAmPmBlock
+                          color={color}
+                          dayTime={dayTime}
+                          handleDayTimeChange={this.handleDayTimeChange}
+                        />
+                      )}
                     </div>
-                    <TimePickerFooter 
+                    <TimePickerFooter
                       cancelText={cancelText}
                       clearText={clearText}
                       doneText={doneText}
                       cancelable={cancelable}
-                      clearable={clearable} 
-                      handleCancelClick={this.handleCancelClick} 
-                      handleClearClick={this.handleClearClick} 
-                      handleDoneClick={this.handleDoneClick} 
+                      clearable={clearable}
+                      handleCancelClick={this.handleCancelClick}
+                      handleClearClick={this.handleClearClick}
+                      handleDoneClick={this.handleDoneClick}
                     />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        }
+        )}
       </div>
     );
   }
