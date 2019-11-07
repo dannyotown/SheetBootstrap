@@ -144,6 +144,24 @@ class Modal extends Component {
       'aria-hidden': 'true'
     });
 
+    const modal = (
+      <div
+        data-test='modal'
+        onKeyUp={this.handleEscape}
+        className={wrapperClasses}
+        {...modalAttributes}
+      >
+        <div className={modalDialogClasses} role='document'>
+          <div
+            ref={elem => (this.modalContent = elem)}
+            className={contentClasses}
+          >
+            {children}
+          </div>
+        </div>
+      </div>
+    );
+
     return (
       <Fragment>
         {backdrop && (
@@ -170,41 +188,7 @@ class Modal extends Component {
           onEntered={node => this.handleOnEntered('modal', node)}
           onExit={node => this.handleOnExit('modal', node)}
         >
-          {focusTrap ? (
-            <FocusTrap>
-              <div
-                data-test='modal'
-                onKeyUp={this.handleEscape}
-                className={wrapperClasses}
-                {...modalAttributes}
-              >
-                <div className={modalDialogClasses} role='document'>
-                  <div
-                    ref={elem => (this.modalContent = elem)}
-                    className={contentClasses}
-                  >
-                    {children}
-                  </div>
-                </div>
-              </div>
-            </FocusTrap>
-          ) : (
-            <div
-              data-test='modal'
-              onKeyUp={this.handleEscape}
-              className={wrapperClasses}
-              {...modalAttributes}
-            >
-              <div className={modalDialogClasses} role='document'>
-                <div
-                  ref={elem => (this.modalContent = elem)}
-                  className={contentClasses}
-                >
-                  {children}
-                </div>
-              </div>
-            </div>
-          )}
+          {focusTrap ? <FocusTrap>{modal}</FocusTrap> : modal}
         </Transition>
       </Fragment>
     );
