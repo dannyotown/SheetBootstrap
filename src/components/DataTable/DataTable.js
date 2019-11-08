@@ -274,6 +274,7 @@ class DataTable extends Component {
       children,
       dark,
       data,
+      disableRetreatAfterSorting,
       displayEntries,
       entriesOptions,
       entriesLabel,
