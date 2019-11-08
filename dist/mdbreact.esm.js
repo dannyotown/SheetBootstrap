@@ -4970,6 +4970,7 @@ function (_Component) {
           children = _this$props3.children,
           dark = _this$props3.dark,
           data = _this$props3.data,
+          disableRetreatAfterSorting = _this$props3.disableRetreatAfterSorting,
           displayEntries = _this$props3.displayEntries,
           entriesOptions = _this$props3.entriesOptions,
           entriesLabel = _this$props3.entriesLabel,
@@ -5005,7 +5006,7 @@ function (_Component) {
           onSearch = _this$props3.onSearch,
           onSort = _this$props3.onSort,
           onPageChange = _this$props3.onPageChange,
-          attributes = _objectWithoutProperties(_this$props3, ["autoWidth", "bordered", "borderless", "barReverse", "btn", "className", "children", "dark", "data", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "noBottomColumns", "noRecordsFoundLabel", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows", "onSearch", "onSort", "onPageChange"]);
+          attributes = _objectWithoutProperties(_this$props3, ["autoWidth", "bordered", "borderless", "barReverse", "btn", "className", "children", "dark", "data", "disableRetreatAfterSorting", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "noBottomColumns", "noRecordsFoundLabel", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows", "onSearch", "onSort", "onPageChange"]);
 
       var _this$state4 = this.state,
           columns = _this$state4.columns,
@@ -6496,7 +6497,7 @@ function (_Component) {
           className = _this$props.className,
           size = _this$props.size,
           side = _this$props.side,
-          focusTrap = _this$props.focusTrap,
+          disableFocusTrap = _this$props.disableFocusTrap,
           fullHeight = _this$props.fullHeight,
           frame = _this$props.frame,
           centered = _this$props.centered,
@@ -6534,6 +6535,19 @@ function (_Component) {
         role: role,
         'aria-hidden': 'true'
       });
+      var modal = React.createElement("div", _extends({
+        "data-test": "modal",
+        onKeyUp: this.handleEscape,
+        className: wrapperClasses
+      }, modalAttributes), React.createElement("div", {
+        className: modalDialogClasses,
+        role: "document"
+      }, React.createElement("div", {
+        ref: function ref(elem) {
+          return _this2.modalContent = elem;
+        },
+        className: contentClasses
+      }, children)));
       return React.createElement(Fragment, null, backdrop && React.createElement(Transition, {
         timeout: timeout,
         "in": this.state.isOpen,
@@ -6562,31 +6576,7 @@ function (_Component) {
         onExit: function onExit(node) {
           return _this2.handleOnExit('modal', node);
         }
-      }, focusTrap ? React.createElement(FocusTrap, null, React.createElement("div", _extends({
-        "data-test": "modal",
-        onKeyUp: this.handleEscape,
-        className: wrapperClasses
-      }, modalAttributes), React.createElement("div", {
-        className: modalDialogClasses,
-        role: "document"
-      }, React.createElement("div", {
-        ref: function ref(elem) {
-          return _this2.modalContent = elem;
-        },
-        className: contentClasses
-      }, children)))) : React.createElement("div", _extends({
-        "data-test": "modal",
-        onKeyUp: this.handleEscape,
-        className: wrapperClasses
-      }, modalAttributes), React.createElement("div", {
-        className: modalDialogClasses,
-        role: "document"
-      }, React.createElement("div", {
-        ref: function ref(elem) {
-          return _this2.modalContent = elem;
-        },
-        className: contentClasses
-      }, children)))));
+      }, !disableFocusTrap ? React.createElement(FocusTrap, null, modal) : modal));
     }
   }]);
 
@@ -6598,7 +6588,7 @@ Modal.defaultProps = {
   backdrop: true,
   backdropTransitionTimeout: 150,
   fade: true,
-  focusTrap: true,
+  disableFocusTrap: false,
   isOpen: false,
   keyboard: true,
   modalTransitionTimeout: 300,
@@ -6616,7 +6606,7 @@ Modal.propTypes = {
   className: propTypes.string,
   contentClassName: propTypes.string,
   fade: propTypes.bool,
-  focusTrap: propTypes.bool,
+  disableFocusTrap: propTypes.bool,
   frame: propTypes.bool,
   fullHeight: propTypes.bool,
   hiddenModal: propTypes.func,
