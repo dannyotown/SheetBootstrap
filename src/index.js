@@ -96,6 +96,7 @@ import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
 import Lightbox from './components/pro/Lightbox';
+import Parallax from './components/pro/Parallax';
 import PerfectScrollbar from './components/pro/PerfectScrollbar';
 import ScrollSpyBox from './components/pro/ScrollSpy/ScrollSpyBox';
 import ScrollSpyList from './components/pro/ScrollSpy/ScrollSpyList';
@@ -227,6 +228,7 @@ export {
   InputRange,
   InputSwitch,
   Lightbox,
+  Parallax,
   PerfectScrollbar,
   ScrollSpyBox,
   ScrollSpyList,
@@ -357,6 +359,7 @@ export {
   InputRange as MDBRangeInput,
   InputSwitch as MDBSwitch,
   Lightbox as MDBLightbox,
+  Parallax as MDBParallax,
   PerfectScrollbar as MDBScrollbar,
   ScrollSpyBox as MDBScrollspyBox,
   ScrollSpyList as MDBScrollspyList,
