@@ -1,156 +1,133 @@
 import React, { Component } from "react";
-import {
-  MDBNavbar,
-  MDBNavbarBrand,
-  MDBNavbarNav,
-  MDBNavbarToggler,
-  MDBCollapse,
-  MDBNavItem,
-  MDBFooter,
-  MDBNavLink,
-  MDBTooltip,
-  MDBIcon
-} from "mdbreact";
-import { ReactComponent as Logo } from "./assets/logo.svg";
-import { BrowserRouter as Router } from "react-router-dom";
-import Routes from "./Routes";
+
+import MDBTypo from "../src/components/Typography/Typography";
 
 class App extends Component {
-  state = {
-    collapseID: ""
-  };
-
-  toggleCollapse = collapseID => () =>
-    this.setState(prevState => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : ""
-    }));
-
-  closeCollapse = collapseID => () => {
-    window.scrollTo(0, 0);
-    this.state.collapseID === collapseID && this.setState({ collapseID: "" });
-  };
-
   render() {
-    const overlay = (
-      <div
-        id="sidenav-overlay"
-        style={{ backgroundColor: "transparent" }}
-        onClick={this.toggleCollapse("mainNavbarCollapse")}
-      />
-    );
-
-    const { collapseID } = this.state;
-
+    const liArray = [3, 4, 5, 6, 7, 8, 9, 3, 2, 3, 4, 3];
     return (
-      <Router>
-        <div className="flyout">
-          <MDBNavbar color="indigo" dark expand="md" fixed="top" scrolling>
-            <MDBNavbarBrand href="/" className="py-0 font-weight-bold">
-              <Logo style={{ height: "2.5rem", width: "2.5rem" }} />
-              <strong className="align-middle">MDB React</strong>
-            </MDBNavbarBrand>
-            <MDBNavbarToggler onClick={this.toggleCollapse("mainNavbarCollapse")} />
-            <MDBCollapse id="mainNavbarCollapse" isOpen={this.state.collapseID} navbar>
-              <MDBNavbarNav right>
-                <MDBNavItem>
-                  <MDBNavLink exact to="/" onClick={this.closeCollapse("mainNavbarCollapse")}>
-                    <strong>Home</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink onClick={this.closeCollapse("mainNavbarCollapse")} to="/css">
-                    <strong>CSS</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink onClick={this.closeCollapse("mainNavbarCollapse")} to="/components">
-                    <strong>Components</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink onClick={this.closeCollapse("mainNavbarCollapse")} to="/advanced">
-                    <strong>Advanced</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink onClick={this.closeCollapse("mainNavbarCollapse")} to="/navigation">
-                    <strong>Navigation</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink onClick={this.closeCollapse("mainNavbarCollapse")} to="/forms">
-                    <strong>Forms</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink onClick={this.closeCollapse("mainNavbarCollapse")} to="/tables">
-                    <strong>Tables</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink onClick={this.closeCollapse("mainNavbarCollapse")} to="/modals">
-                    <strong>Modals</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBNavLink onClick={this.closeCollapse("mainNavbarCollapse")} to="/addons">
-                    <strong>Addons</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
+      <>
+        <MDBTypo component="h1">h1</MDBTypo>
+        <MDBTypo component="h2">h2</MDBTypo>
+        <MDBTypo component="h3">h3</MDBTypo>
+        <MDBTypo component="h4">h4</MDBTypo>
+        <MDBTypo component="h5">h5</MDBTypo>
+        <MDBTypo component="h6">h6</MDBTypo>
 
-                {/* PRO-START */}
-                <MDBNavItem> 
-                  <MDBNavLink onClick={this.closeCollapse("mainNavbarCollapse")} to="/sections">
-                    <strong>Sections</strong>
-                  </MDBNavLink>
-                </MDBNavItem>
-                {/* PRO-END */}
+        <MDBTypo component="h1" variant="h1">
+          h1
+        </MDBTypo>
+        <MDBTypo component="h2" variant="h2">
+          h2
+        </MDBTypo>
+        <MDBTypo component="h3" variant="h3">
+          h3
+        </MDBTypo>
+        <MDBTypo component="h4" variant="h4">
+          h4
+        </MDBTypo>
+        <MDBTypo component="h5" variant="h5">
+          h5
+        </MDBTypo>
+        <MDBTypo component="h6" variant="h6">
+          h6
+        </MDBTypo>
 
-                <MDBNavItem>
-                  <MDBTooltip placement="bottom" domElement style={{ display: "block" }}>
-                    <a
-                      className="nav-link Ripple-parent"
-                      href="https://mdbootstrap.com/products/react-ui-kit/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <strong>
-                        <MDBIcon far icon="gem" />
-                      </strong>
-                    </a>
-                    <span>PRO</span>
-                  </MDBTooltip>
-                </MDBNavItem>
-                <MDBNavItem>
-                  <MDBTooltip placement="bottom" domElement style={{ display: "block" }}>
-                    <a
-                      className="nav-link Ripple-parent"
-                      href="https://mdbootstrap.com/docs/react/getting-started/download/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <strong>
-                        <MDBIcon icon="download" />
-                      </strong>
-                    </a>
-                    <span>FREE</span>
-                  </MDBTooltip>
-                </MDBNavItem>
-              </MDBNavbarNav>
-            </MDBCollapse>
-          </MDBNavbar>
-          {collapseID && overlay}
-          <main style={{ marginTop: "4rem" }}>
-            <Routes />
-          </main>
-          <MDBFooter color="indigo">
-            <p className="footer-copyright mb-0 py-3 text-center">
-              &copy; {new Date().getFullYear()} Copyright:
-              <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
-            </p>
-          </MDBFooter>
-        </div>
-      </Router>
+        <MDBTypo component="h1" variant="h1-responsive">
+          h1
+        </MDBTypo>
+        <MDBTypo component="h2" variant="h2-responsive">
+          h2
+        </MDBTypo>
+        <MDBTypo component="h3" variant="h3-responsive">
+          h3
+        </MDBTypo>
+        <MDBTypo component="h4" variant="h4-responsive">
+          h4
+        </MDBTypo>
+        <MDBTypo component="h5" variant="h5-responsive">
+          h5
+        </MDBTypo>
+        <MDBTypo component="h6" variant="h6-responsive">
+          h6
+        </MDBTypo>
+
+        <MDBTypo component="h2" variant="display-1">
+          h2
+        </MDBTypo>
+        <MDBTypo component="h2" variant="display-2">
+          h2
+        </MDBTypo>
+        <MDBTypo component="h2" variant="display-3">
+          h2
+        </MDBTypo>
+        <MDBTypo component="h2" variant="display-4">
+          h2
+        </MDBTypo>
+
+        <MDBTypo component="h3">
+          <strong>Fancy display heading </strong>
+          <small className="text-muted">with faded secondary text</small>
+        </MDBTypo>
+
+        <MDBTypo component="h5">
+          <u>Lead </u>
+        </MDBTypo>
+        <p className="lead">
+          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Duis mollis, est non commodo luctus.
+        </p>
+
+        <MDBTypo abbr abbrTitle="attribute" abbrText="attr"></MDBTypo>
+        <MDBTypo abbr abbrTitle="attribute" abbrText="attr" abbrLeftText>
+          aaa
+        </MDBTypo>
+
+        <MDBTypo
+          blockquote
+          bqTitle="Title"
+          bgFooter="Footeeeeer"
+          className="text-center"
+        >
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+          veritatis.
+        </MDBTypo>
+
+        <MDBTypo
+          blockquote
+          bqTitle="Success notification"
+          blockquoteColor="success"
+        >
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
+            quibusdam dignissimos itaque harum illo! Quidem, corporis at quae
+            tempore nisi impedit cupiditate perferendis nesciunt, ex dolores
+            doloremque! Sit, rem, in?
+          </p>
+        </MDBTypo>
+
+        <MDBTypo listUnStyled>
+          {liArray.map((e, i) => {
+            return <li key={i}>{e}</li>;
+          })}
+          <ul>
+            {liArray.map((e, i) => {
+              return <li key={i}>{e}</li>;
+            })}
+          </ul>
+        </MDBTypo>
+
+        <MDBTypo listInLine>
+          {liArray.map((e, i) => {
+            return (
+              <li key={i} className="list-inline-item">
+                {e}
+              </li>
+            );
+          })}
+        </MDBTypo>
+        <MDBTypo colorText="gReen">Dupa</MDBTypo>
+      </>
     );
   }
 }
