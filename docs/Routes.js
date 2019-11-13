@@ -127,6 +127,7 @@ import ParallaxIntro from "./pages/pro/sections/ParallaxIntro";
 import CallToActionIntro from "./pages/pro/sections/CallToActionIntro";
 import PillsPagePro from './pages/pro/PillsPage';
 import InputGroupPagePro from './pages/pro/InputGroupPage';
+import TooltipsPagePro from './pages/pro/TooltipsPage';
 // PRO-END
 
 class Routes extends React.Component {
@@ -211,6 +212,7 @@ class Routes extends React.Component {
         <Route path="/advanced/pro/thumbnailscarousel" component={ThumbnailsCarousel} />
         <Route path="/advanced/pro/collapse" component={CollapsePagePro} />
         <Route path="/advanced/pro/multicarousel" component={MultiCarouselPage} />
+        <Route path="/advanced/pro/tooltips" component={TooltipsPagePro} />
         <Route path="/components/pro/dropdown" component={MaterialDropdownPage} />
         <Route path="/components/pro/spinner" component={SpinnerPagePro} />
         <Route path="/components/pro/chips" component={ChipsPage} />

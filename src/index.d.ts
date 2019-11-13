@@ -73,6 +73,7 @@ import MDBTable from './components/Table';
 import MDBTableBody from './components/Table/TableBody';
 import MDBTableFoot from './components/Table/TableFoot';
 import MDBTableHead from './components/Table/TableHead';
+import MDBTooltip from './components/Popper';
 import MDBTreeview from './components/Treeview';
 import MDBTreeviewItem from './components/Treeview/TreeviewItem';
 import MDBTreeviewList from './components/Treeview/TreeviewList';
@@ -192,6 +193,7 @@ export {
   MDBPageLink as MDBPageNav,
   MDBPopper,
   MDBPopper as MDBPopover,
+  MDBPopper as MDBTooltip,
   MDBPopoverBody,
   MDBPopoverHeader,
   MDBProgress,
