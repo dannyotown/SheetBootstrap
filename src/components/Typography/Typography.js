@@ -84,15 +84,32 @@ const Typo = props => {
 };
 
 Typo.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  component: PropTypes.string,
-  noteColor: PropTypes.string
+  component: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  children: PropTypes.object,
+  variant: PropTypes.string,
+  abbr: PropTypes.bool,
+  abbrTitle: PropTypes.string,
+  abbarText: PropTypes.string,
+  abbrClasses: PropTypes.string,
+  abbrLeftText: PropTypes.bool,
+  blockquote: PropTypes.bool,
+  bqColor: PropTypes.string,
+  bqTitle: PropTypes.string,
+  listUnStyled: PropTypes.bool,
+  listInLine: PropTypes.bool,
+  colorText: PropTypes.string,
+  note: PropTypes.bool,
+  noteColor: PropTypes.string,
+  noteTitle: PropTypes.string
 };
-
 Typo.defaultProps = {
   component: "p",
+  abbr: false,
   abbrLeftText: true,
+  blockquote: false,
+  listUnStyled: false,
+  listInLine: false,
   noteColor: "primary"
 };
 
