@@ -6,12 +6,13 @@ class ParallaxIntro extends Component {
       <>
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg'
-          top='0px'
-          speed={0.5}
-          containterHeight='100vh'
-          insideStatic={true}
+          // top='0px'
+          speed={0.8}
+          containterHeight='100px'
+          waves
+          // insideStatic={true}
         >
-          <div className='mask rgba-blue-slight' style={{ height: '100%' }}>
+          {/* <div className='mask rgba-blue-slight' style={{ height: '100%' }}>
             <div className='container flex-center text-center'>
               <div className='row mt-5'>
                 <div className='col-md-12 col-xl-8 mx-auto wow fadeIn'>
@@ -24,7 +25,7 @@ class ParallaxIntro extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </MDBParallax>
 
         <div className='container' style={{ backgroundColor: '#ffffffaa' }}>
@@ -97,7 +98,7 @@ class ParallaxIntro extends Component {
 
         <MDBParallax
           image='http://mdbootstrap.com/img/Photos/Others/nature4.jpg'
-          top='0px'
+          // top='0px'
           speed={0.5}
           containterHeight='50vh'
         />
@@ -113,19 +114,19 @@ class ParallaxIntro extends Component {
         </div>
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/city13.jpg'
-          top='0px'
+          // top='0px'
           speed={0.8}
           containterHeight='50vh'
         />
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/images/92.jpg'
-          top='0px'
+          // top='0px'
           speed={-0.8}
           containterHeight='50vh'
         />
         <MDBParallax
           image='https://bitbucket.org/startupflow/img/raw/a02ba123f067cbfdd1b6b0d632d71bca9f0e0f52/Photos/Horizontal/Relax/full%20page/spa.jpg'
-          top='0px'
+          // top='0px'
           speed={-1.1}
           containterHeight='50vh'
         />
@@ -154,11 +155,11 @@ class ParallaxIntro extends Component {
             <div className='float-md-left mr-md-4 mb-4 mb-md-0'>
               <MDBParallax
                 image='https://images.unsplash.com/photo-1571730125465-0ca1959336ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2105&q=80'
-                top='0px'
-                zIndex='1'
+                // top='0px'
+                // zIndex='1'
                 speed={0.2}
                 containterHeight='200px'
-                containerWidth='200px'
+                // containerWidth='200px'
               />
             </div>
 
@@ -194,11 +195,11 @@ class ParallaxIntro extends Component {
             <div className='float-md-right ml-md-4 mb-4 mb-md-0'>
               <MDBParallax
                 image='https://images.unsplash.com/photo-1571730125465-0ca1959336ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2105&q=80'
-                top='0px'
-                zIndex='1'
+                // top='0px'
+                // zIndex='1'
                 speed={-0.2}
                 containterHeight='200px'
-                containerWidth='200px'
+                // containerWidth='200px'
               />
             </div>
 
