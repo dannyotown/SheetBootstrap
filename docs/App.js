@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-
+import { MDBContainer } from "mdbreact";
 import MDBTypo from "../src/components/Typography/Typography";
 
 class App extends Component {
   render() {
     const liArray = [3, 4, 5, 6, 7, 8, 9, 3, 2, 3, 4, 3];
     return (
-      <>
+      <MDBContainer>
         <MDBTypo component="h1">h1</MDBTypo>
         <MDBTypo component="h2">h2</MDBTypo>
         <MDBTypo component="h3">h3</MDBTypo>
@@ -93,11 +93,7 @@ class App extends Component {
           veritatis.
         </MDBTypo>
 
-        <MDBTypo
-          blockquote
-          bqTitle="Success notification"
-          blockquoteColor="success"
-        >
+        <MDBTypo blockquote bqTitle="Success notification" bqColor="success">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores
             quibusdam dignissimos itaque harum illo! Quidem, corporis at quae
@@ -126,8 +122,36 @@ class App extends Component {
             );
           })}
         </MDBTypo>
-        <MDBTypo colorText="gReen">Dupa</MDBTypo>
-      </>
+
+        <MDBTypo variant="h1" component="h2" colorText="red">
+          Red
+        </MDBTypo>
+        <MDBTypo colorText="blue">Blue</MDBTypo>
+        <MDBTypo colorText="green" component="h3">
+          Blue
+        </MDBTypo>
+
+        <p class="note note-primary">
+          <strong>Note primary:</strong> Lorem, ipsum dolor sit amet consectetur
+          adipisicing elit. Cum doloremque officia laboriosam. Itaque ex
+          obcaecati architecto! Qui necessitatibus delectus placeat illo rem id
+          nisi consequatur esse, sint perspiciatis soluta porro?
+        </p>
+
+        <MDBTypo note noteColor="primary" noteTitle="Note primary: ">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
+          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
+          necessitatibus delectus placeat illo rem id nisi consequatur esse,
+          sint perspiciatis soluta porro?
+        </MDBTypo>
+
+        <MDBTypo>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
+          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
+          necessitatibus delectus placeat illo rem id nisi consequatur esse,
+          sint perspiciatis soluta porro?
+        </MDBTypo>
+      </MDBContainer>
     );
   }
 }

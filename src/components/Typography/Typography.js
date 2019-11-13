@@ -14,13 +14,15 @@ const Typo = props => {
     abbrClasses,
     abbrLeftText,
     blockquote,
-    blockquoteClasses,
-    blockquoteColor,
+    bqColor,
     bqTitle,
     bgFooter,
     listUnStyled,
     listInLine,
     colorText,
+    note,
+    noteColor,
+    noteTitle,
     ...attributes
   } = props;
 
@@ -29,15 +31,11 @@ const Typo = props => {
     colorText && `${colorText.toLowerCase()}-text`,
     className
   );
-  const bc = classNames(
-    "blockquote",
-    blockquoteColor && `bq-${blockquoteColor}`,
-    className
-  );
+  const bc = classNames("blockquote", bqColor && `bq-${bqColor}`, className);
 
   if (abbr) {
     return (
-      <p {...attributes}>
+      <Tag {...attributes}>
         {abbrLeftText ? (
           <>
             <abbr title={abbrTitle} className={abbrClasses}>
@@ -53,7 +51,7 @@ const Typo = props => {
             </abbr>
           </>
         )}
-      </p>
+      </Tag>
     );
   } else if (blockquote) {
     return (
@@ -69,6 +67,13 @@ const Typo = props => {
     return <ul className="list-unstyled">{children}</ul>;
   } else if (listInLine) {
     return <ul className="list-inline">{children}</ul>;
+  } else if (note) {
+    return (
+      <Tag className={`note note-${noteColor}`}>
+        <strong>{noteTitle}</strong>
+        {children}
+      </Tag>
+    );
   } else {
     return (
       <Tag {...attributes} className={classes}>
@@ -81,12 +86,14 @@ const Typo = props => {
 Typo.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  component: PropTypes.string
+  component: PropTypes.string,
+  noteColor: PropTypes.string
 };
 
 Typo.defaultProps = {
-  component: "",
-  abbrLeftText: true
+  component: "p",
+  abbrLeftText: true,
+  noteColor: "primary"
 };
 
 export default Typo;
