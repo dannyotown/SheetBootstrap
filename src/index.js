@@ -96,7 +96,9 @@ import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
 import Lightbox from './components/pro/Lightbox';
-import Parallax from './components/pro/Parallax';
+import Parallax from './components/pro/Parallax/ParallaxImage';
+import ParallaxVideo from './components/pro/Parallax/ParallaxVideo';
+import ParallaxElement from './components/pro/Parallax/ParallaxElement';
 import PerfectScrollbar from './components/pro/PerfectScrollbar';
 import ScrollSpyBox from './components/pro/ScrollSpy/ScrollSpyBox';
 import ScrollSpyList from './components/pro/ScrollSpy/ScrollSpyList';
@@ -210,7 +212,6 @@ export {
   Tooltip,
   View,
   Waves,
-
   // PRO-START
   Autocomplete,
   Avatar,
@@ -229,6 +230,8 @@ export {
   InputSwitch,
   Lightbox,
   Parallax,
+  ParallaxVideo,
+  ParallaxElement,
   PerfectScrollbar,
   ScrollSpyBox,
   ScrollSpyList,
@@ -341,7 +344,6 @@ export {
   Tooltip as MDBTooltip,
   View as MDBView,
   Waves as MDBWaves,
-
   // PRO-START
   Autocomplete as MDBAutocomplete,
   Avatar as MDBAvatar,
@@ -360,6 +362,8 @@ export {
   InputSwitch as MDBSwitch,
   Lightbox as MDBLightbox,
   Parallax as MDBParallax,
+  ParallaxVideo as MDBParallaxVideo,
+  ParallaxElement as MDBParallaxElement,
   PerfectScrollbar as MDBScrollbar,
   ScrollSpyBox as MDBScrollspyBox,
   ScrollSpyList as MDBScrollspyList,
@@ -388,6 +392,6 @@ export {
   TimelineStep as MDBTimelineStep,
   TimePicker as MDBTimePicker,
   toast as MDBToast,
-  ToastContainer as MDBToastContainer,
+  ToastContainer as MDBToastContainer
   // PRO-END
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { jarallax } from 'jarallax';
+import { jarallax, jarallaxVideo, jarallaxElement } from 'jarallax';
 
 class Parallax extends Component {
   constructor(props) {
@@ -9,15 +9,52 @@ class Parallax extends Component {
 
     this.jarallax = React.createRef();
 
-    this.parallaxOptions = {};
-
     this.parentStyle = {
-      height: this.props.containterHeight || '200px'
+      height: this.props.height || '400px',
+      width: this.props.width || '100%'
+    };
+
+    this.imageOptions = {
+      type: this.props.type,
+      // speed: this.props.speed
+      videoLazyLoading: true
+    };
+    this.videoOptions = {
+      type: this.props.type,
+      // speed: this.props.speed
+      videoLazyLoading: false
+    };
+    this.elementOptions = {
+      type: this.props.type
+      // speed: this.props.speed
+      // videoLazyLoading: false
     };
   }
 
   componentDidMount() {
-    jarallax(this.jarallax.current);
+    // if (this.props.image) {
+    //   jarallax(this.jarallax.current, this.imageOptions);
+    // } else if (this.props.video) {
+    //   jarallax(this.jarallax.current, this.videoOptions);
+    //   jarallaxVideo(this.jarallax.current);
+    //   jarallaxElement(this.jarallax.current);
+    // } else if (this.props.element) {
+    //   jarallax(this.jarallax.current);
+    //   jarallaxElement(this.jarallax.current, this.elementOptions);
+    // }
+
+    jarallax(
+      this.jarallax.current,
+      this.props.image
+        ? this.imageOptions
+        : this.props.video
+        ? this.videoOptions
+        : this.props.element
+        ? this.props.elementOptions
+        : null
+    );
+    jarallaxVideo();
+    jarallaxElement();
   }
 
   componentWillUnmount() {
@@ -30,31 +67,51 @@ class Parallax extends Component {
       className,
       tag: Tag,
       alt,
-      waves,
+      type,
       children,
       image,
-      speed
+      speed,
+      keepImg,
+      video
     } = this.props;
 
     const parentClasses = classNames(
-      'jarallax',
-      waves && 'Ripple-parent',
+      keepImg ? 'jarallax-keep-img' : 'jarallax',
       className
     );
+
     return (
-      <Tag
-        ref={this.jarallax}
-        className={parentClasses}
-        data-jarallax
-        data-speed={speed}
-        style={{ ...this.parentStyle }}
-        // {...attributes}
-      >
+      <>
         {image && (
-          <img className='jarallax-img ' src={image} alt={alt || 'lol'} />
+          <Tag
+            ref={this.jarallax}
+            className={parentClasses}
+            type={type}
+            data-jarallax
+            data-speed={speed}
+            data-video-src={video}
+            style={this.parentStyle}
+          >
+            {image && (
+              <img className='jarallax-img ' src={image} alt={alt || 'lol'} />
+            )}
+            {children}
+          </Tag>
         )}
-        {children}
-      </Tag>
+        {video && (
+          <Tag
+            ref={this.jarallax}
+            className={parentClasses}
+            type={type}
+            data-jarallax
+            data-speed={speed}
+            data-video-src={video}
+            style={this.parentStyle}
+          >
+            {children}
+          </Tag>
+        )}
+      </>
     );
   }
 }
@@ -63,11 +120,15 @@ Parallax.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
   image: PropTypes.string,
-  alt: PropTypes.string
+  alt: PropTypes.string,
+  type: PropTypes.string,
+  keepImg: PropTypes.bool
 };
 
 Parallax.defaultProps = {
-  tag: 'div'
+  tag: 'div',
+  type: 'scroll',
+  keepImg: false
 };
 
 export default Parallax;

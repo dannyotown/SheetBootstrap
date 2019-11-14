@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
 import { MDBParallax } from 'mdbreact';
+
 class ParallaxIntro extends Component {
   render() {
     return (
       <>
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg'
-          // top='0px'
-          speed={0.8}
-          containterHeight='100px'
-          waves
-          // insideStatic={true}
+          // video='https://player.vimeo.com/video/137857207'
+          speed='0.6'
         >
-          {/* <div className='mask rgba-blue-slight' style={{ height: '100%' }}>
+          <div className='mask rgba-blue-slight' style={{ height: '100%' }}>
             <div className='container flex-center text-center'>
               <div className='row mt-5'>
-                <div className='col-md-12 col-xl-8 mx-auto wow fadeIn'>
-                  <h1
-                    className='display-3 font-weight-bold mb-2 wow fadeInDown'
-                    data-wow-delay='0.3s'
-                  >
+                <div className='col-md-12 col-xl-8 mx-auto ow'>
+                  <h1 className='display-3 font-weight-bold mb-2 '>
                     MDBParallax image with a mask and a content
                   </h1>
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </MDBParallax>
 
         <div className='container' style={{ backgroundColor: '#ffffffaa' }}>
@@ -100,7 +95,7 @@ class ParallaxIntro extends Component {
           image='http://mdbootstrap.com/img/Photos/Others/nature4.jpg'
           // top='0px'
           speed={0.5}
-          containterHeight='50vh'
+          height='50vh'
         />
 
         <div className='container'>
@@ -116,19 +111,19 @@ class ParallaxIntro extends Component {
           image='https://mdbootstrap.com/img/Photos/Others/city13.jpg'
           // top='0px'
           speed={0.8}
-          containterHeight='50vh'
+          height='50vh'
         />
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/images/92.jpg'
           // top='0px'
           speed={-0.8}
-          containterHeight='50vh'
+          height='50vh'
         />
         <MDBParallax
           image='https://bitbucket.org/startupflow/img/raw/a02ba123f067cbfdd1b6b0d632d71bca9f0e0f52/Photos/Horizontal/Relax/full%20page/spa.jpg'
           // top='0px'
           speed={-1.1}
-          containterHeight='50vh'
+          height='50vh'
         />
         <div className='container'>
           <div className='row'>
@@ -157,9 +152,10 @@ class ParallaxIntro extends Component {
                 image='https://images.unsplash.com/photo-1571730125465-0ca1959336ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2105&q=80'
                 // top='0px'
                 // zIndex='1'
+                keepImg
                 speed={0.2}
-                containterHeight='200px'
-                // containerWidth='200px'
+                height='400px'
+                wdth='400px'
               />
             </div>
 
@@ -198,11 +194,11 @@ class ParallaxIntro extends Component {
                 // top='0px'
                 // zIndex='1'
                 speed={-0.2}
-                containterHeight='200px'
-                // containerWidth='200px'
+                keepImg
+                height='400px'
+                wdth='400px'
               />
             </div>
-
             <p className='mb-0 pb-5' align='justify'>
               At vero eos et accusamus et iusto odio dignissimos ducimus qui
               blanditiis praesentium voluptatum deleniti atque corrupti quos
@@ -245,22 +241,12 @@ class ParallaxIntro extends Component {
           </div>
         </div>
 
-        {/* <div
-          className='jarallax'
-          data-video-src='https://youtu.be/lugard7P0nw'
-        ></div>
-        <div
-          className='jarallax'
-          data-speed='0'
-          data-video-src='mp4:video/animation-intro.mp4'
-        >
-          <img className='jarallax-img' src='' alt='' />
-        </div>
-        <div
-          className='jarallax'
-          data-speed='1.2'
-          data-video-src='https://player.vimeo.com/video/137857207'
-        ></div> */}
+        <MDBParallax video='https://youtu.be/lugard7P0nw'></MDBParallax>
+        <MDBParallax
+          speed='0.1'
+          type='opacity'
+          video='https://player.vimeo.com/video/137857207'
+        />
 
         <div className='container'>
           <div className='row my-5 py-4'>
