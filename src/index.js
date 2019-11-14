@@ -2,6 +2,7 @@
 import Alert from './components/Alert';
 import Animation from './components/Animation';
 import Badge from './components/Badge';
+import Box from './components/Box';
 import Breadcrumb from './components/Breadcrumb';
 import BreadcrumbItem from './components/Breadcrumb/BreadcrumbItem';
 import Button from './components/Button';
@@ -77,6 +78,7 @@ import Tooltip from './components/Popper';
 import Treeview from './components/Treeview';
 import TreeviewItem from './components/Treeview/TreeviewItem';
 import TreeviewList from './components/Treeview/TreeviewList';
+import Typography from './components/Typography/Typography';
 import View from './components/View';
 import Waves from './components/Waves';
 
@@ -123,7 +125,11 @@ import Testimonial from './components/pro/Testimonial';
 import Timeline from './components/pro/Timeline';
 import TimelineStep from './components/pro/Timeline/TimelineStep';
 import TimePicker from './components/pro/TimePicker/TimePicker';
-import { toast, ToastContainer, cssTransition } from './components/pro/Toast';
+import {
+  toast,
+  ToastContainer,
+  cssTransition
+} from './components/pro/Toast';
 // PRO-END
 
 export {
@@ -131,6 +137,7 @@ export {
   Alert,
   Animation,
   Badge,
+  Box,
   Breadcrumb,
   BreadcrumbItem,
   Button,
@@ -206,10 +213,11 @@ export {
   Treeview,
   TreeviewItem,
   TreeviewList,
+  Typography,
+  Typography as Typo,
   Tooltip,
   View,
   Waves,
-
   // PRO-START
   Autocomplete,
   Avatar,
@@ -261,6 +269,7 @@ export {
   Alert as MDBAlert,
   Animation as MDBAnimation,
   Badge as MDBBadge,
+  Box as MDBBox,
   Breadcrumb as MDBBreadcrumb,
   BreadcrumbItem as MDBBreadcrumbItem,
   Button as MDBBtn,
@@ -337,9 +346,10 @@ export {
   TreeviewItem as MDBTreeviewItem,
   TreeviewList as MDBTreeviewList,
   Tooltip as MDBTooltip,
+  Typography as MDBTypo,
+  Typography as MDBTypography,
   View as MDBView,
   Waves as MDBWaves,
-
   // PRO-START
   Autocomplete as MDBAutocomplete,
   Avatar as MDBAvatar,
@@ -385,6 +395,6 @@ export {
   TimelineStep as MDBTimelineStep,
   TimePicker as MDBTimePicker,
   toast as MDBToast,
-  ToastContainer as MDBToastContainer,
+  ToastContainer as MDBToastContainer
   // PRO-END
 };

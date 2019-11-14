@@ -1,24 +1,80 @@
-import * as React from "react";
+import * as React from 'react';
 
-declare const MDBTypography: React.FunctionComponent<{
+declare const MDBTypogrphy: React.FunctionComponent<{
   className?: string;
-  component?: object;
-  children?: React.ReactNode;
-  variant?: string;
+  component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  variant?:
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'h1-responsive'
+    | 'h2-responsive'
+    | 'h3-responsive'
+    | 'h4-responsive'
+    | 'h5-responsive'
+    | 'h5-responsive'
+    | 'display-1'
+    | 'display-2'
+    | 'display-3'
+    | 'display-4';
   abbr?: boolean;
   abbrTitle?: string;
   abbarText?: string;
   abbrClasses?: string;
   abbrLeftText?: boolean;
   blockquote?: boolean;
-  bqColor?: string;
+  bqColor?:
+    | 'primary'
+    | 'default'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'info'
+    | 'secondary'
+    | 'light';
   bqTitle?: string;
   listUnStyled?: boolean;
   listInLine?: boolean;
-  colorText?: string;
+  colorText?:
+    | 'red'
+    | 'pink'
+    | 'purple'
+    | 'deep-purple'
+    | 'indigo'
+    | 'blue'
+    | 'light-blue'
+    | 'cyan'
+    | 'teal'
+    | 'green'
+    | 'light-green'
+    | 'lime'
+    | 'yellow'
+    | 'amber'
+    | 'orange'
+    | 'deep-orange'
+    | 'brown'
+    | 'grey'
+    | 'blue-grey'
+    | 'mdb-color white';
   note?: boolean;
-  noteColor?: string;
+  noteColor?:
+    | 'primary'
+    | 'default'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'info'
+    | 'secondary'
+    | 'light'
+    | 'dark'
+    | 'unique'
+    | 'stylish'
+    | 'special'
+    | 'elegant';
   noteTitle?: string;
 }>;
 
-export default MDBTypography;
+export default MDBTypogrphy;

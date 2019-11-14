@@ -1,92 +1,96 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import './Typography.css';
 
-const Typo = props => {
-  const {
-    className,
-    component: Tag,
-    children,
-    variant,
-    abbr,
-    abbrTitle,
-    abbrText,
-    abbrClasses,
-    abbrLeftText,
-    blockquote,
-    bqColor,
-    bqTitle,
-    bgFooter,
-    listUnStyled,
-    listInLine,
-    colorText,
-    note,
-    noteColor,
-    noteTitle,
-    ...attributes
-  } = props;
+class Typogrphy extends React.Component {
+  render() {
+    const {
+      className,
+      component: Tag,
+      children,
+      variant,
+      abbr,
+      abbrTitle,
+      abbrText,
+      abbrClasses,
+      abbrLeftText,
+      blockquote,
+      bqColor,
+      bqTitle,
+      bgFooter,
+      listUnStyled,
+      listInLine,
+      colorText,
+      note,
+      noteColor,
+      noteTitle,
+      ...attributes
+    } = this.props;
 
-  const classes = classNames(
-    variant && variant,
-    colorText && `${colorText.toLowerCase()}-text`,
-    className
-  );
-  const bc = classNames("blockquote", bqColor && `bq-${bqColor}`, className);
+    const classes = classNames(
+      variant && variant,
+      colorText && `${colorText.toLowerCase()}-text`,
+      className
+    );
+    const bc = classNames('blockquote', bqColor && `bq-${bqColor}`, className);
+    const notes = classNames('note', noteColor && `note-${noteColor}`);
+    const isEmptyClass = classes !== '' ? classes : null;
 
-  if (abbr) {
-    return (
-      <Tag {...attributes}>
-        {abbrLeftText ? (
-          <>
-            <abbr title={abbrTitle} className={abbrClasses}>
-              {abbrText}
-            </abbr>
-            {children}
-          </>
-        ) : (
-          <>
-            {children}
-            <abbr title={abbrTitle} className={abbrClasses}>
-              {abbrText}
-            </abbr>
-          </>
-        )}
-      </Tag>
-    );
-  } else if (blockquote) {
-    return (
-      <blockquote className={bc}>
-        {bqTitle && <p className="bq-title">{bqTitle}</p>}
-        {children}
-        {bgFooter && (
-          <footer className="blockquote-footer mb-3">{bgFooter}</footer>
-        )}
-      </blockquote>
-    );
-  } else if (listUnStyled) {
-    return <ul className="list-unstyled">{children}</ul>;
-  } else if (listInLine) {
-    return <ul className="list-inline">{children}</ul>;
-  } else if (note) {
-    return (
-      <Tag className={`note note-${noteColor}`}>
-        <strong>{noteTitle}</strong>
-        {children}
-      </Tag>
-    );
-  } else {
-    return (
-      <Tag {...attributes} className={classes}>
-        {children}
-      </Tag>
-    );
+    if (abbr) {
+      return (
+        <Tag {...attributes}>
+          {abbrLeftText ? (
+            <>
+              <abbr title={abbrTitle} className={abbrClasses}>
+                {abbrText}
+              </abbr>
+              {children}
+            </>
+          ) : (
+            <>
+              {children}
+              <abbr title={abbrTitle} className={abbrClasses}>
+                {abbrText}
+              </abbr>
+            </>
+          )}
+        </Tag>
+      );
+    } else if (blockquote) {
+      return (
+        <blockquote className={bc}>
+          {bqTitle && <p className='bq-title'>{bqTitle}</p>}
+          {children}
+          {bgFooter && (
+            <footer className='blockquote-footer mb-3'>{bgFooter}</footer>
+          )}
+        </blockquote>
+      );
+    } else if (listUnStyled) {
+      return <ul className='list-unstyled'>{children}</ul>;
+    } else if (listInLine) {
+      return <ul className='list-inline'>{children}</ul>;
+    } else if (note) {
+      return (
+        <Tag className={notes}>
+          <strong>{noteTitle}</strong>
+          {children}
+        </Tag>
+      );
+    } else {
+      return (
+        <Tag {...attributes} className={isEmptyClass}>
+          {children}
+        </Tag>
+      );
+    }
   }
-};
+}
 
-Typo.propTypes = {
+Typogrphy.propTypes = {
   className: PropTypes.string,
   component: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  children: PropTypes.object,
   variant: PropTypes.string,
   abbr: PropTypes.bool,
   abbrTitle: PropTypes.string,
@@ -103,16 +107,16 @@ Typo.propTypes = {
   noteColor: PropTypes.string,
   noteTitle: PropTypes.string
 };
-Typo.defaultProps = {
-  component: "p",
+Typogrphy.defaultProps = {
+  component: 'p',
   abbr: false,
   abbrLeftText: true,
   blockquote: false,
   listUnStyled: false,
   listInLine: false,
-  noteColor: "primary"
+  noteColor: 'primary'
 };
 
-export default Typo;
-export { Typo as MDBTypo };
-export { Typo as MDBTypogrphy };
+export default Typogrphy;
+export { Typogrphy as MDBTypo };
+export { Typogrphy as MDBTypogrphy };

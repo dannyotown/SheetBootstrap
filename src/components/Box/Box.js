@@ -34,14 +34,37 @@ const Box = props => {
     ...attributes
   } = props;
 
-  const marginOrPadding = (styles, position, number) => {
-    if ((position.length === 0 || position === false) && number) {
-      return styles && `${styles}-${number}`;
-    } else if ((position.length > 0 || position === true) && number) {
-      return styles && `${styles}${position}-${number}`;
+  const marginOrPadding = (props, suffix) => {
+    if (props !== undefined) {
+      return `${suffix}-${props}`;
     }
   };
-
+  const arr = [
+    {
+      margin: {
+        suffix: ['m', 'mt', 'mb', 'ml', 'mr', 'mx', 'my']
+      }
+    },
+    {
+      padding: {
+        suffix: ['p', 'pt', 'pb', 'pl', 'pr', 'px', 'py']
+      }
+    }
+  ];
+  let b;
+  const check = () => {
+    arr.map((e, i) => {
+      const el = Object.keys(e);
+      if (el[0] === 'margin') {
+        e.margin.suffix.map((element, i) => {
+          b = `${element}`;
+        });
+      } else if (el[0] === 'padding') {
+        console.log(e.padding.suffix);
+      }
+    });
+  };
+  check();
   const classes = classNames(
     display && `d-${display}`,
     justifyContent && `justify-content-${justifyContent}`,
@@ -50,25 +73,26 @@ const Box = props => {
     alignContent && `align-content-${alignContent}`,
     alignSelf && `align-self-${alignSelf}`,
     color && `${color}-text`,
-    marginOrPadding('m', false, m),
-    marginOrPadding('m', 't', mt),
-    marginOrPadding('m', 't', 'sm', mtsm),
-    marginOrPadding('m', 'r', mr),
-    marginOrPadding('m', 'b', mb),
-    marginOrPadding('m', 'l', ml),
-    marginOrPadding('m', 'x', mx),
-    marginOrPadding('m', 'y', my),
-    marginOrPadding('p', false, p),
-    marginOrPadding('p', 't', pt),
-    marginOrPadding('p', 'r', pr),
-    marginOrPadding('p', 'b', pb),
-    marginOrPadding('p', 'l', pl),
-    marginOrPadding('p', 'x', px),
-    marginOrPadding('p', 'y', py),
+    marginOrPadding(m, 'm'),
+    marginOrPadding(mt, 'mt'),
+    marginOrPadding(mr, 'mr'),
+    marginOrPadding(mb, 'mb'),
+    marginOrPadding(ml, 'ml'),
+    marginOrPadding(mx, 'mx'),
+    marginOrPadding(my, 'my'),
+    marginOrPadding(p, 'p'),
+    marginOrPadding(pt, 'pt'),
+    marginOrPadding(pr, 'pr'),
+    marginOrPadding(pb, 'pb'),
+    marginOrPadding(pl, 'pl'),
+    marginOrPadding(px, 'px'),
+    marginOrPadding(py, 'py'),
     className
   );
+  const isEmptyClass = classes !== '' ? classes : null;
+
   return (
-    <Tag {...attributes} className={classes}>
+    <Tag {...attributes} className={isEmptyClass}>
       {children}
     </Tag>
   );

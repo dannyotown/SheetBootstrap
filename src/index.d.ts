@@ -2,6 +2,7 @@
 import MDBAlert from './components/Alert';
 import MDBAnimation from './components/Animation';
 import MDBBadge from './components/Badge';
+import MDBBox from './components/Box';
 import MDBBreadcrumb from './components/Breadcrumb';
 import MDBBreadcrumbItem from './components/Breadcrumb/BreadcrumbItem';
 import MDBBtn from './components/Button';
@@ -76,6 +77,7 @@ import MDBTableHead from './components/Table/TableHead';
 import MDBTreeview from './components/Treeview';
 import MDBTreeviewItem from './components/Treeview/TreeviewItem';
 import MDBTreeviewList from './components/Treeview/TreeviewList';
+import MDBTypo from './components/Typography';
 import MDBView from './components/View';
 import MDBWaves from './components/Waves';
 //FREE
@@ -131,6 +133,7 @@ export {
   MDBAlert,
   MDBAnimation,
   MDBBadge,
+  MDBBox,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
   MDBBtn,
@@ -206,6 +209,8 @@ export {
   MDBTreeview,
   MDBTreeviewItem,
   MDBTreeviewList,
+  MDBTypo,
+  MDBTypo as MDBTypography,
   MDBView,
   MDBWaves,
   //FREE
