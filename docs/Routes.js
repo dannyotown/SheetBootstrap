@@ -127,6 +127,7 @@ import ParallaxIntro from "./pages/pro/sections/ParallaxIntro";
 import CallToActionIntro from "./pages/pro/sections/CallToActionIntro";
 import PillsPagePro from './pages/pro/PillsPage';
 import InputGroupPagePro from './pages/pro/InputGroupPage';
+import DatatableFilterPage from "./pages/pro/DatatableFilterPage";
 // PRO-END
 
 class Routes extends React.Component {
@@ -258,6 +259,7 @@ class Routes extends React.Component {
         <Route path="/tables/pro/tableeditable" component={TableEditable} />
         <Route path="/tables/pro/table-styles" component={TableStylesPagePro} />
         <Route path="/tables/pro/datatable-csv" component={DatatableCsvPage} />
+        <Route path="/tables/pro/datatable-filter" component={DatatableFilterPage} />
         <Route path="/components/pro/pills" component={PillsPagePro} />
         {/* PRO-END */}
         <Route
