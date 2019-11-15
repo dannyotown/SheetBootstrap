@@ -307,7 +307,7 @@ class DataTable extends Component {
       const { filter } = this.props;
       let arr = [];
       this.props.data.rows.map(
-        el => arr.push(el[filter]) //arr.filter(el[filter]).length === 0 && arr.push(el[filter])
+        el => arr.push(el[filter])
       );
       arr = [...new Set(arr)].sort((a, b) => a.localeCompare(b));
       arr = arr.map((text, value) => ({ text, value }));
