@@ -8,7 +8,8 @@ class ParallaxIntro extends Component {
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg'
           // video='https://player.vimeo.com/video/137857207'
-          speed='0.6'
+          speed='2'
+          type='scale'
         >
           <div className='mask rgba-blue-slight' style={{ height: '100%' }}>
             <div className='container flex-center text-center'>
@@ -90,13 +91,41 @@ class ParallaxIntro extends Component {
             </div>
           </div>
         </div>
+        {/*
+    // this.imageOptions = {
+    //   type: type,
+    //   speed: speed
+    // imgSrc: imgSrc,
+    // imgElement: imgElement,
+    // imgSize: imgSize,
+    // imgPosition: imgPosition,
+    // imgRepeat: imgRepeat,
+    // keepImg: keepImg,
+    // elementInViewport: elementInViewport,
+    // zIndex: zIndex,
+    // disableParallax: disableParallax
+    // };
+*/}
 
         <MDBParallax
           image='http://mdbootstrap.com/img/Photos/Others/nature4.jpg'
-          // top='0px'
-          speed={0.5}
+          speed={2}
           height='50vh'
+          type='scale'
+          zIndex={-120}
         />
+        <MDBParallax element tag='span' speed={-140}>
+          Youtube
+        </MDBParallax>
+        <MDBParallax element tag='span' speed={-123}>
+          Vimeo
+        </MDBParallax>
+        <MDBParallax element tag='span' speed={1}>
+          and
+        </MDBParallax>
+        <MDBParallax element tag='span' speed='12 23'>
+          &lt;video&gt;
+        </MDBParallax>
 
         <div className='container'>
           <div className='row'>
@@ -110,7 +139,7 @@ class ParallaxIntro extends Component {
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/city13.jpg'
           // top='0px'
-          speed={0.8}
+          speed={0.5}
           height='50vh'
         />
         <MDBParallax
@@ -150,12 +179,10 @@ class ParallaxIntro extends Component {
             <div className='float-md-left mr-md-4 mb-4 mb-md-0'>
               <MDBParallax
                 image='https://images.unsplash.com/photo-1571730125465-0ca1959336ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2105&q=80'
-                // top='0px'
-                // zIndex='1'
                 keepImg
                 speed={0.2}
                 height='400px'
-                wdth='400px'
+                width='400px'
               />
             </div>
 
@@ -191,12 +218,10 @@ class ParallaxIntro extends Component {
             <div className='float-md-right ml-md-4 mb-4 mb-md-0'>
               <MDBParallax
                 image='https://images.unsplash.com/photo-1571730125465-0ca1959336ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2105&q=80'
-                // top='0px'
-                // zIndex='1'
                 speed={-0.2}
                 keepImg
                 height='400px'
-                wdth='400px'
+                width='400px'
               />
             </div>
             <p className='mb-0 pb-5' align='justify'>
@@ -235,17 +260,21 @@ class ParallaxIntro extends Component {
           <div className='row'>
             <div className='col-md-12 text-center'>
               <h2 className='h1 font-weight-bold cyan-text my-5 py-4'>
-                Youtube Vimeo and &lt;video&gt; MDBParallax
+                MDBParallax
               </h2>
             </div>
           </div>
         </div>
 
-        <MDBParallax video='https://youtu.be/lugard7P0nw'></MDBParallax>
         <MDBParallax
-          speed='0.1'
-          type='opacity'
+          video='https://youtu.be/lugard7P0nw'
+          disableVideoLazyLoading
+        ></MDBParallax>
+        <MDBParallax
           video='https://player.vimeo.com/video/137857207'
+          type='opacity'
+          speed='0.1'
+          disableVideoLazyLoading
         />
 
         <div className='container'>

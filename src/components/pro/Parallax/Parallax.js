@@ -14,21 +14,50 @@ class Parallax extends Component {
       width: this.props.width || '100%'
     };
 
+    const {
+      imgSrc,
+      imgElement,
+      imgSize,
+      imgPosition,
+      imgRepeat,
+      elementInViewport,
+      zIndex,
+      disableParallax,
+      disableVideo,
+      videoStartTime,
+      videoEndTime,
+      videoVolume,
+      disableVideoLoop,
+      disableVideoPlayOnlyVisible,
+      disableVideoLazyLoading
+    } = this.props;
+
     this.imageOptions = {
-      type: this.props.type,
-      // speed: this.props.speed
-      videoLazyLoading: true
+      imgSrc: imgSrc,
+      imgElement: imgElement,
+      imgSize: imgSize,
+      imgPosition: imgPosition,
+      imgRepeat: imgRepeat,
+      elementInViewport: elementInViewport,
+      zIndex: zIndex,
+      disableParallax: disableParallax
     };
+
     this.videoOptions = {
-      type: this.props.type,
-      // speed: this.props.speed
-      videoLazyLoading: false
+      videoStartTime: videoStartTime,
+      videoEndTime: videoEndTime,
+      videoVolume: videoVolume,
+      videoLoop: !disableVideoLoop,
+      videoPlayOnlyVisible: !disableVideoPlayOnlyVisible,
+      videoLazyLoading: !disableVideoLazyLoading,
+      disableVideo: disableVideo
     };
-    this.elementOptions = {
-      type: this.props.type
-      // speed: this.props.speed
-      // videoLazyLoading: false
-    };
+
+    // this.elementOptions = {
+    //   type: type
+    // speed: this.props.speed
+    // videoLazyLoading: false
+    // };
   }
 
   componentDidMount() {
@@ -68,11 +97,13 @@ class Parallax extends Component {
       tag: Tag,
       alt,
       type,
-      children,
-      image,
       speed,
+      image,
+      video,
+      element,
+      children,
       keepImg,
-      video
+      treshold
     } = this.props;
 
     const parentClasses = classNames(
@@ -86,15 +117,12 @@ class Parallax extends Component {
           <Tag
             ref={this.jarallax}
             className={parentClasses}
-            type={type}
-            data-jarallax
-            data-speed={speed}
-            data-video-src={video}
             style={this.parentStyle}
+            data-jarallax
+            data-type={type}
+            data-speed={speed}
           >
-            {image && (
-              <img className='jarallax-img ' src={image} alt={alt || 'lol'} />
-            )}
+            {image && <img className='jarallax-img ' src={image} alt={alt} />}
             {children}
           </Tag>
         )}
@@ -102,11 +130,24 @@ class Parallax extends Component {
           <Tag
             ref={this.jarallax}
             className={parentClasses}
-            type={type}
+            style={this.parentStyle}
             data-jarallax
+            data-type={type}
             data-speed={speed}
             data-video-src={video}
-            style={this.parentStyle}
+          >
+            {children}
+          </Tag>
+        )}
+        {element && (
+          <Tag
+            ref={this.jarallax}
+            // className={parentClasses}
+            // style={this.parentStyle}
+            // data-type='element'
+            // data-speed={speed}
+            data-jarallax-element={speed}
+            // data-treshold={treshold}
           >
             {children}
           </Tag>
@@ -121,14 +162,60 @@ Parallax.propTypes = {
   className: PropTypes.string,
   image: PropTypes.string,
   alt: PropTypes.string,
+  speed: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   type: PropTypes.string,
-  keepImg: PropTypes.bool
+  keepImg: PropTypes.bool,
+  imgSrc: PropTypes.string,
+  imgElement: PropTypes.string,
+  imgSize: PropTypes.string,
+  imgPosition: PropTypes.string,
+  imgRepeat: PropTypes.string,
+  elementInViewport: PropTypes.node,
+  zIndex: PropTypes.number,
+  disableParallax: PropTypes.func,
+
+  //  ParallaxVideo proptypes
+
+  videoSrc: PropTypes.string,
+  videoStartTime: PropTypes.number,
+  videoEndTime: PropTypes.number,
+  videoVolume: PropTypes.number,
+  videoLoop: PropTypes.bool,
+  videoPlayOnlyVisible: PropTypes.bool,
+  videoLazyLoading: PropTypes.bool,
+  disableVideo: PropTypes.func,
+  //  ParallaxElement proptypes
+
+  treshold: PropTypes.node
 };
 
 Parallax.defaultProps = {
   tag: 'div',
+  alt: 'MDBParallax image',
   type: 'scroll',
-  keepImg: false
+  imgSrc: null,
+  imgElement: '.jarallax-img',
+  imgSize: 'cover',
+  imgPosition: '50% 50%',
+  imgRepeat: 'no-repeat',
+  keepImg: false,
+  elementInViewport: null,
+  zIndex: -100,
+  disableParallax: null,
+
+  //  ParallaxVideo proptypes
+
+  videoStartTime: 0,
+  videoEndTime: 0,
+  videoVolume: 0,
+  videoLoop: true,
+  videoPlayOnlyVisible: true,
+  videoLazyLoading: true,
+  disableVideo: null
+
+  //  ParallaxElement proptypes
+
+  // treshold: 'null null'
 };
 
 export default Parallax;

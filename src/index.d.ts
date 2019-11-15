@@ -95,9 +95,7 @@ import MDBFileInput from './components/pro/InputFile';
 import MDBInputRange from './components/pro/InputRange';
 import MDBInputSwitch from './components/pro/InputSwitch';
 import MDBLightbox from './components/pro/Lightbox';
-import MDBParallax from './components/pro/Parallax/ParallaxImage';
-import MDBParallaxVideo from './components/pro/Parallax/ParallaxVideo';
-import MDBParallaxElement from './components/pro/Parallax/ParallaxElement';
+import MDBParallax from './components/pro/Parallax';
 import MDBPerfectScrollbar from './components/pro/PerfectScrollbar';
 import MDBRotatingCard from './components/pro/FlippingCard';
 import MDBScrollspyBox from './components/pro/ScrollSpy/ScrollSpyBox';
@@ -230,8 +228,6 @@ export {
   MDBInputRange as MDBRangeInput,
   MDBInputSwitch as MDBSwitch,
   MDBParallax,
-  MDBParallaxVideo,
-  MDBParallaxElement,
   MDBPerfectScrollbar,
   MDBScrollspyBox,
   MDBScrollspyList,
