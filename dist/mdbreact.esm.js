@@ -618,7 +618,7 @@ Badge.propTypes = {
 };
 
 var Box = function Box(props) {
-  var Tag = props.component,
+  var Tag = props.tag,
       className = props.className,
       children = props.children,
       display = props.display,
@@ -628,8 +628,7 @@ var Box = function Box(props) {
       alignContent = props.alignContent,
       alignSelf = props.alignSelf,
       color = props.color,
-      flexCenter = props.flexCenter,
-      flexColumn = props.flexColumn,
+      bgColor = props.bgColor,
       m = props.m,
       mt = props.mt,
       mtsm = props.mtsm,
@@ -645,17 +644,15 @@ var Box = function Box(props) {
       pl = props.pl,
       px = props.px,
       py = props.py,
-      attributes = _objectWithoutProperties(props, ["component", "className", "children", "display", "justifyContent", "flex", "alignItems", "alignContent", "alignSelf", "color", "flexCenter", "flexColumn", "m", "mt", "mtsm", "mr", "mb", "ml", "mx", "my", "p", "pt", "pr", "pb", "pl", "px", "py"]);
+      attributes = _objectWithoutProperties(props, ["tag", "className", "children", "display", "justifyContent", "flex", "alignItems", "alignContent", "alignSelf", "color", "bgColor", "m", "mt", "mtsm", "mr", "mb", "ml", "mx", "my", "p", "pt", "pr", "pb", "pl", "px", "py"]);
 
-  var marginOrPadding = function marginOrPadding(styles, position, number) {
-    if ((position.length === 0 || position === false) && number) {
-      return styles && "".concat(styles, "-").concat(number);
-    } else if ((position.length > 0 || position === true) && number) {
-      return styles && "".concat(styles).concat(position, "-").concat(number);
+  var marginOrPadding = function marginOrPadding(props, suffix) {
+    if (props !== undefined) {
+      return "".concat(suffix, "-").concat(props);
     }
   };
 
-  var classes = classNames(display && "d-".concat(display), justifyContent && "justify-content-".concat(justifyContent), flex && "flex-".concat(flex), alignItems && "align-items-".concat(alignItems), alignContent && "align-content-".concat(alignContent), alignSelf && "align-self-".concat(alignSelf), color && "".concat(color, "-text"), marginOrPadding('m', false, m), marginOrPadding('m', 't', mt), marginOrPadding('m', 'r', mr), marginOrPadding('m', 'b', mb), marginOrPadding('m', 'l', ml), marginOrPadding('m', 'x', mx), marginOrPadding('m', 'y', my), marginOrPadding('p', false, p), marginOrPadding('p', 't', pt), marginOrPadding('p', 'r', pr), marginOrPadding('p', 'b', pb), marginOrPadding('p', 'l', pl), marginOrPadding('p', 'x', px), marginOrPadding('p', 'y', py), className);
+  var classes = classNames(display && "d-".concat(display), justifyContent && "justify-content-".concat(justifyContent), flex && "flex-".concat(flex), alignItems && "align-items-".concat(alignItems), alignContent && "align-content-".concat(alignContent), alignSelf && "align-self-".concat(alignSelf), color && "".concat(color, "-text"), bgColor && "bg-".concat(bgColor), marginOrPadding(m, 'm'), marginOrPadding(mt, 'mt'), marginOrPadding(mr, 'mr'), marginOrPadding(mb, 'mb'), marginOrPadding(ml, 'ml'), marginOrPadding(mx, 'mx'), marginOrPadding(my, 'my'), marginOrPadding(p, 'p'), marginOrPadding(pt, 'pt'), marginOrPadding(pr, 'pr'), marginOrPadding(pb, 'pb'), marginOrPadding(pl, 'pl'), marginOrPadding(px, 'px'), marginOrPadding(py, 'py'), className);
   var isEmptyClass = classes !== '' ? classes : null;
   return React.createElement(Tag, _extends({}, attributes, {
     className: isEmptyClass
@@ -663,7 +660,7 @@ var Box = function Box(props) {
 };
 
 Box.defaultProps = {
-  component: 'div'
+  tag: 'div'
 };
 Box.propTypes = {
   children: propTypes.node,
@@ -8297,7 +8294,7 @@ function (_React$Component) {
     value: function render() {
       var _this$props = this.props,
           className = _this$props.className,
-          Tag = _this$props.component,
+          Tag = _this$props.tag,
           children = _this$props.children,
           variant = _this$props.variant,
           abbr = _this$props.abbr,
@@ -8315,7 +8312,7 @@ function (_React$Component) {
           note = _this$props.note,
           noteColor = _this$props.noteColor,
           noteTitle = _this$props.noteTitle,
-          attributes = _objectWithoutProperties(_this$props, ["className", "component", "children", "variant", "abbr", "abbrTitle", "abbrText", "abbrClasses", "abbrLeftText", "blockquote", "bqColor", "bqTitle", "bgFooter", "listUnStyled", "listInLine", "colorText", "note", "noteColor", "noteTitle"]);
+          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "children", "variant", "abbr", "abbrTitle", "abbrText", "abbrClasses", "abbrLeftText", "blockquote", "bqColor", "bqTitle", "bgFooter", "listUnStyled", "listInLine", "colorText", "note", "noteColor", "noteTitle"]);
 
       var classes = classNames(variant && variant, colorText && "".concat(colorText.toLowerCase(), "-text"), className);
       var bc = classNames('blockquote', bqColor && "bq-".concat(bqColor), className);
@@ -8363,7 +8360,7 @@ function (_React$Component) {
 
 Typogrphy.propTypes = {
   className: propTypes.string,
-  component: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
   variant: propTypes.string,
   abbr: propTypes.bool,
   abbrTitle: propTypes.string,
@@ -8381,7 +8378,7 @@ Typogrphy.propTypes = {
   noteTitle: propTypes.string
 };
 Typogrphy.defaultProps = {
-  component: 'p',
+  tag: 'p',
   abbr: false,
   abbrLeftText: true,
   blockquote: false,

@@ -1,17 +1,77 @@
 import * as React from 'react';
 
-declare const MDBox: React.FunctionComponent<{
-  component?: string;
+declare const MDBBox: React.FunctionComponent<{
+  tag?: React.ElementType;
   className?: string;
-  display?: string;
-  justifyContent?: string;
-  flex?: string;
-  alignItems?: string;
-  alignContent?: string;
-  alignSelf?: string;
-  color?: string;
-  flexCenter?: string;
-  flexColumn?: string;
+  display?:
+    | 'none'
+    | 'inline'
+    | 'inline-block'
+    | 'block'
+    | 'table'
+    | 'table-row'
+    | 'table-cell'
+    | 'flex'
+    | 'inline-flex';
+  justifyContent?: 'start' | 'end' | 'center' | 'between' | 'around';
+  flex?:
+    | 'row'
+    | 'column'
+    | 'row-reverse'
+    | 'column-reverse'
+    | 'wrap'
+    | 'nowrap'
+    | 'wrap-reverse'
+    | 'fill'
+    | 'grow-0 '
+    | 'grow-1'
+    | 'shrink-0'
+    | 'shrink-1'
+    | 'center';
+  alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+  alignContent?: 'start' | 'end' | 'center' | 'between' | 'stretch' | 'around ';
+  alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+  color?:
+    | 'red'
+    | 'pink'
+    | 'purple'
+    | 'deep-purple'
+    | 'indigo'
+    | 'blue'
+    | 'light-blue'
+    | 'cyan'
+    | 'teal'
+    | 'green'
+    | 'light-green'
+    | 'lime'
+    | 'yellow'
+    | 'amber'
+    | 'orange'
+    | 'deep-orange'
+    | 'brown'
+    | 'grey'
+    | 'blue-grey'
+    | 'mdb-color white'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'info'
+    | 'default'
+    | 'warning'
+    | 'danger'
+    | 'dark'
+    | 'muted'
+    | 'light';
+  bgColor?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'info'
+    | 'default'
+    | 'warning'
+    | 'danger'
+    | 'dark'
+    | 'light';
   m?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
   mt?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
   mr?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
@@ -28,4 +88,4 @@ declare const MDBox: React.FunctionComponent<{
   py?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
 }>;
 
-export default MDBox;
+export default MDBBox;

@@ -7,7 +7,7 @@ class Typogrphy extends React.Component {
   render() {
     const {
       className,
-      component: Tag,
+      tag: Tag,
       children,
       variant,
       abbr,
@@ -90,7 +90,7 @@ class Typogrphy extends React.Component {
 
 Typogrphy.propTypes = {
   className: PropTypes.string,
-  component: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   variant: PropTypes.string,
   abbr: PropTypes.bool,
   abbrTitle: PropTypes.string,
@@ -108,7 +108,7 @@ Typogrphy.propTypes = {
   noteTitle: PropTypes.string
 };
 Typogrphy.defaultProps = {
-  component: 'p',
+  tag: 'p',
   abbr: false,
   abbrLeftText: true,
   blockquote: false,

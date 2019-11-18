@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const Box = props => {
   const {
-    component: Tag,
+    tag: Tag,
     className,
     children,
     display,
@@ -14,8 +14,7 @@ const Box = props => {
     alignContent,
     alignSelf,
     color,
-    flexCenter,
-    flexColumn,
+    bgColor,
     m,
     mt,
     mtsm,
@@ -39,32 +38,7 @@ const Box = props => {
       return `${suffix}-${props}`;
     }
   };
-  const arr = [
-    {
-      margin: {
-        suffix: ['m', 'mt', 'mb', 'ml', 'mr', 'mx', 'my']
-      }
-    },
-    {
-      padding: {
-        suffix: ['p', 'pt', 'pb', 'pl', 'pr', 'px', 'py']
-      }
-    }
-  ];
-  let b;
-  const check = () => {
-    arr.map((e, i) => {
-      const el = Object.keys(e);
-      if (el[0] === 'margin') {
-        e.margin.suffix.map((element, i) => {
-          b = `${element}`;
-        });
-      } else if (el[0] === 'padding') {
-        console.log(e.padding.suffix);
-      }
-    });
-  };
-  check();
+
   const classes = classNames(
     display && `d-${display}`,
     justifyContent && `justify-content-${justifyContent}`,
@@ -73,6 +47,7 @@ const Box = props => {
     alignContent && `align-content-${alignContent}`,
     alignSelf && `align-self-${alignSelf}`,
     color && `${color}-text`,
+    bgColor && `bg-${bgColor}`,
     marginOrPadding(m, 'm'),
     marginOrPadding(mt, 'mt'),
     marginOrPadding(mr, 'mr'),
@@ -99,7 +74,7 @@ const Box = props => {
 };
 
 Box.defaultProps = {
-  component: 'div'
+  tag: 'div'
 };
 
 Box.propTypes = {

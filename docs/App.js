@@ -134,6 +134,11 @@ class App extends Component {
           ab. Dignissimos sint architecto quidem alias nisi quisquam sequi nemo
           assumenda?
         </MDBTypo>
+        <MDBTypography note noteColor='default' noteTitle='Dupa123: '>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus,
+          ab. Dignissimos sint architecto quidem alias nisi quisquam sequi nemo
+          assumenda?
+        </MDBTypography>
         <MDBTypo note noteColor='elegant' noteTitle='Dupa: '>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus,
           ab. Dignissimos sint architecto quidem alias nisi quisquam sequi nemo
@@ -160,6 +165,7 @@ class App extends Component {
           necessitatibus delectus placeat illo rem id nisi consequatur esse,
           sint perspiciatis soluta porro?
         </MDBTypo>
+        <MDBBox className='flex-center' bgColor="primary">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</MDBBox>
       </MDBContainer>
     );
   }

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 declare const MDBTypogrphy: React.FunctionComponent<{
   className?: string;
-  component?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   variant?:
     | 'h1'
     | 'h2'
