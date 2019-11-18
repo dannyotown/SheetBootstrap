@@ -97,41 +97,7 @@ class ParallaxIntro extends Component {
           <div className='row'>
             <div className='col-md-12 text-center'>
               <h2 className='h1 font-weight-bold indigo-text my-5 py-4'>
-                Different &nbsp;
-                <MDBParallax element tag='span' speed='-140'>
-                  M
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='80'>
-                  D
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='-50'>
-                  B
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='140'>
-                  P
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='-120'>
-                  a
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='300'>
-                  r
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='-140'>
-                  a
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='90'>
-                  l
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='-20'>
-                  l
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='60'>
-                  a
-                </MDBParallax>
-                <MDBParallax element tag='span' speed='-130'>
-                  X
-                </MDBParallax>
-                &nbsp; speed
+                Different MDBParallax speed
               </h2>
             </div>
           </div>
