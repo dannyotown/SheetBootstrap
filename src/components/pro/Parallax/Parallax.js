@@ -9,69 +9,54 @@ class Parallax extends Component {
 
     this.jarallax = React.createRef();
 
-    this.parentStyle = {
-      height: this.props.height || '400px',
-      width: this.props.width || '100%'
-    };
-
     const {
-      imgSrc,
-      imgElement,
-      imgSize,
-      imgPosition,
-      imgRepeat,
-      elementInViewport,
-      zIndex,
       disableParallax,
       disableVideo,
-      videoStartTime,
-      videoEndTime,
-      videoVolume,
+      disableVideoLazyLoading,
       disableVideoLoop,
       disableVideoPlayOnlyVisible,
-      disableVideoLazyLoading
+      elementInViewport,
+      height,
+      imgElement,
+      imgPosition,
+      imgRepeat,
+      imgSize,
+      imgSrc,
+      videoEndTime,
+      videoStartTime,
+      videoVolume,
+      width,
+      zIndex
     } = this.props;
 
     this.imageOptions = {
-      imgSrc: imgSrc,
+      disableParallax: disableParallax,
+      elementInViewport: elementInViewport,
       imgElement: imgElement,
-      imgSize: imgSize,
       imgPosition: imgPosition,
       imgRepeat: imgRepeat,
-      elementInViewport: elementInViewport,
-      zIndex: zIndex,
-      disableParallax: disableParallax
+      imgSize: imgSize,
+      imgSrc: imgSrc,
+      zIndex: zIndex
     };
 
     this.videoOptions = {
-      videoStartTime: videoStartTime,
+      disableVideo: disableVideo,
       videoEndTime: videoEndTime,
-      videoVolume: videoVolume,
+      videoLazyLoading: !disableVideoLazyLoading,
       videoLoop: !disableVideoLoop,
       videoPlayOnlyVisible: !disableVideoPlayOnlyVisible,
-      videoLazyLoading: !disableVideoLazyLoading,
-      disableVideo: disableVideo
+      videoStartTime: videoStartTime,
+      videoVolume: videoVolume
     };
 
-    // this.elementOptions = {
-    //   type: type
-    // speed: this.props.speed
-    // videoLazyLoading: false
-    // };
+    this.parentStyle = {
+      height: height,
+      width: width
+    };
   }
 
   componentDidMount() {
-    // if (this.props.image) {
-    //   jarallax(this.jarallax.current, this.imageOptions);
-    // } else if (this.props.video) {
-    //   jarallax(this.jarallax.current, this.videoOptions);
-    //   jarallaxVideo(this.jarallax.current);
-    //   jarallaxElement(this.jarallax.current);
-    // } else if (this.props.element) {
-    //   jarallax(this.jarallax.current);
-    //   jarallaxElement(this.jarallax.current, this.elementOptions);
-    // }
-
     jarallax(
       this.jarallax.current,
       this.props.image
@@ -89,27 +74,27 @@ class Parallax extends Component {
   componentWillUnmount() {
     jarallax(this.jarallax.current, 'destroy');
   }
-  parentStyle = {};
 
   render() {
     const {
-      className,
-      tag: Tag,
       alt,
-      type,
-      speed,
-      image,
-      video,
-      element,
       children,
+      className,
+      element,
+      image,
       keepImg,
-      treshold
+      speed,
+      tag: Tag,
+      threshold,
+      type,
+      video
     } = this.props;
 
     const parentClasses = classNames(
       keepImg ? 'jarallax-keep-img' : 'jarallax',
       className
     );
+    const elementClasses = classNames(Tag === 'span' ? 'd-inline-block' : null);
 
     return (
       <>
@@ -122,7 +107,7 @@ class Parallax extends Component {
             data-type={type}
             data-speed={speed}
           >
-            {image && <img className='jarallax-img ' src={image} alt={alt} />}
+            <img className='jarallax-img ' src={image} alt={alt} />
             {children}
           </Tag>
         )}
@@ -141,13 +126,10 @@ class Parallax extends Component {
         )}
         {element && (
           <Tag
+            className={elementClasses}
             ref={this.jarallax}
-            // className={parentClasses}
-            // style={this.parentStyle}
-            // data-type='element'
-            // data-speed={speed}
             data-jarallax-element={speed}
-            // data-treshold={treshold}
+            data-threshold={threshold}
           >
             {children}
           </Tag>
@@ -158,168 +140,57 @@ class Parallax extends Component {
 }
 
 Parallax.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  alt: PropTypes.string.isRequired,
   className: PropTypes.string,
+  disableParallax: PropTypes.func,
+  disableVideo: PropTypes.func,
+  elementInViewport: PropTypes.node,
+  height: PropTypes.string,
   image: PropTypes.string,
-  alt: PropTypes.string,
-  speed: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
-  type: PropTypes.string,
-  keepImg: PropTypes.bool,
-  imgSrc: PropTypes.string,
   imgElement: PropTypes.string,
-  imgSize: PropTypes.string,
   imgPosition: PropTypes.string,
   imgRepeat: PropTypes.string,
-  elementInViewport: PropTypes.node,
-  zIndex: PropTypes.number,
-  disableParallax: PropTypes.func,
-
-  //  ParallaxVideo proptypes
-
-  videoSrc: PropTypes.string,
-  videoStartTime: PropTypes.number,
+  imgSize: PropTypes.string,
+  keepImg: PropTypes.bool,
+  speed: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  threshold: PropTypes.node,
+  type: PropTypes.string,
   videoEndTime: PropTypes.number,
-  videoVolume: PropTypes.number,
+  videoLazyLoading: PropTypes.bool,
   videoLoop: PropTypes.bool,
   videoPlayOnlyVisible: PropTypes.bool,
-  videoLazyLoading: PropTypes.bool,
-  disableVideo: PropTypes.func,
-  //  ParallaxElement proptypes
-
-  treshold: PropTypes.node
+  videoSrc: PropTypes.string,
+  videoStartTime: PropTypes.number,
+  videoVolume: PropTypes.number,
+  width: PropTypes.string,
+  zIndex: PropTypes.number
 };
 
 Parallax.defaultProps = {
-  tag: 'div',
   alt: 'MDBParallax image',
-  type: 'scroll',
-  imgSrc: null,
+  disableParallax: null,
+  disableVideo: null,
+  elementInViewport: null,
+  height: '600px',
   imgElement: '.jarallax-img',
-  imgSize: 'cover',
   imgPosition: '50% 50%',
   imgRepeat: 'no-repeat',
+  imgSize: 'cover',
   keepImg: false,
-  elementInViewport: null,
-  zIndex: -100,
-  disableParallax: null,
-
-  //  ParallaxVideo proptypes
-
-  videoStartTime: 0,
+  speed: 0.5,
+  tag: 'div',
+  threshold: 'null null',
+  type: 'scroll',
   videoEndTime: 0,
-  videoVolume: 0,
+  videoLazyLoading: true,
   videoLoop: true,
   videoPlayOnlyVisible: true,
-  videoLazyLoading: true,
-  disableVideo: null
-
-  //  ParallaxElement proptypes
-
-  // treshold: 'null null'
+  videoStartTime: 0,
+  videoVolume: 0,
+  width: '100%',
+  zIndex: -100
 };
 
 export default Parallax;
 export { Parallax as MDBParallax };
-
-// image='https://images.pexels.com/photos/853199/pexels-photo-853199.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'
-
-// import React, { Component } from 'react';
-// import Waves from '../../Waves';
-// import PropTypes from 'prop-types';
-// import classNames from 'classnames';
-// import jarallax from 'jarallax';
-
-// class Parallax extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.jarallax = React.createRef();
-
-//     this.parallaxOptions = {};
-
-//     this.parentStyle = {
-//       height: this.props.containterHeight || '200px'
-//     };
-//   }
-
-//   componentDidMount() {
-//     jarallax(this.jarallax.current);
-//   }
-
-//   componentWillUnmount() {
-//     jarallax(this.jarallax.current, 'destroy');
-//   }
-
-//   // handleClick = e => {
-//   //   // Get Cursor Position
-//   //   e.stopPropagation();
-//   //   let cursorPos = {
-//   //     top: e.clientY,
-//   //     left: e.clientX,
-//   //     time: Date.now()
-//   //   };
-//   //   setCursorPos(cursorPos);
-//   // };
-
-//   render() {
-//     const {
-//       className,
-//       tag: Tag,
-//       // alt,
-//       waves,
-//       children,
-//       image,
-//       cursorPos,
-//       speed
-//       // ...attributes
-//       // size,
-//       // bgColor,
-//       // text,
-//       // gradient,
-//       // src,
-//       // close,
-//       // handleClose,
-//     } = this.props;
-
-//     // const parentClasses = classNames(
-//     //   'jarallax',
-//     //   waves && 'Ripple-parent',
-//     //   className
-//     // );
-
-//     return (
-//       <Tag
-//         ref={this.jarallax}
-//         className={jarallax}
-//         // {...attributes}
-//         data-jarallax
-//         data-speed={speed}
-//       >
-//         {/* {waves && <Waves cursorPos={cursorPos} />} */}
-//         {image && <img className='jarallax-img ' src={image} alt='lol' />}
-//         {children}
-//       </Tag>
-//     );
-//   }
-// }
-
-// Parallax.propTypes = {
-//   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-//   className: PropTypes.string,
-//   // size: PropTypes.string,
-//   // bgColor: PropTypes.string,
-//   // text: PropTypes.string,
-//   // gradient: PropTypes.string,
-//   image: PropTypes.string,
-//   alt: PropTypes.string
-//   // close: PropTypes.bool,
-//   // handleClose: PropTypes.func
-// };
-
-// Parallax.defaultProps = {
-//   tag: 'div'
-// };
-
-// export default Parallax;
-// export { Parallax as MDBParallax };
-
-// // image='https://images.pexels.com/photos/853199/pexels-photo-853199.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'

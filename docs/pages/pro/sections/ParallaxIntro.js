@@ -8,16 +8,13 @@ class ParallaxIntro extends Component {
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg'
           // video='https://player.vimeo.com/video/137857207'
-          speed='2'
-          type='scale'
+          speed='0.8'
         >
           <div className='mask rgba-blue-slight' style={{ height: '100%' }}>
             <div className='container flex-center text-center'>
               <div className='row mt-5'>
                 <div className='col-md-12 col-xl-8 mx-auto ow'>
-                  <h1 className='display-3 font-weight-bold mb-2 '>
-                    MDBParallax image with a mask and a content
-                  </h1>
+                  <h1 className='font-weight-bold mb-2 '>MDBParallax</h1>
                 </div>
               </div>
             </div>
@@ -91,74 +88,74 @@ class ParallaxIntro extends Component {
             </div>
           </div>
         </div>
-        {/*
-    // this.imageOptions = {
-    //   type: type,
-    //   speed: speed
-    // imgSrc: imgSrc,
-    // imgElement: imgElement,
-    // imgSize: imgSize,
-    // imgPosition: imgPosition,
-    // imgRepeat: imgRepeat,
-    // keepImg: keepImg,
-    // elementInViewport: elementInViewport,
-    // zIndex: zIndex,
-    // disableParallax: disableParallax
-    // };
-*/}
-
         <MDBParallax
           image='http://mdbootstrap.com/img/Photos/Others/nature4.jpg'
-          speed={2}
+          speed={0.3}
           height='50vh'
-          type='scale'
-          zIndex={-120}
         />
-        <MDBParallax element tag='span' speed={-140}>
-          Youtube
-        </MDBParallax>
-        <MDBParallax element tag='span' speed={-123}>
-          Vimeo
-        </MDBParallax>
-        <MDBParallax element tag='span' speed={1}>
-          and
-        </MDBParallax>
-        <MDBParallax element tag='span' speed='12 23'>
-          &lt;video&gt;
-        </MDBParallax>
-
         <div className='container'>
           <div className='row'>
             <div className='col-md-12 text-center'>
               <h2 className='h1 font-weight-bold indigo-text my-5 py-4'>
-                Different MDBParallax speed
+                Different &nbsp;
+                <MDBParallax element tag='span' speed='-140'>
+                  M
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='80'>
+                  D
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='-50'>
+                  B
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='140'>
+                  P
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='-120'>
+                  a
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='300'>
+                  r
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='-140'>
+                  a
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='90'>
+                  l
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='-20'>
+                  l
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='60'>
+                  a
+                </MDBParallax>
+                <MDBParallax element tag='span' speed='-130'>
+                  X
+                </MDBParallax>
+                &nbsp; speed
               </h2>
             </div>
           </div>
         </div>
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/city13.jpg'
-          // top='0px'
-          speed={0.5}
+          speed={0.8}
           height='50vh'
         />
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/images/92.jpg'
-          // top='0px'
-          speed={-0.8}
+          speed={1.2}
           height='50vh'
         />
         <MDBParallax
-          image='https://bitbucket.org/startupflow/img/raw/a02ba123f067cbfdd1b6b0d632d71bca9f0e0f52/Photos/Horizontal/Relax/full%20page/spa.jpg'
-          // top='0px'
-          speed={-1.1}
+          image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(21).jpg'
+          speed={0.2}
           height='50vh'
         />
         <div className='container'>
           <div className='row'>
             <div className='col-md-12 text-center'>
               <h2 className='h1 font-weight-bold pink-text my-5 py-4'>
-                MDBParallax &lt;img&gt; tag
+                MDBParallax <i>keepImg</i> props
               </h2>
             </div>
           </div>
@@ -178,11 +175,11 @@ class ParallaxIntro extends Component {
 
             <div className='float-md-left mr-md-4 mb-4 mb-md-0'>
               <MDBParallax
-                image='https://images.unsplash.com/photo-1571730125465-0ca1959336ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2105&q=80'
+                image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(60).jpg'
                 keepImg
-                speed={0.2}
-                height='400px'
-                width='400px'
+                speed={0.5}
+                height='300px'
+                width='300px'
               />
             </div>
 
@@ -217,11 +214,11 @@ class ParallaxIntro extends Component {
 
             <div className='float-md-right ml-md-4 mb-4 mb-md-0'>
               <MDBParallax
-                image='https://images.unsplash.com/photo-1571730125465-0ca1959336ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2105&q=80'
-                speed={-0.2}
+                image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(26).jpg'
+                speed={1.3}
                 keepImg
-                height='400px'
-                width='400px'
+                height='300px'
+                width='300px'
               />
             </div>
             <p className='mb-0 pb-5' align='justify'>
@@ -259,8 +256,43 @@ class ParallaxIntro extends Component {
         <div className='container'>
           <div className='row'>
             <div className='col-md-12 text-center'>
+              <h2 className='h1 font-weight-bold pink-text my-5 py-4'>
+                Different MDBParallax effects
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <MDBParallax
+          image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(19).jpg'
+          speed={0.5}
+          height='50vh'
+          type='scale'
+        />
+        <MDBParallax
+          image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(18).jpg'
+          speed={2}
+          height='50vh'
+          type='opacity'
+        />
+        <MDBParallax
+          image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(20).jpg'
+          speed={0.2}
+          height='50vh'
+          type='scroll-opacity'
+        />
+        <MDBParallax
+          image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(57).jpg'
+          speed={0.2}
+          height='50vh'
+          type='scale-opacity'
+        />
+
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-12 text-center overflow-hidden'>
               <h2 className='h1 font-weight-bold cyan-text my-5 py-4'>
-                MDBParallax
+                Support Youtube &amp; Vimeo links
               </h2>
             </div>
           </div>
