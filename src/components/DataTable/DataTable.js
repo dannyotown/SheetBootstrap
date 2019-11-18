@@ -310,7 +310,7 @@ class DataTable extends Component {
         el => arr.push(el[filter])
       );
       arr = [...new Set(arr)].sort((a, b) => a.localeCompare(b));
-      arr = arr.map((text, value) => ({ text, value }));
+      arr = arr.map((text, value) => ({ text, value: `${value}` }));
 
       this.setState({ filterOptions: arr });
     }
