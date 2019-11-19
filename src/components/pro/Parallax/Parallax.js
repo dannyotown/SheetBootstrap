@@ -67,8 +67,8 @@ class Parallax extends Component {
         ? this.props.elementOptions
         : null
     );
-    jarallaxVideo();
-    jarallaxElement();
+    jarallaxVideo(this.jarallax.current);
+    jarallaxElement(this.jarallax.current);
   }
 
   componentWillUnmount() {
@@ -160,7 +160,7 @@ Parallax.propTypes = {
   videoLazyLoading: PropTypes.bool,
   videoLoop: PropTypes.bool,
   videoPlayOnlyVisible: PropTypes.bool,
-  videoSrc: PropTypes.string,
+  video: PropTypes.string,
   videoStartTime: PropTypes.number,
   videoVolume: PropTypes.number,
   width: PropTypes.string,

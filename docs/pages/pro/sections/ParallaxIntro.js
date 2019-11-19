@@ -7,7 +7,6 @@ class ParallaxIntro extends Component {
       <>
         <MDBParallax
           image='https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg'
-          // video='https://player.vimeo.com/video/137857207'
           speed='0.8'
         >
           <div className='mask rgba-blue-slight' style={{ height: '100%' }}>
