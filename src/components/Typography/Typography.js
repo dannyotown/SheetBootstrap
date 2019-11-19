@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import './Typography.css';
+import { MDBBox } from 'mdbreact';
 
 class Typogrphy extends React.Component {
   render() {
@@ -10,18 +11,15 @@ class Typogrphy extends React.Component {
       tag: Tag,
       children,
       variant,
-      abbr,
-      abbrTitle,
-      abbrText,
-      abbrClasses,
-      abbrLeftText,
       blockquote,
       bqColor,
       bqTitle,
-      bgFooter,
+      bqFooter,
+      bqText,
       listUnStyled,
       listInLine,
       colorText,
+      text,
       note,
       noteColor,
       noteTitle,
@@ -31,52 +29,41 @@ class Typogrphy extends React.Component {
     const classes = classNames(
       variant && variant,
       colorText && `${colorText.toLowerCase()}-text`,
+      text && `text-${text}`,
       className
     );
     const bc = classNames('blockquote', bqColor && `bq-${bqColor}`, className);
-    const notes = classNames('note', noteColor && `note-${noteColor}`);
+    const notes = classNames(
+      'note',
+      noteColor && `note-${noteColor}`,
+      className
+    );
     const isEmptyClass = classes !== '' ? classes : null;
 
-    if (abbr) {
+    if (blockquote) {
       return (
-        <Tag {...attributes}>
-          {abbrLeftText ? (
-            <>
-              <abbr title={abbrTitle} className={abbrClasses}>
-                {abbrText}
-              </abbr>
-              {children}
-            </>
-          ) : (
-            <>
-              {children}
-              <abbr title={abbrTitle} className={abbrClasses}>
-                {abbrText}
-              </abbr>
-            </>
-          )}
-        </Tag>
-      );
-    } else if (blockquote) {
-      return (
-        <blockquote className={bc}>
-          {bqTitle && <p className='bq-title'>{bqTitle}</p>}
+        <MDBBox tag='blockquote' className={bc}>
           {children}
-          {bgFooter && (
-            <footer className='blockquote-footer mb-3'>{bgFooter}</footer>
-          )}
-        </blockquote>
+        </MDBBox>
       );
     } else if (listUnStyled) {
-      return <ul className='list-unstyled'>{children}</ul>;
+      return (
+        <MDBBox tag='ul' className='list-unstyled'>
+          {children}
+        </MDBBox>
+      );
     } else if (listInLine) {
-      return <ul className='list-inline'>{children}</ul>;
+      return (
+        <MDBBox tag='ul' className='list-inline'>
+          {children}
+        </MDBBox>
+      );
     } else if (note) {
       return (
-        <Tag className={notes}>
+        <MDBBox tag='p' className={notes}>
           <strong>{noteTitle}</strong>
           {children}
-        </Tag>
+        </MDBBox>
       );
     } else {
       return (
@@ -92,11 +79,6 @@ Typogrphy.propTypes = {
   className: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   variant: PropTypes.string,
-  abbr: PropTypes.bool,
-  abbrTitle: PropTypes.string,
-  abbarText: PropTypes.string,
-  abbrClasses: PropTypes.string,
-  abbrLeftText: PropTypes.bool,
   blockquote: PropTypes.bool,
   bqColor: PropTypes.string,
   bqTitle: PropTypes.string,

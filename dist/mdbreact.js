@@ -8282,7 +8282,7 @@ TreeviewList.contextTypes = {
   theme: propTypes.string
 };
 
-var css$9 = ".note-dark {\n  background-color: #000;\n  color: #fff;\n  border-color: #58595a;\n}\n\n.note-default {\n  background-color: rgb(164, 243, 235);\n  border-color: #00695c;\n}\n\n.note-elegant {\n  background-color: #2E2E2E;\n  border-color: #212121;\n  color: #fff;\n}\n\n.note-stylish {\n  background-color: #4B515D;\n  border-color: #3E4551;\n  color: #fff;\n}\n\n.note-unique {\n  background-color: #3F729B;\n  border-color: #1C2331;\n  color: #fff;\n}\n\n.note-special {\n  background-color: #37474F;\n  border-color: #263238;\n  color: #fff;\n}\n";
+var css$9 = ".note-dark {\r\n  background-color: #000;\r\n  color: #fff;\r\n  border-color: #58595a;\r\n}\r\n\r\n.note-default {\r\n  background-color: rgb(164, 243, 235);\r\n  border-color: #00695c;\r\n}\r\n\r\n.note-elegant {\r\n  background-color: #2E2E2E;\r\n  border-color: #212121;\r\n  color: #fff;\r\n}\r\n\r\n.note-stylish {\r\n  background-color: #4B515D;\r\n  border-color: #3E4551;\r\n  color: #fff;\r\n}\r\n\r\n.note-unique {\r\n  background-color: #3F729B;\r\n  border-color: #1C2331;\r\n  color: #fff;\r\n}\r\n\r\n.note-special {\r\n  background-color: #37474F;\r\n  border-color: #263238;\r\n  color: #fff;\r\n}\r\n";
 styleInject(css$9);
 
 var Typogrphy =
@@ -8304,54 +8304,43 @@ function (_React$Component) {
           Tag = _this$props.tag,
           children = _this$props.children,
           variant = _this$props.variant,
-          abbr = _this$props.abbr,
-          abbrTitle = _this$props.abbrTitle,
-          abbrText = _this$props.abbrText,
-          abbrClasses = _this$props.abbrClasses,
-          abbrLeftText = _this$props.abbrLeftText,
           blockquote = _this$props.blockquote,
           bqColor = _this$props.bqColor,
           bqTitle = _this$props.bqTitle,
-          bgFooter = _this$props.bgFooter,
+          bqFooter = _this$props.bqFooter,
+          bqText = _this$props.bqText,
           listUnStyled = _this$props.listUnStyled,
           listInLine = _this$props.listInLine,
           colorText = _this$props.colorText,
+          text = _this$props.text,
           note = _this$props.note,
           noteColor = _this$props.noteColor,
           noteTitle = _this$props.noteTitle,
-          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "children", "variant", "abbr", "abbrTitle", "abbrText", "abbrClasses", "abbrLeftText", "blockquote", "bqColor", "bqTitle", "bgFooter", "listUnStyled", "listInLine", "colorText", "note", "noteColor", "noteTitle"]);
+          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "children", "variant", "blockquote", "bqColor", "bqTitle", "bqFooter", "bqText", "listUnStyled", "listInLine", "colorText", "text", "note", "noteColor", "noteTitle"]);
 
-      var classes = classNames(variant && variant, colorText && "".concat(colorText.toLowerCase(), "-text"), className);
+      var classes = classNames(variant && variant, colorText && "".concat(colorText.toLowerCase(), "-text"), text && "text-".concat(text), className);
       var bc = classNames('blockquote', bqColor && "bq-".concat(bqColor), className);
-      var notes = classNames('note', noteColor && "note-".concat(noteColor));
+      var notes = classNames('note', noteColor && "note-".concat(noteColor), className);
       var isEmptyClass = classes !== '' ? classes : null;
 
-      if (abbr) {
-        return React__default.createElement(Tag, attributes, abbrLeftText ? React__default.createElement(React__default.Fragment, null, React__default.createElement("abbr", {
-          title: abbrTitle,
-          className: abbrClasses
-        }, abbrText), children) : React__default.createElement(React__default.Fragment, null, children, React__default.createElement("abbr", {
-          title: abbrTitle,
-          className: abbrClasses
-        }, abbrText)));
-      } else if (blockquote) {
-        return React__default.createElement("blockquote", {
+      if (blockquote) {
+        return React__default.createElement(mdbreact.MDBBox, {
+          tag: "blockquote",
           className: bc
-        }, bqTitle && React__default.createElement("p", {
-          className: "bq-title"
-        }, bqTitle), children, bgFooter && React__default.createElement("footer", {
-          className: "blockquote-footer mb-3"
-        }, bgFooter));
+        }, children);
       } else if (listUnStyled) {
-        return React__default.createElement("ul", {
+        return React__default.createElement(mdbreact.MDBBox, {
+          tag: "ul",
           className: "list-unstyled"
         }, children);
       } else if (listInLine) {
-        return React__default.createElement("ul", {
+        return React__default.createElement(mdbreact.MDBBox, {
+          tag: "ul",
           className: "list-inline"
         }, children);
       } else if (note) {
-        return React__default.createElement(Tag, {
+        return React__default.createElement(mdbreact.MDBBox, {
+          tag: "p",
           className: notes
         }, React__default.createElement("strong", null, noteTitle), children);
       } else {
@@ -8369,11 +8358,6 @@ Typogrphy.propTypes = {
   className: propTypes.string,
   tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
   variant: propTypes.string,
-  abbr: propTypes.bool,
-  abbrTitle: propTypes.string,
-  abbarText: propTypes.string,
-  abbrClasses: propTypes.string,
-  abbrLeftText: propTypes.bool,
   blockquote: propTypes.bool,
   bqColor: propTypes.string,
   bqTitle: propTypes.string,

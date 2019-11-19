@@ -2,7 +2,7 @@ import * as React from 'react';
 
 declare const MDBTypogrphy: React.FunctionComponent<{
   className?: string;
-  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  tag?: 'ul' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   variant?:
     | 'h1'
     | 'h2'
@@ -20,11 +20,6 @@ declare const MDBTypogrphy: React.FunctionComponent<{
     | 'display-2'
     | 'display-3'
     | 'display-4';
-  abbr?: boolean;
-  abbrTitle?: string;
-  abbarText?: string;
-  abbrClasses?: string;
-  abbrLeftText?: boolean;
   blockquote?: boolean;
   bqColor?:
     | 'primary'
