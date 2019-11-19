@@ -10,11 +10,11 @@ var classNames = _interopDefault(require('classnames'));
 var reactTransitionGroup = require('react-transition-group');
 var ReactDOM = _interopDefault(require('react-dom'));
 var reactPopper = require('react-popper');
+var mdbreact = require('mdbreact');
 var NumericInput = _interopDefault(require('react-numeric-input'));
 var FocusTrap = _interopDefault(require('focus-trap-react'));
 var reactRouterDom = require('react-router-dom');
 var Popper = _interopDefault(require('popper.js'));
-var mdbreact = require('mdbreact');
 var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
 var moment = _interopDefault(require('moment'));
@@ -5988,6 +5988,38 @@ FreeBird.propTypes = {
 };
 FreeBird.defaultProps = {
   tag: "div"
+};
+
+var Gallery = function Gallery(props) {
+  var _props$cellHeight = props.cellHeight,
+      children = props.children,
+      className = props.className,
+      _props$cols = props.cols,
+      tag = props.tag,
+      _props$spacing = props.spacing,
+      spacing = _props$spacing === void 0 ? 4 : _props$spacing,
+      style = props.style,
+      attributes = _objectWithoutProperties(props, ["cellHeight", "children", "className", "cols", "tag", "spacing", "style"]);
+
+  var classes = classNames('page-footer', className);
+  return React__default.createElement(mdbreact.MDBBox, _extends({
+    tag: tag
+  }, attributes, {
+    style: _objectSpread2({
+      margin: -spacing / 2
+    }, style),
+    className: classes
+  }), children);
+};
+
+Gallery.propTypes = {
+  color: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node
+};
+Gallery.defaultProps = {
+  tag: 'div'
 };
 
 var css$7 = ".hamburger-button__checkbox {\r\n  display: none;\r\n}\r\n\r\n.hamburger-button__button {\r\n  background-color: transparent;\r\n  height: 100%;\r\n  width: 100%;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  top: -5px;\r\n}\r\n\r\nlabel.hamburger-button__button {\r\n  margin-bottom: 0;\r\n}\r\n\r\n#nav-icon1 {\r\n  width: 1.5em;\r\n  height: 1.5em;\r\n  position: relative;\r\n  -webkit-transform: rotate(0deg);\r\n  -moz-transform: rotate(0deg);\r\n  -o-transform: rotate(0deg);\r\n  transform: rotate(0deg);\r\n  -webkit-transition: .5s ease-in-out;\r\n  -moz-transition: .5s ease-in-out;\r\n  -o-transition: .5s ease-in-out;\r\n  transition: .5s ease-in-out;\r\n  cursor: pointer;\r\n}\r\n\r\n#nav-icon1 span {\r\n  display: block;\r\n  position: absolute;\r\n  height: 3px;\r\n  width: 100%;\r\n  border-radius: 1px;\r\n  background-color: #fff;\r\n  opacity: 1;\r\n  left: 0;\r\n  -webkit-transform: rotate(0deg);\r\n  -moz-transform: rotate(0deg);\r\n  -o-transform: rotate(0deg);\r\n  transform: rotate(0deg);\r\n  -webkit-transition: .25s ease-in-out;\r\n  -moz-transition: .25s ease-in-out;\r\n  -o-transition: .25s ease-in-out;\r\n  transition: .25s ease-in-out;\r\n}\r\n\r\n#nav-icon1 span:nth-child(1) {\r\n  top: 5px;\r\n}\r\n\r\n#nav-icon1 span:nth-child(2) {\r\n  top: 16px;\r\n}\r\n\r\n#nav-icon1 span:nth-child(3) {\r\n  top: 27px;\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(1) {\r\n  top: 16px;\r\n  -webkit-transform: rotate(135deg);\r\n  -moz-transform: rotate(135deg);\r\n  -o-transform: rotate(135deg);\r\n  transform: rotate(135deg);\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(2) {\r\n  opacity: 0;\r\n  left: -60px;\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(3) {\r\n  top: 16px;\r\n  -webkit-transform: rotate(-135deg);\r\n  -moz-transform: rotate(-135deg);\r\n  -o-transform: rotate(-135deg);\r\n  transform: rotate(-135deg);\r\n}\r\n";
@@ -13338,6 +13370,7 @@ exports.FlippingCard = RotatingCard;
 exports.Footer = Footer;
 exports.FormInline = FormInline;
 exports.FreeBird = FreeBird;
+exports.Gallery = Gallery;
 exports.HamburgerToggler = HamburgerToggler;
 exports.Iframe = Iframe;
 exports.Input = Input;
@@ -13398,6 +13431,7 @@ exports.MDBFileInput = InputFile;
 exports.MDBFooter = Footer;
 exports.MDBFormInline = FormInline;
 exports.MDBFreeBird = FreeBird;
+exports.MDBGallery = Gallery;
 exports.MDBHamburgerToggler = HamburgerToggler;
 exports.MDBIcon = Fa;
 exports.MDBIframe = Iframe;

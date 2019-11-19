@@ -1,89 +1,87 @@
 import React, { Component } from 'react';
-import { MDBTypography, MDBBox } from 'mdbreact';
+import { MDBGallery } from 'mdbreact';
+import MDBGalleryList from '../src/components/Gallery/GalleryList/GalleryList';
 
 class App extends Component {
   render() {
+    const dataImg = [
+      {
+        img:
+          'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg',
+        title: 'Image',
+        author: 'author',
+        cols: 1
+      },
+      {
+        img:
+          'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(72).jpg',
+        title: 'Image',
+        author: 'author',
+        cols: 2
+      },
+      {
+        img:
+          'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(71).jpg',
+        title: 'Image',
+        author: 'author',
+        cols: 1
+      },
+      {
+        img:
+          'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(74).jpg',
+        title: 'Image',
+        author: 'author',
+        cols: 2
+      },
+      {
+        img:
+          'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg',
+        title: 'Image',
+        author: 'author',
+        cols: 2
+      },
+
+      {
+        img:
+          'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(78).jpg',
+        title: 'Image',
+        author: 'author',
+        cols: 1
+      },
+      {
+        img:
+          'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(77).jpg',
+        title: 'Image',
+        author: 'author',
+        cols: 2
+      },
+      {
+        img:
+          'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(79).jpg',
+        title: 'Image',
+        author: 'author',
+        cols: 1
+      }
+    ];
     return (
-      <>
-        <MDBTypography note noteColor='primary' noteTitle='Note primary: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='secondary' noteTitle='Note secondary: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='success' noteTitle='Note success: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='danger' noteTitle='Note danger: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='warning' noteTitle='Note warning: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='info' noteTitle='Note info: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='light' noteTitle='Note light: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='default' noteTitle='Note default: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='dark' noteTitle='Note dark: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='unique' noteTitle='Note unique: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='stylish' noteTitle='Note stylish: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='elegant' noteTitle='Note elegant: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-        <MDBTypography note noteColor='special' noteTitle='Note special: '>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
-          doloremque officia laboriosam. Itaque ex obcaecati architecto! Qui
-          necessitatibus delectus placeat illo rem id nisi consequatur esse,
-          sint perspiciatis soluta porro?
-        </MDBTypography>
-      </>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-around',
+          overflow: 'hidden'
+        }}
+      >
+        <MDBGallery cols={4} style={{ width: '500px', height: '450px' }}>
+          {dataImg.map((images, i) => {
+            return (
+              <MDBGalleryList key={i} cols={images.cols || 1}>
+                <img src={images.img} alt={images.title} />
+              </MDBGalleryList>
+            );
+          })}
+        </MDBGallery>
+      </div>
     );
   }
 }

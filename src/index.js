@@ -37,6 +37,7 @@ import Fa from './components/Fa';
 import Footer from './components/Footer';
 import FormInline from './components/FormInline';
 import FreeBird from './components/FreeBird';
+import Gallery from './components/Gallery';
 import HamburgerToggler from './components/HamburgerToggler';
 import Iframe from './components/Iframe';
 import Input from './components/Input';
@@ -125,11 +126,7 @@ import Testimonial from './components/pro/Testimonial';
 import Timeline from './components/pro/Timeline';
 import TimelineStep from './components/pro/Timeline/TimelineStep';
 import TimePicker from './components/pro/TimePicker/TimePicker';
-import {
-  toast,
-  ToastContainer,
-  cssTransition
-} from './components/pro/Toast';
+import { toast, ToastContainer, cssTransition } from './components/pro/Toast';
 // PRO-END
 
 export {
@@ -172,6 +169,7 @@ export {
   Footer,
   FormInline,
   FreeBird,
+  Gallery,
   HamburgerToggler,
   Iframe,
   Input,
@@ -304,6 +302,7 @@ export {
   Footer as MDBFooter,
   FormInline as MDBFormInline,
   FreeBird as MDBFreeBird,
+  Gallery as MDBGallery,
   HamburgerToggler as MDBHamburgerToggler,
   Iframe as MDBIframe,
   Input as MDBInput,

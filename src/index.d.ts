@@ -37,6 +37,7 @@ import MDBEdgeHeader from './components/EdgeHeader';
 import MDBFooter from './components/Footer';
 import MDBFormInline from './components/FormInline';
 import MDBFreeBird from './components/FreeBird';
+import MDBGallery from './components/Gallery';
 import MDBHamburgerToggler from './components/HamburgerToggler';
 import MDBIframe from './components/Iframe';
 import MDBInput from './components/Input';
@@ -165,6 +166,7 @@ export {
   MDBDropdownMenu,
   MDBDropdownToggle,
   MDBEdgeHeader,
+  MDBGallery,
   MDBFooter,
   MDBFormInline,
   MDBFreeBird,
