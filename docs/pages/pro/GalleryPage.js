@@ -196,7 +196,7 @@ const TimelinePage = () => {
       </SectionContainer>
       <SectionContainer
         tag='section'
-        header='Different size of rows in gallery list'
+        header='Different size of rows and columns in gallery list'
         className='p-5'
       >
         <div
