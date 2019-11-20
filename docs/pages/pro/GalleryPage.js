@@ -1,7 +1,24 @@
 import React from 'react';
-import { MDBContainer, MDBGallery, MDBGalleryList } from 'mdbreact';
+import { MDBContainer, MDBGallery, MDBGalleryList, MDBBox } from 'mdbreact';
 import DocsLink from './../../components/docsLink';
 import SectionContainer from './../../components/sectionContainer';
+
+const GalleryWrapper = ({ children }) => {
+  return (
+    <MDBBox
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        overflow: 'hidden',
+        padding: '2px'
+      }}
+      className='my-3'
+    >
+      {children}
+    </MDBBox>
+  );
+};
 
 const GalleryPage = () => {
   const dataImg = [
@@ -64,25 +81,17 @@ const GalleryPage = () => {
       />
 
       <SectionContainer tag='section' header='Basic example' className='p-5'>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            overflow: 'hidden'
-          }}
-          className='my-3'
-        >
+        <GalleryWrapper>
           <MDBGallery cols={4}>
-            {dataImg.map((images, i) => {
+            {dataImg.map(({ cols, img, title }, i) => {
               return (
-                <MDBGalleryList key={i} cols={images.cols || 1}>
-                  <img src={images.img} alt={images.title} />
+                <MDBGalleryList key={i} cols={cols || 1}>
+                  <img src={img} alt={title} />
                 </MDBGalleryList>
               );
             })}
           </MDBGallery>
-        </div>
+        </GalleryWrapper>
       </SectionContainer>
 
       <SectionContainer
@@ -90,146 +99,106 @@ const GalleryPage = () => {
         header='Rounded with shadows'
         className='p-5'
       >
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            overflow: 'hidden'
-          }}
-          className='my-3'
-        >
+        <GalleryWrapper>
           <MDBGallery cols={4}>
-            {dataImg.map((images, i) => {
+            {dataImg.map(({ cols, img, title }, i) => {
               return (
                 <MDBGalleryList
                   key={i}
-                  cols={images.cols || 1}
+                  cols={cols || 1}
                   titleClasses='rounded'
                   styles={{ boxShadow: '0 0 3px rgba(0,0,0, .3)' }}
                 >
-                  <img src={images.img} alt={images.title} />
+                  <img src={img} alt={title} />
                 </MDBGalleryList>
               );
             })}
           </MDBGallery>
-        </div>
+        </GalleryWrapper>
       </SectionContainer>
-      <SectionContainer tag='section' header='With scrollbar' className='p-5'>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            overflow: 'hidden'
-          }}
-          className='my-3'
-        >
-          <MDBGallery cols={4} style={{ width: '500px', height: '400px' }}>
-            {dataImg.map((images, i) => {
+      <SectionContainer
+        tag='section'
+        header='With perfect-scrollbar'
+        className='p-5'
+      >
+        <GalleryWrapper>
+          <MDBGallery
+            className='scrollbar '
+            cols={4}
+            style={{ width: '500px', height: '400px' }}
+          >
+            {dataImg.map(({ cols, img, title }, i) => {
               return (
                 <MDBGalleryList
                   key={i}
-                  cols={images.cols || 1}
+                  cols={cols || 1}
                   titleClasses='rounded'
                   styles={{ boxShadow: '0 0 3px rgba(0,0,0, .3)' }}
                 >
-                  <img src={images.img} alt={images.title} />
+                  <img src={img} alt={title} />
                 </MDBGalleryList>
               );
             })}
           </MDBGallery>
-        </div>
+        </GalleryWrapper>
       </SectionContainer>
       <SectionContainer
         tag='section'
         header='Different spacing'
         className='p-5'
       >
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            overflow: 'hidden'
-          }}
-          className='my-3'
-        >
+        <GalleryWrapper>
           <MDBGallery cols={4} spacing={0}>
-            {dataImg.map((images, i) => {
+            {dataImg.map(({ cols, img, title }, i) => {
               return (
-                <MDBGalleryList key={i} cols={images.cols || 1}>
-                  <img src={images.img} alt={images.title} />
+                <MDBGalleryList key={i} cols={cols || 1}>
+                  <img src={img} alt={title} />
                 </MDBGalleryList>
               );
             })}
           </MDBGallery>
-        </div>
+        </GalleryWrapper>
         <hr />
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            overflow: 'hidden'
-          }}
-          className='my-3'
-        >
+        <GalleryWrapper>
           <MDBGallery cols={4} spacing={30}>
-            {dataImg.map((images, i) => {
+            {dataImg.map(({ cols, img, title }, i) => {
               return (
-                <MDBGalleryList key={i} cols={images.cols || 1}>
-                  <img src={images.img} alt={images.title} />
+                <MDBGalleryList key={i} cols={cols || 1}>
+                  <img src={img} alt={title} />
                 </MDBGalleryList>
               );
             })}
           </MDBGallery>
-        </div>
+        </GalleryWrapper>
       </SectionContainer>
       <SectionContainer
         tag='section'
         header='Different size of rows and columns in gallery list'
         className='p-5'
       >
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            overflow: 'hidden'
-          }}
-          className='my-3'
-        >
+        <GalleryWrapper>
           <MDBGallery cols={3}>
-            {dataImg.map((images, i) => {
+            {dataImg.map(({ cols, img, title }, i) => {
               return (
-                <MDBGalleryList key={i} cols={images.cols || 1}>
-                  <img src={images.img} alt={images.title} />
+                <MDBGalleryList key={i} cols={cols || 1}>
+                  <img src={img} alt={title} />
                 </MDBGalleryList>
               );
             })}
           </MDBGallery>
-        </div>
+        </GalleryWrapper>
         <hr />
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-around',
-            overflow: 'hidden'
-          }}
-          className='my-3'
-        >
+        <GalleryWrapper>
           <MDBGallery cols={3}>
-            {dataImg.map((images, i) => {
+            {dataImg.map(({ cols, img, title }, i) => {
               return (
-                <MDBGalleryList key={i} cols={images.cols || 1} rows={2}>
-                  <img src={images.img} alt={images.title} />
+                <MDBGalleryList key={i} cols={cols || 1} rows={2}>
+                  <img src={img} alt={title} />
                 </MDBGalleryList>
               );
             })}
           </MDBGallery>
-        </div>
+        </GalleryWrapper>
       </SectionContainer>
     </MDBContainer>
   );
