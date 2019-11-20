@@ -1,5 +1,12 @@
 import React from 'react';
-import { MDBContainer, MDBGallery, MDBGalleryList, MDBBox } from 'mdbreact';
+import {
+  MDBContainer,
+  MDBGallery,
+  MDBGalleryList,
+  MDBBox,
+  MDBMask,
+  MDBView
+} from 'mdbreact';
 import DocsLink from './../../components/docsLink';
 import SectionContainer from './../../components/sectionContainer';
 
@@ -21,55 +28,73 @@ const GalleryWrapper = ({ children }) => {
 };
 
 const GalleryPage = () => {
+  const galleryRef = React.createRef('');
+
   const dataImg = [
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg',
       cols: 1,
-      title: 'image'
+      title: 'image',
+      pattern: 1,
+      overlay: 'blue-strong'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(72).jpg',
       cols: 2,
-      title: 'image'
+      title: 'image',
+      pattern: 2,
+      overlay: 'blue-light'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(71).jpg',
       cols: 1,
-      title: 'image'
+      title: 'image',
+      pattern: 3,
+      overlay: 'blue-slight'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(74).jpg',
       cols: 2,
-      title: 'image'
+      title: 'image',
+      pattern: 4,
+      overlay: 'lime-strong'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg',
       cols: 2,
-      title: 'image'
+      title: 'image',
+      pattern: 5,
+      overlay: 'lime-light'
     },
 
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(78).jpg',
       cols: 1,
-      title: 'image'
+      title: 'image',
+      pattern: 6,
+      overlay: 'lime-slight'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(77).jpg',
       cols: 2,
-      title: 'image'
+      title: 'image',
+      pattern: 7,
+      overlay: 'teal-strong'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(79).jpg',
       cols: 1,
-      title: 'image'
+      title: 'image',
+      pattern: 8,
+      overlay: 'teal-light'
     }
   ];
 
@@ -194,6 +219,71 @@ const GalleryPage = () => {
               return (
                 <MDBGalleryList key={i} cols={cols || 1} rows={2}>
                   <img src={img} alt={title} />
+                </MDBGalleryList>
+              );
+            })}
+          </MDBGallery>
+        </GalleryWrapper>
+      </SectionContainer>
+      <SectionContainer tag='section' header='With masks' className='p-5'>
+        <GalleryWrapper>
+          <MDBGallery cols={4}>
+            {dataImg.map(({ cols, img, title, pattern }, i) => {
+              return (
+                <MDBGalleryList
+                  key={i}
+                  cols={cols || 1}
+                  rows={2}
+                  titleClasses='view'
+                >
+                  <img src={img} alt={title} />
+                  <MDBMask pattern={pattern} className='flex-center'>
+                    <MDBBox
+                      tag='p'
+                      color='white'
+                      style={{
+                        position: 'absolute',
+                        top: '50%'
+                      }}
+                    >
+                      With masks pattern {i + 1}
+                    </MDBBox>
+                  </MDBMask>
+                </MDBGalleryList>
+              );
+            })}
+          </MDBGallery>
+        </GalleryWrapper>
+      </SectionContainer>
+
+      <SectionContainer
+        tag='section'
+        header='With hover effects'
+        className='p-5'
+      >
+        <GalleryWrapper>
+          <MDBGallery cols={4}>
+            {dataImg.map(({ cols, img, title, pattern, overlay }, i) => {
+              return (
+                <MDBGalleryList
+                  key={i}
+                  cols={cols || 1}
+                  rows={2}
+                  titleClasses='view overlay'
+                >
+                  <img src={img} alt={title} />
+                  <MDBMask className='flex-center' overlay={overlay}>
+                    <MDBBox
+                      tag='p'
+                      color='white'
+                      style={{
+                        position: 'absolute',
+                        top: '50%'
+                      }}
+                    >
+                      With {overlay}
+                    </MDBBox>
+                  </MDBMask>
                 </MDBGalleryList>
               );
             })}
