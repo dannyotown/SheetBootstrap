@@ -1,9 +1,9 @@
-.main {
+.mdb-gallery-element {
   box-sizing: border-box;
   flex-shrink: 0;
 }
 
-.title {
+.mdb-gallery-title {
   height: 100%;
   display: block;
   overflow: hidden;

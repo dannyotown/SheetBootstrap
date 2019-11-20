@@ -52,10 +52,13 @@ const Gallery = React.forwardRef(function Gallery(props, ref) {
 });
 
 Gallery.propTypes = {
-  color: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  cellHeight: PropTypes.number,
+  cols: PropTypes.number,
+  spacing: PropTypes.number,
+  style: PropTypes.object
 };
 
 Gallery.defaultProps = {

@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode, Component, ElementType, RefObject, SyntheticEvent, FormEvent } from 'react';
+import { FunctionComponent, ReactNode, Component, ElementType, RefObject, SyntheticEvent, ReactChild, FormEvent } from 'react';
 
 declare const MDBAlert: FunctionComponent<{
   color?:
@@ -683,12 +683,24 @@ declare const MDBFreeBird: FunctionComponent<{
   [rest: string]: any;
 }>;
 
-declare const MDBFooter$1: FunctionComponent<{
-  color?: string;
+declare const MDBGallery: FunctionComponent<{
+  cellHeight?: number;
+  children?: ReactChild;
+  className?: string;
+  cols?: number;
+  tag?: string;
+  spacing?: number;
+  style?: object;
+}>;
+
+declare const MDBGalleryList: FunctionComponent<{
   children?: ReactNode;
   className?: string;
+  cols?: number;
   tag?: string;
-  [rest: string]: any;
+  rows?: number;
+  titleClasses?: string;
+  elementClasses?: string;
 }>;
 
 declare const MDBHamburgerToggler: FunctionComponent<{
@@ -2020,4 +2032,4 @@ declare class MDBToast extends Component<any, any> {}
 
 declare class MDBToastContainer extends Component<any, any> {}
 
-export { MDBAlert, MDBAnimation, MDBAutocomplete, MDBAvatar, MDBBadge, MDBBox, MDBBreadcrumb, MDBBreadcrumbItem, MDBBtn, MDBBtnGroup, MDBBtnToolbar, MDBBtnFixed as MDBButtonFixed, MDBBtnFixedItem as MDBButtonFixedItem, MDBCard, MDBCardBody, MDBCardFooter, MDBCardGroup, MDBCardHeader, MDBCardImage, MDBCardText, MDBCardTitle, MDBCardUp, MDBCarousel, MDBCarouselCaption, MDBCarouselControl, MDBCarouselIndicator, MDBCarouselIndicators, MDBCarouselInner, MDBCarouselItem, MDBChip, MDBChipsInput, MDBCloseIcon, MDBCol, MDBCollapse, MDBCollapseHeader, MDBContainer, MDBDataTable, MDBDatePicker, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBEdgeHeader, MDBExportToCSV, MDBFileInput, MDBFooter, MDBFormInline, MDBFreeBird, MDBFooter$1 as MDBGallery, MDBHamburgerToggler, MDBIcon, MDBIframe, MDBInput, MDBInputGroup, MDBInputSelect as MDBInputNumeric, MDBJumbotron, MDBLightbox, MDBListGroup, MDBListGroupItem, MDBMask, MDBMedia, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBNav, MDBNavItem, MDBNavLink, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNotification, MDBPageItem, MDBPageLink as MDBPageNav, MDBPagination, MDBPerfectScrollbar, MDBPopper as MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBPopper, MDBProgress, MDBInputRange as MDBRangeInput, MDBRating, MDBRotatingCard, MDBRow, MDBScrollSpyBox as MDBScrollspyBox, MDBScrollSpyList as MDBScrollspyList, MDBScrollSpyListItem as MDBScrollspyListItem, MDBScrollSpyText as MDBScrollspyText, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions, MDBSideNav, MDBSideNavCat, MDBSideNavItem, MDBSideNavLink, MDBSideNavNav, MDBSimpleChart, MDBSmoothScroll, MDBSpinner, MDBStep, MDBStepper, MDBSticky, MDBStickyContent, MDBStreak, MDBInputSwitch as MDBSwitch, MDBTabContent, MDBTabPane, MDBTable, MDBTableBody, MDBTableEditable, MDBTableFoot, MDBTableHead, MDBTestimonial, MDBTimePicker, MDBTimeline, MDBTimelineStep, MDBToast, MDBToastContainer, MDBTreeview, MDBTreeviewItem, MDBTreeviewList, MDBTypogrphy as MDBTypo, MDBTypogrphy as MDBTypography, MDBView, MDBWaves };
+export { MDBAlert, MDBAnimation, MDBAutocomplete, MDBAvatar, MDBBadge, MDBBox, MDBBreadcrumb, MDBBreadcrumbItem, MDBBtn, MDBBtnGroup, MDBBtnToolbar, MDBBtnFixed as MDBButtonFixed, MDBBtnFixedItem as MDBButtonFixedItem, MDBCard, MDBCardBody, MDBCardFooter, MDBCardGroup, MDBCardHeader, MDBCardImage, MDBCardText, MDBCardTitle, MDBCardUp, MDBCarousel, MDBCarouselCaption, MDBCarouselControl, MDBCarouselIndicator, MDBCarouselIndicators, MDBCarouselInner, MDBCarouselItem, MDBChip, MDBChipsInput, MDBCloseIcon, MDBCol, MDBCollapse, MDBCollapseHeader, MDBContainer, MDBDataTable, MDBDatePicker, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBEdgeHeader, MDBExportToCSV, MDBFileInput, MDBFooter, MDBFormInline, MDBFreeBird, MDBGallery, MDBGalleryList, MDBHamburgerToggler, MDBIcon, MDBIframe, MDBInput, MDBInputGroup, MDBInputSelect as MDBInputNumeric, MDBJumbotron, MDBLightbox, MDBListGroup, MDBListGroupItem, MDBMask, MDBMedia, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBNav, MDBNavItem, MDBNavLink, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNotification, MDBPageItem, MDBPageLink as MDBPageNav, MDBPagination, MDBPerfectScrollbar, MDBPopper as MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBPopper, MDBProgress, MDBInputRange as MDBRangeInput, MDBRating, MDBRotatingCard, MDBRow, MDBScrollSpyBox as MDBScrollspyBox, MDBScrollSpyList as MDBScrollspyList, MDBScrollSpyListItem as MDBScrollspyListItem, MDBScrollSpyText as MDBScrollspyText, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions, MDBSideNav, MDBSideNavCat, MDBSideNavItem, MDBSideNavLink, MDBSideNavNav, MDBSimpleChart, MDBSmoothScroll, MDBSpinner, MDBStep, MDBStepper, MDBSticky, MDBStickyContent, MDBStreak, MDBInputSwitch as MDBSwitch, MDBTabContent, MDBTabPane, MDBTable, MDBTableBody, MDBTableEditable, MDBTableFoot, MDBTableHead, MDBTestimonial, MDBTimePicker, MDBTimeline, MDBTimelineStep, MDBToast, MDBToastContainer, MDBTreeview, MDBTreeviewItem, MDBTreeviewList, MDBTypogrphy as MDBTypo, MDBTypogrphy as MDBTypography, MDBView, MDBWaves };

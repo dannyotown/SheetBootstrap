@@ -1,11 +1,13 @@
 import * as React from 'react';
 
 declare const MDBGalleryList: React.FunctionComponent<{
-  color?: string;
   children?: React.ReactNode;
   className?: string;
+  cols?: number;
   tag?: string;
-  [rest: string]: any;
+  rows?: number;
+  titleClasses?: string;
+  elementClasses?: string;
 }>;
 
 export default MDBGalleryList;

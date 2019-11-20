@@ -38,6 +38,7 @@ import Footer from './components/Footer';
 import FormInline from './components/FormInline';
 import FreeBird from './components/FreeBird';
 import Gallery from './components/Gallery';
+import GalleryList from './components/Gallery/GalleryList';
 import HamburgerToggler from './components/HamburgerToggler';
 import Iframe from './components/Iframe';
 import Input from './components/Input';
@@ -170,6 +171,7 @@ export {
   FormInline,
   FreeBird,
   Gallery,
+  GalleryList,
   HamburgerToggler,
   Iframe,
   Input,
@@ -303,6 +305,7 @@ export {
   FormInline as MDBFormInline,
   FreeBird as MDBFreeBird,
   Gallery as MDBGallery,
+  GalleryList as MDBGalleryList,
   HamburgerToggler as MDBHamburgerToggler,
   Iframe as MDBIframe,
   Input as MDBInput,
