@@ -3,64 +3,56 @@ import { MDBContainer, MDBGallery, MDBGalleryList } from 'mdbreact';
 import DocsLink from './../../components/docsLink';
 import SectionContainer from './../../components/sectionContainer';
 
-const TimelinePage = () => {
+const GalleryPage = () => {
   const dataImg = [
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg',
-      title: 'Image',
-      author: 'author',
-      cols: 1
+      cols: 1,
+      title: 'image'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(72).jpg',
-      title: 'Image',
-      author: 'author',
-      cols: 2
+      cols: 2,
+      title: 'image'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(71).jpg',
-      title: 'Image',
-      author: 'author',
-      cols: 1
+      cols: 1,
+      title: 'image'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(74).jpg',
-      title: 'Image',
-      author: 'author',
-      cols: 2
+      cols: 2,
+      title: 'image'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg',
-      title: 'Image',
-      author: 'author',
-      cols: 2
+      cols: 2,
+      title: 'image'
     },
 
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(78).jpg',
-      title: 'Image',
-      author: 'author',
-      cols: 1
+      cols: 1,
+      title: 'image'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(77).jpg',
-      title: 'Image',
-      author: 'author',
-      cols: 2
+      cols: 2,
+      title: 'image'
     },
     {
       img:
         'https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(79).jpg',
-      title: 'Image',
-      author: 'author',
-      cols: 1
+      cols: 1,
+      title: 'image'
     }
   ];
 
@@ -243,4 +235,4 @@ const TimelinePage = () => {
   );
 };
 
-export default TimelinePage;
+export default GalleryPage;
