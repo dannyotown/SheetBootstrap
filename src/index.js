@@ -15,6 +15,7 @@ import CardHeader from './components/Card/CardHeader';
 import CardImage from './components/Card/CardImage';
 import CardText from './components/Card/CardText';
 import CardTitle from './components/Card/CardTitle';
+import CardVideo from './components/Card/CardVideo';
 import Carousel from './components/Carousel';
 import CarouselCaption from './components/Carousel/CarouselCaption';
 import CarouselControl from './components/Carousel/CarouselControl';
@@ -144,6 +145,7 @@ export {
   CardImage,
   CardText,
   CardTitle,
+  CardVideo,
   Carousel,
   CarouselCaption,
   CarouselControl,
@@ -274,6 +276,7 @@ export {
   CardImage as MDBCardImage,
   CardText as MDBCardText,
   CardTitle as MDBCardTitle,
+  CardVideo as MDBCardVideo,
   Carousel as MDBCarousel,
   CarouselCaption as MDBCarouselCaption,
   CarouselControl as MDBControl,

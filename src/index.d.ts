@@ -16,6 +16,7 @@ import MDBCardGroup from './components/Card/CardGroup';
 import MDBCardImage from './components/Card/CardImage';
 import MDBCardText from './components/Card/CardText';
 import MDBCardTitle from './components/Card/CardTitle';
+import MDBCardVideo from './components/Card/CardVideo';
 import MDBCarousel from './components/Carousel';
 import MDBCarouselCaption from './components/Carousel/CarouselCaption';
 import MDBCarouselControl from './components/Carousel/CarouselControl';
@@ -145,6 +146,7 @@ export {
   MDBCardImage,
   MDBCardText,
   MDBCardTitle,
+  MDBCardVideo,
   MDBCarousel,
   MDBCarouselCaption,
   MDBCarouselControl,
