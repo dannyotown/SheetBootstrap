@@ -22,7 +22,7 @@ const CardVideo = props => {
 
 CardVideo.propTypes = {
   className: PropTypes.string,
-  src: PropTypes.string,
+  src: PropTypes.string.isRequired,
   children: PropTypes.node
 };
 
