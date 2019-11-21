@@ -27,8 +27,6 @@ const GalleryWrapper = ({ children }) => {
 };
 
 const GalleryPage = () => {
-  const galleryRef = React.createRef('');
-
   const dataImg = [
     {
       img:
