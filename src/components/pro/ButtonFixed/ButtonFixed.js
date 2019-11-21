@@ -8,7 +8,8 @@ class ButtonFixed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cursorPos: {}
+      cursorPos: {},
+      ulDisplay: false
     };
     this.onClick = this.onClick.bind(this);
   }
@@ -31,11 +32,15 @@ class ButtonFixed extends React.Component {
     }
   }
 
+  showUl = () => this.setState({ ulDisplay: true });
+  hideUl = () => this.setState({ ulDisplay: false });
+
   render() {
     let {
       active,
       block,
       className,
+      children,
       color,
       outline,
       size,
@@ -56,7 +61,9 @@ class ButtonFixed extends React.Component {
       ...attributes
     } = this.props;
 
-    const buttonFixedClasses = classNames('fixed-action-btn active');
+    const { ulDisplay } = this.state;
+
+    const buttonFixedClasses = classNames("fixed-action-btn", !!ulDisplay && "active");
 
     const classes = classNames(
       floating ? 'btn-floating' : 'btn',
@@ -76,6 +83,8 @@ class ButtonFixed extends React.Component {
         ref={innerRef}
         style={{ bottom: '45px', right: '24px' }}
         {...attributes}
+        onMouseOver={()=>this.showUl()}
+        onMouseOut={()=>this.hideUl()}
       >
         <a
           href={this.props.topSection ? this.props.topSection : '#'}
@@ -104,7 +113,11 @@ class ButtonFixed extends React.Component {
             />
           )}
         </a>
-        <ul className='list-unstyled'>{this.props.children}</ul>
+        {children && (
+          <ul className={classNames("list-unstyled" && !ulDisplay && "disabled")}>
+            {children}
+          </ul>
+        )}
       </div>
     );
   }
