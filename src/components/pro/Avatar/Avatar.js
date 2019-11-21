@@ -1,31 +1,85 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
 
 const Avatar = props => {
-  const { className, tag: Tag, round, circle, ...attributes } = props;
+  const {
+    background,
+    className,
+    circle,
+    children,
+    round,
+    src,
+    size,
+    style,
+    tag: Tag,
+    ...attributes
+  } = props;
+
+  let TagType;
+  let objectSize;
+
+  src ? (TagType = "img") : (TagType = Tag);
+
+  size
+    ? (objectSize = size)
+    : src
+    ? (objectSize = "48px")
+    : (objectSize = "40px");
 
   const classes = classNames(
-    'avatar',
-    round && 'rounded',
-    circle && 'rounded-circle',
+    "avatar",
+    !src && background,
+    round && "rounded",
+    circle && "rounded-circle",
+    "d-table-cell align-middle text-center font-weight-bool",
     className
   );
 
-  return <Tag data-test='avatar' {...attributes} className={classes} />;
+  const defaultStyles = {
+    height: objectSize,
+    width: objectSize,
+    color: "white"
+  };
+
+  return (
+    <TagType
+      data-test="avatar"
+      {...attributes}
+      className={classes}
+      style={{ ...defaultStyles, ...style }}
+      src={src}
+    >
+      {children && typeof children === "string" ? (
+        <strong>{children}</strong>
+      ) : (
+        children
+      )}
+    </TagType>
+  );
 };
 
 Avatar.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  background: PropTypes.string,
+  circle: PropTypes.bool,
   className: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+    PropTypes.func
+  ]),
   round: PropTypes.bool,
-  circle: PropTypes.bool
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  src: PropTypes.string,
+  style: PropTypes.object,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 Avatar.defaultProps = {
-  tag: 'div',
+  background: "grey",
+  circle: false,
   round: false,
-  circle: false
+  tag: "div"
 };
 
 export default Avatar;

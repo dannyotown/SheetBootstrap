@@ -1,18 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
+import React from "react";
+import ReactDOM from "react-dom";
+import { shallow } from "enzyme";
 import {
   findByTestAttr,
   checkProps,
   checkClass,
   checkTag
-} from '../../../tests/utils';
-import Avatar from './Avatar';
+} from "../../../tests/utils";
+import Avatar from "./Avatar";
 
 const setup = (props = {}) => shallow(<Avatar {...props} />);
-const mounted = (props = {}) => mount(<Avatar {...props} />);
 
-describe('<Avatar />', () => {
+describe("<Avatar />", () => {
   let wrapper;
 
   beforeEach(() => {
@@ -20,55 +19,79 @@ describe('<Avatar />', () => {
   });
 
   test(`renders`, () => {
-    const renders = findByTestAttr(wrapper, 'avatar');
+    const renders = findByTestAttr(wrapper, "avatar");
     expect(renders.length).toBe(1);
   });
 
   test(`renders without errors`, () => {
-    const div = document.createElement('div');
+    const div = document.createElement("div");
     ReactDOM.render(<Avatar />, div);
   });
 
-  test('does not throw warnings with expected props', () => {
+  test("does not throw warnings with expected props", () => {
     const expectedProps = {
-      tag: 'section',
-      className: 'string',
+      background: "string",
+      circle: true,
+      className: "string",
+      children: "string",
+      src: "test",
       round: true,
-      circle: true
+      size: 12,
+      style: { color: "red" },
+      tag: "span"
     };
 
     wrapper = setup(expectedProps);
     checkProps(wrapper, expectedProps);
   });
 
-  test('does not throw warnings without props', () => {
+  test("does not throw warnings without props", () => {
     checkProps(wrapper, {});
   });
 
-  test('sets custom tag', () => {
-    wrapper = setup({ tag: 'section' });
-    checkTag(wrapper, 'section')
-  })
-  
+  test("sets custom tag", () => {
+    wrapper = setup({ tag: "section" });
+    checkTag(wrapper, "section");
+  });
 
-  describe('sets classes', () => {
-    test('adds avatar class by default ', () => {
-      checkClass(wrapper, 'avatar');
+  test("sets img", () => {
+    wrapper = setup({ src: "test" });
+    checkTag(wrapper, "img");
+    expect(wrapper.find('img[src="test"]').length).toBe(1);
+  });
+
+  describe("sets classes", () => {
+    test("adds avatar class by default ", () => {
+      checkClass(wrapper, "avatar");
     });
 
-    test('adds round class by default if round', () => {
+    test("adds round class by default if round", () => {
       wrapper = setup({ round: true });
-      checkClass(wrapper, 'rounded');
+      checkClass(wrapper, "rounded");
     });
 
-    test('adds round class by default if circle ', () => {
+    test("adds round class by default if circle ", () => {
       wrapper = setup({ circle: true });
-      checkClass(wrapper, 'rounded-circle');
+      checkClass(wrapper, "rounded-circle");
     });
 
-    test('adds custom class ', () => {
-      wrapper = setup({ className: 'test-class' });
-      checkClass(wrapper, 'test-class');
+    test("sets background class if background === red ", () => {
+      checkClass(wrapper, "grey");
+      wrapper = setup({ background: "red" });
+      checkClass(wrapper, "red");
+    });
+
+    test("adds d-table-cell align-middle text-center font-weight-bool class by default", () => {
+      wrapper = setup({ circle: true });
+      checkClass(
+        wrapper,
+        "d-table-cell.align-middle.text-center.font-weight-bool"
+      );
+    });
+
+    test("adds custom class ", () => {
+      wrapper = setup({ className: "test-class" });
+      checkClass(wrapper, "test-class");
     });
   });
 });
