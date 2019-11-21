@@ -9,8 +9,8 @@ var React__default = _interopDefault(React);
 var classNames = _interopDefault(require('classnames'));
 var reactTransitionGroup = require('react-transition-group');
 var ReactDOM = _interopDefault(require('react-dom'));
-var reactPopper = require('react-popper');
 var mdbreact = require('mdbreact');
+var reactPopper = require('react-popper');
 var NumericInput = _interopDefault(require('react-numeric-input'));
 var FocusTrap = _interopDefault(require('focus-trap-react'));
 var reactRouterDom = require('react-router-dom');
@@ -19,6 +19,7 @@ var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
 var moment = _interopDefault(require('moment'));
 var core = require('@material-ui/core');
+var jarallax = require('jarallax');
 var PerfectScrollbar = _interopDefault(require('perfect-scrollbar'));
 var reactScroll = require('react-scroll');
 var raf = _interopDefault(require('raf'));
@@ -4874,9 +4875,8 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "filterRows", function () {
-      var _this$state2 = _this.state,
-          unsearchable = _this$state2.unsearchable,
-          search = _this$state2.search;
+      var search = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _this.state.search;
+      var unsearchable = _this.state.unsearchable;
       var _this$props = _this.props,
           sortRows = _this$props.sortRows,
           noRecordsFoundLabel = _this$props.noRecordsFoundLabel;
@@ -4990,15 +4990,81 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "getLabelForFilter", function (field) {
+      if (_this.props.filter) {
+        var arr = _this.props.data.columns;
+        return arr.filter(function (el) {
+          return el.field === field;
+        })[0].label || null;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "filterOptions", function () {
+      if (_this.props.filter) {
+        var filter = _this.props.filter;
+        var arr = [];
+
+        _this.props.data.rows.map(function (el) {
+          return arr.push(el[filter]);
+        });
+
+        arr = _toConsumableArray(new Set(arr)).sort(function (a, b) {
+          return a.localeCompare(b);
+        });
+        arr = arr.map(function (text, value) {
+          return {
+            text: text,
+            value: "".concat(value)
+          };
+        });
+
+        _this.setState({
+          filterOptions: arr
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "useFilterSelect", function (content) {
+      var filter = _this.props.filter;
+
+      if (filter) {
+        if (content !== "") {
+          var filteredRows = _this.props.data.rows.filter(function (el) {
+            return el[filter] === content;
+          });
+
+          _this.setState({
+            searchSelect: content,
+            rows: filteredRows
+          }, function () {
+            _this.filterRows(_this.state.searchSelect);
+
+            _this.filterRows();
+          });
+        } else {
+          _this.setState({
+            searchSelect: content,
+            rows: _this.props.data.rows
+          }, function () {
+            _this.filterRows(_this.state.searchSelect);
+
+            _this.filterRows();
+          });
+        }
+      }
+    });
+
     _this.state = {
       activePage: 0,
       columns: props.data.columns || [],
       entries: props.entries,
       filteredRows: props.data.rows || [],
+      filterOptions: [],
       order: props.order || [],
       pages: [],
       rows: props.data.rows || [],
       search: "",
+      searchSelect: "",
       sorted: false,
       translateScrollHead: 0,
       unsearchable: []
@@ -5017,14 +5083,15 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var data = this.props.data;
-      var _this$state3 = this.state,
-          order = _this$state3.order,
-          columns = _this$state3.columns;
+      var _this$state2 = this.state,
+          order = _this$state2.order,
+          columns = _this$state2.columns;
 
       if (typeof data === "string") {
         this.fetchData(data, this.paginateRows);
       }
 
+      this.filterOptions();
       order.length && this.handleSort(order[0], order[1]);
       this.setUnsearchable(columns);
     }
@@ -5041,6 +5108,7 @@ function (_Component) {
     }
   }, {
     key: "render",
+    // PRO-END
     value: function render() {
       var _this$props3 = this.props,
           autoWidth = _this$props3.autoWidth,
@@ -5057,6 +5125,7 @@ function (_Component) {
           entriesOptions = _this$props3.entriesOptions,
           entriesLabel = _this$props3.entriesLabel,
           exportToCSV = _this$props3.exportToCSV,
+          filter = _this$props3.filter,
           fixed = _this$props3.fixed,
           hover = _this$props3.hover,
           info = _this$props3.info,
@@ -5088,16 +5157,17 @@ function (_Component) {
           onSearch = _this$props3.onSearch,
           onSort = _this$props3.onSort,
           onPageChange = _this$props3.onPageChange,
-          attributes = _objectWithoutProperties(_this$props3, ["autoWidth", "bordered", "borderless", "barReverse", "btn", "className", "children", "dark", "data", "disableRetreatAfterSorting", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "noBottomColumns", "noRecordsFoundLabel", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows", "onSearch", "onSort", "onPageChange"]);
+          attributes = _objectWithoutProperties(_this$props3, ["autoWidth", "bordered", "borderless", "barReverse", "btn", "className", "children", "dark", "data", "disableRetreatAfterSorting", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "filter", "fixed", "hover", "info", "infoLabel", "maxHeight", "noBottomColumns", "noRecordsFoundLabel", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows", "onSearch", "onSort", "onPageChange"]);
 
-      var _this$state4 = this.state,
-          columns = _this$state4.columns,
-          entries = _this$state4.entries,
-          filteredRows = _this$state4.filteredRows,
-          pages = _this$state4.pages,
-          activePage = _this$state4.activePage,
-          search = _this$state4.search,
-          translateScrollHead = _this$state4.translateScrollHead;
+      var _this$state3 = this.state,
+          columns = _this$state3.columns,
+          entries = _this$state3.entries,
+          filteredRows = _this$state3.filteredRows,
+          filterOptions = _this$state3.filterOptions,
+          pages = _this$state3.pages,
+          activePage = _this$state3.activePage,
+          search = _this$state3.search,
+          translateScrollHead = _this$state3.translateScrollHead;
       var tableClasses = classNames("dataTables_wrapper dt-bootstrap4", className);
       return React__default.createElement("div", {
         "data-test": "datatable",
@@ -5193,13 +5263,22 @@ function (_Component) {
         pages: pages,
         pagesAmount: pagesAmount,
         label: paginationLabel
-      })), exportToCSV && React__default.createElement("div", {
-        className: "row justify-content-end"
-      }, React__default.createElement(ExportToCSV, {
+      })), (filter || exportToCSV) && React__default.createElement("div", {
+        className: "row justify-content-between"
+      }, React__default.createElement("div", {
+        className: "pl-3"
+      }, filter && React__default.createElement(mdbreact.MDBSelect, {
+        options: filterOptions,
+        label: "Filter ".concat(this.getLabelForFilter(filter)),
+        getTextContent: this.useFilterSelect,
+        className: "m-0 pt-2"
+      })), React__default.createElement("div", {
+        className: "mr-2"
+      }, exportToCSV && React__default.createElement(ExportToCSV, {
         columns: columns,
         data: pages,
         color: "primary"
-      }, "Download CSV")));
+      }, "Download CSV"))));
     }
   }]);
 
@@ -5222,6 +5301,7 @@ DataTable.propTypes = {
   entriesLabel: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
   entriesOptions: propTypes.arrayOf(propTypes.number),
   exportToCSV: propTypes.bool,
+  filter: propTypes.string,
   fixed: propTypes.bool,
   hover: propTypes.bool,
   info: propTypes.bool,
@@ -7414,13 +7494,8 @@ Notification.defaultProps = {
   closeClassName: 'text-dark'
 };
 
-<<<<<<< HEAD
-var css$a = ".popover {\r\n  width: auto;\r\n  background-color: white;\r\n  color: #97999b;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  font-size: 0.83em;\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 10;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  background-color: #fff;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.show.popover {\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n.popover-body {\r\n  color: #6c6e71;\r\n}\r\n\r\n.popover .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.popover[x-placement^='top'] {\r\n  margin-bottom: 15px;\r\n}\r\n\r\n.popover[x-placement^='top'] .popover_arrow {\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: #d6d6d6 transparent transparent transparent;\r\n  bottom: -8px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.popover[x-placement^='top'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: white transparent transparent transparent;\r\n}\r\n\r\n.popover[x-placement^='bottom'] {\r\n  margin-top: 15px;\r\n}\r\n\r\n.popover[x-placement^='bottom'] .popover_arrow {\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent #d6d6d6 transparent;\r\n  top: -8px;\r\n  margin-top: 0;\r\n}\r\n\r\n.popover[x-placement^='bottom'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent white transparent;\r\n}\r\n\r\n.popover[x-placement^='right'] {\r\n  margin-left: 15px;\r\n}\r\n\r\n.popover[x-placement^='right'] .popover_arrow {\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent #d6d6d6 transparent transparent;\r\n  left: -8px;\r\n  margin-left: 0;\r\n}\r\n\r\n.popover[x-placement^='right'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent white transparent transparent;\r\n}\r\n\r\n.popover[x-placement^='left'] {\r\n  margin-right: 15px;\r\n}\r\n\r\n.popover[x-placement^='left'] .popover_arrow {\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent #d6d6d6;\r\n  right: -8px;\r\n  margin-right: 0;\r\n}\r\n\r\n.popover[x-placement^='left'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent white;\r\n}\r\n\r\n\r\n.tooltip {\r\n  width: auto;\r\n  background-color: black;\r\n  color: white;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  /* font-size: 0.83em; */\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 15;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.show.tooltip {\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n\r\n.tooltip .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.tooltip[x-placement^='top'] {\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.tooltip[x-placement^='top'] .popover_arrow {\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: #131313 transparent transparent transparent;\r\n  bottom: -6px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.tooltip[x-placement^='top'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: black transparent transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^='bottom'] {\r\n  margin-top: 5px;\r\n}\r\n\r\n.tooltip[x-placement^='bottom'] .popover_arrow {\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent #131313 transparent;\r\n  top: -6px;\r\n  margin-top: 0;\r\n}\r\n\r\n.tooltip[x-placement^='bottom'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent black transparent;\r\n}\r\n\r\n.tooltip[x-placement^='right'] {\r\n  margin-left: 5px;\r\n}\r\n\r\n.tooltip[x-placement^='right'] .popover_arrow {\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent #131313 transparent transparent;\r\n  left: -6px;\r\n  margin-left: 0;\r\n}\r\n\r\n.tooltip[x-placement^='right'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent black transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^='left'] {\r\n  margin-right: 5px;\r\n}\r\n\r\n.tooltip[x-placement^='left'] .popover_arrow {\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent #131313;\r\n  right: -6px;\r\n  margin-right: 0;\r\n}\r\n\r\n.tooltip[x-placement^='left'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent black;\r\n}\r\n\r\n";
+var css$a = ".popover {\r\n  width: auto;\r\n  background-color: white;\r\n  color: #97999b;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  font-size: 0.83em;\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 10;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  background-color: #fff;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.show.popover {\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n.popover-body {\r\n  color: #6c6e71;\r\n}\r\n\r\n.popover .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.popover[x-placement^=\"top\"] {\r\n  margin-bottom: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"top\"] .popover_arrow {\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: #d6d6d6 transparent transparent transparent;\r\n  bottom: -8px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.popover[x-placement^=\"top\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: white transparent transparent transparent;\r\n}\r\n\r\n.popover[x-placement^=\"bottom\"] {\r\n  margin-top: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"bottom\"] .popover_arrow {\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent #d6d6d6 transparent;\r\n  top: -8px;\r\n  margin-top: 0;\r\n}\r\n\r\n.popover[x-placement^=\"bottom\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent white transparent;\r\n}\r\n\r\n.popover[x-placement^=\"right\"] {\r\n  margin-left: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"right\"] .popover_arrow {\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent #d6d6d6 transparent transparent;\r\n  left: -8px;\r\n  margin-left: 0;\r\n}\r\n\r\n.popover[x-placement^=\"right\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent white transparent transparent;\r\n}\r\n\r\n.popover[x-placement^=\"left\"] {\r\n  margin-right: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"left\"] .popover_arrow {\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent #d6d6d6;\r\n  right: -8px;\r\n  margin-right: 0;\r\n}\r\n\r\n.popover[x-placement^=\"left\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent white;\r\n}\r\n\r\n.tooltip {\r\n  width: auto;\r\n  background-color: black;\r\n  color: white;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  /* font-size: 0.83em; */\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 15;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.show {\r\n  z-index: 15;\r\n}\r\n.tooltip-inner {\r\n  display: block;\r\n}\r\n\r\n.show.tooltip {\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n.tooltip .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"top\"],\r\n.show[x-placement^=\"top\"]:not(.tooltip) {\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"top\"] .popover_arrow {\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: #131313 transparent transparent transparent;\r\n  bottom: -6px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"top\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: black transparent transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"bottom\"],\r\n.show[x-placement^=\"bottom\"]:not(.tooltip) {\r\n  margin-top: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"bottom\"] .popover_arrow {\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent #131313 transparent;\r\n  top: -6px;\r\n  margin-top: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"bottom\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent black transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"right\"],\r\n.show[x-placement^=\"right\"]:not(.tooltip) {\r\n  margin-left: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"right\"] .popover_arrow {\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent #131313 transparent transparent;\r\n  left: -6px;\r\n  margin-left: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"right\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent black transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"left\"],\r\n.show[x-placement^=\"left\"]:not(.tooltip) {\r\n  margin-right: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"left\"] .popover_arrow {\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent #131313;\r\n  right: -6px;\r\n  margin-right: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"left\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent black;\r\n}\r\n";
 styleInject(css$a);
-=======
-var css$8 = ".popover {\n  width: auto;\n  background-color: white;\n  color: #97999b;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  font-size: 0.83em;\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 10;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  background-color: #fff;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show.popover {\n  opacity: 1;\n  visibility: visible;\n}\n\n.popover-body {\n  color: #6c6e71;\n}\n\n.popover .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.popover[x-placement^=\"top\"] {\n  margin-bottom: 15px;\n}\n\n.popover[x-placement^=\"top\"] .popover_arrow {\n  border-width: 8px 8px 0 8px;\n  border-color: #d6d6d6 transparent transparent transparent;\n  bottom: -8px;\n  margin-bottom: 0;\n}\n\n.popover[x-placement^=\"top\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 8px 8px 0 8px;\n  border-color: white transparent transparent transparent;\n}\n\n.popover[x-placement^=\"bottom\"] {\n  margin-top: 15px;\n}\n\n.popover[x-placement^=\"bottom\"] .popover_arrow {\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent #d6d6d6 transparent;\n  top: -8px;\n  margin-top: 0;\n}\n\n.popover[x-placement^=\"bottom\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent white transparent;\n}\n\n.popover[x-placement^=\"right\"] {\n  margin-left: 15px;\n}\n\n.popover[x-placement^=\"right\"] .popover_arrow {\n  border-width: 8px 8px 8px 0;\n  border-color: transparent #d6d6d6 transparent transparent;\n  left: -8px;\n  margin-left: 0;\n}\n\n.popover[x-placement^=\"right\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  left: 1.45px;\n  border: solid;\n  border-width: 8px 8px 8px 0;\n  border-color: transparent white transparent transparent;\n}\n\n.popover[x-placement^=\"left\"] {\n  margin-right: 15px;\n}\n\n.popover[x-placement^=\"left\"] .popover_arrow {\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent #d6d6d6;\n  right: -8px;\n  margin-right: 0;\n}\n\n.popover[x-placement^=\"left\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  right: 1.45px;\n  border: solid;\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent white;\n}\n\n.tooltip {\n  width: auto;\n  background-color: black;\n  color: white;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  /* font-size: 0.83em; */\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 15;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show {\n  z-index: 15;\n}\n.tooltip-inner {\n  display: block;\n}\n\n.show.tooltip {\n  opacity: 1;\n  visibility: visible;\n}\n\n.tooltip .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.tooltip[x-placement^=\"top\"],\n.show[x-placement^=\"top\"]:not(.tooltip) {\n  margin-bottom: 5px;\n}\n\n.tooltip[x-placement^=\"top\"] .popover_arrow {\n  border-width: 6px 6px 0 6px;\n  border-color: #131313 transparent transparent transparent;\n  bottom: -6px;\n  margin-bottom: 0;\n}\n\n.tooltip[x-placement^=\"top\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 6px 6px 0 6px;\n  border-color: black transparent transparent transparent;\n}\n\n.tooltip[x-placement^=\"bottom\"],\n.show[x-placement^=\"bottom\"]:not(.tooltip) {\n  margin-top: 5px;\n}\n\n.tooltip[x-placement^=\"bottom\"] .popover_arrow {\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent #131313 transparent;\n  top: -6px;\n  margin-top: 0;\n}\n\n.tooltip[x-placement^=\"bottom\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent black transparent;\n}\n\n.tooltip[x-placement^=\"right\"],\n.show[x-placement^=\"right\"]:not(.tooltip) {\n  margin-left: 5px;\n}\n\n.tooltip[x-placement^=\"right\"] .popover_arrow {\n  border-width: 6px 6px 6px 0;\n  border-color: transparent #131313 transparent transparent;\n  left: -6px;\n  margin-left: 0;\n}\n\n.tooltip[x-placement^=\"right\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  left: 1.45px;\n  border: solid;\n  border-width: 6px 6px 6px 0;\n  border-color: transparent black transparent transparent;\n}\n\n.tooltip[x-placement^=\"left\"],\n.show[x-placement^=\"left\"]:not(.tooltip) {\n  margin-right: 5px;\n}\n\n.tooltip[x-placement^=\"left\"] .popover_arrow {\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent #131313;\n  right: -6px;\n  margin-right: 0;\n}\n\n.tooltip[x-placement^=\"left\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  right: 1.45px;\n  border: solid;\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent black;\n}\n";
-styleInject(css$8);
->>>>>>> b367618f351b5257f4192d1fa90368b1e38f8c02
 
 var Popover =
 /*#__PURE__*/
@@ -8838,30 +8913,52 @@ Autocomplete.defaultProps = {
 };
 
 var Avatar = function Avatar(props) {
-  var className = props.className,
-      Tag = props.tag,
-      round = props.round,
+  var background = props.background,
+      className = props.className,
       circle = props.circle,
-      attributes = _objectWithoutProperties(props, ["className", "tag", "round", "circle"]);
+      children = props.children,
+      round = props.round,
+      src = props.src,
+      size = props.size,
+      style = props.style,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["background", "className", "circle", "children", "round", "src", "size", "style", "tag"]);
 
-  var classes = classNames('avatar', round && 'rounded', circle && 'rounded-circle', className);
-  return React__default.createElement(Tag, _extends({
+  var TagType;
+  var objectSize;
+  src ? TagType = "img" : TagType = Tag;
+  size ? objectSize = size : src ? objectSize = "48px" : objectSize = "40px";
+  var classes = classNames("avatar", !src && background, round && "rounded", circle && "rounded-circle", "d-table-cell align-middle text-center font-weight-bool", className);
+  var defaultStyles = {
+    height: objectSize,
+    width: objectSize,
+    color: "white"
+  };
+  return React__default.createElement(TagType, _extends({
     "data-test": "avatar"
   }, attributes, {
-    className: classes
-  }));
+    className: classes,
+    style: _objectSpread2({}, defaultStyles, {}, style),
+    src: src
+  }), children && typeof children === "string" ? React__default.createElement("strong", null, children) : children);
 };
 
 Avatar.propTypes = {
-  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  background: propTypes.string,
+  circle: propTypes.bool,
   className: propTypes.string,
+  children: propTypes.oneOfType([propTypes.string, propTypes.node, propTypes.func]),
   round: propTypes.bool,
-  circle: propTypes.bool
+  size: propTypes.oneOfType([propTypes.string, propTypes.number]),
+  src: propTypes.string,
+  style: propTypes.object,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string])
 };
 Avatar.defaultProps = {
-  tag: 'div',
+  background: "grey",
+  circle: false,
   round: false,
-  circle: false
+  tag: "div"
 };
 
 var ButtonFixed =
@@ -8875,8 +8972,22 @@ function (_React$Component) {
     _classCallCheck(this, ButtonFixed);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ButtonFixed).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "showUl", function () {
+      return _this.setState({
+        ulDisplay: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "hideUl", function () {
+      return _this.setState({
+        ulDisplay: false
+      });
+    });
+
     _this.state = {
-      cursorPos: {}
+      cursorPos: {},
+      ulDisplay: false
     };
     _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
     return _this;
@@ -8907,10 +9018,13 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           active = _this$props.active,
           block = _this$props.block,
           className = _this$props.className,
+          children = _this$props.children,
           color = _this$props.color,
           outline = _this$props.outline,
           size = _this$props.size,
@@ -8928,9 +9042,10 @@ function (_React$Component) {
           iconSize = _this$props.iconSize,
           innerRef = _this$props.innerRef,
           topSection = _this$props.topSection,
-          attributes = _objectWithoutProperties(_this$props, ["active", "block", "className", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "innerRef", "topSection"]);
+          attributes = _objectWithoutProperties(_this$props, ["active", "block", "className", "children", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "innerRef", "topSection"]);
 
-      var buttonFixedClasses = classNames('fixed-action-btn active');
+      var ulDisplay = this.state.ulDisplay;
+      var buttonFixedClasses = classNames("fixed-action-btn", !!ulDisplay && "active");
       var classes = classNames(floating ? 'btn-floating' : 'btn', flat ? 'btn-flat' : gradient ? "".concat(gradient, "-gradient") : "".concat(color), size ? "btn-".concat(size) : false, rounded ? 'btn-rounded' : false, block ? 'btn-block' : false, 'Ripple-parent', className, {
         active: active,
         disabled: this.props.disabled
@@ -8943,7 +9058,14 @@ function (_React$Component) {
           bottom: '45px',
           right: '24px'
         }
-      }, attributes), React__default.createElement("a", {
+      }, attributes, {
+        onMouseOver: function onMouseOver() {
+          return _this2.showUl();
+        },
+        onMouseOut: function onMouseOut() {
+          return _this2.hideUl();
+        }
+      }), React__default.createElement("a", {
         href: this.props.topSection ? this.props.topSection : '#',
         className: classes,
         onClick: this.onClick,
@@ -8960,9 +9082,9 @@ function (_React$Component) {
         cursorPos: this.state.cursorPos,
         outline: outline,
         flat: flat
-      })), React__default.createElement("ul", {
-        className: "list-unstyled"
-      }, this.props.children));
+      })), children && React__default.createElement("ul", {
+        className: classNames( !ulDisplay && "disabled")
+      }, children));
     }
   }]);
 
@@ -10019,7 +10141,7 @@ InputSwitch.defaultProps = {
   labelRight: "On"
 };
 
-var css$g = ".mdb-lightbox .overlay {\r\n  height: 150vh;\r\n  width: 150vw;\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  z-index: -100;\r\n}\r\n.mdb-lightbox .ui-controls {\r\n  width: 99vw;\r\n  height: 100vh;\r\n  top: 0;\r\n  left: 0;\r\n  bottom: 0;\r\n  right: 0;\r\n  position: fixed;\r\n  z-index: 10000;\r\n}\r\n\r\n.mdb-lightbox .ui-controls > * {\r\n  position: fixed;\r\n  z-index: 999999;\r\n}\r\n.mdb-lightbox .overlay.active {\r\n  z-index: 9999;\r\n  background-color: black;\r\n}\r\n\r\n.mdb-lightbox .next-img,\r\n.mdb-lightbox .prev-img {\r\n  transform-origin: center;\r\n}\r\n.mdb-lightbox .next-img {\r\n  left: 150% !important;\r\n}\r\n.mdb-lightbox .prev-img {\r\n  left: -50% !important;\r\n}\r\n\r\n.mdb-lightbox img:not(.zoom) {\r\n  transform-origin: top left;\r\n}\r\n/* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */\r\n.mdb-lightbox img.zoom {\r\n  z-index: 10001;\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%) scale(1) translate3d(0, 0, 0);\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -o-user-select: none;\r\n  user-select: text;\r\n  /* pointer-events: none; */\r\n  transform-origin: center;\r\n}\r\n\r\n.mdb-lightbox .mdb-lightbox figure img.zoom:hover {\r\n  opacity: 1;\r\n}\r\n\r\n.mdb-lightbox .block {\r\n  display: block;\r\n}\r\n\r\n.mdb-lightbox .pswp__button.lb-zoom-out {\r\n  background-position: -132px 0;\r\n}\r\n.mdb-lightbox .pswp__button.pswp__button--fs.fullscreen {\r\n  background-position: -44px 0;\r\n}\r\n\r\n.mdb-lightbox .arrow-container {\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n}\r\n\r\n.mdb-lightbox .pswp__button--left,\r\n.mdb-lightbox .pswp__button--right {\r\n  width: 0px;\r\n  height: 0px;\r\n  margin-top: -100px;\r\n}\r\n";
+var css$g = ".mdb-lightbox .overlay {\r\n  height: 150vh;\r\n  width: 150vw;\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  z-index: -100;\r\n}\r\n.mdb-lightbox .ui-controls {\r\n  width: 99vw;\r\n  height: 100vh;\r\n  top: 0;\r\n  left: 0;\r\n  bottom: 0;\r\n  right: 0;\r\n  position: fixed;\r\n  z-index: 10000;\r\n}\r\n\r\n.mdb-lightbox .ui-controls > * {\r\n  position: fixed;\r\n  z-index: 999999;\r\n}\r\n.mdb-lightbox .overlay.active {\r\n  z-index: 9999;\r\n  background-color: black;\r\n}\r\n\r\n.mdb-lightbox .next-img,\r\n.mdb-lightbox .prev-img {\r\n  transform-origin: center;\r\n}\r\n.mdb-lightbox .next-img {\r\n  left: 150% !important;\r\n}\r\n.mdb-lightbox .prev-img {\r\n  left: -50% !important;\r\n}\r\n\r\n.mdb-lightbox img:not(.zoom) {\r\n  transform-origin: top left;\r\n}\r\n/* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */\r\n.mdb-lightbox img.zoom {\r\n  z-index: 10001;\r\n  position: fixed;\r\n  top: 50%;\r\n  left: 50%;\r\n  transform: translate(-50%, -50%) scale(1) translate3d(0, 0, 0);\r\n  -webkit-user-select: none;\r\n  -khtml-user-select: none;\r\n  -moz-user-select: none;\r\n  -o-user-select: none;\r\n  user-select: text;\r\n  /* pointer-events: none; */\r\n  transform-origin: center;\r\n  outline: none;\r\n}\r\n\r\n.mdb-lightbox .mdb-lightbox figure img.zoom:hover {\r\n  opacity: 1;\r\n}\r\n\r\n.mdb-lightbox .block {\r\n  display: block;\r\n}\r\n\r\n.mdb-lightbox .pswp__button.lb-zoom-out {\r\n  background-position: -132px 0;\r\n}\r\n.mdb-lightbox .pswp__button.pswp__button--fs.fullscreen {\r\n  background-position: -44px 0;\r\n}\r\n\r\n.mdb-lightbox .arrow-container {\r\n  top: 50%;\r\n  transform: translateY(-50%);\r\n}\r\n\r\n.mdb-lightbox .pswp__button--left,\r\n.mdb-lightbox .pswp__button--right {\r\n  width: 0px;\r\n  height: 0px;\r\n  margin-top: -100px;\r\n}\r\n";
 styleInject(css$g);
 
 var Lightbox =
@@ -10036,6 +10158,35 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "componentWillUnmount", function () {
       _this.setState(_this.reset());
+
+      document.removeEventListener('keydown', _this.keyEvents);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "keyEvents", function (e) {
+      var _this$state = _this.state,
+          changeSlide = _this$state.changeSlide,
+          imgSrc = _this$state.imgSrc,
+          sliderOpened = _this$state.sliderOpened;
+
+      var active = _this.slideRefs.filter(function (el) {
+        return el === document.activeElement;
+      })[0];
+
+      var key = e.key;
+      if (key === 'Enter' && active) _this.zoom(e);
+
+      if (sliderOpened && !changeSlide) {
+        if (key === 'Escape' || key === 'ArrowUp' || key === 'ArrowDown') _this.closeZoom();
+        if (key === 'ArrowLeft') _this.changeSlide('prev');
+        if (key === 'ArrowRight') _this.changeSlide('next');
+        if (key === 'Tab') _this.setFocus(imgSrc);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setFocus", function (target) {
+      return setTimeout(function () {
+        return target.focus();
+      }, 0);
     });
 
     _defineProperty(_assertThisInitialized(_this), "setScreenSize", function () {
@@ -10137,10 +10288,11 @@ function (_React$Component) {
       return data;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "zoom", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "zoom", function (_ref) {
+      var target = _ref.target;
       var imgSrc = _this.state.imgSrc;
       var transition = _this.props.transition;
-      var img = e.target;
+      var img = target;
 
       if (!imgSrc) {
         _this.updateGalleryData();
@@ -10178,30 +10330,35 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "closeZoom", function () {
-      var _this$state = _this.state,
-          imgSrc = _this$state.imgSrc,
-          galleryImagesData = _this$state.galleryImagesData,
-          activeKey = _this$state.activeKey;
+      var _this$state2 = _this.state,
+          imgSrc = _this$state2.imgSrc,
+          galleryImagesData = _this$state2.galleryImagesData,
+          activeKey = _this$state2.activeKey,
+          changeSlide = _this$state2.changeSlide;
 
-      _this.setState({
-        sliderOpened: false
-      });
+      if (!changeSlide) {
+        _this.setState({
+          sliderOpened: false
+        });
 
-      var PREV_IMG = _this.slideRefs[activeKey - 1] || _this.slideRefs[_this.slideRefs.length - 1];
-      var NEXT_IMG = _this.slideRefs[activeKey + 1] || _this.slideRefs[0];
-      PREV_IMG.style.cssText = '';
-      NEXT_IMG.style.cssText = '';
-      document.body.classList.remove('overflow-hidden');
-      imgSrc.classList.remove('zoom');
-      imgSrc.style.cssText = "\n        transition: ".concat(_this.props.transition, "ms;\n        z-index: 9999;\n        top: 0;\n        left: 0;\n        transform: translate(").concat(galleryImagesData[activeKey].imgSrcData.size.left, "px, ").concat(galleryImagesData[activeKey].imgSrcData.size.top, "px) translate3d(0,0,0) scale(").concat(galleryImagesData[activeKey].scale, ");\n        position: fixed;\n      ");
+        _this.setFocus(imgSrc);
 
-      _this.overlay.current.classList.remove('active');
+        var PREV_IMG = _this.slideRefs[activeKey - 1] || _this.slideRefs[_this.slideRefs.length - 1];
+        var NEXT_IMG = _this.slideRefs[activeKey + 1] || _this.slideRefs[0];
+        PREV_IMG.style.cssText = '';
+        NEXT_IMG.style.cssText = '';
+        document.body.classList.remove('overflow-hidden');
+        imgSrc.classList.remove('zoom');
+        imgSrc.style.cssText = "\n          transition: ".concat(_this.props.transition, "ms;\n          z-index: 9999;\n          top: 0;\n          left: 0;\n          transform: translate(").concat(galleryImagesData[activeKey].imgSrcData.size.left, "px, ").concat(galleryImagesData[activeKey].imgSrcData.size.top, "px) translate3d(0,0,0) scale(").concat(galleryImagesData[activeKey].scale, ");\n          position: fixed;\n        ");
 
-      setTimeout(function () {
-        imgSrc.style.cssText = '';
+        _this.overlay.current.classList.remove('active');
 
-        _this.setState(_this.reset());
-      }, _this.props.transition);
+        setTimeout(function () {
+          imgSrc.style.cssText = '';
+
+          _this.setState(_this.reset());
+        }, _this.props.transition);
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "scrollZoom", function (e) {
@@ -10280,80 +10437,87 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "changeSlide", function (direction) {
-      var _this$state2 = _this.state,
-          activeKey = _this$state2.activeKey,
-          changeSlide = _this$state2.changeSlide,
-          imgSrc = _this$state2.imgSrc,
-          galleryImagesData = _this$state2.galleryImagesData;
+      var _this$state3 = _this.state,
+          activeKey = _this$state3.activeKey,
+          changeSlide = _this$state3.changeSlide,
+          imgSrc = _this$state3.imgSrc,
+          galleryImagesData = _this$state3.galleryImagesData;
       var transition = _this.props.transition;
 
-      var _assertThisInitialize = _assertThisInitialized(_this),
-          slideRefs = _assertThisInitialize.slideRefs;
+      if (!changeSlide) {
+        var _assertThisInitialize = _assertThisInitialized(_this),
+            slideRefs = _assertThisInitialize.slideRefs;
 
-      var CURRENT_IMG = imgSrc;
-      var PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
-      var NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
-      var actual_key;
+        var CURRENT_IMG = imgSrc;
+        var PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
+        var NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
+        var actual_key;
 
-      var trans3d_Unset = function trans3d_Unset(index) {
-        return "\n      translate(-50%, -50%) \n      translate3d(0px, 0px, 0px) \n      scale(".concat(galleryImagesData[index].zoomedScale, ")\n    ");
-      };
+        var trans3d_Unset = function trans3d_Unset(index) {
+          return "\n        translate(-50%, -50%) \n        translate3d(0px, 0px, 0px) \n        scale(".concat(galleryImagesData[index].zoomedScale, ")\n      ");
+        };
 
-      var change = function change() {
-        setTimeout(function () {
-          PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(0, "ms");
-          var CURRENT = _this.state.imgSrc;
+        var change = function change() {
+          setTimeout(function () {
+            PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(0, "ms");
+            var CURRENT = _this.state.imgSrc;
 
-          var dataOfImage = _this.setData(CURRENT);
+            var dataOfImage = _this.setData(CURRENT);
 
-          _this.setState(dataOfImage, function () {
-            CURRENT.classList.add('zoom');
-            CURRENT.style.cssText = "\n            transform: \n              translate(-50%,-50%)\n              translate3d(0,0,0)\n              scale(".concat(_this.setScale(dataOfImage.imgSrcData), ")\n          ");
+            _this.setState(dataOfImage, function () {
+              CURRENT.classList.add('zoom');
+              CURRENT.style.cssText = "\n              transform: \n                translate(-50%,-50%)\n                translate3d(0,0,0)\n                scale(".concat(_this.setScale(dataOfImage.imgSrcData), ")\n            ");
+
+              _this.setState({
+                showRight: _this.checkSiblings('next'),
+                showLeft: _this.checkSiblings('prev')
+              }, function () {
+                return setTimeout(function () {
+                  _this.setState({
+                    changeSlide: false
+                  });
+                }, 100);
+              });
+            });
+          }, transition);
+        };
+
+        PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(transition, "ms");
+        CURRENT_IMG.style.transform = trans3d_Unset(activeKey);
+        PREV_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(PREV_IMG));
+        NEXT_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(NEXT_IMG));
+
+        if (!changeSlide) {
+          _this.setState({
+            changeSlide: true
+          });
+
+          if (direction === 'prev') {
+            actual_key = _this.slideRefs.indexOf(PREV_IMG);
+            CURRENT_IMG.classList.add('next-img');
+            PREV_IMG.classList.remove('prev-img');
 
             _this.setState({
-              changeSlide: false,
-              showRight: _this.checkSiblings('next'),
-              showLeft: _this.checkSiblings('prev')
+              imgSrc: PREV_IMG
             });
-          });
-        }, transition);
-      };
 
-      PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(transition, "ms");
-      CURRENT_IMG.style.transform = trans3d_Unset(activeKey);
-      PREV_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(PREV_IMG));
-      NEXT_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(NEXT_IMG));
+            change(actual_key);
+          } else if (direction === 'next') {
+            actual_key = _this.slideRefs.indexOf(NEXT_IMG);
+            CURRENT_IMG.classList.add('prev-img');
+            NEXT_IMG.classList.remove('next-img');
 
-      if (!changeSlide) {
-        _this.setState({
-          changeSlide: true
-        });
+            _this.setState({
+              imgSrc: NEXT_IMG
+            });
 
-        if (direction === 'prev') {
-          actual_key = _this.slideRefs.indexOf(PREV_IMG);
-          CURRENT_IMG.classList.add('next-img');
-          PREV_IMG.classList.remove('prev-img');
-
-          _this.setState({
-            imgSrc: PREV_IMG
-          });
-
-          change();
-        } else if (direction === 'next') {
-          actual_key = _this.slideRefs.indexOf(NEXT_IMG);
-          CURRENT_IMG.classList.add('prev-img');
-          NEXT_IMG.classList.remove('next-img');
-
-          _this.setState({
-            imgSrc: NEXT_IMG
-          });
-
-          change();
-        } else {
-          _this.setState({
-            dragImg: false,
-            changeSlide: false
-          });
+            change(actual_key);
+          } else {
+            _this.setState({
+              dragImg: false,
+              changeSlide: false
+            });
+          }
         }
       }
     });
@@ -10377,10 +10541,10 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "dragMoveSlide", function (e) {
-      var _this$state3 = _this.state,
-          activeKey = _this$state3.activeKey,
-          galleryImagesData = _this$state3.galleryImagesData,
-          resize = _this$state3.resize;
+      var _this$state4 = _this.state,
+          activeKey = _this$state4.activeKey,
+          galleryImagesData = _this$state4.galleryImagesData,
+          resize = _this$state4.resize;
 
       var _assertThisInitialize2 = _assertThisInitialized(_this),
           slideRefs = _assertThisInitialize2.slideRefs;
@@ -10434,9 +10598,9 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "dragStop", function () {
       if (_this.state.dragImg) {
-        var _this$state4 = _this.state,
-            activeKey = _this$state4.activeKey,
-            dragPercent = _this$state4.dragPercent;
+        var _this$state5 = _this.state,
+            activeKey = _this$state5.activeKey,
+            dragPercent = _this$state5.dragPercent;
         var dragPercentScale = 20;
 
         if (!_this.state.resize) {
@@ -10486,6 +10650,11 @@ function (_React$Component) {
   }
 
   _createClass(Lightbox, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.addEventListener('keydown', this.keyEvents);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -10503,11 +10672,11 @@ function (_React$Component) {
           xl = _this$props.xl,
           xs = _this$props.xs,
           transition = _this$props.transition;
-      var _this$state5 = this.state,
-          activeKey = _this$state5.activeKey,
-          galleryImagesData = _this$state5.galleryImagesData,
-          imgSrc = _this$state5.imgSrc,
-          sliderOpened = _this$state5.sliderOpened;
+      var _this$state6 = this.state,
+          activeKey = _this$state6.activeKey,
+          galleryImagesData = _this$state6.galleryImagesData,
+          imgSrc = _this$state6.imgSrc,
+          sliderOpened = _this$state6.sliderOpened;
       var lightboxClasses = classNames('mdb-lightbox d-flex flex-wrap', !noMargins && 'no-margin', className);
       var descriptionClasses = classNames('text-uppercase font-weight-bold mt-4', descriptionClassName);
 
@@ -10570,7 +10739,8 @@ function (_React$Component) {
           onMouseLeave: _this2.dragStop,
           onMouseUp: _this2.dragStop,
           onTouchEnd: _this2.dragStop,
-          onWheel: _this2.scrollZoom
+          onWheel: _this2.scrollZoom,
+          tabIndex: image.tabIndex || "0"
         }), _this2.slideRefs[id] === imgSrc && React__default.createElement("div", {
           className: "block",
           style: {
@@ -10653,7 +10823,8 @@ Lightbox.propTypes = {
     sm: propTypes.string,
     xl: propTypes.string,
     xs: propTypes.string,
-    size: propTypes.string
+    size: propTypes.string,
+    tabIndex: propTypes.string
   })),
   itemClassName: propTypes.string,
   noMargins: propTypes.bool,
@@ -10671,6 +10842,174 @@ Lightbox.defaultProps = {
   noMargins: false,
   marginSpace: 150,
   transition: 400
+};
+
+var Parallax =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Parallax, _Component);
+
+  function Parallax(props) {
+    var _this;
+
+    _classCallCheck(this, Parallax);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Parallax).call(this, props));
+    _this.jarallax = React__default.createRef();
+    var _this$props = _this.props,
+        disableParallax = _this$props.disableParallax,
+        disableVideo = _this$props.disableVideo,
+        disableVideoLazyLoading = _this$props.disableVideoLazyLoading,
+        disableVideoLoop = _this$props.disableVideoLoop,
+        disableVideoPlayOnlyVisible = _this$props.disableVideoPlayOnlyVisible,
+        elementInViewport = _this$props.elementInViewport,
+        height = _this$props.height,
+        imgElement = _this$props.imgElement,
+        imgPosition = _this$props.imgPosition,
+        imgRepeat = _this$props.imgRepeat,
+        imgSize = _this$props.imgSize,
+        imgSrc = _this$props.imgSrc,
+        videoEndTime = _this$props.videoEndTime,
+        videoStartTime = _this$props.videoStartTime,
+        videoVolume = _this$props.videoVolume,
+        width = _this$props.width,
+        zIndex = _this$props.zIndex;
+    _this.imageOptions = {
+      disableParallax: disableParallax,
+      elementInViewport: elementInViewport,
+      imgElement: imgElement,
+      imgPosition: imgPosition,
+      imgRepeat: imgRepeat,
+      imgSize: imgSize,
+      imgSrc: imgSrc,
+      zIndex: zIndex
+    };
+    _this.videoOptions = {
+      disableVideo: disableVideo,
+      videoEndTime: videoEndTime,
+      videoLazyLoading: !disableVideoLazyLoading,
+      videoLoop: !disableVideoLoop,
+      videoPlayOnlyVisible: !disableVideoPlayOnlyVisible,
+      videoStartTime: videoStartTime,
+      videoVolume: videoVolume
+    };
+    _this.parentStyle = {
+      height: height,
+      width: width
+    };
+    return _this;
+  }
+
+  _createClass(Parallax, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      jarallax.jarallax(this.jarallax.current, this.props.image ? this.imageOptions : this.props.video ? this.videoOptions : this.props.element ? this.props.elementOptions : null);
+      jarallax.jarallaxVideo(this.jarallax.current);
+      jarallax.jarallaxElement(this.jarallax.current);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      jarallax.jarallax(this.jarallax.current, 'destroy');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props2 = this.props,
+          alt = _this$props2.alt,
+          children = _this$props2.children,
+          className = _this$props2.className,
+          element = _this$props2.element,
+          image = _this$props2.image,
+          keepImg = _this$props2.keepImg,
+          speed = _this$props2.speed,
+          Tag = _this$props2.tag,
+          threshold = _this$props2.threshold,
+          type = _this$props2.type,
+          video = _this$props2.video;
+      var parentClasses = classNames(keepImg ? 'jarallax-keep-img' : 'jarallax', className);
+      var elementClasses = classNames(Tag === 'span' ? 'd-inline-block' : null);
+      return React__default.createElement(React__default.Fragment, null, image && React__default.createElement(Tag, {
+        ref: this.jarallax,
+        className: parentClasses,
+        style: this.parentStyle,
+        "data-jarallax": true,
+        "data-type": type,
+        "data-speed": speed
+      }, React__default.createElement("img", {
+        className: "jarallax-img ",
+        src: image,
+        alt: alt
+      }), children), video && React__default.createElement(Tag, {
+        ref: this.jarallax,
+        className: parentClasses,
+        style: this.parentStyle,
+        "data-jarallax": true,
+        "data-type": type,
+        "data-speed": speed,
+        "data-video-src": video
+      }, children), element && React__default.createElement(Tag, {
+        className: elementClasses,
+        ref: this.jarallax,
+        "data-jarallax-element": speed,
+        "data-threshold": threshold
+      }, children));
+    }
+  }]);
+
+  return Parallax;
+}(React.Component);
+
+Parallax.propTypes = {
+  alt: propTypes.string.isRequired,
+  className: propTypes.string,
+  disableParallax: propTypes.func,
+  disableVideo: propTypes.func,
+  elementInViewport: propTypes.node,
+  height: propTypes.string,
+  image: propTypes.string,
+  imgElement: propTypes.string,
+  imgPosition: propTypes.string,
+  imgRepeat: propTypes.string,
+  imgSize: propTypes.string,
+  keepImg: propTypes.bool,
+  speed: propTypes.oneOfType([propTypes.node, propTypes.string]),
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  threshold: propTypes.node,
+  type: propTypes.string,
+  videoEndTime: propTypes.number,
+  videoLazyLoading: propTypes.bool,
+  videoLoop: propTypes.bool,
+  videoPlayOnlyVisible: propTypes.bool,
+  video: propTypes.string,
+  videoStartTime: propTypes.number,
+  videoVolume: propTypes.number,
+  width: propTypes.string,
+  zIndex: propTypes.number
+};
+Parallax.defaultProps = {
+  alt: 'MDBParallax image',
+  disableParallax: null,
+  disableVideo: null,
+  elementInViewport: null,
+  height: '600px',
+  imgElement: '.jarallax-img',
+  imgPosition: '50% 50%',
+  imgRepeat: 'no-repeat',
+  imgSize: 'cover',
+  keepImg: false,
+  speed: 0.5,
+  tag: 'div',
+  threshold: 'null null',
+  type: 'scroll',
+  videoEndTime: 0,
+  videoLazyLoading: true,
+  videoLoop: true,
+  videoPlayOnlyVisible: true,
+  videoStartTime: 0,
+  videoVolume: 0,
+  width: '100%',
+  zIndex: -100
 };
 
 var css$h = "\r\n/*\r\n * Container style\r\n */\r\n .ps {\r\n  overflow: hidden !important;\r\n  overflow-anchor: none;\r\n  -ms-overflow-style: none;\r\n  touch-action: auto;\r\n  -ms-touch-action: auto;\r\n}\r\n\r\n/*\r\n * Scrollbar rail styles\r\n */\r\n.ps__rail-x {\r\n  display: none;\r\n  opacity: 0;\r\n  transition: background-color .2s linear, opacity .2s linear;\r\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\r\n  height: 15px;\r\n  /* there must be 'bottom' or 'top' for ps__rail-x */\r\n  bottom: 0px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__rail-y {\r\n  display: none;\r\n  opacity: 0;\r\n  transition: background-color .2s linear, opacity .2s linear;\r\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\r\n  width: 15px;\r\n  /* there must be 'right' or 'left' for ps__rail-y */\r\n  right: 0;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps--active-x > .ps__rail-x,\r\n.ps--active-y > .ps__rail-y {\r\n  display: block;\r\n  background-color: transparent;\r\n}\r\n\r\n.ps:hover > .ps__rail-x,\r\n.ps:hover > .ps__rail-y,\r\n.ps--focus > .ps__rail-x,\r\n.ps--focus > .ps__rail-y,\r\n.ps--scrolling-x > .ps__rail-x,\r\n.ps--scrolling-y > .ps__rail-y {\r\n  opacity: 0.6;\r\n}\r\n\r\n.ps__rail-x:hover,\r\n.ps__rail-y:hover,\r\n.ps__rail-x:focus,\r\n.ps__rail-y:focus {\r\n  background-color: #eee;\r\n  opacity: 0.9;\r\n}\r\n\r\n/*\r\n * Scrollbar thumb styles\r\n */\r\n.ps__thumb-x {\r\n  background-color: #aaa;\r\n  border-radius: 6px;\r\n  transition: background-color .2s linear, height .2s ease-in-out;\r\n  -webkit-transition: background-color .2s linear, height .2s ease-in-out;\r\n  height: 6px;\r\n  /* there must be 'bottom' for ps__thumb-x */\r\n  bottom: 2px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__thumb-y {\r\n  background-color: #aaa;\r\n  border-radius: 6px;\r\n  transition: background-color .2s linear, width .2s ease-in-out;\r\n  -webkit-transition: background-color .2s linear, width .2s ease-in-out;\r\n  width: 6px;\r\n  /* there must be 'right' for ps__thumb-y */\r\n  right: 2px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__rail-x:hover > .ps__thumb-x,\r\n.ps__rail-x:focus > .ps__thumb-x {\r\n  background-color: #999;\r\n  height: 11px;\r\n}\r\n\r\n.ps__rail-y:hover > .ps__thumb-y,\r\n.ps__rail-y:focus > .ps__thumb-y {\r\n  background-color: #999;\r\n  width: 11px;\r\n}\r\n\r\n/* MS supports */\r\n@supports (-ms-overflow-style: none) {\r\n  .ps {\r\n    overflow: auto !important;\r\n  }\r\n}\r\n\r\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {\r\n  .ps {\r\n    overflow: auto !important;\r\n  }\r\n}\r\n\r\n.scrollbar-container {\r\n  position: relative;\r\n  height: 100%;\r\n}\r\n";
@@ -11893,13 +12232,22 @@ Spinner.defaultProps = {
 };
 
 var Step = function Step(props) {
-  var Tag = props.tag,
+  var brand = props.brand,
+      duotone = props.duotone,
+      fab = props.fab,
+      fad = props.fad,
+      fal = props.fal,
+      far = props.far,
       form = props.form,
       icon = props.icon,
+      light = props.light,
+      regular = props.regular,
       stepName = props.stepName,
+      Tag = props.tag,
       vertical = props.vertical;
-  var iconClass = classNames("fa fa-" + icon, "Ripple-parent");
-  var stepClass = classNames(form ? "steps-step" : icon && vertical ? "steps-step-3" : icon && !vertical ? "steps-step-2" : null, props.className);
+  var iconPrefix = regular || far ? 'far' : light || fal ? 'fal' : duotone || fad ? 'fad' : brand || fab ? 'fab' : 'fa';
+  var iconClass = classNames(iconPrefix + ' fa-' + icon, 'Ripple-parent');
+  var stepClass = classNames(form ? 'steps-step' : icon && vertical ? 'steps-step-3' : icon && !vertical ? 'steps-step-2' : null, props.className);
   var step;
 
   if (form) {
@@ -11938,12 +12286,13 @@ var Step = function Step(props) {
 };
 
 Step.defaultProps = {
-  tag: "div",
   form: false,
+  iconPrefix: 'fas',
+  tag: 'div',
   vertical: false
 };
 
-var css$j = "/* Stepper Form */\r\n\r\n/* Stepper v.2 (Form) */\r\n.steps-form {\r\n  display: table;\r\n  width: 100%;\r\n  position: relative; }\r\n.steps-form .steps-row {\r\n  display: table-row; }\r\n.steps-form .steps-row:before {\r\n  top: 14px;\r\n  bottom: 0;\r\n  position: absolute;\r\n  content: \" \";\r\n  width: 100%;\r\n  height: 1px;\r\n  background-color: #ccc; }\r\n.steps-form .steps-row .steps-step {\r\n  display: table-cell;\r\n  text-align: center;\r\n  position: relative; }\r\n.steps-form .steps-row .steps-step p {\r\n  margin-top: 0.5rem; }\r\n.steps-form .steps-row .steps-step button[disabled] {\r\n  opacity: 1 !important;\r\n  filter: alpha(opacity=100) !important; }\r\n.steps-form .steps-row .steps-step .btn-circle {\r\n  width: 30px;\r\n  height: 30px;\r\n  text-align: center;\r\n  padding: 6px 0;\r\n  font-size: 12px;\r\n  line-height: 1.428571429;\r\n  border-radius: 15px;\r\n  margin-top: 0; }\r\n\r\n/* Stepper v.3 (Icons) */\r\n.steps-form-2 {\r\n  display: table;\r\n  width: 100%;\r\n  position: relative; }\r\n.steps-form-2 .steps-row-2 {\r\n  display: table-row; }\r\n.steps-form-2 .steps-row-2:before {\r\n  top: 14px;\r\n  bottom: 0;\r\n  position: absolute;\r\n  content: \" \";\r\n  width: 99%;\r\n  height: 2px;\r\n  background-color: #7283a7; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 {\r\n  display: table-cell;\r\n  text-align: center;\r\n  position: relative; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 p {\r\n  margin-top: 0.5rem; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\r\n  opacity: 1 !important;\r\n  filter: alpha(opacity=100) !important; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\r\n  width: 70px;\r\n  height: 70px;\r\n  border: 2px solid #59698D;\r\n  background-color: white !important;\r\n  color: #59698D !important;\r\n  border-radius: 50%;\r\n  padding: 22px 18px 15px 18px;\r\n  margin-top: -22px; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\r\n  border: 2px solid #4285F4;\r\n  color: #4285F4 !important;\r\n  background-color: white !important; }\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {\r\n  font-size: 1.7rem; }\r\n .steps-row-2:first-child .btn {\r\n  margin-left: 0\r\n}\r\n.steps-row-2:last-child .btn {\r\n  margin-right: 0\r\n}\r\n\r\n\r\n/* Stepper v.4 (Icon-vertical) */\r\n\r\n.steps-form-3 {\r\n  width: 2px;\r\nheight: 470px;\r\n  position: relative; }\r\n.steps-form-3 .steps-row-3 {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column; }\r\n.steps-form-3 .steps-row-3:before {\r\n  top: 14px;\r\n  bottom: 0;\r\n  position: absolute;\r\n  content: \"\";\r\n  width: 2px;\r\n  height: 100%;\r\n  background-color: #7283a7; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 {\r\n  height: 150px;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  text-align: center;\r\n  position: relative; }\r\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\r\n  height: 50px; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 p {\r\nmargin-top: 0.5rem; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\r\n  opacity: 1 !important;\r\n  filter: alpha(opacity=100) !important; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\r\n  width: 60px;\r\n  height: 60px;\r\n  border: 2px solid #59698D;\r\n  background-color: white !important;\r\n  color: #59698D !important;\r\n  border-radius: 50%;\r\n  padding: 18px 18px 15px 15px;\r\n  margin-top: -22px; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\r\n  border: 2px solid #4285F4;\r\n  color: #4285F4 !important;\r\n  background-color: white !important; }\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa {\r\n  font-size: 1.7rem; }\r\n";
+var css$j = "/* Stepper Form */\r\n\r\n/* Stepper v.2 (Form) */\r\n.steps-form {\r\n  display: table;\r\n  width: 100%;\r\n  position: relative;\r\n}\r\n\r\n.steps-form .steps-row {\r\n  display: table-row;\r\n}\r\n\r\n.steps-form .steps-row:before {\r\n  top: 14px;\r\n  bottom: 0;\r\n  position: absolute;\r\n  content: ' ';\r\n  width: 100%;\r\n  height: 1px;\r\n  background-color: #ccc;\r\n}\r\n\r\n.steps-form .steps-row .steps-step {\r\n  display: table-cell;\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n\r\n.steps-form .steps-row .steps-step p {\r\n  margin-top: 0.5rem;\r\n}\r\n\r\n.steps-form .steps-row .steps-step button[disabled] {\r\n  opacity: 1 !important;\r\n  filter: alpha(opacity=100) !important;\r\n}\r\n\r\n.steps-form .steps-row .steps-step .btn-circle {\r\n  width: 30px;\r\n  height: 30px;\r\n  text-align: center;\r\n  padding: 6px 0;\r\n  font-size: 12px;\r\n  line-height: 1.428571429;\r\n  border-radius: 15px;\r\n  margin-top: 0;\r\n}\r\n\r\n/* Stepper v.3 (Icons) */\r\n.steps-form-2 {\r\n  display: table;\r\n  width: 100%;\r\n  position: relative;\r\n}\r\n\r\n.steps-form-2 .steps-row-2 {\r\n  display: table-row;\r\n}\r\n\r\n.steps-form-2 .steps-row-2:before {\r\n  top: 14px;\r\n  bottom: 0;\r\n  position: absolute;\r\n  content: ' ';\r\n  width: 99%;\r\n  height: 2px;\r\n  background-color: #7283a7;\r\n}\r\n\r\n.steps-form-2 .steps-row-2 .steps-step-2 {\r\n  display: table-cell;\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n\r\n.steps-form-2 .steps-row-2 .steps-step-2 p {\r\n  margin-top: 0.5rem;\r\n}\r\n\r\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\r\n  opacity: 1 !important;\r\n  filter: alpha(opacity=100) !important;\r\n}\r\n\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\r\n  width: 70px;\r\n  height: 70px;\r\n  border: 2px solid #59698d;\r\n  background-color: white !important;\r\n  color: #59698d !important;\r\n  border-radius: 50%;\r\n  padding: 20px 20px 20px 20px;\r\n  margin-top: -22px;\r\n}\r\n\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\r\n  border: 2px solid #4285f4;\r\n  color: #4285f4 !important;\r\n  background-color: white !important;\r\n}\r\n\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa,\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fas,\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .far,\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fal,\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fad,\r\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fab {\r\n  font-size: 1.7rem;\r\n}\r\n\r\n.steps-row-2:first-child .btn {\r\n  margin-left: 0;\r\n}\r\n\r\n.steps-row-2:last-child .btn {\r\n  margin-right: 0;\r\n}\r\n\r\n/* Stepper v.4 (Icon-vertical) */\r\n\r\n.steps-form-3 {\r\n  width: 2px;\r\n  height: 470px;\r\n  position: relative;\r\n}\r\n\r\n.steps-form-3 .steps-row-3 {\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n  -webkit-align-items: center;\r\n  -ms-flex-align: center;\r\n  align-items: center;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n  -webkit-flex-direction: column;\r\n  -ms-flex-direction: column;\r\n  flex-direction: column;\r\n}\r\n\r\n.steps-form-3 .steps-row-3:before {\r\n  top: 14px;\r\n  bottom: 0;\r\n  position: absolute;\r\n  content: '';\r\n  width: 2px;\r\n  height: 100%;\r\n  background-color: #7283a7;\r\n}\r\n\r\n.steps-form-3 .steps-row-3 .steps-step-3 {\r\n  height: 150px;\r\n  display: -webkit-box;\r\n  display: -webkit-flex;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  text-align: center;\r\n  position: relative;\r\n}\r\n\r\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\r\n  height: 50px;\r\n}\r\n\r\n.steps-form-3 .steps-row-3 .steps-step-3 p {\r\n  margin-top: 0.5rem;\r\n}\r\n\r\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\r\n  opacity: 1 !important;\r\n  filter: alpha(opacity=100) !important;\r\n}\r\n\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\r\n  width: 60px;\r\n  height: 60px;\r\n  border: 2px solid #59698d;\r\n  background-color: white !important;\r\n  color: #59698d !important;\r\n  border-radius: 50%;\r\n  padding: 15px 15px 15px 15px;\r\n  margin-top: -22px;\r\n}\r\n\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\r\n  border: 2px solid #4285f4;\r\n  color: #4285f4 !important;\r\n  background-color: white !important;\r\n}\r\n\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa,\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fas,\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .far,\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fal,\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fad,\r\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fab {\r\n  font-size: 1.7rem;\r\n}\r\n";
 styleInject(css$j);
 
 var Stepper = function Stepper(props) {
@@ -13617,6 +13966,7 @@ exports.MDBNotification = Notification;
 exports.MDBPageItem = PageItem;
 exports.MDBPageNav = PageLink;
 exports.MDBPagination = Pagination;
+exports.MDBParallax = Parallax;
 exports.MDBPopover = Popover;
 exports.MDBPopoverBody = PopoverBody;
 exports.MDBPopoverHeader = PopoverHeader;
@@ -13685,6 +14035,7 @@ exports.Notification = Notification;
 exports.PageItem = PageItem;
 exports.PageLink = PageLink;
 exports.Pagination = Pagination;
+exports.Parallax = Parallax;
 exports.PerfectScrollbar = ScrollBar;
 exports.Popover = Popover;
 exports.PopoverBody = PopoverBody;
