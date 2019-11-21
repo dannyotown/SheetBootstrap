@@ -54,6 +54,7 @@
   user-select: text;
   /* pointer-events: none; */
   transform-origin: center;
+  outline: none;
 }
 
 .mdb-lightbox .mdb-lightbox figure img.zoom:hover {

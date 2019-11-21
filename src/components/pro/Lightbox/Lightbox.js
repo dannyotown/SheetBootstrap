@@ -18,7 +18,28 @@ class Lightbox extends React.Component {
 
   componentWillUnmount = () => {
     this.setState(this.reset());
+    document.removeEventListener('keydown', this.keyEvents)
   };
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.keyEvents)
+  }
+  
+  keyEvents = e => {
+    const {changeSlide, imgSrc, sliderOpened} = this.state;
+    const active = this.slideRefs.filter(el=> el === document.activeElement)[0];
+    const key = e.key;
+
+    if(key === 'Enter' && active) this.zoom(e) ;
+    if(sliderOpened && !changeSlide){
+      if(key === 'Escape' || key === 'ArrowUp' || key === 'ArrowDown') this.closeZoom();
+      if(key === 'ArrowLeft') this.changeSlide('prev');
+      if(key === 'ArrowRight') this.changeSlide('next');
+      if(key === 'Tab') this.setFocus(imgSrc);
+    }
+  }
+
+  setFocus = target => setTimeout(()=>target.focus(), 0)
 
   setScreenSize = () => {
     this.setState({
@@ -110,10 +131,10 @@ class Lightbox extends React.Component {
     return data;
   };
 
-  zoom = e => {
+  zoom = ({ target }) => {
     let { imgSrc } = this.state;
     const { transition } = this.props;
-    const img = e.target;
+    const img = target;
 
     if (!imgSrc) {
       this.updateGalleryData();
@@ -162,33 +183,36 @@ class Lightbox extends React.Component {
   };
 
   closeZoom = () => {
-    let { imgSrc, galleryImagesData, activeKey } = this.state;
-    this.setState({ sliderOpened: false });
-    let PREV_IMG =
-      this.slideRefs[activeKey - 1] ||
-      this.slideRefs[this.slideRefs.length - 1];
-    let NEXT_IMG = this.slideRefs[activeKey + 1] || this.slideRefs[0];
+    let { imgSrc, galleryImagesData, activeKey, changeSlide } = this.state;
+    if(!changeSlide) {
+      this.setState({ sliderOpened: false });
+      this.setFocus(imgSrc);
+      let PREV_IMG =
+        this.slideRefs[activeKey - 1] ||
+        this.slideRefs[this.slideRefs.length - 1];
+      let NEXT_IMG = this.slideRefs[activeKey + 1] || this.slideRefs[0];
 
-    PREV_IMG.style.cssText = '';
-    NEXT_IMG.style.cssText = '';
+      PREV_IMG.style.cssText = '';
+      NEXT_IMG.style.cssText = '';
 
-    document.body.classList.remove('overflow-hidden');
-    imgSrc.classList.remove('zoom');
-    imgSrc.style.cssText = `
-        transition: ${this.props.transition}ms;
-        z-index: 9999;
-        top: 0;
-        left: 0;
-        transform: translate(${galleryImagesData[activeKey].imgSrcData.size.left}px, ${galleryImagesData[activeKey].imgSrcData.size.top}px) translate3d(0,0,0) scale(${galleryImagesData[activeKey].scale});
-        position: fixed;
-      `;
+      document.body.classList.remove('overflow-hidden');
+      imgSrc.classList.remove('zoom');
+      imgSrc.style.cssText = `
+          transition: ${this.props.transition}ms;
+          z-index: 9999;
+          top: 0;
+          left: 0;
+          transform: translate(${galleryImagesData[activeKey].imgSrcData.size.left}px, ${galleryImagesData[activeKey].imgSrcData.size.top}px) translate3d(0,0,0) scale(${galleryImagesData[activeKey].scale});
+          position: fixed;
+        `;
 
-    this.overlay.current.classList.remove('active');
-    setTimeout(() => {
-      imgSrc.style.cssText = '';
-      this.setState(this.reset());
-    }, this.props.transition);
-  };
+      this.overlay.current.classList.remove('active');
+      setTimeout(() => {
+        imgSrc.style.cssText = '';
+        this.setState(this.reset());
+      }, this.props.transition);
+    };
+  }
 
   scrollZoom = e => {
     if (
@@ -281,67 +305,70 @@ class Lightbox extends React.Component {
     const { activeKey, changeSlide, imgSrc, galleryImagesData } = this.state;
     const { transition } = this.props;
 
-    let { slideRefs } = this;
-    let CURRENT_IMG = imgSrc;
-    let PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
-    let NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
-    let actual_key;
-    const trans3d_Unset = index => `
-      translate(-50%, -50%) 
-      translate3d(0px, 0px, 0px) 
-      scale(${galleryImagesData[index].zoomedScale})
-    `;
+    if(!changeSlide){
+      
+      let { slideRefs } = this;
+      let CURRENT_IMG = imgSrc;
+      let PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
+      let NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
+      let actual_key;
+      const trans3d_Unset = index => `
+        translate(-50%, -50%) 
+        translate3d(0px, 0px, 0px) 
+        scale(${galleryImagesData[index].zoomedScale})
+      `;
 
-    const change = () => {
-      setTimeout(() => {
-        PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${0}ms`;
-        let CURRENT = this.state.imgSrc;
-        const dataOfImage = this.setData(CURRENT);
+      const change = () => {
+        setTimeout(() => {
+          PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${0}ms`;
+          let CURRENT = this.state.imgSrc;
+          const dataOfImage = this.setData(CURRENT);
 
-        this.setState(dataOfImage, () => {
-          CURRENT.classList.add('zoom');
-          CURRENT.style.cssText = `
-            transform: 
-              translate(-50%,-50%)
-              translate3d(0,0,0)
-              scale(${this.setScale(dataOfImage.imgSrcData)})
-          `;
-          this.setState({
-            changeSlide: false,
-            showRight: this.checkSiblings('next'),
-            showLeft: this.checkSiblings('prev')
+          this.setState(dataOfImage, () => {
+            CURRENT.classList.add('zoom');
+            CURRENT.style.cssText = `
+              transform: 
+                translate(-50%,-50%)
+                translate3d(0,0,0)
+                scale(${this.setScale(dataOfImage.imgSrcData)})
+            `;
+            this.setState({
+              showRight: this.checkSiblings('next'),
+              showLeft: this.checkSiblings('prev')
+            }, ()=> setTimeout(() => {
+              this.setState({changeSlide: false})
+            }, 100));
           });
-        });
-      }, transition);
-    };
+        }, transition);
+      };
 
-    PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${transition}ms`;
-    CURRENT_IMG.style.transform = trans3d_Unset(activeKey);
-    PREV_IMG.style.transform = trans3d_Unset(this.slideRefs.indexOf(PREV_IMG));
-    NEXT_IMG.style.transform = trans3d_Unset(this.slideRefs.indexOf(NEXT_IMG));
+      PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${transition}ms`;
+      CURRENT_IMG.style.transform = trans3d_Unset(activeKey);
+      PREV_IMG.style.transform = trans3d_Unset(this.slideRefs.indexOf(PREV_IMG));
+      NEXT_IMG.style.transform = trans3d_Unset(this.slideRefs.indexOf(NEXT_IMG));
 
-    if (!changeSlide) {
-      this.setState({ changeSlide: true });
-      if (direction === 'prev') {
-        actual_key = this.slideRefs.indexOf(PREV_IMG);
+      if (!changeSlide) {
+        this.setState({ changeSlide: true });
+        if (direction === 'prev') {
+          actual_key = this.slideRefs.indexOf(PREV_IMG);
 
-        CURRENT_IMG.classList.add('next-img');
-        PREV_IMG.classList.remove('prev-img');
-        this.setState({ imgSrc: PREV_IMG });
-        change(actual_key);
-      } else if (direction === 'next') {
-        actual_key = this.slideRefs.indexOf(NEXT_IMG);
+          CURRENT_IMG.classList.add('next-img');
+          PREV_IMG.classList.remove('prev-img');
+          this.setState({ imgSrc: PREV_IMG });
+          change(actual_key);
+        } else if (direction === 'next') {
+          actual_key = this.slideRefs.indexOf(NEXT_IMG);
 
-        CURRENT_IMG.classList.add('prev-img');
-        NEXT_IMG.classList.remove('next-img');
-        this.setState({ imgSrc: NEXT_IMG });
-        change(actual_key);
-      } else {
-        this.setState({ dragImg: false, changeSlide: false });
+          CURRENT_IMG.classList.add('prev-img');
+          NEXT_IMG.classList.remove('next-img');
+          this.setState({ imgSrc: NEXT_IMG });
+          change(actual_key);
+        } else {
+          this.setState({ dragImg: false, changeSlide: false });
+        }
       }
-    }
-  };
-
+    };
+  }
   dragStart = e => {
     if (
       !this.state.dragImg &&
@@ -586,6 +613,7 @@ class Lightbox extends React.Component {
           onMouseUp={this.dragStop}
           onTouchEnd={this.dragStop}
           onWheel={this.scrollZoom}
+          tabIndex={image.tabIndex || "0"}
         />
         {this.slideRefs[id] === imgSrc && (
           <div
@@ -682,7 +710,8 @@ Lightbox.propTypes = {
       sm: PropTypes.string,
       xl: PropTypes.string,
       xs: PropTypes.string,
-      size: PropTypes.string
+      size: PropTypes.string,
+      tabIndex: PropTypes.string
     })
   ),
   itemClassName: PropTypes.string,
