@@ -6008,7 +6008,7 @@ FreeBird.defaultProps = {
   tag: "div"
 };
 
-var css$7 = ".mdb-gallery {\n  display: flex;\n  flex-wrap: wrap;\n  overflow-y: auto;\n  list-style: none;\n  padding: 0;\n}\n";
+var css$7 = ".mdb-gallery {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  overflow-y: auto;\r\n  list-style: none;\r\n  padding: 0;\r\n}\r\n";
 styleInject(css$7);
 
 var Gallery = React.forwardRef(function Gallery(props, ref) {
@@ -6062,7 +6062,7 @@ Gallery.defaultProps = {
   tag: 'ul'
 };
 
-var css$8 = ".mdb-gallery-element {\n  box-sizing: border-box;\n  flex-shrink: 0;\n}\n\n.mdb-gallery-title {\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  position: relative;\n}\n\n.img-full-height {\n  height: 100%;\n  transform: translateX(-50%);\n  position: relative;\n  left: 50%;\n}\n\n.img-full-width {\n  width: 100%;\n  transform: translateY(-50%);\n  position: relative;\n  top: 50%;\n}\n";
+var css$8 = ".mdb-gallery-element {\r\n  box-sizing: border-box;\r\n  flex-shrink: 0;\r\n}\r\n\r\n.mdb-gallery-title {\r\n  height: 100%;\r\n  display: block;\r\n  overflow: hidden;\r\n  position: relative;\r\n}\r\n\r\n.img-full-height {\r\n  height: 100%;\r\n  transform: translateX(-50%);\r\n  position: relative;\r\n  left: 50%;\r\n}\r\n\r\n.img-full-width {\r\n  width: 100%;\r\n  transform: translateY(-50%);\r\n  position: relative;\r\n  top: 50%;\r\n}\r\n";
 styleInject(css$8);
 
 var imgClass = function imgClass(img) {
@@ -6101,7 +6101,8 @@ var GalleryList = React.forwardRef(function GalleryList(props, ref) {
       rows = props.rows,
       titleClasses = props.titleClasses,
       elementClasses = props.elementClasses,
-      attributes = _objectWithoutProperties(props, ["children", "className", "cols", "tag", "rows", "titleClasses", "elementClasses"]);
+      styles = props.styles,
+      attributes = _objectWithoutProperties(props, ["children", "className", "cols", "tag", "rows", "titleClasses", "elementClasses", "styles"]);
 
   var imgRef = useRef(null);
   var ec = classNames('mdb-gallery-element', elementClasses);
@@ -6125,6 +6126,7 @@ var GalleryList = React.forwardRef(function GalleryList(props, ref) {
   }, attributes, {
     className: ec
   }), React.createElement(MDBBox, {
+    style: _objectSpread2({}, styles),
     className: tc
   }, React.Children.map(children, function (child) {
     if (!React.isValidElement) {
