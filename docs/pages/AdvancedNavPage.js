@@ -36,6 +36,7 @@ const AdvancedNavPage = () => {
                   <MenuLink to="/advanced/pro/smoothscroll" title="SmoothScroll" />
                   <MenuLink to="/advanced/pro/sticky" title="Sticky Content" />
                   <MenuLink to="/advanced/pro/thumbnailscarousel" title="Thumbnails Carousel" />
+                  <MenuLink to="/advanced/pro/tooltips" title="Tooltips" />
                   {/* PRO-END */}
                 </ul>
               </MDBJumbotron>

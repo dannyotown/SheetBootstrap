@@ -7407,8 +7407,13 @@ Notification.defaultProps = {
   closeClassName: 'text-dark'
 };
 
+<<<<<<< HEAD
 var css$a = ".popover {\r\n  width: auto;\r\n  background-color: white;\r\n  color: #97999b;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  font-size: 0.83em;\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 10;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  background-color: #fff;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.show.popover {\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n.popover-body {\r\n  color: #6c6e71;\r\n}\r\n\r\n.popover .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.popover[x-placement^='top'] {\r\n  margin-bottom: 15px;\r\n}\r\n\r\n.popover[x-placement^='top'] .popover_arrow {\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: #d6d6d6 transparent transparent transparent;\r\n  bottom: -8px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.popover[x-placement^='top'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: white transparent transparent transparent;\r\n}\r\n\r\n.popover[x-placement^='bottom'] {\r\n  margin-top: 15px;\r\n}\r\n\r\n.popover[x-placement^='bottom'] .popover_arrow {\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent #d6d6d6 transparent;\r\n  top: -8px;\r\n  margin-top: 0;\r\n}\r\n\r\n.popover[x-placement^='bottom'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent white transparent;\r\n}\r\n\r\n.popover[x-placement^='right'] {\r\n  margin-left: 15px;\r\n}\r\n\r\n.popover[x-placement^='right'] .popover_arrow {\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent #d6d6d6 transparent transparent;\r\n  left: -8px;\r\n  margin-left: 0;\r\n}\r\n\r\n.popover[x-placement^='right'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent white transparent transparent;\r\n}\r\n\r\n.popover[x-placement^='left'] {\r\n  margin-right: 15px;\r\n}\r\n\r\n.popover[x-placement^='left'] .popover_arrow {\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent #d6d6d6;\r\n  right: -8px;\r\n  margin-right: 0;\r\n}\r\n\r\n.popover[x-placement^='left'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent white;\r\n}\r\n\r\n\r\n.tooltip {\r\n  width: auto;\r\n  background-color: black;\r\n  color: white;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  /* font-size: 0.83em; */\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 15;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.show.tooltip {\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n\r\n.tooltip .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.tooltip[x-placement^='top'] {\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.tooltip[x-placement^='top'] .popover_arrow {\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: #131313 transparent transparent transparent;\r\n  bottom: -6px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.tooltip[x-placement^='top'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: black transparent transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^='bottom'] {\r\n  margin-top: 5px;\r\n}\r\n\r\n.tooltip[x-placement^='bottom'] .popover_arrow {\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent #131313 transparent;\r\n  top: -6px;\r\n  margin-top: 0;\r\n}\r\n\r\n.tooltip[x-placement^='bottom'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent black transparent;\r\n}\r\n\r\n.tooltip[x-placement^='right'] {\r\n  margin-left: 5px;\r\n}\r\n\r\n.tooltip[x-placement^='right'] .popover_arrow {\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent #131313 transparent transparent;\r\n  left: -6px;\r\n  margin-left: 0;\r\n}\r\n\r\n.tooltip[x-placement^='right'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent black transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^='left'] {\r\n  margin-right: 5px;\r\n}\r\n\r\n.tooltip[x-placement^='left'] .popover_arrow {\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent #131313;\r\n  right: -6px;\r\n  margin-right: 0;\r\n}\r\n\r\n.tooltip[x-placement^='left'] .popover_arrow::before {\r\n  content: '';\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent black;\r\n}\r\n\r\n";
 styleInject(css$a);
+=======
+var css$8 = ".popover {\n  width: auto;\n  background-color: white;\n  color: #97999b;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  font-size: 0.83em;\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 10;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  background-color: #fff;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show.popover {\n  opacity: 1;\n  visibility: visible;\n}\n\n.popover-body {\n  color: #6c6e71;\n}\n\n.popover .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.popover[x-placement^=\"top\"] {\n  margin-bottom: 15px;\n}\n\n.popover[x-placement^=\"top\"] .popover_arrow {\n  border-width: 8px 8px 0 8px;\n  border-color: #d6d6d6 transparent transparent transparent;\n  bottom: -8px;\n  margin-bottom: 0;\n}\n\n.popover[x-placement^=\"top\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 8px 8px 0 8px;\n  border-color: white transparent transparent transparent;\n}\n\n.popover[x-placement^=\"bottom\"] {\n  margin-top: 15px;\n}\n\n.popover[x-placement^=\"bottom\"] .popover_arrow {\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent #d6d6d6 transparent;\n  top: -8px;\n  margin-top: 0;\n}\n\n.popover[x-placement^=\"bottom\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent white transparent;\n}\n\n.popover[x-placement^=\"right\"] {\n  margin-left: 15px;\n}\n\n.popover[x-placement^=\"right\"] .popover_arrow {\n  border-width: 8px 8px 8px 0;\n  border-color: transparent #d6d6d6 transparent transparent;\n  left: -8px;\n  margin-left: 0;\n}\n\n.popover[x-placement^=\"right\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  left: 1.45px;\n  border: solid;\n  border-width: 8px 8px 8px 0;\n  border-color: transparent white transparent transparent;\n}\n\n.popover[x-placement^=\"left\"] {\n  margin-right: 15px;\n}\n\n.popover[x-placement^=\"left\"] .popover_arrow {\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent #d6d6d6;\n  right: -8px;\n  margin-right: 0;\n}\n\n.popover[x-placement^=\"left\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  right: 1.45px;\n  border: solid;\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent white;\n}\n\n.tooltip {\n  width: auto;\n  background-color: black;\n  color: white;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  /* font-size: 0.83em; */\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 15;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show {\n  z-index: 15;\n}\n.tooltip-inner {\n  display: block;\n}\n\n.show.tooltip {\n  opacity: 1;\n  visibility: visible;\n}\n\n.tooltip .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.tooltip[x-placement^=\"top\"],\n.show[x-placement^=\"top\"]:not(.tooltip) {\n  margin-bottom: 5px;\n}\n\n.tooltip[x-placement^=\"top\"] .popover_arrow {\n  border-width: 6px 6px 0 6px;\n  border-color: #131313 transparent transparent transparent;\n  bottom: -6px;\n  margin-bottom: 0;\n}\n\n.tooltip[x-placement^=\"top\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 6px 6px 0 6px;\n  border-color: black transparent transparent transparent;\n}\n\n.tooltip[x-placement^=\"bottom\"],\n.show[x-placement^=\"bottom\"]:not(.tooltip) {\n  margin-top: 5px;\n}\n\n.tooltip[x-placement^=\"bottom\"] .popover_arrow {\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent #131313 transparent;\n  top: -6px;\n  margin-top: 0;\n}\n\n.tooltip[x-placement^=\"bottom\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent black transparent;\n}\n\n.tooltip[x-placement^=\"right\"],\n.show[x-placement^=\"right\"]:not(.tooltip) {\n  margin-left: 5px;\n}\n\n.tooltip[x-placement^=\"right\"] .popover_arrow {\n  border-width: 6px 6px 6px 0;\n  border-color: transparent #131313 transparent transparent;\n  left: -6px;\n  margin-left: 0;\n}\n\n.tooltip[x-placement^=\"right\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  left: 1.45px;\n  border: solid;\n  border-width: 6px 6px 6px 0;\n  border-color: transparent black transparent transparent;\n}\n\n.tooltip[x-placement^=\"left\"],\n.show[x-placement^=\"left\"]:not(.tooltip) {\n  margin-right: 5px;\n}\n\n.tooltip[x-placement^=\"left\"] .popover_arrow {\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent #131313;\n  right: -6px;\n  margin-right: 0;\n}\n\n.tooltip[x-placement^=\"left\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  right: 1.45px;\n  border: solid;\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent black;\n}\n";
+styleInject(css$8);
+>>>>>>> b367618f351b5257f4192d1fa90368b1e38f8c02
 
 var Popover =
 /*#__PURE__*/
@@ -7448,7 +7453,7 @@ function (_React$Component) {
         showPopper: toggler && true
       }, function () {
         if (_this.state.showPopper) _this.setState({
-          visible: typeof toggler !== 'undefined' ? toggler : !_this.state.visible
+          visible: typeof toggler !== "undefined" ? toggler : !_this.state.visible
         }, function () {
           _this.createPopper();
 
@@ -7499,7 +7504,7 @@ function (_React$Component) {
       this.timer = setInterval(function () {
         return _this2.setPopperJS();
       }, 3);
-      document.addEventListener('click', this.handleClick);
+      document.addEventListener("click", this.handleClick);
     }
   }, {
     key: "render",
@@ -7511,21 +7516,26 @@ function (_React$Component) {
           className = _this$props2.className,
           clickable = _this$props2.clickable,
           domElement = _this$props2.domElement,
-          modifiers = _this$props2.modifiers,
+          email = _this$props2.email,
           id = _this$props2.id,
           isVisible = _this$props2.isVisible,
-          onChange = _this$props2.onChange,
+          material = _this$props2.material,
+          modifiers = _this$props2.modifiers,
           placement = _this$props2.placement,
           popover = _this$props2.popover,
+          sm = _this$props2.sm,
           style = _this$props2.style,
+          onChange = _this$props2.onChange,
           Tag = _this$props2.tag,
-          attributes = _objectWithoutProperties(_this$props2, ["children", "className", "clickable", "domElement", "modifiers", "id", "isVisible", "onChange", "placement", "popover", "style", "tag"]);
+          attributes = _objectWithoutProperties(_this$props2, ["children", "className", "clickable", "domElement", "email", "id", "isVisible", "material", "modifiers", "placement", "popover", "sm", "style", "onChange", "tag"]);
 
       var _this$state = this.state,
           visible = _this$state.visible,
           showPopper = _this$state.showPopper;
-      var popper = children[1];
+      var Popper = children[1];
       var Wrapper = children[0];
+      var classes = classNames(visible && "show", popover ? "popover" : !material && !email && "tooltip px-2", className);
+      var popperClasses = classNames((material || email) && "tooltip-inner", material && (sm ? "md-inner" : "md-inner-main"), email && (sm ? "md-inner" : "md-inner-email"));
       return React.createElement(React.Fragment, null, !domElement ? React.createElement(Wrapper.type, _extends({}, Wrapper.props, {
         onMouseEnter: function onMouseEnter() {
           return !clickable && _this3.doToggle(true);
@@ -7587,11 +7597,13 @@ function (_React$Component) {
         ref: function ref(_ref2) {
           return _this3.popoverWrapperRef = _ref2;
         },
-        className: classNames(visible && 'show', popover ? 'popover' : 'tooltip px-2', className),
+        className: classes,
         "data-popper": id
-      }, attributes), popper, React.createElement("span", {
+      }, attributes), React.createElement(Popper.type, {
+        className: classNames(popperClasses, Popper.props.className)
+      }, Popper.props.children), React.createElement("span", {
         "x-arrow": "",
-        className: "popover_arrow"
+        className: classNames("popover_arrow")
       })));
     }
   }]);
@@ -7603,25 +7615,28 @@ Popover.propTypes = {
   children: propTypes.node,
   clickable: propTypes.bool,
   domElement: propTypes.bool,
-  modifiers: propTypes.object,
+  email: propTypes.bool,
   id: propTypes.string,
   isVisible: propTypes.bool,
+  material: propTypes.bool,
+  modifiers: propTypes.object,
   placement: propTypes.string,
   popover: propTypes.bool,
+  sm: propTypes.bool,
   style: propTypes.objectOf(propTypes.string),
   tag: propTypes.string
 };
 Popover.defaultProps = {
   clickable: false,
   domElement: false,
-  id: 'popper',
+  id: "popper",
   isVisible: false,
-  placement: 'top',
+  placement: "top",
   popover: false,
   style: {
-    display: 'inline-block'
+    display: "inline-block"
   },
-  tag: 'div'
+  tag: "div"
 };
 
 var PopoverBody = function PopoverBody(_ref) {
