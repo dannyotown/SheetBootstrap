@@ -4,8 +4,7 @@ import {
   MDBGallery,
   MDBGalleryList,
   MDBBox,
-  MDBMask,
-  MDBView
+  MDBMask
 } from 'mdbreact';
 import DocsLink from './../../components/docsLink';
 import SectionContainer from './../../components/sectionContainer';
@@ -263,7 +262,7 @@ const GalleryPage = () => {
       >
         <GalleryWrapper>
           <MDBGallery cols={4}>
-            {dataImg.map(({ cols, img, title, pattern, overlay }, i) => {
+            {dataImg.map(({ cols, img, title, overlay }, i) => {
               return (
                 <MDBGalleryList
                   key={i}
