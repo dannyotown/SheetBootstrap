@@ -2,6 +2,7 @@
 import MDBAlert from './components/Alert';
 import MDBAnimation from './components/Animation';
 import MDBBadge from './components/Badge';
+import MDBBox from './components/Box';
 import MDBBreadcrumb from './components/Breadcrumb';
 import MDBBreadcrumbItem from './components/Breadcrumb/BreadcrumbItem';
 import MDBBtn from './components/Button';
@@ -36,6 +37,8 @@ import MDBEdgeHeader from './components/EdgeHeader';
 import MDBFooter from './components/Footer';
 import MDBFormInline from './components/FormInline';
 import MDBFreeBird from './components/FreeBird';
+import MDBGallery from './components/Gallery';
+import MDBGalleryList from './components/Gallery/GalleryList';
 import MDBHamburgerToggler from './components/HamburgerToggler';
 import MDBIframe from './components/Iframe';
 import MDBInput from './components/Input';
@@ -76,6 +79,7 @@ import MDBTableHead from './components/Table/TableHead';
 import MDBTreeview from './components/Treeview';
 import MDBTreeviewItem from './components/Treeview/TreeviewItem';
 import MDBTreeviewList from './components/Treeview/TreeviewList';
+import MDBTypo from './components/Typography';
 import MDBView from './components/View';
 import MDBWaves from './components/Waves';
 //FREE
@@ -131,6 +135,7 @@ export {
   MDBAlert,
   MDBAnimation,
   MDBBadge,
+  MDBBox,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
   MDBBtn,
@@ -162,6 +167,8 @@ export {
   MDBDropdownMenu,
   MDBDropdownToggle,
   MDBEdgeHeader,
+  MDBGallery,
+  MDBGalleryList,
   MDBFooter,
   MDBFormInline,
   MDBFreeBird,
@@ -206,6 +213,8 @@ export {
   MDBTreeview,
   MDBTreeviewItem,
   MDBTreeviewList,
+  MDBTypo,
+  MDBTypo as MDBTypography,
   MDBView,
   MDBWaves,
   //FREE

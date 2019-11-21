@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode, Component, RefObject, SyntheticEvent, FormEvent } from 'react';
+import { FunctionComponent, ReactNode, Component, ElementType, RefObject, SyntheticEvent, ReactChild, FormEvent } from 'react';
 
 declare const MDBAlert: FunctionComponent<{
   color?:
@@ -122,6 +122,94 @@ declare const MDBBadge: FunctionComponent<{
   tag?: string;
   [rest: string]: any;
 }>
+
+declare const MDBBox: FunctionComponent<{
+  tag?: ElementType;
+  className?: string;
+  display?:
+    | 'none'
+    | 'inline'
+    | 'inline-block'
+    | 'block'
+    | 'table'
+    | 'table-row'
+    | 'table-cell'
+    | 'flex'
+    | 'inline-flex';
+  justifyContent?: 'start' | 'end' | 'center' | 'between' | 'around';
+  flex?:
+    | 'row'
+    | 'column'
+    | 'row-reverse'
+    | 'column-reverse'
+    | 'wrap'
+    | 'nowrap'
+    | 'wrap-reverse'
+    | 'fill'
+    | 'grow-0 '
+    | 'grow-1'
+    | 'shrink-0'
+    | 'shrink-1'
+    | 'center';
+  alignItems?: 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+  alignContent?: 'start' | 'end' | 'center' | 'between' | 'stretch' | 'around ';
+  alignSelf?: 'auto' | 'start' | 'end' | 'center' | 'baseline' | 'stretch';
+  color?:
+    | 'red'
+    | 'pink'
+    | 'purple'
+    | 'deep-purple'
+    | 'indigo'
+    | 'blue'
+    | 'light-blue'
+    | 'cyan'
+    | 'teal'
+    | 'green'
+    | 'light-green'
+    | 'lime'
+    | 'yellow'
+    | 'amber'
+    | 'orange'
+    | 'deep-orange'
+    | 'brown'
+    | 'grey'
+    | 'blue-grey'
+    | 'mdb-color white'
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'info'
+    | 'default'
+    | 'warning'
+    | 'danger'
+    | 'dark'
+    | 'muted'
+    | 'light';
+  bgColor?:
+    | 'primary'
+    | 'secondary'
+    | 'success'
+    | 'info'
+    | 'default'
+    | 'warning'
+    | 'danger'
+    | 'dark'
+    | 'light';
+  m?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  mt?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  mr?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  mb?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  ml?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  mx?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  my?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  p?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  pt?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  pr?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  pb?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  pl?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  px?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+  py?: 0 | 1 | 2 | 3 | 4 | 5 | '0' | '1' | '2 ' | '3' | '4' | '5';
+}>;
 
 declare const MDBBreadcrumb: FunctionComponent<{
   bold?: boolean;
@@ -595,6 +683,26 @@ declare const MDBFreeBird: FunctionComponent<{
   [rest: string]: any;
 }>;
 
+declare const MDBGallery: FunctionComponent<{
+  cellHeight?: number;
+  children?: ReactChild;
+  className?: string;
+  cols?: number;
+  tag?: string;
+  spacing?: number;
+  style?: object;
+}>;
+
+declare const MDBGalleryList: FunctionComponent<{
+  children?: ReactNode;
+  className?: string;
+  cols?: number;
+  tag?: string;
+  rows?: number;
+  titleClasses?: string;
+  elementClasses?: string;
+}>;
+
 declare const MDBHamburgerToggler: FunctionComponent<{
   color?: string;
   className?: string;
@@ -641,15 +749,29 @@ declare class MDBInput extends Component<
     iconClass?: string;
     iconLight?: boolean;
     iconRegular?: boolean;
-    iconSize?: "lg" | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
+    iconSize?:
+      | 'lg'
+      | '1x'
+      | '2x'
+      | '3x'
+      | '4x'
+      | '5x'
+      | '6x'
+      | '7x'
+      | '8x'
+      | '9x'
+      | '10x';
     id?: string;
-    inputRef?: RefObject<HTMLInputElement> | ((ref: RefObject<HTMLInputElement>) => void) | null;
+    inputRef?:
+      | RefObject<HTMLInputElement>
+      | ((ref: RefObject<HTMLInputElement>) => void)
+      | null;
     outline?: boolean;
     label?: string | boolean;
     labelClass?: string;
     labelId?: string;
     noTag?: boolean;
-    size?: "sm" | "lg";
+    size?: 'sm' | 'lg';
     success?: string;
     tag?: string;
     type?: string;
@@ -1153,6 +1275,78 @@ declare const MDBTreeviewList: FunctionComponent<{
   opened?: boolean;
   tag?: string;
   [rest: string]: any;
+}>;
+
+declare const MDBTypogrphy: FunctionComponent<{
+  className?: string;
+  tag?: 'ul' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  variant?:
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'h1-responsive'
+    | 'h2-responsive'
+    | 'h3-responsive'
+    | 'h4-responsive'
+    | 'h5-responsive'
+    | 'h5-responsive'
+    | 'display-1'
+    | 'display-2'
+    | 'display-3'
+    | 'display-4';
+  blockquote?: boolean;
+  bqColor?:
+    | 'primary'
+    | 'default'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'info'
+    | 'secondary'
+    | 'light';
+  bqTitle?: string;
+  listUnStyled?: boolean;
+  listInLine?: boolean;
+  colorText?:
+    | 'red'
+    | 'pink'
+    | 'purple'
+    | 'deep-purple'
+    | 'indigo'
+    | 'blue'
+    | 'light-blue'
+    | 'cyan'
+    | 'teal'
+    | 'green'
+    | 'light-green'
+    | 'lime'
+    | 'yellow'
+    | 'amber'
+    | 'orange'
+    | 'deep-orange'
+    | 'brown'
+    | 'grey'
+    | 'blue-grey'
+    | 'mdb-color white';
+  note?: boolean;
+  noteColor?:
+    | 'primary'
+    | 'default'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'info'
+    | 'secondary'
+    | 'light'
+    | 'dark'
+    | 'unique'
+    | 'stylish'
+    | 'special'
+    | 'elegant';
+  noteTitle?: string;
 }>;
 
 declare const MDBView: FunctionComponent<{
@@ -1852,4 +2046,4 @@ declare class MDBToast extends Component<any, any> {}
 
 declare class MDBToastContainer extends Component<any, any> {}
 
-export { MDBAlert, MDBAnimation, MDBAutocomplete, MDBAvatar, MDBBadge, MDBBreadcrumb, MDBBreadcrumbItem, MDBBtn, MDBBtnGroup, MDBBtnToolbar, MDBBtnFixed as MDBButtonFixed, MDBBtnFixedItem as MDBButtonFixedItem, MDBCard, MDBCardBody, MDBCardFooter, MDBCardGroup, MDBCardHeader, MDBCardImage, MDBCardText, MDBCardTitle, MDBCardUp, MDBCarousel, MDBCarouselCaption, MDBCarouselControl, MDBCarouselIndicator, MDBCarouselIndicators, MDBCarouselInner, MDBCarouselItem, MDBChip, MDBChipsInput, MDBCloseIcon, MDBCol, MDBCollapse, MDBCollapseHeader, MDBContainer, MDBDataTable, MDBDatePicker, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBEdgeHeader, MDBExportToCSV, MDBFileInput, MDBFooter, MDBFormInline, MDBFreeBird, MDBHamburgerToggler, MDBIcon, MDBIframe, MDBInput, MDBInputGroup, MDBInputSelect as MDBInputNumeric, MDBJumbotron, MDBLightbox, MDBListGroup, MDBListGroupItem, MDBMask, MDBMedia, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBNav, MDBNavItem, MDBNavLink, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNotification, MDBPageItem, MDBPageLink as MDBPageNav, MDBPagination, MDBPerfectScrollbar, MDBPopper as MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBPopper, MDBProgress, MDBInputRange as MDBRangeInput, MDBRating, MDBRotatingCard, MDBRow, MDBScrollSpyBox as MDBScrollspyBox, MDBScrollSpyList as MDBScrollspyList, MDBScrollSpyListItem as MDBScrollspyListItem, MDBScrollSpyText as MDBScrollspyText, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions, MDBSideNav, MDBSideNavCat, MDBSideNavItem, MDBSideNavLink, MDBSideNavNav, MDBSimpleChart, MDBSmoothScroll, MDBSpinner, MDBStep, MDBStepper, MDBSticky, MDBStickyContent, MDBStreak, MDBInputSwitch as MDBSwitch, MDBTabContent, MDBTabPane, MDBTable, MDBTableBody, MDBTableEditable, MDBTableFoot, MDBTableHead, MDBTestimonial, MDBTimePicker, MDBTimeline, MDBTimelineStep, MDBToast, MDBToastContainer, MDBTreeview, MDBTreeviewItem, MDBTreeviewList, MDBView, MDBWaves };
+export { MDBAlert, MDBAnimation, MDBAutocomplete, MDBAvatar, MDBBadge, MDBBox, MDBBreadcrumb, MDBBreadcrumbItem, MDBBtn, MDBBtnGroup, MDBBtnToolbar, MDBBtnFixed as MDBButtonFixed, MDBBtnFixedItem as MDBButtonFixedItem, MDBCard, MDBCardBody, MDBCardFooter, MDBCardGroup, MDBCardHeader, MDBCardImage, MDBCardText, MDBCardTitle, MDBCardUp, MDBCarousel, MDBCarouselCaption, MDBCarouselControl, MDBCarouselIndicator, MDBCarouselIndicators, MDBCarouselInner, MDBCarouselItem, MDBChip, MDBChipsInput, MDBCloseIcon, MDBCol, MDBCollapse, MDBCollapseHeader, MDBContainer, MDBDataTable, MDBDatePicker, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBEdgeHeader, MDBExportToCSV, MDBFileInput, MDBFooter, MDBFormInline, MDBFreeBird, MDBGallery, MDBGalleryList, MDBHamburgerToggler, MDBIcon, MDBIframe, MDBInput, MDBInputGroup, MDBInputSelect as MDBInputNumeric, MDBJumbotron, MDBLightbox, MDBListGroup, MDBListGroupItem, MDBMask, MDBMedia, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBNav, MDBNavItem, MDBNavLink, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNotification, MDBPageItem, MDBPageLink as MDBPageNav, MDBPagination, MDBPerfectScrollbar, MDBPopper as MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBPopper, MDBProgress, MDBInputRange as MDBRangeInput, MDBRating, MDBRotatingCard, MDBRow, MDBScrollSpyBox as MDBScrollspyBox, MDBScrollSpyList as MDBScrollspyList, MDBScrollSpyListItem as MDBScrollspyListItem, MDBScrollSpyText as MDBScrollspyText, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions, MDBSideNav, MDBSideNavCat, MDBSideNavItem, MDBSideNavLink, MDBSideNavNav, MDBSimpleChart, MDBSmoothScroll, MDBSpinner, MDBStep, MDBStepper, MDBSticky, MDBStickyContent, MDBStreak, MDBInputSwitch as MDBSwitch, MDBTabContent, MDBTabPane, MDBTable, MDBTableBody, MDBTableEditable, MDBTableFoot, MDBTableHead, MDBTestimonial, MDBTimePicker, MDBTimeline, MDBTimelineStep, MDBToast, MDBToastContainer, MDBTreeview, MDBTreeviewItem, MDBTreeviewList, MDBTypogrphy as MDBTypo, MDBTypogrphy as MDBTypography, MDBView, MDBWaves };
