@@ -191,10 +191,7 @@ class Routes extends React.Component {
         <Route path='/navigation/navs' component={NavsPage} />
         <Route path='/navigation/footer' component={FooterPage} />
         <Route path='/tables/table' component={TablePage} />
-        <Route
-          path='/tables/table-responsive'
-          component={TableResponsivePage}
-        />
+        <Route path='/tables/table-responsive' component={TableResponsivePage} />
         <Route path='/tables/table-scroll' component={TableScrollPage} />
         <Route path='/tables/table-styles' component={TableStylesPage} />
         <Route path='/tables/datatable-api' component={DatatableApiPage} />
@@ -203,53 +200,29 @@ class Routes extends React.Component {
         {/* PRO-START */}
         <Route exact path='/sections' component={SectionsNavPage} />
         <Route path='/addons/pro/gallery' component={GalleryPage} />
-        <Route
-          path='/addons/pro/blog-components'
-          component={BlogComponentsPage}
-        />
+        <Route path='/addons/pro/blog-components' component={BlogComponentsPage} />
         <Route path='/addons/pro/chat' component={ChatPage} />
-        <Route
-          path='/addons/pro/e-commerce-components'
-          component={eCommercePage}
-        />
-        <Route
-          path='/addons/pro/flipping-cards'
-          component={FlippingCardsPage}
-        />
-        <Route
-          path='/addons/pro/notifications'
-          component={NotificationPagePro}
-        />
+        <Route path='/addons/pro/e-commerce-components' component={eCommercePage} />
+        <Route path='/addons/pro/flipping-cards' component={FlippingCardsPage} />
+        <Route path='/addons/pro/notifications' component={NotificationPagePro} />
         <Route path='/addons/pro/streak' component={StreakPage} />
         <Route path='/addons/pro/timeline' component={TimelinePage} />
         <Route path='/advanced/pro/charts' component={ChartsPagePro} />
         <Route path='/advanced/pro/collapse' component={CollapsePagePro} />
         <Route path='/advanced/pro/lightbox' component={LightboxPage} />
-        <Route
-          path='/advanced/pro/multicarousel'
-          component={MultiCarouselPage}
-        />
+        <Route path='/advanced/pro/multicarousel' component={MultiCarouselPage} />
         <Route path='/advanced/pro/tooltips' component={TooltipsPagePro} />
         <Route path='/advanced/pro/scrollbar' component={ScrollBarPagePro} />
         <Route path='/advanced/pro/smoothscroll' component={SmoothScrollPage} />
         <Route path='/advanced/pro/sticky' component={StickyPage} />
-        <Route
-          path='/advanced/pro/thumbnailscarousel'
-          component={ThumbnailsCarousel}
-        />
+        <Route path='/advanced/pro/thumbnailscarousel' component={ThumbnailsCarousel} />
         <Route path='/components/pro/buttons' component={ButtonPagePro} />
         <Route path='/components/pro/cards' component={CardsPagePro} />
         <Route path='/components/pro/chips' component={ChipsPage} />
-        <Route
-          path='/components/pro/dropdown'
-          component={MaterialDropdownPage}
-        />
+        <Route path='/components/pro/dropdown' component={MaterialDropdownPage} />
         <Route path='/components/pro/pills' component={PillsPagePro} />
         <Route path='/components/pro/search' component={SearchPagePro} />
-        <Route
-          path='/components/pro/socialbuttons'
-          component={SocialButtonsPage}
-        />
+        <Route path='/components/pro/socialbuttons' component={SocialButtonsPage} />
         <Route path='/components/pro/spinner' component={SpinnerPagePro} />
         <Route path='/components/pro/stepper' component={StepperPage} />
         <Route path='/components/pro/tabs' component={TabsPagePro} />
@@ -262,61 +235,40 @@ class Routes extends React.Component {
         <Route path='/forms/pro/slider' component={SliderPage} />
         <Route path='/forms/pro/timepicker' component={TimePickerPage} />
         <Route path='/forms/pro/validation' component={ValidationPagePro} />
-        <Route
-          path='/modals/pro/modal-examples'
-          component={ModalExamplesProPage}
-        />
+        <Route path='/modals/pro/modal-examples' component={ModalExamplesProPage} />
         <Route path='/modals/pro/modal-form' component={ModalFormProPage} />
         <Route path='/navigation/pro/double' component={DoubleNavigationPage} />
         <Route path='/navigation/pro/footer' component={FooterPagePro} />
-        <Route
-          path='/navigation/pro/hamburger-menu'
-          component={HabmburgerMenuPage}
-        />
+        <Route path='/navigation/pro/hamburger-menu' component={HabmburgerMenuPage} />
         <Route path='/navigation/pro/navs' component={NavsPagePro} />
         <Route path='/navigation/pro/scrollspy' component={ScrollSpyPage} />
         <Route path='/navigation/pro/sidenav' component={SideNavPage} />
-        <Route
-          path='/navigation/pro/slim-sidenav'
-          component={SlimSideNavPage}
-        />
+        <Route path='/navigation/pro/slim-sidenav' component={SlimSideNavPage} />
         <Route path='/sections/app' component={AppPage} />
         <Route path='/sections/blog' component={BlogPage} />
-        <Route
-          path='/sections/call-to-action-intro'
-          component={CallToActionIntro}
-        />
+        <Route path='/sections/call-to-action-intro' component={CallToActionIntro} />
         <Route path='/sections/classicform' component={ClassicFormPage} />
         <Route path='/sections/contact' component={ContactPage} />
         <Route path='/sections/contactform' component={ContactFormPage} />
         <Route path='/sections/ecommerce' component={EcommercePage} />
         <Route path='/sections/features' component={FeaturesPage} />
         <Route path='/sections/magazine' component={MagazinePage} />
-        <Route
-          path='/sections/minimalistic-intro'
-          component={MinimalisticIntro}
-        />
+        <Route path='/sections/minimalistic-intro' component={MinimalisticIntro} />
         <Route path='/sections/parallax-intro' component={ParallaxIntro} />
         <Route path='/sections/projects' component={ProjectsPage} />
         <Route path='/sections/social' component={SocialPage} />
         <Route path='/sections/team' component={TeamPage} />
         <Route path='/sections/testimonials' component={TestimonialsPage} />
-        <Route
-          path='/sections/videobackground'
-          component={VideoBackgroundPage}
-        />
+        <Route path='/sections/videobackground' component={VideoBackgroundPage} />
         <Route path='/tables/pro/datatable-csv' component={DatatableCsvPage} />
-        <Route
-          path='/tables/pro/datatable-filter'
-          component={DatatableFilterPage}
-        />
+        <Route path='/tables/pro/datatable-filter' component={DatatableFilterPage} />
         <Route path='/tables/pro/table-styles' component={TableStylesPagePro} />
         <Route path='/tables/pro/tableeditable' component={TableEditable} />
         {/* PRO-END */}
         <Route
           render={function() {
             return <h1>Not Found</h1>;
-          }}
+          }} 
         />
       </Switch>
     );

@@ -221,6 +221,7 @@ export {
   Tooltip,
   View,
   Waves,
+  
   // PRO-START
   Autocomplete,
   Avatar,
@@ -357,6 +358,7 @@ export {
   Typography as MDBTypography,
   View as MDBView,
   Waves as MDBWaves,
+
   // PRO-START
   Autocomplete as MDBAutocomplete,
   Avatar as MDBAvatar,
