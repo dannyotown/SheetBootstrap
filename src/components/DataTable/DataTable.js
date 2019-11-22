@@ -46,8 +46,9 @@ class DataTable extends Component {
       this.fetchData(data, this.paginateRows);
     }
 
+    // PRO-START
     this.filterOptions();
-
+    // PRO-END
     order.length && this.handleSort(order[0], order[1]);
 
     this.setUnsearchable(columns);
