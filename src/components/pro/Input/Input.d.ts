@@ -1,12 +1,12 @@
 import * as React from "react";
-import Props from '../../Input/index.d' //!typy z Inputa free
+import InputProps from '../../Input/InputTypes' //!typy z Inputa free
 
 declare class MDBInput extends React.Component< //!Moje typy dla PRO werjsi
+  InputProps,
   {
     counter?: boolean | number;
     getCounter?: (value: number | string) => void;
   },
-  Props,
   any
 > {}
 
