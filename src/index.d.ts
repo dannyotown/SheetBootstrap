@@ -2,6 +2,7 @@
 import MDBAlert from './components/Alert';
 import MDBAnimation from './components/Animation';
 import MDBBadge from './components/Badge';
+import MDBBox from './components/Box';
 import MDBBreadcrumb from './components/Breadcrumb';
 import MDBBreadcrumbItem from './components/Breadcrumb/BreadcrumbItem';
 import MDBBtn from './components/Button';
@@ -16,6 +17,7 @@ import MDBCardGroup from './components/Card/CardGroup';
 import MDBCardImage from './components/Card/CardImage';
 import MDBCardText from './components/Card/CardText';
 import MDBCardTitle from './components/Card/CardTitle';
+import MDBCardVideo from './components/Card/CardVideo';
 import MDBCarousel from './components/Carousel';
 import MDBCarouselCaption from './components/Carousel/CarouselCaption';
 import MDBCarouselControl from './components/Carousel/CarouselControl';
@@ -36,6 +38,8 @@ import MDBEdgeHeader from './components/EdgeHeader';
 import MDBFooter from './components/Footer';
 import MDBFormInline from './components/FormInline';
 import MDBFreeBird from './components/FreeBird';
+import MDBGallery from './components/Gallery';
+import MDBGalleryList from './components/Gallery/GalleryList';
 import MDBHamburgerToggler from './components/HamburgerToggler';
 import MDBIframe from './components/Iframe';
 import MDBInput from './components/Input';
@@ -73,9 +77,11 @@ import MDBTable from './components/Table';
 import MDBTableBody from './components/Table/TableBody';
 import MDBTableFoot from './components/Table/TableFoot';
 import MDBTableHead from './components/Table/TableHead';
+import MDBTooltip from './components/Popper';
 import MDBTreeview from './components/Treeview';
 import MDBTreeviewItem from './components/Treeview/TreeviewItem';
 import MDBTreeviewList from './components/Treeview/TreeviewList';
+import MDBTypo from './components/Typography';
 import MDBView from './components/View';
 import MDBWaves from './components/Waves';
 //FREE
@@ -95,6 +101,7 @@ import MDBFileInput from './components/pro/InputFile';
 import MDBInputRange from './components/pro/InputRange';
 import MDBInputSwitch from './components/pro/InputSwitch';
 import MDBLightbox from './components/pro/Lightbox';
+import MDBParallax from './components/pro/Parallax';
 import MDBPerfectScrollbar from './components/pro/PerfectScrollbar';
 import MDBRotatingCard from './components/pro/FlippingCard';
 import MDBScrollspyBox from './components/pro/ScrollSpy/ScrollSpyBox';
@@ -131,6 +138,7 @@ export {
   MDBAlert,
   MDBAnimation,
   MDBBadge,
+  MDBBox,
   MDBBreadcrumb,
   MDBBreadcrumbItem,
   MDBBtn,
@@ -145,6 +153,7 @@ export {
   MDBCardImage,
   MDBCardText,
   MDBCardTitle,
+  MDBCardVideo,
   MDBCarousel,
   MDBCarouselCaption,
   MDBCarouselControl,
@@ -162,6 +171,8 @@ export {
   MDBDropdownMenu,
   MDBDropdownToggle,
   MDBEdgeHeader,
+  MDBGallery,
+  MDBGalleryList,
   MDBFooter,
   MDBFormInline,
   MDBFreeBird,
@@ -192,6 +203,7 @@ export {
   MDBPageLink as MDBPageNav,
   MDBPopper,
   MDBPopper as MDBPopover,
+  MDBPopper as MDBTooltip,
   MDBPopoverBody,
   MDBPopoverHeader,
   MDBProgress,
@@ -206,6 +218,8 @@ export {
   MDBTreeview,
   MDBTreeviewItem,
   MDBTreeviewList,
+  MDBTypo,
+  MDBTypo as MDBTypography,
   MDBView,
   MDBWaves,
   //FREE
@@ -226,6 +240,7 @@ export {
   MDBLightbox,
   MDBInputRange as MDBRangeInput,
   MDBInputSwitch as MDBSwitch,
+  MDBParallax,
   MDBPerfectScrollbar,
   MDBScrollspyBox,
   MDBScrollspyList,

@@ -9,16 +9,17 @@ var React__default = _interopDefault(React);
 var classNames = _interopDefault(require('classnames'));
 var reactTransitionGroup = require('react-transition-group');
 var ReactDOM = _interopDefault(require('react-dom'));
+var mdbreact = require('mdbreact');
 var reactPopper = require('react-popper');
 var NumericInput = _interopDefault(require('react-numeric-input'));
 var FocusTrap = _interopDefault(require('focus-trap-react'));
 var reactRouterDom = require('react-router-dom');
 var Popper = _interopDefault(require('popper.js'));
-var mdbreact = require('mdbreact');
 var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
 var moment = _interopDefault(require('moment'));
 var core = require('@material-ui/core');
+var jarallax = require('jarallax');
 var PerfectScrollbar = _interopDefault(require('perfect-scrollbar'));
 var reactScroll = require('react-scroll');
 var raf = _interopDefault(require('raf'));
@@ -112,13 +113,13 @@ function _objectSpread2(target) {
     var source = arguments[i] != null ? arguments[i] : {};
 
     if (i % 2) {
-      ownKeys(source, true).forEach(function (key) {
+      ownKeys(Object(source), true).forEach(function (key) {
         _defineProperty(target, key, source[key]);
       });
     } else if (Object.getOwnPropertyDescriptors) {
       Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
     } else {
-      ownKeys(source).forEach(function (key) {
+      ownKeys(Object(source)).forEach(function (key) {
         Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
       });
     }
@@ -624,6 +625,56 @@ Badge.propTypes = {
   className: propTypes.string
 };
 
+var Box = function Box(props) {
+  var Tag = props.tag,
+      className = props.className,
+      children = props.children,
+      display = props.display,
+      justifyContent = props.justifyContent,
+      flex = props.flex,
+      alignItems = props.alignItems,
+      alignContent = props.alignContent,
+      alignSelf = props.alignSelf,
+      color = props.color,
+      bgColor = props.bgColor,
+      m = props.m,
+      mt = props.mt,
+      mtsm = props.mtsm,
+      mr = props.mr,
+      mb = props.mb,
+      ml = props.ml,
+      mx = props.mx,
+      my = props.my,
+      p = props.p,
+      pt = props.pt,
+      pr = props.pr,
+      pb = props.pb,
+      pl = props.pl,
+      px = props.px,
+      py = props.py,
+      attributes = _objectWithoutProperties(props, ["tag", "className", "children", "display", "justifyContent", "flex", "alignItems", "alignContent", "alignSelf", "color", "bgColor", "m", "mt", "mtsm", "mr", "mb", "ml", "mx", "my", "p", "pt", "pr", "pb", "pl", "px", "py"]);
+
+  var marginOrPadding = function marginOrPadding(props, suffix) {
+    if (props !== undefined) {
+      return "".concat(suffix, "-").concat(props);
+    }
+  };
+
+  var classes = classNames(display && "d-".concat(display), justifyContent && "justify-content-".concat(justifyContent), flex && "flex-".concat(flex), alignItems && "align-items-".concat(alignItems), alignContent && "align-content-".concat(alignContent), alignSelf && "align-self-".concat(alignSelf), color && "".concat(color, "-text"), bgColor && "bg-".concat(bgColor), marginOrPadding(m, 'm'), marginOrPadding(mt, 'mt'), marginOrPadding(mr, 'mr'), marginOrPadding(mb, 'mb'), marginOrPadding(ml, 'ml'), marginOrPadding(mx, 'mx'), marginOrPadding(my, 'my'), marginOrPadding(p, 'p'), marginOrPadding(pt, 'pt'), marginOrPadding(pr, 'pr'), marginOrPadding(pb, 'pb'), marginOrPadding(pl, 'pl'), marginOrPadding(px, 'px'), marginOrPadding(py, 'py'), className);
+  var isEmptyClass = classes !== '' ? classes : null;
+  return React__default.createElement(Tag, _extends({}, attributes, {
+    className: isEmptyClass
+  }), children);
+};
+
+Box.defaultProps = {
+  tag: 'div'
+};
+Box.propTypes = {
+  children: propTypes.node,
+  className: propTypes.string
+};
+
 function omit(obj, omitKeys) {
   var result = {};
   Object.keys(obj).forEach(function (key) {
@@ -665,6 +716,31 @@ var getColorClass = function getColorClass(color) {
   });
   return colorClasses;
 };
+function debounce(fn) {
+  var time = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 166;
+  var timeout;
+
+  function debounced() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    var that = this;
+
+    var later = function later() {
+      fn.apply(that, args);
+    };
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, time);
+  }
+
+  debounced.clear = function () {
+    clearTimeout(timeout);
+  };
+
+  return debounced;
+}
 
 var Breadcrumb = function Breadcrumb(props) {
   var className = props.className,
@@ -1530,6 +1606,27 @@ CardTitle.propTypes = {
 CardTitle.defaultProps = {
   tag: 'h4',
   sub: false
+};
+
+var CardVideo = function CardVideo(props) {
+  var children = props.children,
+      className = props.className,
+      src = props.src,
+      attributes = _objectWithoutProperties(props, ["children", "className", "src"]);
+
+  var classes = classNames(className);
+  return React__default.createElement(mdbreact.MDBIframe, _extends({
+    "data-test": "card-video"
+  }, attributes, {
+    src: src,
+    className: classes
+  }), children);
+};
+
+CardVideo.propTypes = {
+  className: propTypes.string,
+  src: propTypes.string.isRequired,
+  children: propTypes.node
 };
 
 var Control = function Control(props) {
@@ -4799,9 +4896,8 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "filterRows", function () {
-      var _this$state2 = _this.state,
-          unsearchable = _this$state2.unsearchable,
-          search = _this$state2.search;
+      var search = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _this.state.search;
+      var unsearchable = _this.state.unsearchable;
       var _this$props = _this.props,
           sortRows = _this$props.sortRows,
           noRecordsFoundLabel = _this$props.noRecordsFoundLabel;
@@ -4915,15 +5011,81 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_this), "getLabelForFilter", function (field) {
+      if (_this.props.filter) {
+        var arr = _this.props.data.columns;
+        return arr.filter(function (el) {
+          return el.field === field;
+        })[0].label || null;
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "filterOptions", function () {
+      if (_this.props.filter) {
+        var filter = _this.props.filter;
+        var arr = [];
+
+        _this.props.data.rows.map(function (el) {
+          return arr.push(el[filter]);
+        });
+
+        arr = _toConsumableArray(new Set(arr)).sort(function (a, b) {
+          return a.localeCompare(b);
+        });
+        arr = arr.map(function (text, value) {
+          return {
+            text: text,
+            value: "".concat(value)
+          };
+        });
+
+        _this.setState({
+          filterOptions: arr
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "useFilterSelect", function (content) {
+      var filter = _this.props.filter;
+
+      if (filter) {
+        if (content !== "") {
+          var filteredRows = _this.props.data.rows.filter(function (el) {
+            return el[filter] === content;
+          });
+
+          _this.setState({
+            searchSelect: content,
+            rows: filteredRows
+          }, function () {
+            _this.filterRows(_this.state.searchSelect);
+
+            _this.filterRows();
+          });
+        } else {
+          _this.setState({
+            searchSelect: content,
+            rows: _this.props.data.rows
+          }, function () {
+            _this.filterRows(_this.state.searchSelect);
+
+            _this.filterRows();
+          });
+        }
+      }
+    });
+
     _this.state = {
       activePage: 0,
       columns: props.data.columns || [],
       entries: props.entries,
       filteredRows: props.data.rows || [],
+      filterOptions: [],
       order: props.order || [],
       pages: [],
       rows: props.data.rows || [],
       search: "",
+      searchSelect: "",
       sorted: false,
       translateScrollHead: 0,
       unsearchable: []
@@ -4942,13 +5104,16 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var data = this.props.data;
-      var _this$state3 = this.state,
-          order = _this$state3.order,
-          columns = _this$state3.columns;
+      var _this$state2 = this.state,
+          order = _this$state2.order,
+          columns = _this$state2.columns;
 
       if (typeof data === "string") {
         this.fetchData(data, this.paginateRows);
-      }
+      } // PRO-START
+
+
+      this.filterOptions(); // PRO-END
 
       order.length && this.handleSort(order[0], order[1]);
       this.setUnsearchable(columns);
@@ -4966,6 +5131,7 @@ function (_Component) {
     }
   }, {
     key: "render",
+    // PRO-END
     value: function render() {
       var _this$props3 = this.props,
           autoWidth = _this$props3.autoWidth,
@@ -4982,6 +5148,7 @@ function (_Component) {
           entriesOptions = _this$props3.entriesOptions,
           entriesLabel = _this$props3.entriesLabel,
           exportToCSV = _this$props3.exportToCSV,
+          filter = _this$props3.filter,
           fixed = _this$props3.fixed,
           hover = _this$props3.hover,
           info = _this$props3.info,
@@ -5013,16 +5180,17 @@ function (_Component) {
           onSearch = _this$props3.onSearch,
           onSort = _this$props3.onSort,
           onPageChange = _this$props3.onPageChange,
-          attributes = _objectWithoutProperties(_this$props3, ["autoWidth", "bordered", "borderless", "barReverse", "btn", "className", "children", "dark", "data", "disableRetreatAfterSorting", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "fixed", "hover", "info", "infoLabel", "maxHeight", "noBottomColumns", "noRecordsFoundLabel", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows", "onSearch", "onSort", "onPageChange"]);
+          attributes = _objectWithoutProperties(_this$props3, ["autoWidth", "bordered", "borderless", "barReverse", "btn", "className", "children", "dark", "data", "disableRetreatAfterSorting", "displayEntries", "entriesOptions", "entriesLabel", "exportToCSV", "filter", "fixed", "hover", "info", "infoLabel", "maxHeight", "noBottomColumns", "noRecordsFoundLabel", "order", "pagesAmount", "paging", "paginationLabel", "responsive", "responsiveSm", "responsiveMd", "responsiveLg", "responsiveXl", "searching", "searchLabel", "scrollX", "scrollY", "small", "sortable", "striped", "tbodyColor", "tbodyTextWhite", "theadColor", "theadTextWhite", "sortRows", "onSearch", "onSort", "onPageChange"]);
 
-      var _this$state4 = this.state,
-          columns = _this$state4.columns,
-          entries = _this$state4.entries,
-          filteredRows = _this$state4.filteredRows,
-          pages = _this$state4.pages,
-          activePage = _this$state4.activePage,
-          search = _this$state4.search,
-          translateScrollHead = _this$state4.translateScrollHead;
+      var _this$state3 = this.state,
+          columns = _this$state3.columns,
+          entries = _this$state3.entries,
+          filteredRows = _this$state3.filteredRows,
+          filterOptions = _this$state3.filterOptions,
+          pages = _this$state3.pages,
+          activePage = _this$state3.activePage,
+          search = _this$state3.search,
+          translateScrollHead = _this$state3.translateScrollHead;
       var tableClasses = classNames("dataTables_wrapper dt-bootstrap4", className);
       return React__default.createElement("div", {
         "data-test": "datatable",
@@ -5118,13 +5286,22 @@ function (_Component) {
         pages: pages,
         pagesAmount: pagesAmount,
         label: paginationLabel
-      })), exportToCSV && React__default.createElement("div", {
-        className: "row justify-content-end"
-      }, React__default.createElement(ExportToCSV, {
+      })), (filter || exportToCSV) && React__default.createElement("div", {
+        className: "row justify-content-between"
+      }, React__default.createElement("div", {
+        className: "pl-3"
+      }, filter && React__default.createElement(mdbreact.MDBSelect, {
+        options: filterOptions,
+        label: "Filter ".concat(this.getLabelForFilter(filter)),
+        getTextContent: this.useFilterSelect,
+        className: "m-0 pt-2"
+      })), React__default.createElement("div", {
+        className: "mr-2"
+      }, exportToCSV && React__default.createElement(ExportToCSV, {
         columns: columns,
         data: pages,
         color: "primary"
-      }, "Download CSV")));
+      }, "Download CSV"))));
     }
   }]);
 
@@ -5147,6 +5324,7 @@ DataTable.propTypes = {
   entriesLabel: propTypes.oneOfType([propTypes.string, propTypes.number, propTypes.object]),
   entriesOptions: propTypes.arrayOf(propTypes.number),
   exportToCSV: propTypes.bool,
+  filter: propTypes.string,
   fixed: propTypes.bool,
   hover: propTypes.bool,
   info: propTypes.bool,
@@ -5940,8 +6118,156 @@ FreeBird.defaultProps = {
   tag: "div"
 };
 
-var css$7 = ".hamburger-button__checkbox {\n  display: none;\n}\n\n.hamburger-button__button {\n  background-color: transparent;\n  height: 100%;\n  width: 100%;\n  text-align: center;\n  cursor: pointer;\n  top: -5px;\n}\n\nlabel.hamburger-button__button {\n  margin-bottom: 0;\n}\n\n#nav-icon1 {\n  width: 1.5em;\n  height: 1.5em;\n  position: relative;\n  -webkit-transform: rotate(0deg);\n  -moz-transform: rotate(0deg);\n  -o-transform: rotate(0deg);\n  transform: rotate(0deg);\n  -webkit-transition: .5s ease-in-out;\n  -moz-transition: .5s ease-in-out;\n  -o-transition: .5s ease-in-out;\n  transition: .5s ease-in-out;\n  cursor: pointer;\n}\n\n#nav-icon1 span {\n  display: block;\n  position: absolute;\n  height: 3px;\n  width: 100%;\n  border-radius: 1px;\n  background-color: #fff;\n  opacity: 1;\n  left: 0;\n  -webkit-transform: rotate(0deg);\n  -moz-transform: rotate(0deg);\n  -o-transform: rotate(0deg);\n  transform: rotate(0deg);\n  -webkit-transition: .25s ease-in-out;\n  -moz-transition: .25s ease-in-out;\n  -o-transition: .25s ease-in-out;\n  transition: .25s ease-in-out;\n}\n\n#nav-icon1 span:nth-child(1) {\n  top: 5px;\n}\n\n#nav-icon1 span:nth-child(2) {\n  top: 16px;\n}\n\n#nav-icon1 span:nth-child(3) {\n  top: 27px;\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(1) {\n  top: 16px;\n  -webkit-transform: rotate(135deg);\n  -moz-transform: rotate(135deg);\n  -o-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(2) {\n  opacity: 0;\n  left: -60px;\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(3) {\n  top: 16px;\n  -webkit-transform: rotate(-135deg);\n  -moz-transform: rotate(-135deg);\n  -o-transform: rotate(-135deg);\n  transform: rotate(-135deg);\n}\n";
+var css$7 = ".mdb-gallery {\n  display: flex;\n  flex-wrap: wrap;\n  overflow-y: auto;\n  list-style: none;\n  padding: 0;\n}\n";
 styleInject(css$7);
+
+var Gallery = React__default.forwardRef(function Gallery(props, ref) {
+  var _props$cellHeight = props.cellHeight,
+      cellHeight = _props$cellHeight === void 0 ? 180 : _props$cellHeight,
+      children = props.children,
+      className = props.className,
+      _props$cols = props.cols,
+      cols = _props$cols === void 0 ? 2 : _props$cols,
+      tag = props.tag,
+      _props$spacing = props.spacing,
+      spacing = _props$spacing === void 0 ? 4 : _props$spacing,
+      style = props.style,
+      attributes = _objectWithoutProperties(props, ["cellHeight", "children", "className", "cols", "tag", "spacing", "style"]);
+
+  var classes = classNames('mdb-gallery', className);
+  return React__default.createElement(mdbreact.MDBBox, _extends({
+    tag: tag
+  }, attributes, {
+    style: _objectSpread2({
+      margin: -spacing / 2
+    }, style),
+    className: classes,
+    ref: ref
+  }), React__default.Children.map(children, function (child) {
+    if (!React__default.isValidElement(child)) {
+      return null;
+    }
+
+    var childCols = child.props.cols || 1;
+    var childRows = child.props.rows || 1;
+    return React__default.cloneElement(child, {
+      style: Object.assign({
+        width: "".concat(100 / cols * childCols, "%"),
+        height: cellHeight === 'auto' ? 'auto' : cellHeight * childRows + spacing,
+        padding: spacing / 2
+      }, child.props.style)
+    });
+  }));
+});
+Gallery.propTypes = {
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node,
+  cellHeight: propTypes.number,
+  cols: propTypes.number,
+  spacing: propTypes.number,
+  style: propTypes.object
+};
+Gallery.defaultProps = {
+  tag: 'ul'
+};
+
+var css$8 = ".mdb-gallery-element {\n  box-sizing: border-box;\n  flex-shrink: 0;\n}\n\n.mdb-gallery-title {\n  height: 100%;\n  display: block;\n  overflow: hidden;\n  position: relative;\n}\n\n.img-full-height {\n  height: 100%;\n  transform: translateX(-50%);\n  position: relative;\n  left: 50%;\n}\n\n.img-full-width {\n  width: 100%;\n  transform: translateY(-50%);\n  position: relative;\n  top: 50%;\n}\n";
+styleInject(css$8);
+
+var imgClass = function imgClass(img) {
+  if (!img || !img.complete) {
+    return;
+  }
+
+  if (img.width / img.height > img.parentElement.offsetWidth / img.parentElement.offsetHeight) {
+    img.classList.remove('img-full-width');
+    img.classList.add('img-full-height');
+  } else {
+    img.classList.remove('img-full-height');
+    img.classList.add('img-full-width');
+  }
+};
+
+function ensureImageCover(img) {
+  if (!img) {
+    return;
+  }
+
+  if (img.complete) {
+    imgClass(img);
+  } else {
+    img.addEventListener('load', function () {
+      imgClass(img);
+    });
+  }
+}
+
+var GalleryList = React__default.forwardRef(function GalleryList(props, ref) {
+  var children = props.children,
+      className = props.className,
+      cols = props.cols,
+      tag = props.tag,
+      rows = props.rows,
+      titleClasses = props.titleClasses,
+      elementClasses = props.elementClasses,
+      styles = props.styles,
+      attributes = _objectWithoutProperties(props, ["children", "className", "cols", "tag", "rows", "titleClasses", "elementClasses", "styles"]);
+
+  var imgRef = React.useRef(null);
+  var ec = classNames('mdb-gallery-element', elementClasses);
+  var tc = classNames('mdb-gallery-title', titleClasses);
+  React.useEffect(function () {
+    ensureImageCover(imgRef.current);
+  });
+  React.useEffect(function () {
+    var handleResize = debounce(function () {
+      imgClass(imgRef.current);
+    });
+    window.addEventListener('resize', handleResize);
+    return function () {
+      handleResize.clear();
+      window.removeEventListener('resive', handleResize);
+    };
+  }, []);
+  return React__default.createElement(mdbreact.MDBBox, _extends({
+    tag: tag,
+    ref: ref
+  }, attributes, {
+    className: ec
+  }), React__default.createElement(mdbreact.MDBBox, {
+    style: _objectSpread2({}, styles),
+    className: tc
+  }, React__default.Children.map(children, function (child) {
+    if (!React__default.isValidElement) {
+      return null;
+    }
+
+    if (child.type === 'img') {
+      return React__default.cloneElement(child, {
+        ref: imgRef
+      });
+    }
+
+    return child;
+  })));
+});
+GalleryList.propTypes = {
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  className: propTypes.string,
+  children: propTypes.node,
+  cols: propTypes.number,
+  rows: propTypes.number,
+  style: propTypes.object,
+  titleClasses: propTypes.string,
+  elementClasses: propTypes.string
+};
+GalleryList.defaultProps = {
+  tag: 'li'
+};
+
+var css$9 = ".hamburger-button__checkbox {\n  display: none;\n}\n\n.hamburger-button__button {\n  background-color: transparent;\n  height: 100%;\n  width: 100%;\n  text-align: center;\n  cursor: pointer;\n  top: -5px;\n}\n\nlabel.hamburger-button__button {\n  margin-bottom: 0;\n}\n\n#nav-icon1 {\n  width: 1.5em;\n  height: 1.5em;\n  position: relative;\n  -webkit-transform: rotate(0deg);\n  -moz-transform: rotate(0deg);\n  -o-transform: rotate(0deg);\n  transform: rotate(0deg);\n  -webkit-transition: .5s ease-in-out;\n  -moz-transition: .5s ease-in-out;\n  -o-transition: .5s ease-in-out;\n  transition: .5s ease-in-out;\n  cursor: pointer;\n}\n\n#nav-icon1 span {\n  display: block;\n  position: absolute;\n  height: 3px;\n  width: 100%;\n  border-radius: 1px;\n  background-color: #fff;\n  opacity: 1;\n  left: 0;\n  -webkit-transform: rotate(0deg);\n  -moz-transform: rotate(0deg);\n  -o-transform: rotate(0deg);\n  transform: rotate(0deg);\n  -webkit-transition: .25s ease-in-out;\n  -moz-transition: .25s ease-in-out;\n  -o-transition: .25s ease-in-out;\n  transition: .25s ease-in-out;\n}\n\n#nav-icon1 span:nth-child(1) {\n  top: 5px;\n}\n\n#nav-icon1 span:nth-child(2) {\n  top: 16px;\n}\n\n#nav-icon1 span:nth-child(3) {\n  top: 27px;\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(1) {\n  top: 16px;\n  -webkit-transform: rotate(135deg);\n  -moz-transform: rotate(135deg);\n  -o-transform: rotate(135deg);\n  transform: rotate(135deg);\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(2) {\n  opacity: 0;\n  left: -60px;\n}\n\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(3) {\n  top: 16px;\n  -webkit-transform: rotate(-135deg);\n  -moz-transform: rotate(-135deg);\n  -o-transform: rotate(-135deg);\n  transform: rotate(-135deg);\n}\n";
+styleInject(css$9);
 
 var HamburgerToggler = function HamburgerToggler(props) {
   var id = props.id,
@@ -7191,8 +7517,8 @@ Notification.defaultProps = {
   closeClassName: 'text-dark'
 };
 
-var css$8 = ".popover {\n  width: auto;\n  background-color: white;\n  color: #97999b;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  font-size: 0.83em;\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 10;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  background-color: #fff;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show.popover {\n  opacity: 1;\n  visibility: visible;\n}\n\n.popover-body {\n  color: #6c6e71;\n}\n\n.popover .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.popover[x-placement^='top'] {\n  margin-bottom: 15px;\n}\n\n.popover[x-placement^='top'] .popover_arrow {\n  border-width: 8px 8px 0 8px;\n  border-color: #d6d6d6 transparent transparent transparent;\n  bottom: -8px;\n  margin-bottom: 0;\n}\n\n.popover[x-placement^='top'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 8px 8px 0 8px;\n  border-color: white transparent transparent transparent;\n}\n\n.popover[x-placement^='bottom'] {\n  margin-top: 15px;\n}\n\n.popover[x-placement^='bottom'] .popover_arrow {\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent #d6d6d6 transparent;\n  top: -8px;\n  margin-top: 0;\n}\n\n.popover[x-placement^='bottom'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent white transparent;\n}\n\n.popover[x-placement^='right'] {\n  margin-left: 15px;\n}\n\n.popover[x-placement^='right'] .popover_arrow {\n  border-width: 8px 8px 8px 0;\n  border-color: transparent #d6d6d6 transparent transparent;\n  left: -8px;\n  margin-left: 0;\n}\n\n.popover[x-placement^='right'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  left: 1.45px;\n  border: solid;\n  border-width: 8px 8px 8px 0;\n  border-color: transparent white transparent transparent;\n}\n\n.popover[x-placement^='left'] {\n  margin-right: 15px;\n}\n\n.popover[x-placement^='left'] .popover_arrow {\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent #d6d6d6;\n  right: -8px;\n  margin-right: 0;\n}\n\n.popover[x-placement^='left'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  right: 1.45px;\n  border: solid;\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent white;\n}\n\n\n.tooltip {\n  width: auto;\n  background-color: black;\n  color: white;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  /* font-size: 0.83em; */\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 15;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show.tooltip {\n  opacity: 1;\n  visibility: visible;\n}\n\n\n.tooltip .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.tooltip[x-placement^='top'] {\n  margin-bottom: 5px;\n}\n\n.tooltip[x-placement^='top'] .popover_arrow {\n  border-width: 6px 6px 0 6px;\n  border-color: #131313 transparent transparent transparent;\n  bottom: -6px;\n  margin-bottom: 0;\n}\n\n.tooltip[x-placement^='top'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 6px 6px 0 6px;\n  border-color: black transparent transparent transparent;\n}\n\n.tooltip[x-placement^='bottom'] {\n  margin-top: 5px;\n}\n\n.tooltip[x-placement^='bottom'] .popover_arrow {\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent #131313 transparent;\n  top: -6px;\n  margin-top: 0;\n}\n\n.tooltip[x-placement^='bottom'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent black transparent;\n}\n\n.tooltip[x-placement^='right'] {\n  margin-left: 5px;\n}\n\n.tooltip[x-placement^='right'] .popover_arrow {\n  border-width: 6px 6px 6px 0;\n  border-color: transparent #131313 transparent transparent;\n  left: -6px;\n  margin-left: 0;\n}\n\n.tooltip[x-placement^='right'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  left: 1.45px;\n  border: solid;\n  border-width: 6px 6px 6px 0;\n  border-color: transparent black transparent transparent;\n}\n\n.tooltip[x-placement^='left'] {\n  margin-right: 5px;\n}\n\n.tooltip[x-placement^='left'] .popover_arrow {\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent #131313;\n  right: -6px;\n  margin-right: 0;\n}\n\n.tooltip[x-placement^='left'] .popover_arrow::before {\n  content: '';\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  right: 1.45px;\n  border: solid;\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent black;\n}\n\n";
-styleInject(css$8);
+var css$a = ".popover {\n  width: auto;\n  background-color: white;\n  color: #97999b;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  font-size: 0.83em;\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 10;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  background-color: #fff;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show.popover {\n  opacity: 1;\n  visibility: visible;\n}\n\n.popover-body {\n  color: #6c6e71;\n}\n\n.popover .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.popover[x-placement^=\"top\"] {\n  margin-bottom: 15px;\n}\n\n.popover[x-placement^=\"top\"] .popover_arrow {\n  border-width: 8px 8px 0 8px;\n  border-color: #d6d6d6 transparent transparent transparent;\n  bottom: -8px;\n  margin-bottom: 0;\n}\n\n.popover[x-placement^=\"top\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 8px 8px 0 8px;\n  border-color: white transparent transparent transparent;\n}\n\n.popover[x-placement^=\"bottom\"] {\n  margin-top: 15px;\n}\n\n.popover[x-placement^=\"bottom\"] .popover_arrow {\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent #d6d6d6 transparent;\n  top: -8px;\n  margin-top: 0;\n}\n\n.popover[x-placement^=\"bottom\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -8px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 8px 8px 8px;\n  border-color: transparent transparent white transparent;\n}\n\n.popover[x-placement^=\"right\"] {\n  margin-left: 15px;\n}\n\n.popover[x-placement^=\"right\"] .popover_arrow {\n  border-width: 8px 8px 8px 0;\n  border-color: transparent #d6d6d6 transparent transparent;\n  left: -8px;\n  margin-left: 0;\n}\n\n.popover[x-placement^=\"right\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  left: 1.45px;\n  border: solid;\n  border-width: 8px 8px 8px 0;\n  border-color: transparent white transparent transparent;\n}\n\n.popover[x-placement^=\"left\"] {\n  margin-right: 15px;\n}\n\n.popover[x-placement^=\"left\"] .popover_arrow {\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent #d6d6d6;\n  right: -8px;\n  margin-right: 0;\n}\n\n.popover[x-placement^=\"left\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -8px;\n  right: 1.45px;\n  border: solid;\n  border-width: 8px 0 8px 8px;\n  border-color: transparent transparent transparent white;\n}\n\n.tooltip {\n  width: auto;\n  background-color: black;\n  color: white;\n  text-align: center;\n  display: inline-block;\n  border-radius: 3px;\n  position: absolute;\n  /* font-size: 0.83em; */\n  font-weight: normal;\n  border: 1px rgb(0, 0, 0) solid;\n  /* z-index: 200000; */\n  z-index: 15;\n  /* max-width: initial; */\n  max-width: 274px;\n  text-align: start;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 0.3rem;\n  opacity: 0;\n  transition: opacity 0.3s, visibility 0.3s;\n  visibility: hidden;\n}\n\n.show {\n  z-index: 15;\n}\n.tooltip-inner {\n  display: block;\n}\n\n.show.tooltip {\n  opacity: 1;\n  visibility: visible;\n}\n\n.tooltip .popover_arrow {\n  width: 0;\n  height: 0;\n  border-style: solid;\n  position: absolute;\n  margin: 6px;\n  color: transparent;\n}\n\n.tooltip[x-placement^=\"top\"],\n.show[x-placement^=\"top\"]:not(.tooltip) {\n  margin-bottom: 5px;\n}\n\n.tooltip[x-placement^=\"top\"] .popover_arrow {\n  border-width: 6px 6px 0 6px;\n  border-color: #131313 transparent transparent transparent;\n  bottom: -6px;\n  margin-bottom: 0;\n}\n\n.tooltip[x-placement^=\"top\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  bottom: 1.5px;\n  border: solid;\n  border-width: 6px 6px 0 6px;\n  border-color: black transparent transparent transparent;\n}\n\n.tooltip[x-placement^=\"bottom\"],\n.show[x-placement^=\"bottom\"]:not(.tooltip) {\n  margin-top: 5px;\n}\n\n.tooltip[x-placement^=\"bottom\"] .popover_arrow {\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent #131313 transparent;\n  top: -6px;\n  margin-top: 0;\n}\n\n.tooltip[x-placement^=\"bottom\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  left: -6px;\n  top: 1.45px;\n  border: solid;\n  border-width: 0 6px 6px 6px;\n  border-color: transparent transparent black transparent;\n}\n\n.tooltip[x-placement^=\"right\"],\n.show[x-placement^=\"right\"]:not(.tooltip) {\n  margin-left: 5px;\n}\n\n.tooltip[x-placement^=\"right\"] .popover_arrow {\n  border-width: 6px 6px 6px 0;\n  border-color: transparent #131313 transparent transparent;\n  left: -6px;\n  margin-left: 0;\n}\n\n.tooltip[x-placement^=\"right\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  left: 1.45px;\n  border: solid;\n  border-width: 6px 6px 6px 0;\n  border-color: transparent black transparent transparent;\n}\n\n.tooltip[x-placement^=\"left\"],\n.show[x-placement^=\"left\"]:not(.tooltip) {\n  margin-right: 5px;\n}\n\n.tooltip[x-placement^=\"left\"] .popover_arrow {\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent #131313;\n  right: -6px;\n  margin-right: 0;\n}\n\n.tooltip[x-placement^=\"left\"] .popover_arrow::before {\n  content: \"\";\n  display: inline-block;\n  position: absolute;\n  top: -6px;\n  right: 1.45px;\n  border: solid;\n  border-width: 6px 0 6px 6px;\n  border-color: transparent transparent transparent black;\n}\n";
+styleInject(css$a);
 
 var Popover =
 /*#__PURE__*/
@@ -7232,7 +7558,7 @@ function (_React$Component) {
         showPopper: toggler && true
       }, function () {
         if (_this.state.showPopper) _this.setState({
-          visible: typeof toggler !== 'undefined' ? toggler : !_this.state.visible
+          visible: typeof toggler !== "undefined" ? toggler : !_this.state.visible
         }, function () {
           _this.createPopper();
 
@@ -7283,7 +7609,7 @@ function (_React$Component) {
       this.timer = setInterval(function () {
         return _this2.setPopperJS();
       }, 3);
-      document.addEventListener('click', this.handleClick);
+      document.addEventListener("click", this.handleClick);
     }
   }, {
     key: "render",
@@ -7295,21 +7621,26 @@ function (_React$Component) {
           className = _this$props2.className,
           clickable = _this$props2.clickable,
           domElement = _this$props2.domElement,
-          modifiers = _this$props2.modifiers,
+          email = _this$props2.email,
           id = _this$props2.id,
           isVisible = _this$props2.isVisible,
-          onChange = _this$props2.onChange,
+          material = _this$props2.material,
+          modifiers = _this$props2.modifiers,
           placement = _this$props2.placement,
           popover = _this$props2.popover,
+          sm = _this$props2.sm,
           style = _this$props2.style,
+          onChange = _this$props2.onChange,
           Tag = _this$props2.tag,
-          attributes = _objectWithoutProperties(_this$props2, ["children", "className", "clickable", "domElement", "modifiers", "id", "isVisible", "onChange", "placement", "popover", "style", "tag"]);
+          attributes = _objectWithoutProperties(_this$props2, ["children", "className", "clickable", "domElement", "email", "id", "isVisible", "material", "modifiers", "placement", "popover", "sm", "style", "onChange", "tag"]);
 
       var _this$state = this.state,
           visible = _this$state.visible,
           showPopper = _this$state.showPopper;
-      var popper = children[1];
+      var Popper = children[1];
       var Wrapper = children[0];
+      var classes = classNames(visible && "show", popover ? "popover" : !material && !email && "tooltip px-2", className);
+      var popperClasses = classNames((material || email) && "tooltip-inner", material && (sm ? "md-inner" : "md-inner-main"), email && (sm ? "md-inner" : "md-inner-email"));
       return React__default.createElement(React__default.Fragment, null, !domElement ? React__default.createElement(Wrapper.type, _extends({}, Wrapper.props, {
         onMouseEnter: function onMouseEnter() {
           return !clickable && _this3.doToggle(true);
@@ -7371,11 +7702,13 @@ function (_React$Component) {
         ref: function ref(_ref2) {
           return _this3.popoverWrapperRef = _ref2;
         },
-        className: classNames(visible && 'show', popover ? 'popover' : 'tooltip px-2', className),
+        className: classes,
         "data-popper": id
-      }, attributes), popper, React__default.createElement("span", {
+      }, attributes), React__default.createElement(Popper.type, {
+        className: classNames(popperClasses, Popper.props.className)
+      }, Popper.props.children), React__default.createElement("span", {
         "x-arrow": "",
-        className: "popover_arrow"
+        className: classNames("popover_arrow")
       })));
     }
   }]);
@@ -7387,25 +7720,28 @@ Popover.propTypes = {
   children: propTypes.node,
   clickable: propTypes.bool,
   domElement: propTypes.bool,
-  modifiers: propTypes.object,
+  email: propTypes.bool,
   id: propTypes.string,
   isVisible: propTypes.bool,
+  material: propTypes.bool,
+  modifiers: propTypes.object,
   placement: propTypes.string,
   popover: propTypes.bool,
+  sm: propTypes.bool,
   style: propTypes.objectOf(propTypes.string),
   tag: propTypes.string
 };
 Popover.defaultProps = {
   clickable: false,
   domElement: false,
-  id: 'popper',
+  id: "popper",
   isVisible: false,
-  placement: 'top',
+  placement: "top",
   popover: false,
   style: {
-    display: 'inline-block'
+    display: "inline-block"
   },
-  tag: 'div'
+  tag: "div"
 };
 
 var PopoverBody = function PopoverBody(_ref) {
@@ -8232,6 +8568,102 @@ TreeviewList.contextTypes = {
   theme: propTypes.string
 };
 
+var css$b = ".note-dark {\n  background-color: #000;\n  color: #fff;\n  border-color: #58595a;\n}\n\n.note-default {\n  background-color: rgb(164, 243, 235);\n  border-color: #00695c;\n}\n\n.note-elegant {\n  background-color: #2E2E2E;\n  border-color: #212121;\n  color: #fff;\n}\n\n.note-stylish {\n  background-color: #4B515D;\n  border-color: #3E4551;\n  color: #fff;\n}\n\n.note-unique {\n  background-color: #3F729B;\n  border-color: #1C2331;\n  color: #fff;\n}\n\n.note-special {\n  background-color: #37474F;\n  border-color: #263238;\n  color: #fff;\n}\n";
+styleInject(css$b);
+
+var Typogrphy =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Typogrphy, _React$Component);
+
+  function Typogrphy() {
+    _classCallCheck(this, Typogrphy);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Typogrphy).apply(this, arguments));
+  }
+
+  _createClass(Typogrphy, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          className = _this$props.className,
+          Tag = _this$props.tag,
+          children = _this$props.children,
+          variant = _this$props.variant,
+          blockquote = _this$props.blockquote,
+          bqColor = _this$props.bqColor,
+          bqTitle = _this$props.bqTitle,
+          bqFooter = _this$props.bqFooter,
+          bqText = _this$props.bqText,
+          listUnStyled = _this$props.listUnStyled,
+          listInLine = _this$props.listInLine,
+          colorText = _this$props.colorText,
+          text = _this$props.text,
+          note = _this$props.note,
+          noteColor = _this$props.noteColor,
+          noteTitle = _this$props.noteTitle,
+          attributes = _objectWithoutProperties(_this$props, ["className", "tag", "children", "variant", "blockquote", "bqColor", "bqTitle", "bqFooter", "bqText", "listUnStyled", "listInLine", "colorText", "text", "note", "noteColor", "noteTitle"]);
+
+      var classes = classNames(variant && variant, colorText && "".concat(colorText.toLowerCase(), "-text"), text && "text-".concat(text), className);
+      var bc = classNames('blockquote', bqColor && "bq-".concat(bqColor), className);
+      var notes = classNames('note', noteColor && "note-".concat(noteColor), className);
+      var isEmptyClass = classes !== '' ? classes : null;
+
+      if (blockquote) {
+        return React__default.createElement(mdbreact.MDBBox, {
+          tag: "blockquote",
+          className: bc
+        }, children);
+      } else if (listUnStyled) {
+        return React__default.createElement(mdbreact.MDBBox, {
+          tag: "ul",
+          className: "list-unstyled"
+        }, children);
+      } else if (listInLine) {
+        return React__default.createElement(mdbreact.MDBBox, {
+          tag: "ul",
+          className: "list-inline"
+        }, children);
+      } else if (note) {
+        return React__default.createElement(mdbreact.MDBBox, {
+          tag: "p",
+          className: notes
+        }, React__default.createElement("strong", null, noteTitle), children);
+      } else {
+        return React__default.createElement(Tag, _extends({}, attributes, {
+          className: isEmptyClass
+        }), children);
+      }
+    }
+  }]);
+
+  return Typogrphy;
+}(React__default.Component);
+
+Typogrphy.propTypes = {
+  className: propTypes.string,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  variant: propTypes.string,
+  blockquote: propTypes.bool,
+  bqColor: propTypes.string,
+  bqTitle: propTypes.string,
+  listUnStyled: propTypes.bool,
+  listInLine: propTypes.bool,
+  colorText: propTypes.string,
+  note: propTypes.bool,
+  noteColor: propTypes.string,
+  noteTitle: propTypes.string
+};
+Typogrphy.defaultProps = {
+  tag: 'p',
+  abbr: false,
+  abbrLeftText: true,
+  blockquote: false,
+  listUnStyled: false,
+  listInLine: false,
+  noteColor: 'primary'
+};
+
 var Autocomplete =
 /*#__PURE__*/
 function (_Component) {
@@ -8504,30 +8936,52 @@ Autocomplete.defaultProps = {
 };
 
 var Avatar = function Avatar(props) {
-  var className = props.className,
-      Tag = props.tag,
-      round = props.round,
+  var background = props.background,
+      className = props.className,
       circle = props.circle,
-      attributes = _objectWithoutProperties(props, ["className", "tag", "round", "circle"]);
+      children = props.children,
+      round = props.round,
+      src = props.src,
+      size = props.size,
+      style = props.style,
+      Tag = props.tag,
+      attributes = _objectWithoutProperties(props, ["background", "className", "circle", "children", "round", "src", "size", "style", "tag"]);
 
-  var classes = classNames('avatar', round && 'rounded', circle && 'rounded-circle', className);
-  return React__default.createElement(Tag, _extends({
+  var TagType;
+  var objectSize;
+  src ? TagType = "img" : TagType = Tag;
+  size ? objectSize = size : src ? objectSize = "48px" : objectSize = "40px";
+  var classes = classNames("avatar", !src && background, round && "rounded", circle && "rounded-circle", "d-table-cell align-middle text-center font-weight-bool", className);
+  var defaultStyles = {
+    height: objectSize,
+    width: objectSize,
+    color: "white"
+  };
+  return React__default.createElement(TagType, _extends({
     "data-test": "avatar"
   }, attributes, {
-    className: classes
-  }));
+    className: classes,
+    style: _objectSpread2({}, defaultStyles, {}, style),
+    src: src
+  }), children && typeof children === "string" ? React__default.createElement("strong", null, children) : children);
 };
 
 Avatar.propTypes = {
-  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  background: propTypes.string,
+  circle: propTypes.bool,
   className: propTypes.string,
+  children: propTypes.oneOfType([propTypes.string, propTypes.node, propTypes.func]),
   round: propTypes.bool,
-  circle: propTypes.bool
+  size: propTypes.oneOfType([propTypes.string, propTypes.number]),
+  src: propTypes.string,
+  style: propTypes.object,
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string])
 };
 Avatar.defaultProps = {
-  tag: 'div',
+  background: "grey",
+  circle: false,
   round: false,
-  circle: false
+  tag: "div"
 };
 
 var ButtonFixed =
@@ -8541,8 +8995,22 @@ function (_React$Component) {
     _classCallCheck(this, ButtonFixed);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ButtonFixed).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "showUl", function () {
+      return _this.setState({
+        ulDisplay: true
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "hideUl", function () {
+      return _this.setState({
+        ulDisplay: false
+      });
+    });
+
     _this.state = {
-      cursorPos: {}
+      cursorPos: {},
+      ulDisplay: false
     };
     _this.onClick = _this.onClick.bind(_assertThisInitialized(_this));
     return _this;
@@ -8573,10 +9041,13 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
           active = _this$props.active,
           block = _this$props.block,
           className = _this$props.className,
+          children = _this$props.children,
           color = _this$props.color,
           outline = _this$props.outline,
           size = _this$props.size,
@@ -8594,9 +9065,10 @@ function (_React$Component) {
           iconSize = _this$props.iconSize,
           innerRef = _this$props.innerRef,
           topSection = _this$props.topSection,
-          attributes = _objectWithoutProperties(_this$props, ["active", "block", "className", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "innerRef", "topSection"]);
+          attributes = _objectWithoutProperties(_this$props, ["active", "block", "className", "children", "color", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "icon", "iconBrand", "iconClass", "iconLight", "iconRegular", "iconSize", "innerRef", "topSection"]);
 
-      var buttonFixedClasses = classNames('fixed-action-btn active');
+      var ulDisplay = this.state.ulDisplay;
+      var buttonFixedClasses = classNames("fixed-action-btn", !!ulDisplay && "active");
       var classes = classNames(floating ? 'btn-floating' : 'btn', flat ? 'btn-flat' : gradient ? "".concat(gradient, "-gradient") : "".concat(color), size ? "btn-".concat(size) : false, rounded ? 'btn-rounded' : false, block ? 'btn-block' : false, 'Ripple-parent', className, {
         active: active,
         disabled: this.props.disabled
@@ -8609,7 +9081,14 @@ function (_React$Component) {
           bottom: '45px',
           right: '24px'
         }
-      }, attributes), React__default.createElement("a", {
+      }, attributes, {
+        onMouseOver: function onMouseOver() {
+          return _this2.showUl();
+        },
+        onMouseOut: function onMouseOut() {
+          return _this2.hideUl();
+        }
+      }), React__default.createElement("a", {
         href: this.props.topSection ? this.props.topSection : '#',
         className: classes,
         onClick: this.onClick,
@@ -8626,9 +9105,9 @@ function (_React$Component) {
         cursorPos: this.state.cursorPos,
         outline: outline,
         flat: flat
-      })), React__default.createElement("ul", {
-        className: "list-unstyled"
-      }, this.props.children));
+      })), children && React__default.createElement("ul", {
+        className: classNames( !ulDisplay && "disabled")
+      }, children));
     }
   }]);
 
@@ -8813,8 +9292,8 @@ CardUp.defaultProps = {
   tag: 'div'
 };
 
-var css$9 = ".chip.chip-md {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-md img {\n  height: 42px;\n  width: 42px;\n}\n.chip.chip-md .close {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-lg {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n.chip.chip-lg img {\n  height: 52px;\n  width: 52px;\n}\n.chip.chip-lg .close {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n";
-styleInject(css$9);
+var css$c = ".chip.chip-md {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-md img {\n  height: 42px;\n  width: 42px;\n}\n.chip.chip-md .close {\n  height: 42px;\n  line-height: 42px;\n  border-radius: 21px;\n}\n.chip.chip-lg {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n.chip.chip-lg img {\n  height: 52px;\n  width: 52px;\n}\n.chip.chip-lg .close {\n  height: 52px;\n  line-height: 52px;\n  border-radius: 26px;\n}\n";
+styleInject(css$c);
 
 var Chip = function Chip(props) {
   var _useState = React.useState({}),
@@ -9133,8 +9612,8 @@ CollapseHeader.propTypes = {
   tag: propTypes.string
 };
 
-var css$a = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
-styleInject(css$a);
+var css$d = "/* fallback */\n@font-face {\n  font-family: 'Material Icons';\n  font-style: normal;\n  font-weight: 400;\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\n}\n\n.material-icons {\n  font-family: 'Material Icons';\n  font-weight: normal;\n  font-style: normal;\n  font-size: 24px;\n  line-height: 1;\n  letter-spacing: normal;\n  text-transform: none;\n  display: inline-block;\n  white-space: nowrap;\n  word-wrap: normal;\n  direction: ltr;\n  -webkit-font-feature-settings: 'liga';\n  -webkit-font-smoothing: antialiased;\n}\n";
+styleInject(css$d);
 
 var DatePicker =
 /*#__PURE__*/
@@ -9357,8 +9836,8 @@ RotatingCard.defaultProps = {
   flipped: false
 };
 
-var css$b = ".file-field .file-field-right .file-path-wrapper {\n  padding-left: 0;\n  padding-right: 10px;\n}\n";
-styleInject(css$b);
+var css$e = ".file-field .file-field-right .file-path-wrapper {\n  padding-left: 0;\n  padding-right: 10px;\n}\n";
+styleInject(css$e);
 
 var InputFile = function InputFile(props) {
   var _useState = React.useState(false),
@@ -9455,8 +9934,8 @@ InputFile.defaultProps = {
   reverse: false
 };
 
-var css$c = ".thumb {\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\n}\n\ninput[type=\"range\"] {\n  -webkit-appearance: none;\n}\n\n/* thumb */\n\ninput[type=range]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  border: none;\n  height: 14px;\n  width: 14px;\n  border-radius: 50%;\n  background-color: #4285f4;\n  transform-origin: 50% 50%;\n  margin: -5px 0 0 0;\n  transition: 0.3s; }\n  input[type=range]:focus::-webkit-slider-runnable-track {\n    background: #ccc; }\n  input[type=range]::-moz-range-track {\n    /*required for proper track sizing in FF*/\n    height: 3px;\n    background: #c2c0c2;\n    border: none; }\n  input[type=range]::-moz-range-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4;\n    margin-top: -5px; }\n  input[type=range]:-moz-focusring {\n    /*hide the outline behind the border*/\n    outline: 1px solid #ffffff;\n    outline-offset: -1px; }\n  input[type=range]:focus::-moz-range-track {\n    background: #c2c0c2; }\n  input[type=range]::-ms-track {\n    height: 3px;\n    background: transparent;\n    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */\n    border-color: transparent;\n    /*leave room for the larger thumb to overflow with a transparent border */\n    border-width: 6px 0;\n    color: transparent;\n    /*remove default tick marks*/ }\n  input[type=range]::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]::-ms-fill-upper {\n    background: #c2c0c2; }\n  input[type=range]::-ms-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4; }\n  input[type=range]:focus::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]:focus::-ms-fill-upper {\n    background: #c2c0c2; }";
-styleInject(css$c);
+var css$f = ".thumb {\n  transition: top .2s, height .2s, width .2s, margin-left .2s;\n}\n\ninput[type=\"range\"] {\n  -webkit-appearance: none;\n}\n\n/* thumb */\n\ninput[type=range]::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  border: none;\n  height: 14px;\n  width: 14px;\n  border-radius: 50%;\n  background-color: #4285f4;\n  transform-origin: 50% 50%;\n  margin: -5px 0 0 0;\n  transition: 0.3s; }\n  input[type=range]:focus::-webkit-slider-runnable-track {\n    background: #ccc; }\n  input[type=range]::-moz-range-track {\n    /*required for proper track sizing in FF*/\n    height: 3px;\n    background: #c2c0c2;\n    border: none; }\n  input[type=range]::-moz-range-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4;\n    margin-top: -5px; }\n  input[type=range]:-moz-focusring {\n    /*hide the outline behind the border*/\n    outline: 1px solid #ffffff;\n    outline-offset: -1px; }\n  input[type=range]:focus::-moz-range-track {\n    background: #c2c0c2; }\n  input[type=range]::-ms-track {\n    height: 3px;\n    background: transparent;\n    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */\n    border-color: transparent;\n    /*leave room for the larger thumb to overflow with a transparent border */\n    border-width: 6px 0;\n    color: transparent;\n    /*remove default tick marks*/ }\n  input[type=range]::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]::-ms-fill-upper {\n    background: #c2c0c2; }\n  input[type=range]::-ms-thumb {\n    border: none;\n    height: 14px;\n    width: 14px;\n    border-radius: 50%;\n    background: #4285f4; }\n  input[type=range]:focus::-ms-fill-lower {\n    background: #c2c0c2; }\n  input[type=range]:focus::-ms-fill-upper {\n    background: #c2c0c2; }";
+styleInject(css$f);
 
 var InputRange =
 /*#__PURE__*/
@@ -9685,8 +10164,8 @@ InputSwitch.defaultProps = {
   labelRight: "On"
 };
 
-var css$d = ".mdb-lightbox .overlay {\n  height: 150vh;\n  width: 150vw;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: -100;\n}\n.mdb-lightbox .ui-controls {\n  width: 99vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  position: fixed;\n  z-index: 10000;\n}\n\n.mdb-lightbox .ui-controls > * {\n  position: fixed;\n  z-index: 999999;\n}\n.mdb-lightbox .overlay.active {\n  z-index: 9999;\n  background-color: black;\n}\n\n.mdb-lightbox .next-img,\n.mdb-lightbox .prev-img {\n  transform-origin: center;\n}\n.mdb-lightbox .next-img {\n  left: 150% !important;\n}\n.mdb-lightbox .prev-img {\n  left: -50% !important;\n}\n\n.mdb-lightbox img:not(.zoom) {\n  transform-origin: top left;\n}\n/* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */\n.mdb-lightbox img.zoom {\n  z-index: 10001;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%) scale(1) translate3d(0, 0, 0);\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -o-user-select: none;\n  user-select: text;\n  /* pointer-events: none; */\n  transform-origin: center;\n}\n\n.mdb-lightbox .mdb-lightbox figure img.zoom:hover {\n  opacity: 1;\n}\n\n.mdb-lightbox .block {\n  display: block;\n}\n\n.mdb-lightbox .pswp__button.lb-zoom-out {\n  background-position: -132px 0;\n}\n.mdb-lightbox .pswp__button.pswp__button--fs.fullscreen {\n  background-position: -44px 0;\n}\n\n.mdb-lightbox .arrow-container {\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.mdb-lightbox .pswp__button--left,\n.mdb-lightbox .pswp__button--right {\n  width: 0px;\n  height: 0px;\n  margin-top: -100px;\n}\n";
-styleInject(css$d);
+var css$g = ".mdb-lightbox .overlay {\n  height: 150vh;\n  width: 150vw;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: -100;\n}\n.mdb-lightbox .ui-controls {\n  width: 99vw;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  position: fixed;\n  z-index: 10000;\n}\n\n.mdb-lightbox .ui-controls > * {\n  position: fixed;\n  z-index: 999999;\n}\n.mdb-lightbox .overlay.active {\n  z-index: 9999;\n  background-color: black;\n}\n\n.mdb-lightbox .next-img,\n.mdb-lightbox .prev-img {\n  transform-origin: center;\n}\n.mdb-lightbox .next-img {\n  left: 150% !important;\n}\n.mdb-lightbox .prev-img {\n  left: -50% !important;\n}\n\n.mdb-lightbox img:not(.zoom) {\n  transform-origin: top left;\n}\n/* transform: translate(-50%,-50%) scale(1) translate3d(0,0,0); */\n.mdb-lightbox img.zoom {\n  z-index: 10001;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%) scale(1) translate3d(0, 0, 0);\n  -webkit-user-select: none;\n  -khtml-user-select: none;\n  -moz-user-select: none;\n  -o-user-select: none;\n  user-select: text;\n  /* pointer-events: none; */\n  transform-origin: center;\n  outline: none;\n}\n\n.mdb-lightbox .mdb-lightbox figure img.zoom:hover {\n  opacity: 1;\n}\n\n.mdb-lightbox .block {\n  display: block;\n}\n\n.mdb-lightbox .pswp__button.lb-zoom-out {\n  background-position: -132px 0;\n}\n.mdb-lightbox .pswp__button.pswp__button--fs.fullscreen {\n  background-position: -44px 0;\n}\n\n.mdb-lightbox .arrow-container {\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.mdb-lightbox .pswp__button--left,\n.mdb-lightbox .pswp__button--right {\n  width: 0px;\n  height: 0px;\n  margin-top: -100px;\n}\n";
+styleInject(css$g);
 
 var Lightbox =
 /*#__PURE__*/
@@ -9702,6 +10181,35 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "componentWillUnmount", function () {
       _this.setState(_this.reset());
+
+      document.removeEventListener('keydown', _this.keyEvents);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "keyEvents", function (e) {
+      var _this$state = _this.state,
+          changeSlide = _this$state.changeSlide,
+          imgSrc = _this$state.imgSrc,
+          sliderOpened = _this$state.sliderOpened;
+
+      var active = _this.slideRefs.filter(function (el) {
+        return el === document.activeElement;
+      })[0];
+
+      var key = e.key;
+      if (key === 'Enter' && active) _this.zoom(e);
+
+      if (sliderOpened && !changeSlide) {
+        if (key === 'Escape' || key === 'ArrowUp' || key === 'ArrowDown') _this.closeZoom();
+        if (key === 'ArrowLeft') _this.changeSlide('prev');
+        if (key === 'ArrowRight') _this.changeSlide('next');
+        if (key === 'Tab') _this.setFocus(imgSrc);
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "setFocus", function (target) {
+      return setTimeout(function () {
+        return target.focus();
+      }, 0);
     });
 
     _defineProperty(_assertThisInitialized(_this), "setScreenSize", function () {
@@ -9803,10 +10311,11 @@ function (_React$Component) {
       return data;
     });
 
-    _defineProperty(_assertThisInitialized(_this), "zoom", function (e) {
+    _defineProperty(_assertThisInitialized(_this), "zoom", function (_ref) {
+      var target = _ref.target;
       var imgSrc = _this.state.imgSrc;
       var transition = _this.props.transition;
-      var img = e.target;
+      var img = target;
 
       if (!imgSrc) {
         _this.updateGalleryData();
@@ -9844,30 +10353,35 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "closeZoom", function () {
-      var _this$state = _this.state,
-          imgSrc = _this$state.imgSrc,
-          galleryImagesData = _this$state.galleryImagesData,
-          activeKey = _this$state.activeKey;
+      var _this$state2 = _this.state,
+          imgSrc = _this$state2.imgSrc,
+          galleryImagesData = _this$state2.galleryImagesData,
+          activeKey = _this$state2.activeKey,
+          changeSlide = _this$state2.changeSlide;
 
-      _this.setState({
-        sliderOpened: false
-      });
+      if (!changeSlide) {
+        _this.setState({
+          sliderOpened: false
+        });
 
-      var PREV_IMG = _this.slideRefs[activeKey - 1] || _this.slideRefs[_this.slideRefs.length - 1];
-      var NEXT_IMG = _this.slideRefs[activeKey + 1] || _this.slideRefs[0];
-      PREV_IMG.style.cssText = '';
-      NEXT_IMG.style.cssText = '';
-      document.body.classList.remove('overflow-hidden');
-      imgSrc.classList.remove('zoom');
-      imgSrc.style.cssText = "\n        transition: ".concat(_this.props.transition, "ms;\n        z-index: 9999;\n        top: 0;\n        left: 0;\n        transform: translate(").concat(galleryImagesData[activeKey].imgSrcData.size.left, "px, ").concat(galleryImagesData[activeKey].imgSrcData.size.top, "px) translate3d(0,0,0) scale(").concat(galleryImagesData[activeKey].scale, ");\n        position: fixed;\n      ");
+        _this.setFocus(imgSrc);
 
-      _this.overlay.current.classList.remove('active');
+        var PREV_IMG = _this.slideRefs[activeKey - 1] || _this.slideRefs[_this.slideRefs.length - 1];
+        var NEXT_IMG = _this.slideRefs[activeKey + 1] || _this.slideRefs[0];
+        PREV_IMG.style.cssText = '';
+        NEXT_IMG.style.cssText = '';
+        document.body.classList.remove('overflow-hidden');
+        imgSrc.classList.remove('zoom');
+        imgSrc.style.cssText = "\n          transition: ".concat(_this.props.transition, "ms;\n          z-index: 9999;\n          top: 0;\n          left: 0;\n          transform: translate(").concat(galleryImagesData[activeKey].imgSrcData.size.left, "px, ").concat(galleryImagesData[activeKey].imgSrcData.size.top, "px) translate3d(0,0,0) scale(").concat(galleryImagesData[activeKey].scale, ");\n          position: fixed;\n        ");
 
-      setTimeout(function () {
-        imgSrc.style.cssText = '';
+        _this.overlay.current.classList.remove('active');
 
-        _this.setState(_this.reset());
-      }, _this.props.transition);
+        setTimeout(function () {
+          imgSrc.style.cssText = '';
+
+          _this.setState(_this.reset());
+        }, _this.props.transition);
+      }
     });
 
     _defineProperty(_assertThisInitialized(_this), "scrollZoom", function (e) {
@@ -9946,80 +10460,87 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "changeSlide", function (direction) {
-      var _this$state2 = _this.state,
-          activeKey = _this$state2.activeKey,
-          changeSlide = _this$state2.changeSlide,
-          imgSrc = _this$state2.imgSrc,
-          galleryImagesData = _this$state2.galleryImagesData;
+      var _this$state3 = _this.state,
+          activeKey = _this$state3.activeKey,
+          changeSlide = _this$state3.changeSlide,
+          imgSrc = _this$state3.imgSrc,
+          galleryImagesData = _this$state3.galleryImagesData;
       var transition = _this.props.transition;
 
-      var _assertThisInitialize = _assertThisInitialized(_this),
-          slideRefs = _assertThisInitialize.slideRefs;
+      if (!changeSlide) {
+        var _assertThisInitialize = _assertThisInitialized(_this),
+            slideRefs = _assertThisInitialize.slideRefs;
 
-      var CURRENT_IMG = imgSrc;
-      var PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
-      var NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
-      var actual_key;
+        var CURRENT_IMG = imgSrc;
+        var PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
+        var NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
+        var actual_key;
 
-      var trans3d_Unset = function trans3d_Unset(index) {
-        return "\n      translate(-50%, -50%) \n      translate3d(0px, 0px, 0px) \n      scale(".concat(galleryImagesData[index].zoomedScale, ")\n    ");
-      };
+        var trans3d_Unset = function trans3d_Unset(index) {
+          return "\n        translate(-50%, -50%) \n        translate3d(0px, 0px, 0px) \n        scale(".concat(galleryImagesData[index].zoomedScale, ")\n      ");
+        };
 
-      var change = function change() {
-        setTimeout(function () {
-          PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(0, "ms");
-          var CURRENT = _this.state.imgSrc;
+        var change = function change() {
+          setTimeout(function () {
+            PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(0, "ms");
+            var CURRENT = _this.state.imgSrc;
 
-          var dataOfImage = _this.setData(CURRENT);
+            var dataOfImage = _this.setData(CURRENT);
 
-          _this.setState(dataOfImage, function () {
-            CURRENT.classList.add('zoom');
-            CURRENT.style.cssText = "\n            transform: \n              translate(-50%,-50%)\n              translate3d(0,0,0)\n              scale(".concat(_this.setScale(dataOfImage.imgSrcData), ")\n          ");
+            _this.setState(dataOfImage, function () {
+              CURRENT.classList.add('zoom');
+              CURRENT.style.cssText = "\n              transform: \n                translate(-50%,-50%)\n                translate3d(0,0,0)\n                scale(".concat(_this.setScale(dataOfImage.imgSrcData), ")\n            ");
+
+              _this.setState({
+                showRight: _this.checkSiblings('next'),
+                showLeft: _this.checkSiblings('prev')
+              }, function () {
+                return setTimeout(function () {
+                  _this.setState({
+                    changeSlide: false
+                  });
+                }, 100);
+              });
+            });
+          }, transition);
+        };
+
+        PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(transition, "ms");
+        CURRENT_IMG.style.transform = trans3d_Unset(activeKey);
+        PREV_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(PREV_IMG));
+        NEXT_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(NEXT_IMG));
+
+        if (!changeSlide) {
+          _this.setState({
+            changeSlide: true
+          });
+
+          if (direction === 'prev') {
+            actual_key = _this.slideRefs.indexOf(PREV_IMG);
+            CURRENT_IMG.classList.add('next-img');
+            PREV_IMG.classList.remove('prev-img');
 
             _this.setState({
-              changeSlide: false,
-              showRight: _this.checkSiblings('next'),
-              showLeft: _this.checkSiblings('prev')
+              imgSrc: PREV_IMG
             });
-          });
-        }, transition);
-      };
 
-      PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = "".concat(transition, "ms");
-      CURRENT_IMG.style.transform = trans3d_Unset(activeKey);
-      PREV_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(PREV_IMG));
-      NEXT_IMG.style.transform = trans3d_Unset(_this.slideRefs.indexOf(NEXT_IMG));
+            change(actual_key);
+          } else if (direction === 'next') {
+            actual_key = _this.slideRefs.indexOf(NEXT_IMG);
+            CURRENT_IMG.classList.add('prev-img');
+            NEXT_IMG.classList.remove('next-img');
 
-      if (!changeSlide) {
-        _this.setState({
-          changeSlide: true
-        });
+            _this.setState({
+              imgSrc: NEXT_IMG
+            });
 
-        if (direction === 'prev') {
-          actual_key = _this.slideRefs.indexOf(PREV_IMG);
-          CURRENT_IMG.classList.add('next-img');
-          PREV_IMG.classList.remove('prev-img');
-
-          _this.setState({
-            imgSrc: PREV_IMG
-          });
-
-          change();
-        } else if (direction === 'next') {
-          actual_key = _this.slideRefs.indexOf(NEXT_IMG);
-          CURRENT_IMG.classList.add('prev-img');
-          NEXT_IMG.classList.remove('next-img');
-
-          _this.setState({
-            imgSrc: NEXT_IMG
-          });
-
-          change();
-        } else {
-          _this.setState({
-            dragImg: false,
-            changeSlide: false
-          });
+            change(actual_key);
+          } else {
+            _this.setState({
+              dragImg: false,
+              changeSlide: false
+            });
+          }
         }
       }
     });
@@ -10043,10 +10564,10 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "dragMoveSlide", function (e) {
-      var _this$state3 = _this.state,
-          activeKey = _this$state3.activeKey,
-          galleryImagesData = _this$state3.galleryImagesData,
-          resize = _this$state3.resize;
+      var _this$state4 = _this.state,
+          activeKey = _this$state4.activeKey,
+          galleryImagesData = _this$state4.galleryImagesData,
+          resize = _this$state4.resize;
 
       var _assertThisInitialize2 = _assertThisInitialized(_this),
           slideRefs = _assertThisInitialize2.slideRefs;
@@ -10100,9 +10621,9 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "dragStop", function () {
       if (_this.state.dragImg) {
-        var _this$state4 = _this.state,
-            activeKey = _this$state4.activeKey,
-            dragPercent = _this$state4.dragPercent;
+        var _this$state5 = _this.state,
+            activeKey = _this$state5.activeKey,
+            dragPercent = _this$state5.dragPercent;
         var dragPercentScale = 20;
 
         if (!_this.state.resize) {
@@ -10152,6 +10673,11 @@ function (_React$Component) {
   }
 
   _createClass(Lightbox, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.addEventListener('keydown', this.keyEvents);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -10169,11 +10695,11 @@ function (_React$Component) {
           xl = _this$props.xl,
           xs = _this$props.xs,
           transition = _this$props.transition;
-      var _this$state5 = this.state,
-          activeKey = _this$state5.activeKey,
-          galleryImagesData = _this$state5.galleryImagesData,
-          imgSrc = _this$state5.imgSrc,
-          sliderOpened = _this$state5.sliderOpened;
+      var _this$state6 = this.state,
+          activeKey = _this$state6.activeKey,
+          galleryImagesData = _this$state6.galleryImagesData,
+          imgSrc = _this$state6.imgSrc,
+          sliderOpened = _this$state6.sliderOpened;
       var lightboxClasses = classNames('mdb-lightbox d-flex flex-wrap', !noMargins && 'no-margin', className);
       var descriptionClasses = classNames('text-uppercase font-weight-bold mt-4', descriptionClassName);
 
@@ -10236,7 +10762,8 @@ function (_React$Component) {
           onMouseLeave: _this2.dragStop,
           onMouseUp: _this2.dragStop,
           onTouchEnd: _this2.dragStop,
-          onWheel: _this2.scrollZoom
+          onWheel: _this2.scrollZoom,
+          tabIndex: image.tabIndex || "0"
         }), _this2.slideRefs[id] === imgSrc && React__default.createElement("div", {
           className: "block",
           style: {
@@ -10319,7 +10846,8 @@ Lightbox.propTypes = {
     sm: propTypes.string,
     xl: propTypes.string,
     xs: propTypes.string,
-    size: propTypes.string
+    size: propTypes.string,
+    tabIndex: propTypes.string
   })),
   itemClassName: propTypes.string,
   noMargins: propTypes.bool,
@@ -10339,8 +10867,176 @@ Lightbox.defaultProps = {
   transition: 400
 };
 
-var css$e = "\n/*\n * Container style\n */\n .ps {\n  overflow: hidden !important;\n  overflow-anchor: none;\n  -ms-overflow-style: none;\n  touch-action: auto;\n  -ms-touch-action: auto;\n}\n\n/*\n * Scrollbar rail styles\n */\n.ps__rail-x {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  height: 15px;\n  /* there must be 'bottom' or 'top' for ps__rail-x */\n  bottom: 0px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-y {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  width: 15px;\n  /* there must be 'right' or 'left' for ps__rail-y */\n  right: 0;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps--active-x > .ps__rail-x,\n.ps--active-y > .ps__rail-y {\n  display: block;\n  background-color: transparent;\n}\n\n.ps:hover > .ps__rail-x,\n.ps:hover > .ps__rail-y,\n.ps--focus > .ps__rail-x,\n.ps--focus > .ps__rail-y,\n.ps--scrolling-x > .ps__rail-x,\n.ps--scrolling-y > .ps__rail-y {\n  opacity: 0.6;\n}\n\n.ps__rail-x:hover,\n.ps__rail-y:hover,\n.ps__rail-x:focus,\n.ps__rail-y:focus {\n  background-color: #eee;\n  opacity: 0.9;\n}\n\n/*\n * Scrollbar thumb styles\n */\n.ps__thumb-x {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, height .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, height .2s ease-in-out;\n  height: 6px;\n  /* there must be 'bottom' for ps__thumb-x */\n  bottom: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__thumb-y {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, width .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, width .2s ease-in-out;\n  width: 6px;\n  /* there must be 'right' for ps__thumb-y */\n  right: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-x:hover > .ps__thumb-x,\n.ps__rail-x:focus > .ps__thumb-x {\n  background-color: #999;\n  height: 11px;\n}\n\n.ps__rail-y:hover > .ps__thumb-y,\n.ps__rail-y:focus > .ps__thumb-y {\n  background-color: #999;\n  width: 11px;\n}\n\n/* MS supports */\n@supports (-ms-overflow-style: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n\n.scrollbar-container {\n  position: relative;\n  height: 100%;\n}\n";
-styleInject(css$e);
+var Parallax =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Parallax, _Component);
+
+  function Parallax(props) {
+    var _this;
+
+    _classCallCheck(this, Parallax);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Parallax).call(this, props));
+    _this.jarallax = React__default.createRef();
+    var _this$props = _this.props,
+        disableParallax = _this$props.disableParallax,
+        disableVideo = _this$props.disableVideo,
+        disableVideoLazyLoading = _this$props.disableVideoLazyLoading,
+        disableVideoLoop = _this$props.disableVideoLoop,
+        disableVideoPlayOnlyVisible = _this$props.disableVideoPlayOnlyVisible,
+        elementInViewport = _this$props.elementInViewport,
+        height = _this$props.height,
+        imgElement = _this$props.imgElement,
+        imgPosition = _this$props.imgPosition,
+        imgRepeat = _this$props.imgRepeat,
+        imgSize = _this$props.imgSize,
+        imgSrc = _this$props.imgSrc,
+        videoEndTime = _this$props.videoEndTime,
+        videoStartTime = _this$props.videoStartTime,
+        videoVolume = _this$props.videoVolume,
+        width = _this$props.width,
+        zIndex = _this$props.zIndex;
+    _this.imageOptions = {
+      disableParallax: disableParallax,
+      elementInViewport: elementInViewport,
+      imgElement: imgElement,
+      imgPosition: imgPosition,
+      imgRepeat: imgRepeat,
+      imgSize: imgSize,
+      imgSrc: imgSrc,
+      zIndex: zIndex
+    };
+    _this.videoOptions = {
+      disableVideo: disableVideo,
+      videoEndTime: videoEndTime,
+      videoLazyLoading: !disableVideoLazyLoading,
+      videoLoop: !disableVideoLoop,
+      videoPlayOnlyVisible: !disableVideoPlayOnlyVisible,
+      videoStartTime: videoStartTime,
+      videoVolume: videoVolume
+    };
+    _this.parentStyle = {
+      height: height,
+      width: width
+    };
+    return _this;
+  }
+
+  _createClass(Parallax, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      jarallax.jarallax(this.jarallax.current, this.props.image ? this.imageOptions : this.props.video ? this.videoOptions : this.props.element ? this.props.elementOptions : null);
+      jarallax.jarallaxVideo(this.jarallax.current);
+      jarallax.jarallaxElement(this.jarallax.current);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      jarallax.jarallax(this.jarallax.current, 'destroy');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props2 = this.props,
+          alt = _this$props2.alt,
+          children = _this$props2.children,
+          className = _this$props2.className,
+          element = _this$props2.element,
+          image = _this$props2.image,
+          keepImg = _this$props2.keepImg,
+          speed = _this$props2.speed,
+          Tag = _this$props2.tag,
+          threshold = _this$props2.threshold,
+          type = _this$props2.type,
+          video = _this$props2.video;
+      var parentClasses = classNames(keepImg ? 'jarallax-keep-img' : 'jarallax', className);
+      var elementClasses = classNames(Tag === 'span' ? 'd-inline-block' : null);
+      return React__default.createElement(React__default.Fragment, null, image && React__default.createElement(Tag, {
+        ref: this.jarallax,
+        className: parentClasses,
+        style: this.parentStyle,
+        "data-jarallax": true,
+        "data-type": type,
+        "data-speed": speed
+      }, React__default.createElement("img", {
+        className: "jarallax-img ",
+        src: image,
+        alt: alt
+      }), children), video && React__default.createElement(Tag, {
+        ref: this.jarallax,
+        className: parentClasses,
+        style: this.parentStyle,
+        "data-jarallax": true,
+        "data-type": type,
+        "data-speed": speed,
+        "data-video-src": video
+      }, children), element && React__default.createElement(Tag, {
+        className: elementClasses,
+        ref: this.jarallax,
+        "data-jarallax-element": speed,
+        "data-threshold": threshold
+      }, children));
+    }
+  }]);
+
+  return Parallax;
+}(React.Component);
+
+Parallax.propTypes = {
+  alt: propTypes.string.isRequired,
+  className: propTypes.string,
+  disableParallax: propTypes.func,
+  disableVideo: propTypes.func,
+  elementInViewport: propTypes.node,
+  height: propTypes.string,
+  image: propTypes.string,
+  imgElement: propTypes.string,
+  imgPosition: propTypes.string,
+  imgRepeat: propTypes.string,
+  imgSize: propTypes.string,
+  keepImg: propTypes.bool,
+  speed: propTypes.oneOfType([propTypes.node, propTypes.string]),
+  tag: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  threshold: propTypes.node,
+  type: propTypes.string,
+  videoEndTime: propTypes.number,
+  videoLazyLoading: propTypes.bool,
+  videoLoop: propTypes.bool,
+  videoPlayOnlyVisible: propTypes.bool,
+  video: propTypes.string,
+  videoStartTime: propTypes.number,
+  videoVolume: propTypes.number,
+  width: propTypes.string,
+  zIndex: propTypes.number
+};
+Parallax.defaultProps = {
+  alt: 'MDBParallax image',
+  disableParallax: null,
+  disableVideo: null,
+  elementInViewport: null,
+  height: '600px',
+  imgElement: '.jarallax-img',
+  imgPosition: '50% 50%',
+  imgRepeat: 'no-repeat',
+  imgSize: 'cover',
+  keepImg: false,
+  speed: 0.5,
+  tag: 'div',
+  threshold: 'null null',
+  type: 'scroll',
+  videoEndTime: 0,
+  videoLazyLoading: true,
+  videoLoop: true,
+  videoPlayOnlyVisible: true,
+  videoStartTime: 0,
+  videoVolume: 0,
+  width: '100%',
+  zIndex: -100
+};
+
+var css$h = "\n/*\n * Container style\n */\n .ps {\n  overflow: hidden !important;\n  overflow-anchor: none;\n  -ms-overflow-style: none;\n  touch-action: auto;\n  -ms-touch-action: auto;\n}\n\n/*\n * Scrollbar rail styles\n */\n.ps__rail-x {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  height: 15px;\n  /* there must be 'bottom' or 'top' for ps__rail-x */\n  bottom: 0px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-y {\n  display: none;\n  opacity: 0;\n  transition: background-color .2s linear, opacity .2s linear;\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\n  width: 15px;\n  /* there must be 'right' or 'left' for ps__rail-y */\n  right: 0;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps--active-x > .ps__rail-x,\n.ps--active-y > .ps__rail-y {\n  display: block;\n  background-color: transparent;\n}\n\n.ps:hover > .ps__rail-x,\n.ps:hover > .ps__rail-y,\n.ps--focus > .ps__rail-x,\n.ps--focus > .ps__rail-y,\n.ps--scrolling-x > .ps__rail-x,\n.ps--scrolling-y > .ps__rail-y {\n  opacity: 0.6;\n}\n\n.ps__rail-x:hover,\n.ps__rail-y:hover,\n.ps__rail-x:focus,\n.ps__rail-y:focus {\n  background-color: #eee;\n  opacity: 0.9;\n}\n\n/*\n * Scrollbar thumb styles\n */\n.ps__thumb-x {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, height .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, height .2s ease-in-out;\n  height: 6px;\n  /* there must be 'bottom' for ps__thumb-x */\n  bottom: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__thumb-y {\n  background-color: #aaa;\n  border-radius: 6px;\n  transition: background-color .2s linear, width .2s ease-in-out;\n  -webkit-transition: background-color .2s linear, width .2s ease-in-out;\n  width: 6px;\n  /* there must be 'right' for ps__thumb-y */\n  right: 2px;\n  /* please don't change 'position' */\n  position: absolute;\n}\n\n.ps__rail-x:hover > .ps__thumb-x,\n.ps__rail-x:focus > .ps__thumb-x {\n  background-color: #999;\n  height: 11px;\n}\n\n.ps__rail-y:hover > .ps__thumb-y,\n.ps__rail-y:focus > .ps__thumb-y {\n  background-color: #999;\n  width: 11px;\n}\n\n/* MS supports */\n@supports (-ms-overflow-style: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {\n  .ps {\n    overflow: auto !important;\n  }\n}\n\n.scrollbar-container {\n  position: relative;\n  height: 100%;\n}\n";
+styleInject(css$h);
 
 var handlerNameByEvent = {
   'ps-scroll-y': 'onScrollY',
@@ -10544,8 +11240,8 @@ ScrollSpyText.propTypes = {
   scrollSpyRef: propTypes.oneOfType([propTypes.func, propTypes.object])
 };
 
-var css$f = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter, .side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active, .side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter, .right-side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active, .right-side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n\n.side-nav[data-animate=\"false\"]{\n  transform: translateX(0%);\n}\n\n\n.side-nav.wide {\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n}\n\n\n.side-nav.wide.slim {\n    width: 3.75rem;\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n    right: 3.75rem;\n}\n\n.right-aligned.side-nav.wide.slim {\n    right: 0;\n}\n\n\n";
-styleInject(css$f);
+var css$i = ".popover-enter {\n  opacity: 0.01;\n  transform: scale(0.9) translateY(50%);\n}\n\n.popover-enter-active {\n  opacity: 1;\n  transform: scale(1);\n  transition: scale 300ms ease-out, opacity 300ms ease;\n}\n\n.popover-enter-done {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.popover-exit {\n  opacity: 1;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n.popover-exit-active {\n  opacity: 0;\n  transform: scale(0.8);\n  transition: all 300ms ease-out;\n}\n\n/* slide from side */\n\n.side-slide-enter, .side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(-100%);\n}\n\n.side-slide-enter-active, .side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(-100%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-enter, .right-side-slide-appear {\n  opacity: 0.2;\n  transform: translateX(100%);\n}\n\n.right-side-slide-enter-active, .right-side-slide-appear-active {\n  opacity: 1;\n  transform: translateX(0%) !important;\n  transition: transform 300ms ease-out, opacity 300ms ease;\n}\n\n.right-side-slide-enter-done {\n  opacity: 1;\n  transform: translateX(0%) !important;\n}\n\n.right-side-slide-exit {\n  opacity: 1;\n  transform: translateX(0%);\n  transition: all 300ms ease-out;\n}\n\n.right-side-slide-exit-active {\n  opacity: 0.2;\n  transform: translateX(100%);\n  transition: all 300ms ease-out;\n}\n\n.side-nav[data-animate=\"false\"]{\n  transform: translateX(0%);\n}\n\n\n.side-nav.wide {\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n}\n\n\n.side-nav.wide.slim {\n    width: 3.75rem;\n    transition-property: all;\n    transition-duration: 300ms;\n    transition-timing-function: ease-out;\n    right: 3.75rem;\n}\n\n.right-aligned.side-nav.wide.slim {\n    right: 0;\n}\n\n\n";
+styleInject(css$i);
 
 var defaultValue = {
   slim: false
@@ -11559,13 +12255,22 @@ Spinner.defaultProps = {
 };
 
 var Step = function Step(props) {
-  var Tag = props.tag,
+  var brand = props.brand,
+      duotone = props.duotone,
+      fab = props.fab,
+      fad = props.fad,
+      fal = props.fal,
+      far = props.far,
       form = props.form,
       icon = props.icon,
+      light = props.light,
+      regular = props.regular,
       stepName = props.stepName,
+      Tag = props.tag,
       vertical = props.vertical;
-  var iconClass = classNames("fa fa-" + icon, "Ripple-parent");
-  var stepClass = classNames(form ? "steps-step" : icon && vertical ? "steps-step-3" : icon && !vertical ? "steps-step-2" : null, props.className);
+  var iconPrefix = regular || far ? 'far' : light || fal ? 'fal' : duotone || fad ? 'fad' : brand || fab ? 'fab' : 'fa';
+  var iconClass = classNames(iconPrefix + ' fa-' + icon, 'Ripple-parent');
+  var stepClass = classNames(form ? 'steps-step' : icon && vertical ? 'steps-step-3' : icon && !vertical ? 'steps-step-2' : null, props.className);
   var step;
 
   if (form) {
@@ -11604,13 +12309,14 @@ var Step = function Step(props) {
 };
 
 Step.defaultProps = {
-  tag: "div",
   form: false,
+  iconPrefix: 'fas',
+  tag: 'div',
   vertical: false
 };
 
-var css$g = "/* Stepper Form */\n\n/* Stepper v.2 (Form) */\n.steps-form {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form .steps-row {\n  display: table-row; }\n.steps-form .steps-row:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 100%;\n  height: 1px;\n  background-color: #ccc; }\n.steps-form .steps-row .steps-step {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form .steps-row .steps-step p {\n  margin-top: 0.5rem; }\n.steps-form .steps-row .steps-step button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form .steps-row .steps-step .btn-circle {\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  padding: 6px 0;\n  font-size: 12px;\n  line-height: 1.428571429;\n  border-radius: 15px;\n  margin-top: 0; }\n\n/* Stepper v.3 (Icons) */\n.steps-form-2 {\n  display: table;\n  width: 100%;\n  position: relative; }\n.steps-form-2 .steps-row-2 {\n  display: table-row; }\n.steps-form-2 .steps-row-2:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \" \";\n  width: 99%;\n  height: 2px;\n  background-color: #7283a7; }\n.steps-form-2 .steps-row-2 .steps-step-2 {\n  display: table-cell;\n  text-align: center;\n  position: relative; }\n.steps-form-2 .steps-row-2 .steps-step-2 p {\n  margin-top: 0.5rem; }\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\n  width: 70px;\n  height: 70px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 22px 18px 15px 18px;\n  margin-top: -22px; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa {\n  font-size: 1.7rem; }\n .steps-row-2:first-child .btn {\n  margin-left: 0\n}\n.steps-row-2:last-child .btn {\n  margin-right: 0\n}\n\n\n/* Stepper v.4 (Icon-vertical) */\n\n.steps-form-3 {\n  width: 2px;\nheight: 470px;\n  position: relative; }\n.steps-form-3 .steps-row-3 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column; }\n.steps-form-3 .steps-row-3:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: \"\";\n  width: 2px;\n  height: 100%;\n  background-color: #7283a7; }\n.steps-form-3 .steps-row-3 .steps-step-3 {\n  height: 150px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  position: relative; }\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\n  height: 50px; }\n.steps-form-3 .steps-row-3 .steps-step-3 p {\nmargin-top: 0.5rem; }\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\n  width: 60px;\n  height: 60px;\n  border: 2px solid #59698D;\n  background-color: white !important;\n  color: #59698D !important;\n  border-radius: 50%;\n  padding: 18px 18px 15px 15px;\n  margin-top: -22px; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\n  border: 2px solid #4285F4;\n  color: #4285F4 !important;\n  background-color: white !important; }\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa {\n  font-size: 1.7rem; }\n";
-styleInject(css$g);
+var css$j = "/* Stepper Form */\n\n/* Stepper v.2 (Form) */\n.steps-form {\n  display: table;\n  width: 100%;\n  position: relative;\n}\n\n.steps-form .steps-row {\n  display: table-row;\n}\n\n.steps-form .steps-row:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: ' ';\n  width: 100%;\n  height: 1px;\n  background-color: #ccc;\n}\n\n.steps-form .steps-row .steps-step {\n  display: table-cell;\n  text-align: center;\n  position: relative;\n}\n\n.steps-form .steps-row .steps-step p {\n  margin-top: 0.5rem;\n}\n\n.steps-form .steps-row .steps-step button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important;\n}\n\n.steps-form .steps-row .steps-step .btn-circle {\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  padding: 6px 0;\n  font-size: 12px;\n  line-height: 1.428571429;\n  border-radius: 15px;\n  margin-top: 0;\n}\n\n/* Stepper v.3 (Icons) */\n.steps-form-2 {\n  display: table;\n  width: 100%;\n  position: relative;\n}\n\n.steps-form-2 .steps-row-2 {\n  display: table-row;\n}\n\n.steps-form-2 .steps-row-2:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: ' ';\n  width: 99%;\n  height: 2px;\n  background-color: #7283a7;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 {\n  display: table-cell;\n  text-align: center;\n  position: relative;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 p {\n  margin-top: 0.5rem;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\n  width: 70px;\n  height: 70px;\n  border: 2px solid #59698d;\n  background-color: white !important;\n  color: #59698d !important;\n  border-radius: 50%;\n  padding: 20px 20px 20px 20px;\n  margin-top: -22px;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\n  border: 2px solid #4285f4;\n  color: #4285f4 !important;\n  background-color: white !important;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fas,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .far,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fal,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fad,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fab {\n  font-size: 1.7rem;\n}\n\n.steps-row-2:first-child .btn {\n  margin-left: 0;\n}\n\n.steps-row-2:last-child .btn {\n  margin-right: 0;\n}\n\n/* Stepper v.4 (Icon-vertical) */\n\n.steps-form-3 {\n  width: 2px;\n  height: 470px;\n  position: relative;\n}\n\n.steps-form-3 .steps-row-3 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n}\n\n.steps-form-3 .steps-row-3:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: '';\n  width: 2px;\n  height: 100%;\n  background-color: #7283a7;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 {\n  height: 150px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  position: relative;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\n  height: 50px;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 p {\n  margin-top: 0.5rem;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\n  width: 60px;\n  height: 60px;\n  border: 2px solid #59698d;\n  background-color: white !important;\n  color: #59698d !important;\n  border-radius: 50%;\n  padding: 15px 15px 15px 15px;\n  margin-top: -22px;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\n  border: 2px solid #4285f4;\n  color: #4285f4 !important;\n  background-color: white !important;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fas,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .far,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fal,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fad,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fab {\n  font-size: 1.7rem;\n}\n";
+styleInject(css$j);
 
 var Stepper = function Stepper(props) {
   var vertical = props.vertical,
@@ -11946,8 +12652,8 @@ MDBStreak.defaultProps = {
   wrapperClass: "grey lighten-3"
 };
 
-var css$h = ".react-bootstrap-table {\n  padding-top: 65px;\n}\n\n.react-bootstrap-table .caret {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 2px;\n  vertical-align: middle;\n  border-top: 4px dashed;\n  border-top: 4px solid\\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n\n.react-bootstrap-table .dropup .caret {\n  content: \"\";\n  border-top: 0;\n  border-bottom: 4px dashed;\n  border-bottom: 4px solid\\9;\n}\n\n.react-bootstrap-table-pagination .pagination {\n  float: right;\n}\n\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\n  background-color: #09c;\n}\n\n.react-bootstrap-table-pagination .select-wrapper {\n  display: inline-block;\n  width: 100px;\n  margin: 0 15px;\n}\n\n.react-bootstrap-table-pagination .dropdown-item {\n  padding: 0;\n}\n\n.react-bootstrap-table-pagination-total {\n  display: block;\n}\n\n.react-bootstrap-table .md-form {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  width: 200px;\n}\n\n.react-bootstrap-table-pagination > * {\n  position: inherit;\n}\n\n.react-bs-table-sizePerPage-dropdown {\n  position: absolute;\n  top: 0;\n  left: 0;\n}";
-styleInject(css$h);
+var css$k = ".react-bootstrap-table {\n  padding-top: 65px;\n}\n\n.react-bootstrap-table .caret {\n  display: inline-block;\n  width: 0;\n  height: 0;\n  margin-left: 2px;\n  vertical-align: middle;\n  border-top: 4px dashed;\n  border-top: 4px solid\\9;\n  border-right: 4px solid transparent;\n  border-left: 4px solid transparent;\n}\n\n.react-bootstrap-table .dropup .caret {\n  content: \"\";\n  border-top: 0;\n  border-bottom: 4px dashed;\n  border-bottom: 4px solid\\9;\n}\n\n.react-bootstrap-table-pagination .pagination {\n  float: right;\n}\n\n.react-bootstrap-table-pagination .pagination .page-item.active .page-link {\n  background-color: #09c;\n}\n\n.react-bootstrap-table-pagination .select-wrapper {\n  display: inline-block;\n  width: 100px;\n  margin: 0 15px;\n}\n\n.react-bootstrap-table-pagination .dropdown-item {\n  padding: 0;\n}\n\n.react-bootstrap-table-pagination-total {\n  display: block;\n}\n\n.react-bootstrap-table .md-form {\n  position: absolute;\n  top: 0;\n  right: 0;\n  margin: 0;\n  width: 200px;\n}\n\n.react-bootstrap-table-pagination > * {\n  position: inherit;\n}\n\n.react-bs-table-sizePerPage-dropdown {\n  position: absolute;\n  top: 0;\n  left: 0;\n}";
+styleInject(css$k);
 
 var TableEditable =
 /*#__PURE__*/
@@ -12222,8 +12928,8 @@ Testimonial.defaultProps = {
   tag: "div"
 };
 
-var css$i = "@media (max-width: 1025px) {\n  .stepper.timeline li {\n    -webkit-box-align: end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: end;\n    align-items: flex-end;\n  }\n}\n\n.stepper.timeline li a {\n  padding: 0px 24px;\n  left: 50%;\n}\n@media (max-width: 450px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n.stepper.timeline li a .circle {\n  width: 50px;\n  height: 50px;\n  line-height: 50px;\n  font-size: 1.4em;\n  text-align: center;\n  position: absolute;\n  top: 16px;\n  margin-left: -50px;\n  background-color: #fff;\n  z-index: 2;\n}\n\n.stepper.timeline li .step-content {\n  width: 45%;\n  float: left;\n  border-radius: 2px;\n  position: relative;\n  background-color: #fff;\n}\n.stepper.timeline li .step-content:before {\n  position: absolute;\n  top: 26px;\n  right: -15px;\n  display: inline-block;\n  border-top: 15px solid transparent;\n  border-left: 15px solid #e0e0e0;\n  border-right: 0 solid #e0e0e0;\n  border-bottom: 15px solid transparent;\n  content: \" \";\n}\n.stepper.timeline li .step-content:after {\n  position: absolute;\n  top: 27px;\n  right: -14px;\n  display: inline-block;\n  border-top: 14px solid transparent;\n  border-left: 14px solid #fff;\n  border-right: 0 solid #fff;\n  border-bottom: 14px solid transparent;\n  content: \" \";\n}\n@media (max-width: 450px) {\n  .stepper.timeline li .step-content {\n    width: 80%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li .step-content {\n    width: 85%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n\n.stepper.timeline li.timeline-inverted {\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n  -ms-flex-align: end;\n  align-items: flex-end;\n}\n.stepper.timeline li.timeline-inverted .step-content {\n  float: right;\n}\n.stepper.timeline li.timeline-inverted .step-content:before {\n  border-left-width: 0;\n  border-right-width: 15px;\n  left: -15px;\n  right: auto;\n}\n.stepper.timeline li.timeline-inverted .step-content:after {\n  border-left-width: 0;\n  border-right-width: 14px;\n  left: -14px;\n  right: auto;\n}\n\n.stepper.timeline.stepper-vertical li:not(:last-child):after {\n  content: \" \";\n  position: absolute;\n  width: 3px;\n  background-color: #e0e0e0;\n  left: 50%;\n  top: 57px;\n  margin-left: -1.5px;\n}\n@media (max-width: 450px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n";
-styleInject(css$i);
+var css$l = "@media (max-width: 1025px) {\n  .stepper.timeline li {\n    -webkit-box-align: end;\n    -webkit-align-items: flex-end;\n    -ms-flex-align: end;\n    align-items: flex-end;\n  }\n}\n\n.stepper.timeline li a {\n  padding: 0px 24px;\n  left: 50%;\n}\n@media (max-width: 450px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li a {\n    left: 6%;\n  }\n}\n.stepper.timeline li a .circle {\n  width: 50px;\n  height: 50px;\n  line-height: 50px;\n  font-size: 1.4em;\n  text-align: center;\n  position: absolute;\n  top: 16px;\n  margin-left: -50px;\n  background-color: #fff;\n  z-index: 2;\n}\n\n.stepper.timeline li .step-content {\n  width: 45%;\n  float: left;\n  border-radius: 2px;\n  position: relative;\n  background-color: #fff;\n}\n.stepper.timeline li .step-content:before {\n  position: absolute;\n  top: 26px;\n  right: -15px;\n  display: inline-block;\n  border-top: 15px solid transparent;\n  border-left: 15px solid #e0e0e0;\n  border-right: 0 solid #e0e0e0;\n  border-bottom: 15px solid transparent;\n  content: \" \";\n}\n.stepper.timeline li .step-content:after {\n  position: absolute;\n  top: 27px;\n  right: -14px;\n  display: inline-block;\n  border-top: 14px solid transparent;\n  border-left: 14px solid #fff;\n  border-right: 0 solid #fff;\n  border-bottom: 14px solid transparent;\n  content: \" \";\n}\n@media (max-width: 450px) {\n  .stepper.timeline li .step-content {\n    width: 80%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline li .step-content {\n    width: 85%;\n    left: 3rem;\n    margin-right: 3rem;\n    margin-bottom: 2rem;\n    float: right;\n  }\n  .stepper.timeline li .step-content:before {\n    border-left-width: 0;\n    border-right-width: 15px;\n    left: -15px;\n    right: auto;\n  }\n  .stepper.timeline li .step-content:after {\n    border-left-width: 0;\n    border-right-width: 14px;\n    left: -14px;\n    right: auto;\n  }\n}\n\n.stepper.timeline li.timeline-inverted {\n  -webkit-box-align: end;\n  -webkit-align-items: flex-end;\n  -ms-flex-align: end;\n  align-items: flex-end;\n}\n.stepper.timeline li.timeline-inverted .step-content {\n  float: right;\n}\n.stepper.timeline li.timeline-inverted .step-content:before {\n  border-left-width: 0;\n  border-right-width: 15px;\n  left: -15px;\n  right: auto;\n}\n.stepper.timeline li.timeline-inverted .step-content:after {\n  border-left-width: 0;\n  border-right-width: 14px;\n  left: -14px;\n  right: auto;\n}\n\n.stepper.timeline.stepper-vertical li:not(:last-child):after {\n  content: \" \";\n  position: absolute;\n  width: 3px;\n  background-color: #e0e0e0;\n  left: 50%;\n  top: 57px;\n  margin-left: -1.5px;\n}\n@media (max-width: 450px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n@media (min-width: 451px) and (max-width: 1025px) {\n  .stepper.timeline.stepper-vertical li:not(:last-child):after {\n    left: 6%;\n  }\n}\n";
+styleInject(css$l);
 
 var Timeline = function Timeline(props) {
   var children = props.children;
@@ -12284,8 +12990,8 @@ TimelineStep.defaultProps = {
   href: "#"
 };
 
-var css$j = ".time-picker-clock {\n  border-radius: 100%;\n  position: relative;\n  /* transition: 0.3s cubic-bezier(.25,.8,.50,1); */\n  user-select: none;\n  background: #f0f0f0;\n  animation: show-up-clock 0.2s linear;\n}\n@keyframes show-up-clock {\n  0% {\n    opacity: 0;\n    transform: scale(0.7);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n.time-picker-clock__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\n.time-picker-clock__hand {\n  height: calc(50% - 28px);\n  width: 2px;\n  bottom: 50%;\n  left: calc(50% - 1px);\n  transform-origin: center bottom;\n  position: absolute;\n  will-change: transform;\n  z-index: 1;\n  background-color: rgba(0, 150, 136, 0.25);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring {\n  background-color: rgba(0, 150, 136, 0.25);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 2.5rem;\n  height: 2.5rem;\n  content: \"\";\n  position: absolute;\n  top: -3%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring:before {\n  background-color: rgba(0, 77, 64, 0.75);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 10px;\n  height: 10px;\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand:after {\n  content: \"\";\n  position: absolute;\n  height: 6px;\n  width: 6px;\n  top: 100%;\n  left: 50%;\n  border-radius: 50%;\n  background-color: rgba(0, 77, 64, 0.75);\n  opacity: 0.75;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span {\n  align-items: center;\n  border-radius: 100%;\n  cursor: default;\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.2;\n  justify-content: center;\n  left: calc(50% - 40px / 2);\n  height: 40px;\n  position: absolute;\n  text-align: center;\n  top: calc(50% - 40px / 2);\n  width: 40px;\n  user-select: none;\n}\n.time-picker-clock > span:hover,\n.time-picker-clock > span.active:hover {\n  cursor: pointer;\n}\n.time-picker-clock > span:active:hover,\n.time-picker-clock > span.active:active:hover {\n  cursor: move;\n}\n.time-picker-clock:active:hover {\n  cursor: move;\n}\n.time-picker-clock > span > span {\n  z-index: 1;\n}\n\n.time-picker-clock > span:before,\n.time-picker-clock > span:after {\n  content: \"\";\n  border-radius: 100%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 14px;\n  width: 14px;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span > span:after,\n.time-picker-clock > span > span:before {\n  height: 40px;\n  width: 40px;\n}\n.time-picker-clock > span.active {\n  color: #fff;\n  cursor: default;\n  z-index: 2;\n  background: blue;\n}\n.time-picker-clock > span > span.disabled {\n  pointer-events: none;\n}\n\n.picker__footer .clockpicker-button {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n";
-styleInject(css$j);
+var css$m = ".time-picker-clock {\n  border-radius: 100%;\n  position: relative;\n  /* transition: 0.3s cubic-bezier(.25,.8,.50,1); */\n  user-select: none;\n  background: #f0f0f0;\n  animation: show-up-clock 0.2s linear;\n}\n@keyframes show-up-clock {\n  0% {\n    opacity: 0;\n    transform: scale(0.7);\n  }\n  100% {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n.time-picker-clock__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\n.time-picker-clock__hand {\n  height: calc(50% - 28px);\n  width: 2px;\n  bottom: 50%;\n  left: calc(50% - 1px);\n  transform-origin: center bottom;\n  position: absolute;\n  will-change: transform;\n  z-index: 1;\n  background-color: rgba(0, 150, 136, 0.25);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring {\n  background-color: rgba(0, 150, 136, 0.25);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 2.5rem;\n  height: 2.5rem;\n  content: \"\";\n  position: absolute;\n  top: -3%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand.between .time-picker-clock__hand--ring:before {\n  background-color: rgba(0, 77, 64, 0.75);\n  border-color: inherit;\n  border-radius: 100%;\n  width: 10px;\n  height: 10px;\n  content: \"\";\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n}\n\n.time-picker-clock__hand:after {\n  content: \"\";\n  position: absolute;\n  height: 6px;\n  width: 6px;\n  top: 100%;\n  left: 50%;\n  border-radius: 50%;\n  background-color: rgba(0, 77, 64, 0.75);\n  opacity: 0.75;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span {\n  align-items: center;\n  border-radius: 100%;\n  cursor: default;\n  display: flex;\n  font-size: 1rem;\n  line-height: 1.2;\n  justify-content: center;\n  left: calc(50% - 40px / 2);\n  height: 40px;\n  position: absolute;\n  text-align: center;\n  top: calc(50% - 40px / 2);\n  width: 40px;\n  user-select: none;\n}\n.time-picker-clock > span:hover,\n.time-picker-clock > span.active:hover {\n  cursor: pointer;\n}\n.time-picker-clock > span:active:hover,\n.time-picker-clock > span.active:active:hover {\n  cursor: move;\n}\n.time-picker-clock:active:hover {\n  cursor: move;\n}\n.time-picker-clock > span > span {\n  z-index: 1;\n}\n\n.time-picker-clock > span:before,\n.time-picker-clock > span:after {\n  content: \"\";\n  border-radius: 100%;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  height: 14px;\n  width: 14px;\n  transform: translate(-50%, -50%);\n}\n.time-picker-clock > span > span:after,\n.time-picker-clock > span > span:before {\n  height: 40px;\n  width: 40px;\n}\n.time-picker-clock > span.active {\n  color: #fff;\n  cursor: default;\n  z-index: 2;\n  background: blue;\n}\n.time-picker-clock > span > span.disabled {\n  pointer-events: none;\n}\n\n.picker__footer .clockpicker-button {\n  padding-left: 10px;\n  padding-right: 10px;\n}\n";
+styleInject(css$m);
 
 var propTypes$2 = {
   color: propTypes.string.isRequired,
@@ -13104,8 +13810,8 @@ function (_Component) {
 TimePicker.propTypes = propTypes$7;
 TimePicker.defaultProps = defaultProps$1;
 
-var css$k = ".Toastify__toast-container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 320px;\n  box-sizing: border-box;\n  color: #fff;\n}\n.Toastify__toast-container--top-left {\n  top: 1em;\n  left: 1em;\n}\n.Toastify__toast-container--top-center {\n  top: 1em;\n  left: 50%;\n  margin-left: -160px;\n}\n.Toastify__toast-container--top-right {\n  top: 1em;\n  right: 1em;\n}\n.Toastify__toast-container--bottom-left {\n  bottom: 1em;\n  left: 1em;\n}\n.Toastify__toast-container--bottom-center {\n  bottom: 1em;\n  left: 50%;\n  margin-left: -160px;\n}\n.Toastify__toast-container--bottom-right {\n  bottom: 1em;\n  right: 1em;\n}\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast-container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0;\n  }\n  .Toastify__toast-container--top-left,\n  .Toastify__toast-container--top-center,\n  .Toastify__toast-container--top-right {\n    top: 0;\n  }\n  .Toastify__toast-container--bottom-left,\n  .Toastify__toast-container--bottom-center,\n  .Toastify__toast-container--bottom-right {\n    bottom: 0;\n  }\n  .Toastify__toast-container--rtl {\n    right: 0;\n    left: initial;\n  }\n}\n\n.Toastify__toast {\n  position: relative;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 8px;\n  border-radius: 1px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  max-height: 800px;\n  overflow: hidden;\n  font-family: sans-serif;\n  cursor: pointer;\n  direction: ltr;\n}\n.Toastify__toast--rtl {\n  direction: rtl;\n}\n.Toastify__toast--default {\n  background: #fff;\n  color: #aaa;\n}\n.Toastify__toast--info {\n  background: #3498db;\n}\n.Toastify__toast--success {\n  background: #07bc0c;\n}\n.Toastify__toast--warning {\n  background: #f1c40f;\n}\n.Toastify__toast--error {\n  background: #e74c3c;\n}\n.Toastify__toast-body {\n  margin: auto 0;\n  -ms-flex: 1;\n  flex: 1;\n}\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast {\n    margin-bottom: 0;\n  }\n}\n\n.Toastify__close-button {\n  color: #fff;\n  font-weight: bold;\n  font-size: 14px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  opacity: 0.7;\n  transition: 0.3s ease;\n  -ms-flex-item-align: start;\n  align-self: flex-start;\n}\n.Toastify__close-button--default {\n  color: #000;\n  opacity: 0.3;\n}\n.Toastify__close-button:hover,\n.Toastify__close-button:focus {\n  opacity: 1;\n}\n\n@keyframes Toastify__trackProgress {\n  0% {\n    transform: scaleX(1);\n  }\n  100% {\n    transform: scaleX(0);\n  }\n}\n\n.Toastify__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 9999;\n  opacity: 0.7;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left;\n}\n.Toastify__progress-bar--animated {\n  animation: Toastify__trackProgress linear 1 forwards;\n}\n.Toastify__progress-bar--controlled {\n  transition: transform 0.2s;\n}\n.Toastify__progress-bar--rtl {\n  right: 0;\n  left: initial;\n  transform-origin: right;\n}\n.Toastify__progress-bar--default {\n  background: linear-gradient(\n    to right,\n    #4cd964,\n    #5ac8fa,\n    #007aff,\n    #34aadc,\n    #5856d6,\n    #ff2d55\n  );\n}\n\n@keyframes Toastify__bounceInRight {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(-5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceInLeft {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(-10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceInUp {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  75% {\n    transform: translate3d(0, 10px, 0);\n  }\n  90% {\n    transform: translate3d(0, -5px, 0);\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0);\n  }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n@keyframes Toastify__bounceInDown {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0);\n  }\n  75% {\n    transform: translate3d(0, -10px, 0);\n  }\n  90% {\n    transform: translate3d(0, 5px, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0);\n  }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n.Toastify__bounce-enter--top-left,\n.Toastify__bounce-enter--bottom-left {\n  animation-name: Toastify__bounceInLeft;\n}\n\n.Toastify__bounce-enter--top-right,\n.Toastify__bounce-enter--bottom-right {\n  animation-name: Toastify__bounceInRight;\n}\n\n.Toastify__bounce-enter--top-center {\n  animation-name: Toastify__bounceInDown;\n}\n\n.Toastify__bounce-enter--bottom-center {\n  animation-name: Toastify__bounceInUp;\n}\n\n.Toastify__bounce-exit--top-left,\n.Toastify__bounce-exit--bottom-left {\n  animation-name: Toastify__bounceOutLeft;\n}\n\n.Toastify__bounce-exit--top-right,\n.Toastify__bounce-exit--bottom-right {\n  animation-name: Toastify__bounceOutRight;\n}\n\n.Toastify__bounce-exit--top-center {\n  animation-name: Toastify__bounceOutUp;\n}\n\n.Toastify__bounce-exit--bottom-center {\n  animation-name: Toastify__bounceOutDown;\n}\n\n@keyframes Toastify__zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3);\n  }\n  50% {\n    opacity: 1;\n  }\n}\n\n@keyframes Toastify__zoomOut {\n  from {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3);\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n.Toastify__zoom-enter {\n  animation-name: Toastify__zoomIn;\n}\n\n.Toastify__zoom-exit {\n  animation-name: Toastify__zoomOut;\n}\n\n@keyframes Toastify__flipIn {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in;\n  }\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1;\n  }\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\n  }\n  to {\n    transform: perspective(400px);\n  }\n}\n\n@keyframes Toastify__flipOut {\n  from {\n    transform: perspective(400px);\n  }\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1;\n  }\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n.Toastify__flip-enter {\n  animation-name: Toastify__flipIn;\n}\n\n.Toastify__flip-exit {\n  animation-name: Toastify__flipOut;\n}\n\n@keyframes Toastify__slideInRight {\n  from {\n    transform: translate3d(110%, 0, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInLeft {\n  from {\n    transform: translate3d(-110%, 0, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInUp {\n  from {\n    transform: translate3d(0, 110%, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInDown {\n  from {\n    transform: translate3d(0, -110%, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(110%, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(-110%, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 500px, 0);\n  }\n}\n\n@keyframes Toastify__slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -500px, 0);\n  }\n}\n\n.Toastify__slide-enter--top-left,\n.Toastify__slide-enter--bottom-left {\n  animation-name: Toastify__slideInLeft;\n}\n\n.Toastify__slide-enter--top-right,\n.Toastify__slide-enter--bottom-right {\n  animation-name: Toastify__slideInRight;\n}\n\n.Toastify__slide-enter--top-center {\n  animation-name: Toastify__slideInDown;\n}\n\n.Toastify__slide-enter--bottom-center {\n  animation-name: Toastify__slideInUp;\n}\n\n.Toastify__slide-exit--top-left,\n.Toastify__slide-exit--bottom-left {\n  animation-name: Toastify__slideOutLeft;\n}\n\n.Toastify__slide-exit--top-right,\n.Toastify__slide-exit--bottom-right {\n  animation-name: Toastify__slideOutRight;\n}\n\n.Toastify__slide-exit--top-center {\n  animation-name: Toastify__slideOutUp;\n}\n\n.Toastify__slide-exit--bottom-center {\n  animation-name: Toastify__slideOutDown;\n}\n";
-styleInject(css$k);
+var css$n = ".Toastify__toast-container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 320px;\n  box-sizing: border-box;\n  color: #fff;\n}\n.Toastify__toast-container--top-left {\n  top: 1em;\n  left: 1em;\n}\n.Toastify__toast-container--top-center {\n  top: 1em;\n  left: 50%;\n  margin-left: -160px;\n}\n.Toastify__toast-container--top-right {\n  top: 1em;\n  right: 1em;\n}\n.Toastify__toast-container--bottom-left {\n  bottom: 1em;\n  left: 1em;\n}\n.Toastify__toast-container--bottom-center {\n  bottom: 1em;\n  left: 50%;\n  margin-left: -160px;\n}\n.Toastify__toast-container--bottom-right {\n  bottom: 1em;\n  right: 1em;\n}\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast-container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0;\n  }\n  .Toastify__toast-container--top-left,\n  .Toastify__toast-container--top-center,\n  .Toastify__toast-container--top-right {\n    top: 0;\n  }\n  .Toastify__toast-container--bottom-left,\n  .Toastify__toast-container--bottom-center,\n  .Toastify__toast-container--bottom-right {\n    bottom: 0;\n  }\n  .Toastify__toast-container--rtl {\n    right: 0;\n    left: initial;\n  }\n}\n\n.Toastify__toast {\n  position: relative;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 8px;\n  border-radius: 1px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  max-height: 800px;\n  overflow: hidden;\n  font-family: sans-serif;\n  cursor: pointer;\n  direction: ltr;\n}\n.Toastify__toast--rtl {\n  direction: rtl;\n}\n.Toastify__toast--default {\n  background: #fff;\n  color: #aaa;\n}\n.Toastify__toast--info {\n  background: #3498db;\n}\n.Toastify__toast--success {\n  background: #07bc0c;\n}\n.Toastify__toast--warning {\n  background: #f1c40f;\n}\n.Toastify__toast--error {\n  background: #e74c3c;\n}\n.Toastify__toast-body {\n  margin: auto 0;\n  -ms-flex: 1;\n  flex: 1;\n}\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast {\n    margin-bottom: 0;\n  }\n}\n\n.Toastify__close-button {\n  color: #fff;\n  font-weight: bold;\n  font-size: 14px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  opacity: 0.7;\n  transition: 0.3s ease;\n  -ms-flex-item-align: start;\n  align-self: flex-start;\n}\n.Toastify__close-button--default {\n  color: #000;\n  opacity: 0.3;\n}\n.Toastify__close-button:hover,\n.Toastify__close-button:focus {\n  opacity: 1;\n}\n\n@keyframes Toastify__trackProgress {\n  0% {\n    transform: scaleX(1);\n  }\n  100% {\n    transform: scaleX(0);\n  }\n}\n\n.Toastify__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 9999;\n  opacity: 0.7;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left;\n}\n.Toastify__progress-bar--animated {\n  animation: Toastify__trackProgress linear 1 forwards;\n}\n.Toastify__progress-bar--controlled {\n  transition: transform 0.2s;\n}\n.Toastify__progress-bar--rtl {\n  right: 0;\n  left: initial;\n  transform-origin: right;\n}\n.Toastify__progress-bar--default {\n  background: linear-gradient(\n    to right,\n    #4cd964,\n    #5ac8fa,\n    #007aff,\n    #34aadc,\n    #5856d6,\n    #ff2d55\n  );\n}\n\n@keyframes Toastify__bounceInRight {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(-5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceInLeft {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(-10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceInUp {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  75% {\n    transform: translate3d(0, 10px, 0);\n  }\n  90% {\n    transform: translate3d(0, -5px, 0);\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0);\n  }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n@keyframes Toastify__bounceInDown {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0);\n  }\n  75% {\n    transform: translate3d(0, -10px, 0);\n  }\n  90% {\n    transform: translate3d(0, 5px, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0);\n  }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n.Toastify__bounce-enter--top-left,\n.Toastify__bounce-enter--bottom-left {\n  animation-name: Toastify__bounceInLeft;\n}\n\n.Toastify__bounce-enter--top-right,\n.Toastify__bounce-enter--bottom-right {\n  animation-name: Toastify__bounceInRight;\n}\n\n.Toastify__bounce-enter--top-center {\n  animation-name: Toastify__bounceInDown;\n}\n\n.Toastify__bounce-enter--bottom-center {\n  animation-name: Toastify__bounceInUp;\n}\n\n.Toastify__bounce-exit--top-left,\n.Toastify__bounce-exit--bottom-left {\n  animation-name: Toastify__bounceOutLeft;\n}\n\n.Toastify__bounce-exit--top-right,\n.Toastify__bounce-exit--bottom-right {\n  animation-name: Toastify__bounceOutRight;\n}\n\n.Toastify__bounce-exit--top-center {\n  animation-name: Toastify__bounceOutUp;\n}\n\n.Toastify__bounce-exit--bottom-center {\n  animation-name: Toastify__bounceOutDown;\n}\n\n@keyframes Toastify__zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3);\n  }\n  50% {\n    opacity: 1;\n  }\n}\n\n@keyframes Toastify__zoomOut {\n  from {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3);\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n.Toastify__zoom-enter {\n  animation-name: Toastify__zoomIn;\n}\n\n.Toastify__zoom-exit {\n  animation-name: Toastify__zoomOut;\n}\n\n@keyframes Toastify__flipIn {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in;\n  }\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1;\n  }\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\n  }\n  to {\n    transform: perspective(400px);\n  }\n}\n\n@keyframes Toastify__flipOut {\n  from {\n    transform: perspective(400px);\n  }\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1;\n  }\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n.Toastify__flip-enter {\n  animation-name: Toastify__flipIn;\n}\n\n.Toastify__flip-exit {\n  animation-name: Toastify__flipOut;\n}\n\n@keyframes Toastify__slideInRight {\n  from {\n    transform: translate3d(110%, 0, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInLeft {\n  from {\n    transform: translate3d(-110%, 0, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInUp {\n  from {\n    transform: translate3d(0, 110%, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInDown {\n  from {\n    transform: translate3d(0, -110%, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(110%, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(-110%, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 500px, 0);\n  }\n}\n\n@keyframes Toastify__slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -500px, 0);\n  }\n}\n\n.Toastify__slide-enter--top-left,\n.Toastify__slide-enter--bottom-left {\n  animation-name: Toastify__slideInLeft;\n}\n\n.Toastify__slide-enter--top-right,\n.Toastify__slide-enter--bottom-right {\n  animation-name: Toastify__slideInRight;\n}\n\n.Toastify__slide-enter--top-center {\n  animation-name: Toastify__slideInDown;\n}\n\n.Toastify__slide-enter--bottom-center {\n  animation-name: Toastify__slideInUp;\n}\n\n.Toastify__slide-exit--top-left,\n.Toastify__slide-exit--bottom-left {\n  animation-name: Toastify__slideOutLeft;\n}\n\n.Toastify__slide-exit--top-right,\n.Toastify__slide-exit--bottom-right {\n  animation-name: Toastify__slideOutRight;\n}\n\n.Toastify__slide-exit--top-center {\n  animation-name: Toastify__slideOutUp;\n}\n\n.Toastify__slide-exit--bottom-center {\n  animation-name: Toastify__slideOutDown;\n}\n";
+styleInject(css$n);
 
 Object.defineProperty(exports, 'MDBToast', {
   enumerable: true,
@@ -13148,6 +13854,7 @@ exports.Animation = Animation;
 exports.Autocomplete = Autocomplete;
 exports.Avatar = Avatar;
 exports.Badge = Badge;
+exports.Box = Box;
 exports.Breadcrumb = Breadcrumb;
 exports.BreadcrumbItem = BreadcrumbItem;
 exports.Button = Button;
@@ -13164,6 +13871,7 @@ exports.CardImage = CardImage;
 exports.CardText = CardText;
 exports.CardTitle = CardTitle;
 exports.CardUp = CardUp;
+exports.CardVideo = CardVideo;
 exports.Carousel = Carousel;
 exports.CarouselCaption = CarouselCaption;
 exports.CarouselControl = Control;
@@ -13191,6 +13899,8 @@ exports.FlippingCard = RotatingCard;
 exports.Footer = Footer;
 exports.FormInline = FormInline;
 exports.FreeBird = FreeBird;
+exports.Gallery = Gallery;
+exports.GalleryList = GalleryList;
 exports.HamburgerToggler = HamburgerToggler;
 exports.Iframe = Iframe;
 exports.Input = Input;
@@ -13208,6 +13918,7 @@ exports.MDBAnimation = Animation;
 exports.MDBAutocomplete = Autocomplete;
 exports.MDBAvatar = Avatar;
 exports.MDBBadge = Badge;
+exports.MDBBox = Box;
 exports.MDBBreadcrumb = Breadcrumb;
 exports.MDBBreadcrumbItem = BreadcrumbItem;
 exports.MDBBtn = Button;
@@ -13224,6 +13935,7 @@ exports.MDBCardImage = CardImage;
 exports.MDBCardText = CardText;
 exports.MDBCardTitle = CardTitle;
 exports.MDBCardUp = CardUp;
+exports.MDBCardVideo = CardVideo;
 exports.MDBCarousel = Carousel;
 exports.MDBCarouselCaption = CarouselCaption;
 exports.MDBCarouselIndicator = CarouselIndicator;
@@ -13250,6 +13962,8 @@ exports.MDBFileInput = InputFile;
 exports.MDBFooter = Footer;
 exports.MDBFormInline = FormInline;
 exports.MDBFreeBird = FreeBird;
+exports.MDBGallery = Gallery;
+exports.MDBGalleryList = GalleryList;
 exports.MDBHamburgerToggler = HamburgerToggler;
 exports.MDBIcon = Fa;
 exports.MDBIframe = Iframe;
@@ -13277,6 +13991,7 @@ exports.MDBNotification = Notification;
 exports.MDBPageItem = PageItem;
 exports.MDBPageNav = PageLink;
 exports.MDBPagination = Pagination;
+exports.MDBParallax = Parallax;
 exports.MDBPopover = Popover;
 exports.MDBPopoverBody = PopoverBody;
 exports.MDBPopoverHeader = PopoverHeader;
@@ -13324,6 +14039,8 @@ exports.MDBTooltip = Popover;
 exports.MDBTreeview = Treeview;
 exports.MDBTreeviewItem = TreeviewItem;
 exports.MDBTreeviewList = TreeviewList;
+exports.MDBTypo = Typogrphy;
+exports.MDBTypography = Typogrphy;
 exports.MDBView = View;
 exports.MDBWaves = Waves;
 exports.Mask = Mask;
@@ -13343,6 +14060,7 @@ exports.Notification = Notification;
 exports.PageItem = PageItem;
 exports.PageLink = PageLink;
 exports.Pagination = Pagination;
+exports.Parallax = Parallax;
 exports.PerfectScrollbar = ScrollBar;
 exports.Popover = Popover;
 exports.PopoverBody = PopoverBody;
@@ -13387,5 +14105,7 @@ exports.Tooltip = Popover;
 exports.Treeview = Treeview;
 exports.TreeviewItem = TreeviewItem;
 exports.TreeviewList = TreeviewList;
+exports.Typo = Typogrphy;
+exports.Typography = Typogrphy;
 exports.View = View;
 exports.Waves = Waves;

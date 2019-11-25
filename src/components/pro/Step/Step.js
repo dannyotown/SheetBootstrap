@@ -1,15 +1,46 @@
-import React from "react";
-import classNames from "classnames";
-import Tooltip from "../../Popper";
-import Button from "../../Button";
+import React from 'react';
+import classNames from 'classnames';
+import Tooltip from '../../Popper';
+import Button from '../../Button';
 
 const Step = props => {
-  const { tag: Tag, form, icon, stepName, vertical } = props;
+  const {
+    brand,
+    duotone,
+    fab,
+    fad,
+    fal,
+    far,
+    form,
+    icon,
+    light,
+    regular,
+    stepName,
+    tag: Tag,
+    vertical
+  } = props;
 
-  const iconClass = classNames("fa fa-" + icon, "Ripple-parent");
+  const iconPrefix =
+    regular || far
+      ? 'far'
+      : light || fal
+      ? 'fal'
+      : duotone || fad
+      ? 'fad'
+      : brand || fab
+      ? 'fab'
+      : 'fa';
+
+  const iconClass = classNames(iconPrefix + ' fa-' + icon, 'Ripple-parent');
 
   const stepClass = classNames(
-    form ? "steps-step" : icon && vertical ? "steps-step-3" : icon && !vertical ? "steps-step-2" : null,
+    form
+      ? 'steps-step'
+      : icon && vertical
+      ? 'steps-step-3'
+      : icon && !vertical
+      ? 'steps-step-2'
+      : null,
     props.className
   );
 
@@ -19,8 +50,8 @@ const Step = props => {
   } else if (icon && !vertical) {
     step = (
       <Tag className={stepClass} onClick={props.onClick}>
-        <Tooltip placement="top">
-          <Button className="btn-circle-2 btn-blue-grey">
+        <Tooltip placement='top'>
+          <Button className='btn-circle-2 btn-blue-grey'>
             <i className={iconClass} />
           </Button>
           <div>{stepName}</div>
@@ -30,8 +61,8 @@ const Step = props => {
   } else if (icon && vertical) {
     step = (
       <Tag className={stepClass} onClick={props.onClick}>
-        <Tooltip placement="top">
-          <Button className="btn-circle-3 btn-blue-grey">
+        <Tooltip placement='top'>
+          <Button className='btn-circle-3 btn-blue-grey'>
             <i className={iconClass} />
           </Button>
           <div>{stepName}</div>
@@ -46,8 +77,9 @@ const Step = props => {
 };
 
 Step.defaultProps = {
-  tag: "div",
   form: false,
+  iconPrefix: 'fas',
+  tag: 'div',
   vertical: false
 };
 

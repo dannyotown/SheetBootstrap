@@ -2,6 +2,7 @@
 import Alert from './components/Alert';
 import Animation from './components/Animation';
 import Badge from './components/Badge';
+import Box from './components/Box';
 import Breadcrumb from './components/Breadcrumb';
 import BreadcrumbItem from './components/Breadcrumb/BreadcrumbItem';
 import Button from './components/Button';
@@ -15,6 +16,7 @@ import CardHeader from './components/Card/CardHeader';
 import CardImage from './components/Card/CardImage';
 import CardText from './components/Card/CardText';
 import CardTitle from './components/Card/CardTitle';
+import CardVideo from './components/Card/CardVideo';
 import Carousel from './components/Carousel';
 import CarouselCaption from './components/Carousel/CarouselCaption';
 import CarouselControl from './components/Carousel/CarouselControl';
@@ -36,6 +38,8 @@ import Fa from './components/Fa';
 import Footer from './components/Footer';
 import FormInline from './components/FormInline';
 import FreeBird from './components/FreeBird';
+import Gallery from './components/Gallery';
+import GalleryList from './components/Gallery/GalleryList';
 import HamburgerToggler from './components/HamburgerToggler';
 import Iframe from './components/Iframe';
 import Input from './components/Input';
@@ -77,6 +81,7 @@ import Tooltip from './components/Popper';
 import Treeview from './components/Treeview';
 import TreeviewItem from './components/Treeview/TreeviewItem';
 import TreeviewList from './components/Treeview/TreeviewList';
+import Typography from './components/Typography/Typography';
 import View from './components/View';
 import Waves from './components/Waves';
 
@@ -96,6 +101,7 @@ import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
 import Lightbox from './components/pro/Lightbox';
+import Parallax from './components/pro/Parallax';
 import PerfectScrollbar from './components/pro/PerfectScrollbar';
 import ScrollSpyBox from './components/pro/ScrollSpy/ScrollSpyBox';
 import ScrollSpyList from './components/pro/ScrollSpy/ScrollSpyList';
@@ -131,6 +137,7 @@ export {
   Alert,
   Animation,
   Badge,
+  Box,
   Breadcrumb,
   BreadcrumbItem,
   Button,
@@ -144,6 +151,7 @@ export {
   CardImage,
   CardText,
   CardTitle,
+  CardVideo,
   Carousel,
   CarouselCaption,
   CarouselControl,
@@ -165,6 +173,8 @@ export {
   Footer,
   FormInline,
   FreeBird,
+  Gallery,
+  GalleryList,
   HamburgerToggler,
   Iframe,
   Input,
@@ -206,10 +216,12 @@ export {
   Treeview,
   TreeviewItem,
   TreeviewList,
+  Typography,
+  Typography as Typo,
   Tooltip,
   View,
   Waves,
-
+  
   // PRO-START
   Autocomplete,
   Avatar,
@@ -227,6 +239,7 @@ export {
   InputRange,
   InputSwitch,
   Lightbox,
+  Parallax,
   PerfectScrollbar,
   ScrollSpyBox,
   ScrollSpyList,
@@ -261,6 +274,7 @@ export {
   Alert as MDBAlert,
   Animation as MDBAnimation,
   Badge as MDBBadge,
+  Box as MDBBox,
   Breadcrumb as MDBBreadcrumb,
   BreadcrumbItem as MDBBreadcrumbItem,
   Button as MDBBtn,
@@ -274,6 +288,7 @@ export {
   CardImage as MDBCardImage,
   CardText as MDBCardText,
   CardTitle as MDBCardTitle,
+  CardVideo as MDBCardVideo,
   Carousel as MDBCarousel,
   CarouselCaption as MDBCarouselCaption,
   CarouselControl as MDBControl,
@@ -295,6 +310,8 @@ export {
   Footer as MDBFooter,
   FormInline as MDBFormInline,
   FreeBird as MDBFreeBird,
+  Gallery as MDBGallery,
+  GalleryList as MDBGalleryList,
   HamburgerToggler as MDBHamburgerToggler,
   Iframe as MDBIframe,
   Input as MDBInput,
@@ -337,6 +354,8 @@ export {
   TreeviewItem as MDBTreeviewItem,
   TreeviewList as MDBTreeviewList,
   Tooltip as MDBTooltip,
+  Typography as MDBTypo,
+  Typography as MDBTypography,
   View as MDBView,
   Waves as MDBWaves,
 
@@ -357,6 +376,7 @@ export {
   InputRange as MDBRangeInput,
   InputSwitch as MDBSwitch,
   Lightbox as MDBLightbox,
+  Parallax as MDBParallax,
   PerfectScrollbar as MDBScrollbar,
   ScrollSpyBox as MDBScrollspyBox,
   ScrollSpyList as MDBScrollspyList,
@@ -385,6 +405,6 @@ export {
   TimelineStep as MDBTimelineStep,
   TimePicker as MDBTimePicker,
   toast as MDBToast,
-  ToastContainer as MDBToastContainer,
+  ToastContainer as MDBToastContainer
   // PRO-END
 };
