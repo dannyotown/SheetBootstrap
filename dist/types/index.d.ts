@@ -1849,14 +1849,15 @@ interface InputTypes  {
     [rest: string]: any;
   }
 
-//!typy z Inputa free
-
-declare class MDBInput extends Component< //!Moje typy dla PRO werjsi
-  InputTypes,
-  {
-    counter?: boolean | number;
-    getCounter?: (value: number | string) => void;
-  },
+declare class MDBInput extends Component<
+  //!Moje typy dla PRO werjsi
+  [
+    InputTypes,
+    {
+      counter?: boolean | number;
+      getCounter?: (value: number | string) => void;
+    }
+  ],
   any
 > {}
 
