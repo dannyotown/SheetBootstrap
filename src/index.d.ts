@@ -38,7 +38,6 @@ import MDBFormInline from './components/FormInline';
 import MDBFreeBird from './components/FreeBird';
 import MDBHamburgerToggler from './components/HamburgerToggler';
 import MDBIframe from './components/Iframe';
-import MDBInput from './components/Input';
 import MDBInputGroup from './components/InputGroup';
 import MDBInputNumeric from './components/InputNumeric';
 import MDBJumbotron from './components/Jumbotron';
@@ -124,6 +123,17 @@ import MDBTimeline from './components/pro/Timeline';
 import MDBTimelineStep from './components/pro/Timeline/TimelineStep';
 import MDBTimePicker from './components/pro/TimePicker/TimePicker';
 import { MDBToast, MDBToastContainer } from './components/pro/Toast/';
+// PRO-END
+
+// PRO-START //! Pro Components with free variants
+import MDBInput from './components/pro/Input';
+// FREE-START
+/*
+// PRO-END //! Free components
+import MDBInput from './components/Input';
+// PRO-START
+*/
+// FREE-END
 // PRO-END
 
 export {

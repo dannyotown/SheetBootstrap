@@ -38,7 +38,6 @@ import FormInline from './components/FormInline';
 import FreeBird from './components/FreeBird';
 import HamburgerToggler from './components/HamburgerToggler';
 import Iframe from './components/Iframe';
-import Input from './components/Input';
 import InputGroup from './components/InputGroup';
 import InputNumeric from './components/InputNumeric';
 import Jumbotron from './components/Jumbotron';
@@ -124,6 +123,17 @@ import Timeline from './components/pro/Timeline';
 import TimelineStep from './components/pro/Timeline/TimelineStep';
 import TimePicker from './components/pro/TimePicker/TimePicker';
 import { toast, ToastContainer, cssTransition } from './components/pro/Toast';
+// PRO-END
+
+// PRO-START //! Component with Pro features
+import Input from './components/pro/Input';
+// FREE-START
+/*
+// PRO-END //! Free components
+import Input from './components/Input';
+// PRO-START
+*/
+// FREE-END
 // PRO-END
 
 export {
@@ -257,6 +267,8 @@ export {
   toast,
   ToastContainer,
   // PRO-END
+
+  
 
   Alert as MDBAlert,
   Animation as MDBAnimation,
