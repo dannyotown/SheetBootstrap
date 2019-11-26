@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { MDBDatePicker, MDBContainer, MDBBtn } from "mdbreact";
-import DocsLink from "./../../components/docsLink";
-import SectionContainer from "./../../components/sectionContainer";
+import React, { Component } from 'react';
+import { MDBDatePicker, MDBContainer, MDBBtn } from 'mdbreact';
+import DocsLink from './../../components/docsLink';
+import SectionContainer from './../../components/sectionContainer';
 
 class DatePickerPage extends Component {
   state = {
-    date: new Date("12.12.2012")
+    date: new Date('12.12.2012')
   };
 
   getPickerValue = value => console.log(value);
@@ -18,16 +18,16 @@ class DatePickerPage extends Component {
     return (
       <MDBContainer>
         <DocsLink
-          title="Date Picker"
-          href="https://mdbootstrap.com/docs/react/forms/date-picker/"
+          title='Date Picker'
+          href='https://mdbootstrap.com/docs/react/forms/date-picker/'
         />
-        <SectionContainer header="Basic examples" flexCenter>
+        <SectionContainer header='Basic examples' flexCenter>
           <MDBDatePicker
             clearable
             valueDefault={null}
-            emptyLabel="Select Date"
+            emptyLabel='Select Date'
             getValue={this.getPickerValue}
-            className="mr-4"
+            className='mr-4'
           />
           <MDBDatePicker
             clearable
@@ -35,11 +35,11 @@ class DatePickerPage extends Component {
             theme={{
               palette: {
                 primary: {
-                  main: "#ffbb33"
+                  main: '#ffbb33'
                 },
                 secondary: {
-                  main: "#FF8800",
-                  contrastText: "#ffcc00"
+                  main: '#FF8800',
+                  contrastText: '#ffcc00'
                 }
               },
               typography: {
@@ -49,16 +49,15 @@ class DatePickerPage extends Component {
           />
         </SectionContainer>
 
-
-        <SectionContainer header="With setDate" flexCenter>
+        <SectionContainer header='With setDate' flexCenter>
           <MDBDatePicker
             value={this.state.date}
             getValue={this.updateStateValue}
           />
           <MDBBtn
-            onClick={() => this.setDate("10.20.2020")}
-            size="sm"
-            className="ml-4"
+            onClick={() => this.setDate('10.20.2020')}
+            size='sm'
+            className='ml-4'
           >
             Set Date "10.20.2020"
           </MDBBtn>

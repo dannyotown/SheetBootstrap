@@ -1,4 +1,11 @@
 // Cards extended
+
+@import "../core/_colors";
+@import "../core/_variables";
+@import "../core/_mixins";
+@import "../core/_global";
+@import "../pro/_variables";
+
 .card {
   &.promoting-card {
     .fas,

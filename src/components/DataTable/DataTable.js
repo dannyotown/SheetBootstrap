@@ -9,6 +9,7 @@ import DataTablePagination from "./DataTablePagination";
 import classnames from "classnames";
 // PRO-START
 import ExportToCsvBtn from "../pro/DataTable/ExportToCSV";
+import { MDBSelect } from "mdbreact";
 // PRO-END
 
 class DataTable extends Component {
@@ -19,10 +20,12 @@ class DataTable extends Component {
       columns: props.data.columns || [],
       entries: props.entries,
       filteredRows: props.data.rows || [],
+      filterOptions: [],
       order: props.order || [],
       pages: [],
       rows: props.data.rows || [],
       search: "",
+      searchSelect: "",
       sorted: false,
       translateScrollHead: 0,
       unsearchable: []
@@ -43,6 +46,9 @@ class DataTable extends Component {
       this.fetchData(data, this.paginateRows);
     }
 
+    // PRO-START
+    this.filterOptions();
+    // PRO-END
     order.length && this.handleSort(order[0], order[1]);
 
     this.setUnsearchable(columns);
@@ -111,16 +117,23 @@ class DataTable extends Component {
     this.setState(
       { search: e.target.value },
       () => this.filterRows(),
-      this.props.onSearch && typeof this.props.onSearch === "function" && this.props.onSearch(e.target.value)
+      this.props.onSearch &&
+        typeof this.props.onSearch === "function" &&
+        this.props.onSearch(e.target.value)
     );
   };
 
   checkFieldValue = (array, field) => {
-    return array[field] && typeof array[field] !== "string" ? array[field].props.searchvalue : array[field];
+    return array[field] && typeof array[field] !== "string"
+      ? array[field].props.searchvalue
+      : array[field];
   };
 
   checkField = (field, a, b, direction) => {
-    let [aField, bField] = [this.checkFieldValue(a, field), this.checkFieldValue(b, field)];
+    let [aField, bField] = [
+      this.checkFieldValue(a, field),
+      this.checkFieldValue(b, field)
+    ];
 
     let comp = aField > bField ? -1 : 1;
     if (direction === "asc") comp *= -1;
@@ -134,7 +147,13 @@ class DataTable extends Component {
         return this.checkField(field, a, b, direction);
       }
 
-      return direction === "asc" ? (a[field] < b[field] ? -1 : 1) : a[field] > b[field] ? -1 : 1;
+      return direction === "asc"
+        ? a[field] < b[field]
+          ? -1
+          : 1
+        : a[field] > b[field]
+        ? -1
+        : 1;
     });
   };
 
@@ -154,7 +173,8 @@ class DataTable extends Component {
         columns.forEach(col => {
           if (col.sort === "disabled") return;
 
-          col.sort = col.field === field ? (col.sort === "desc" ? "asc" : "desc") : "";
+          col.sort =
+            col.field === field ? (col.sort === "desc" ? "asc" : "desc") : "";
         });
 
         return {
@@ -166,25 +186,33 @@ class DataTable extends Component {
       () => this.filterRows()
     );
 
-    onSort && typeof onSort === "function" && onSort({ column: field, direction: sort === "desc" ? "desc" : "asc" });
+    onSort &&
+      typeof onSort === "function" &&
+      onSort({ column: field, direction: sort === "desc" ? "desc" : "asc" });
   };
 
-  filterRows = () => {
-    const { unsearchable, search } = this.state;
+  filterRows = (search = this.state.search) => {
+    const { unsearchable } = this.state;
     const { sortRows, noRecordsFoundLabel } = this.props;
 
     this.setState(
       prevState => {
         const filteredRows = prevState.rows.filter(row => {
           for (let key in row) {
-            if ((!unsearchable.length || !unsearchable.includes(key)) && typeof row[key] !== "function") {
+            if (
+              (!unsearchable.length || !unsearchable.includes(key)) &&
+              typeof row[key] !== "function"
+            ) {
               let stringValue = "";
 
               if (sortRows && typeof row[key] !== "string") {
                 let content = [];
                 const getContent = element =>
                   typeof element === "object"
-                    ? element.props.children && Array.from(element.props.children).map(el => getContent(el))
+                    ? element.props.children &&
+                      Array.from(element.props.children).map(el =>
+                        getContent(el)
+                      )
                     : content.push(element);
 
                 getContent(row[key]);
@@ -194,8 +222,8 @@ class DataTable extends Component {
                   stringValue = row[key].toString();
                 }
               }
-
-              if (stringValue.toLowerCase().includes(search.toLowerCase())) return true;
+              if (stringValue.toLowerCase().includes(search.toLowerCase()))
+                return true;
             }
           }
           return false;
@@ -211,7 +239,8 @@ class DataTable extends Component {
           test = {
             filteredRows,
             activePage: (prevState.activePage =
-              prevState.activePage < prevState.pages.length || prevState.activePage === 0
+              prevState.activePage < prevState.pages.length ||
+              prevState.activePage === 0
                 ? prevState.activePage
                 : prevState.pages.length - 1)
           };
@@ -240,7 +269,10 @@ class DataTable extends Component {
           pages.push(filteredRows.slice(pageEndIndex - entries, pageEndIndex));
         }
         if (!disableRetreatAfterSorting) {
-          activePage = activePage < pages.length || activePage === 0 ? activePage : pages.length - 1;
+          activePage =
+            activePage < pages.length || activePage === 0
+              ? activePage
+              : pages.length - 1;
         }
       } else {
         pages.push(filteredRows);
@@ -263,6 +295,54 @@ class DataTable extends Component {
     this.setState({ translateScrollHead: e.target.scrollLeft });
   };
 
+  // PRO-START
+  getLabelForFilter = field => {
+    if (this.props.filter) {
+      let arr = this.props.data.columns;
+      return arr.filter(el => el.field === field)[0].label || null;
+    }
+  };
+
+  filterOptions = () => {
+    if (this.props.filter) {
+      const { filter } = this.props;
+      let arr = [];
+      this.props.data.rows.map(
+        el => arr.push(el[filter])
+      );
+      arr = [...new Set(arr)].sort((a, b) => a.localeCompare(b));
+      arr = arr.map((text, value) => ({ text, value: `${value}` }));
+
+      this.setState({ filterOptions: arr });
+    }
+  };
+
+  useFilterSelect = content => {
+    const { filter } = this.props;
+
+    if (filter) {
+      if (content !== "") {
+        let filteredRows = this.props.data.rows.filter(
+          el => el[filter] === content
+        );
+
+        this.setState({ searchSelect: content, rows: filteredRows }, () => {
+          this.filterRows(this.state.searchSelect);
+          this.filterRows();
+        });
+      } else {
+        this.setState(
+          { searchSelect: content, rows: this.props.data.rows },
+          () => {
+            this.filterRows(this.state.searchSelect);
+            this.filterRows();
+          }
+        );
+      }
+    }
+  };
+  // PRO-END
+
   render() {
     const {
       autoWidth,
@@ -279,6 +359,7 @@ class DataTable extends Component {
       entriesOptions,
       entriesLabel,
       exportToCSV,
+      filter,
       fixed,
       hover,
       info,
@@ -313,9 +394,21 @@ class DataTable extends Component {
       ...attributes
     } = this.props;
 
-    const { columns, entries, filteredRows, pages, activePage, search, translateScrollHead } = this.state;
+    const {
+      columns,
+      entries,
+      filteredRows,
+      filterOptions,
+      pages,
+      activePage,
+      search,
+      translateScrollHead
+    } = this.state;
 
-    const tableClasses = classnames("dataTables_wrapper dt-bootstrap4", className);
+    const tableClasses = classnames(
+      "dataTables_wrapper dt-bootstrap4",
+      className
+    );
 
     return (
       <div data-test="datatable" className={tableClasses}>
@@ -424,15 +517,35 @@ class DataTable extends Component {
             />
           </div>
         )}
+
         {/* PRO-START */}
-        {exportToCSV && (
-          <div className="row justify-content-end">
-            <ExportToCsvBtn columns={columns} data={pages} color="primary">
-              Download CSV
-            </ExportToCsvBtn>
+        {(filter || exportToCSV) && (
+          <div className='row justify-content-between'>
+              <div className="pl-3">
+
+            {filter && (
+                <MDBSelect
+                  options={filterOptions}
+                  label={`Filter ${this.getLabelForFilter(filter)}`}
+                  getTextContent={this.useFilterSelect}
+                  className="m-0 pt-2"
+                />
+            )}
+              </div>
+
+              <div className="mr-2">
+          
+            {exportToCSV && (
+                <ExportToCsvBtn columns={columns} data={pages} color="primary">
+                  Download CSV
+                </ExportToCsvBtn>
+            )}
+              </div>
+
           </div>
         )}
         {/* PRO-END */}
+
       </div>
     );
   }
@@ -451,9 +564,14 @@ DataTable.propTypes = {
   disableRetreatAfterSorting: PropTypes.bool,
   displayEntries: PropTypes.bool,
   entries: PropTypes.number,
-  entriesLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  entriesLabel: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.object
+  ]),
   entriesOptions: PropTypes.arrayOf(PropTypes.number),
   exportToCSV: PropTypes.bool,
+  filter: PropTypes.string,
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
   info: PropTypes.bool,

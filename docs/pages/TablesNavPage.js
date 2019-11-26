@@ -26,6 +26,7 @@ const TablesNavPage = () => {
                   {/* PRO-START */}
                   <h6 className="mt-4 grey-text"><strong className="indigo-text">PRO</strong> </h6>
                   <MenuLink to="/tables/pro/datatable-csv" title="Datatable - export to CSV" />
+                  <MenuLink to="/tables/pro/datatable-filter" title="Datatable Filter" />
                   <MenuLink to="/tables/pro/tableeditable" title="Table Editable" />
                   <MenuLink to="/tables/pro/table-styles" title="Table Styles" />
                   {/* PRO-END */}
