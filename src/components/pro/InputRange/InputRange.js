@@ -12,6 +12,7 @@ class InputRange extends React.Component {
       thumbActive: false,
       thumbHeight: 0,
       thumbWidth: 0,
+      thumbTransform: 0,
       thumbTop: '27px',
       thumbMarginLeft: '0px',
       input: 'input',
@@ -25,7 +26,7 @@ class InputRange extends React.Component {
 
   updateDimensions() {
     let input = this.inputRef.current;
-    let inputWidth = input.offsetWidth - 16;
+    let inputWidth = input.offsetWidth - 15;
     const oneStep = inputWidth / (this.props.max - this.props.min);
     if (
       this.state.windowX !== window.innerWidth ||
@@ -34,7 +35,6 @@ class InputRange extends React.Component {
       this.setState({
         windowX: window.innerWidth,
         windowY: window.innerHeight,
-        // value: this.props.value,
         leftPosition: oneStep * this.props.value - oneStep * this.props.min,
         oneStep
       });
@@ -69,7 +69,8 @@ class InputRange extends React.Component {
       thumbHeight: '30px',
       thumbWidth: '30px',
       thumbTop: '-27px',
-      thumbMarginLeft: '-7px'
+      // thumbMarginLeft: '0px'
+      thumbTransform: 1
     });
   };
 
@@ -78,10 +79,11 @@ class InputRange extends React.Component {
     input.blur();
     this.setState({
       thumbActive: false,
-      thumbHeight: 0,
-      thumbWidth: 0,
-      thumbTop: '20px',
-      thumbMarginLeft: '7px'
+      // thumbHeight: 0,
+      // thumbWidth: 0,
+      thumbTop: '7px',
+      // thumbMarginLeft: '0px'
+      thumbTransform: 0
     });
   };
 
@@ -109,7 +111,7 @@ class InputRange extends React.Component {
           type='range'
           onChange={this.rangeChange}
           onFocus={this.rangeFocus}
-          onMouseLeave={this.rangeMouseLeave}
+          onMouseUp={this.rangeMouseLeave}
         />
         <span
           className={thumbClass}
@@ -118,8 +120,9 @@ class InputRange extends React.Component {
             height: this.state.thumbHeight,
             width: this.state.thumbWidth,
             top: this.state.thumbTop,
-            marginLeft: this.state.thumbMarginLeft,
-            overflow: 'hidden'
+            // marginLeft: this.state.thumbMarginLeft,
+            overflow: 'hidden',
+            transform: `rotate(-45deg) scale(${this.state.thumbTransform})`
           }}
         >
           <span className='value'>{this.state.value}</span>
