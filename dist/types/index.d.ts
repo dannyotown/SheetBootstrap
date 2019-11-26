@@ -1806,7 +1806,7 @@ declare class MDBToast extends Component<any, any> {}
 
 declare class MDBToastContainer extends Component<any, any> {}
 
-interface InputTypes  {
+type InputTypes  {
     background?: boolean;
     className?: string;
     children?: React.ReactNode;
@@ -1850,14 +1850,7 @@ interface InputTypes  {
   }
 
 declare class MDBInput extends Component<
-  //!Moje typy dla PRO werjsi
-  [
-    InputTypes,
-    {
-      counter?: boolean | number;
-      getCounter?: (value: number | string) => void;
-    }
-  ],
+  InputTypes,
   any
 > {}
 
