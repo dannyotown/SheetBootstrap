@@ -1806,9 +1806,23 @@ declare class MDBToast extends Component<any, any> {}
 
 declare class MDBToastContainer extends Component<any, any> {}
 
-type InputTypes = {
+type classNameType = { className?: string };
+
+type iconSize =
+  | "lg"
+  | "1x"
+  | "2x"
+  | "3x"
+  | "4x"
+  | "5x"
+  | "6x"
+  | "7x"
+  | "8x"
+  | "9x"
+  | "10x";
+
+interface InputTypes extends classNameType {
   background?: boolean;
-  className?: string;
   children?: ReactNode;
   checked?: boolean;
   containerClass?: string;
@@ -1823,19 +1837,8 @@ type InputTypes = {
   iconClass?: string;
   iconLight?: boolean;
   iconRegular?: boolean;
-  iconSize?:
-    | "lg"
-    | "1x"
-    | "2x"
-    | "3x"
-    | "4x"
-    | "5x"
-    | "6x"
-    | "7x"
-    | "8x"
-    | "9x"
-    | "10x";
   id?: string;
+  iconSize?: iconSize;
   inputRef?:
     | RefObject<HTMLInputElement>
     | ((ref: RefObject<HTMLInputElement>) => void)
@@ -1861,11 +1864,11 @@ type InputTypes = {
   onIconMouseEnter?: (e: SyntheticEvent<MouseEvent>) => void;
   onIconMouseLeave?: (e: SyntheticEvent<MouseEvent>) => void;
   [rest: string]: any;
-};
+}
 
 interface InputTypesPro extends InputTypes {
   counter?: boolean | number;
-  getCounter?: (value: number | string) => void;
+  getCounter?: (value:any) => void;
 }
 
 declare class MDBInput extends Component<InputTypesPro, any> {}

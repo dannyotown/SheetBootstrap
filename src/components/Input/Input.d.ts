@@ -1,8 +1,8 @@
 import * as React from "react";
+import { classNameType, iconSize } from "../../types";
 
-export type InputTypes = {
+export interface InputTypes extends classNameType {
   background?: boolean;
-  className?: string;
   children?: React.ReactNode;
   checked?: boolean;
   containerClass?: string;
@@ -17,19 +17,8 @@ export type InputTypes = {
   iconClass?: string;
   iconLight?: boolean;
   iconRegular?: boolean;
-  iconSize?:
-    | "lg"
-    | "1x"
-    | "2x"
-    | "3x"
-    | "4x"
-    | "5x"
-    | "6x"
-    | "7x"
-    | "8x"
-    | "9x"
-    | "10x";
   id?: string;
+  iconSize?: iconSize;
   inputRef?:
     | React.RefObject<HTMLInputElement>
     | ((ref: React.RefObject<HTMLInputElement>) => void)
@@ -55,7 +44,7 @@ export type InputTypes = {
   onIconMouseEnter?: (e: React.SyntheticEvent<MouseEvent>) => void;
   onIconMouseLeave?: (e: React.SyntheticEvent<MouseEvent>) => void;
   [rest: string]: any;
-};
+}
 
 declare class MDBInput extends React.Component<InputTypes, any> {}
 

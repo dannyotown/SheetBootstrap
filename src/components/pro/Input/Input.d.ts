@@ -3,7 +3,7 @@ import { InputTypes } from "../../Input/";
 
 interface InputTypesPro extends InputTypes {
   counter?: boolean | number;
-  getCounter?: (value: number | string) => void;
+  getCounter?: (value:any) => void;
 }
 
 declare class MDBInput extends React.Component<InputTypesPro, any> {}
