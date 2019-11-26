@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode, Component, RefObject, SyntheticEvent } from 'react';
+import { FunctionComponent, ReactNode, Component, RefObject, SyntheticEvent, FormEvent } from 'react';
 
 declare const MDBAlert: FunctionComponent<{
   color?:
@@ -1807,57 +1807,67 @@ declare class MDBToast extends Component<any, any> {}
 declare class MDBToastContainer extends Component<any, any> {}
 
 type InputTypes = {
-    background?: boolean;
-    className?: string;
-    children?: React.ReactNode;
-    checked?: boolean;
-    containerClass?: string;
-    disabled?: boolean;
-    error?: string;
-    filled?: boolean;
-    gap?: boolean;
-    group?: boolean;
-    hint?: string;
-    icon?: string;
-    iconBrand?: boolean;
-    iconClass?: string;
-    iconLight?: boolean;
-    iconRegular?: boolean;
-    iconSize?: "lg" | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
-    id?: string;
-    inputRef?: React.RefObject<HTMLInputElement> | ((ref: React.RefObject<HTMLInputElement>) => void) | null;
-    outline?: boolean;
-    label?: string | boolean;
-    labelClass?: string;
-    labelId?: string;
-    noTag?: boolean;
-    size?: "sm" | "lg";
-    success?: string;
-    tag?: string;
-    type?: string;
-    validate?: boolean;
-    value?: number | string;
-    valueDefault?: number | string;
-    getValue?: (value: number | string) => void;
-    onBlur?: (e: React.FormEvent<HTMLInputElement>) => void;
-    onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
-    onFocus?: (e: React.FormEvent<HTMLInputElement>) => void;
-    onInput?: (e: React.FormEvent<HTMLInputElement>) => void;
-    onIconClick?: (e: React.SyntheticEvent<MouseEvent>) => void;
-    onIconMouseEnter?: (e: React.SyntheticEvent<MouseEvent>) => void;
-    onIconMouseLeave?: (e: React.SyntheticEvent<MouseEvent>) => void;
-    [rest: string]: any;
-  }
+  background?: boolean;
+  className?: string;
+  children?: ReactNode;
+  checked?: boolean;
+  containerClass?: string;
+  disabled?: boolean;
+  error?: string;
+  filled?: boolean;
+  gap?: boolean;
+  group?: boolean;
+  hint?: string;
+  icon?: string;
+  iconBrand?: boolean;
+  iconClass?: string;
+  iconLight?: boolean;
+  iconRegular?: boolean;
+  iconSize?:
+    | "lg"
+    | "1x"
+    | "2x"
+    | "3x"
+    | "4x"
+    | "5x"
+    | "6x"
+    | "7x"
+    | "8x"
+    | "9x"
+    | "10x";
+  id?: string;
+  inputRef?:
+    | RefObject<HTMLInputElement>
+    | ((ref: RefObject<HTMLInputElement>) => void)
+    | null;
+  outline?: boolean;
+  label?: string | boolean;
+  labelClass?: string;
+  labelId?: string;
+  noTag?: boolean;
+  size?: "sm" | "lg";
+  success?: string;
+  tag?: string;
+  type?: string;
+  validate?: boolean;
+  value?: number | string;
+  valueDefault?: number | string;
+  getValue?: (value: number | string) => void;
+  onBlur?: (e: FormEvent<HTMLInputElement>) => void;
+  onChange?: (e: FormEvent<HTMLInputElement>) => void;
+  onFocus?: (e: FormEvent<HTMLInputElement>) => void;
+  onInput?: (e: FormEvent<HTMLInputElement>) => void;
+  onIconClick?: (e: SyntheticEvent<MouseEvent>) => void;
+  onIconMouseEnter?: (e: SyntheticEvent<MouseEvent>) => void;
+  onIconMouseLeave?: (e: SyntheticEvent<MouseEvent>) => void;
+  [rest: string]: any;
+};
 
-interface InputPropsPro extends InputTypes {
+interface InputTypesPro extends InputTypes {
   counter?: boolean | number;
   getCounter?: (value: number | string) => void;
 }
 
-
-declare class MDBInput extends Component<
-  InputPropsPro,
-  any
-> {}
+declare class MDBInput extends Component<InputTypesPro, any> {}
 
 export { MDBAlert, MDBAnimation, MDBAutocomplete, MDBAvatar, MDBBadge, MDBBreadcrumb, MDBBreadcrumbItem, MDBBtn, MDBBtnGroup, MDBBtnToolbar, MDBBtnFixed as MDBButtonFixed, MDBBtnFixedItem as MDBButtonFixedItem, MDBCard, MDBCardBody, MDBCardFooter, MDBCardGroup, MDBCardHeader, MDBCardImage, MDBCardText, MDBCardTitle, MDBCardUp, MDBCarousel, MDBCarouselCaption, MDBCarouselControl, MDBCarouselIndicator, MDBCarouselIndicators, MDBCarouselInner, MDBCarouselItem, MDBChip, MDBChipsInput, MDBCloseIcon, MDBCol, MDBCollapse, MDBCollapseHeader, MDBContainer, MDBDataTable, MDBDatePicker, MDBDropdown, MDBDropdownItem, MDBDropdownMenu, MDBDropdownToggle, MDBEdgeHeader, MDBExportToCSV, MDBFileInput, MDBFooter, MDBFormInline, MDBFreeBird, MDBHamburgerToggler, MDBIcon, MDBIframe, MDBInput, MDBInputGroup, MDBInputSelect as MDBInputNumeric, MDBJumbotron, MDBLightbox, MDBListGroup, MDBListGroupItem, MDBMask, MDBMedia, MDBModal, MDBModalBody, MDBModalFooter, MDBModalHeader, MDBNav, MDBNavItem, MDBNavLink, MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBNotification, MDBPageItem, MDBPageLink as MDBPageNav, MDBPagination, MDBPerfectScrollbar, MDBPopper as MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBPopper, MDBProgress, MDBInputRange as MDBRangeInput, MDBRating, MDBRotatingCard, MDBRow, MDBScrollSpyBox as MDBScrollspyBox, MDBScrollSpyList as MDBScrollspyList, MDBScrollSpyListItem as MDBScrollspyListItem, MDBScrollSpyText as MDBScrollspyText, MDBSelect, MDBSelectInput, MDBSelectOption, MDBSelectOptions, MDBSideNav, MDBSideNavCat, MDBSideNavItem, MDBSideNavLink, MDBSideNavNav, MDBSimpleChart, MDBSmoothScroll, MDBSpinner, MDBStep, MDBStepper, MDBSticky, MDBStickyContent, MDBStreak, MDBInputSwitch as MDBSwitch, MDBTabContent, MDBTabPane, MDBTable, MDBTableBody, MDBTableEditable, MDBTableFoot, MDBTableHead, MDBTestimonial, MDBTimePicker, MDBTimeline, MDBTimelineStep, MDBToast, MDBToastContainer, MDBTreeview, MDBTreeviewItem, MDBTreeviewList, MDBView, MDBWaves };

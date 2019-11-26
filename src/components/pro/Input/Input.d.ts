@@ -1,15 +1,11 @@
 import * as React from "react";
-import InputProps from "../../Input/InputTypes";
+import { InputTypes } from "../../Input/";
 
-interface InputPropsPro extends InputProps {
+interface InputTypesPro extends InputTypes {
   counter?: boolean | number;
   getCounter?: (value: number | string) => void;
 }
 
-
-declare class MDBInput extends React.Component<
-  InputPropsPro,
-  any
-> {}
+declare class MDBInput extends React.Component<InputTypesPro, any> {}
 
 export default MDBInput;
