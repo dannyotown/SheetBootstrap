@@ -1849,13 +1849,14 @@ type InputTypes  {
     [rest: string]: any;
   }
 
-type InputPropsPro = {
+interface InputPropsPro extends InputTypes {
   counter?: boolean | number;
   getCounter?: (value: number | string) => void;
 }
 
+
 declare class MDBInput extends Component<
-  [InputTypes , InputPropsPro],
+  InputPropsPro,
   any
 > {}
 
