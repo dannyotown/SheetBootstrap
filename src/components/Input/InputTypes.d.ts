@@ -1,4 +1,4 @@
-type InputTypes  {
+type InputTypes = {
     background?: boolean;
     className?: string;
     children?: React.ReactNode;

@@ -1806,7 +1806,7 @@ declare class MDBToast extends Component<any, any> {}
 
 declare class MDBToastContainer extends Component<any, any> {}
 
-type InputTypes  {
+type InputTypes = {
     background?: boolean;
     className?: string;
     children?: React.ReactNode;
