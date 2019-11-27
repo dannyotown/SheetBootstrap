@@ -22,8 +22,9 @@
     }
   },
   "scripts": {
-    "build": "yarn run sass-compile && rollup -c",
-    "sass-compile": "node-sass dist/scss -o dist/css",
+    "build": "yarn run rollup -c",
+    "sass-compile-pro": "node-sass dist/scss/mdb-pro.scss dist/css/mdb.css --output-style compressed",
+    "sass-compile-free": "node-sass dist/scss/mdb-free.scss dist/css/mdb.css --output-style compressed",
     "webpack": "concurrently \"webpack-dev-server --watch\" ",
     "start": "yarn run webpack",
     "test": "jest",
