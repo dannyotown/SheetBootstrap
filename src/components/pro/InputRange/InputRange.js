@@ -10,11 +10,8 @@ class InputRange extends React.Component {
       value: false,
       leftPosition: false,
       thumbActive: false,
-      thumbHeight: 0,
-      thumbWidth: 0,
       thumbTransform: 0,
-      thumbTop: '27px',
-      thumbMarginLeft: '0px',
+      thumbTop: '0px',
       input: 'input',
       oneStep: '',
       windowX: '',
@@ -26,7 +23,7 @@ class InputRange extends React.Component {
 
   updateDimensions() {
     let input = this.inputRef.current;
-    let inputWidth = input.offsetWidth - 15;
+    let inputWidth = input.offsetWidth - 15.5;
     const oneStep = inputWidth / (this.props.max - this.props.min);
     if (
       this.state.windowX !== window.innerWidth ||
@@ -35,18 +32,21 @@ class InputRange extends React.Component {
       this.setState({
         windowX: window.innerWidth,
         windowY: window.innerHeight,
-        leftPosition: oneStep * this.props.value - oneStep * this.props.min,
+        leftPosition: oneStep * this.state.value - oneStep * this.props.min + 1,
         oneStep
       });
     }
   }
 
   componentDidMount = () => {
-    this.updateDimensions();
+    this.setState(
+      {
+        value: this.props.value
+      },
+      () => this.updateDimensions()
+    );
+
     window.addEventListener('resize', this.updateDimensions.bind(this));
-    this.setState({
-      value: this.props.value
-    });
   };
 
   componentWillUnmount() {
@@ -58,7 +58,7 @@ class InputRange extends React.Component {
     this.setState({
       value: newValue,
       leftPosition:
-        this.state.oneStep * newValue - this.state.oneStep * this.props.min
+        this.state.oneStep * newValue - this.state.oneStep * this.props.min + 1
     });
     this.props.getValue && this.props.getValue(e.target.value);
   };
@@ -66,10 +66,7 @@ class InputRange extends React.Component {
   rangeFocus = () => {
     this.setState({
       thumbActive: true,
-      thumbHeight: '30px',
-      thumbWidth: '30px',
       thumbTop: '-27px',
-      // thumbMarginLeft: '0px'
       thumbTransform: 1
     });
   };
@@ -79,10 +76,8 @@ class InputRange extends React.Component {
     input.blur();
     this.setState({
       thumbActive: false,
-      // thumbHeight: 0,
-      // thumbWidth: 0,
+
       thumbTop: '7px',
-      // thumbMarginLeft: '0px'
       thumbTransform: 0
     });
   };
@@ -120,8 +115,6 @@ class InputRange extends React.Component {
             height: this.state.thumbHeight,
             width: this.state.thumbWidth,
             top: this.state.thumbTop,
-            // marginLeft: this.state.thumbMarginLeft,
-            overflow: 'hidden',
             transform: `rotate(-45deg) scale(${this.state.thumbTransform})`
           }}
         >

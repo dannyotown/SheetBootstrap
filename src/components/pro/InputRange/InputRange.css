@@ -1,15 +1,24 @@
 .thumb {
-  transition: top .2s, transform .2s
+  transition: top .2s, transform .2s, border-radius .2s;
 }
 
-/*
-div.range-field input[type="range"]+.thumb {
-  transform: rotate(-45deg) scale(0);
-   transform-origin: 50% 50%;
-  width: 30px;
+div .range-field input[type="range"]+.thumb,
+div .range-field input[type="range"]+.thumb.active {
+  margin-left: -8px;
   height: 30px;
-  margin-left: 7px;
-} */
+  width: 30px;
+  overflow: 'hidden';
+}
+
+div .range-field input[type="range"]+.thumb .value,
+div .range-field input[type="range"]+.thumb.active .value {
+  transform: rotate(45deg) translateY(25%);
+  color: #fff;
+  margin-top: 0;
+  margin-left: 0;
+  height: 30px;
+  font-size: 10px;
+}
 
 input[type="range"] {
   -webkit-appearance: none;
@@ -49,7 +58,7 @@ input[type=range]::-moz-range-thumb {
   margin-top: -5px;
 }
 
-input[type=range]:-moz-focusring {
+input[type=range]:-moz-focusrin g {
   /*hide the outline behind the border*/
   outline: 1px solid #ffffff;
   outline-offset: -1px;
