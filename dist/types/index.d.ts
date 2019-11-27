@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode, Component, ElementType, RefObject, SyntheticEvent, ReactChild, FormEvent } from 'react';
+import { FunctionComponent, ReactNode, Component, ElementType, SyntheticEvent, ReactChild, RefObject, FormEvent } from 'react';
 
 declare const MDBAlert: FunctionComponent<{
   color?:
@@ -234,57 +234,6 @@ declare const MDBBreadcrumbItem: FunctionComponent<{
   iconRegular?: boolean;
   iconSize?:  "lg" | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
   [rest: string]: any;
-}>
-
-declare const MDBBtn: FunctionComponent<{
-  active?: boolean;
-  action?: boolean;
-  block?: boolean;
-  circle?: boolean;
-  className?: string;
-  color?: string;
-  disabled?: boolean;
-  download?: string;
-  flat?: boolean;
-  floating?: boolean;
-  gradient?:
-    | "purple"
-    | "blue"
-    | "aqua"
-    | "peach"
-    | "warm-flame"
-    | "night-fade"
-    | "spring-warmth"
-    | "juicy-peach"
-    | "young-passion"
-    | "rainy-ashville"
-    | "sunny-morning"
-    | "lady-lips"
-    | "winter-neva"
-    | "frozen-dreams"
-    | "dusty-grass"
-    | "tempting-azure"
-    | "heavy-rain"
-    | "amy-crisp"
-    | "mean-fruit"
-    | "deep-blue"
-    | "ripe-malinka"
-    | "cloudy-knoxville"
-    | "morpheus-den"
-    | "rare-wind"
-    | "near-moon";
-    href?: string;
-    innerRef?: RefObject<HTMLButtonElement> | ((ref: RefObject<HTMLButtonElement>) => void) | null;
-    outline?: boolean;
-    role?: string;
-    rounded?: boolean;
-    size?: 'sm' | 'lg';
-    social?: string;
-    tag?: string;
-    target?: string;
-    type?: 'reset' | 'submit' | 'button';
-    onClick?: (event: SyntheticEvent<HTMLButtonElement>) => void;
-    [rest: string]: any;
 }>
 
 declare const MDBBtnGroup: FunctionComponent<{
@@ -2029,22 +1978,113 @@ declare class MDBToast extends Component<any, any> {}
 
 declare class MDBToastContainer extends Component<any, any> {}
 
+type buttonColor = 
+  | 'amber'
+  | 'blue-grey'
+  | 'blue'
+  | 'brown'
+  | 'cyan'
+  | 'danger'
+  | 'dark-green'
+  | 'dark'
+  | 'deep-orange'
+  | 'deep-purple'
+  | 'default'
+  | 'elegant'
+  | 'green'
+  | 'grey'
+  | 'indigo'
+  | 'info'
+  | 'light-blue'
+  | 'light-green'
+  | 'light'
+  | 'lime'
+  | 'mdb-color'
+  | 'orange'
+  | 'pink'
+  | 'primary'
+  | 'purple'
+  | 'secondary'
+  | 'success'
+  | 'unique'
+  | 'warning'
+  | 'red'
+  | 'yellow';
+
 type classNameType = { className?: string };
-
+type gradient =
+  | 'amy-crisp'
+  | 'aqua'
+  | 'blue'
+  | 'cloudy-knoxville'
+  | 'deep-blue'
+  | 'dusty-grass'
+  | 'frozen-dreams'
+  | 'heavy-rain'
+  | 'juicy-peach'
+  | 'lady-lips'
+  | 'mean-fruit'
+  | 'morpheus-den'
+  | 'near-moon'
+  | 'night-fade'
+  | 'peach'
+  | 'purple'
+  | 'rainy-ashville'
+  | 'rare-wind'
+  | 'ripe-malinka'
+  | 'spring-warmth'
+  | 'sunny-morning'
+  | 'tempting-azure'
+  | 'warm-flame'
+  | 'winter-neva'
+  | 'young-passion';
+type gradientType = { gradient?: gradient };
 type iconSize =
-  | "lg"
-  | "1x"
-  | "2x"
-  | "3x"
-  | "4x"
-  | "5x"
-  | "6x"
-  | "7x"
-  | "8x"
-  | "9x"
-  | "10x";
+  | 'lg'
+  | '1x'
+  | '2x'
+  | '3x'
+  | '4x'
+  | '5x'
+  | '6x'
+  | '7x'
+  | '8x'
+  | '9x'
+  | '10x';
 
-interface InputTypes extends classNameType {
+interface TypesFree extends classNameType {
+  action?: boolean;
+  active?: boolean;
+  block?: boolean;
+  circle?: boolean;
+  color?: buttonColor;
+  disabled?: boolean;
+  download?: string;
+  href?: string;
+  innerRef?:
+    | RefObject<HTMLButtonElement>
+    | ((ref: RefObject<HTMLButtonElement>) => void)
+    | null;
+  role?: string;
+  size?: 'sm' | 'lg';
+  social?: string;
+  tag?: string;
+  target?: string;
+  type?: 'reset' | 'submit' | 'button';
+  onClick?: (event: SyntheticEvent<HTMLButtonElement>) => void;
+  [rest: string]: any;
+}
+
+interface TypesPro extends TypesFree, gradientType {
+  flat?: boolean;
+  floating?: boolean;
+  outline?: boolean;
+  rounded?: boolean;
+}
+
+declare const MDBBtn: FunctionComponent<TypesPro>
+
+interface TypesFree$1 extends classNameType {
   background?: boolean;
   children?: ReactNode;
   checked?: boolean;
@@ -2089,7 +2129,7 @@ interface InputTypes extends classNameType {
   [rest: string]: any;
 }
 
-interface InputTypesPro extends InputTypes {
+interface InputTypesPro extends TypesFree$1 {
   counter?: boolean | number;
   getCounter?: (value:any) => void;
 }

@@ -5,7 +5,6 @@ import Badge from './components/Badge';
 import Box from './components/Box';
 import Breadcrumb from './components/Breadcrumb';
 import BreadcrumbItem from './components/Breadcrumb/BreadcrumbItem';
-import Button from './components/Button';
 import ButtonGroup from './components/ButtonGroup';
 import ButtonToolbar from './components/ButtonToolbar';
 import Card from './components/Card';
@@ -132,10 +131,12 @@ import { toast, ToastContainer, cssTransition } from './components/pro/Toast';
 // PRO-END
 
 // PRO-START //! Component with Pro features
+import Button from './components/pro/Button';
 import Input from './components/pro/Input';
 // FREE-START
 /*
 // PRO-END //! Free components
+import Button from './components/Button';
 import Input from './components/Input';
 // PRO-START
 */

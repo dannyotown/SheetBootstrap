@@ -1,7 +1,7 @@
 import * as React from "react";
-import { InputTypes } from "../../Input/";
+import { TypesFree } from "../../Input/";
 
-interface InputTypesPro extends InputTypes {
+interface InputTypesPro extends TypesFree {
   counter?: boolean | number;
   getCounter?: (value:any) => void;
 }

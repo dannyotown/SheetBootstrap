@@ -945,199 +945,8 @@ BreadcrumbItem.defaultProps = {
   iconSize: ""
 };
 
-var css$1 = ".Ripple {\n  position: absolute;\n  background: rgba(255, 255, 255, 0.3);\n  border-radius: 50%;\n  opacity: 1;\n  transform: scale(0);\n}\n\n.Ripple-outline {\n  background: rgba(0, 0, 0, 0.2);\n}\n\n.Ripple.is-reppling {\n  animation: ripple 0.5s linear;\n}\n\n.Ripple-parent {\n  position: relative;\n  overflow: hidden;\n  cursor: pointer;\n}\n\n@keyframes ripple {\n  100% {\n    opacity: 0;\n    transform: scale(3);\n  }\n}\n";
+var css$1 = ".btn-group-vertical>.btn,\n.btn-group-vertical>.btn+.btn-group,\n.btn-group-vertical>.btn-group+.btn,\n.btn-group-vertical>.btn-group+.btn-group {\n  margin-left: 0px;\n}\n\n.btn-group-lg>.btn {\n  font-size: 0.9rem;\n  padding: 1rem 2.4rem;\n}\n\n.btn-group-sm>.btn {\n  font-size: 0.6rem;\n  padding: 0.5rem 1.6rem;\n}\n\n.btn-floating.btn.btn-sm,\n.btn-floating.btn.btn-lg {\n  padding: 0;\n}\n";
 styleInject(css$1);
-
-var Waves =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Waves, _React$Component);
-
-  function Waves(props) {
-    var _this;
-
-    _classCallCheck(this, Waves);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Waves).call(this, props));
-    _this.state = {
-      animate: false,
-      width: 0,
-      height: 0,
-      top: 0,
-      left: 0,
-      cursorPos: props.cursorPos
-    };
-    return _this;
-  }
-
-  _createClass(Waves, [{
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps, prevState) {
-      var _this2 = this;
-
-      if (prevState.cursorPos.time !== this.props.cursorPos.time) {
-        if (prevState.animate) {
-          this.setState({
-            animate: false,
-            cursorPos: this.props.cursorPos
-          }, function () {
-            _this2.reppling();
-          });
-        } else this.reppling();
-      }
-    }
-  }, {
-    key: "reppling",
-    value: function reppling() {
-      // Get the element
-      var $ripple = ReactDOM.findDOMNode(this);
-      var $button = $ripple.parentNode;
-      var buttonPos = $button.getBoundingClientRect();
-      var buttonWidth = $button.offsetWidth;
-      var buttonHeight = $button.offsetHeight; // Make a Square Ripple
-
-      var rippleWidthShouldBe = Math.max(buttonHeight, buttonWidth); // Make Ripple Position to be center
-
-      var centerize = rippleWidthShouldBe / 2;
-      this.setState({
-        animate: true,
-        width: rippleWidthShouldBe,
-        height: rippleWidthShouldBe,
-        top: this.state.cursorPos.top - buttonPos.top - centerize,
-        left: this.state.cursorPos.left - buttonPos.left - centerize
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return React.createElement("div", {
-        "data-test": "waves",
-        className: 'Ripple ' + (this.props.outline || this.props.flat || this.props.dark ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : ''),
-        style: {
-          top: this.state.top + 'px',
-          left: this.state.left + 'px',
-          width: this.state.width + 'px',
-          height: this.state.height + 'px'
-        }
-      });
-    }
-  }]);
-
-  return Waves;
-}(React.Component);
-
-Waves.propTypes = {
-  outline: propTypes.bool,
-  flat: propTypes.bool,
-  animate: propTypes.bool,
-  cursorPos: propTypes.object,
-  children: propTypes.node
-};
-
-var Button = function Button(props) {
-  var _classNames;
-
-  var _useState = useState({}),
-      _useState2 = _slicedToArray(_useState, 2),
-      cursorPos = _useState2[0],
-      setCursorPos = _useState2[1];
-
-  var handleClick = function handleClick(e) {
-    e.stopPropagation(); // Waves - Get Cursor Position
-
-    var cursorPos = {
-      top: e.clientY,
-      left: e.clientX,
-      time: Date.now()
-    };
-    setCursorPos(cursorPos);
-  };
-
-  var active = props.active,
-      block = props.block,
-      circle = props.circle,
-      className = props.className,
-      color = props.color,
-      disabled = props.disabled,
-      download = props.download,
-      outline = props.outline,
-      size = props.size,
-      rounded = props.rounded,
-      gradient = props.gradient,
-      floating = props.floating,
-      flat = props.flat,
-      role = props.role,
-      type = props.type,
-      social = props.social,
-      action = props.action,
-      Tag = props.tag,
-      target = props.target,
-      innerRef = props.innerRef,
-      attributes = _objectWithoutProperties(props, ["active", "block", "circle", "className", "color", "disabled", "download", "outline", "size", "rounded", "gradient", "floating", "flat", "role", "type", "social", "action", "tag", "target", "innerRef"]);
-
-  var classes = classNames(flat ? 'btn-flat' : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? '-outline' : '', "-").concat(color), 'btn', 'Ripple-parent', className, (_classNames = {
-    active: active,
-    'btn-floating': floating,
-    'btn-rounded': rounded,
-    'btn-circle': circle,
-    'btn-block': block,
-    'btn-action': action
-  }, _defineProperty(_classNames, "btn-".concat(social), social), _defineProperty(_classNames, "btn-".concat(size), size), _defineProperty(_classNames, "disabled", disabled), _classNames));
-
-  if (attributes.href && Tag === 'button') {
-    Tag = 'a';
-  }
-
-  return React.createElement(Tag, _extends({
-    "data-test": "button",
-    type: Tag === 'button' && !type ? 'button' : type,
-    target: target,
-    role: Tag === 'a' && !role ? 'button' : role,
-    className: classes,
-    ref: innerRef,
-    onMouseUp: handleClick,
-    onTouchStart: handleClick
-  }, attributes, {
-    download: download,
-    disabled: disabled
-  }), props.children, !disabled && React.createElement(Waves, {
-    cursorPos: cursorPos,
-    outline: outline,
-    flat: flat
-  }));
-};
-
-Button.defaultProps = {
-  color: 'default',
-  tag: 'button'
-};
-Button.propTypes = {
-  active: propTypes.bool,
-  action: propTypes.bool,
-  block: propTypes.bool,
-  color: propTypes.string,
-  disabled: propTypes.bool,
-  download: propTypes.string,
-  gradient: propTypes.string,
-  role: propTypes.string,
-  type: propTypes.string,
-  outline: propTypes.bool,
-  rounded: propTypes.bool,
-  circle: propTypes.bool,
-  floating: propTypes.bool,
-  flat: propTypes.bool,
-  innerRef: propTypes.oneOfType([propTypes.func, propTypes.string]),
-  onClick: propTypes.func,
-  size: propTypes.string,
-  social: propTypes.string,
-  children: propTypes.node,
-  tag: propTypes.string,
-  target: propTypes.string,
-  className: propTypes.string
-};
-
-var css$2 = ".btn-group-vertical>.btn,\n.btn-group-vertical>.btn+.btn-group,\n.btn-group-vertical>.btn-group+.btn,\n.btn-group-vertical>.btn-group+.btn-group {\n  margin-left: 0px;\n}\n\n.btn-group-lg>.btn {\n  font-size: 0.9rem;\n  padding: 1rem 2.4rem;\n}\n\n.btn-group-sm>.btn {\n  font-size: 0.6rem;\n  padding: 0.5rem 1.6rem;\n}\n\n.btn-floating.btn.btn-sm,\n.btn-floating.btn.btn-lg {\n  padding: 0;\n}\n";
-styleInject(css$2);
 
 var ButtonGroup = function ButtonGroup(props) {
   var className = props.className,
@@ -1371,6 +1180,95 @@ CardHeader.propTypes = {
 };
 CardHeader.defaultProps = {
   tag: 'div'
+};
+
+var css$2 = ".Ripple {\n  position: absolute;\n  background: rgba(255, 255, 255, 0.3);\n  border-radius: 50%;\n  opacity: 1;\n  transform: scale(0);\n}\n\n.Ripple-outline {\n  background: rgba(0, 0, 0, 0.2);\n}\n\n.Ripple.is-reppling {\n  animation: ripple 0.5s linear;\n}\n\n.Ripple-parent {\n  position: relative;\n  overflow: hidden;\n  cursor: pointer;\n}\n\n@keyframes ripple {\n  100% {\n    opacity: 0;\n    transform: scale(3);\n  }\n}\n";
+styleInject(css$2);
+
+var Waves =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Waves, _React$Component);
+
+  function Waves(props) {
+    var _this;
+
+    _classCallCheck(this, Waves);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Waves).call(this, props));
+    _this.state = {
+      animate: false,
+      width: 0,
+      height: 0,
+      top: 0,
+      left: 0,
+      cursorPos: props.cursorPos
+    };
+    return _this;
+  }
+
+  _createClass(Waves, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      var _this2 = this;
+
+      if (prevState.cursorPos.time !== this.props.cursorPos.time) {
+        if (prevState.animate) {
+          this.setState({
+            animate: false,
+            cursorPos: this.props.cursorPos
+          }, function () {
+            _this2.reppling();
+          });
+        } else this.reppling();
+      }
+    }
+  }, {
+    key: "reppling",
+    value: function reppling() {
+      // Get the element
+      var $ripple = ReactDOM.findDOMNode(this);
+      var $button = $ripple.parentNode;
+      var buttonPos = $button.getBoundingClientRect();
+      var buttonWidth = $button.offsetWidth;
+      var buttonHeight = $button.offsetHeight; // Make a Square Ripple
+
+      var rippleWidthShouldBe = Math.max(buttonHeight, buttonWidth); // Make Ripple Position to be center
+
+      var centerize = rippleWidthShouldBe / 2;
+      this.setState({
+        animate: true,
+        width: rippleWidthShouldBe,
+        height: rippleWidthShouldBe,
+        top: this.state.cursorPos.top - buttonPos.top - centerize,
+        left: this.state.cursorPos.left - buttonPos.left - centerize
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return React.createElement("div", {
+        "data-test": "waves",
+        className: 'Ripple ' + (this.props.outline || this.props.flat || this.props.dark ? 'Ripple-outline ' : '') + (this.state.animate ? 'is-reppling' : ''),
+        style: {
+          top: this.state.top + 'px',
+          left: this.state.left + 'px',
+          width: this.state.width + 'px',
+          height: this.state.height + 'px'
+        }
+      });
+    }
+  }]);
+
+  return Waves;
+}(React.Component);
+
+Waves.propTypes = {
+  outline: propTypes.bool,
+  flat: propTypes.bool,
+  animate: propTypes.bool,
+  cursorPos: propTypes.object,
+  children: propTypes.node
 };
 
 var Mask = function Mask(props) {
@@ -4639,6 +4537,100 @@ DataTablePagination.propTypes = {
   pages: propTypes.array.isRequired,
   pagesAmount: propTypes.number.isRequired,
   label: propTypes.arrayOf(propTypes.string).isRequired
+};
+
+var Button = function Button(props) {
+  var _classNames;
+
+  var _useState = useState({}),
+      _useState2 = _slicedToArray(_useState, 2),
+      cursorPos = _useState2[0],
+      setCursorPos = _useState2[1];
+
+  var handleClick = function handleClick(e) {
+    e.stopPropagation(); // Waves - Get Cursor Position
+
+    var cursorPos = {
+      top: e.clientY,
+      left: e.clientX,
+      time: Date.now()
+    };
+    setCursorPos(cursorPos);
+  };
+
+  var action = props.action,
+      active = props.active,
+      block = props.block,
+      circle = props.circle,
+      className = props.className,
+      color = props.color,
+      disabled = props.disabled,
+      download = props.download,
+      flat = props.flat,
+      innerRef = props.innerRef,
+      outline = props.outline,
+      role = props.role,
+      size = props.size,
+      social = props.social,
+      Tag = props.tag,
+      target = props.target,
+      type = props.type,
+      rounded = props.rounded,
+      attributes = _objectWithoutProperties(props, ["action", "active", "block", "circle", "className", "color", "disabled", "download", "flat", "innerRef", "outline", "role", "size", "social", "tag", "target", "type", "rounded"]);
+
+  var classes = classNames(color !== '' && "btn-".concat(color), 'btn', 'Ripple-parent', className, (_classNames = {
+    active: active,
+    'btn-circle': circle,
+    'btn-block': block,
+    'btn-action': action
+  }, _defineProperty(_classNames, "btn-".concat(social), social), _defineProperty(_classNames, "btn-".concat(size), size), _defineProperty(_classNames, "disabled", disabled), _classNames));
+
+  if (attributes.href && Tag === 'button') {
+    Tag = 'a';
+  }
+
+  return React.createElement(Tag, _extends({
+    "data-test": "button",
+    type: Tag === 'button' && !type ? 'button' : type,
+    target: target,
+    role: Tag === 'a' && !role ? 'button' : role,
+    className: classes,
+    ref: innerRef,
+    onMouseUp: handleClick,
+    onTouchStart: handleClick
+  }, attributes, {
+    download: download,
+    disabled: disabled
+  }), props.children, !disabled && React.createElement(Waves, {
+    cursorPos: cursorPos,
+    outline: outline,
+    flat: flat || rounded
+  }));
+};
+
+Button.defaultProps = {
+  color: 'default',
+  tag: 'button'
+};
+Button.propTypes = {
+  action: propTypes.bool,
+  active: propTypes.bool,
+  block: propTypes.bool,
+  children: propTypes.node,
+  circle: propTypes.bool,
+  className: propTypes.string,
+  color: propTypes.string,
+  disabled: propTypes.bool,
+  download: propTypes.string,
+  flat: propTypes.bool,
+  innerRef: propTypes.oneOfType([propTypes.func, propTypes.string]),
+  onClick: propTypes.func,
+  role: propTypes.string,
+  size: propTypes.string,
+  social: propTypes.string,
+  tag: propTypes.string,
+  target: propTypes.string,
+  type: propTypes.string
 };
 
 var ExportToCSV =
@@ -13806,6 +13798,40 @@ TimePicker.defaultProps = defaultProps$1;
 var css$n = ".Toastify__toast-container {\n  z-index: 9999;\n  position: fixed;\n  padding: 4px;\n  width: 320px;\n  box-sizing: border-box;\n  color: #fff;\n}\n.Toastify__toast-container--top-left {\n  top: 1em;\n  left: 1em;\n}\n.Toastify__toast-container--top-center {\n  top: 1em;\n  left: 50%;\n  margin-left: -160px;\n}\n.Toastify__toast-container--top-right {\n  top: 1em;\n  right: 1em;\n}\n.Toastify__toast-container--bottom-left {\n  bottom: 1em;\n  left: 1em;\n}\n.Toastify__toast-container--bottom-center {\n  bottom: 1em;\n  left: 50%;\n  margin-left: -160px;\n}\n.Toastify__toast-container--bottom-right {\n  bottom: 1em;\n  right: 1em;\n}\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast-container {\n    width: 100vw;\n    padding: 0;\n    left: 0;\n    margin: 0;\n  }\n  .Toastify__toast-container--top-left,\n  .Toastify__toast-container--top-center,\n  .Toastify__toast-container--top-right {\n    top: 0;\n  }\n  .Toastify__toast-container--bottom-left,\n  .Toastify__toast-container--bottom-center,\n  .Toastify__toast-container--bottom-right {\n    bottom: 0;\n  }\n  .Toastify__toast-container--rtl {\n    right: 0;\n    left: initial;\n  }\n}\n\n.Toastify__toast {\n  position: relative;\n  min-height: 64px;\n  box-sizing: border-box;\n  margin-bottom: 1rem;\n  padding: 8px;\n  border-radius: 1px;\n  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.1), 0 2px 15px 0 rgba(0, 0, 0, 0.05);\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: justify;\n  justify-content: space-between;\n  max-height: 800px;\n  overflow: hidden;\n  font-family: sans-serif;\n  cursor: pointer;\n  direction: ltr;\n}\n.Toastify__toast--rtl {\n  direction: rtl;\n}\n.Toastify__toast--default {\n  background: #fff;\n  color: #aaa;\n}\n.Toastify__toast--info {\n  background: #3498db;\n}\n.Toastify__toast--success {\n  background: #07bc0c;\n}\n.Toastify__toast--warning {\n  background: #f1c40f;\n}\n.Toastify__toast--error {\n  background: #e74c3c;\n}\n.Toastify__toast-body {\n  margin: auto 0;\n  -ms-flex: 1;\n  flex: 1;\n}\n\n@media only screen and (max-width: 480px) {\n  .Toastify__toast {\n    margin-bottom: 0;\n  }\n}\n\n.Toastify__close-button {\n  color: #fff;\n  font-weight: bold;\n  font-size: 14px;\n  background: transparent;\n  outline: none;\n  border: none;\n  padding: 0;\n  cursor: pointer;\n  opacity: 0.7;\n  transition: 0.3s ease;\n  -ms-flex-item-align: start;\n  align-self: flex-start;\n}\n.Toastify__close-button--default {\n  color: #000;\n  opacity: 0.3;\n}\n.Toastify__close-button:hover,\n.Toastify__close-button:focus {\n  opacity: 1;\n}\n\n@keyframes Toastify__trackProgress {\n  0% {\n    transform: scaleX(1);\n  }\n  100% {\n    transform: scaleX(0);\n  }\n}\n\n.Toastify__progress-bar {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%;\n  height: 5px;\n  z-index: 9999;\n  opacity: 0.7;\n  background-color: rgba(255, 255, 255, 0.7);\n  transform-origin: left;\n}\n.Toastify__progress-bar--animated {\n  animation: Toastify__trackProgress linear 1 forwards;\n}\n.Toastify__progress-bar--controlled {\n  transition: transform 0.2s;\n}\n.Toastify__progress-bar--rtl {\n  right: 0;\n  left: initial;\n  transform-origin: right;\n}\n.Toastify__progress-bar--default {\n  background: linear-gradient(\n    to right,\n    #4cd964,\n    #5ac8fa,\n    #007aff,\n    #34aadc,\n    #5856d6,\n    #ff2d55\n  );\n}\n\n@keyframes Toastify__bounceInRight {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(-25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(-5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutRight {\n  20% {\n    opacity: 1;\n    transform: translate3d(-20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(2000px, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceInLeft {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(-3000px, 0, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(25px, 0, 0);\n  }\n  75% {\n    transform: translate3d(-10px, 0, 0);\n  }\n  90% {\n    transform: translate3d(5px, 0, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutLeft {\n  20% {\n    opacity: 1;\n    transform: translate3d(20px, 0, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(-2000px, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceInUp {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  from {\n    opacity: 0;\n    transform: translate3d(0, 3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  75% {\n    transform: translate3d(0, 10px, 0);\n  }\n  90% {\n    transform: translate3d(0, -5px, 0);\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__bounceOutUp {\n  20% {\n    transform: translate3d(0, -10px, 0);\n  }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, 20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, -2000px, 0);\n  }\n}\n\n@keyframes Toastify__bounceInDown {\n  from,\n  60%,\n  75%,\n  90%,\n  to {\n    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);\n  }\n  0% {\n    opacity: 0;\n    transform: translate3d(0, -3000px, 0);\n  }\n  60% {\n    opacity: 1;\n    transform: translate3d(0, 25px, 0);\n  }\n  75% {\n    transform: translate3d(0, -10px, 0);\n  }\n  90% {\n    transform: translate3d(0, 5px, 0);\n  }\n  to {\n    transform: none;\n  }\n}\n\n@keyframes Toastify__bounceOutDown {\n  20% {\n    transform: translate3d(0, 10px, 0);\n  }\n  40%,\n  45% {\n    opacity: 1;\n    transform: translate3d(0, -20px, 0);\n  }\n  to {\n    opacity: 0;\n    transform: translate3d(0, 2000px, 0);\n  }\n}\n\n.Toastify__bounce-enter--top-left,\n.Toastify__bounce-enter--bottom-left {\n  animation-name: Toastify__bounceInLeft;\n}\n\n.Toastify__bounce-enter--top-right,\n.Toastify__bounce-enter--bottom-right {\n  animation-name: Toastify__bounceInRight;\n}\n\n.Toastify__bounce-enter--top-center {\n  animation-name: Toastify__bounceInDown;\n}\n\n.Toastify__bounce-enter--bottom-center {\n  animation-name: Toastify__bounceInUp;\n}\n\n.Toastify__bounce-exit--top-left,\n.Toastify__bounce-exit--bottom-left {\n  animation-name: Toastify__bounceOutLeft;\n}\n\n.Toastify__bounce-exit--top-right,\n.Toastify__bounce-exit--bottom-right {\n  animation-name: Toastify__bounceOutRight;\n}\n\n.Toastify__bounce-exit--top-center {\n  animation-name: Toastify__bounceOutUp;\n}\n\n.Toastify__bounce-exit--bottom-center {\n  animation-name: Toastify__bounceOutDown;\n}\n\n@keyframes Toastify__zoomIn {\n  from {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3);\n  }\n  50% {\n    opacity: 1;\n  }\n}\n\n@keyframes Toastify__zoomOut {\n  from {\n    opacity: 1;\n  }\n  50% {\n    opacity: 0;\n    transform: scale3d(0.3, 0.3, 0.3);\n  }\n  to {\n    opacity: 0;\n  }\n}\n\n.Toastify__zoom-enter {\n  animation-name: Toastify__zoomIn;\n}\n\n.Toastify__zoom-exit {\n  animation-name: Toastify__zoomOut;\n}\n\n@keyframes Toastify__flipIn {\n  from {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    animation-timing-function: ease-in;\n    opacity: 0;\n  }\n  40% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    animation-timing-function: ease-in;\n  }\n  60% {\n    transform: perspective(400px) rotate3d(1, 0, 0, 10deg);\n    opacity: 1;\n  }\n  80% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -5deg);\n  }\n  to {\n    transform: perspective(400px);\n  }\n}\n\n@keyframes Toastify__flipOut {\n  from {\n    transform: perspective(400px);\n  }\n  30% {\n    transform: perspective(400px) rotate3d(1, 0, 0, -20deg);\n    opacity: 1;\n  }\n  to {\n    transform: perspective(400px) rotate3d(1, 0, 0, 90deg);\n    opacity: 0;\n  }\n}\n\n.Toastify__flip-enter {\n  animation-name: Toastify__flipIn;\n}\n\n.Toastify__flip-exit {\n  animation-name: Toastify__flipOut;\n}\n\n@keyframes Toastify__slideInRight {\n  from {\n    transform: translate3d(110%, 0, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInLeft {\n  from {\n    transform: translate3d(-110%, 0, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInUp {\n  from {\n    transform: translate3d(0, 110%, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideInDown {\n  from {\n    transform: translate3d(0, -110%, 0);\n    visibility: visible;\n  }\n  to {\n    transform: translate3d(0, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutRight {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(110%, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutLeft {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(-110%, 0, 0);\n  }\n}\n\n@keyframes Toastify__slideOutDown {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, 500px, 0);\n  }\n}\n\n@keyframes Toastify__slideOutUp {\n  from {\n    transform: translate3d(0, 0, 0);\n  }\n  to {\n    visibility: hidden;\n    transform: translate3d(0, -500px, 0);\n  }\n}\n\n.Toastify__slide-enter--top-left,\n.Toastify__slide-enter--bottom-left {\n  animation-name: Toastify__slideInLeft;\n}\n\n.Toastify__slide-enter--top-right,\n.Toastify__slide-enter--bottom-right {\n  animation-name: Toastify__slideInRight;\n}\n\n.Toastify__slide-enter--top-center {\n  animation-name: Toastify__slideInDown;\n}\n\n.Toastify__slide-enter--bottom-center {\n  animation-name: Toastify__slideInUp;\n}\n\n.Toastify__slide-exit--top-left,\n.Toastify__slide-exit--bottom-left {\n  animation-name: Toastify__slideOutLeft;\n}\n\n.Toastify__slide-exit--top-right,\n.Toastify__slide-exit--bottom-right {\n  animation-name: Toastify__slideOutRight;\n}\n\n.Toastify__slide-exit--top-center {\n  animation-name: Toastify__slideOutUp;\n}\n\n.Toastify__slide-exit--bottom-center {\n  animation-name: Toastify__slideOutDown;\n}\n";
 styleInject(css$n);
 
+var Button$1 = function Button$1(_ref) {
+  var children = _ref.children,
+      className = _ref.className,
+      color = _ref.color,
+      flat = _ref.flat,
+      floating = _ref.floating,
+      gradient = _ref.gradient,
+      outline = _ref.outline,
+      rounded = _ref.rounded,
+      attributes = _objectWithoutProperties(_ref, ["children", "className", "color", "flat", "floating", "gradient", "outline", "rounded"]);
+
+  var classes = classNames(flat ? 'btn-flat' : gradient ? "".concat(gradient, "-gradient") : "btn".concat(outline ? '-outline' : '', "-").concat(color), {
+    'btn-floating': floating,
+    'btn-rounded': rounded
+  });
+  return React.createElement(Button, _extends({}, attributes, {
+    className: classes,
+    color: "",
+    flat: flat,
+    rounded: rounded
+  }), children);
+};
+
+Button$1.propTypes = {
+  flat: propTypes.bool,
+  floating: propTypes.bool,
+  gradient: propTypes.string,
+  outline: propTypes.bool,
+  rounded: propTypes.bool
+};
+Button$1.defaultProps = {
+  color: 'default'
+};
+
 var Input$1 =
 /*#__PURE__*/
 function (_React$Component) {
@@ -13899,4 +13925,4 @@ Input$1.defaultProps = {
   getCounter: function getCounter() {}
 };
 
-export { Alert, Animation, Autocomplete, Avatar, Badge, Box, Breadcrumb, BreadcrumbItem, Button, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, CardUp, CardVideo, Carousel, CarouselCaption, Control as CarouselControl, CarouselIndicator, CarouselIndicators, CarouselInner, CarouselItem, Chip, ChipsInput, MDBCloseIcon as CloseIcon, Col, Collapse, CollapseHeader, Container, DataTable, DatePicker, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, ExportToCSV, Fa, RotatingCard as FlippingCard, Footer, FormInline, FreeBird, Gallery, GalleryList, HamburgerToggler, Iframe, Input$1 as Input, InputFile, InputGroup, InputNumeric, InputRange, InputSwitch, Jumbotron, Lightbox, ListGroup, ListGroupItem, Alert as MDBAlert, Animation as MDBAnimation, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, Badge as MDBBadge, Box as MDBBox, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button as MDBBtn, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, CardUp as MDBCardUp, CardVideo as MDBCardVideo, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, CarouselIndicator as MDBCarouselIndicator, CarouselIndicators as MDBCarouselIndicators, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, Chip as MDBChip, ChipsInput as MDBChipsInput, MDBCloseIcon, Col as MDBCol, Collapse as MDBCollapse, CollapseHeader as MDBCollapseHeader, Container as MDBContainer, Control as MDBControl, DataTable as MDBDataTable, DatePicker as MDBDatePicker, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, ExportToCSV as MDBExportToCSV, InputFile as MDBFileInput, Footer as MDBFooter, FormInline as MDBFormInline, FreeBird as MDBFreeBird, Gallery as MDBGallery, GalleryList as MDBGalleryList, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Iframe as MDBIframe, Input$1 as MDBInput, InputGroup as MDBInputGroup, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, Lightbox as MDBLightbox, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, NavItem as MDBNavItem, NavLink as MDBNavLink, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, Notification as MDBNotification, PageItem as MDBPageItem, PageLink as MDBPageNav, Pagination as MDBPagination, Parallax as MDBParallax, Popover as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Popover as MDBPopper, Progress as MDBProgress, InputRange as MDBRangeInput, Rating as MDBRating, RotatingCard as MDBRotatingCard, Row as MDBRow, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, Select as MDBSelect, SelectInput$1 as MDBSelectInput, SelectOption as MDBSelectOption, Options as MDBSelectOptions, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, SmoothScroll as MDBSmoothScroll, Spinner as MDBSpinner, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, MDBStreak, InputSwitch as MDBSwitch, TabContent as MDBTabContent, TabPane as MDBTabPane, Table as MDBTable, TableBody as MDBTableBody, TableEditable as MDBTableEditable, TableFoot as MDBTableFoot, TableHead as MDBTableHead, Testimonial as MDBTestimonial, TimePicker as MDBTimePicker, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, Popover as MDBTooltip, Treeview as MDBTreeview, TreeviewItem as MDBTreeviewItem, TreeviewList as MDBTreeviewList, Typogrphy as MDBTypo, Typogrphy as MDBTypography, View as MDBView, Waves as MDBWaves, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Notification, PageItem, PageLink, Pagination, Parallax, ScrollBar as PerfectScrollbar, Popover, PopoverBody, PopoverHeader, Popover as Popper, Progress, Rating, Row, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, Select, SelectInput$1 as SelectInput, SelectOption, Options as SelectOptions, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, SmoothScroll, Spinner, Step, Stepper, Sticky, Container$1 as StickyContainer, MDBStreak as Streak, TabContent, TabPane, Table, TableBody, TableEditable, TableFoot, TableHead, Testimonial, TimePicker, Timeline, TimelineStep, Popover as Tooltip, Treeview, TreeviewItem, TreeviewList, Typogrphy as Typo, Typogrphy as Typography, View, Waves };
+export { Alert, Animation, Autocomplete, Avatar, Badge, Box, Breadcrumb, BreadcrumbItem, Button$1 as Button, ButtonFixed, ButtonFixed$1 as ButtonFixedItem, ButtonGroup, ButtonToolbar, Card, CardBody, CardFooter, CardGroup, CardHeader, CardImage, CardText, CardTitle, CardUp, CardVideo, Carousel, CarouselCaption, Control as CarouselControl, CarouselIndicator, CarouselIndicators, CarouselInner, CarouselItem, Chip, ChipsInput, MDBCloseIcon as CloseIcon, Col, Collapse, CollapseHeader, Container, DataTable, DatePicker, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, EdgeHeader, ExportToCSV, Fa, RotatingCard as FlippingCard, Footer, FormInline, FreeBird, Gallery, GalleryList, HamburgerToggler, Iframe, Input$1 as Input, InputFile, InputGroup, InputNumeric, InputRange, InputSwitch, Jumbotron, Lightbox, ListGroup, ListGroupItem, Alert as MDBAlert, Animation as MDBAnimation, Autocomplete as MDBAutocomplete, Avatar as MDBAvatar, Badge as MDBBadge, Box as MDBBox, Breadcrumb as MDBBreadcrumb, BreadcrumbItem as MDBBreadcrumbItem, Button$1 as MDBBtn, ButtonFixed as MDBBtnFixed, ButtonFixed$1 as MDBBtnFixedItem, ButtonGroup as MDBBtnGroup, ButtonToolbar as MDBBtnToolbar, Card as MDBCard, CardBody as MDBCardBody, CardFooter as MDBCardFooter, CardGroup as MDBCardGroup, CardHeader as MDBCardHeader, CardImage as MDBCardImage, CardText as MDBCardText, CardTitle as MDBCardTitle, CardUp as MDBCardUp, CardVideo as MDBCardVideo, Carousel as MDBCarousel, CarouselCaption as MDBCarouselCaption, CarouselIndicator as MDBCarouselIndicator, CarouselIndicators as MDBCarouselIndicators, CarouselInner as MDBCarouselInner, CarouselItem as MDBCarouselItem, Chip as MDBChip, ChipsInput as MDBChipsInput, MDBCloseIcon, Col as MDBCol, Collapse as MDBCollapse, CollapseHeader as MDBCollapseHeader, Container as MDBContainer, Control as MDBControl, DataTable as MDBDataTable, DatePicker as MDBDatePicker, Dropdown as MDBDropdown, DropdownItem as MDBDropdownItem, DropdownMenu as MDBDropdownMenu, DropdownToggle as MDBDropdownToggle, EdgeHeader as MDBEdgeHeader, ExportToCSV as MDBExportToCSV, InputFile as MDBFileInput, Footer as MDBFooter, FormInline as MDBFormInline, FreeBird as MDBFreeBird, Gallery as MDBGallery, GalleryList as MDBGalleryList, HamburgerToggler as MDBHamburgerToggler, Fa as MDBIcon, Iframe as MDBIframe, Input$1 as MDBInput, InputGroup as MDBInputGroup, InputNumeric as MDBInputSelect, Jumbotron as MDBJumbotron, Lightbox as MDBLightbox, ListGroup as MDBListGroup, ListGroupItem as MDBListGroupItem, Mask as MDBMask, Media as MDBMedia, Modal as MDBModal, ModalBody as MDBModalBody, ModalFooter as MDBModalFooter, ModalHeader as MDBModalHeader, Nav as MDBNav, NavItem as MDBNavItem, NavLink as MDBNavLink, Navbar as MDBNavbar, NavbarBrand as MDBNavbarBrand, NavbarNav as MDBNavbarNav, NavbarToggler as MDBNavbarToggler, Notification as MDBNotification, PageItem as MDBPageItem, PageLink as MDBPageNav, Pagination as MDBPagination, Parallax as MDBParallax, Popover as MDBPopover, PopoverBody as MDBPopoverBody, PopoverHeader as MDBPopoverHeader, Popover as MDBPopper, Progress as MDBProgress, InputRange as MDBRangeInput, Rating as MDBRating, RotatingCard as MDBRotatingCard, Row as MDBRow, ScrollBar as MDBScrollbar, ScrollBox as MDBScrollspyBox, ScrollSpyList as MDBScrollspyList, ScrollSpyListItem as MDBScrollspyListItem, ScrollSpyText as MDBScrollspyText, Select as MDBSelect, SelectInput$1 as MDBSelectInput, SelectOption as MDBSelectOption, Options as MDBSelectOptions, SideNav as MDBSideNav, SideNavCat as MDBSideNavCat, SideNavItem as MDBSideNavItem, SideNavLink as MDBSideNavLink, SideNavNav as MDBSideNavNav, SimpleChart as MDBSimpleChart, SmoothScroll as MDBSmoothScroll, Spinner as MDBSpinner, Step as MDBStep, Stepper as MDBStepper, Sticky as MDBSticky, Container$1 as MDBStickyContent, MDBStreak, InputSwitch as MDBSwitch, TabContent as MDBTabContent, TabPane as MDBTabPane, Table as MDBTable, TableBody as MDBTableBody, TableEditable as MDBTableEditable, TableFoot as MDBTableFoot, TableHead as MDBTableHead, Testimonial as MDBTestimonial, TimePicker as MDBTimePicker, Timeline as MDBTimeline, TimelineStep as MDBTimelineStep, Popover as MDBTooltip, Treeview as MDBTreeview, TreeviewItem as MDBTreeviewItem, TreeviewList as MDBTreeviewList, Typogrphy as MDBTypo, Typogrphy as MDBTypography, View as MDBView, Waves as MDBWaves, Mask, Media, Modal, ModalBody, ModalFooter, ModalHeader, Nav, NavItem, NavLink, Navbar, NavbarBrand, NavbarNav, NavbarToggler, Notification, PageItem, PageLink, Pagination, Parallax, ScrollBar as PerfectScrollbar, Popover, PopoverBody, PopoverHeader, Popover as Popper, Progress, Rating, Row, ScrollBox as ScrollSpyBox, ScrollSpyList, ScrollSpyListItem, ScrollSpyText, Select, SelectInput$1 as SelectInput, SelectOption, Options as SelectOptions, SideNav, SideNavCat, SideNavItem, SideNavLink, SideNavNav, SimpleChart, SmoothScroll, Spinner, Step, Stepper, Sticky, Container$1 as StickyContainer, MDBStreak as Streak, TabContent, TabPane, Table, TableBody, TableEditable, TableFoot, TableHead, Testimonial, TimePicker, Timeline, TimelineStep, Popover as Tooltip, Treeview, TreeviewItem, TreeviewList, Typogrphy as Typo, Typogrphy as Typography, View, Waves };

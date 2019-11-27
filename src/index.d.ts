@@ -5,7 +5,6 @@ import MDBBadge from './components/Badge';
 import MDBBox from './components/Box';
 import MDBBreadcrumb from './components/Breadcrumb';
 import MDBBreadcrumbItem from './components/Breadcrumb/BreadcrumbItem';
-import MDBBtn from './components/Button';
 import MDBBtnGroup from './components/ButtonGroup';
 import MDBBtnToolbar from './components/ButtonToolbar';
 import MDBIcon from './components/Fa';
@@ -133,10 +132,12 @@ import { MDBToast, MDBToastContainer } from './components/pro/Toast/';
 // PRO-END
 
 // PRO-START //! Pro Components with free variants
+import MDBBtn from './components/pro/Button';
 import MDBInput from './components/pro/Input';
 // FREE-START
 /*
 // PRO-END //! Free components
+import MDBBtn from './components/Button';
 import MDBInput from './components/Input';
 // PRO-START
 */
