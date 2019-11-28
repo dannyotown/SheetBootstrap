@@ -8,28 +8,28 @@ const Badge = props => {
   const classes = classNames(
     'badge',
     color,
-    `badge-${  color}`,
+    `badge-${color}`,
     pill ? 'badge-pill' : false,
     className
   );
   return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <Tag data-test='badge' {...attributes} className={classes}>
       {children}
     </Tag>
   );
 };
-
-Badge.defaultProps = {
-  tag: 'span',
-  color: 'default',
-  pill: false
-};
-
 Badge.propTypes = {
   color: PropTypes.string,
   pill: PropTypes.bool,
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  tag: PropTypes.string
+};
+Badge.defaultProps = {
+  tag: 'span',
+  color: 'default',
+  pill: false
 };
 
 export default Badge;

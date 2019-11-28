@@ -9,6 +9,7 @@ import {
 } from '../../tests/utils';
 import Badge from './Badge';
 
+// eslint-disable-next-line react/jsx-props-no-spreading
 const setup = (props = {}) => shallow(<Badge {...props} />);
 
 describe('<Badge />', () => {
