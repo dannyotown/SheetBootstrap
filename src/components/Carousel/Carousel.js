@@ -41,6 +41,15 @@ class Carousel extends Component {
     }
   }
 
+  componentDidUpdate() {
+    const { length } = this.state;
+    if (length !== this.props.length) {
+      this.setState({
+        length: this.props.length
+      });
+    }
+  }
+
   componentWillUnmount() {
     if (this.props.interval === false) {
       return;
