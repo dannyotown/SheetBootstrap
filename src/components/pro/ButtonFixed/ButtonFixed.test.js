@@ -14,12 +14,12 @@ describe('<ButtonFixed />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     const renders = findByTestAttr(wrapper, 'button-fixed');
     expect(renders.length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<ButtonFixed />, div);
   });
@@ -80,32 +80,32 @@ describe('<ButtonFixed />', () => {
       checkClass(wrapper.find('Fa'), 'custom');
     });
 
-    test(`adds Ripple-parent class by default for 'a'`, () => {
+    test('adds Ripple-parent class by default for \'a\'', () => {
       checkClass(wrapper.find('a'), 'Ripple-parent');
     });
 
-    test(`adds custom classes by property for 'a'`, () => {
+    test('adds custom classes by property for \'a\'', () => {
       wrapper = setup({ className: 'custom' });
       checkClass(wrapper.find('a'), 'custom');
     });
 
-    test(`adds disabled property class for 'a'`, () => {
+    test('adds disabled property class for \'a\'', () => {
       wrapper = setup({ disabled: true });
       checkClass(wrapper.find('a'), 'disabled');
     });
 
-    test(`adds floating property class for 'a'`, () => {
+    test('adds floating property class for \'a\'', () => {
       checkClass(wrapper.find('a'), 'btn');
       wrapper = setup({ floating: true });
       checkClass(wrapper.find('a'), 'btn-floating');
     });
 
-    test(`adds color property class for 'a'`, () => {
+    test('adds color property class for \'a\'', () => {
       wrapper = setup({ color: 'red' });
       checkClass(wrapper.find('a'), 'red');
     });
 
-    test(`adds gradient property class for 'a'`, () => {
+    test('adds gradient property class for \'a\'', () => {
       wrapper = setup({ color: 'red' });
       checkClass(wrapper.find('a'), 'red');
 
@@ -113,7 +113,7 @@ describe('<ButtonFixed />', () => {
       checkClass(wrapper.find('a'), 'aqua-gradient');
     });
 
-    test(`adds gradient property class for 'a'`, () => {
+    test('adds gradient property class for \'a\'', () => {
       wrapper = setup({ color: 'red' });
       checkClass(wrapper.find('a'), 'red');
 
@@ -124,22 +124,22 @@ describe('<ButtonFixed />', () => {
       checkClass(wrapper.find('a'), 'btn-flat');
     });
 
-    test(`adds size property class for 'a'`, () => {
+    test('adds size property class for \'a\'', () => {
       wrapper = setup({ size: 'lg' });
       checkClass(wrapper.find('a'), 'btn-lg');
     });
 
-    test(`adds rounded property class for 'a'`, () => {
+    test('adds rounded property class for \'a\'', () => {
       wrapper = setup({ rounded: true });
       checkClass(wrapper.find('a'), 'btn-rounded');
     });
 
-    test(`adds block property class for 'a'`, () => {
+    test('adds block property class for \'a\'', () => {
       wrapper = setup({ block: true });
       checkClass(wrapper.find('a'), 'btn-block');
     });
 
-    test(`adds list-unstyled class for 'ul' by default`, () => {
+    test('adds list-unstyled class for \'ul\' by default', () => {
       checkClass(wrapper.find('ul'), 'list-unstyled');
     });
   });

@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -15,88 +15,90 @@ import {
   MDBBtn,
   MDBView,
   MDBContainer
-} from "mdbreact";
-import "./VideoBackgroundPage.css";
+} from 'mdbreact';
+import './VideoBackgroundPage.css';
 
 class VideoBackgroundPage extends React.Component {
   state = {
-    collapseID: ""
+    collapseID: ''
   };
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : ""
+      collapseID: prevState.collapseID !== collapseID ? collapseID : ''
     }));
 
   componentDidMount() {
-    document.querySelector("nav").style.height = "65px";
+    document.querySelector('nav').style.height = '65px';
   }
+
   componentWillUnmount() {
-    document.querySelector("nav").style.height = "auto";
+    document.querySelector('nav').style.height = 'auto';
   }
+
   render() {
-    const navStyle = { marginTop: "4rem" };
+    const navStyle = { marginTop: '4rem' };
     const overlay = (
       <div
-        id="sidenav-overlay"
-        style={{ backgroundColor: "transparent" }}
-        onClick={this.toggleCollapse("navbarCollapse")}
+        id='sidenav-overlay'
+        style={{ backgroundColor: 'transparent' }}
+        onClick={this.toggleCollapse('navbarCollapse')}
       />
     );
     return (
-      <div id="videobackground">
+      <div id='videobackground'>
         <Router>
           <div>
-            <MDBNavbar style={navStyle} dark scrolling expand="md" fixed="top">
+            <MDBNavbar style={navStyle} dark scrolling expand='md' fixed='top'>
               <MDBContainer>
                 <MDBNavbarBrand>
-                  <span className="white-text">MDBNavbar</span>
+                  <span className='white-text'>MDBNavbar</span>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler
-                  onClick={this.toggleCollapse("navbarCollapse")}
+                  onClick={this.toggleCollapse('navbarCollapse')}
                 />
                 <MDBCollapse
-                  id="navbarCollapse"
+                  id='navbarCollapse'
                   isOpen={this.state.collapseID}
                   navbar
                 >
                   <MDBNavbarNav left>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Home</MDBNavLink>
+                      <MDBNavLink to='#!'>Home</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">About</MDBNavLink>
+                      <MDBNavLink to='#!'>About</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Features</MDBNavLink>
+                      <MDBNavLink to='#!'>Features</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Services</MDBNavLink>
+                      <MDBNavLink to='#!'>Services</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Opinions</MDBNavLink>
+                      <MDBNavLink to='#!'>Opinions</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Team</MDBNavLink>
+                      <MDBNavLink to='#!'>Team</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Contact</MDBNavLink>
+                      <MDBNavLink to='#!'>Contact</MDBNavLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                   <MDBNavbarNav right>
                     <MDBNavItem>
-                      <MDBNavLink to="!#">
-                        <MDBIcon fab icon="facebook" />
+                      <MDBNavLink to='!#'>
+                        <MDBIcon fab icon='facebook' />
                       </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="!#">
-                        <MDBIcon fab icon="twitter" />
+                      <MDBNavLink to='!#'>
+                        <MDBIcon fab icon='twitter' />
                       </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="!#">
-                        <MDBIcon fab icon="instagram" />
+                      <MDBNavLink to='!#'>
+                        <MDBIcon fab icon='instagram' />
                       </MDBNavLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
@@ -109,32 +111,32 @@ class VideoBackgroundPage extends React.Component {
 
         <MDBView>
           <video
-            className="video-intro"
-            poster="https://mdbootstrap.com/img/Photos/Others/background.jpg"
+            className='video-intro'
+            poster='https://mdbootstrap.com/img/Photos/Others/background.jpg'
             playsInline
             autoPlay
-            muted=""
+            muted=''
             loop
           >
             <source
-              src="https://mdbootstrap.com/img/video/animation.mp4"
-              type="video/mp4"
+              src='https://mdbootstrap.com/img/video/animation.mp4'
+              type='video/mp4'
             />
           </video>
-          <MDBMask className="d-flex justify-content-center align-items-center gradient">
-            <MDBContainer className="px-md-3 px-sm-0">
+          <MDBMask className='d-flex justify-content-center align-items-center gradient'>
+            <MDBContainer className='px-md-3 px-sm-0'>
               <MDBRow>
-                <MDBCol md="12" className="mb-4 white-text text-center">
-                  <h3 className="display-3 font-weight-bold mb-0 pt-md-5">
-                    Creative Agency{" "}
+                <MDBCol md='12' className='mb-4 white-text text-center'>
+                  <h3 className='display-3 font-weight-bold mb-0 pt-md-5'>
+                    Creative Agency{' '}
                   </h3>
-                  <hr className="hr-light my-4 w-75" />
-                  <h4 className="subtext-header mt-2 mb-4">
+                  <hr className='hr-light my-4 w-75' />
+                  <h4 className='subtext-header mt-2 mb-4'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit
                     deleniti consequuntur nihil.
                   </h4>
-                  <MDBBtn outline rounded color="white">
-                    <MDBIcon icon="home" /> Visit us
+                  <MDBBtn outline rounded color='white'>
+                    <MDBIcon icon='home' /> Visit us
                   </MDBBtn>
                 </MDBCol>
               </MDBRow>
@@ -143,8 +145,8 @@ class VideoBackgroundPage extends React.Component {
         </MDBView>
 
         <MDBContainer>
-          <MDBRow className="pt-5 pb-4">
-            <MDBCol md="12" className="text-center">
+          <MDBRow className='pt-5 pb-4'>
+            <MDBCol md='12' className='text-center'>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   MDBContainer,
   MDBScrollspyBox,
@@ -6,9 +6,9 @@ import {
   MDBScrollspyListItem,
   MDBScrollspyText,
   MDBTabContent
-} from "mdbreact";
-import DocsLink from "./../../components/docsLink";
-import SectionContainer from "./../../components/sectionContainer";
+} from 'mdbreact';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 class ScrollSpyPage extends Component {
   constructor(props) {
@@ -23,13 +23,13 @@ class ScrollSpyPage extends Component {
   }
 
   componentDidMount() {
-    let sections = this.scrollSpyText.current.getElementsByTagName("h4");
+    const sections = this.scrollSpyText.current.getElementsByTagName('h4');
     this.setState({ sections });
   }
 
   handleScroll = e => {
-    const scrollTop = e.target.scrollTop;
-    const sections = this.state.sections;
+    const {scrollTop} = e.target;
+    const {sections} = this.state;
     const lastIndex = sections.length - 1;
 
     for (let i = 0; i < lastIndex; i++) {
@@ -47,31 +47,31 @@ class ScrollSpyPage extends Component {
 
   render() {
     return (
-      <MDBContainer className="mt-5">
+      <MDBContainer className='mt-5'>
         <DocsLink
-          title="ScrollSpy"
-          href="https://mdbootstrap.com/docs/react/navigation/scrollspy/"
+          title='ScrollSpy'
+          href='https://mdbootstrap.com/docs/react/navigation/scrollspy/'
         />
-        <SectionContainer header="Basic example">
+        <SectionContainer header='Basic example'>
           <MDBScrollspyBox>
             <MDBScrollspyList
-              color="grey"
-              className="d-flex justify-content-end"
+              color='grey'
+              className='d-flex justify-content-end'
             >
               <MDBScrollspyListItem
-                href="#section1"
+                href='#section1'
                 active={this.state.active === 0}
               >
                 section1
               </MDBScrollspyListItem>
               <MDBScrollspyListItem
-                href="#section2"
+                href='#section2'
                 active={this.state.active === 1}
               >
                 section2
               </MDBScrollspyListItem>
               <MDBScrollspyListItem
-                href="#section3"
+                href='#section3'
                 active={this.state.active === 2}
               >
                 section3
@@ -83,7 +83,7 @@ class ScrollSpyPage extends Component {
                 onScroll={this.handleScroll}
                 scrollSpyRef={this.scrollSpyText}
               >
-                <h4 id="section1">section1</h4>
+                <h4 id='section1'>section1</h4>
                 <p>
                   Ad leggings keytar, brunch id art party dolor labore.
                   Pitchfork yr enim lo-fi before they sold out qui. Tumblr
@@ -106,7 +106,7 @@ class ScrollSpyPage extends Component {
                   accusamus, cred irony biodiesel keffiyeh artisan ullamco
                   consequat.
                 </p>
-                <h4 id="section2">section2</h4>
+                <h4 id='section2'>section2</h4>
                 <p>
                   Veniam marfa mustache skateboard, adipisicing fugiat velit
                   pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's
@@ -127,7 +127,7 @@ class ScrollSpyPage extends Component {
                   accusamus, cred irony biodiesel keffiyeh artisan ullamco
                   consequat.
                 </p>
-                <h4 id="section3">section3</h4>
+                <h4 id='section3'>section3</h4>
                 <p>
                   Occaecat commodo aliqua delectus. Fap craft beer deserunt
                   skateboard ea. Lomo bicycle rights adipisicing banh mi, velit

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   MDBContainer,
   MDBBtn,
@@ -21,10 +21,10 @@ import {
   MDBCarouselInner,
   MDBCarouselItem,
   MDBInput
-} from "mdbreact";
-import "./../ModalExamplesPage.css";
-import DocsLink from "./../../components/docsLink";
-import SectionContainer from "./../../components/sectionContainer";
+} from 'mdbreact';
+import '../ModalExamplesPage.css';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 class ModalExamplesPage extends Component {
   state = {
@@ -35,7 +35,7 @@ class ModalExamplesPage extends Component {
   };
 
   toggle = nr => () => {
-    let modalNumber = "modal" + nr;
+    const modalNumber = `modal${  nr}`;
     this.setState({
       ...this.state,
       [modalNumber]: !this.state[modalNumber]
@@ -57,147 +57,147 @@ class ModalExamplesPage extends Component {
   };
 
   render() {
-    let { accordion } = this.state;
+    const { accordion } = this.state;
     return (
       <MDBContainer>
         <DocsLink
-          title="Modal Templates & Examples"
-          href="https://mdbootstrap.com/docs/react/modals/basic/"
+          title='Modal Templates & Examples'
+          href='https://mdbootstrap.com/docs/react/modals/basic/'
         />
 
-        <SectionContainer header="Poll" flexCenter>
+        <SectionContainer header='Poll' flexCenter>
           <MDBBtn onClick={this.toggle(9)}>Launch Modal</MDBBtn>
           <MDBModal
             fullHeight
-            position="right"
+            position='right'
             backdrop={false}
-            className="modal-notify modal-info text-white"
+            className='modal-notify modal-info text-white'
             isOpen={this.state.modal9}
             toggle={this.toggle(9)}
           >
-            <MDBModalHeader tag="p" toggle={this.toggle(9)}>
+            <MDBModalHeader tag='p' toggle={this.toggle(9)}>
               Feedback request
             </MDBModalHeader>
-            <MDBModalBody className="text-center">
+            <MDBModalBody className='text-center'>
               <MDBIcon
-                icon="file-text-o"
-                size="4x"
-                className="animated rotateIn mb-3"
+                icon='file-text-o'
+                size='4x'
+                className='animated rotateIn mb-3'
               />
-              <p className="font-weight-bold mb-3">Your opinion matters</p>
+              <p className='font-weight-bold mb-3'>Your opinion matters</p>
               <p>
                 Have some ideas how to improve our product? Give us your
                 feedback.
               </p>
               <hr />
               {/* Radio */}
-              <p className="mb-3">Your rating</p>
-              <div className="text-left">
+              <p className='mb-3'>Your rating</p>
+              <div className='text-left'>
                 <MDBInput
-                  label="Very good"
-                  type="radio"
-                  id="radio1"
-                  name="rating"
+                  label='Very good'
+                  type='radio'
+                  id='radio1'
+                  name='rating'
                 />
-                <MDBInput label="Good" type="radio" id="radio2" name="rating" />
+                <MDBInput label='Good' type='radio' id='radio2' name='rating' />
                 <MDBInput
-                  label="Mediocre"
-                  type="radio"
-                  id="radio3"
-                  name="rating"
+                  label='Mediocre'
+                  type='radio'
+                  id='radio3'
+                  name='rating'
                 />
-                <MDBInput label="Bad" type="radio" id="radio4" name="rating" />
+                <MDBInput label='Bad' type='radio' id='radio4' name='rating' />
                 <MDBInput
-                  label="Very bad"
-                  type="radio"
-                  id="radio5"
-                  name="rating"
+                  label='Very bad'
+                  type='radio'
+                  id='radio5'
+                  name='rating'
                 />
               </div>
               {/* Textarea */}
-              <p className="mb-3">What could we improve?</p>
-              <MDBInput label="Your message" type="textarea" id="radio1" />
+              <p className='mb-3'>What could we improve?</p>
+              <MDBInput label='Your message' type='textarea' id='radio1' />
             </MDBModalBody>
-            <MDBModalFooter className="justify-content-center">
-              <MDBBtn color="primary" onClick={this.toggle(9)}>
+            <MDBModalFooter className='justify-content-center'>
+              <MDBBtn color='primary' onClick={this.toggle(9)}>
                 Send
-                <MDBIcon icon="paper-plane" className="ml-1" />
+                <MDBIcon icon='paper-plane' className='ml-1' />
               </MDBBtn>
-              <MDBBtn color="primary" outline onClick={this.toggle(9)}>
+              <MDBBtn color='primary' outline onClick={this.toggle(9)}>
                 Calcel
               </MDBBtn>
             </MDBModalFooter>
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Product" flexCenter>
+        <SectionContainer header='Product' flexCenter>
           <MDBBtn onClick={this.toggle(13)}>Launch Modal</MDBBtn>
           <MDBModal
-            size="lg"
+            size='lg'
             isOpen={this.state.modal13}
             toggle={this.toggle(13)}
           >
-            <MDBModalBody className="d-flex">
-              <MDBCol size="5" lg="5">
+            <MDBModalBody className='d-flex'>
+              <MDBCol size='5' lg='5'>
                 {/* Carrousel */}
                 <MDBCarousel
                   activeItem={1}
                   length={3}
-                  showControls={true}
-                  showIndicators={true}
+                  showControls
+                  showIndicators
                   thumbnails
-                  className="z-depth-1"
+                  className='z-depth-1'
                 >
                   <MDBCarouselInner>
-                    <MDBCarouselItem itemId="1">
+                    <MDBCarouselItem itemId='1'>
                       <img
-                        className="d-block w-100"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(23).jpg"
-                        alt="First slide"
+                        className='d-block w-100'
+                        src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(23).jpg'
+                        alt='First slide'
                       />
                     </MDBCarouselItem>
-                    <MDBCarouselItem itemId="2">
+                    <MDBCarouselItem itemId='2'>
                       <img
-                        className="d-block w-100"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(24).jpg"
-                        alt="Second slide"
+                        className='d-block w-100'
+                        src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(24).jpg'
+                        alt='Second slide'
                       />
                     </MDBCarouselItem>
-                    <MDBCarouselItem itemId="3">
+                    <MDBCarouselItem itemId='3'>
                       <img
-                        className="d-block w-100"
-                        src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(25).jpg"
-                        alt="Third slide"
+                        className='d-block w-100'
+                        src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/img%20(25).jpg'
+                        alt='Third slide'
                       />
                     </MDBCarouselItem>
                   </MDBCarouselInner>
                 </MDBCarousel>
               </MDBCol>
-              <MDBCol size="7" lg="7">
-                <h2 className="h2-responsive product-name">
+              <MDBCol size='7' lg='7'>
+                <h2 className='h2-responsive product-name'>
                   <strong>Product Name</strong>
                 </h2>
-                <h4 className="h4-responsive">
-                  <span className="green-text">
+                <h4 className='h4-responsive'>
+                  <span className='green-text'>
                     <strong>$49</strong>
                   </span>
-                  <span className="grey-text ml-1">
+                  <span className='grey-text ml-1'>
                     <small>
                       <s>$89</s>
                     </small>
                   </span>
                 </h4>
                 {/* Accordion wrapper */}
-                <div className="my-4">
+                <div className='my-4'>
                   <MDBCard>
                     <MDBCollapseHeader onClick={this.onClick(1)}>
                       Description
                       <i
                         className={
-                          "ml-1 " +
-                          (accordion === 1
-                            ? "fa fa-angle-down rotate-icon"
-                            : "fa fa-angle-down")
+                          `ml-1 ${ 
+                          accordion === 1
+                            ? 'fa fa-angle-down rotate-icon'
+                            : 'fa fa-angle-down'}`
                         }
                       />
                     </MDBCollapseHeader>
@@ -215,10 +215,10 @@ class ModalExamplesPage extends Component {
                       Details
                       <i
                         className={
-                          "ml-1 " +
-                          (accordion === 2
-                            ? "fa fa-angle-down rotate-icon"
-                            : "fa fa-angle-down")
+                          `ml-1 ${ 
+                          accordion === 2
+                            ? 'fa fa-angle-down rotate-icon'
+                            : 'fa fa-angle-down'}`
                         }
                       />
                     </MDBCollapseHeader>
@@ -236,10 +236,10 @@ class ModalExamplesPage extends Component {
                       Shipping
                       <i
                         className={
-                          "ml-1 " +
-                          (accordion === 3
-                            ? "fa fa-angle-down rotate-icon"
-                            : "fa fa-angle-down")
+                          `ml-1 ${ 
+                          accordion === 3
+                            ? 'fa fa-angle-down rotate-icon'
+                            : 'fa fa-angle-down'}`
                         }
                       />
                     </MDBCollapseHeader>
@@ -254,7 +254,7 @@ class ModalExamplesPage extends Component {
                   </MDBCard>
                 </div>
                 <MDBRow>
-                  <MDBCol size="6">
+                  <MDBCol size='6'>
                     <MDBSelect>
                       <MDBSelectInput />
                       <MDBSelectOptions>
@@ -268,7 +268,7 @@ class ModalExamplesPage extends Component {
                     </MDBSelect>
                     <label>MDBSelect color</label>
                   </MDBCol>
-                  <MDBCol size="6">
+                  <MDBCol size='6'>
                     <MDBSelect>
                       <MDBSelectInput />
                       <MDBSelectOptions>
@@ -283,21 +283,21 @@ class ModalExamplesPage extends Component {
                     <label>MDBSelect size</label>
                   </MDBCol>
                 </MDBRow>
-                <MDBRow className="justify-content-center">
+                <MDBRow className='justify-content-center'>
                   <MDBBtn
-                    color="secondary"
-                    className="ml-4"
+                    color='secondary'
+                    className='ml-4'
                     onClick={this.toggle(13)}
                   >
                     Close
                   </MDBBtn>
                   <MDBBtn
-                    color="primary"
-                    className="ml-4"
+                    color='primary'
+                    className='ml-4'
                     onClick={this.toggle(13)}
                   >
                     Add to Cart
-                    <MDBIcon icon="cart-plus" className="ml-2" />
+                    <MDBIcon icon='cart-plus' className='ml-2' />
                   </MDBBtn>
                 </MDBRow>
               </MDBCol>
@@ -305,7 +305,7 @@ class ModalExamplesPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header="Social share" flexCenter>
+        <SectionContainer header='Social share' flexCenter>
           <MDBBtn onClick={this.toggle(8)}>Launch Modal</MDBBtn>
           <MDBModal
             cascading
@@ -313,56 +313,56 @@ class ModalExamplesPage extends Component {
             toggle={this.toggle(8)}
           >
             <MDBModalHeader
-              className="text-center text-white light-blue darken-3"
-              titleClass="w-100"
-              tag="h5"
+              className='text-center text-white light-blue darken-3'
+              titleClass='w-100'
+              tag='h5'
               toggle={this.toggle(8)}
             >
-              <MDBIcon icon="users" className="text-white mr-2" />
+              <MDBIcon icon='users' className='text-white mr-2' />
               Spreed the word!
             </MDBModalHeader>
-            <MDBModalBody className="text-center">
-              <MDBBtn tag="a" floating social="fb">
-                <MDBIcon fab icon="facebook" />
+            <MDBModalBody className='text-center'>
+              <MDBBtn tag='a' floating social='fb'>
+                <MDBIcon fab icon='facebook' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="tw">
-                <MDBIcon fab icon="twitter" />
+              <MDBBtn tag='a' floating social='tw'>
+                <MDBIcon fab icon='twitter' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="gplus">
-                <MDBIcon fab icon="google-plus" />
+              <MDBBtn tag='a' floating social='gplus'>
+                <MDBIcon fab icon='google-plus' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="li">
-                <MDBIcon fab icon="linkedin" />
+              <MDBBtn tag='a' floating social='li'>
+                <MDBIcon fab icon='linkedin' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="ins">
-                <MDBIcon fab icon="instagram" />
+              <MDBBtn tag='a' floating social='ins'>
+                <MDBIcon fab icon='instagram' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="pin">
-                <MDBIcon fab icon="pinterest" />
+              <MDBBtn tag='a' floating social='pin'>
+                <MDBIcon fab icon='pinterest' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="yt">
-                <MDBIcon fab icon="youtube" />
+              <MDBBtn tag='a' floating social='yt'>
+                <MDBIcon fab icon='youtube' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="dribble">
-                <MDBIcon fab icon="dribbble" />
+              <MDBBtn tag='a' floating social='dribble'>
+                <MDBIcon fab icon='dribbble' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="vk">
-                <MDBIcon fab icon="vk" />
+              <MDBBtn tag='a' floating social='vk'>
+                <MDBIcon fab icon='vk' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="so">
-                <MDBIcon fab icon="stack-overflow" />
+              <MDBBtn tag='a' floating social='so'>
+                <MDBIcon fab icon='stack-overflow' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="slack">
-                <MDBIcon fab icon="slack" />
+              <MDBBtn tag='a' floating social='slack'>
+                <MDBIcon fab icon='slack' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="git">
-                <MDBIcon fab icon="github" />
+              <MDBBtn tag='a' floating social='git'>
+                <MDBIcon fab icon='github' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="comm">
-                <MDBIcon icon="comments" />
+              <MDBBtn tag='a' floating social='comm'>
+                <MDBIcon icon='comments' />
               </MDBBtn>
-              <MDBBtn tag="a" floating social="email">
-                <MDBIcon icon="envelope" />
+              <MDBBtn tag='a' floating social='email'>
+                <MDBIcon icon='envelope' />
               </MDBBtn>
             </MDBModalBody>
           </MDBModal>

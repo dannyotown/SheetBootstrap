@@ -34,13 +34,13 @@ class DropdownMenu extends Component {
         'dropdown-menu-right': right,
         [`dropdown-${color}`]: color,
         show: this.context.isOpen,
-        basic: basic
+        basic
       },
       'dropdown-menu',
       className
     );
 
-    let Tag = tag;
+    const Tag = tag;
 
     if (this.context.isOpen) {
       const position1 = this.context.dropup
@@ -61,7 +61,7 @@ class DropdownMenu extends Component {
     return (
       <Popper
         modifires={attrs.modifiers}
-        eventsEnabled={true}
+        eventsEnabled
         positionFixed={false}
         placement={attrs.placement}
         data-test='dropdown-menu'

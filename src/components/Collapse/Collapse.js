@@ -33,7 +33,7 @@ class Collapse extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const collapse = prevState.collapse;
+    const {collapse} = prevState;
     const willOpen =
       typeof this.props.isOpen !== 'boolean'
         ? this.props.isOpen === prevState.id

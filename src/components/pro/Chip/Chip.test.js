@@ -61,12 +61,12 @@ describe('<Chip />', () => {
   });
 
   describe('renders', () => {
-    test(`renders`, () => {
+    test('renders', () => {
       const renders = findByTestAttr(wrapper, 'chip');
       expect(renders.length).toBe(1);
     });
 
-    test(`renders without errors`, () => {
+    test('renders without errors', () => {
       const div = document.createElement('div');
       ReactDOM.render(<Chip />, div);
     });

@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Card = props => {
   const {
@@ -24,25 +24,25 @@ const Card = props => {
 
   const classes = classNames(
     {
-      "card-cascade": cascade,
-      "card-cascade wider": wide,
-      "card-cascade narrower": narrow,
-      "card-cascade wider reverse": reverse,
-      "testimonial-card": testimonial,
-      "card-ecommerce": ecommerce,
-      "collection-card": collection,
-      "pricing-card": pricing,
-      "card-personal": personal,
-      "news-card": news,
+      'card-cascade': cascade,
+      'card-cascade wider': wide,
+      'card-cascade narrower': narrow,
+      'card-cascade wider reverse': reverse,
+      'testimonial-card': testimonial,
+      'card-ecommerce': ecommerce,
+      'collection-card': collection,
+      'pricing-card': pricing,
+      'card-personal': personal,
+      'news-card': news,
       [`${text}-text`]: text,
       [`border-${border}`]: border
     },
-    "card",
+    'card',
     color,
     className,
   );
 
-  return <Tag data-test="card" {...attributes} className={classes} />;
+  return <Tag data-test='card' {...attributes} className={classes} />;
 };
 
 Card.propTypes = {
@@ -64,7 +64,7 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  tag: "div"
+  tag: 'div'
 };
 
 export default Card;

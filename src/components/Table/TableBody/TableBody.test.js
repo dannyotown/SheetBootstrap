@@ -14,7 +14,7 @@ describe('<TableBody />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'table-body').length).toBe(1);
   });
 
@@ -41,13 +41,13 @@ describe('<TableBody />', () => {
     checkProps(wrapper, {});
   });
 
-  test(`adds custom attributes passed as property`, () => {
+  test('adds custom attributes passed as property', () => {
     wrapper = setup({ customAttr: 'custom' });
 
     expect(wrapper.find('[customAttr="custom"]').length).toBe(1);
   });
 
-  test(`invokes callback after clicking`, () => {
+  test('invokes callback after clicking', () => {
     const callback = jest.fn();
     const rows = [
       {

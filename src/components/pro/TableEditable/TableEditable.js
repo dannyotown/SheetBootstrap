@@ -30,8 +30,8 @@ class TableEditable extends React.Component {
   }
 
   addRow = () => {
-    let newData = [...this.state.data];
-    let newRow = [];
+    const newData = [...this.state.data];
+    const newRow = [];
     this.props.columns.forEach(() => {
       newRow.push('');
     });
@@ -54,7 +54,7 @@ class TableEditable extends React.Component {
 
   decreaseIndex = index => {
     if (index === 0) return;
-    let newData = this.changeArrayOrder(index, index - 1);
+    const newData = this.changeArrayOrder(index, index - 1);
     this.setState({
       ...this.state,
       data: newData
@@ -63,7 +63,7 @@ class TableEditable extends React.Component {
 
   increaseIndex = index => {
     if (index === this.state.data.length - 1) return;
-    let newData = this.changeArrayOrder(index, index + 1);
+    const newData = this.changeArrayOrder(index, index + 1);
     this.setState({
       ...this.state,
       data: newData
@@ -71,7 +71,7 @@ class TableEditable extends React.Component {
   };
 
   changeArrayOrder = (oldIndex, newIndex, array = [...this.state.data]) => {
-    let newArray = array;
+    const newArray = array;
     const oldIndexValue = [...newArray[oldIndex]];
     const newIndexValue = [...newArray[newIndex]];
     newArray.splice(oldIndex, 1, newIndexValue);
@@ -80,7 +80,7 @@ class TableEditable extends React.Component {
   };
 
   onBlurHandler = (trIndex, tdIndex, e) => {
-    let value = e.target.innerText;
+    const value = e.target.innerText;
     let newData = [...this.state.data];
 
     newData = newData.map((item, index) => {

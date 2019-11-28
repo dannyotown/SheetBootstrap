@@ -7,8 +7,8 @@ import {
   MDBBtn,
   MDBIcon
 } from 'mdbreact';
-import DocsLink from './../../components/docsLink';
-import SectionContainer from './../../components/sectionContainer';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 class TimePickerPage extends Component {
   state = {

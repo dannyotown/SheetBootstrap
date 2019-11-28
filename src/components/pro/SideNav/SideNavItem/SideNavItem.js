@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import Waves from "../../../Waves";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Waves from '../../../Waves';
 
 const SideNavItem = props => {
   const [cursorPos, setCursorPos] = useState({});
@@ -9,7 +9,7 @@ const SideNavItem = props => {
   const handleClick = e => {
     if (!props.disabled) {
       // Waves - Get Cursor Position
-      let cursorPos = {
+      const cursorPos = {
         top: e.clientY,
         left: e.clientX,
         time: Date.now()
@@ -25,7 +25,7 @@ const SideNavItem = props => {
 
   const { tag: Tag, children, href, className, innerRef, ...attributes } = props;
 
-  const classes = classNames("Ripple-parent", className);
+  const classes = classNames('Ripple-parent', className);
 
   return (
     <Tag className={classes} ref={innerRef} onClick={handleClick} {...attributes}>
@@ -46,7 +46,7 @@ SideNavItem.propTypes = {
 };
 
 SideNavItem.defaultProps = {
-  tag: "li"
+  tag: 'li'
 };
 
 export default SideNavItem;

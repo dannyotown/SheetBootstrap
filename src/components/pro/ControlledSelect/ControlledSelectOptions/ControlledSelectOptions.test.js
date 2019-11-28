@@ -29,12 +29,12 @@ describe('<ControlledSelectOptions />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     const renders = findByTestAttr(wrapper, 'controlled-select-options');
     expect(renders.length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<ControlledSelectOptions {...expectedProps} />, div);
   });

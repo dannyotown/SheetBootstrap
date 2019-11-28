@@ -60,7 +60,7 @@ class ScrollBar extends Component {
     const { children, className } = this.props;
 
     return (
-      <div className={`scrollbar-container ${className}`} ref={this.handleRef} data-test="perfect-scrollbar">
+      <div className={`scrollbar-container ${className}`} ref={this.handleRef} data-test='perfect-scrollbar'>
         {children}
       </div>
     );

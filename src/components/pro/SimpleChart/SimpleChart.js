@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const SimpleChart = props => {
   const polarToCartesian = (centerX, centerY, radius, angleInDegrees) => {
-    var angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+    const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
     return {
       x: centerX + (radius * Math.cos(angleInRadians)),
       y: centerY + (radius * Math.sin(angleInRadians))
@@ -13,26 +13,26 @@ const SimpleChart = props => {
   const describeArc = (x, y, radius, startAngle, endAngle) => {
     if(!x||!y) console.error('x or y missing to describeArc')
 
-    let start = polarToCartesian(x, y, radius, endAngle),
-        end = polarToCartesian(x, y, radius, startAngle),
-        arcSweep = endAngle - startAngle <= 180 ? "0" : "1"
+    const start = polarToCartesian(x, y, radius, endAngle);
+        const end = polarToCartesian(x, y, radius, startAngle);
+        const arcSweep = endAngle - startAngle <= 180 ? '0' : '1'
 
 
     return [
-      "M", start.x, start.y,
-      "A", radius, radius, 0, arcSweep, 0, end.x, end.y,
+      'M', start.x, start.y,
+      'A', radius, radius, 0, arcSweep, 0, end.x, end.y,
 
-    ].join(" ");
+    ].join(' ');
   }
 
-    let percent = Math.min(props.percent || 0, 100),
-        radius = props.width / 2 - props.strokeWidth / 2 - props.padding,
-        center = radius + props.strokeWidth / 2 + props.padding,
-        startAngle = 0,
-        endAngle = 3.6 * percent,
-        label = `${percent}%`,
-        labelLeftOffset = label.length === 3 || label.length === 4 ? -0.95 : -0.6,
-        arc = describeArc(center, center, radius, startAngle, endAngle -.001)
+    const percent = Math.min(props.percent || 0, 100);
+        const radius = props.width / 2 - props.strokeWidth / 2 - props.padding;
+        const center = radius + props.strokeWidth / 2 + props.padding;
+        const startAngle = 0;
+        const endAngle = 3.6 * percent;
+        const label = `${percent}%`;
+        const labelLeftOffset = label.length === 3 || label.length === 4 ? -0.95 : -0.6;
+        const arc = describeArc(center, center, radius, startAngle, endAngle -.001)
 
     return (
       <svg
@@ -56,7 +56,7 @@ const SimpleChart = props => {
           x={center}
           y={center}
           dx={`${labelLeftOffset}em`}
-          dy=".35em"
+          dy='.35em'
           fill={props.labelColor}
           fontWeight={props.labelFontWeight}
           fontSize={props.labelFontSize}>

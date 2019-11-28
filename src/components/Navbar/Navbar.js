@@ -5,7 +5,7 @@ import classNames from 'classnames';
 const getExpandClass = expand => {
   if (expand === false) {
     return false;
-  } else if (expand === true || expand === 'xs') {
+  } if (expand === true || expand === 'xs') {
     return 'navbar-expand';
   }
 
@@ -55,7 +55,7 @@ class Navbar extends Component {
       ...attributes
     } = this.props;
 
-    let classes = classNames(
+    const classes = classNames(
       {
         'navbar-light': light,
         'navbar-dark': dark,

@@ -17,26 +17,27 @@ class ButtonFixed extends React.Component {
   handleClick(e) {
     // Get Cursor Position
     e.preventDefault();
-    let cursorPos = {
+    const cursorPos = {
       top: e.clientY,
       left: e.clientX,
       time: Date.now()
     };
-    this.setState({ cursorPos: cursorPos });
+    this.setState({ cursorPos });
   }
 
   onClick(e) {
     if (this.props.disabled) {
       e.preventDefault();
-      return;
+      
     }
   }
 
   showUl = () => this.setState({ ulDisplay: true });
+
   hideUl = () => this.setState({ ulDisplay: false });
 
   render() {
-    let {
+    const {
       active,
       block,
       className,
@@ -63,7 +64,7 @@ class ButtonFixed extends React.Component {
 
     const { ulDisplay } = this.state;
 
-    const buttonFixedClasses = classNames("fixed-action-btn", !!ulDisplay && "active");
+    const buttonFixedClasses = classNames('fixed-action-btn', !!ulDisplay && 'active');
 
     const classes = classNames(
       floating ? 'btn-floating' : 'btn',
@@ -114,7 +115,7 @@ class ButtonFixed extends React.Component {
           )}
         </a>
         {children && (
-          <ul className={classNames("list-unstyled" && !ulDisplay && "disabled")}>
+          <ul className={classNames('list-unstyled' && !ulDisplay && 'disabled')}>
             {children}
           </ul>
         )}

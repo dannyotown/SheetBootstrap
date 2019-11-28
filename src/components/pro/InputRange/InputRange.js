@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import "./InputRange.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import './InputRange.css';
 
 class InputRange extends React.Component {
   constructor(props) {
@@ -12,18 +12,18 @@ class InputRange extends React.Component {
       thumbActive: false,
       thumbHeight: 0,
       thumbWidth: 0,
-      thumbTop: "10px",
-      thumbMarginLeft: "-6px",
-      input: "input",
-      oneStep: ""
+      thumbTop: '10px',
+      thumbMarginLeft: '-6px',
+      input: 'input',
+      oneStep: ''
     };
 
     this.inputRef = React.createRef();
   }
 
   componentDidMount = () => {
-    let input = this.inputRef.current;
-    let inputWidth = input.offsetWidth;
+    const input = this.inputRef.current;
+    const inputWidth = input.offsetWidth;
     const oneStep = inputWidth / (this.props.max - this.props.min);
     this.setState({
       value: this.props.value,
@@ -33,7 +33,7 @@ class InputRange extends React.Component {
   };
 
   rangeChange = e => {
-    let newValue = e.target.value;
+    const newValue = e.target.value;
     this.setState({
       value: newValue,
       leftPosition:
@@ -45,22 +45,22 @@ class InputRange extends React.Component {
   rangeFocus = () => {
     this.setState({
       thumbActive: true,
-      thumbHeight: "30px",
-      thumbWidth: "30px",
-      thumbTop: "-20px",
-      thumbMarginLeft: "-15px"
+      thumbHeight: '30px',
+      thumbWidth: '30px',
+      thumbTop: '-20px',
+      thumbMarginLeft: '-15px'
     });
   };
 
   rangeMouseLeave = () => {
-    let input = this.inputRef.current;
+    const input = this.inputRef.current;
     input.blur();
     this.setState({
       thumbActive: false,
       thumbHeight: 0,
       thumbWidth: 0,
-      thumbTop: "10px",
-      thumbMarginLeft: "-6px"
+      thumbTop: '10px',
+      thumbMarginLeft: '-6px'
     });
   };
 
@@ -69,11 +69,11 @@ class InputRange extends React.Component {
 
     const inputClass = classNames(className);
 
-    const formClass = classNames("range-field", formClassName);
+    const formClass = classNames('range-field', formClassName);
 
     const thumbClass = classNames(
-      "thumb",
-      this.state.thumbActive ? "active" : false
+      'thumb',
+      this.state.thumbActive ? 'active' : false
     );
 
     return (
@@ -85,7 +85,7 @@ class InputRange extends React.Component {
           max={max}
           step={step}
           value={this.state.value}
-          type="range"
+          type='range'
           onChange={this.rangeChange}
           onFocus={this.rangeFocus}
           onMouseLeave={this.rangeMouseLeave}
@@ -100,7 +100,7 @@ class InputRange extends React.Component {
             marginLeft: this.state.thumbMarginLeft
           }}
         >
-          <span className="value">{this.state.value}</span>
+          <span className='value'>{this.state.value}</span>
         </span>
       </Tag>
     );
@@ -123,7 +123,7 @@ InputRange.defaultProps = {
   max: 100,
   value: 50,
   getValue: false,
-  tag: "div"
+  tag: 'div'
 };
 
 export default InputRange;

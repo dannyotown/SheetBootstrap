@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import InputFree from "../../Input";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import InputFree from '../../Input';
 
 class Input extends React.Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class Input extends React.Component {
     this.props.onBlur && this.props.onBlur(e);
     this.setState({ characterActive: false });
   };
+
   handleFocus = e => {
     this.props.onFocus && this.props.onFocus(e);
     this.setState({
@@ -43,12 +44,12 @@ class Input extends React.Component {
     } = this.props;
     const { character, characterActive, characterMax } = this.state;
 
-    const typeCounter = typeof characterMax === "number";
+    const typeCounter = typeof characterMax === 'number';
     const classes = classNames(
       className,
-      typeCounter && character >= characterMax && "invalid"
+      typeCounter && character >= characterMax && 'invalid'
     );
-    const styles = { float: "right", fontSize: "12px", height: "1px" };
+    const styles = { float: 'right', fontSize: '12px', height: '1px' };
 
     return (
       <InputFree
@@ -59,7 +60,7 @@ class Input extends React.Component {
         className={classes}
       >
         {counter && characterActive && (
-          <span className="character-counter" style={styles}>
+          <span className='character-counter' style={styles}>
             {character}
             {typeCounter && `/${characterMax}`}
           </span>

@@ -8,7 +8,7 @@ import {
   MDBCardBody,
   MDBTableEditable
 } from 'mdbreact';
-import DocsLink from './../../components/docsLink';
+import DocsLink from '../../components/docsLink';
 
 const columns = ['Person Name', 'Age', 'Company Name', 'Country', 'City'];
 

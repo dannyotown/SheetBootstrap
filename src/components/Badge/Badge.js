@@ -8,7 +8,7 @@ const Badge = props => {
   const classes = classNames(
     'badge',
     color,
-    'badge-' + color,
+    `badge-${  color}`,
     pill ? 'badge-pill' : false,
     className
   );

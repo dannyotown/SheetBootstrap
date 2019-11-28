@@ -1,30 +1,30 @@
-import React from "react";
-import { toast, ToastContainer, MDBContainer } from "mdbreact";
-import DocsLink from "../../components/docsLink";
-import SectionContainer from "../../components/sectionContainer";
+import React from 'react';
+import { toast, ToastContainer, MDBContainer } from 'mdbreact';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 const NotificationPage = () => {
   const notify = type => {
     return () => {
       switch (type) {
-        case "info":
-          toast.info("Info message", {
+        case 'info':
+          toast.info('Info message', {
             closeButton: false
           });
           break;
-        case "success":
-          toast.success("Success message", {
-            position: "top-left"
+        case 'success':
+          toast.success('Success message', {
+            position: 'top-left'
           });
           break;
-        case "warning":
-          toast.warn("Warning message");
+        case 'warning':
+          toast.warn('Warning message');
           break;
-        case "error":
-          toast.error("Error message");
+        case 'error':
+          toast.error('Error message');
           break;
         default:
-          toast.error("Error message");
+          toast.error('Error message');
       }
     };
   };
@@ -32,28 +32,28 @@ const NotificationPage = () => {
   return (
     <MDBContainer>
       <DocsLink
-        title="Notifications"
-        href="https://mdbootstrap.com/docs/react/addons/notification/"
+        title='Notifications'
+        href='https://mdbootstrap.com/docs/react/addons/notification/'
       />
-      <SectionContainer header="Basic examples" flexCenter>
-        <button className="btn btn-info" onClick={notify("info")}>
+      <SectionContainer header='Basic examples' flexCenter>
+        <button className='btn btn-info' onClick={notify('info')}>
           Info
         </button>
        
-        <button className="btn btn-success" onClick={notify("success")}>
+        <button className='btn btn-success' onClick={notify('success')}>
           Success
         </button>
       
-        <button className="btn btn-warning" onClick={notify("warning")}>
+        <button className='btn btn-warning' onClick={notify('warning')}>
           Warning
         </button>
        
-        <button className="btn btn-danger" onClick={notify("error")}>
+        <button className='btn btn-danger' onClick={notify('error')}>
           Error
         </button>
         <ToastContainer
-          hideProgressBar={true}
-          newestOnTop={true}
+          hideProgressBar
+          newestOnTop
           autoClose={5000}
         />
       </SectionContainer>

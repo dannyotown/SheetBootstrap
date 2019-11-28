@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { MDBInput } from '../../Input';
 import classNames from 'classnames';
+import { MDBInput } from '../../Input';
 
 class Autocomplete extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class Autocomplete extends Component {
     data.filter((el, index) => data.indexOf(el) === index);
 
   handleInput = e => {
-    let { value } = e.target;
+    const { value } = e.target;
 
     this.setState({
       value,
@@ -62,7 +62,7 @@ class Autocomplete extends Component {
   };
 
   setSuggestions = value => {
-    let filteredSuggestions = this.state.suggestions.filter(suggest =>
+    const filteredSuggestions = this.state.suggestions.filter(suggest =>
       suggest.toLowerCase().includes(value.toLowerCase().trim())
     );
     this.setState({ filteredSuggestions });
@@ -71,7 +71,7 @@ class Autocomplete extends Component {
   handleClear = () => this.setState({ value: '', focusedListItem: 0 });
 
   handleSelect = () => {
-    let value = this.state.filteredSuggestions[this.state.focusedListItem];
+    const value = this.state.filteredSuggestions[this.state.focusedListItem];
 
     if (value) {
       this.setState({
@@ -83,10 +83,10 @@ class Autocomplete extends Component {
   };
 
   keyDownHandler = e => {
-    let { filteredSuggestions, focusedListItem } = this.state;
+    const { filteredSuggestions, focusedListItem } = this.state;
 
     if (this.suggestionsList && this.state.filteredSuggestions) {
-      let suggestionsListNodes = this.suggestionsList.childNodes;
+      const suggestionsListNodes = this.suggestionsList.childNodes;
 
       suggestionsListNodes.length >= 5 &&
         suggestionsListNodes[this.state.focusedListItem].scrollIntoView({
@@ -171,8 +171,8 @@ class Autocomplete extends Component {
                 width={clearSize}
                 xmlns='https://www.w3.org/2000/svg'
               >
-                <path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'></path>
-                <path d='M0 0h24v24H0z' fill='none'></path>
+                <path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z' />
+                <path d='M0 0h24v24H0z' fill='none' />
               </svg>
             </button>
           )}

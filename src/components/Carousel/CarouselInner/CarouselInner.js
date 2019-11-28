@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const CarouselInner = props => {
-  let {
+  const {
     active,
     children,
     childrenCount,

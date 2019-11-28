@@ -18,12 +18,12 @@ describe('<InputRange />', () => {
     wrapper = mounted();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     const renders = findByTestAttr(wrapper, 'input-range');
     expect(renders.length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<InputRange />, div);
   });

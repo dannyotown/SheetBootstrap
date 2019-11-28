@@ -46,8 +46,8 @@ class DropdownItem extends React.Component {
 
     const classes = classNames(
       {
-        active: active,
-        disabled: disabled,
+        active,
+        disabled,
         'dropdown-item': !divider && !header,
         'dropdown-header': header,
         'dropdown-divider': divider

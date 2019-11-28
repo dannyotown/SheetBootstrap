@@ -1,24 +1,24 @@
-import React from "react";
-import classNames from "classnames";
-import PropTypes from "prop-types";
-import "./Stepper.css";
+import React from 'react';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import './Stepper.css';
 
 const Stepper = props => {
   const { vertical, form, icon } = props;
 
   const stepperClass = classNames(
-    form ? "steps-form" : icon && vertical ? "steps-form-3" : icon && !vertical ? "steps-form-2" : "stepper",
-    vertical && !icon ? "stepper-vertical" : form || icon ? null : "stepper-horizontal",
+    form ? 'steps-form' : icon && vertical ? 'steps-form-3' : icon && !vertical ? 'steps-form-2' : 'stepper',
+    vertical && !icon ? 'stepper-vertical' : form || icon ? null : 'stepper-horizontal',
     props.className
   );
 
   const wrapperFix = classNames(
     form
-      ? "steps-row"
+      ? 'steps-row'
       : icon && vertical
-      ? "steps-row-3 d-flex justify-content-between"
+      ? 'steps-row-3 d-flex justify-content-between'
       : icon && !vertical
-      ? "steps-row-2 d-flex justify-content-between"
+      ? 'steps-row-2 d-flex justify-content-between'
       : null
   );
 

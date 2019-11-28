@@ -110,7 +110,7 @@ class Input extends React.Component {
       ...attributes
     } = this.props;
 
-    let isNotEmpty =
+    const isNotEmpty =
       (!!this.state.innerValue ||
         !!hint ||
         this.state.isFocused ||
@@ -178,7 +178,7 @@ class Input extends React.Component {
             light={iconLight}
             regular={iconRegular}
             className={iconClassFix}
-            onClick={onIconClick ? onIconClick : this.setFocus}
+            onClick={onIconClick || this.setFocus}
             onMouseEnter={onIconMouseEnter}
             onMouseLeave={onIconMouseLeave}
           />

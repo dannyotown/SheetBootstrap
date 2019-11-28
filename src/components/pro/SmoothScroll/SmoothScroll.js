@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import Waves from "./../../Waves";
-import { Link } from "react-scroll";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { Link } from 'react-scroll';
+import Waves from '../../Waves';
 
 const SmoothScroll = props => {
   const [cursorPos, setCursorPos] = useState({});
@@ -11,7 +11,7 @@ const SmoothScroll = props => {
     if (!props.disabled) {
       e.stopPropagation();
       // Waves - Get Cursor Position
-      let cursorPos = {
+      const cursorPos = {
         top: e.clientY,
         left: e.clientX,
         time: Date.now()
@@ -49,26 +49,26 @@ const SmoothScroll = props => {
   } = props;
 
   const classes = classNames(
-    "nav-link",
-    disabled ? "disabled" : "Ripple-parent",
-    active && "active",
-    (btn || floating) && "btn",
-    floating && "btn-floating",
-    flat ? "btn-flat" : gradient ? `${gradient}-gradient` : `btn${outline ? "-outline" : ""}-${color}`,
+    'nav-link',
+    disabled ? 'disabled' : 'Ripple-parent',
+    active && 'active',
+    (btn || floating) && 'btn',
+    floating && 'btn-floating',
+    flat ? 'btn-flat' : gradient ? `${gradient}-gradient` : `btn${outline ? '-outline' : ''}-${color}`,
     size ? `btn-${size}` : false,
-    rounded ? "btn-rounded" : false,
-    block ? "btn-block" : false,
-    social ? "btn-" + social : false,
-    "Ripple-parent",
+    rounded ? 'btn-rounded' : false,
+    block ? 'btn-block' : false,
+    social ? `btn-${  social}` : false,
+    'Ripple-parent',
     className
   );
 
   const fixedStyles = {
-    position: "fixed",
+    position: 'fixed',
     top: top ? `${top}px` : null,
-    bottom: bottom ? `${bottom}px` : !top ? "45px" : null,
+    bottom: bottom ? `${bottom}px` : !top ? '45px' : null,
     left: left ? `${left}px` : null,
-    right: right ? `${right}px` : !left ? "24px" : null
+    right: right ? `${right}px` : !left ? '24px' : null
   };
 
   return (
@@ -118,7 +118,7 @@ SmoothScroll.propTypes = {
 
 SmoothScroll.defaultProps = {
   active: false,
-  className: "",
+  className: '',
   disabled: false,
   spy: true,
   smooth: true,

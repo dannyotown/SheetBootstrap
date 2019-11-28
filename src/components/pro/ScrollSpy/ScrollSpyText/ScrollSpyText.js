@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const ScrollSpyText = props => {
   
     const { className, children, scrollSpyRef, ...attributes } = props;
 
-    const classes = classNames("scrollspy-example z-depth-1", className);
+    const classes = classNames('scrollspy-example z-depth-1', className);
 
     return (
       <div {...attributes} ref={props.scrollSpyRef} className={classes}>

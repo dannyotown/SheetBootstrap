@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
-import DocsLink from "../components/docsLink";
-import SectionContainer from "../components/sectionContainer";
+import React, { Component } from 'react';
+import { MDBContainer, MDBRow, MDBCol, MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from 'mdbreact';
+import DocsLink from '../components/docsLink';
+import SectionContainer from '../components/sectionContainer';
 
 class PillsPage extends Component {
   state = {
-    activeItemPills: "1"
+    activeItemPills: '1'
   };
 
   togglePills = tab => () => {
@@ -19,30 +19,30 @@ class PillsPage extends Component {
   render() {
     return (
       <MDBContainer>
-        <DocsLink title="Pills" href="https://mdbootstrap.com/docs/react/components/pills/" />
+        <DocsLink title='Pills' href='https://mdbootstrap.com/docs/react/components/pills/' />
         <MDBContainer>
           <MDBRow>
-            <MDBCol md="12">
-              <SectionContainer header="Basic example">
-                <MDBNav className="nav-pills">
+            <MDBCol md='12'>
+              <SectionContainer header='Basic example'>
+                <MDBNav className='nav-pills'>
                   <MDBNavItem>
-                    <MDBNavLink to="#" active={this.state.activeItemPills === "1"} onClick={this.togglePills("1")}>
+                    <MDBNavLink to='#' active={this.state.activeItemPills === '1'} onClick={this.togglePills('1')}>
                       Home
                     </MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#" active={this.state.activeItemPills === "2"} onClick={this.togglePills("2")}>
+                    <MDBNavLink to='#' active={this.state.activeItemPills === '2'} onClick={this.togglePills('2')}>
                       Profile
                     </MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#" active={this.state.activeItemPills === "3"} onClick={this.togglePills("3")}>
+                    <MDBNavLink to='#' active={this.state.activeItemPills === '3'} onClick={this.togglePills('3')}>
                       Contact
                     </MDBNavLink>
                   </MDBNavItem>
                 </MDBNav>
                 <MDBTabContent activeItem={this.state.activeItemPills}>
-                  <MDBTabPane tabId="1">
+                  <MDBTabPane tabId='1'>
                     <p>
                       Consequat occaecat ullamco amet non eiusmod nostrud dolore irure incididunt est duis anim
                       sunt officia. Fugiat velit proident aliquip nisi incididunt nostrud exercitation proident est
@@ -51,7 +51,7 @@ class PillsPage extends Component {
                       quis. Occaecat sit eu exercitation irure Lorem incididunt nostrud.
                     </p>
                   </MDBTabPane>
-                  <MDBTabPane tabId="2">
+                  <MDBTabPane tabId='2'>
                     <p>
                       Ad pariatur nostrud pariatur exercitation ipsum ipsum culpa mollit commodo mollit ex. Aute
                       sunt incididunt amet commodo est sint nisi deserunt pariatur do. Aliquip ex eiusmod voluptate
@@ -60,7 +60,7 @@ class PillsPage extends Component {
                       pariatur ut ullamco ea tempor duis.
                     </p>
                   </MDBTabPane>
-                  <MDBTabPane tabId="3">
+                  <MDBTabPane tabId='3'>
                     <p>
                       Est quis nulla laborum officia ad nisi ex nostrud culpa Lorem excepteur aliquip dolor aliqua
                       irure ex. Nulla ut duis ipsum nisi elit fugiat commodo sunt reprehenderit laborum veniam eu

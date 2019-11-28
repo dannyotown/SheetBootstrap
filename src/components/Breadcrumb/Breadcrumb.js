@@ -6,7 +6,7 @@ import { getColorClass } from '../utils';
 const Breadcrumb = props => {
   const { className, color, light, uppercase, bold, ...attributes } = props;
 
-  let classes = classNames(
+  const classes = classNames(
     'breadcrumb',
     uppercase && 'text-uppercase',
     bold && 'font-up-bold',

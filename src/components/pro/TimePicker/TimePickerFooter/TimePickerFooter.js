@@ -15,16 +15,16 @@ const propTypes = {
 
 const TimePickerFooter = ({ cancelable, cancelText, clearable, clearText, doneText, handleCancelClick, handleClearClick, handleDoneClick }) => {
   return (
-    <div className="picker__footer">
+    <div className='picker__footer'>
       {
         clearable &&
-        <Button flat className="clockpicker-button" tabIndex="0" onClick={handleClearClick}>{clearText}</Button>
+        <Button flat className='clockpicker-button' tabIndex='0' onClick={handleClearClick}>{clearText}</Button>
       }
       {
         cancelable &&
-        <Button flat className="clockpicker-button" tabIndex="0" onClick={handleCancelClick}>{cancelText}</Button>
+        <Button flat className='clockpicker-button' tabIndex='0' onClick={handleCancelClick}>{cancelText}</Button>
       }
-      <Button flat className="clockpicker-button" tabIndex="0" onClick={handleDoneClick}>{doneText}</Button>
+      <Button flat className='clockpicker-button' tabIndex='0' onClick={handleDoneClick}>{doneText}</Button>
     </div>
   );
 }

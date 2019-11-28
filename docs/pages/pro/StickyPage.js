@@ -1,63 +1,63 @@
-import React from "react";
-import { MDBSticky, MDBStickyContent, MDBContainer } from "mdbreact";
-import DocsLink from "./../../components/docsLink";
-import SectionContainer from "./../../components/sectionContainer";
+import React from 'react';
+import { MDBSticky, MDBStickyContent, MDBContainer } from 'mdbreact';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 const StickyPage = () => {
-  const wrapper = { height: "3500px", backgroundColor: "rgba(0,0,0,.15)" };
+  const wrapper = { height: '3500px', backgroundColor: 'rgba(0,0,0,.15)' };
 
   const background = {
-    width: "100%",
-    backgroundColor: "#fff",
-    height: "3000px",
-    lineHeight: "1.5"
+    width: '100%',
+    backgroundColor: '#fff',
+    height: '3000px',
+    lineHeight: '1.5'
   };
   const headerStyle = {
-    width: "100%",
-    background: "#2f93ce",
-    color: "#fff",
-    padding: "10px 20px",
-    margin: "0"
+    width: '100%',
+    background: '#2f93ce',
+    color: '#fff',
+    padding: '10px 20px',
+    margin: '0'
   };
-  const mainWrapper = { width: 960, margin: "0 auto" };
-  const sidebar = { float: "left", width: "230px", padding: "10px 15px" };
+  const mainWrapper = { width: 960, margin: '0 auto' };
+  const sidebar = { float: 'left', width: '230px', padding: '10px 15px' };
   const article = {
-    width: "458px",
-    padding: "0 20px",
-    borderLeft: "1px solid #ccc",
-    borderRight: "1px solid #ccc",
-    float: "left"
+    width: '458px',
+    padding: '0 20px',
+    borderLeft: '1px solid #ccc',
+    borderRight: '1px solid #ccc',
+    float: 'left'
   };
 
-  window.addEventListener("scroll", function(e) {
-    let nav = document.querySelector("nav");
-    if (document.querySelector(".stickyContentDemo")) {
+  window.addEventListener('scroll', function(e) {
+    const nav = document.querySelector('nav');
+    if (document.querySelector('.stickyContentDemo')) {
       
-      nav.style.transition = "background 0.5s ease-in-out, padding 0.5s ease-in-out,top 1s";
+      nav.style.transition = 'background 0.5s ease-in-out, padding 0.5s ease-in-out,top 1s';
       if (
         document.body.scrollTop > 150 ||
         document.documentElement.scrollTop > 150
       ) {
-        nav.style.top = "-65px";
+        nav.style.top = '-65px';
       } else {
-        nav.style.top = "0";
+        nav.style.top = '0';
       }
     } else {
-      nav.style.top = "0";
+      nav.style.top = '0';
     }
   });
 
   return (
     <MDBContainer>
       <DocsLink
-        title="Sticky Content"
-        href="https://mdbootstrap.com/docs/react/advanced/sticky/"
+        title='Sticky Content'
+        href='https://mdbootstrap.com/docs/react/advanced/sticky/'
       />
-      <SectionContainer header="Demo" className="stickyContentDemo">
-        <div style={wrapper} className="mt-4">
+      <SectionContainer header='Demo' className='stickyContentDemo'>
+        <div style={wrapper} className='mt-4'>
           <div style={background}>
             <div style={mainWrapper}>
-              <MDBStickyContent style={{ background: "#fff", height: "465px" }}>
+              <MDBStickyContent style={{ background: '#fff', height: '465px' }}>
                 <MDBSticky>
                   {({ style }) => {
                     return (
@@ -127,7 +127,7 @@ const StickyPage = () => {
                   interdum luctus eros sed pretium. Proin turpis odio, viverra
                   et tincidunt nec, tincidunt sed nisl.
                 </p>
-                <MDBStickyContent style={{ height: "2200px" }}>
+                <MDBStickyContent style={{ height: '2200px' }}>
                   <MDBSticky>
                     {({
                       isSticky,
@@ -156,7 +156,7 @@ const StickyPage = () => {
                       );
                     }}
                   </MDBSticky>
-                  <h2 className="mt-3">Static Widget</h2>
+                  <h2 className='mt-3'>Static Widget</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Etiam interdum luctus eros sed pretium. Proin turpis odio,
@@ -294,7 +294,7 @@ const StickyPage = () => {
               </div>
 
               <div style={sidebar}>
-                <MDBStickyContent style={{ height: "2520px" }}>
+                <MDBStickyContent style={{ height: '2520px' }}>
                   <MDBSticky>
                     {({ style }) => {
                       return (
@@ -322,7 +322,7 @@ const StickyPage = () => {
                       );
                     }}
                   </MDBSticky>
-                  <h2 className="mt-5">Static Widget</h2>
+                  <h2 className='mt-5'>Static Widget</h2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Etiam interdum luctus eros sed pretium. Proin turpis odio,

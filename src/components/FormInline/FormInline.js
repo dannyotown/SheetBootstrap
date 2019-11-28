@@ -8,7 +8,7 @@ const FormInline = props => {
 
   const handleClick = e => {
     // Get Cursor Position
-    let cursorPos = {
+    const cursorPos = {
       top: e.clientY,
       left: e.clientX,
       time: Date.now()

@@ -39,8 +39,8 @@ const DataTableTableScroll = props => {
   } = props;
 
   const minWidth = scrollX
-    ? columns.map(col => col.width).reduce((prev, curr) => prev + curr, 0) +
-      'px'
+    ? `${columns.map(col => col.width).reduce((prev, curr) => prev + curr, 0) 
+      }px`
     : 'auto';
 
   return (

@@ -14,7 +14,7 @@ describe('<TableFoot />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'table-foot').length).toBe(1);
   });
 
@@ -39,7 +39,7 @@ describe('<TableFoot />', () => {
     checkProps(wrapper, {});
   });
 
-  test(`adds custom attributes passed as property`, () => {
+  test('adds custom attributes passed as property', () => {
     wrapper = setup({ customAttr: 'custom' });
 
     expect(wrapper.find('[customAttr="custom"]').length).toBe(1);

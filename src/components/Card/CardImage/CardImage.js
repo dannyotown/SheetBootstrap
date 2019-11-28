@@ -10,7 +10,7 @@ const CardImage = props => {
 
   const handleClick = e => {
     // Get Cursor Position
-    let cursorPos = {
+    const cursorPos = {
       top: e.clientY,
       left: e.clientX,
       time: Date.now()
@@ -35,7 +35,7 @@ const CardImage = props => {
   const Tag = tag;
 
   const innerContent = (
-    <Tag data-test="card-image" {...attributes} className={classes}>
+    <Tag data-test='card-image' {...attributes} className={classes}>
       {props.children}
     </Tag>
   );
@@ -54,9 +54,9 @@ const CardImage = props => {
         </div>
       </View>
     );
-  } else {
+  } 
     return <div>{innerContent}</div>;
-  }
+  
 };
 
 CardImage.propTypes = {

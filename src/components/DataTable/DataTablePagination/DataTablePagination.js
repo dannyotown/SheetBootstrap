@@ -21,14 +21,14 @@ class DataTablePagination extends Component {
   };
 
   pagesIndexify = () => {
-    let mutablePages = [...this.state.pages];
+    const mutablePages = [...this.state.pages];
     mutablePages.forEach((page, index) => (page.index = index));
     return mutablePages;
   };
 
   groupPages = () => {
-    let pGroups = [];
-    let pages = this.pagesIndexify();
+    const pGroups = [];
+    const pages = this.pagesIndexify();
 
     while (pages.length > 0) {
       pGroups.push(pages.splice(0, this.props.pagesAmount));

@@ -18,11 +18,11 @@ describe('<DatePicker />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'date-picker').length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<DatePicker />, div);
   });

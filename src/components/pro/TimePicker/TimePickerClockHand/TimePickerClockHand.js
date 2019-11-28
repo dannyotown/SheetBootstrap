@@ -17,7 +17,7 @@ const TimpiePickerClockHand = ({ angle, between, color, scale }) => {
 
   return (
     <div className={classes} style={{ transform: `rotate(${angle}deg)`, height: `calc((50% - 28px) * ${scale})` }}>
-      <div className="time-picker-clock__hand--ring" />
+      <div className='time-picker-clock__hand--ring' />
     </div>
   );
 }

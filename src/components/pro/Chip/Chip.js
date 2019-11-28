@@ -11,7 +11,7 @@ const Chip = props => {
   const handleClick = e => {
     // Get Cursor Position
     e.stopPropagation();
-    let cursorPos = {
+    const cursorPos = {
       top: e.clientY,
       left: e.clientX,
       time: Date.now()
@@ -42,10 +42,10 @@ const Chip = props => {
 
   const classes = classNames(
     'chip',
-    size && 'chip-' + size,
+    size && `chip-${  size}`,
     bgColor && bgColor,
-    text && text + '-text',
-    gradient && gradient + '-gradient',
+    text && `${text  }-text`,
+    gradient && `${gradient  }-gradient`,
     waves && 'Ripple-parent',
     className
   );

@@ -1,7 +1,8 @@
-import React, { Component } from "react";
-import { MDBContainer, MDBChip, MDBChipsInput } from "mdbreact";
-import DocsLink from "../../components/docsLink";
-import SectionContainer from "../../components/sectionContainer";
+import React, { Component } from 'react';
+import { MDBContainer, MDBChip, MDBChipsInput } from 'mdbreact';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
+
 class ChipsPage extends Component {
   state = {
     // No avatars:
@@ -41,7 +42,7 @@ class ChipsPage extends Component {
 
   handleCloseHere = param => e => {
     this.setState({
-      ["show" + param]: false
+      [`show${  param}`]: false
     });
   };
 
@@ -76,10 +77,10 @@ class ChipsPage extends Component {
 
     return (
       <MDBContainer>
-        <DocsLink title="Chips" href="https://mdbootstrap.com/docs/react/components/badges/#chips-avatars" />
+        <DocsLink title='Chips' href='https://mdbootstrap.com/docs/react/components/badges/#chips-avatars' />
         <MDBContainer>
-          <SectionContainer header="Basic examples">
-            <div className="d-flex justify-content-center align-items-center">
+          <SectionContainer header='Basic examples'>
+            <div className='d-flex justify-content-center align-items-center'>
               {show1 && (
                 <MDBChip waves close handleClose={this.handleCloseHere(1)}>
                   Tag 1
@@ -112,85 +113,85 @@ class ChipsPage extends Component {
               )}
             </div>
 
-            <div className="d-flex justify-content-center align-items-center">
+            <div className='d-flex justify-content-center align-items-center'>
               {show7 && (
-                <MDBChip waves bgColor="pink lighten-4" close handleClose={this.handleCloseHere(7)}>
+                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(7)}>
                   Tag 220
                 </MDBChip>
               )}
               {show8 && (
-                <MDBChip waves bgColor="pink lighten-4" close handleClose={this.handleCloseHere(8)}>
+                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(8)}>
                   Tag 219
                 </MDBChip>
               )}
               {show9 && (
-                <MDBChip waves bgColor="pink lighten-4" close handleClose={this.handleCloseHere(9)}>
+                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(9)}>
                   Tag 218
                 </MDBChip>
               )}
               {show10 && (
-                <MDBChip waves bgColor="pink lighten-4" close handleClose={this.handleCloseHere(10)}>
+                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(10)}>
                   Tag 217
                 </MDBChip>
               )}
               {show11 && (
-                <MDBChip waves bgColor="pink lighten-4" close handleClose={this.handleCloseHere(11)}>
+                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(11)}>
                   Tag 216
                 </MDBChip>
               )}
               {show12 && (
-                <MDBChip waves bgColor="pink lighten-4" close handleClose={this.handleCloseHere(12)}>
+                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(12)}>
                   Tag 215
                 </MDBChip>
               )}
             </div>
           </SectionContainer>
 
-          <SectionContainer header="With avatars">
-            <div className="d-flex justify-content-center align-items-center">
-              <MDBChip src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="Contact Person" waves>
+          <SectionContainer header='With avatars'>
+            <div className='d-flex justify-content-center align-items-center'>
+              <MDBChip src='https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg' alt='Contact Person' waves>
                 John Doe
               </MDBChip>
               <MDBChip
-                size="md"
-                src="https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg"
-                alt="Contact Person"
+                size='md'
+                src='https://mdbootstrap.com/img/Photos/Avatars/avatar-10.jpg'
+                alt='Contact Person'
                 waves
               >
                 Anna Smith
               </MDBChip>
               <MDBChip
-                size="lg"
-                src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
-                alt="Contact Person"
+                size='lg'
+                src='https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg'
+                alt='Contact Person'
                 waves
               >
                 Lara Lim
               </MDBChip>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className='d-flex justify-content-center align-items-center'>
               <MDBChip
-                src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
-                alt="Contact Person"
-                bgColor="light-blue lighten-4"
+                src='https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg'
+                alt='Contact Person'
+                bgColor='light-blue lighten-4'
                 waves
               >
                 Tom Dark
               </MDBChip>
               <MDBChip
-                size="md"
-                src="https://mdbootstrap.com/img/Photos/Avatars/avatar-12.jpg"
-                alt="Contact Person"
-                bgColor="light-blue lighten-4"
+                size='md'
+                src='https://mdbootstrap.com/img/Photos/Avatars/avatar-12.jpg'
+                alt='Contact Person'
+                bgColor='light-blue lighten-4'
                 waves
               >
                 Kate Horwitz
               </MDBChip>
               <MDBChip
-                size="lg"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img(27).jpg"
-                alt="Contact Person"
-                bgColor="light-blue lighten-4"
+                size='lg'
+                src='https://mdbootstrap.com/img/Photos/Avatars/img(27).jpg'
+                alt='Contact Person'
+                bgColor='light-blue lighten-4'
                 waves
               >
                 Danny Clark
@@ -198,112 +199,112 @@ class ChipsPage extends Component {
             </div>
           </SectionContainer>
 
-          <SectionContainer header="With various color">
-            <div className="d-flex justify-content-center align-items-center">
+          <SectionContainer header='With various color'>
+            <div className='d-flex justify-content-center align-items-center'>
               <MDBChip
-                src="https://mdbootstrap.com/img/Photos/Avatars/img(7).jpg"
-                alt="Contact Person"
-                bgColor="blue lighten-4"
+                src='https://mdbootstrap.com/img/Photos/Avatars/img(7).jpg'
+                alt='Contact Person'
+                bgColor='blue lighten-4'
                 waves
               >
                 Caroline Smith
               </MDBChip>
               <MDBChip
-                src="https://mdbootstrap.com/img/Photos/Avatars/img(3).jpg"
-                alt="Contact Person"
-                bgColor="purple lighten-4"
+                src='https://mdbootstrap.com/img/Photos/Avatars/img(3).jpg'
+                alt='Contact Person'
+                bgColor='purple lighten-4'
                 waves
               >
                 Adam Grey
               </MDBChip>
               <MDBChip
-                src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg"
-                alt="Contact Person"
-                bgColor="amber lighten-3"
+                src='https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg'
+                alt='Contact Person'
+                bgColor='amber lighten-3'
                 waves
               >
                 Danny Moor
               </MDBChip>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className='d-flex justify-content-center align-items-center'>
               <MDBChip
-                size="md"
-                src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg"
-                alt="Contact Person"
-                bgColor="orange darken-2"
-                text="white"
+                size='md'
+                src='https://mdbootstrap.com/img/Photos/Avatars/avatar-5.jpg'
+                alt='Contact Person'
+                bgColor='orange darken-2'
+                text='white'
                 waves
               >
                 Daisy Sun
               </MDBChip>
               <MDBChip
-                size="md"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img(28).jpg"
-                alt="Contact Person"
-                bgColor="cyan darken-2"
-                text="white"
+                size='md'
+                src='https://mdbootstrap.com/img/Photos/Avatars/img(28).jpg'
+                alt='Contact Person'
+                bgColor='cyan darken-2'
+                text='white'
                 waves
               >
                 Martha Lores
               </MDBChip>
               <MDBChip
-                size="md"
-                src="https://mdbootstrap.com/img/Photos/Avatars/avatar-12.jpg"
-                alt="Contact Person"
-                bgColor="pink darken-2"
-                text="white"
+                size='md'
+                src='https://mdbootstrap.com/img/Photos/Avatars/avatar-12.jpg'
+                alt='Contact Person'
+                bgColor='pink darken-2'
+                text='white'
                 waves
               >
                 Alexandra Deyn
               </MDBChip>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className='d-flex justify-content-center align-items-center'>
               <MDBChip
-                size="lg"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img(27).jpg"
-                alt="Contact Person"
-                bgColor="primary-color"
-                text="white"
+                size='lg'
+                src='https://mdbootstrap.com/img/Photos/Avatars/img(27).jpg'
+                alt='Contact Person'
+                bgColor='primary-color'
+                text='white'
                 waves
               >
                 Olaf Horwitz
               </MDBChip>
               <MDBChip
-                size="lg"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img(30).jpg"
-                alt="Contact Person"
-                bgColor="danger-color"
-                text="white"
+                size='lg'
+                src='https://mdbootstrap.com/img/Photos/Avatars/img(30).jpg'
+                alt='Contact Person'
+                bgColor='danger-color'
+                text='white'
                 waves
               >
                 Mary-Kate Dare
               </MDBChip>
               <MDBChip
-                size="lg"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img(21).jpg"
-                alt="Contact Person"
-                bgColor="success-color"
-                text="white"
+                size='lg'
+                src='https://mdbootstrap.com/img/Photos/Avatars/img(21).jpg'
+                alt='Contact Person'
+                bgColor='success-color'
+                text='white'
                 waves
               >
                 The Sylvester
               </MDBChip>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className='d-flex justify-content-center align-items-center'>
               {show13 && (
-                <MDBChip bgColor="teal lighten-2" text="white" close waves handleClose={this.handleCloseHere(13)}>
+                <MDBChip bgColor='teal lighten-2' text='white' close waves handleClose={this.handleCloseHere(13)}>
                   Martha
                 </MDBChip>
               )}
               {show14 && (
-                <MDBChip bgColor="pink lighten-2" text="white" close waves handleClose={this.handleCloseHere(14)}>
+                <MDBChip bgColor='pink lighten-2' text='white' close waves handleClose={this.handleCloseHere(14)}>
                   Agnes
                 </MDBChip>
               )}
               {show15 && (
                 <MDBChip
-                  bgColor="light-blue lighten-2"
-                  text="white"
+                  bgColor='light-blue lighten-2'
+                  text='white'
                   close
                   waves
                   handleClose={this.handleCloseHere(15)}
@@ -313,8 +314,8 @@ class ChipsPage extends Component {
               )}
               {show16 && (
                 <MDBChip
-                  bgColor="purple lighten-2"
-                  text="white"
+                  bgColor='purple lighten-2'
+                  text='white'
                   close
                   waves
                   handleClose={this.handleCloseHere(16)}
@@ -324,8 +325,8 @@ class ChipsPage extends Component {
               )}
               {show17 && (
                 <MDBChip
-                  bgColor="mdb-color lighten-2"
-                  text="white"
+                  bgColor='mdb-color lighten-2'
+                  text='white'
                   close
                   waves
                   handleClose={this.handleCloseHere(17)}
@@ -334,12 +335,12 @@ class ChipsPage extends Component {
                 </MDBChip>
               )}
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className='d-flex justify-content-center align-items-center'>
               {show18 && (
                 <MDBChip
-                  size="md"
-                  bgColor="red lighten-4"
-                  text="red"
+                  size='md'
+                  bgColor='red lighten-4'
+                  text='red'
                   close
                   waves
                   handleClose={this.handleCloseHere(18)}
@@ -349,9 +350,9 @@ class ChipsPage extends Component {
               )}
               {show19 && (
                 <MDBChip
-                  size="md"
-                  bgColor="indigo lighten-4"
-                  text="indigo"
+                  size='md'
+                  bgColor='indigo lighten-4'
+                  text='indigo'
                   close
                   waves
                   handleClose={this.handleCloseHere(19)}
@@ -361,9 +362,9 @@ class ChipsPage extends Component {
               )}
               {show20 && (
                 <MDBChip
-                  size="md"
-                  bgColor="cyan lighten-4"
-                  text="cyan"
+                  size='md'
+                  bgColor='cyan lighten-4'
+                  text='cyan'
                   close
                   waves
                   handleClose={this.handleCloseHere(20)}
@@ -373,9 +374,9 @@ class ChipsPage extends Component {
               )}
               {show21 && (
                 <MDBChip
-                  size="md"
-                  bgColor="deep-purple lighten-4"
-                  text="deep-purple"
+                  size='md'
+                  bgColor='deep-purple lighten-4'
+                  text='deep-purple'
                   close
                   waves
                   handleClose={this.handleCloseHere(21)}
@@ -384,17 +385,17 @@ class ChipsPage extends Component {
                 </MDBChip>
               )}
             </div>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className='d-flex justify-content-center align-items-center'>
               {show22 && (
-                <MDBChip size="lg" gradient="aqua" text="white" close waves handleClose={this.handleCloseHere(22)}>
+                <MDBChip size='lg' gradient='aqua' text='white' close waves handleClose={this.handleCloseHere(22)}>
                   Aqua gradient
                 </MDBChip>
               )}
               {show23 && (
                 <MDBChip
-                  size="lg"
-                  gradient="peach"
-                  text="white"
+                  size='lg'
+                  gradient='peach'
+                  text='white'
                   close
                   waves
                   handleClose={this.handleCloseHere(23)}
@@ -404,9 +405,9 @@ class ChipsPage extends Component {
               )}
               {show24 && (
                 <MDBChip
-                  size="lg"
-                  gradient="purple"
-                  text="white"
+                  size='lg'
+                  gradient='purple'
+                  text='white'
                   close
                   waves
                   handleClose={this.handleCloseHere(24)}
@@ -415,20 +416,20 @@ class ChipsPage extends Component {
                 </MDBChip>
               )}
               {show25 && (
-                <MDBChip size="lg" gradient="blue" text="white" close waves handleClose={this.handleCloseHere(25)}>
+                <MDBChip size='lg' gradient='blue' text='white' close waves handleClose={this.handleCloseHere(25)}>
                   Blue gradient
                 </MDBChip>
               )}
             </div>
           </SectionContainer>
 
-          <SectionContainer header="Basic examples">
-            <MDBChipsInput placeholder="+Tag" secondaryPlaceholder="Enter a tag"
+          <SectionContainer header='Basic examples'>
+            <MDBChipsInput placeholder='+Tag' secondaryPlaceholder='Enter a tag'
               getValue={(value) => console.log(value)}
               handleRemove={(value) => console.log(value)}
               handleAdd={(value) => console.log(value)} />
             <MDBChipsInput
-              chips={["Tag 1", "Tag 2", "Tag 3"]}
+              chips={['Tag 1', 'Tag 2', 'Tag 3']}
               getValue={(value) => console.log(value)}
             />
           </SectionContainer>

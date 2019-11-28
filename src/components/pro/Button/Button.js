@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonFree from '../../Button';
 import classNames from 'classnames';
+import ButtonFree from '../../Button';
 
 const Button = ({
   children,

@@ -35,7 +35,7 @@ class CarouselItem extends Component {
 
     itemId = parseInt(itemId, 10);
 
-    let classes = classNames(
+    const classes = classNames(
       'carousel-item',
       {
         'active carousel-slide-item': this.context.slide,
@@ -44,7 +44,7 @@ class CarouselItem extends Component {
       className
     );
 
-    let slideIndex = this.context.activeItem - itemId;
+    const slideIndex = this.context.activeItem - itemId;
 
     if (this.context.slide) {
       if (slideIndex < 0) {

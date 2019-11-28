@@ -39,9 +39,9 @@ class ControlledSelectOptions extends Component {
     const filteredOptions = this.state.options.filter(option => {
       if (option.text) {
         return option.text.toLowerCase().match(value.toLowerCase().trim());
-      } else {
+      } 
         return option.value.toLowerCase().match(value.toLowerCase().trim());
-      }
+      
     });
 
     this.props.changeFocus(null);
@@ -130,7 +130,7 @@ class ControlledSelectOptions extends Component {
         )}
         <ControlledSelectOption
           checked={false}
-          disabled={true}
+          disabled
           icon={null}
           value={selected}
         />
@@ -140,7 +140,7 @@ class ControlledSelectOptions extends Component {
             value={selectAllValue}
             selectAllClassName={selectAllClassName}
             checked={allChecked}
-            multiple={true}
+            multiple
             selectOption={selectOption}
             isFocused={focused === -1}
             focusShadow={focusShadow}

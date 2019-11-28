@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import Fa from "../../../Fa";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import Fa from '../../../Fa';
 
 const TimelineStep = props => {
   const {
@@ -22,21 +22,21 @@ const TimelineStep = props => {
   } = props;
 
   const circleClasses = classNames(
-    "circle",
-    "z-depth-1-half",
-    color ? color : "primary-color",
+    'circle',
+    'z-depth-1-half',
+    color || 'primary-color',
     className
   );
 
   const stepContentClasses = classNames(
-    "step-content",
-    "z-depth-1",
-    "ml-xl-0",
-    colorful ? "p-0 mt-2" : "p-4",
-    hoverable && "hoverable"
+    'step-content',
+    'z-depth-1',
+    'ml-xl-0',
+    colorful ? 'p-0 mt-2' : 'p-4',
+    hoverable && 'hoverable'
   );
 
-  const liClasses = classNames(inverted && "timeline-inverted");
+  const liClasses = classNames(inverted && 'timeline-inverted');
 
   return (
     <li className={liClasses}>
@@ -75,7 +75,7 @@ TimelineStep.propTypes = {
 };
 
 TimelineStep.defaultProps = {
-  href: "#"
+  href: '#'
 };
 
 export default TimelineStep;

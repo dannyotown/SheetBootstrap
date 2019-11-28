@@ -10,7 +10,7 @@ const InputFile = props => {
   const fileChange = files => {
     if (files.length > 0) {
       if (files.length > 1) {
-        let filesNames = [];
+        const filesNames = [];
         for (let i = 0; i < files.length; i++) {
           filesNames.push(files[i].name);
         }
@@ -46,7 +46,7 @@ const InputFile = props => {
 
   const btnClass = classNames(
     'btn',
-    'btn-' + btnColor,
+    `btn-${  btnColor}`,
     'btn-sm',
     reverse ? 'float-right' : 'float-left'
   );
@@ -74,7 +74,7 @@ const InputFile = props => {
         <input
           className={inputFieldClass}
           type='text'
-          placeholder={files ? files : textFieldTitle}
+          placeholder={files || textFieldTitle}
           style={{ position: reset ? 'relative' : null }}
         />
       </div>
@@ -82,7 +82,7 @@ const InputFile = props => {
         <CloseIcon
           onClick={resetFiles}
           className={resetClassName}
-          ariaLabel={resetAriaLabel ? resetAriaLabel : null}
+          ariaLabel={resetAriaLabel || null}
           style={{
             position: 'absolute',
             top: '50%',

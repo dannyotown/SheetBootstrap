@@ -11,8 +11,8 @@ import {
   MDBTooltip,
   MDBIcon
 } from 'mdbreact';
-import { ReactComponent as Logo } from './assets/logo.svg';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ReactComponent as Logo } from './assets/logo.svg';
 import Routes from './Routes';
 
 class App extends Component {

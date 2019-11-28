@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Avatar = props => {
   const {
@@ -19,38 +19,38 @@ const Avatar = props => {
   let TagType;
   let objectSize;
 
-  src ? (TagType = "img") : (TagType = Tag);
+  src ? (TagType = 'img') : (TagType = Tag);
 
   size
     ? (objectSize = size)
     : src
-    ? (objectSize = "48px")
-    : (objectSize = "40px");
+    ? (objectSize = '48px')
+    : (objectSize = '40px');
 
   const classes = classNames(
-    "avatar",
+    'avatar',
     !src && background,
-    round && "rounded",
-    circle && "rounded-circle",
-    "d-table-cell align-middle text-center font-weight-bool",
+    round && 'rounded',
+    circle && 'rounded-circle',
+    'd-table-cell align-middle text-center font-weight-bool',
     className
   );
 
   const defaultStyles = {
     height: objectSize,
     width: objectSize,
-    color: "white"
+    color: 'white'
   };
 
   return (
     <TagType
-      data-test="avatar"
+      data-test='avatar'
       {...attributes}
       className={classes}
       style={{ ...defaultStyles, ...style }}
       src={src}
     >
-      {children && typeof children === "string" ? (
+      {children && typeof children === 'string' ? (
         <strong>{children}</strong>
       ) : (
         children
@@ -76,10 +76,10 @@ Avatar.propTypes = {
 };
 
 Avatar.defaultProps = {
-  background: "grey",
+  background: 'grey',
   circle: false,
   round: false,
-  tag: "div"
+  tag: 'div'
 };
 
 export default Avatar;

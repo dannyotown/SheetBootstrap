@@ -27,7 +27,7 @@ export default {
 
   methods: {
     addBackgroundColorClassChecks (obj = {}, color = this.computedColor) {
-      const classes = Object.assign({}, obj);
+      const classes = { ...obj};
 
       if (color) {
         classes[color] = true;
@@ -36,12 +36,12 @@ export default {
       return classes;
     },
     addTextColorClassChecks (obj = {}, color = this.computedColor) {
-      const classes = Object.assign({}, obj);
+      const classes = { ...obj};
 
       if (color) {
         const [colorName, colorModifier] = color.trim().split(' ');
-        classes[colorName + '--text'] = true;
-        colorModifier && (classes['text--' + colorModifier] = true);
+        classes[`${colorName  }--text`] = true;
+        colorModifier && (classes[`text--${  colorModifier}`] = true);
       }
 
       return classes;

@@ -18,12 +18,12 @@ class ButtonFixed extends React.Component {
 
   handleClick(e) {
     // Get Cursor Position
-    let cursorPos = {
+    const cursorPos = {
       top: e.clientY,
       left: e.clientX,
       time: Date.now()
     };
-    this.setState({ cursorPos: cursorPos });
+    this.setState({ cursorPos });
   }
 
   onClick = e => {
@@ -36,7 +36,7 @@ class ButtonFixed extends React.Component {
   };
 
   render() {
-    let {
+    const {
       active,
       block,
       className,

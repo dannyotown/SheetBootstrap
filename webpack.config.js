@@ -5,9 +5,9 @@ const config = {
   mode: 'development',
   entry: './docs/index.js',
   output: {
-    path: path.resolve(__dirname, "temp"),
-    filename: "main.js",
-    publicPath: "/"
+    path: path.resolve(__dirname, 'temp'),
+    filename: 'main.js',
+    publicPath: '/'
   },
   resolve: {
     alias: {

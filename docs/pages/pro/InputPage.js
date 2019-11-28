@@ -34,7 +34,7 @@ class InputPage extends Component {
 
   handleCheckboxChange = e => {
     this.setState({ checkbox: !this.state.checkbox });
-    console.log(e.target.value + ' checked? ' + e.target.checked);
+    console.log(`${e.target.value  } checked? ${  e.target.checked}`);
   };
 
   handleSwitchChange = value => {
@@ -43,11 +43,11 @@ class InputPage extends Component {
   };
 
   handleChange = e => {
-    console.log(e.target.value + ' checked? ' + e.target.checked);
+    console.log(`${e.target.value  } checked? ${  e.target.checked}`);
   };
 
   handleRangeChange = value => {
-    console.log('range value: ' + value);
+    console.log(`range value: ${  value}`);
   };
 
   render() {
@@ -134,7 +134,7 @@ class InputPage extends Component {
             <MDBFormInline>
               <MDBInput
                 label='Classic checkbox'
-                labelClass="mr-5"
+                labelClass='mr-5'
                 type='checkbox'
                 value='example'
                 id='checkbox5'
@@ -144,7 +144,7 @@ class InputPage extends Component {
               <MDBInput
                 label='Filled-in checkbox'
                 filled
-                labelClass="mr-5"
+                labelClass='mr-5'
                 value='example2'
                 type='checkbox'
                 id='checkbox6'
@@ -153,7 +153,7 @@ class InputPage extends Component {
               />
               <MDBInput
                 label='Classic checkbox'
-                labelClass="mr-5"
+                labelClass='mr-5'
                 type='checkbox'
                 value='example3'
                 id='checkbox7'
@@ -241,7 +241,7 @@ class InputPage extends Component {
                 onChange={this.radioInputHandler(3, 7)}
                 checked={radioSet3 === 7}
                 label='Option 1'
-                labelClass="mr-5"
+                labelClass='mr-5'
                 type='radio'
                 id='radio7'
               />
@@ -249,7 +249,7 @@ class InputPage extends Component {
                 onChange={this.radioInputHandler(3, 8)}
                 checked={radioSet3 === 8}
                 label='Option 2'
-                labelClass="mr-5"
+                labelClass='mr-5'
                 type='radio'
                 id='radio8'
               />
@@ -257,7 +257,7 @@ class InputPage extends Component {
                 onChange={this.radioInputHandler(3, 9)}
                 checked={radioSet3 === 9}
                 label='Option 3'
-                labelClass="mr-5"
+                labelClass='mr-5'
                 type='radio'
                 id='radio9'
               />

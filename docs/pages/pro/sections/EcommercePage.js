@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   MDBContainer,
   MDBRow,
@@ -16,72 +16,72 @@ import {
   MDBCarouselInner,
   MDBCarouselItem,
   MDBBtn
-} from "mdbreact";
-import DocsLink from "../../../components/docsLink";
-import SectionContainer from "../../../components/sectionContainer";
+} from 'mdbreact';
+import DocsLink from '../../../components/docsLink';
+import SectionContainer from '../../../components/sectionContainer';
 
 const EcommercePage = () => {
   return (
     <MDBContainer>
-      <DocsLink title="eCommerce Sections" href="https://mdbootstrap.com/docs/react/sections/e-commerce/" />
-      <SectionContainer tag="section" header="Product card v.1">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <DocsLink title='eCommerce Sections' href='https://mdbootstrap.com/docs/react/sections/e-commerce/' />
+      <SectionContainer tag='section' header='Product card v.1'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our bestsellers</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="4" md="6" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='6' className='mb-lg-0 mb-4'>
             <MDBCard cascade narrow ecommerce>
               <MDBCardImage
                 cascade
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/1.jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/1.jpg'
                 top
-                alt="sample photo"
-                overlay="white-slight"
+                alt='sample photo'
+                overlay='white-slight'
               />
-              <MDBCardBody cascade className="text-center">
-                <a href="#!" className="grey-text">
+              <MDBCardBody cascade className='text-center'>
+                <a href='#!' className='grey-text'>
                   <h5>Denim</h5>
                 </a>
                 <MDBCardTitle>
                   <strong>
-                    <a href="#!">Denim trousers</a>
+                    <a href='#!'>Denim trousers</a>
                   </strong>
                 </MDBCardTitle>
-                <ul className="rating">
+                <ul className='rating'>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                 </ul>
                 <MDBCardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit.</MDBCardText>
-                <MDBCardFooter className="px-1">
-                  <span className="float-left font-weight-bold">
+                <MDBCardFooter className='px-1'>
+                  <span className='float-left font-weight-bold'>
                     <strong>49$</strong>
                   </span>
-                  <span className="float-right">
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-shopping-cart grey-text ml-3" />
+                  <span className='float-right'>
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-shopping-cart grey-text ml-3' />
                       <span>Add to cart</span>
                     </MDBTooltip>
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-share-alt grey-text ml-3" />
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-share-alt grey-text ml-3' />
                       <span>Share</span>
                     </MDBTooltip>
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-heart ml-3" />
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-heart ml-3' />
                       <span>Added to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -89,57 +89,57 @@ const EcommercePage = () => {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="6" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='6' className='mb-lg-0 mb-4'>
             <MDBCard cascade narrow ecommerce>
               <MDBCardImage
                 cascade
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/2.jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/2.jpg'
                 top
-                alt="sample photo"
-                overlay="white-slight"
+                alt='sample photo'
+                overlay='white-slight'
               />
-              <MDBCardBody cascade className="text-center">
-                <a href="#!" className="grey-text">
+              <MDBCardBody cascade className='text-center'>
+                <a href='#!' className='grey-text'>
                   <h5>Shoes</h5>
                 </a>
                 <MDBCardTitle>
                   <strong>
-                    <a href="#!">High heels</a>
+                    <a href='#!'>High heels</a>
                   </strong>
                 </MDBCardTitle>
-                <ul className="rating">
+                <ul className='rating'>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                 </ul>
                 <MDBCardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit.</MDBCardText>
-                <MDBCardFooter className="px-1">
-                  <span className="float-left font-weight-bold">
+                <MDBCardFooter className='px-1'>
+                  <span className='float-left font-weight-bold'>
                     <strong>89$</strong>
                   </span>
-                  <span className="float-right">
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-shopping-cart grey-text ml-3" />
+                  <span className='float-right'>
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-shopping-cart grey-text ml-3' />
                       <span>Add to cart</span>
                     </MDBTooltip>
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-share-alt grey-text ml-3" />
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-share-alt grey-text ml-3' />
                       <span>Share</span>
                     </MDBTooltip>
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-heart ml-3" />
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-heart ml-3' />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -147,57 +147,57 @@ const EcommercePage = () => {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="6" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='6' className='mb-lg-0 mb-4'>
             <MDBCard cascade narrow ecommerce>
               <MDBCardImage
                 cascade
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/4.jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/4.jpg'
                 top
-                alt="sample photo"
-                overlay="white-slight"
+                alt='sample photo'
+                overlay='white-slight'
               />
-              <MDBCardBody cascade className="text-center">
-                <a href="#!" className="grey-text">
+              <MDBCardBody cascade className='text-center'>
+                <a href='#!' className='grey-text'>
                   <h5>Outwear</h5>
                 </a>
                 <MDBCardTitle>
                   <strong>
-                    <a href="#!">Brown coat</a>
+                    <a href='#!'>Brown coat</a>
                   </strong>
                 </MDBCardTitle>
-                <ul className="rating">
+                <ul className='rating'>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star" />
+                    <MDBIcon icon='star' />
                   </li>
                   <li>
-                    <MDBIcon icon="star-half" />
+                    <MDBIcon icon='star-half' />
                   </li>
                 </ul>
                 <MDBCardText>Neque porro quisquam est, qui dolorem ipsum quia dolor sit.</MDBCardText>
-                <MDBCardFooter className="px-1">
-                  <span className="float-left font-weight-bold">
+                <MDBCardFooter className='px-1'>
+                  <span className='float-left font-weight-bold'>
                     <strong>59$</strong>
                   </span>
-                  <span className="float-right">
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-shopping-cart grey-text ml-3" />
+                  <span className='float-right'>
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-shopping-cart grey-text ml-3' />
                       <span>Add to cart</span>
                     </MDBTooltip>
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-share-alt grey-text ml-3" />
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-share-alt grey-text ml-3' />
                       <span>Share</span>
                     </MDBTooltip>
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-heart ml-3" />
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-heart ml-3' />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -208,42 +208,42 @@ const EcommercePage = () => {
       </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Product card v.2">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Product card v.2'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our bestsellers</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard wide ecommerce>
               <MDBCardImage
                 cascade
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (55).jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (55).jpg'
                 top
-                alt="sample photo"
+                alt='sample photo'
               />
-              <MDBCardBody cascade className="text-center">
-                <a href="#!" className="text-muted">
+              <MDBCardBody cascade className='text-center'>
+                <a href='#!' className='text-muted'>
                   <h5>Camera</h5>
                 </a>
                 <MDBCardTitle>
                   <strong>
-                    <a href="#!">GoPro</a>
+                    <a href='#!'>GoPro</a>
                   </strong>
                 </MDBCardTitle>
                 <MDBCardText>Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</MDBCardText>
-                <MDBCardFooter className="px-1">
-                  <span className="float-left font-weight-bold">
+                <MDBCardFooter className='px-1'>
+                  <span className='float-left font-weight-bold'>
                     <strong>1439$</strong>
                   </span>
-                  <span className="float-right">
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-eye grey-text ml-3" />
+                  <span className='float-right'>
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-eye grey-text ml-3' />
                       <span>Quick look</span>
                     </MDBTooltip>
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-heart grey-text ml-3" />
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-heart grey-text ml-3' />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -251,35 +251,35 @@ const EcommercePage = () => {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard wide ecommerce>
               <MDBCardImage
                 cascade
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (49).jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (49).jpg'
                 top
-                alt="sample photo"
+                alt='sample photo'
               />
-              <MDBCardBody cascade className="text-center">
-                <a href="#!" className="text-muted">
+              <MDBCardBody cascade className='text-center'>
+                <a href='#!' className='text-muted'>
                   <h5>Photography</h5>
                 </a>
                 <MDBCardTitle>
                   <strong>
-                    <a href="#!">Camera</a>
+                    <a href='#!'>Camera</a>
                   </strong>
                 </MDBCardTitle>
                 <MDBCardText>Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</MDBCardText>
-                <MDBCardFooter className="px-1">
-                  <span className="float-left font-weight-bold">
+                <MDBCardFooter className='px-1'>
+                  <span className='float-left font-weight-bold'>
                     <strong>1160$</strong>
                   </span>
-                  <span className="float-right">
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-eye grey-text ml-3" />
+                  <span className='float-right'>
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-eye grey-text ml-3' />
                       <span>Quick look</span>
                     </MDBTooltip>
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-heart grey-text ml-3" />
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-heart grey-text ml-3' />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -287,35 +287,35 @@ const EcommercePage = () => {
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard wide ecommerce>
               <MDBCardImage
                 cascade
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (56).jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img (56).jpg'
                 top
-                alt="sample photo"
+                alt='sample photo'
               />
-              <MDBCardBody cascade className="text-center">
-                <a href="#!" className="text-muted">
+              <MDBCardBody cascade className='text-center'>
+                <a href='#!' className='text-muted'>
                   <h5>Smartphone</h5>
                 </a>
                 <MDBCardTitle>
                   <strong>
-                    <a href="#!">iPhone 6S</a>
+                    <a href='#!'>iPhone 6S</a>
                   </strong>
                 </MDBCardTitle>
                 <MDBCardText>Lorem ipsum dolor sit amet, consectetur adipisicing minima veniam elit.</MDBCardText>
-                <MDBCardFooter className="px-1">
-                  <span className="float-left font-weight-bold">
+                <MDBCardFooter className='px-1'>
+                  <span className='float-left font-weight-bold'>
                     <strong>2160$</strong>
                   </span>
-                  <span className="float-right">
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-eye grey-text ml-3" />
+                  <span className='float-right'>
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-eye grey-text ml-3' />
                       <span>Quick look</span>
                     </MDBTooltip>
-                    <MDBTooltip domElement placement="top">
-                      <i className="fa fa-heart grey-text ml-3" />
+                    <MDBTooltip domElement placement='top'>
+                      <i className='fa fa-heart grey-text ml-3' />
                       <span>Add to watchlist</span>
                     </MDBTooltip>
                   </span>
@@ -326,114 +326,114 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Product card v.3" className="text-center">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Product card v.3' className='text-center'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our bestsellers</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-            <MDBCard className="align-items-center">
+          <MDBCol lg='3' md='6' className='mb-lg-0 mb-4'>
+            <MDBCard className='align-items-center'>
               <MDBCardImage
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg'
                 top
-                alt="sample photo"
-                overlay="white-slight"
+                alt='sample photo'
+                overlay='white-slight'
               />
-              <MDBCardBody className="text-center">
-                <a href="#!" className="grey-text">
+              <MDBCardBody className='text-center'>
+                <a href='#!' className='grey-text'>
                   <h5>Shirt</h5>
                 </a>
                 <h5>
                   <strong>
-                    <a href="#!" className="dark-grey-text">
-                      Denim shirt{" "}
-                      <MDBBadge pill color="danger">
+                    <a href='#!' className='dark-grey-text'>
+                      Denim shirt{' '}
+                      <MDBBadge pill color='danger'>
                         NEW
                       </MDBBadge>
                     </a>
                   </strong>
                 </h5>
-                <h4 className="font-weight-bold blue-text">
+                <h4 className='font-weight-bold blue-text'>
                   <strong>120$</strong>
                 </h4>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-            <MDBCard className="align-items-center">
+          <MDBCol lg='3' md='6' className='mb-lg-0 mb-4'>
+            <MDBCard className='align-items-center'>
               <MDBCardImage
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13.jpg'
                 top
-                alt="sample photo"
-                overlay="white-slight"
+                alt='sample photo'
+                overlay='white-slight'
               />
-              <MDBCardBody className="text-center">
-                <a href="#!" className="grey-text">
+              <MDBCardBody className='text-center'>
+                <a href='#!' className='grey-text'>
                   <h5>Sport wear</h5>
                 </a>
                 <h5>
                   <strong>
-                    <a href="#!" className="dark-grey-text">
+                    <a href='#!' className='dark-grey-text'>
                       Sweatshirt
                     </a>
                   </strong>
                 </h5>
-                <h4 className="font-weight-bold blue-text">
+                <h4 className='font-weight-bold blue-text'>
                   <strong>139$</strong>
                 </h4>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-            <MDBCard className="align-items-center">
+          <MDBCol lg='3' md='6' className='mb-lg-0 mb-4'>
+            <MDBCard className='align-items-center'>
               <MDBCardImage
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14.jpg'
                 top
-                alt="sample photo"
-                overlay="white-slight"
+                alt='sample photo'
+                overlay='white-slight'
               />
-              <MDBCardBody className="text-center">
-                <a href="#!" className="grey-text">
+              <MDBCardBody className='text-center'>
+                <a href='#!' className='grey-text'>
                   <h5>Sport wear</h5>
                 </a>
                 <h5>
                   <strong>
-                    <a href="#!" className="dark-grey-text">
-                      Grey blouse{" "}
-                      <MDBBadge pill color="primary">
+                    <a href='#!' className='dark-grey-text'>
+                      Grey blouse{' '}
+                      <MDBBadge pill color='primary'>
                         BEST
                       </MDBBadge>
                     </a>
                   </strong>
                 </h5>
-                <h4 className="font-weight-bold blue-text">
+                <h4 className='font-weight-bold blue-text'>
                   <strong>99$</strong>
                 </h4>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-            <MDBCard className="align-items-center">
+          <MDBCol lg='3' md='6' className='mb-lg-0 mb-4'>
+            <MDBCard className='align-items-center'>
               <MDBCardImage
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg"
+                src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg'
                 top
-                alt="sample photo"
-                overlay="white-slight"
+                alt='sample photo'
+                overlay='white-slight'
               />
-              <MDBCardBody className="text-center">
-                <a href="#!" className="grey-text">
+              <MDBCardBody className='text-center'>
+                <a href='#!' className='grey-text'>
                   <h5>Outwear</h5>
                 </a>
                 <h5>
                   <strong>
-                    <a href="#!" className="dark-grey-text">
+                    <a href='#!' className='dark-grey-text'>
                       Black jacket
                     </a>
                   </strong>
                 </h5>
-                <h4 className="font-weight-bold blue-text">
+                <h4 className='font-weight-bold blue-text'>
                   <strong>219$</strong>
                 </h4>
               </MDBCardBody>
@@ -442,79 +442,79 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Product card v.4" className="text-center">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Product card v.4' className='text-center'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our bestsellers</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-            <MDBCard collection className="z-depth-1-half">
-              <div className="view zoom">
+          <MDBCol lg='3' md='6' className='mb-lg-0 mb-4'>
+            <MDBCard collection className='z-depth-1-half'>
+              <div className='view zoom'>
                 <img
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg"
-                  className="img-fluid"
-                  alt=""
+                  src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg'
+                  className='img-fluid'
+                  alt=''
                 />
-                <div className="stripe dark">
-                  <a href="#!">
+                <div className='stripe dark'>
+                  <a href='#!'>
                     <p>
-                      Red trousers <MDBIcon icon="angle-right" />
+                      Red trousers <MDBIcon icon='angle-right' />
                     </p>
                   </a>
                 </div>
               </div>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-            <MDBCard collection className="z-depth-1-half">
-              <div className="view zoom">
+          <MDBCol lg='3' md='6' className='mb-lg-0 mb-4'>
+            <MDBCard collection className='z-depth-1-half'>
+              <div className='view zoom'>
                 <img
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/8.jpg"
-                  className="img-fluid"
-                  alt=""
+                  src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/8.jpg'
+                  className='img-fluid'
+                  alt=''
                 />
-                <div className="stripe dark">
-                  <a href="#!">
+                <div className='stripe dark'>
+                  <a href='#!'>
                     <p>
-                      Sweatshirt <MDBIcon icon="angle-right" />
+                      Sweatshirt <MDBIcon icon='angle-right' />
                     </p>
                   </a>
                 </div>
               </div>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-            <MDBCard collection className="z-depth-1-half">
-              <div className="view zoom">
+          <MDBCol lg='3' md='6' className='mb-lg-0 mb-4'>
+            <MDBCard collection className='z-depth-1-half'>
+              <div className='view zoom'>
                 <img
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/9.jpg"
-                  className="img-fluid"
-                  alt=""
+                  src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/9.jpg'
+                  className='img-fluid'
+                  alt=''
                 />
-                <div className="stripe dark">
-                  <a href="#!">
+                <div className='stripe dark'>
+                  <a href='#!'>
                     <p>
-                      Accessories <MDBIcon icon="angle-right" />
+                      Accessories <MDBIcon icon='angle-right' />
                     </p>
                   </a>
                 </div>
               </div>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="3" md="6" className="mb-lg-0 mb-4">
-            <MDBCard collection className="z-depth-1-half">
-              <div className="view zoom">
+          <MDBCol lg='3' md='6' className='mb-lg-0 mb-4'>
+            <MDBCard collection className='z-depth-1-half'>
+              <div className='view zoom'>
                 <img
-                  src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/7.jpg"
-                  className="img-fluid"
-                  alt=""
+                  src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/7.jpg'
+                  className='img-fluid'
+                  alt=''
                 />
-                <div className="stripe dark">
-                  <a href="#!">
+                <div className='stripe dark'>
+                  <a href='#!'>
                     <p>
-                      Sweatshirt <MDBIcon icon="angle-right" />
+                      Sweatshirt <MDBIcon icon='angle-right' />
                     </p>
                   </a>
                 </div>
@@ -524,45 +524,45 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Product card v.5" className="text-center">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our bestsellers</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Product card v.5' className='text-center'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our bestsellers</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
-        <MDBCarousel activeItem={1} length={3} slide={true} showControls={true} showIndicators={true} multiItem>
+        <MDBCarousel activeItem={1} length={3} slide showControls showIndicators multiItem>
           <MDBCarouselInner>
             <MDBRow>
-              <MDBCarouselItem itemId="1">
-                <MDBCol md="4">
-                  <MDBCard narrow ecommerce className="mb-2">
+              <MDBCarouselItem itemId='1'>
+                <MDBCol md='4'>
+                  <MDBCard narrow ecommerce className='mb-2'>
                     <MDBCardImage
                       cascade
                       top
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg"
-                      alt="sample photo"
+                      src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(39).jpg'
+                      alt='sample photo'
                     />
                     <MDBCardBody cascade>
-                      <a href="#!" className="text-muted">
+                      <a href='#!' className='text-muted'>
                         <h5>Shoes</h5>
                       </a>
                       <MDBCardTitle>
                         <strong>
-                          <a href="#!">Leather boots</a>
+                          <a href='#!'>Leather boots</a>
                         </strong>
                       </MDBCardTitle>
                       <MDBCardText>
                         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.
                       </MDBCardText>
-                      <MDBCardFooter className="px-1">
-                        <span className="float-left">69$</span>
-                        <span className="float-right">
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-eye grey-text ml-3" />
+                      <MDBCardFooter className='px-1'>
+                        <span className='float-left'>69$</span>
+                        <span className='float-right'>
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-eye grey-text ml-3' />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-heart grey-text ml-3" />
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-heart grey-text ml-3' />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -570,35 +570,35 @@ const EcommercePage = () => {
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
-                <MDBCol md="4" className="clearfix d-none d-md-block">
-                  <MDBCard narrow ecommerce className="mb-2">
+                <MDBCol md='4' className='clearfix d-none d-md-block'>
+                  <MDBCard narrow ecommerce className='mb-2'>
                     <MDBCardImage
                       cascade
                       top
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg"
-                      alt="sample photo"
+                      src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(22).jpg'
+                      alt='sample photo'
                     />
                     <MDBCardBody cascade>
-                      <a href="#!" className="text-muted">
+                      <a href='#!' className='text-muted'>
                         <h5>Jeans</h5>
                       </a>
                       <MDBCardTitle>
                         <strong>
-                          <a href="#!">Slim jeans</a>
+                          <a href='#!'>Slim jeans</a>
                         </strong>
                       </MDBCardTitle>
                       <MDBCardText>
                         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.
                       </MDBCardText>
-                      <MDBCardFooter className="px-1">
-                        <span className="float-left">99$</span>
-                        <span className="float-right">
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-eye grey-text ml-3" />
+                      <MDBCardFooter className='px-1'>
+                        <span className='float-left'>99$</span>
+                        <span className='float-right'>
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-eye grey-text ml-3' />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-heart grey-text ml-3" />
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-heart grey-text ml-3' />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -606,35 +606,35 @@ const EcommercePage = () => {
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
-                <MDBCol md="4" className="clearfix d-none d-md-block">
-                  <MDBCard narrow ecommerce className="mb-2">
+                <MDBCol md='4' className='clearfix d-none d-md-block'>
+                  <MDBCard narrow ecommerce className='mb-2'>
                     <MDBCardImage
                       cascade
                       top
-                      src="https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg"
-                      alt="sample photo"
+                      src='https://mdbootstrap.com/img/Photos/Others/img%20(31).jpg'
+                      alt='sample photo'
                     />
                     <MDBCardBody cascade>
-                      <a href="#!" className="text-muted">
+                      <a href='#!' className='text-muted'>
                         <h5>Shorts</h5>
                       </a>
                       <MDBCardTitle>
                         <strong>
-                          <a href="#!">Denim shorts</a>
+                          <a href='#!'>Denim shorts</a>
                         </strong>
                       </MDBCardTitle>
                       <MDBCardText>
                         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.
                       </MDBCardText>
-                      <MDBCardFooter className="px-1">
-                        <span className="float-left">49$</span>
-                        <span className="float-right">
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-eye grey-text ml-3" />
+                      <MDBCardFooter className='px-1'>
+                        <span className='float-left'>49$</span>
+                        <span className='float-right'>
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-eye grey-text ml-3' />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-heart grey-text ml-3" />
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-heart grey-text ml-3' />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -643,36 +643,36 @@ const EcommercePage = () => {
                   </MDBCard>
                 </MDBCol>
               </MDBCarouselItem>
-              <MDBCarouselItem itemId="2">
-                <MDBCol md="4">
-                  <MDBCard narrow ecommerce className="mb-2">
+              <MDBCarouselItem itemId='2'>
+                <MDBCol md='4'>
+                  <MDBCard narrow ecommerce className='mb-2'>
                     <MDBCardImage
                       cascade
                       top
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(30).jpg"
-                      alt="sample photo"
+                      src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(30).jpg'
+                      alt='sample photo'
                     />
                     <MDBCardBody cascade>
-                      <a href="#!" className="text-muted">
+                      <a href='#!' className='text-muted'>
                         <h5>Shoes</h5>
                       </a>
                       <MDBCardTitle>
                         <strong>
-                          <a href="#!">Leather boots</a>
+                          <a href='#!'>Leather boots</a>
                         </strong>
                       </MDBCardTitle>
                       <MDBCardText>
                         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.
                       </MDBCardText>
-                      <MDBCardFooter className="px-1">
-                        <span className="float-left">69$</span>
-                        <span className="float-right">
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-eye grey-text ml-3" />
+                      <MDBCardFooter className='px-1'>
+                        <span className='float-left'>69$</span>
+                        <span className='float-right'>
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-eye grey-text ml-3' />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-heart grey-text ml-3" />
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-heart grey-text ml-3' />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -680,35 +680,35 @@ const EcommercePage = () => {
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
-                <MDBCol md="4" className="clearfix d-none d-md-block">
-                  <MDBCard narrow ecommerce className="mb-2">
+                <MDBCol md='4' className='clearfix d-none d-md-block'>
+                  <MDBCard narrow ecommerce className='mb-2'>
                     <MDBCardImage
                       cascade
                       top
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(37).jpg"
-                      alt="sample photo"
+                      src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(37).jpg'
+                      alt='sample photo'
                     />
                     <MDBCardBody cascade>
-                      <a href="#!" className="text-muted">
+                      <a href='#!' className='text-muted'>
                         <h5>Jeans</h5>
                       </a>
                       <MDBCardTitle>
                         <strong>
-                          <a href="#!">Slim jeans</a>
+                          <a href='#!'>Slim jeans</a>
                         </strong>
                       </MDBCardTitle>
                       <MDBCardText>
                         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.
                       </MDBCardText>
-                      <MDBCardFooter className="px-1">
-                        <span className="float-left">99$</span>
-                        <span className="float-right">
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-eye grey-text ml-3" />
+                      <MDBCardFooter className='px-1'>
+                        <span className='float-left'>99$</span>
+                        <span className='float-right'>
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-eye grey-text ml-3' />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-heart grey-text ml-3" />
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-heart grey-text ml-3' />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -716,35 +716,35 @@ const EcommercePage = () => {
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
-                <MDBCol md="4" className="clearfix d-none d-md-block">
-                  <MDBCard narrow ecommerce className="mb-2">
+                <MDBCol md='4' className='clearfix d-none d-md-block'>
+                  <MDBCard narrow ecommerce className='mb-2'>
                     <MDBCardImage
                       cascade
                       top
-                      src="https://mdbootstrap.com/img/Photos/Others/img%20(35).jpg"
-                      alt="sample photo"
+                      src='https://mdbootstrap.com/img/Photos/Others/img%20(35).jpg'
+                      alt='sample photo'
                     />
                     <MDBCardBody cascade>
-                      <a href="#!" className="text-muted">
+                      <a href='#!' className='text-muted'>
                         <h5>Shorts</h5>
                       </a>
                       <MDBCardTitle>
                         <strong>
-                          <a href="#!">Denim shorts</a>
+                          <a href='#!'>Denim shorts</a>
                         </strong>
                       </MDBCardTitle>
                       <MDBCardText>
                         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.
                       </MDBCardText>
-                      <MDBCardFooter className="px-1">
-                        <span className="float-left">49$</span>
-                        <span className="float-right">
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-eye grey-text ml-3" />
+                      <MDBCardFooter className='px-1'>
+                        <span className='float-left'>49$</span>
+                        <span className='float-right'>
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-eye grey-text ml-3' />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-heart grey-text ml-3" />
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-heart grey-text ml-3' />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -753,36 +753,36 @@ const EcommercePage = () => {
                   </MDBCard>
                 </MDBCol>
               </MDBCarouselItem>
-              <MDBCarouselItem itemId="3">
-                <MDBCol md="4">
-                  <MDBCard narrow ecommerce className="mb-2">
+              <MDBCarouselItem itemId='3'>
+                <MDBCol md='4'>
+                  <MDBCard narrow ecommerce className='mb-2'>
                     <MDBCardImage
                       cascade
                       top
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(32).jpg"
-                      alt="sample photo"
+                      src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(32).jpg'
+                      alt='sample photo'
                     />
                     <MDBCardBody cascade>
-                      <a href="#!" className="text-muted">
+                      <a href='#!' className='text-muted'>
                         <h5>Shoes</h5>
                       </a>
                       <MDBCardTitle>
                         <strong>
-                          <a href="#!">Leather boots</a>
+                          <a href='#!'>Leather boots</a>
                         </strong>
                       </MDBCardTitle>
                       <MDBCardText>
                         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.
                       </MDBCardText>
-                      <MDBCardFooter className="px-1">
-                        <span className="float-left">69$</span>
-                        <span className="float-right">
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-eye grey-text ml-3" />
+                      <MDBCardFooter className='px-1'>
+                        <span className='float-left'>69$</span>
+                        <span className='float-right'>
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-eye grey-text ml-3' />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-heart grey-text ml-3" />
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-heart grey-text ml-3' />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -790,35 +790,35 @@ const EcommercePage = () => {
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
-                <MDBCol md="4" className="clearfix d-none d-md-block">
-                  <MDBCard narrow ecommerce className="mb-2">
+                <MDBCol md='4' className='clearfix d-none d-md-block'>
+                  <MDBCard narrow ecommerce className='mb-2'>
                     <MDBCardImage
                       cascade
                       top
-                      src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(33).jpg"
-                      alt="sample photo"
+                      src='https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/img%20(33).jpg'
+                      alt='sample photo'
                     />
                     <MDBCardBody cascade>
-                      <a href="#!" className="text-muted">
+                      <a href='#!' className='text-muted'>
                         <h5>Jeans</h5>
                       </a>
                       <MDBCardTitle>
                         <strong>
-                          <a href="#!">Slim jeans</a>
+                          <a href='#!'>Slim jeans</a>
                         </strong>
                       </MDBCardTitle>
                       <MDBCardText>
                         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.
                       </MDBCardText>
-                      <MDBCardFooter className="px-1">
-                        <span className="float-left">99$</span>
-                        <span className="float-right">
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-eye grey-text ml-3" />
+                      <MDBCardFooter className='px-1'>
+                        <span className='float-left'>99$</span>
+                        <span className='float-right'>
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-eye grey-text ml-3' />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-heart grey-text ml-3" />
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-heart grey-text ml-3' />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -826,35 +826,35 @@ const EcommercePage = () => {
                     </MDBCardBody>
                   </MDBCard>
                 </MDBCol>
-                <MDBCol md="4" className="clearfix d-none d-md-block">
-                  <MDBCard narrow ecommerce className="mb-2">
+                <MDBCol md='4' className='clearfix d-none d-md-block'>
+                  <MDBCard narrow ecommerce className='mb-2'>
                     <MDBCardImage
                       cascade
                       top
-                      src="https://mdbootstrap.com/img/Photos/Others/img%20(38).jpg"
-                      alt="sample photo"
+                      src='https://mdbootstrap.com/img/Photos/Others/img%20(38).jpg'
+                      alt='sample photo'
                     />
                     <MDBCardBody cascade>
-                      <a href="#!" className="text-muted">
+                      <a href='#!' className='text-muted'>
                         <h5>Shorts</h5>
                       </a>
                       <MDBCardTitle>
                         <strong>
-                          <a href="#!">Denim shorts</a>
+                          <a href='#!'>Denim shorts</a>
                         </strong>
                       </MDBCardTitle>
                       <MDBCardText>
                         Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci.
                       </MDBCardText>
-                      <MDBCardFooter className="px-1">
-                        <span className="float-left">49$</span>
-                        <span className="float-right">
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-eye grey-text ml-3" />
+                      <MDBCardFooter className='px-1'>
+                        <span className='float-left'>49$</span>
+                        <span className='float-right'>
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-eye grey-text ml-3' />
                             <span>Quick look</span>
                           </MDBTooltip>
-                          <MDBTooltip domElement placement="top">
-                            <i className="fa fa-heart grey-text ml-3" />
+                          <MDBTooltip domElement placement='top'>
+                            <i className='fa fa-heart grey-text ml-3' />
                             <span>Add to watchlist</span>
                           </MDBTooltip>
                         </span>
@@ -868,169 +868,169 @@ const EcommercePage = () => {
         </MDBCarousel>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Pricing v.1" className="text-center">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Pricing v.1' className='text-center'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our pricing plans</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard pricing>
-              <div className="price header white-text blue rounded-top">
-                <h2 className="number">10</h2>
-                <div className="version">
-                  <h5 className="mb-0">Basic</h5>
+              <div className='price header white-text blue rounded-top'>
+                <h2 className='number'>10</h2>
+                <div className='version'>
+                  <h5 className='mb-0'>Basic</h5>
                 </div>
               </div>
-              <MDBCardBody className="striped mb-1">
+              <MDBCardBody className='striped mb-1'>
                 <ul>
                   <li>
-                    <p className="mt-2">
-                      <MDBIcon icon="check" className="green-text pr-2" />
+                    <p className='mt-2'>
+                      <MDBIcon icon='check' className='green-text pr-2' />
                       20 GB Of Storage
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />2 Email Accounts
+                      <MDBIcon icon='check' className='green-text pr-2' />2 Email Accounts
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="times" className="red-text pr-2" />
+                      <MDBIcon icon='times' className='red-text pr-2' />
                       24h Tech Support
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="times" className="red-text pr-2" />
+                      <MDBIcon icon='times' className='red-text pr-2' />
                       300 GB Bandwidth
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="times" className="red-text pr-2" />
-                      User Management{" "}
+                      <MDBIcon icon='times' className='red-text pr-2' />
+                      User Management{' '}
                     </p>
                   </li>
                 </ul>
-                <MDBBtn color="blue">Buy now</MDBBtn>
+                <MDBBtn color='blue'>Buy now</MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard pricing>
-              <div className="price header white-text indigo rounded-top">
-                <h2 className="number">20</h2>
-                <div className="version">
-                  <h5 className="mb-0">Pro</h5>
+              <div className='price header white-text indigo rounded-top'>
+                <h2 className='number'>20</h2>
+                <div className='version'>
+                  <h5 className='mb-0'>Pro</h5>
                 </div>
               </div>
-              <MDBCardBody className="striped mb-1">
+              <MDBCardBody className='striped mb-1'>
                 <ul>
                   <li>
-                    <p className="mt-2">
-                      <MDBIcon icon="check" className="green-text pr-2" />
+                    <p className='mt-2'>
+                      <MDBIcon icon='check' className='green-text pr-2' />
                       20 GB Of Storage
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />4 Email Accounts
+                      <MDBIcon icon='check' className='green-text pr-2' />4 Email Accounts
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />
+                      <MDBIcon icon='check' className='green-text pr-2' />
                       24h Tech Support
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="times" className="red-text pr-2" />
+                      <MDBIcon icon='times' className='red-text pr-2' />
                       300 GB Bandwidth
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="times" className="red-text pr-2" />
-                      User Management{" "}
+                      <MDBIcon icon='times' className='red-text pr-2' />
+                      User Management{' '}
                     </p>
                   </li>
                 </ul>
-                <MDBBtn color="indigo">Buy now</MDBBtn>
+                <MDBBtn color='indigo'>Buy now</MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard pricing>
-              <div className="price header white-text deep-purple rounded-top">
-                <h2 className="number">30</h2>
-                <div className="version">
-                  <h5 className="mb-0">Enterprise</h5>
+              <div className='price header white-text deep-purple rounded-top'>
+                <h2 className='number'>30</h2>
+                <div className='version'>
+                  <h5 className='mb-0'>Enterprise</h5>
                 </div>
               </div>
-              <MDBCardBody className="striped mb-1">
+              <MDBCardBody className='striped mb-1'>
                 <ul>
                   <li>
-                    <p className="mt-2">
-                      <MDBIcon icon="check" className="green-text pr-2" />
+                    <p className='mt-2'>
+                      <MDBIcon icon='check' className='green-text pr-2' />
                       20 GB Of Storage
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />5 Email Accounts
+                      <MDBIcon icon='check' className='green-text pr-2' />5 Email Accounts
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />
+                      <MDBIcon icon='check' className='green-text pr-2' />
                       24h Tech Support
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />
+                      <MDBIcon icon='check' className='green-text pr-2' />
                       300 GB Bandwidth
                     </p>
                   </li>
                   <li>
                     <p>
-                      <MDBIcon icon="check" className="green-text pr-2" />
-                      User Management{" "}
+                      <MDBIcon icon='check' className='green-text pr-2' />
+                      User Management{' '}
                     </p>
                   </li>
                 </ul>
-                <MDBBtn color="deep-purple">Buy now</MDBBtn>
+                <MDBBtn color='deep-purple'>Buy now</MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Pricing v.2" className="text-center">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Pricing v.2' className='text-center'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our pricing plans</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard
-              className="card-image"
+              className='card-image'
               style={{
                 backgroundImage: 'url("https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg")'
               }}
             >
-              <div className="text-white text-center pricing-card d-flex align-items-center rgba-stylish-strong py-3 px-3 rounded">
+              <div className='text-white text-center pricing-card d-flex align-items-center rgba-stylish-strong py-3 px-3 rounded'>
                 <MDBCardBody>
                   <h5>Basic</h5>
-                  <div className="price pt-0">
-                    <h2 className="number mb-0">10</h2>
+                  <div className='price pt-0'>
+                    <h2 className='number mb-0'>10</h2>
                   </div>
-                  <ul className="striped mb-0">
+                  <ul className='striped mb-0'>
                     <li>
                       <p>
                         <strong>1</strong> project
@@ -1057,27 +1057,27 @@ const EcommercePage = () => {
                       </p>
                     </li>
                   </ul>
-                  <MDBBtn outline color="white">
+                  <MDBBtn outline color='white'>
                     Buy now
                   </MDBBtn>
                 </MDBCardBody>
               </div>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard
-              className="card-image"
+              className='card-image'
               style={{
                 backgroundImage: 'url("https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg")'
               }}
             >
-              <div className="text-white text-center pricing-card d-flex align-items-center rgba-teal-strong py-3 px-3 rounded">
+              <div className='text-white text-center pricing-card d-flex align-items-center rgba-teal-strong py-3 px-3 rounded'>
                 <MDBCardBody>
                   <h5>Pro</h5>
-                  <div className="price pt-0">
-                    <h2 className="number mb-0">20</h2>
+                  <div className='price pt-0'>
+                    <h2 className='number mb-0'>20</h2>
                   </div>
-                  <ul className="striped mb-0">
+                  <ul className='striped mb-0'>
                     <li>
                       <p>
                         <strong>3</strong> projects
@@ -1104,27 +1104,27 @@ const EcommercePage = () => {
                       </p>
                     </li>
                   </ul>
-                  <MDBBtn outline color="white">
+                  <MDBBtn outline color='white'>
                     Buy now
                   </MDBBtn>
                 </MDBCardBody>
               </div>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard
-              className="card-image"
+              className='card-image'
               style={{
                 backgroundImage: 'url("https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg")'
               }}
             >
-              <div className="text-white text-center pricing-card d-flex align-items-center rgba-stylish-strong py-3 px-3 rounded">
+              <div className='text-white text-center pricing-card d-flex align-items-center rgba-stylish-strong py-3 px-3 rounded'>
                 <MDBCardBody>
                   <h5>Enterprise</h5>
-                  <div className="price pt-0">
-                    <h2 className="number mb-0">30</h2>
+                  <div className='price pt-0'>
+                    <h2 className='number mb-0'>30</h2>
                   </div>
-                  <ul className="striped mb-0">
+                  <ul className='striped mb-0'>
                     <li>
                       <p>
                         <strong>5</strong> projects
@@ -1151,7 +1151,7 @@ const EcommercePage = () => {
                       </p>
                     </li>
                   </ul>
-                  <MDBBtn outline color="white">
+                  <MDBBtn outline color='white'>
                     Buy now
                   </MDBBtn>
                 </MDBCardBody>
@@ -1161,69 +1161,69 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Pricing v.3" className="text-center">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Pricing v.3' className='text-center'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our pricing plans</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard>
               <MDBCardBody>
-                <h5 className="mb-4">Basic plan</h5>
-                <div className="d-flex justify-content-center">
-                  <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="home" className="light-blue-text" />
+                <h5 className='mb-4'>Basic plan</h5>
+                <div className='d-flex justify-content-center'>
+                  <div className='card-circle d-flex justify-content-center align-items-center'>
+                    <MDBIcon icon='home' className='light-blue-text' />
                   </div>
                 </div>
-                <h2 className="font-weight-bold my-4">59$</h2>
-                <p className="grey-text">
+                <h2 className='font-weight-bold my-4'>59$</h2>
+                <p className='grey-text'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa pariatur id nobis accusamus
                   deleniti cumque hic laborum.
                 </p>
-                <MDBBtn rounded color="light-blue">
+                <MDBBtn rounded color='light-blue'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
-            <MDBCard className="purple-gradient">
-              <MDBCardBody className="white-text">
-                <h5 className="mb-4">Premium plan</h5>
-                <div className="d-flex justify-content-center">
-                  <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="users" className="white-text" />
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
+            <MDBCard className='purple-gradient'>
+              <MDBCardBody className='white-text'>
+                <h5 className='mb-4'>Premium plan</h5>
+                <div className='d-flex justify-content-center'>
+                  <div className='card-circle d-flex justify-content-center align-items-center'>
+                    <MDBIcon icon='users' className='white-text' />
                   </div>
                 </div>
-                <h2 className="font-weight-bold my-4">79$</h2>
+                <h2 className='font-weight-bold my-4'>79$</h2>
                 <p>
                   Esse corporis saepe laudantium velit adipisci cumque iste ratione facere non distinctio
                   cupiditate sequi atque.
                 </p>
-                <MDBBtn outline rounded color="white">
+                <MDBBtn outline rounded color='white'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard>
               <MDBCardBody>
-                <h5 className="mb-4">Advanced plan</h5>
-                <div className="d-flex justify-content-center">
-                  <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="chart-bar" className="light-blue-text" />
+                <h5 className='mb-4'>Advanced plan</h5>
+                <div className='d-flex justify-content-center'>
+                  <div className='card-circle d-flex justify-content-center align-items-center'>
+                    <MDBIcon icon='chart-bar' className='light-blue-text' />
                   </div>
                 </div>
 
-                <h2 className="font-weight-bold my-4">99$</h2>
-                <p className="grey-text">
+                <h2 className='font-weight-bold my-4'>99$</h2>
+                <p className='grey-text'>
                   At ab ea a molestiae corrupti numquam quo beatae minima ratione magni accusantium repellat
                   eveniet quia vitae.
                 </p>
-                <MDBBtn rounded color="light-blue">
+                <MDBBtn rounded color='light-blue'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
@@ -1232,68 +1232,68 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Pricing v.4" className="text-center">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Pricing v.4' className='text-center'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our pricing plans</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard>
               <MDBCardBody>
-                <h5 className="mb-4">Basic plan</h5>
-                <div className="d-flex justify-content-center">
-                  <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="home" className="indigo-text" />
+                <h5 className='mb-4'>Basic plan</h5>
+                <div className='d-flex justify-content-center'>
+                  <div className='card-circle d-flex justify-content-center align-items-center'>
+                    <MDBIcon icon='home' className='indigo-text' />
                   </div>
                 </div>
-                <h2 className="font-weight-bold my-4">59$</h2>
-                <p className="grey-text">
+                <h2 className='font-weight-bold my-4'>59$</h2>
+                <p className='grey-text'>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa pariatur id nobis accusamus
                   deleniti cumque hic laborum.
                 </p>
-                <MDBBtn rounded color="indigo">
+                <MDBBtn rounded color='indigo'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
-            <MDBCard className="indigo">
-              <MDBCardBody className="white-text">
-                <h5 className="mb-4">Premium plan</h5>
-                <div className="d-flex justify-content-center">
-                  <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="users" className="light-blue-text" />
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
+            <MDBCard className='indigo'>
+              <MDBCardBody className='white-text'>
+                <h5 className='mb-4'>Premium plan</h5>
+                <div className='d-flex justify-content-center'>
+                  <div className='card-circle d-flex justify-content-center align-items-center'>
+                    <MDBIcon icon='users' className='light-blue-text' />
                   </div>
                 </div>
-                <h2 className="font-weight-bold my-4">79$</h2>
+                <h2 className='font-weight-bold my-4'>79$</h2>
                 <p>
                   Esse corporis saepe laudantium velit adipisci cumque iste ratione facere non distinctio
                   cupiditate sequi atque.
                 </p>
-                <MDBBtn outline rounded color="white">
+                <MDBBtn outline rounded color='white'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard>
               <MDBCardBody>
-                <h5 className="mb-4">Advanced plan</h5>
-                <div className="d-flex justify-content-center">
-                  <div className="card-circle d-flex justify-content-center align-items-center">
-                    <MDBIcon icon="chart-bar" className="indigo-text" />
+                <h5 className='mb-4'>Advanced plan</h5>
+                <div className='d-flex justify-content-center'>
+                  <div className='card-circle d-flex justify-content-center align-items-center'>
+                    <MDBIcon icon='chart-bar' className='indigo-text' />
                   </div>
                 </div>
-                <h2 className="font-weight-bold my-4">99$</h2>
-                <p className="grey-text">
+                <h2 className='font-weight-bold my-4'>99$</h2>
+                <p className='grey-text'>
                   At ab ea a molestiae corrupti numquam quo beatae minima ratione magni accusantium repellat
                   eveniet quia vitae.
                 </p>
-                <MDBBtn rounded color="indigo">
+                <MDBBtn rounded color='indigo'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
@@ -1302,21 +1302,21 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Pricing v.5" className="text-center">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Pricing v.5' className='text-center'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our pricing plans</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard pricing>
               <MDBCardBody>
-                <h5 className="font-weight-bold mt-3">Basic</h5>
-                <div className="price pt-0">
-                  <h2 className="number red-text mb-0">10</h2>
+                <h5 className='font-weight-bold mt-3'>Basic</h5>
+                <div className='price pt-0'>
+                  <h2 className='number red-text mb-0'>10</h2>
                 </div>
-                <ul className="striped mb-1">
+                <ul className='striped mb-1'>
                   <li>
                     <p>
                       <strong>1</strong> project
@@ -1343,26 +1343,26 @@ const EcommercePage = () => {
                     </p>
                   </li>
                 </ul>
-                <MDBBtn rounded color="danger" className="mb-4">
+                <MDBBtn rounded color='danger' className='mb-4'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard
-              className="card-image"
+              className='card-image'
               style={{
                 backgroundImage: 'url("https://mdbootstrap.com/img/Photos/Others/pricing-table%20(6).jpg")'
               }}
             >
-              <div className="text-white text-center pricing-card d-flex align-items-center rgba-indigo-strong py-3 px-3 rounded">
+              <div className='text-white text-center pricing-card d-flex align-items-center rgba-indigo-strong py-3 px-3 rounded'>
                 <MDBCardBody>
-                  <h5 className="font-weight-bold mt-2">Pro</h5>
-                  <div className="price pt-0">
-                    <h2 className="number mb-0">20</h2>
+                  <h5 className='font-weight-bold mt-2'>Pro</h5>
+                  <div className='price pt-0'>
+                    <h2 className='number mb-0'>20</h2>
                   </div>
-                  <ul className="striped mb-0">
+                  <ul className='striped mb-0'>
                     <li>
                       <p>
                         <strong>3</strong> projects
@@ -1389,21 +1389,21 @@ const EcommercePage = () => {
                       </p>
                     </li>
                   </ul>
-                  <MDBBtn outline color="white">
+                  <MDBBtn outline color='white'>
                     Buy now
                   </MDBBtn>
                 </MDBCardBody>
               </div>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
             <MDBCard pricing>
               <MDBCardBody>
-                <h5 className="font-weight-bold mt-3">Enterprise</h5>
-                <div className="price pt-0">
-                  <h2 className="number mb-0">30</h2>
+                <h5 className='font-weight-bold mt-3'>Enterprise</h5>
+                <div className='price pt-0'>
+                  <h2 className='number mb-0'>30</h2>
                 </div>
-                <ul className="striped mb-1">
+                <ul className='striped mb-1'>
                   <li>
                     <p>
                       <strong>5</strong> projects
@@ -1430,7 +1430,7 @@ const EcommercePage = () => {
                     </p>
                   </li>
                 </ul>
-                <MDBBtn rounded color="danger" className="mb-4">
+                <MDBBtn rounded color='danger' className='mb-4'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
@@ -1439,20 +1439,20 @@ const EcommercePage = () => {
         </MDBRow>
       </SectionContainer>
 
-      <SectionContainer tag="section" header="Pricing v.6" className="text-center">
-        <h2 className="h1-responsive font-weight-bold text-center my-5">Our pricing plans</h2>
-        <p className="grey-text text-center w-responsive mx-auto mb-5">
+      <SectionContainer tag='section' header='Pricing v.6' className='text-center'>
+        <h2 className='h1-responsive font-weight-bold text-center my-5'>Our pricing plans</h2>
+        <p className='grey-text text-center w-responsive mx-auto mb-5'>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident
           voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.
         </p>
         <MDBRow>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
-            <MDBCard pricing className="white-text">
-              <div className="aqua-gradient rounded-top">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
+            <MDBCard pricing className='white-text'>
+              <div className='aqua-gradient rounded-top'>
                 <h4
-                  className="option"
+                  className='option'
                   style={{
-                    padding: "2.5rem",
+                    padding: '2.5rem',
                     marginBottom: 0,
                     fontWeight: 500
                   }}
@@ -1460,8 +1460,8 @@ const EcommercePage = () => {
                   BASIC
                 </h4>
               </div>
-              <MDBCardBody className="striped green-striped card-background px-5">
-                <h2 className="my-4 pb-3 h1">20$</h2>
+              <MDBCardBody className='striped green-striped card-background px-5'>
+                <h2 className='my-4 pb-3 h1'>20$</h2>
                 <ul>
                   <li>
                     <p>
@@ -1484,19 +1484,19 @@ const EcommercePage = () => {
                     </p>
                   </li>
                 </ul>
-                <MDBBtn rounded gradient="aqua" className="mb-3 mt-3">
+                <MDBBtn rounded gradient='aqua' className='mb-3 mt-3'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
-            <MDBCard pricing className="white-text">
-              <div className="peach-gradient rounded-top">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
+            <MDBCard pricing className='white-text'>
+              <div className='peach-gradient rounded-top'>
                 <h4
-                  className="option"
+                  className='option'
                   style={{
-                    padding: "2.5rem",
+                    padding: '2.5rem',
                     marginBottom: 0,
                     fontWeight: 500
                   }}
@@ -1504,8 +1504,8 @@ const EcommercePage = () => {
                   PRO
                 </h4>
               </div>
-              <MDBCardBody className="striped orange-striped card-background px-5">
-                <h2 className="my-4 pb-3 h1">80$</h2>
+              <MDBCardBody className='striped orange-striped card-background px-5'>
+                <h2 className='my-4 pb-3 h1'>80$</h2>
                 <ul>
                   <li>
                     <p>
@@ -1528,19 +1528,19 @@ const EcommercePage = () => {
                     </p>
                   </li>
                 </ul>
-                <MDBBtn rounded gradient="peach" className="mb-3 mt-3">
+                <MDBBtn rounded gradient='peach' className='mb-3 mt-3'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
-          <MDBCol lg="4" md="12" className="mb-lg-0 mb-4">
-            <MDBCard pricing className="white-text">
-              <div className="purple-gradient rounded-top">
+          <MDBCol lg='4' md='12' className='mb-lg-0 mb-4'>
+            <MDBCard pricing className='white-text'>
+              <div className='purple-gradient rounded-top'>
                 <h4
-                  className="option"
+                  className='option'
                   style={{
-                    padding: "2.5rem",
+                    padding: '2.5rem',
                     marginBottom: 0,
                     fontWeight: 500
                   }}
@@ -1548,8 +1548,8 @@ const EcommercePage = () => {
                   ENTERPRISE
                 </h4>
               </div>
-              <MDBCardBody className="striped purple-striped card-background px-5">
-                <h2 className="my-4 pb-3 h1">$100</h2>
+              <MDBCardBody className='striped purple-striped card-background px-5'>
+                <h2 className='my-4 pb-3 h1'>$100</h2>
                 <ul>
                   <li>
                     <p>
@@ -1572,7 +1572,7 @@ const EcommercePage = () => {
                     </p>
                   </li>
                 </ul>
-                <MDBBtn rounded gradient="purple" className="mb-3 mt-3">
+                <MDBBtn rounded gradient='purple' className='mb-3 mt-3'>
                   Buy now
                 </MDBBtn>
               </MDBCardBody>

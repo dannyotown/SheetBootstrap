@@ -13,6 +13,7 @@ import {
 } from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
+
 class StepperPage extends Component {
   state = {
     formActivePanel1: 1,
@@ -25,15 +26,15 @@ class StepperPage extends Component {
 
   swapFormActive = a => param => e => {
     this.setState({
-      ['formActivePanel' + a]: param,
-      ['formActivePanel' + a + 'Changed']: true
+      [`formActivePanel${  a}`]: param,
+      [`formActivePanel${  a  }Changed`]: true
     });
   };
 
   handleNextPrevClick = a => param => e => {
     this.setState({
-      ['formActivePanel' + a]: param,
-      ['formActivePanel' + a + 'Changed']: true
+      [`formActivePanel${  a}`]: param,
+      [`formActivePanel${  a  }Changed`]: true
     });
   };
 
@@ -42,7 +43,7 @@ class StepperPage extends Component {
   };
 
   calculateAutofocus = a => {
-    if (this.state['formActivePanel' + a + 'Changed']) {
+    if (this.state[`formActivePanel${  a  }Changed`]) {
       return true;
     }
   };

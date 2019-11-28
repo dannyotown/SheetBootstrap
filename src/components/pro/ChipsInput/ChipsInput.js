@@ -38,14 +38,14 @@ class ChipsInput extends Component {
 
     if (!target) {
       handleRemove && handleRemove({
-        id: id,
-        value: value,
+        id,
+        value,
       });
     } else {
       handleAdd && handleAdd({
-        id: id,
-        value: value,
-        target: target
+        id,
+        value,
+        target
       });
     }
     getValue && getValue(array)
@@ -58,7 +58,7 @@ class ChipsInput extends Component {
 
     const newChipString = this.inputRef.current.value;
     const chipsListUpdate = [...chipsList, newChipString]
-    const target = e.target
+    const {target} = e
 
     // 2) upon pressing Enter:
     if (e.which === 13) {
@@ -95,7 +95,7 @@ class ChipsInput extends Component {
   };
 
   handleBackspace = (e) => {
-    //if the input is already empty (is ready to delete chips) and Backspace is pressed:
+    // if the input is already empty (is ready to delete chips) and Backspace is pressed:
     if (this.state.isReadyToDelete && e.which === 8) {
       const { chipsList } = this.state;
       const itemToDelete = chipsList.pop();

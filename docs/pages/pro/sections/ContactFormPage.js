@@ -1,77 +1,80 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol, MDBBtn,  MDBView, MDBContainer, MDBFormInline, MDBCard, MDBCardBody, MDBInput } from "mdbreact";
-import "./ContactFormPage.css";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol, MDBBtn,  MDBView, MDBContainer, MDBFormInline, MDBCard, MDBCardBody, MDBInput } from 'mdbreact';
+import './ContactFormPage.css';
 
 class ContactFormPage extends React.Component {
   state = {
-    collapseID: ""
+    collapseID: ''
   };
 
   toggleCollapse = collapseID => () =>
     this.setState(prevState => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : ""
+      collapseID: prevState.collapseID !== collapseID ? collapseID : ''
     }));
+
     componentDidMount(){
-      document.querySelector("nav").style.height="65px";
+      document.querySelector('nav').style.height='65px';
     }
+
     componentWillUnmount() {
-      document.querySelector("nav").style.height="auto";
+      document.querySelector('nav').style.height='auto';
     }
+
   render() {
-    const navStyle = { marginTop: "65px" };
+    const navStyle = { marginTop: '65px' };
     const overlay = (
       <div
-        id="sidenav-overlay"
-        style={{ backgroundColor: "transparent" }}
-        onClick={this.toggleCollapse("navbarCollapse")}
+        id='sidenav-overlay'
+        style={{ backgroundColor: 'transparent' }}
+        onClick={this.toggleCollapse('navbarCollapse')}
       />
     );
     return (
-      <div id="contactformpage">
+      <div id='contactformpage'>
         <Router>
           <div>
             <MDBNavbar
               style={navStyle}
-              color="deep-purple darken-4"
+              color='deep-purple darken-4'
               dark
-              expand="md"
-              fixed="top"
+              expand='md'
+              fixed='top'
               scrolling
               transparent
             >
               <MDBContainer>
                 <MDBNavbarBrand>
-                  <strong className="white-text">MDB</strong>
+                  <strong className='white-text'>MDB</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler
-                  onClick={this.toggleCollapse("navbarCollapse")}
+                  onClick={this.toggleCollapse('navbarCollapse')}
                 />
                 <MDBCollapse
-                  id="navbarCollapse"
+                  id='navbarCollapse'
                   isOpen={this.state.collapseID}
                   navbar
                 >
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink to="#!">Home</MDBNavLink>
+                      <MDBNavLink to='#!'>Home</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Link</MDBNavLink>
+                      <MDBNavLink to='#!'>Link</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                      <MDBNavLink to='#!'>Profile</MDBNavLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                   <MDBNavbarNav right>
                     <MDBNavItem>
                       <MDBFormInline waves>
-                        <div className="md-form my-0">
+                        <div className='md-form my-0'>
                           <input
-                            className="form-control mr-sm-2"
-                            type="text"
-                            placeholder="Search"
-                            aria-label="Search"
+                            className='form-control mr-sm-2'
+                            type='text'
+                            placeholder='Search'
+                            aria-label='Search'
                           />
                         </div>
                       </MDBFormInline>
@@ -86,46 +89,46 @@ class ContactFormPage extends React.Component {
 
         <MDBView>
           <MDBMask
-            className="d-flex justify-content-center align-items-center"
-            overlay="indigo-strong"
+            className='d-flex justify-content-center align-items-center'
+            overlay='indigo-strong'
           >
             <MDBContainer>
               <MDBRow>
-                <div className="white-text text-center text-md-left col-md-6 mt-xl-5 mb-5">
-                  <h1 className="display-4 font-weight-bold">Lorem ipsum </h1>
-                  <hr className="hr-light" />
-                  <h6 className="mb-4">
+                <div className='white-text text-center text-md-left col-md-6 mt-xl-5 mb-5'>
+                  <h1 className='display-4 font-weight-bold'>Lorem ipsum </h1>
+                  <hr className='hr-light' />
+                  <h6 className='mb-4'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Rem repellendus quasi fuga nesciunt dolorum nulla magnam
                     veniam sapiente, fugiat! Commodi sequi non animi ea dolor
                     molestiae iste.
                   </h6>
-                  <MDBBtn outline color="white">
+                  <MDBBtn outline color='white'>
                     Learn More
                   </MDBBtn>
                 </div>
-                <MDBCol md="6" xl="5" className="mb-4">
-                  <MDBCard className="dark-grey-text">
-                    <MDBCardBody className="z-depth-2">
-                      <h3 className="dark-grey-text text-center">
+                <MDBCol md='6' xl='5' className='mb-4'>
+                  <MDBCard className='dark-grey-text'>
+                    <MDBCardBody className='z-depth-2'>
+                      <h3 className='dark-grey-text text-center'>
                         <strong>Write to us:</strong>
                       </h3>
                       <hr />
-                      <MDBInput label="Your name" icon="user" />
-                      <MDBInput label="Your email" icon="envelope" />
+                      <MDBInput label='Your name' icon='user' />
+                      <MDBInput label='Your email' icon='envelope' />
                       <MDBInput
-                        label="Your message"
-                        icon="pencil-alt"
-                        type="textarea"
-                        rows="3"
+                        label='Your message'
+                        icon='pencil-alt'
+                        type='textarea'
+                        rows='3'
                       />
-                      <div className="text-center mt-3 black-text">
-                        <MDBBtn color="indigo">Send</MDBBtn>
+                      <div className='text-center mt-3 black-text'>
+                        <MDBBtn color='indigo'>Send</MDBBtn>
                         <hr />
                         <MDBInput
-                          type="checkbox"
-                          id="checkbox"
-                          label="Subscribe me to the newsletter"
+                          type='checkbox'
+                          id='checkbox'
+                          label='Subscribe me to the newsletter'
                         />
                       </div>
                     </MDBCardBody>
@@ -137,8 +140,8 @@ class ContactFormPage extends React.Component {
         </MDBView>
 
         <MDBContainer>
-          <MDBRow className="py-5">
-            <MDBCol md="12" className="text-center">
+          <MDBRow className='py-5'>
+            <MDBCol md='12' className='text-center'>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

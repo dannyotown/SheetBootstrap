@@ -31,7 +31,7 @@ const Step = props => {
       ? 'fab'
       : 'fa';
 
-  const iconClass = classNames(iconPrefix + ' fa-' + icon, 'Ripple-parent');
+  const iconClass = classNames(`${iconPrefix  } fa-${  icon}`, 'Ripple-parent');
 
   const stepClass = classNames(
     form

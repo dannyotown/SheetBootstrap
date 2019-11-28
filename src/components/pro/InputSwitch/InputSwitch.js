@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class InputSwitch extends React.Component {
   constructor(props) {
@@ -39,9 +39,9 @@ class InputSwitch extends React.Component {
       ...attributes
     } = this.props;
 
-    const classes = classNames("switch", className);
+    const classes = classNames('switch', className);
     return (
-      <div {...attributes} className={classes} data-test="input-switch">
+      <div {...attributes} className={classes} data-test='input-switch'>
         <label>
           {labelLeft}
           <input
@@ -49,9 +49,9 @@ class InputSwitch extends React.Component {
             value={this.state.value}
             checked={this.state.value}
             onChange={this.handleChange}
-            type="checkbox"
+            type='checkbox'
           />
-          <span className="lever" />
+          <span className='lever' />
           {labelRight}
         </label>
       </div>
@@ -80,8 +80,8 @@ InputSwitch.propTypes = {
 InputSwitch.defaultProps = {
   checked: false,
   getValue: false,
-  labelLeft: "Off",
-  labelRight: "On"
+  labelLeft: 'Off',
+  labelRight: 'On'
 };
 
 export default InputSwitch;

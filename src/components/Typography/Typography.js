@@ -46,32 +46,32 @@ class Typogrphy extends React.Component {
           {children}
         </MDBBox>
       );
-    } else if (listUnStyled) {
+    } if (listUnStyled) {
       return (
         <MDBBox tag='ul' className='list-unstyled'>
           {children}
         </MDBBox>
       );
-    } else if (listInLine) {
+    } if (listInLine) {
       return (
         <MDBBox tag='ul' className='list-inline'>
           {children}
         </MDBBox>
       );
-    } else if (note) {
+    } if (note) {
       return (
         <MDBBox tag='p' className={notes}>
           <strong>{noteTitle}</strong>
           {children}
         </MDBBox>
       );
-    } else {
+    } 
       return (
         <Tag {...attributes} className={isEmptyClass}>
           {children}
         </Tag>
       );
-    }
+    
   }
 }
 

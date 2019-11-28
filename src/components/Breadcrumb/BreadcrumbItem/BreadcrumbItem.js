@@ -1,22 +1,22 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Fa from '../../Fa';
-import "./Breadcrumb.css";
+import './Breadcrumb.css';
 
 const BreadcrumbItem = props => {
 
   const { active, appendIcon, children, className, bold, icon, iconBrand, iconClassName, iconLight, iconRegular, iconSize, ...attributes } = props;
 
   const classes = classNames(
-    active ? "active" : false,
-    icon && "bc-icons",
-    "breadcrumb-item",
+    active ? 'active' : false,
+    icon && 'bc-icons',
+    'breadcrumb-item',
     className
   );
 
   const iconClasses = classNames(
-    appendIcon ? "mx-2" : "mr-2",
+    appendIcon ? 'mx-2' : 'mr-2',
     iconClassName
   )
 
@@ -30,7 +30,7 @@ const BreadcrumbItem = props => {
   const WithIcon = () => {
     if (icon) {
       return (
-        <Fragment>
+        <>
           {
             appendIcon && children
           }
@@ -45,14 +45,14 @@ const BreadcrumbItem = props => {
           {
             !appendIcon && children
           }
-        </Fragment>
+        </>
       );
     }
     return children;
   }
 
   return (
-    <li data-test="breadcrumb-item" {...attributes} className={classes}>
+    <li data-test='breadcrumb-item' {...attributes} className={classes}>
       <WithBold>
         <WithIcon />
       </WithBold>
@@ -77,14 +77,14 @@ BreadcrumbItem.propTypes = {
 BreadcrumbItem.defaultProps = {
   active: false,
   appendIcon: false,
-  className: "",
+  className: '',
   bold: false,
-  icon: "",
+  icon: '',
   iconBrand: false, 
-  iconClassName: "",
+  iconClassName: '',
   iconLight: false,
   iconRegular: false,
-  iconSize: ""
+  iconSize: ''
 }
 
 export default BreadcrumbItem;

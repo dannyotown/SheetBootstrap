@@ -1,5 +1,5 @@
-import React from "react";
-import { SelectContext } from "./Select";
+import React from 'react';
+import { SelectContext } from './Select';
 
 const selectContextHOC = Component =>
   class HOC extends React.Component {

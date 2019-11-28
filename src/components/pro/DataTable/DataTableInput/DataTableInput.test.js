@@ -18,11 +18,11 @@ describe('<DataTableInput />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'datatable-input').length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<DataTableInput />, div);
   });
@@ -43,7 +43,7 @@ describe('<DataTableInput />', () => {
   });
 
   describe('sets label', () => {
-    test(`sets correct input's placeholder`, () => {
+    test('sets correct input\'s placeholder', () => {
       wrapper = setup({ label: 'test' });
       let input = wrapper.find('input').prop('placeholder');
       expect(input).toEqual('test');

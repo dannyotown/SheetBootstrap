@@ -30,7 +30,7 @@ describe('<DataTableEntries />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'datatable-entries').length).toBe(1);
   });
 

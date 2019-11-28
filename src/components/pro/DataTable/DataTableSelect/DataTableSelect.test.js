@@ -26,11 +26,11 @@ describe('<DataTableSelect />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'datatable-select').length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <DataTableSelect
@@ -54,12 +54,12 @@ describe('<DataTableSelect />', () => {
   });
 
   test('renders correct label', () => {
-    //if entries will not be equal to [] .text() will return different value
+    // if entries will not be equal to [] .text() will return different value
     expect(wrapper.find('label').text()).toEqual('testLabel');
   });
 
   describe('sets classes', () => {
-    test(`adds 'dataTables_length d-flex flex-row' class by default`, () => {
+    test('adds \'dataTables_length d-flex flex-row\' class by default', () => {
       checkClass(wrapper, 'dataTables_length.d-flex.flex-row');
     });
   });

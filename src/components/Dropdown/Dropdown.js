@@ -131,7 +131,7 @@ class Dropdown extends React.Component {
     }
 
     const items = container.querySelectorAll(
-      `.dropdown-menu .dropdown-item:not(.disabled)`
+      '.dropdown-menu .dropdown-item:not(.disabled)'
     );
 
     items.length && this.handleFocus(e, items);
@@ -158,9 +158,9 @@ class Dropdown extends React.Component {
         [`btn-group-${size}`]: !!size,
         dropdown: !group,
         show: this.state.isOpen,
-        dropup: dropup,
-        dropright: dropright,
-        dropleft: dropleft
+        dropup,
+        dropright,
+        dropleft
       },
       className
     );

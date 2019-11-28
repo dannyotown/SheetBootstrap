@@ -266,7 +266,7 @@ class ParallaxIntro extends Component {
         <MDBParallax
           video='https://youtu.be/lugard7P0nw'
           disableVideoLazyLoading
-        ></MDBParallax>
+         />
         <MDBParallax
           video='https://player.vimeo.com/video/137857207'
           type='opacity'

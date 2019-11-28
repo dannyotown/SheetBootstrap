@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { returnAttributes } from '../utils';
 import { Transition } from 'react-transition-group';
 import FocusTrap from 'focus-trap-react';
+import { returnAttributes } from '../utils';
 
 class Modal extends Component {
   state = {
@@ -120,7 +120,7 @@ class Modal extends Component {
     const wrapperClasses = classNames(
       {
         modal: !inline,
-        fade: fade,
+        fade,
         top: fade && !animation && !position,
         [`${animation}`]: fade && animation
       },
@@ -163,7 +163,7 @@ class Modal extends Component {
     );
 
     return (
-      <Fragment>
+      <>
         {backdrop && (
           <Transition
             timeout={timeout}
@@ -190,7 +190,7 @@ class Modal extends Component {
         >
           {!disableFocusTrap ? <FocusTrap>{modal}</FocusTrap> : modal}
         </Transition>
-      </Fragment>
+      </>
     );
   }
 }

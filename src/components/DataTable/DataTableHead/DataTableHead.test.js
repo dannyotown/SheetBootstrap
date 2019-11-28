@@ -19,7 +19,7 @@ describe('<DataTableHead />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'datatable-head').length).toBe(1);
   });
 

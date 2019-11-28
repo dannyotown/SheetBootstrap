@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import CarouselControl from './CarouselControl';
 import CarouselIndicator from './CarouselIndicator';
 import CarouselIndicators from './CarouselIndicators';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import './Carousel.css';
 
 class Carousel extends Component {
@@ -151,7 +151,7 @@ class Carousel extends Component {
     } = this.props;
 
     const { swipeAvailable } = this.state;
-    let ariaLabel = 'carousel';
+    const ariaLabel = 'carousel';
 
     const classes = classNames(
       'carousel',
@@ -173,8 +173,8 @@ class Carousel extends Component {
       );
     }
 
-    const isMultiItem = multiItem ? true : false;
-    const isTestimonial = testimonial ? true : false;
+    const isMultiItem = !!multiItem;
+    const isTestimonial = !!testimonial;
 
     return (
       <Tag
@@ -213,7 +213,7 @@ class Carousel extends Component {
         )}
         {children}
         {showControls && !multiItem && (
-          <React.Fragment>
+          <>
             <CarouselControl
               testimonial={isTestimonial}
               multiItem={isMultiItem}
@@ -228,7 +228,7 @@ class Carousel extends Component {
               role='button'
               onClick={this.next}
             />
-          </React.Fragment>
+          </>
         )}
         {showIndicators && (
           <CarouselIndicators>{CarouselIndicatorsArray}</CarouselIndicators>

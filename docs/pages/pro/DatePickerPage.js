@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MDBDatePicker, MDBContainer, MDBBtn } from 'mdbreact';
-import DocsLink from './../../components/docsLink';
-import SectionContainer from './../../components/sectionContainer';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 class DatePickerPage extends Component {
   state = {

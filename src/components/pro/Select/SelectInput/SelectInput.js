@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import selectContextHOC from "../SelectContext";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import selectContextHOC from '../SelectContext';
 
 class SelectInput extends React.Component {
   componentDidMount() {
@@ -16,14 +16,14 @@ class SelectInput extends React.Component {
   }
 
   render() {
-    const classes = classNames("select-dropdown", this.props.className);
+    const classes = classNames('select-dropdown', this.props.className);
     const { attributes, context } = this.props;
 
-    const value = context.state.isEmpty ? this.props.selected && !context.label ? this.props.selected : "" : context.state.selectTextContent;
+    const value = context.state.isEmpty ? this.props.selected && !context.label ? this.props.selected : '' : context.state.selectTextContent;
 
     return (
       <input
-        type="text"
+        type='text'
         readOnly
         onClick={(e) => context.onInputClick(e)}
         value={value}
@@ -41,7 +41,7 @@ SelectInput.propTypes = {
 };
 
 SelectInput.defaultProps = {
-  className: ""
+  className: ''
 };
 
 export default (SelectInput = selectContextHOC(SelectInput));

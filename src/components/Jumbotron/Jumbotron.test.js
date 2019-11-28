@@ -18,11 +18,11 @@ describe('<Jumbotron />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'jumbotron').length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Jumbotron />, div);
   });
@@ -41,10 +41,10 @@ describe('<Jumbotron />', () => {
     checkProps(wrapper, {});
   });
 
-  test(`adds custom attributes passed as property`, () => {
+  test('adds custom attributes passed as property', () => {
     wrapper = setup({ customAttr: 'custom' });
 
-    expect(wrapper.props()['customAttr']).toBe('custom');
+    expect(wrapper.props().customAttr).toBe('custom');
     expect(wrapper.find('[customAttr="custom"]').length).toBe(1);
   });
 
@@ -60,10 +60,10 @@ describe('<Jumbotron />', () => {
     });
 
     test('does not add jumbotron-fluid class', () => {
-      expect(wrapper.find(`[className*="jumbotron-fluid"]`).length).toBe(0);
+      expect(wrapper.find('[className*="jumbotron-fluid"]').length).toBe(0);
     });
 
-    test(`adds custom class passed as property`, () => {
+    test('adds custom class passed as property', () => {
       wrapper = setup({ className: 'testClassName' });
 
       checkClass(wrapper, 'testClassName');

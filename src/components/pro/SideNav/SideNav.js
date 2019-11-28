@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import { CSSTransition } from "react-transition-group";
-import "../../Transitions.css";
-import Waves from "../../Waves";
-import ScrollBar from "../PerfectScrollbar";
-import SideNavContext from "./SideNavContext";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { CSSTransition } from 'react-transition-group';
+import '../../Transitions.css';
+import Waves from '../../Waves';
+import ScrollBar from '../PerfectScrollbar';
+import SideNavContext from './SideNavContext';
 
 class SideNav extends React.Component {
   constructor(props) {
@@ -15,11 +15,11 @@ class SideNav extends React.Component {
     function isOpen() {
       if (props.fixed) {
         if (window.innerWidth <= props.breakWidth) {
-          return props.responsive ? false : true;
+          return !props.responsive;
         }
 
         return true;
-      } else {
+      } 
         if (props.triggerOpening) {
           if (window.innerWidth > props.breakWidth) {
             return true;
@@ -28,7 +28,7 @@ class SideNav extends React.Component {
           return false;
         }
         return false;
-      }
+      
     }
 
     this.sideNavRef = React.createRef();
@@ -52,9 +52,9 @@ class SideNav extends React.Component {
       );
     }
 
-    this.sideNavRef.current.addEventListener("touchstart", this.startTouch);
-    this.sideNavRef.current.addEventListener("touchmove", this.moveTouch);
-    window.addEventListener("resize", this.updatePredicate);
+    this.sideNavRef.current.addEventListener('touchstart', this.startTouch);
+    this.sideNavRef.current.addEventListener('touchmove', this.moveTouch);
+    window.addEventListener('resize', this.updatePredicate);
   }
 
   startTouch = e => {
@@ -100,9 +100,9 @@ class SideNav extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updatePredicate);
-    this.sideNavRef.current.removeEventListener("touchstart", this.startTouch);
-    this.sideNavRef.current.removeEventListener("touchmove", this.moveTouch);
+    window.removeEventListener('resize', this.updatePredicate);
+    this.sideNavRef.current.removeEventListener('touchstart', this.startTouch);
+    this.sideNavRef.current.removeEventListener('touchmove', this.moveTouch);
   }
 
   updatePredicate = () => {
@@ -124,7 +124,7 @@ class SideNav extends React.Component {
     this.setState({ slim: !this.state.slim });
 
     const sidenav = ReactDOM.findDOMNode(this.sideNavRef.current);
-    sidenav.classList.toggle("slim");
+    sidenav.classList.toggle('slim');
   };
 
   handleOverlayClick = () => {
@@ -140,12 +140,12 @@ class SideNav extends React.Component {
   handleClick = e => {
     if (!this.props.disabled) {
       // Waves - Get Cursor Position
-      let cursorPos = {
+      const cursorPos = {
         top: e.clientY,
         left: e.clientX,
         time: Date.now()
       };
-      this.setState({ cursorPos: cursorPos });
+      this.setState({ cursorPos });
       // do the passed in callback:
       if (this.props.onClick) {
         this.props.onClick(e);
@@ -178,14 +178,14 @@ class SideNav extends React.Component {
     const { isOpen, isFixed } = this.state;
 
     const classes = classNames(
-      "side-nav",
-      "wide",
-      right && "right-aligned",
-      this.state.slimInitial && "slim",
+      'side-nav',
+      'wide',
+      right && 'right-aligned',
+      this.state.slimInitial && 'slim',
       className
     );
 
-    const overlay = <div id="sidenav-overlay" onClick={this.handleOverlayClick} />;
+    const overlay = <div id='sidenav-overlay' onClick={this.handleOverlayClick} />;
 
     const sidenav = (
       <Tag
@@ -196,12 +196,12 @@ class SideNav extends React.Component {
         style={bg ? { backgroundImage: `url(${bg}` } : undefined}
       >
         <ScrollBar option={{ suppressScrollX: true }}>
-          <ul className="list-unstyled">
+          <ul className='list-unstyled'>
             {logo && (
               <li>
-                <div className="logo-wrapper">
-                  <a href={href} className="Ripple-parent" onClick={this.handleClick}>
-                    <img src={logo} alt="" className="img-fluid flex-center d-block" />
+                <div className='logo-wrapper'>
+                  <a href={href} className='Ripple-parent' onClick={this.handleClick}>
+                    <img src={logo} alt='' className='img-fluid flex-center d-block' />
                     <Waves cursorPos={this.state.cursorPos} />
                   </a>
                 </div>
@@ -229,7 +229,7 @@ class SideNav extends React.Component {
           <CSSTransition
             appear={!this.state.isFixed}
             timeout={{ enter: 300, exit: 300 }}
-            classNames={right ? "right-side-slide" : "side-slide"}
+            classNames={right ? 'right-side-slide' : 'side-slide'}
             in={isOpen}
           >
             {sidenav}
@@ -261,17 +261,17 @@ SideNav.propTypes = {
 };
 
 SideNav.defaultProps = {
-  bg: "",
+  bg: '',
   breakWidth: 1400,
-  className: "",
+  className: '',
   hidden: false,
-  href: "#",
-  logo: "",
-  mask: "",
+  href: '#',
+  logo: '',
+  mask: '',
   onOverlayClick: () => {},
   right: false,
   triggerOpening: false,
-  tag: "div",
+  tag: 'div',
   fixed: false,
   responsive: true,
   showOverlay: true,

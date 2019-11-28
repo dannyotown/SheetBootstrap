@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   MDBContainer,
   MDBNav,
@@ -10,57 +10,57 @@ import {
   MDBDropdownItem,
   MDBRow,
   MDBCol
-} from "mdbreact";
-import DocsLink from "../../components/docsLink";
-import SectionContainer from "../../components/sectionContainer";
+} from 'mdbreact';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 class NavsPage extends Component {
   render() {
     return (
       <MDBContainer>
         <DocsLink
-          title="Tabs"
-          href="https://mdbootstrap.com/docs/react/navigation/navs/"
+          title='Tabs'
+          href='https://mdbootstrap.com/docs/react/navigation/navs/'
         />
 
-        <SectionContainer header="Basic examples with Tabs & Pills" noBorder>
+        <SectionContainer header='Basic examples with Tabs & Pills' noBorder>
           <MDBRow>
-            <MDBCol md="6">
-              <SectionContainer className="pb-5">
-                <MDBNav tabs color="indigo">
+            <MDBCol md='6'>
+              <SectionContainer className='pb-5'>
+                <MDBNav tabs color='indigo'>
                   <MDBNavItem>
-                    <MDBNavLink active to="#!">
+                    <MDBNavLink active to='#!'>
                       Active
                     </MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 1</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 1</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 2</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 2</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 3</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 3</MDBNavLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
             </MDBCol>
-            <MDBCol md="6">
-              <SectionContainer className="pb-4">
-                <MDBNav pills color="unique" className="mb-2">
+            <MDBCol md='6'>
+              <SectionContainer className='pb-4'>
+                <MDBNav pills color='unique' className='mb-2'>
                   <MDBNavItem>
-                    <MDBNavLink active to="#!">
+                    <MDBNavLink active to='#!'>
                       Active
                     </MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 1</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 1</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 2</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 2</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 3</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 3</MDBNavLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -68,44 +68,44 @@ class NavsPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer header="Justified with Tabs & Pills" noBorder>
+        <SectionContainer header='Justified with Tabs & Pills' noBorder>
           <MDBRow>
-            <MDBCol md="6">
-              <SectionContainer className="pb-5">
-                <MDBNav tabs color="purple" className="nav-justified">
+            <MDBCol md='6'>
+              <SectionContainer className='pb-5'>
+                <MDBNav tabs color='purple' className='nav-justified'>
                   <MDBNavItem>
-                    <MDBNavLink active to="#!">
+                    <MDBNavLink active to='#!'>
                       Active
                     </MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 1</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 1</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 2</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 2</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 3</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 3</MDBNavLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
             </MDBCol>
-            <MDBCol md="6">
-              <SectionContainer className="pb-4">
-                <MDBNav pills className="nav-justified mb-2">
+            <MDBCol md='6'>
+              <SectionContainer className='pb-4'>
+                <MDBNav pills className='nav-justified mb-2'>
                   <MDBNavItem>
-                    <MDBNavLink active to="#!">
+                    <MDBNavLink active to='#!'>
                       Active
                     </MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 1</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 1</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 2</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 2</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link 3</MDBNavLink>
+                    <MDBNavLink to='#!'>Link 3</MDBNavLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -113,22 +113,22 @@ class NavsPage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer header="With Tabs & Pills with dropdown" noBorder>
+        <SectionContainer header='With Tabs & Pills with dropdown' noBorder>
           <MDBRow>
-            <MDBCol md="6">
-              <SectionContainer className="pb-5">
-                <MDBNav tabs color="secondary">
+            <MDBCol md='6'>
+              <SectionContainer className='pb-5'>
+                <MDBNav tabs color='secondary'>
                   <MDBNavItem>
-                    <MDBNavLink active to="#!">
+                    <MDBNavLink active to='#!'>
                       Active
                     </MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBDropdown>
-                      <MDBDropdownToggle nav caret color="secondary">
+                      <MDBDropdownToggle nav caret color='secondary'>
                         Dropdown
                       </MDBDropdownToggle>
-                      <MDBDropdownMenu color="secondary">
+                      <MDBDropdownMenu color='secondary'>
                         <MDBDropdownItem>Action</MDBDropdownItem>
                         <MDBDropdownItem>Another Action</MDBDropdownItem>
                         <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -138,30 +138,30 @@ class NavsPage extends Component {
                     </MDBDropdown>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link</MDBNavLink>
+                    <MDBNavLink to='#!'>Link</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink disabled to="#!">
+                    <MDBNavLink disabled to='#!'>
                       Disabled
                     </MDBNavLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
             </MDBCol>
-            <MDBCol md="6">
-              <SectionContainer className="pb-4">
-                <MDBNav pills color="dark" className="mb-2">
+            <MDBCol md='6'>
+              <SectionContainer className='pb-4'>
+                <MDBNav pills color='dark' className='mb-2'>
                   <MDBNavItem>
-                    <MDBNavLink active to="#!">
+                    <MDBNavLink active to='#!'>
                       Active
                     </MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBDropdown>
-                      <MDBDropdownToggle nav caret color="dark">
+                      <MDBDropdownToggle nav caret color='dark'>
                         Dropdown
                       </MDBDropdownToggle>
-                      <MDBDropdownMenu color="dark">
+                      <MDBDropdownMenu color='dark'>
                         <MDBDropdownItem>Action</MDBDropdownItem>
                         <MDBDropdownItem>Another Action</MDBDropdownItem>
                         <MDBDropdownItem>Something else here</MDBDropdownItem>
@@ -171,10 +171,10 @@ class NavsPage extends Component {
                     </MDBDropdown>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#!">Link</MDBNavLink>
+                    <MDBNavLink to='#!'>Link</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink disabled to="#!">
+                    <MDBNavLink disabled to='#!'>
                       Disabled
                     </MDBNavLink>
                   </MDBNavItem>

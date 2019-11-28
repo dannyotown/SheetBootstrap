@@ -19,12 +19,12 @@ describe('<Autocomplete />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     const autocomplete = findByTestAttr(wrapper, 'auto-complete');
     expect(autocomplete.length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Autocomplete />, div);
   });

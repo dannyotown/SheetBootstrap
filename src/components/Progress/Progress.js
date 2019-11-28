@@ -23,19 +23,19 @@ const Progress = ({
   const progressClasses = classNames(
     'progress',
     material && 'md-progress',
-    preloader && (color ? color + '-color' : 'primary-color') + '-dark',
+    preloader && `${color ? `${color  }-color` : 'primary-color'  }-dark`,
     className
   );
 
   const progressBarClasses = classNames(
     preloader ? 'indeterminate' : 'progress-bar',
-    barClassName ? barClassName : null,
+    barClassName || null,
     animated ? 'progress-bar-animated' : null,
     color ? `bg-${color}` : null,
     striped || animated ? 'progress-bar-striped' : null
   );
 
-  const computedHeight = height ? height : children && '1rem';
+  const computedHeight = height || children && '1rem';
 
   const computedWrapperStyle = { ...wrapperStyle, height: computedHeight };
 

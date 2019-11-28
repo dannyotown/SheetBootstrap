@@ -30,20 +30,20 @@ const TimePickerDisplay = ({ color, hours, minutes, dayTime, unitsMode, handleMo
 
   return (
     <div className={displayClasses}>
-      <div className="clockpicker-display">
-        <div className="clockpicker-display-column">
+      <div className='clockpicker-display'>
+        <div className='clockpicker-display-column'>
           <span 
             className={hourClasses}
             onClick={() => handleModeChange('h')}
-          >{hours !== '' ? hours : "--"}</span>:<span 
+          >{hours !== '' ? hours : '--'}</span>:<span 
             className={minuteClasses}
             onClick={() => handleModeChange('m')}  
-          >{minutes !== '' ? minutes : "--"}</span>
+          >{minutes !== '' ? minutes : '--'}</span>
         </div>
         {
           hoursFormat === 12 &&
-          <div className="clockpicker-display-column clockpicker-display-am-pm">
-            <div className="clockpicker-span-am-pm">{dayTime.toUpperCase()}</div>
+          <div className='clockpicker-display-column clockpicker-display-am-pm'>
+            <div className='clockpicker-span-am-pm'>{dayTime.toUpperCase()}</div>
           </div>
         }
       </div>

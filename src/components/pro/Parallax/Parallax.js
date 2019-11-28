@@ -30,29 +30,29 @@ class Parallax extends Component {
     } = this.props;
 
     this.imageOptions = {
-      disableParallax: disableParallax,
-      elementInViewport: elementInViewport,
-      imgElement: imgElement,
-      imgPosition: imgPosition,
-      imgRepeat: imgRepeat,
-      imgSize: imgSize,
-      imgSrc: imgSrc,
-      zIndex: zIndex
+      disableParallax,
+      elementInViewport,
+      imgElement,
+      imgPosition,
+      imgRepeat,
+      imgSize,
+      imgSrc,
+      zIndex
     };
 
     this.videoOptions = {
-      disableVideo: disableVideo,
-      videoEndTime: videoEndTime,
+      disableVideo,
+      videoEndTime,
       videoLazyLoading: !disableVideoLazyLoading,
       videoLoop: !disableVideoLoop,
       videoPlayOnlyVisible: !disableVideoPlayOnlyVisible,
-      videoStartTime: videoStartTime,
-      videoVolume: videoVolume
+      videoStartTime,
+      videoVolume
     };
 
     this.parentStyle = {
-      height: height,
-      width: width
+      height,
+      width
     };
   }
 

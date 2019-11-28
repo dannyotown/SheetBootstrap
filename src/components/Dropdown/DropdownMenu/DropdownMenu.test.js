@@ -31,7 +31,7 @@ describe('<DropdownMenu />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'dropdown-menu').length).toBe(1);
   });
 
@@ -59,7 +59,7 @@ describe('<DropdownMenu />', () => {
     expect(wrapper.find('label.testClassName')).toHaveLength(1);
   });
 
-  test(`adds custom attributes to DropdownMenuProComponent passed as property`, () => {
+  test('adds custom attributes to DropdownMenuProComponent passed as property', () => {
     wrapper = mounted({ 'data-custom-attr': 'custom' });
 
     const menu = wrapper.find('DropdownMenuProComponent');
@@ -204,7 +204,7 @@ describe('<DropdownMenu />', () => {
       checkClass(tag, 'show');
     });
 
-    test(`adds custom class passed as property`, () => {
+    test('adds custom class passed as property', () => {
       wrapper = mounted({ className: 'testClassName' });
 
       expect(wrapper.find('.testClassName').length).toBeTruthy();

@@ -21,8 +21,8 @@ const Nav = props => {
     pills && 'md-pills',
     header && 'nav-pills card-header-pills',
     color && !tabs && !classicTabs && !pills ? color : false,
-    pills && color ? 'pills-' + color : false,
-    (tabs || classicTabs) && color ? 'tabs-' + color : false,
+    pills && color ? `pills-${  color}` : false,
+    (tabs || classicTabs) && color ? `tabs-${  color}` : false,
     className
   );
 

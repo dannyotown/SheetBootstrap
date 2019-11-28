@@ -9,7 +9,7 @@ class Options extends React.Component {
     super(props);
     this.state = {
       options: [],
-      searchValue: ""
+      searchValue: ''
     }
 
     this.optionsRef = React.createRef();
@@ -53,12 +53,12 @@ class Options extends React.Component {
     return (
       <ul {...attributes} className={classes} ref={this.optionsRef}>
         {search && (
-          <div className="mx-2">
+          <div className='mx-2'>
             <Input
               label={searchLabel}
               id={searchId}
               getValue={this.search}
-              data-search="true"
+              data-search='true'
             />
           </div>
         )}

@@ -1,25 +1,25 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Col = props => {
   const { xs, sm, md, lg, xl, top, bottom, middle, size, className, tag: Tag, ...attributes } = props;
 
   const classes = classNames(
-    size && "col-" + size,
-    xs && "col-xs-" + xs,
-    sm && "col-sm-" + sm,
-    md && "col-md-" + md,
-    lg && "col-lg-" + lg,
-    xl && "col-xl-" + xl,
-    !size && !xs && !sm && !md && !lg && !xl ? "col" : "",
-    top && "align-self-start",
-    middle && "align-self-center",
-    bottom && "align-self-end",
+    size && `col-${  size}`,
+    xs && `col-xs-${  xs}`,
+    sm && `col-sm-${  sm}`,
+    md && `col-md-${  md}`,
+    lg && `col-lg-${  lg}`,
+    xl && `col-xl-${  xl}`,
+    !size && !xs && !sm && !md && !lg && !xl ? 'col' : '',
+    top && 'align-self-start',
+    middle && 'align-self-center',
+    bottom && 'align-self-end',
     className
   );
 
-  return <Tag data-test="col" {...attributes} className={classes} />;
+  return <Tag data-test='col' {...attributes} className={classes} />;
 };
 
 Col.propTypes = {
@@ -37,7 +37,7 @@ Col.propTypes = {
 };
 
 Col.defaultProps = {
-  tag: "div",
+  tag: 'div',
   xs: null,
   sm: null,
   md: null,

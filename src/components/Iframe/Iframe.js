@@ -11,8 +11,8 @@ class Iframe extends Component {
   };
 
   componentDidMount = () => {
-    let width = this.props.width;
-    let height = this.props.height;
+    let {width} = this.props;
+    let {height} = this.props;
     let ratio = 9 / 16;
 
     if (this.props.ratio) {
@@ -23,7 +23,7 @@ class Iframe extends Component {
 
     if (this.props.width && this.props.height) {
       return;
-    } else if (this.props.width) {
+    } if (this.props.width) {
       height = this.props.width * ratio;
     } else if (this.props.height) {
       width = this.props.height * (1 / ratio);
@@ -31,9 +31,9 @@ class Iframe extends Component {
 
     this.setState({
       ...this.state,
-      width: width,
-      height: height,
-      ratio: ratio
+      width,
+      height,
+      ratio
     });
   };
 
@@ -49,7 +49,7 @@ class Iframe extends Component {
       sandbox,
       src,
       style,
-      title = "",
+      title = '',
       ratio,
       height,
       width
@@ -58,7 +58,7 @@ class Iframe extends Component {
     const classes = classNames('embed-responsive-item', className);
     const wrapperClasses = classNames(
       !(height || width) && 'embed-responsive',
-      ratio ? `embed-responsive-${ratio}` : `embed-responsive-16by9`
+      ratio ? `embed-responsive-${ratio}` : 'embed-responsive-16by9'
     );
 
     let iframeAttributes = {

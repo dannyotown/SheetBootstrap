@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MDBContainer, MDBLightbox } from 'mdbreact';
-import DocsLink from './../../components/docsLink';
+import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
 
 class LightboxPage extends Component {

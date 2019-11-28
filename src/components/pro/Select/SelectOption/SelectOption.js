@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import selectContextHOC from "../SelectContext";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import selectContextHOC from '../SelectContext';
 
 class Option extends React.Component {
   constructor(props) {
@@ -16,51 +16,49 @@ class Option extends React.Component {
   componentDidMount() {
     if (!this.state.multiple) {
       this.state.checked && this.optionRef.current.click();
-    } else {
-      if (!this.props.disabled) {
-        !this.state.checked && this.optionRef.current.classList.add("active");
+    } else if (!this.props.disabled) {
+        !this.state.checked && this.optionRef.current.classList.add('active');
         this.selectOption();
       }
-    }
   }
 
   selectOption = () => {
     if (!this.props.disabled) {
-      let selectedOption = this.optionRef.current;
-      let value = [];
+      const selectedOption = this.optionRef.current;
+      const value = [];
       let text;
-      let options = selectedOption.parentNode.children;
+      const options = selectedOption.parentNode.children;
 
       if (this.state.multiple) {
         text = [];
-        if (selectedOption.classList.contains("active")) {
-          selectedOption.classList.remove("active");
+        if (selectedOption.classList.contains('active')) {
+          selectedOption.classList.remove('active');
           this.setState({ checked: false });
         } else {
-          selectedOption.classList.add("active");
+          selectedOption.classList.add('active');
           this.setState({ checked: true });
         }
 
         // iterate throught child nodes options and add checked to arr
         Array.from(options).forEach(option => {
-          if (option.classList.contains("active")) {
+          if (option.classList.contains('active')) {
             text.push(option.textContent);
-            option.getElementsByTagName("input")[0].value
-              ? value.push(option.getElementsByTagName("input")[0].value)
+            option.getElementsByTagName('input')[0].value
+              ? value.push(option.getElementsByTagName('input')[0].value)
               : value.push(option.textContent);
           }
         });
       } else {
         Array.from(selectedOption.children).forEach(child => {
-          if (child.nodeName === "SPAN") {
+          if (child.nodeName === 'SPAN') {
             text = child.textContent;
             this.props.value ? value.push(this.props.value) : value.push(text);
           }
         });
         Array.from(options).forEach(option =>
-          option.classList.remove("active")
+          option.classList.remove('active')
         );
-        selectedOption.classList.add("active");
+        selectedOption.classList.add('active');
       }
 
       value.length
@@ -82,10 +80,10 @@ class Option extends React.Component {
     } = this.props;
 
     const classes = classNames(
-      disabled || separator ? "disabled" : "",
-      separator ? "optgroup" : "",
+      disabled || separator ? 'disabled' : '',
+      separator ? 'optgroup' : '',
       className,
-      "justify-content-between align-items-center"
+      'justify-content-between align-items-center'
     );
 
     let input = null;
@@ -94,24 +92,24 @@ class Option extends React.Component {
       if (!disabled) {
         input = (
           <input
-            type="checkbox"
+            type='checkbox'
             value={value}
             onChange={() => false}
-            className="form-check-input"
+            className='form-check-input'
             checked={this.state.checked}
           />
         );
         label = (
           <label
-            style={{ height: "10px" }}
+            style={{ height: '10px' }}
             data-multiple={this.state.multiple}
           />
         );
       } else {
-        input = <input type="checkbox" className="form-check-input" disabled />;
+        input = <input type='checkbox' className='form-check-input' disabled />;
         label = (
           <label
-            style={{ height: "10px" }}
+            style={{ height: '10px' }}
             data-multiple={this.state.multiple}
           />
         );
@@ -125,19 +123,19 @@ class Option extends React.Component {
         data-multiple={this.state.multiple}
         className={classes}
         onClick={this.selectOption}
-        style={{ display: "flex" }}
+        style={{ display: 'flex' }}
       >
         <span
           data-multiple={this.state.multiple}
-          className="filtrable"
-          style={{ flex: "1" }}
+          className='filtrable'
+          style={{ flex: '1' }}
         >
           {!separator ? input : null}
           {label}
           {children}
         </span>
         {icon && (
-          <img src={this.props.icon} alt="icon" className="rounded-circle" />
+          <img src={this.props.icon} alt='icon' className='rounded-circle' />
         )}
       </li>
     );
@@ -156,14 +154,14 @@ Option.propTypes = {
 };
 
 Option.defaultProps = {
-  children: "span",
+  children: 'span',
   checked: false,
-  className: "",
+  className: '',
   disabled: false,
   separator: false,
-  icon: "",
+  icon: '',
   triggerOptionClick: () => {},
-  value: ""
+  value: ''
 };
 
 export default (Option = selectContextHOC(Option));

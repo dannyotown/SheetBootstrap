@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -10,9 +10,9 @@ import {
   MDBContainer,
   MDBRow,
   MDBIcon
-} from "mdbreact";
-import DocsLink from "./../../components/docsLink";
-import SectionContainer from "./../../components/sectionContainer";
+} from 'mdbreact';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 class NavbarPage extends Component {
   state = {
@@ -24,39 +24,39 @@ class NavbarPage extends Component {
   };
 
   render() {
-    const outerContainerStyle = { height: "800px" };
+    const outerContainerStyle = { height: '800px' };
     return (
       <MDBContainer>
         <DocsLink
-          title="SmoothScroll"
-          href="https://mdbootstrap.com/docs/react/advanced/scroll"
+          title='SmoothScroll'
+          href='https://mdbootstrap.com/docs/react/advanced/scroll'
         />
-        <SectionContainer header="SmoothScroll with NavBar" className="p-5">
+        <SectionContainer header='SmoothScroll with NavBar' className='p-5'>
           <MDBSmoothScroll
-            size="lg"
+            size='lg'
             fixed
             floating
-            gradient="blue"
-            to="top-navbar"
+            gradient='blue'
+            to='top-navbar'
             smooth
           >
-            <MDBIcon icon="angle-up" />
+            <MDBIcon icon='angle-up' />
           </MDBSmoothScroll>
 
-          <MDBNavbar color="indigo" dark expand="md" id="top-navbar">
+          <MDBNavbar color='indigo' dark expand='md' id='top-navbar'>
             <MDBNavbarBrand>
-              <strong className="white-text">Navbar</strong>
+              <strong className='white-text'>Navbar</strong>
             </MDBNavbarBrand>
             <MDBNavbarToggler onClick={this.toggleCollapse} />
-            <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+            <MDBCollapse id='navbarCollapse3' isOpen={this.state.isOpen} navbar>
               <MDBNavbarNav left>
                 <MDBNavItem>
-                  <MDBSmoothScroll to="section1" smooth>
+                  <MDBSmoothScroll to='section1' smooth>
                     Section 1
                   </MDBSmoothScroll>
                 </MDBNavItem>
                 <MDBNavItem>
-                  <MDBSmoothScroll to="section2" smooth>
+                  <MDBSmoothScroll to='section2' smooth>
                     Section 2
                   </MDBSmoothScroll>
                 </MDBNavItem>
@@ -64,7 +64,7 @@ class NavbarPage extends Component {
             </MDBCollapse>
           </MDBNavbar>
 
-          <MDBRow id="section1" style={outerContainerStyle} className="my-5">
+          <MDBRow id='section1' style={outerContainerStyle} className='my-5'>
             <h2>Section 1</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
@@ -120,7 +120,7 @@ class NavbarPage extends Component {
             </p>
           </MDBRow>
 
-          <MDBRow id="section2" style={outerContainerStyle} className="my-5">
+          <MDBRow id='section2' style={outerContainerStyle} className='my-5'>
             <h2>Section 2</h2>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean

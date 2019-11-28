@@ -22,9 +22,9 @@ const TimePickerAmPmBlock = ({ color, dayTime, handleDayTimeChange }) => {
   );
 
   return (
-    <div className="clockpicker-am-pm-block d-flex justify-content-between">
-      <button type="button" className={classesAM} onClick={() => handleDayTimeChange('am')}>AM</button>
-      <button type="button" className={classesPM} onClick={() => handleDayTimeChange('pm')}>PM</button>
+    <div className='clockpicker-am-pm-block d-flex justify-content-between'>
+      <button type='button' className={classesAM} onClick={() => handleDayTimeChange('am')}>AM</button>
+      <button type='button' className={classesPM} onClick={() => handleDayTimeChange('pm')}>PM</button>
     </div>
   );
 }

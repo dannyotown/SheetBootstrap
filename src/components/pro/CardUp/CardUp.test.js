@@ -18,12 +18,12 @@ describe('<CardUp />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     const renders = findByTestAttr(wrapper, 'card-up');
     expect(renders.length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<CardUp />, div);
   });

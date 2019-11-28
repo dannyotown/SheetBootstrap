@@ -1,28 +1,26 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const NavbarToggler = props => {
   const { right, left, children, className, tag: Tag, image, ...attributes } = props;
 
   const classes = classNames(
     {
-      "navbar-toggler-right": right,
-      "navbar-toggler-left": left
+      'navbar-toggler-right': right,
+      'navbar-toggler-left': left
     },
-    "navbar-toggler",
+    'navbar-toggler',
     className
   );
 
   return (
-    <Tag data-test="navbar-toggler" {...attributes} className={classes}>
-      {children ? (
-        children
-      ) : image ? (
-        <span className="navbar-toggler-icon" style={{ backgroundImage: `url("${image}")` }} />
+    <Tag data-test='navbar-toggler' {...attributes} className={classes}>
+      {children || (image ? (
+        <span className='navbar-toggler-icon' style={{ backgroundImage: `url("${image}")` }} />
       ) : (
-        <span className="navbar-toggler-icon" />
-      )}
+        <span className='navbar-toggler-icon' />
+      ))}
     </Tag>
   );
 };
@@ -38,8 +36,8 @@ NavbarToggler.propTypes = {
 };
 
 NavbarToggler.defaultProps = {
-  tag: "button",
-  type: "button"
+  tag: 'button',
+  type: 'button'
 };
 
 export default NavbarToggler;

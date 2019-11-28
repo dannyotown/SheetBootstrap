@@ -19,11 +19,11 @@ describe('<ExportToCSV />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     expect(findByTestAttr(wrapper, 'export-to-csv').length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<ExportToCSV columns={[{}]} data={[]} />, div);
   });

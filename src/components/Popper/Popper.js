@@ -1,8 +1,8 @@
-import classNames from "classnames";
-import Popper from "popper.js";
-import PropTypes from "prop-types";
-import React from "react";
-import "./Popper.css";
+import classNames from 'classnames';
+import Popper from 'popper.js';
+import PropTypes from 'prop-types';
+import React from 'react';
+import './Popper.css';
 
 class Popover extends React.Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class Popover extends React.Component {
   componentDidMount() {
     this.timer = setInterval(() => this.setPopperJS(), 3);
 
-    document.addEventListener("click", this.handleClick);
+    document.addEventListener('click', this.handleClick);
   }
 
   setPopperJS = () => {
@@ -78,7 +78,7 @@ class Popover extends React.Component {
           this.setState(
             {
               visible:
-                typeof toggler !== "undefined" ? toggler : !this.state.visible
+                typeof toggler !== 'undefined' ? toggler : !this.state.visible
             },
             () => {
               this.createPopper();
@@ -129,15 +129,15 @@ class Popover extends React.Component {
     const Wrapper = children[0];
 
     const classes = classNames(
-      visible && "show",
-      popover ? "popover" : !material && !email && "tooltip px-2",
+      visible && 'popover-show',
+      popover ? 'popover' : !material && !email && 'tooltip px-2',
       className
     );
 
     const popperClasses = classNames(
-      (material || email) && "tooltip-inner",
-      material && (sm ? "md-inner" : "md-inner-main"),
-      email && (sm ? "md-inner" : "md-inner-email")
+      (material || email) && 'tooltip-inner',
+      material && (sm ? 'md-inner' : 'md-inner-main'),
+      email && (sm ? 'md-inner' : 'md-inner-email')
     );
 
     return (
@@ -191,7 +191,7 @@ class Popover extends React.Component {
               {Popper.props.children}
             </Popper.type>
 
-            <span x-arrow="" className={classNames("popover_arrow")}></span>
+            <span x-arrow='' className={classNames('popover_arrow')} />
           </Tag>
         )}
       </>
@@ -218,12 +218,12 @@ Popover.propTypes = {
 Popover.defaultProps = {
   clickable: false,
   domElement: false,
-  id: "popper",
+  id: 'popper',
   isVisible: false,
-  placement: "top",
+  placement: 'top',
   popover: false,
-  style: { display: "inline-block" },
-  tag: "div"
+  style: { display: 'inline-block' },
+  tag: 'div'
 };
 
 export default Popover;

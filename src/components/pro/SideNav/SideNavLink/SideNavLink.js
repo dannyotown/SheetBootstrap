@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Waves from '../../../Waves';
 import { NavLink as Link } from 'react-router-dom';
+import Waves from '../../../Waves';
 import SideNavContext from '../SideNavContext';
 
 
@@ -18,12 +18,12 @@ class SideNavLink extends React.Component {
   handleClick(e) {
     if (!this.props.disabled) {
       // Waves - Get Cursor Position
-      let cursorPos = {
+      const cursorPos = {
         top: e.clientY,
         left: e.clientX,
         time: Date.now()
       };
-      this.setState({ cursorPos: cursorPos });
+      this.setState({ cursorPos });
       // do the passed in callback:
       if (this.props.onClick) {
         this.props.onClick(e);
@@ -89,11 +89,11 @@ class SideNavLink extends React.Component {
 
               {slim ? (
                 (
-                  (<><span className="sv-slim">{shortcut}</span>
-                    <span className="sv-normal">{children}</span></>)
+                  (<><span className='sv-slim'>{shortcut}</span>
+                    <span className='sv-normal'>{children}</span></>)
                 )
               )
-                : <span className="sv-normal">{children}</span>
+                : <span className='sv-normal'>{children}</span>
               }
               <Waves cursorPos={this.state.cursorPos} />
             </Link>

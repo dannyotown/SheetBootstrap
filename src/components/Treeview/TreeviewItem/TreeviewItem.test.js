@@ -32,12 +32,12 @@ describe('<TreeviewItem />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     const TreeviewItem = findByTestAttr(wrapper, 'treeview-item');
     expect(TreeviewItem.length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <TreeviewContext.Provider value={context}>
@@ -76,10 +76,10 @@ describe('<TreeviewItem />', () => {
     ).toHaveLength(1);
   });
 
-  test(`adds custom attributes passed as property`, () => {
+  test('adds custom attributes passed as property', () => {
     wrapper = setup({ lang: 'En' });
 
-    expect(wrapper.props()['lang']).toBe('En');
+    expect(wrapper.props().lang).toBe('En');
     expect(wrapper.find('[lang="En"]').length).toBeTruthy();
   });
 
@@ -97,7 +97,7 @@ describe('<TreeviewItem />', () => {
       );
     });
 
-    test(`adds 'disabledTestClass' class if (disabledClassName) property is passed and item is (disabled)`, () => {
+    test('adds \'disabledTestClass\' class if (disabledClassName) property is passed and item is (disabled)', () => {
       wrapper = setup({
         disabledClassName: 'disabledTestClass',
         disabled: true
@@ -105,7 +105,7 @@ describe('<TreeviewItem />', () => {
       expect(wrapper.find('.disabledTestClass').length).toBeTruthy();
     });
 
-    test(`should not add 'disabledTestClass' class if (disabledClassName) property is passed and item is (!disabled)`, () => {
+    test('should not add \'disabledTestClass\' class if (disabledClassName) property is passed and item is (!disabled)', () => {
       wrapper = setup({
         disabledClassName: 'disabledTestClass',
         disabled: false
@@ -113,7 +113,7 @@ describe('<TreeviewItem />', () => {
       expect(wrapper.find('.disabledTestClass').length).toBeFalsy();
     });
 
-    test(`adds custom class passed as property`, () => {
+    test('adds custom class passed as property', () => {
       wrapper = setup({ className: 'testClassName' });
       expect(wrapper.find('.testClassName').length).toBeTruthy();
     });

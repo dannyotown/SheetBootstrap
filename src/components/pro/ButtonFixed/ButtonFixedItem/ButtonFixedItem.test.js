@@ -17,12 +17,12 @@ describe('<ButtonFixedItem />', () => {
     wrapper = setup();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     const renders = findByTestAttr(wrapper, 'button-fixed-item');
     expect(renders.length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(<ButtonFixedItem />, div);
   });

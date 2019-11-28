@@ -6,8 +6,8 @@ import {
   MDBBox,
   MDBMask
 } from 'mdbreact';
-import DocsLink from './../../components/docsLink';
-import SectionContainer from './../../components/sectionContainer';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 const GalleryWrapper = ({ children }) => {
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Select from '../../Select';
 import SelectInput from '../../Select/SelectInput';
 import SelectOptions from '../../Select/SelectOptions';
 import SelectOption from '../../Select/SelectOption';
-import classNames from 'classnames';
 
 const DataTableSelect = ({ value, onChange, entries, label, barReverse }) => (
   <div

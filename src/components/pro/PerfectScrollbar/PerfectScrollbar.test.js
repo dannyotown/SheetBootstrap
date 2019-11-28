@@ -11,14 +11,14 @@ import PerfectScrollbar from './PerfectScrollbar';
 const setup = (props = {}) =>
   shallow(
     <PerfectScrollbar {...props}>
-      <div></div>
+      <div />
     </PerfectScrollbar>
   );
 
 const mounted = (props = {}) =>
   mount(
     <PerfectScrollbar {...props}>
-      <div></div>
+      <div />
     </PerfectScrollbar>
   );
 
@@ -29,16 +29,16 @@ describe('<PerfectScrollbar />', () => {
     wrapper = mounted();
   });
 
-  test(`renders`, () => {
+  test('renders', () => {
     const PerfectScrollbar = findByTestAttr(wrapper, 'perfect-scrollbar');
     expect(PerfectScrollbar.length).toBe(1);
   });
 
-  test(`renders without errors`, () => {
+  test('renders without errors', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <PerfectScrollbar>
-        <div></div>
+        <div />
       </PerfectScrollbar>,
       div
     );

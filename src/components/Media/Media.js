@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Media = props => {
   const {
@@ -27,40 +27,40 @@ const Media = props => {
 
   let defaultTag;
   if (heading) {
-    defaultTag = "h4";
+    defaultTag = 'h4';
   } else if (left || right) {
-    defaultTag = "a";
+    defaultTag = 'a';
   } else if (object || figImg) {
-    defaultTag = "img";
+    defaultTag = 'img';
   } else if (list) {
-    defaultTag = "ul";
+    defaultTag = 'ul';
   } else if (figure) {
-    defaultTag = "figure";
+    defaultTag = 'figure';
   } else if (figCap || figCapRight || figCapLeft) {
-    defaultTag = "figcaption";
+    defaultTag = 'figcaption';
   } else {
-    defaultTag = "div";
+    defaultTag = 'div';
   }
   const Tag = tag || defaultTag;
 
   const classes = classNames(
     {
-      "media-body": body,
-      "mt-0": heading,
-      "media-left": left,
-      "media-right": right,
-      "align-self-start": top,
-      "align-self-center": middle,
-      "align-self-end": bottom,
-      "media-object": object,
-      "img-thumbnail": thumbnail,
-      "media-list": list,
+      'media-body': body,
+      'mt-0': heading,
+      'media-left': left,
+      'media-right': right,
+      'align-self-start': top,
+      'align-self-center': middle,
+      'align-self-end': bottom,
+      'media-object': object,
+      'img-thumbnail': thumbnail,
+      'media-list': list,
       figure,
-      "figure-img": figImg,
-      "figure-caption text-center": figCap,
-      "figure-caption text-right": figCapRight,
-      "figure-caption text-left": figCapLeft,
-      "rounded-circle z-depth-1-half": round
+      'figure-img': figImg,
+      'figure-caption text-center': figCap,
+      'figure-caption text-right': figCapRight,
+      'figure-caption text-left': figCapLeft,
+      'rounded-circle z-depth-1-half': round
     },
     !body &&
       !heading &&
@@ -76,11 +76,11 @@ const Media = props => {
       !figCapRight &&
       !figImg &&
       !figure
-      ? "media"
+      ? 'media'
       : false,
     className
   );
-  return <Tag data-test="media" {...attributes} className={classes} />;
+  return <Tag data-test='media' {...attributes} className={classes} />;
 };
 
 Media.propTypes = {

@@ -46,9 +46,9 @@ class SideNavNav extends React.Component {
           onClick: this.onClick(i),
           isOpen: accordion === i
         });
-      } else {
+      } 
         return child;
-      }
+      
     });
 
     return (
@@ -68,7 +68,7 @@ class SideNavNav extends React.Component {
                   {slimInitial && (
                     <li onClick={toggleSlim()}>
                       <a className='waves-effect'>
-                        <i className={iconClass.join(' ')}></i>
+                        <i className={iconClass.join(' ')} />
                         {this.props.toggleNavLabel}
                       </a>
                     </li>

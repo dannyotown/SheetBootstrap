@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 const Testimonial = props => {
   const { className, tag: Tag, ...attributes } = props;
 
-  const classes = classNames("testimonial", className);
+  const classes = classNames('testimonial', className);
 
   return <Tag {...attributes} className={classes} />;
 };
@@ -16,7 +16,7 @@ Testimonial.propTypes = {
 };
 
 Testimonial.defaultProps = {
-  tag: "div"
+  tag: 'div'
 };
 
 export default Testimonial;

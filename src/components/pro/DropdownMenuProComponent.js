@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { CSSTransition } from "react-transition-group";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 
 const DropdownMenuProComponent = ({ isOpen, tag: Tag, tabIndex, role, attributes, aria, d_key, children }) => (
   <CSSTransition
     in={isOpen}
     appear={isOpen}
-    classNames="popover"
+    classNames='popover'
     unmountOnExit
     timeout={{ enter: 300, exit: 300 }}
   >

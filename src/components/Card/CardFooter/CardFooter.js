@@ -28,7 +28,7 @@ const CardFooter = props => {
     className
   );
 
-  let component = <Tag data-test="card-footer" {...attributes} className={classes} />;
+  let component = <Tag data-test='card-footer' {...attributes} className={classes} />;
 
   if (small) {
     component = (

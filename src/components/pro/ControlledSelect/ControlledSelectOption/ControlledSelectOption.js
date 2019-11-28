@@ -41,7 +41,7 @@ const ControlledSelectOption = ({
       {icon && <img src={icon} alt='' className='rounded-circle' />}
       <span data-multiple={multiple} className={spanClasses}>
         {multiple && (
-          <React.Fragment>
+          <>
             <input
               type='checkbox'
               value={value}
@@ -53,9 +53,9 @@ const ControlledSelectOption = ({
             {!separator && (
               <label style={{ height: '10px' }} data-multiple={multiple} />
             )}
-          </React.Fragment>
+          </>
         )}
-        {text ? text : value}
+        {text || value}
       </span>
     </li>
   );

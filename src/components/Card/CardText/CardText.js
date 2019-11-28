@@ -17,7 +17,7 @@ const CardText = props => {
   const children = small ? <small>{textNode}</small> : textNode;
 
   return (
-    <Tag data-test="card-text" {...attributes} className={classes}>
+    <Tag data-test='card-text' {...attributes} className={classes}>
       {children}
     </Tag>
   );

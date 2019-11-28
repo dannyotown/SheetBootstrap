@@ -9,7 +9,7 @@ const Button = props => {
   const handleClick = e => {
     e.stopPropagation();
     // Waves - Get Cursor Position
-    let cursorPos = {
+    const cursorPos = {
       top: e.clientY,
       left: e.clientX,
       time: Date.now()

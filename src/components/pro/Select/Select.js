@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import ControlledSelectInput from "../ControlledSelect/ControlledSelectInput";
-import ControlledSelectOptions from "../ControlledSelect/ControlledSelectOptions";
+import ControlledSelectInput from '../ControlledSelect/ControlledSelectInput';
+import ControlledSelectOptions from '../ControlledSelect/ControlledSelectOptions';
 
 export const SelectContext = React.createContext();
 
@@ -11,11 +11,11 @@ class Select extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedValue: "",
+      selectedValue: '',
       isEmpty: true,
       isControlledEmpty: true,
       selectValue: [],
-      selectTextContent: "",
+      selectTextContent: '',
       options: this.props.options || [],
       allChecked: false,
       focused: null,
@@ -31,20 +31,20 @@ class Select extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener("click", this.onDocumentClick);
+    document.addEventListener('click', this.onDocumentClick);
 
     if (this.inputRef && this.inputRef.current) {
-      this.inputRef.current.addEventListener("click", this.onInputClick);
+      this.inputRef.current.addEventListener('click', this.onInputClick);
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.selectValue !== this.state.selectValue) {
-      if (typeof this.props.getValue === "function") {
+      if (typeof this.props.getValue === 'function') {
         this.props.getValue(this.state.selectValue);
       }
 
-      if (typeof this.props.getTextContent === "function") {
+      if (typeof this.props.getTextContent === 'function') {
         this.props.getTextContent(this.state.selectTextContent);
       }
 
@@ -73,10 +73,10 @@ class Select extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener("click", this.onDocumentClick);
+    document.removeEventListener('click', this.onDocumentClick);
 
     if (this.inputRef && this.inputRef.current) {
-      this.inputRef.current.removeEventListener("click", this.onInputClick);
+      this.inputRef.current.removeEventListener('click', this.onInputClick);
     }
   }
 
@@ -84,8 +84,8 @@ class Select extends React.Component {
   onInputClick = ({ target: input }) => {
     const dropdown = input.nextElementSibling;
 
-    dropdown.classList.add("fadeIn");
-    !this.props.outline && (dropdown.style.top = ".6rem");
+    dropdown.classList.add('fadeIn');
+    !this.props.outline && (dropdown.style.top = '.6rem');
     
     this.setState({ dropdown, input });
   };
@@ -95,13 +95,13 @@ class Select extends React.Component {
     const { dropdown, input } = this.state;
     
     if (dropdown) {
-      const isMultiple = target.dataset.multiple === "true";
-      const isSearchLabel = target.id === "selectSearchInput";
+      const isMultiple = target.dataset.multiple === 'true';
+      const isSearchLabel = target.id === 'selectSearchInput';
       
       if (target === input || isMultiple || isSearchLabel) {
-        return;
+        
       } else {
-        dropdown.classList.remove("fadeIn");
+        dropdown.classList.remove('fadeIn');
         this.changeFocus(null);
 
         this.setState({ dropdown: null })
@@ -115,7 +115,7 @@ class Select extends React.Component {
     const checkedValues = checkedOptions.map(opt => opt.value);
     const checkedTexts = checkedOptions.map(opt => opt.text ? opt.text : opt.value);
 
-    const selectTextContent = checkedTexts.length ? checkedTexts.join(", ") : this.props.selected;
+    const selectTextContent = checkedTexts.length ? checkedTexts.join(', ') : this.props.selected;
     const allChecked = checkedOptions.length === options.filter(option => !option.disabled).length;
 
     return {
@@ -165,7 +165,7 @@ class Select extends React.Component {
 
   selectOneOption = value => {
     this.setState(prevState => {
-      let options = [...prevState.options];
+      const options = [...prevState.options];
       const optionIndex = options.findIndex(option => option.value === value);
 
       options.forEach((option, index) =>
@@ -180,7 +180,7 @@ class Select extends React.Component {
 
   selectMultipleOption = value => {
     this.setState(prevState => {
-      let options = [...prevState.options];
+      const options = [...prevState.options];
       const optionIndex = options.findIndex(option => option.value === value);
 
       options[optionIndex].checked = !options[optionIndex].checked;
@@ -192,7 +192,7 @@ class Select extends React.Component {
   selectAllOptions = () => {
     this.setState(prevState => {
       let options = [...prevState.options];
-      let filteredOptions = [...prevState.filteredOptions].filter(option => !option.disabled);
+      const filteredOptions = [...prevState.filteredOptions].filter(option => !option.disabled);
 
       const areSomeUnchecked = filteredOptions.some(option => !option.checked);
 
@@ -219,12 +219,12 @@ class Select extends React.Component {
   };
 
   triggerOptionChange = (value = [], text = this.state.selectedValue) => {
-    Array.isArray(text) && (text = text.join(", "));
+    Array.isArray(text) && (text = text.join(', '));
 
     this.setState({
       selectValue: value,
       selectTextContent: text,
-      isEmpty: value.length ? false : true
+      isEmpty: !value.length
     });
   };
 
@@ -258,38 +258,38 @@ class Select extends React.Component {
     const { isEmpty, isControlledEmpty, dropdown: isOpened, selectTextContent } = this.state;
 
     const classes = classNames(
-      "select-wrapper mdb-select md-form",
-      color ? "colorful-select dropdown-" + color : "",
-      outline ? "md-outline" : className
+      'select-wrapper mdb-select md-form',
+      color ? `colorful-select dropdown-${  color}` : '',
+      outline ? 'md-outline' : className
     );
 
     const labelClasses = classNames(
-      !outline && "mdb-main-label",
+      !outline && 'mdb-main-label',
       labelClass,
       children
-        ? (!isEmpty || isOpened) && "active text-primary"
-        : (!isControlledEmpty || isOpened) && "active text-primary"
+        ? (!isEmpty || isOpened) && 'active text-primary'
+        : (!isControlledEmpty || isOpened) && 'active text-primary'
     );
 
     const needToMoveOutline = outline && isEmpty && !isOpened;
 
     const uncontrolledLabelStyles = {
-      transform: needToMoveOutline && "translateY(7px)",
-      fontSize: needToMoveOutline && "1rem",
-      fontWeight: needToMoveOutline && "300",
+      transform: needToMoveOutline && 'translateY(7px)',
+      fontSize: needToMoveOutline && '1rem',
+      fontWeight: needToMoveOutline && '300',
       zIndex: isEmpty && !isOpened ? 1 : 2
     };
 
     const controlledLabelStyles = {
       zIndex: outline && (!isControlledEmpty || isOpened) && 4,
-      transform: isControlledEmpty && !isOpened && "translateY(7px)"
+      transform: isControlledEmpty && !isOpened && 'translateY(7px)'
     };
 
     if (!children) {
       const controlledValue = isControlledEmpty
         ? selected && !label
           ? selected
-          : ""
+          : ''
         : selectTextContent;
 
       return (
@@ -300,7 +300,7 @@ class Select extends React.Component {
             data-multiple={multiple}
             className={classes}
           >
-            <span className="caret">▼</span>
+            <span className='caret'>▼</span>
             <ControlledSelectInput
               value={controlledValue}
               ref={this.inputRef}
@@ -336,7 +336,7 @@ class Select extends React.Component {
           </div>
         </>
       );
-    } else {
+    } 
       return (
         <SelectContext.Provider
           value={{
@@ -354,7 +354,7 @@ class Select extends React.Component {
             data-multiple={multiple}
             className={classes}
           >
-            <span className="caret">▼</span>
+            <span className='caret'>▼</span>
             {children}
           {label && (
             <label className={labelClasses} style={uncontrolledLabelStyles}>
@@ -364,7 +364,7 @@ class Select extends React.Component {
           </div>
         </SelectContext.Provider>
       );
-    }
+    
   };
 
   render() {
@@ -404,12 +404,12 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
-  label: "",
-  labelClass: "",
+  label: '',
+  labelClass: '',
   outline: false,
   required: false,
-  selected: "",
-  selectAllValue: "0"
+  selected: '',
+  selectAllValue: '0'
 };
 
 export default Select;

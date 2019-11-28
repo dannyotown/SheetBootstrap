@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -16,8 +16,8 @@ import {
   MDBContainer,
   MDBFormInline,
   MDBAnimation
-} from "mdbreact";
-import "./AppPage.css";
+} from 'mdbreact';
+import './AppPage.css';
 
 class AppPage extends React.Component {
   state = {
@@ -29,60 +29,62 @@ class AppPage extends React.Component {
       collapsed: !this.state.collapsed
     });
   };
+
   componentDidMount() {
-    document.querySelector("nav").style.height="65px";
+    document.querySelector('nav').style.height='65px';
   }
+
   componentWillUnmount() {
-    document.querySelector("nav").style.height="auto";
+    document.querySelector('nav').style.height='auto';
   }
 
   render() {
     const overlay = (
       <div
-        id="sidenav-overlay"
-        style={{ backgroundColor: "transparent" }}
+        id='sidenav-overlay'
+        style={{ backgroundColor: 'transparent' }}
         onClick={this.handleTogglerClick}
       />
     );
     return (
-      <div id="apppage">
+      <div id='apppage'>
         <Router>
           <div>
             <MDBNavbar
-              color="primary-color"
+              color='primary-color'
               dark
-              expand="md"
-              fixed="top"
+              expand='md'
+              fixed='top'
               scrolling
               transparent
-              style={{marginTop: "65px"}}
+              style={{marginTop: '65px'}}
             >
               <MDBContainer>
                 <MDBNavbarBrand>
-                  <strong className="white-text">MDB</strong>
+                  <strong className='white-text'>MDB</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.handleTogglerClick} />
                 <MDBCollapse isOpen={this.state.collapsed} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink to="#!">Home</MDBNavLink>
+                      <MDBNavLink to='#!'>Home</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Link</MDBNavLink>
+                      <MDBNavLink to='#!'>Link</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to="#!">Profile</MDBNavLink>
+                      <MDBNavLink to='#!'>Profile</MDBNavLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                   <MDBNavbarNav right>
                     <MDBNavItem>
                       <MDBFormInline waves>
-                        <div className="md-form my-0">
+                        <div className='md-form my-0'>
                           <input
-                            className="form-control mr-sm-2"
-                            type="text"
-                            placeholder="Search"
-                            aria-label="Search"
+                            className='form-control mr-sm-2'
+                            type='text'
+                            placeholder='Search'
+                            aria-label='Search'
                           />
                         </div>
                       </MDBFormInline>
@@ -95,34 +97,34 @@ class AppPage extends React.Component {
           </div>
         </Router>
         <MDBView>
-          <MDBMask className="d-flex justify-content-center align-items-center gradient">
+          <MDBMask className='d-flex justify-content-center align-items-center gradient'>
             <MDBContainer>
               <MDBRow>
-                  <MDBCol md="6" className="white-text text-center text-md-left mt-xl-5 mb-5">
-                    <MDBAnimation type="fadeInLeft" delay=".3s">
-                      <h1 className="h1-responsive font-weight-bold mt-sm-5">
+                  <MDBCol md='6' className='white-text text-center text-md-left mt-xl-5 mb-5'>
+                    <MDBAnimation type='fadeInLeft' delay='.3s'>
+                      <h1 className='h1-responsive font-weight-bold mt-sm-5'>
                         Make purchases with our app
                       </h1>
-                      <hr className="hr-light" />
-                      <h6 className="mb-4">
+                      <hr className='hr-light' />
+                      <h6 className='mb-4'>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         Rem repellendus quasi fuga nesciunt dolorum nulla magnam
                         veniam sapiente, fugiat! Commodi sequi non animi ea dolor
                         molestiae iste.
                       </h6>
-                      <MDBBtn color="white">Download</MDBBtn>
-                      <MDBBtn outline color="white">
+                      <MDBBtn color='white'>Download</MDBBtn>
+                      <MDBBtn outline color='white'>
                         Learn More
                       </MDBBtn>
                     </MDBAnimation>
                   </MDBCol>
 
-                <MDBCol md="6" xl="5" className="mt-xl-5">
-                  <MDBAnimation type="fadeInRight" delay=".3s">
+                <MDBCol md='6' xl='5' className='mt-xl-5'>
+                  <MDBAnimation type='fadeInRight' delay='.3s'>
                     <img
-                      src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png"
-                      alt=""
-                      className="img-fluid"
+                      src='https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new.png'
+                      alt=''
+                      className='img-fluid'
                     />
                   </MDBAnimation>
                 </MDBCol>
@@ -132,8 +134,8 @@ class AppPage extends React.Component {
         </MDBView>
 
         <MDBContainer>
-          <MDBRow className="py-5">
-            <MDBCol md="12" className="text-center">
+          <MDBRow className='py-5'>
+            <MDBCol md='12' className='text-center'>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

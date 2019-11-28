@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import {
   MDBSideNavCat,
   MDBSideNavNav,
@@ -8,9 +8,9 @@ import {
   MDBContainer,
   MDBIcon,
   MDBBtn
-} from "mdbreact";
-import DocsLink from "./../../components/docsLink";
-import SectionContainer from "./../../components/sectionContainer";
+} from 'mdbreact';
+import DocsLink from '../../components/docsLink';
+import SectionContainer from '../../components/sectionContainer';
 
 class SideNavPage extends Component {
   state = {
@@ -30,32 +30,32 @@ class SideNavPage extends Component {
       <Router>
         <MDBContainer>
           <DocsLink
-            title="Slim Sidenav"
-            href="https://mdbootstrap.com/docs/react/navigation/sidenav/"
+            title='Slim Sidenav'
+            href='https://mdbootstrap.com/docs/react/navigation/sidenav/'
           />
-          <SectionContainer header="Slim" flexCenter>
-            <MDBBtn onClick={this.sidenavToggle("Left")}>
-              <MDBIcon size="lg" icon="bars" />
+          <SectionContainer header='Slim' flexCenter>
+            <MDBBtn onClick={this.sidenavToggle('Left')}>
+              <MDBIcon size='lg' icon='bars' />
             </MDBBtn>
-            <MDBBtn onClick={this.sidenavToggle("Right")}>
-              <MDBIcon size="lg" icon="bars" />
+            <MDBBtn onClick={this.sidenavToggle('Right')}>
+              <MDBIcon size='lg' icon='bars' />
             </MDBBtn>
 
             {/* the left SideNav: */}
             <MDBSideNav
               slim
-              mask="rgba-blue-strong"
+              mask='rgba-blue-strong'
               triggerOpening={this.state.sideNavLeft}
               breakWidth={1300}
-              className="sn-bg-1"
+              className='sn-bg-1'
             >
               <li>
-                <div className="logo-wrapper sn-ad-avatar-wrapper">
-                  <a href="#!">
+                <div className='logo-wrapper sn-ad-avatar-wrapper'>
+                  <a href='#!'>
                     <img
-                      alt=""
-                      src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg"
-                      className="rounded-circle"
+                      alt=''
+                      src='https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg'
+                      className='rounded-circle'
                     />
                     <span>Anna Deynah</span>
                   </a>
@@ -63,35 +63,35 @@ class SideNavPage extends Component {
               </li>
 
               <MDBSideNavNav>
-                <MDBSideNavLink to="/other-page" topLevel>
-                  <MDBIcon icon="pencil-alt" className="mr-2" />
+                <MDBSideNavLink to='/other-page' topLevel>
+                  <MDBIcon icon='pencil-alt' className='mr-2' />
                   Submit listing
                 </MDBSideNavLink>
                 <MDBSideNavCat
-                  name="Submit blog"
-                  id="submit-blog"
-                  icon="chevron-right"
+                  name='Submit blog'
+                  id='submit-blog'
+                  icon='chevron-right'
                 >
                   <MDBSideNavLink>Submit listing</MDBSideNavLink>
                   <MDBSideNavLink>Registration form</MDBSideNavLink>
                 </MDBSideNavCat>
                 <MDBSideNavCat
-                  name="Instruction"
-                  id="instruction"
-                  icon="hand-pointer"
-                  href="#"
+                  name='Instruction'
+                  id='instruction'
+                  icon='hand-pointer'
+                  href='#'
                 >
                   <MDBSideNavLink>For bloggers</MDBSideNavLink>
                   <MDBSideNavLink>For authors</MDBSideNavLink>
                 </MDBSideNavCat>
-                <MDBSideNavCat name="About" id="about" icon="eye">
+                <MDBSideNavCat name='About' id='about' icon='eye'>
                   <MDBSideNavLink>Instruction</MDBSideNavLink>
                   <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
                 </MDBSideNavCat>
                 <MDBSideNavCat
-                  name="Contact me"
-                  id="contact-me"
-                  icon="envelope"
+                  name='Contact me'
+                  id='contact-me'
+                  icon='envelope'
                 >
                   <MDBSideNavLink>FAQ</MDBSideNavLink>
                   <MDBSideNavLink>Write a message</MDBSideNavLink>
@@ -103,65 +103,65 @@ class SideNavPage extends Component {
             <MDBSideNav
               slim
               triggerOpening={this.state.sideNavRight}
-              className="side-nav-light"
+              className='side-nav-light'
               right
               breakWidth={1300}
             >
               <li>
-                <div className="logo-wrapper sn-ad-avatar-wrapper">
-                  <a href="#!">
+                <div className='logo-wrapper sn-ad-avatar-wrapper'>
+                  <a href='#!'>
                     <img
-                      alt=""
-                      src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg"
-                      className="rounded-circle"
+                      alt=''
+                      src='https://mdbootstrap.com/img/Photos/Avatars/avatar-1-mini.jpg'
+                      className='rounded-circle'
                     />
-                    <span className="text-black-50">John Smith</span>
+                    <span className='text-black-50'>John Smith</span>
                   </a>
                 </div>
               </li>
               <li>
-                <ul className="social">
+                <ul className='social'>
                   <li>
-                    <MDBIcon brand icon="facebook" />
+                    <MDBIcon brand icon='facebook' />
                   </li>
                   <li>
-                    <MDBIcon brand icon="pinterest" />
+                    <MDBIcon brand icon='pinterest' />
                   </li>
                   <li>
-                    <MDBIcon brand icon="google-plus" />
+                    <MDBIcon brand icon='google-plus' />
                   </li>
                   <li>
-                    <MDBIcon brand icon="twitter" />
+                    <MDBIcon brand icon='twitter' />
                   </li>
                 </ul>
               </li>
               <MDBSideNavNav>
                 <MDBSideNavCat
-                  name="Submit blog"
-                  id="submit-blog2"
-                  icon="chevron-right"
+                  name='Submit blog'
+                  id='submit-blog2'
+                  icon='chevron-right'
                 >
-                  <MDBSideNavLink className="active">
+                  <MDBSideNavLink className='active'>
                     Submit listing
                   </MDBSideNavLink>
                   <MDBSideNavLink>Registration form</MDBSideNavLink>
                 </MDBSideNavCat>
                 <MDBSideNavCat
-                  name="Instruction"
-                  id="instruction2"
-                  icon="hand-pointer"
+                  name='Instruction'
+                  id='instruction2'
+                  icon='hand-pointer'
                 >
                   <MDBSideNavLink>For bloggers</MDBSideNavLink>
                   <MDBSideNavLink>For authors</MDBSideNavLink>
                 </MDBSideNavCat>
-                <MDBSideNavCat name="About" id="about2" icon="eye">
+                <MDBSideNavCat name='About' id='about2' icon='eye'>
                   <MDBSideNavLink>Instruction</MDBSideNavLink>
                   <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
                 </MDBSideNavCat>
                 <MDBSideNavCat
-                  name="Contact me"
-                  id="contact-me2"
-                  icon="envelope"
+                  name='Contact me'
+                  id='contact-me2'
+                  icon='envelope'
                 >
                   <MDBSideNavLink>FAQ</MDBSideNavLink>
                   <MDBSideNavLink>Write a message</MDBSideNavLink>

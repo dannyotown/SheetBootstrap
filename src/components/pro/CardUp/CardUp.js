@@ -7,8 +7,8 @@ const CardUp = props => {
 
   const classes = classNames(
     'card-up',
-    color && color + '-color',
-    gradient && gradient + '-gradient',
+    color && `${color  }-color`,
+    gradient && `${gradient  }-gradient`,
     className
   );
 

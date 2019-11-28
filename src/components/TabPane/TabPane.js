@@ -11,7 +11,7 @@ class TabPane extends React.Component {
       { active: tabId === this.context.activeItemId },
       className
     );
-    return <div data-test="tab-pane" {...attributes} className={classes} role='tabpanel' />;
+    return <div data-test='tab-pane' {...attributes} className={classes} role='tabpanel' />;
   }
 }
 
