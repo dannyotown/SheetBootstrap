@@ -55,22 +55,26 @@ class DataTable extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    const { columns } = this.state;
     const { data } = this.props;
 
     if (prevProps.data !== data) {
-      typeof data === 'string' ? this.fetchData(data) : this.setData(data.rows, data.columns, this.paginateRows);
+      typeof data === 'string'
+        ? this.fetchData(data)
+        : this.setData(data.rows, data.columns, this.paginateRows);
 
-      this.setUnsearchable(this.state.columns);
+      this.setUnsearchable(columns);
       this.filterRows();
     }
   }
 
   setData = (rows = [], columns = [], callback) => {
+    const { disableRetreatAfterSorting } = this.props;
     this.setState(
       () => ({
         columns,
         rows,
-        filteredRows: this.props.disableRetreatAfterSorting ? this.filterRows() : rows
+        filteredRows: disableRetreatAfterSorting ? this.filterRows() : rows
       }),
       callback && typeof callback === 'function' && (() => callback())
     );
@@ -91,12 +95,21 @@ class DataTable extends Component {
   fetchData = (link, isPaginateRows) => {
     fetch(link)
       .then(res => res.json())
-      .then(json => this.setData(json.rows, json.columns, isPaginateRows ? this.paginateRows : null))
+      .then(json =>
+        this.setData(
+          json.rows,
+          json.columns,
+          isPaginateRows ? this.paginateRows : null
+        )
+      )
       .catch(err => console.log(err));
   };
 
   // findout how many pages there are need to be, then slice rows into pages
-  pagesAmount = () => Math.ceil(this.state.filteredRows.length / this.state.entries);
+  pagesAmount = () => {
+    const { filteredRows, entries } = this.state;
+    Math.ceil(filteredRows.length / entries);
+  };
 
   paginateRowsInitialy = () => {
     const { rows, entries, pages } = this.state;
@@ -110,16 +123,17 @@ class DataTable extends Component {
   };
 
   handleEntriesChange = value => {
-    this.setState({ entries: Array.isArray(value) ? value[0] : value }, () => this.paginateRows());
+    this.setState({ entries: Array.isArray(value) ? value[0] : value }, () =>
+      this.paginateRows()
+    );
   };
 
   handleSearchChange = e => {
+    const { onSearch } = this.props;
     this.setState(
       { search: e.target.value },
       () => this.filterRows(),
-      this.props.onSearch &&
-        typeof this.props.onSearch === 'function' &&
-        this.props.onSearch(e.target.value)
+      onSearch && typeof onSearch === 'function' && onSearch(e.target.value)
     );
   };
 
@@ -156,7 +170,7 @@ class DataTable extends Component {
         : 1;
     });
   };
-
+  //TODO FIX
   handleSort = (field, sort) => {
     const { onSort } = this.props;
 
@@ -218,8 +232,8 @@ class DataTable extends Component {
                 getContent(row[key]);
                 stringValue = content.join('');
               } else if (row[key]) {
-                  stringValue = row[key].toString();
-                }
+                stringValue = row[key].toString();
+              }
               if (stringValue.toLowerCase().includes(search.toLowerCase()))
                 return true;
             }
@@ -305,9 +319,7 @@ class DataTable extends Component {
     if (this.props.filter) {
       const { filter } = this.props;
       let arr = [];
-      this.props.data.rows.map(
-        el => arr.push(el[filter])
-      );
+      this.props.data.rows.map(el => arr.push(el[filter]));
       arr = [...new Set(arr)].sort((a, b) => a.localeCompare(b));
       arr = arr.map((text, value) => ({ text, value: `${value}` }));
 
@@ -519,31 +531,27 @@ class DataTable extends Component {
         {/* PRO-START */}
         {(filter || exportToCSV) && (
           <div className='row justify-content-between'>
-              <div className='pl-3'>
-
-            {filter && (
+            <div className='pl-3'>
+              {filter && (
                 <MDBSelect
                   options={filterOptions}
                   label={`Filter ${this.getLabelForFilter(filter)}`}
                   getTextContent={this.useFilterSelect}
                   className='m-0 pt-2'
                 />
-            )}
-              </div>
+              )}
+            </div>
 
-              <div className='mr-2'>
-          
-            {exportToCSV && (
+            <div className='mr-2'>
+              {exportToCSV && (
                 <ExportToCsvBtn columns={columns} data={pages} color='primary'>
                   Download CSV
                 </ExportToCsvBtn>
-            )}
-              </div>
-
+              )}
+            </div>
           </div>
         )}
         {/* PRO-END */}
-
       </div>
     );
   }

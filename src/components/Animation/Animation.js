@@ -169,7 +169,7 @@ Animation.propTypes = {
   className: PropTypes.string,
   count: PropTypes.number,
   delay: PropTypes.string,
-  duration: PropTypes.number,
+  duration: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   infinite: PropTypes.bool,
   onAnimationEnd: PropTypes.func,
   onAnimationIteration: PropTypes.func,

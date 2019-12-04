@@ -20,10 +20,10 @@ const Badge = props => {
   );
 };
 Badge.propTypes = {
-  color: PropTypes.string,
-  pill: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
+  color: PropTypes.string,
+  pill: PropTypes.bool,
   tag: PropTypes.string
 };
 Badge.defaultProps = {

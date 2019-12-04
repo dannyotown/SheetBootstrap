@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -41,8 +41,12 @@ const DataTableHead = props => {
               onClick={() => sortable && handleSort(col.field, col.sort)}
               key={col.field}
               className={classNames(
-                col.hasOwnProperty('minimal') ? `th-${col.minimal}` : null, 
-                sortable && col.sort !== 'disabled' && ( sorted && col.sort ? `sorting_${col.sort === 'asc' ? 'desc' : 'asc'}` : 'sorting' )
+                col.hasOwnProperty('minimal') ? `th-${col.minimal}` : null,
+                sortable &&
+                  col.sort !== 'disabled' &&
+                  (sorted && col.sort
+                    ? `sorting_${col.sort === 'asc' ? 'desc' : 'asc'}`
+                    : 'sorting')
               )}
               {...col.attributes}
             >

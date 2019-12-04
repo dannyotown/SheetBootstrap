@@ -4,11 +4,11 @@ import classNames from 'classnames';
 
 const CardText = props => {
   const {
-    className,
-    tag: Tag,
     children: textNode,
+    className,
     muted,
     small,
+    tag: Tag,
     ...attributes
   } = props;
 
@@ -24,14 +24,14 @@ const CardText = props => {
 };
 
 CardText.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
   muted: PropTypes.bool,
-  small: PropTypes.bool
+  small: PropTypes.bool,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 CardText.defaultProps = {
-  tag: 'p',
+  tag: 'p'
 };
 
 export default CardText;

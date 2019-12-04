@@ -16,9 +16,9 @@ const CarouselCaption = props => {
 
 CarouselCaption.propTypes = {
   active: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  children: PropTypes.node,
   className: PropTypes.string,
-  children: PropTypes.node
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 CarouselCaption.defaultProps = {

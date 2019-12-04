@@ -39,7 +39,7 @@ const Card = props => {
     },
     'card',
     color,
-    className,
+    className
   );
 
   return <Tag data-test='card' {...attributes} className={classes} />;
@@ -49,18 +49,18 @@ Card.propTypes = {
   border: PropTypes.string,
   cascade: PropTypes.bool,
   className: PropTypes.string,
-  color: PropTypes.string,
   collection: PropTypes.bool,
+  color: PropTypes.string,
   ecommerce: PropTypes.bool,
   narrow: PropTypes.bool,
   news: PropTypes.bool,
-  pricing: PropTypes.bool,
   personal: PropTypes.bool,
+  pricing: PropTypes.bool,
   reverse: PropTypes.bool,
   tag: PropTypes.string,
   testimonial: PropTypes.bool,
   text: PropTypes.string,
-  wide: PropTypes.bool,
+  wide: PropTypes.bool
 };
 
 Card.defaultProps = {

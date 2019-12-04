@@ -37,12 +37,12 @@ const Breadcrumb = props => {
 };
 
 Breadcrumb.propTypes = {
+  bold: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.string,
   light: PropTypes.bool,
-  uppercase: PropTypes.bool,
-  bold: PropTypes.bool
+  uppercase: PropTypes.bool
 };
 
 export default Breadcrumb;

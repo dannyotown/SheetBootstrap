@@ -2,7 +2,7 @@
   "extends": [
     "react-app",
     "plugin:jsx-a11y/recommended",
-    "airbnb",
+    // "airbnb",
     "prettier",
     "prettier/react"
   ],
@@ -44,6 +44,22 @@
     "react/state-in-constructor": ["error", "never"],
     "react/require-default-props": [0, {
       "forbidDefaultForRequired": true
+    }],
+    "react/sort-prop-types": [1, {
+      "callbacksLast": false,
+      "ignoreCase": true,
+      "requiredFirst": true,
+      "sortShapeProp": true,
+      "noSortAlphabetically": false
+    }],
+    "react/jsx-props-no-spreading": [0, {
+      "html": true,
+      "custom": true
+    }],
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": false
     }]
+
   }
 }

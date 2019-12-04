@@ -1,12 +1,24 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fa from '../../Fa';
 import './Breadcrumb.css';
 
 const BreadcrumbItem = props => {
-
-  const { active, appendIcon, children, className, bold, icon, iconBrand, iconClassName, iconLight, iconRegular, iconSize, ...attributes } = props;
+  const {
+    active,
+    appendIcon,
+    children,
+    className,
+    bold,
+    icon,
+    iconBrand,
+    iconClassName,
+    iconLight,
+    iconRegular,
+    iconSize,
+    ...attributes
+  } = props;
 
   const classes = classNames(
     active ? 'active' : false,
@@ -15,25 +27,16 @@ const BreadcrumbItem = props => {
     className
   );
 
-  const iconClasses = classNames(
-    appendIcon ? 'mx-2' : 'mr-2',
-    iconClassName
-  )
+  const iconClasses = classNames(appendIcon ? 'mx-2' : 'mr-2', iconClassName);
 
-  const WithBold = ({ children }) => (bold ?
-    <strong>
-      {children}
-    </strong>
-    : children
-  )
+  const WithBold = ({ children }) =>
+    bold ? <strong>{children}</strong> : children;
 
   const WithIcon = () => {
     if (icon) {
       return (
         <>
-          {
-            appendIcon && children
-          }
+          {appendIcon && children}
           <Fa
             brand={iconBrand}
             className={iconClasses}
@@ -42,14 +45,12 @@ const BreadcrumbItem = props => {
             regular={iconRegular}
             size={iconSize}
           />
-          {
-            !appendIcon && children
-          }
+          {!appendIcon && children}
         </>
       );
     }
     return children;
-  }
+  };
 
   return (
     <li data-test='breadcrumb-item' {...attributes} className={classes}>
@@ -58,14 +59,14 @@ const BreadcrumbItem = props => {
       </WithBold>
     </li>
   );
-}
+};
 
 BreadcrumbItem.propTypes = {
   active: PropTypes.bool,
   appendIcon: PropTypes.bool,
+  bold: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
-  bold: PropTypes.bool,
   icon: PropTypes.string,
   iconBrand: PropTypes.bool,
   iconClassName: PropTypes.string,
@@ -80,12 +81,12 @@ BreadcrumbItem.defaultProps = {
   className: '',
   bold: false,
   icon: '',
-  iconBrand: false, 
+  iconBrand: false,
   iconClassName: '',
   iconLight: false,
   iconRegular: false,
   iconSize: ''
-}
+};
 
 export default BreadcrumbItem;
 export { BreadcrumbItem as MDBBreadcrumbItem };
