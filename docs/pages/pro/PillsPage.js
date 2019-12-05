@@ -225,6 +225,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["default"] === "1"}
+                      link
                       onClick={this.togglePills("default", "1")}
                     >
                       Active
@@ -234,6 +235,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["default"] === "2"}
+                      link
                       onClick={this.togglePills("default", "2")}
                     >
                       Link
@@ -243,6 +245,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["default"] === "3"}
+                      link
                       onClick={this.togglePills("default", "3")}
                     >
                       Link
@@ -252,6 +255,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["default"] === "4"}
+                      link
                       onClick={this.togglePills("default", "4")}
                     >
                       Help
@@ -293,6 +297,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["justified"] === "1"}
+                      link
                       onClick={this.togglePills("justified", "1")}
                     >
                       Active
@@ -302,6 +307,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["justified"] === "2"}
+                      link
                       onClick={this.togglePills("justified", "2")}
                     >
                       Link
@@ -311,6 +317,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["justified"] === "3"}
+                      link
                       onClick={this.togglePills("justified", "3")}
                     >
                       Link
@@ -320,6 +327,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["justified"] === "4"}
+                      link
                       onClick={this.togglePills("justified", "4")}
                     >
                       Help
@@ -334,6 +342,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["dropdown"] === "1"}
+                      link
                       onClick={this.togglePills("dropdown", "1")}
                     >
                       Active
@@ -357,6 +366,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["dropdown"] === "2"}
+                      link
                       onClick={this.togglePills("dropdown", "2")}
                     >
                       Link 1
@@ -366,6 +376,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["dropdown"] === "3"}
+                      link
                       onClick={this.togglePills("dropdown", "3")}
                     >
                       Link 2
@@ -382,6 +393,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["vertical"] === "1"}
+                          link
                           onClick={this.togglePills("vertical", "1")}
                         >
                           Downloads <MDBIcon icon="download" className="ml-2" />
@@ -391,6 +403,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["vertical"] === "2"}
+                          link
                           onClick={this.togglePills("vertical", "2")}
                         >
                           Orders & invoices
@@ -401,6 +414,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["vertical"] === "3"}
+                          link
                           onClick={this.togglePills("vertical", "3")}
                         >
                           Billing Details
@@ -445,6 +459,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["gradient"] === "1"}
+                      link
                       onClick={this.togglePills("gradient", "1")}
                     >
                       Blogger
@@ -454,6 +469,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["gradient"] === "2"}
+                      link
                       onClick={this.togglePills("gradient", "2")}
                     >
                       Designer
@@ -463,6 +479,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["gradient"] === "3"}
+                      link
                       onClick={this.togglePills("gradient", "3")}
                     >
                       Photographer
@@ -472,6 +489,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["gradient"] === "4"}
+                      link
                       onClick={this.togglePills("gradient", "4")}
                     >
                       Model
@@ -487,6 +505,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["rounded"] === "1"}
+                        link
                         onClick={this.togglePills("rounded", "1")}
                       >
                         Active
@@ -496,6 +515,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["rounded"] === "2"}
+                        link
                         onClick={this.togglePills("rounded", "2")}
                       >
                         Link 1
@@ -505,6 +525,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["rounded"] === "3"}
+                        link
                         onClick={this.togglePills("rounded", "3")}
                       >
                         Link 2
@@ -514,6 +535,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["rounded"] === "4"}
+                        link
                         onClick={this.togglePills("rounded", "4")}
                       >
                         Link 3
@@ -526,6 +548,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["rounded2"] === "1"}
+                        link
                         onClick={this.togglePills("rounded2", "1")}
                       >
                         Active
@@ -535,6 +558,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["rounded2"] === "2"}
+                        link
                         onClick={this.togglePills("rounded2", "2")}
                       >
                         Link 1
@@ -544,6 +568,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["rounded2"] === "3"}
+                        link
                         onClick={this.togglePills("rounded2", "3")}
                       >
                         Link 2
@@ -553,6 +578,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["rounded2"] === "4"}
+                        link
                         onClick={this.togglePills("rounded2", "4")}
                       >
                         Link 3
@@ -565,6 +591,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedGradient"] === "1"}
+                        link
                         onClick={this.togglePills("roundedGradient", "1")}
                       >
                         Active
@@ -574,6 +601,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedGradient"] === "2"}
+                        link
                         onClick={this.togglePills("roundedGradient", "2")}
                       >
                         Link 1
@@ -583,6 +611,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedGradient"] === "3"}
+                        link
                         onClick={this.togglePills("roundedGradient", "3")}
                       >
                         Link 2
@@ -592,6 +621,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedGradient"] === "4"}
+                        link
                         onClick={this.togglePills("roundedGradient", "4")}
                       >
                         Link 3
@@ -604,6 +634,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedGradient2"] === "1"}
+                        link
                         onClick={this.togglePills("roundedGradient2", "1")}
                       >
                         Active
@@ -613,6 +644,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedGradient2"] === "2"}
+                        link
                         onClick={this.togglePills("roundedGradient2", "2")}
                       >
                         Link 1
@@ -622,6 +654,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedGradient2"] === "3"}
+                        link
                         onClick={this.togglePills("roundedGradient2", "3")}
                       >
                         Link 2
@@ -631,6 +664,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedGradient2"] === "4"}
+                        link
                         onClick={this.togglePills("roundedGradient2", "4")}
                       >
                         Link 3
@@ -643,6 +677,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedOutline"] === "1"}
+                        link
                         onClick={this.togglePills("roundedOutline", "1")}
                       >
                         Active
@@ -652,6 +687,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedOutline"] === "2"}
+                        link
                         onClick={this.togglePills("roundedOutline", "2")}
                       >
                         Link 1
@@ -661,6 +697,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedOutline"] === "3"}
+                        link
                         onClick={this.togglePills("roundedOutline", "3")}
                       >
                         Link 2
@@ -670,6 +707,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedOutline"] === "4"}
+                        link
                         onClick={this.togglePills("roundedOutline", "4")}
                       >
                         Link 3
@@ -682,6 +720,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedOutline2"] === "1"}
+                        link
                         onClick={this.togglePills("roundedOutline2", "1")}
                       >
                         Active
@@ -691,6 +730,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedOutline2"] === "2"}
+                        link
                         onClick={this.togglePills("roundedOutline2", "2")}
                       >
                         Link 1
@@ -700,6 +740,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedOutline2"] === "3"}
+                        link
                         onClick={this.togglePills("roundedOutline2", "3")}
                       >
                         Link 2
@@ -709,6 +750,7 @@ class PillsPage extends Component {
                       <MDBNavLink
                         to="#"
                         active={this.state.items["roundedOutline2"] === "4"}
+                        link
                         onClick={this.togglePills("roundedOutline2", "4")}
                       >
                         Link 3
@@ -724,6 +766,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["icons"] === "1"}
+                      link
                       onClick={this.togglePills("icons", "1")}
                     >
                       <MDBIcon fab icon="android" /> USA
@@ -733,6 +776,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["icons"] === "2"}
+                      link
                       onClick={this.togglePills("icons", "2")}
                     >
                       <MDBIcon icon="leaf" /> Mexico
@@ -742,6 +786,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["icons"] === "3"}
+                      link
                       onClick={this.togglePills("icons", "3")}
                     >
                       <MDBIcon icon="heart" /> Poland
@@ -751,6 +796,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["icons"] === "4"}
+                      link
                       onClick={this.togglePills("icons", "4")}
                     >
                       <MDBIcon icon="futbol" /> Brazil
@@ -762,6 +808,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["iconsRight"] === "1"}
+                      link
                       onClick={this.togglePills("iconsRight", "1")}
                     >
                       San Francisco <MDBIcon far icon="grin" />
@@ -771,6 +818,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["iconsRight"] === "2"}
+                      link
                       onClick={this.togglePills("iconsRight", "2")}
                     >
                       Tijuana <MDBIcon icon="users" />
@@ -780,6 +828,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["iconsRight"] === "3"}
+                      link
                       onClick={this.togglePills("iconsRight", "3")}
                     >
                       Cracow <MDBIcon icon="thumbs-up" />
@@ -789,6 +838,7 @@ class PillsPage extends Component {
                     <MDBNavLink
                       to="#"
                       active={this.state.items["iconsRight"] === "4"}
+                      link
                       onClick={this.togglePills("iconsRight", "4")}
                     >
                       Rio de Janeiro <MDBIcon icon="coffee" />
@@ -805,6 +855,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["content"] === "1"}
+                          link
                           onClick={this.togglePills("content", "1")}
                         >
                           Fashion
@@ -814,6 +865,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["content"] === "2"}
+                          link
                           onClick={this.togglePills("content", "2")}
                         >
                           Lifestyle
@@ -823,6 +875,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["content"] === "3"}
+                          link
                           onClick={this.togglePills("content", "3")}
                         >
                           Beauty
@@ -832,6 +885,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["content"] === "4"}
+                          link
                           onClick={this.togglePills("content", "4")}
                         >
                           Shop
@@ -885,6 +939,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["contentCard"] === "1"}
+                          link
                           onClick={this.togglePills("contentCard", "1")}
                         >
                           Fashion
@@ -894,6 +949,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["contentCard"] === "2"}
+                          link
                           onClick={this.togglePills("contentCard", "2")}
                         >
                           Lifestyle
@@ -903,6 +959,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["contentCard"] === "3"}
+                          link
                           onClick={this.togglePills("contentCard", "3")}
                         >
                           Beauty
@@ -949,6 +1006,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animation"] === "1"}
+                          link
                           onClick={this.togglePills("animation", "1")}
                         >
                           Fashion
@@ -958,6 +1016,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animation"] === "2"}
+                          link
                           onClick={this.togglePills("animation", "2")}
                         >
                           Lifestyle
@@ -967,6 +1026,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animation"] === "3"}
+                          link
                           onClick={this.togglePills("animation", "3")}
                         >
                           Beauty
@@ -976,6 +1036,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animation"] === "4"}
+                          link
                           onClick={this.togglePills("animation", "4")}
                         >
                           Shop
@@ -987,6 +1048,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animationRO"] === "1"}
+                          link
                           onClick={this.togglePills("animationRO", "1")}
                         >
                           Madrid
@@ -996,6 +1058,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animationRO"] === "2"}
+                          link
                           onClick={this.togglePills("animationRO", "2")}
                         >
                           Bari
@@ -1005,6 +1068,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animationRO"] === "3"}
+                          link
                           onClick={this.togglePills("animationRO", "3")}
                         >
                           Warsaw
@@ -1014,6 +1078,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animationRO"] === "4"}
+                          link
                           onClick={this.togglePills("animationRO", "4")}
                         >
                           Paris
@@ -1025,6 +1090,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animationR"] === "1"}
+                          link
                           onClick={this.togglePills("animationR", "1")}
                         >
                           Features
@@ -1034,6 +1100,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animationR"] === "2"}
+                          link
                           onClick={this.togglePills("animationR", "2")}
                         >
                           Pricing
@@ -1043,6 +1110,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animationR"] === "3"}
+                          link
                           onClick={this.togglePills("animationR", "3")}
                         >
                           Gadgets
@@ -1052,6 +1120,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["animationR"] === "4"}
+                          link
                           onClick={this.togglePills("animationR", "4")}
                         >
                           Technology
@@ -1114,6 +1183,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["modal"] === "1"}
+                          link
                           onClick={this.togglePills("modal", "1")}
                         >
                           <MDBIcon icon="user" className="mr-1" /> Login
@@ -1123,6 +1193,7 @@ class PillsPage extends Component {
                         <MDBNavLink
                           to="#"
                           active={this.state.items["modal"] === "2"}
+                          link
                           onClick={this.togglePills("modal", "2")}
                         >
                           <MDBIcon icon="user-plus" className="mr-1" /> Register
@@ -1192,6 +1263,7 @@ class PillsPage extends Component {
                                 <a
                                   href="https://mdbootstrap.com"
                                   className="blue-text ml-1"
+                                  link
                                   onClick={this.togglePills("modal", "2")}
                                 >
                                   Sign Up
@@ -1210,6 +1282,7 @@ class PillsPage extends Component {
                                 <a
                                   href="https://mdbootstrap.com"
                                   className="blue-text ml-1"
+                                  link
                                   onClick={this.togglePills("modal", "2")}
                                 >
                                   LogIn
@@ -1242,6 +1315,7 @@ class PillsPage extends Component {
                       to="#"
                       role="tab"
                       active={this.state.items["outer"] === "1"}
+                      link
                       onClick={this.togglePills("outer", "1")}
                     >
                       <MDBIcon icon="user" /> Profile
@@ -1252,6 +1326,7 @@ class PillsPage extends Component {
                       to="#"
                       role="tab"
                       active={this.state.items["outer"] === "2"}
+                      link
                       onClick={this.togglePills("outer", "2")}
                     >
                       <MDBIcon icon="heart" /> Follow
@@ -1267,6 +1342,7 @@ class PillsPage extends Component {
                             <MDBNavLink
                               to="#"
                               active={this.state.items["inner"] === "1"}
+                              link
                               onClick={this.togglePills("inner", "1")}
                             >
                               Downloads <MDBIcon icon="download" className="ml-2" />
@@ -1276,6 +1352,7 @@ class PillsPage extends Component {
                             <MDBNavLink
                               to="#"
                               active={this.state.items["inner"] === "2"}
+                              link
                               onClick={this.togglePills("inner", "2")}
                             >
                               Orders & invoices
@@ -1286,6 +1363,7 @@ class PillsPage extends Component {
                             <MDBNavLink
                               to="#"
                               active={this.state.items["inner"] === "3"}
+                              link
                               onClick={this.togglePills("inner", "3")}
                             >
                               Billing Details
