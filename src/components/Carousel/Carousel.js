@@ -186,8 +186,8 @@ class Carousel extends Component {
         onTouchStart={this.startTouch}
         onTouchMove={swipeAvailable ? this.moveTouch : null}
         onTouchEnd={this.swipeAvailableHandler}
-        onMouseEnter={onHoverStop ? this.clearCycleIntervalHandler : false}
-        onMouseLeave={onHoverStop ? this.restartInterval : false}
+        onMouseEnter={onHoverStop ? this.clearCycleIntervalHandler : null}
+        onMouseLeave={onHoverStop ? this.restartInterval : null}
       >
         {showControls && multiItem && (
           <div className='controls-top'>
