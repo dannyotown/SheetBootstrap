@@ -26,7 +26,8 @@ const Fa = props => {
     ...attributes
   } = props;
 
-  const iconPrefix = brand || fab ? 'fab' : light || fal ? 'fal' : regular || far ? 'far' : 'fa';
+  const iconPrefix =
+    brand || fab ? 'fab' : light || fal ? 'fal' : regular || far ? 'far' : 'fa';
 
   const classes = classNames(
     iconPrefix,
@@ -65,8 +66,8 @@ Fa.propTypes = {
   pulse: PropTypes.bool,
   regular: PropTypes.bool,
   rotate: PropTypes.string,
-  spin: PropTypes.bool,
   size: PropTypes.string,
+  spin: PropTypes.bool,
   stack: PropTypes.string
 };
 
@@ -86,8 +87,8 @@ Fa.defaultProps = {
   pulse: false,
   regular: false,
   rotate: '',
-  spin: false,
   size: '',
+  spin: false,
   stack: ''
 };
 

@@ -11,9 +11,9 @@ const EdgeHeader = props => {
 };
 
 EdgeHeader.propTypes = {
+  className: PropTypes.string,
   color: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 EdgeHeader.defaultProps = {

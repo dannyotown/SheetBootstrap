@@ -11,8 +11,8 @@ const FreeBird = props => {
 };
 
 FreeBird.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  className: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 FreeBird.defaultProps = {

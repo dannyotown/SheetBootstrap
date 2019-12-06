@@ -55,7 +55,6 @@ class DataTable extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { columns } = this.state;
     const { data } = this.props;
 
     if (prevProps.data !== data) {
@@ -63,18 +62,19 @@ class DataTable extends Component {
         ? this.fetchData(data)
         : this.setData(data.rows, data.columns, this.paginateRows);
 
-      this.setUnsearchable(columns);
+      this.setUnsearchable(this.state.columns);
       this.filterRows();
     }
   }
 
   setData = (rows = [], columns = [], callback) => {
-    const { disableRetreatAfterSorting } = this.props;
     this.setState(
       () => ({
         columns,
         rows,
-        filteredRows: disableRetreatAfterSorting ? this.filterRows() : rows
+        filteredRows: this.props.disableRetreatAfterSorting
+          ? this.filterRows()
+          : rows
       }),
       callback && typeof callback === 'function' && (() => callback())
     );
@@ -106,10 +106,8 @@ class DataTable extends Component {
   };
 
   // findout how many pages there are need to be, then slice rows into pages
-  pagesAmount = () => {
-    const { filteredRows, entries } = this.state;
-    Math.ceil(filteredRows.length / entries);
-  };
+  pagesAmount = () =>
+    Math.ceil(this.state.filteredRows.length / this.state.entries);
 
   paginateRowsInitialy = () => {
     const { rows, entries, pages } = this.state;
@@ -129,11 +127,12 @@ class DataTable extends Component {
   };
 
   handleSearchChange = e => {
-    const { onSearch } = this.props;
     this.setState(
       { search: e.target.value },
       () => this.filterRows(),
-      onSearch && typeof onSearch === 'function' && onSearch(e.target.value)
+      this.props.onSearch &&
+        typeof this.props.onSearch === 'function' &&
+        this.props.onSearch(e.target.value)
     );
   };
 
@@ -170,7 +169,7 @@ class DataTable extends Component {
         : 1;
     });
   };
-  //TODO FIX
+
   handleSort = (field, sort) => {
     const { onSort } = this.props;
 

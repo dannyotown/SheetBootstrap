@@ -36,11 +36,9 @@ const Gallery = React.forwardRef(function Gallery(props, ref) {
         return React.cloneElement(child, {
           style: {
             width: `${(100 / cols) * childCols}%`,
-              height:
-                cellHeight === 'auto'
-                  ? 'auto'
-                  : cellHeight * childRows + spacing,
-              padding: spacing / 2,
+            height:
+              cellHeight === 'auto' ? 'auto' : cellHeight * childRows + spacing,
+            padding: spacing / 2,
             ...child.props.style
           }
         });
@@ -50,13 +48,13 @@ const Gallery = React.forwardRef(function Gallery(props, ref) {
 });
 
 Gallery.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  children: PropTypes.node,
   cellHeight: PropTypes.number,
+  children: PropTypes.node,
+  className: PropTypes.string,
   cols: PropTypes.number,
   spacing: PropTypes.number,
-  style: PropTypes.object
+  style: PropTypes.object,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 Gallery.defaultProps = {

@@ -29,11 +29,13 @@ class DropdownMenu extends Component {
       ...attrs
     } = this.props;
 
+    const { isOpen, dropup, dropright, dropleft } = this.context;
+
     const classes = classNames(
       {
         'dropdown-menu-right': right,
         [`dropdown-${color}`]: color,
-        show: this.context.isOpen,
+        show: isOpen,
         basic
       },
       'dropdown-menu',
@@ -42,12 +44,12 @@ class DropdownMenu extends Component {
 
     const Tag = tag;
 
-    if (this.context.isOpen) {
-      const position1 = this.context.dropup
+    if (isOpen) {
+      const position1 = dropup
         ? 'top'
-        : this.context.dropright
+        : dropright
         ? 'right'
-        : this.context.dropleft
+        : dropleft
         ? 'left'
         : 'bottom';
 
@@ -74,12 +76,12 @@ class DropdownMenu extends Component {
             className={classes}
           >
             <DropdownMenuComponent
-              isOpen={this.context.isOpen}
+              isOpen={isOpen}
               tag={Tag}
               tabIndex='-1'
               role='menu'
               attributes={attrs}
-              aria={!this.context.isOpen}
+              aria={!isOpen}
               d_key='dropDownMenu'
               color={color}
             >

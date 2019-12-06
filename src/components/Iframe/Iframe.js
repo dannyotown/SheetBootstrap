@@ -11,22 +11,22 @@ class Iframe extends Component {
   };
 
   componentDidMount = () => {
-    let {width} = this.props;
-    let {height} = this.props;
-    let ratio = 9 / 16;
+    const { ratio } = this.props;
+    let { width, height } = this.props;
+    let ratioNumber = 9 / 16;
 
-    if (this.props.ratio) {
-      const newRatio =
-        this.props.ratio.split('by')[0] / this.props.ratio.split('by')[1];
-      if (typeof ratio === 'number') ratio = newRatio;
+    if (ratio) {
+      const newRatio = ratio.split('by')[0] / ratio.split('by')[1];
+      if (typeof ratioNumber === 'number') ratioNumber = newRatio;
     }
 
-    if (this.props.width && this.props.height) {
+    if (width && height) {
       return;
-    } if (this.props.width) {
-      height = this.props.width * ratio;
-    } else if (this.props.height) {
-      width = this.props.height * (1 / ratio);
+    }
+    if (width) {
+      height = width * ratioNumber;
+    } else if (height) {
+      width = height * (1 / ratioNumber);
     }
 
     this.setState({
@@ -88,20 +88,20 @@ class Iframe extends Component {
 }
 
 Iframe.propTypes = {
+  src: PropTypes.string.isRequired,
   allowFullScreen: PropTypes.bool,
   className: PropTypes.string,
   height: PropTypes.number,
   id: PropTypes.string,
   name: PropTypes.string,
-  onMouseOver: PropTypes.func,
-  onMouseOut: PropTypes.func,
   onLoad: PropTypes.func,
+  onMouseOut: PropTypes.func,
+  onMouseOver: PropTypes.func,
   ratio: PropTypes.string,
   sandbox: PropTypes.string,
-  src: PropTypes.string.isRequired,
   styles: PropTypes.object,
-  width: PropTypes.number,
-  title: PropTypes.string
+  title: PropTypes.string,
+  width: PropTypes.number
 };
 
 export default Iframe;

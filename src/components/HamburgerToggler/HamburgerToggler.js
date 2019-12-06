@@ -28,9 +28,9 @@ const HamburgerToggler = props => {
 };
 
 HamburgerToggler.propTypes = {
-  id: PropTypes.string,
+  className: PropTypes.string,
   color: PropTypes.string,
-  className: PropTypes.string
+  id: PropTypes.string
 };
 
 export default HamburgerToggler;

@@ -8,17 +8,17 @@ const Footer = props => {
   const classes = classNames('page-footer', color && color, className);
 
   return (
-    <Tag  data-test='footer' {...attributes} className={classes}>
+    <Tag data-test='footer' {...attributes} className={classes}>
       {children}
     </Tag>
   );
 };
 
 Footer.propTypes = {
-  color: PropTypes.string,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  children: PropTypes.node,
   className: PropTypes.string,
-  children: PropTypes.node
+  color: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 Footer.defaultProps = {
