@@ -7,7 +7,6 @@ const View = props => {
   const [cursorPos, setCursorPos] = useState({});
 
   const handleClick = e => {
-    // Get Cursor Position
     const cursorPos = {
       top: e.clientY,
       left: e.clientX,
@@ -16,34 +15,46 @@ const View = props => {
     setCursorPos(cursorPos);
   };
 
-  const { cascade, children, className, hover, rounded, src, tag: Tag, waves, zoom, fixed, ...attributes } = props;
+  const {
+    cascade,
+    children,
+    className,
+    fixed,
+    hover,
+    rounded,
+    src,
+    tag: Tag,
+    waves,
+    zoom,
+    ...attributes
+  } = props;
 
   const classes = classNames(
     'view',
-    rounded && 'rounded',
-    zoom && 'zoom',
-    hover && 'overlay',
     cascade && 'view-cascade',
+    className,
+    hover && 'overlay',
+    rounded && 'rounded',
     waves ? 'Ripple-parent' : false,
-    className
+    zoom && 'zoom'
   );
 
   const viewStyle = src
     ? {
+        backgroundAttachment: fixed ? 'fixed' : null,
         backgroundImage: `url("${src}")`,
+        backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        height: '100vh',
-        backgroundAttachment: fixed ? 'fixed' : null
+        height: '100vh'
       }
     : {};
 
   return (
     <Tag
-      data-test='view'
       {...attributes}
       className={classes}
+      data-test='view'
       onMouseDown={handleClick}
       onTouchStart={handleClick}
       style={viewStyle}

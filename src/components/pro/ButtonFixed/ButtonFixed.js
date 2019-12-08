@@ -5,17 +5,13 @@ import Fa from '../../Fa';
 import Waves from '../../Waves';
 
 class ButtonFixed extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cursorPos: {},
-      ulDisplay: false
-    };
-    this.onClick = this.onClick.bind(this);
-  }
+  state = {
+    cursorPos: {},
+    ulDisplay: false
+  };
+  onClick = this.onClick;
 
-  handleClick(e) {
-    // Get Cursor Position
+  handleClick = e => {
     e.preventDefault();
     const cursorPos = {
       top: e.clientY,
@@ -23,18 +19,18 @@ class ButtonFixed extends React.Component {
       time: Date.now()
     };
     this.setState({ cursorPos });
-  }
+  };
 
-  onClick(e) {
-    if (this.props.disabled) {
+  onClick = e => {
+    const { disabled } = this.props;
+    if (disabled) {
       e.preventDefault();
-      
     }
-  }
+  };
 
-  showUl = () => this.setState({ ulDisplay: true });
-
-  hideUl = () => this.setState({ ulDisplay: false });
+  toggleUl = isDisplay => {
+    return this.setState({ ulDisplay: isDisplay });
+  };
 
   render() {
     const {
@@ -43,6 +39,7 @@ class ButtonFixed extends React.Component {
       className,
       children,
       color,
+      disabled,
       outline,
       size,
       rounded,
@@ -62,9 +59,12 @@ class ButtonFixed extends React.Component {
       ...attributes
     } = this.props;
 
-    const { ulDisplay } = this.state;
+    const { ulDisplay, cursorPos } = this.state;
 
-    const buttonFixedClasses = classNames('fixed-action-btn', !!ulDisplay && 'active');
+    const buttonFixedClasses = classNames(
+      'fixed-action-btn',
+      !!ulDisplay && 'active'
+    );
 
     const classes = classNames(
       floating ? 'btn-floating' : 'btn',
@@ -74,25 +74,27 @@ class ButtonFixed extends React.Component {
       block ? 'btn-block' : false,
       'Ripple-parent',
       className,
-      { active, disabled: this.props.disabled }
+      { active, disabled }
     );
 
     return (
       <div
-        data-test='button-fixed'
+        {...attributes}
         className={buttonFixedClasses}
+        data-test='button-fixed'
+        onBlur={() => this.toggleUl(true)}
+        onFocus={() => this.toggleUl(false)}
+        onMouseOut={() => this.toggleUl(false)}
+        onMouseOver={() => this.toggleUl(true)}
         ref={innerRef}
         style={{ bottom: '45px', right: '24px' }}
-        {...attributes}
-        onMouseOver={()=>this.showUl()}
-        onMouseOut={()=>this.hideUl()}
       >
         <a
-          href={this.props.topSection ? this.props.topSection : '#'}
+          href={topSection ? topSection : '#'}
           className={classes}
           onClick={this.onClick}
-          onMouseDown={this.handleClick.bind(this)}
-          onTouchStart={this.handleClick.bind(this)}
+          onMouseDown={this.handleClick}
+          onTouchStart={this.handleClick}
         >
           {icon && (
             <Fa
@@ -104,18 +106,16 @@ class ButtonFixed extends React.Component {
               className={iconClass}
             />
           )}
-          {this.props.disabled ? (
+          {disabled ? (
             false
           ) : (
-            <Waves
-              cursorPos={this.state.cursorPos}
-              outline={outline}
-              flat={flat}
-            />
+            <Waves cursorPos={cursorPos} outline={outline} flat={flat} />
           )}
         </a>
         {children && (
-          <ul className={classNames('list-unstyled' && !ulDisplay && 'disabled')}>
+          <ul
+            className={classNames('list-unstyled' && !ulDisplay && 'disabled')}
+          >
             {children}
           </ul>
         )}
@@ -131,15 +131,13 @@ ButtonFixed.defaultProps = {
 ButtonFixed.propTypes = {
   active: PropTypes.bool,
   block: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
   color: PropTypes.string,
-  gradient: PropTypes.string,
-  role: PropTypes.string,
-  type: PropTypes.string,
   disabled: PropTypes.bool,
-  outline: PropTypes.bool,
-  rounded: PropTypes.bool,
-  floating: PropTypes.bool,
   flat: PropTypes.bool,
+  floating: PropTypes.bool,
+  gradient: PropTypes.string,
   icon: PropTypes.string,
   iconBrand: PropTypes.bool,
   iconClass: PropTypes.string,
@@ -148,10 +146,12 @@ ButtonFixed.propTypes = {
   iconSize: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   onClick: PropTypes.func,
+  outline: PropTypes.bool,
+  role: PropTypes.string,
+  rounded: PropTypes.bool,
   size: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  topSection: PropTypes.string
+  topSection: PropTypes.string,
+  type: PropTypes.string
 };
 
 export default ButtonFixed;

@@ -27,8 +27,8 @@ CollapseHeader.defaultProps = {
 CollapseHeader.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  tagClassName: PropTypes.string,
-  tag: PropTypes.string
+  tag: PropTypes.string,
+  tagClassName: PropTypes.string
 };
 
 export default CollapseHeader;

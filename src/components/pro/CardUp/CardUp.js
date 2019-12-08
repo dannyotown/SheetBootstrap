@@ -7,8 +7,8 @@ const CardUp = props => {
 
   const classes = classNames(
     'card-up',
-    color && `${color  }-color`,
-    gradient && `${gradient  }-gradient`,
+    color && `${color}-color`,
+    gradient && `${gradient}-gradient`,
     className
   );
 
@@ -16,8 +16,8 @@ const CardUp = props => {
 };
 
 CardUp.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  className: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 CardUp.defaultProps = {

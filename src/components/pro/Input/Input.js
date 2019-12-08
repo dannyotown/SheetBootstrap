@@ -4,29 +4,30 @@ import classNames from 'classnames';
 import InputFree from '../../Input';
 
 class Input extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      character: 0,
-      characterActive: false,
-      characterMax: this.props.counter
-    };
-  }
+  state = {
+    character: 0,
+    characterActive: false,
+    characterMax: this.props.counter
+  };
 
   handleChange = e => {
     const { length } = e.target.value;
-    this.props.onChange && this.props.onChange(e);
-    this.props.getCounter && this.props.getCounter(length);
+    const { onChange, getCounter } = this.props;
+    onChange && onChange(e);
+    getCounter && getCounter(length);
     this.setState({ character: length });
   };
 
   handleBlur = e => {
-    this.props.onBlur && this.props.onBlur(e);
+    const { onBlur } = this.props;
+    onBlur && onBlur(e);
     this.setState({ characterActive: false });
   };
 
   handleFocus = e => {
-    this.props.onFocus && this.props.onFocus(e);
+    const { onFocus } = this.props;
+
+    onFocus && onFocus(e);
     this.setState({
       character: e.target.value.length,
       characterActive: true
@@ -43,7 +44,6 @@ class Input extends React.Component {
       ...attributes
     } = this.props;
     const { character, characterActive, characterMax } = this.state;
-
     const typeCounter = typeof characterMax === 'number';
     const classes = classNames(
       className,
@@ -78,7 +78,7 @@ Input.propTypes = {
 
 Input.defaultProps = {
   counter: false,
-  getCounter: ()=>{}
+  getCounter: () => {}
 };
 
 export default Input;

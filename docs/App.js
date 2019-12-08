@@ -52,11 +52,7 @@ class App extends Component {
             <MDBNavbarToggler
               onClick={this.toggleCollapse('mainNavbarCollapse')}
             />
-            <MDBCollapse
-              id='mainNavbarCollapse'
-              isOpen={this.state.collapseID}
-              navbar
-            >
+            <MDBCollapse id='mainNavbarCollapse' isOpen={collapseID} navbar>
               <MDBNavbarNav right>
                 <MDBNavItem>
                   <MDBNavLink

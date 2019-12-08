@@ -4,16 +4,13 @@ import classNames from 'classnames';
 import Chip from '../Chip';
 
 class ChipsInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chipsList: this.props.chips,
-      inputValue: '',
-      isTouched: false,
-      isReadyToDelete: false
-    };
-    this.inputRef = React.createRef();
-  }
+  state = {
+    chipsList: this.props.chips,
+    inputValue: '',
+    isTouched: false,
+    isReadyToDelete: false
+  };
+  inputRef = React.createRef();
 
   handleClick = () => {
     this.setState({
@@ -30,45 +27,37 @@ class ChipsInput extends Component {
   };
 
   handleProps = (id, value, target, array) => {
-    const {
-      handleRemove,
-      handleAdd,
-      getValue
-    } = this.props
+    const { handleRemove, handleAdd, getValue } = this.props;
 
     if (!target) {
-      handleRemove && handleRemove({
-        id,
-        value,
-      });
+      handleRemove &&
+        handleRemove({
+          id,
+          value
+        });
     } else {
-      handleAdd && handleAdd({
-        id,
-        value,
-        target
-      });
+      handleAdd &&
+        handleAdd({
+          id,
+          value,
+          target
+        });
     }
-    getValue && getValue(array)
-  }
-
+    getValue && getValue(array);
+  };
 
   handleEnter = e => {
-    // 1) get the value:
     const { chipsList } = this.state;
 
     const newChipString = this.inputRef.current.value;
-    const chipsListUpdate = [...chipsList, newChipString]
-    const {target} = e
+    const chipsListUpdate = [...chipsList, newChipString];
+    const { target } = e;
 
-    // 2) upon pressing Enter:
     if (e.which === 13) {
-
-      // 3) if the string is empty or consists only of spaces: return
       if (/^ *$/.test(newChipString)) {
         return;
       }
 
-      // 3.5) of the string is already in the array, delete input value and return
       if (chipsList.includes(newChipString)) {
         this.setState({
           inputValue: ''
@@ -76,17 +65,22 @@ class ChipsInput extends Component {
         return;
       }
 
-      // 4) else: add the input value to the array and reset it on input:
       this.setState(
         {
           inputValue: '',
-          chipsList: chipsListUpdate,
-        }, () => {
-          this.handleProps(chipsList.length, newChipString, target.previousElementSibling, chipsListUpdate)
-        });
+          chipsList: chipsListUpdate
+        },
+        () => {
+          this.handleProps(
+            chipsList.length,
+            newChipString,
+            target.previousElementSibling,
+            chipsListUpdate
+          );
+        }
+      );
     }
 
-    // 5) in case the keyboard events caused the input to be empty, prepare to delete chips:
     if (this.state.inputValue === '') {
       this.setState({
         isReadyToDelete: true
@@ -94,21 +88,23 @@ class ChipsInput extends Component {
     }
   };
 
-  handleBackspace = (e) => {
-    // if the input is already empty (is ready to delete chips) and Backspace is pressed:
+  handleBackspace = e => {
     if (this.state.isReadyToDelete && e.which === 8) {
       const { chipsList } = this.state;
       const itemToDelete = chipsList.pop();
 
-      this.setState({
-        chipsList
-      }, () => {
-        this.handleProps(chipsList.length, itemToDelete, false, chipsList)
-      });
+      this.setState(
+        {
+          chipsList
+        },
+        () => {
+          this.handleProps(chipsList.length, itemToDelete, false, chipsList);
+        }
+      );
     }
   };
 
-  handleClose = (param) => {
+  handleClose = param => {
     const { chipsList } = this.state;
     const { handleClose } = this.props;
 
@@ -117,12 +113,13 @@ class ChipsInput extends Component {
 
     chipsList.splice(index, 1);
 
-    this.setState({
-      chipsList
-    },
+    this.setState(
+      {
+        chipsList
+      },
       () => {
         handleClose && handleClose(itemToDelete);
-        this.handleProps(index, itemToDelete, false, chipsList)
+        this.handleProps(index, itemToDelete, false, chipsList);
       }
     );
   };
@@ -151,11 +148,13 @@ class ChipsInput extends Component {
       ...attributes
     } = this.props;
 
-    const renderedChips = this.state.chipsList.map(chip => {
+    const { chipsList, inputValue, isTouched } = this.state;
+
+    const renderedChips = chipsList.map(chip => {
       return (
         <Chip
           close
-          handleClose={(e) => this.handleClose(chip, e)}
+          handleClose={e => this.handleClose(chip, e)}
           key={chip.toString()}
           size={chipSize}
           bgColor={chipColor}
@@ -169,17 +168,13 @@ class ChipsInput extends Component {
     });
 
     let calculatePlaceholder;
-    if (this.state.chipsList.length < 1) {
+    if (chipsList.length < 1) {
       calculatePlaceholder = placeholder;
     } else {
       calculatePlaceholder = secondaryPlaceholder;
     }
 
-    const classes = classNames(
-      'chips',
-      this.state.isTouched && 'focus',
-      className
-    );
+    const classes = classNames('chips', isTouched && 'focus', className);
 
     return (
       <Tag
@@ -196,7 +191,7 @@ class ChipsInput extends Component {
           placeholder={calculatePlaceholder}
           ref={this.inputRef}
           onKeyUp={this.handleEnter}
-          value={this.state.inputValue}
+          value={inputValue}
           onChange={this.handleChange}
           onBlur={this.handleOutsideClick}
         />
@@ -206,14 +201,14 @@ class ChipsInput extends Component {
 }
 
 ChipsInput.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  chipColor: PropTypes.string,
+  chipGradient: PropTypes.string,
+  chipSize: PropTypes.string,
+  chipText: PropTypes.string,
   className: PropTypes.string,
   placeholder: PropTypes.string,
   secondaryPlaceholder: PropTypes.string,
-  chipSize: PropTypes.string,
-  chipColor: PropTypes.string,
-  chipText: PropTypes.string,
-  chipGradient: PropTypes.string
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 ChipsInput.defaultProps = {

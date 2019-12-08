@@ -31,7 +31,6 @@ const DataTableSelect = ({ value, onChange, entries, label, barReverse }) => (
 );
 
 DataTableSelect.propTypes = {
-  barReverse: PropTypes.bool,
   entries: PropTypes.arrayOf(PropTypes.number).isRequired,
   label: PropTypes.oneOfType([
     PropTypes.string,
@@ -39,7 +38,8 @@ DataTableSelect.propTypes = {
     PropTypes.object
   ]).isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired
+  value: PropTypes.number.isRequired,
+  barReverse: PropTypes.bool
 };
 
 export default DataTableSelect;

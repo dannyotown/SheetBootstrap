@@ -2,34 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function RotatingCard(props) {
-  const {
-    className,
-    tag: Tag,
-    innerTag: InnerTag,
-    flipped,
-    ...attributes
-  } = props;
-
+function RotatingCard({
+  children,
+  className,
+  flipped,
+  innerTag: InnerTag,
+  tag: Tag,
+  ...attributes
+}) {
   const classes = classNames(
     'card-rotating effect__click',
-    props.flipped && 'flipped',
+    flipped && 'flipped',
     className
   );
 
   return (
     <Tag data-test='flipping-card' {...attributes} className='card-wrapper'>
-      <InnerTag className={classes}>{props.children}</InnerTag>
+      <InnerTag className={classes}>{children}</InnerTag>
     </Tag>
   );
 }
 
 RotatingCard.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  innerTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
   children: PropTypes.node,
-  flipped: PropTypes.bool
+  className: PropTypes.string,
+  flipped: PropTypes.bool,
+  innerTag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 RotatingCard.defaultProps = {

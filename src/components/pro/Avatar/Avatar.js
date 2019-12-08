@@ -5,12 +5,12 @@ import classNames from 'classnames';
 const Avatar = props => {
   const {
     background,
-    className,
-    circle,
     children,
+    circle,
+    className,
     round,
-    src,
     size,
+    src,
     style,
     tag: Tag,
     ...attributes
@@ -61,13 +61,13 @@ const Avatar = props => {
 
 Avatar.propTypes = {
   background: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.node,
+    PropTypes.string
+  ]),
   circle: PropTypes.bool,
   className: PropTypes.string,
-  children: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-    PropTypes.func
-  ]),
   round: PropTypes.bool,
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   src: PropTypes.string,

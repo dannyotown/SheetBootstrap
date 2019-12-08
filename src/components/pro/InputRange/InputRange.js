@@ -4,42 +4,42 @@ import classNames from 'classnames';
 import './InputRange.css';
 
 class InputRange extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: false,
-      leftPosition: false,
-      thumbActive: false,
-      thumbHeight: 0,
-      thumbWidth: 0,
-      thumbTop: '10px',
-      thumbMarginLeft: '-6px',
-      input: 'input',
-      oneStep: ''
-    };
+  state = {
+    value: false,
+    leftPosition: false,
+    thumbActive: false,
+    thumbHeight: 0,
+    thumbWidth: 0,
+    thumbTop: '10px',
+    thumbMarginLeft: '-6px',
+    input: 'input',
+    oneStep: ''
+  };
 
-    this.inputRef = React.createRef();
-  }
+  inputRef = React.createRef();
 
   componentDidMount = () => {
     const input = this.inputRef.current;
     const inputWidth = input.offsetWidth;
-    const oneStep = inputWidth / (this.props.max - this.props.min);
+    const { max, min, value } = this.props;
+    const oneStep = inputWidth / (max - min);
     this.setState({
-      value: this.props.value,
-      leftPosition: oneStep * this.props.value - oneStep * this.props.min,
+      value,
+      leftPosition: oneStep * value - oneStep * min,
       oneStep
     });
   };
 
   rangeChange = e => {
-    const newValue = e.target.value;
+    const value = e.target.value;
+    const { getValue, min } = this.props;
+    const { oneStep } = this.state;
+
     this.setState({
-      value: newValue,
-      leftPosition:
-        this.state.oneStep * newValue - this.state.oneStep * this.props.min
+      value,
+      leftPosition: oneStep * value - oneStep * min
     });
-    this.props.getValue && this.props.getValue(e.target.value);
+    getValue && this.props.getValue(value);
   };
 
   rangeFocus = () => {
@@ -65,16 +65,19 @@ class InputRange extends React.Component {
   };
 
   render() {
+    const {
+      thumbActive,
+      value,
+      leftPosition,
+      thumbHeight,
+      thumbWidth,
+      thumbTop,
+      thumbMarginLeft
+    } = this.state;
     const { className, formClassName, min, max, step, tag: Tag } = this.props;
-
     const inputClass = classNames(className);
-
     const formClass = classNames('range-field', formClassName);
-
-    const thumbClass = classNames(
-      'thumb',
-      this.state.thumbActive ? 'active' : false
-    );
+    const thumbClass = classNames('thumb', thumbActive ? 'active' : false);
 
     return (
       <Tag className={formClass} data-test='input-range'>
@@ -84,7 +87,7 @@ class InputRange extends React.Component {
           min={min}
           max={max}
           step={step}
-          value={this.state.value}
+          value={value}
           type='range'
           onChange={this.rangeChange}
           onFocus={this.rangeFocus}
@@ -93,14 +96,14 @@ class InputRange extends React.Component {
         <span
           className={thumbClass}
           style={{
-            left: this.state.leftPosition,
-            height: this.state.thumbHeight,
-            width: this.state.thumbWidth,
-            top: this.state.thumbTop,
-            marginLeft: this.state.thumbMarginLeft
+            left: leftPosition,
+            height: thumbHeight,
+            width: thumbWidth,
+            top: thumbTop,
+            marginLeft: thumbMarginLeft
           }}
         >
-          <span className='value'>{this.state.value}</span>
+          <span className='value'>{value}</span>
         </span>
       </Tag>
     );
@@ -110,12 +113,12 @@ class InputRange extends React.Component {
 InputRange.propTypes = {
   className: PropTypes.string,
   formClassName: PropTypes.string,
-  min: PropTypes.number,
-  max: PropTypes.number,
-  value: PropTypes.number,
   getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
+  max: PropTypes.number,
+  min: PropTypes.number,
   step: PropTypes.number,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  value: PropTypes.number
 };
 
 InputRange.defaultProps = {

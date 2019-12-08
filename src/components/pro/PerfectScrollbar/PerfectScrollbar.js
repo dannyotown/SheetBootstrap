@@ -18,16 +18,13 @@ const handlerNameByEvent = {
 Object.freeze(handlerNameByEvent);
 
 class ScrollBar extends Component {
-  constructor(props) {
-    super(props);
-
-    this._handlerByEvent = new Map();
-  }
+  _handlerByEvent = new Map();
 
   componentDidMount() {
-    this._ps = new PerfectScrollbar(this._container, this.props.option);
-    // hook up events
+    const { option } = this.props;
+    this._ps = new PerfectScrollbar(this._container, option);
     Object.keys(handlerNameByEvent).forEach(key => {
+      // eslint-disable-next-line react/destructuring-assignment
       const callback = this.props[handlerNameByEvent[key]];
       if (callback) {
         const handler = () => callback(this._container);
@@ -42,7 +39,6 @@ class ScrollBar extends Component {
   }
 
   componentWillUnmount() {
-    // unhook up evens
     Object.keys(this._handlerByEvent).forEach((value, key) => {
       this._container.removeEventListener(key, value, false);
     });
@@ -60,7 +56,11 @@ class ScrollBar extends Component {
     const { children, className } = this.props;
 
     return (
-      <div className={`scrollbar-container ${className}`} ref={this.handleRef} data-test='perfect-scrollbar'>
+      <div
+        className={`scrollbar-container ${className}`}
+        ref={this.handleRef}
+        data-test='perfect-scrollbar'
+      >
         {children}
       </div>
     );
@@ -86,18 +86,18 @@ ScrollBar.defaultProps = {
 ScrollBar.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  option: PropTypes.object,
   containerRef: PropTypes.func,
-  onScrollY: PropTypes.func,
-  onScrollX: PropTypes.func,
-  onScrollUp: PropTypes.func,
   onScrollDown: PropTypes.func,
   onScrollLeft: PropTypes.func,
   onScrollRight: PropTypes.func,
-  onYReachStart: PropTypes.func,
-  onYReachEnd: PropTypes.func,
+  onScrollUp: PropTypes.func,
+  onScrollX: PropTypes.func,
+  onScrollY: PropTypes.func,
+  onXReachEnd: PropTypes.func,
   onXReachStart: PropTypes.func,
-  onXReachEnd: PropTypes.func
+  onYReachEnd: PropTypes.func,
+  onYReachStart: PropTypes.func,
+  option: PropTypes.object
 };
 
 export default ScrollBar;

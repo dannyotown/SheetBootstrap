@@ -64,16 +64,16 @@ const ControlledSelectOption = ({
 ControlledSelectOption.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
-  focusShadow: PropTypes.string,
   focusBackgroundColor: PropTypes.string,
+  focusShadow: PropTypes.string,
   icon: PropTypes.string,
   isFocused: PropTypes.bool,
   multiple: PropTypes.bool,
   selectAllClassName: PropTypes.string,
+  selectOption: PropTypes.func,
   separator: PropTypes.bool,
   text: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  value: PropTypes.string,
-  selectOption: PropTypes.func
+  value: PropTypes.string
 };
 
 ControlledSelectOption.defaultProps = {

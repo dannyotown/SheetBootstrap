@@ -4,7 +4,18 @@ import classNames from 'classnames';
 import './InputFile.css';
 import CloseIcon from '../../CloseIcon';
 
-const InputFile = props => {
+const InputFile = ({
+  btnColor,
+  getValue,
+  btnTitle,
+  reverse,
+  className,
+  multiple,
+  reset,
+  resetClassName,
+  textFieldTitle,
+  resetAriaLabel
+}) => {
   const [files, setFiles] = useState(false);
 
   const fileChange = files => {
@@ -25,28 +36,16 @@ const InputFile = props => {
 
   const onChangeHandler = e => {
     fileChange(e.target.files);
-    props.getValue && props.getValue(e.target.files);
+    getValue && getValue(e.target.files);
   };
 
   const resetFiles = () => {
     files && setFiles(false);
   };
 
-  const {
-    className,
-    btnTitle,
-    btnColor,
-    textFieldTitle,
-    multiple,
-    reset,
-    resetClassName,
-    resetAriaLabel,
-    reverse
-  } = props;
-
   const btnClass = classNames(
     'btn',
-    `btn-${  btnColor}`,
+    `btn-${btnColor}`,
     'btn-sm',
     reverse ? 'float-right' : 'float-left'
   );
@@ -96,15 +95,15 @@ const InputFile = props => {
 };
 
 InputFile.propTypes = {
-  className: PropTypes.string,
-  btnTitle: PropTypes.string,
   btnColor: PropTypes.string,
-  textFieldTitle: PropTypes.string,
+  btnTitle: PropTypes.string,
+  className: PropTypes.string,
   multiple: PropTypes.bool,
   reset: PropTypes.bool,
-  resetClassName: PropTypes.string,
   resetAriaLabel: PropTypes.string,
-  reverse: PropTypes.bool
+  resetClassName: PropTypes.string,
+  reverse: PropTypes.bool,
+  textFieldTitle: PropTypes.string
 };
 
 InputFile.defaultProps = {

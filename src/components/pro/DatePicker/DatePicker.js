@@ -1,65 +1,63 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
-/* eslint-disable */
 import MomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 import { DatePicker as UIDatePicker } from 'material-ui-pickers';
 import moment from 'moment';
-
 import './DatePicker.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 
 class DatePicker extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedDate: props.value || props.valueDefault,
-      muiTheme: createMuiTheme({
-        ...props.theme,
-        typography: {
-          useNextVariants: true
-        }
-      })
-    };
-  }
+  state = {
+    selectedDate: this.props.value || this.props.valueDefault,
+    muiTheme: createMuiTheme({
+      ...this.props.theme,
+      typography: {
+        useNextVariants: true
+      }
+    })
+  };
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      this.props.getValue &&
-      prevState.selectedDate !== this.state.selectedDate
-    ) {
-      this.props.getValue(this.state.selectedDate);
+    const { getValue, value, theme } = this.props;
+    const { selectedDate } = this.state;
+
+    if (getValue && prevState.selectedDate !== selectedDate) {
+      getValue(selectedDate);
     }
 
-    if (this.props.value !== prevProps.value) {
-      this.setState({ selectedDate: this.props.value });
+    if (value !== prevProps.value) {
+      this.setState({ selectedDate: value });
     }
 
-    if (prevProps.theme !== this.props.theme) {
-      this.setState({ muiTheme: createMuiTheme(this.props.theme) });
+    if (prevProps.theme !== theme) {
+      this.setState({ muiTheme: createMuiTheme(theme) });
     }
   }
 
   handleDateChange = date => {
-    this.setState({ selectedDate: date ? date._d : this.props.value });
+    const { value } = this.props;
+
+    this.setState({ selectedDate: date ? date._d : value });
   };
 
   render() {
     const {
-      theme,
       adornmentPosition,
       allowKeyboardControl,
       animateYearScrolling,
       autoOk,
       cancelLabel,
+      className,
       clearable,
       clearLabel,
       disableFuture,
       disableOpenOnEnter,
       disablePast,
       emptyLabel,
+      format,
+      getValue,
       initialFocusedDate,
       InputAdornmentProps,
       invalidDateMessage,
@@ -67,6 +65,7 @@ class DatePicker extends Component {
       keyboard,
       keyboardIcon,
       leftArrowIcon,
+      locale,
       mask,
       maxDate,
       maxDateMessage,
@@ -78,22 +77,21 @@ class DatePicker extends Component {
       rightArrowIcon,
       showTodayButton,
       TextFieldComponent,
+      theme,
       todayLabel,
-      locale,
-      format,
-      className,
-      getValue,
       value,
       valueDefault,
       tag: Tag,
       ...attributes
     } = this.props;
 
+    const { muiTheme, selectedDate } = this.state;
+
     const classes = classNames('md-form', className);
 
     return (
       <Tag data-test='date-picker' className={classes}>
-        <MuiThemeProvider theme={this.state.muiTheme}>
+        <MuiThemeProvider theme={muiTheme}>
           <MuiPickersUtilsProvider
             locale={locale}
             moment={moment}
@@ -132,7 +130,7 @@ class DatePicker extends Component {
               TextFieldComponent={TextFieldComponent}
               todayLabel={todayLabel}
               format={format || 'DD MMMM, YYYY'}
-              value={this.state.selectedDate}
+              value={selectedDate}
               onChange={this.handleDateChange}
             />
           </MuiPickersUtilsProvider>
@@ -143,18 +141,20 @@ class DatePicker extends Component {
 }
 
 DatePicker.propTypes = {
-  theme: PropTypes.object,
   adornmentPosition: PropTypes.string,
   allowKeyboardControl: PropTypes.bool,
   animateYearScrolling: PropTypes.bool,
   autoOk: PropTypes.bool,
   cancelLabel: PropTypes.node,
+  className: PropTypes.string,
   clearable: PropTypes.bool,
   clearLabel: PropTypes.node,
   disableFuture: PropTypes.object,
   disableOpenOnEnter: PropTypes.bool,
   disablePast: PropTypes.bool,
   emptyLabel: PropTypes.string,
+  format: PropTypes.string,
+  getValue: PropTypes.func,
   initialFocusedDate: PropTypes.string,
   InputAdornmentProps: PropTypes.object,
   invalidDateMessage: PropTypes.node,
@@ -162,6 +162,7 @@ DatePicker.propTypes = {
   keyboard: PropTypes.bool,
   keyboardIcon: PropTypes.node,
   leftArrowIcon: PropTypes.node,
+  locale: PropTypes.string,
   mask: PropTypes.any,
   maxDate: PropTypes.string,
   maxDateMessage: PropTypes.node,
@@ -172,13 +173,10 @@ DatePicker.propTypes = {
   openToYearSelection: PropTypes.bool,
   rightArrowIcon: PropTypes.node,
   showTodayButton: PropTypes.bool,
-  TextFieldComponent: PropTypes.string,
-  todayLabel: PropTypes.string,
-  locale: PropTypes.string,
-  format: PropTypes.string,
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  getValue: PropTypes.func,
+  TextFieldComponent: PropTypes.string,
+  theme: PropTypes.object,
+  todayLabel: PropTypes.string,
   value: PropTypes.instanceOf(Date),
   valueDefault: PropTypes.instanceOf(Date)
 };

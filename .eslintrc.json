@@ -40,7 +40,9 @@
         "extensions": [".js", ".jsx", ".d.ts"]
       }
     ],
-    "react/destructuring-assignment": ["error", "always"],
+    "react/destructuring-assignment": ["error", "always", {
+      "ignoreClassFields": true
+    }],
     "react/state-in-constructor": ["error", "never"],
     "react/require-default-props": [0, {
       "forbidDefaultForRequired": true

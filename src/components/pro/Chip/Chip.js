@@ -26,26 +26,27 @@ const Chip = props => {
   };
 
   const {
-    className,
-    tag: Tag,
-    size,
-    bgColor,
-    text,
-    gradient,
-    src,
     alt,
+    bgColor,
+    children,
+    className,
     close,
-    waves,
+    gradient,
     handleClose,
+    size,
+    src,
+    tag: Tag,
+    text,
+    waves,
     ...attributes
   } = props;
 
   const classes = classNames(
     'chip',
-    size && `chip-${  size}`,
+    size && `chip-${size}`,
     bgColor && bgColor,
-    text && `${text  }-text`,
-    gradient && `${gradient  }-gradient`,
+    text && `${text}-text`,
+    gradient && `${gradient}-gradient`,
     waves && 'Ripple-parent',
     className
   );
@@ -59,7 +60,7 @@ const Chip = props => {
       onTouchStart={handleClick}
     >
       {src && <img src={src} alt={alt} />}
-      {props.children}
+      {children}
       {waves && <Waves cursorPos={cursorPos} />}
       {close && (
         <Fa icon='times' className='close' onClick={handleCloseClick} />
@@ -69,16 +70,16 @@ const Chip = props => {
 };
 
 Chip.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string,
-  size: PropTypes.string,
-  bgColor: PropTypes.string,
-  text: PropTypes.string,
-  gradient: PropTypes.string,
-  src: PropTypes.string,
   alt: PropTypes.string,
+  bgColor: PropTypes.string,
+  className: PropTypes.string,
   close: PropTypes.bool,
-  handleClose: PropTypes.func
+  gradient: PropTypes.string,
+  handleClose: PropTypes.func,
+  size: PropTypes.string,
+  src: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  text: PropTypes.string
 };
 
 Chip.defaultProps = {

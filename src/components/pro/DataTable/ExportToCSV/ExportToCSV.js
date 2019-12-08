@@ -3,28 +3,23 @@ import PropTypes from 'prop-types';
 import Button from '../../../Button';
 
 class ExportToCSV extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      columns: this.props.columns,
-      data: this.props.data,
-      href: ''
-    };
-  }
+  state = {
+    columns: this.props.columns,
+    data: this.props.data,
+    href: ''
+  };
 
   componentDidMount() {
     this.computeDataToLink();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.data !== this.props.data ||
-      prevState.columns !== this.props.columns
-    ) {
+    const { data, columns } = this.props;
+    if (prevState.data !== data || prevState.columns !== columns) {
       this.setState(
         {
-          columns: this.props.columns,
-          data: this.props.data
+          columns,
+          data
         },
         this.computeDataToLink()
       );
@@ -34,14 +29,13 @@ class ExportToCSV extends Component {
   computeDataToLink = () => {
     this.setState(prevState => ({
       href: encodeURI(
-        `data:text/csv;charset=utf-8,${ 
-          [
-            prevState.columns.map(col => col.field).join(','),
-            [].concat
-              .apply([], prevState.data)
-              .map(row => Object.values(row).join(','))
-              .join('\n')
-          ].join('\n')}`
+        `data:text/csv;charset=utf-8,${[
+          prevState.columns.map(col => col.field).join(','),
+          [].concat
+            .apply([], prevState.data)
+            .map(row => Object.values(row).join(','))
+            .join('\n')
+        ].join('\n')}`
       )
     }));
   };
@@ -62,7 +56,7 @@ class ExportToCSV extends Component {
       flat,
       ...attributes
     } = this.props;
-
+    const { href } = this.state;
     return (
       <Button
         active={active}
@@ -79,7 +73,7 @@ class ExportToCSV extends Component {
         role='button'
         type='link'
         {...attributes}
-        href={this.state.href}
+        href={href}
         download='export.csv'
         data-test='export-to-csv'
       >
@@ -94,17 +88,17 @@ ExportToCSV.propTypes = {
   data: PropTypes.array.isRequired,
   active: PropTypes.bool,
   block: PropTypes.bool,
+  children: PropTypes.node,
+  circle: PropTypes.bool,
+  className: PropTypes.string,
   color: PropTypes.string,
-  gradient: PropTypes.string,
   disabled: PropTypes.bool,
+  flat: PropTypes.bool,
+  floating: PropTypes.bool,
+  gradient: PropTypes.string,
   outline: PropTypes.bool,
   rounded: PropTypes.bool,
-  circle: PropTypes.bool,
-  floating: PropTypes.bool,
-  flat: PropTypes.bool,
-  size: PropTypes.string,
-  children: PropTypes.node,
-  className: PropTypes.string
+  size: PropTypes.string
 };
 
 export default ExportToCSV;

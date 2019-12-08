@@ -4,19 +4,20 @@ import classNames from 'classnames';
 import { jarallax, jarallaxVideo, jarallaxElement } from 'jarallax';
 
 class Parallax extends Component {
-  constructor(props) {
-    super(props);
+  jarallax = React.createRef();
 
-    this.jarallax = React.createRef();
-
+  componentDidMount() {
     const {
+      image,
+      video,
+      element,
+      elementOptions,
       disableParallax,
       disableVideo,
       disableVideoLazyLoading,
       disableVideoLoop,
       disableVideoPlayOnlyVisible,
       elementInViewport,
-      height,
       imgElement,
       imgPosition,
       imgRepeat,
@@ -25,11 +26,10 @@ class Parallax extends Component {
       videoEndTime,
       videoStartTime,
       videoVolume,
-      width,
       zIndex
     } = this.props;
 
-    this.imageOptions = {
+    const imageOptions = {
       disableParallax,
       elementInViewport,
       imgElement,
@@ -40,7 +40,7 @@ class Parallax extends Component {
       zIndex
     };
 
-    this.videoOptions = {
+    const videoOptions = {
       disableVideo,
       videoEndTime,
       videoLazyLoading: !disableVideoLazyLoading,
@@ -50,23 +50,17 @@ class Parallax extends Component {
       videoVolume
     };
 
-    this.parentStyle = {
-      height,
-      width
-    };
-  }
-
-  componentDidMount() {
     jarallax(
       this.jarallax.current,
-      this.props.image
-        ? this.imageOptions
-        : this.props.video
-        ? this.videoOptions
-        : this.props.element
-        ? this.props.elementOptions
+      image
+        ? imageOptions
+        : video
+        ? videoOptions
+        : element
+        ? elementOptions
         : null
     );
+
     jarallaxVideo(this.jarallax.current);
     jarallaxElement(this.jarallax.current);
   }
@@ -87,7 +81,9 @@ class Parallax extends Component {
       tag: Tag,
       threshold,
       type,
-      video
+      video,
+      height,
+      width
     } = this.props;
 
     const parentClasses = classNames(
@@ -102,7 +98,10 @@ class Parallax extends Component {
           <Tag
             ref={this.jarallax}
             className={parentClasses}
-            style={this.parentStyle}
+            style={{
+              height,
+              width
+            }}
             data-jarallax
             data-type={type}
             data-speed={speed}
@@ -115,7 +114,10 @@ class Parallax extends Component {
           <Tag
             ref={this.jarallax}
             className={parentClasses}
-            style={this.parentStyle}
+            style={{
+              height,
+              width
+            }}
             data-jarallax
             data-type={type}
             data-speed={speed}
@@ -156,11 +158,11 @@ Parallax.propTypes = {
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   threshold: PropTypes.node,
   type: PropTypes.string,
+  video: PropTypes.string,
   videoEndTime: PropTypes.number,
   videoLazyLoading: PropTypes.bool,
   videoLoop: PropTypes.bool,
   videoPlayOnlyVisible: PropTypes.bool,
-  video: PropTypes.string,
   videoStartTime: PropTypes.number,
   videoVolume: PropTypes.number,
   width: PropTypes.string,

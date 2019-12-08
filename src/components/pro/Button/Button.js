@@ -27,7 +27,13 @@ const Button = ({
   );
 
   return (
-    <ButtonFree {...attributes} className={classes} color='' flat={flat} rounded={rounded}>
+    <ButtonFree
+      {...attributes}
+      className={classes}
+      color=''
+      flat={flat}
+      rounded={rounded}
+    >
       {children}
     </ButtonFree>
   );
