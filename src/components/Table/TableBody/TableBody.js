@@ -19,6 +19,12 @@ const TableBody = props => {
             </td>
           )
         );
+      } else {
+        return (
+          (array[key + 1] !== 'colspan' && row[field] !== null && (
+            <td key={key}>{row[field]}</td>
+          )) || <td key={key}></td>
+        );
       }
       return (
         array[key + 1] !== 'colspan' &&

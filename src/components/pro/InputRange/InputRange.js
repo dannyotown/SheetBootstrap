@@ -4,31 +4,53 @@ import classNames from 'classnames';
 import './InputRange.css';
 
 class InputRange extends React.Component {
-  state = {
-    value: false,
-    leftPosition: false,
-    thumbActive: false,
-    thumbHeight: 0,
-    thumbWidth: 0,
-    thumbTop: '10px',
-    thumbMarginLeft: '-6px',
-    input: 'input',
-    oneStep: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: false,
+      leftPosition: false,
+      thumbActive: false,
+      thumbTransform: 0,
+      thumbTop: '0px',
+      input: 'input',
+      oneStep: '',
+      windowX: '',
+      windowY: ''
+    };
 
-  inputRef = React.createRef();
+    inputRef = React.createRef();
+  }
+  updateDimensions() {
+    let input = this.inputRef.current;
+    let inputWidth = input.offsetWidth - 15.5;
+    const oneStep = inputWidth / (this.props.max - this.props.min);
+    if (
+      this.state.windowX !== window.innerWidth ||
+      this.state.windowY !== window.innerHeight
+    ) {
+      this.setState({
+        windowX: window.innerWidth,
+        windowY: window.innerHeight,
+        leftPosition: oneStep * this.state.value - oneStep * this.props.min + 1,
+        oneStep
+      });
+    }
+  }
 
   componentDidMount = () => {
-    const input = this.inputRef.current;
-    const inputWidth = input.offsetWidth;
-    const { max, min, value } = this.props;
-    const oneStep = inputWidth / (max - min);
-    this.setState({
-      value,
-      leftPosition: oneStep * value - oneStep * min,
-      oneStep
-    });
+    this.setState(
+      {
+        value: this.props.value
+      },
+      () => this.updateDimensions()
+    );
+
+    window.addEventListener('resize', this.updateDimensions.bind(this));
   };
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions.bind(this));
+  }
 
   rangeChange = e => {
     const value = e.target.value;
@@ -36,8 +58,9 @@ class InputRange extends React.Component {
     const { oneStep } = this.state;
 
     this.setState({
-      value,
-      leftPosition: oneStep * value - oneStep * min
+      value: newValue,
+      leftPosition:
+        this.state.oneStep * newValue - this.state.oneStep * this.props.min + 1
     });
     getValue && this.props.getValue(value);
   };
@@ -45,10 +68,8 @@ class InputRange extends React.Component {
   rangeFocus = () => {
     this.setState({
       thumbActive: true,
-      thumbHeight: '30px',
-      thumbWidth: '30px',
-      thumbTop: '-20px',
-      thumbMarginLeft: '-15px'
+      thumbTop: '-27px',
+      thumbTransform: 1
     });
   };
 
@@ -57,10 +78,9 @@ class InputRange extends React.Component {
     input.blur();
     this.setState({
       thumbActive: false,
-      thumbHeight: 0,
-      thumbWidth: 0,
-      thumbTop: '10px',
-      thumbMarginLeft: '-6px'
+
+      thumbTop: '7px',
+      thumbTransform: 0
     });
   };
 
@@ -76,8 +96,13 @@ class InputRange extends React.Component {
     } = this.state;
     const { className, formClassName, min, max, step, tag: Tag } = this.props;
     const inputClass = classNames(className);
+
     const formClass = classNames('range-field', formClassName);
-    const thumbClass = classNames('thumb', thumbActive ? 'active' : false);
+
+    const thumbClass = classNames(
+      'thumb',
+      this.state.thumbActive ? 'active' : false
+    );
 
     return (
       <Tag className={formClass} data-test='input-range'>
@@ -87,23 +112,23 @@ class InputRange extends React.Component {
           min={min}
           max={max}
           step={step}
-          value={value}
+          value={this.state.value}
           type='range'
           onChange={this.rangeChange}
           onFocus={this.rangeFocus}
-          onMouseLeave={this.rangeMouseLeave}
+          onMouseUp={this.rangeMouseLeave}
         />
         <span
           className={thumbClass}
           style={{
-            left: leftPosition,
-            height: thumbHeight,
-            width: thumbWidth,
-            top: thumbTop,
-            marginLeft: thumbMarginLeft
+            left: this.state.leftPosition,
+            height: this.state.thumbHeight,
+            width: this.state.thumbWidth,
+            top: this.state.thumbTop,
+            transform: `rotate(-45deg) scale(${this.state.thumbTransform})`
           }}
         >
-          <span className='value'>{value}</span>
+          <span className='value'>{this.state.value}</span>
         </span>
       </Tag>
     );
