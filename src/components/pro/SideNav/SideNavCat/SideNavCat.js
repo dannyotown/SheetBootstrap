@@ -7,27 +7,25 @@ import Fa from '../../../Fa';
 import SideNavContext from '../SideNavContext';
 
 class SideNavCat extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cursorPos: {},
-      isOpenID: ''
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+  state = {
+    cursorPos: {},
+    isOpenIDState: ''
+  };
 
   static displayName = 'SideNavCat';
 
   componentDidUpdate(prevProps) {
-    if (prevProps.isOpen !== this.props.isOpen) {
+    const { isOpen, id } = this.props;
+    if (prevProps.isOpen !== isOpen) {
       this.setState({
-        isOpenID: this.props.isOpen ? this.props.id : ''
+        isOpenIDState: isOpen ? id : ''
       });
     }
   }
 
-  handleClick(e, id) {
-    if (!this.props.disabled) {
+  handleClick = (e, id) => {
+    const { disabled, onClick } = this.props;
+    if (!disabled) {
       // Waves - Get Cursor Position
       const cursorPos = {
         top: e.clientY,
@@ -36,12 +34,12 @@ class SideNavCat extends React.Component {
       };
       this.setState({ cursorPos });
       // do the passed in callback:
-      if (this.props.onClick) {
+      if (onClick) {
         this.props.onClick(id);
       }
       e.stopPropagation();
     }
-  }
+  };
 
   render() {
     const {
@@ -61,6 +59,8 @@ class SideNavCat extends React.Component {
       id,
       ...attributes
     } = this.props;
+
+    const { cursorPos, isOpenIDState } = this.state;
 
     const classes = classNames(
       'collapsible-header',
@@ -84,8 +84,7 @@ class SideNavCat extends React.Component {
                 onClick={e => this.handleClick(e, id)}
                 {...attributes}
               >
-                {
-                  icon &&
+                {icon && (
                   <Fa
                     icon={icon}
                     brand={iconBrand}
@@ -94,18 +93,18 @@ class SideNavCat extends React.Component {
                     size={iconSize}
                     className={iconClass.join(' ')}
                   />
-                }
+                )}
                 {name}
                 <Fa icon='angle-down' className='rotate-icon' />
-                <Waves cursorPos={this.state.cursorPos} />
+                <Waves cursorPos={cursorPos} />
               </a>
-              <Collapse id={id} isOpen={this.state.isOpenID}>
+              <Collapse id={id} isOpen={isOpenIDState}>
                 <div className='collapsible-body' style={{ display: 'block' }}>
                   <ul>{children}</ul>
                 </div>
               </Collapse>
             </Tag>
-          )
+          );
         }}
       </SideNavContext.Consumer>
     );
@@ -141,7 +140,7 @@ SideNavCat.defaultProps = {
   isOpen: false,
   isOpenID: '',
   name: '',
-  onClick: () => { },
+  onClick: () => {},
   tag: 'li'
 };
 

@@ -5,18 +5,14 @@ import { NavLink as Link } from 'react-router-dom';
 import Waves from '../../../Waves';
 import SideNavContext from '../SideNavContext';
 
-
 class SideNavLink extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cursorPos: {}
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+  state = {
+    cursorPos: {}
+  };
 
-  handleClick(e) {
-    if (!this.props.disabled) {
+  handleClick = e => {
+    const { disabled, onClick } = this.props;
+    if (!disabled) {
       // Waves - Get Cursor Position
       const cursorPos = {
         top: e.clientY,
@@ -25,36 +21,36 @@ class SideNavLink extends React.Component {
       };
       this.setState({ cursorPos });
       // do the passed in callback:
-      if (this.props.onClick) {
-        this.props.onClick(e);
+      if (onClick) {
+        onClick(e);
       }
       e.stopPropagation();
     }
-  }
+  };
 
   render() {
     const {
-      tag: Tag,
       children,
-      to,
       className,
       innerRef,
-      topLevel,
       shortcut,
+      tag: Tag,
+      to,
+      topLevel,
       ...attributes
     } = this.props;
-
+    const { cursorPos } = this.state;
     const classes = classNames(
       'Ripple-parent',
       topLevel && 'collapsible-header',
       className
     );
 
-
     const sideNavLink = (
-      <SideNavContext.Consumer >
+      <SideNavContext.Consumer>
         {({ slim }) => {
-          let shortcut;
+          let shortcutVar;
+          const { shortcut } = this.props;
 
           function calculateShortcut() {
             if (typeof children === 'string') {
@@ -70,13 +66,12 @@ class SideNavLink extends React.Component {
                 return firstLetter.concat(secondLetter).toUpperCase();
               }
             }
-            return children
+            return children;
           }
 
           if (slim) {
-            shortcut = this.props.shortcut || calculateShortcut();
+            shortcutVar = shortcut || calculateShortcut();
           }
-
 
           return (
             <Link
@@ -86,22 +81,19 @@ class SideNavLink extends React.Component {
               to={to}
               {...attributes}
             >
-
               {slim ? (
-                (
-                  (<><span className='sv-slim'>{shortcut}</span>
-                    <span className='sv-normal'>{children}</span></>)
-                )
-              )
-                : <span className='sv-normal'>{children}</span>
-              }
-              <Waves cursorPos={this.state.cursorPos} />
+                <>
+                  <span className='sv-slim'>{shortcutVar}</span>
+                  <span className='sv-normal'>{children}</span>
+                </>
+              ) : (
+                <span className='sv-normal'>{children}</span>
+              )}
+              <Waves cursorPos={cursorPos} />
             </Link>
-          )
-        }
-        }
-      </SideNavContext.Consumer >
-
+          );
+        }}
+      </SideNavContext.Consumer>
     );
 
     return topLevel ? <li> {sideNavLink}</li> : sideNavLink;

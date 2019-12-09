@@ -15,8 +15,8 @@ const ScrollBox = props => {
 };
 
 ScrollBox.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string
 };
 
 export default ScrollBox;

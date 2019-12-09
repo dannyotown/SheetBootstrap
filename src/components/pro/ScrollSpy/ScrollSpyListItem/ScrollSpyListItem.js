@@ -17,9 +17,9 @@ const ScrollSpyListItem = props => {
 };
 
 ScrollSpyListItem.propTypes = {
-  className: PropTypes.string,
+  active: PropTypes.bool,
   children: PropTypes.node,
-  active: PropTypes.bool
+  className: PropTypes.string
 };
 
 export default ScrollSpyListItem;

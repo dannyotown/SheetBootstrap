@@ -1,15 +1,13 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import SideNavContext from '../SideNavContext';
-
+import './SideNavNav.css';
 class SideNavNav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      accordion: null
-    };
-  }
+  state = {
+    accordion: null
+  };
 
   onClick = number => () => {
     let state = '';
@@ -40,15 +38,14 @@ class SideNavNav extends React.Component {
       className
     );
 
-    const modified = React.Children.map(this.props.children, (child, i) => {
+    const modified = React.Children.map(children, (child, i) => {
       if (child.type.displayName === 'SideNavCat') {
         return React.cloneElement(child, {
           onClick: this.onClick(i),
           isOpen: accordion === i
         });
-      } 
-        return child;
-      
+      }
+      return child;
     });
 
     return (
@@ -67,10 +64,20 @@ class SideNavNav extends React.Component {
                   {modified}
                   {slimInitial && (
                     <li onClick={toggleSlim()}>
-                      <a className='waves-effect'>
+                      <button
+                        className='btn btn-block waves-effect'
+                        style={{
+                          margin: '0 auto',
+                          boxShadow: 'none',
+                          textTransform: 'none',
+                          textAlign: 'left'
+                        }}
+                      >
                         <i className={iconClass.join(' ')} />
-                        {this.props.toggleNavLabel}
-                      </a>
+                        <span className={slim ? 'd-none' : ''}>
+                          {toggleNavLabel}
+                        </span>
+                      </button>
                     </li>
                   )}
                 </Tag>
@@ -85,9 +92,9 @@ class SideNavNav extends React.Component {
 
 SideNavNav.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   tag: PropTypes.string,
-  toggleNavLabel: PropTypes.string,
-  className: PropTypes.string
+  toggleNavLabel: PropTypes.string
 };
 
 SideNavNav.defaultProps = {

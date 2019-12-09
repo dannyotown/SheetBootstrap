@@ -3,22 +3,20 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const ScrollSpyText = props => {
-  
-    const { className, children, scrollSpyRef, ...attributes } = props;
+  const { className, children, scrollSpyRef, ...attributes } = props;
 
-    const classes = classNames('scrollspy-example z-depth-1', className);
+  const classes = classNames('scrollspy-example z-depth-1', className);
 
-    return (
-      <div {...attributes} ref={props.scrollSpyRef} className={classes}>
-        {children}
-      </div>
-    );
-  
-}
+  return (
+    <div {...attributes} ref={scrollSpyRef} className={classes}>
+      {children}
+    </div>
+  );
+};
 
 ScrollSpyText.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   scrollSpyRef: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 

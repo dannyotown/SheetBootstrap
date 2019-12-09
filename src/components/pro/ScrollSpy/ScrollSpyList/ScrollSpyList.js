@@ -5,7 +5,11 @@ import classNames from 'classnames';
 const ScrollSpyList = props => {
   const { className, children, color, ...attributes } = props;
 
-  const classes = classNames('nav md-tabs horizontal-spy', color || false, className);
+  const classes = classNames(
+    'nav md-tabs horizontal-spy',
+    color || false,
+    className
+  );
 
   return (
     <ul {...attributes} role='navigation' className={classes}>
@@ -15,8 +19,8 @@ const ScrollSpyList = props => {
 };
 
 ScrollSpyList.propTypes = {
-  className: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   color: PropTypes.string
 };
 

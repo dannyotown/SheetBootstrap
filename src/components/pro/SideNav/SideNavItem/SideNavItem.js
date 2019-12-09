@@ -7,7 +7,8 @@ const SideNavItem = props => {
   const [cursorPos, setCursorPos] = useState({});
 
   const handleClick = e => {
-    if (!props.disabled) {
+    const { disabled, onClick } = props;
+    if (!disabled) {
       // Waves - Get Cursor Position
       const cursorPos = {
         top: e.clientY,
@@ -16,19 +17,31 @@ const SideNavItem = props => {
       };
       setCursorPos(cursorPos);
       // do the passed in callback:
-      if (props.onClick) {
-        props.onClick(e);
+      if (onClick) {
+        onClick(e);
       }
       e.stopPropagation();
     }
   };
 
-  const { tag: Tag, children, href, className, innerRef, ...attributes } = props;
+  const {
+    children,
+    className,
+    href,
+    innerRef,
+    tag: Tag,
+    ...attributes
+  } = props;
 
   const classes = classNames('Ripple-parent', className);
 
   return (
-    <Tag className={classes} ref={innerRef} onClick={handleClick} {...attributes}>
+    <Tag
+      className={classes}
+      ref={innerRef}
+      onClick={handleClick}
+      {...attributes}
+    >
       <a className={classes} href={href}>
         {children}
         <Waves cursorPos={cursorPos} />
