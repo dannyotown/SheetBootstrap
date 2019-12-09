@@ -72,6 +72,14 @@
       input {
         padding-bottom: $material-select-wrapper-search-wrap-input-pb;
         margin-bottom: 0;
+        border: none;
+        border-bottom: 1px solid #ced4da;
+        border-radius: 0;
+      
+        &:focus {
+          box-shadow: none !important;
+          box-shadow: 0 1px 0 0 #4285f4 !important;
+        }
       }
     }
   }

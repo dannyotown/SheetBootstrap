@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
-import "./InputRange.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import './InputRange.css';
 
 class InputRange extends React.Component {
   constructor(props) {
@@ -10,34 +10,55 @@ class InputRange extends React.Component {
       value: false,
       leftPosition: false,
       thumbActive: false,
-      thumbHeight: 0,
-      thumbWidth: 0,
-      thumbTop: "10px",
-      thumbMarginLeft: "-6px",
-      input: "input",
-      oneStep: ""
+      thumbTransform: 0,
+      thumbTop: '0px',
+      input: 'input',
+      oneStep: '',
+      windowX: '',
+      windowY: ''
     };
 
     this.inputRef = React.createRef();
   }
 
-  componentDidMount = () => {
+  updateDimensions() {
     let input = this.inputRef.current;
-    let inputWidth = input.offsetWidth;
+    let inputWidth = input.offsetWidth - 15.5;
     const oneStep = inputWidth / (this.props.max - this.props.min);
-    this.setState({
-      value: this.props.value,
-      leftPosition: oneStep * this.props.value - oneStep * this.props.min,
-      oneStep
-    });
+    if (
+      this.state.windowX !== window.innerWidth ||
+      this.state.windowY !== window.innerHeight
+    ) {
+      this.setState({
+        windowX: window.innerWidth,
+        windowY: window.innerHeight,
+        leftPosition: oneStep * this.state.value - oneStep * this.props.min + 1,
+        oneStep
+      });
+    }
+  }
+
+  componentDidMount = () => {
+    this.setState(
+      {
+        value: this.props.value
+      },
+      () => this.updateDimensions()
+    );
+
+    window.addEventListener('resize', this.updateDimensions.bind(this));
   };
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions.bind(this));
+  }
 
   rangeChange = e => {
     let newValue = e.target.value;
     this.setState({
       value: newValue,
       leftPosition:
-        this.state.oneStep * newValue - this.state.oneStep * this.props.min
+        this.state.oneStep * newValue - this.state.oneStep * this.props.min + 1
     });
     this.props.getValue && this.props.getValue(e.target.value);
   };
@@ -45,10 +66,8 @@ class InputRange extends React.Component {
   rangeFocus = () => {
     this.setState({
       thumbActive: true,
-      thumbHeight: "30px",
-      thumbWidth: "30px",
-      thumbTop: "-20px",
-      thumbMarginLeft: "-15px"
+      thumbTop: '-27px',
+      thumbTransform: 1
     });
   };
 
@@ -57,10 +76,9 @@ class InputRange extends React.Component {
     input.blur();
     this.setState({
       thumbActive: false,
-      thumbHeight: 0,
-      thumbWidth: 0,
-      thumbTop: "10px",
-      thumbMarginLeft: "-6px"
+
+      thumbTop: '7px',
+      thumbTransform: 0
     });
   };
 
@@ -69,11 +87,11 @@ class InputRange extends React.Component {
 
     const inputClass = classNames(className);
 
-    const formClass = classNames("range-field", formClassName);
+    const formClass = classNames('range-field', formClassName);
 
     const thumbClass = classNames(
-      "thumb",
-      this.state.thumbActive ? "active" : false
+      'thumb',
+      this.state.thumbActive ? 'active' : false
     );
 
     return (
@@ -85,10 +103,10 @@ class InputRange extends React.Component {
           max={max}
           step={step}
           value={this.state.value}
-          type="range"
+          type='range'
           onChange={this.rangeChange}
           onFocus={this.rangeFocus}
-          onMouseLeave={this.rangeMouseLeave}
+          onMouseUp={this.rangeMouseLeave}
         />
         <span
           className={thumbClass}
@@ -97,10 +115,10 @@ class InputRange extends React.Component {
             height: this.state.thumbHeight,
             width: this.state.thumbWidth,
             top: this.state.thumbTop,
-            marginLeft: this.state.thumbMarginLeft
+            transform: `rotate(-45deg) scale(${this.state.thumbTransform})`
           }}
         >
-          <span className="value">{this.state.value}</span>
+          <span className='value'>{this.state.value}</span>
         </span>
       </Tag>
     );
@@ -123,7 +141,7 @@ InputRange.defaultProps = {
   max: 100,
   value: 50,
   getValue: false,
-  tag: "div"
+  tag: 'div'
 };
 
 export default InputRange;

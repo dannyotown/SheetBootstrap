@@ -65,6 +65,24 @@ class InputPage extends Component {
           href='https://mdbootstrap.com/docs/react/forms/inputs/'
         />
         <MDBContainer className='my-5'>
+          <SectionContainer title='Character counter' noBorder>
+            <MDBRow>
+              <MDBCol md='6' tag='section'>
+                <h4 className='mb-3'>Basic examples</h4>
+                <MDBContainer className='border p-3'>
+                  <MDBInput counter/>
+                </MDBContainer>
+              </MDBCol>
+
+              <MDBCol md='6' tag='section'>
+                <h4 className='mb-3'>With max length</h4>
+                <MDBContainer className='border p-3'>
+                  <MDBInput counter={15}/>
+                </MDBContainer>
+              </MDBCol>
+            </MDBRow>
+          </SectionContainer>
+          
           <SectionContainer title='Checkboxes' noBorder>
             <MDBRow>
               <MDBCol md='6' tag='section'>
