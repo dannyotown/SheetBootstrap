@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
@@ -100,6 +100,8 @@ class Modal extends Component {
       inline
     } = this.props;
 
+    const { isOpen } = this.state;
+
     const timeout = fade ? 300 : 0;
 
     const modalDialogClasses = classNames(
@@ -167,8 +169,8 @@ class Modal extends Component {
         {backdrop && (
           <Transition
             timeout={timeout}
-            in={this.state.isOpen}
-            appear={this.state.isOpen}
+            in={isOpen}
+            appear={isOpen}
             mountOnEnter
             unmountOnExit
             onEntered={node => this.handleOnEntered('backdrop', node)}
@@ -180,8 +182,8 @@ class Modal extends Component {
         )}
         <Transition
           timeout={timeout}
-          in={this.state.isOpen}
-          appear={this.state.isOpen}
+          in={isOpen}
+          appear={isOpen}
           mountOnEnter
           unmountOnExit
           onMouseDown={this.handleBackdropClick}
@@ -218,8 +220,8 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   contentClassName: PropTypes.string,
-  fade: PropTypes.bool,
   disableFocusTrap: PropTypes.bool,
+  fade: PropTypes.bool,
   frame: PropTypes.bool,
   fullHeight: PropTypes.bool,
   hiddenModal: PropTypes.func,
@@ -230,9 +232,9 @@ Modal.propTypes = {
   modalStyle: PropTypes.string,
   position: PropTypes.string,
   role: PropTypes.string,
-  size: PropTypes.string,
-  side: PropTypes.bool,
   showModal: PropTypes.func,
+  side: PropTypes.bool,
+  size: PropTypes.string,
   tabIndex: PropTypes.string,
   wrapClassName: PropTypes.string
 };

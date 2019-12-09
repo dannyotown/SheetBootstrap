@@ -5,17 +5,14 @@ import React from 'react';
 import './Popper.css';
 
 class Popover extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      popperJS: null,
-      visible: props.isVisible,
-      showPopper: props.isVisible
-    };
+  state = {
+    popperJS: null,
+    visible: this.props.isVisible,
+    showPopper: this.props.isVisible
+  };
 
-    this.popoverWrapperRef = React.createRef();
-    this.referenceElm = React.createRef();
-  }
+  popoverWrapperRef = React.createRef();
+  referenceElm = React.createRef();
 
   componentDidUpdate(prevProps, prevState) {
     const { showPopper } = this.state;

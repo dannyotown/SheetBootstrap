@@ -20,8 +20,21 @@ const NavLink = props => {
     }
   };
 
-  const { children, className, disabled, active, to, link, ...attributes } = props;
-  const classes = classNames('nav-link', disabled ? 'disabled' : 'Ripple-parent', active && 'active', className);
+  const {
+    children,
+    className,
+    disabled,
+    active,
+    to,
+    link,
+    ...attributes
+  } = props;
+  const classes = classNames(
+    'nav-link',
+    disabled ? 'disabled' : 'Ripple-parent',
+    active && 'active',
+    className
+  );
   let rednerLink;
 
   if (link) {
@@ -58,12 +71,12 @@ const NavLink = props => {
 };
 
 NavLink.propTypes = {
+  active: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
-  to: PropTypes.string,
-  active: PropTypes.bool,
-  link: PropTypes.bool
+  link: PropTypes.bool,
+  to: PropTypes.string
 };
 
 NavLink.defaultProps = {
