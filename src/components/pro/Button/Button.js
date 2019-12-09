@@ -23,11 +23,18 @@ const Button = ({
     {
       'btn-floating': floating,
       'btn-rounded': rounded
-    }
+    },
+    className
   );
 
   return (
-    <ButtonFree {...attributes} className={classes} color='' flat={flat} rounded={rounded}>
+    <ButtonFree
+      {...attributes}
+      className={classes}
+      color=''
+      flat={flat}
+      rounded={rounded}
+    >
       {children}
     </ButtonFree>
   );
