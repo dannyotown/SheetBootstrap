@@ -9,44 +9,39 @@ import ScrollBar from '../PerfectScrollbar';
 import SideNavContext from './SideNavContext';
 
 class SideNav extends React.Component {
-  constructor(props) {
-    super(props);
-
-    function isOpen() {
-      if (props.fixed) {
-        if (window.innerWidth <= props.breakWidth) {
-          return !props.responsive;
-        }
-
-        return true;
-      } 
-        if (props.triggerOpening) {
-          if (window.innerWidth > props.breakWidth) {
-            return true;
-          }
-
-          return false;
-        }
-        return false;
-      
+  isOpen = () => {
+    const { fixed, breakWidth, responsive, triggerOpening } = this.props;
+    if (fixed) {
+      if (window.innerWidth <= breakWidth) {
+        return !responsive;
+      }
+      return true;
     }
+    if (triggerOpening) {
+      if (window.innerWidth > breakWidth) {
+        return true;
+      }
+      return false;
+    }
+    return false;
+  };
 
-    this.sideNavRef = React.createRef();
-    this.initialX = null;
-    this.initialY = null;
+  state = {
+    initiallyFixed: this.props.fixed,
+    isFixed: !this.isOpen() ? false : this.props.fixed,
+    isOpen: this.isOpen(),
+    cursorPos: {},
+    slim: this.props.slim,
+    slimInitial: this.props.slim
+  };
 
-    this.state = {
-      initiallyFixed: props.fixed,
-      isFixed: !isOpen() ? false : props.fixed,
-      isOpen: isOpen(),
-      cursorPos: {},
-      slim: this.props.slim,
-      slimInitial: this.props.slim
-    };
-  }
+  sideNavRef = React.createRef();
+  initialX = null;
+  initialY = null;
 
   componentDidMount() {
-    if (this.props.triggerOpening && !this.props.responsive) {
+    const { triggerOpening, responsive } = this.props;
+    if (triggerOpening && !responsive) {
       throw new Error(
         'Received "triggerOpening" prop for a  non-responsive Sidebar. If you want to contidionally render Sidenav, set the responsive prop to true'
       );
@@ -63,6 +58,7 @@ class SideNav extends React.Component {
   };
 
   moveTouch = e => {
+    const { right } = this.props;
     if (this.initialX === null) {
       return;
     }
@@ -79,9 +75,9 @@ class SideNav extends React.Component {
 
     if (Math.abs(diffX) > Math.abs(diffY)) {
       if (diffX > 0) {
-        !this.props.right && this.handleOverlayClick();
+        !right && this.handleOverlayClick();
       } else {
-        this.props.right && this.handleOverlayClick();
+        right && this.handleOverlayClick();
       }
     }
 
@@ -92,9 +88,12 @@ class SideNav extends React.Component {
   };
 
   componentDidUpdate(prevProps) {
-    if (prevProps.triggerOpening !== this.props.triggerOpening) {
+    const { triggerOpening } = this.props;
+    const { isOpen } = this.state;
+
+    if (prevProps.triggerOpening !== triggerOpening) {
       this.setState({
-        isOpen: !this.state.isOpen
+        isOpen: !isOpen
       });
     }
   }
@@ -106,11 +105,13 @@ class SideNav extends React.Component {
   }
 
   updatePredicate = () => {
-    if (!this.props.hidden && this.props.responsive) {
-      this.setState({ isOpen: window.innerWidth > this.props.breakWidth });
+    const { hidden, responsive, breakWidth } = this.props;
+    const { initiallyFixed } = this.state;
+    if (!hidden && responsive) {
+      this.setState({ isOpen: window.innerWidth > breakWidth });
 
-      if (window.innerWidth > this.props.breakWidth) {
-        this.setState({ isOpen: true, isFixed: this.state.initiallyFixed });
+      if (window.innerWidth > breakWidth) {
+        this.setState({ isOpen: true, isFixed: initiallyFixed });
       } else {
         this.setState({
           isOpen: false,
@@ -120,25 +121,31 @@ class SideNav extends React.Component {
     }
   };
 
-  toggleSlim = e => () => {
-    this.setState({ slim: !this.state.slim });
+  toggleSlim = () => () => {
+    const { slim } = this.state;
+    this.setState({ slim: !slim });
 
     const sidenav = ReactDOM.findDOMNode(this.sideNavRef.current);
     sidenav.classList.toggle('slim');
   };
 
   handleOverlayClick = () => {
-    if (this.state.isFixed) return;
+    const { isFixed } = this.state;
+    const { onOverlayClick } = this.props;
+
+    if (isFixed) return;
     this.setState({
       isOpen: false
     });
-    if (this.props.onOverlayClick) {
-      this.props.onOverlayClick();
+    if (onOverlayClick) {
+      onOverlayClick();
     }
   };
 
   handleClick = e => {
-    if (!this.props.disabled) {
+    const { disabled, onClick } = this.props;
+
+    if (!disabled) {
       // Waves - Get Cursor Position
       const cursorPos = {
         top: e.clientY,
@@ -147,8 +154,8 @@ class SideNav extends React.Component {
       };
       this.setState({ cursorPos });
       // do the passed in callback:
-      if (this.props.onClick) {
-        this.props.onClick(e);
+      if (onClick) {
+        onClick(e);
       }
     }
     e.stopPropagation();
@@ -175,7 +182,7 @@ class SideNav extends React.Component {
       ...attributes
     } = this.props;
 
-    const { isOpen, isFixed } = this.state;
+    const { isOpen, isFixed, slimInitial, cursorPos } = this.state;
 
     const classes = classNames(
       'side-nav',
@@ -185,7 +192,9 @@ class SideNav extends React.Component {
       className
     );
 
-    const overlay = <div id='sidenav-overlay' onClick={this.handleOverlayClick} />;
+    const overlay = (
+      <div id='sidenav-overlay' onClick={this.handleOverlayClick} />
+    );
 
     const sidenav = (
       <Tag
@@ -200,8 +209,16 @@ class SideNav extends React.Component {
             {logo && (
               <li>
                 <div className='logo-wrapper'>
-                  <a href={href} className='Ripple-parent' onClick={this.handleClick}>
-                    <img src={logo} alt='' className='img-fluid flex-center d-block' />
+                  <a
+                    href={href}
+                    className='Ripple-parent'
+                    onClick={this.handleClick}
+                  >
+                    <img
+                      src={logo}
+                      alt=''
+                      className='img-fluid flex-center d-block'
+                    />
                     <Waves cursorPos={this.state.cursorPos} />
                   </a>
                 </div>
