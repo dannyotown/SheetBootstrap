@@ -57,25 +57,24 @@ const Spinner = props => {
         </div>
       );
       return theSpinnerItself;
-    } 
-      const theSpinnerItself = (
-        <div className={spinnerClasses}>
-          <div className='circle-clipper left'>
-            <div className='circle' />
-          </div>
-          <div className='gap-patch'>
-            <div className='circle' />
-          </div>
-          <div className='circle-clipper right'>
-            <div className='circle' />
-          </div>
+    }
+    const theSpinnerItself = (
+      <div className={spinnerClasses}>
+        <div className='circle-clipper left'>
+          <div className='circle' />
         </div>
-      );
-      return theSpinnerItself;
-    
+        <div className='gap-patch'>
+          <div className='circle' />
+        </div>
+        <div className='circle-clipper right'>
+          <div className='circle' />
+        </div>
+      </div>
+    );
+    return theSpinnerItself;
   };
 
-  const { className, big, small, red, green, yellow } = props;
+  const { className, big, small, red, green, yellow, crazy } = props;
 
   const wrapperClasses = classNames(
     'preloader-wrapper',
@@ -93,30 +92,35 @@ const Spinner = props => {
     className
   );
 
-  if (props.crazy) {
+  if (crazy) {
     return (
       <div className={wrapperClasses}>
         <div className={wrapperClasses}>
           <div className={wrapperClasses}>
-            <div className={wrapperClasses}>{theChosenColorSpinner(spinnerClasses)}</div>
+            <div className={wrapperClasses}>
+              {theChosenColorSpinner(spinnerClasses)}
+            </div>
           </div>
         </div>
       </div>
     );
-  } 
-    return <div className={wrapperClasses}>{theChosenColorSpinner(spinnerClasses)}</div>;
-  
+  }
+  return (
+    <div className={wrapperClasses}>
+      {theChosenColorSpinner(spinnerClasses)}
+    </div>
+  );
 };
 
 Spinner.propTypes = {
-  className: PropTypes.string,
   big: PropTypes.bool,
-  small: PropTypes.bool,
+  className: PropTypes.string,
   crazy: PropTypes.bool,
-  red: PropTypes.bool,
   green: PropTypes.bool,
-  yellow: PropTypes.bool,
-  multicolor: PropTypes.bool
+  multicolor: PropTypes.bool,
+  red: PropTypes.bool,
+  small: PropTypes.bool,
+  yellow: PropTypes.bool
 };
 
 Spinner.defaultProps = {

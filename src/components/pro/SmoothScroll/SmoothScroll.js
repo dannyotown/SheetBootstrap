@@ -54,11 +54,15 @@ const SmoothScroll = props => {
     active && 'active',
     (btn || floating) && 'btn',
     floating && 'btn-floating',
-    flat ? 'btn-flat' : gradient ? `${gradient}-gradient` : `btn${outline ? '-outline' : ''}-${color}`,
+    flat
+      ? 'btn-flat'
+      : gradient
+      ? `${gradient}-gradient`
+      : `btn${outline ? '-outline' : ''}-${color}`,
     size ? `btn-${size}` : false,
     rounded ? 'btn-rounded' : false,
     block ? 'btn-block' : false,
-    social ? `btn-${  social}` : false,
+    social ? `btn-${social}` : false,
     'Ripple-parent',
     className
   );
@@ -85,45 +89,45 @@ const SmoothScroll = props => {
       {...attributes}
     >
       {children}
-      {props.disabled ? false : <Waves cursorPos={cursorPos} />}
+      {disabled ? false : <Waves cursorPos={cursorPos} />}
     </Link>
   );
 };
 
 SmoothScroll.propTypes = {
   to: PropTypes.string.isRequired,
+  active: PropTypes.bool,
+  block: PropTypes.bool,
+  bottom: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
-  disabled: PropTypes.bool,
-  active: PropTypes.bool,
-  spy: PropTypes.bool,
-  smooth: PropTypes.bool,
-  offset: PropTypes.number,
-  duration: PropTypes.number,
-  block: PropTypes.bool,
   color: PropTypes.string,
-  outline: PropTypes.bool,
-  size: PropTypes.string,
-  rounded: PropTypes.bool,
-  gradient: PropTypes.string,
-  floating: PropTypes.bool,
-  flat: PropTypes.bool,
-  social: PropTypes.string,
+  disabled: PropTypes.bool,
+  duration: PropTypes.number,
   fixed: PropTypes.bool,
-  top: PropTypes.string,
-  bottom: PropTypes.string,
+  flat: PropTypes.bool,
+  floating: PropTypes.bool,
+  gradient: PropTypes.string,
+  left: PropTypes.string,
+  offset: PropTypes.number,
+  outline: PropTypes.bool,
   right: PropTypes.string,
-  left: PropTypes.string
+  rounded: PropTypes.bool,
+  size: PropTypes.string,
+  smooth: PropTypes.bool,
+  social: PropTypes.string,
+  spy: PropTypes.bool,
+  top: PropTypes.string
 };
 
 SmoothScroll.defaultProps = {
   active: false,
   className: '',
   disabled: false,
-  spy: true,
-  smooth: true,
+  duration: 500,
   offset: -70,
-  duration: 500
+  smooth: true,
+  spy: true
 };
 
 export default SmoothScroll;

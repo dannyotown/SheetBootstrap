@@ -226,21 +226,21 @@ class TableEditable extends React.Component {
 }
 
 TableEditable.propTypes = {
-  className: PropTypes.string,
-  small: PropTypes.bool,
   bordered: PropTypes.bool,
-  striped: PropTypes.bool,
-  hover: PropTypes.bool,
-  data: PropTypes.array,
-  columns: PropTypes.array,
   children: PropTypes.node,
-  responsive: PropTypes.bool,
-  responsiveSm: PropTypes.bool,
-  responsiveMd: PropTypes.bool,
-  responsiveLg: PropTypes.bool,
-  responsiveXl: PropTypes.bool,
+  className: PropTypes.string,
+  columns: PropTypes.array,
+  data: PropTypes.array,
   getValue: PropTypes.func,
-  onChange: PropTypes.func
+  hover: PropTypes.bool,
+  onChange: PropTypes.func,
+  responsive: PropTypes.bool,
+  responsiveLg: PropTypes.bool,
+  responsiveMd: PropTypes.bool,
+  responsiveSm: PropTypes.bool,
+  responsiveXl: PropTypes.bool,
+  small: PropTypes.bool,
+  striped: PropTypes.bool
 };
 
 TableEditable.defaultProps = {

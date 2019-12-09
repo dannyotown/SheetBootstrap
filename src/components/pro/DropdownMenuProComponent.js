@@ -2,7 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
 
-const DropdownMenuProComponent = ({ isOpen, tag: Tag, tabIndex, role, attributes, aria, d_key, children }) => (
+const DropdownMenuProComponent = ({
+  isOpen,
+  tag: Tag,
+  tabIndex,
+  role,
+  attributes,
+  aria,
+  d_key,
+  children
+}) => (
   <CSSTransition
     in={isOpen}
     appear={isOpen}
@@ -25,12 +34,12 @@ const DropdownMenuProComponent = ({ isOpen, tag: Tag, tabIndex, role, attributes
 DropdownMenuProComponent.propTypes = {
   aria: PropTypes.bool.isRequired,
   attributes: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
   d_key: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
   role: PropTypes.string.isRequired,
   tabIndex: PropTypes.string.isRequired,
-  tag: PropTypes.any.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
+  tag: PropTypes.any.isRequired
 };
 
 export default DropdownMenuProComponent;

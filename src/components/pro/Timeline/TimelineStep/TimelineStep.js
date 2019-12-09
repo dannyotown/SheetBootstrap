@@ -42,8 +42,7 @@ const TimelineStep = props => {
     <li className={liClasses}>
       <a href={href}>
         <span className={circleClasses}>
-          {
-            icon &&
+          {icon && (
             <Fa
               icon={icon}
               size={iconSize}
@@ -52,7 +51,7 @@ const TimelineStep = props => {
               regular={iconRegular}
               className={iconClass}
             />
-          }
+          )}
           {label}
         </span>
       </a>
@@ -62,16 +61,16 @@ const TimelineStep = props => {
 };
 
 TimelineStep.propTypes = {
-  href: PropTypes.string,
+  className: PropTypes.string,
   color: PropTypes.string,
-  size: PropTypes.string,
+  href: PropTypes.string,
   icon: PropTypes.string,
   iconBrand: PropTypes.bool,
   iconClass: PropTypes.string,
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
-  className: PropTypes.string,
+  size: PropTypes.string
 };
 
 TimelineStep.defaultProps = {
