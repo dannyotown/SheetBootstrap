@@ -16,17 +16,23 @@
 
   .carousel-inner.v-2 .carousel-item-right.active,
   .carousel-inner.v-2 .carousel-item-next {
-    transform: translateX(33%);
+    transform: translateX(100%);
+    @include media-breakpoint-up ('md') {
+      transform: translateX(33%);
+    }
   }
 
   .carousel-inner.v-2 .carousel-item-left.active,
   .carousel-inner.v-2 .carousel-item-prev {
-    transform: translateX(-33%);
+    transform: translateX(-100%);
+    @include media-breakpoint-up ('md') {
+      transform: translateX(-33%);
+    }
   }
 
   .carousel-inner.v-2 .carousel-item-right,
   .carousel-inner.v-2 .carousel-item-left {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
 
   .carousel-indicators li {
