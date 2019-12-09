@@ -11,8 +11,8 @@ const Testimonial = props => {
 };
 
 Testimonial.propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  className: PropTypes.string,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
 };
 
 Testimonial.defaultProps = {

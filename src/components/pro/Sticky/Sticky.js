@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 class Sticky extends Component {
   static propTypes = {
-    topOffset: PropTypes.number,
+    children: PropTypes.func.isRequired,
     bottomOffset: PropTypes.number,
     relative: PropTypes.bool,
-    children: PropTypes.func.isRequired
+    topOffset: PropTypes.number
   };
 
   static defaultProps = {
@@ -31,22 +31,28 @@ class Sticky extends Component {
   };
 
   componentDidMount() {
-    if (!this.context.subscribe)
+    const { subscribe } = this.context;
+    if (!subscribe)
       throw new TypeError(
         'Expected Sticky to be mounted within StickyContainer'
       );
 
-    this.context.subscribe(this.handleContainerEvent);
+    subscribe(this.handleContainerEvent);
   }
 
   componentWillUnmount() {
-    this.context.unsubscribe(this.handleContainerEvent);
+    const { unsubscribe } = this.context;
+
+    unsubscribe(this.handleContainerEvent);
   }
 
   componentDidUpdate() {
-    this.placeholder.style.paddingBottom = this.props.disableCompensation
+    const { disableCompensation } = this.props;
+    const { isSticky, calculatedHeight } = this.state;
+
+    this.placeholder.style.paddingBottom = disableCompensation
       ? 0
-      : `${this.state.isSticky ? this.state.calculatedHeight : 0}px`;
+      : `${isSticky ? calculatedHeight : 0}px`;
   }
 
   handleContainerEvent = ({
@@ -111,14 +117,24 @@ class Sticky extends Component {
   };
 
   render() {
+    const {
+      isSticky,
+      wasSticky,
+      distanceFromTop,
+      distanceFromBottom,
+      calculatedHeight,
+      style
+    } = this.state;
+    const { children } = this.props;
+
     const element = React.cloneElement(
-      this.props.children({
-        isSticky: this.state.isSticky,
-        wasSticky: this.state.wasSticky,
-        distanceFromTop: this.state.distanceFromTop,
-        distanceFromBottom: this.state.distanceFromBottom,
-        calculatedHeight: this.state.calculatedHeight,
-        style: this.state.style
+      children({
+        isSticky: isSticky,
+        wasSticky: wasSticky,
+        distanceFromTop: distanceFromTop,
+        distanceFromBottom: distanceFromBottom,
+        calculatedHeight: calculatedHeight,
+        style: style
       }),
       {
         ref: content => {

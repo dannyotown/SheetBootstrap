@@ -7,8 +7,18 @@ const Stepper = props => {
   const { vertical, form, icon } = props;
 
   const stepperClass = classNames(
-    form ? 'steps-form' : icon && vertical ? 'steps-form-3' : icon && !vertical ? 'steps-form-2' : 'stepper',
-    vertical && !icon ? 'stepper-vertical' : form || icon ? null : 'stepper-horizontal',
+    form
+      ? 'steps-form'
+      : icon && vertical
+      ? 'steps-form-3'
+      : icon && !vertical
+      ? 'steps-form-2'
+      : 'stepper',
+    vertical && !icon
+      ? 'stepper-vertical'
+      : form || icon
+      ? null
+      : 'stepper-horizontal',
     props.className
   );
 
@@ -38,11 +48,11 @@ const Stepper = props => {
 };
 
 Stepper.propTypes = {
-  vertical: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
   form: PropTypes.bool,
   icon: PropTypes.bool,
-  children: PropTypes.node,
-  className: PropTypes.string
+  vertical: PropTypes.bool
 };
 
 Stepper.defaultProps = {
