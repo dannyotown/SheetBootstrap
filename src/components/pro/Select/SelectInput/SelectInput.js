@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -5,13 +6,13 @@ import selectContextHOC from '../SelectContext';
 
 class SelectInput extends React.Component {
   componentDidMount() {
-    this.props.selected && this.props.context.setSelected(this.props.selected)
+    this.props.selected && this.props.context.setSelected(this.props.selected);
   }
-  
 
   componentDidUpdate(prevProps, prevState) {
-   if (prevProps.context.state.isEmpty !== this.props.context.state.isEmpty){
-     this.props.selected && this.props.context.setSelected(this.props.selected);
+    if (prevProps.context.state.isEmpty !== this.props.context.state.isEmpty) {
+      this.props.selected &&
+        this.props.context.setSelected(this.props.selected);
     }
   }
 
@@ -19,13 +20,17 @@ class SelectInput extends React.Component {
     const classes = classNames('select-dropdown', this.props.className);
     const { attributes, context } = this.props;
 
-    const value = context.state.isEmpty ? this.props.selected && !context.label ? this.props.selected : '' : context.state.selectTextContent;
+    const value = context.state.isEmpty
+      ? this.props.selected && !context.label
+        ? this.props.selected
+        : ''
+      : context.state.selectTextContent;
 
     return (
       <input
         type='text'
         readOnly
-        onClick={(e) => context.onInputClick(e)}
+        onClick={e => context.onInputClick(e)}
         value={value}
         {...attributes}
         className={classes}
@@ -44,5 +49,5 @@ SelectInput.defaultProps = {
   className: ''
 };
 
-export default (SelectInput = selectContextHOC(SelectInput));
+export default SelectInput = selectContextHOC(SelectInput);
 export { SelectInput as MDBSelectInput };

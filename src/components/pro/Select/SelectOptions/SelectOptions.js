@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/state-in-constructor */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -10,24 +12,29 @@ class Options extends React.Component {
     this.state = {
       options: [],
       searchValue: ''
-    }
+    };
 
     this.optionsRef = React.createRef();
   }
 
   componentDidMount() {
     if (this.props.search) {
-      const options = Array.from(this.optionsRef.current.children).filter(child => child.tagName === 'LI');
+      const options = Array.from(this.optionsRef.current.children).filter(
+        child => child.tagName === 'LI'
+      );
       this.setState({ options });
     }
   }
 
   search = value => {
     this.state.options.forEach(option => {
-      if(!option.children[0].innerText.toLowerCase().includes(value.toLowerCase())) {
+      if (
+        !option.children[0].innerText
+          .toLowerCase()
+          .includes(value.toLowerCase())
+      ) {
         option.style.display = 'none';
-      }
-      else {
+      } else {
         option.style.display = 'flex';
       }
     });
@@ -72,8 +79,8 @@ Options.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   search: PropTypes.bool,
-  searchLabel: PropTypes.string,
-  searchId: PropTypes.string
+  searchId: PropTypes.string,
+  searchLabel: PropTypes.string
 };
 
 Options.defaultProps = {

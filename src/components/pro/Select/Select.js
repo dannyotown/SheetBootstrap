@@ -1,3 +1,5 @@
+/* eslint-disable react/state-in-constructor */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -390,8 +392,8 @@ Select.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.string,
-  focusShadow: PropTypes.string,
   focusBackgroundColor: PropTypes.string,
+  focusShadow: PropTypes.string,
   getTextContent: PropTypes.func,
   getValue: PropTypes.func,
   label: PropTypes.string,
@@ -409,12 +411,12 @@ Select.propTypes = {
   outline: PropTypes.bool,
   required: PropTypes.bool,
   search: PropTypes.bool,
-  searchLabel: PropTypes.string,
   searchId: PropTypes.string,
-  selected: PropTypes.string,
+  searchLabel: PropTypes.string,
   selectAllClassName: PropTypes.string,
   selectAllLabel: PropTypes.string,
-  selectAllValue: PropTypes.string
+  selectAllValue: PropTypes.string,
+  selected: PropTypes.string
 };
 
 Select.defaultProps = {

@@ -1,16 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass,
-  checkTag
-} from '../../../tests/utils';
+import { shallow } from 'enzyme';
+import { findByTestAttr, checkProps, checkClass } from '../../../tests/utils';
 import Autocomplete from './Autocomplete';
 
 const setup = (props = {}) => shallow(<Autocomplete {...props} />);
-const mounted = (props = {}) => mount(<Autocomplete {...props} />);
 
 describe('<Autocomplete />', () => {
   let wrapper;

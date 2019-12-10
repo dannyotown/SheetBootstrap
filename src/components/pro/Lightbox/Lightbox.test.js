@@ -1,18 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass,
-  checkTag
-} from '../../../tests/utils';
+import { findByTestAttr, checkProps, checkClass } from '../../../tests/utils';
 import Lightbox from './Lightbox';
-
 
 const setup = (props = {}) => shallow(<Lightbox {...props} />);
 const mounted = (props = {}) => mount(<Lightbox {...props} />);
-const mockCallback = jest.fn();
 
 describe('<Lightbox />', () => {
   let wrapper;
@@ -265,7 +258,7 @@ describe('<Lightbox />', () => {
         .last()
         .children()
         .map(item => {
-          checkClass(item, 'test');
+          return checkClass(item, 'test');
         });
     });
 
@@ -280,7 +273,7 @@ describe('<Lightbox />', () => {
         .last()
         .children()
         .map(item => {
-          checkClass(item.children('p'), 'test');
+          return checkClass(item.children('p'), 'test');
         });
     });
 
@@ -300,7 +293,7 @@ describe('<Lightbox />', () => {
         .children()
         .find('img')
         .map(img => {
-          checkClass(img, 'figure-img.img-fluid.z-depth-1.m-0');
+          return checkClass(img, 'figure-img.img-fluid.z-depth-1.m-0');
         });
     });
 
@@ -309,7 +302,7 @@ describe('<Lightbox />', () => {
         .setState({ imgSrc: 'src' })
         .find('Button')
         .map(button => {
-          checkClass(button, 'pswp__button.d-block.z-depth-0');
+          return checkClass(button, 'pswp__button.d-block.z-depth-0');
         });
     });
   });

@@ -1,3 +1,5 @@
+/* eslint-disable react/state-in-constructor */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -17,9 +19,9 @@ class Option extends React.Component {
     if (!this.state.multiple) {
       this.state.checked && this.optionRef.current.click();
     } else if (!this.props.disabled) {
-        !this.state.checked && this.optionRef.current.classList.add('active');
-        this.selectOption();
-      }
+      !this.state.checked && this.optionRef.current.classList.add('active');
+      this.selectOption();
+    }
   }
 
   selectOption = () => {
@@ -143,14 +145,14 @@ class Option extends React.Component {
 }
 
 Option.propTypes = {
-  children: PropTypes.node,
   checked: PropTypes.bool,
+  children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   icon: PropTypes.string,
+  separator: PropTypes.bool,
   triggerOptionClick: PropTypes.func,
-  value: PropTypes.any,
-  separator: PropTypes.bool
+  value: PropTypes.any
 };
 
 Option.defaultProps = {
@@ -164,5 +166,5 @@ Option.defaultProps = {
   value: ''
 };
 
-export default (Option = selectContextHOC(Option));
+export default Option = selectContextHOC(Option);
 export { Option as MDBSelectOption };
