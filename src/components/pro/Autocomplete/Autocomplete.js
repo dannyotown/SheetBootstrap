@@ -1,3 +1,5 @@
+/* eslint-disable react/state-in-constructor */
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -212,6 +214,12 @@ Autocomplete.propTypes = {
   data: PropTypes.arrayOf(PropTypes.string),
   disabled: PropTypes.bool,
   getValue: PropTypes.func,
+  icon: PropTypes.string,
+  iconBrand: PropTypes.bool,
+  iconClassName: PropTypes.string,
+  iconLight: PropTypes.bool,
+  iconRegular: PropTypes.bool,
+  iconSize: PropTypes.string,
   id: PropTypes.string,
   label: PropTypes.oneOfType([
     PropTypes.string,
@@ -219,12 +227,6 @@ Autocomplete.propTypes = {
     PropTypes.object
   ]),
   labelClass: PropTypes.string,
-  icon: PropTypes.string,
-  iconBrand: PropTypes.bool,
-  iconLight: PropTypes.bool,
-  iconRegular: PropTypes.bool,
-  iconSize: PropTypes.string,
-  iconClassName: PropTypes.string,
   placeholder: PropTypes.string,
   valueDefault: PropTypes.string
 };
