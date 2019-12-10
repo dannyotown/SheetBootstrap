@@ -18,7 +18,8 @@ class PillsPage extends Component {
   };
 
   togglePills = tab => () => {
-    if (this.state.activePills !== tab) {
+    const { activePills } = this.state;
+    if (activePills !== tab) {
       this.setState({
         activeItemPills: tab
       });
@@ -26,6 +27,8 @@ class PillsPage extends Component {
   };
 
   render() {
+    const { activeItemPills } = this.state;
+
     return (
       <MDBContainer>
         <DocsLink
@@ -40,8 +43,9 @@ class PillsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to='#'
-                      active={this.state.activeItemPills === '1'}
+                      active={activeItemPills === '1'}
                       onClick={this.togglePills('1')}
+                      link
                     >
                       Home
                     </MDBNavLink>
@@ -49,8 +53,9 @@ class PillsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to='#'
-                      active={this.state.activeItemPills === '2'}
+                      active={activeItemPills === '2'}
                       onClick={this.togglePills('2')}
+                      link
                     >
                       Profile
                     </MDBNavLink>
@@ -58,14 +63,15 @@ class PillsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to='#'
-                      active={this.state.activeItemPills === '3'}
+                      active={activeItemPills === '3'}
                       onClick={this.togglePills('3')}
+                      link
                     >
                       Contact
                     </MDBNavLink>
                   </MDBNavItem>
                 </MDBNav>
-                <MDBTabContent activeItem={this.state.activeItemPills}>
+                <MDBTabContent activeItem={activeItemPills}>
                   <MDBTabPane tabId='1'>
                     <p>
                       Consequat occaecat ullamco amet non eiusmod nostrud dolore

@@ -15,6 +15,7 @@ class CollapsePage extends Component {
   };
 
   render() {
+    const { collapseID } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -37,7 +38,7 @@ class CollapsePage extends Component {
           >
             Toggle2
           </MDBBtn>
-          <MDBCollapse id='basicCollapse' isOpen={this.state.collapseID}>
+          <MDBCollapse id='basicCollapse' isOpen={collapseID}>
             <p>
               Anim pariatur cliche reprehenderit, enim eiusmod high life
               accusamus terry richardson ad squid. Nihil anim keffiyeh
@@ -58,7 +59,7 @@ class CollapsePage extends Component {
                 Collapsible Group Item #1
               </MDBBtn>
             </div>
-            <MDBCollapse id='accordion1' isOpen={this.state.collapseID}>
+            <MDBCollapse id='accordion1' isOpen={collapseID}>
               Anim pariatur cliche reprehenderit, enim eiusmod high life
               accusamus terry richardson ad squid. 3 wolf moon officia aute, non
               cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
@@ -80,7 +81,7 @@ class CollapsePage extends Component {
                 Collapsible Group Item #2
               </MDBBtn>
             </div>
-            <MDBCollapse id='accordion2' isOpen={this.state.collapseID}>
+            <MDBCollapse id='accordion2' isOpen={collapseID}>
               Anim pariatur cliche reprehenderit, enim eiusmod high life
               accusamus terry richardson ad squid. 3 wolf moon officia aute, non
               cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
@@ -102,7 +103,7 @@ class CollapsePage extends Component {
                 Collapsible Group Item #2
               </MDBBtn>
             </div>
-            <MDBCollapse id='accordion3' isOpen={this.state.collapseID}>
+            <MDBCollapse id='accordion3' isOpen={collapseID}>
               Anim pariatur cliche reprehenderit, enim eiusmod high life
               accusamus terry richardson ad squid. 3 wolf moon officia aute, non
               cupidatat skateboard dolor brunch. Food truck quinoa nesciunt

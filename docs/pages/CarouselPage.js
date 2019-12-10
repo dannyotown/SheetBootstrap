@@ -136,7 +136,6 @@ const CarouselPage = () => {
           length={3}
           showControls
           className='z-depth-1'
-          
         >
           <MDBCarouselInner>
             <MDBCarouselItem itemId='1'>

@@ -3,10 +3,13 @@ import { MDBProgress, MDBContainer } from 'mdbreact';
 import DocsLink from '../components/docsLink';
 import SectionContainer from '../components/sectionContainer';
 
-const ProgressPage = props => {
+const ProgressPage = () => {
   return (
     <MDBContainer>
-      <DocsLink title='Progress Bar' href='https://mdbootstrap.com/docs/react/components/progress-bar/' />
+      <DocsLink
+        title='Progress Bar'
+        href='https://mdbootstrap.com/docs/react/components/progress-bar/'
+      />
 
       <SectionContainer header='Material design'>
         <MDBProgress material value={100} />

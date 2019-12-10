@@ -3,14 +3,10 @@ import ReactDOM from 'react-dom';
 import { MDBContainer } from 'mdbreact';
 import DocsLink from '../components/docsLink';
 import SectionContainer from '../components/sectionContainer';
-import './Masonry.css'; 
+import './Masonry.css';
 
 class MasonryPage extends React.Component {
-  constructor() {
-    super();
-    this.MasonryRef = React.createRef();
-  }
-
+  MasonryRef = React.createRef();
   componentDidMount() {
     this.arrangeMasonry();
   }
@@ -25,13 +21,16 @@ class MasonryPage extends React.Component {
       child.style.order = order;
       colHeights[order] += parseFloat(child.clientHeight);
     });
-    container.style.height = `${Math.max(...colHeights)  }px`;
+    container.style.height = `${Math.max(...colHeights)}px`;
   };
 
   render() {
     return (
       <MDBContainer className='mt-5'>
-        <DocsLink title='Masks' href='https://mdbootstrap.com/docs/react/css/masks/' />
+        <DocsLink
+          title='Masks'
+          href='https://mdbootstrap.com/docs/react/css/masks/'
+        />
 
         <SectionContainer noBorder header='Column layout'>
           <div className='masonry-with-columns mx-0' ref={this.MasonryRef}>

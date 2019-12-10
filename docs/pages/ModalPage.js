@@ -42,7 +42,7 @@ class ModalPage extends Component {
   };
 
   toggle = nr => () => {
-    const modalNumber = `modal${  nr}`;
+    const modalNumber = `modal${nr}`;
     this.setState({
       [modalNumber]: !this.state[modalNumber]
     });
@@ -61,6 +61,27 @@ class ModalPage extends Component {
   };
 
   render() {
+    const {
+      mailAddress,
+      modal1,
+      modal10,
+      modal11,
+      modal12,
+      modal13,
+      modal14,
+      modal15,
+      modal16,
+      modal17,
+      modal18,
+      modal2,
+      modal3,
+      modal4,
+      modal5,
+      modal6,
+      modal7,
+      modal8,
+      modal9
+    } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -71,11 +92,7 @@ class ModalPage extends Component {
           <MDBBtn color='danger' onClick={this.toggle(1)}>
             Modal
           </MDBBtn>
-          <MDBModal
-            backdrop={false}
-            isOpen={this.state.modal1}
-            toggle={this.toggle(1)}
-          >
+          <MDBModal backdrop={false} isOpen={modal1} toggle={this.toggle(1)}>
             <MDBModalHeader toggle={this.toggle(1)}>Modal title</MDBModalHeader>
             <MDBModalBody>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -92,11 +109,15 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header='Central modal' flexCenter className='flex-wrap'>
+        <SectionContainer
+          header='Central modal'
+          flexCenter
+          className='flex-wrap'
+        >
           <MDBBtn color='primary' onClick={this.toggle(2)}>
             Medium modal
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal2} toggle={this.toggle(2)}>
+          <MDBModal isOpen={modal2} toggle={this.toggle(2)}>
             <MDBModalHeader toggle={this.toggle(2)}>Modal title</MDBModalHeader>
             <MDBModalBody>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -115,11 +136,7 @@ class ModalPage extends Component {
           <MDBBtn color='primary' onClick={this.toggle(3)}>
             Small modal
           </MDBBtn>
-          <MDBModal
-            isOpen={this.state.modal3}
-            toggle={this.toggle(3)}
-            size='sm'
-          >
+          <MDBModal isOpen={modal3} toggle={this.toggle(3)} size='sm'>
             <MDBModalHeader toggle={this.toggle(3)}>Modal title</MDBModalHeader>
             <MDBModalBody>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -138,11 +155,7 @@ class ModalPage extends Component {
           <MDBBtn color='primary' onClick={this.toggle(4)}>
             Large modal
           </MDBBtn>
-          <MDBModal
-            isOpen={this.state.modal4}
-            toggle={this.toggle(4)}
-            size='lg'
-          >
+          <MDBModal isOpen={modal4} toggle={this.toggle(4)} size='lg'>
             <MDBModalHeader toggle={this.toggle(4)}>Modal title</MDBModalHeader>
             <MDBModalBody>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -161,11 +174,7 @@ class ModalPage extends Component {
           <MDBBtn color='primary' onClick={this.toggle(5)}>
             Fluid modal
           </MDBBtn>
-          <MDBModal
-            isOpen={this.state.modal5}
-            toggle={this.toggle(5)}
-            size='fluid'
-          >
+          <MDBModal isOpen={modal5} toggle={this.toggle(5)} size='fluid'>
             <MDBModalHeader toggle={this.toggle(5)}>Modal title</MDBModalHeader>
             <MDBModalBody>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
@@ -187,7 +196,7 @@ class ModalPage extends Component {
             Top right
           </MDBBtn>
           <MDBModal
-            isOpen={this.state.modal6}
+            isOpen={modal6}
             toggle={this.toggle(6)}
             side
             position='top-right'
@@ -211,7 +220,7 @@ class ModalPage extends Component {
             Bottom left
           </MDBBtn>
           <MDBModal
-            isOpen={this.state.modal7}
+            isOpen={modal7}
             toggle={this.toggle(7)}
             side
             position='bottom-left'
@@ -237,7 +246,7 @@ class ModalPage extends Component {
             Right
           </MDBBtn>
           <MDBModal
-            isOpen={this.state.modal8}
+            isOpen={modal8}
             toggle={this.toggle(8)}
             fullHeight
             position='right'
@@ -261,7 +270,7 @@ class ModalPage extends Component {
             Bottom
           </MDBBtn>
           <MDBModal
-            isOpen={this.state.modal9}
+            isOpen={modal9}
             toggle={this.toggle(9)}
             fullHeight
             position='bottom'
@@ -287,7 +296,7 @@ class ModalPage extends Component {
             Bottom
           </MDBBtn>
           <MDBModal
-            isOpen={this.state.modal10}
+            isOpen={modal10}
             toggle={this.toggle(10)}
             frame
             position='bottom'
@@ -305,7 +314,7 @@ class ModalPage extends Component {
             Top
           </MDBBtn>
           <MDBModal
-            isOpen={this.state.modal11}
+            isOpen={modal11}
             toggle={this.toggle(11)}
             frame
             position='top'
@@ -323,11 +332,7 @@ class ModalPage extends Component {
 
         <SectionContainer header='Remove backdrop' flexCenter>
           <MDBBtn onClick={this.toggle(12)}>Modal</MDBBtn>
-          <MDBModal
-            isOpen={this.state.modal12}
-            toggle={this.toggle(12)}
-            backdrop={false}
-          >
+          <MDBModal isOpen={modal12} toggle={this.toggle(12)} backdrop={false}>
             <MDBModalHeader toggle={this.toggle(12)}>
               Modal title
             </MDBModalHeader>
@@ -350,7 +355,7 @@ class ModalPage extends Component {
           <MDBBtn color='primary' onClick={this.toggle(13)}>
             Modal
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal13} toggle={this.toggle(13)}>
+          <MDBModal isOpen={modal13} toggle={this.toggle(13)}>
             <MDBModalHeader toggle={this.toggle(13)}>
               Modal title
             </MDBModalHeader>
@@ -414,11 +419,7 @@ class ModalPage extends Component {
           <MDBBtn color='primary' onClick={this.toggle(14)}>
             Modal
           </MDBBtn>
-          <MDBModal
-            isOpen={this.state.modal14}
-            toggle={this.toggle(14)}
-            centered
-          >
+          <MDBModal isOpen={modal14} toggle={this.toggle(14)} centered>
             <MDBModalHeader toggle={this.toggle(14)}>
               Modal title
             </MDBModalHeader>
@@ -441,7 +442,7 @@ class ModalPage extends Component {
           <MDBBtn color='primary' onClick={this.toggle(15)}>
             Modal
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal15} toggle={this.toggle(15)}>
+          <MDBModal isOpen={modal15} toggle={this.toggle(15)}>
             <MDBModalHeader toggle={this.toggle(15)}>
               Modal title
             </MDBModalHeader>
@@ -480,7 +481,7 @@ class ModalPage extends Component {
 
         <SectionContainer header='Using the grid' flexCenter>
           <MDBBtn onClick={this.toggle(16)}>Modal</MDBBtn>
-          <MDBModal isOpen={this.state.modal16} toggle={this.toggle(16)}>
+          <MDBModal isOpen={modal16} toggle={this.toggle(16)}>
             <MDBModalHeader toggle={this.toggle(16)}>
               Modal title
             </MDBModalHeader>
@@ -535,15 +536,15 @@ class ModalPage extends Component {
 
         <SectionContainer header='Varying modal content' flexCenter>
           <MDBBtn color='primary' onClick={this.toggle(17)}>
-            Open modal for {this.state.mailAddress}
+            Open modal for {mailAddress}
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal17} toggle={this.toggle(17)}>
+          <MDBModal isOpen={modal17} toggle={this.toggle(17)}>
             <MDBModalHeader toggle={this.toggle(17)}>
-              New message to {this.state.mailAddress}
+              New message to {mailAddress}
             </MDBModalHeader>
             <MDBModalBody>
               <div className='md-form'>
-                <MDBInput value={this.state.mailAddress} />
+                <MDBInput value={mailAddress} />
                 <MDBInput type='textarea' label='Message' rows='2' />
               </div>
             </MDBModalBody>
@@ -561,7 +562,7 @@ class ModalPage extends Component {
             Modal events
           </MDBBtn>
           <MDBModal
-            isOpen={this.state.modal18}
+            isOpen={modal18}
             toggle={this.toggle(18)}
             hideModal={this.hideFunction}
             hiddenModal={this.hiddenFunction}
