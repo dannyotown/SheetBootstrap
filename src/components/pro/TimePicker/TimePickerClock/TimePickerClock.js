@@ -10,8 +10,8 @@ const propTypes = {
   max: PropTypes.number.isRequired,
   min: PropTypes.number.isRequired,
   rotate: PropTypes.number.isRequired,
-  step: PropTypes.number.isRequired,
   startFromInner: PropTypes.bool.isRequired,
+  step: PropTypes.number.isRequired,
   allowedValues: PropTypes.arrayOf(PropTypes.number),
   autoSwitch: PropTypes.bool,
   color: PropTypes.string,
@@ -32,155 +32,186 @@ const defaultProps = {
 };
 
 class TimePickerClock extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clockRadius: 135,
-      degrees: 30,
-      digitsInRound: 12,
-      degreesPerUnit: 30,
-      handAngle: 0,
-      handScale: 1,
-      isDragging: false,
-      innerRadius: 120,
-      outerRadius: 266,
-      value: 0
-    };
+  state = {
+    clockRadius: 135,
+    degrees: 30,
+    digitsInRound: 12,
+    degreesPerUnit: 30,
+    handAngle: 0,
+    handScale: 1,
+    isDragging: false,
+    innerRadius: 120,
+    outerRadius: 266,
+    initialValue: 0
+  };
 
-    this.clockRef = React.createRef();
-  }
+  clockRef = React.createRef();
 
   componentDidMount() {
     this.buildComponentState();
   }
-  
+
   componentDidUpdate(prevProps, prevState) {
-    if(prevProps.max !== this.props.max || prevProps.min !== this.props.min || this.state.value !== this.props.value) {
+    const { max, min, value } = this.props;
+    const { initialValue } = this.state;
+    if (
+      prevProps.max !== max ||
+      prevProps.min !== min ||
+      initialValue !== value
+    ) {
       this.buildComponentState();
     }
-   }
-  
+  }
+
   buildComponentState = () => {
     const { size, max, min, double, rotate, value } = this.props;
     const clockRadius = size / 2;
     const digitsAmount = max - min + 1;
-    const digitsInRound = double ? (digitsAmount / 2) : digitsAmount;
+    const digitsInRound = double ? digitsAmount / 2 : digitsAmount;
     const degreesPerUnit = 360 / digitsInRound;
     const outerRadius = clockRadius - 4;
     const innerRadius = clockRadius - Math.max(clockRadius * 0.2, 40); // cant be lower than 40
-    const degrees = degreesPerUnit * Math.PI / 180;
-    const handAngle = rotate + (degreesPerUnit * (value - min));
+    const degrees = (degreesPerUnit * Math.PI) / 180;
+    const handAngle = rotate + degreesPerUnit * (value - min);
 
-    this.setState({
-      clockRadius,
-      degrees,
-      degreesPerUnit,
-      digitsInRound,
-      handAngle,
-      innerRadius,
-      outerRadius,
-      value
-    }, () => this.setState({ handScale: this.getScale(value) }));
-  }
-  
-  getScale = (value) => {
-    if(this.props.startFromInner && this.props.double) {
-      return (value - this.props.min >= this.state.digitsInRound) 
-      ? (this.state.outerRadius / this.state.clockRadius)
-      : (this.state.innerRadius / this.state.clockRadius); 
+    this.setState(
+      {
+        clockRadius,
+        degrees,
+        degreesPerUnit,
+        digitsInRound,
+        handAngle,
+        innerRadius,
+        outerRadius,
+        initialValue: value
+      },
+      () => this.setState({ handScale: this.getScale(value) })
+    );
+  };
+
+  getScale = value => {
+    const { double, startFromInner, min } = this.props;
+    const { outerRadius, clockRadius, innerRadius, digitsInRound } = this.state;
+    if (startFromInner && double) {
+      return value - min >= digitsInRound
+        ? outerRadius / clockRadius
+        : innerRadius / clockRadius;
     }
 
-    return (value - this.props.min >= this.state.digitsInRound) 
-    ? (this.state.innerRadius / this.state.clockRadius) 
-    : (this.state.outerRadius / this.state.clockRadius);
-  };
-  
-  getAngle = (center, p1) => {
-    const value = 2 * Math.atan2(p1.y - center.y - this.euclidean(center, p1), p1.x - center.x);
-    return Math.abs(value * 180 / Math.PI);
+    return value - min >= digitsInRound
+      ? innerRadius / clockRadius
+      : outerRadius / clockRadius;
   };
 
-  getCoords = (e) => {
+  getAngle = (center, p1) => {
+    const value =
+      2 *
+      Math.atan2(p1.y - center.y - this.euclidean(center, p1), p1.x - center.x);
+    return Math.abs((value * 180) / Math.PI);
+  };
+
+  getCoords = e => {
     const { width, top, left } = this.clockRef.current.getBoundingClientRect();
     const { clientX, clientY } = 'touches' in e ? e.touches[0] : e;
     const center = { x: width / 2, y: -width / 2 };
     const coords = { x: clientX - left, y: top - clientY };
-    
-    return {center, coords};
-  }
 
-  setPosition = (value) => {
-    const radius = (this.state.clockRadius - 24) * this.getScale(value);
-    const rotateRadians = this.props.rotate * Math.PI / 180;
+    return { center, coords };
+  };
+
+  setPosition = value => {
+    const { clockRadius, degrees } = this.state;
+    const { rotate, min } = this.props;
+    const radius = (clockRadius - 24) * this.getScale(value);
+    const rotateRadians = (rotate * Math.PI) / 180;
     return {
-      x: Math.round(Math.sin(((value - this.props.min) * this.state.degrees) + rotateRadians) * radius),
-      y: Math.round(-Math.cos(((value - this.props.min) * this.state.degrees) + rotateRadians) * radius)
+      x: Math.round(Math.sin((value - min) * degrees + rotateRadians) * radius),
+      y: Math.round(-Math.cos((value - min) * degrees + rotateRadians) * radius)
     };
   };
-  
-  isValueAllowed = (value) => this.props.allowedValues.length 
-    ? this.props.allowedValues.find(item => item === value) 
-    : (value >= this.props.min && value <= this.props.max);
-  
-  isOnInner = (center, coords) => {
-    const centerDistance = this.euclidean(center, coords);
-    const betweenRadiusDistance = ((this.state.outerRadius + this.state.innerRadius) / 2) - 16;
 
-    if(this.props.double) {
-      return this.props.startFromInner 
-      ? (centerDistance > betweenRadiusDistance) 
-      : (centerDistance < betweenRadiusDistance);
+  isValueAllowed = value => {
+    const { allowedValues, min, max } = this.props;
+
+    return allowedValues.length
+      ? allowedValues.find(item => item === value)
+      : value >= min && value <= max;
+  };
+
+  isOnInner = (center, coords) => {
+    const { double, startFromInner } = this.props;
+    const centerDistance = this.euclidean(center, coords);
+    const betweenRadiusDistance =
+      (this.state.outerRadius + this.state.innerRadius) / 2 - 16;
+
+    if (double) {
+      return startFromInner
+        ? centerDistance > betweenRadiusDistance
+        : centerDistance < betweenRadiusDistance;
     }
 
     return false;
-  }
+  };
 
-  computeTimeNumber = (number) => number < 10 ? `0${number.toString()}` : `${number.toString()}`;
-  
-  computeHandAngle = (exactAngle) => {
-    if (360 % this.props.max !== 0) {
-      return exactAngle >= (360 - this.state.degreesPerUnit / 2) ? 0 : exactAngle;
+  computeTimeNumber = number =>
+    number < 10 ? `0${number.toString()}` : `${number.toString()}`;
+
+  computeHandAngle = exactAngle => {
+    const { max } = this.props;
+    if (360 % max !== 0) {
+      return exactAngle >= 360 - this.state.degreesPerUnit / 2 ? 0 : exactAngle;
     }
 
-    return exactAngle <= (this.state.degreesPerUnit / 2) ? 360 : exactAngle;
-  }
+    return exactAngle <= this.state.degreesPerUnit / 2 ? 360 : exactAngle;
+  };
 
   euclidean = (p0, p1) => {
     const dx = p1.x - p0.x;
     const dy = p1.y - p0.y;
 
-    return Math.sqrt((dx * dx) + (dy * dy));
+    return Math.sqrt(dx * dx + dy * dy);
   };
 
-  transformPosition = (value) => {
+  transformPosition = value => {
     const { x, y } = this.setPosition(value);
     return { transform: `translate(${x}px, ${y}px)` };
   };
 
   genClockDigits = () => {
     const children = [];
+    const { max, min, step, double, startFromInner } = this.props;
+    const { initialValue } = this.state;
 
-    for (let value = this.props.min; value <= this.props.max; value += this.props.step) {
+    for (let value = min; value <= max; value += step) {
       const classes = classNames(
         'clockpicker-tick',
-        value === this.state.value && 'active',
+        value === initialValue && 'active',
         !this.isValueAllowed(value) && 'disabled'
       );
 
       children.push(
         <span
           className={classes}
-          style={Object.assign(this.transformPosition(value), { 
-            fontSize: (
-              !this.props.double 
-              ? '140%' 
-              : this.props.startFromInner ? value <= 12 ? '120%' : '100%' : value > 12 ? '120%' : '100%')
+          style={Object.assign(this.transformPosition(value), {
+            fontSize: !double
+              ? '140%'
+              : startFromInner
+              ? value <= 12
+                ? '120%'
+                : '100%'
+              : value > 12
+              ? '120%'
+              : '100%'
           })}
           key={value}
-          onMouseDown={(e) => this.onMouseDown(e, value)}
-          onTouchStart={(e) => this.onMouseDown(e, value)}
+          onMouseDown={e => this.onMouseDown(e, value)}
+          onTouchStart={e => this.onMouseDown(e, value)}
         >
-          {this.props.max > 24 ? this.computeTimeNumber(value) : value === 24 ? '00' : value}
+          {max > 24
+            ? this.computeTimeNumber(value)
+            : value === 24
+            ? '00'
+            : value}
         </span>
       );
     }
@@ -191,63 +222,91 @@ class TimePickerClock extends Component {
   onMouseDown = (e, value) => {
     e.preventDefault();
     this.setState({ isDragging: true });
+    const { rotate, min } = this.props;
+    const { degreesPerUnit, initialValue } = this.state;
 
-    const handAngle = this.props.rotate + (this.state.degreesPerUnit * (value - this.props.min));
+    const handAngle = rotate + degreesPerUnit * (value - min);
     const handScale = this.getScale(value);
 
-    if(this.state.value !== value && this.isValueAllowed(value)) {
-      this.updateValue(value, handAngle, handScale);     
+    if (initialValue !== value && this.isValueAllowed(value)) {
+      this.updateValue(value, handAngle, handScale);
     }
   };
 
-  onMouseUp = (e) => {
+  onMouseUp = e => {
     e.preventDefault();
-    if(this.state.isDragging) {
+    const { isDragging } = this.state;
+    const { autoSwitch, handleModeChange } = this.props;
+
+    if (isDragging) {
       this.setState({ isDragging: false });
 
-      if(this.props.autoSwitch) this.props.handleModeChange('m');
+      if (autoSwitch) {
+        return handleModeChange('m');
+      }
     }
   };
 
-  onMouseLeave = (e) => {
+  onMouseLeave = e => {
     e.preventDefault();
-    if(this.state.isDragging) this.setState({ isDragging: false });
+    const { isDragging } = this.state;
+    if (isDragging) {
+      this.setState({ isDragging: false });
+    }
   };
 
-  onDragMove = (e) => {
+  onDragMove = e => {
     e.preventDefault();
-    if (!this.state.isDragging && e.type !== 'click') return;
-    const {center, coords} = this.getCoords(e);
+    const {
+      isDragging,
+      initialValue,
+      degreesPerUnit,
+      digitsInRound
+    } = this.state;
+    const { rotate, min } = this.props;
+    if (!isDragging && e.type !== 'click') return;
+    const { center, coords } = this.getCoords(e);
     const isOnInner = this.isOnInner(center, coords);
     const exactHandAngle = this.getAngle(center, coords);
     const computedHandAngle = this.computeHandAngle(exactHandAngle);
-    
-    const value = Math.round((computedHandAngle - this.props.rotate) / this.state.degreesPerUnit) + this.props.min + (isOnInner ? this.state.digitsInRound : 0);
-    const handAngle = this.props.rotate + (this.state.degreesPerUnit * (value - this.props.min));
+
+    const value =
+      Math.round((computedHandAngle - rotate) / degreesPerUnit) +
+      min +
+      (isOnInner ? digitsInRound : 0);
+    const handAngle = rotate + degreesPerUnit * (value - min);
     const handScale = this.getScale(value);
 
-    if(this.state.value !== value && this.isValueAllowed(value)) {
+    if (initialValue !== value && this.isValueAllowed(value)) {
       this.updateValue(value, handAngle, handScale);
     }
   };
 
   updateValue = (value, handAngle, handScale) => {
-    this.props.handleChange(value);
+    const { handleChange } = this.props;
+    handleChange(value);
     this.setState({ value, handAngle, handScale });
   };
 
   render() {
+    const { className, color, size, step } = this.props;
+    const { handAngle, handScale, initialValue } = this.state;
+
     const classes = classNames(
       'time-picker-clock',
       'clockpicker-dial',
-      this.props.className,
-      this.state.value === null && 'time-picker-clock--indeterminate'
+      className,
+      initialValue === null && 'time-picker-clock--indeterminate'
     );
-    
+
     return (
       <div
         className={classes}
-        style={{ height: `${this.props.size}px`, width: `${this.props.size}px`, visibility: 'visible' }}
+        style={{
+          height: `${size}px`,
+          width: `${size}px`,
+          visibility: 'visible'
+        }}
         onMouseDown={this.onMouseDown}
         onMouseUp={this.onMouseUp}
         onMouseLeave={this.onMouseLeave}
@@ -257,15 +316,13 @@ class TimePickerClock extends Component {
         onTouchMove={this.onDragMove}
         ref={this.clockRef}
       >
-        <TimpiePickerClockHand 
-          between={this.state.value % this.props.step !== 0} 
-          color={this.props.color} 
-          angle={this.state.handAngle} 
-          scale={this.state.handScale} 
+        <TimpiePickerClockHand
+          between={initialValue % step !== 0}
+          color={color}
+          angle={handAngle}
+          scale={handScale}
         />
-        {
-          this.genClockDigits()
-        }
+        {this.genClockDigits()}
       </div>
     );
   }

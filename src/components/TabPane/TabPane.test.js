@@ -2,12 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass,
-  checkTag
-} from '../../tests/utils';
+import { findByTestAttr, checkProps, checkClass } from '../../tests/utils';
 import TabPane from './TabPane';
 
 const setup = (props = {}) => shallow(<TabPane {...props} />);
