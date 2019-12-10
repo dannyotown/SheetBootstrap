@@ -54,56 +54,54 @@ const defaultProps = {
 };
 
 class TimePicker extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      allowedValues: [],
-      computedHours: '',
-      computedMinutes: '',
-      dayTime: this.props.dayTime,
-      hours: this.props.hours,
-      minutes: this.props.minutes,
-      pickerDialogOpen: false,
-      unitsMode: 'h',
-      value: ''
-    };
-  }
+  state = {
+    allowedValues: [],
+    computedHours: '',
+    computedMinutes: '',
+    initialDayTime: this.props.dayTime,
+    initialHours: this.props.hours,
+    initialMinutes: this.props.minutes,
+    pickerDialogOpen: false,
+    unitsMode: 'h',
+    value: ''
+  };
 
   componentDidMount() {
-    const { hours, minutes } = this.state;
+    const { initialHours, initialMinutes } = this.state;
     this.setState(
       {
-        computedHours: this.computeTimeNumber(hours),
-        computedMinutes: this.computeTimeNumber(minutes)
+        computedHours: this.computeTimeNumber(initialHours),
+        computedMinutes: this.computeTimeNumber(initialMinutes)
       },
       () => this.setInputText()
     );
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { hours, minutes, value } = this.state;
+    const { initialHours, initialMinutes, value } = this.state;
+    const { hours, minutes, getValue, dayTime } = this.props;
 
-    if (prevState.minutes !== minutes) {
+    if (prevState.initialMinutes !== initialMinutes) {
       this.setState({
-        computedMinutes: this.computeTimeNumber(minutes)
+        computedMinutes: this.computeTimeNumber(initialMinutes)
       });
     }
 
-    if (prevState.hours !== hours) {
+    if (prevState.initialHours !== initialHours) {
       this.setState({
-        computedHours: this.computeTimeNumber(hours)
+        computedHours: this.computeTimeNumber(initialHours)
       });
     }
 
     if (prevState.value !== value) {
-      this.props.getValue(value);
+      getValue(value);
     }
 
-    if (prevProps.hours !== this.props.hours) {
+    if (prevProps.hours !== hours) {
       this.setState(
         {
-          computedHours: this.computeTimeNumber(this.props.hours),
-          hours: this.props.hours
+          computedHours: this.computeTimeNumber(hours),
+          initialHours: hours
         },
         () => {
           this.setInputText();
@@ -111,11 +109,11 @@ class TimePicker extends Component {
       );
     }
 
-    if (prevProps.minutes !== this.props.minutes) {
+    if (prevProps.minutes !== minutes) {
       this.setState(
         {
-          computedMinutes: this.computeTimeNumber(this.props.minutes),
-          minutes: this.props.minutes
+          computedMinutes: this.computeTimeNumber(minutes),
+          initialMinutes: minutes
         },
         () => {
           this.setInputText();
@@ -123,10 +121,10 @@ class TimePicker extends Component {
       );
     }
 
-    if (prevProps.dayTime !== this.props.dayTime) {
+    if (prevProps.dayTime !== dayTime) {
       this.setState(
         {
-          dayTime: this.props.dayTime
+          initialDayTime: dayTime
         },
         () => {
           this.setInputText();
@@ -139,28 +137,29 @@ class TimePicker extends Component {
     let value = '';
 
     const {
-      hours,
-      minutes,
-      dayTime,
+      initialHours,
+      initialMinutes,
+      initialDayTime,
       computedHours,
       computedMinutes
     } = this.state;
 
+    const { hoursFormat } = this.props;
     if (
-      hours !== null &&
-      minutes !== null &&
-      hours < 25 &&
-      hours >= 0 &&
-      minutes < 60 &&
-      minutes >= 0
+      initialHours !== null &&
+      initialMinutes !== null &&
+      initialHours < 25 &&
+      initialHours >= 0 &&
+      initialMinutes < 60 &&
+      initialMinutes >= 0
     ) {
-      if (this.props.hoursFormat === 12) {
-        if (hours > 12 && hours < 24) {
+      if (hoursFormat === 12) {
+        if (initialHours > 12 && initialHours < 24) {
           value = `${computedHours - 12}:${computedMinutes}PM`;
-        } else if (hours === 24 || hours === 0) {
+        } else if (initialHours === 24 || initialHours === 0) {
           value = `${parseInt(computedHours) + 12}:${computedMinutes}AM`;
         } else {
-          value = `${computedHours}:${computedMinutes}${dayTime.toUpperCase()}`;
+          value = `${computedHours}:${computedMinutes}${initialDayTime.toUpperCase()}`;
         }
       } else {
         value = `${computedHours}:${computedMinutes}`;
@@ -174,26 +173,27 @@ class TimePicker extends Component {
   };
 
   computeTimeNumber = number => {
+    const { unitsMode } = this.state;
     if (number !== null) {
-      number = this.state.unitsMode === 'h' && number === 24 ? 0 : number;
+      number = unitsMode === 'h' && number === 24 ? 0 : number;
       return number < 10 ? `0${number.toString()}` : `${number.toString()}`;
     }
 
     return '';
   };
 
-  handlePickerDialogOpen = () =>
-    this.setState({ pickerDialogOpen: !this.state.pickerDialogOpen });
+  handlePickerDialogOpen = () => {
+    const { pickerDialogOpen } = this.state;
+    return this.setState({ pickerDialogOpen: !pickerDialogOpen });
+  };
 
   handleModeChange = unitsMode => this.setState({ unitsMode });
 
-  handleDayTimeChange = dayTime => this.setState({ dayTime });
+  handleDayTimeChange = initialDayTime => this.setState({ initialDayTime });
 
-  handleMinutesChange = minutes => this.setState({ minutes });
+  handleMinutesChange = initialMinutes => this.setState({ initialMinutes });
 
-  handleHoursChange = hours => {
-    this.setState({ hours });
-  };
+  handleHoursChange = initialHours => this.setState({ initialHours });
 
   handleBackdropClick = e => {
     if (e.target.classList.value === 'picker__holder') {
@@ -214,12 +214,13 @@ class TimePicker extends Component {
   };
 
   handleCancelClick = () => {
-    this.handleHoursChange(this.props.hours);
-    this.handleMinutesChange(this.props.minutes);
+    const { hours, minutes, closeOnCancel } = this.props;
+    this.handleHoursChange(hours);
+    this.handleMinutesChange(minutes);
     this.handleModeChange('h');
     this.handleDayTimeChange('am');
 
-    if (this.props.closeOnCancel) {
+    if (closeOnCancel) {
       this.handlePickerDialogOpen();
     }
   };
@@ -228,9 +229,9 @@ class TimePicker extends Component {
     const {
       computedHours,
       computedMinutes,
-      dayTime,
-      hours,
-      minutes,
+      initialDayTime,
+      initialHours,
+      initialMinutes,
       pickerDialogOpen,
       unitsMode,
       value
@@ -299,7 +300,7 @@ class TimePicker extends Component {
                       color={color}
                       hours={computedHours}
                       minutes={computedMinutes}
-                      dayTime={dayTime}
+                      dayTime={initialDayTime}
                       unitsMode={unitsMode}
                       handleModeChange={this.handleModeChange}
                       hoursFormat={hoursFormat}
@@ -320,7 +321,7 @@ class TimePicker extends Component {
                             step={1}
                             rotate={30}
                             startFromInner={startFromInner}
-                            value={hours}
+                            value={initialHours}
                           />
                         ) : (
                           <TimePickerClock
@@ -332,14 +333,14 @@ class TimePicker extends Component {
                             step={5}
                             rotate={0}
                             startFromInner={startFromInner}
-                            value={minutes}
+                            value={initialMinutes}
                           />
                         )}
                       </div>
                       {hoursFormat === 12 && (
                         <TimePickerAmPmBlock
                           color={color}
-                          dayTime={dayTime}
+                          dayTime={initialDayTime}
                           handleDayTimeChange={this.handleDayTimeChange}
                         />
                       )}
