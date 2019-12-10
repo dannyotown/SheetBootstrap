@@ -45,6 +45,7 @@ class TimePickerPage extends Component {
   };
 
   render() {
+    const { dayTime, hours, minutes } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -60,8 +61,8 @@ class TimePickerPage extends Component {
                 closeOnCancel
                 cancelable
                 clearable
-                hours={this.state.hours}
-                minutes={this.state.minutes}
+                hours={hours}
+                minutes={minutes}
                 hoursFormat={24}
                 getValue={this.getPickerValue}
               />
@@ -71,9 +72,9 @@ class TimePickerPage extends Component {
                 id='timePicker'
                 label='12 hrs format'
                 color='default'
-                hours={this.state.hours}
-                minutes={this.state.minutes}
-                dayTime={this.state.dayTime}
+                hours={hours}
+                minutes={minutes}
+                dayTime={dayTime}
                 hoursFormat={12}
                 getValue={this.getPickerValue}
               />

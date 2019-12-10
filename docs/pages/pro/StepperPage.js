@@ -26,15 +26,15 @@ class StepperPage extends Component {
 
   swapFormActive = a => param => e => {
     this.setState({
-      [`formActivePanel${  a}`]: param,
-      [`formActivePanel${  a  }Changed`]: true
+      [`formActivePanel${a}`]: param,
+      [`formActivePanel${a}Changed`]: true
     });
   };
 
   handleNextPrevClick = a => param => e => {
     this.setState({
-      [`formActivePanel${  a}`]: param,
-      [`formActivePanel${  a  }Changed`]: true
+      [`formActivePanel${a}`]: param,
+      [`formActivePanel${a}Changed`]: true
     });
   };
 
@@ -43,12 +43,13 @@ class StepperPage extends Component {
   };
 
   calculateAutofocus = a => {
-    if (this.state[`formActivePanel${  a  }Changed`]) {
+    if (this.state[`formActivePanel${a}Changed`]) {
       return true;
     }
   };
 
   render() {
+    const { formActivePanel1, formActivePanel2, formActivePanel3 } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -150,11 +151,7 @@ class StepperPage extends Component {
                     <MDBStep form>
                       <a href='#formstep1' onClick={this.swapFormActive(1)(1)}>
                         <MDBBtn
-                          color={
-                            this.state.formActivePanel1 === 1
-                              ? 'indigo'
-                              : 'default'
-                          }
+                          color={formActivePanel1 === 1 ? 'indigo' : 'default'}
                           circle
                         >
                           1
@@ -165,11 +162,7 @@ class StepperPage extends Component {
                     <MDBStep form>
                       <a href='#formstep2' onClick={this.swapFormActive(1)(2)}>
                         <MDBBtn
-                          color={
-                            this.state.formActivePanel1 === 2
-                              ? 'indigo'
-                              : 'default'
-                          }
+                          color={formActivePanel1 === 2 ? 'indigo' : 'default'}
                           circle
                         >
                           2
@@ -180,11 +173,7 @@ class StepperPage extends Component {
                     <MDBStep form>
                       <a href='#formstep3' onClick={this.swapFormActive(1)(3)}>
                         <MDBBtn
-                          color={
-                            this.state.formActivePanel1 === 3
-                              ? 'indigo'
-                              : 'default'
-                          }
+                          color={formActivePanel1 === 3 ? 'indigo' : 'default'}
                           circle
                         >
                           3
@@ -196,7 +185,7 @@ class StepperPage extends Component {
 
                   <form action='' method='post'>
                     <MDBRow>
-                      {this.state.formActivePanel1 === 1 && (
+                      {formActivePanel1 === 1 && (
                         <MDBCol md='12'>
                           <h3 className='font-weight-bold pl-0 my-4'>
                             <strong>MDBStep 1</strong>
@@ -218,7 +207,7 @@ class StepperPage extends Component {
                           </MDBBtn>
                         </MDBCol>
                       )}
-                      {this.state.formActivePanel1 === 2 && (
+                      {formActivePanel1 === 2 && (
                         <MDBCol md='12'>
                           <h3 className='font-weight-bold pl-0 my-4'>
                             <strong>MDBStep 2</strong>
@@ -247,7 +236,7 @@ class StepperPage extends Component {
                           </MDBBtn>
                         </MDBCol>
                       )}
-                      {this.state.formActivePanel1 === 3 && (
+                      {formActivePanel1 === 3 && (
                         <MDBCol md='12'>
                           <h3 className='font-weight-bold pl-0 my-4'>
                             <strong>MDBStep 3</strong>
@@ -310,7 +299,7 @@ class StepperPage extends Component {
 
               <form action='' method='post'>
                 <MDBRow>
-                  {this.state.formActivePanel2 === 1 && (
+                  {formActivePanel2 === 1 && (
                     <MDBCol md='12'>
                       <h3 className='font-weight-bold pl-0 my-4'>
                         <strong>Basic Information</strong>
@@ -333,7 +322,7 @@ class StepperPage extends Component {
                       </MDBBtn>
                     </MDBCol>
                   )}
-                  {this.state.formActivePanel2 === 2 && (
+                  {formActivePanel2 === 2 && (
                     <MDBCol md='12'>
                       <h3 className='font-weight-bold pl-0 my-4'>
                         <strong>Personal Data</strong>
@@ -364,7 +353,7 @@ class StepperPage extends Component {
                       </MDBBtn>
                     </MDBCol>
                   )}
-                  {this.state.formActivePanel2 === 3 && (
+                  {formActivePanel2 === 3 && (
                     <MDBCol md='12'>
                       <h3 className='font-weight-bold pl-0 my-4'>
                         <strong>Terms and conditions</strong>
@@ -399,7 +388,7 @@ class StepperPage extends Component {
                     </MDBCol>
                   )}
 
-                  {this.state.formActivePanel2 === 4 && (
+                  {formActivePanel2 === 4 && (
                     <MDBCol md='12'>
                       <h3 className='font-weight-bold pl-0 my-4'>
                         <strong>Finish</strong>
@@ -465,7 +454,7 @@ class StepperPage extends Component {
                 </MDBCol>
 
                 <MDBCol md='7'>
-                  {this.state.formActivePanel3 === 1 && (
+                  {formActivePanel3 === 1 && (
                     <MDBCol md='12'>
                       <h3 className='font-weight-bold pl-0 my-4'>
                         <strong>Basic Information</strong>
@@ -488,7 +477,7 @@ class StepperPage extends Component {
                       </MDBBtn>
                     </MDBCol>
                   )}
-                  {this.state.formActivePanel3 === 2 && (
+                  {formActivePanel3 === 2 && (
                     <MDBCol md='12'>
                       <h3 className='font-weight-bold pl-0 my-4'>
                         <strong>Personal Data</strong>
@@ -519,7 +508,7 @@ class StepperPage extends Component {
                       </MDBBtn>
                     </MDBCol>
                   )}
-                  {this.state.formActivePanel3 === 3 && (
+                  {formActivePanel3 === 3 && (
                     <MDBCol md='12'>
                       <h3 className='font-weight-bold pl-0 my-4'>
                         <strong>Terms and conditions</strong>
@@ -553,7 +542,7 @@ class StepperPage extends Component {
                       </MDBBtn>
                     </MDBCol>
                   )}
-                  {this.state.formActivePanel3 === 4 && (
+                  {formActivePanel3 === 4 && (
                     <MDBCol md='12'>
                       <h3 className='font-weight-bold pl-0 my-4'>
                         <strong>Finish</strong>

@@ -19,10 +19,12 @@ class FormsPage extends React.Component {
   };
 
   changeHandler = event => {
-    this.setState({ ...this.state, [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    this.setState({ ...this.state, [name]: value });
   };
 
   render() {
+    const { city, email, fname, lname, state, zip } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -38,7 +40,7 @@ class FormsPage extends React.Component {
             <MDBRow>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.fname}
+                  value={fname}
                   name='fname'
                   onChange={this.changeHandler}
                   type='text'
@@ -51,7 +53,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.lname}
+                  value={lname}
                   name='lname'
                   onChange={this.changeHandler}
                   type='text'
@@ -64,7 +66,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.email}
+                  value={email}
                   onChange={this.changeHandler}
                   type='email'
                   id='materialFormRegisterConfirmEx3'
@@ -80,7 +82,7 @@ class FormsPage extends React.Component {
             <MDBRow>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.city}
+                  value={city}
                   onChange={this.changeHandler}
                   type='text'
                   id='materialFormRegisterPasswordEx4'
@@ -96,7 +98,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.state}
+                  value={state}
                   onChange={this.changeHandler}
                   type='text'
                   id='materialFormRegisterPasswordEx4'
@@ -112,7 +114,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.zip}
+                  value={zip}
                   onChange={this.changeHandler}
                   type='text'
                   id='materialFormRegisterPasswordEx4'
@@ -151,7 +153,7 @@ class FormsPage extends React.Component {
             <MDBRow>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.fname}
+                  value={fname}
                   name='fname'
                   onChange={this.changeHandler}
                   type='text'
@@ -162,7 +164,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.lname}
+                  value={lname}
                   name='lname'
                   onChange={this.changeHandler}
                   type='text'
@@ -173,7 +175,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.email}
+                  value={email}
                   onChange={this.changeHandler}
                   type='email'
                   id='browserFormRegisterConfirmEx3'
@@ -185,7 +187,7 @@ class FormsPage extends React.Component {
             <MDBRow>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.city}
+                  value={city}
                   onChange={this.changeHandler}
                   type='text'
                   id='browserFormRegisterPasswordEx4'
@@ -196,7 +198,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.state}
+                  value={state}
                   onChange={this.changeHandler}
                   type='text'
                   id='browserFormRegisterPasswordEx4'
@@ -207,7 +209,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.zip}
+                  value={zip}
                   onChange={this.changeHandler}
                   type='text'
                   id='browserFormRegisterPasswordEx4'
@@ -280,7 +282,7 @@ class FormsPage extends React.Component {
             <MDBRow>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.fname}
+                  value={fname}
                   name='fname'
                   onChange={this.changeHandler}
                   type='text'
@@ -295,7 +297,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol m='4'>
                 <MDBInput
-                  value={this.state.lname}
+                  value={lname}
                   name='lname'
                   onChange={this.changeHandler}
                   type='text'
@@ -310,7 +312,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.email}
+                  value={email}
                   onChange={this.changeHandler}
                   type='email'
                   id='defaultFormRegisterConfirmEx3'
@@ -326,7 +328,7 @@ class FormsPage extends React.Component {
             <MDBRow>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.city}
+                  value={city}
                   onChange={this.changeHandler}
                   type='text'
                   id='defaultFormRegisterPasswordEx4'
@@ -344,7 +346,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.state}
+                  value={state}
                   onChange={this.changeHandler}
                   type='text'
                   id='defaultFormRegisterPasswordEx4'
@@ -362,7 +364,7 @@ class FormsPage extends React.Component {
               </MDBCol>
               <MDBCol md='4'>
                 <MDBInput
-                  value={this.state.zip}
+                  value={zip}
                   onChange={this.changeHandler}
                   type='text'
                   id='defaultFormRegisterPasswordEx4'
