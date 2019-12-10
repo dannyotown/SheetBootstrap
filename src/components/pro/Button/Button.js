@@ -23,7 +23,8 @@ const Button = ({
     {
       'btn-floating': floating,
       'btn-rounded': rounded
-    }
+    },
+    className
   );
 
   return (
