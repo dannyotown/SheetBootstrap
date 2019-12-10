@@ -13,34 +13,28 @@ import ExportToCsvBtn from '../pro/DataTable/ExportToCSV';
 // PRO-END
 
 class DataTable extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activePage: 0,
-      columns: props.data.columns || [],
-      entries: props.entries,
-      filteredRows: props.data.rows || [],
-      filterOptions: [],
-      order: props.order || [],
-      pages: [],
-      rows: props.data.rows || [],
-      search: '',
-      searchSelect: '',
-      sorted: false,
-      translateScrollHead: 0,
-      unsearchable: []
-    };
+  state = {
+    activePage: 0,
+    columns: this.props.data.columns || [],
+    entries: this.props.entries,
+    filteredRows: this.props.data.rows || [],
+    filterOptions: [],
+    order: this.props.order || [],
+    pages: [],
+    rows: this.props.data.rows || [],
+    search: '',
+    searchSelect: '',
+    sorted: false,
+    translateScrollHead: 0,
+    unsearchable: []
+  };
 
-    if (this.props.paging) {
-      this.paginateRowsInitialy();
-    } else {
-      this.state.pages.push(this.state.rows);
-    }
-  }
+
+
 
   componentDidMount() {
-    const { data } = this.props;
-    const { order, columns } = this.state;
+    const { data, paging } = this.props;
+    const { order, columns, pages, rows } = this.state;
 
     if (typeof data === 'string') {
       this.fetchData(data, this.paginateRows);
@@ -52,9 +46,16 @@ class DataTable extends Component {
     order.length && this.handleSort(order[0], order[1]);
 
     this.setUnsearchable(columns);
+
+    if (paging) {
+      this.paginateRowsInitialy();
+    } else {
+      pages.push(rows);
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
+    const { columns } = this.state
     const { data } = this.props;
 
     if (prevProps.data !== data) {
@@ -62,7 +63,7 @@ class DataTable extends Component {
         ? this.fetchData(data)
         : this.setData(data.rows, data.columns, this.paginateRows);
 
-      this.setUnsearchable(this.state.columns);
+      this.setUnsearchable(columns);
       this.filterRows();
     }
   }
@@ -355,18 +356,18 @@ class DataTable extends Component {
   render() {
     const {
       autoWidth,
+      barReverse,
       bordered,
       borderless,
-      barReverse,
       btn,
-      className,
       children,
+      className,
       dark,
       data,
       disableRetreatAfterSorting,
       displayEntries,
-      entriesOptions,
       entriesLabel,
+      entriesOptions,
       exportToCSV,
       filter,
       fixed,
@@ -376,30 +377,30 @@ class DataTable extends Component {
       maxHeight,
       noBottomColumns,
       noRecordsFoundLabel,
+      onPageChange,
+      onSearch,
+      onSort,
       order,
       pagesAmount,
-      paging,
       paginationLabel,
+      paging,
       responsive,
-      responsiveSm,
-      responsiveMd,
       responsiveLg,
+      responsiveMd,
+      responsiveSm,
       responsiveXl,
-      searching,
-      searchLabel,
       scrollX,
       scrollY,
+      searching,
+      searchLabel,
       small,
       sortable,
+      sortRows,
       striped,
       tbodyColor,
       tbodyTextWhite,
       theadColor,
       theadTextWhite,
-      sortRows,
-      onSearch,
-      onSort,
-      onPageChange,
       ...attributes
     } = this.props;
 
@@ -411,6 +412,7 @@ class DataTable extends Component {
       pages,
       activePage,
       search,
+      sorted,
       translateScrollHead
     } = this.state;
 
@@ -466,7 +468,7 @@ class DataTable extends Component {
               tbodyColor={tbodyColor}
               tbodyTextWhite={tbodyTextWhite}
               rows={pages[activePage]}
-              sorted={this.state.sorted}
+              sorted={sorted}
               {...attributes}
             />
           </div>
@@ -497,7 +499,7 @@ class DataTable extends Component {
               columns={columns}
               handleSort={this.handleSort}
               sortable={sortable}
-              sorted={this.state.sorted}
+              sorted={sorted}
               tbodyColor={tbodyColor}
               tbodyTextWhite={tbodyTextWhite}
               rows={pages[activePage]}
