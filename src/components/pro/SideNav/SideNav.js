@@ -31,7 +31,7 @@ class SideNav extends React.Component {
     isFixed: !this.isOpen() ? false : this.props.fixed,
     isOpen: this.isOpen(),
     cursorPos: {},
-    slim: this.props.slim,
+    slimStart: this.props.slim,
     slimInitial: this.props.slim
   };
 
@@ -122,8 +122,8 @@ class SideNav extends React.Component {
   };
 
   toggleSlim = () => () => {
-    const { slim } = this.state;
-    this.setState({ slim: !slim });
+    const { slimStart } = this.state;
+    this.setState({ slimStart: !slimStart });
 
     const sidenav = ReactDOM.findDOMNode(this.sideNavRef.current);
     sidenav.classList.toggle('slim');
@@ -182,13 +182,13 @@ class SideNav extends React.Component {
       ...attributes
     } = this.props;
 
-    const { isOpen, isFixed, slimInitial, cursorPos } = this.state;
+    const { isOpen, isFixed, slimInitial, cursorPos, slimStart } = this.state;
 
     const classes = classNames(
       'side-nav',
       'wide',
       right && 'right-aligned',
-      this.state.slimInitial && 'slim',
+      slimInitial && 'slim',
       className
     );
 
@@ -219,7 +219,7 @@ class SideNav extends React.Component {
                       alt=''
                       className='img-fluid flex-center d-block'
                     />
-                    <Waves cursorPos={this.state.cursorPos} />
+                    <Waves cursorPos={cursorPos} />
                   </a>
                 </div>
               </li>
@@ -234,17 +234,17 @@ class SideNav extends React.Component {
     return (
       <SideNavContext.Provider
         value={{
-          slimInitial: this.state.slimInitial,
-          slim: this.state.slim,
+          slimInitial,
+          slim: slimStart,
           toggleSlim: this.toggleSlim,
-          right: this.props.right
+          right
         }}
       >
         {isFixed ? (
           sidenav
         ) : (
           <CSSTransition
-            appear={!this.state.isFixed}
+            appear={!isFixed}
             timeout={{ enter: 300, exit: 300 }}
             classNames={right ? 'right-side-slide' : 'side-slide'}
             in={isOpen}
@@ -263,36 +263,36 @@ SideNav.propTypes = {
   breakWidth: PropTypes.number,
   children: PropTypes.node,
   className: PropTypes.string,
+  fixed: PropTypes.bool,
   hidden: PropTypes.bool,
   href: PropTypes.string,
   logo: PropTypes.string,
   mask: PropTypes.string,
   onOverlayClick: PropTypes.func,
-  right: PropTypes.bool,
-  triggerOpening: PropTypes.bool,
-  tag: PropTypes.string,
-  fixed: PropTypes.bool,
-  showOverlay: PropTypes.bool,
   responsive: PropTypes.bool,
-  slim: PropTypes.bool
+  right: PropTypes.bool,
+  showOverlay: PropTypes.bool,
+  slim: PropTypes.bool,
+  tag: PropTypes.string,
+  triggerOpening: PropTypes.bool
 };
 
 SideNav.defaultProps = {
   bg: '',
   breakWidth: 1400,
   className: '',
+  fixed: false,
   hidden: false,
   href: '#',
   logo: '',
   mask: '',
   onOverlayClick: () => {},
-  right: false,
-  triggerOpening: false,
-  tag: 'div',
-  fixed: false,
   responsive: true,
+  right: false,
   showOverlay: true,
-  slim: false
+  slim: false,
+  tag: 'div',
+  triggerOpening: false
 };
 
 export default SideNav;
