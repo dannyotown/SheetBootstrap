@@ -6,49 +6,53 @@ import Fa from '../../Fa';
 
 class TableEditable extends React.Component {
   state = {
-    data: []
+    initialData: []
   };
 
   componentDidMount = () => {
-    this.props.data &&
+    const { data } = this.props;
+    data &&
       this.setState({
         ...this.state,
-        data: this.props.data
+        initialData: data
       });
   };
 
   componentDidUpdate(prevProps, prevState) {
     const { data, getValue } = this.props;
-
-    if (prevProps.data !== data && data !== this.state.data) {
+    const { initialData } = this.state;
+    if (prevProps.data !== data && data !== initialData) {
       this.setState({ data });
     }
 
-    if (prevState.data !== this.state.data) {
-      if (getValue) getValue(this.state.data);
+    if (prevState.initialData !== initialData) {
+      if (getValue) getValue(initialData);
     }
   }
 
   addRow = () => {
-    const newData = [...this.state.data];
+    const { columns } = this.props;
+    const { initialData } = this.state;
+    const newData = [...initialData];
     const newRow = [];
-    this.props.columns.forEach(() => {
+    columns.forEach(() => {
       newRow.push('');
     });
     newData.push(newRow);
 
     this.setState({
-      ...this.state.data,
-      data: newData
+      ...initialData,
+      initialData: newData
     });
   };
 
   removeRow = index => {
-    let newData = [...this.state.data];
+    const { initialData } = this.state;
+    let newData = [...initialData];
     newData = [...newData.slice(0, index), ...newData.slice(index + 1)];
     this.setState({
       ...this.state,
-      data: newData
+      initialData: newData
     });
   };
 
@@ -57,20 +61,25 @@ class TableEditable extends React.Component {
     const newData = this.changeArrayOrder(index, index - 1);
     this.setState({
       ...this.state,
-      data: newData
+      initialData: newData
     });
   };
 
   increaseIndex = index => {
-    if (index === this.state.data.length - 1) return;
+    const { initialData } = this.state;
+    if (index === initialData.length - 1) return;
     const newData = this.changeArrayOrder(index, index + 1);
     this.setState({
       ...this.state,
-      data: newData
+      initialData: newData
     });
   };
 
-  changeArrayOrder = (oldIndex, newIndex, array = [...this.state.data]) => {
+  changeArrayOrder = (
+    oldIndex,
+    newIndex,
+    array = [...this.state.initialData]
+  ) => {
     const newArray = array;
     const oldIndexValue = [...newArray[oldIndex]];
     const newIndexValue = [...newArray[newIndex]];
@@ -81,7 +90,8 @@ class TableEditable extends React.Component {
 
   onBlurHandler = (trIndex, tdIndex, e) => {
     const value = e.target.innerText;
-    let newData = [...this.state.data];
+    const { initialData } = this.state;
+    let newData = [...initialData];
 
     newData = newData.map((item, index) => {
       if (index !== trIndex) {
@@ -99,7 +109,7 @@ class TableEditable extends React.Component {
 
     this.setState({
       ...this.state,
-      data: newData
+      initialData: newData
     });
   };
 
@@ -128,7 +138,7 @@ class TableEditable extends React.Component {
       onChange,
       ...attributes
     } = this.props;
-
+    const { initialData } = this.state;
     const classes = classNames(
       'table',
       small && 'table-sm',
@@ -157,8 +167,8 @@ class TableEditable extends React.Component {
         <table {...attributes} className={classes}>
           <thead>
             <tr>
-              {this.props.columns &&
-                this.props.columns.map((th, i) => {
+              {columns &&
+                columns.map((th, i) => {
                   return <th key={i}>{th}</th>;
                 })}
               <th>Sort </th>
@@ -166,7 +176,7 @@ class TableEditable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.data.map((tr, trIndex) => {
+            {initialData.map((tr, trIndex) => {
               return (
                 <tr key={trIndex}>
                   {tr.map((td, tdIndex) => {
