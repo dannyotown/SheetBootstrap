@@ -9,7 +9,6 @@ class Lightbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.reset();
-
     this.overlay = React.createRef();
     this.slideRefs = [];
   }
@@ -711,28 +710,28 @@ class Lightbox extends React.Component {
 Lightbox.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      src: PropTypes.string,
-      description: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
       alt: PropTypes.string,
+      description: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
       lg: PropTypes.string,
       md: PropTypes.string,
+      size: PropTypes.string,
       sm: PropTypes.string,
+      src: PropTypes.string,
+      tabIndex: PropTypes.string,
       xl: PropTypes.string,
       xs: PropTypes.string,
-      size: PropTypes.string,
-      tabIndex: PropTypes.string
     })
   ),
   itemClassName: PropTypes.string,
-  noMargins: PropTypes.bool,
-  marginSpace: PropTypes.number,
   lg: PropTypes.string,
+  marginSpace: PropTypes.number,
   md: PropTypes.string,
-  sm: PropTypes.string,
+  noMargins: PropTypes.bool,
   size: PropTypes.string,
+  sm: PropTypes.string,
+  transition: PropTypes.number,
   xl: PropTypes.string,
-  xs: PropTypes.string,
-  transition: PropTypes.number
+  xs: PropTypes.string
 };
 
 Lightbox.defaultProps = {

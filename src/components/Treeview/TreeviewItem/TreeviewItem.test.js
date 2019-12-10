@@ -1,12 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass,
-  checkTag
-} from '../../../tests/utils';
+import { mount } from 'enzyme';
+import { findByTestAttr, checkProps, checkClass } from '../../../tests/utils';
 import TreeviewItem from './TreeviewItem';
 import { TreeviewContext } from '../Treeview';
 
@@ -97,7 +92,7 @@ describe('<TreeviewItem />', () => {
       );
     });
 
-    test('adds \'disabledTestClass\' class if (disabledClassName) property is passed and item is (disabled)', () => {
+    test("adds 'disabledTestClass' class if (disabledClassName) property is passed and item is (disabled)", () => {
       wrapper = setup({
         disabledClassName: 'disabledTestClass',
         disabled: true
@@ -105,7 +100,7 @@ describe('<TreeviewItem />', () => {
       expect(wrapper.find('.disabledTestClass').length).toBeTruthy();
     });
 
-    test('should not add \'disabledTestClass\' class if (disabledClassName) property is passed and item is (!disabled)', () => {
+    test("should not add 'disabledTestClass' class if (disabledClassName) property is passed and item is (!disabled)", () => {
       wrapper = setup({
         disabledClassName: 'disabledTestClass',
         disabled: false

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { createLanguageService } from 'typescript';
 import { findByTestAttr, checkProps, checkClass } from '../../tests/utils';
 import TabContent from './TabContent';
 

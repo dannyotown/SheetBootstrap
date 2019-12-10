@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-
 import {
   findByTestAttr,
   checkProps,
@@ -14,7 +13,6 @@ const setup = (props = {}) => shallow(<Nav {...props} />);
 
 describe('<Nav />', () => {
   let wrapper;
-  const mockFn = jest.fn();
 
   beforeEach(() => {
     wrapper = setup();

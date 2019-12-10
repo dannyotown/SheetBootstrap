@@ -1,12 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass,
-  checkCallBack
-} from '../../../../tests/utils';
+import { findByTestAttr, checkProps } from '../../../../tests/utils';
 import ExportToCSV from './ExportToCSV';
 
 const setup = (props = {}) =>

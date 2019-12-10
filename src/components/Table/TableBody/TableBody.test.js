@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-
 import { findByTestAttr, checkProps, checkClass } from '../../../tests/utils';
 import TableBody from './TableBody';
 

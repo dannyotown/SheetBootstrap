@@ -5,16 +5,13 @@ import Fa from '../../../Fa';
 import Waves from '../../../Waves';
 
 class ButtonFixed extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cursorPos: {},
-      buttonStyle: {
-        transform: 'scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)',
-        opacity: '0'
-      }
-    };
-  }
+  state = {
+    cursorPos: {},
+    buttonStyle: {
+      transform: 'scaleY(0.4) scaleX(0.4) translateY(40px) translateX(0)',
+      opacity: '0'
+    }
+  };
 
   handleClick(e) {
     // Get Cursor Position
@@ -27,28 +24,26 @@ class ButtonFixed extends React.Component {
   }
 
   onClick = e => {
-    if (this.props.disabled) {
+    const { disabled, onClick } = this.props;
+    if (disabled) {
       e.preventDefault();
       return;
     }
 
-    this.props.onClick && this.props.onClick();
+    onClick && onClick();
   };
 
   render() {
     const {
       active,
       block,
+      buttonStyle,
       className,
       color,
-      outline,
-      size,
-      rounded,
-      gradient,
-      floating,
+      disabled,
       flat,
-      role,
-      type,
+      floating,
+      gradient,
       icon,
       iconBrand,
       iconClass,
@@ -56,7 +51,11 @@ class ButtonFixed extends React.Component {
       iconRegular,
       iconSize,
       innerRef,
-      buttonStyle,
+      outline,
+      role,
+      rounded,
+      size,
+      type,
       ...attributes
     } = this.props;
 
@@ -67,12 +66,13 @@ class ButtonFixed extends React.Component {
       'Ripple-parent',
       className
     );
+    const { cursorPos } = this.state;
 
     return (
       <li data-test='button-fixed-item'>
         <a
           {...attributes}
-          style={this.props.buttonStyle}
+          style={buttonStyle}
           onClick={this.onClick}
           onMouseDown={this.handleClick.bind(this)}
           onTouchStart={this.handleClick.bind(this)}
@@ -88,14 +88,10 @@ class ButtonFixed extends React.Component {
               className={iconClass}
             />
           )}
-          {this.props.disabled ? (
+          {disabled ? (
             false
           ) : (
-            <Waves
-              cursorPos={this.state.cursorPos}
-              outline={outline}
-              flat={flat}
-            />
+            <Waves cursorPos={cursorPos} outline={outline} flat={flat} />
           )}
         </a>
       </li>
@@ -110,27 +106,27 @@ ButtonFixed.defaultProps = {
 ButtonFixed.propTypes = {
   active: PropTypes.bool,
   block: PropTypes.bool,
-  color: PropTypes.string,
-  gradient: PropTypes.string,
-  role: PropTypes.string,
-  type: PropTypes.string,
-  disabled: PropTypes.bool,
-  outline: PropTypes.bool,
-  rounded: PropTypes.bool,
-  floating: PropTypes.bool,
-  flat: PropTypes.bool,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  onClick: PropTypes.func,
-  size: PropTypes.oneOf(['lg', 'sm']),
+  buttonStyle: PropTypes.object,
   children: PropTypes.node,
   className: PropTypes.string,
+  color: PropTypes.string,
+  disabled: PropTypes.bool,
+  flat: PropTypes.bool,
+  floating: PropTypes.bool,
+  gradient: PropTypes.string,
   icon: PropTypes.string,
   iconBrand: PropTypes.bool,
   iconClass: PropTypes.string,
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
-  buttonStyle: PropTypes.object
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  onClick: PropTypes.func,
+  outline: PropTypes.bool,
+  role: PropTypes.string,
+  rounded: PropTypes.bool,
+  size: PropTypes.oneOf(['lg', 'sm']),
+  type: PropTypes.string
 };
 
 export default ButtonFixed;

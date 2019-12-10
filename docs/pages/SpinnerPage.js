@@ -3,7 +3,7 @@ import { MDBContainer } from 'mdbreact';
 import DocsLink from '../components/docsLink';
 import SectionContainer from '../components/sectionContainer';
 
-const SpinnerPage = props => {
+const SpinnerPage = () => {
   return (
     <MDBContainer>
       <DocsLink

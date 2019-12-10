@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import { findByTestAttr, checkProps, checkClass } from '../../../tests/utils';
 import ModalBody from './ModalBody';
@@ -45,7 +45,7 @@ describe('<ModalBody />', () => {
   });
 
   describe('sets classes', () => {
-    test('adds \'modal-body\' class by default', () => {
+    test("adds 'modal-body' class by default", () => {
       checkClass(wrapper, 'modal-body');
     });
 

@@ -1,12 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass,
-  checkCallBack
-} from '../../../tests/utils';
+import { mount } from 'enzyme';
+import { findByTestAttr, checkProps, checkClass } from '../../../tests/utils';
 import InputRange from './InputRange';
 
 const mounted = (props = {}) => mount(<InputRange {...props} />);
@@ -66,7 +61,7 @@ describe('<InputRange />', () => {
       checkClass(wrapper.childAt(0).childAt(1), 'thumb');
     });
     test('no active class for popup if !click', () => {
-      checkClass(wrapper.childAt(0).childAt(1), 'active',0);
+      checkClass(wrapper.childAt(0).childAt(1), 'active', 0);
     });
   });
 });

@@ -1,11 +1,17 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
 import { checkClass, checkProps } from '../../tests/utils';
 import Popper from './Popper';
 
-const Wrapper = props => <button>{props.children}</button>;
-const Content = props => <div>{props.children}</div>;
+const Wrapper = props => {
+  const { children } = props;
+ return <button>{children}</button>;
+};
+const Content = props => {
+  const { children } = props;
+  return  <div>{children}</div>;
+};
 
 Wrapper.type = 'span';
 Content.type = 'div';
@@ -110,17 +116,17 @@ describe('<Popper />', () => {
   });
 
   describe('sets classes', () => {
-    test('adds \'show\' class to Tooltip if (state.visible)', () => {
+    test("adds 'show' class to Tooltip if (state.visible)", () => {
       checkClass(wrapper.find('section'), 'show');
     });
 
-    test('adds \'popover\' classes to Tooltip if (props.popover)', () => {
+    test("adds 'popover' classes to Tooltip if (props.popover)", () => {
       wrapper = setup({ popover: true });
 
       checkClass(wrapper.find('section'), 'popover');
     });
 
-    test('adds \'tooltip\' classes to Tooltip if (!props.popover)', () => {
+    test("adds 'tooltip' classes to Tooltip if (!props.popover)", () => {
       wrapper = setup({ popover: false });
 
       checkClass(wrapper.find('section'), 'tooltip');

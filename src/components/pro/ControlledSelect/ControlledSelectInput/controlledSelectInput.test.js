@@ -4,8 +4,7 @@ import { shallow } from 'enzyme';
 import {
   findByTestAttr,
   checkProps,
-  checkClass,
-  checkTag
+  checkClass
 } from '../../../../tests/utils';
 import ControlledSelectInput from './ControlledSelectInput';
 

@@ -7,11 +7,11 @@ import {
   checkClass,
   checkTag
 } from '../../tests/utils';
-import Row from './Row';
+import { MDBRow } from 'mdbreact';
 
-const setup = (props = {}) => shallow(<Row {...props} />);
+const setup = (props = {}) => shallow(<MDBRow {...props} />);
 
-describe('<Row />', () => {
+describe('<MDBRow />', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -25,7 +25,7 @@ describe('<Row />', () => {
 
   test('renders without errors', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<Row />, div);
+    ReactDOM.render(<MDBRow />, div);
   });
 
   test('does not throw warnings with expected props', () => {
