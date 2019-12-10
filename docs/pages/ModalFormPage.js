@@ -22,13 +22,14 @@ class ModalFormPage extends Component {
   };
 
   toggle = nr => () => {
-    const modalNumber = `modal${  nr}`;
+    const modalNumber = `modal${nr}`;
     this.setState({
       [modalNumber]: !this.state[modalNumber]
     });
   };
 
   render() {
+    const { modal1, modal2, modal3, modal4, modal5, modal6 } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -40,7 +41,7 @@ class ModalFormPage extends Component {
           <MDBBtn rounded onClick={this.toggle(1)}>
             Launch Modal Login Form
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal1} toggle={this.toggle(1)}>
+          <MDBModal isOpen={modal1} toggle={this.toggle(1)}>
             <MDBModalHeader
               className='text-center'
               titleClass='w-100 font-weight-bold'
@@ -78,7 +79,7 @@ class ModalFormPage extends Component {
           <MDBBtn rounded onClick={this.toggle(2)}>
             Launch Modal Register Form
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal2} toggle={this.toggle(2)}>
+          <MDBModal isOpen={modal2} toggle={this.toggle(2)}>
             <MDBModalHeader
               className='text-center'
               titleClass='w-100 font-weight-bold'
@@ -127,7 +128,7 @@ class ModalFormPage extends Component {
           <MDBBtn rounded onClick={this.toggle(3)}>
             Launch Modal subscription Form
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal3} toggle={this.toggle(3)}>
+          <MDBModal isOpen={modal3} toggle={this.toggle(3)}>
             <MDBModalHeader
               className='text-center'
               titleClass='w-100 font-weight-bold'
@@ -168,7 +169,7 @@ class ModalFormPage extends Component {
           <MDBBtn rounded onClick={this.toggle(4)}>
             Launch Modal Contact Form
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal4} toggle={this.toggle(4)}>
+          <MDBModal isOpen={modal4} toggle={this.toggle(4)}>
             <MDBModalHeader
               className='text-center'
               titleClass='w-100 font-weight-bold'
@@ -220,7 +221,7 @@ class ModalFormPage extends Component {
             size='sm'
             cascading
             className='modal-avatar'
-            isOpen={this.state.modal5}
+            isOpen={modal5}
             toggle={this.toggle(5)}
           >
             <MDBModalHeader className='mx-auto'>
@@ -250,13 +251,16 @@ class ModalFormPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header='Subscription modal with orange header' flexCenter>
+        <SectionContainer
+          header='Subscription modal with orange header'
+          flexCenter
+        >
           <MDBBtn rounded onClick={this.toggle(6)}>
             Launch Modal Subscription
           </MDBBtn>
           <MDBModal
             className='modal-notify modal-warning white-text'
-            isOpen={this.state.modal6}
+            isOpen={modal6}
             toggle={this.toggle(6)}
           >
             <MDBModalHeader

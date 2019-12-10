@@ -34,7 +34,7 @@ class ModalExamplesPage extends Component {
   };
 
   toggle = nr => () => {
-    const modalNumber = `modal${  nr}`;
+    const modalNumber = `modal${nr}`;
     this.setState({
       ...this.state,
       [modalNumber]: !this.state[modalNumber]
@@ -42,6 +42,18 @@ class ModalExamplesPage extends Component {
   };
 
   render() {
+    const {
+      modal1,
+      modal10,
+      modal11,
+      modal12,
+      modal2,
+      modal3,
+      modal4,
+      modal5,
+      modal6,
+      modal7
+    } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -49,13 +61,13 @@ class ModalExamplesPage extends Component {
           href='https://mdbootstrap.com/docs/react/modals/basic/'
         />
 
-        <SectionContainer header='Cookies'  flexCenter>
+        <SectionContainer header='Cookies' flexCenter>
           <MDBBtn onClick={this.toggle(1)}>Launch Modal</MDBBtn>
           <MDBModal
             position='top'
             backdrop={false}
             frame
-            isOpen={this.state.modal1}
+            isOpen={modal1}
             toggle={this.toggle(1)}
           >
             <MDBModalBody>
@@ -81,7 +93,7 @@ class ModalExamplesPage extends Component {
             position='bottom'
             backdrop={false}
             frame
-            isOpen={this.state.modal2}
+            isOpen={modal2}
             toggle={this.toggle(2)}
           >
             <MDBModalBody>
@@ -113,7 +125,7 @@ class ModalExamplesPage extends Component {
             side
             position='bottom-right'
             backdrop={false}
-            isOpen={this.state.modal3}
+            isOpen={modal3}
             toggle={this.toggle(3)}
           >
             <MDBModalHeader tag='p' toggle={this.toggle(3)}>
@@ -163,7 +175,7 @@ class ModalExamplesPage extends Component {
             side
             position='bottom-right'
             backdrop={false}
-            isOpen={this.state.modal4}
+            isOpen={modal4}
             toggle={this.toggle(4)}
           >
             <MDBModalHeader tag='p' toggle={this.toggle(4)}>
@@ -206,7 +218,7 @@ class ModalExamplesPage extends Component {
             side
             position='top-right'
             backdrop={false}
-            isOpen={this.state.modal5}
+            isOpen={modal5}
             toggle={this.toggle(5)}
           >
             <MDBModalHeader tag='p' toggle={this.toggle(5)}>
@@ -249,7 +261,7 @@ class ModalExamplesPage extends Component {
             side
             position='top-right'
             backdrop={false}
-            isOpen={this.state.modal6}
+            isOpen={modal6}
             toggle={this.toggle(6)}
           >
             <MDBModalHeader
@@ -276,7 +288,7 @@ class ModalExamplesPage extends Component {
 
         <SectionContainer header='Cart' flexCenter>
           <MDBBtn onClick={this.toggle(10)}>Launch Modal</MDBBtn>
-          <MDBModal isOpen={this.state.modal10} toggle={this.toggle(10)}>
+          <MDBModal isOpen={modal10} toggle={this.toggle(10)}>
             <MDBModalHeader toggle={this.toggle(10)}>Your cart</MDBModalHeader>
             <MDBModalBody>
               <MDBTable striped>
@@ -341,7 +353,7 @@ class ModalExamplesPage extends Component {
           <MDBBtn onClick={this.toggle(7)}>Launch Modal</MDBBtn>
           <MDBModal
             className='modal-notify modal-info text-white'
-            isOpen={this.state.modal7}
+            isOpen={modal7}
             toggle={this.toggle(7)}
           >
             <MDBModalHeader className='text-center' titleClass='w-100' tag='p'>
@@ -371,11 +383,7 @@ class ModalExamplesPage extends Component {
 
         <SectionContainer header='YouTube' flexCenter>
           <MDBBtn onClick={this.toggle(11)}>Launch Modal</MDBBtn>
-          <MDBModal
-            size='lg'
-            isOpen={this.state.modal11}
-            toggle={this.toggle(11)}
-          >
+          <MDBModal size='lg' isOpen={modal11} toggle={this.toggle(11)}>
             <MDBModalBody className='mb-0 p-0'>
               <div className='embed-responsive embed-responsive-16by9 z-depth-1-half'>
                 <iframe
@@ -417,11 +425,7 @@ class ModalExamplesPage extends Component {
 
         <SectionContainer header='Vimeo' flexCenter>
           <MDBBtn onClick={this.toggle(12)}>Launch Modal</MDBBtn>
-          <MDBModal
-            size='lg'
-            isOpen={this.state.modal12}
-            toggle={this.toggle(12)}
-          >
+          <MDBModal size='lg' isOpen={modal12} toggle={this.toggle(12)}>
             <MDBModalBody className='mb-0 p-0'>
               <div className='embed-responsive embed-responsive-16by9 z-depth-1-half'>
                 <iframe

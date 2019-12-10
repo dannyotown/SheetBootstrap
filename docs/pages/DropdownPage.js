@@ -1,14 +1,23 @@
 import React from 'react';
-import { MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBContainer } from 'mdbreact';
+import {
+  MDBDropdown,
+  MDBDropdownToggle,
+  MDBDropdownMenu,
+  MDBDropdownItem,
+  MDBContainer
+} from 'mdbreact';
 import DocsLink from '../components/docsLink';
 import SectionContainer from '../components/sectionContainer';
 
 const DropdownPage = () => {
   return (
     <MDBContainer>
-      <DocsLink title='MDBDropdown' href='https://mdbootstrap.com/docs/react/components/dropdowns/' />
+      <DocsLink
+        title='MDBDropdown'
+        href='https://mdbootstrap.com/docs/react/components/dropdowns/'
+      />
 
-      <SectionContainer header='Basic example'  flexCenter className='flex-wrap'>
+      <SectionContainer header='Basic example' flexCenter className='flex-wrap'>
         <MDBDropdown>
           <MDBDropdownToggle caret color='primary'>
             Dropdown
@@ -121,7 +130,9 @@ const DropdownPage = () => {
 
       <SectionContainer header='Sizing' flexCenter>
         <MDBDropdown size='lg'>
-          <MDBDropdownToggle caret color='danger'>Large dropdown</MDBDropdownToggle>
+          <MDBDropdownToggle caret color='danger'>
+            Large dropdown
+          </MDBDropdownToggle>
           <MDBDropdownMenu>
             <MDBDropdownItem>Action</MDBDropdownItem>
             <MDBDropdownItem>Another Action</MDBDropdownItem>
@@ -210,7 +221,7 @@ const DropdownPage = () => {
             <MDBDropdownItem>Something else here</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
-        
+
         <MDBDropdown>
           <MDBDropdownToggle caret color='primary'>
             This dropdown&apos;s menu is right-aligned

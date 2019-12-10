@@ -1,16 +1,29 @@
 import React from 'react';
-import { MDBPagination, MDBPageItem, MDBPageNav, MDBContainer, MDBCol, MDBRow } from 'mdbreact';
+import {
+  MDBPagination,
+  MDBPageItem,
+  MDBPageNav,
+  MDBContainer,
+  MDBCol,
+  MDBRow
+} from 'mdbreact';
 import DocsLink from '../components/docsLink';
 import SectionContainer from '../components/sectionContainer';
 
-const PaginationPage = props => {
+const PaginationPage = () => {
   return (
     <MDBContainer>
-      <DocsLink title='Pagination' href='https://mdbootstrap.com/docs/react/components/pagination/' />
+      <DocsLink
+        title='Pagination'
+        href='https://mdbootstrap.com/docs/react/components/pagination/'
+      />
 
       <MDBRow>
         <MDBCol>
-          <SectionContainer header='Basic example' className='d-flex justify-content-center'>
+          <SectionContainer
+            header='Basic example'
+            className='d-flex justify-content-center'
+          >
             <MDBPagination style={{ marginTop: '1rem' }}>
               <MDBPageItem disabled>
                 <MDBPageNav aria-label='Previous'>
@@ -46,7 +59,10 @@ const PaginationPage = props => {
 
       <MDBRow>
         <MDBCol>
-          <SectionContainer header='Bootstrap Pagination' className='d-flex justify-content-center'>
+          <SectionContainer
+            header='Bootstrap Pagination'
+            className='d-flex justify-content-center'
+          >
             <MDBPagination style={{ marginTop: '1rem' }} circle>
               <MDBPageItem disabled>
                 <MDBPageNav>
@@ -89,7 +105,10 @@ const PaginationPage = props => {
 
       <MDBRow>
         <MDBCol>
-          <SectionContainer header='MDBPagination color' className='d-flex align-items-center flex-column'>
+          <SectionContainer
+            header='MDBPagination color'
+            className='d-flex align-items-center flex-column'
+          >
             <MDBPagination style={{ marginTop: '1rem' }} color='blue'>
               <MDBPageItem disabled>
                 <MDBPageNav aria-label='Previous'>
@@ -327,7 +346,10 @@ const PaginationPage = props => {
 
       <MDBRow>
         <MDBCol>
-          <SectionContainer header='Sizing' className='d-flex align-items-center flex-column'>
+          <SectionContainer
+            header='Sizing'
+            className='d-flex align-items-center flex-column'
+          >
             <MDBPagination style={{ marginTop: '1rem' }} size='lg'>
               <MDBPageItem>
                 <MDBPageNav aria-label='Previous'>

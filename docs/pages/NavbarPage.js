@@ -29,6 +29,7 @@ class NavbarPage extends Component {
     }));
 
   render() {
+    const { isOpen, collapseID } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -42,7 +43,7 @@ class NavbarPage extends Component {
               <strong className='white-text'>Navbar</strong>
             </MDBNavbarBrand>
             <MDBNavbarToggler onClick={this.toggleCollapse} />
-            <MDBCollapse id='navbarCollapse3' isOpen={this.state.isOpen} navbar>
+            <MDBCollapse id='navbarCollapse3' isOpen={isOpen} navbar>
               <MDBNavbarNav left>
                 <MDBNavItem active>
                   <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -119,11 +120,7 @@ class NavbarPage extends Component {
               <MDBNavbarToggler
                 onClick={this.toggleCollapse('navbarCollapse')}
               />
-              <MDBCollapse
-                id='navbarCollapse'
-                isOpen={this.state.collapseID}
-                navbar
-              >
+              <MDBCollapse id='navbarCollapse' isOpen={collapseID} navbar>
                 <MDBNavbarNav left>
                   <MDBNavItem active>
                     <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -166,11 +163,7 @@ class NavbarPage extends Component {
               <MDBNavbarToggler
                 onClick={this.toggleCollapse('navbarCollapse1')}
               />
-              <MDBCollapse
-                id='navbarCollapse1'
-                isOpen={this.state.collapseID}
-                navbar
-              >
+              <MDBCollapse id='navbarCollapse1' isOpen={collapseID} navbar>
                 <MDBNavbarNav left>
                   <MDBNavItem active>
                     <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -212,11 +205,7 @@ class NavbarPage extends Component {
               <MDBNavbarToggler
                 onClick={this.toggleCollapse('navbarCollapse2')}
               />
-              <MDBCollapse
-                id='navbarCollapse2'
-                isOpen={this.state.collapseID}
-                navbar
-              >
+              <MDBCollapse id='navbarCollapse2' isOpen={collapseID} navbar>
                 <MDBNavbarNav left>
                   <MDBNavItem active>
                     <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -258,11 +247,7 @@ class NavbarPage extends Component {
               <MDBNavbarToggler
                 onClick={this.toggleCollapse('navbarCollapse3')}
               />
-              <MDBCollapse
-                id='navbarCollapse3'
-                isOpen={this.state.collapseID}
-                navbar
-              >
+              <MDBCollapse id='navbarCollapse3' isOpen={collapseID} navbar>
                 <MDBNavbarNav left>
                   <MDBNavItem active>
                     <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -306,11 +291,7 @@ class NavbarPage extends Component {
             <MDBNavbarToggler
               onClick={this.toggleCollapse('navbarCollapse3')}
             />
-            <MDBCollapse
-              id='navbarCollapse3'
-              isOpen={this.state.collapseID}
-              navbar
-            >
+            <MDBCollapse id='navbarCollapse3' isOpen={collapseID} navbar>
               <MDBNavbarNav left>
                 <MDBNavItem active>
                   <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -369,11 +350,7 @@ class NavbarPage extends Component {
             <MDBNavbarToggler
               onClick={this.toggleCollapse('navbarCollapse3')}
             />
-            <MDBCollapse
-              id='navbarCollapse3'
-              isOpen={this.state.collapseID}
-              navbar
-            >
+            <MDBCollapse id='navbarCollapse3' isOpen={collapseID} navbar>
               <MDBNavbarNav left>
                 <MDBNavItem active>
                   <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -452,11 +429,7 @@ class NavbarPage extends Component {
             <MDBNavbarToggler
               onClick={this.toggleCollapse('navbarCollapse3')}
             />
-            <MDBCollapse
-              id='navbarCollapse3'
-              isOpen={this.state.collapseID}
-              navbar
-            >
+            <MDBCollapse id='navbarCollapse3' isOpen={collapseID} navbar>
               <MDBNavbarNav right>
                 <MDBNavItem>
                   <MDBNavLink className='waves-effect waves-light' to='#!'>
@@ -497,11 +470,7 @@ class NavbarPage extends Component {
             <MDBNavbarToggler
               onClick={this.toggleCollapse('navbarCollapse3')}
             />
-            <MDBCollapse
-              id='navbarCollapse3'
-              isOpen={this.state.collapseID}
-              navbar
-            >
+            <MDBCollapse id='navbarCollapse3' isOpen={collapseID} navbar>
               <MDBNavbarNav left>
                 <MDBNavItem active>
                   <MDBNavLink to='#!'>Home</MDBNavLink>

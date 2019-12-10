@@ -21,12 +21,15 @@ class FormsPage extends Component {
   };
 
   toggle = () => {
+    const {modal}=this.state;
     this.setState({
-      modal: !this.state.modal
+      modal: !modal
     });
   };
 
   render() {
+    const {modal}=this.state;
+
     return (
       <MDBContainer className='mt-5'>
         <DocsLink title='Forms' href='https://mdbootstrap.com/docs/react/forms/basic/' />
@@ -353,7 +356,7 @@ class FormsPage extends Component {
           <MDBBtn color='info' onClick={this.toggle}>
             Launch modal contact form
           </MDBBtn>
-          <MDBModal isOpen={this.state.modal} toggle={this.toggle} className='cascading-modal'>
+          <MDBModal isOpen={modal} toggle={this.toggle} className='cascading-modal'>
             <div className='modal-header primary-color white-text'>
               <h4 className='title'>
                 <MDBIcon icon='pencil-alt' /> Contact form

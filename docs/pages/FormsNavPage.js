@@ -1,5 +1,13 @@
 import React from 'react';
-import { MDBEdgeHeader, MDBContainer, MDBRow, MDBCol, MDBJumbotron, MDBIcon, MDBAnimation } from 'mdbreact';
+import {
+  MDBEdgeHeader,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBJumbotron,
+  MDBIcon,
+  MDBAnimation
+} from 'mdbreact';
 import MenuLink from '../components/menuLink';
 
 const FormsNavPage = () => {
@@ -16,13 +24,17 @@ const FormsNavPage = () => {
                   Forms
                 </h1>
                 <ul className='list-unstyled example-components-list'>
-                  <h6 className='mt-3 grey-text'><strong>FREE</strong> </h6>
+                  <h6 className='mt-3 grey-text'>
+                    <strong>FREE</strong>{' '}
+                  </h6>
                   <MenuLink to='/forms/forms' title='Forms' />
                   <MenuLink to='/forms/input' title='Input' />
                   <MenuLink to='/forms/inputgroup' title='Input Group' />
                   <MenuLink to='/forms/validation' title='Validation' />
                   {/* PRO-START */}
-                  <h6 className='mt-4 grey-text'><strong className='indigo-text'>PRO</strong> </h6>
+                  <h6 className='mt-4 grey-text'>
+                    <strong className='indigo-text'>PRO</strong>{' '}
+                  </h6>
                   <MenuLink to='/forms/pro/autocomplete' title='Autocomplete' />
                   <MenuLink to='/forms/pro/datepicker' title='Date picker' />
                   <MenuLink to='/forms/pro/forms' title='Forms' />

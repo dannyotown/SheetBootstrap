@@ -12,12 +12,9 @@ import DocsLink from '../components/docsLink';
 import SectionContainer from '../components/sectionContainer';
 
 class DatatableApiPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: {}
-    };
-  }
+  state = {
+    data: {}
+  };
 
   componentDidMount() {
     fetch('https://my-json-server.typicode.com/Rotarepmi/exjson/db')
@@ -36,7 +33,12 @@ class DatatableApiPage extends React.Component {
         rows = rows.map((row, key) => ({
           ...row,
           id: (
-            <MDBBadge color='info' className='w-100' searchvalue={key} key={key}>
+            <MDBBadge
+              color='info'
+              className='w-100'
+              searchvalue={key}
+              key={key}
+            >
               {key}
             </MDBBadge>
           )
@@ -51,6 +53,7 @@ class DatatableApiPage extends React.Component {
   }
 
   render() {
+    const { data } = this.state;
     return (
       <MDBContainer className='mt-3'>
         <DocsLink
@@ -109,7 +112,7 @@ class DatatableApiPage extends React.Component {
                     striped
                     bordered
                     hover
-                    data={this.state.data}
+                    data={data}
                     sortRows={['id']}
                   />
                 </MDBCardBody>

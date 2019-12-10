@@ -12,6 +12,6 @@ const IframePage = () => {
       <MDBIframe src='https://www.youtube.com/embed/v64KOxKVLVg' />
     </MDBContainer>
   );
-}
+};
 
 export default IframePage;
