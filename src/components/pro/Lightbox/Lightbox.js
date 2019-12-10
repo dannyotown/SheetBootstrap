@@ -1,14 +1,17 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { MDBBtn, MDBBtnGroup, MDBCol, MDBContainer } from 'mdbreact';
-
+import { MDBBtn } from '../../Button';
+import { MDBBtnGroup } from '../../ButtonGroup';
+import { MDBCol } from '../../Col';
+import { MDBContainer } from '../../Container';
 import './Lightbox.css';
 
 class Lightbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.reset();
+
     this.overlay = React.createRef();
     this.slideRefs = [];
   }
@@ -29,13 +32,22 @@ class Lightbox extends React.Component {
     )[0];
     const key = e.key;
 
-    if (key === 'Enter' && active) this.zoom(e);
+    if (key === 'Enter' && active) {
+      this.zoom(e);
+    }
     if (sliderOpened && !changeSlide) {
-      if (key === 'Escape' || key === 'ArrowUp' || key === 'ArrowDown')
+      if (key === 'Escape' || key === 'ArrowUp' || key === 'ArrowDown') {
         this.closeZoom();
-      if (key === 'ArrowLeft') this.changeSlide('prev');
-      if (key === 'ArrowRight') this.changeSlide('next');
-      if (key === 'Tab') this.setFocus(imgSrc);
+      }
+      if (key === 'ArrowLeft') {
+        this.changeSlide('prev');
+      }
+      if (key === 'ArrowRight') {
+        this.changeSlide('next');
+      }
+      if (key === 'Tab') {
+        this.setFocus(imgSrc);
+      }
     }
   };
 
@@ -78,8 +90,9 @@ class Lightbox extends React.Component {
 
   updateGalleryData = () => {
     let gallery = [];
-    if (this.slideRefs)
+    if (this.slideRefs) {
       this.slideRefs.map(el => gallery.push(this.setData(el)));
+    }
     this.setState({ galleryImagesData: gallery });
   };
 
@@ -452,11 +465,17 @@ class Lightbox extends React.Component {
       let scaleX = (CRR.imgSrcData.realW * scaleValue) / 3;
       let scaleY = (CRR.imgSrcData.realH * scaleValue) / 3;
 
-      if (diffX > scaleX) diffX = scaleX;
-      else if (diffX < -scaleX) diffX = -scaleX;
+      if (diffX > scaleX) {
+        diffX = scaleX;
+      } else if (diffX < -scaleX) {
+        diffX = -scaleX;
+      }
 
-      if (diffY > scaleY) diffY = scaleY;
-      else if (diffY < -scaleY) diffY = -scaleY;
+      if (diffY > scaleY) {
+        diffY = scaleY;
+      } else if (diffY < -scaleY) {
+        diffY = -scaleY;
+      }
 
       CURRENT_IMG.style.cssText = `transform:
         translate(-50%,-50%)
@@ -719,7 +738,7 @@ Lightbox.propTypes = {
       src: PropTypes.string,
       tabIndex: PropTypes.string,
       xl: PropTypes.string,
-      xs: PropTypes.string,
+      xs: PropTypes.string
     })
   ),
   itemClassName: PropTypes.string,

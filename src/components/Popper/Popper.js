@@ -25,11 +25,11 @@ class Popover extends React.Component {
       isVisible !== showPopper &&
       showPopper !== prevProps.showPopper
     )
-      this.setState({ showPopper: isVisible });
+      {this.setState({ showPopper: isVisible });}
 
-    if (onChange && showPopper !== prevState.showPopper) onChange(showPopper);
+    if (onChange && showPopper !== prevState.showPopper) {onChange(showPopper);}
 
-    if (showPopper && prevState.showPopper !== showPopper) this.createPopper();
+    if (showPopper && prevState.showPopper !== showPopper) {this.createPopper();}
   }
 
   componentDidMount() {
@@ -49,7 +49,7 @@ class Popover extends React.Component {
 
   createPopper = () => {
     if (this.referenceElm && this.popoverWrapperRef)
-      this.setState({
+      {this.setState({
         popperJS: new Popper(
           this.referenceElm,
           this.popoverWrapperRef,
@@ -62,7 +62,7 @@ class Popover extends React.Component {
               this.state.popperJS.scheduleUpdate();
             }, 10)
         )
-      });
+      });}
   };
 
   doToggle = toggler => {
@@ -72,7 +72,7 @@ class Popover extends React.Component {
       },
       () => {
         if (this.state.showPopper)
-          this.setState(
+          {this.setState(
             {
               visible:
                 typeof toggler !== 'undefined' ? toggler : !this.state.visible
@@ -81,7 +81,7 @@ class Popover extends React.Component {
               this.createPopper();
               this.state.popperJS.scheduleUpdate();
             }
-          );
+          );}
       }
     );
   };
@@ -94,7 +94,7 @@ class Popover extends React.Component {
         this.referenceElm.contains(target) ||
         target === this.referenceElm
       )
-        return;
+        {return;}
 
       this.doToggle(false);
     }

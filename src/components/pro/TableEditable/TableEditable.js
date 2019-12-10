@@ -26,7 +26,7 @@ class TableEditable extends React.Component {
     }
 
     if (prevState.initialData !== initialData) {
-      if (getValue) getValue(initialData);
+      if (getValue) {getValue(initialData);}
     }
   }
 
@@ -57,7 +57,7 @@ class TableEditable extends React.Component {
   };
 
   decreaseIndex = index => {
-    if (index === 0) return;
+    if (index === 0) {return;}
     const newData = this.changeArrayOrder(index, index - 1);
     this.setState({
       ...this.state,
@@ -67,7 +67,7 @@ class TableEditable extends React.Component {
 
   increaseIndex = index => {
     const { initialData } = this.state;
-    if (index === initialData.length - 1) return;
+    if (index === initialData.length - 1) {return;}
     const newData = this.changeArrayOrder(index, index + 1);
     this.setState({
       ...this.state,

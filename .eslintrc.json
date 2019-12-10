@@ -76,6 +76,7 @@
         "component": true,
         "html": false
       }
-    ]
+    ],
+    "curly": "warn"
   }
 }

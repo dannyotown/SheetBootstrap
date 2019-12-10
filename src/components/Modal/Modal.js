@@ -61,7 +61,7 @@ class Modal extends Component {
       (e.target.closest('[role="dialog"]') &&
         !e.target.classList.contains('modal'))
     )
-      return;
+      {return;}
 
     if (!this.modalContent.contains(e.target)) {
       this.props.toggle();

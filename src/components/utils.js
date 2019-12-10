@@ -154,7 +154,7 @@ export function conditionallyUpdateScrollbar() {
 }
 
 export function mapToCssModules(className, cssModule) {
-  if (!cssModule) return className;
+  if (!cssModule) {return className;}
   return className
     .split(' ')
     .map(c => cssModule[c] || c)
@@ -185,7 +185,7 @@ export const returnAttributes = attributes => {
   const newAttributesObject = Object.keys(attributes).reduce(
     (previousValue, currentElement) => {
       if (attributes[currentElement])
-        previousValue[currentElement] = attributes[currentElement];
+        {previousValue[currentElement] = attributes[currentElement];}
       return previousValue;
     }, {}
   );

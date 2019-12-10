@@ -131,8 +131,8 @@ class DataTable extends Component {
       { search: e.target.value },
       () => this.filterRows(),
       this.props.onSearch &&
-      typeof this.props.onSearch === 'function' &&
-      this.props.onSearch(e.target.value)
+        typeof this.props.onSearch === 'function' &&
+        this.props.onSearch(e.target.value)
     );
   };
 
@@ -149,7 +149,7 @@ class DataTable extends Component {
     ];
 
     let comp = aField > bField ? -1 : 1;
-    if (direction === 'asc') comp *= -1;
+    if (direction === 'asc') {comp *= -1;}
 
     return comp;
   };
@@ -165,15 +165,15 @@ class DataTable extends Component {
           ? -1
           : 1
         : a[field] > b[field]
-          ? -1
-          : 1;
+        ? -1
+        : 1;
     });
   };
 
   handleSort = (field, sort) => {
     const { onSort } = this.props;
 
-    if (sort === 'disabled') return;
+    if (sort === 'disabled') {return;}
 
     this.setState(
       prevState => {
@@ -184,7 +184,7 @@ class DataTable extends Component {
         this.sort(rows, sortRows, field, direction);
 
         columns.forEach(col => {
-          if (col.sort === 'disabled') return;
+          if (col.sort === 'disabled') {return;}
 
           col.sort =
             col.field === field ? (col.sort === 'desc' ? 'asc' : 'desc') : '';
@@ -223,9 +223,9 @@ class DataTable extends Component {
                 const getContent = element =>
                   typeof element === 'object'
                     ? element.props.children &&
-                    Array.from(element.props.children).map(el =>
-                      getContent(el)
-                    )
+                      Array.from(element.props.children).map(el =>
+                        getContent(el)
+                      )
                     : content.push(element);
 
                 getContent(row[key]);
@@ -234,24 +234,24 @@ class DataTable extends Component {
                 stringValue = row[key].toString();
               }
               if (stringValue.toLowerCase().includes(search.toLowerCase()))
-                return true;
+                {return true;}
             }
           }
           return false;
         });
 
         if (filteredRows.length === 0)
-          filteredRows.push({
+          {filteredRows.push({
             message: noRecordsFoundLabel,
             colspan: prevState.columns.length
-          });
+          });}
         let test = {};
         if (this.props.disableRetreatAfterSorting) {
           test = {
             filteredRows,
             activePage: (prevState.activePage =
               prevState.activePage < prevState.pages.length ||
-                prevState.activePage === 0
+              prevState.activePage === 0
                 ? prevState.activePage
                 : prevState.pages.length - 1)
           };
@@ -607,7 +607,7 @@ DataTable.propTypes = {
   tbodyColor: PropTypes.string,
   tbodyTextWhite: PropTypes.bool,
   theadColor: PropTypes.string,
-  theadTextWhite: PropTypes.bool,
+  theadTextWhite: PropTypes.bool
 };
 
 DataTable.defaultProps = {

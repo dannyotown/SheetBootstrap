@@ -39,7 +39,7 @@ class ScrollSpyPage extends Component {
     }
 
     if (scrollTop > sections[lastIndex].offsetTop - 20)
-      this.setState({ active: lastIndex });
+      {this.setState({ active: lastIndex });}
   };
 
   render() {

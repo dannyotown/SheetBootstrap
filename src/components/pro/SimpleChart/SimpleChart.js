@@ -11,7 +11,7 @@ const SimpleChart = props => {
   };
 
   const describeArc = (x, y, radius, startAngle, endAngle) => {
-    if (!x || !y) console.error('x or y missing to describeArc');
+    if (!x || !y) {console.error('x or y missing to describeArc');}
 
     const start = polarToCartesian(x, y, radius, endAngle);
     const end = polarToCartesian(x, y, radius, startAngle);

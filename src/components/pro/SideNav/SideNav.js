@@ -133,7 +133,7 @@ class SideNav extends React.Component {
     const { isFixed } = this.state;
     const { onOverlayClick } = this.props;
 
-    if (isFixed) return;
+    if (isFixed) {return;}
     this.setState({
       isOpen: false
     });

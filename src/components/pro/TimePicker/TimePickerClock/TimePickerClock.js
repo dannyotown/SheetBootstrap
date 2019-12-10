@@ -264,7 +264,7 @@ class TimePickerClock extends Component {
       digitsInRound
     } = this.state;
     const { rotate, min } = this.props;
-    if (!isDragging && e.type !== 'click') return;
+    if (!isDragging && e.type !== 'click') {return;}
     const { center, coords } = this.getCoords(e);
     const isOnInner = this.isOnInner(center, coords);
     const exactHandAngle = this.getAngle(center, coords);

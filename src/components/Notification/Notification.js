@@ -11,11 +11,11 @@ class Notification extends React.Component {
 
   componentDidMount() {
     const { autohide } = this.props;
-    if (autohide > 0) this.hide(autohide);
+    if (autohide > 0) {this.hide(autohide);}
   }
 
   hide = (time = 0) => {
-    if (typeof time === 'object') time = 0;
+    if (typeof time === 'object') {time = 0;}
 
     setTimeout(() => {
       this.setState({ componentState: '' }, () => {

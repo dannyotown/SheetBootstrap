@@ -15,7 +15,7 @@ class ControlledSelectOptions extends Component {
 
   componentDidMount() {
     const { inputRef } = this.props;
-    if (inputRef.current) this.inputRef = inputRef.current;
+    if (inputRef.current) {this.inputRef = inputRef.current;}
     this.inputRef.addEventListener('keydown', this.handleFocus);
   }
 

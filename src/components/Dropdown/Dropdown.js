@@ -63,7 +63,7 @@ class Dropdown extends Component {
     const TAB = keyCode === tab;
     const KEYUP = type === 'keyup';
 
-    if (MOUSE_RIGHT_CLICK || (KEYUP && !TAB)) return;
+    if (MOUSE_RIGHT_CLICK || (KEYUP && !TAB)) {return;}
 
     const container = this.getContainer();
 
@@ -117,7 +117,7 @@ class Dropdown extends Component {
 
     e.preventDefault();
 
-    if (disabled) return;
+    if (disabled) {return;}
 
     const container = this.getContainer();
 

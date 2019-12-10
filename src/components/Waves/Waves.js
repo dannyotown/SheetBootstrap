@@ -20,7 +20,7 @@ class Waves extends React.Component {
         this.setState({ animate: false, cursorPos }, () => {
           this.replying();
         });
-      } else this.replying();
+      } else {this.replying();}
     }
   }
 

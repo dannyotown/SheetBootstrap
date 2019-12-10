@@ -33,9 +33,9 @@ class Sticky extends Component {
   componentDidMount() {
     const { subscribe } = this.context;
     if (!subscribe)
-      throw new TypeError(
+      {throw new TypeError(
         'Expected Sticky to be mounted within StickyContainer'
-      );
+      );}
 
     subscribe(this.handleContainerEvent);
   }
