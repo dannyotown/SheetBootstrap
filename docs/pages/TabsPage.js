@@ -17,6 +17,7 @@ class TabsPage extends Component {
   };
 
   render() {
+    const {activeItem} = this.state
     return (
       <MDBContainer>
         <DocsLink title='Tabs' href='https://mdbootstrap.com/docs/react/components/tabs/' />
@@ -28,7 +29,7 @@ class TabsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to='#'
-                      active={this.state.activeItem === '1'}
+                      active={activeItem === '1'}
                       onClick={this.toggle('1')}
                       role='tab'
                     >
@@ -38,7 +39,7 @@ class TabsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to='#'
-                      active={this.state.activeItem === '2'}
+                      active={activeItem === '2'}
                       onClick={this.toggle('2')}
                       role='tab'
                     >
@@ -48,7 +49,7 @@ class TabsPage extends Component {
                   <MDBNavItem>
                     <MDBNavLink
                       to='#'
-                      active={this.state.activeItem === '3'}
+                      active={activeItem === '3'}
                       onClick={this.toggle('3')}
                       role='tab'
                     >
@@ -56,7 +57,7 @@ class TabsPage extends Component {
                     </MDBNavLink>
                   </MDBNavItem>
                 </MDBNav>
-                <MDBTabContent activeItem={this.state.activeItem}>
+                <MDBTabContent activeItem={activeItem}>
                   <MDBTabPane tabId='1' role='tabpanel'>
                     <p className='mt-2'>
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta
