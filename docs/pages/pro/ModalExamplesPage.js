@@ -35,7 +35,7 @@ class ModalExamplesPage extends Component {
   };
 
   toggle = nr => () => {
-    const modalNumber = `modal${  nr}`;
+    const modalNumber = `modal${nr}`;
     this.setState({
       ...this.state,
       [modalNumber]: !this.state[modalNumber]
@@ -43,8 +43,9 @@ class ModalExamplesPage extends Component {
   };
 
   onClick = number => () => {
+    const { accordion } = this.state;
     let state;
-    if (this.state.accordion !== number) {
+    if (accordion !== number) {
       state = number;
     } else {
       state = false;
@@ -57,7 +58,7 @@ class ModalExamplesPage extends Component {
   };
 
   render() {
-    const { accordion } = this.state;
+    const { accordion, modal13, modal8, modal9 } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -72,7 +73,7 @@ class ModalExamplesPage extends Component {
             position='right'
             backdrop={false}
             className='modal-notify modal-info text-white'
-            isOpen={this.state.modal9}
+            isOpen={modal9}
             toggle={this.toggle(9)}
           >
             <MDBModalHeader tag='p' toggle={this.toggle(9)}>
@@ -132,11 +133,7 @@ class ModalExamplesPage extends Component {
 
         <SectionContainer header='Product' flexCenter>
           <MDBBtn onClick={this.toggle(13)}>Launch Modal</MDBBtn>
-          <MDBModal
-            size='lg'
-            isOpen={this.state.modal13}
-            toggle={this.toggle(13)}
-          >
+          <MDBModal size='lg' isOpen={modal13} toggle={this.toggle(13)}>
             <MDBModalBody className='d-flex'>
               <MDBCol size='5' lg='5'>
                 {/* Carrousel */}
@@ -193,12 +190,11 @@ class ModalExamplesPage extends Component {
                     <MDBCollapseHeader onClick={this.onClick(1)}>
                       Description
                       <i
-                        className={
-                          `ml-1 ${ 
+                        className={`ml-1 ${
                           accordion === 1
                             ? 'fa fa-angle-down rotate-icon'
-                            : 'fa fa-angle-down'}`
-                        }
+                            : 'fa fa-angle-down'
+                        }`}
                       />
                     </MDBCollapseHeader>
                     <MDBCollapse isOpen={accordion === 1}>
@@ -214,12 +210,11 @@ class ModalExamplesPage extends Component {
                     <MDBCollapseHeader onClick={this.onClick(2)}>
                       Details
                       <i
-                        className={
-                          `ml-1 ${ 
+                        className={`ml-1 ${
                           accordion === 2
                             ? 'fa fa-angle-down rotate-icon'
-                            : 'fa fa-angle-down'}`
-                        }
+                            : 'fa fa-angle-down'
+                        }`}
                       />
                     </MDBCollapseHeader>
                     <MDBCollapse isOpen={accordion === 2}>
@@ -235,12 +230,11 @@ class ModalExamplesPage extends Component {
                     <MDBCollapseHeader onClick={this.onClick(3)}>
                       Shipping
                       <i
-                        className={
-                          `ml-1 ${ 
+                        className={`ml-1 ${
                           accordion === 3
                             ? 'fa fa-angle-down rotate-icon'
-                            : 'fa fa-angle-down'}`
-                        }
+                            : 'fa fa-angle-down'
+                        }`}
                       />
                     </MDBCollapseHeader>
                     <MDBCollapse isOpen={accordion === 3}>
@@ -307,11 +301,7 @@ class ModalExamplesPage extends Component {
 
         <SectionContainer header='Social share' flexCenter>
           <MDBBtn onClick={this.toggle(8)}>Launch Modal</MDBBtn>
-          <MDBModal
-            cascading
-            isOpen={this.state.modal8}
-            toggle={this.toggle(8)}
-          >
+          <MDBModal cascading isOpen={modal8} toggle={this.toggle(8)}>
             <MDBModalHeader
               className='text-center text-white light-blue darken-3'
               titleClass='w-100'

@@ -40,21 +40,21 @@ class DoubleNavigationPage extends Component {
     });
 
   handleToggleClickA = () => {
+    const { toggleStateA } = this.state;
     this.setState({
-      toggleStateA: !this.state.toggleStateA
+      toggleStateA: !toggleStateA
     });
   };
 
   render() {
+    const { breakWidth, toggleStateA, windowWidth } = this.state;
     const navStyle = {
-      paddingLeft:
-        this.state.windowWidth > this.state.breakWidth ? '210px' : '16px'
+      paddingLeft: windowWidth > breakWidth ? '210px' : '16px'
     };
     const mainStyle = {
       margin: '0 6%',
       paddingTop: '5.5rem',
-      paddingLeft:
-        this.state.windowWidth > this.state.breakWidth ? '240px' : '0'
+      paddingLeft: windowWidth > breakWidth ? '240px' : '0'
     };
     const specialCaseNavbarStyles = {
       WebkitBoxOrient: 'horizontal',
@@ -65,8 +65,8 @@ class DoubleNavigationPage extends Component {
         <div className='fixed-sn light-blue-skin'>
           <MDBSideNav
             logo='https://mdbootstrap.com/img/logo/mdb-transparent.png'
-            triggerOpening={this.state.toggleStateA}
-            breakWidth={this.state.breakWidth}
+            triggerOpening={toggleStateA}
+            breakWidth={breakWidth}
             bg='https://mdbootstrap.com/img/Photos/Others/sidenav1.jpg'
             mask='strong'
             fixed

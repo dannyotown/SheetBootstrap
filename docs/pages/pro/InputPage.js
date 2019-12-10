@@ -33,8 +33,10 @@ class InputPage extends Component {
   };
 
   handleCheckboxChange = e => {
-    this.setState({ checkbox: !this.state.checkbox });
-    console.log(`${e.target.value  } checked? ${  e.target.checked}`);
+    const { checkbox } = this.state;
+    const { checked, value } = e.target;
+    this.setState({ checkbox: !checkbox });
+    console.log(`${value} checked? ${checked}`);
   };
 
   handleSwitchChange = value => {
@@ -43,11 +45,12 @@ class InputPage extends Component {
   };
 
   handleChange = e => {
-    console.log(`${e.target.value  } checked? ${  e.target.checked}`);
+    const { checked, value } = e.target;
+    console.log(`${value} checked? ${checked}`);
   };
 
   handleRangeChange = value => {
-    console.log(`range value: ${  value}`);
+    console.log(`range value: ${value}`);
   };
 
   render() {
@@ -70,19 +73,19 @@ class InputPage extends Component {
               <MDBCol md='6' tag='section'>
                 <h4 className='mb-3'>Basic examples</h4>
                 <MDBContainer className='border p-3'>
-                  <MDBInput counter/>
+                  <MDBInput counter />
                 </MDBContainer>
               </MDBCol>
 
               <MDBCol md='6' tag='section'>
                 <h4 className='mb-3'>With max length</h4>
                 <MDBContainer className='border p-3'>
-                  <MDBInput counter={15}/>
+                  <MDBInput counter={15} />
                 </MDBContainer>
               </MDBCol>
             </MDBRow>
           </SectionContainer>
-          
+
           <SectionContainer title='Checkboxes' noBorder>
             <MDBRow>
               <MDBCol md='6' tag='section'>

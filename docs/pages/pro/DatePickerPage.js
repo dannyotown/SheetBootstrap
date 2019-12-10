@@ -15,6 +15,7 @@ class DatePickerPage extends Component {
   setDate = date => this.setState({ date: new Date(date) });
 
   render() {
+    const { date } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -50,10 +51,7 @@ class DatePickerPage extends Component {
         </SectionContainer>
 
         <SectionContainer header='With setDate' flexCenter>
-          <MDBDatePicker
-            value={this.state.date}
-            getValue={this.updateStateValue}
-          />
+          <MDBDatePicker value={date} getValue={this.updateStateValue} />
           <MDBBtn
             onClick={() => this.setDate('10.20.2020')}
             size='sm'

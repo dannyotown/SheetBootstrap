@@ -25,20 +25,23 @@ class AppPage extends React.Component {
   };
 
   handleTogglerClick = () => {
+    const { collapsed } = this.state;
     this.setState({
-      collapsed: !this.state.collapsed
+      collapsed: !collapsed
     });
   };
 
   componentDidMount() {
-    document.querySelector('nav').style.height='65px';
+    document.querySelector('nav').style.height = '65px';
   }
 
   componentWillUnmount() {
-    document.querySelector('nav').style.height='auto';
+    document.querySelector('nav').style.height = 'auto';
   }
 
   render() {
+    const { collapsed } = this.state;
+
     const overlay = (
       <div
         id='sidenav-overlay'
@@ -57,14 +60,14 @@ class AppPage extends React.Component {
               fixed='top'
               scrolling
               transparent
-              style={{marginTop: '65px'}}
+              style={{ marginTop: '65px' }}
             >
               <MDBContainer>
                 <MDBNavbarBrand>
                   <strong className='white-text'>MDB</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.handleTogglerClick} />
-                <MDBCollapse isOpen={this.state.collapsed} navbar>
+                <MDBCollapse isOpen={collapsed} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -93,31 +96,34 @@ class AppPage extends React.Component {
                 </MDBCollapse>
               </MDBContainer>
             </MDBNavbar>
-            {this.state.collapsed && overlay}
+            {collapsed && overlay}
           </div>
         </Router>
         <MDBView>
           <MDBMask className='d-flex justify-content-center align-items-center gradient'>
             <MDBContainer>
               <MDBRow>
-                  <MDBCol md='6' className='white-text text-center text-md-left mt-xl-5 mb-5'>
-                    <MDBAnimation type='fadeInLeft' delay='.3s'>
-                      <h1 className='h1-responsive font-weight-bold mt-sm-5'>
-                        Make purchases with our app
-                      </h1>
-                      <hr className='hr-light' />
-                      <h6 className='mb-4'>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Rem repellendus quasi fuga nesciunt dolorum nulla magnam
-                        veniam sapiente, fugiat! Commodi sequi non animi ea dolor
-                        molestiae iste.
-                      </h6>
-                      <MDBBtn color='white'>Download</MDBBtn>
-                      <MDBBtn outline color='white'>
-                        Learn More
-                      </MDBBtn>
-                    </MDBAnimation>
-                  </MDBCol>
+                <MDBCol
+                  md='6'
+                  className='white-text text-center text-md-left mt-xl-5 mb-5'
+                >
+                  <MDBAnimation type='fadeInLeft' delay='.3s'>
+                    <h1 className='h1-responsive font-weight-bold mt-sm-5'>
+                      Make purchases with our app
+                    </h1>
+                    <hr className='hr-light' />
+                    <h6 className='mb-4'>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Rem repellendus quasi fuga nesciunt dolorum nulla magnam
+                      veniam sapiente, fugiat! Commodi sequi non animi ea dolor
+                      molestiae iste.
+                    </h6>
+                    <MDBBtn color='white'>Download</MDBBtn>
+                    <MDBBtn outline color='white'>
+                      Learn More
+                    </MDBBtn>
+                  </MDBAnimation>
+                </MDBCol>
 
                 <MDBCol md='6' xl='5' className='mt-xl-5'>
                   <MDBAnimation type='fadeInRight' delay='.3s'>

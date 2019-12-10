@@ -23,8 +23,10 @@ class MinimalisticIntro extends React.Component {
   };
 
   handleTogglerClick = () => {
+    const { collapsed } = this.state;
+
     this.setState({
-      collapsed: !this.state.collapsed
+      collapsed: !collapsed
     });
   };
 
@@ -37,6 +39,7 @@ class MinimalisticIntro extends React.Component {
   }
 
   render() {
+    const { collapsed } = this.state;
     const navStyle = { marginTop: '4rem' };
     const overlay = (
       <div
@@ -63,7 +66,7 @@ class MinimalisticIntro extends React.Component {
                   <strong className='white-text'>MDB</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.handleTogglerClick} />
-                <MDBCollapse isOpen={this.state.collapsed} navbar>
+                <MDBCollapse isOpen={collapsed} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -92,12 +95,10 @@ class MinimalisticIntro extends React.Component {
                 </MDBCollapse>
               </MDBContainer>
             </MDBNavbar>
-            {this.state.collapsed && overlay}
+            {collapsed && overlay}
           </div>
         </Router>
-        <MDBView
-          src='https://mdbootstrap.com/img/Photos/Others/img%20%2848%29.jpg'
-        >
+        <MDBView src='https://mdbootstrap.com/img/Photos/Others/img%20%2848%29.jpg'>
           <MDBMask className='rgba-black-light d-flex justify-content-center align-items-center'>
             <MDBContainer>
               <MDBRow>

@@ -26,6 +26,8 @@ class SideNavPage extends Component {
   };
 
   render() {
+    const { sideNavRight, sideNavLeft } = this.state;
+
     return (
       <Router>
         <MDBContainer>
@@ -45,7 +47,7 @@ class SideNavPage extends Component {
             <MDBSideNav
               slim
               mask='rgba-blue-strong'
-              triggerOpening={this.state.sideNavLeft}
+              triggerOpening={sideNavLeft}
               breakWidth={1300}
               className='sn-bg-1'
             >
@@ -102,7 +104,7 @@ class SideNavPage extends Component {
             {/* the right SideNav: */}
             <MDBSideNav
               slim
-              triggerOpening={this.state.sideNavRight}
+              triggerOpening={sideNavRight}
               className='side-nav-light'
               right
               breakWidth={1300}

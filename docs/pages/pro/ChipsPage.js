@@ -42,7 +42,7 @@ class ChipsPage extends Component {
 
   handleCloseHere = param => e => {
     this.setState({
-      [`show${  param}`]: false
+      [`show${param}`]: false
     });
   };
 
@@ -77,7 +77,10 @@ class ChipsPage extends Component {
 
     return (
       <MDBContainer>
-        <DocsLink title='Chips' href='https://mdbootstrap.com/docs/react/components/badges/#chips-avatars' />
+        <DocsLink
+          title='Chips'
+          href='https://mdbootstrap.com/docs/react/components/badges/#chips-avatars'
+        />
         <MDBContainer>
           <SectionContainer header='Basic examples'>
             <div className='d-flex justify-content-center align-items-center'>
@@ -115,32 +118,62 @@ class ChipsPage extends Component {
 
             <div className='d-flex justify-content-center align-items-center'>
               {show7 && (
-                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(7)}>
+                <MDBChip
+                  waves
+                  bgColor='pink lighten-4'
+                  close
+                  handleClose={this.handleCloseHere(7)}
+                >
                   Tag 220
                 </MDBChip>
               )}
               {show8 && (
-                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(8)}>
+                <MDBChip
+                  waves
+                  bgColor='pink lighten-4'
+                  close
+                  handleClose={this.handleCloseHere(8)}
+                >
                   Tag 219
                 </MDBChip>
               )}
               {show9 && (
-                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(9)}>
+                <MDBChip
+                  waves
+                  bgColor='pink lighten-4'
+                  close
+                  handleClose={this.handleCloseHere(9)}
+                >
                   Tag 218
                 </MDBChip>
               )}
               {show10 && (
-                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(10)}>
+                <MDBChip
+                  waves
+                  bgColor='pink lighten-4'
+                  close
+                  handleClose={this.handleCloseHere(10)}
+                >
                   Tag 217
                 </MDBChip>
               )}
               {show11 && (
-                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(11)}>
+                <MDBChip
+                  waves
+                  bgColor='pink lighten-4'
+                  close
+                  handleClose={this.handleCloseHere(11)}
+                >
                   Tag 216
                 </MDBChip>
               )}
               {show12 && (
-                <MDBChip waves bgColor='pink lighten-4' close handleClose={this.handleCloseHere(12)}>
+                <MDBChip
+                  waves
+                  bgColor='pink lighten-4'
+                  close
+                  handleClose={this.handleCloseHere(12)}
+                >
                   Tag 215
                 </MDBChip>
               )}
@@ -149,7 +182,11 @@ class ChipsPage extends Component {
 
           <SectionContainer header='With avatars'>
             <div className='d-flex justify-content-center align-items-center'>
-              <MDBChip src='https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg' alt='Contact Person' waves>
+              <MDBChip
+                src='https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg'
+                alt='Contact Person'
+                waves
+              >
                 John Doe
               </MDBChip>
               <MDBChip
@@ -292,12 +329,24 @@ class ChipsPage extends Component {
             </div>
             <div className='d-flex justify-content-center align-items-center'>
               {show13 && (
-                <MDBChip bgColor='teal lighten-2' text='white' close waves handleClose={this.handleCloseHere(13)}>
+                <MDBChip
+                  bgColor='teal lighten-2'
+                  text='white'
+                  close
+                  waves
+                  handleClose={this.handleCloseHere(13)}
+                >
                   Martha
                 </MDBChip>
               )}
               {show14 && (
-                <MDBChip bgColor='pink lighten-2' text='white' close waves handleClose={this.handleCloseHere(14)}>
+                <MDBChip
+                  bgColor='pink lighten-2'
+                  text='white'
+                  close
+                  waves
+                  handleClose={this.handleCloseHere(14)}
+                >
                   Agnes
                 </MDBChip>
               )}
@@ -387,7 +436,14 @@ class ChipsPage extends Component {
             </div>
             <div className='d-flex justify-content-center align-items-center'>
               {show22 && (
-                <MDBChip size='lg' gradient='aqua' text='white' close waves handleClose={this.handleCloseHere(22)}>
+                <MDBChip
+                  size='lg'
+                  gradient='aqua'
+                  text='white'
+                  close
+                  waves
+                  handleClose={this.handleCloseHere(22)}
+                >
                   Aqua gradient
                 </MDBChip>
               )}
@@ -416,7 +472,14 @@ class ChipsPage extends Component {
                 </MDBChip>
               )}
               {show25 && (
-                <MDBChip size='lg' gradient='blue' text='white' close waves handleClose={this.handleCloseHere(25)}>
+                <MDBChip
+                  size='lg'
+                  gradient='blue'
+                  text='white'
+                  close
+                  waves
+                  handleClose={this.handleCloseHere(25)}
+                >
                   Blue gradient
                 </MDBChip>
               )}
@@ -424,13 +487,16 @@ class ChipsPage extends Component {
           </SectionContainer>
 
           <SectionContainer header='Basic examples'>
-            <MDBChipsInput placeholder='+Tag' secondaryPlaceholder='Enter a tag'
-              getValue={(value) => console.log(value)}
-              handleRemove={(value) => console.log(value)}
-              handleAdd={(value) => console.log(value)} />
+            <MDBChipsInput
+              placeholder='+Tag'
+              secondaryPlaceholder='Enter a tag'
+              getValue={value => console.log(value)}
+              handleRemove={value => console.log(value)}
+              handleAdd={value => console.log(value)}
+            />
             <MDBChipsInput
               chips={['Tag 1', 'Tag 2', 'Tag 3']}
-              getValue={(value) => console.log(value)}
+              getValue={value => console.log(value)}
             />
           </SectionContainer>
         </MDBContainer>

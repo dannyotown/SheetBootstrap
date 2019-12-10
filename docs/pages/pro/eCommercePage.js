@@ -94,7 +94,8 @@ class eCommercePage extends Component {
   };
 
   togglePills = tab => () => {
-    if (this.state.activePill !== tab) {
+    const { activePill } = this.state;
+    if (activePill !== tab) {
       this.setState({
         activePill: tab
       });
@@ -102,8 +103,9 @@ class eCommercePage extends Component {
   };
 
   selectNextTab = () => {
+    const { activePill } = this.state;
     this.setState({
-      activePill: (+this.state.activePill + 1).toString()
+      activePill: (+activePill + 1).toString()
     });
   };
 
@@ -432,7 +434,11 @@ class eCommercePage extends Component {
           </MDBRow>
         </SectionContainer>
 
-        <SectionContainer header='Shopping Cart Table' className='px-4' noBorder>
+        <SectionContainer
+          header='Shopping Cart Table'
+          className='px-4'
+          noBorder
+        >
           <MDBRow className='my-2' center>
             <MDBCard className='w-100'>
               <MDBCardBody>

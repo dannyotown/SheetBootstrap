@@ -11,16 +11,13 @@ import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
 
 class ScrollSpyPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      active: 0,
-      sections: []
-    };
+  state = {
+    active: 0,
+    sections: []
+  };
 
-    this.scrollSpyText = React.createRef();
-    this.scrollSpyTextBasic = React.createRef();
-  }
+  scrollSpyText = React.createRef();
+  scrollSpyTextBasic = React.createRef();
 
   componentDidMount() {
     const sections = this.scrollSpyText.current.getElementsByTagName('h4');
@@ -28,8 +25,8 @@ class ScrollSpyPage extends Component {
   }
 
   handleScroll = e => {
-    const {scrollTop} = e.target;
-    const {sections} = this.state;
+    const { scrollTop } = e.target;
+    const { sections } = this.state;
     const lastIndex = sections.length - 1;
 
     for (let i = 0; i < lastIndex; i++) {
@@ -46,6 +43,7 @@ class ScrollSpyPage extends Component {
   };
 
   render() {
+    const { active } = this.state;
     return (
       <MDBContainer className='mt-5'>
         <DocsLink
@@ -58,22 +56,13 @@ class ScrollSpyPage extends Component {
               color='grey'
               className='d-flex justify-content-end'
             >
-              <MDBScrollspyListItem
-                href='#section1'
-                active={this.state.active === 0}
-              >
+              <MDBScrollspyListItem href='#section1' active={active === 0}>
                 section1
               </MDBScrollspyListItem>
-              <MDBScrollspyListItem
-                href='#section2'
-                active={this.state.active === 1}
-              >
+              <MDBScrollspyListItem href='#section2' active={active === 1}>
                 section2
               </MDBScrollspyListItem>
-              <MDBScrollspyListItem
-                href='#section3'
-                active={this.state.active === 2}
-              >
+              <MDBScrollspyListItem href='#section3' active={active === 2}>
                 section3
               </MDBScrollspyListItem>
             </MDBScrollspyList>

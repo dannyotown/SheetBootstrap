@@ -37,6 +37,7 @@ class VideoBackgroundPage extends React.Component {
   }
 
   render() {
+    const { collapseID } = this.state;
     const navStyle = { marginTop: '4rem' };
     const overlay = (
       <div
@@ -57,11 +58,7 @@ class VideoBackgroundPage extends React.Component {
                 <MDBNavbarToggler
                   onClick={this.toggleCollapse('navbarCollapse')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -105,7 +102,7 @@ class VideoBackgroundPage extends React.Component {
                 </MDBCollapse>
               </MDBContainer>
             </MDBNavbar>
-            {this.state.collapseID && overlay}
+            {collapseID && overlay}
           </div>
         </Router>
 

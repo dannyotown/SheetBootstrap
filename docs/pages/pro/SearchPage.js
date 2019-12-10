@@ -48,8 +48,9 @@ class SearchPagePro extends Component {
   };
 
   handleTogglerClick = () => {
+    const { collapsed } = this.state;
     this.setState({
-      collapsed: !this.state.collapsed
+      collapsed: !collapsed
     });
   };
 
@@ -70,10 +71,14 @@ class SearchPagePro extends Component {
   };
 
   render() {
+    const { collapsed, options } = this.state;
     return (
       <Router>
         <MDBContainer>
-          <DocsLink title='Search' href='https://mdbootstrap.com/docs/react/forms/search/' />
+          <DocsLink
+            title='Search'
+            href='https://mdbootstrap.com/docs/react/forms/search/'
+          />
 
           <SectionContainer header='Basic' flexCenter flexColumn>
             <MDBInputGroup
@@ -133,7 +138,13 @@ class SearchPagePro extends Component {
               hint='Search'
               containerClassName='mb-3'
               append={
-                <MDBBtn color='unique' rounded size='sm' type='submit' className='m-0 z-depth-0'>
+                <MDBBtn
+                  color='unique'
+                  rounded
+                  size='sm'
+                  type='submit'
+                  className='m-0 z-depth-0'
+                >
                   Search
                 </MDBBtn>
               }
@@ -143,7 +154,14 @@ class SearchPagePro extends Component {
               hint='Search'
               containerClassName='mb-3'
               append={
-                <MDBBtn color='success' outline rounded size='sm' type='submit' className='m-0 z-depth-0'>
+                <MDBBtn
+                  color='success'
+                  outline
+                  rounded
+                  size='sm'
+                  type='submit'
+                  className='m-0 z-depth-0'
+                >
                   Search
                 </MDBBtn>
               }
@@ -152,20 +170,37 @@ class SearchPagePro extends Component {
             <MDBInputGroup
               hint='Search'
               append={
-                <MDBBtn gradient='peach' rounded size='sm' type='submit' className='m-0 z-depth-0'>
+                <MDBBtn
+                  gradient='peach'
+                  rounded
+                  size='sm'
+                  type='submit'
+                  className='m-0 z-depth-0'
+                >
                   Search
                 </MDBBtn>
               }
             />
           </SectionContainer>
 
-          <SectionContainer header='Material' flexCenter flexColumn className='mr-4'>
+          <SectionContainer
+            header='Material'
+            flexCenter
+            flexColumn
+            className='mr-4'
+          >
             <MDBInputGroup
               material
               hint='Search'
               containerClassName='mt-0'
               append={
-                <MDBBtn color='unique' style={{ borderRadius: '10em' }} rounded size='sm' type='submit'>
+                <MDBBtn
+                  color='unique'
+                  style={{ borderRadius: '10em' }}
+                  rounded
+                  size='sm'
+                  type='submit'
+                >
                   Search
                 </MDBBtn>
               }
@@ -176,7 +211,14 @@ class SearchPagePro extends Component {
               hint='Search'
               containerClassName='mt-0'
               append={
-                <MDBBtn color='success' outline style={{ borderRadius: '10em' }} rounded size='sm' type='submit'>
+                <MDBBtn
+                  color='success'
+                  outline
+                  style={{ borderRadius: '10em' }}
+                  rounded
+                  size='sm'
+                  type='submit'
+                >
                   Search
                 </MDBBtn>
               }
@@ -187,7 +229,13 @@ class SearchPagePro extends Component {
               hint='Search'
               containerClassName='mt-0'
               append={
-                <MDBBtn gradient='blue' style={{ borderRadius: '10em' }} rounded size='sm' type='submit'>
+                <MDBBtn
+                  gradient='blue'
+                  style={{ borderRadius: '10em' }}
+                  rounded
+                  size='sm'
+                  type='submit'
+                >
                   Search
                 </MDBBtn>
               }
@@ -195,18 +243,40 @@ class SearchPagePro extends Component {
           </SectionContainer>
 
           <SectionContainer header='Within select'>
-            <MDBSelect multiple search options={this.state.options} label='Choose your option' color='secondary' />
+            <MDBSelect
+              multiple
+              search
+              options={options}
+              label='Choose your option'
+              color='secondary'
+            />
           </SectionContainer>
 
           <SectionContainer header='With navbar'>
-            <MDBNavbar color='deep-purple' className='text-white darken-3 mb-4' dark expand='md'>
+            <MDBNavbar
+              color='deep-purple'
+              className='text-white darken-3 mb-4'
+              dark
+              expand='md'
+            >
               <MDBNavbarBrand>MDBNavbar</MDBNavbarBrand>
               <MDBNavbarToggler onClick={this.handleTogglerClick} />
-              <MDBCollapse isOpen={this.state.collapsed} navbar>
+              <MDBCollapse isOpen={collapsed} navbar>
                 <MDBNavbarNav right onClick={this.handleNavbarClick}>
                   <MDBFormInline className='md-form mr-auto m-0'>
-                    <input className='form-control mr-sm-2' type='text' placeholder='Search' aria-label='Search' />
-                    <MDBBtn outline color='white' size='sm' type='submit' className='mr-auto'>
+                    <input
+                      className='form-control mr-sm-2'
+                      type='text'
+                      placeholder='Search'
+                      aria-label='Search'
+                    />
+                    <MDBBtn
+                      outline
+                      color='white'
+                      size='sm'
+                      type='submit'
+                      className='mr-auto'
+                    >
                       Search
                     </MDBBtn>
                   </MDBFormInline>
@@ -214,10 +284,15 @@ class SearchPagePro extends Component {
               </MDBCollapse>
             </MDBNavbar>
 
-            <MDBNavbar color='blue-grey' light className='lighten-5' expand='md'>
+            <MDBNavbar
+              color='blue-grey'
+              light
+              className='lighten-5'
+              expand='md'
+            >
               <MDBNavbarBrand>MDBNavbar</MDBNavbarBrand>
               <MDBNavbarToggler onClick={this.handleTogglerClick} />
-              <MDBCollapse isOpen={this.state.collapsed} navbar>
+              <MDBCollapse isOpen={collapsed} navbar>
                 <MDBNavbarNav left onClick={this.handleNavbarClick}>
                   <MDBNavItem active>
                     <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -231,12 +306,22 @@ class SearchPagePro extends Component {
                 </MDBNavbarNav>
                 <MDBNavbarNav right onClick={this.handleNavbarClick}>
                   <MDBFormInline className='mr-auto m-0'>
-                    <input className='form-control mr-sm-2' type='text' placeholder='Search' aria-label='Search' />
+                    <input
+                      className='form-control mr-sm-2'
+                      type='text'
+                      placeholder='Search'
+                      aria-label='Search'
+                    />
                   </MDBFormInline>
                 </MDBNavbarNav>
               </MDBCollapse>
             </MDBNavbar>
-            <MDBNavbar color='pink lighten-3' dark className='lighten-5 mt-4' expand='md'>
+            <MDBNavbar
+              color='pink lighten-3'
+              dark
+              className='lighten-5 mt-4'
+              expand='md'
+            >
               <MDBNavbarNav left onClick={this.handleNavbarClick}>
                 <MDBFormInline className='md-form m-0'>
                   <input
@@ -250,11 +335,27 @@ class SearchPagePro extends Component {
               </MDBNavbarNav>
               <MDBNavbarBrand>MDBNavbar</MDBNavbarBrand>
             </MDBNavbar>
-            <MDBNavbar color='blue lighten-2' dark className='lighten-5 mt-4' expand='md'>
+            <MDBNavbar
+              color='blue lighten-2'
+              dark
+              className='lighten-5 mt-4'
+              expand='md'
+            >
               <MDBNavbarNav left onClick={this.handleNavbarClick}>
                 <MDBFormInline className='mr-auto'>
-                  <input className='form-control mr-sm-2' type='text' placeholder='Search' aria-label='Search' />
-                  <MDBBtn color='mdb-color' rounded size='sm' type='submit' className='mr-auto'>
+                  <input
+                    className='form-control mr-sm-2'
+                    type='text'
+                    placeholder='Search'
+                    aria-label='Search'
+                  />
+                  <MDBBtn
+                    color='mdb-color'
+                    rounded
+                    size='sm'
+                    type='submit'
+                    className='mr-auto'
+                  >
                     Search
                   </MDBBtn>
                 </MDBFormInline>

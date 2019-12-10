@@ -20,10 +20,12 @@ class NavbarPage extends Component {
   };
 
   toggleCollapse = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+    const { isOpen } = this.state;
+    this.setState({ isOpen: !isOpen });
   };
 
   render() {
+    const { isOpen } = this.state;
     const outerContainerStyle = { height: '800px' };
     return (
       <MDBContainer>
@@ -48,7 +50,7 @@ class NavbarPage extends Component {
               <strong className='white-text'>Navbar</strong>
             </MDBNavbarBrand>
             <MDBNavbarToggler onClick={this.toggleCollapse} />
-            <MDBCollapse id='navbarCollapse3' isOpen={this.state.isOpen} navbar>
+            <MDBCollapse id='navbarCollapse3' isOpen={isOpen} navbar>
               <MDBNavbarNav left>
                 <MDBNavItem>
                   <MDBSmoothScroll to='section1' smooth>

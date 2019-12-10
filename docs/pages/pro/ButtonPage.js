@@ -1,5 +1,11 @@
 import React from 'react';
-import { MDBBtn, MDBIcon, MDBBtnFixed, MDBBtnFixedItem, MDBContainer } from 'mdbreact';
+import {
+  MDBBtn,
+  MDBIcon,
+  MDBBtnFixed,
+  MDBBtnFixedItem,
+  MDBContainer
+} from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
 
@@ -34,12 +40,20 @@ class ButtonPage extends React.Component {
   };
 
   render() {
+    const { buttonStyle } = this.state;
+
     return (
       <MDBContainer>
-        <DocsLink title='Buttons' href='https://mdbootstrap.com/docs/react/components/buttons/' />
+        <DocsLink
+          title='Buttons'
+          href='https://mdbootstrap.com/docs/react/components/buttons/'
+        />
 
         <div className='container-fluid mt-5'>
-          <SectionContainer header='Rounded default' className='d-flex justify-content-center flex-wrap'>
+          <SectionContainer
+            header='Rounded default'
+            className='d-flex justify-content-center flex-wrap'
+          >
             <MDBBtn rounded>Rounded Default</MDBBtn>
             <MDBBtn color='primary' rounded>
               Rounded Primary
@@ -58,7 +72,10 @@ class ButtonPage extends React.Component {
             </MDBBtn>
           </SectionContainer>
 
-          <SectionContainer header='Rounded outline' className='d-flex justify-content-center flex-wrap'>
+          <SectionContainer
+            header='Rounded outline'
+            className='d-flex justify-content-center flex-wrap'
+          >
             <MDBBtn rounded outline>
               Rounded outline default
             </MDBBtn>
@@ -79,7 +96,10 @@ class ButtonPage extends React.Component {
             </MDBBtn>
           </SectionContainer>
 
-          <SectionContainer header='Gradient' className='d-flex justify-content-center flex-wrap'>
+          <SectionContainer
+            header='Gradient'
+            className='d-flex justify-content-center flex-wrap'
+          >
             <MDBBtn rounded gradient='peach'>
               Gradient Peach
             </MDBBtn>
@@ -94,11 +114,17 @@ class ButtonPage extends React.Component {
             </MDBBtn>
           </SectionContainer>
 
-          <SectionContainer header='Flat' className='d-flex justify-content-center'>
+          <SectionContainer
+            header='Flat'
+            className='d-flex justify-content-center'
+          >
             <MDBBtn flat>Flat MDBBtn</MDBBtn>
           </SectionContainer>
 
-          <SectionContainer header='Floating' className='d-flex justify-content-center align-items-center'>
+          <SectionContainer
+            header='Floating'
+            className='d-flex justify-content-center align-items-center'
+          >
             <MDBBtn tag='a' floating gradient='purple' size='lg'>
               <MDBIcon icon='bolt' />
             </MDBBtn>
@@ -120,11 +146,23 @@ class ButtonPage extends React.Component {
               icon='pencil-alt'
               style={{ bottom: '45px', right: '24px' }}
             >
-              <MDBBtnFixedItem buttonStyle={this.state.buttonStyle} color='red' icon='star' />
-              <MDBBtnFixedItem buttonStyle={this.state.buttonStyle} color='yellow' icon='user' />
-              <MDBBtnFixedItem buttonStyle={this.state.buttonStyle} color='green' icon='envelope' />
               <MDBBtnFixedItem
-                buttonStyle={this.state.buttonStyle}
+                buttonStyle={buttonStyle}
+                color='red'
+                icon='star'
+              />
+              <MDBBtnFixedItem
+                buttonStyle={buttonStyle}
+                color='yellow'
+                icon='user'
+              />
+              <MDBBtnFixedItem
+                buttonStyle={buttonStyle}
+                color='green'
+                icon='envelope'
+              />
+              <MDBBtnFixedItem
+                buttonStyle={buttonStyle}
                 color='blue'
                 icon='shopping-cart'
                 onClick={this.handleClick}

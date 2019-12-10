@@ -34,14 +34,15 @@ class ClassicFormPage extends React.Component {
     }));
 
   componentDidMount() {
-    document.querySelector('nav').style.height='65px';
+    document.querySelector('nav').style.height = '65px';
   }
 
   componentWillUnmount() {
-    document.querySelector('nav').style.height='auto';
+    document.querySelector('nav').style.height = 'auto';
   }
 
   render() {
+    const { collapseID } = this.state;
     const overlay = (
       <div
         id='sidenav-overlay'
@@ -53,7 +54,13 @@ class ClassicFormPage extends React.Component {
       <div id='classicformpage'>
         <Router>
           <div>
-            <MDBNavbar dark expand='md' scrolling fixed='top' style={{marginTop: '65px'}}>
+            <MDBNavbar
+              dark
+              expand='md'
+              scrolling
+              fixed='top'
+              style={{ marginTop: '65px' }}
+            >
               <MDBContainer>
                 <MDBNavbarBrand>
                   <strong className='white-text'>MDB</strong>
@@ -61,11 +68,7 @@ class ClassicFormPage extends React.Component {
                 <MDBNavbarToggler
                   onClick={this.toggleCollapse('navbarCollapse')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -94,7 +97,7 @@ class ClassicFormPage extends React.Component {
                 </MDBCollapse>
               </MDBContainer>
             </MDBNavbar>
-            {this.state.collapseID && overlay}
+            {collapseID && overlay}
           </div>
         </Router>
 

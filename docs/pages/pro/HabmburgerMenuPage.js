@@ -38,6 +38,7 @@ class HabmburgerMenuPage extends Component {
   };
 
   render() {
+    const { collapse1, collapse2, collapse3, collapseID } = this.state;
     return (
       <MDBContainer>
         <DocsLink
@@ -56,11 +57,7 @@ class HabmburgerMenuPage extends Component {
                 <MDBNavbarToggler
                   onClick={this.toggleCollapse('navbarCollapse0')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse0'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse0' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -90,7 +87,7 @@ class HabmburgerMenuPage extends Component {
                   id='hamburger1'
                   onClick={this.toggleSingleCollapse('collapse1')}
                 />
-                <MDBCollapse isOpen={this.state.collapse1} navbar>
+                <MDBCollapse isOpen={collapse1} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -114,7 +111,7 @@ class HabmburgerMenuPage extends Component {
                   isOpen
                   id='hamburger2'
                 />
-                <MDBCollapse isOpen={this.state.collapse2} navbar>
+                <MDBCollapse isOpen={collapse2} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -141,7 +138,7 @@ class HabmburgerMenuPage extends Component {
                   onClick={this.toggleSingleCollapse('collapse3')}
                   id='hamburger3'
                 />
-                <MDBCollapse isOpen={this.state.collapse3} navbar>
+                <MDBCollapse isOpen={collapse3} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -166,11 +163,7 @@ class HabmburgerMenuPage extends Component {
                   image='https://mdbootstrap.com/img/svg/hamburger6.svg?color=000'
                   onClick={this.toggleCollapse('navbarCollapse1')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse1'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse1' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -192,11 +185,7 @@ class HabmburgerMenuPage extends Component {
                 <MDBNavbarToggler
                   onClick={this.toggleCollapse('navbarCollapse2')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse2'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse2' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -222,11 +211,7 @@ class HabmburgerMenuPage extends Component {
                   image='https://mdbootstrap.com/img/svg/hamburger2.svg?color=fff'
                   onClick={this.toggleCollapse('navbarCollapse3')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse3'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse3' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -253,11 +238,7 @@ class HabmburgerMenuPage extends Component {
                   image='https://mdbootstrap.com/img/svg/hamburger1.svg?color=6a1b9a'
                   onClick={this.toggleCollapse('navbarCollapse5')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse5'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse5' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -284,11 +265,7 @@ class HabmburgerMenuPage extends Component {
                   image='https://mdbootstrap.com/img/svg/hamburger7.svg?color=BFE100'
                   onClick={this.toggleCollapse('navbarCollapse6')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse6'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse6' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -315,11 +292,7 @@ class HabmburgerMenuPage extends Component {
                   image='https://mdbootstrap.com/img/svg/hamburger5.svg?color=f3e5f5'
                   onClick={this.toggleCollapse('navbarCollapse7')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse7'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse7' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -342,11 +315,7 @@ class HabmburgerMenuPage extends Component {
                   image='https://mdbootstrap.com/img/svg/hamburger8.svg?color=E3005C'
                   onClick={this.toggleCollapse('navbarCollapse8')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse8'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse8' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -369,11 +338,7 @@ class HabmburgerMenuPage extends Component {
                   image='https://mdbootstrap.com/img/svg/hamburger9.svg?color=FF2C00'
                   onClick={this.toggleCollapse('navbarCollapse9')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse9'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse9' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -396,11 +361,7 @@ class HabmburgerMenuPage extends Component {
                   image='https://mdbootstrap.com/img/svg/hamburger4.svg?color=1729B0'
                   onClick={this.toggleCollapse('navbarCollapse10')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse10'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse10' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -423,11 +384,7 @@ class HabmburgerMenuPage extends Component {
                   image='https://mdbootstrap.com/img/svg/hamburger3.svg?color=00FBD8'
                   onClick={this.toggleCollapse('navbarCollapse11')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse11'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse11' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -461,11 +418,7 @@ class HabmburgerMenuPage extends Component {
                     <MDBIcon icon='bars' />
                   </span>
                 </MDBNavbarToggler>
-                <MDBCollapse
-                  id='navbarCollapse12'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse12' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -497,11 +450,7 @@ class HabmburgerMenuPage extends Component {
                     <MDBIcon icon='bars' />
                   </span>
                 </MDBNavbarToggler>
-                <MDBCollapse
-                  id='navbarCollapse13'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse13' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -533,11 +482,7 @@ class HabmburgerMenuPage extends Component {
                     <MDBIcon icon='bars' />
                   </span>
                 </MDBNavbarToggler>
-                <MDBCollapse
-                  id='navbarCollapse14'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse14' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -565,11 +510,7 @@ class HabmburgerMenuPage extends Component {
                     <MDBIcon icon='bars' />
                   </span>
                 </MDBNavbarToggler>
-                <MDBCollapse
-                  id='navbarCollapse15'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse15' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>

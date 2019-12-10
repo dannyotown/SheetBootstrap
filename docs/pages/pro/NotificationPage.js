@@ -39,23 +39,19 @@ const NotificationPage = () => {
         <button className='btn btn-info' onClick={notify('info')}>
           Info
         </button>
-       
+
         <button className='btn btn-success' onClick={notify('success')}>
           Success
         </button>
-      
+
         <button className='btn btn-warning' onClick={notify('warning')}>
           Warning
         </button>
-       
+
         <button className='btn btn-danger' onClick={notify('error')}>
           Error
         </button>
-        <ToastContainer
-          hideProgressBar
-          newestOnTop
-          autoClose={5000}
-        />
+        <ToastContainer hideProgressBar newestOnTop autoClose={5000} />
       </SectionContainer>
     </MDBContainer>
   );

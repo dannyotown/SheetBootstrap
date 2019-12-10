@@ -26,6 +26,7 @@ class SideNavPage extends Component {
   };
 
   render() {
+    const { sideNavRight, sideNavLeft } = this.state;
     return (
       <Router>
         <MDBContainer>
@@ -45,7 +46,7 @@ class SideNavPage extends Component {
             <MDBSideNav
               logo='https://mdbootstrap.com/img/logo/mdb-transparent.png'
               hidden
-              triggerOpening={this.state.sideNavLeft}
+              triggerOpening={sideNavLeft}
               breakWidth={1300}
               className='deep-purple darken-4'
             >
@@ -114,7 +115,7 @@ class SideNavPage extends Component {
             <MDBSideNav
               logo='https://mdbootstrap.com/img/logo/mdb-transparent.png'
               hidden
-              triggerOpening={this.state.sideNavRight}
+              triggerOpening={sideNavRight}
               className='side-nav-light'
               right
               breakWidth={1300}

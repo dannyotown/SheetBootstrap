@@ -29,6 +29,8 @@ class FlippingCardPage extends Component {
   };
 
   render() {
+    const { flipped1, flipped2 } = this.state;
+
     return (
       <MDBContainer>
         <DocsLink
@@ -39,7 +41,7 @@ class FlippingCardPage extends Component {
         <SectionContainer header='On click text' flexCenter>
           <MDBCol style={{ minHeight: '26rem', maxWidth: '22rem' }}>
             <MDBRotatingCard
-              flipped={this.state.flipped1}
+              flipped={flipped1}
               className='text-center h-100 w-100'
             >
               <MDBCard className='face front'>
@@ -120,7 +122,7 @@ class FlippingCardPage extends Component {
         <SectionContainer header='On share icon' flexCenter>
           <MDBCol style={{ minHeight: '26rem', maxWidth: '22rem' }}>
             <MDBRotatingCard
-              flipped={this.state.flipped2}
+              flipped={flipped2}
               className='text-center h-100 w-100'
             >
               <MDBCard className='face back text-center'>

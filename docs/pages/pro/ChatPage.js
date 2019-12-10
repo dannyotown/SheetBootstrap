@@ -291,6 +291,8 @@ class ChatPage extends Component {
   };
 
   render() {
+    const { friends, messages, messagesToScroll, friendsToScroll } = this.state;
+
     return (
       <MDBContainer>
         <DocsLink
@@ -306,7 +308,7 @@ class ChatPage extends Component {
                   <h6 className='font-weight-bold mb-3 text-lg-left'>Member</h6>
                   <div className='white z-depth-1 p-3'>
                     <MDBListGroup className='friend-list'>
-                      {this.state.friends.map(friend => (
+                      {friends.map(friend => (
                         <Friend key={friend.name} friend={friend} />
                       ))}
                     </MDBListGroup>
@@ -319,7 +321,7 @@ class ChatPage extends Component {
                 >
                   <MDBRow>
                     <MDBListGroup className='list-unstyled pl-3'>
-                      {this.state.messages.map(message => (
+                      {messages.map(message => (
                         <ChatMessage
                           key={message.author + message.when}
                           message={message}
@@ -365,7 +367,7 @@ class ChatPage extends Component {
                   <h6 className='font-weight-bold mb-3 text-lg-left'>Member</h6>
                   <MDBScrollbar className='white z-depth-1 p-3'>
                     <MDBListGroup className='friend-list'>
-                      {this.state.friendsToScroll.map(friend => (
+                      {friendsToScroll.map(friend => (
                         <Friend key={friend.name} friend={friend} />
                       ))}
                     </MDBListGroup>
@@ -378,7 +380,7 @@ class ChatPage extends Component {
                 >
                   <MDBScrollbar className='scrollable-chat'>
                     <MDBListGroup className='list-unstyled px-3'>
-                      {this.state.messagesToScroll.map(message => (
+                      {messagesToScroll.map(message => (
                         <ChatMessage
                           key={message.author + message.when}
                           message={message}

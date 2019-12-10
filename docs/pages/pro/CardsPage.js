@@ -23,10 +23,12 @@ class CardPage extends Component {
   };
 
   handleFlipping = () => {
-    this.setState({ flipped: !this.state.flipped });
+    const { flipped } = this.state;
+    this.setState({ flipped: !flipped });
   };
 
   render() {
+    const { flipped } = this.state;
     const colStyle = { maxWidth: '22rem' };
 
     return (
@@ -232,7 +234,7 @@ class CardPage extends Component {
               className='d-flex justify-content-center'
             >
               <MDBRotatingCard
-                flipped={this.state.flipped}
+                flipped={flipped}
                 className='text-center h-100 w-100'
                 style={colStyle}
               >

@@ -98,12 +98,12 @@ class AccordionPage extends Component {
             <MDBCollapseHeader onClick={this.toggleCollapse('collapse4')}>
               <span className='white-text'>#1</span>
               <MDBIcon
-                icon={this.state.collapseID === 'collapse4' ? 'angle-up' : 'angle-down'}
+                icon={collapseID === 'collapse4' ? 'angle-up' : 'angle-down'}
                 className='white-text'
                 style={{ float: 'right' }}
               />
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse4' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse4' isOpen={collapseID}>
               <MDBCardBody className='rgba-grey-light white-text'>
                 Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
                 moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
@@ -120,12 +120,12 @@ class AccordionPage extends Component {
             <MDBCollapseHeader onClick={this.toggleCollapse('collapse5')}>
               <span className='white-text'>#2</span>
               <MDBIcon
-                icon={this.state.collapseID === 'collapse5' ? 'angle-up' : 'angle-down'}
+                icon={collapseID === 'collapse5' ? 'angle-up' : 'angle-down'}
                 className='white-text'
                 style={{ float: 'right' }}
               />
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse5' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse5' isOpen={collapseID}>
               <MDBCardBody className='rgba-grey-light white-text'>
                 Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
                 moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
@@ -142,12 +142,12 @@ class AccordionPage extends Component {
             <MDBCollapseHeader onClick={this.toggleCollapse('collapse6')}>
               <span className='white-text'>#3</span>
               <MDBIcon
-                icon={this.state.collapseID === 'collapse6' ? 'angle-up' : 'angle-down'}
+                icon={collapseID === 'collapse6' ? 'angle-up' : 'angle-down'}
                 className='white-text'
                 style={{ float: 'right' }}
               />
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse6' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse6' isOpen={collapseID}>
               <MDBCardBody className='rgba-grey-light white-text'>
                 Pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
                 moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
@@ -171,7 +171,7 @@ class AccordionPage extends Component {
             >
               <span className='white-text font-weight-bold'>I am the first title of accordion</span>
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse7' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse7' isOpen={collapseID}>
               <MDBCardBody>
                 <MDBRow className='my-4'>
                   <MDBCol md='8'>
@@ -207,7 +207,7 @@ class AccordionPage extends Component {
             >
               <span className='white-text font-weight-bold'>I am the second title of accordion</span>
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse8' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse8' isOpen={collapseID}>
               <MDBCardBody>
                 <MDBRow className='my-4'>
                   <MDBCol md='8'>
@@ -243,7 +243,7 @@ class AccordionPage extends Component {
             >
               <span className='white-text font-weight-bold'>I am the third title of accordion</span>
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse9' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse9' isOpen={collapseID}>
               <MDBCardBody>
                 <MDBRow className='my-4'>
                   <MDBCol md='8'>
@@ -301,12 +301,12 @@ class AccordionPage extends Component {
             >
               How awesome accordion I am?
               <MDBIcon
-                icon={this.state.collapseID === 'collapse10' ? 'angle-up' : 'angle-down'}
+                icon={collapseID === 'collapse10' ? 'angle-up' : 'angle-down'}
                 className='red-text'
                 size='2x'
               />
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse10' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse10' isOpen={collapseID}>
               <MDBCardBody className='pt-0'>
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
@@ -329,12 +329,12 @@ class AccordionPage extends Component {
             >
               You're the greatest accordion!
               <MDBIcon
-                icon={this.state.collapseID === 'collapse11' ? 'angle-up' : 'angle-down'}
+                icon={collapseID === 'collapse11' ? 'angle-up' : 'angle-down'}
                 className='red-text'
                 size='2x'
               />
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse11' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse11' isOpen={collapseID}>
               <MDBCardBody className='pt-0'>
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
@@ -357,12 +357,12 @@ class AccordionPage extends Component {
             >
               Thank you my dear!
               <MDBIcon
-                icon={this.state.collapseID === 'collapse12' ? 'angle-up' : 'angle-down'}
+                icon={collapseID === 'collapse12' ? 'angle-up' : 'angle-down'}
                 className='red-text'
                 size='2x'
               />
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse12' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse12' isOpen={collapseID}>
               <MDBCardBody className='pt-0'>
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
@@ -390,7 +390,7 @@ class AccordionPage extends Component {
             >
               First title
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse13' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse13' isOpen={collapseID}>
               <MDBCardBody className='rgba-teal-strong white-text'>
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
@@ -417,7 +417,7 @@ class AccordionPage extends Component {
             >
               Second title
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse14' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse14' isOpen={collapseID}>
               <MDBCardBody className='rgba-teal-strong white-text'>
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
@@ -444,7 +444,7 @@ class AccordionPage extends Component {
             >
               Third title
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse15' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse15' isOpen={collapseID}>
               <MDBCardBody className='rgba-teal-strong white-text'>
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
@@ -471,7 +471,7 @@ class AccordionPage extends Component {
             >
               Fourth title
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse16' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse16' isOpen={collapseID}>
               <MDBCardBody className='rgba-teal-strong white-text'>
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
@@ -498,7 +498,7 @@ class AccordionPage extends Component {
             >
               Fifth title
             </MDBCollapseHeader>
-            <MDBCollapse id='collapse17' isOpen={this.state.collapseID}>
+            <MDBCollapse id='collapse17' isOpen={collapseID}>
               <MDBCardBody className='rgba-teal-strong white-text'>
                 <p>
                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
@@ -546,7 +546,7 @@ class AccordionPage extends Component {
                         Item #1
                       </MDBCollapseHeader>
 
-                      <MDBCollapse id='collapse1' isOpen={this.state.collapseID}>
+                      <MDBCollapse id='collapse1' isOpen={collapseID}>
                         <MDBCardBody className='rgba-black-light white-text z-depth-1'>
                           <p className='p-md-4 mb-0'>
                             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
@@ -574,7 +574,7 @@ class AccordionPage extends Component {
                         Item #2
                       </MDBCollapseHeader>
 
-                      <MDBCollapse id='collapse18' isOpen={this.state.collapseID}>
+                      <MDBCollapse id='collapse18' isOpen={collapseID}>
                         <MDBCardBody className='rgba-black-light white-text z-depth-1'>
                           <p className='p-md-4 mb-0'>
                             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson
@@ -602,7 +602,7 @@ class AccordionPage extends Component {
                         Item #3
                       </MDBCollapseHeader>
 
-                      <MDBCollapse id='collapse19' isOpen={this.state.collapseID}>
+                      <MDBCollapse id='collapse19' isOpen={collapseID}>
                         <MDBCardBody className='rgba-black-light white-text z-depth-1'>
                           <p className='p-md-4 mb-0'>
                             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson

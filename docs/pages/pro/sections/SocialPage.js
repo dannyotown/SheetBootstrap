@@ -30,6 +30,8 @@ class SocialPage extends Component {
     }));
 
   render() {
+    const { collapseID } =this.state;
+
     return (
       <MDBContainer style={{ maxWidth: '80%' }}>
         <DocsLink title='Social Sections' href='https://mdbootstrap.com/docs/react/sections/social/' />
@@ -247,7 +249,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse id='collapseExample-1' isOpen={this.state.collapseID}>
+                        <MDBCollapse id='collapseExample-1' isOpen={collapseID}>
                           <MDBCard className='card-body mt-1'>
                             <MDBInput type='textarea' label='Add comment' />
                             <div className='d-flex justify-content-end'>
@@ -320,7 +322,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse id='collapseExample-2' isOpen={this.state.collapseID}>
+                        <MDBCollapse id='collapseExample-2' isOpen={collapseID}>
                           <MDBCard className='card-body mt-1'>
                             <MDBInput type='textarea' label='Add comment' />
                             <div className='d-flex justify-content-end'>
@@ -381,7 +383,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse id='collapseExample-3' isOpen={this.state.collapseID}>
+                        <MDBCollapse id='collapseExample-3' isOpen={collapseID}>
                           <MDBCard className='card-body mt-1'>
                             <MDBInput type='textarea' label='Add comment' />
                             <div className='d-flex justify-content-end'>
@@ -446,7 +448,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse id='collapseExample-4' isOpen={this.state.collapseID}>
+                        <MDBCollapse id='collapseExample-4' isOpen={collapseID}>
                           <MDBCard className='card-body mt-1'>
                             <MDBInput type='textarea' label='Add comment' />
                             <div className='d-flex justify-content-end'>
@@ -519,7 +521,7 @@ class SocialPage extends Component {
                             <span>I don't like it</span>
                           </MDBTooltip>
                         </div>
-                        <MDBCollapse id='collapseExample-5' isOpen={this.state.collapseID}>
+                        <MDBCollapse id='collapseExample-5' isOpen={collapseID}>
                           <MDBCard className='card-body mt-1'>
                             <MDBInput type='textarea' label='Add comment' />
                             <div className='d-flex justify-content-end'>

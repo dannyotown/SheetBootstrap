@@ -24,8 +24,9 @@ class CallToActionIntro extends React.Component {
   };
 
   handleTogglerClick = () => {
+    const { collapsed } = this.state;
     this.setState({
-      collapsed: !this.state.collapsed
+      collapsed: !collapsed
     });
   };
 
@@ -38,6 +39,7 @@ class CallToActionIntro extends React.Component {
   }
 
   render() {
+    const { collapsed } = this.state;
     const navStyle = { marginTop: '4rem' };
     const overlay = (
       <div
@@ -64,7 +66,7 @@ class CallToActionIntro extends React.Component {
                   <strong>MDB</strong>
                 </MDBNavbarBrand>
                 <MDBNavbarToggler onClick={this.handleTogglerClick} />
-                <MDBCollapse isOpen={this.state.collapsed} navbar>
+                <MDBCollapse isOpen={collapsed} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -93,12 +95,10 @@ class CallToActionIntro extends React.Component {
                 </MDBCollapse>
               </MDBContainer>
             </MDBNavbar>
-            {this.state.collapsed && overlay}
+            {collapsed && overlay}
           </div>
         </Router>
-        <MDBView
-          src='https://mdbootstrap.com/img/Photos/Others/gradient2.png'
-        >
+        <MDBView src='https://mdbootstrap.com/img/Photos/Others/gradient2.png'>
           <MDBMask className='rgba-purple-slight d-flex justify-content-center align-items-center'>
             <MDBContainer>
               <MDBRow>

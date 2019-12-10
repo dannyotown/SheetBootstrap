@@ -287,8 +287,9 @@ class AutocompletePage extends Component {
   };
 
   toggle = () => {
+    const { modal } = this.state;
     this.setState({
-      modal: !this.state.modal
+      modal: !modal
     });
   };
 
@@ -303,6 +304,7 @@ class AutocompletePage extends Component {
   };
 
   render() {
+    const { modal } = this.state;
     const smallStyle = { fontSize: '0.8rem' };
     return (
       <MDBContainer>
@@ -413,17 +415,11 @@ class AutocompletePage extends Component {
           </MDBCol>
         </SectionContainer>
 
-
         <SectionContainer header='In contact form' flexCenter>
           <MDBBtn onClick={this.toggle} rounded className='mx-auto'>
             launch modal contact
           </MDBBtn>
-          <MDBModal
-            isOpen={this.state.modal}
-            toggle={this.toggle}
-            size='md'
-            cascading
-          >
+          <MDBModal isOpen={modal} toggle={this.toggle} size='md' cascading>
             <MDBModalHeader
               titleClass='d-inline title'
               className='text-center light-blue darken-3 white-text'

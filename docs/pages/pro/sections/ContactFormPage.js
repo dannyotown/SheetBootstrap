@@ -1,6 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow, MDBCol, MDBBtn,  MDBView, MDBContainer, MDBFormInline, MDBCard, MDBCardBody, MDBInput } from 'mdbreact';
+import {
+  MDBNavbar,
+  MDBNavbarBrand,
+  MDBNavbarNav,
+  MDBNavItem,
+  MDBNavLink,
+  MDBNavbarToggler,
+  MDBCollapse,
+  MDBMask,
+  MDBRow,
+  MDBCol,
+  MDBBtn,
+  MDBView,
+  MDBContainer,
+  MDBFormInline,
+  MDBCard,
+  MDBCardBody,
+  MDBInput
+} from 'mdbreact';
 import './ContactFormPage.css';
 
 class ContactFormPage extends React.Component {
@@ -13,15 +31,16 @@ class ContactFormPage extends React.Component {
       collapseID: prevState.collapseID !== collapseID ? collapseID : ''
     }));
 
-    componentDidMount(){
-      document.querySelector('nav').style.height='65px';
-    }
+  componentDidMount() {
+    document.querySelector('nav').style.height = '65px';
+  }
 
-    componentWillUnmount() {
-      document.querySelector('nav').style.height='auto';
-    }
+  componentWillUnmount() {
+    document.querySelector('nav').style.height = 'auto';
+  }
 
   render() {
+    const { collapseID } = this.state;
     const navStyle = { marginTop: '65px' };
     const overlay = (
       <div
@@ -50,11 +69,7 @@ class ContactFormPage extends React.Component {
                 <MDBNavbarToggler
                   onClick={this.toggleCollapse('navbarCollapse')}
                 />
-                <MDBCollapse
-                  id='navbarCollapse'
-                  isOpen={this.state.collapseID}
-                  navbar
-                >
+                <MDBCollapse id='navbarCollapse' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
                       <MDBNavLink to='#!'>Home</MDBNavLink>
@@ -83,7 +98,7 @@ class ContactFormPage extends React.Component {
                 </MDBCollapse>
               </MDBContainer>
             </MDBNavbar>
-            {this.state.collapseID && overlay}
+            {collapseID && overlay}
           </div>
         </Router>
 
