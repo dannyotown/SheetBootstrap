@@ -21,6 +21,7 @@ const Button = props => {
     action,
     active,
     block,
+    children,
     circle,
     className,
     color,
@@ -30,12 +31,12 @@ const Button = props => {
     innerRef,
     outline,
     role,
+    rounded,
     size,
     social,
     tag: Tag,
     target,
     type,
-    rounded,
     ...attributes
   } = props;
 
@@ -73,7 +74,7 @@ const Button = props => {
       download={download}
       disabled={disabled}
     >
-      {props.children}
+      {children}
       {!disabled && (
         <Waves cursorPos={cursorPos} outline={outline} flat={flat || rounded} />
       )}

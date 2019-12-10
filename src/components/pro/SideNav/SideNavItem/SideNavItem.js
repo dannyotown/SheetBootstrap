@@ -52,10 +52,10 @@ const SideNavItem = props => {
 
 SideNavItem.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   href: PropTypes.string,
-  tag: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  tag: PropTypes.string
 };
 
 SideNavItem.defaultProps = {

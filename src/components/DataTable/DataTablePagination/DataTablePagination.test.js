@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAttr, checkClass, checkProps } from '../../../tests/utils';
+import { findByTestAttr, checkClass } from '../../../tests/utils';
 import DataTablePagination from './DataTablePagination';
 
 const expectedProps = {
@@ -8,7 +8,7 @@ const expectedProps = {
   pages: [[{}, {}], [{}, {}], [{}, {}], [{}]],
   pagesAmount: 4,
   label: ['prev', 'next'],
-  changeActivePage: () => {}
+  changeActivePage: () => { }
 };
 
 const setup = (props = {}) =>
@@ -111,7 +111,7 @@ describe('<DataTablePagination />', () => {
 
     test('adds page-link class by default for PageLink', () => {
       wrapper.find('PageLink').map(node => {
-        checkClass(node, 'page-link');
+        return checkClass(node, 'page-link');
       });
     });
   });

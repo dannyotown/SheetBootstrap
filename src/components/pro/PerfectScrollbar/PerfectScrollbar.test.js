@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow, mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import {
   findByTestAttr,
   checkProps,
@@ -8,6 +8,7 @@ import {
 } from '../../../tests/utils';
 import PerfectScrollbar from './PerfectScrollbar';
 
+// eslint-disable-next-line no-unused-vars
 const setup = (props = {}) =>
   shallow(
     <PerfectScrollbar {...props}>
@@ -48,17 +49,17 @@ describe('<PerfectScrollbar />', () => {
     const expectedProps = {
       className: 'test',
       option: {},
-      containerRef: () => {},
-      onScrollY: () => {},
-      onScrollX: () => {},
-      onScrollUp: () => {},
-      onScrollDown: () => {},
-      onScrollLeft: () => {},
-      onScrollRight: () => {},
-      onYReachStart: () => {},
-      onYReachEnd: () => {},
-      onXReachStart: () => {},
-      onXReachEnd: () => {}
+      containerRef: () => { },
+      onScrollY: () => { },
+      onScrollX: () => { },
+      onScrollUp: () => { },
+      onScrollDown: () => { },
+      onScrollLeft: () => { },
+      onScrollRight: () => { },
+      onYReachStart: () => { },
+      onYReachEnd: () => { },
+      onXReachStart: () => { },
+      onXReachEnd: () => { }
     };
 
     wrapper = mounted(expectedProps);

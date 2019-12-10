@@ -87,8 +87,8 @@ class SideNavLink extends React.Component {
                   <span className='sv-normal'>{children}</span>
                 </>
               ) : (
-                <span className='sv-normal'>{children}</span>
-              )}
+                  <span className='sv-normal'>{children}</span>
+                )}
               <Waves cursorPos={cursorPos} />
             </Link>
           );
@@ -102,12 +102,12 @@ class SideNavLink extends React.Component {
 
 SideNavLink.propTypes = {
   children: PropTypes.node,
-  href: PropTypes.string,
-  tag: PropTypes.string,
-  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
-  topLevel: PropTypes.bool,
-  shortcut: PropTypes.string
+  href: PropTypes.string,
+  innerRef: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  shortcut: PropTypes.string,
+  tag: PropTypes.string,
+  topLevel: PropTypes.bool
 };
 
 SideNavLink.defaultProps = {

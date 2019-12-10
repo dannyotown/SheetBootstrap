@@ -131,8 +131,8 @@ class DataTable extends Component {
       { search: e.target.value },
       () => this.filterRows(),
       this.props.onSearch &&
-        typeof this.props.onSearch === 'function' &&
-        this.props.onSearch(e.target.value)
+      typeof this.props.onSearch === 'function' &&
+      this.props.onSearch(e.target.value)
     );
   };
 
@@ -165,8 +165,8 @@ class DataTable extends Component {
           ? -1
           : 1
         : a[field] > b[field]
-        ? -1
-        : 1;
+          ? -1
+          : 1;
     });
   };
 
@@ -223,9 +223,9 @@ class DataTable extends Component {
                 const getContent = element =>
                   typeof element === 'object'
                     ? element.props.children &&
-                      Array.from(element.props.children).map(el =>
-                        getContent(el)
-                      )
+                    Array.from(element.props.children).map(el =>
+                      getContent(el)
+                    )
                     : content.push(element);
 
                 getContent(row[key]);
@@ -251,7 +251,7 @@ class DataTable extends Component {
             filteredRows,
             activePage: (prevState.activePage =
               prevState.activePage < prevState.pages.length ||
-              prevState.activePage === 0
+                prevState.activePage === 0
                 ? prevState.activePage
                 : prevState.pages.length - 1)
           };
@@ -562,8 +562,8 @@ DataTable.propTypes = {
   bordered: PropTypes.bool,
   borderless: PropTypes.bool,
   btn: PropTypes.bool,
-  className: PropTypes.string,
   children: PropTypes.node,
+  className: PropTypes.string,
   dark: PropTypes.bool,
   data: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   disableRetreatAfterSorting: PropTypes.bool,
@@ -584,30 +584,30 @@ DataTable.propTypes = {
   maxHeight: PropTypes.string,
   noBottomColumns: PropTypes.bool,
   noRecordsFoundLabel: PropTypes.string,
-  order: PropTypes.arrayOf(PropTypes.string),
-  pagesAmount: PropTypes.number,
-  paging: PropTypes.bool,
-  paginationLabel: PropTypes.arrayOf(PropTypes.string),
-  responsive: PropTypes.bool,
-  responsiveSm: PropTypes.bool,
-  responsiveMd: PropTypes.bool,
-  responsiveLg: PropTypes.bool,
-  responsiveXl: PropTypes.bool,
-  searching: PropTypes.bool,
-  searchLabel: PropTypes.string,
-  scrollX: PropTypes.bool,
-  scrollY: PropTypes.bool,
-  sortable: PropTypes.bool,
-  sortRows: PropTypes.arrayOf(PropTypes.string),
-  small: PropTypes.bool,
-  striped: PropTypes.bool,
-  theadColor: PropTypes.string,
-  theadTextWhite: PropTypes.bool,
-  tbodyColor: PropTypes.string,
-  tbodyTextWhite: PropTypes.bool,
+  onPageChange: PropTypes.func,
   onSearch: PropTypes.func,
   onSort: PropTypes.func,
-  onPageChange: PropTypes.func
+  order: PropTypes.arrayOf(PropTypes.string),
+  pagesAmount: PropTypes.number,
+  paginationLabel: PropTypes.arrayOf(PropTypes.string),
+  paging: PropTypes.bool,
+  responsive: PropTypes.bool,
+  responsiveLg: PropTypes.bool,
+  responsiveMd: PropTypes.bool,
+  responsiveSm: PropTypes.bool,
+  responsiveXl: PropTypes.bool,
+  scrollX: PropTypes.bool,
+  scrollY: PropTypes.bool,
+  searching: PropTypes.bool,
+  searchLabel: PropTypes.string,
+  small: PropTypes.bool,
+  sortable: PropTypes.bool,
+  sortRows: PropTypes.arrayOf(PropTypes.string),
+  striped: PropTypes.bool,
+  tbodyColor: PropTypes.string,
+  tbodyTextWhite: PropTypes.bool,
+  theadColor: PropTypes.string,
+  theadTextWhite: PropTypes.bool,
 };
 
 DataTable.defaultProps = {

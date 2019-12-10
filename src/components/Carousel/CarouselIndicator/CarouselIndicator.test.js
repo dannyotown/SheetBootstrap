@@ -6,7 +6,6 @@ import {
   findByTestAttr,
   checkProps,
   checkClass,
-  checkTag
 } from '../../../tests/utils';
 import CarouselIndicator from './CarouselIndicator';
 

@@ -5,8 +5,8 @@ import { returnAttributes } from '../utils';
 
 class Iframe extends Component {
   state = {
-    width: '',
-    height: '',
+    stateWidth: '',
+    stateHeight: '',
     ratio: ''
   };
 
@@ -55,6 +55,8 @@ class Iframe extends Component {
       width
     } = this.props;
 
+    const { stateWidth, stateHeight } = this.state
+
     const classes = classNames('embed-responsive-item', className);
     const wrapperClasses = classNames(
       !(height || width) && 'embed-responsive',
@@ -67,9 +69,9 @@ class Iframe extends Component {
       frameBorder: '0',
       target: '_parent',
       allowFullScreen: allowFullScreen || true,
-      height: this.state.height || '100%',
+      height: stateHeight || '100%',
       name: name || undefined,
-      width: this.state.width || '100%',
+      width: stateWidth || '100%',
       onLoad: onLoad || undefined,
       onMouseOver: onMouseOver || undefined,
       onMouseOut: onMouseOut || undefined,
