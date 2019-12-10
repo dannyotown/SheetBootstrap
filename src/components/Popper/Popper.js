@@ -10,7 +10,6 @@ class Popover extends React.Component {
     visible: this.props.isVisible,
     showPopper: this.props.isVisible
   };
-
   popoverWrapperRef = React.createRef();
   referenceElm = React.createRef();
 
@@ -24,12 +23,17 @@ class Popover extends React.Component {
       prevProps.isVisible !== isVisible &&
       isVisible !== showPopper &&
       showPopper !== prevProps.showPopper
-    )
-      {this.setState({ showPopper: isVisible });}
+    ) {
+      this.setState({ showPopper: isVisible });
+    }
 
-    if (onChange && showPopper !== prevState.showPopper) {onChange(showPopper);}
+    if (onChange && showPopper !== prevState.showPopper) {
+      onChange(showPopper);
+    }
 
-    if (showPopper && prevState.showPopper !== showPopper) {this.createPopper();}
+    if (showPopper && prevState.showPopper !== showPopper) {
+      this.createPopper();
+    }
   }
 
   componentDidMount() {
@@ -39,62 +43,69 @@ class Popover extends React.Component {
   }
 
   setPopperJS = () => {
-    if (this.state.showPopper) {
-      this.state.popperJS
-        ? this.state.popperJS.scheduleUpdate()
-        : this.createPopper();
+    const { showPopper, popperJS } = this.state;
+    if (showPopper) {
+      popperJS ? popperJS.scheduleUpdate() : this.createPopper();
       setTimeout(() => clearInterval(this.timer), 1000);
     }
   };
 
   createPopper = () => {
-    if (this.referenceElm && this.popoverWrapperRef)
-      {this.setState({
+    const { popperJS } = this.state;
+    const { placement, modifiers } = this.props;
+    if (this.referenceElm && this.popoverWrapperRef) {
+      this.setState({
         popperJS: new Popper(
           this.referenceElm,
           this.popoverWrapperRef,
           {
-            placement: this.props.placement,
-            ...this.props.modifiers
+            placement: placement,
+            ...modifiers
           },
           () =>
             setTimeout(() => {
-              this.state.popperJS.scheduleUpdate();
+              popperJS.scheduleUpdate();
             }, 10)
         )
-      });}
+      });
+    }
   };
 
   doToggle = toggler => {
+    const { popperJS, showPopper, visible } = this.state;
+
     this.setState(
       {
         showPopper: toggler && true
       },
       () => {
-        if (this.state.showPopper)
-          {this.setState(
+        if (showPopper) {
+          this.setState(
             {
-              visible:
-                typeof toggler !== 'undefined' ? toggler : !this.state.visible
+              visible: typeof toggler !== 'undefined' ? toggler : !visible
             },
             () => {
               this.createPopper();
-              this.state.popperJS.scheduleUpdate();
+              popperJS.scheduleUpdate();
             }
-          );}
+          );
+        }
       }
     );
   };
 
   handleClick = e => {
     const { target } = e;
-    if (this.popoverWrapperRef && this.state.showPopper) {
+    const { showPopper } = this.state;
+
+    if (this.popoverWrapperRef && showPopper) {
       if (
         this.popoverWrapperRef.contains(target) ||
         this.referenceElm.contains(target) ||
         target === this.referenceElm
-      )
-        {return;}
+      ) {
+        return;
+      }
 
       this.doToggle(false);
     }
@@ -126,7 +137,7 @@ class Popover extends React.Component {
     const Wrapper = children[0];
 
     const classes = classNames(
-      visible && 'popover-show',
+      visible && 'show',
       popover ? 'popover' : !material && !email && 'tooltip px-2',
       className
     );
@@ -188,7 +199,7 @@ class Popover extends React.Component {
               {Popper.props.children}
             </Popper.type>
 
-            <span x-arrow='' className={classNames('popover_arrow')} />
+            <span x-arrow='' className={classNames('popover_arrow')}></span>
           </Tag>
         )}
       </>

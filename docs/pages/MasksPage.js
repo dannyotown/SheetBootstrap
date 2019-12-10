@@ -11,7 +11,7 @@ const MasksPage = () => {
         href='https://mdbootstrap.com/docs/react/css/masks/'
       />
 
-      <MDBRow>
+      <MDBRow className='justify-content-center'>
         <MDBCol md='8'>
           <SectionContainer header='pattern={1}'>
             <MDBView>
