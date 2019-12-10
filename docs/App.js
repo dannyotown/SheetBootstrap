@@ -25,9 +25,10 @@ class App extends Component {
       collapseID: prevState.collapseID !== collapseID ? collapseID : ''
     }));
 
-  closeCollapse = collapseID => () => {
+  closeCollapse = collID => () => {
+    const { collapseID } = this.state;
     window.scrollTo(0, 0);
-    this.state.collapseID === collapseID && this.setState({ collapseID: '' });
+    collapseID === collID && this.setState({ collapseID: '' });
   };
 
   render() {
