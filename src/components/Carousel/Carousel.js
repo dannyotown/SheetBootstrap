@@ -9,7 +9,7 @@ import './Carousel.css';
 class Carousel extends Component {
   state = {
     activeItem: this.props.activeItem,
-    length: this.props.length,
+    initialLength: this.props.length,
     srcArray: [],
     swipeAvailable: true,
     initialX: null,
@@ -40,10 +40,11 @@ class Carousel extends Component {
   }
 
   componentDidUpdate() {
-    const { length } = this.state;
-    if (length !== this.props.length) {
+    const { length } = this.props;
+    const { InitialLength } = this.state;
+    if (InitialLength !== length) {
       this.setState({
-        length: this.props.length
+        InitialLength: length
       });
     }
   }
@@ -70,19 +71,17 @@ class Carousel extends Component {
   };
 
   next = () => {
-    const { activeItem, length } = this.state;
-
+    const { activeItem, initialLength } = this.state;
     const nextIndex = activeItem + 1;
-    const nextItem = nextIndex > length ? 1 : nextIndex;
+    const nextItem = nextIndex > initialLength ? 1 : nextIndex;
 
     this.goToIndex(nextItem);
   };
 
   prev = () => {
-    const { activeItem, length } = this.state;
-
+    const { activeItem, initialLength } = this.state;
     const prevIndex = activeItem - 1;
-    const prevItem = prevIndex < 1 ? length : prevIndex;
+    const prevItem = prevIndex < 1 ? initialLength : prevIndex;
 
     this.goToIndex(prevItem);
   };
@@ -139,12 +138,12 @@ class Carousel extends Component {
   };
 
   getChildContext() {
-    const { activeItem, length } = this.state;
+    const { activeItem, initialLength } = this.state;
     const { slide } = this.props;
     return {
-      activeItem: activeItem,
-      length: length,
-      slide: slide
+      activeItem,
+      length: initialLength,
+      slide
     };
   }
 
@@ -166,7 +165,7 @@ class Carousel extends Component {
       ...attributes
     } = this.props;
 
-    const { swipeAvailable, srcArray, length } = this.state;
+    const { initialLength, srcArray, swipeAvailable } = this.state;
     const ariaLabel = 'carousel';
 
     const classes = classNames(
@@ -178,7 +177,7 @@ class Carousel extends Component {
     );
 
     const CarouselIndicatorsArray = [];
-    for (let i = 1; i <= length; i++) {
+    for (let i = 1; i <= initialLength; i++) {
       const { activeItem } = this.state;
       CarouselIndicatorsArray.push(
         <CarouselIndicator
