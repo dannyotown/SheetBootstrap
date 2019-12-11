@@ -1,8 +1,8 @@
 {
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "requirePragma": true,
-  "trailingComma": "all",
-  "disableLanguages": ["html"],
+  "prettier.requirePragma": true,
+  "prettier.trailingComma": "all",
+  "prettier.disableLanguages": ["html"],
   "printWidth": 140
 }

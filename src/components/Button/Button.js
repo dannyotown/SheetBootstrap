@@ -42,9 +42,9 @@ const Button = props => {
 
   const classes = classNames(
     color !== '' && `btn-${color}`,
+    color && outline && `btn-outline-${color}`,
     'btn',
     'Ripple-parent',
-    className,
     {
       active,
       'btn-circle': circle,
@@ -53,7 +53,8 @@ const Button = props => {
       [`btn-${social}`]: social,
       [`btn-${size}`]: size,
       disabled
-    }
+    },
+    className
   );
 
   if (attributes.href && Tag === 'button') {
@@ -75,9 +76,7 @@ const Button = props => {
       disabled={disabled}
     >
       {children}
-      {!disabled && (
-        <Waves cursorPos={cursorPos} outline={outline} flat={flat || rounded} />
-      )}
+      {!disabled && <Waves cursorPos={cursorPos} outline={outline} flat={flat || rounded} />}
     </Tag>
   );
 };

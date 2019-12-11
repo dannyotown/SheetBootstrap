@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  MDBBtn,
   MDBBtnGroup,
   MDBIcon,
   MDBContainer,
@@ -11,6 +10,7 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem
 } from 'mdbreact';
+import MDBBtn from '../../src/components/Button';
 import DocsLink from '../components/docsLink';
 import SectionContainer from '../components/sectionContainer';
 
@@ -274,7 +274,6 @@ const ButtonPage = () => {
 
       <SectionContainer header='Multicolored button group'>
         <MDBRow className='d-flex align-items-center justify-content-center'>
-
           <MDBCol xl='4' md='12' className='mb-xl-0 mb-4 align-self-center'>
             <MDBBtnGroup>
               <MDBBtn color='primary'>Left</MDBBtn>
@@ -303,7 +302,6 @@ const ButtonPage = () => {
               </MDBBtnGroup>
             </div>
           </MDBCol>
-
         </MDBRow>
       </SectionContainer>
     </MDBContainer>
