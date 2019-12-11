@@ -6015,9 +6015,9 @@ var Button = function Button(props) {
 
   var classes = classNames(
     color !== '' && 'btn-'.concat(color),
+    color && outline && 'btn-outline-'.concat(color),
     'btn',
     'Ripple-parent',
-    className,
     ((_classNames = {
       active: active,
       'btn-circle': circle,
@@ -6027,7 +6027,8 @@ var Button = function Button(props) {
     _defineProperty(_classNames, 'btn-'.concat(social), social),
     _defineProperty(_classNames, 'btn-'.concat(size), size),
     _defineProperty(_classNames, 'disabled', disabled),
-    _classNames)
+    _classNames),
+    className
   );
 
   if (attributes.href && Tag === 'button') {
