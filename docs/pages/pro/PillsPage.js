@@ -11,7 +11,7 @@ import {
   MDBTabContent,
   MDBNav,
   MDBNavItem,
-  MDBNavLink,
+  MDBLink,
   MDBIcon,
   MDBDropdown,
   MDBDropdownToggle,
@@ -218,10 +218,7 @@ class PillsPage extends Component {
 
     return (
       <MDBContainer>
-        <DocsLink
-          title='Pills'
-          href='https://mdbootstrap.com/docs/react/components/pills/'
-        />
+        <DocsLink title='Pills' href='https://mdbootstrap.com/docs/react/components/pills/' />
 
         <MDBContainer className='mt-4'>
           <MDBRow>
@@ -229,77 +226,50 @@ class PillsPage extends Component {
               <SectionContainer header='Basic example'>
                 <MDBNav pills color='secondary'>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['default'] === '1'}
-                      link
-                      onClick={this.togglePills('default', '1')}
-                    >
+                    <MDBLink to='#' active={items['default'] === '1'} link onClick={this.togglePills('default', '1')}>
                       Active
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['default'] === '2'}
-                      link
-                      onClick={this.togglePills('default', '2')}
-                    >
+                    <MDBLink to='#' active={items['default'] === '2'} link onClick={this.togglePills('default', '2')}>
                       Link
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['default'] === '3'}
-                      link
-                      onClick={this.togglePills('default', '3')}
-                    >
+                    <MDBLink to='#' active={items['default'] === '3'} link onClick={this.togglePills('default', '3')}>
                       Link
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['default'] === '4'}
-                      link
-                      onClick={this.togglePills('default', '4')}
-                    >
+                    <MDBLink to='#' active={items['default'] === '4'} link onClick={this.togglePills('default', '4')}>
                       Help
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                 </MDBNav>
                 <MDBTabContent activeItem={items.default}>
                   <MDBTabPane tabId='1'>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Nihil odit magnam minima, soluta doloribus reiciendis
-                      molestiae placeat unde eos molestias. Quisquam aperiam,
-                      pariatur. Tempora, placeat ratione porro voluptate odit
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                      molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
                       minima.
                     </p>
                   </MDBTabPane>
                   <MDBTabPane tabId='2'>
                     <p>
-                      Nihil odit magnam minima, soluta doloribus reiciendis
-                      molestiae placeat unde eos molestias. Quisquam aperiam,
-                      pariatur. Tempora, placeat ratione porro voluptate odit
-                      minima.
+                      Nihil odit magnam minima, soluta doloribus reiciendis molestiae placeat unde eos molestias. Quisquam aperiam,
+                      pariatur. Tempora, placeat ratione porro voluptate odit minima.
                     </p>
                   </MDBTabPane>
                   <MDBTabPane tabId='3'>
                     <p>
-                      Tempora, placeat ratione porro voluptate odit minima.
-                      Nihil odit magnam minima, soluta doloribus reiciendis
-                      molestiae placeat unde eos molestias.
+                      Tempora, placeat ratione porro voluptate odit minima. Nihil odit magnam minima, soluta doloribus reiciendis molestiae
+                      placeat unde eos molestias.
                     </p>
                   </MDBTabPane>
                   <MDBTabPane tabId='4'>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Nihil odit magnam minima, soluta doloribus reiciendis
-                      molestiae placeat unde eos molestias. Quisquam aperiam,
-                      pariatur.
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                      molestiae placeat unde eos molestias. Quisquam aperiam, pariatur.
                     </p>
                   </MDBTabPane>
                 </MDBTabContent>
@@ -308,44 +278,24 @@ class PillsPage extends Component {
               <SectionContainer header='Justified'>
                 <MDBNav pills color='pink' className='nav-justified'>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['justified'] === '1'}
-                      link
-                      onClick={this.togglePills('justified', '1')}
-                    >
+                    <MDBLink to='#' active={items['justified'] === '1'} link onClick={this.togglePills('justified', '1')}>
                       Active
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['justified'] === '2'}
-                      link
-                      onClick={this.togglePills('justified', '2')}
-                    >
+                    <MDBLink to='#' active={items['justified'] === '2'} link onClick={this.togglePills('justified', '2')}>
                       Link
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['justified'] === '3'}
-                      link
-                      onClick={this.togglePills('justified', '3')}
-                    >
+                    <MDBLink to='#' active={items['justified'] === '3'} link onClick={this.togglePills('justified', '3')}>
                       Link
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['justified'] === '4'}
-                      link
-                      onClick={this.togglePills('justified', '4')}
-                    >
+                    <MDBLink to='#' active={items['justified'] === '4'} link onClick={this.togglePills('justified', '4')}>
                       Help
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -353,14 +303,9 @@ class PillsPage extends Component {
               <SectionContainer header='With dropdown'>
                 <MDBNav pills color='success' className='nav-justified '>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['dropdown'] === '1'}
-                      link
-                      onClick={this.togglePills('dropdown', '1')}
-                    >
+                    <MDBLink to='#' active={items['dropdown'] === '1'} link onClick={this.togglePills('dropdown', '1')}>
                       Active
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBDropdown>
@@ -377,24 +322,14 @@ class PillsPage extends Component {
                     </MDBDropdown>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['dropdown'] === '2'}
-                      link
-                      onClick={this.togglePills('dropdown', '2')}
-                    >
+                    <MDBLink to='#' active={items['dropdown'] === '2'} link onClick={this.togglePills('dropdown', '2')}>
                       Link 1
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['dropdown'] === '3'}
-                      link
-                      onClick={this.togglePills('dropdown', '3')}
-                    >
+                    <MDBLink to='#' active={items['dropdown'] === '3'} link onClick={this.togglePills('dropdown', '3')}>
                       Link 2
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -404,36 +339,21 @@ class PillsPage extends Component {
                   <MDBCol md='6'>
                     <MDBNav pills color='primary' className='flex-column'>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['vertical'] === '1'}
-                          link
-                          onClick={this.togglePills('vertical', '1')}
-                        >
+                        <MDBLink to='#' active={items['vertical'] === '1'} link onClick={this.togglePills('vertical', '1')}>
                           Downloads <MDBIcon icon='download' className='ml-2' />
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['vertical'] === '2'}
-                          link
-                          onClick={this.togglePills('vertical', '2')}
-                        >
+                        <MDBLink to='#' active={items['vertical'] === '2'} link onClick={this.togglePills('vertical', '2')}>
                           Orders & invoices
                           <MDBIcon icon='file-alt' className='ml-2' />
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['vertical'] === '3'}
-                          link
-                          onClick={this.togglePills('vertical', '3')}
-                        >
+                        <MDBLink to='#' active={items['vertical'] === '3'} link onClick={this.togglePills('vertical', '3')}>
                           Billing Details
                           <MDBIcon icon='address-card' className='ml-2' />
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                     </MDBNav>
                   </MDBCol>
@@ -448,9 +368,7 @@ class PillsPage extends Component {
                       <MDBTabPane tabId='2'>
                         <MDBCardBody className='d-flex flex-column align-items-center'>
                           <MDBCardTitle>Orders & Invoices</MDBCardTitle>
-                          <MDBCardText>
-                            "Hello? Is it me you're looking for?"
-                          </MDBCardText>
+                          <MDBCardText>"Hello? Is it me you're looking for?"</MDBCardText>
                         </MDBCardBody>
                       </MDBTabPane>
                       <MDBTabPane tabId='3'>
@@ -472,325 +390,165 @@ class PillsPage extends Component {
               <SectionContainer header='With gradient'>
                 <MDBNav pills className='nav-justified pills-peach-gradient'>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['gradient'] === '1'}
-                      link
-                      onClick={this.togglePills('gradient', '1')}
-                    >
+                    <MDBLink to='#' active={items['gradient'] === '1'} link onClick={this.togglePills('gradient', '1')}>
                       Blogger
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['gradient'] === '2'}
-                      link
-                      onClick={this.togglePills('gradient', '2')}
-                    >
+                    <MDBLink to='#' active={items['gradient'] === '2'} link onClick={this.togglePills('gradient', '2')}>
                       Designer
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['gradient'] === '3'}
-                      link
-                      onClick={this.togglePills('gradient', '3')}
-                    >
+                    <MDBLink to='#' active={items['gradient'] === '3'} link onClick={this.togglePills('gradient', '3')}>
                       Photographer
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['gradient'] === '4'}
-                      link
-                      onClick={this.togglePills('gradient', '4')}
-                    >
+                    <MDBLink to='#' active={items['gradient'] === '4'} link onClick={this.togglePills('gradient', '4')}>
                       Model
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
 
               <SectionContainer header='Rounded'>
                 <MDBRow>
-                  <MDBNav
-                    pills
-                    color='deep-purple'
-                    className='nav-justified col-md-6 pills-rounded'
-                  >
+                  <MDBNav pills color='deep-purple' className='nav-justified col-md-6 pills-rounded'>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['rounded'] === '1'}
-                        link
-                        onClick={this.togglePills('rounded', '1')}
-                      >
+                      <MDBLink to='#' active={items['rounded'] === '1'} link onClick={this.togglePills('rounded', '1')}>
                         Active
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['rounded'] === '2'}
-                        link
-                        onClick={this.togglePills('rounded', '2')}
-                      >
+                      <MDBLink to='#' active={items['rounded'] === '2'} link onClick={this.togglePills('rounded', '2')}>
                         Link 1
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['rounded'] === '3'}
-                        link
-                        onClick={this.togglePills('rounded', '3')}
-                      >
+                      <MDBLink to='#' active={items['rounded'] === '3'} link onClick={this.togglePills('rounded', '3')}>
                         Link 2
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['rounded'] === '4'}
-                        link
-                        onClick={this.togglePills('rounded', '4')}
-                      >
+                      <MDBLink to='#' active={items['rounded'] === '4'} link onClick={this.togglePills('rounded', '4')}>
                         Link 3
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                   </MDBNav>
 
-                  <MDBNav
-                    pills
-                    color='light-purple'
-                    className='nav-justified col-md-6 pills-rounded'
-                  >
+                  <MDBNav pills color='light-purple' className='nav-justified col-md-6 pills-rounded'>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['rounded2'] === '1'}
-                        link
-                        onClick={this.togglePills('rounded2', '1')}
-                      >
+                      <MDBLink to='#' active={items['rounded2'] === '1'} link onClick={this.togglePills('rounded2', '1')}>
                         Active
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['rounded2'] === '2'}
-                        link
-                        onClick={this.togglePills('rounded2', '2')}
-                      >
+                      <MDBLink to='#' active={items['rounded2'] === '2'} link onClick={this.togglePills('rounded2', '2')}>
                         Link 1
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['rounded2'] === '3'}
-                        link
-                        onClick={this.togglePills('rounded2', '3')}
-                      >
+                      <MDBLink to='#' active={items['rounded2'] === '3'} link onClick={this.togglePills('rounded2', '3')}>
                         Link 2
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['rounded2'] === '4'}
-                        link
-                        onClick={this.togglePills('rounded2', '4')}
-                      >
+                      <MDBLink to='#' active={items['rounded2'] === '4'} link onClick={this.togglePills('rounded2', '4')}>
                         Link 3
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                   </MDBNav>
 
-                  <MDBNav
-                    pills
-                    className='nav-justified col-md-6 pills-peach-gradient pills-rounded'
-                  >
+                  <MDBNav pills className='nav-justified col-md-6 pills-peach-gradient pills-rounded'>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedGradient'] === '1'}
-                        link
-                        onClick={this.togglePills('roundedGradient', '1')}
-                      >
+                      <MDBLink to='#' active={items['roundedGradient'] === '1'} link onClick={this.togglePills('roundedGradient', '1')}>
                         Active
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedGradient'] === '2'}
-                        link
-                        onClick={this.togglePills('roundedGradient', '2')}
-                      >
+                      <MDBLink to='#' active={items['roundedGradient'] === '2'} link onClick={this.togglePills('roundedGradient', '2')}>
                         Link 1
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedGradient'] === '3'}
-                        link
-                        onClick={this.togglePills('roundedGradient', '3')}
-                      >
+                      <MDBLink to='#' active={items['roundedGradient'] === '3'} link onClick={this.togglePills('roundedGradient', '3')}>
                         Link 2
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedGradient'] === '4'}
-                        link
-                        onClick={this.togglePills('roundedGradient', '4')}
-                      >
+                      <MDBLink to='#' active={items['roundedGradient'] === '4'} link onClick={this.togglePills('roundedGradient', '4')}>
                         Link 3
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                   </MDBNav>
 
-                  <MDBNav
-                    pills
-                    className='nav-justified col-md-6 pills-rounded pills-green-gradient'
-                  >
+                  <MDBNav pills className='nav-justified col-md-6 pills-rounded pills-green-gradient'>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedGradient2'] === '1'}
-                        link
-                        onClick={this.togglePills('roundedGradient2', '1')}
-                      >
+                      <MDBLink to='#' active={items['roundedGradient2'] === '1'} link onClick={this.togglePills('roundedGradient2', '1')}>
                         Active
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedGradient2'] === '2'}
-                        link
-                        onClick={this.togglePills('roundedGradient2', '2')}
-                      >
+                      <MDBLink to='#' active={items['roundedGradient2'] === '2'} link onClick={this.togglePills('roundedGradient2', '2')}>
                         Link 1
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedGradient2'] === '3'}
-                        link
-                        onClick={this.togglePills('roundedGradient2', '3')}
-                      >
+                      <MDBLink to='#' active={items['roundedGradient2'] === '3'} link onClick={this.togglePills('roundedGradient2', '3')}>
                         Link 2
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedGradient2'] === '4'}
-                        link
-                        onClick={this.togglePills('roundedGradient2', '4')}
-                      >
+                      <MDBLink to='#' active={items['roundedGradient2'] === '4'} link onClick={this.togglePills('roundedGradient2', '4')}>
                         Link 3
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                   </MDBNav>
 
-                  <MDBNav
-                    pills
-                    className='nav-justified col-md-6 pills-rounded pills-outline-red'
-                  >
+                  <MDBNav pills className='nav-justified col-md-6 pills-rounded pills-outline-red'>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedOutline'] === '1'}
-                        link
-                        onClick={this.togglePills('roundedOutline', '1')}
-                      >
+                      <MDBLink to='#' active={items['roundedOutline'] === '1'} link onClick={this.togglePills('roundedOutline', '1')}>
                         Active
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedOutline'] === '2'}
-                        link
-                        onClick={this.togglePills('roundedOutline', '2')}
-                      >
+                      <MDBLink to='#' active={items['roundedOutline'] === '2'} link onClick={this.togglePills('roundedOutline', '2')}>
                         Link 1
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedOutline'] === '3'}
-                        link
-                        onClick={this.togglePills('roundedOutline', '3')}
-                      >
+                      <MDBLink to='#' active={items['roundedOutline'] === '3'} link onClick={this.togglePills('roundedOutline', '3')}>
                         Link 2
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedOutline'] === '4'}
-                        link
-                        onClick={this.togglePills('roundedOutline', '4')}
-                      >
+                      <MDBLink to='#' active={items['roundedOutline'] === '4'} link onClick={this.togglePills('roundedOutline', '4')}>
                         Link 3
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                   </MDBNav>
 
-                  <MDBNav
-                    pills
-                    className='nav-justified col-md-6 pills-rounded pills-outline-green'
-                  >
+                  <MDBNav pills className='nav-justified col-md-6 pills-rounded pills-outline-green'>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedOutline2'] === '1'}
-                        link
-                        onClick={this.togglePills('roundedOutline2', '1')}
-                      >
+                      <MDBLink to='#' active={items['roundedOutline2'] === '1'} link onClick={this.togglePills('roundedOutline2', '1')}>
                         Active
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedOutline2'] === '2'}
-                        link
-                        onClick={this.togglePills('roundedOutline2', '2')}
-                      >
+                      <MDBLink to='#' active={items['roundedOutline2'] === '2'} link onClick={this.togglePills('roundedOutline2', '2')}>
                         Link 1
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedOutline2'] === '3'}
-                        link
-                        onClick={this.togglePills('roundedOutline2', '3')}
-                      >
+                      <MDBLink to='#' active={items['roundedOutline2'] === '3'} link onClick={this.togglePills('roundedOutline2', '3')}>
                         Link 2
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink
-                        to='#'
-                        active={items['roundedOutline2'] === '4'}
-                        link
-                        onClick={this.togglePills('roundedOutline2', '4')}
-                      >
+                      <MDBLink to='#' active={items['roundedOutline2'] === '4'} link onClick={this.togglePills('roundedOutline2', '4')}>
                         Link 3
-                      </MDBNavLink>
+                      </MDBLink>
                     </MDBNavItem>
                   </MDBNav>
                 </MDBRow>
@@ -799,89 +557,46 @@ class PillsPage extends Component {
               <SectionContainer header='With icons'>
                 <MDBNav pills color='info' className='nav-justified '>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['icons'] === '1'}
-                      link
-                      onClick={this.togglePills('icons', '1')}
-                    >
+                    <MDBLink to='#' active={items['icons'] === '1'} link onClick={this.togglePills('icons', '1')}>
                       <MDBIcon fab icon='android' /> USA
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['icons'] === '2'}
-                      link
-                      onClick={this.togglePills('icons', '2')}
-                    >
+                    <MDBLink to='#' active={items['icons'] === '2'} link onClick={this.togglePills('icons', '2')}>
                       <MDBIcon icon='leaf' /> Mexico
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['icons'] === '3'}
-                      link
-                      onClick={this.togglePills('icons', '3')}
-                    >
+                    <MDBLink to='#' active={items['icons'] === '3'} link onClick={this.togglePills('icons', '3')}>
                       <MDBIcon icon='heart' /> Poland
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['icons'] === '4'}
-                      link
-                      onClick={this.togglePills('icons', '4')}
-                    >
+                    <MDBLink to='#' active={items['icons'] === '4'} link onClick={this.togglePills('icons', '4')}>
                       <MDBIcon icon='futbol' /> Brazil
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                 </MDBNav>
-                <MDBNav
-                  pills
-                  className='nav-justified pills-rounded pills-outline-red'
-                >
+                <MDBNav pills className='nav-justified pills-rounded pills-outline-red'>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['iconsRight'] === '1'}
-                      link
-                      onClick={this.togglePills('iconsRight', '1')}
-                    >
+                    <MDBLink to='#' active={items['iconsRight'] === '1'} link onClick={this.togglePills('iconsRight', '1')}>
                       San Francisco <MDBIcon far icon='grin' />
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['iconsRight'] === '2'}
-                      link
-                      onClick={this.togglePills('iconsRight', '2')}
-                    >
+                    <MDBLink to='#' active={items['iconsRight'] === '2'} link onClick={this.togglePills('iconsRight', '2')}>
                       Tijuana <MDBIcon icon='users' />
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['iconsRight'] === '3'}
-                      link
-                      onClick={this.togglePills('iconsRight', '3')}
-                    >
+                    <MDBLink to='#' active={items['iconsRight'] === '3'} link onClick={this.togglePills('iconsRight', '3')}>
                       Cracow <MDBIcon icon='thumbs-up' />
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      active={items['iconsRight'] === '4'}
-                      link
-                      onClick={this.togglePills('iconsRight', '4')}
-                    >
+                    <MDBLink to='#' active={items['iconsRight'] === '4'} link onClick={this.togglePills('iconsRight', '4')}>
                       Rio de Janeiro <MDBIcon icon='coffee' />
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -889,177 +604,112 @@ class PillsPage extends Component {
               <SectionContainer header='With content'>
                 <MDBRow>
                   <MDBCol md='6'>
-                    <MDBNav
-                      pills
-                      className='nav-justified pills-rounded pills-purple-gradient'
-                    >
+                    <MDBNav pills className='nav-justified pills-rounded pills-purple-gradient'>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['content'] === '1'}
-                          link
-                          onClick={this.togglePills('content', '1')}
-                        >
+                        <MDBLink to='#' active={items['content'] === '1'} link onClick={this.togglePills('content', '1')}>
                           Fashion
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['content'] === '2'}
-                          link
-                          onClick={this.togglePills('content', '2')}
-                        >
+                        <MDBLink to='#' active={items['content'] === '2'} link onClick={this.togglePills('content', '2')}>
                           Lifestyle
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['content'] === '3'}
-                          link
-                          onClick={this.togglePills('content', '3')}
-                        >
+                        <MDBLink to='#' active={items['content'] === '3'} link onClick={this.togglePills('content', '3')}>
                           Beauty
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['content'] === '4'}
-                          link
-                          onClick={this.togglePills('content', '4')}
-                        >
+                        <MDBLink to='#' active={items['content'] === '4'} link onClick={this.togglePills('content', '4')}>
                           Shop
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                     </MDBNav>
                     <MDBTabContent activeItem={items.content}>
                       <MDBTabPane tabId='1'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                       <MDBTabPane tabId='2'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                       <MDBTabPane tabId='3'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                       <MDBTabPane tabId='4'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                     </MDBTabContent>
                   </MDBCol>
                   <MDBCol md='6'>
-                    <MDBNav
-                      pills
-                      color='warning'
-                      className='nav-justified mb-4'
-                    >
+                    <MDBNav pills color='warning' className='nav-justified mb-4'>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['contentCard'] === '1'}
-                          link
-                          onClick={this.togglePills('contentCard', '1')}
-                        >
+                        <MDBLink to='#' active={items['contentCard'] === '1'} link onClick={this.togglePills('contentCard', '1')}>
                           Fashion
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['contentCard'] === '2'}
-                          link
-                          onClick={this.togglePills('contentCard', '2')}
-                        >
+                        <MDBLink to='#' active={items['contentCard'] === '2'} link onClick={this.togglePills('contentCard', '2')}>
                           Lifestyle
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['contentCard'] === '3'}
-                          link
-                          onClick={this.togglePills('contentCard', '3')}
-                        >
+                        <MDBLink to='#' active={items['contentCard'] === '3'} link onClick={this.togglePills('contentCard', '3')}>
                           Beauty
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                     </MDBNav>
-                    <MDBTabContent
-                      className='card'
-                      activeItem={items.contentCard}
-                    >
+                    <MDBTabContent className='card' activeItem={items.contentCard}>
                       <MDBTabPane tabId='1'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                       <MDBTabPane tabId='2'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                       <MDBTabPane tabId='3'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                     </MDBTabContent>
@@ -1072,185 +722,107 @@ class PillsPage extends Component {
                   <MDBCol xl='8' md='10'>
                     <MDBNav pills color='blue-teal' className='nav-justified'>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animation'] === '1'}
-                          link
-                          onClick={this.togglePills('animation', '1')}
-                        >
+                        <MDBLink to='#' active={items['animation'] === '1'} link onClick={this.togglePills('animation', '1')}>
                           Fashion
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animation'] === '2'}
-                          link
-                          onClick={this.togglePills('animation', '2')}
-                        >
+                        <MDBLink to='#' active={items['animation'] === '2'} link onClick={this.togglePills('animation', '2')}>
                           Lifestyle
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animation'] === '3'}
-                          link
-                          onClick={this.togglePills('animation', '3')}
-                        >
+                        <MDBLink to='#' active={items['animation'] === '3'} link onClick={this.togglePills('animation', '3')}>
                           Beauty
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animation'] === '4'}
-                          link
-                          onClick={this.togglePills('animation', '4')}
-                        >
+                        <MDBLink to='#' active={items['animation'] === '4'} link onClick={this.togglePills('animation', '4')}>
                           Shop
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                     </MDBNav>
-                    <MDBNav
-                      pills
-                      className='nav-justified pills-rounded pills-outline-purple-anm'
-                    >
+                    <MDBNav pills className='nav-justified pills-rounded pills-outline-purple-anm'>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animationRO'] === '1'}
-                          link
-                          onClick={this.togglePills('animationRO', '1')}
-                        >
+                        <MDBLink to='#' active={items['animationRO'] === '1'} link onClick={this.togglePills('animationRO', '1')}>
                           Madrid
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animationRO'] === '2'}
-                          link
-                          onClick={this.togglePills('animationRO', '2')}
-                        >
+                        <MDBLink to='#' active={items['animationRO'] === '2'} link onClick={this.togglePills('animationRO', '2')}>
                           Bari
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animationRO'] === '3'}
-                          link
-                          onClick={this.togglePills('animationRO', '3')}
-                        >
+                        <MDBLink to='#' active={items['animationRO'] === '3'} link onClick={this.togglePills('animationRO', '3')}>
                           Warsaw
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animationRO'] === '4'}
-                          link
-                          onClick={this.togglePills('animationRO', '4')}
-                        >
+                        <MDBLink to='#' active={items['animationRO'] === '4'} link onClick={this.togglePills('animationRO', '4')}>
                           Paris
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                     </MDBNav>
-                    <MDBNav
-                      pills
-                      className='nav-justified pills-rounded pills-orange-anm'
-                    >
+                    <MDBNav pills className='nav-justified pills-rounded pills-orange-anm'>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animationR'] === '1'}
-                          link
-                          onClick={this.togglePills('animationR', '1')}
-                        >
+                        <MDBLink to='#' active={items['animationR'] === '1'} link onClick={this.togglePills('animationR', '1')}>
                           Features
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animationR'] === '2'}
-                          link
-                          onClick={this.togglePills('animationR', '2')}
-                        >
+                        <MDBLink to='#' active={items['animationR'] === '2'} link onClick={this.togglePills('animationR', '2')}>
                           Pricing
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animationR'] === '3'}
-                          link
-                          onClick={this.togglePills('animationR', '3')}
-                        >
+                        <MDBLink to='#' active={items['animationR'] === '3'} link onClick={this.togglePills('animationR', '3')}>
                           Gadgets
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['animationR'] === '4'}
-                          link
-                          onClick={this.togglePills('animationR', '4')}
-                        >
+                        <MDBLink to='#' active={items['animationR'] === '4'} link onClick={this.togglePills('animationR', '4')}>
                           Technology
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                     </MDBNav>
                     <MDBTabContent activeItem={items.animationR}>
                       <MDBTabPane tabId='1'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                       <MDBTabPane tabId='2'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                       <MDBTabPane tabId='3'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                       <MDBTabPane tabId='4'>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing
-                          elit. Nihil odit magnam minima, soluta doloribus
-                          reiciendis molestiae placeat unde eos molestias.
-                          Quisquam aperiam, pariatur. Tempora, placeat ratione
-                          porro voluptate odit minima.
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus reiciendis
+                          molestiae placeat unde eos molestias. Quisquam aperiam, pariatur. Tempora, placeat ratione porro voluptate odit
+                          minima.
                         </p>
                       </MDBTabPane>
                     </MDBTabContent>
@@ -1265,51 +837,23 @@ class PillsPage extends Component {
                 </MDBBtn>
                 <MDBModal isOpen={modal1} toggle={this.toggle(1)} centered>
                   <MDBModalBody>
-                    <MDBNav
-                      pills
-                      color='primary'
-                      className='nav-justified pt-2'
-                    >
+                    <MDBNav pills color='primary' className='nav-justified pt-2'>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['modal'] === '1'}
-                          link
-                          onClick={this.togglePills('modal', '1')}
-                        >
+                        <MDBLink to='#' active={items['modal'] === '1'} link onClick={this.togglePills('modal', '1')}>
                           <MDBIcon icon='user' className='mr-1' /> Login
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink
-                          to='#'
-                          active={items['modal'] === '2'}
-                          link
-                          onClick={this.togglePills('modal', '2')}
-                        >
+                        <MDBLink to='#' active={items['modal'] === '2'} link onClick={this.togglePills('modal', '2')}>
                           <MDBIcon icon='user-plus' className='mr-1' /> Register
-                        </MDBNavLink>
+                        </MDBLink>
                       </MDBNavItem>
                     </MDBNav>
                     <MDBTabContent activeItem={items.modal}>
                       <MDBTabPane tabId='1'>
                         <form className=' mx-3 grey-text'>
-                          <MDBInput
-                            label='Your email'
-                            icon='envelope'
-                            group
-                            type='email'
-                            validate
-                            error='wrong'
-                            success='right'
-                          />
-                          <MDBInput
-                            label='Your password'
-                            icon='lock'
-                            group
-                            type='password'
-                            validate
-                          />
+                          <MDBInput label='Your email' icon='envelope' group type='email' validate error='wrong' success='right' />
+                          <MDBInput label='Your password' icon='lock' group type='password' validate />
                           <MDBCol size='12' className='text-center'>
                             <MDBBtn color='primary'>
                               LOG IN
@@ -1320,31 +864,9 @@ class PillsPage extends Component {
                       </MDBTabPane>
                       <MDBTabPane tabId='2'>
                         <form className='mx-3 grey-text'>
-                          <MDBInput
-                            label='Your name'
-                            icon='user'
-                            group
-                            type='text'
-                            validate
-                            error='wrong'
-                            success='right'
-                          />
-                          <MDBInput
-                            label='Your email'
-                            icon='envelope'
-                            group
-                            type='email'
-                            validate
-                            error='wrong'
-                            success='right'
-                          />
-                          <MDBInput
-                            label='Your password'
-                            icon='lock'
-                            group
-                            type='password'
-                            validate
-                          />
+                          <MDBInput label='Your name' icon='user' group type='text' validate error='wrong' success='right' />
+                          <MDBInput label='Your email' icon='envelope' group type='email' validate error='wrong' success='right' />
+                          <MDBInput label='Your password' icon='lock' group type='password' validate />
                           <MDBCol size='12' className='text-center'>
                             <MDBBtn color='primary'>
                               SIGN IN
@@ -1359,28 +881,17 @@ class PillsPage extends Component {
                     <MDBRow className='w-100 justify-content-start'>
                       <MDBCol size='8'>
                         <div id='options' className='text-right float-left'>
-                          <MDBTabContent
-                            className='pt-1 px-0 pb-0'
-                            activeItem={items.modal}
-                          >
+                          <MDBTabContent className='pt-1 px-0 pb-0' activeItem={items.modal}>
                             <MDBTabPane tabId='1'>
                               <p className='font-small'>
                                 Not a member?
-                                <a
-                                  href='https://mdbootstrap.com'
-                                  className='blue-text ml-1'
-                                  link
-                                  onClick={this.togglePills('modal', '2')}
-                                >
+                                <a href='https://mdbootstrap.com' className='blue-text ml-1' link onClick={this.togglePills('modal', '2')}>
                                   Sign Up
                                 </a>
                               </p>
                               <p className='font-small'>
                                 Forgot{' '}
-                                <a
-                                  href='https://mdbootstrap.com'
-                                  className='blue-text ml-1'
-                                >
+                                <a href='https://mdbootstrap.com' className='blue-text ml-1'>
                                   password?
                                 </a>
                               </p>
@@ -1388,21 +899,13 @@ class PillsPage extends Component {
                             <MDBTabPane tabId='2'>
                               <p className='font-small'>
                                 Already have an account?
-                                <a
-                                  href='https://mdbootstrap.com'
-                                  className='blue-text ml-1'
-                                  link
-                                  onClick={this.togglePills('modal', '2')}
-                                >
+                                <a href='https://mdbootstrap.com' className='blue-text ml-1' link onClick={this.togglePills('modal', '2')}>
                                   LogIn
                                 </a>
                               </p>
                               <p className='font-small'>
                                 Forgot{' '}
-                                <a
-                                  href='https://mdbootstrap.com'
-                                  className='blue-text ml-1'
-                                >
+                                <a href='https://mdbootstrap.com' className='blue-text ml-1'>
                                   password?
                                 </a>
                               </p>
@@ -1411,11 +914,7 @@ class PillsPage extends Component {
                         </div>
                       </MDBCol>
                       <MDBCol size='4' className='float-right'>
-                        <MDBBtn
-                          outline
-                          color='primary'
-                          onClick={this.toggle(1)}
-                        >
+                        <MDBBtn outline color='primary' onClick={this.toggle(1)}>
                           CLOSE
                         </MDBBtn>
                       </MDBCol>
@@ -1427,26 +926,14 @@ class PillsPage extends Component {
               <SectionContainer header='Within tabs'>
                 <MDBNav tabs className='nav-justified' color='indigo'>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      role='tab'
-                      active={items['outer'] === '1'}
-                      link
-                      onClick={this.togglePills('outer', '1')}
-                    >
+                    <MDBLink to='#' role='tab' active={items['outer'] === '1'} link onClick={this.togglePills('outer', '1')}>
                       <MDBIcon icon='user' /> Profile
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink
-                      to='#'
-                      role='tab'
-                      active={items['outer'] === '2'}
-                      link
-                      onClick={this.togglePills('outer', '2')}
-                    >
+                    <MDBLink to='#' role='tab' active={items['outer'] === '2'} link onClick={this.togglePills('outer', '2')}>
                       <MDBIcon icon='heart' /> Follow
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                 </MDBNav>
                 <MDBTabContent className='card mb-5' activeItem={items.outer}>
@@ -1455,37 +942,21 @@ class PillsPage extends Component {
                       <MDBCol md='3'>
                         <MDBNav pills color='primary' className='flex-column'>
                           <MDBNavItem>
-                            <MDBNavLink
-                              to='#'
-                              active={items['inner'] === '1'}
-                              link
-                              onClick={this.togglePills('inner', '1')}
-                            >
-                              Downloads{' '}
-                              <MDBIcon icon='download' className='ml-2' />
-                            </MDBNavLink>
+                            <MDBLink to='#' active={items['inner'] === '1'} link onClick={this.togglePills('inner', '1')}>
+                              Downloads <MDBIcon icon='download' className='ml-2' />
+                            </MDBLink>
                           </MDBNavItem>
                           <MDBNavItem>
-                            <MDBNavLink
-                              to='#'
-                              active={items['inner'] === '2'}
-                              link
-                              onClick={this.togglePills('inner', '2')}
-                            >
+                            <MDBLink to='#' active={items['inner'] === '2'} link onClick={this.togglePills('inner', '2')}>
                               Orders & invoices
                               <MDBIcon icon='file-alt' className='ml-2' />
-                            </MDBNavLink>
+                            </MDBLink>
                           </MDBNavItem>
                           <MDBNavItem>
-                            <MDBNavLink
-                              to='#'
-                              active={items['inner'] === '3'}
-                              link
-                              onClick={this.togglePills('inner', '3')}
-                            >
+                            <MDBLink to='#' active={items['inner'] === '3'} link onClick={this.togglePills('inner', '3')}>
                               Billing Details
                               <MDBIcon icon='address-card' className='ml-2' />
-                            </MDBNavLink>
+                            </MDBLink>
                           </MDBNavItem>
                         </MDBNav>
                       </MDBCol>
@@ -1500,9 +971,7 @@ class PillsPage extends Component {
                           <MDBTabPane tabId='2'>
                             <MDBCardBody>
                               <MDBCardTitle>Orders & Invoices</MDBCardTitle>
-                              <MDBCardText>
-                                "Hello? Is it me you're looking for?"
-                              </MDBCardText>
+                              <MDBCardText>"Hello? Is it me you're looking for?"</MDBCardText>
                             </MDBCardBody>
                           </MDBTabPane>
                           <MDBTabPane tabId='3'>
@@ -1525,20 +994,14 @@ class PillsPage extends Component {
                       <MDBCol md='6'>
                         <MDBCardBody>
                           <MDBCardTitle>Special Title Treatment</MDBCardTitle>
-                          <MDBCardText>
-                            With supporting text below as a natural lead-in to
-                            additional content.
-                          </MDBCardText>
+                          <MDBCardText>With supporting text below as a natural lead-in to additional content.</MDBCardText>
                           <MDBBtn>Go somewhere</MDBBtn>
                         </MDBCardBody>
                       </MDBCol>
                       <MDBCol md='6'>
                         <MDBCardBody>
                           <MDBCardTitle>Special Title Treatment</MDBCardTitle>
-                          <MDBCardText>
-                            With supporting text below as a natural lead-in to
-                            additional content.
-                          </MDBCardText>
+                          <MDBCardText>With supporting text below as a natural lead-in to additional content.</MDBCardText>
                           <MDBBtn>Go somewhere</MDBBtn>
                         </MDBCardBody>
                       </MDBCol>
