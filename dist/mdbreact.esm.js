@@ -6,8 +6,8 @@ import ReactDOM from 'react-dom';
 import { MDBIframe, MDBSelect, MDBBox, MDBPopoverHeader, MDBPopoverBody, MDBBtn, MDBTooltip, Fa as Fa$1 } from 'mdbreact';
 import { Manager, Popper, Reference } from 'react-popper';
 import NumericInput from 'react-numeric-input';
+import { Link as Link$1, NavLink as NavLink$1 } from 'react-router-dom';
 import FocusTrap from 'focus-trap-react';
-import { NavLink as NavLink$1, Link } from 'react-router-dom';
 import Popper$1 from 'popper.js';
 import MomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider, DatePicker as DatePicker$1 } from 'material-ui-pickers';
@@ -15,7 +15,7 @@ import moment from 'moment';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import { jarallax, jarallaxVideo, jarallaxElement } from 'jarallax';
 import PerfectScrollbar from 'perfect-scrollbar';
-import { Link as Link$1 } from 'react-scroll';
+import { Link as Link$2 } from 'react-scroll';
 import raf from 'raf';
 export {
   toast as MDBToast,
@@ -8574,6 +8574,68 @@ Jumbotron.propTypes = {
   fluid: PropTypes.bool
 };
 
+var Link = function Link(props) {
+  var _useState = useState({}),
+    _useState2 = _slicedToArray(_useState, 2),
+    cursorPos = _useState2[0],
+    setCursorPos = _useState2[1];
+
+  var active = props.active,
+    children = props.children,
+    className = props.className,
+    disabled = props.disabled,
+    link = props.link,
+    to = props.to,
+    attributes = _objectWithoutProperties(props, ['active', 'children', 'className', 'disabled', 'link', 'to']);
+
+  var classes = classNames('nav-link', disabled ? 'disabled' : 'Ripple-parent', active && 'active', className);
+
+  var handleClick = function handleClick(e) {
+    if (!disabled) {
+      e.stopPropagation();
+      var _cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      setCursorPos(_cursorPos);
+    }
+  };
+
+  return React.createElement(
+    Link$1,
+    _extends(
+      {
+        'data-test': 'link-rotuer',
+        className: classes,
+        onMouseUp: handleClick,
+        onTouchStart: handleClick,
+        to: to
+      },
+      attributes
+    ),
+    children,
+    disabled
+      ? false
+      : React.createElement(Waves, {
+          cursorPos: cursorPos
+        })
+  );
+};
+
+Link.propTypes = {
+  active: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  to: PropTypes.string
+};
+Link.defaultProps = {
+  active: false,
+  className: '',
+  disabled: false
+};
+
 var ListGroup = function ListGroup(props) {
   var children = props.children,
     className = props.className,
@@ -9651,7 +9713,7 @@ var NavLink = function NavLink(props) {
 
   if (link) {
     rednerLink = React.createElement(
-      Link,
+      Link$1,
       _extends(
         {
           'data-test': 'nav-link',
@@ -16113,7 +16175,7 @@ var SmoothScroll = function SmoothScroll(props) {
     right: right ? ''.concat(right, 'px') : !left ? '24px' : null
   };
   return React.createElement(
-    Link$1,
+    Link$2,
     _extends(
       {
         className: classes,
@@ -18821,6 +18883,7 @@ export {
   InputSwitch,
   Jumbotron,
   Lightbox,
+  Link,
   ListGroup,
   ListGroupItem,
   Alert as MDBAlert,
@@ -18882,6 +18945,7 @@ export {
   InputNumeric as MDBInputSelect,
   Jumbotron as MDBJumbotron,
   Lightbox as MDBLightbox,
+  Link as MDBLink,
   ListGroup as MDBListGroup,
   ListGroupItem as MDBListGroupItem,
   Mask as MDBMask,

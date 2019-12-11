@@ -15,8 +15,8 @@ var ReactDOM = _interopDefault(require('react-dom'));
 var mdbreact = require('mdbreact');
 var reactPopper = require('react-popper');
 var NumericInput = _interopDefault(require('react-numeric-input'));
-var FocusTrap = _interopDefault(require('focus-trap-react'));
 var reactRouterDom = require('react-router-dom');
+var FocusTrap = _interopDefault(require('focus-trap-react'));
 var Popper = _interopDefault(require('popper.js'));
 var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
@@ -8574,6 +8574,68 @@ Jumbotron.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   fluid: PropTypes.bool
+};
+
+var Link = function Link(props) {
+  var _useState = React.useState({}),
+    _useState2 = _slicedToArray(_useState, 2),
+    cursorPos = _useState2[0],
+    setCursorPos = _useState2[1];
+
+  var active = props.active,
+    children = props.children,
+    className = props.className,
+    disabled = props.disabled,
+    link = props.link,
+    to = props.to,
+    attributes = _objectWithoutProperties(props, ['active', 'children', 'className', 'disabled', 'link', 'to']);
+
+  var classes = classNames('nav-link', disabled ? 'disabled' : 'Ripple-parent', active && 'active', className);
+
+  var handleClick = function handleClick(e) {
+    if (!disabled) {
+      e.stopPropagation();
+      var _cursorPos = {
+        top: e.clientY,
+        left: e.clientX,
+        time: Date.now()
+      };
+      setCursorPos(_cursorPos);
+    }
+  };
+
+  return React__default.createElement(
+    reactRouterDom.Link,
+    _extends(
+      {
+        'data-test': 'link-rotuer',
+        className: classes,
+        onMouseUp: handleClick,
+        onTouchStart: handleClick,
+        to: to
+      },
+      attributes
+    ),
+    children,
+    disabled
+      ? false
+      : React__default.createElement(Waves, {
+          cursorPos: cursorPos
+        })
+  );
+};
+
+Link.propTypes = {
+  active: PropTypes.bool,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  to: PropTypes.string
+};
+Link.defaultProps = {
+  active: false,
+  className: '',
+  disabled: false
 };
 
 var ListGroup = function ListGroup(props) {
@@ -18858,6 +18920,7 @@ exports.InputRange = InputRange;
 exports.InputSwitch = InputSwitch;
 exports.Jumbotron = Jumbotron;
 exports.Lightbox = Lightbox;
+exports.Link = Link;
 exports.ListGroup = ListGroup;
 exports.ListGroupItem = ListGroupItem;
 exports.MDBAlert = Alert;
@@ -18919,6 +18982,7 @@ exports.MDBInputGroup = InputGroup;
 exports.MDBInputSelect = InputNumeric;
 exports.MDBJumbotron = Jumbotron;
 exports.MDBLightbox = Lightbox;
+exports.MDBLink = Link;
 exports.MDBListGroup = ListGroup;
 exports.MDBListGroupItem = ListGroupItem;
 exports.MDBMask = Mask;
