@@ -1,0 +1,22 @@
+.text-ellipsis-input,
+.text-ellipsis-label {
+  text-overflow: ellipsis;
+}
+
+.text-ellipsis-label {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.autocomplete-btn-svg svg {
+  fill: #4285f4 !important;
+}
+
+.mdb-autocomplete-no-opacity {
+  opacity: 0;
+}
+
+.mdb-autocomplete-opacity {
+  transition: 2s ease-in-out;
+  opacity: 1;
+}
