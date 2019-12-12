@@ -103,6 +103,7 @@ class Input extends React.Component {
       label,
       labelClass,
       labelId,
+      labelStyles,
       size,
       success,
       tag: Tag,
@@ -205,6 +206,7 @@ class Input extends React.Component {
             data-success={success}
             id={labelId}
             onClick={this.setFocus}
+            style={labelStyles}
           >
             {label}
           </label>
@@ -248,6 +250,7 @@ Input.propTypes = {
   ]),
   labelClass: PropTypes.string,
   labelId: PropTypes.string,
+  labelStyles: PropTypes.object,
   noTag: PropTypes.bool,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,

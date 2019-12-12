@@ -15,6 +15,7 @@ import {
 } from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
+import MDBAuto from '../../../src/components/pro/Autocomplete/Autocomplete_new/Autocomplete';
 
 const states = [
   'Alabama',
@@ -312,6 +313,29 @@ class AutocompletePage extends Component {
           title='Autocomplete'
           href='https://mdbootstrap.com/docs/react/forms/autocomplete/'
         />
+
+        <SectionContainer header='New example'>
+          <MDBAuto
+            data={states}
+            label='Choose your favorite state'
+            icon='edit'
+            clear
+            id='input12'
+            size='md'
+            visibleOptions={5}
+          />
+
+          <MDBAuto
+            data={states}
+            label='Choose your favorite state'
+            icon='edit'
+            clear
+            id='input123'
+            size='md'
+            visibleOptions={5}
+          />
+        </SectionContainer>
+
         <SectionContainer header='Basic example'>
           <MDBAutocomplete
             data={states}

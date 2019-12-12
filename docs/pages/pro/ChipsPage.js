@@ -85,7 +85,7 @@ class ChipsPage extends Component {
           <SectionContainer header='Basic examples'>
             <div className='d-flex justify-content-center align-items-center'>
               {show1 && (
-                <MDBChip waves close handleClose={this.handleCloseHere(1)}>
+                <MDBChip waves handleClose={this.handleCloseHere(1)}>
                   Tag 1
                 </MDBChip>
               )}

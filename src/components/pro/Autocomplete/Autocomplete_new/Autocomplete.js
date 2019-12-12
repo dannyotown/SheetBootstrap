@@ -11,18 +11,19 @@ class Autocomplete extends Component {
     focusedListItem: 0,
     showList: false,
     suggestions: [],
-    initialValue: ''
+    initialValue: '',
+    movedKey: false
   };
 
   autoInputRef = React.createRef();
   suggestionsList = React.createRef();
 
   componentDidMount() {
-    const { valueDefault, data, value } = this.props;
+    const { data, value, valueDefault } = this.props;
 
     this.setState({
       suggestions: this.filterRepeated(data),
-      value: value || valueDefault
+      initialValue: value || valueDefault
     });
     window.addEventListener('click', this.outsideClickHandler);
   }
@@ -35,7 +36,7 @@ class Autocomplete extends Component {
       getValue(initialValue);
     }
     if (prevProps.value !== value) {
-      this.setState({ value });
+      this.setState({ initialValue: value });
     }
     if (prevProps.data !== data) {
       this.setState({ suggestions: this.filterRepeated(data) });
@@ -66,7 +67,7 @@ class Autocomplete extends Component {
     let { value } = e.target;
 
     this.setState({
-      value,
+      initialValue: value,
       focusedListItem: 0,
       showList: true
     });
@@ -100,7 +101,7 @@ class Autocomplete extends Component {
   };
 
   handleClear = () => {
-    this.setState({ value: '', focusedListItem: 0, showList: false });
+    this.setState({ initialValue: '', focusedListItem: 0, showList: false });
   };
 
   handleSelect = () => {
@@ -108,7 +109,7 @@ class Autocomplete extends Component {
     let value = filteredSuggestions[focusedListItem];
     if (value && value !== 'No options') {
       this.setState({
-        value,
+        initialValue: value,
         focusedListItem: 0,
         showList: false
       });
@@ -133,21 +134,28 @@ class Autocomplete extends Component {
           filteredSuggestions: []
         });
       }
+
       if (e.keyCode === 27) {
         this.setState({ filteredSuggestions: [] });
       }
+
       if (
         e.keyCode === 40 &&
         focusedListItem < filteredSuggestions.length - 1
       ) {
         this.setState({ focusedListItem: focusedListItem + 1 });
+      } else {
+        this.setState({ focusedListItem: 0 });
       }
+
       if (e.keyCode === 38 && focusedListItem > 0) {
         this.setState({ focusedListItem: focusedListItem - 1 });
       }
+
       if (e.keyCode === 35) {
         this.setState({ focusedListItem: filteredSuggestions.length - 1 });
       }
+
       if (e.keyCode === 36) {
         this.setState({ focusedListItem: 0 });
       }
@@ -155,15 +163,11 @@ class Autocomplete extends Component {
   };
 
   updateFocus = index => {
-    this.setState({ focusedListItem: index });
+    this.setState({ focusedListItem: index, movedKey: true });
   };
 
-  toggleFocusToClearBtn = (e, toggle) => {
-    if (toggle) {
-      return this.setState({ focused: true });
-    } else {
-      return this.setState({ focused: false });
-    }
+  toggleFocusToClearBtn = focused => {
+    this.setState({ focused });
   };
 
   render() {
@@ -188,6 +192,7 @@ class Autocomplete extends Component {
       showList,
       initialValue
     } = this.state;
+
     const labelClasses = classNames(labelClass, 'text-ellipsis-label');
     const inputClasses = classNames(placeholder, 'text-ellipsis-input');
     const btnClearClasses = classNames(
@@ -226,17 +231,18 @@ class Autocomplete extends Component {
             ref={ref => (this.suggestionsList = ref)}
             style={{
               marginTop: '-15px',
-              maxHeight: `${heightItem * visibleOptions}px`
+              maxHeight: `${heightItem * Number(visibleOptions)}px`
             }}
           >
             {filteredSuggestions.map((el, index) => (
               <li
                 className='list-item'
                 key={el + index}
-                onMouseEnter={() => this.updateFocus(index)}
+                // onMouseEnter={() => this.updateFocus(index)}
                 style={{
                   background: `${focusedListItem === index ? '#eee' : '#fff'}`
                 }}
+                data-index={index}
               >
                 {el}
               </li>
@@ -257,7 +263,8 @@ Autocomplete.propTypes = {
 Autocomplete.defaultProps = {
   heightItem: 45,
   noSuggestion: ['No options'],
-  visibleOptions: 5
+  visibleOptions: 5,
+  labelStyles: ''
 };
 
 export default Autocomplete;
