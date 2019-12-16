@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import FocusTrap from 'focus-trap-react';
 import { returnAttributes } from '../utils';
+import './Modal.css';
 
 class Modal extends Component {
   state = {
@@ -21,8 +22,19 @@ class Modal extends Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    if (prevState.isOpen !== this.props.isOpen) {
-      this.setState({ isOpen: this.props.isOpen });
+    const { isOpen, overflowScroll } = this.props;
+    const overflowStatment = overflowScroll
+      ? 'overflow-y-scroll'
+      : 'overflow-hidden';
+
+    if (prevState.isOpen !== isOpen) {
+      this.setState({ isOpen }, () => {
+        if (isOpen) {
+          document.body.classList.add(overflowStatment);
+        } else {
+          document.body.classList.remove(overflowStatment);
+        }
+      });
     }
   };
 
@@ -56,12 +68,14 @@ class Modal extends Component {
   };
 
   handleBackdropClick = e => {
+    console.log(e);
     if (
       !this.props.backdrop ||
       (e.target.closest('[role="dialog"]') &&
         !e.target.classList.contains('modal'))
-    )
-      {return;}
+    ) {
+      return;
+    }
 
     if (!this.modalContent.contains(e.target)) {
       this.props.toggle();
@@ -77,27 +91,27 @@ class Modal extends Component {
 
   render() {
     const {
-      children,
+      animation,
       backdrop,
       backdropClassName,
-      contentClassName,
-      className,
-      size,
-      side,
-      disableFocusTrap,
-      fullHeight,
-      frame,
-      centered,
-      position,
       cascading,
-      modalStyle,
-      wrapClassName,
-      animation,
+      centered,
+      children,
+      className,
+      contentClassName,
+      disableFocusTrap,
       fade,
-      tabIndex,
-      role,
+      frame,
+      fullHeight,
       id,
-      inline
+      inline,
+      modalStyle,
+      position,
+      role,
+      side,
+      size,
+      tabIndex,
+      wrapClassName
     } = this.props;
 
     const { isOpen } = this.state;
@@ -186,7 +200,7 @@ class Modal extends Component {
           appear={isOpen}
           mountOnEnter
           unmountOnExit
-          onMouseDown={this.handleBackdropClick}
+          onMouseDown={e => this.handleBackdropClick(e)}
           onEntered={node => this.handleOnEntered('modal', node)}
           onExit={node => this.handleOnExit('modal', node)}
         >
@@ -201,11 +215,12 @@ Modal.defaultProps = {
   autoFocus: true,
   backdrop: true,
   backdropTransitionTimeout: 150,
-  fade: true,
   disableFocusTrap: false,
+  fade: true,
   isOpen: false,
   keyboard: true,
   modalTransitionTimeout: 300,
+  overflowScroll: true,
   role: 'dialog',
   tabIndex: '-1',
   zIndex: 1050
@@ -230,6 +245,7 @@ Modal.propTypes = {
   keyboard: PropTypes.bool,
   modalClassName: PropTypes.string,
   modalStyle: PropTypes.string,
+  overflowScroll: PropTypes.bool,
   position: PropTypes.string,
   role: PropTypes.string,
   showModal: PropTypes.func,
