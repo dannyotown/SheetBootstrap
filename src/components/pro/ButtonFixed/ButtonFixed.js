@@ -90,7 +90,7 @@ class ButtonFixed extends React.Component {
         style={{ bottom: '45px', right: '24px' }}
       >
         <a
-          href={topSection ? topSection : '#'}
+          href={topSection ? topSection : '#!'}
           className={classes}
           onClick={this.onClick}
           onMouseDown={this.handleClick}
@@ -114,7 +114,7 @@ class ButtonFixed extends React.Component {
         </a>
         {children && (
           <ul
-            className={classNames('list-unstyled' && !ulDisplay && 'disabled')}
+            className={`list-unstyled ${classNames(!ulDisplay && 'disabled')}`}
           >
             {children}
           </ul>

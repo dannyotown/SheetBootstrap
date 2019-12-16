@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import { findByTestAttr, checkProps, checkClass, checkCallBack } from '../../../tests/utils';
+import {
+  findByTestAttr,
+  checkProps,
+  checkClass,
+  checkCallBack
+} from '../../../tests/utils';
 import ButtonFixed from './ButtonFixed';
 
 const setup = (props = {}) => shallow(<ButtonFixed {...props} />);
@@ -60,9 +65,9 @@ describe('<ButtonFixed />', () => {
   });
 
   test('correctly render href attribute for `a` tag', () => {
-    expect(wrapper.find('a[href="#"]').length).toBe(1);
+    expect(wrapper.find('a[href="#!"]').length).toBe(1);
     wrapper = setup({ topSection: 'test' });
-    expect(wrapper.find('a[href="#"]').length).toBe(0);
+    expect(wrapper.find('a[href="#!"]').length).toBe(0);
     expect(wrapper.find('a[href="test"]').length).toBe(1);
   });
 
@@ -71,8 +76,18 @@ describe('<ButtonFixed />', () => {
   });
 
   describe('sets classes', () => {
-    test('adds fixed-action-btn active class by default', () => {
+    test('adds fixed-action-btn class by default', () => {
+      checkClass(wrapper, 'fixed-action-btn');
+    });
+
+    test('adds fixed-action-btn active class when mousover', () => {
+      wrapper.simulate('mouseover');
       checkClass(wrapper, 'fixed-action-btn.active');
+    });
+
+    test('adds fixed-action-btn class when mouseleave', () => {
+      wrapper.simulate('mouseleave');
+      checkClass(wrapper, 'fixed-action-btn');
     });
 
     test('adds cutom iconClass class if iconClass property === `custom`', () => {
@@ -80,32 +95,32 @@ describe('<ButtonFixed />', () => {
       checkClass(wrapper.find('Fa'), 'custom');
     });
 
-    test('adds Ripple-parent class by default for \'a\'', () => {
+    test("adds Ripple-parent class by default for 'a'", () => {
       checkClass(wrapper.find('a'), 'Ripple-parent');
     });
 
-    test('adds custom classes by property for \'a\'', () => {
+    test("adds custom classes by property for 'a'", () => {
       wrapper = setup({ className: 'custom' });
       checkClass(wrapper.find('a'), 'custom');
     });
 
-    test('adds disabled property class for \'a\'', () => {
+    test("adds disabled property class for 'a'", () => {
       wrapper = setup({ disabled: true });
       checkClass(wrapper.find('a'), 'disabled');
     });
 
-    test('adds floating property class for \'a\'', () => {
+    test("adds floating property class for 'a'", () => {
       checkClass(wrapper.find('a'), 'btn');
       wrapper = setup({ floating: true });
       checkClass(wrapper.find('a'), 'btn-floating');
     });
 
-    test('adds color property class for \'a\'', () => {
+    test("adds color property class for 'a'", () => {
       wrapper = setup({ color: 'red' });
       checkClass(wrapper.find('a'), 'red');
     });
 
-    test('adds gradient property class for \'a\'', () => {
+    test("adds gradient property class for 'a'", () => {
       wrapper = setup({ color: 'red' });
       checkClass(wrapper.find('a'), 'red');
 
@@ -113,7 +128,7 @@ describe('<ButtonFixed />', () => {
       checkClass(wrapper.find('a'), 'aqua-gradient');
     });
 
-    test('adds gradient property class for \'a\'', () => {
+    test("adds gradient property class for 'a'", () => {
       wrapper = setup({ color: 'red' });
       checkClass(wrapper.find('a'), 'red');
 
@@ -124,23 +139,41 @@ describe('<ButtonFixed />', () => {
       checkClass(wrapper.find('a'), 'btn-flat');
     });
 
-    test('adds size property class for \'a\'', () => {
+    test("adds size property class for 'a'", () => {
       wrapper = setup({ size: 'lg' });
       checkClass(wrapper.find('a'), 'btn-lg');
     });
 
-    test('adds rounded property class for \'a\'', () => {
+    test("adds rounded property class for 'a'", () => {
       wrapper = setup({ rounded: true });
       checkClass(wrapper.find('a'), 'btn-rounded');
     });
 
-    test('adds block property class for \'a\'', () => {
+    test("adds block property class for 'a'", () => {
       wrapper = setup({ block: true });
       checkClass(wrapper.find('a'), 'btn-block');
     });
 
-    test('adds list-unstyled class for \'ul\' by default', () => {
+    test("adds list-unstyled class for 'ul' by default", () => {
+      wrapper = setup({ children: '<a></a>' });
       checkClass(wrapper.find('ul'), 'list-unstyled');
+    });
+
+    test("adds disabled class for 'ul' by default", () => {
+      wrapper = setup({ children: '<a></a>' });
+      checkClass(wrapper.find('ul'), 'list-unstyled.disabled');
+    });
+
+    test("remove disabled class for 'ul' when mouseover", () => {
+      wrapper = setup({ children: '<a></a>' });
+      wrapper.simulate('mouseover');
+      checkClass(wrapper.find('ul'), 'list-unstyled');
+    });
+
+    test("adds disabled class for 'ul' when mouseleave", () => {
+      wrapper = setup({ children: '<a></a>' });
+      wrapper.simulate('mouseleave');
+      checkClass(wrapper.find('ul'), 'list-unstyled.disabled');
     });
   });
 });
