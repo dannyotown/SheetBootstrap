@@ -40,12 +40,24 @@ class InputRange extends React.Component {
     window.addEventListener('resize', this.updateDimensions.bind(this));
   };
 
+  componentDidUpdate = e => {
+    const { min, value } = this.props;
+    const { oneStep } = this.state;
+
+    if (this.state.value !== value) {
+      this.setState({
+        value: value,
+        leftPosition: oneStep * value - oneStep * min + 1
+      });
+    }
+  };
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions.bind(this));
   }
 
   rangeChange = e => {
-    const value = e.target.value;
+    const value = parseInt(e.target.value);
     const { getValue, min } = this.props;
     const { oneStep } = this.state;
 
@@ -53,6 +65,7 @@ class InputRange extends React.Component {
       value,
       leftPosition: oneStep * value - oneStep * min + 1
     });
+
     getValue && getValue(value);
   };
 
