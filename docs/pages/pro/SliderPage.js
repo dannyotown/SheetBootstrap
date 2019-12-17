@@ -26,8 +26,8 @@ class SliderPage extends Component {
     this.setState({ value });
   };
 
-  handleChange = changeValue => {
-    this.setState({ changeValue });
+  handleChangeLog = changeValue => {
+    console.log(changeValue);
   };
 
   handleChangeValue = () => {
@@ -58,11 +58,10 @@ class SliderPage extends Component {
             min={0}
             max={100}
             value={changeValue}
-            getValue={this.handleChange}
+            getValue={this.handleChangeLog}
           />
           <MDBBox display='flex' justifyContent='around' className='flex-wrap'>
             <MDBBtn onClick={this.handleChangeValue}>Change value to 20</MDBBtn>
-
             <MDBBtn onClick={this.handleChangeValue1}>
               Change value to 80
             </MDBBtn>
