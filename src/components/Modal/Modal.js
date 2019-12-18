@@ -23,16 +23,16 @@ class Modal extends Component {
 
   componentDidUpdate = (prevProps, prevState) => {
     const { isOpen, overflowScroll } = this.props;
-    const overflowStatment = overflowScroll
+    const overflowStatement = overflowScroll
       ? 'overflow-y-scroll'
       : 'overflow-hidden';
 
     if (prevState.isOpen !== isOpen) {
       this.setState({ isOpen }, () => {
         if (isOpen) {
-          document.body.classList.add(overflowStatment);
+          document.body.classList.add(overflowStatement);
         } else {
-          document.body.classList.remove(overflowStatment);
+          document.body.classList.remove(overflowStatement);
         }
       });
     }
@@ -215,7 +215,7 @@ Modal.defaultProps = {
   autoFocus: true,
   backdrop: true,
   backdropTransitionTimeout: 150,
-  disableFocusTrap: false,
+  disableFocusTrap: true,
   fade: true,
   isOpen: false,
   keyboard: true,
