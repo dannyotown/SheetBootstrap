@@ -14,18 +14,17 @@ import DropdownMenuComponent from './DropdownMenuComponent';
 // FREE-END
 // PRO-END
 
-const noFlipModifier = { flip: { enabled: false } };
-
 class DropdownMenu extends Component {
   render() {
     const {
       basic,
-      className,
-      right,
       children,
-      tag,
-      flip,
+      className,
       color,
+      flip,
+      modifiers,
+      right,
+      tag,
       ...attrs
     } = this.props;
 
@@ -57,12 +56,11 @@ class DropdownMenu extends Component {
 
       attrs.placement = `${position1}-${position2}`;
       attrs.component = tag;
-      attrs.modifiers = !flip ? noFlipModifier : undefined;
     }
 
     return (
       <Popper
-        modifires={attrs.modifiers}
+        modifiers={modifiers || (!flip && { flip: { enabled: false } })}
         eventsEnabled
         positionFixed={false}
         placement={attrs.placement}
@@ -99,6 +97,7 @@ DropdownMenu.propTypes = {
   basic: PropTypes.bool,
   className: PropTypes.string,
   flip: PropTypes.bool,
+  modifiers: PropTypes.object,
   right: PropTypes.bool,
   tag: PropTypes.string
 };
@@ -106,7 +105,7 @@ DropdownMenu.propTypes = {
 DropdownMenu.defaultProps = {
   basic: false,
   className: '',
-  flip: false,
+  flip: true,
   right: false,
   tag: 'div',
   color: false
