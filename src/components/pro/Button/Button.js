@@ -15,7 +15,11 @@ const Button = ({
   ...attributes
 }) => {
   const classes = classNames(
-    flat ? 'btn-flat' : `btn${outline ? '-outline' : ''}-${color}`,
+    flat
+      ? 'btn-flat'
+      : gradient
+      ? `${gradient}-gradient`
+      : `btn${outline ? '-outline' : ''}-${color}`,
     {
       'btn-floating': floating,
       'btn-rounded': rounded

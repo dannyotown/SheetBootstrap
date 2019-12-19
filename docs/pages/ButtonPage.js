@@ -8,9 +8,9 @@ import {
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
-  MDBDropdownItem
+  MDBDropdownItem,
+  MDBBtn
 } from 'mdbreact';
-import MDBBtn from '../../src/components/Button';
 import DocsLink from '../components/docsLink';
 import SectionContainer from '../components/sectionContainer';
 
