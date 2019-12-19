@@ -7,7 +7,7 @@ import {
   checkClass,
   checkTag,
   checkCallBack
-} from '../../tests/utils';
+} from '../../../tests/utils';
 import Button from './Button';
 
 const mockCallback = jest.fn();
@@ -19,11 +19,6 @@ describe('<Button />', () => {
 
   beforeEach(() => {
     wrapper = setup();
-  });
-
-  test('renders', () => {
-    const button = findByTestAttr(wrapper, 'button');
-    expect(button.length).toBe(1);
   });
 
   test('renders without errors', () => {
@@ -81,39 +76,17 @@ describe('<Button />', () => {
     expect(wrapper.find('[href="https://mdbootstrap.com/"]').length).toBe(1);
   });
 
-  test('sets custom wrapper tag', () => {
-    wrapper = setup({ tag: 'a' });
-    checkTag(wrapper, 'a');
-  });
-
-  test('should set `a` tag when (href and tag==="button") are passed', () => {
-    wrapper = setup({ href: '...', tag: 'button' });
-    checkTag(wrapper, 'a');
-  });
-
-  test('renders a waves ripple element when is not disabled', () => {
-    expect(wrapper.find('Waves').length).toBe(1);
-  });
-
   describe('sets classes', () => {
-    test('adds btn class by default', () => {
-      checkClass(wrapper, 'btn');
-    });
-
-    test('adds Ripple-parent class by default', () => {
-      checkClass(wrapper, 'Ripple-parent');
-    });
-
     test('adds custom class passed as property', () => {
       wrapper = setup({ className: 'testClassName' });
 
       checkClass(wrapper, 'testClassName');
     });
 
-    test('adds peach-gradient class', () => {
-      wrapper = setup({ gradient: 'peach' });
+    test('adds btn-flat class', () => {
+      wrapper = setup({ flat: true });
 
-      checkClass(wrapper, 'peach-gradient');
+      checkClass(wrapper, 'btn-flat');
     });
 
     test('adds btn-outline-default class when color is not passed', () => {
@@ -128,50 +101,22 @@ describe('<Button />', () => {
       checkClass(wrapper, 'btn-outline-primary');
     });
 
-    test('adds btn-circle class', () => {
-      wrapper = setup({ circle: true });
+    test('adds btn-floating class', () => {
+      wrapper = setup({ floating: true });
 
-      checkClass(wrapper, 'btn-circle');
+      checkClass(wrapper, 'btn-floating');
     });
 
-    test('adds btn-block class', () => {
-      wrapper = setup({ block: true });
+    test('adds btn-rounded class', () => {
+      wrapper = setup({ rounded: true });
 
-      checkClass(wrapper, 'btn-block');
-    });
-
-    test('adds btn-action class', () => {
-      wrapper = setup({ action: true });
-
-      checkClass(wrapper, 'btn-action');
-    });
-
-    test('adds btn-fb class', () => {
-      wrapper = setup({ social: 'fb' });
-
-      checkClass(wrapper, 'btn-fb');
-    });
-
-    test('adds btn-lg class', () => {
-      wrapper = setup({ size: 'lg' });
-
-      checkClass(wrapper, 'btn-lg');
-    });
-
-    test('adds active class', () => {
-      wrapper = setup({ active: true });
-
-      checkClass(wrapper, 'active');
+      checkClass(wrapper, 'btn-rounded');
     });
   });
 
   describe('disabled', () => {
     beforeEach(() => {
       wrapper = setup({ disabled: true });
-    });
-
-    test('adds disabled class', () => {
-      checkClass(wrapper, 'disabled');
     });
 
     test('doesn`t render a waves ripple element', () => {

@@ -30,15 +30,10 @@ describe('<Avatar />', () => {
 
   test('does not throw warnings with expected props', () => {
     const expectedProps = {
-      background: 'string',
-      circle: true,
+      tag: 'section',
       className: 'string',
-      children: 'string',
-      src: 'test',
       round: true,
-      size: 12,
-      style: { color: 'red' },
-      tag: 'span'
+      circle: true
     };
 
     wrapper = setup(expectedProps);
@@ -54,12 +49,6 @@ describe('<Avatar />', () => {
     checkTag(wrapper, 'section');
   });
 
-  test('sets img', () => {
-    wrapper = setup({ src: 'test' });
-    checkTag(wrapper, 'img');
-    expect(wrapper.find('img[src="test"]').length).toBe(1);
-  });
-
   describe('sets classes', () => {
     test('adds avatar class by default ', () => {
       checkClass(wrapper, 'avatar');
@@ -73,20 +62,6 @@ describe('<Avatar />', () => {
     test('adds round class by default if circle ', () => {
       wrapper = setup({ circle: true });
       checkClass(wrapper, 'rounded-circle');
-    });
-
-    test('sets background class if background === red ', () => {
-      checkClass(wrapper, 'grey');
-      wrapper = setup({ background: 'red' });
-      checkClass(wrapper, 'red');
-    });
-
-    test('adds d-table-cell align-middle text-center font-weight-bool class by default', () => {
-      wrapper = setup({ circle: true });
-      checkClass(
-        wrapper,
-        'd-table-cell.align-middle.text-center.font-weight-bool'
-      );
     });
 
     test('adds custom class ', () => {
