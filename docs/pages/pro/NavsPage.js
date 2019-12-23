@@ -3,7 +3,7 @@ import {
   MDBContainer,
   MDBNav,
   MDBNavItem,
-  MDBNavLink,
+  MDBLink,
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
@@ -29,24 +29,18 @@ class NavsPage extends Component {
               <SectionContainer className='pb-5'>
                 <MDBNav tabs color='indigo'>
                   <MDBNavItem>
-                    <MDBNavLink link active to='#!'>
+                    <MDBLink active to='#!'>
                       Active
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 1
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 1</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 2
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 2</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 3
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 3</MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -55,24 +49,18 @@ class NavsPage extends Component {
               <SectionContainer className='pb-4'>
                 <MDBNav pills color='unique' className='mb-2'>
                   <MDBNavItem>
-                    <MDBNavLink link active to='#!'>
+                    <MDBLink active to='#!'>
                       Active
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 1
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 1</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 2
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 2</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 3
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 3</MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -86,24 +74,18 @@ class NavsPage extends Component {
               <SectionContainer className='pb-5'>
                 <MDBNav tabs color='purple' className='nav-justified'>
                   <MDBNavItem>
-                    <MDBNavLink link active to='#!'>
+                    <MDBLink active to='#!'>
                       Active
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 1
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 1</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 2
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 2</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 3
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 3</MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -112,24 +94,18 @@ class NavsPage extends Component {
               <SectionContainer className='pb-4'>
                 <MDBNav pills className='nav-justified mb-2'>
                   <MDBNavItem>
-                    <MDBNavLink link active to='#!'>
+                    <MDBLink active to='#!'>
                       Active
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 1
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 1</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 2
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 2</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link 3
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link 3</MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -143,9 +119,9 @@ class NavsPage extends Component {
               <SectionContainer className='pb-5'>
                 <MDBNav tabs color='secondary'>
                   <MDBNavItem>
-                    <MDBNavLink link active to='#!'>
+                    <MDBLink active to='#!'>
                       Active
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBDropdown>
@@ -162,14 +138,12 @@ class NavsPage extends Component {
                     </MDBDropdown>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link disabled to='#!'>
+                    <MDBLink disabled to='#!'>
                       Disabled
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
@@ -178,9 +152,9 @@ class NavsPage extends Component {
               <SectionContainer className='pb-4'>
                 <MDBNav pills color='dark' className='mb-2'>
                   <MDBNavItem>
-                    <MDBNavLink link active to='#!'>
+                    <MDBLink active to='#!'>
                       Active
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBDropdown>
@@ -197,14 +171,12 @@ class NavsPage extends Component {
                     </MDBDropdown>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link to='#!'>
-                      Link
-                    </MDBNavLink>
+                    <MDBLink to='#!'>Link</MDBLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink link disabled to='#!'>
+                    <MDBLink disabled to='#!'>
                       Disabled
-                    </MDBNavLink>
+                    </MDBLink>
                   </MDBNavItem>
                 </MDBNav>
               </SectionContainer>
