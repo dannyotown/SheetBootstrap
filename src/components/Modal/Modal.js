@@ -63,7 +63,7 @@ class Modal extends Component {
     }
   };
 
-  handleOnExited = node => {
+  handleOnExited = () => {
     this.props.hiddenModal && this.props.hiddenModal();
   };
 
@@ -131,7 +131,7 @@ class Modal extends Component {
       'modal-dialog',
       className
     );
-
+    const positionSplited = position.split('-');
     const wrapperClasses = classNames(
       {
         modal: !inline,
@@ -139,10 +139,12 @@ class Modal extends Component {
         top: fade && !animation && !position,
         animation: fade && animation
       },
-      fade && position && position.split('-')[1],
+      fade && position && position && positionSplited.length > 1
+        ? positionSplited[1]
+        : positionSplited[0],
       wrapClassName
     );
-    console.log(wrapperClasses);
+
     const backdropClasses = classNames(
       'modal-backdrop',
       fade ? 'fade' : 'show',
@@ -222,7 +224,8 @@ Modal.defaultProps = {
   overflowScroll: true,
   role: 'dialog',
   tabIndex: '-1',
-  zIndex: 1050
+  zIndex: 1050,
+  position: ''
 };
 
 Modal.propTypes = {
