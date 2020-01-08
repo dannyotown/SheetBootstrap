@@ -351,7 +351,7 @@ class ModalPage extends Component {
           </MDBModal>
         </SectionContainer>
 
-        <SectionContainer header='Scrolling long contetn' flexCenter>
+        <SectionContainer header='Scrolling long content' flexCenter>
           <MDBBtn color='primary' onClick={this.toggle(13)}>
             Modal
           </MDBBtn>

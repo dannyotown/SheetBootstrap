@@ -76,8 +76,14 @@ class Modal extends Component {
       return;
     }
 
-    if (!this.modalContent.contains(e.target)) {
-      this.props.toggle();
+    if (
+      !(e.clientX > e.target.clientWidth || e.clientY > e.target.clientHeight)
+    ) {
+      if (!this.modalContent.contains(e.target)) {
+        if (!this.props.disableBackdrop) {
+          this.props.toggle();
+        }
+      }
     }
   };
 
@@ -216,16 +222,17 @@ Modal.defaultProps = {
   autoFocus: true,
   backdrop: true,
   backdropTransitionTimeout: 150,
+  disableBackdrop: false,
   disableFocusTrap: true,
   fade: true,
   isOpen: false,
   keyboard: true,
   modalTransitionTimeout: 300,
   overflowScroll: true,
+  position: '',
   role: 'dialog',
   tabIndex: '-1',
-  zIndex: 1050,
-  position: ''
+  zIndex: 1050
 };
 
 Modal.propTypes = {
@@ -237,6 +244,7 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   contentClassName: PropTypes.string,
+  disableBackdrop: PropTypes.bool,
   disableFocusTrap: PropTypes.bool,
   fade: PropTypes.bool,
   frame: PropTypes.bool,
