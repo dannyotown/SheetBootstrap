@@ -68,7 +68,6 @@ class Modal extends Component {
   };
 
   handleBackdropClick = e => {
-    console.log(e);
     if (
       !this.props.backdrop ||
       (e.target.closest('[role="dialog"]') &&
@@ -138,12 +137,12 @@ class Modal extends Component {
         modal: !inline,
         fade,
         top: fade && !animation && !position,
-        [`${animation}`]: fade && animation
+        animation: fade && animation
       },
       fade && position && position.split('-')[1],
       wrapClassName
     );
-
+    console.log(wrapperClasses);
     const backdropClasses = classNames(
       'modal-backdrop',
       fade ? 'fade' : 'show',
