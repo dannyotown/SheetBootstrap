@@ -43,7 +43,11 @@ class DataTable extends Component {
     // PRO-START
     this.filterOptions();
     // PRO-END
-    order.length && this.handleSort(order[0], order[1]);
+    if (order.length > 0) {
+      this.handleSort(order[0], order[1]);
+    } else {
+      this.handleSort();
+    }
 
     this.setUnsearchable(columns);
 
