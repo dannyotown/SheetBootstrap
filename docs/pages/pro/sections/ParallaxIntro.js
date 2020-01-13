@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { MDBParallax } from 'mdbreact';
+import MDBParallaxWrapper from './ParallaxWrapper';
 
 class ParallaxIntro extends Component {
   render() {
     return (
       <>
-        <MDBParallax
+        <MDBParallaxWrapper
           image='https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg'
           speed='0.8'
         >
@@ -18,7 +18,7 @@ class ParallaxIntro extends Component {
               </div>
             </div>
           </div>
-        </MDBParallax>
+        </MDBParallaxWrapper>
 
         <div className='container' style={{ backgroundColor: '#ffffffaa' }}>
           <div className='row my-5 py-4'>
@@ -87,7 +87,7 @@ class ParallaxIntro extends Component {
             </div>
           </div>
         </div>
-        <MDBParallax
+        <MDBParallaxWrapper
           image='http://mdbootstrap.com/img/Photos/Others/nature4.jpg'
           speed={0.3}
           height='50vh'
@@ -101,17 +101,17 @@ class ParallaxIntro extends Component {
             </div>
           </div>
         </div>
-        <MDBParallax
+        <MDBParallaxWrapper
           image='https://mdbootstrap.com/img/Photos/Others/city13.jpg'
           speed={0.8}
           height='50vh'
         />
-        <MDBParallax
+        <MDBParallaxWrapper
           image='https://mdbootstrap.com/img/Photos/Others/images/92.jpg'
           speed={1.2}
           height='50vh'
         />
-        <MDBParallax
+        <MDBParallaxWrapper
           image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(21).jpg'
           speed={0.2}
           height='50vh'
@@ -139,7 +139,7 @@ class ParallaxIntro extends Component {
             </p>
 
             <div className='float-md-left mr-md-4 mb-4 mb-md-0'>
-              <MDBParallax
+              <MDBParallaxWrapper
                 image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(60).jpg'
                 keepImg
                 speed={0.5}
@@ -178,7 +178,7 @@ class ParallaxIntro extends Component {
             </p>
 
             <div className='float-md-right ml-md-4 mb-4 mb-md-0'>
-              <MDBParallax
+              <MDBParallaxWrapper
                 image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(26).jpg'
                 speed={1.3}
                 keepImg
@@ -228,25 +228,25 @@ class ParallaxIntro extends Component {
           </div>
         </div>
 
-        <MDBParallax
+        <MDBParallaxWrapper
           image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(19).jpg'
           speed={0.5}
           height='50vh'
           type='scale'
         />
-        <MDBParallax
+        <MDBParallaxWrapper
           image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(18).jpg'
           speed={2}
           height='50vh'
           type='opacity'
         />
-        <MDBParallax
+        <MDBParallaxWrapper
           image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(20).jpg'
           speed={0.2}
           height='50vh'
           type='scroll-opacity'
         />
-        <MDBParallax
+        <MDBParallaxWrapper
           image='https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(57).jpg'
           speed={0.2}
           height='50vh'
@@ -263,14 +263,14 @@ class ParallaxIntro extends Component {
           </div>
         </div>
 
-        <MDBParallax
+        <MDBParallaxWrapper
           video='https://youtu.be/lugard7P0nw'
           disableVideoLazyLoading
-         />
-        <MDBParallax
+        />
+        <MDBParallaxWrapper
           video='https://player.vimeo.com/video/137857207'
-          type='opacity'
-          speed='0.1'
+          type='scale-opacity'
+          speed='0.8'
           disableVideoLazyLoading
         />
 
