@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { MDBInput, MDBIcon } from 'mdbreact';
 import classNames from 'classnames';
 import './Autocomplete.css';
+import FocusTrap from 'focus-trap-react';
 
 class Autocomplete extends Component {
   state = {
@@ -220,10 +221,11 @@ class Autocomplete extends Component {
         >
           {clear && initialValue && (
             <button onClick={this.handleClear} className={btnClearClasses}>
-              <MDBIcon icon='times' />
+              <MDBIcon icon='times' style={{ color: focused && '#4285F4' }} />
             </button>
           )}
         </MDBInput>
+
         {showList && (
           <ul
             className='mdb-autocomplete-wrap'
@@ -238,7 +240,7 @@ class Autocomplete extends Component {
               <li
                 className='list-item'
                 key={el + index}
-                // onMouseEnter={() => this.updateFocus(index)}
+                onMouseEnter={() => this.updateFocus(index)}
                 style={{
                   background: `${focusedListItem === index ? '#eee' : '#fff'}`
                 }}
