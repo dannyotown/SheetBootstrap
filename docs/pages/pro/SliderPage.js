@@ -9,22 +9,40 @@ import {
   MDBCardTitle,
   MDBCardImage,
   MDBIcon,
-  MDBBadge
+  MDBBadge,
+  MDBBtn,
+  MDBBox
 } from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
 
 class SliderPage extends Component {
   state = {
-    value: 0
+    value: 0,
+    changeValue: 50
   };
 
   handlePricingChange = value => {
     this.setState({ value });
   };
 
+  handleChangeLog = changeValue => {
+    console.log(changeValue);
+  };
+
+  handleChangeValue = () => {
+    this.setState({
+      changeValue: 20
+    });
+  };
+  handleChangeValue1 = () => {
+    this.setState({
+      changeValue: 80
+    });
+  };
+
   render() {
-    const { value } = this.state;
+    const { value, changeValue } = this.state;
     return (
       <MDBContainer className='my-5'>
         <DocsLink
@@ -36,11 +54,18 @@ class SliderPage extends Component {
           <div className='my-3'>
             <input type='range' className='custom-range' id='customRange1' />
           </div>
-          <MDBRangeInput min={0} max={100} value={50} />
-        </SectionContainer>
-
-        <SectionContainer header='With step property'>
-          <MDBRangeInput min={0} max={100} value={50} step={10} />
+          <MDBRangeInput
+            min={0}
+            max={100}
+            value={changeValue}
+            getValue={this.handleChangeLog}
+          />
+          <MDBBox display='flex' justifyContent='around' className='flex-wrap'>
+            <MDBBtn onClick={this.handleChangeValue}>Change value to 20</MDBBtn>
+            <MDBBtn onClick={this.handleChangeValue1}>
+              Change value to 80
+            </MDBBtn>
+          </MDBBox>
         </SectionContainer>
 
         <SectionContainer

@@ -28,6 +28,7 @@ const Button = props => {
     disabled,
     download,
     flat,
+    gradient,
     innerRef,
     outline,
     role,
@@ -45,6 +46,7 @@ const Button = props => {
     color && outline && `btn-outline-${color}`,
     'btn',
     'Ripple-parent',
+    gradient && `${gradient}-gradient`,
     {
       active,
       'btn-circle': circle,
@@ -76,7 +78,9 @@ const Button = props => {
       disabled={disabled}
     >
       {children}
-      {!disabled && <Waves cursorPos={cursorPos} outline={outline} flat={flat || rounded} />}
+      {!disabled && (
+        <Waves cursorPos={cursorPos} outline={outline} flat={flat || rounded} />
+      )}
     </Tag>
   );
 };

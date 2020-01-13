@@ -178,6 +178,25 @@ class App extends Component {
                     <span>FREE</span>
                   </MDBTooltip>
                 </MDBNavItem>
+                <MDBNavItem className='mr-2'>
+                  <MDBTooltip
+                    placement='bottom'
+                    domElement
+                    style={{ display: 'block' }}
+                  >
+                    <a
+                      className='nav-link Ripple-parent'
+                      href='https://mdbootstrap.com/support/cat/react/'
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <strong>
+                        <MDBIcon icon='question-circle' />
+                      </strong>
+                    </a>
+                    <span>SUPPORT</span>
+                  </MDBTooltip>
+                </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
           </MDBNavbar>

@@ -301,9 +301,7 @@ const TestimonialsPage = () => {
       </SectionContainer>
 
       <SectionContainer header='Example 4' className='text-center'>
-        <h2 className='h1-responsive my-5'>
-          Testimonials
-        </h2>
+        <h2 className='h1-responsive my-5'>Testimonials</h2>
         <MDBCarousel
           activeItem={1}
           length={3}

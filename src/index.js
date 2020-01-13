@@ -44,6 +44,7 @@ import Iframe from './components/Iframe';
 import InputGroup from './components/InputGroup';
 import InputNumeric from './components/InputNumeric';
 import Jumbotron from './components/Jumbotron';
+import Link from './components/Link';
 import ListGroup from './components/ListGroup';
 import ListGroupItem from './components/ListGroup/ListGroupItem';
 import Mask from './components/Mask';
@@ -192,6 +193,7 @@ export {
   InputGroup,
   InputNumeric,
   Jumbotron,
+  Link,
   ListGroup,
   ListGroupItem,
   Mask,
@@ -232,7 +234,6 @@ export {
   Tooltip,
   View,
   Waves,
-  
   // PRO-START
   Autocomplete,
   Avatar,
@@ -282,8 +283,6 @@ export {
   ToastContainer,
   // PRO-END
 
-  
-
   Alert as MDBAlert,
   Animation as MDBAnimation,
   Badge as MDBBadge,
@@ -331,6 +330,7 @@ export {
   InputGroup as MDBInputGroup,
   InputNumeric as MDBInputSelect,
   Jumbotron as MDBJumbotron,
+  Link as MDBLink,
   ListGroup as MDBListGroup,
   ListGroupItem as MDBListGroupItem,
   Mask as MDBMask,
@@ -371,7 +371,6 @@ export {
   Typography as MDBTypography,
   View as MDBView,
   Waves as MDBWaves,
-
   // PRO-START
   Autocomplete as MDBAutocomplete,
   Avatar as MDBAvatar,
