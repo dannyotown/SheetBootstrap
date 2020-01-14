@@ -20,3 +20,6 @@
   transition: 2s ease-in-out;
   opacity: 1;
 }
+.mdb-autocomplete-wrap li:hover {
+  background: none !important;
+}
