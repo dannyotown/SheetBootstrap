@@ -320,7 +320,11 @@ const top100Films = [
   { title: 'Apocalypse Now', year: 1979 },
   { title: 'Alien', year: 1979 },
   { title: 'Sunset Boulevard', year: 1950 },
-  { title: 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb', year: 1964 },
+  {
+    title:
+      'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
+    year: 1964
+  },
   { title: 'The Great Dictator', year: 1940 },
   { title: 'Cinema Paradiso', year: 1988 },
   { title: 'The Lives of Others', year: 2006 },
@@ -367,7 +371,7 @@ const top100Films = [
   { title: 'Inglourious Basterds', year: 2009 },
   { title: 'Snatch', year: 2000 },
   { title: '3 Idiots', year: 2009 },
-  { title: 'Monty Python and the Holy Grail', year: 1975 },
+  { title: 'Monty Python and the Holy Grail', year: 1975 }
 ];
 
 const subjects = [
@@ -419,12 +423,11 @@ class AutocompletePage extends Component {
         <SectionContainer header='New example'>
           <MDBAuto
             data={top100Films}
-            label='Choose your favorite state'
+            label='Choose your favorite film'
             icon='edit'
             clear
             id='input12'
-            size='md'
-            visibleOptions={5}
+            dataOption={e => console.log(e)}
           />
 
           <MDBAuto
