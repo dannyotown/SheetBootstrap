@@ -591,7 +591,11 @@ DataTable.propTypes = {
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
   info: PropTypes.bool,
-  infoLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  infoLabel: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.string
+  ]),
   maxHeight: PropTypes.string,
   noBottomColumns: PropTypes.bool,
   noRecordsFoundLabel: PropTypes.string,
