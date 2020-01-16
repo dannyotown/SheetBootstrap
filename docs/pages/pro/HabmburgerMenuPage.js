@@ -5,7 +5,7 @@ import {
   MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavItem,
-  MDBNavLink,
+  MDBLink,
   MDBNavbarToggler,
   MDBCollapse,
   MDBContainer,
@@ -60,19 +60,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse0' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -96,19 +90,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse isOpen={collapse1} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -126,19 +114,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse isOpen={collapse2} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -159,19 +141,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse isOpen={collapse3} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -190,19 +166,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse1' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -218,19 +188,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse2' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -250,19 +214,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse3' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -283,19 +241,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse5' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -316,19 +268,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse6' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -349,19 +295,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse7' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -378,19 +318,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse8' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -407,19 +341,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse9' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -436,19 +364,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse10' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -465,19 +387,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse11' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -505,19 +421,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse12' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -543,19 +453,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse13' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -581,19 +485,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse14' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
@@ -615,19 +513,13 @@ class HabmburgerMenuPage extends Component {
                 <MDBCollapse id='navbarCollapse15' isOpen={collapseID} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem active>
-                      <MDBNavLink link to='#!'>
-                        Home
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Home</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Link
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Link</MDBLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink link to='#!'>
-                        Profile
-                      </MDBNavLink>
+                      <MDBLink to='#!'>Profile</MDBLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                 </MDBCollapse>
