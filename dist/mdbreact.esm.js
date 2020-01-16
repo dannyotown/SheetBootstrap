@@ -359,10 +359,8 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Animation)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      // eslint-disable-next-line react/destructuring-assignment
-      isVisible: !_this.props.reveal,
-      // eslint-disable-next-line react/destructuring-assignment
-      revealed: !_this.props.reveal,
+      isVisible: false,
+      revealed: false,
       countIterations: 0
     });
 
@@ -447,6 +445,10 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var reveal = this.props.reveal;
+      this.setState({
+        isVisible: !reveal,
+        revealed: !reveal
+      });
 
       if (reveal) {
         window.addEventListener('scroll', this.updatePredicate);
@@ -5239,7 +5241,12 @@ function (_Component) {
 
       this.filterOptions(); // PRO-END
 
-      order.length && this.handleSort(order[0], order[1]);
+      if (order.length > 0) {
+        this.handleSort(order[0], order[1]);
+      } else {
+        this.handleSort();
+      }
+
       this.setUnsearchable(columns);
 
       if (paging) {
@@ -5460,7 +5467,7 @@ DataTable.propTypes = {
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
   info: PropTypes.bool,
-  infoLabel: PropTypes.arrayOf(PropTypes.string),
+  infoLabel: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string]),
   maxHeight: PropTypes.string,
   noBottomColumns: PropTypes.bool,
   noRecordsFoundLabel: PropTypes.string,
@@ -7021,19 +7028,21 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOnExited", function (node) {
+    _defineProperty(_assertThisInitialized(_this), "handleOnExited", function () {
       _this.props.hiddenModal && _this.props.hiddenModal();
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleBackdropClick", function (e) {
-      console.log(e);
-
       if (!_this.props.backdrop || e.target.closest('[role="dialog"]') && !e.target.classList.contains('modal')) {
         return;
       }
 
-      if (!_this.modalContent.contains(e.target)) {
-        _this.props.toggle();
+      if (!(e.clientX > e.target.clientWidth || e.clientY > e.target.clientHeight)) {
+        if (!_this.modalContent.contains(e.target)) {
+          if (!_this.props.disableBackdrop) {
+            _this.props.toggle();
+          }
+        }
       }
     });
 
@@ -7085,11 +7094,13 @@ function (_Component) {
         'modal-frame': frame,
         'modal-dialog-centered': centered
       }, _defineProperty(_classNames, "modal-".concat(size), size), _defineProperty(_classNames, "modal-".concat(position), position), _defineProperty(_classNames, "modal-notify white-text modal-".concat(modalStyle), modalStyle), _classNames), 'modal-dialog', className);
-      var wrapperClasses = classNames(_defineProperty({
+      var positionSplited = position.split('-');
+      var wrapperClasses = classNames({
         modal: !inline,
         fade: fade,
-        top: fade && !animation && !position
-      }, "".concat(animation), fade && animation), fade && position && position.split('-')[1], wrapClassName);
+        top: fade && !animation && !position,
+        animation: fade && animation
+      }, fade && position && position && positionSplited.length > 1 ? positionSplited[1] : positionSplited[0], wrapClassName);
       var backdropClasses = classNames('modal-backdrop', fade ? 'fade' : 'show', backdropClassName);
       var contentClasses = classNames('modal-content', contentClassName);
       var modalAttributes = returnAttributes({
@@ -7155,12 +7166,14 @@ Modal.defaultProps = {
   autoFocus: true,
   backdrop: true,
   backdropTransitionTimeout: 150,
+  disableBackdrop: false,
   disableFocusTrap: true,
   fade: true,
   isOpen: false,
   keyboard: true,
   modalTransitionTimeout: 300,
   overflowScroll: true,
+  position: '',
   role: 'dialog',
   tabIndex: '-1',
   zIndex: 1050
@@ -7174,6 +7187,7 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   contentClassName: PropTypes.string,
+  disableBackdrop: PropTypes.bool,
   disableFocusTrap: PropTypes.bool,
   fade: PropTypes.bool,
   frame: PropTypes.bool,
