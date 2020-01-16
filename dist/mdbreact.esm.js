@@ -13,7 +13,6 @@ import MomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider, DatePicker as DatePicker$1 } from 'material-ui-pickers';
 import moment from 'moment';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import { jarallax, jarallaxVideo, jarallaxElement } from 'jarallax';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { Link as Link$2 } from 'react-scroll';
 import raf from 'raf';
@@ -11336,186 +11335,74 @@ Lightbox.defaultProps = {
   transition: 400
 };
 
-var Parallax =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Parallax, _Component);
-
-  function Parallax() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, Parallax);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Parallax)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "jarallax", React.createRef());
-
-    return _this;
-  }
-
-  _createClass(Parallax, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this$props = this.props,
-          image = _this$props.image,
-          video = _this$props.video,
-          element = _this$props.element,
-          elementOptions = _this$props.elementOptions,
-          disableParallax = _this$props.disableParallax,
-          disableVideo = _this$props.disableVideo,
-          disableVideoLazyLoading = _this$props.disableVideoLazyLoading,
-          disableVideoLoop = _this$props.disableVideoLoop,
-          disableVideoPlayOnlyVisible = _this$props.disableVideoPlayOnlyVisible,
-          elementInViewport = _this$props.elementInViewport,
-          imgElement = _this$props.imgElement,
-          imgPosition = _this$props.imgPosition,
-          imgRepeat = _this$props.imgRepeat,
-          imgSize = _this$props.imgSize,
-          imgSrc = _this$props.imgSrc,
-          videoEndTime = _this$props.videoEndTime,
-          videoStartTime = _this$props.videoStartTime,
-          videoVolume = _this$props.videoVolume,
-          zIndex = _this$props.zIndex;
-      var imageOptions = {
-        disableParallax: disableParallax,
-        elementInViewport: elementInViewport,
-        imgElement: imgElement,
-        imgPosition: imgPosition,
-        imgRepeat: imgRepeat,
-        imgSize: imgSize,
-        imgSrc: imgSrc,
-        zIndex: zIndex
-      };
-      var videoOptions = {
-        disableVideo: disableVideo,
-        videoEndTime: videoEndTime,
-        videoLazyLoading: !disableVideoLazyLoading,
-        videoLoop: !disableVideoLoop,
-        videoPlayOnlyVisible: !disableVideoPlayOnlyVisible,
-        videoStartTime: videoStartTime,
-        videoVolume: videoVolume
-      };
-      jarallax(this.jarallax.current, image ? imageOptions : video ? videoOptions : element ? elementOptions : null);
-      jarallaxVideo(this.jarallax.current);
-      jarallaxElement(this.jarallax.current);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      jarallax(this.jarallax.current, 'destroy');
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props2 = this.props,
-          alt = _this$props2.alt,
-          children = _this$props2.children,
-          className = _this$props2.className,
-          element = _this$props2.element,
-          image = _this$props2.image,
-          keepImg = _this$props2.keepImg,
-          speed = _this$props2.speed,
-          Tag = _this$props2.tag,
-          threshold = _this$props2.threshold,
-          type = _this$props2.type,
-          video = _this$props2.video,
-          height = _this$props2.height,
-          width = _this$props2.width;
-      var parentClasses = classNames(keepImg ? 'jarallax-keep-img' : 'jarallax', className);
-      var elementClasses = classNames(Tag === 'span' ? 'd-inline-block' : null);
-      return React.createElement(React.Fragment, null, image && React.createElement(Tag, {
-        ref: this.jarallax,
-        className: parentClasses,
-        style: {
-          height: height,
-          width: width
-        },
-        "data-jarallax": true,
-        "data-type": type,
-        "data-speed": speed
-      }, React.createElement("img", {
-        className: "jarallax-img ",
-        src: image,
-        alt: alt
-      }), children), video && React.createElement(Tag, {
-        ref: this.jarallax,
-        className: parentClasses,
-        style: {
-          height: height,
-          width: width
-        },
-        "data-jarallax": true,
-        "data-type": type,
-        "data-speed": speed,
-        "data-video-src": video
-      }, children), element && React.createElement(Tag, {
-        className: elementClasses,
-        ref: this.jarallax,
-        "data-jarallax-element": speed,
-        "data-threshold": threshold
-      }, children));
-    }
-  }]);
-
-  return Parallax;
-}(Component);
-
+var Parallax = React.forwardRef(function (props, jarallax) {
+  var alt = props.alt,
+      children = props.children,
+      className = props.className,
+      element = props.element,
+      image = props.image,
+      keepImg = props.keepImg,
+      speed = props.speed,
+      Tag = props.tag,
+      threshold = props.threshold,
+      type = props.type,
+      video = props.video,
+      height = props.height,
+      width = props.width;
+  var parentClasses = classNames(keepImg ? 'jarallax-keep-img' : 'jarallax', className);
+  var elementClasses = classNames(Tag === 'span' ? 'd-inline-block' : null);
+  return React.createElement(React.Fragment, null, image && React.createElement(Tag, {
+    ref: jarallax,
+    className: parentClasses,
+    style: {
+      height: height,
+      width: width
+    },
+    "data-jarallax": true,
+    "data-type": type,
+    "data-speed": speed
+  }, React.createElement("img", {
+    className: "jarallax-img ",
+    src: image,
+    alt: alt
+  }), children), video && React.createElement(Tag, {
+    ref: jarallax,
+    className: parentClasses,
+    style: {
+      height: height,
+      width: width
+    },
+    "data-jarallax": true,
+    "data-type": type,
+    "data-speed": speed,
+    "data-video-src": video
+  }, children), element && React.createElement(Tag, {
+    className: elementClasses,
+    ref: jarallax,
+    "data-jarallax-element": speed,
+    "data-threshold": threshold
+  }, children));
+});
 Parallax.propTypes = {
   alt: PropTypes.string.isRequired,
   className: PropTypes.string,
-  disableParallax: PropTypes.func,
-  disableVideo: PropTypes.func,
-  elementInViewport: PropTypes.node,
   height: PropTypes.string,
   image: PropTypes.string,
-  imgElement: PropTypes.string,
-  imgPosition: PropTypes.string,
-  imgRepeat: PropTypes.string,
-  imgSize: PropTypes.string,
-  keepImg: PropTypes.bool,
   speed: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   threshold: PropTypes.node,
   type: PropTypes.string,
   video: PropTypes.string,
-  videoEndTime: PropTypes.number,
-  videoLazyLoading: PropTypes.bool,
-  videoLoop: PropTypes.bool,
-  videoPlayOnlyVisible: PropTypes.bool,
-  videoStartTime: PropTypes.number,
-  videoVolume: PropTypes.number,
-  width: PropTypes.string,
-  zIndex: PropTypes.number
+  width: PropTypes.string
 };
 Parallax.defaultProps = {
   alt: 'MDBParallax image',
-  disableParallax: null,
-  disableVideo: null,
-  elementInViewport: null,
   height: '600px',
-  imgElement: '.jarallax-img',
-  imgPosition: '50% 50%',
-  imgRepeat: 'no-repeat',
-  imgSize: 'cover',
-  keepImg: false,
   speed: 0.5,
   tag: 'div',
   threshold: 'null null',
   type: 'scroll',
-  videoEndTime: 0,
-  videoLazyLoading: true,
-  videoLoop: true,
-  videoPlayOnlyVisible: true,
-  videoStartTime: 0,
-  videoVolume: 0,
-  width: '100%',
-  zIndex: -100
+  width: '100%'
 };
 
 var css$i = "\r\n/*\r\n * Container style\r\n */\r\n .ps {\r\n  overflow: hidden !important;\r\n  overflow-anchor: none;\r\n  -ms-overflow-style: none;\r\n  touch-action: auto;\r\n  -ms-touch-action: auto;\r\n}\r\n\r\n/*\r\n * Scrollbar rail styles\r\n */\r\n.ps__rail-x {\r\n  display: none;\r\n  opacity: 0;\r\n  transition: background-color .2s linear, opacity .2s linear;\r\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\r\n  height: 15px;\r\n  /* there must be 'bottom' or 'top' for ps__rail-x */\r\n  bottom: 0px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__rail-y {\r\n  display: none;\r\n  opacity: 0;\r\n  transition: background-color .2s linear, opacity .2s linear;\r\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\r\n  width: 15px;\r\n  /* there must be 'right' or 'left' for ps__rail-y */\r\n  right: 0;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps--active-x > .ps__rail-x,\r\n.ps--active-y > .ps__rail-y {\r\n  display: block;\r\n  background-color: transparent;\r\n}\r\n\r\n.ps:hover > .ps__rail-x,\r\n.ps:hover > .ps__rail-y,\r\n.ps--focus > .ps__rail-x,\r\n.ps--focus > .ps__rail-y,\r\n.ps--scrolling-x > .ps__rail-x,\r\n.ps--scrolling-y > .ps__rail-y {\r\n  opacity: 0.6;\r\n}\r\n\r\n.ps__rail-x:hover,\r\n.ps__rail-y:hover,\r\n.ps__rail-x:focus,\r\n.ps__rail-y:focus {\r\n  background-color: #eee;\r\n  opacity: 0.9;\r\n}\r\n\r\n/*\r\n * Scrollbar thumb styles\r\n */\r\n.ps__thumb-x {\r\n  background-color: #aaa;\r\n  border-radius: 6px;\r\n  transition: background-color .2s linear, height .2s ease-in-out;\r\n  -webkit-transition: background-color .2s linear, height .2s ease-in-out;\r\n  height: 6px;\r\n  /* there must be 'bottom' for ps__thumb-x */\r\n  bottom: 2px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__thumb-y {\r\n  background-color: #aaa;\r\n  border-radius: 6px;\r\n  transition: background-color .2s linear, width .2s ease-in-out;\r\n  -webkit-transition: background-color .2s linear, width .2s ease-in-out;\r\n  width: 6px;\r\n  /* there must be 'right' for ps__thumb-y */\r\n  right: 2px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__rail-x:hover > .ps__thumb-x,\r\n.ps__rail-x:focus > .ps__thumb-x {\r\n  background-color: #999;\r\n  height: 11px;\r\n}\r\n\r\n.ps__rail-y:hover > .ps__thumb-y,\r\n.ps__rail-y:focus > .ps__thumb-y {\r\n  background-color: #999;\r\n  width: 11px;\r\n}\r\n\r\n/* MS supports */\r\n@supports (-ms-overflow-style: none) {\r\n  .ps {\r\n    overflow: auto !important;\r\n  }\r\n}\r\n\r\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {\r\n  .ps {\r\n    overflow: auto !important;\r\n  }\r\n}\r\n\r\n.scrollbar-container {\r\n  position: relative;\r\n  height: 100%;\r\n}\r\n";
