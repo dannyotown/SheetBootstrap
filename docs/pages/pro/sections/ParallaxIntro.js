@@ -415,14 +415,10 @@ class ParallaxIntro extends React.Component {
                 <MDBCollapse isOpen={collapsed} navbar>
                   <MDBNavbarNav left>
                     <MDBNavItem>
-                      <MDBNavLink to='https://mdbootstrap.com/docs/react/css/parallax/'>
-                        MDBParallax documentation
-                      </MDBNavLink>
+                      <MDBNavLink to='#'>Home</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to='https://mdbootstrap.com/support/cat/react/'>
-                        MDB support
-                      </MDBNavLink>
+                      <MDBNavLink to='#'>About</MDBNavLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                   <MDBNavbarNav right>
