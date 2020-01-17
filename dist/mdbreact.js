@@ -1077,19 +1077,9 @@ var CardFooter = function CardFooter(props) {
   var classes = classNames((_classNames = {
     'white-text': color && !text
   }, _defineProperty(_classNames, "border-".concat(border), border), _defineProperty(_classNames, 'bg-transparent', transparent), _defineProperty(_classNames, 'text-muted', muted), _defineProperty(_classNames, "".concat(text, "-text"), text), _classNames), 'card-footer', color, className);
-  var component = React__default.createElement(Tag, _extends({
-    "data-test": "card-footer"
-  }, attributes, {
+  return React__default.createElement(Tag, _extends({}, attributes, {
     className: classes
-  }));
-
-  if (small) {
-    component = React__default.createElement(Tag, _extends({}, attributes, {
-      className: classes
-    }), React__default.createElement("small", null, " ", children, " "));
-  }
-
-  return component;
+  }), small ? React__default.createElement("small", null, " ", children, " ") : children);
 };
 
 CardFooter.propTypes = {
