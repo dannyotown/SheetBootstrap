@@ -20,7 +20,6 @@ var MomentUtils = _interopDefault(require('@date-io/moment'));
 var materialUiPickers = require('material-ui-pickers');
 var moment = _interopDefault(require('moment'));
 var core = require('@material-ui/core');
-var jarallax = require('jarallax');
 var PerfectScrollbar = _interopDefault(require('perfect-scrollbar'));
 var reactScroll = require('react-scroll');
 var raf = _interopDefault(require('raf'));
@@ -367,10 +366,8 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Animation)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      // eslint-disable-next-line react/destructuring-assignment
-      isVisible: !_this.props.reveal,
-      // eslint-disable-next-line react/destructuring-assignment
-      revealed: !_this.props.reveal,
+      isVisible: false,
+      revealed: false,
       countIterations: 0
     });
 
@@ -455,6 +452,10 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var reveal = this.props.reveal;
+      this.setState({
+        isVisible: !reveal,
+        revealed: !reveal
+      });
 
       if (reveal) {
         window.addEventListener('scroll', this.updatePredicate);
@@ -1076,19 +1077,9 @@ var CardFooter = function CardFooter(props) {
   var classes = classNames((_classNames = {
     'white-text': color && !text
   }, _defineProperty(_classNames, "border-".concat(border), border), _defineProperty(_classNames, 'bg-transparent', transparent), _defineProperty(_classNames, 'text-muted', muted), _defineProperty(_classNames, "".concat(text, "-text"), text), _classNames), 'card-footer', color, className);
-  var component = React__default.createElement(Tag, _extends({
-    "data-test": "card-footer"
-  }, attributes, {
+  return React__default.createElement(Tag, _extends({}, attributes, {
     className: classes
-  }));
-
-  if (small) {
-    component = React__default.createElement(Tag, _extends({}, attributes, {
-      className: classes
-    }), React__default.createElement("small", null, " ", children, " "));
-  }
-
-  return component;
+  }), small ? React__default.createElement("small", null, " ", children, " ") : children);
 };
 
 CardFooter.propTypes = {
@@ -5247,7 +5238,12 @@ function (_Component) {
 
       this.filterOptions(); // PRO-END
 
-      order.length && this.handleSort(order[0], order[1]);
+      if (order.length > 0) {
+        this.handleSort(order[0], order[1]);
+      } else {
+        this.handleSort();
+      }
+
       this.setUnsearchable(columns);
 
       if (paging) {
@@ -5468,7 +5464,7 @@ DataTable.propTypes = {
   fixed: PropTypes.bool,
   hover: PropTypes.bool,
   info: PropTypes.bool,
-  infoLabel: PropTypes.arrayOf(PropTypes.string),
+  infoLabel: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string]),
   maxHeight: PropTypes.string,
   noBottomColumns: PropTypes.bool,
   noRecordsFoundLabel: PropTypes.string,
@@ -7029,19 +7025,21 @@ function (_Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOnExited", function (node) {
+    _defineProperty(_assertThisInitialized(_this), "handleOnExited", function () {
       _this.props.hiddenModal && _this.props.hiddenModal();
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleBackdropClick", function (e) {
-      console.log(e);
-
       if (!_this.props.backdrop || e.target.closest('[role="dialog"]') && !e.target.classList.contains('modal')) {
         return;
       }
 
-      if (!_this.modalContent.contains(e.target)) {
-        _this.props.toggle();
+      if (!(e.clientX > e.target.clientWidth || e.clientY > e.target.clientHeight)) {
+        if (!_this.modalContent.contains(e.target)) {
+          if (!_this.props.disableBackdrop) {
+            _this.props.toggle();
+          }
+        }
       }
     });
 
@@ -7093,11 +7091,13 @@ function (_Component) {
         'modal-frame': frame,
         'modal-dialog-centered': centered
       }, _defineProperty(_classNames, "modal-".concat(size), size), _defineProperty(_classNames, "modal-".concat(position), position), _defineProperty(_classNames, "modal-notify white-text modal-".concat(modalStyle), modalStyle), _classNames), 'modal-dialog', className);
-      var wrapperClasses = classNames(_defineProperty({
+      var positionSplited = position.split('-');
+      var wrapperClasses = classNames({
         modal: !inline,
         fade: fade,
-        top: fade && !animation && !position
-      }, "".concat(animation), fade && animation), fade && position && position.split('-')[1], wrapClassName);
+        top: fade && !animation && !position,
+        animation: fade && animation
+      }, fade && position && position && positionSplited.length > 1 ? positionSplited[1] : positionSplited[0], wrapClassName);
       var backdropClasses = classNames('modal-backdrop', fade ? 'fade' : 'show', backdropClassName);
       var contentClasses = classNames('modal-content', contentClassName);
       var modalAttributes = returnAttributes({
@@ -7163,12 +7163,14 @@ Modal.defaultProps = {
   autoFocus: true,
   backdrop: true,
   backdropTransitionTimeout: 150,
+  disableBackdrop: false,
   disableFocusTrap: true,
   fade: true,
   isOpen: false,
   keyboard: true,
   modalTransitionTimeout: 300,
   overflowScroll: true,
+  position: '',
   role: 'dialog',
   tabIndex: '-1',
   zIndex: 1050
@@ -7182,6 +7184,7 @@ Modal.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   contentClassName: PropTypes.string,
+  disableBackdrop: PropTypes.bool,
   disableFocusTrap: PropTypes.bool,
   fade: PropTypes.bool,
   frame: PropTypes.bool,
@@ -11343,186 +11346,74 @@ Lightbox.defaultProps = {
   transition: 400
 };
 
-var Parallax =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(Parallax, _Component);
-
-  function Parallax() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    _classCallCheck(this, Parallax);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Parallax)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_this), "jarallax", React__default.createRef());
-
-    return _this;
-  }
-
-  _createClass(Parallax, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this$props = this.props,
-          image = _this$props.image,
-          video = _this$props.video,
-          element = _this$props.element,
-          elementOptions = _this$props.elementOptions,
-          disableParallax = _this$props.disableParallax,
-          disableVideo = _this$props.disableVideo,
-          disableVideoLazyLoading = _this$props.disableVideoLazyLoading,
-          disableVideoLoop = _this$props.disableVideoLoop,
-          disableVideoPlayOnlyVisible = _this$props.disableVideoPlayOnlyVisible,
-          elementInViewport = _this$props.elementInViewport,
-          imgElement = _this$props.imgElement,
-          imgPosition = _this$props.imgPosition,
-          imgRepeat = _this$props.imgRepeat,
-          imgSize = _this$props.imgSize,
-          imgSrc = _this$props.imgSrc,
-          videoEndTime = _this$props.videoEndTime,
-          videoStartTime = _this$props.videoStartTime,
-          videoVolume = _this$props.videoVolume,
-          zIndex = _this$props.zIndex;
-      var imageOptions = {
-        disableParallax: disableParallax,
-        elementInViewport: elementInViewport,
-        imgElement: imgElement,
-        imgPosition: imgPosition,
-        imgRepeat: imgRepeat,
-        imgSize: imgSize,
-        imgSrc: imgSrc,
-        zIndex: zIndex
-      };
-      var videoOptions = {
-        disableVideo: disableVideo,
-        videoEndTime: videoEndTime,
-        videoLazyLoading: !disableVideoLazyLoading,
-        videoLoop: !disableVideoLoop,
-        videoPlayOnlyVisible: !disableVideoPlayOnlyVisible,
-        videoStartTime: videoStartTime,
-        videoVolume: videoVolume
-      };
-      jarallax.jarallax(this.jarallax.current, image ? imageOptions : video ? videoOptions : element ? elementOptions : null);
-      jarallax.jarallaxVideo(this.jarallax.current);
-      jarallax.jarallaxElement(this.jarallax.current);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      jarallax.jarallax(this.jarallax.current, 'destroy');
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props2 = this.props,
-          alt = _this$props2.alt,
-          children = _this$props2.children,
-          className = _this$props2.className,
-          element = _this$props2.element,
-          image = _this$props2.image,
-          keepImg = _this$props2.keepImg,
-          speed = _this$props2.speed,
-          Tag = _this$props2.tag,
-          threshold = _this$props2.threshold,
-          type = _this$props2.type,
-          video = _this$props2.video,
-          height = _this$props2.height,
-          width = _this$props2.width;
-      var parentClasses = classNames(keepImg ? 'jarallax-keep-img' : 'jarallax', className);
-      var elementClasses = classNames(Tag === 'span' ? 'd-inline-block' : null);
-      return React__default.createElement(React__default.Fragment, null, image && React__default.createElement(Tag, {
-        ref: this.jarallax,
-        className: parentClasses,
-        style: {
-          height: height,
-          width: width
-        },
-        "data-jarallax": true,
-        "data-type": type,
-        "data-speed": speed
-      }, React__default.createElement("img", {
-        className: "jarallax-img ",
-        src: image,
-        alt: alt
-      }), children), video && React__default.createElement(Tag, {
-        ref: this.jarallax,
-        className: parentClasses,
-        style: {
-          height: height,
-          width: width
-        },
-        "data-jarallax": true,
-        "data-type": type,
-        "data-speed": speed,
-        "data-video-src": video
-      }, children), element && React__default.createElement(Tag, {
-        className: elementClasses,
-        ref: this.jarallax,
-        "data-jarallax-element": speed,
-        "data-threshold": threshold
-      }, children));
-    }
-  }]);
-
-  return Parallax;
-}(React.Component);
-
+var Parallax = React__default.forwardRef(function (props, jarallax) {
+  var alt = props.alt,
+      children = props.children,
+      className = props.className,
+      element = props.element,
+      image = props.image,
+      keepImg = props.keepImg,
+      speed = props.speed,
+      Tag = props.tag,
+      threshold = props.threshold,
+      type = props.type,
+      video = props.video,
+      height = props.height,
+      width = props.width;
+  var parentClasses = classNames(keepImg ? 'jarallax-keep-img' : 'jarallax', className);
+  var elementClasses = classNames(Tag === 'span' ? 'd-inline-block' : null);
+  return React__default.createElement(React__default.Fragment, null, image && React__default.createElement(Tag, {
+    ref: jarallax,
+    className: parentClasses,
+    style: {
+      height: height,
+      width: width
+    },
+    "data-jarallax": true,
+    "data-type": type,
+    "data-speed": speed
+  }, React__default.createElement("img", {
+    className: "jarallax-img ",
+    src: image,
+    alt: alt
+  }), children), video && React__default.createElement(Tag, {
+    ref: jarallax,
+    className: parentClasses,
+    style: {
+      height: height,
+      width: width
+    },
+    "data-jarallax": true,
+    "data-type": type,
+    "data-speed": speed,
+    "data-video-src": video
+  }, children), element && React__default.createElement(Tag, {
+    className: elementClasses,
+    ref: jarallax,
+    "data-jarallax-element": speed,
+    "data-threshold": threshold
+  }, children));
+});
 Parallax.propTypes = {
   alt: PropTypes.string.isRequired,
   className: PropTypes.string,
-  disableParallax: PropTypes.func,
-  disableVideo: PropTypes.func,
-  elementInViewport: PropTypes.node,
   height: PropTypes.string,
   image: PropTypes.string,
-  imgElement: PropTypes.string,
-  imgPosition: PropTypes.string,
-  imgRepeat: PropTypes.string,
-  imgSize: PropTypes.string,
-  keepImg: PropTypes.bool,
   speed: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   threshold: PropTypes.node,
   type: PropTypes.string,
   video: PropTypes.string,
-  videoEndTime: PropTypes.number,
-  videoLazyLoading: PropTypes.bool,
-  videoLoop: PropTypes.bool,
-  videoPlayOnlyVisible: PropTypes.bool,
-  videoStartTime: PropTypes.number,
-  videoVolume: PropTypes.number,
-  width: PropTypes.string,
-  zIndex: PropTypes.number
+  width: PropTypes.string
 };
 Parallax.defaultProps = {
   alt: 'MDBParallax image',
-  disableParallax: null,
-  disableVideo: null,
-  elementInViewport: null,
   height: '600px',
-  imgElement: '.jarallax-img',
-  imgPosition: '50% 50%',
-  imgRepeat: 'no-repeat',
-  imgSize: 'cover',
-  keepImg: false,
   speed: 0.5,
   tag: 'div',
   threshold: 'null null',
   type: 'scroll',
-  videoEndTime: 0,
-  videoLazyLoading: true,
-  videoLoop: true,
-  videoPlayOnlyVisible: true,
-  videoStartTime: 0,
-  videoVolume: 0,
-  width: '100%',
-  zIndex: -100
+  width: '100%'
 };
 
 var css$i = "\r\n/*\r\n * Container style\r\n */\r\n .ps {\r\n  overflow: hidden !important;\r\n  overflow-anchor: none;\r\n  -ms-overflow-style: none;\r\n  touch-action: auto;\r\n  -ms-touch-action: auto;\r\n}\r\n\r\n/*\r\n * Scrollbar rail styles\r\n */\r\n.ps__rail-x {\r\n  display: none;\r\n  opacity: 0;\r\n  transition: background-color .2s linear, opacity .2s linear;\r\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\r\n  height: 15px;\r\n  /* there must be 'bottom' or 'top' for ps__rail-x */\r\n  bottom: 0px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__rail-y {\r\n  display: none;\r\n  opacity: 0;\r\n  transition: background-color .2s linear, opacity .2s linear;\r\n  -webkit-transition: background-color .2s linear, opacity .2s linear;\r\n  width: 15px;\r\n  /* there must be 'right' or 'left' for ps__rail-y */\r\n  right: 0;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps--active-x > .ps__rail-x,\r\n.ps--active-y > .ps__rail-y {\r\n  display: block;\r\n  background-color: transparent;\r\n}\r\n\r\n.ps:hover > .ps__rail-x,\r\n.ps:hover > .ps__rail-y,\r\n.ps--focus > .ps__rail-x,\r\n.ps--focus > .ps__rail-y,\r\n.ps--scrolling-x > .ps__rail-x,\r\n.ps--scrolling-y > .ps__rail-y {\r\n  opacity: 0.6;\r\n}\r\n\r\n.ps__rail-x:hover,\r\n.ps__rail-y:hover,\r\n.ps__rail-x:focus,\r\n.ps__rail-y:focus {\r\n  background-color: #eee;\r\n  opacity: 0.9;\r\n}\r\n\r\n/*\r\n * Scrollbar thumb styles\r\n */\r\n.ps__thumb-x {\r\n  background-color: #aaa;\r\n  border-radius: 6px;\r\n  transition: background-color .2s linear, height .2s ease-in-out;\r\n  -webkit-transition: background-color .2s linear, height .2s ease-in-out;\r\n  height: 6px;\r\n  /* there must be 'bottom' for ps__thumb-x */\r\n  bottom: 2px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__thumb-y {\r\n  background-color: #aaa;\r\n  border-radius: 6px;\r\n  transition: background-color .2s linear, width .2s ease-in-out;\r\n  -webkit-transition: background-color .2s linear, width .2s ease-in-out;\r\n  width: 6px;\r\n  /* there must be 'right' for ps__thumb-y */\r\n  right: 2px;\r\n  /* please don't change 'position' */\r\n  position: absolute;\r\n}\r\n\r\n.ps__rail-x:hover > .ps__thumb-x,\r\n.ps__rail-x:focus > .ps__thumb-x {\r\n  background-color: #999;\r\n  height: 11px;\r\n}\r\n\r\n.ps__rail-y:hover > .ps__thumb-y,\r\n.ps__rail-y:focus > .ps__thumb-y {\r\n  background-color: #999;\r\n  width: 11px;\r\n}\r\n\r\n/* MS supports */\r\n@supports (-ms-overflow-style: none) {\r\n  .ps {\r\n    overflow: auto !important;\r\n  }\r\n}\r\n\r\n@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {\r\n  .ps {\r\n    overflow: auto !important;\r\n  }\r\n}\r\n\r\n.scrollbar-container {\r\n  position: relative;\r\n  height: 100%;\r\n}\r\n";
