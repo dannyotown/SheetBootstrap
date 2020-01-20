@@ -5,6 +5,7 @@ import { Transition } from 'react-transition-group';
 import FocusTrap from 'focus-trap-react';
 import { returnAttributes } from '../utils';
 import './Modal.css';
+import clsx from 'clsx';
 
 class Modal extends Component {
   state = {
@@ -111,8 +112,10 @@ class Modal extends Component {
       id,
       inline,
       modalStyle,
+      noClickableBodyWithoutBackdrop,
       position,
       role,
+      backdropStyles,
       side,
       size,
       tabIndex,
@@ -122,6 +125,13 @@ class Modal extends Component {
     const { isOpen } = this.state;
 
     const timeout = fade ? 300 : 0;
+    const removeBackdropClass = {
+      position: 'fixed',
+      ...backdropStyles
+    };
+
+    const removeBackdropCondtions =
+      !backdrop && isOpen && !noClickableBodyWithoutBackdrop;
 
     const modalDialogClasses = classNames(
       {
@@ -160,12 +170,17 @@ class Modal extends Component {
     const contentClasses = classNames('modal-content', contentClassName);
 
     const modalAttributes = returnAttributes({
-      style: { display: 'block' },
+      style: {
+        display: 'block',
+        position: removeBackdropCondtions && 'relative',
+        width: removeBackdropCondtions && 0
+      },
       id,
       tabIndex,
       role,
       'aria-hidden': 'true'
     });
+    const styles = removeBackdropCondtions ? removeBackdropClass : {};
 
     const modal = (
       <div
@@ -174,7 +189,7 @@ class Modal extends Component {
         className={wrapperClasses}
         {...modalAttributes}
       >
-        <div className={modalDialogClasses} role='document'>
+        <div style={styles} className={modalDialogClasses} role='document'>
           <div
             ref={elem => (this.modalContent = elem)}
             className={contentClasses}
@@ -232,7 +247,8 @@ Modal.defaultProps = {
   position: '',
   role: 'dialog',
   tabIndex: '-1',
-  zIndex: 1050
+  zIndex: 1050,
+  noClickableBodyWithoutBackdrop: false
 };
 
 Modal.propTypes = {
@@ -255,6 +271,7 @@ Modal.propTypes = {
   keyboard: PropTypes.bool,
   modalClassName: PropTypes.string,
   modalStyle: PropTypes.string,
+  noClickableBodyWithoutBackdrop: PropTypes.bool,
   overflowScroll: PropTypes.bool,
   position: PropTypes.string,
   role: PropTypes.string,
