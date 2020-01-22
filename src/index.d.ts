@@ -37,8 +37,6 @@ import MDBEdgeHeader from './components/EdgeHeader';
 import MDBFooter from './components/Footer';
 import MDBFormInline from './components/FormInline';
 import MDBFreeBird from './components/FreeBird';
-import MDBGallery from './components/Gallery';
-import MDBGalleryList from './components/Gallery/GalleryList';
 import MDBHamburgerToggler from './components/HamburgerToggler';
 import MDBIframe from './components/Iframe';
 import MDBInputGroup from './components/InputGroup';
@@ -97,6 +95,8 @@ import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBDatePicker from './components/pro/DatePicker';
 import MDBExportToCSV from './components/pro/DataTable/ExportToCSV';
 import MDBFileInput from './components/pro/InputFile';
+import MDBGallery from './components/pro/Gallery';
+import MDBGalleryList from './components/pro/Gallery/GalleryList';
 import MDBInputRange from './components/pro/InputRange';
 import MDBInputSwitch from './components/pro/InputSwitch';
 import MDBLightbox from './components/pro/Lightbox';
@@ -183,8 +183,6 @@ export {
   MDBDropdownMenu,
   MDBDropdownToggle,
   MDBEdgeHeader,
-  MDBGallery,
-  MDBGalleryList,
   MDBFooter,
   MDBFormInline,
   MDBFreeBird,
@@ -250,6 +248,8 @@ export {
   MDBExportToCSV,
   MDBRotatingCard,
   MDBFileInput,
+  MDBGallery,
+  MDBGalleryList,
   MDBLightbox,
   MDBInputRange as MDBRangeInput,
   MDBInputSwitch as MDBSwitch,

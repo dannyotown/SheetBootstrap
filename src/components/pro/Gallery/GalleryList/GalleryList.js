@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { MDBBox } from 'mdbreact';
 import './GalleryList.css';
-import { debounce } from '../../utils';
+import { debounce } from '../../../utils';
 
 const imgClass = img => {
   if (!img || !img.complete) {

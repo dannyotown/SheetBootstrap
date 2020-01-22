@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import checkPropTypes from 'check-prop-types';
 import { findByTestAttr, checkProps, checkClass } from '../../../tests/utils';
-import GalleryList from './GalleryList';
+import Gallery from './Gallery';
 
-const setup = (props = {}) => shallow(<GalleryList {...props} icon='star' />);
+const setup = (props = {}) => shallow(<Gallery {...props} icon='star' />);
 
-describe('<GalleryList />', () => {
+describe('<Gallery />', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -15,22 +15,22 @@ describe('<GalleryList />', () => {
   });
 
   test('renders', () => {
-    const galleryList = findByTestAttr(wrapper, 'gallery-list');
-    expect(galleryList.length).toBe(1);
+    const gallery = findByTestAttr(wrapper, 'gallery');
+    expect(gallery.length).toBe(1);
   });
 
   test('renders without errors', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<GalleryList />, div);
+    ReactDOM.render(<Gallery />, div);
   });
 
   test('does not throw warnings with expected props', () => {
     const expectedProps = {
+      cellHeight: 5,
       className: 'test',
-      cols: 2,
-      rows: 3,
-      tag: 'li',
-      elementClasses: 'test'
+      cols: 3,
+      spacing: 25,
+      tag: 'ul'
     };
 
     wrapper = setup(expectedProps);
@@ -50,15 +50,9 @@ describe('<GalleryList />', () => {
 
   describe('sets classes', () => {
     test('adds custom class passed as property', () => {
-      wrapper = setup({ titleClasses: 'testTitleClassName' });
+      wrapper = setup({ className: 'testClassName' });
 
-      checkClass(wrapper, 'testTitleClassName');
-    });
-
-    test('adds custom class passed as property', () => {
-      wrapper = setup({ elementClasses: 'testElementClassName' });
-
-      checkClass(wrapper, 'testElementClassName');
+      checkClass(wrapper, 'testClassName');
     });
   });
 });
