@@ -37,7 +37,6 @@ function ensureImageCover(img) {
 const GalleryList = React.forwardRef(function GalleryList(props, ref) {
   const {
     children,
-    className,
     cols,
     tag,
     rows,
@@ -68,7 +67,13 @@ const GalleryList = React.forwardRef(function GalleryList(props, ref) {
   }, []);
 
   return (
-    <MDBBox tag={tag} ref={ref} {...attributes} className={ec}>
+    <MDBBox
+      data-test='gallery-list'
+      tag={tag}
+      ref={ref}
+      {...attributes}
+      className={ec}
+    >
       <MDBBox style={{ ...styles }} className={tc}>
         {React.Children.map(children, child => {
           if (!React.isValidElement) {
@@ -88,7 +93,6 @@ const GalleryList = React.forwardRef(function GalleryList(props, ref) {
 
 GalleryList.propTypes = {
   children: PropTypes.node,
-  className: PropTypes.string,
   cols: PropTypes.number,
   elementClasses: PropTypes.string,
   rows: PropTypes.number,
