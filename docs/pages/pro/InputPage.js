@@ -307,7 +307,7 @@ class InputPage extends Component {
               getValue={this.handleRangeChange}
               min={0}
               max={100}
-              value={20}
+              value={50}
             />
           </SectionContainer>
         </MDBContainer>
