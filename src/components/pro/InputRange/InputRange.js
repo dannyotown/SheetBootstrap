@@ -15,12 +15,10 @@ class InputRange extends React.Component {
     windowX: '',
     windowY: ''
   };
-
   inputRef = React.createRef();
 
   updateDimensions() {
     let input = this.inputRef.current;
-    console.log(`this is input ${this.inputRef.current}`);
     let inputWidth = input.offsetWidth - 15.5;
     const { max, min } = this.props;
     const { value, windowX, windowY } = this.state;
@@ -45,6 +43,7 @@ class InputRange extends React.Component {
   componentDidUpdate = prevProps => {
     const { getValue, min, value } = this.props;
     const { oneStep } = this.state;
+
     if (prevProps.value !== value) {
       this.setState({
         value,
