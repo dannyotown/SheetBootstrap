@@ -1,9 +1,9 @@
-import React, { useState, Component, useRef, useEffect, useContext, PureComponent } from 'react';
+import React, { useState, Component, useEffect, useRef, useContext, PureComponent } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Transition, CSSTransition } from 'react-transition-group';
 import ReactDOM from 'react-dom';
-import { MDBIframe, MDBSelect, MDBBox, MDBPopoverHeader, MDBPopoverBody, MDBBtn, MDBTooltip, Fa as Fa$1 } from 'mdbreact';
+import { MDBIframe, MDBSelect, MDBPopoverHeader, MDBPopoverBody, MDBBtn, MDBTooltip, Fa as Fa$1, MDBBox } from 'mdbreact';
 import { Manager, Popper, Reference } from 'react-popper';
 import NumericInput from 'react-numeric-input';
 import { Link as Link$1, NavLink as NavLink$1 } from 'react-router-dom';
@@ -601,7 +601,9 @@ var Box = function Box(props) {
 
   var classes = classNames(display && "d-".concat(display), justifyContent && "justify-content-".concat(justifyContent), flex && "flex-".concat(flex), alignItems && "align-items-".concat(alignItems), alignContent && "align-content-".concat(alignContent), alignSelf && "align-self-".concat(alignSelf), color && "".concat(color, "-text"), bgColor && "bg-".concat(bgColor), marginOrPadding(m, 'm'), marginOrPadding(mt, 'mt'), marginOrPadding(mr, 'mr'), marginOrPadding(mb, 'mb'), marginOrPadding(ml, 'ml'), marginOrPadding(mx, 'mx'), marginOrPadding(my, 'my'), marginOrPadding(p, 'p'), marginOrPadding(pt, 'pt'), marginOrPadding(pr, 'pr'), marginOrPadding(pb, 'pb'), marginOrPadding(pl, 'pl'), marginOrPadding(px, 'px'), marginOrPadding(py, 'py'), className);
   var isEmptyClass = classes !== '' ? classes : null;
-  return React.createElement(Tag, _extends({}, attributes, {
+  return React.createElement(Tag, _extends({
+    "data-test": "box"
+  }, attributes, {
     className: isEmptyClass
   }), children);
 };
@@ -1070,7 +1072,9 @@ var CardFooter = function CardFooter(props) {
   var classes = classNames((_classNames = {
     'white-text': color && !text
   }, _defineProperty(_classNames, "border-".concat(border), border), _defineProperty(_classNames, 'bg-transparent', transparent), _defineProperty(_classNames, 'text-muted', muted), _defineProperty(_classNames, "".concat(text, "-text"), text), _classNames), 'card-footer', color, className);
-  return React.createElement(Tag, _extends({}, attributes, {
+  return React.createElement(Tag, _extends({
+    "data-test": "card-footer"
+  }, attributes, {
     className: classes
   }), small ? React.createElement("small", null, " ", children, " ") : children);
 };
@@ -6268,156 +6272,8 @@ FreeBird.defaultProps = {
   tag: 'div'
 };
 
-var css$7 = ".mdb-gallery {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  overflow-y: auto;\r\n  list-style: none;\r\n  padding: 0;\r\n}\r\n";
+var css$7 = ".hamburger-button__checkbox {\r\n  display: none;\r\n}\r\n\r\n.hamburger-button__button {\r\n  background-color: transparent;\r\n  height: 100%;\r\n  width: 100%;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  top: -5px;\r\n}\r\n\r\nlabel.hamburger-button__button {\r\n  margin-bottom: 0;\r\n}\r\n\r\n#nav-icon1 {\r\n  width: 1.5em;\r\n  height: 1.5em;\r\n  position: relative;\r\n  -webkit-transform: rotate(0deg);\r\n  -moz-transform: rotate(0deg);\r\n  -o-transform: rotate(0deg);\r\n  transform: rotate(0deg);\r\n  -webkit-transition: .5s ease-in-out;\r\n  -moz-transition: .5s ease-in-out;\r\n  -o-transition: .5s ease-in-out;\r\n  transition: .5s ease-in-out;\r\n  cursor: pointer;\r\n}\r\n\r\n#nav-icon1 span {\r\n  display: block;\r\n  position: absolute;\r\n  height: 3px;\r\n  width: 100%;\r\n  border-radius: 1px;\r\n  background-color: #fff;\r\n  opacity: 1;\r\n  left: 0;\r\n  -webkit-transform: rotate(0deg);\r\n  -moz-transform: rotate(0deg);\r\n  -o-transform: rotate(0deg);\r\n  transform: rotate(0deg);\r\n  -webkit-transition: .25s ease-in-out;\r\n  -moz-transition: .25s ease-in-out;\r\n  -o-transition: .25s ease-in-out;\r\n  transition: .25s ease-in-out;\r\n}\r\n\r\n#nav-icon1 span:nth-child(1) {\r\n  top: 5px;\r\n}\r\n\r\n#nav-icon1 span:nth-child(2) {\r\n  top: 16px;\r\n}\r\n\r\n#nav-icon1 span:nth-child(3) {\r\n  top: 27px;\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(1) {\r\n  top: 16px;\r\n  -webkit-transform: rotate(135deg);\r\n  -moz-transform: rotate(135deg);\r\n  -o-transform: rotate(135deg);\r\n  transform: rotate(135deg);\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(2) {\r\n  opacity: 0;\r\n  left: -60px;\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(3) {\r\n  top: 16px;\r\n  -webkit-transform: rotate(-135deg);\r\n  -moz-transform: rotate(-135deg);\r\n  -o-transform: rotate(-135deg);\r\n  transform: rotate(-135deg);\r\n}\r\n";
 styleInject(css$7);
-
-var Gallery = React.forwardRef(function Gallery(props, ref) {
-  var _props$cellHeight = props.cellHeight,
-      cellHeight = _props$cellHeight === void 0 ? 180 : _props$cellHeight,
-      children = props.children,
-      className = props.className,
-      _props$cols = props.cols,
-      cols = _props$cols === void 0 ? 2 : _props$cols,
-      tag = props.tag,
-      _props$spacing = props.spacing,
-      spacing = _props$spacing === void 0 ? 4 : _props$spacing,
-      style = props.style,
-      attributes = _objectWithoutProperties(props, ["cellHeight", "children", "className", "cols", "tag", "spacing", "style"]);
-
-  var classes = classNames('mdb-gallery', className);
-  return React.createElement(MDBBox, _extends({
-    tag: tag
-  }, attributes, {
-    style: _objectSpread2({
-      margin: -spacing / 2
-    }, style),
-    className: classes,
-    ref: ref
-  }), React.Children.map(children, function (child) {
-    if (!React.isValidElement(child)) {
-      return null;
-    }
-
-    var childCols = child.props.cols || 1;
-    var childRows = child.props.rows || 1;
-    return React.cloneElement(child, {
-      style: _objectSpread2({
-        width: "".concat(100 / cols * childCols, "%"),
-        height: cellHeight === 'auto' ? 'auto' : cellHeight * childRows + spacing,
-        padding: spacing / 2
-      }, child.props.style)
-    });
-  }));
-});
-Gallery.propTypes = {
-  cellHeight: PropTypes.number,
-  children: PropTypes.node,
-  className: PropTypes.string,
-  cols: PropTypes.number,
-  spacing: PropTypes.number,
-  style: PropTypes.object,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
-};
-Gallery.defaultProps = {
-  tag: 'ul'
-};
-
-var css$8 = ".mdb-gallery-element {\r\n  box-sizing: border-box;\r\n  flex-shrink: 0;\r\n}\r\n\r\n.mdb-gallery-title {\r\n  height: 100%;\r\n  display: block;\r\n  overflow: hidden;\r\n  position: relative;\r\n}\r\n\r\n.img-full-height {\r\n  height: 100%;\r\n  transform: translateX(-50%);\r\n  position: relative;\r\n  left: 50%;\r\n}\r\n\r\n.img-full-width {\r\n  width: 100%;\r\n  transform: translateY(-50%);\r\n  position: relative;\r\n  top: 50%;\r\n}\r\n";
-styleInject(css$8);
-
-var imgClass = function imgClass(img) {
-  if (!img || !img.complete) {
-    return;
-  }
-
-  if (img.width / img.height > img.parentElement.offsetWidth / img.parentElement.offsetHeight) {
-    img.classList.remove('img-full-width');
-    img.classList.add('img-full-height');
-  } else {
-    img.classList.remove('img-full-height');
-    img.classList.add('img-full-width');
-  }
-};
-
-function ensureImageCover(img) {
-  if (!img) {
-    return;
-  }
-
-  if (img.complete) {
-    imgClass(img);
-  } else {
-    img.addEventListener('load', function () {
-      imgClass(img);
-    });
-  }
-}
-
-var GalleryList = React.forwardRef(function GalleryList(props, ref) {
-  var children = props.children,
-      className = props.className,
-      cols = props.cols,
-      tag = props.tag,
-      rows = props.rows,
-      titleClasses = props.titleClasses,
-      elementClasses = props.elementClasses,
-      styles = props.styles,
-      attributes = _objectWithoutProperties(props, ["children", "className", "cols", "tag", "rows", "titleClasses", "elementClasses", "styles"]);
-
-  var imgRef = useRef(null);
-  var ec = classNames('mdb-gallery-element', elementClasses);
-  var tc = classNames('mdb-gallery-title', titleClasses);
-  useEffect(function () {
-    ensureImageCover(imgRef.current);
-  });
-  useEffect(function () {
-    var handleResize = debounce(function () {
-      imgClass(imgRef.current);
-    });
-    window.addEventListener('resize', handleResize);
-    return function () {
-      handleResize.clear();
-      window.removeEventListener('resive', handleResize);
-    };
-  }, []);
-  return React.createElement(MDBBox, _extends({
-    tag: tag,
-    ref: ref
-  }, attributes, {
-    className: ec
-  }), React.createElement(MDBBox, {
-    style: _objectSpread2({}, styles),
-    className: tc
-  }, React.Children.map(children, function (child) {
-    if (!React.isValidElement) {
-      return null;
-    }
-
-    if (child.type === 'img') {
-      return React.cloneElement(child, {
-        ref: imgRef
-      });
-    }
-
-    return child;
-  })));
-});
-GalleryList.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  cols: PropTypes.number,
-  elementClasses: PropTypes.string,
-  rows: PropTypes.number,
-  style: PropTypes.object,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  titleClasses: PropTypes.string
-};
-GalleryList.defaultProps = {
-  tag: 'li'
-};
-
-var css$9 = ".hamburger-button__checkbox {\r\n  display: none;\r\n}\r\n\r\n.hamburger-button__button {\r\n  background-color: transparent;\r\n  height: 100%;\r\n  width: 100%;\r\n  text-align: center;\r\n  cursor: pointer;\r\n  top: -5px;\r\n}\r\n\r\nlabel.hamburger-button__button {\r\n  margin-bottom: 0;\r\n}\r\n\r\n#nav-icon1 {\r\n  width: 1.5em;\r\n  height: 1.5em;\r\n  position: relative;\r\n  -webkit-transform: rotate(0deg);\r\n  -moz-transform: rotate(0deg);\r\n  -o-transform: rotate(0deg);\r\n  transform: rotate(0deg);\r\n  -webkit-transition: .5s ease-in-out;\r\n  -moz-transition: .5s ease-in-out;\r\n  -o-transition: .5s ease-in-out;\r\n  transition: .5s ease-in-out;\r\n  cursor: pointer;\r\n}\r\n\r\n#nav-icon1 span {\r\n  display: block;\r\n  position: absolute;\r\n  height: 3px;\r\n  width: 100%;\r\n  border-radius: 1px;\r\n  background-color: #fff;\r\n  opacity: 1;\r\n  left: 0;\r\n  -webkit-transform: rotate(0deg);\r\n  -moz-transform: rotate(0deg);\r\n  -o-transform: rotate(0deg);\r\n  transform: rotate(0deg);\r\n  -webkit-transition: .25s ease-in-out;\r\n  -moz-transition: .25s ease-in-out;\r\n  -o-transition: .25s ease-in-out;\r\n  transition: .25s ease-in-out;\r\n}\r\n\r\n#nav-icon1 span:nth-child(1) {\r\n  top: 5px;\r\n}\r\n\r\n#nav-icon1 span:nth-child(2) {\r\n  top: 16px;\r\n}\r\n\r\n#nav-icon1 span:nth-child(3) {\r\n  top: 27px;\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(1) {\r\n  top: 16px;\r\n  -webkit-transform: rotate(135deg);\r\n  -moz-transform: rotate(135deg);\r\n  -o-transform: rotate(135deg);\r\n  transform: rotate(135deg);\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(2) {\r\n  opacity: 0;\r\n  left: -60px;\r\n}\r\n\r\n.hamburger-button__checkbox:checked+#nav-icon1 span:nth-child(3) {\r\n  top: 16px;\r\n  -webkit-transform: rotate(-135deg);\r\n  -moz-transform: rotate(-135deg);\r\n  -o-transform: rotate(-135deg);\r\n  transform: rotate(-135deg);\r\n}\r\n";
-styleInject(css$9);
 
 var HamburgerToggler = function HamburgerToggler(props) {
   var id = props.id,
@@ -6939,8 +6795,8 @@ Media.propTypes = {
   top: PropTypes.bool
 };
 
-var css$a = ".overflow-y-scroll {\r\n  overflow-y: scroll !important;\r\n}\r\n";
-styleInject(css$a);
+var css$8 = ".overflow-y-scroll {\r\n  overflow-y: scroll !important;\r\n}\r\n";
+styleInject(css$8);
 
 var Modal =
 /*#__PURE__*/
@@ -7764,8 +7620,8 @@ Notification.defaultProps = {
   closeClassName: 'text-dark'
 };
 
-var css$b = ".popover {\r\n  width: auto;\r\n  background-color: white;\r\n  color: #97999b;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  font-size: 0.83em;\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 10;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  background-color: #fff;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.show.popover {\r\n  z-index: 999;\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n.popover-body {\r\n  color: #6c6e71;\r\n}\r\n\r\n.popover .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.popover[x-placement^=\"top\"] {\r\n  margin-bottom: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"top\"] .popover_arrow {\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: #d6d6d6 transparent transparent transparent;\r\n  bottom: -8px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.popover[x-placement^=\"top\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: white transparent transparent transparent;\r\n}\r\n\r\n.popover[x-placement^=\"bottom\"] {\r\n  margin-top: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"bottom\"] .popover_arrow {\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent #d6d6d6 transparent;\r\n  top: -8px;\r\n  margin-top: 0;\r\n}\r\n\r\n.popover[x-placement^=\"bottom\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent white transparent;\r\n}\r\n\r\n.popover[x-placement^=\"right\"] {\r\n  margin-left: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"right\"] .popover_arrow {\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent #d6d6d6 transparent transparent;\r\n  left: -8px;\r\n  margin-left: 0;\r\n}\r\n\r\n.popover[x-placement^=\"right\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent white transparent transparent;\r\n}\r\n\r\n.popover[x-placement^=\"left\"] {\r\n  margin-right: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"left\"] .popover_arrow {\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent #d6d6d6;\r\n  right: -8px;\r\n  margin-right: 0;\r\n}\r\n\r\n.popover[x-placement^=\"left\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent white;\r\n}\r\n\r\n.tooltip {\r\n  width: auto;\r\n  background-color: black;\r\n  color: white;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  /* font-size: 0.83em; */\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 15;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.tooltip-inner {\r\n  display: block;\r\n}\r\n\r\n.show.tooltip {\r\n  z-index: 999;\r\n\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n.tooltip .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"top\"],\r\n.show[x-placement^=\"top\"]:not(.tooltip) {\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"top\"] .popover_arrow {\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: #131313 transparent transparent transparent;\r\n  bottom: -6px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"top\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: black transparent transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"bottom\"],\r\n.show[x-placement^=\"bottom\"]:not(.tooltip) {\r\n  margin-top: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"bottom\"] .popover_arrow {\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent #131313 transparent;\r\n  top: -6px;\r\n  margin-top: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"bottom\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent black transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"right\"],\r\n.show[x-placement^=\"right\"]:not(.tooltip) {\r\n  margin-left: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"right\"] .popover_arrow {\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent #131313 transparent transparent;\r\n  left: -6px;\r\n  margin-left: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"right\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent black transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"left\"],\r\n.show[x-placement^=\"left\"]:not(.tooltip) {\r\n  margin-right: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"left\"] .popover_arrow {\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent #131313;\r\n  right: -6px;\r\n  margin-right: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"left\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent black;\r\n}\r\n";
-styleInject(css$b);
+var css$9 = ".popover {\r\n  width: auto;\r\n  background-color: white;\r\n  color: #97999b;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  font-size: 0.83em;\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 10;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  background-color: #fff;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.show.popover {\r\n  z-index: 999;\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n.popover-body {\r\n  color: #6c6e71;\r\n}\r\n\r\n.popover .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.popover[x-placement^=\"top\"] {\r\n  margin-bottom: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"top\"] .popover_arrow {\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: #d6d6d6 transparent transparent transparent;\r\n  bottom: -8px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.popover[x-placement^=\"top\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 8px 8px 0 8px;\r\n  border-color: white transparent transparent transparent;\r\n}\r\n\r\n.popover[x-placement^=\"bottom\"] {\r\n  margin-top: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"bottom\"] .popover_arrow {\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent #d6d6d6 transparent;\r\n  top: -8px;\r\n  margin-top: 0;\r\n}\r\n\r\n.popover[x-placement^=\"bottom\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -8px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 8px 8px 8px;\r\n  border-color: transparent transparent white transparent;\r\n}\r\n\r\n.popover[x-placement^=\"right\"] {\r\n  margin-left: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"right\"] .popover_arrow {\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent #d6d6d6 transparent transparent;\r\n  left: -8px;\r\n  margin-left: 0;\r\n}\r\n\r\n.popover[x-placement^=\"right\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 8px 8px 0;\r\n  border-color: transparent white transparent transparent;\r\n}\r\n\r\n.popover[x-placement^=\"left\"] {\r\n  margin-right: 15px;\r\n}\r\n\r\n.popover[x-placement^=\"left\"] .popover_arrow {\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent #d6d6d6;\r\n  right: -8px;\r\n  margin-right: 0;\r\n}\r\n\r\n.popover[x-placement^=\"left\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -8px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 8px 0 8px 8px;\r\n  border-color: transparent transparent transparent white;\r\n}\r\n\r\n.tooltip {\r\n  width: auto;\r\n  background-color: black;\r\n  color: white;\r\n  text-align: center;\r\n  display: inline-block;\r\n  border-radius: 3px;\r\n  position: absolute;\r\n  /* font-size: 0.83em; */\r\n  font-weight: normal;\r\n  border: 1px rgb(0, 0, 0) solid;\r\n  /* z-index: 200000; */\r\n  z-index: 15;\r\n  /* max-width: initial; */\r\n  max-width: 274px;\r\n  text-align: start;\r\n  border: 1px solid rgba(0, 0, 0, 0.2);\r\n  border-radius: 0.3rem;\r\n  opacity: 0;\r\n  transition: opacity 0.3s, visibility 0.3s;\r\n  visibility: hidden;\r\n}\r\n\r\n.tooltip-inner {\r\n  display: block;\r\n}\r\n\r\n.show.tooltip {\r\n  z-index: 999;\r\n\r\n  opacity: 1;\r\n  visibility: visible;\r\n}\r\n\r\n.tooltip .popover_arrow {\r\n  width: 0;\r\n  height: 0;\r\n  border-style: solid;\r\n  position: absolute;\r\n  margin: 6px;\r\n  color: transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"top\"],\r\n.show[x-placement^=\"top\"]:not(.tooltip) {\r\n  margin-bottom: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"top\"] .popover_arrow {\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: #131313 transparent transparent transparent;\r\n  bottom: -6px;\r\n  margin-bottom: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"top\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  bottom: 1.5px;\r\n  border: solid;\r\n  border-width: 6px 6px 0 6px;\r\n  border-color: black transparent transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"bottom\"],\r\n.show[x-placement^=\"bottom\"]:not(.tooltip) {\r\n  margin-top: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"bottom\"] .popover_arrow {\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent #131313 transparent;\r\n  top: -6px;\r\n  margin-top: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"bottom\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  left: -6px;\r\n  top: 1.45px;\r\n  border: solid;\r\n  border-width: 0 6px 6px 6px;\r\n  border-color: transparent transparent black transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"right\"],\r\n.show[x-placement^=\"right\"]:not(.tooltip) {\r\n  margin-left: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"right\"] .popover_arrow {\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent #131313 transparent transparent;\r\n  left: -6px;\r\n  margin-left: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"right\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  left: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 6px 6px 0;\r\n  border-color: transparent black transparent transparent;\r\n}\r\n\r\n.tooltip[x-placement^=\"left\"],\r\n.show[x-placement^=\"left\"]:not(.tooltip) {\r\n  margin-right: 5px;\r\n}\r\n\r\n.tooltip[x-placement^=\"left\"] .popover_arrow {\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent #131313;\r\n  right: -6px;\r\n  margin-right: 0;\r\n}\r\n\r\n.tooltip[x-placement^=\"left\"] .popover_arrow::before {\r\n  content: \"\";\r\n  display: inline-block;\r\n  position: absolute;\r\n  top: -6px;\r\n  right: 1.45px;\r\n  border: solid;\r\n  border-width: 6px 0 6px 6px;\r\n  border-color: transparent transparent transparent black;\r\n}\r\n";
+styleInject(css$9);
 
 var Popover =
 /*#__PURE__*/
@@ -8867,8 +8723,8 @@ TreeviewList.contextTypes = {
   theme: PropTypes.string
 };
 
-var css$c = ".note-dark {\r\n  background-color: #000;\r\n  color: #fff;\r\n  border-color: #58595a;\r\n}\r\n\r\n.note-default {\r\n  background-color: rgb(164, 243, 235);\r\n  border-color: #00695c;\r\n}\r\n\r\n.note-elegant {\r\n  background-color: #2E2E2E;\r\n  border-color: #212121;\r\n  color: #fff;\r\n}\r\n\r\n.note-stylish {\r\n  background-color: #4B515D;\r\n  border-color: #3E4551;\r\n  color: #fff;\r\n}\r\n\r\n.note-unique {\r\n  background-color: #3F729B;\r\n  border-color: #1C2331;\r\n  color: #fff;\r\n}\r\n\r\n.note-special {\r\n  background-color: #37474F;\r\n  border-color: #263238;\r\n  color: #fff;\r\n}\r\n";
-styleInject(css$c);
+var css$a = ".note-dark {\r\n  background-color: #000;\r\n  color: #fff;\r\n  border-color: #58595a;\r\n}\r\n\r\n.note-default {\r\n  background-color: rgb(164, 243, 235);\r\n  border-color: #00695c;\r\n}\r\n\r\n.note-elegant {\r\n  background-color: #2E2E2E;\r\n  border-color: #212121;\r\n  color: #fff;\r\n}\r\n\r\n.note-stylish {\r\n  background-color: #4B515D;\r\n  border-color: #3E4551;\r\n  color: #fff;\r\n}\r\n\r\n.note-unique {\r\n  background-color: #3F729B;\r\n  border-color: #1C2331;\r\n  color: #fff;\r\n}\r\n\r\n.note-special {\r\n  background-color: #37474F;\r\n  border-color: #263238;\r\n  color: #fff;\r\n}\r\n";
+styleInject(css$a);
 
 var Typography =
 /*#__PURE__*/
@@ -9597,8 +9453,8 @@ CardUp.defaultProps = {
   tag: 'div'
 };
 
-var css$d = ".chip.chip-md {\r\n  height: 42px;\r\n  line-height: 42px;\r\n  border-radius: 21px;\r\n}\r\n.chip.chip-md img {\r\n  height: 42px;\r\n  width: 42px;\r\n}\r\n.chip.chip-md .close {\r\n  height: 42px;\r\n  line-height: 42px;\r\n  border-radius: 21px;\r\n}\r\n.chip.chip-lg {\r\n  height: 52px;\r\n  line-height: 52px;\r\n  border-radius: 26px;\r\n}\r\n.chip.chip-lg img {\r\n  height: 52px;\r\n  width: 52px;\r\n}\r\n.chip.chip-lg .close {\r\n  height: 52px;\r\n  line-height: 52px;\r\n  border-radius: 26px;\r\n}\r\n";
-styleInject(css$d);
+var css$b = ".chip.chip-md {\r\n  height: 42px;\r\n  line-height: 42px;\r\n  border-radius: 21px;\r\n}\r\n.chip.chip-md img {\r\n  height: 42px;\r\n  width: 42px;\r\n}\r\n.chip.chip-md .close {\r\n  height: 42px;\r\n  line-height: 42px;\r\n  border-radius: 21px;\r\n}\r\n.chip.chip-lg {\r\n  height: 52px;\r\n  line-height: 52px;\r\n  border-radius: 26px;\r\n}\r\n.chip.chip-lg img {\r\n  height: 52px;\r\n  width: 52px;\r\n}\r\n.chip.chip-lg .close {\r\n  height: 52px;\r\n  line-height: 52px;\r\n  border-radius: 26px;\r\n}\r\n";
+styleInject(css$b);
 
 var Chip = function Chip(props) {
   var _useState = useState({}),
@@ -9924,8 +9780,8 @@ CollapseHeader.propTypes = {
   tagClassName: PropTypes.string
 };
 
-var css$e = "/* fallback */\r\n@font-face {\r\n  font-family: 'Material Icons';\r\n  font-style: normal;\r\n  font-weight: 400;\r\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\r\n}\r\n\r\n.material-icons {\r\n  font-family: 'Material Icons';\r\n  font-weight: normal;\r\n  font-style: normal;\r\n  font-size: 24px;\r\n  line-height: 1;\r\n  letter-spacing: normal;\r\n  text-transform: none;\r\n  display: inline-block;\r\n  white-space: nowrap;\r\n  word-wrap: normal;\r\n  direction: ltr;\r\n  -webkit-font-feature-settings: 'liga';\r\n  -webkit-font-smoothing: antialiased;\r\n}\r\n";
-styleInject(css$e);
+var css$c = "/* fallback */\r\n@font-face {\r\n  font-family: 'Material Icons';\r\n  font-style: normal;\r\n  font-weight: 400;\r\n  src: url(https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');\r\n}\r\n\r\n.material-icons {\r\n  font-family: 'Material Icons';\r\n  font-weight: normal;\r\n  font-style: normal;\r\n  font-size: 24px;\r\n  line-height: 1;\r\n  letter-spacing: normal;\r\n  text-transform: none;\r\n  display: inline-block;\r\n  white-space: nowrap;\r\n  word-wrap: normal;\r\n  direction: ltr;\r\n  -webkit-font-feature-settings: 'liga';\r\n  -webkit-font-smoothing: antialiased;\r\n}\r\n";
+styleInject(css$c);
 
 var DatePicker =
 /*#__PURE__*/
@@ -10165,6 +10021,154 @@ RotatingCard.defaultProps = {
   tag: 'div',
   innerTag: 'div',
   flipped: false
+};
+
+var css$d = ".mdb-gallery {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  overflow-y: auto;\r\n  list-style: none;\r\n  padding: 0;\r\n}\r\n";
+styleInject(css$d);
+
+var Gallery = React.forwardRef(function Gallery(props, ref) {
+  var _props$cellHeight = props.cellHeight,
+      cellHeight = _props$cellHeight === void 0 ? 180 : _props$cellHeight,
+      children = props.children,
+      className = props.className,
+      _props$cols = props.cols,
+      cols = _props$cols === void 0 ? 2 : _props$cols,
+      tag = props.tag,
+      _props$spacing = props.spacing,
+      spacing = _props$spacing === void 0 ? 4 : _props$spacing,
+      style = props.style,
+      attributes = _objectWithoutProperties(props, ["cellHeight", "children", "className", "cols", "tag", "spacing", "style"]);
+
+  var classes = classNames('mdb-gallery', className);
+  return React.createElement(MDBBox, _extends({
+    tag: tag
+  }, attributes, {
+    style: _objectSpread2({
+      margin: -spacing / 2
+    }, style),
+    className: classes,
+    ref: ref,
+    "data-test": "gallery"
+  }), React.Children.map(children, function (child) {
+    if (!React.isValidElement(child)) {
+      return null;
+    }
+
+    var childCols = child.props.cols || 1;
+    var childRows = child.props.rows || 1;
+    return React.cloneElement(child, {
+      style: _objectSpread2({
+        width: "".concat(100 / cols * childCols, "%"),
+        height: cellHeight === 'auto' ? cellHeight : cellHeight * childRows + spacing,
+        padding: spacing / 2
+      }, child.props.style)
+    });
+  }));
+});
+Gallery.propTypes = {
+  cellHeight: PropTypes.number,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  cols: PropTypes.number,
+  spacing: PropTypes.number,
+  style: PropTypes.object,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string])
+};
+Gallery.defaultProps = {
+  tag: 'ul'
+};
+
+var css$e = ".mdb-gallery-element {\r\n  box-sizing: border-box;\r\n  flex-shrink: 0;\r\n}\r\n\r\n.mdb-gallery-title {\r\n  height: 100%;\r\n  display: block;\r\n  overflow: hidden;\r\n  position: relative;\r\n}\r\n\r\n.img-full-height {\r\n  height: 100%;\r\n  transform: translateX(-50%);\r\n  position: relative;\r\n  left: 50%;\r\n}\r\n\r\n.img-full-width {\r\n  width: 100%;\r\n  transform: translateY(-50%);\r\n  position: relative;\r\n  top: 50%;\r\n}\r\n";
+styleInject(css$e);
+
+var imgClass = function imgClass(img) {
+  if (!img || !img.complete) {
+    return;
+  }
+
+  if (img.width / img.height > img.parentElement.offsetWidth / img.parentElement.offsetHeight) {
+    img.classList.remove('img-full-width');
+    img.classList.add('img-full-height');
+  } else {
+    img.classList.remove('img-full-height');
+    img.classList.add('img-full-width');
+  }
+};
+
+function ensureImageCover(img) {
+  if (!img) {
+    return;
+  }
+
+  if (img.complete) {
+    imgClass(img);
+  } else {
+    img.addEventListener('load', function () {
+      imgClass(img);
+    });
+  }
+}
+
+var GalleryList = React.forwardRef(function GalleryList(props, ref) {
+  var children = props.children,
+      cols = props.cols,
+      tag = props.tag,
+      rows = props.rows,
+      titleClasses = props.titleClasses,
+      elementClasses = props.elementClasses,
+      styles = props.styles,
+      attributes = _objectWithoutProperties(props, ["children", "cols", "tag", "rows", "titleClasses", "elementClasses", "styles"]);
+
+  var imgRef = useRef(null);
+  var ec = classNames('mdb-gallery-element', elementClasses);
+  var tc = classNames('mdb-gallery-title', titleClasses);
+  useEffect(function () {
+    ensureImageCover(imgRef.current);
+  });
+  useEffect(function () {
+    var handleResize = debounce(function () {
+      imgClass(imgRef.current);
+    });
+    window.addEventListener('resize', handleResize);
+    return function () {
+      handleResize.clear();
+      window.removeEventListener('resive', handleResize);
+    };
+  }, []);
+  return React.createElement(MDBBox, _extends({
+    "data-test": "gallery-list",
+    tag: tag,
+    ref: ref
+  }, attributes, {
+    className: ec
+  }), React.createElement(MDBBox, {
+    style: _objectSpread2({}, styles),
+    className: tc
+  }, React.Children.map(children, function (child) {
+    if (!React.isValidElement) {
+      return null;
+    }
+
+    if (child.type === 'img') {
+      return React.cloneElement(child, {
+        ref: imgRef
+      });
+    }
+
+    return child;
+  })));
+});
+GalleryList.propTypes = {
+  children: PropTypes.node,
+  cols: PropTypes.number,
+  elementClasses: PropTypes.string,
+  rows: PropTypes.number,
+  style: PropTypes.object,
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  titleClasses: PropTypes.string
+};
+GalleryList.defaultProps = {
+  tag: 'li'
 };
 
 var css$f = ".file-field .file-field-right .file-path-wrapper {\r\n  padding-left: 0;\r\n  padding-right: 10px;\r\n}\r\n";

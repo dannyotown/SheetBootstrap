@@ -576,7 +576,7 @@ describe('<DataTable />', () => {
     test('`checkFieldValue()`returns `searchvalue` instead of value', () => {
       expect(
         wrapper.instance().checkFieldValue(sortRows.rows[0], 'link')
-      ).toEqual('Airic_');
+      ).toEqual('Cedric_');
     });
 
     test('`checkField()` returns correct result of sort depending on `sort direction`', () => {
