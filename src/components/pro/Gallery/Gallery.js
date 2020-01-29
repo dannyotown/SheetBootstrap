@@ -25,6 +25,7 @@ const Gallery = React.forwardRef(function Gallery(props, ref) {
       style={{ margin: -spacing / 2, ...style }}
       className={classes}
       ref={ref}
+      data-test='gallery'
     >
       {React.Children.map(children, child => {
         if (!React.isValidElement(child)) {
@@ -37,7 +38,9 @@ const Gallery = React.forwardRef(function Gallery(props, ref) {
           style: {
             width: `${(100 / cols) * childCols}%`,
             height:
-              cellHeight === 'auto' ? 'auto' : cellHeight * childRows + spacing,
+              cellHeight === 'auto'
+                ? cellHeight
+                : cellHeight * childRows + spacing,
             padding: spacing / 2,
             ...child.props.style
           }
