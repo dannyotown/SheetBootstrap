@@ -68,6 +68,10 @@ class SliderPage extends Component {
           </MDBBox>
         </SectionContainer>
 
+        <SectionContainer header='With step property'>
+          <MDBRangeInput min={0} max={100} value={50} step={10} />
+        </SectionContainer>
+
         <SectionContainer
           header='With different width'
           className='d-flex flex-column'
