@@ -1093,6 +1093,7 @@ declare const MDBTable: FunctionComponent<{
   scrollY?: boolean;
   small?: boolean;
   striped?: boolean;
+  wrapperClassName ?:string;
   [rest: string]: any;
 }>;
 
