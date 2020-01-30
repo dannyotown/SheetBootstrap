@@ -23,10 +23,10 @@ const ChartsPagePro = () => {
               width={100}
               height={100}
               strokeWidth={3}
-              percent={56}
+              percent={9}
               strokeColor='#4FB64E'
             />
-            <h6 className='mt-2'>
+            <h6 className='mt-4'>
               <span className='label green p-1 white-text'>
                 Sales <MDBIcon icon='arrow-circle-up' />
               </span>
@@ -37,10 +37,10 @@ const ChartsPagePro = () => {
               width={100}
               height={100}
               strokeWidth={3}
-              percent={76}
+              percent={68}
               strokeColor='#EA3C3B'
             />
-            <h6 className='mt-2'>
+            <h6 className='mt-4'>
               <span className='label red p-1 white-text'>
                 ROI <MDBIcon icon='arrow-circle-down' />
               </span>
@@ -54,7 +54,7 @@ const ChartsPagePro = () => {
               percent={100}
               strokeColor='#9D9D9D'
             />
-            <h6 className='mt-2'>
+            <h6 className='mt-4'>
               <span className='label grey p-1 white-text'>
                 Conversion <MDBIcon icon='minus-square' />
               </span>

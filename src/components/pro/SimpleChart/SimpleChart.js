@@ -11,7 +11,9 @@ const SimpleChart = props => {
   };
 
   const describeArc = (x, y, radius, startAngle, endAngle) => {
-    if (!x || !y) {console.error('x or y missing to describeArc');}
+    if (!x || !y) {
+      console.error('x or y missing to describeArc');
+    }
 
     const start = polarToCartesian(x, y, radius, endAngle);
     const end = polarToCartesian(x, y, radius, startAngle);
@@ -48,6 +50,7 @@ const SimpleChart = props => {
     labelFontWeight,
     labelFontSize
   } = props;
+
   const chartsPercent = Math.min(percent || 0, 100);
   const chartsRadius = width / 2 - strokeWidth / 2 - padding;
   const chartsCenter = chartsRadius + strokeWidth / 2 + padding;
@@ -55,7 +58,7 @@ const SimpleChart = props => {
   const chartsEndAngle = 3.6 * chartsPercent;
   const chartsLabel = `${chartsPercent}%`;
   const chartsLabelLeftOffset =
-    chartsLabel.length === 3 || chartsLabel.length === 4 ? -0.95 : -0.6;
+    chartsLabel.length === 3 ? -0.9 : chartsLabel.length === 4 ? -1.15 : -0.5;
   const arc = describeArc(
     chartsCenter,
     chartsCenter,
