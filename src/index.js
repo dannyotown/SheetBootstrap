@@ -185,8 +185,6 @@ export {
   Footer,
   FormInline,
   FreeBird,
-  Gallery,
-  GalleryList,
   HamburgerToggler,
   Iframe,
   Input,
