@@ -303,11 +303,10 @@ class InputPage extends Component {
 
           <SectionContainer title='Range input'>
             <MDBRangeInput
-              tag='form'
               getValue={this.handleRangeChange}
               min={0}
               max={100}
-              value={20}
+              value={50}
             />
           </SectionContainer>
         </MDBContainer>
