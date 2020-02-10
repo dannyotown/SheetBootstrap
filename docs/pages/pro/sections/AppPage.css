@@ -28,7 +28,7 @@
 }
 
 #apppage .view {
-  background-image: url("https://mdbootstrap.com/img/Photos/Others/architecture.jpg");
+  background-image: url('https://mdbootstrap.com/img/Photos/Others/architecture.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -39,6 +39,7 @@
   line-height: 1.7;
 }
 
+/*
 @media only screen and (max-width: 400px) {
   #apppage .animated img {
     max-height: 50vh;
@@ -47,6 +48,7 @@
     position: absolute;
   }
 }
+
 @media only screen and (max-width: 767px) {
   #apppage .animated img {
     max-height: 35vh;
@@ -63,8 +65,9 @@
     position: relative;
   }
 }
+
 @media (max-width: 1000px) and (orientation: landscape) {
   #apppage .view {
     min-height: 150vh;
   }
-}
+} */
