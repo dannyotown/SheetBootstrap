@@ -100,9 +100,9 @@ class CallToActionIntro extends React.Component {
           </div>
         </Router>
         <MDBView src='https://mdbootstrap.com/img/Photos/Others/gradient2.png'>
-          <MDBMask className='rgba-purple-slight ' />
+          <MDBMask className='rgba-purple-slight' />
           <MDBContainer
-            style={{ height: '100%', width: '100%', paddingTop: '14rem' }}
+            style={{ height: '100%', width: '100%' }}
             className='d-flex justify-content-center align-items-center'
           >
             <MDBRow>
