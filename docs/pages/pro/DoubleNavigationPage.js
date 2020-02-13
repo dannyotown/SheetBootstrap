@@ -105,19 +105,11 @@ class DoubleNavigationPage extends Component {
               }}
             />
             <MDBSideNavNav>
-              <MDBSideNavCat
-                name='Submit blog'
-                id='submit-blog-cat'
-                icon='chevron-right'
-              >
+              <MDBSideNavCat name='Submit blog' id='submit-blog-cat' icon='chevron-right'>
                 <MDBSideNavItem>Submit listing</MDBSideNavItem>
                 <MDBSideNavItem>Registration form</MDBSideNavItem>
               </MDBSideNavCat>
-              <MDBSideNavCat
-                name='Instruction'
-                id='instruction-cat'
-                icon='hand-pointer'
-              >
+              <MDBSideNavCat name='Instruction' id='instruction-cat' icon='hand-pointer'>
                 <MDBSideNavItem>For bloggers</MDBSideNavItem>
                 <MDBSideNavItem>For authors</MDBSideNavItem>
               </MDBSideNavCat>
@@ -125,11 +117,7 @@ class DoubleNavigationPage extends Component {
                 <MDBSideNavItem>Instruction</MDBSideNavItem>
                 <MDBSideNavItem>Monthly meetings</MDBSideNavItem>
               </MDBSideNavCat>
-              <MDBSideNavCat
-                name='Contact me'
-                id='contact-me-cat'
-                icon='envelope'
-              >
+              <MDBSideNavCat name='Contact me' id='contact-me-cat' icon='envelope'>
                 <MDBSideNavItem>FAQ</MDBSideNavItem>
                 <MDBSideNavItem>Write a message</MDBSideNavItem>
               </MDBSideNavCat>
@@ -150,30 +138,26 @@ class DoubleNavigationPage extends Component {
                   <MDBIcon icon='bars' color='white' size='2x' />
                 </div>
               </MDBNavItem>
-              <MDBNavItem
-                className='d-none d-md-inline'
-                style={{ paddingTop: 5 }}
-              >
+              <MDBNavItem className='d-none d-md-inline' style={{ paddingTop: 5 }}>
                 Material Design for Bootstrap
               </MDBNavItem>
             </MDBNavbarNav>
             <MDBNavbarNav right style={specialCaseNavbarStyles}>
               <MDBNavItem active>
-                <MDBNavLink to='#!'>
+                <MDBNavLink to='#!' link>
                   <MDBIcon icon='envelope' className='d-inline-inline' />{' '}
                   <div className='d-none d-md-inline'>Contact</div>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
-                <MDBNavLink to='#!'>
+                <MDBNavLink to='#!' link>
                   <MDBIcon icon='comments' className='d-inline-inline' />{' '}
                   <div className='d-none d-md-inline'>Support</div>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
-                <MDBNavLink to='#!'>
-                  <MDBIcon icon='user' className='d-inline-inline' />{' '}
-                  <div className='d-none d-md-inline'>Account</div>
+                <MDBNavLink to='#!' link>
+                  <MDBIcon icon='user' className='d-inline-inline' /> <div className='d-none d-md-inline'>Account</div>
                 </MDBNavLink>
               </MDBNavItem>
               <MDBNavItem>
@@ -184,12 +168,8 @@ class DoubleNavigationPage extends Component {
                   <MDBDropdownMenu right>
                     <MDBDropdownItem href='#!'>Action</MDBDropdownItem>
                     <MDBDropdownItem href='#!'>Another Action</MDBDropdownItem>
-                    <MDBDropdownItem href='#!'>
-                      Something else here
-                    </MDBDropdownItem>
-                    <MDBDropdownItem href='#!'>
-                      Something else here
-                    </MDBDropdownItem>
+                    <MDBDropdownItem href='#!'>Something else here</MDBDropdownItem>
+                    <MDBDropdownItem href='#!'>Something else here</MDBDropdownItem>
                   </MDBDropdownMenu>
                 </MDBDropdown>
               </MDBNavItem>
@@ -197,15 +177,10 @@ class DoubleNavigationPage extends Component {
           </MDBNavbar>
           <main style={mainStyle}>
             <MDBContainer fluid style={{ height: 2000 }} className='mt-5'>
-              <h2>
-                Advanced Double Navigation with fixed SideNav & fixed Navbar:
-              </h2>
+              <h2>Advanced Double Navigation with fixed SideNav & fixed Navbar:</h2>
               <br />
               <h5>1. Fixed side menu, hidden on small devices.</h5>
-              <h5>
-                2. Fixed Navbar. It will always stay visible on the top, even
-                when you scroll down.
-              </h5>
+              <h5>2. Fixed Navbar. It will always stay visible on the top, even when you scroll down.</h5>
             </MDBContainer>
           </main>
         </div>

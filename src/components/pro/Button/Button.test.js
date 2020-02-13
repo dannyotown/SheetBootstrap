@@ -1,13 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass,
-  checkTag,
-  checkCallBack
-} from '../../../tests/utils';
+import { checkProps, checkClass, checkCallBack } from '../../../tests/utils';
 import Button from './Button';
 
 const mockCallback = jest.fn();
