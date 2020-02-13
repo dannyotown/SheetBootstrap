@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ControlledSelectInput = React.forwardRef(
-  ({ value, required }, inputRef) => {
+  ({ value, required, disabled }, inputRef) => {
     return (
       <input
         data-test='controlled-select-input'
@@ -19,6 +19,7 @@ const ControlledSelectInput = React.forwardRef(
         onFocus={e => {
           e.target.style.caretColor = 'transparent';
         }}
+        disabled={disabled}
       />
     );
   }
