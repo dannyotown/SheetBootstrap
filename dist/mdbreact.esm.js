@@ -8518,7 +8518,6 @@ var sn = (function(t) {
 }),
   (sn.defaultProps = {
     abbr: !1,
-    abbrLeftText: !0,
     blockquote: !1,
     listInLine: !1,
     listUnStyled: !1,

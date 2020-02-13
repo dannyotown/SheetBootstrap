@@ -64,37 +64,49 @@ class VideoBackgroundPage extends React.Component {
                       <MDBNavLink to='#!'>Home</MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to='#!'>About</MDBNavLink>
+                      <MDBNavLink link to='#!'>
+                        About
+                      </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to='#!'>Features</MDBNavLink>
+                      <MDBNavLink link to='#!'>
+                        Features
+                      </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to='#!'>Services</MDBNavLink>
+                      <MDBNavLink link to='#!'>
+                        Services
+                      </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to='#!'>Opinions</MDBNavLink>
+                      <MDBNavLink link to='#!'>
+                        Opinions
+                      </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to='#!'>Team</MDBNavLink>
+                      <MDBNavLink link to='#!'>
+                        Team
+                      </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to='#!'>Contact</MDBNavLink>
+                      <MDBNavLink link to='#!'>
+                        Contact
+                      </MDBNavLink>
                     </MDBNavItem>
                   </MDBNavbarNav>
                   <MDBNavbarNav right>
                     <MDBNavItem>
-                      <MDBNavLink to='!#'>
+                      <MDBNavLink link to='!#'>
                         <MDBIcon fab icon='facebook' />
                       </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to='!#'>
+                      <MDBNavLink link to='!#'>
                         <MDBIcon fab icon='twitter' />
                       </MDBNavLink>
                     </MDBNavItem>
                     <MDBNavItem>
-                      <MDBNavLink to='!#'>
+                      <MDBNavLink link to='!#'>
                         <MDBIcon fab icon='instagram' />
                       </MDBNavLink>
                     </MDBNavItem>
@@ -107,38 +119,40 @@ class VideoBackgroundPage extends React.Component {
         </Router>
 
         <MDBView>
-          <video
-            className='video-intro'
-            poster='https://mdbootstrap.com/img/Photos/Others/background.jpg'
-            playsInline
-            autoPlay
-            muted=''
-            loop
+          <MDBMask className='gradient'>
+            <video
+              className='video-intro'
+              poster='https://mdbootstrap.com/img/Photos/Others/background.jpg'
+              muted
+              loop
+              autoPlay
+            >
+              <source
+                src='https://mdbootstrap.com/img/video/animation.mp4'
+                type='video/mp4'
+              />
+            </video>
+          </MDBMask>{' '}
+          <MDBContainer
+            className='d-flex justify-content-center align-items-center px-md-3 px-sm-0'
+            style={{ height: '100vh', width: '100%' }}
           >
-            <source
-              src='https://mdbootstrap.com/img/video/animation.mp4'
-              type='video/mp4'
-            />
-          </video>
-          <MDBMask className='d-flex justify-content-center align-items-center gradient'>
-            <MDBContainer className='px-md-3 px-sm-0'>
-              <MDBRow>
-                <MDBCol md='12' className='mb-4 white-text text-center'>
-                  <h3 className='display-3 font-weight-bold mb-0 pt-md-5'>
-                    Creative Agency{' '}
-                  </h3>
-                  <hr className='hr-light my-4 w-75' />
-                  <h4 className='subtext-header mt-2 mb-4'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                    deleniti consequuntur nihil.
-                  </h4>
-                  <MDBBtn outline rounded color='white'>
-                    <MDBIcon icon='home' /> Visit us
-                  </MDBBtn>
-                </MDBCol>
-              </MDBRow>
-            </MDBContainer>
-          </MDBMask>
+            <MDBRow>
+              <MDBCol md='12' className='mb-4 white-text text-center'>
+                <h3 className='display-3 font-weight-bold mb-0 pt-md-5'>
+                  Creative Agency{' '}
+                </h3>
+                <hr className='hr-light my-4 w-75' />
+                <h4 className='subtext-header mt-2 mb-4'>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                  deleniti consequuntur nihil.
+                </h4>
+                <MDBBtn outline rounded color='white'>
+                  <MDBIcon icon='home' /> Visit us
+                </MDBBtn>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
         </MDBView>
 
         <MDBContainer>
