@@ -58,7 +58,7 @@ class InputRange extends React.Component {
   }
 
   rangeChange = e => {
-    const value = parseInt(e.target.value);
+    const value = parseFloat(e.target.value);
     const { getValue, min } = this.props;
     const { oneStep } = this.state;
 
