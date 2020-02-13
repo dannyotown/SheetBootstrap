@@ -32,7 +32,8 @@ class SideNav extends React.Component {
     isOpen: this.isOpen(),
     cursorPos: {},
     slimStart: this.props.slim,
-    slimInitial: this.props.slim
+    slimInitial: this.props.slim,
+    slimInitialOpen: this.props.openNav
   };
 
   sideNavRef = React.createRef();
@@ -41,10 +42,20 @@ class SideNav extends React.Component {
 
   componentDidMount() {
     const { triggerOpening, responsive } = this.props;
+    const { slimInitialOpen } = this.state;
     if (triggerOpening && !responsive) {
       throw new Error(
         'Received "triggerOpening" prop for a  non-responsive Sidebar. If you want to contidionally render Sidenav, set the responsive prop to true'
       );
+    }
+    if (slimInitialOpen) {
+      this.setState({
+        slimStart: !slimInitialOpen,
+        slimInitial: slimInitialOpen,
+        slimInitialOpen: !slimInitialOpen
+      });
+      const sidenav = ReactDOM.findDOMNode(this.sideNavRef.current);
+      sidenav.classList.remove('slim');
     }
 
     this.sideNavRef.current.addEventListener('touchstart', this.startTouch);
@@ -123,6 +134,7 @@ class SideNav extends React.Component {
 
   toggleSlim = () => () => {
     const { slimStart } = this.state;
+
     this.setState({ slimStart: !slimStart });
 
     const sidenav = ReactDOM.findDOMNode(this.sideNavRef.current);
@@ -133,7 +145,9 @@ class SideNav extends React.Component {
     const { isFixed } = this.state;
     const { onOverlayClick } = this.props;
 
-    if (isFixed) {return;}
+    if (isFixed) {
+      return;
+    }
     this.setState({
       isOpen: false
     });
@@ -269,6 +283,7 @@ SideNav.propTypes = {
   logo: PropTypes.string,
   mask: PropTypes.string,
   onOverlayClick: PropTypes.func,
+  openNav: PropTypes.bool,
   responsive: PropTypes.bool,
   right: PropTypes.bool,
   showOverlay: PropTypes.bool,
@@ -287,6 +302,7 @@ SideNav.defaultProps = {
   logo: '',
   mask: '',
   onOverlayClick: () => {},
+  openNav: false,
   responsive: true,
   right: false,
   showOverlay: true,
