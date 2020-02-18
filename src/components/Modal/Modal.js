@@ -91,6 +91,7 @@ class Modal extends Component {
       animation,
       backdrop,
       backdropClassName,
+      backdropStyles,
       cascading,
       centered,
       children,
@@ -106,11 +107,11 @@ class Modal extends Component {
       noClickableBodyWithoutBackdrop,
       position,
       role,
-      backdropStyles,
       side,
       size,
       tabIndex,
-      wrapClassName
+      wrapClassName,
+      wrapperStyles
     } = this.props;
 
     const { isOpen } = this.state;
@@ -167,7 +168,13 @@ class Modal extends Component {
     const styles = removeBackdropCondtions ? removeBackdropClass : {};
 
     const modal = (
-      <div data-test='modal' onKeyUp={this.handleEscape} className={wrapperClasses} {...modalAttributes}>
+      <div
+        data-test='modal'
+        onKeyUp={this.handleEscape}
+        className={wrapperClasses}
+        style={wrapperStyles}
+        {...modalAttributes}
+      >
         <div style={styles} className={modalDialogClasses} role='document'>
           <div ref={elem => (this.modalContent = elem)} className={contentClasses}>
             {children}
@@ -256,7 +263,8 @@ Modal.propTypes = {
   side: PropTypes.bool,
   size: PropTypes.string,
   tabIndex: PropTypes.string,
-  wrapClassName: PropTypes.string
+  wrapClassName: PropTypes.string,
+  wrapperStyles: PropTypes.object
 };
 
 export default Modal;
