@@ -93,23 +93,23 @@ class Lightbox extends React.Component {
   setScale = e => {
     const { screenSize } = this.state;
     const { height, width } = e.size;
-    const margin = this.props.marginSpace;
+    const { marginSpace } = this.props;
     let scale = 1;
     if (screenSize.x > screenSize.y) {
       if (e.realH > height) {
         if (height === width && screenSize.y > screenSize.x) {
-          scale = (screenSize.x - margin) / width;
+          scale = (screenSize.x - marginSpace) / width;
         } else if (height === width && screenSize.y < screenSize.x) {
-          scale = (screenSize.y - margin) / height;
+          scale = (screenSize.y - marginSpace) / height;
         } else if (height > width) {
-          scale = (screenSize.y - margin) / height;
+          scale = (screenSize.y - marginSpace) / height;
           if (scale * width > screenSize.x) {
-            scale = (screenSize.x - margin) / width;
+            scale = (screenSize.x - marginSpace) / width;
           }
         } else if (height < width) {
-          scale = (screenSize.x - margin) / width;
+          scale = (screenSize.x - marginSpace) / width;
           if (scale * height > screenSize.y) {
-            scale = (screenSize.y - margin) / height;
+            scale = (screenSize.y - marginSpace) / height;
           }
         }
       }
