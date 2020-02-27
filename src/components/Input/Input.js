@@ -16,8 +16,14 @@ class Input extends React.Component {
     // User wants to access the input ref, but we have to use it intenrally to.
     // Return Ref instance to share ref with parent
     // then user sets ref as a callback -> inputRef={ref => this.myInputRef = ref}
-    const { inputRef } = this.props;
+    const { inputRef, focused } = this.props;
     inputRef && inputRef(this.inputElementRef.current);
+
+    if (focused) {
+      this.setState({ isFocused: true }, () => {
+        this.setFocus();
+      });
+    }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -114,9 +120,7 @@ class Input extends React.Component {
     } = this.props;
     const { innerValue, isFocused } = this.state;
     const isNotEmpty =
-      (!!innerValue || !!hint || isFocused || innerValue === 0) &&
-      type !== 'checkbox' &&
-      type !== 'radio';
+      (!!innerValue || !!hint || isFocused || innerValue === 0) && type !== 'checkbox' && type !== 'radio';
     let TagInput = '';
     let formControlClass = '';
 
@@ -156,11 +160,7 @@ class Input extends React.Component {
       containerClass
     );
 
-    const iconClassFix = classNames(
-      isNotEmpty && isFocused ? 'active' : false,
-      iconClass,
-      'prefix'
-    );
+    const iconClassFix = classNames(isNotEmpty && isFocused ? 'active' : false, iconClass, 'prefix');
 
     const labelClassFix = classNames(
       isNotEmpty ? 'active' : false,
@@ -213,11 +213,7 @@ class Input extends React.Component {
       </>
     );
 
-    return noTag ? (
-      renderFunction()
-    ) : (
-      <Tag className={containerClassFix}>{renderFunction()}</Tag>
-    );
+    return noTag ? renderFunction() : <Tag className={containerClassFix}>{renderFunction()}</Tag>;
   }
 }
 
@@ -240,12 +236,7 @@ Input.propTypes = {
   iconSize: PropTypes.string,
   id: PropTypes.string,
   inputRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object,
-    PropTypes.bool
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.bool]),
   labelClass: PropTypes.string,
   labelId: PropTypes.string,
   noTag: PropTypes.bool,
