@@ -181,18 +181,19 @@ class SideNav extends React.Component {
       breakWidth,
       children,
       className,
+      fixed,
       hidden,
       href,
       logo,
       mask,
       onOverlayClick,
-      right,
-      triggerOpening,
-      showOverlay,
-      fixed,
+      openNav,
       responsive,
+      right,
+      showOverlay,
       slim,
       tag: Tag,
+      triggerOpening,
       ...attributes
     } = this.props;
 
