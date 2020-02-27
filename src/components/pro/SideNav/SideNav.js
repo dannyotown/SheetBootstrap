@@ -198,17 +198,9 @@ class SideNav extends React.Component {
 
     const { isOpen, isFixed, slimInitial, cursorPos, slimStart } = this.state;
 
-    const classes = classNames(
-      'side-nav',
-      'wide',
-      right && 'right-aligned',
-      slimInitial && 'slim',
-      className
-    );
+    const classes = classNames('side-nav', 'wide', right && 'right-aligned', slimInitial && 'slim', className);
 
-    const overlay = (
-      <div id='sidenav-overlay' onClick={this.handleOverlayClick} />
-    );
+    const overlay = <div id='sidenav-overlay' onClick={this.handleOverlayClick} />;
 
     const sidenav = (
       <Tag
@@ -223,16 +215,8 @@ class SideNav extends React.Component {
             {logo && (
               <li>
                 <div className='logo-wrapper'>
-                  <a
-                    href={href}
-                    className='Ripple-parent'
-                    onClick={this.handleClick}
-                  >
-                    <img
-                      src={logo}
-                      alt=''
-                      className='img-fluid flex-center d-block'
-                    />
+                  <a href={href} className='Ripple-parent' onClick={this.handleClick}>
+                    <img src={logo} alt='' className='img-fluid flex-center d-block' />
                     <Waves cursorPos={cursorPos} />
                   </a>
                 </div>
