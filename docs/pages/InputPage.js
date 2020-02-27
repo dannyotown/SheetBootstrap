@@ -11,9 +11,11 @@ class InputPage extends Component {
   };
 
   nextInputRef = null;
-
+  secondInputRef = null;
   componentDidMount() {
     document.querySelectorAll('.iconHover').forEach(el => (el.style.cursor = 'pointer'));
+
+    this.nextInputRef.focus();
   }
 
   handleSubmit = event => {
@@ -54,7 +56,6 @@ class InputPage extends Component {
     return (
       <MDBContainer className='mt-5'>
         <DocsLink title='Inputs' href='https://mdbootstrap.com/docs/react/forms/inputs/' />
-        <MDBInput label='Material input' getValue={this.getValue} focused valueDefault='aaaas' />
         <SectionContainer header='Basic examples'>
           <MDBRow>
             <MDBCol md='6'>
@@ -65,7 +66,7 @@ class InputPage extends Component {
               />
             </MDBCol>
             <MDBCol md='6'>
-              <MDBInput label='Example label' onChange={this.handleChange} focused value={value} />
+              <MDBInput label='Example label' onChange={this.handleChange} value={value} />
             </MDBCol>
           </MDBRow>
           <MDBRow>
