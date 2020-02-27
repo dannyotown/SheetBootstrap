@@ -18,9 +18,8 @@ class Input extends React.Component {
     // then user sets ref as a callback -> inputRef={ref => this.myInputRef = ref}
     const { inputRef, focused } = this.props;
     inputRef && inputRef(this.inputElementRef.current);
-
-    if (focused) {
-      this.setState({ isFocused: true }, () => {
+    if (focused === true) {
+      this.setState({ isFocused: focused }, () => {
         this.setFocus();
       });
     }
@@ -105,6 +104,7 @@ class Input extends React.Component {
       id,
       inputRef,
       noTag,
+      focused,
       outline,
       label,
       labelClass,
@@ -224,7 +224,7 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   filled: PropTypes.bool,
-  focused: PropTypes.bool,
+  focused: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
   gap: PropTypes.bool,
   getValue: PropTypes.func,
   group: PropTypes.bool,

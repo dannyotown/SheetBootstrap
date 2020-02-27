@@ -76,6 +76,7 @@ class InputPage extends Component {
                 onChange={this.changeFocus}
                 size='sm'
                 icon='envelope'
+                focused
               />
             </MDBCol>
             <MDBCol md='6'>
