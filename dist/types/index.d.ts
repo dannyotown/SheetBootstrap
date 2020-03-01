@@ -1,4 +1,4 @@
-import { FunctionComponent, ReactNode, Component, ElementType, SyntheticEvent, ReactChild, RefObject, FormEvent } from 'react';
+import { FunctionComponent, ReactNode, Component, ElementType, SyntheticEvent, RefObject, ReactChild, FormEvent } from 'react';
 
 declare const MDBAlert: FunctionComponent<{
   color?:
@@ -642,26 +642,6 @@ declare const MDBFreeBird: FunctionComponent<{
   [rest: string]: any;
 }>;
 
-declare const MDBGallery: FunctionComponent<{
-  cellHeight?: number;
-  children?: ReactChild;
-  className?: string;
-  cols?: number;
-  tag?: string;
-  spacing?: number;
-  style?: object;
-}>;
-
-declare const MDBGalleryList: FunctionComponent<{
-  children?: ReactNode;
-  className?: string;
-  cols?: number;
-  tag?: string;
-  rows?: number;
-  titleClasses?: string;
-  elementClasses?: string;
-}>;
-
 declare const MDBHamburgerToggler: FunctionComponent<{
   color?: string;
   className?: string;
@@ -798,6 +778,7 @@ declare class MDBModal extends Component<
     autoFocus?: boolean;
     backdrop?: boolean;
     backdropClassName?: string;
+    backdropStyles?: object;
     cascading?: boolean;
     centered?: boolean;
     className?: string;
@@ -818,6 +799,7 @@ declare class MDBModal extends Component<
     role?: string;
     tabIndex?: string;
     wrapClassName?: boolean;
+    wrapperStyles?: object;
     keyboard?: boolean;
     toggle?: () => void;
     hiddenModal?: () => void;
@@ -1113,6 +1095,7 @@ declare const MDBTable: FunctionComponent<{
   scrollY?: boolean;
   small?: boolean;
   striped?: boolean;
+  wrapperClassName ?:string;
   [rest: string]: any;
 }>;
 
@@ -1535,6 +1518,26 @@ declare const MDBFileInput: FunctionComponent<{
   resetAriaLabel?: string;
   reverse?: boolean;
   [rest: string]: any;
+}>;
+
+declare const MDBGallery: FunctionComponent<{
+  cellHeight?: number;
+  children?: ReactChild;
+  className?: string;
+  cols?: number;
+  tag?: string;
+  spacing?: number;
+  style?: object;
+}>;
+
+declare const MDBGalleryList: FunctionComponent<{
+  children?: ReactNode;
+  className?: string;
+  cols?: number;
+  tag?: string;
+  rows?: number;
+  titleClasses?: string;
+  elementClasses?: string;
 }>;
 
 declare class MDBInputRange extends Component<{

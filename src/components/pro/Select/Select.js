@@ -246,9 +246,12 @@ class Select extends React.Component {
 
   returnComponentContent = () => {
     const {
+      children,
       className,
       color,
-      children,
+      disabled,
+      focusBackgroundColor,
+      focusShadow,
       getTextContent,
       getValue,
       label,
@@ -257,15 +260,13 @@ class Select extends React.Component {
       outline,
       required,
       search,
-      searchLabel,
       searchId,
-      selected,
+      searchLabel,
       selectAll,
       selectAllClassName,
       selectAllLabel,
       selectAllValue,
-      focusShadow,
-      focusBackgroundColor,
+      selected,
       ...attributes
     } = this.props;
 
@@ -325,6 +326,7 @@ class Select extends React.Component {
               value={controlledValue}
               ref={this.inputRef}
               required={required}
+              disabled={disabled}
             />
             <ControlledSelectOptions
               multiple={multiple}

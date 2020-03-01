@@ -292,6 +292,10 @@ select {
     display: block !important;
   }
 
+  & ~ .btn {
+    display: none !important;
+  }
+  
   &:disabled {
     color: $material-select-wrapper-input-dropdown-disabled-color;
   }

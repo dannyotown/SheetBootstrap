@@ -37,8 +37,6 @@ import Fa from './components/Fa';
 import Footer from './components/Footer';
 import FormInline from './components/FormInline';
 import FreeBird from './components/FreeBird';
-import Gallery from './components/Gallery';
-import GalleryList from './components/Gallery/GalleryList';
 import HamburgerToggler from './components/HamburgerToggler';
 import Iframe from './components/Iframe';
 import InputGroup from './components/InputGroup';
@@ -96,6 +94,8 @@ import CollapseHeader from './components/pro/CollapseHeader';
 import DatePicker from './components/pro/DatePicker';
 import ExportToCSV from './components/pro/DataTable/ExportToCSV';
 import FlippingCard from './components/pro/FlippingCard';
+import Gallery from './components/pro/Gallery';
+import GalleryList from './components/pro/Gallery/GalleryList';
 import InputFile from './components/pro/InputFile';
 import InputRange from './components/pro/InputRange';
 import InputSwitch from './components/pro/InputSwitch';
@@ -185,8 +185,6 @@ export {
   Footer,
   FormInline,
   FreeBird,
-  Gallery,
-  GalleryList,
   HamburgerToggler,
   Iframe,
   Input,
@@ -247,6 +245,8 @@ export {
   DatePicker,
   ExportToCSV,
   FlippingCard,
+  Gallery as MDBGallery,
+  GalleryList as MDBGalleryList,
   InputFile,
   InputRange,
   InputSwitch,
@@ -322,8 +322,6 @@ export {
   Footer as MDBFooter,
   FormInline as MDBFormInline,
   FreeBird as MDBFreeBird,
-  Gallery as MDBGallery,
-  GalleryList as MDBGalleryList,
   HamburgerToggler as MDBHamburgerToggler,
   Iframe as MDBIframe,
   Input as MDBInput,

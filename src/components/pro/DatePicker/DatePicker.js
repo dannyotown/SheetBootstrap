@@ -149,7 +149,7 @@ DatePicker.propTypes = {
   className: PropTypes.string,
   clearable: PropTypes.bool,
   clearLabel: PropTypes.node,
-  disableFuture: PropTypes.object,
+  disableFuture: PropTypes.bool,
   disableOpenOnEnter: PropTypes.bool,
   disablePast: PropTypes.bool,
   emptyLabel: PropTypes.string,

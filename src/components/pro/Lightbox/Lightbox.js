@@ -49,9 +49,7 @@ class Lightbox extends React.Component {
 
   keyEvents = e => {
     const { changeSlide, imgSrc, sliderOpened } = this.state;
-    const active = this.slideRefs.filter(
-      el => el === document.activeElement
-    )[0];
+    const active = this.slideRefs.filter(el => el === document.activeElement)[0];
     const key = e.key;
 
     if (key === 'Enter' && active) {
@@ -95,23 +93,23 @@ class Lightbox extends React.Component {
   setScale = e => {
     const { screenSize } = this.state;
     const { height, width } = e.size;
-    const margin = this.props.marginSpace;
+    const { marginSpace } = this.props;
     let scale = 1;
     if (screenSize.x > screenSize.y) {
       if (e.realH > height) {
         if (height === width && screenSize.y > screenSize.x) {
-          scale = (screenSize.x - margin) / width;
+          scale = (screenSize.x - marginSpace) / width;
         } else if (height === width && screenSize.y < screenSize.x) {
-          scale = (screenSize.y - margin) / height;
+          scale = (screenSize.y - marginSpace) / height;
         } else if (height > width) {
-          scale = (screenSize.y - margin) / height;
+          scale = (screenSize.y - marginSpace) / height;
           if (scale * width > screenSize.x) {
-            scale = (screenSize.x - margin) / width;
+            scale = (screenSize.x - marginSpace) / width;
           }
         } else if (height < width) {
-          scale = (screenSize.x - margin) / width;
+          scale = (screenSize.x - marginSpace) / width;
           if (scale * height > screenSize.y) {
-            scale = (screenSize.y - margin) / height;
+            scale = (screenSize.y - marginSpace) / height;
           }
         }
       }
@@ -196,9 +194,7 @@ class Lightbox extends React.Component {
     if (!changeSlide) {
       this.setState({ sliderOpened: false });
       this.setFocus(imgSrc);
-      let PREV_IMG =
-        this.slideRefs[activeKey - 1] ||
-        this.slideRefs[this.slideRefs.length - 1];
+      let PREV_IMG = this.slideRefs[activeKey - 1] || this.slideRefs[this.slideRefs.length - 1];
       let NEXT_IMG = this.slideRefs[activeKey + 1] || this.slideRefs[0];
 
       PREV_IMG.style.cssText = '';
@@ -240,9 +236,7 @@ class Lightbox extends React.Component {
       const IMG_DATA = zoomedScale;
       let target;
 
-      e.target.tagName === 'BUTTON'
-        ? (target = this.slideRefs[activeKey])
-        : (target = e.target);
+      e.target.tagName === 'BUTTON' ? (target = this.slideRefs[activeKey]) : (target = e.target);
 
       let scaleTransform = target.style.transform.split(' ');
       let scaleValue = Number(
@@ -264,19 +258,14 @@ class Lightbox extends React.Component {
 
       if (
         WHEEL_UP ||
-        (e.button === 0 &&
-          !e.target.classList.contains('lb-zoom-out') &&
-          e.target.tagName === 'BUTTON')
+        (e.button === 0 && !e.target.classList.contains('lb-zoom-out') && e.target.tagName === 'BUTTON')
       ) {
         if (scaleValue * SCALE_UP < IMG_DATA * 4) {
           scaleValue *= SCALE_UP;
         }
         this.setState({ resize: true });
       }
-      if (
-        WHEEL_DOWN ||
-        (e.button === 0 && e.target.classList.contains('lb-zoom-out'))
-      ) {
+      if (WHEEL_DOWN || (e.button === 0 && e.target.classList.contains('lb-zoom-out'))) {
         if (scaleValue * SCALE_DOWN >= IMG_DATA) {
           scaleValue *= SCALE_DOWN;
           trans3d[0] *= SCALE_DOWN / 1.15;
@@ -319,8 +308,7 @@ class Lightbox extends React.Component {
     if (!changeSlide) {
       let { slideRefs } = this;
       let CURRENT_IMG = imgSrc;
-      let PREV_IMG =
-        slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
+      let PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
       let NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
       let actual_key;
       const trans3d_Unset = index => `
@@ -330,15 +318,14 @@ class Lightbox extends React.Component {
       `;
 
       const change = () => {
-        const { imgSrc } = this.state;
         setTimeout(() => {
+          const { imgSrc } = this.state;
           PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${0}ms`;
-          let CURRENT = imgSrc;
-          const dataOfImage = this.setData(CURRENT);
+          const dataOfImage = this.setData(imgSrc);
 
           this.setState(dataOfImage, () => {
-            CURRENT.classList.add('zoom');
-            CURRENT.style.cssText = `
+            imgSrc.classList.add('zoom');
+            imgSrc.style.cssText = `
               transform:
                 translate(-50%,-50%)
                 translate3d(0,0,0)
@@ -360,12 +347,8 @@ class Lightbox extends React.Component {
 
       PREV_IMG.style.transition = CURRENT_IMG.style.transition = NEXT_IMG.style.transition = `${transition}ms`;
       CURRENT_IMG.style.transform = trans3d_Unset(activeKey);
-      PREV_IMG.style.transform = trans3d_Unset(
-        this.slideRefs.indexOf(PREV_IMG)
-      );
-      NEXT_IMG.style.transform = trans3d_Unset(
-        this.slideRefs.indexOf(NEXT_IMG)
-      );
+      PREV_IMG.style.transform = trans3d_Unset(this.slideRefs.indexOf(PREV_IMG));
+      NEXT_IMG.style.transform = trans3d_Unset(this.slideRefs.indexOf(NEXT_IMG));
 
       if (!changeSlide) {
         this.setState({ changeSlide: true });
@@ -390,21 +373,9 @@ class Lightbox extends React.Component {
     }
   };
   dragStart = e => {
-    const {
-      changeSlide,
-      dragImg,
-      dragPercent,
-      imgSrc,
-      sliderOpened
-    } = this.state;
+    const { changeSlide, dragImg, dragPercent, imgSrc, sliderOpened } = this.state;
 
-    if (
-      !dragImg &&
-      imgSrc &&
-      !changeSlide &&
-      sliderOpened &&
-      dragPercent === 0
-    ) {
+    if (!dragImg && imgSrc && !changeSlide && sliderOpened && dragPercent === 0) {
       let dragImgPos = {
         x: e.clientX || e.touches[0].clientX,
         y: e.clientY || e.touches[0].clientY
@@ -421,19 +392,11 @@ class Lightbox extends React.Component {
   };
 
   dragMoveSlide = e => {
-    const {
-      activeKey,
-      galleryImagesData,
-      resize,
-      dragImg,
-      dragImgPos,
-      resizePos
-    } = this.state;
+    const { activeKey, galleryImagesData, resize, dragImg, dragImgPos, resizePos } = this.state;
     const { slideRefs } = this;
     if (dragImg && !resize) {
       let CURRENT_IMG = e.target;
-      let PREV_IMG =
-        slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
+      let PREV_IMG = slideRefs[activeKey - 1] || slideRefs[slideRefs.length - 1];
       let NEXT_IMG = slideRefs[activeKey + 1] || slideRefs[0];
 
       let dragPos = {
@@ -505,13 +468,9 @@ class Lightbox extends React.Component {
       let dragPercentScale = 20;
       if (!resize) {
         if (dragPercent > dragPercentScale) {
-          this.checkSiblings('prev')
-            ? this.changeSlide('prev')
-            : this.changeSlide(null);
+          this.checkSiblings('prev') ? this.changeSlide('prev') : this.changeSlide(null);
         } else if (dragPercent < -dragPercentScale) {
-          this.checkSiblings('next')
-            ? this.changeSlide('next')
-            : this.changeSlide(null);
+          this.checkSiblings('next') ? this.changeSlide('next') : this.changeSlide(null);
         } else {
           this.changeSlide(null);
         }
@@ -539,9 +498,7 @@ class Lightbox extends React.Component {
   };
 
   checkSiblings = direction =>
-    this.slideRefs.filter(target =>
-      target.classList.contains(`${direction}-img`)
-    ).length > 0;
+    this.slideRefs.filter(target => target.classList.contains(`${direction}-img`)).length > 0;
 
   render() {
     const {
@@ -559,28 +516,13 @@ class Lightbox extends React.Component {
       transition
     } = this.props;
 
-    const {
-      activeKey,
-      galleryImagesData,
-      imgSrc,
-      showLeft,
-      showRight,
-      sliderOpened
-    } = this.state;
+    const { activeKey, galleryImagesData, imgSrc, showLeft, showRight, sliderOpened } = this.state;
 
-    const lightboxClasses = classNames(
-      'mdb-lightbox d-flex flex-wrap',
-      !noMargins && 'no-margin',
-      className
-    );
+    const lightboxClasses = classNames('mdb-lightbox d-flex flex-wrap', !noMargins && 'no-margin', className);
 
-    const descriptionClasses = classNames(
-      'text-uppercase font-weight-bold mt-4',
-      descriptionClassName
-    );
+    const descriptionClasses = classNames('text-uppercase font-weight-bold mt-4', descriptionClassName);
 
-    const pswp__button = button =>
-      classNames(`pswp__button d-block z-depth-0 pswp__button--${button}`);
+    const pswp__button = button => classNames(`pswp__button d-block z-depth-0 pswp__button--${button}`);
 
     const galleryClassNames = id => {
       const sliders1 = this.slideRefs.length > 1;
@@ -595,18 +537,8 @@ class Lightbox extends React.Component {
           id === 0 &&
           activeKey + 1 > this.slideRefs.length - 1 &&
           'zoom next-img',
-        sliders1 &&
-          sliders2 &&
-          sliderOpened &&
-          id === this.slideRefs.length - 1 &&
-          activeKey === 0 &&
-          'zoom prev-img',
-        sliders1 &&
-          sliders2 &&
-          sliderOpened &&
-          id === 1 &&
-          activeKey === 0 &&
-          'zoom next-img'
+        sliders1 && sliders2 && sliderOpened && id === this.slideRefs.length - 1 && activeKey === 0 && 'zoom prev-img',
+        sliders1 && sliders2 && sliderOpened && id === 1 && activeKey === 0 && 'zoom next-img'
       );
     };
 
@@ -672,9 +604,7 @@ class Lightbox extends React.Component {
             }}
           />
         )}
-        {image.description && (
-          <p className={descriptionClasses}>{image.description}</p>
-        )}
+        {image.description && <p className={descriptionClasses}>{image.description}</p>}
       </MDBCol>
     ));
     return (
@@ -690,47 +620,23 @@ class Lightbox extends React.Component {
               {activeKey + 1}/{images.length}
             </p>
 
-            <MDBBtnGroup
-              style={{ transition: `${transition / 2}ms`, right: '0' }}
-            >
-              <MDBBtn
-                className={pswp__button('zoom')}
-                color='transparent'
-                onClick={this.scrollZoom}
-              />
+            <MDBBtnGroup style={{ transition: `${transition / 2}ms`, right: '0' }}>
+              <MDBBtn className={pswp__button('zoom')} color='transparent' onClick={this.scrollZoom} />
 
-              <MDBBtn
-                className={pswp__button('zoom lb-zoom-out')}
-                color='transparent'
-                onClick={this.scrollZoom}
-              />
+              <MDBBtn className={pswp__button('zoom lb-zoom-out')} color='transparent' onClick={this.scrollZoom} />
 
-              <MDBBtn
-                className={pswp__button('fs')}
-                color='transparent'
-                onClick={this.toggleFullscreen}
-              />
-              <MDBBtn
-                className={pswp__button('close')}
-                color='transparent'
-                onClick={this.closeZoom}
-              />
+              <MDBBtn className={pswp__button('fs')} color='transparent' onClick={this.toggleFullscreen} />
+              <MDBBtn className={pswp__button('close')} color='transparent' onClick={this.closeZoom} />
             </MDBBtnGroup>
             <div
               className='d-flex justify-content-between w-100 arrow-container'
               style={{ transition: `${transition}ms` }}
             >
               {showLeft && (
-                <div
-                  className={pswp__button('arrow--left prev')}
-                  onClick={() => this.changeSlide('prev')}
-                />
+                <div className={pswp__button('arrow--left prev')} onClick={() => this.changeSlide('prev')} />
               )}
               {showRight && (
-                <div
-                  className={pswp__button('arrow--right next')}
-                  onClick={() => this.changeSlide('next')}
-                />
+                <div className={pswp__button('arrow--right next')} onClick={() => this.changeSlide('next')} />
               )}
             </div>
           </div>
