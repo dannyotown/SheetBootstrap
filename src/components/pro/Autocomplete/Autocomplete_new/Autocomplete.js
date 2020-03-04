@@ -6,17 +6,191 @@ import './Autocomplete.css';
 
 class Autocomplete extends Component {
   state = {
+    filteredSuggestions: [],
     focused: false,
-    initialValue: ''
+    focusedListItem: 0,
+    showList: false,
+    suggestions: [],
+    initialValue: '',
+    movedKey: false
+  };
+
+  autoInputRef = React.createRef();
+  suggestionsList = React.createRef();
+
+  componentDidMount() {
+    const { data, value, valueDefault } = this.props;
+
+    this.setState({
+      suggestions: this.filterRepeated(data),
+      initialValue: value || valueDefault
+    });
+    window.addEventListener('click', this.outsideClickHandler);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { getValue, value, data } = this.props;
+    const { initialValue } = this.state;
+
+    if (prevState.value !== initialValue && getValue) {
+      getValue(initialValue);
+    }
+    if (prevProps.value !== value) {
+      this.setState({ initialValue: value });
+    }
+    if (prevProps.data !== data) {
+      this.setState({ suggestions: this.filterRepeated(data) });
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('click', this.outsideClickHandler);
+  }
+
+  outsideClickHandler = e => {
+    if (this.suggestionsList && e.target !== this.suggestionsList && e.target !== this.autoInputRef) {
+      return this.setState({ showList: false, activeLabeL: false });
+    }
+  };
+
+  tabClick = e => {};
+
+  filterRepeated = data => {
+    return data.filter((el, index) => data.indexOf(el) === index);
   };
 
   inputOnChangeHandler = e => {
-    let initialValue = e.target.value;
+    let { value } = e.target;
+    this.setState({
+      initialValue: value,
+      focusedListItem: 0,
+      showList: true
+    });
 
-    this.setState({ initialValue });
+    if (value !== '') {
+      this.setSuggestions(value);
+    } else {
+      this.setSuggestions();
+    }
   };
-  test = e => {
-    return <li>{this.props.dataOption(e)}</li>;
+
+  setSuggestions = value => {
+    const { suggestions } = this.state;
+    const { noSuggestion, dataKey } = this.props;
+    if (value !== '' && value !== undefined) {
+      const filteredSuggestions = suggestions.filter(suggest => {
+        const isString = typeof value !== 'string' ? value.toString().toLowerCase() : value;
+
+        if (typeof suggest === 'object') {
+          return suggest[dataKey]
+            .toString()
+            .toLowerCase()
+            .includes(isString);
+        } else {
+          return suggest.toLowerCase().includes(value.toLowerCase());
+        }
+      });
+
+      if (typeof filteredSuggestions[0] === 'object') {
+        const filteredMapped = filteredSuggestions
+          .map(e => {
+            return e[dataKey];
+          })
+          .map(e => e.toString());
+
+        this.setState({
+          showList: true,
+          filteredSuggestions: filteredMapped.length <= 0 ? noSuggestion : filteredMapped
+        });
+      } else {
+        this.setState({
+          showList: true,
+          filteredSuggestions: filteredSuggestions.length <= 0 ? noSuggestion : filteredSuggestions
+        });
+      }
+    } else {
+      this.setState({
+        activeLabeL: true,
+        showList: true,
+        filteredSuggestions: suggestions
+      });
+    }
+  };
+
+  handleClear = () => {
+    this.setState({ initialValue: '', focusedListItem: 0, showList: false, activeLabeL: false });
+  };
+
+  handleSelect = () => {
+    const { filteredSuggestions, focusedListItem } = this.state;
+    const { dataKey } = this.props;
+    let initialValue;
+
+    if (typeof filteredSuggestions[0] === 'string') {
+      initialValue = filteredSuggestions[focusedListItem];
+    } else {
+      initialValue = filteredSuggestions.map(e => {
+        return e[dataKey];
+      })[focusedListItem];
+    }
+    if (initialValue !== 'No options') {
+      this.setState({
+        initialValue,
+        focusedListItem: 0,
+        showList: false
+      });
+    }
+  };
+
+  keyDownHandler = e => {
+    const { filteredSuggestions, focusedListItem } = this.state;
+
+    if (this.suggestionsList && filteredSuggestions) {
+      let suggestionsListNodes = this.suggestionsList.childNodes;
+
+      if (suggestionsListNodes.length >= 5) {
+        suggestionsListNodes[focusedListItem].scrollIntoView({
+          block: 'center'
+        });
+      }
+
+      if (e.keyCode === 13) {
+        this.handleSelect();
+        this.setState({
+          filteredSuggestions: []
+        });
+      }
+
+      if (e.keyCode === 27) {
+        this.setState({ filteredSuggestions: [] });
+      }
+
+      if (e.keyCode === 40 && focusedListItem < filteredSuggestions.length - 1) {
+        this.setState({ focusedListItem: focusedListItem + 1 });
+      } else {
+        this.setState({ focusedListItem: 0 });
+      }
+
+      if (e.keyCode === 38 && focusedListItem > 0) {
+        this.setState({ focusedListItem: focusedListItem - 1 });
+      }
+
+      if (e.keyCode === 35) {
+        this.setState({ focusedListItem: filteredSuggestions.length - 1 });
+      }
+
+      if (e.keyCode === 36) {
+        this.setState({ focusedListItem: 0 });
+      }
+    }
+  };
+
+  updateFocus = index => {
+    this.setState({ focusedListItem: index, movedKey: true });
+  };
+
+  toggleFocusToClearBtn = focused => {
+    this.setState({ focused });
   };
 
   render() {
@@ -25,29 +199,23 @@ class Autocomplete extends Component {
       clearClass,
       data,
       everyTimeShowContent,
-      dataOption = x => x,
       heightItem,
       labelClass,
       labelStyles,
       noSuggestion,
       placeholder,
       visibleOptions,
-      whichData,
+      dataKey,
       ...attributes
     } = this.props;
 
-    const { focused, initialValue } = this.state;
-
-    const labelClasses = classNames(labelClass, 'text-ellipsis-label');
+    const { activeLabeL, filteredSuggestions, focused, focusedListItem, showList, initialValue } = this.state;
+    const labelClasses = classNames(labelClass, activeLabeL && 'active', 'text-ellipsis-label');
     const inputClasses = classNames(placeholder, 'text-ellipsis-input');
-    const btnClearClasses = classNames(
-      clearClass,
-      focused && 'autocomplete-btn-svg',
-      'mdb-autocomplete-clear visible'
-    );
-    console.log(dataOption());
+    const btnClearClasses = classNames(clearClass, focused && 'autocomplete-btn-svg', 'mdb-autocomplete-clear visible');
+
     return (
-      <>
+      <div data-test='auto-complete' style={{ position: 'relative' }}>
         <MDBInput
           className={inputClasses}
           hint={placeholder}
@@ -63,21 +231,57 @@ class Autocomplete extends Component {
           value={initialValue}
           {...attributes}
         >
-          {clear && (
+          {clear && initialValue && (
             <button onClick={this.handleClear} className={btnClearClasses}>
               <MDBIcon icon='times' style={{ color: focused && '#4285F4' }} />
             </button>
           )}
         </MDBInput>
-        <ul></ul>
-      </>
+
+        {showList && (
+          <ul
+            className='mdb-autocomplete-wrap'
+            onClick={this.handleSelect}
+            ref={ref => (this.suggestionsList = ref)}
+            style={{
+              marginTop: '-15px',
+              maxHeight: `${heightItem * Number(visibleOptions)}px`
+            }}
+          >
+            {filteredSuggestions.map((el, index) => {
+              return (
+                <li
+                  className='list-item'
+                  key={el + index}
+                  onMouseEnter={() => this.updateFocus(index)}
+                  style={{
+                    background: `${focusedListItem === index ? '#eee' : '#fff'}`
+                  }}
+                  data-index={index}
+                >
+                  {typeof el[0] === 'string' ? el : el[dataKey]}
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
     );
   }
 }
 
-Autocomplete.propTypes = {};
+Autocomplete.propTypes = {
+  heightItem: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  noSuggestion: PropTypes.array,
+  visibleOptions: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+};
 
-Autocomplete.defaultProps = {};
+Autocomplete.defaultProps = {
+  heightItem: 45,
+  noSuggestion: ['No options'],
+  visibleOptions: 5,
+  labelStyles: ''
+};
 
 export default Autocomplete;
 export { Autocomplete as MDBAutocomplete };

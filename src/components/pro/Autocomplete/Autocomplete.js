@@ -25,15 +25,11 @@ class Autocomplete extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    prevState.value !== this.state.value &&
-      this.props.getValue &&
-      this.props.getValue(this.state.value);
+    prevState.value !== this.state.value && this.props.getValue && this.props.getValue(this.state.value);
 
-    prevProps.value !== this.props.value &&
-      this.setState({ value: this.props.value });
+    prevProps.value !== this.props.value && this.setState({ value: this.props.value });
 
-    prevProps.data !== this.props.data &&
-      this.setState({ suggestions: this.filterRepeated(this.props.data) });
+    prevProps.data !== this.props.data && this.setState({ suggestions: this.filterRepeated(this.props.data) });
   }
 
   componentWillUnmount() {
@@ -41,13 +37,10 @@ class Autocomplete extends Component {
   }
 
   outsideClickHandler = e => {
-    this.suggestionsList &&
-      e.target !== this.suggestionsList &&
-      this.setState({ choosed: true });
+    this.suggestionsList && e.target !== this.suggestionsList && this.setState({ choosed: true });
   };
 
-  filterRepeated = data =>
-    data.filter((el, index) => data.indexOf(el) === index);
+  filterRepeated = data => data.filter((el, index) => data.indexOf(el) === index);
 
   handleInput = e => {
     const { value } = e.target;
@@ -105,9 +98,7 @@ class Autocomplete extends Component {
         focusedListItem < filteredSuggestions.length - 1 &&
         this.setState({ focusedListItem: focusedListItem + 1 });
 
-      e.keyCode === 38 &&
-        focusedListItem > 0 &&
-        this.setState({ focusedListItem: focusedListItem - 1 });
+      e.keyCode === 38 && focusedListItem > 0 && this.setState({ focusedListItem: focusedListItem - 1 });
     }
   };
 
@@ -115,7 +106,6 @@ class Autocomplete extends Component {
 
   render() {
     const { value, filteredSuggestions, choosed } = this.state;
-
     const {
       clear,
       clearColor,
@@ -138,7 +128,6 @@ class Autocomplete extends Component {
     } = this.props;
 
     const btnStyles = classNames(clearClass, 'mdb-autocomplete-clear');
-
     return (
       <div data-test='auto-complete' style={{ position: 'relative' }}>
         <MDBInput
@@ -161,11 +150,7 @@ class Autocomplete extends Component {
           size={size}
         >
           {clear && value && (
-            <button
-              onClick={this.handleClear}
-              className={btnStyles}
-              style={{ visibility: 'visible' }}
-            >
+            <button onClick={this.handleClear} className={btnStyles} style={{ visibility: 'visible' }}>
               <svg
                 fill={clearColor}
                 height={clearSize}
@@ -186,20 +171,20 @@ class Autocomplete extends Component {
             style={{ marginTop: '-15px' }}
             onClick={this.handleSelect}
           >
-            {filteredSuggestions.map((el, index) => (
-              <li
-                key={el + index}
-                className='list-item'
-                style={{
-                  background: `${
-                    this.state.focusedListItem === index ? '#eee' : '#fff'
-                  }`
-                }}
-                onMouseEnter={() => this.updateFocus(index)}
-              >
-                {el}
-              </li>
-            ))}
+            {filteredSuggestions.map((el, index) => {
+              return (
+                <li
+                  key={el + index}
+                  className='list-item'
+                  style={{
+                    background: `${this.state.focusedListItem === index ? '#eee' : '#fff'}`
+                  }}
+                  onMouseEnter={() => this.updateFocus(index)}
+                >
+                  {el}
+                </li>
+              );
+            })}
           </ul>
         )}
       </div>
@@ -221,11 +206,7 @@ Autocomplete.propTypes = {
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
   id: PropTypes.string,
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
   labelClass: PropTypes.string,
   placeholder: PropTypes.string,
   valueDefault: PropTypes.string
