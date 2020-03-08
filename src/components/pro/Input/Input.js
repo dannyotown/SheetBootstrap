@@ -35,20 +35,10 @@ class Input extends React.Component {
   };
 
   render() {
-    const {
-      children,
-      className,
-      counter,
-      getCounter,
-      onChange,
-      ...attributes
-    } = this.props;
+    const { children, className, counter, getCounter, onChange, ...attributes } = this.props;
     const { character, characterActive, characterMax } = this.state;
     const typeCounter = typeof characterMax === 'number';
-    const classes = classNames(
-      className,
-      typeCounter && character >= characterMax && 'invalid'
-    );
+    const classes = classNames(className, typeCounter && character >= characterMax && 'invalid');
     const styles = { float: 'right', fontSize: '12px', height: '1px' };
 
     return (

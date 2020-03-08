@@ -389,7 +389,8 @@ const subjects = [
 
 class AutocompletePage extends Component {
   state = {
-    modal: false
+    modal: false,
+    test: 'year'
   };
 
   toggle = () => {
@@ -408,7 +409,9 @@ class AutocompletePage extends Component {
   logValue = value => {
     console.log(value);
   };
-
+  onClickTest = e => {
+    this.setState({ test: 'title' });
+  };
   render() {
     const { modal } = this.state;
     const smallStyle = { fontSize: '0.8rem' };
@@ -417,17 +420,29 @@ class AutocompletePage extends Component {
         <DocsLink title='Autocomplete' href='https://mdbootstrap.com/docs/react/forms/autocomplete/' />
 
         <SectionContainer header='New example'>
-          <MDBAuto data={top100Films} dataKey='year' label='Choose your favorite film' icon='edit' clear id='input12' />
+          <MDBBtn onClick={this.onClickTest}>Test</MDBBtn>
 
           <MDBAuto
-            data={}
+            data={top100Films}
+            dataKey={this.state.test}
+            label='Choose your favorite film'
+            clear
+            id='input12'
+            highlight
+            highlightStyles={{ color: 'red' }}
+            background
+            visibleOptions={3}
+          />
+
+          <MDBAuto
+            data={states}
             label='Choose your favorite state'
-            icon='edit'
             dataKey='title'
             clear
             id='input123'
             size='md'
-            visibleOptions={5}
+            visibleOptions={10}
+            highlight
           />
         </SectionContainer>
 
@@ -443,6 +458,16 @@ class AutocompletePage extends Component {
             id='input'
             getValue={this.logValue}
             size='md'
+          />
+
+          <MDBAuto
+            data={states}
+            label='Choose your favorite state'
+            dataKey='title'
+            clear
+            id='input445'
+            size='md'
+            visibleOptions={10}
           />
         </SectionContainer>
 

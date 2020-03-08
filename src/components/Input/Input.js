@@ -197,6 +197,7 @@ class Input extends React.Component {
           onChange={this.onChange}
           onInput={this.onInput}
           onFocus={this.onFocus}
+          aria-disabled={disabled}
         />
         {label && (
           <label
@@ -207,6 +208,7 @@ class Input extends React.Component {
             id={labelId}
             onClick={this.setFocus}
             style={labelStyles}
+            aria-labelledby={labelId}
           >
             {label}
           </label>

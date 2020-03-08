@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { MDBInput, MDBIcon } from 'mdbreact';
 import classNames from 'classnames';
 import './Autocomplete.css';
+import { partHighlight } from './Utils/index';
 
 class Autocomplete extends Component {
   state = {
@@ -12,25 +13,27 @@ class Autocomplete extends Component {
     showList: false,
     suggestions: [],
     initialValue: '',
-    movedKey: false
+    movedKey: false,
+    initialDataKey: ''
   };
 
   autoInputRef = React.createRef();
   suggestionsList = React.createRef();
 
   componentDidMount() {
-    const { data, value, valueDefault } = this.props;
+    const { data, value, valueDefault, dataKey } = this.props;
 
     this.setState({
       suggestions: this.filterRepeated(data),
-      initialValue: value || valueDefault
+      initialValue: value || valueDefault,
+      initialDataKey: '' || dataKey
     });
     window.addEventListener('click', this.outsideClickHandler);
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { getValue, value, data } = this.props;
-    const { initialValue } = this.state;
+    const { getValue, value, data, dataKey } = this.props;
+    const { initialValue, focused } = this.state;
 
     if (prevState.value !== initialValue && getValue) {
       getValue(initialValue);
@@ -40,6 +43,14 @@ class Autocomplete extends Component {
     }
     if (prevProps.data !== data) {
       this.setState({ suggestions: this.filterRepeated(data) });
+    }
+
+    if (prevState.initialDataKey !== dataKey) {
+      this.setState({ initialDataKey: dataKey });
+    }
+
+    if (prevState.focused !== focused) {
+      this.setState({ focused });
     }
   }
 
@@ -53,14 +64,12 @@ class Autocomplete extends Component {
     }
   };
 
-  tabClick = e => {};
-
   filterRepeated = data => {
     return data.filter((el, index) => data.indexOf(el) === index);
   };
 
   inputOnChangeHandler = e => {
-    let { value } = e.target;
+    const { value } = e.target;
     this.setState({
       initialValue: value,
       focusedListItem: 0,
@@ -75,28 +84,25 @@ class Autocomplete extends Component {
   };
 
   setSuggestions = value => {
-    const { suggestions } = this.state;
-    const { noSuggestion, dataKey } = this.props;
+    const { suggestions, initialDataKey } = this.state;
+    const { noSuggestion } = this.props;
+
     if (value !== '' && value !== undefined) {
       const filteredSuggestions = suggestions.filter(suggest => {
-        const isString = typeof value !== 'string' ? value.toString().toLowerCase() : value;
-
         if (typeof suggest === 'object') {
-          return suggest[dataKey]
+          return suggest[initialDataKey]
             .toString()
             .toLowerCase()
-            .includes(isString);
+            .includes(value.toString().toLowerCase());
         } else {
           return suggest.toLowerCase().includes(value.toLowerCase());
         }
       });
 
       if (typeof filteredSuggestions[0] === 'object') {
-        const filteredMapped = filteredSuggestions
-          .map(e => {
-            return e[dataKey];
-          })
-          .map(e => e.toString());
+        const filteredMapped = filteredSuggestions.map(e => {
+          return e[initialDataKey].toString();
+        });
 
         this.setState({
           showList: true,
@@ -133,6 +139,7 @@ class Autocomplete extends Component {
         return e[dataKey];
       })[focusedListItem];
     }
+
     if (initialValue !== 'No options') {
       this.setState({
         initialValue,
@@ -142,17 +149,24 @@ class Autocomplete extends Component {
     }
   };
 
+  // scrollToElement = (nodes, focusedItem) => {
+  //   return (nodes[focusedItem].scrollTop = 45);
+  // };
+
   keyDownHandler = e => {
     const { filteredSuggestions, focusedListItem } = this.state;
+    const { heightItem } = this.props;
+    const numberTo = this.suggestionsList.offsetHeight - heightItem * 2;
 
     if (this.suggestionsList && filteredSuggestions) {
-      let suggestionsListNodes = this.suggestionsList.childNodes;
+      const suggestionsListNodes = this.suggestionsList.childNodes;
 
-      if (suggestionsListNodes.length >= 5) {
-        suggestionsListNodes[focusedListItem].scrollIntoView({
-          block: 'center'
-        });
-      }
+      const moveDown = suggestionsListNodes[focusedListItem].offsetTop - numberTo;
+      const moveUp = suggestionsListNodes[focusedListItem].offsetTop - 45;
+      console.log(moveUp);
+      this.suggestionsList.scrollTo({
+        top: this.state.movedDown ? moveDown : moveUp
+      });
 
       if (e.keyCode === 13) {
         this.handleSelect();
@@ -166,14 +180,17 @@ class Autocomplete extends Component {
       }
 
       if (e.keyCode === 40 && focusedListItem < filteredSuggestions.length - 1) {
-        this.setState({ focusedListItem: focusedListItem + 1 });
+        this.setState({ focusedListItem: focusedListItem + 1, movedDown: true });
       } else {
         this.setState({ focusedListItem: 0 });
       }
-
       if (e.keyCode === 38 && focusedListItem > 0) {
-        this.setState({ focusedListItem: focusedListItem - 1 });
+        this.setState({ focusedListItem: focusedListItem - 1, movedDown: false });
       }
+
+      // if (e.keyCode === 38 && focusedListItem === 0) {
+      //   this.setState({ focusedListItem: filteredSuggestions.length - 1 });
+      // }
 
       if (e.keyCode === 35) {
         this.setState({ focusedListItem: filteredSuggestions.length - 1 });
@@ -182,6 +199,10 @@ class Autocomplete extends Component {
       if (e.keyCode === 36) {
         this.setState({ focusedListItem: 0 });
       }
+
+      if (e.keyCode === 9) {
+        this.setState({ filteredSuggestions: [], activeLabeL: false, showList: false });
+      }
     }
   };
 
@@ -189,8 +210,41 @@ class Autocomplete extends Component {
     this.setState({ focusedListItem: index, movedKey: true });
   };
 
-  toggleFocusToClearBtn = focused => {
-    this.setState({ focused });
+  toggleFocusToClearBtn = (e, focused) => {
+    if (e.type === 'focus') {
+      this.setState({ focused });
+      this.setSuggestions(e.target.value);
+    } else {
+      this.setState({ focused }, () => {
+        setTimeout(() => {
+          this.updateFocus(0);
+        }, 300);
+      });
+    }
+  };
+
+  getHighlightedText = (text, highlight) => {
+    if (highlight !== undefined) {
+      const { highlightBold, highlightClasses, highlightStyles } = this.props;
+      const { initialDataKey } = this.state;
+      const isObject = typeof text === 'object' ? text[initialDataKey].toString() : text;
+      const parts = isObject.split(new RegExp(`(${highlight})`, 'gi'));
+      const classes = classNames(highlightBold && 'font-weight-bold', highlightClasses);
+
+      return parts.map((part, i) => {
+        return (
+          <span
+            key={i}
+            style={partHighlight(part, highlight, highlightStyles, {})}
+            className={partHighlight(part, highlight, classes, '')}
+          >
+            {part}
+          </span>
+        );
+      });
+    } else {
+      return text;
+    }
   };
 
   render() {
@@ -198,16 +252,21 @@ class Autocomplete extends Component {
       clear,
       clearClass,
       data,
+      dataKey,
       everyTimeShowContent,
       heightItem,
+      highlight,
+      highlightBold,
       labelClass,
       labelStyles,
       noSuggestion,
       placeholder,
       visibleOptions,
-      dataKey,
+      highlightStyles,
+      highlightClasses,
       ...attributes
     } = this.props;
+    const { initialDataKey } = this.state;
 
     const { activeLabeL, filteredSuggestions, focused, focusedListItem, showList, initialValue } = this.state;
     const labelClasses = classNames(labelClass, activeLabeL && 'active', 'text-ellipsis-label');
@@ -222,13 +281,16 @@ class Autocomplete extends Component {
           inputRef={ref => (this.autoInputRef = ref)}
           labelClass={labelClasses}
           labelStyles={{ width: '200px', ...labelStyles }}
-          onBlur={() => this.toggleFocusToClearBtn(false)}
+          onBlur={e => this.toggleFocusToClearBtn(e, false)}
           onChange={this.inputOnChangeHandler}
           onClick={() => this.setSuggestions(initialValue)}
           onContextMenu={e => e.preventDefault()}
-          onFocus={() => this.toggleFocusToClearBtn(true)}
+          onFocus={e => this.toggleFocusToClearBtn(e, true)}
           onKeyDown={this.keyDownHandler}
           value={initialValue}
+          role='combobox'
+          aria-haspopup='true'
+          aria-expanded={showList}
           {...attributes}
         >
           {clear && initialValue && (
@@ -249,6 +311,8 @@ class Autocomplete extends Component {
             }}
           >
             {filteredSuggestions.map((el, index) => {
+              const highlighted = this.getHighlightedText(el, initialValue);
+
               return (
                 <li
                   className='list-item'
@@ -259,7 +323,7 @@ class Autocomplete extends Component {
                   }}
                   data-index={index}
                 >
-                  {typeof el[0] === 'string' ? el : el[dataKey]}
+                  {typeof el[0] === 'string' ? (highlight ? highlighted : el) : el[initialDataKey]}
                 </li>
               );
             })}
@@ -280,7 +344,8 @@ Autocomplete.defaultProps = {
   heightItem: 45,
   noSuggestion: ['No options'],
   visibleOptions: 5,
-  labelStyles: ''
+  labelStyles: '',
+  highlightBold: true
 };
 
 export default Autocomplete;
