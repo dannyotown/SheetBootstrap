@@ -163,10 +163,13 @@ class Autocomplete extends Component {
 
       const moveDown = suggestionsListNodes[focusedListItem].offsetTop - numberTo;
       const moveUp = suggestionsListNodes[focusedListItem].offsetTop - 45;
-      console.log(moveUp);
-      this.suggestionsList.scrollTo({
-        top: this.state.movedDown ? moveDown : moveUp
-      });
+
+      if (this.suggestionsList.offsetHeight === 5555) {
+      } else {
+        this.suggestionsList.scrollTo({
+          top: moveDown
+        });
+      }
 
       if (e.keyCode === 13) {
         this.handleSelect();
@@ -188,9 +191,9 @@ class Autocomplete extends Component {
         this.setState({ focusedListItem: focusedListItem - 1, movedDown: false });
       }
 
-      // if (e.keyCode === 38 && focusedListItem === 0) {
-      //   this.setState({ focusedListItem: filteredSuggestions.length - 1 });
-      // }
+      if (e.keyCode === 38 && focusedListItem === 0) {
+        this.setState({ focusedListItem: filteredSuggestions.length - 1 });
+      }
 
       if (e.keyCode === 35) {
         this.setState({ focusedListItem: filteredSuggestions.length - 1 });
