@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { MDBInput, MDBIcon } from 'mdbreact';
 import classNames from 'classnames';
 import './Autocomplete.css';
 import { partHighlight } from './Utils/index';
 
-class Autocomplete extends Component {
+class Autocomplete extends PureComponent {
   state = {
     filteredSuggestions: [],
     focused: false,
@@ -164,13 +164,6 @@ class Autocomplete extends Component {
       const moveDown = suggestionsListNodes[focusedListItem].offsetTop - numberTo;
       const moveUp = suggestionsListNodes[focusedListItem].offsetTop - 45;
 
-      if (this.suggestionsList.offsetHeight === 5555) {
-      } else {
-        this.suggestionsList.scrollTo({
-          top: moveDown
-        });
-      }
-
       if (e.keyCode === 13) {
         this.handleSelect();
         this.setState({
@@ -183,12 +176,20 @@ class Autocomplete extends Component {
       }
 
       if (e.keyCode === 40 && focusedListItem < filteredSuggestions.length - 1) {
-        this.setState({ focusedListItem: focusedListItem + 1, movedDown: true });
+        this.setState(prev => ({ focusedListItem: prev.focusedListItem + 1 }));
+        this.suggestionsList.scrollTo({
+          top: moveDown
+        });
+        console.log('1');
       } else {
         this.setState({ focusedListItem: 0 });
       }
       if (e.keyCode === 38 && focusedListItem > 0) {
-        this.setState({ focusedListItem: focusedListItem - 1, movedDown: false });
+        this.setState({ focusedListItem: focusedListItem - 1 });
+        this.suggestionsList.scrollTo({
+          top: moveUp
+        });
+        console.log('2');
       }
 
       if (e.keyCode === 38 && focusedListItem === 0) {
