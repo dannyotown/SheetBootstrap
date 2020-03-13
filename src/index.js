@@ -84,6 +84,7 @@ import Waves from './components/Waves';
 
 // PRO-START
 import Autocomplete from './components/pro/Autocomplete';
+import Autocomplete_v5 from './components/pro/Autocomplete/Autocomplete_v5';
 import Avatar from './components/pro/Avatar';
 import ButtonFixed from './components/pro/ButtonFixed';
 import ButtonFixedItem from './components/pro/ButtonFixed/ButtonFixedItem';
@@ -371,6 +372,7 @@ export {
   Waves as MDBWaves,
   // PRO-START
   Autocomplete as MDBAutocomplete,
+  Autocomplete_v5 as MDBAutocomplete_v5,
   Avatar as MDBAvatar,
   ButtonFixed as MDBBtnFixed,
   ButtonFixedItem as MDBBtnFixedItem,

@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { MDBInput, MDBIcon } from 'mdbreact';
 import classNames from 'classnames';
@@ -180,7 +180,6 @@ class Autocomplete extends PureComponent {
         this.suggestionsList.scrollTo({
           top: moveDown
         });
-        console.log('1');
       } else {
         this.setState({ focusedListItem: 0 });
       }
@@ -189,7 +188,6 @@ class Autocomplete extends PureComponent {
         this.suggestionsList.scrollTo({
           top: moveUp
         });
-        console.log('2');
       }
 
       if (e.keyCode === 38 && focusedListItem === 0) {
@@ -353,5 +351,5 @@ Autocomplete.defaultProps = {
 };
 
 export default Autocomplete;
-export { Autocomplete as MDBAutocomplete };
-export { Autocomplete as MDBAuto };
+export { Autocomplete as MDBAutocomplete_v5 };
+export { Autocomplete as MDBAuto_v5 };

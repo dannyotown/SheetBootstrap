@@ -74,7 +74,6 @@ import MDBTable from './components/Table';
 import MDBTableBody from './components/Table/TableBody';
 import MDBTableFoot from './components/Table/TableFoot';
 import MDBTableHead from './components/Table/TableHead';
-import MDBTooltip from './components/Popper';
 import MDBTreeview from './components/Treeview';
 import MDBTreeviewItem from './components/Treeview/TreeviewItem';
 import MDBTreeviewList from './components/Treeview/TreeviewList';
@@ -85,6 +84,7 @@ import MDBWaves from './components/Waves';
 
 // PRO-START
 import MDBAutocomplete from './components/pro/Autocomplete';
+import MDBAutocomplete_v5 from './components/pro/Autocomplete/Autocomplete';
 import MDBAvatar from './components/pro/Avatar';
 import MDBButtonFixed from './components/pro/ButtonFixed';
 import MDBButtonFixedItem from './components/pro/ButtonFixed/ButtonFixedItem';
@@ -237,6 +237,7 @@ export {
 
   // PRO-START
   MDBAutocomplete,
+  MDBAutocomplete_v5,
   MDBAvatar,
   MDBButtonFixed,
   MDBButtonFixedItem,

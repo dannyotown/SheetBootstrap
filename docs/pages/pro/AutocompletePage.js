@@ -15,7 +15,7 @@ import {
 } from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
-import MDBAuto from '../../../src/components/pro/Autocomplete/Autocomplete_new/Autocomplete';
+import MDBAuto from '../../../src/components/pro/Autocomplete/Autocomplete_v5/Autocomplete';
 
 const states = [
   'Alabama',
