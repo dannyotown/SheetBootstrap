@@ -72,8 +72,8 @@ function V(e, t, n) {
     t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : (e[t] = n), e
   );
 }
-function j() {
-  return (j =
+function W() {
+  return (W =
     Object.assign ||
     function(e) {
       for (var t = 1; t < arguments.length; t++) {
@@ -83,7 +83,7 @@ function j() {
       return e;
     }).apply(this, arguments);
 }
-function W(e, t) {
+function j(e, t) {
   var n = Object.keys(e);
   if (Object.getOwnPropertySymbols) {
     var a = Object.getOwnPropertySymbols(e);
@@ -99,12 +99,12 @@ function H(e) {
   for (var t = 1; t < arguments.length; t++) {
     var n = null != arguments[t] ? arguments[t] : {};
     t % 2
-      ? W(Object(n), !0).forEach(function(t) {
+      ? j(Object(n), !0).forEach(function(t) {
           V(e, t, n[t]);
         })
       : Object.getOwnPropertyDescriptors
       ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-      : W(Object(n)).forEach(function(t) {
+      : j(Object(n)).forEach(function(t) {
           Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(n, t));
         });
   }
@@ -370,7 +370,7 @@ var ee = (function(t) {
             v = s(f && 'animated', d && d, l && 'infinite', a);
           return e.createElement(
             p,
-            j(
+            W(
               {
                 'data-test': 'animation',
                 className: v,
@@ -414,7 +414,7 @@ var te = function(t) {
     i = t.pill,
     l = G(t, ['tag', 'className', 'children', 'color', 'pill']),
     c = s('badge', r, 'badge-'.concat(r), !!i && 'badge-pill', a);
-  return e.createElement(n, j({ 'data-test': 'badge' }, l, { className: c }), o);
+  return e.createElement(n, W({ 'data-test': 'badge' }, l, { className: c }), o);
 };
 (te.propTypes = { children: l.node, className: l.string, color: l.string, pill: l.bool, tag: l.string }),
   (te.defaultProps = { tag: 'span', color: 'default', pill: !1 });
@@ -500,7 +500,7 @@ var ne = function(t) {
       a
     ),
     _ = '' !== D ? D : null;
-  return e.createElement(n, j({ 'data-test': 'box' }, O, { className: _ }), o);
+  return e.createElement(n, W({ 'data-test': 'box' }, O, { className: _ }), o);
 };
 function ae(e, t) {
   var n = {};
@@ -598,7 +598,7 @@ var pe = function(t) {
           return e.cloneElement(t, { bold: !0 });
         })
       : t.children),
-    e.createElement('nav', { 'data-test': 'breadcrumb' }, e.createElement('ol', j({}, c, { className: p }), n))
+    e.createElement('nav', { 'data-test': 'breadcrumb' }, e.createElement('ol', W({}, c, { className: p }), n))
   );
 };
 pe.propTypes = {
@@ -674,7 +674,7 @@ var de = function(t) {
       !!C && 'fa-'.concat(C),
       o
     );
-  return e.createElement('i', j({ 'data-test': 'fa' }, T, { className: S }));
+  return e.createElement('i', W({ 'data-test': 'fa' }, T, { className: S }));
 };
 function ue(e, t) {
   void 0 === t && (t = {});
@@ -760,7 +760,7 @@ var me = function(t) {
     h = s(a ? 'mx-2' : 'mr-2', p);
   return e.createElement(
     'li',
-    j({ 'data-test': 'breadcrumb-item' }, f, { className: g }),
+    W({ 'data-test': 'breadcrumb-item' }, f, { className: g }),
     e.createElement(
       function(t) {
         var n = t.children;
@@ -816,7 +816,7 @@ var fe = function(t) {
     r = t.children,
     i = G(t, ['className', 'size', 'vertical', 'children']),
     l = s(n, !!a && 'btn-group-'.concat(a), o ? 'btn-group-vertical' : 'btn-group');
-  return e.createElement('div', j({ 'data-test': 'button-group' }, i, { className: l }), r);
+  return e.createElement('div', W({ 'data-test': 'button-group' }, i, { className: l }), r);
 };
 (fe.propTypes = {
   'aria-label': l.string,
@@ -832,7 +832,7 @@ var ge = function(t) {
     a = t.children,
     o = G(t, ['className', 'children']),
     r = s(n, 'btn-toolbar');
-  return e.createElement('div', j({ 'data-test': 'button-toolbar' }, o, { className: r }), a);
+  return e.createElement('div', W({ 'data-test': 'button-toolbar' }, o, { className: r }), a);
 };
 (ge.propTypes = { 'aria-label': l.string, children: l.node, className: l.string, role: l.string }),
   (ge.defaultProps = { role: 'toolbar' });
@@ -893,7 +893,7 @@ var he = function(t) {
       h,
       a
     );
-  return e.createElement(o, j({ 'data-test': 'card' }, y, { className: x }));
+  return e.createElement(o, W({ 'data-test': 'card' }, y, { className: x }));
 };
 (he.propTypes = {
   border: l.string,
@@ -919,7 +919,7 @@ var be = function(t) {
     o = t.cascade,
     r = G(t, ['className', 'tag', 'cascade']),
     i = s('card-body', o && 'card-body-cascade', n);
-  return e.createElement(a, j({ 'data-test': 'card-body' }, r, { className: i }));
+  return e.createElement(a, W({ 'data-test': 'card-body' }, r, { className: i }));
 };
 (be.propTypes = { cascade: l.bool, className: l.string, tag: l.oneOfType([l.func, l.string]) }),
   (be.defaultProps = { tag: 'div' });
@@ -947,7 +947,7 @@ var ve = function(t) {
     );
   return e.createElement(
     o,
-    j({ 'data-test': 'card-footer' }, m, { className: f }),
+    W({ 'data-test': 'card-footer' }, m, { className: f }),
     d ? e.createElement('small', null, ' ', i, ' ') : i
   );
 };
@@ -969,7 +969,7 @@ var ye = function(t) {
     r = t.column,
     i = G(t, ['className', 'tag', 'deck', 'column']),
     l = s(o ? 'card-deck' : r ? 'card-columns' : 'card-group', n);
-  return e.createElement(a, j({ 'data-test': 'card-group' }, i, { className: l }));
+  return e.createElement(a, W({ 'data-test': 'card-group' }, i, { className: l }));
 };
 (ye.propTypes = { className: l.string, column: l.bool, deck: l.bool, tag: l.oneOfType([l.func, l.string]) }),
   (ye.defaultProps = { tag: 'div' });
@@ -991,7 +991,7 @@ var xe = function(t) {
       o,
       r
     );
-  return e.createElement(i, j({ 'data-test': 'card-header' }, p, { className: d }));
+  return e.createElement(i, W({ 'data-test': 'card-header' }, p, { className: d }));
 };
 (xe.propTypes = {
   border: l.string,
@@ -1089,7 +1089,7 @@ var we = function(t) {
     i = t.tag,
     l = G(t, ['children', 'className', 'overlay', 'pattern', 'tag']),
     c = s('mask', r && 'pattern-'.concat(r), o && 'rgba-'.concat(o), a);
-  return e.createElement(i, j({ 'data-test': 'mask' }, l, { className: c }), n);
+  return e.createElement(i, W({ 'data-test': 'mask' }, l, { className: c }), n);
 };
 (we.propTypes = {
   children: l.node,
@@ -1131,7 +1131,7 @@ var Ne = function(n) {
       : {};
   return e.createElement(
     g,
-    j({}, v, { className: y, 'data-test': 'view', onMouseDown: i, onTouchStart: i, style: x }),
+    W({}, v, { className: y, 'data-test': 'view', onMouseDown: i, onTouchStart: i, style: x }),
     c,
     h && e.createElement(ke, { cursorPos: o })
   );
@@ -1164,7 +1164,7 @@ var Ee = function(n) {
     h = G(n, ['cascade', 'className', 'hover', 'overlay', 'src', 'tag', 'top', 'waves', 'zoom']),
     b = s(m && 'card-img-top', l),
     v = u,
-    y = e.createElement(v, j({ 'data-test': 'card-image', src: d }, h, { className: b }));
+    y = e.createElement(v, W({ 'data-test': 'card-image', src: d }, h, { className: b }));
   return d
     ? e.createElement(
         Ne,
@@ -1208,7 +1208,7 @@ var Ce = function(t) {
     l = G(t, ['children', 'className', 'muted', 'small', 'tag']),
     c = s('card-text', o && 'text-muted', a),
     p = r ? e.createElement('small', null, n) : n;
-  return e.createElement(i, j({ 'data-test': 'card-text' }, l, { className: c }), p);
+  return e.createElement(i, W({ 'data-test': 'card-text' }, l, { className: c }), p);
 };
 (Ce.propTypes = { className: l.string, muted: l.bool, small: l.bool, tag: l.oneOfType([l.func, l.string]) }),
   (Ce.defaultProps = { tag: 'p' });
@@ -1218,7 +1218,7 @@ var Te = function(t) {
     o = t.tag,
     r = G(t, ['className', 'sub', 'tag']),
     i = s(a ? 'card-subtitle' : 'card-title', n);
-  return e.createElement(o, j({ 'data-test': 'card-title' }, r, { className: i }));
+  return e.createElement(o, W({ 'data-test': 'card-title' }, r, { className: i }));
 };
 (Te.propTypes = { className: l.string, sub: l.bool, tag: l.oneOfType([l.func, l.string]) }),
   (Te.defaultProps = { tag: 'h4', sub: !1 });
@@ -1228,7 +1228,7 @@ var Se = function(t) {
     o = t.src,
     r = G(t, ['children', 'className', 'src']),
     i = s(a);
-  return e.createElement(u, j({ 'data-test': 'card-video' }, r, { src: o, className: i }), n);
+  return e.createElement(u, W({ 'data-test': 'card-video' }, r, { src: o, className: i }), n);
 };
 Se.propTypes = { src: l.string.isRequired, children: l.node, className: l.string };
 var Oe = function(t) {
@@ -1287,7 +1287,7 @@ var Re = function(t) {
     c = s(n && 'active', r);
   return e.createElement(
     'li',
-    j({ 'data-test': 'carousel-indicator' }, l, { className: c }),
+    W({ 'data-test': 'carousel-indicator' }, l, { className: c }),
     i && e.createElement('img', { src: i, alt: a, className: 'img-fluid' }),
     o
   );
@@ -1299,7 +1299,7 @@ var De = function(t) {
     a = t.className,
     o = G(t, ['children', 'className']),
     r = s('carousel-indicators', a);
-  return e.createElement('ol', j({ 'data-test': 'carousel-indicators' }, o, { className: r }), n);
+  return e.createElement('ol', W({ 'data-test': 'carousel-indicators' }, o, { className: r }), n);
 };
 (De.propTypes = { children: l.node, className: l.string }), (De.defaultProps = { className: '' });
 ue(
@@ -1466,7 +1466,7 @@ var _e = (function(t) {
             N = !!d;
           return e.createElement(
             p,
-            j({ 'data-test': 'carousel', ref: this.carouselRef }, m, {
+            W({ 'data-test': 'carousel', ref: this.carouselRef }, m, {
               className: v,
               'aria-label': 'carousel',
               onTouchStart: this.startTouch,
@@ -1559,7 +1559,7 @@ var Me = function(t) {
     o = t.tag,
     r = G(t, ['children', 'className', 'tag']),
     i = s('carousel-caption', a);
-  return e.createElement(o, j({ 'data-test': 'carousel-caption' }, r, { className: i }), n);
+  return e.createElement(o, W({ 'data-test': 'carousel-caption' }, r, { className: i }), n);
 };
 (Me.propTypes = { active: l.string, children: l.node, className: l.string, tag: l.oneOfType([l.func, l.string]) }),
   (Me.defaultProps = { tag: 'div' });
@@ -1570,7 +1570,7 @@ var Pe = function(t) {
     r = t.tag,
     i = G(t, ['active', 'children', 'childrenCount', 'className', 'tag']),
     l = s('carousel-inner', n ? 'active' : '', o);
-  return e.createElement(r, j({ 'data-test': 'carousel-inner' }, i, { className: l }), a);
+  return e.createElement(r, W({ 'data-test': 'carousel-inner' }, i, { className: l }), a);
 };
 (Pe.propTypes = { active: l.bool, children: l.node, className: l.string, tag: l.oneOfType([l.func, l.string]) }),
   (Pe.defaultProps = { tag: 'div' });
@@ -1612,7 +1612,7 @@ var Ie = (function(t) {
             u = p - o;
           return (
             c ? (u < 0 ? this.moveForward() : u > 0 ? this.moveBackwards() : this.makeVisible()) : this.makeVisible(),
-            e.createElement(r, j({ 'data-test': 'carousel-item' }, i, { className: d, style: this.style }), n)
+            e.createElement(r, W({ 'data-test': 'carousel-item' }, i, { className: d, style: this.style }), n)
           );
         }
       }
@@ -1637,7 +1637,7 @@ var Le = function(t) {
     i = a ? ['close'].concat(Q(a.split(' '))) : ['close'];
   return e.createElement(
     'button',
-    j({ 'data-test': 'close-button', type: 'button' }, r, {
+    W({ 'data-test': 'close-button', type: 'button' }, r, {
       className: i.join(' '),
       onClick: function(e) {
         n && n(e);
@@ -1675,7 +1675,7 @@ var Be = function(t) {
       c && 'align-self-end',
       u
     );
-  return e.createElement(m, j({ 'data-test': 'col' }, f, { className: g }));
+  return e.createElement(m, W({ 'data-test': 'col' }, f, { className: g }));
 };
 (Be.propTypes = {
   bottom: l.bool,
@@ -1805,7 +1805,7 @@ var ze = { show: 350, hide: 350 },
               m = null === d ? null : { height: d };
             return e.createElement(
               'div',
-              j({ 'data-test': 'collapse' }, l, {
+              W({ 'data-test': 'collapse' }, l, {
                 style: H({}, l.style, {}, m),
                 className: u,
                 ref: function(e) {
@@ -1838,7 +1838,7 @@ var Fe = function(t) {
     r = t.tag,
     i = G(t, ['className', 'fluid', 'size', 'tag']),
     l = s(a ? 'container-fluid' : o ? 'container-'.concat(o) : 'container', n);
-  return e.createElement(r, j({ 'data-test': 'container' }, i, { className: l }));
+  return e.createElement(r, W({ 'data-test': 'container' }, i, { className: l }));
 };
 (Fe.propTypes = {
   className: l.string,
@@ -1880,7 +1880,7 @@ var qe = function(t) {
         a.map(function(t) {
           return e.createElement(
             'th',
-            j(
+            W(
               {
                 onClick: function() {
                   return l && o(t.field, t.sort);
@@ -1988,7 +1988,7 @@ var Ve = function(t) {
   return e.createElement(
     'div',
     { 'data-test': 'table', className: E, style: C },
-    e.createElement('table', j({}, w, { className: N }), i)
+    e.createElement('table', W({}, w, { className: N }), i)
   );
 };
 Ve.propTypes = {
@@ -2013,7 +2013,7 @@ Ve.propTypes = {
   theadColor: l.string,
   wrapperClassName: l.string
 };
-var je = function(t) {
+var We = function(t) {
   var n = t.children,
     a = t.color,
     o = t.columns,
@@ -2033,7 +2033,7 @@ var je = function(t) {
     };
   return e.createElement(
     'tbody',
-    j({ 'data-test': 'table-body' }, l, { className: c || void 0 }),
+    W({ 'data-test': 'table-body' }, l, { className: c || void 0 }),
     r &&
       r.map(function(t, n) {
         return e.createElement(
@@ -2052,9 +2052,9 @@ var je = function(t) {
     n
   );
 };
-(je.propTypes = { children: l.node, color: l.string, rows: l.arrayOf(l.object), textWhite: l.bool }),
-  (je.defaultProps = { textWhite: !1 });
-var We = function(t) {
+(We.propTypes = { children: l.node, color: l.string, rows: l.arrayOf(l.object), textWhite: l.bool }),
+  (We.defaultProps = { textWhite: !1 });
+var je = function(t) {
   var n,
     a = t.children,
     o = t.color,
@@ -2065,7 +2065,7 @@ var We = function(t) {
     p = s((V((n = { 'text-white': i }), 'thead-'.concat(o), o && c), V(n, ''.concat(o), o && !c), n));
   return e.createElement(
     'thead',
-    j({ 'data-test': 'table-foot' }, l, { className: p || void 0 }),
+    W({ 'data-test': 'table-foot' }, l, { className: p || void 0 }),
     r &&
       e.createElement(
         'tr',
@@ -2081,8 +2081,8 @@ var We = function(t) {
     a
   );
 };
-(We.propTypes = { children: l.node, color: l.string, columns: l.arrayOf(l.object), textWhite: l.bool }),
-  (We.defaultProps = { textWhite: !1 });
+(je.propTypes = { children: l.node, color: l.string, columns: l.arrayOf(l.object), textWhite: l.bool }),
+  (je.defaultProps = { textWhite: !1 });
 var He = function(t) {
   var n = t.autoWidth,
     a = t.bordered,
@@ -2142,7 +2142,7 @@ var He = function(t) {
     { 'data-test': 'datatable-table', className: 'col-sm-12' },
     e.createElement(
       Ve,
-      j(
+      W(
         {
           autoWidth: n,
           bordered: a,
@@ -2163,8 +2163,8 @@ var He = function(t) {
         S
       ),
       e.createElement(qe, { color: C, textWhite: T, columns: s, handleSort: p, sortable: x, sorted: k }),
-      e.createElement(je, { color: N, textWhite: E, rows: v, columns: s }),
-      !u && e.createElement(We, { color: C, textWhite: T, columns: s }),
+      e.createElement(We, { color: N, textWhite: E, rows: v, columns: s }),
+      !u && e.createElement(je, { color: C, textWhite: T, columns: s }),
       i
     )
   );
@@ -2292,7 +2292,7 @@ var Xe = function(t) {
           },
           e.createElement(
             Ve,
-            j(
+            W(
               {
                 autoWidth: n,
                 bordered: a,
@@ -2330,7 +2330,7 @@ var Xe = function(t) {
         { className: 'dataTable_scrollBody', style: { overflow: 'auto' }, onScroll: d },
         e.createElement(
           Ve,
-          j(
+          W(
             {
               style: { minWidth: M },
               autoWidth: n,
@@ -2363,7 +2363,7 @@ var Xe = function(t) {
               });
             })
           ),
-          e.createElement(je, { color: T, textWhite: S, rows: y, columns: s }),
+          e.createElement(We, { color: T, textWhite: S, rows: y, columns: s }),
           i
         )
       )
@@ -2582,7 +2582,7 @@ var Ye = (function(t) {
                 'radio' === M && 'form-check-input',
                 r
               ),
-              W = s(
+              j = s(
                 'checkbox' === M || 'radio' === M ? ('boolean' == typeof T && T ? 'd-flex' : 'form-check') : 'md-form',
                 !!u && 'form-group',
                 !!R && 'form-'.concat(R),
@@ -2616,7 +2616,7 @@ var Ye = (function(t) {
                     }),
                   e.createElement(
                     F,
-                    j({ 'data-test': 'input' }, I, {
+                    W({ 'data-test': 'input' }, I, {
                       className: V,
                       id: N,
                       placeholder: m,
@@ -2637,7 +2637,7 @@ var Ye = (function(t) {
                   o
                 );
               };
-            return E ? U() : e.createElement(_, { className: W }, U());
+            return E ? U() : e.createElement(_, { className: j }, U());
           }
         }
       ],
@@ -3181,7 +3181,7 @@ var Je = e.createContext(),
               null,
               e.createElement(
                 'div',
-                j({}, w, { 'data-color': r, 'data-multiple': u, className: O }),
+                W({}, w, { 'data-color': r, 'data-multiple': u, className: O }),
                 e.createElement('span', { className: 'caret' }, '▼'),
                 e.createElement(Ue, { value: P, ref: a.inputRef, required: f, disabled: i }),
                 e.createElement(Ke, {
@@ -3221,7 +3221,7 @@ var Je = e.createContext(),
             },
             e.createElement(
               'div',
-              j({}, w, { 'data-color': r, 'data-multiple': u, className: O }),
+              W({}, w, { 'data-color': r, 'data-multiple': u, className: O }),
               e.createElement('span', { className: 'caret' }, '▼'),
               n,
               p && e.createElement('label', { className: R, style: _ }, p)
@@ -3351,7 +3351,7 @@ var Qe = function(t) {
             value: function() {
               var n = this;
               return e.createElement(Je.Consumer, null, function(a) {
-                return e.createElement(t, j({}, n.props, { context: a }));
+                return e.createElement(t, W({}, n.props, { context: a }));
               });
             }
           }
@@ -3395,7 +3395,7 @@ var Qe = function(t) {
                 : o.state.selectTextContent;
             return e.createElement(
               'input',
-              j(
+              W(
                 {
                   type: 'text',
                   readOnly: !0,
@@ -3464,7 +3464,7 @@ var tt = (function(t) {
             c = s('dropdown-content', 'select-dropdown', 'fadeElement', n);
           return e.createElement(
             'ul',
-            j({}, l, { className: c, ref: this.optionsRef }),
+            W({}, l, { className: c, ref: this.optionsRef }),
             o &&
               e.createElement(
                 'div',
@@ -3562,7 +3562,7 @@ var nt = (function(t) {
                   (u = e.createElement('label', { style: { height: '10px' }, 'data-multiple': this.state.multiple })))),
             e.createElement(
               'li',
-              j({ ref: this.optionRef }, c, {
+              W({ ref: this.optionRef }, c, {
                 'data-multiple': this.state.multiple,
                 className: p,
                 onClick: this.selectOption,
@@ -3759,7 +3759,7 @@ var ct = function(t) {
       'pagination',
       r
     );
-  return e.createElement(l, j({ 'data-test': 'pagination' }, p, { className: d }), a);
+  return e.createElement(l, W({ 'data-test': 'pagination' }, p, { className: d }), a);
 };
 (ct.propTypes = {
   children: l.node,
@@ -3778,7 +3778,7 @@ var pt = function(t) {
     i = t.tag,
     l = G(t, ['active', 'className', 'children', 'disabled', 'tag']),
     c = s({ disabled: r, active: n }, 'page-item', a);
-  return e.createElement(i, j({ 'data-test': 'page-item' }, l, { className: c }), o);
+  return e.createElement(i, W({ 'data-test': 'page-item' }, l, { className: c }), o);
 };
 (pt.propTypes = {
   active: l.bool,
@@ -3794,7 +3794,7 @@ var dt = function(t) {
     o = t.tag,
     r = G(t, ['children', 'className', 'tag']),
     i = s('page-link', a);
-  return e.createElement(o, j({ 'data-test': 'page-link' }, r, { className: i }), n);
+  return e.createElement(o, W({ 'data-test': 'page-link' }, r, { className: i }), n);
 };
 (dt.propTypes = { children: l.node, className: l.string, tag: l.oneOfType([l.func, l.string]) }),
   (dt.defaultProps = { tag: 'a' });
@@ -3993,7 +3993,7 @@ var mt = function(n) {
     R.href && 'button' === T && (T = 'a'),
     e.createElement(
       T,
-      j(
+      W(
         {
           'data-test': 'button',
           type: 'button' !== T || O ? O : 'button',
@@ -4121,7 +4121,7 @@ var ft = (function(t) {
             g = this.state.href;
           return e.createElement(
             mt,
-            j(
+            W(
               {
                 active: n,
                 block: a,
@@ -4481,7 +4481,7 @@ var gt = (function(t) {
             F = t.tbodyTextWhite,
             q = t.theadColor,
             V = t.theadTextWhite,
-            W = G(t, [
+            j = G(t, [
               'autoWidth',
               'barReverse',
               'bordered',
@@ -4570,7 +4570,7 @@ var gt = (function(t) {
                 { className: 'row' },
                 e.createElement(
                   He,
-                  j(
+                  W(
                     {
                       autoWidth: n,
                       bordered: o,
@@ -4598,7 +4598,7 @@ var gt = (function(t) {
                       rows: J[Z],
                       sorted: $
                     },
-                    W
+                    j
                   )
                 )
               ),
@@ -4608,7 +4608,7 @@ var gt = (function(t) {
                 { className: 'row' },
                 e.createElement(
                   Xe,
-                  j(
+                  W(
                     {
                       autoWidth: n,
                       bordered: o,
@@ -4639,7 +4639,7 @@ var gt = (function(t) {
                       rows: J[Z],
                       translateScrollHead: ee
                     },
-                    W
+                    j
                   )
                 )
               ),
@@ -4992,7 +4992,7 @@ var bt = (function(t) {
           var f = 'button' === r && (d.onClick || u) ? 'button' : void 0;
           return e.createElement(
             r,
-            j({ 'data-test': 'dropdown-item', type: f }, d, {
+            W({ 'data-test': 'dropdown-item', type: f }, d, {
               tabIndex: t,
               className: m,
               onClick: this.onClick,
@@ -5033,7 +5033,7 @@ var vt = function(t) {
   return e.createElement(
     p,
     { in: n, appear: n, classNames: 'popover', unmountOnExit: !0, timeout: { enter: 300, exit: 300 } },
-    e.createElement(a, j({ tabIndex: o, role: r }, i, { 'aria-hidden': s, key: l }), c)
+    e.createElement(a, W({ tabIndex: o, role: r }, i, { 'aria-hidden': s, key: l }), c)
   );
 };
 vt.propTypes = {
@@ -5184,10 +5184,10 @@ var xt = (function(t) {
             e.createElement(w, { 'data-test': 'dropdown-toggle' }, function(n) {
               var a = n.ref;
               return l || i
-                ? e.createElement(f, j({}, c, { className: u, onClick: t.onClick, 'aria-expanded': p, ref: a }), m)
+                ? e.createElement(f, W({}, c, { className: u, onClick: t.onClick, 'aria-expanded': p, ref: a }), m)
                 : e.createElement(
                     f,
-                    j({}, c, { className: u, onClick: t.onClick, 'aria-expanded': p, innerRef: a }),
+                    W({}, c, { className: u, onClick: t.onClick, 'aria-expanded': p, innerRef: a }),
                     m
                   );
             })
@@ -5217,7 +5217,7 @@ var kt = function(t) {
     o = t.tag,
     r = G(t, ['color', 'className', 'tag']),
     i = s('edge-header', n, a);
-  return e.createElement(o, j({ 'data-test': 'edgeHeader' }, r, { className: i }));
+  return e.createElement(o, W({ 'data-test': 'edgeHeader' }, r, { className: i }));
 };
 (kt.propTypes = { className: l.string, color: l.string, tag: l.oneOfType([l.func, l.string]) }),
   (kt.defaultProps = { color: 'deep-purple', tag: 'div' });
@@ -5228,7 +5228,7 @@ var wt = function(t) {
     r = t.tag,
     i = G(t, ['color', 'children', 'className', 'tag']),
     l = s('page-footer', n && n, o);
-  return e.createElement(r, j({ 'data-test': 'footer' }, i, { className: l }), a);
+  return e.createElement(r, W({ 'data-test': 'footer' }, i, { className: l }), a);
 };
 (wt.propTypes = { children: l.node, className: l.string, color: l.string, tag: l.oneOfType([l.func, l.string]) }),
   (wt.defaultProps = { tag: 'footer' });
@@ -5247,7 +5247,7 @@ var Nt = function(n) {
     u = s('form-inline', c && 'Ripple-parent', l);
   return e.createElement(
     'form',
-    j({ 'data-test': 'form-inline' }, d, { className: u, onMouseDown: i, onTouchStart: i }),
+    W({ 'data-test': 'form-inline' }, d, { className: u, onMouseDown: i, onTouchStart: i }),
     p,
     c && e.createElement(ke, { cursorPos: o })
   );
@@ -5258,7 +5258,7 @@ var Et = function(t) {
     a = t.tag,
     o = G(t, ['className', 'tag']),
     r = s('container free-bird', n);
-  return e.createElement(a, j({ 'data-test': 'freebird' }, o, { className: r }));
+  return e.createElement(a, W({ 'data-test': 'freebird' }, o, { className: r }));
 };
 (Et.propTypes = { className: l.string, tag: l.oneOfType([l.func, l.string]) }), (Et.defaultProps = { tag: 'div' });
 ue(
@@ -5366,7 +5366,7 @@ var Tt = (function(t) {
             e.createElement(
               'div',
               { 'data-test': 'iframe', className: w },
-              e.createElement('iframe', j({ title: f, className: k }, N))
+              e.createElement('iframe', W({ title: f, className: k }, N))
             )
           );
         }
@@ -5452,7 +5452,7 @@ var St = function(t) {
     m && e.createElement('label', { htmlFor: d, className: f }, m),
     e.createElement(
       y,
-      j({ 'data-test': 'input-group' }, T, { className: S, id: c }),
+      W({ 'data-test': 'input-group' }, T, { className: S, id: c }),
       h &&
         e.createElement(
           'div',
@@ -5515,7 +5515,7 @@ var Ot = function(t) {
     o = s('form-control', n);
   return e.createElement(
     N,
-    j({ 'data-test': 'input-numeric' }, a, {
+    W({ 'data-test': 'input-numeric' }, a, {
       onChange: function(e) {
         t.getValue && t.getValue(e);
       },
@@ -5530,7 +5530,7 @@ var Rt = function(t) {
     o = t.fluid,
     r = G(t, ['className', 'children', 'fluid']),
     i = s('jumbotron', !!o && 'jumbotron-fluid', n);
-  return e.createElement('div', j({ 'data-test': 'jumbotron' }, r, { className: i }), a);
+  return e.createElement('div', W({ 'data-test': 'jumbotron' }, r, { className: i }), a);
 };
 Rt.propTypes = { children: l.node, className: l.string, fluid: l.bool };
 var Dt = function(n) {
@@ -5553,7 +5553,7 @@ var Dt = function(n) {
     };
   return e.createElement(
     E,
-    j({ 'data-test': 'link-router', className: m, onMouseUp: f, onTouchStart: f, to: d }, u),
+    W({ 'data-test': 'link-router', className: m, onMouseUp: f, onTouchStart: f, to: d }, u),
     l,
     !p && e.createElement(ke, { cursorPos: o })
   );
@@ -5566,7 +5566,7 @@ var _t = function(t) {
     o = t.tag,
     r = G(t, ['children', 'className', 'tag']),
     i = s('list-group', a);
-  return e.createElement(o, j({ 'data-test': 'list-group' }, r, { className: i }), n);
+  return e.createElement(o, W({ 'data-test': 'list-group' }, r, { className: i }), n);
 };
 (_t.propTypes = { children: l.node, className: l.string, tag: l.oneOfType([l.func, l.string]) }),
   (_t.defaultProps = { tag: 'ul' });
@@ -5600,7 +5600,7 @@ var Mt = function(t) {
       n)
     );
   return (
-    d.href && 'li' === p && (p = 'a'), e.createElement(p, j({ 'data-test': 'list-group-item' }, d, { className: u }), o)
+    d.href && 'li' === p && (p = 'a'), e.createElement(p, W({ 'data-test': 'list-group-item' }, d, { className: u }), o)
   );
 };
 (Mt.propTypes = {
@@ -5681,7 +5681,7 @@ var Pt = function(t) {
       !(a || i || l || u || k || o || p || d || c || b || v || v || h || g) && 'media',
       r
     );
-  return e.createElement(N, j({ 'data-test': 'media' }, w, { className: E }));
+  return e.createElement(N, W({ 'data-test': 'media' }, w, { className: E }));
 };
 Pt.propTypes = {
   body: l.bool,
@@ -5768,7 +5768,7 @@ var It = (function(t) {
             o = a.animation,
             r = a.backdrop,
             i = a.backdropClassName,
-            l = a.backdropStyles,
+            l = a.modalStylesWithoutBackdrop,
             p = a.cascading,
             d = a.centered,
             u = a.children,
@@ -5826,13 +5826,13 @@ var It = (function(t) {
               role: E,
               'aria-hidden': 'true'
             }),
-            W = I ? P : {},
+            j = I ? P : {},
             X = e.createElement(
               'div',
-              j({ 'data-test': 'modal', onKeyUp: this.handleEscape, className: z, style: D }, q),
+              W({ 'data-test': 'modal', onKeyUp: this.handleEscape, className: z, style: D }, q),
               e.createElement(
                 'div',
-                { style: W, className: L, role: 'document' },
+                { style: j, className: L, role: 'document' },
                 e.createElement(
                   'div',
                   {
@@ -5897,7 +5897,7 @@ var It = (function(t) {
 (It.defaultProps = {
   autoFocus: !0,
   backdrop: !0,
-  backdropStyles: { top: 0, left: 0, right: 0, bottom: 0 },
+  modalStylesWithoutBackdrop: { top: 0, left: 0, right: 0, bottom: 0 },
   backdropTransitionTimeout: 150,
   disableBackdrop: !1,
   disableFocusTrap: !0,
@@ -5948,7 +5948,7 @@ var Lt = function(t) {
     a = t.children,
     o = G(t, ['className', 'children']),
     r = s('modal-body', n);
-  return e.createElement('div', j({ 'data-test': 'modal-body' }, o, { className: r }), a);
+  return e.createElement('div', W({ 'data-test': 'modal-body' }, o, { className: r }), a);
 };
 Lt.propTypes = { children: l.node, className: l.string };
 var Bt = function(t) {
@@ -5967,7 +5967,7 @@ var Bt = function(t) {
       'justify-content-between': c,
       'justify-content-around': l
     });
-  return e.createElement('div', j({ 'data-test': 'modal-footer' }, p, { className: d }), a);
+  return e.createElement('div', W({ 'data-test': 'modal-footer' }, p, { className: d }), a);
 };
 Bt.propTypes = { children: l.node, className: l.string };
 var zt = function(t) {
@@ -5990,7 +5990,7 @@ var zt = function(t) {
       )),
     e.createElement(
       'div',
-      j({ 'data-test': 'modal-header' }, p, { className: d }),
+      W({ 'data-test': 'modal-header' }, p, { className: d }),
       e.createElement(i, { className: u }, o),
       n
     )
@@ -6024,7 +6024,7 @@ var At = function(t) {
       !((!r && !l) || !i) && 'tabs-'.concat(i),
       a
     );
-  return e.createElement(o, j({ 'data-test': 'nav' }, d, { className: u }), n);
+  return e.createElement(o, W({ 'data-test': 'nav' }, d, { className: u }), n);
 };
 (At.propTypes = {
   children: l.node,
@@ -6118,7 +6118,7 @@ var Ft = (function(t) {
               })(a),
               d
             );
-          return e.createElement(m, j({ 'data-test': 'navbar' }, h, { className: v, role: 'navigation' }));
+          return e.createElement(m, W({ 'data-test': 'navbar' }, h, { className: v, role: 'navigation' }));
         }
       }
     ]),
@@ -6146,8 +6146,8 @@ var qt = function(t) {
     o = G(t, ['className', 'href']),
     r = s('navbar-brand', n);
   return a
-    ? e.createElement(C, j({ 'data-test': 'navbar-brand', to: a }, o, { className: r }))
-    : e.createElement('div', j({ 'data-test': 'navbar-brand' }, o, { className: r }));
+    ? e.createElement(C, W({ 'data-test': 'navbar-brand', to: a }, o, { className: r }))
+    : e.createElement('div', W({ 'data-test': 'navbar-brand' }, o, { className: r }));
 };
 qt.propTypes = { className: l.string, href: l.string };
 var Vt = function(t) {
@@ -6158,7 +6158,7 @@ var Vt = function(t) {
     i = t.tag,
     l = G(t, ['children', 'className', 'right', 'left', 'tag']),
     c = s('navbar-nav', o ? 'ml-auto' : r ? 'mr-auto' : 'justify-content-around w-100', a);
-  return e.createElement(i, j({ 'data-test': 'navbar-nav' }, l, { className: c }), n);
+  return e.createElement(i, W({ 'data-test': 'navbar-nav' }, l, { className: c }), n);
 };
 (Vt.propTypes = {
   children: l.node,
@@ -6168,7 +6168,7 @@ var Vt = function(t) {
   tag: l.oneOfType([l.func, l.string])
 }),
   (Vt.defaultProps = { tag: 'ul' });
-var jt = function(t) {
+var Wt = function(t) {
   var n = t.right,
     a = t.left,
     o = t.children,
@@ -6179,7 +6179,7 @@ var jt = function(t) {
     p = s({ 'navbar-toggler-right': n, 'navbar-toggler-left': a }, 'navbar-toggler', r);
   return e.createElement(
     i,
-    j({ 'data-test': 'navbar-toggler' }, c, { className: p }),
+    W({ 'data-test': 'navbar-toggler' }, c, { className: p }),
     o ||
       (l
         ? e.createElement('span', {
@@ -6189,7 +6189,7 @@ var jt = function(t) {
         : e.createElement('span', { className: 'navbar-toggler-icon' }))
   );
 };
-(jt.propTypes = {
+(Wt.propTypes = {
   children: l.node,
   className: l.string,
   image: l.string,
@@ -6198,8 +6198,8 @@ var jt = function(t) {
   tag: l.oneOfType([l.func, l.string]),
   type: l.string
 }),
-  (jt.defaultProps = { tag: 'button', type: 'button' });
-var Wt = function(t) {
+  (Wt.defaultProps = { tag: 'button', type: 'button' });
+var jt = function(t) {
   var n = t.children,
     a = t.className,
     o = t.active,
@@ -6207,10 +6207,10 @@ var Wt = function(t) {
     i = t.tag,
     l = G(t, ['children', 'className', 'active', 'text', 'tag']),
     c = s('nav-item', o && 'active', r && 'navbar-text', a);
-  return e.createElement(i, j({ 'data-test': 'nav-item' }, l, { className: c }), n);
+  return e.createElement(i, W({ 'data-test': 'nav-item' }, l, { className: c }), n);
 };
-(Wt.propTypes = { active: l.bool, children: l.node, className: l.string, tag: l.oneOfType([l.func, l.string]) }),
-  (Wt.defaultProps = { tag: 'li' });
+(jt.propTypes = { active: l.bool, children: l.node, className: l.string, tag: l.oneOfType([l.func, l.string]) }),
+  (jt.defaultProps = { tag: 'li' });
 var Ht = function(n) {
   var a = Z(t({}), 2),
     o = a[0],
@@ -6233,7 +6233,7 @@ var Ht = function(n) {
     h = u ? Dt : C;
   return e.createElement(
     h,
-    j({ 'data-test': 'nav-link', className: f, onMouseUp: g, onTouchStart: g, to: d }, m),
+    W({ 'data-test': 'nav-link', className: f, onMouseUp: g, onTouchStart: g, to: d }, m),
     i,
     !c && e.createElement(ke, { cursorPos: o })
   );
@@ -6317,7 +6317,7 @@ var Xt = (function(t) {
             x = s('ml-2', 'mb-1', m);
           return e.createElement(
             n,
-            j({ 'data-test': 'notification' }, f, { className: h }),
+            W({ 'data-test': 'notification' }, f, { className: h }),
             e.createElement(
               'div',
               { className: b },
@@ -6489,7 +6489,7 @@ var Ut = (function(t) {
             i
               ? e.createElement(
                   y.type,
-                  j({}, y.props, {
+                  W({}, y.props, {
                     onMouseEnter: function() {
                       return !r && t.doToggle(!0);
                     },
@@ -6524,7 +6524,7 @@ var Ut = (function(t) {
                 )
               : e.createElement(
                   y.type,
-                  j({}, y.props, {
+                  W({}, y.props, {
                     onMouseEnter: function() {
                       return !r && t.doToggle(!0);
                     },
@@ -6563,7 +6563,7 @@ var Ut = (function(t) {
             b &&
               e.createElement(
                 m,
-                j(
+                W(
                   {
                     ref: function(e) {
                       return (t.popoverWrapperRef = e);
@@ -6614,7 +6614,7 @@ var Yt = function(t) {
     o = t.className,
     r = t.tag,
     i = s('popover-body', o);
-  return e.createElement(r, j({ 'data-test': 'popover-body' }, n, { className: i }), a);
+  return e.createElement(r, W({ 'data-test': 'popover-body' }, n, { className: i }), a);
 };
 (Yt.propTypes = { children: l.node, className: l.string, tag: l.oneOfType([l.func, l.string]) }),
   (Yt.defaultProps = { tag: 'div' });
@@ -6624,7 +6624,7 @@ var Gt = function(t) {
     o = t.className,
     r = t.tag,
     i = s('popover-header', o);
-  return e.createElement(r, j({ 'data-test': 'popover-header' }, n, { className: i }), a);
+  return e.createElement(r, W({ 'data-test': 'popover-header' }, n, { className: i }), a);
 };
 (Gt.propTypes = { children: l.node, className: l.string, tag: l.oneOfType([l.func, l.string]) }),
   (Gt.defaultProps = { className: '', tag: 'h3' });
@@ -6670,7 +6670,7 @@ var Kt = function(t) {
     k = H({}, g, { height: x });
   return e.createElement(
     'div',
-    j({ 'data-test': 'progress' }, h, { className: v, style: k }),
+    W({ 'data-test': 'progress' }, h, { className: v, style: k }),
     e.createElement(
       'div',
       {
@@ -6822,10 +6822,10 @@ var Jt = function(n) {
           null !== D && (R = q ? B[D] : ['oneStar', 'twoStars', 'threeStars', 'fourStars', 'fiveStars'][D]);
         }
         var V = s('py-2 px-1 rate-popover', C && (B ? R : L), _),
-          W = o;
+          j = o;
         if (M) {
           var H = ['angry', 'frown', 'meh', 'smile', 'laugh'];
-          (W = 'meh-blank'), y && n <= u.index ? ((W = H[u.index]), k && (W = H[c])) : k && n <= c && (W = H[c]);
+          (j = 'meh-blank'), y && n <= u.index ? ((j = H[u.index]), k && (j = H[c])) : k && n <= c && (j = H[c]);
         }
         var X = r;
         return (
@@ -6867,8 +6867,8 @@ var Jt = function(n) {
               null,
               e.createElement(
                 v,
-                j({ style: { cursor: 'pointer' } }, F, d, {
-                  icon: W,
+                W({ style: { cursor: 'pointer' } }, F, d, {
+                  icon: j,
                   size: l || P,
                   far: i || I,
                   className: V,
@@ -6959,7 +6959,7 @@ var Zt = function(t) {
       o && 'align-self-end',
       i
     );
-  return e.createElement(d, j({ 'data-test': 'row' }, m, { className: f }));
+  return e.createElement(d, W({ 'data-test': 'row' }, m, { className: f }));
 };
 (Zt.propTypes = {
   around: l.bool,
@@ -7001,7 +7001,7 @@ var Qt = { activeItem: l.any, className: l.string, tabId: l.any },
               var t = this.props.className,
                 n = ae(this.props, Object.keys(Qt)),
                 a = s('tab-content', t);
-              return e.createElement('div', j({ 'data-test': 'tabContent' }, n, { className: a }));
+              return e.createElement('div', W({ 'data-test': 'tabContent' }, n, { className: a }));
             }
           }
         ],
@@ -7034,7 +7034,7 @@ var en = (function(t) {
             o = G(t, ['className', 'tabId']),
             r = this.context.activeItemId,
             i = s('tab-pane', { active: a === r }, n);
-          return e.createElement('div', j({ 'data-test': 'tab-pane' }, o, { className: i, role: 'tabpanel' }));
+          return e.createElement('div', W({ 'data-test': 'tab-pane' }, o, { className: i, role: 'tabpanel' }));
         }
       }
     ]),
@@ -7053,7 +7053,7 @@ var tn = function(t) {
     p = s((V((n = { 'text-white': i }), 'thead-'.concat(o), o && c), V(n, ''.concat(o), o && !c), n));
   return e.createElement(
     'thead',
-    j({ 'data-test': 'table-head' }, l, { className: p }),
+    W({ 'data-test': 'table-head' }, l, { className: p }),
     r &&
       e.createElement(
         'tr',
@@ -7108,7 +7108,7 @@ var nn = e.createContext(),
         );
     return e.createElement(
       m,
-      j({ 'data-test': 'treeview' }, f, { className: g }),
+      W({ 'data-test': 'treeview' }, f, { className: g }),
       b,
       e.createElement(
         'ul',
@@ -7168,7 +7168,7 @@ var on = function(n) {
   );
   return e.createElement(
     v,
-    j({ 'data-test': 'treeview-item' }, x, {
+    W({ 'data-test': 'treeview-item' }, x, {
       className: C,
       ref: p,
       onMouseDown: function() {
@@ -7242,7 +7242,7 @@ var rn = function(n) {
     D = p && e.createElement(mt, { flat: !0, className: 'm-0 py-0 px-1 mr-1 z-depth-0', onClick: c }, R);
   return e.createElement(
     v,
-    j({ 'data-test': 'treeview-list' }, x, { className: E }),
+    W({ 'data-test': 'treeview-list' }, x, { className: E }),
     e.createElement(
       'span',
       { className: N, onClick: !u && k ? c : null },
@@ -7322,7 +7322,7 @@ var sn = (function(t) {
             ? e.createElement('ul', { className: 'list-inline' }, o)
             : m
             ? e.createElement('p', { className: y }, e.createElement('strong', null, g), o)
-            : e.createElement(a, j({ 'data-test': 'typography' }, h, { className: x }), o);
+            : e.createElement(a, W({ 'data-test': 'typography' }, h, { className: x }), o);
         }
       }
     ]),
@@ -7572,7 +7572,7 @@ var cn = function(t) {
     r = t.circle,
     i = G(t, ['className', 'tag', 'round', 'circle']),
     l = s('avatar', o && 'rounded', r && 'rounded-circle', n);
-  return e.createElement(a, j({ 'data-test': 'avatar' }, i, { className: l }));
+  return e.createElement(a, W({ 'data-test': 'avatar' }, i, { className: l }));
 };
 (cn.propTypes = { circle: l.bool, className: l.string, round: l.bool, tag: l.oneOfType([l.func, l.string]) }),
   (cn.defaultProps = { tag: 'div', round: !1, circle: !1 });
@@ -7666,7 +7666,7 @@ var pn = (function(t) {
             );
           return e.createElement(
             'div',
-            j({}, E, {
+            W({}, E, {
               className: O,
               'data-test': 'button-fixed',
               onBlur: function() {
@@ -7815,7 +7815,7 @@ var dn = (function(t) {
             { 'data-test': 'button-fixed-item' },
             e.createElement(
               'a',
-              j({}, b, {
+              W({}, b, {
                 style: n,
                 onClick: this.onClick,
                 onMouseDown: this.handleClick.bind(this),
@@ -7865,7 +7865,7 @@ var un = function(t) {
     r = t.gradient,
     i = G(t, ['className', 'tag', 'color', 'gradient']),
     l = s('card-up', o && ''.concat(o, '-color'), r && ''.concat(r, '-gradient'), n);
-  return e.createElement(a, j({ 'data-test': 'card-up' }, i, { className: l }));
+  return e.createElement(a, W({ 'data-test': 'card-up' }, i, { className: l }));
 };
 (un.propTypes = { className: l.string, tag: l.oneOfType([l.func, l.string]) }), (un.defaultProps = { tag: 'div' });
 ue(
@@ -7916,7 +7916,7 @@ var mn = function(n) {
     );
   return e.createElement(
     h,
-    j({ 'data-test': 'chip' }, y, { className: x, onMouseDown: i, onTouchStart: i }),
+    W({ 'data-test': 'chip' }, y, { className: x, onMouseDown: i, onTouchStart: i }),
     g && e.createElement('img', { src: g, alt: l }),
     p,
     v && e.createElement(ke, { cursorPos: o }),
@@ -8069,7 +8069,7 @@ var fn = (function(t) {
           var x = s('chips', v && 'focus', o);
           return e.createElement(
             r,
-            j({ 'data-test': 'chips-input' }, f, {
+            W({ 'data-test': 'chips-input' }, f, {
               className: x,
               onClick: this.handleClick,
               onKeyUp: this.handleBackspace
@@ -8113,7 +8113,7 @@ var gn = function(t) {
     c = s('mb-0', a);
   return e.createElement(
     'div',
-    j({ 'data-test': 'collapse-header' }, i, { className: l, style: { cursor: 'pointer' } }),
+    W({ 'data-test': 'collapse-header' }, i, { className: l, style: { cursor: 'pointer' } }),
     e.createElement(r, { className: c }, o)
   );
 };
@@ -8193,7 +8193,7 @@ var hn = (function(t) {
             F = t.TextFieldComponent,
             q = (t.theme, t.todayLabel),
             V = (t.value, t.valueDefault, t.tag),
-            W = G(t, [
+            j = G(t, [
               'adornmentPosition',
               'allowKeyboardControl',
               'animateYearScrolling',
@@ -8248,7 +8248,7 @@ var hn = (function(t) {
                 { locale: N, moment: _, utils: O },
                 e.createElement(
                   D,
-                  j({}, W, {
+                  W({}, j, {
                     adornmentPosition: n,
                     allowKeyboardControl: a,
                     animateYearScrolling: o,
@@ -8303,7 +8303,7 @@ function bn(t) {
     c = s('card-rotating effect__click', o && 'flipped', a);
   return e.createElement(
     i,
-    j({ 'data-test': 'flipping-card' }, l, { className: 'card-wrapper' }),
+    W({ 'data-test': 'flipping-card' }, l, { className: 'card-wrapper' }),
     e.createElement(r, { className: c }, n)
   );
 }
@@ -8374,7 +8374,7 @@ var vn = e.forwardRef(function(t, n) {
     g = s('mdb-gallery', i);
   return e.createElement(
     y,
-    j({ tag: p }, f, { style: H({ margin: -u / 2 }, m), className: g, ref: n, 'data-test': 'gallery' }),
+    W({ tag: p }, f, { style: H({ margin: -u / 2 }, m), className: g, ref: n, 'data-test': 'gallery' }),
     e.Children.map(r, function(t) {
       if (!e.isValidElement(t)) return null;
       var n = t.props.cols || 1,
@@ -8458,7 +8458,7 @@ var xn = e.forwardRef(function(t, n) {
     }, []),
     e.createElement(
       y,
-      j({ 'data-test': 'gallery-list', tag: i, ref: n }, d, { className: m }),
+      W({ 'data-test': 'gallery-list', tag: i, ref: n }, d, { className: m }),
       e.createElement(
         y,
         { style: H({}, p), className: f },
@@ -8757,7 +8757,7 @@ var Nn = (function(t) {
             c = s('switch', n);
           return e.createElement(
             'div',
-            j({}, i, { className: c, 'data-test': 'input-switch' }),
+            W({}, i, { className: c, 'data-test': 'input-switch' }),
             e.createElement(
               'label',
               null,
@@ -9576,7 +9576,7 @@ var On = function(t) {
     a = t.children,
     o = G(t, ['className', 'children']),
     r = s('scroll-box', n);
-  return e.createElement('div', j({}, o, { className: r }), a);
+  return e.createElement('div', W({}, o, { className: r }), a);
 };
 On.propTypes = { children: l.node, className: l.string };
 var Rn = function(t) {
@@ -9585,7 +9585,7 @@ var Rn = function(t) {
     o = t.color,
     r = G(t, ['className', 'children', 'color']),
     i = s('nav md-tabs horizontal-spy', o || !1, n);
-  return e.createElement('ul', j({}, r, { role: 'navigation', className: i }), a);
+  return e.createElement('ul', W({}, r, { role: 'navigation', className: i }), a);
 };
 Rn.propTypes = { children: l.node, className: l.string, color: l.string };
 var Dn = function(t) {
@@ -9597,7 +9597,7 @@ var Dn = function(t) {
   return e.createElement(
     'li',
     { className: 'nav-item' },
-    e.createElement('a', j({}, r, { className: i, role: 'tab' }), a)
+    e.createElement('a', W({}, r, { className: i, role: 'tab' }), a)
   );
 };
 Dn.propTypes = { active: l.bool, children: l.node, className: l.string };
@@ -9607,7 +9607,7 @@ var _n = function(t) {
     o = t.scrollSpyRef,
     r = G(t, ['className', 'children', 'scrollSpyRef']),
     i = s('scrollspy-example z-depth-1', n);
-  return e.createElement('div', j({}, r, { ref: o, className: i }), a);
+  return e.createElement('div', W({}, r, { ref: o, className: i }), a);
 };
 _n.propTypes = { children: l.node, className: l.string, scrollSpyRef: l.oneOfType([l.func, l.object]) };
 ue(
@@ -9773,7 +9773,7 @@ var Mn = e.createContext({ slim: !1 }),
               k = e.createElement('div', { id: 'sidenav-overlay', onClick: this.handleOverlayClick }),
               w = e.createElement(
                 u,
-                j({}, m, {
+                W({}, m, {
                   ref: this.sideNavRef,
                   className: x,
                   'data-animate': !h && void 0,
@@ -9942,7 +9942,7 @@ var In = (function(t) {
                 null,
                 e.createElement(
                   'a',
-                  j(
+                  W(
                     {
                       className: x,
                       onClick: function(e) {
@@ -10020,7 +10020,7 @@ var Ln = function(n) {
     m = s('Ripple-parent', l);
   return e.createElement(
     d,
-    j(
+    W(
       {
         className: m,
         ref: p,
@@ -10103,7 +10103,7 @@ var Bn = (function(t) {
                     })()),
                 e.createElement(
                   C,
-                  j({ className: d, ref: r, onClick: t.handleClick, to: i }, c),
+                  W({ className: d, ref: r, onClick: t.handleClick, to: i }, c),
                   s
                     ? e.createElement(
                         e.Fragment,
@@ -10191,7 +10191,7 @@ var zn = (function(t) {
                   null,
                   e.createElement(
                     a,
-                    j({}, l, { className: p }),
+                    W({}, l, { className: p }),
                     d,
                     r &&
                       e.createElement(
@@ -10372,7 +10372,7 @@ var Fn = function(n) {
     };
   return e.createElement(
     L,
-    j(
+    W(
       {
         className: P,
         onMouseUp: i,
@@ -10586,7 +10586,7 @@ Vn.defaultProps = { form: !1, iconPrefix: 'fas', tag: 'div', vertical: !1 };
 ue(
   "/* Stepper Form */\n\n/* Stepper v.2 (Form) */\n.steps-form {\n  display: table;\n  width: 100%;\n  position: relative;\n}\n\n.steps-form .steps-row {\n  display: table-row;\n}\n\n.steps-form .steps-row:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: ' ';\n  width: 100%;\n  height: 1px;\n  background-color: #ccc;\n}\n\n.steps-form .steps-row .steps-step {\n  display: table-cell;\n  text-align: center;\n  position: relative;\n}\n\n.steps-form .steps-row .steps-step p {\n  margin-top: 0.5rem;\n}\n\n.steps-form .steps-row .steps-step button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important;\n}\n\n.steps-form .steps-row .steps-step .btn-circle {\n  width: 30px;\n  height: 30px;\n  text-align: center;\n  padding: 6px 0;\n  font-size: 12px;\n  line-height: 1.428571429;\n  border-radius: 15px;\n  margin-top: 0;\n}\n\n/* Stepper v.3 (Icons) */\n.steps-form-2 {\n  display: table;\n  width: 100%;\n  position: relative;\n}\n\n.steps-form-2 .steps-row-2 {\n  display: table-row;\n}\n\n.steps-form-2 .steps-row-2:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: ' ';\n  width: 99%;\n  height: 2px;\n  background-color: #7283a7;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 {\n  display: table-cell;\n  text-align: center;\n  position: relative;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 p {\n  margin-top: 0.5rem;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 {\n  width: 70px;\n  height: 70px;\n  border: 2px solid #59698d;\n  background-color: white !important;\n  color: #59698d !important;\n  border-radius: 50%;\n  padding: 20px 20px 20px 20px;\n  margin-top: -22px;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2:hover {\n  border: 2px solid #4285f4;\n  color: #4285f4 !important;\n  background-color: white !important;\n}\n\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fa,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fas,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .far,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fal,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fad,\n.steps-form-2 .steps-row-2 .steps-step-2 .btn-circle-2 .fab {\n  font-size: 1.7rem;\n}\n\n.steps-row-2:first-child .btn {\n  margin-left: 0;\n}\n\n.steps-row-2:last-child .btn {\n  margin-right: 0;\n}\n\n/* Stepper v.4 (Icon-vertical) */\n\n.steps-form-3 {\n  width: 2px;\n  height: 470px;\n  position: relative;\n}\n\n.steps-form-3 .steps-row-3 {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n}\n\n.steps-form-3 .steps-row-3:before {\n  top: 14px;\n  bottom: 0;\n  position: absolute;\n  content: '';\n  width: 2px;\n  height: 100%;\n  background-color: #7283a7;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 {\n  height: 150px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  text-align: center;\n  position: relative;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3.no-height {\n  height: 50px;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 p {\n  margin-top: 0.5rem;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 button[disabled] {\n  opacity: 1 !important;\n  filter: alpha(opacity=100) !important;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 {\n  width: 60px;\n  height: 60px;\n  border: 2px solid #59698d;\n  background-color: white !important;\n  color: #59698d !important;\n  border-radius: 50%;\n  padding: 15px 15px 15px 15px;\n  margin-top: -22px;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3:hover {\n  border: 2px solid #4285f4;\n  color: #4285f4 !important;\n  background-color: white !important;\n}\n\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fa,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fas,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .far,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fal,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fad,\n.steps-form-3 .steps-row-3 .steps-step-3 .btn-circle-3 .fab {\n  font-size: 1.7rem;\n}\n"
 );
-var jn = function(t) {
+var Wn = function(t) {
   var n = t.vertical,
     a = t.form,
     o = t.icon,
@@ -10608,9 +10608,9 @@ var jn = function(t) {
     ? e.createElement('div', { className: r }, e.createElement('div', { className: i }, t.children))
     : e.createElement('ul', { className: r }, t.children);
 };
-(jn.propTypes = { children: l.node, className: l.string, form: l.bool, icon: l.bool, vertical: l.bool }),
-  (jn.defaultProps = { form: !1 });
-var Wn = (function(t) {
+(Wn.propTypes = { children: l.node, className: l.string, form: l.bool, icon: l.bool, vertical: l.bool }),
+  (Wn.defaultProps = { form: !1 });
+var jn = (function(t) {
   function a() {
     var e, t;
     A(this, a);
@@ -10725,15 +10725,15 @@ var Wn = (function(t) {
     a
   );
 })();
-V(Wn, 'propTypes', { children: l.func.isRequired, bottomOffset: l.number, relative: l.bool, topOffset: l.number }),
-  V(Wn, 'defaultProps', {
+V(jn, 'propTypes', { children: l.func.isRequired, bottomOffset: l.number, relative: l.bool, topOffset: l.number }),
+  V(jn, 'defaultProps', {
     relative: !1,
     topOffset: 0,
     bottomOffset: 0,
     disableCompensation: !1,
     disableHardwareAcceleration: !1
   }),
-  V(Wn, 'contextTypes', { subscribe: l.func, unsubscribe: l.func, getParent: l.func });
+  V(jn, 'contextTypes', { subscribe: l.func, unsubscribe: l.func, getParent: l.func });
 var Hn = (function(t) {
   function n() {
     var e, t;
@@ -10816,7 +10816,7 @@ var Hn = (function(t) {
           var t = this;
           return e.createElement(
             'div',
-            j({}, this.props, {
+            W({}, this.props, {
               ref: function(e) {
                 return (t.node = e);
               },
@@ -11019,7 +11019,7 @@ var Un = (function(t) {
             ),
             e.createElement(
               'table',
-              j({}, h, { className: v }),
+              W({}, h, { className: v }),
               e.createElement(
                 'thead',
                 null,
@@ -11142,7 +11142,7 @@ var Yn = function(t) {
     a = t.tag,
     o = G(t, ['className', 'tag']),
     r = s('testimonial', n);
-  return e.createElement(a, j({}, o, { className: r }));
+  return e.createElement(a, W({}, o, { className: r }));
 };
 (Yn.propTypes = { className: l.string, tag: l.oneOfType([l.func, l.string]) }), (Yn.defaultProps = { tag: 'div' });
 ue(
@@ -11973,7 +11973,7 @@ var la = function(t) {
       { 'btn-floating': i, 'btn-rounded': p },
       a
     );
-  return e.createElement(mt, j({}, d, { className: u, color: '', flat: r, rounded: p }), n);
+  return e.createElement(mt, W({}, d, { className: u, color: '', flat: r, rounded: p }), n);
 };
 (la.propTypes = { flat: l.bool, floating: l.bool, gradient: l.string, outline: l.bool, rounded: l.bool }),
   (la.defaultProps = { color: 'default' });
@@ -12025,7 +12025,7 @@ var ca = (function(t) {
             u = s(a, d && l >= p && 'invalid');
           return e.createElement(
             Ye,
-            j({}, r, { onChange: this.handleChange, onBlur: this.handleBlur, onFocus: this.handleFocus, className: u }),
+            W({}, r, { onChange: this.handleChange, onBlur: this.handleBlur, onFocus: this.handleFocus, className: u }),
             o &&
               c &&
               e.createElement(
@@ -12177,12 +12177,12 @@ export {
   Bt as MDBModalFooter,
   zt as MDBModalHeader,
   At as MDBNav,
-  Wt as MDBNavItem,
+  jt as MDBNavItem,
   Ht as MDBNavLink,
   Ft as MDBNavbar,
   qt as MDBNavbarBrand,
   Vt as MDBNavbarNav,
-  jt as MDBNavbarToggler,
+  Wt as MDBNavbarToggler,
   Xt as MDBNotification,
   pt as MDBPageItem,
   dt as MDBPageNav,
@@ -12215,17 +12215,17 @@ export {
   Fn as MDBSmoothScroll,
   qn as MDBSpinner,
   Vn as MDBStep,
-  jn as MDBStepper,
-  Wn as MDBSticky,
+  Wn as MDBStepper,
+  jn as MDBSticky,
   Hn as MDBStickyContent,
   Xn as MDBStreak,
   Nn as MDBSwitch,
   $t as MDBTabContent,
   en as MDBTabPane,
   Ve as MDBTable,
-  je as MDBTableBody,
+  We as MDBTableBody,
   Un as MDBTableEditable,
-  We as MDBTableFoot,
+  je as MDBTableFoot,
   tn as MDBTableHead,
   Yn as MDBTestimonial,
   sa as MDBTimePicker,
@@ -12246,12 +12246,12 @@ export {
   Bt as ModalFooter,
   zt as ModalHeader,
   At as Nav,
-  Wt as NavItem,
+  jt as NavItem,
   Ht as NavLink,
   Ft as Navbar,
   qt as NavbarBrand,
   Vt as NavbarNav,
-  jt as NavbarToggler,
+  Wt as NavbarToggler,
   Xt as Notification,
   pt as PageItem,
   dt as PageLink,
@@ -12282,16 +12282,16 @@ export {
   Fn as SmoothScroll,
   qn as Spinner,
   Vn as Step,
-  jn as Stepper,
-  Wn as Sticky,
+  Wn as Stepper,
+  jn as Sticky,
   Hn as StickyContainer,
   Xn as Streak,
   $t as TabContent,
   en as TabPane,
   Ve as Table,
-  je as TableBody,
+  We as TableBody,
   Un as TableEditable,
-  We as TableFoot,
+  je as TableFoot,
   tn as TableHead,
   Yn as Testimonial,
   sa as TimePicker,

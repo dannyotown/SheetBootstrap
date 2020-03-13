@@ -5751,7 +5751,7 @@ var vt = (function(e) {
             i = o.animation,
             s = o.backdrop,
             l = o.backdropClassName,
-            c = o.backdropStyles,
+            c = o.modalStylesWithoutBackdrop,
             p = o.cascading,
             u = o.centered,
             m = o.children,
@@ -5880,7 +5880,7 @@ var vt = (function(e) {
 (vt.defaultProps = {
   autoFocus: !0,
   backdrop: !0,
-  backdropStyles: { top: 0, left: 0, right: 0, bottom: 0 },
+  modalStylesWithoutBackdrop: { top: 0, left: 0, right: 0, bottom: 0 },
   backdropTransitionTimeout: 150,
   disableBackdrop: !1,
   disableFocusTrap: !0,
