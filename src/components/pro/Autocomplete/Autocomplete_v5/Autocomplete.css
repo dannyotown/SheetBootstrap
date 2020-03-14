@@ -21,9 +21,6 @@
   opacity: 1;
 }
 
-.mdb-autocomplete-wrap li:hover {
-  background: none !important;
-}
 
 .my-node-enter {
   opacity: 0;

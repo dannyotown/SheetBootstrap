@@ -174,7 +174,7 @@ class Autocomplete extends PureComponent {
         }
 
         if (e.keyCode === 40 && focusedListItem < filteredSuggestions.length - 1) {
-          this.setState(prev => ({ focusedListItem: prev.focusedListItem + 1 }));
+          this.setState(prev => ({ focusedListItem: prev.focusedListItem + 1, movedKey: true }));
           suggestionsList.scrollTo({
             top: moveDown
           });
@@ -182,14 +182,14 @@ class Autocomplete extends PureComponent {
           this.setState({ focusedListItem: 0 });
         }
         if (e.keyCode === 38 && focusedListItem > 0) {
-          this.setState({ focusedListItem: focusedListItem - 1 });
+          this.setState({ focusedListItem: focusedListItem - 1, movedKey: true });
           suggestionsList.scrollTo({
             top: moveUp
           });
         }
 
         if (e.keyCode === 38 && focusedListItem === 0) {
-          this.setState({ focusedListItem: filteredSuggestions.length - 1 });
+          this.setState({ focusedListItem: filteredSuggestions.length - 1, movedKey: true });
         }
 
         if (e.keyCode === 35) {
@@ -208,7 +208,7 @@ class Autocomplete extends PureComponent {
   };
 
   updateFocus = index => {
-    this.setState({ focusedListItem: index, movedKey: true });
+    this.setState({ focusedListItem: index });
   };
 
   toggleFocusToClearBtn = (e, initialFocused) => {
@@ -248,6 +248,23 @@ class Autocomplete extends PureComponent {
     } else {
       return text;
     }
+  };
+
+  listOnMouseEnter = index => {
+    if (!this.state.movedKey) {
+      this.updateFocus(index);
+    }
+  };
+
+  listOnMouseMove = index => {
+    this.setState(
+      {
+        movedKey: false
+      },
+      () => {
+        this.updateFocus(index);
+      }
+    );
   };
 
   render() {
@@ -319,17 +336,17 @@ class Autocomplete extends PureComponent {
           >
             {filteredSuggestions.map((el, index) => {
               const highlighted = this.getHighlightedText(el, initialValue);
-              console.log(focusedListItem === index);
 
               return (
                 <li
                   className='list-item'
                   key={el + index}
-                  onMouseEnter={() => this.updateFocus(index)}
+                  onMouseEnter={() => this.listOnMouseEnter(index)}
                   style={{
-                    background: `${focusedListItem === index ? '#eee' : '#fff'}`
+                    backgroundColor: `${focusedListItem === index ? '#eee' : '#fff'}`
                   }}
                   data-index={index}
+                  onMouseMove={() => this.listOnMouseMove(index)}
                 >
                   {typeof el[0] === 'string' ? (highlight ? highlighted : el) : el[initialDataKey]}
                 </li>
