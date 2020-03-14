@@ -11,11 +11,12 @@ import {
   MDBModalHeader,
   MDBModalBody,
   MDBModalFooter,
-  MDBIcon
+  MDBIcon,
+  MDBAutoV5
 } from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
-import MDBAuto from '../../../src/components/pro/Autocomplete/Autocomplete_v5/Autocomplete';
+import { Typography } from '../../../src';
 
 const states = [
   'Alabama',
@@ -390,7 +391,7 @@ const subjects = [
 class AutocompletePage extends Component {
   state = {
     modal: false,
-    test: 'year'
+    objValue: false
   };
 
   toggle = () => {
@@ -409,23 +410,49 @@ class AutocompletePage extends Component {
   logValue = value => {
     console.log(value);
   };
-  onClickTest = e => {
-    this.setState({ test: 'title' });
+
+  onClickObjValue = e => {
+    this.setState(prev => ({ objValue: !prev.objValue }));
   };
+
   render() {
-    const { modal } = this.state;
+    const { modal, objValue } = this.state;
     const smallStyle = { fontSize: '0.8rem' };
     return (
       <MDBContainer>
         <DocsLink title='Autocomplete' href='https://mdbootstrap.com/docs/react/forms/autocomplete/' />
 
-        <SectionContainer header='New example'>
-          <MDBBtn onClick={this.onClickTest}>Test</MDBBtn>
+        <SectionContainer header='New example v5'>
+          <Typography note noteColor='info' noteTitle='Information: '>
+            This is version of Autocomplete what will be fully available in the MDBReact version 5 and it will replace
+            current version of Autocomplete.
+          </Typography>
 
-          <MDBAuto
+          <MDBAutoV5
+            data={states}
+            label='Data with string'
+            dataKey='title'
+            clear
+            id='input123'
+            size='md'
+            visibleOptions={10}
+          />
+
+          <MDBAutoV5
             data={top100Films}
-            dataKey={this.state.test}
-            label='Choose your favorite film'
+            label='Data object with no focus'
+            dataKey='title'
+            clear
+            id='input321'
+            size='md'
+            visibleOptions={10}
+            focused={false}
+          />
+
+          <MDBAutoV5
+            data={top100Films}
+            dataKey={objValue ? 'year' : 'title'}
+            label='Data object and highlight'
             clear
             id='input12'
             highlight
@@ -434,16 +461,7 @@ class AutocompletePage extends Component {
             visibleOptions={3}
           />
 
-          <MDBAuto
-            data={states}
-            label='Choose your favorite state'
-            dataKey='title'
-            clear
-            id='input123'
-            size='md'
-            visibleOptions={10}
-            highlight
-          />
+          <MDBBtn onClick={this.onClickObjValue}>Change values</MDBBtn>
         </SectionContainer>
 
         <SectionContainer header='Basic example'>
@@ -458,16 +476,6 @@ class AutocompletePage extends Component {
             id='input'
             getValue={this.logValue}
             size='md'
-          />
-
-          <MDBAuto
-            data={states}
-            label='Choose your favorite state'
-            dataKey='title'
-            clear
-            id='input445'
-            size='md'
-            visibleOptions={10}
           />
         </SectionContainer>
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-declare class MDBAutocomplete extends React.Component<
+declare class MDBAutocompleteV5 extends React.Component<
   {
     data?: string[];
     disabled?: boolean;
@@ -26,4 +26,4 @@ declare class MDBAutocomplete extends React.Component<
   any
 > {}
 
-export default MDBAutocomplete;
+export default MDBAutocompleteV5;

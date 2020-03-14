@@ -238,6 +238,7 @@ export {
   // PRO-START
   MDBAutocomplete,
   MDBAutocomplete_v5,
+  MDBAutocomplete_v5 as MDBAutoV5,
   MDBAvatar,
   MDBButtonFixed,
   MDBButtonFixedItem,
