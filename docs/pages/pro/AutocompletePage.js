@@ -391,8 +391,30 @@ const subjects = [
 class AutocompletePage extends Component {
   state = {
     modal: false,
-    objValue: false
+    objValue: false,
+    textToPlace: ''
   };
+
+  componentDidMount() {
+    this.setState({
+      textToPlace: 'Data object and highlight'
+    });
+  }
+
+  componentDidUpdate(prevState, prevProps) {
+    const { objValue } = this.state;
+    if (objValue !== prevProps.objValue) {
+      if (objValue) {
+        this.setState({
+          textToPlace: 'Data with key property'
+        });
+      } else {
+        this.setState({
+          textToPlace: 'Data with value property'
+        });
+      }
+    }
+  }
 
   toggle = () => {
     const { modal } = this.state;
@@ -416,7 +438,7 @@ class AutocompletePage extends Component {
   };
 
   render() {
-    const { modal, objValue } = this.state;
+    const { modal, objValue, textToPlace } = this.state;
     const smallStyle = { fontSize: '0.8rem' };
     return (
       <MDBContainer>
@@ -452,7 +474,7 @@ class AutocompletePage extends Component {
           <MDBAutoV5
             data={top100Films}
             dataKey={objValue ? 'year' : 'title'}
-            label='Data object and highlight'
+            label={textToPlace}
             clear
             id='input12'
             highlight
@@ -476,6 +498,18 @@ class AutocompletePage extends Component {
             id='input'
             getValue={this.logValue}
             size='md'
+          />
+
+          <MDBAutoV5
+            data={top100Films}
+            dataKey={objValue ? 'year' : 'title'}
+            label={textToPlace}
+            clear
+            id='input142'
+            highlight
+            highlightStyles={{ color: 'red' }}
+            background
+            visibleOptions={7}
           />
         </SectionContainer>
 

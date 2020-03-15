@@ -21,6 +21,10 @@
   opacity: 1;
 }
 
+.opacity {
+  opacity: 1 !important;
+  pointer-events: auto;
+}
 
 .my-node-enter {
   opacity: 0;

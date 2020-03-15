@@ -2,14 +2,12 @@ import * as React from 'react';
 
 declare class MDBAutocompleteV5 extends React.Component<
   {
-    data?: string[];
+    data?: string[] | object;
+    dataKey?: boolean;
     disabled?: boolean;
     className?: string;
     clear?: boolean;
-    clearColor?: string;
-    clearSize?: string;
-    id?: string;
-    label?: string;
+    clearClass?: string;
     labelClass?: string;
     icon?: string;
     iconBrand?: boolean;
@@ -19,7 +17,6 @@ declare class MDBAutocompleteV5 extends React.Component<
     iconClassName?: string;
     placeholder?: string;
     valueDefault?: string;
-
     getValue?: (value: string) => void;
     [rest: string]: any;
   },

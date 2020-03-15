@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { MDBInput, MDBIcon } from 'mdbreact';
 import classNames from 'classnames';
 import './Autocomplete.css';
-import { partHighlight } from './Utils/index';
+import { partHighlight, makeToStringAndLower, scrollToElement } from './Utils/index';
+import { Reference, Manager, Popper } from 'react-popper';
+import { clsx } from 'clsx';
 
 class Autocomplete extends PureComponent {
   state = {
@@ -90,12 +92,9 @@ class Autocomplete extends PureComponent {
     if (value !== '' && value !== undefined) {
       const filteredSuggestions = suggestions.filter(suggest => {
         if (typeof suggest === 'object') {
-          return suggest[initialDataKey]
-            .toString()
-            .toLowerCase()
-            .includes(value.toString().toLowerCase());
+          return makeToStringAndLower(suggest[initialDataKey], value);
         } else {
-          return suggest.toLowerCase().includes(value.toLowerCase());
+          return makeToStringAndLower(suggest, value);
         }
       });
 
@@ -174,17 +173,18 @@ class Autocomplete extends PureComponent {
         }
 
         if (e.keyCode === 40 && focusedListItem < filteredSuggestions.length - 1) {
-          this.setState(prev => ({ focusedListItem: prev.focusedListItem + 1, movedKey: true }));
-          suggestionsList.scrollTo({
-            top: moveDown
-          });
+          this.setState(
+            prev => ({ focusedListItem: prev.focusedListItem + 1, movedKey: true }),
+            () => {
+              return scrollToElement(suggestionsList, moveDown);
+            }
+          );
         } else {
           this.setState({ focusedListItem: 0 });
         }
         if (e.keyCode === 38 && focusedListItem > 0) {
-          this.setState({ focusedListItem: focusedListItem - 1, movedKey: true });
-          suggestionsList.scrollTo({
-            top: moveUp
+          this.setState({ focusedListItem: focusedListItem - 1, movedKey: true }, () => {
+            return scrollToElement(suggestionsList, moveUp);
           });
         }
 
@@ -193,11 +193,15 @@ class Autocomplete extends PureComponent {
         }
 
         if (e.keyCode === 35) {
-          this.setState({ focusedListItem: filteredSuggestions.length - 1 });
+          this.setState({ focusedListItem: filteredSuggestions.length - 1 }, () => {
+            return scrollToElement(suggestionsList, moveDown);
+          });
         }
 
         if (e.keyCode === 36) {
-          this.setState({ focusedListItem: 0 });
+          this.setState({ focusedListItem: 0 }, () => {
+            return scrollToElement(suggestionsList, moveUp);
+          });
         }
 
         if (e.keyCode === 9 && focused) {
@@ -273,7 +277,6 @@ class Autocomplete extends PureComponent {
       clearClass,
       data,
       dataKey,
-      everyTimeShowContent,
       focused,
       heightItem,
       highlight,
@@ -283,15 +286,24 @@ class Autocomplete extends PureComponent {
       labelClass,
       labelStyles,
       noSuggestion,
+      inputClass,
       placeholder,
       visibleOptions,
       ...attributes
     } = this.props;
-    const { initialDataKey } = this.state;
 
-    const { activeLabeL, filteredSuggestions, initialFocused, focusedListItem, showList, initialValue } = this.state;
+    const {
+      activeLabeL,
+      filteredSuggestions,
+      focusedListItem,
+      initialDataKey,
+      initialFocused,
+      initialValue,
+      showList
+    } = this.state;
+
     const labelClasses = classNames(labelClass, activeLabeL && 'active', 'text-ellipsis-label');
-    const inputClasses = classNames(placeholder, 'text-ellipsis-input');
+    const inputClasses = classNames(inputClass, 'text-ellipsis-input');
     const btnClearClasses = classNames(
       clearClass,
       initialFocused && 'autocomplete-btn-svg',
@@ -339,12 +351,9 @@ class Autocomplete extends PureComponent {
 
               return (
                 <li
-                  className='list-item'
                   key={el + index}
                   onMouseEnter={() => this.listOnMouseEnter(index)}
-                  style={{
-                    backgroundColor: `${focusedListItem === index ? '#eee' : '#fff'}`
-                  }}
+                  className={`list-item ${focusedListItem === index ? 'grey lighten-3' : 'white'}`}
                   data-index={index}
                   onMouseMove={() => this.listOnMouseMove(index)}
                 >
@@ -360,8 +369,20 @@ class Autocomplete extends PureComponent {
 }
 
 Autocomplete.propTypes = {
+  clear: PropTypes.bool,
+  clearClass: PropTypes.string,
+  data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  dataKey: PropTypes.string,
+  focused: PropTypes.bool,
   heightItem: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  highlight: PropTypes.bool,
+  highlightBold: PropTypes.bool,
+  highlightClasses: PropTypes.string,
+  highlightStyles: PropTypes.object,
+  labelClass: PropTypes.string,
+  labelStyles: PropTypes.node,
   noSuggestion: PropTypes.array,
+  placeholder: PropTypes.string,
   visibleOptions: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
