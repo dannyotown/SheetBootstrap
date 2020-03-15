@@ -4,8 +4,6 @@ import { MDBInput, MDBIcon } from 'mdbreact';
 import classNames from 'classnames';
 import './Autocomplete.css';
 import { partHighlight, makeToStringAndLower, scrollToElement } from './Utils/index';
-import { Reference, Manager, Popper } from 'react-popper';
-import { clsx } from 'clsx';
 
 class Autocomplete extends PureComponent {
   state = {
