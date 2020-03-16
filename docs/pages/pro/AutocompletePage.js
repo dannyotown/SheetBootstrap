@@ -499,18 +499,6 @@ class AutocompletePage extends Component {
             getValue={this.logValue}
             size='md'
           />
-
-          <MDBAutoV5
-            data={top100Films}
-            dataKey={objValue ? 'year' : 'title'}
-            label={textToPlace}
-            clear
-            id='input142'
-            highlight
-            highlightStyles={{ color: 'red' }}
-            background
-            visibleOptions={7}
-          />
         </SectionContainer>
 
         <SectionContainer header='With register cart'>
