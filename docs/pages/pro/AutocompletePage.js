@@ -17,7 +17,6 @@ import {
 } from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
-import { Typography } from '../../../src';
 
 const states = [
   'Alabama',
