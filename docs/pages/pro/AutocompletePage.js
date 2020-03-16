@@ -12,7 +12,8 @@ import {
   MDBModalBody,
   MDBModalFooter,
   MDBIcon,
-  MDBAutoV5
+  MDBAutoV5,
+  MDBTypography
 } from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
@@ -445,10 +446,10 @@ class AutocompletePage extends Component {
         <DocsLink title='Autocomplete' href='https://mdbootstrap.com/docs/react/forms/autocomplete/' />
 
         <SectionContainer header='New example v5'>
-          <Typography note noteColor='info' noteTitle='Information: '>
+          <MDBTypography note noteColor='info' noteTitle='Information: '>
             This is version of Autocomplete what will be fully available in the MDBReact version 5 and it will replace
             current version of Autocomplete.
-          </Typography>
+          </MDBTypography>
 
           <MDBAutoV5
             data={states}
