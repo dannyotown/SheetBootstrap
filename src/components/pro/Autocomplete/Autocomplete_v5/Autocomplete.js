@@ -385,12 +385,13 @@ Autocomplete.propTypes = {
 };
 
 Autocomplete.defaultProps = {
+  focused: true,
   heightItem: 45,
-  noSuggestion: ['No options'],
-  visibleOptions: 5,
-  labelStyles: '',
+  highlight: false,
   highlightBold: true,
-  focused: true
+  labelStyles: '',
+  noSuggestion: ['No options'],
+  visibleOptions: 5
 };
 
 export default Autocomplete;
