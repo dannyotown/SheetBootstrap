@@ -284,7 +284,7 @@ Input.defaultProps = {
   id: undefined,
   noTag: false,
   outline: false,
-  label: '',
+  label: ' ',
   labelClass: '',
   labelId: '',
   size: '',
