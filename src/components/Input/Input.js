@@ -37,6 +37,16 @@ class Input extends React.Component {
     return null;
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { focused } = this.props;
+
+    if (prevProps.focused !== focused) {
+      this.setState({ isFocused: focused }, () => {
+        this.setFocus();
+      });
+    }
+  }
+
   onBlur = event => {
     event.stopPropagation();
     const { onBlur } = this.props;
