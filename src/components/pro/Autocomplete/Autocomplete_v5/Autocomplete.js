@@ -229,9 +229,10 @@ class Autocomplete extends PureComponent {
   };
 
   getHighlightedText = (text, highlight) => {
-    if (highlight !== undefined && this.state.filteredSuggestions[0] !== 'No options') {
-      const { highlightBold, highlightClasses, highlightStyles } = this.props;
-      const { initialDataKey } = this.state;
+    const { highlightBold, highlightClasses, highlightStyles } = this.props;
+    const { initialDataKey, filteredSuggestions } = this.state;
+
+    if (highlight !== undefined && filteredSuggestions[0] !== 'No options') {
       const isObject = typeof text === 'object' ? text[initialDataKey].toString() : text;
       const parts = isObject.split(new RegExp(`(${highlight})`, 'gi'));
       const classes = classNames(highlightBold && 'font-weight-bold', highlightClasses);
