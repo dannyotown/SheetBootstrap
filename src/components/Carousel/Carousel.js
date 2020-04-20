@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import CarouselControl from './CarouselControl';
 import CarouselIndicator from './CarouselIndicator';
 import CarouselIndicators from './CarouselIndicators';
+import './Carousel.css';
 
 class Carousel extends Component {
   state = {
