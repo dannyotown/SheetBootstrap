@@ -1,7 +1,7 @@
 import moment from 'moment';
-import variables from '../../dist/scss/core/_colors.scss';
+// import variables from '../../dist/scss/core/_colors.scss';
 
-const { danger, warning, success, primary, info, secondary, light, dark } = variables;
+// const { danger, warning, success, primary, info, secondary, light, dark } = variables;
 
 export function getTetherAttachments(placement) {
   let attachments = {};
