@@ -258,14 +258,14 @@ export const makeRandomID = (id = '1') => {
 };
 
 const themeColors = {
-  danger,
-  warning,
-  success,
-  primary,
-  info,
-  secondary,
-  light,
-  dark
+  danger: 'rgba(255, 53, 71)',
+  warning: 'rgba(255, 187, 51)',
+  success: 'rgba(0, 200, 81)',
+  primary: 'rgba(66, 133, 244)',
+  info: 'rgba(51, 181, 229)',
+  secondary: 'rgba(170, 102, 204)',
+  light: 'rgba(224, 224, 224)',
+  dark: 'rgba(33, 33, 33)'
 };
 
 const themeColorsOpacity = {

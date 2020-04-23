@@ -4,7 +4,8 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { Component, createRef } from 'react';
 // import './_default-date.scss';
-import { makeFirstLetterUpper, makeRandomID } from './Utils';
+import './DatePicker.css';
+import { makeFirstLetterUpper, makeRandomID } from '../../../utils';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import ReactDOM from 'react-dom';
 
