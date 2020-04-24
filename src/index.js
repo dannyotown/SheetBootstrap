@@ -117,6 +117,13 @@ import SideNavCat from './components/pro/SideNav/SideNavCat';
 import SideNavItem from './components/pro/SideNav/SideNavItem';
 import SideNavLink from './components/pro/SideNav/SideNavLink';
 import SideNavNav from './components/pro/SideNav/SideNavNav';
+
+import SideNavV5 from './components/pro/SideNav/SideNavNew';
+import SideNavCatV5 from './components/pro/SideNav/SideNavNew/SideNavCat';
+import SideNavItemV5 from './components/pro/SideNav/SideNavNew/SideNavItem';
+import SideNavLinkV5 from './components/pro/SideNav/SideNavNew/SideNavLink';
+import SideNavNavV5 from './components/pro/SideNav/SideNavNew/SideNavNav';
+
 import SimpleChart from './components/pro/SimpleChart';
 import SmoothScroll from './components/pro/SmoothScroll';
 import Spinner from './components/pro/Spinner';
@@ -268,6 +275,11 @@ export {
   SideNavItem,
   SideNavLink,
   SideNavNav,
+  SideNavV5,
+  SideNavCatV5,
+  SideNavItemV5,
+  SideNavLinkV5,
+  SideNavNavV5,
   SimpleChart,
   SmoothScroll,
   Spinner,
@@ -406,6 +418,11 @@ export {
   SideNavItem as MDBSideNavItem,
   SideNavLink as MDBSideNavLink,
   SideNavNav as MDBSideNavNav,
+  SideNavV5 as MDBSideNavV5,
+  SideNavCatV5 as MDBSideNavCatV5,
+  SideNavItemV5 as MDBSideNavItemV5,
+  SideNavLinkV5 as MDBSideNavLinkV5,
+  SideNavNavV5 as MDBSideNavNavV5,
   SimpleChart as MDBSimpleChart,
   SmoothScroll as MDBSmoothScroll,
   Spinner as MDBSpinner,

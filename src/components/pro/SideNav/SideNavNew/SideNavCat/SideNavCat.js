@@ -5,7 +5,7 @@ import Collapse from '../../../../Collapse';
 import Waves from '../../../../Waves';
 import Fa from '../../../../Fa';
 import SideNavContext from '../SideNavContext';
-import { takeThemeColorOpacity } from '../../../DatePicker/DatePicker_new/Utils';
+import { takeThemeColorOpacity } from '../../../../utils';
 
 class SideNavCat extends React.Component {
   state = {

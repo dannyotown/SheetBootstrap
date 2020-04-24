@@ -116,6 +116,13 @@ import MDBSideNavCat from './components/pro/SideNav/SideNavCat';
 import MDBSideNavItem from './components/pro/SideNav/SideNavItem';
 import MDBSideNavLink from './components/pro/SideNav/SideNavLink';
 import MDBSideNavNav from './components/pro/SideNav/SideNavNav';
+
+import MDBSideNavV5 from './components/pro/SideNav/SideNavNew';
+import MDBSideNavCatV5 from './components/pro/SideNav/SideNavNew/SideNavCat';
+import MDBSideNavItemV5 from './components/pro/SideNav/SideNavNew/SideNavItem';
+import MDBSideNavLinkV5 from './components/pro/SideNav/SideNavNew/SideNavLink';
+import MDBSideNavNavV5 from './components/pro/SideNav/SideNavNew/SideNavNav';
+
 import MDBSimpleChart from './components/pro/SimpleChart';
 import MDBSmoothScroll from './components/pro/SmoothScroll';
 import MDBSpinner from './components/pro/Spinner';
@@ -272,6 +279,11 @@ export {
   MDBSideNavItem,
   MDBSideNavLink,
   MDBSideNavNav,
+  MDBSideNavV5,
+  MDBSideNavCatV5,
+  MDBSideNavItemV5,
+  MDBSideNavLinkV5,
+  MDBSideNavNavV5,
   MDBSimpleChart,
   MDBSmoothScroll,
   MDBSpinner,

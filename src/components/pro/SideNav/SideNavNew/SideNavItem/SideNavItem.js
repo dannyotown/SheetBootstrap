@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Waves from '../../../../Waves';
-import { takeThemeColorOpacity } from '../../../DatePicker/DatePicker_new/Utils';
+import { takeThemeColorOpacity } from '../../../../utils';
 
 const SideNavItem = props => {
   const [cursorPos, setCursorPos] = useState({});

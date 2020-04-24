@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { NavLink as Link } from 'react-router-dom';
 import Waves from '../../../../Waves';
 import SideNavContext from '../SideNavContext';
-import { takeThemeColorOpacity } from '../../../DatePicker/DatePicker_new/Utils';
+import { takeThemeColorOpacity } from '../../../../utils';
 
 class SideNavLink extends React.Component {
   state = {
