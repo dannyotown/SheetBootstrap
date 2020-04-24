@@ -159,7 +159,10 @@
 
 .side-nav-v5.wide-v5 .logo-wrapper-v5.sn-ad-avatar-wrapper-v5 {
   height: 5rem;
-  border-bottom: 1px solid rgba(153, 153, 153, 0.3)
+  border-bottom: 1px solid rgba(153, 153, 153, 0.3);
+  color: #555;
+  display: block;
+  margin-top: 20px;
 }
 
 .side-nav-v5.wide-v5 .logo-wrapper-v5.sn-ad-avatar-wrapper-v5 a {
@@ -174,7 +177,8 @@
 
 .side-nav-v5.wide-v5 .logo-wrapper-v5.sn-ad-avatar-wrapper-v5 a img {
   max-width: 2.5rem;
-  padding: 0
+  padding: 0;
+
 }
 
 .side-nav-v5.wide-v5 .collapsible-v5 a {
@@ -274,7 +278,9 @@
 }
 
 .side-nav-v5.side-nav-light-v5 .logo-wrapper-v5.sn-ad-avatar-wrapper-v5 {
-  color: #555
+  color: #555;
+  display: block;
+  margin-top: 20px;
 }
 
 .side-nav-v5.side-nav-light-v5 .about {
