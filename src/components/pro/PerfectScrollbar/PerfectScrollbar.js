@@ -53,13 +53,14 @@ class ScrollBar extends Component {
   };
 
   render() {
-    const { children, className } = this.props;
+    const { children, className, ...attributes } = this.props;
 
     return (
       <div
         className={`scrollbar-container ${className}`}
         ref={this.handleRef}
         data-test='perfect-scrollbar'
+        {...attributes}
       >
         {children}
       </div>
