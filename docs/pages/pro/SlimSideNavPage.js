@@ -146,14 +146,7 @@ class SideNavPage extends Component {
             </MDBBtn>
 
             {/* the left SideNav: */}
-            <MDBSideNavV5
-              slim
-              mask='rgba-blue-strong'
-              triggerOpening={sideNavLeftV5}
-              breakWidth={1300}
-              className='sn-bg-1'
-              id='slim-1'
-            >
+            <MDBSideNavV5 slim triggerOpening={sideNavLeftV5} breakWidth={1300} id='slim-1'>
               <li>
                 <div className='logo-wrapper-v5 sn-ad-avatar-wrapper-v5'>
                   <a href='#!'>
