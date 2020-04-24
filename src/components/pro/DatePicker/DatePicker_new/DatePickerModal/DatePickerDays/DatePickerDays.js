@@ -59,9 +59,9 @@ const DatePickerDays = ({
   };
 
   return (
-    <div className='picker__table-wrapper'>
+    <div className='date-picker__table-wrapper'>
       <table
-        className='picker__table'
+        className='date-picker__table'
         id='picker-example_table'
         role='grid'
         aria-controls='picker-example'

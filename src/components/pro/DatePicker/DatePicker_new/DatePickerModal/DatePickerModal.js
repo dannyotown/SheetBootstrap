@@ -1,7 +1,7 @@
 import { MDBBtn, MDBIcon } from 'mdbreact';
 import moment from 'moment';
 import React, { Component, createRef } from 'react';
-import { makeFirstLetterUpper, makeRandomID, takeThemeColor, takeAcutalDate } from '../Utils';
+import { makeFirstLetterUpper, makeRandomID, takeThemeColor, takeAcutalDate } from '../../../../utils';
 import ReactDOM from 'react-dom';
 import classNames from 'classNames';
 import DatePickerYears from './DatePickerYears/DatePickerYears';
@@ -49,7 +49,7 @@ export default class DatePickerModal extends Component {
       this.checkPositionInline();
     }
 
-    document.body.classList.add('picker-body-disable-scroll');
+    document.body.classList.add('date-picker-body-disable-scroll');
     document.addEventListener('mousedown', this.handleClickOutside);
     document.addEventListener('keydown', this.keyboardChangeDate);
     window.addEventListener('resize', this.updateDimensions);
@@ -89,7 +89,7 @@ export default class DatePickerModal extends Component {
     }
   }
   componentWillUnmount() {
-    document.body.classList.remove('picker-body-disable-scroll');
+    document.body.classList.remove('date-picker-body-disable-scroll');
     document.removeEventListener('mousedown', this.handleClickOutside);
     document.removeEventListener('scroll resize', this.checkPositionInline);
     window.removeEventListener('resize', this.updateDimensions);
@@ -173,7 +173,7 @@ export default class DatePickerModal extends Component {
             el => el.innerText === `${takeAcutalDate(initialActualDate).format('YYYY')}`
           )[0];
 
-          document.querySelector('.picker__scrollMobile-height').scroll({
+          document.querySelector('.date-picker__scrollMobile-height').scroll({
             left: 0,
             top: actualYear.offsetTop - isInline,
             behavior: animateYearScrolling ? 'smooth' : 'auto'
@@ -510,7 +510,7 @@ export default class DatePickerModal extends Component {
 
     const dateDisplayClasses = picker =>
       classNames(
-        `picker__${picker}-display pt-2 cursor-pointer`,
+        `date-picker__${picker}-display pt-2 cursor-pointer`,
         picker === 'year'
           ? initialGetYears
             ? 'text-white'
@@ -527,13 +527,13 @@ export default class DatePickerModal extends Component {
       !inline ? (
         <FocusTrap>
           <div className='mdb-react-date__picker'>
-            <div className='picker picker--opened picker--focused' id='falseY_root' aria-hidden='false'>
+            <div className='date-picker date-picker--opened' id='falseY_root' aria-hidden='false'>
               <div
-                className='picker__holder'
-                onClick={e => e.target.classList.contains('picker__holder') && this.lastDateModal()}
+                className='date-picker__holder'
+                onClick={e => e.target.classList.contains('date-picker__holder') && this.lastDateModal()}
               >
                 <div
-                  className='picker__frame'
+                  className='date-picker__frame'
                   style={{
                     transform: 'translate(-50%, -50%)',
                     top: '50%',
@@ -542,19 +542,19 @@ export default class DatePickerModal extends Component {
                     margin: 'unset'
                   }}
                 >
-                  <div className='picker__box'>
-                    <div className='picker__header' style={{ backgroundColor: takeThemeColor(theme) }}>
-                      <div className='picker__date-display' style={{ backgroundColor: takeThemeColor(theme) }}>
+                  <div className='date-picker__box'>
+                    <div className='date-picker__header' style={{ backgroundColor: takeThemeColor(theme) }}>
+                      <div className='date-picker__date-display' style={{ backgroundColor: takeThemeColor(theme) }}>
                         <div
                           onClick={() => this.setState({ initialGetYears: true })}
                           className={dateDisplayClasses('year')}
                         >{`Select ${initialGetYears ? 'Year' : 'Date'}`}</div>
                         <div
-                          className='picker__controls d-flex align-items-end'
+                          className='date-picker__controls d-flex align-items-end'
                           onClick={this.hideYears}
                           style={{ cursor: 'pointer' }}
                         >
-                          <div className='row picker__date-mobile'>
+                          <div className='row date-picker__date-mobile'>
                             <div className={dateDisplayClasses('weekday')}>
                               {makeFirstLetterUpper(DATE.locale(locale).format('ddd'))},
                             </div>
@@ -568,13 +568,13 @@ export default class DatePickerModal extends Component {
                         </div>
                       </div>
                     </div>
-                    <div className='picker__body'>
+                    <div className='date-picker__body'>
                       <div className='d-flex justify-content-between pt-3 position-relative'>
-                        <div className='picker__date-wrapper'>
-                          <span className='picker__month'>
+                        <div className='date-picker__date-wrapper'>
+                          <span className='date-picker__month'>
                             {makeFirstLetterUpper(DATE.locale(locale).format('MMMM'))}
                           </span>
-                          <span className='picker__year ml-1'>{DATE.locale(locale).format('YYYY')}</span>
+                          <span className='date-picker__year ml-1'>{DATE.locale(locale).format('YYYY')}</span>
 
                           <MDBBtn
                             flat
@@ -691,7 +691,7 @@ export default class DatePickerModal extends Component {
         <FocusTrap>
           <div className='mdb-react-date__picker'>
             <div
-              className='picker picker--opened picker--focused'
+              className='date-picker date-picker--opened '
               id={firstRandomID}
               aria-hidden='false'
               ref={node => (this.inlinePicker = node)}
@@ -704,7 +704,7 @@ export default class DatePickerModal extends Component {
                 />
               )}
               <div
-                className='picker__frame picker__frame--inline'
+                className='date-picker__frame date-picker__frame--inline'
                 style={{
                   top: topPositionOfInput,
                   left: leftPositionOfInput,
@@ -715,14 +715,14 @@ export default class DatePickerModal extends Component {
                 }}
                 id={secondRandomID}
               >
-                <div className='picker__box'>
-                  <div className='picker__body'>
+                <div className='date-picker__box'>
+                  <div className='date-picker__body'>
                     <div className='d-flex justify-content-between pt-3 position-relative'>
-                      <div className='picker__date-wrapper'>
-                        <span className='picker__month'>
+                      <div className='date-picker__date-wrapper'>
+                        <span className='date-picker__month'>
                           {makeFirstLetterUpper(DATE.locale(locale).format('MMMM'))}
                         </span>
-                        <span className='picker__year ml-1'>{DATE.locale(locale).format('YYYY')}</span>
+                        <span className='date-picker__year ml-1'>{DATE.locale(locale).format('YYYY')}</span>
 
                         <MDBBtn
                           flat

@@ -3,8 +3,8 @@ import { MDBBtn, MDBInput } from 'mdbreact';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { Component, createRef } from 'react';
-import './_default-date.scss';
-import { makeRandomID } from './Utils';
+import './DatePicker.css';
+import { makeRandomID } from '../../../utils';
 import DatePickerModal from './DatePickerModal/DatePickerModal';
 import { CSSTransition } from 'react-transition-group';
 
@@ -136,6 +136,7 @@ class DatePickerV5 extends Component {
       getValue,
       disableScrollModal,
       value,
+      validation,
       labelTitle,
       backdrop,
       valueDefault,
@@ -226,7 +227,7 @@ class DatePickerV5 extends Component {
               onClick={this.openModal}
               aria-haspopup='dialog'
             />
-            {VALID && validMessage(invalidDateMessage)}
+            {validation && VALID && validMessage(invalidDateMessage)}
             {!VALID && IS_AFTER_MAX && validMessage(maxDateMessage)}
             {!VALID && IS_BEFORE_MIN && validMessage(minDateMessage)}
           </>

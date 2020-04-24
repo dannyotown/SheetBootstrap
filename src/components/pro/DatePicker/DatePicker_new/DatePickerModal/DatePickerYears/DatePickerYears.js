@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDBBtn } from 'mdbreact';
 import moment from 'moment';
-import { takeThemeColor, takeAcutalDate } from '../../Utils';
+import { takeThemeColor, takeAcutalDate } from '../../../../../utils';
 
 const DatePickerYears = ({
   scrolledYears,
@@ -50,11 +50,11 @@ const DatePickerYears = ({
         overflowY: 'scroll'
       }}
       ref={yearsRef}
-      className='d-flex flex-wrap justify-content-center picker__scrollMobile-height'
+      className='d-flex flex-wrap justify-content-center date-picker__scrollMobile-height'
     >
       {initialScrolledYears.map((year, i) => {
         return (
-          <div key={year} className='picker__years'>
+          <div key={year} className='date-picker__years'>
             <MDBBtn
               id={i}
               aria-label={year}
@@ -76,10 +76,10 @@ const DatePickerYears = ({
     <div ref={yearsRef}>
       {initialBoxYears.map((years, i) => {
         return (
-          <div key={years + i} className='position-relative picker-grid'>
+          <div key={years + i} className='position-relative date-picker-grid'>
             {years.map((year, j) => {
               return (
-                <div key={year} className='picker__years'>
+                <div key={year} className='date-picker__years'>
                   <MDBBtn
                     id={j}
                     aria-label={year}

@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBBtn, MDBIcon } from 'mdbreact';
 import moment from 'moment';
 import classNames from 'classNames';
-import { takeAcutalDate } from '../../Utils';
+import { takeAcutalDate } from '../../../../../utils';
 
 const DatePickerMovedButtons = ({
   initialGetYears,
@@ -23,14 +23,14 @@ const DatePickerMovedButtons = ({
 
   const prevMonthClasses = () =>
     classNames(
-      'picker__nav--prev ml-3',
+      'ml-3',
       DATE.isSameOrBefore(moment(minDate), 'months') && 'disabled',
       disablePast && DATE.isSameOrBefore(new Date(), 'months') && 'disabled'
     );
 
   const nextMonthClasses = () =>
     classNames(
-      'picker__nav--next mr-3',
+      'mr-3',
       DATE.isSameOrAfter(moment(maxDate), 'months') && 'disabled',
       disableFuture && DATE.isSameOrAfter(new Date(), 'months') && 'disabled'
     );
@@ -51,7 +51,7 @@ const DatePickerMovedButtons = ({
   };
 
   return (
-    <div className='picker__btn-wrapper position-absolute'>
+    <div className='date-picker__btn-wrapper position-absolute'>
       <MDBBtn
         flat
         onClick={() => {

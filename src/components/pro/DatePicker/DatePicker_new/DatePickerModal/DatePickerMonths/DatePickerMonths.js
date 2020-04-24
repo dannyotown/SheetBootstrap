@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { MDBBtn } from 'mdbreact';
-import { takeThemeColor, takeAcutalDate } from '../../Utils';
+import { takeThemeColor, takeAcutalDate } from '../../../../../utils';
 
 const DatePickerMonths = ({ initialActualDate, theme, getUpdate }) => {
   const allMonths = moment.monthsShort();
@@ -33,7 +33,7 @@ const DatePickerMonths = ({ initialActualDate, theme, getUpdate }) => {
       <div style={{ display: 'grid', gridTemplateColumns: '25% 25% 25% 25%', paddingTop: 10 }}>
         {allMonths.map(month => {
           return (
-            <div key={month} className='picker__months'>
+            <div key={month} className='date-picker__months'>
               <MDBBtn
                 color={month === changedYear && theme}
                 onClick={e => setActiveMonth(e)}

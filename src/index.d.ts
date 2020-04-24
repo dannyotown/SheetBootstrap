@@ -93,6 +93,7 @@ import MDBChip from './components/pro/Chip';
 import MDBChipsInput from './components/pro/ChipsInput';
 import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBDatePicker from './components/pro/DatePicker';
+import MDBDatePickerV5 from './components/pro/DatePicker/DatePicker_new';
 import MDBExportToCSV from './components/pro/DataTable/ExportToCSV';
 import MDBFileInput from './components/pro/InputFile';
 import MDBGallery from './components/pro/Gallery';
@@ -247,6 +248,7 @@ export {
   MDBChipsInput,
   MDBCollapseHeader,
   MDBDatePicker,
+  MDBDatePickerV5,
   MDBExportToCSV,
   MDBRotatingCard,
   MDBFileInput,

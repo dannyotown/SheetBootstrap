@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDBBtn } from 'mdbreact';
 import classNames from 'classnames';
-import { takeThemeColor } from '../../Utils';
+import { takeThemeColor } from '../../../../../utils';
 
 const DatePickerFooter = ({
   initialGetYears,
@@ -19,7 +19,7 @@ const DatePickerFooter = ({
 
   return (
     <div
-      className='picker__footer d-flex flex-row-reverse justify-content-between'
+      className='date-picker__footer d-flex flex-row-reverse justify-content-between'
       style={{ borderTop: initialGetYears && '1px solid #e0e0e0' }}
     >
       <div>

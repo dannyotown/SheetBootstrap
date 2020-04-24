@@ -93,6 +93,7 @@ import Chip from './components/pro/Chip';
 import ChipsInput from './components/pro/ChipsInput';
 import CollapseHeader from './components/pro/CollapseHeader';
 import DatePicker from './components/pro/DatePicker';
+import DatePickerV5 from './components/pro/DatePicker/DatePicker_new';
 import ExportToCSV from './components/pro/DataTable/ExportToCSV';
 import FlippingCard from './components/pro/FlippingCard';
 import Gallery from './components/pro/Gallery';
@@ -383,6 +384,7 @@ export {
   CollapseHeader as MDBCollapseHeader,
   cssTransition as MDBcssTransition,
   DatePicker as MDBDatePicker,
+  DatePickerV5 as MDBDatePickerV5,
   ExportToCSV as MDBExportToCSV,
   FlippingCard as MDBRotatingCard,
   InputFile as MDBFileInput,
