@@ -1,0 +1,113 @@
+.popover-enter {
+  opacity: 0.01;
+  transform: scale(0.9) translateY(50%);
+}
+
+.popover-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: scale 400ms ease-out, opacity 400ms ease-in;
+}
+
+.popover-enter-done {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.popover-exit {
+  opacity: 1;
+  transform: scale(0.8);
+  transition: all 400ms ease-out;
+}
+
+.popover-exit-active {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 400ms ease-out;
+}
+
+/* slide from side */
+
+.side-slide-v5-enter,
+.side-slide-v5-appear {
+  opacity: 1;
+  transform: translateX(-100%);
+}
+
+.side-slide-v5-enter-active,
+.side-slide-v5-appear-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: transform 400ms ease-out, opacity 400ms ease-in;
+}
+
+.side-slide-v5-enter-done {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.side-slide-v5-exit {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 400ms ease-out;
+}
+
+.side-slide-v5-exit-active {
+  opacity: 1;
+  transform: translateX(-100%);
+  transition: all 400ms ease-out;
+}
+
+.right-side-slide-v5-enter,
+.right-side-slide-v5-appear {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+.right-side-slide-v5-enter-active,
+.right-side-slide-v5-appear-active {
+  opacity: 1;
+  transform: translateX(0%) !important;
+  transition: transform 400ms ease-out, opacity 400ms ease-in;
+}
+
+.right-side-slide-v5-enter-done {
+  opacity: 1;
+  transform: translateX(0%) !important;
+}
+
+.right-side-slide-v5-exit {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 400ms ease-out;
+}
+
+.right-side-slide-v5-exit-active {
+  opacity: 1;
+  transform: translateX(100%);
+  transition: all 400ms ease-out;
+}
+
+.side-nav-v5[data-animate="false"] {
+  transform: translateX(0%);
+}
+
+
+.side-nav-v5.wide-v5 {
+  transition-property: all;
+  transition-duration: 400ms;
+  transition-timing-function: ease-out;
+}
+
+
+.side-nav-v5.wide-v5.slim-v5 {
+  width: 3.75rem;
+  transition-property: all;
+  transition-duration: 400ms;
+  transition-timing-function: ease-out;
+  right: 3.75rem;
+}
+
+.right-aligned-v5.side-nav-v5.wide-v5.slim-v5 {
+  right: 0;
+}
