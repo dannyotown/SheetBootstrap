@@ -7,7 +7,8 @@ import { CSSTransition } from 'react-transition-group';
 // import '../../../../Transitions.css';
 import ScrollBar from '../../PerfectScrollbar';
 import SideNavContext from './SideNavContext';
-import './scss/mdb-pro.scss';
+// import './scss/mdb-pro.scss';
+import './SideNav.css';
 
 class SideNav extends React.Component {
   isOpen = () => {
