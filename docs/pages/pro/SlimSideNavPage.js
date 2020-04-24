@@ -136,7 +136,7 @@ class SideNavPage extends Component {
             </MDBSideNav>
           </SectionContainer>
 
-          <DocsLink title='Slim Sidenav' href='https://mdbootstrap.com/docs/react/navigation/sidenav/' />
+          <DocsLink title='Slim Sidenav version 5' href='https://mdbootstrap.com/docs/react/navigation/sidenav/' />
           <SectionContainer header='Slim' flexCenter>
             <MDBBtn onClick={this.sidenavToggle('LeftV5')}>
               <MDBIcon size='lg' icon='bars' />
@@ -155,7 +155,7 @@ class SideNavPage extends Component {
                       src='https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg'
                       className='rounded-circle'
                     />
-                    <span>Anna Deynah</span>
+                    <span style={{ color: '#000' }}>Anna Deynah</span>
                   </a>
                 </div>
               </li>

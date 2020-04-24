@@ -53,7 +53,7 @@ class ScrollBar extends Component {
   };
 
   render() {
-    const { children, className, ...attributes } = this.props;
+    const { children, className, containerRef, ...attributes } = this.props;
 
     return (
       <div
@@ -71,17 +71,7 @@ class ScrollBar extends Component {
 ScrollBar.defaultProps = {
   className: '',
   option: undefined,
-  containerRef: () => {},
-  onScrollY: undefined,
-  onScrollX: undefined,
-  onScrollUp: undefined,
-  onScrollDown: undefined,
-  onScrollLeft: undefined,
-  onScrollRight: undefined,
-  onYReachStart: undefined,
-  onYReachEnd: undefined,
-  onXReachStart: undefined,
-  onXReachEnd: undefined
+  containerRef: () => {}
 };
 
 ScrollBar.propTypes = {
