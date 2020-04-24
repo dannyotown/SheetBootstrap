@@ -7,7 +7,11 @@ import {
   MDBSideNavLink,
   MDBContainer,
   MDBIcon,
-  MDBBtn
+  MDBBtn,
+  MDBSideNavCatV5,
+  MDBSideNavNavV5,
+  MDBSideNavV5,
+  MDBSideNavLinkV5
 } from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
@@ -31,10 +35,7 @@ class SideNavPage extends Component {
     return (
       <Router>
         <MDBContainer>
-          <DocsLink
-            title='Slim Sidenav'
-            href='https://mdbootstrap.com/docs/react/navigation/sidenav/'
-          />
+          <DocsLink title='Slim Sidenav' href='https://mdbootstrap.com/docs/react/navigation/sidenav/' />
           <SectionContainer header='Slim' flexCenter>
             <MDBBtn onClick={this.sidenavToggle('Left')}>
               <MDBIcon size='lg' icon='bars' />
@@ -44,13 +45,7 @@ class SideNavPage extends Component {
             </MDBBtn>
 
             {/* the left SideNav: */}
-            <MDBSideNav
-              slim
-              mask='rgba-blue-strong'
-              triggerOpening={sideNavLeft}
-              breakWidth={1300}
-              className='sn-bg-1'
-            >
+            <MDBSideNav slim mask='rgba-blue-strong' triggerOpening={sideNavLeft} breakWidth={1300} className='sn-bg-1'>
               <li>
                 <div className='logo-wrapper sn-ad-avatar-wrapper'>
                   <a href='#!'>
@@ -69,20 +64,11 @@ class SideNavPage extends Component {
                   <MDBIcon icon='pencil-alt' className='mr-2' />
                   Submit listing
                 </MDBSideNavLink>
-                <MDBSideNavCat
-                  name='Submit blog'
-                  id='submit-blog'
-                  icon='chevron-right'
-                >
+                <MDBSideNavCat name='Submit blog' id='submit-blog' icon='chevron-right'>
                   <MDBSideNavLink>Submit listing</MDBSideNavLink>
                   <MDBSideNavLink>Registration form</MDBSideNavLink>
                 </MDBSideNavCat>
-                <MDBSideNavCat
-                  name='Instruction'
-                  id='instruction'
-                  icon='hand-pointer'
-                  href='#'
-                >
+                <MDBSideNavCat name='Instruction' id='instruction' icon='hand-pointer' href='#'>
                   <MDBSideNavLink>For bloggers</MDBSideNavLink>
                   <MDBSideNavLink>For authors</MDBSideNavLink>
                 </MDBSideNavCat>
@@ -90,11 +76,7 @@ class SideNavPage extends Component {
                   <MDBSideNavLink>Instruction</MDBSideNavLink>
                   <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
                 </MDBSideNavCat>
-                <MDBSideNavCat
-                  name='Contact me'
-                  id='contact-me'
-                  icon='envelope'
-                >
+                <MDBSideNavCat name='Contact me' id='contact-me' icon='envelope'>
                   <MDBSideNavLink>FAQ</MDBSideNavLink>
                   <MDBSideNavLink>Write a message</MDBSideNavLink>
                 </MDBSideNavCat>
@@ -102,13 +84,7 @@ class SideNavPage extends Component {
             </MDBSideNav>
 
             {/* the right SideNav: */}
-            <MDBSideNav
-              slim
-              triggerOpening={sideNavRight}
-              className='side-nav-light'
-              right
-              breakWidth={1300}
-            >
+            <MDBSideNav slim triggerOpening={sideNavRight} className='side-nav-light' right breakWidth={1300}>
               <li>
                 <div className='logo-wrapper sn-ad-avatar-wrapper'>
                   <a href='#!'>
@@ -138,21 +114,11 @@ class SideNavPage extends Component {
                 </ul>
               </li>
               <MDBSideNavNav>
-                <MDBSideNavCat
-                  name='Submit blog'
-                  id='submit-blog2'
-                  icon='chevron-right'
-                >
-                  <MDBSideNavLink className='active'>
-                    Submit listing
-                  </MDBSideNavLink>
+                <MDBSideNavCat name='Submit blog' id='submit-blog2' icon='chevron-right'>
+                  <MDBSideNavLink className='active'>Submit listing</MDBSideNavLink>
                   <MDBSideNavLink>Registration form</MDBSideNavLink>
                 </MDBSideNavCat>
-                <MDBSideNavCat
-                  name='Instruction'
-                  id='instruction2'
-                  icon='hand-pointer'
-                >
+                <MDBSideNavCat name='Instruction' id='instruction2' icon='hand-pointer'>
                   <MDBSideNavLink>For bloggers</MDBSideNavLink>
                   <MDBSideNavLink>For authors</MDBSideNavLink>
                 </MDBSideNavCat>
@@ -160,11 +126,7 @@ class SideNavPage extends Component {
                   <MDBSideNavLink>Instruction</MDBSideNavLink>
                   <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
                 </MDBSideNavCat>
-                <MDBSideNavCat
-                  name='Contact me'
-                  id='contact-me2'
-                  icon='envelope'
-                >
+                <MDBSideNavCat name='Contact me' id='contact-me2' icon='envelope'>
                   <MDBSideNavLink>FAQ</MDBSideNavLink>
                   <MDBSideNavLink>Write a message</MDBSideNavLink>
                 </MDBSideNavCat>
