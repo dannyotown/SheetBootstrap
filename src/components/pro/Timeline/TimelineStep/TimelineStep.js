@@ -13,6 +13,8 @@ const TimelineStep = props => {
     iconLight,
     iconRegular,
     iconSize,
+    circleClassName,
+    stepContentClassName,
     className,
     children,
     inverted,
@@ -21,22 +23,18 @@ const TimelineStep = props => {
     label
   } = props;
 
-  const circleClasses = classNames(
-    'circle',
-    'z-depth-1-half',
-    color || 'primary-color',
-    className
-  );
+  const circleClasses = classNames('circle', 'z-depth-1-half', color || 'primary-color', circleClassName);
 
   const stepContentClasses = classNames(
     'step-content',
     'z-depth-1',
     'ml-xl-0',
     colorful ? 'p-0 mt-2' : 'p-4',
-    hoverable && 'hoverable'
+    hoverable && 'hoverable',
+    stepContentClassName
   );
 
-  const liClasses = classNames(inverted && 'timeline-inverted');
+  const liClasses = classNames(inverted && 'timeline-inverted', className);
 
   return (
     <li className={liClasses}>
