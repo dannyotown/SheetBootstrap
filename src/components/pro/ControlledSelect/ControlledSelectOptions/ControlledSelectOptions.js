@@ -15,7 +15,9 @@ class ControlledSelectOptions extends Component {
 
   componentDidMount() {
     const { inputRef } = this.props;
-    if (inputRef.current) {this.inputRef = inputRef.current;}
+    if (inputRef.current) {
+      this.inputRef = inputRef.current;
+    }
     this.inputRef.addEventListener('keydown', this.handleFocus);
   }
 
@@ -46,19 +48,11 @@ class ControlledSelectOptions extends Component {
     });
 
     changeFocus(null);
-    this.setState({ filteredOptions }, () =>
-      setFilteredOptions(filteredOptions)
-    );
+    this.setState({ filteredOptions }, () => setFilteredOptions(filteredOptions));
   };
 
   handleFocus = e => {
-    const {
-      changeFocus,
-      focused,
-      selectAll,
-      selectAllValue,
-      selectOption
-    } = this.props;
+    const { changeFocus, focused, selectAll, selectAllValue, selectOption } = this.props;
 
     const { filteredOptions } = this.state;
 
@@ -70,27 +64,21 @@ class ControlledSelectOptions extends Component {
     (DOWN || UP || ENTER) && e.preventDefault();
 
     if (ENTER && focused !== null) {
-      focused === -1
-        ? selectOption(selectAllValue)
-        : selectOption(filteredOptions[focused].value);
+      focused === -1 ? selectOption(selectAllValue) : selectOption(filteredOptions[focused].value);
     }
 
     ESC && changeFocus(null);
 
     if (DOWN) {
       if (focused === null) {
-        selectAll && filteredOptions.length !== 1
-          ? changeFocus(-1)
-          : changeFocus(0);
+        selectAll && filteredOptions.length !== 1 ? changeFocus(-1) : changeFocus(0);
       } else {
         focused < filteredOptions.length - 1 && changeFocus(1);
       }
     }
 
     if (UP) {
-      focused >= (selectAll ? 0 : 1) &&
-        filteredOptions.length > 1 &&
-        changeFocus(-1);
+      focused >= (selectAll ? 0 : 1) && filteredOptions.length > 1 && changeFocus(-1);
     }
   };
 
@@ -113,11 +101,7 @@ class ControlledSelectOptions extends Component {
     } = this.props;
     const { filteredOptions } = this.state;
 
-    const classes = classNames(
-      'dropdown-content',
-      'select-dropdown',
-      'fadeElement'
-    );
+    const classes = classNames('dropdown-content', 'select-dropdown', 'fadeElement');
 
     return (
       <ul data-test='controlled-select-options' className={classes}>
@@ -130,12 +114,7 @@ class ControlledSelectOptions extends Component {
             onKeyDown={this.handleFocus}
           />
         )}
-        <ControlledSelectOption
-          checked={false}
-          disabled
-          icon={null}
-          value={selected}
-        />
+        <ControlledSelectOption checked={false} disabled icon={null} value={selected} />
         {selectAll && multiple && filteredOptions.length > 1 && (
           <ControlledSelectOption
             text={selectAllLabel}
@@ -179,9 +158,7 @@ ControlledSelectOptions.propTypes = {
   focused: PropTypes.number,
   focusShadow: PropTypes.string,
   inputRef: PropTypes.shape({
-    current: PropTypes.instanceOf(
-      typeof Element === 'undefined' ? function() {} : Element
-    )
+    current: PropTypes.instanceOf(typeof Element === 'undefined' ? function() {} : Element)
   }),
   multiple: PropTypes.bool,
   options: PropTypes.arrayOf(

@@ -5,12 +5,7 @@ import classNames from 'classnames';
 const CardUp = props => {
   const { className, tag: Tag, color, gradient, ...attributes } = props;
 
-  const classes = classNames(
-    'card-up',
-    color && `${color}-color`,
-    gradient && `${gradient}-gradient`,
-    className
-  );
+  const classes = classNames('card-up', color && `${color}-color`, gradient && `${gradient}-gradient`, className);
 
   return <Tag data-test='card-up' {...attributes} className={classes} />;
 };

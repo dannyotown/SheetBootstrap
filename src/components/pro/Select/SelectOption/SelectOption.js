@@ -57,29 +57,16 @@ class Option extends React.Component {
             this.props.value ? value.push(this.props.value) : value.push(text);
           }
         });
-        Array.from(options).forEach(option =>
-          option.classList.remove('active')
-        );
+        Array.from(options).forEach(option => option.classList.remove('active'));
         selectedOption.classList.add('active');
       }
 
-      value.length
-        ? this.props.context.triggerOptionChange(value, text)
-        : this.props.context.triggerOptionChange();
+      value.length ? this.props.context.triggerOptionChange(value, text) : this.props.context.triggerOptionChange();
     }
   };
 
   render() {
-    const {
-      className,
-      children,
-      disabled,
-      separator,
-      icon,
-      triggerOptionClick,
-      value,
-      ...attributes
-    } = this.props;
+    const { className, children, disabled, separator, icon, triggerOptionClick, value, ...attributes } = this.props;
 
     const classes = classNames(
       disabled || separator ? 'disabled' : '',
@@ -101,20 +88,10 @@ class Option extends React.Component {
             checked={this.state.checked}
           />
         );
-        label = (
-          <label
-            style={{ height: '10px' }}
-            data-multiple={this.state.multiple}
-          />
-        );
+        label = <label style={{ height: '10px' }} data-multiple={this.state.multiple} />;
       } else {
         input = <input type='checkbox' className='form-check-input' disabled />;
-        label = (
-          <label
-            style={{ height: '10px' }}
-            data-multiple={this.state.multiple}
-          />
-        );
+        label = <label style={{ height: '10px' }} data-multiple={this.state.multiple} />;
       }
     }
 
@@ -127,18 +104,12 @@ class Option extends React.Component {
         onClick={this.selectOption}
         style={{ display: 'flex' }}
       >
-        <span
-          data-multiple={this.state.multiple}
-          className='filtrable'
-          style={{ flex: '1' }}
-        >
+        <span data-multiple={this.state.multiple} className='filtrable' style={{ flex: '1' }}>
           {!separator ? input : null}
           {label}
           {children}
         </span>
-        {icon && (
-          <img src={this.props.icon} alt='icon' className='rounded-circle' />
-        )}
+        {icon && <img src={this.props.icon} alt='icon' className='rounded-circle' />}
       </li>
     );
   }

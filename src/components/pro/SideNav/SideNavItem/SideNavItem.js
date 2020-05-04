@@ -24,24 +24,12 @@ const SideNavItem = props => {
     }
   };
 
-  const {
-    children,
-    className,
-    href,
-    innerRef,
-    tag: Tag,
-    ...attributes
-  } = props;
+  const { children, className, href, innerRef, tag: Tag, ...attributes } = props;
 
   const classes = classNames('Ripple-parent', className);
 
   return (
-    <Tag
-      className={classes}
-      ref={innerRef}
-      onClick={handleClick}
-      {...attributes}
-    >
+    <Tag className={classes} ref={innerRef} onClick={handleClick} {...attributes}>
       <a className={classes} href={href}>
         {children}
         <Waves cursorPos={cursorPos} />

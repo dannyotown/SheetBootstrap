@@ -90,15 +90,7 @@ class InputRange extends React.Component {
   };
 
   render() {
-    const {
-      thumbActive,
-      value,
-      leftPosition,
-      thumbHeight,
-      thumbWidth,
-      thumbTop,
-      thumbTransform
-    } = this.state;
+    const { thumbActive, value, leftPosition, thumbHeight, thumbWidth, thumbTop, thumbTransform } = this.state;
     const { className, formClassName, min, max, step, tag: Tag } = this.props;
     const inputClass = classNames(className);
     const formClass = classNames('range-field', formClassName);

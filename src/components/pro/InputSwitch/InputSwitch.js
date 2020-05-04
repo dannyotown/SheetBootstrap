@@ -32,16 +32,7 @@ class InputSwitch extends React.Component {
   }
 
   render() {
-    const {
-      checked,
-      className,
-      disabled,
-      getValue,
-      labelLeft,
-      labelRight,
-      onChange,
-      ...attributes
-    } = this.props;
+    const { checked, className, disabled, getValue, labelLeft, labelRight, onChange, ...attributes } = this.props;
     const { value } = this.state;
 
     const classes = classNames('switch', className);
@@ -49,13 +40,7 @@ class InputSwitch extends React.Component {
       <div {...attributes} className={classes} data-test='input-switch'>
         <label>
           {labelLeft}
-          <input
-            disabled={disabled}
-            value={value}
-            checked={value}
-            onChange={this.handleChange}
-            type='checkbox'
-          />
+          <input disabled={disabled} value={value} checked={value} onChange={this.handleChange} type='checkbox' />
           <span className='lever' />
           {labelRight}
         </label>
@@ -69,16 +54,8 @@ InputSwitch.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   getValue: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
-  labelLeft: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]),
-  labelRight: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]),
+  labelLeft: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
+  labelRight: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
   onChange: PropTypes.func
 };
 

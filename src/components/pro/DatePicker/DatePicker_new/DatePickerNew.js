@@ -38,8 +38,8 @@ class DatePickerV5 extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { getValue, keyboard, value, format, inline, theme } = this.props;
-    const { actualDate, modalOpen, hoverButton, inputValue, approved } = this.state;
+    const { getValue, value, format, inline } = this.props;
+    const { actualDate, modalOpen, approved } = this.state;
 
     if (getValue && prevState.modalOpen !== modalOpen) {
       getValue(moment(actualDate)._d);
@@ -82,7 +82,7 @@ class DatePickerV5 extends Component {
   changeHandler = event => {
     const { value } = event.target;
     const { maxDate, minDate, format, getValue } = this.props;
-    const { actualDate } = this.state;
+
     this.setState({ inputValue: value }, () => {
       const date = moment(value, format, true)._d;
 

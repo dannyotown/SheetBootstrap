@@ -22,21 +22,11 @@ class SideNavNav extends React.Component {
   };
 
   render() {
-    const {
-      tag: Tag,
-      toggleNavLabel,
-      children,
-      className,
-      ...attributes
-    } = this.props;
+    const { tag: Tag, toggleNavLabel, children, className, ...attributes } = this.props;
 
     const { accordion } = this.state;
 
-    const classes = classNames(
-      'collapsible',
-      'collapsible-accordion',
-      className
-    );
+    const classes = classNames('collapsible', 'collapsible-accordion', className);
 
     const modified = React.Children.map(children, (child, i) => {
       if (child.type.displayName === 'SideNavCat') {
@@ -74,9 +64,7 @@ class SideNavNav extends React.Component {
                         }}
                       >
                         <i className={iconClass.join(' ')} />
-                        <span className={slim ? 'd-none' : ''}>
-                          {toggleNavLabel}
-                        </span>
+                        <span className={slim ? 'd-none' : ''}>{toggleNavLabel}</span>
                       </button>
                     </li>
                   )}

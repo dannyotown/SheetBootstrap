@@ -52,19 +52,11 @@ const Chip = props => {
   );
 
   return (
-    <Tag
-      data-test='chip'
-      {...attributes}
-      className={classes}
-      onMouseDown={handleClick}
-      onTouchStart={handleClick}
-    >
+    <Tag data-test='chip' {...attributes} className={classes} onMouseDown={handleClick} onTouchStart={handleClick}>
       {src && <img src={src} alt={alt} />}
       {children}
       {waves && <Waves cursorPos={cursorPos} />}
-      {close && (
-        <Fa icon='times' className='close' onClick={handleCloseClick} />
-      )}
+      {close && <Fa icon='times' className='close' onClick={handleCloseClick} />}
     </Tag>
   );
 };

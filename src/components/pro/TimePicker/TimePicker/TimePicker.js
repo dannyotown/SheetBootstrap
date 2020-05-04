@@ -23,11 +23,7 @@ const propTypes = {
   getValue: PropTypes.func,
   hours: PropTypes.number,
   hoursFormat: PropTypes.number,
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]),
   minutes: PropTypes.number,
   placeholder: PropTypes.string,
   startFromInner: PropTypes.bool
@@ -136,13 +132,7 @@ class TimePicker extends Component {
   setInputText = () => {
     let value = '';
 
-    const {
-      initialHours,
-      initialMinutes,
-      initialDayTime,
-      computedHours,
-      computedMinutes
-    } = this.state;
+    const { initialHours, initialMinutes, initialDayTime, computedHours, computedMinutes } = this.state;
 
     const { hoursFormat } = this.props;
     if (
@@ -259,21 +249,11 @@ class TimePicker extends Component {
       pickerDialogOpen && 'picker__input picker__input--active'
     );
 
-    const clockClasses = classNames(
-      'clockpicker',
-      'picker',
-      pickerDialogOpen && 'picker--opened'
-    );
+    const clockClasses = classNames('clockpicker', 'picker', pickerDialogOpen && 'picker--opened');
 
-    const hoursClasses = classNames(
-      'clockpicker-hours',
-      unitsMode !== 'h' && 'clockpicker-dial-out'
-    );
+    const hoursClasses = classNames('clockpicker-hours', unitsMode !== 'h' && 'clockpicker-dial-out');
 
-    const minutesClasses = classNames(
-      'clockpicker-minutes',
-      unitsMode !== 'm' && 'clockpicker-dial-out'
-    );
+    const minutesClasses = classNames('clockpicker-minutes', unitsMode !== 'm' && 'clockpicker-dial-out');
 
     return (
       <div className='md-form'>

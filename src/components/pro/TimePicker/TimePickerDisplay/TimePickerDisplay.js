@@ -12,26 +12,12 @@ const propTypes = {
   unitsMode: PropTypes.string.isRequired
 };
 
-const TimePickerDisplay = ({
-  color,
-  hours,
-  minutes,
-  dayTime,
-  unitsMode,
-  handleModeChange,
-  hoursFormat
-}) => {
+const TimePickerDisplay = ({ color, hours, minutes, dayTime, unitsMode, handleModeChange, hoursFormat }) => {
   const displayClasses = classNames('picker__date-display', `btn-${color}`);
 
-  const hourClasses = classNames(
-    'clockpicker-span-hours',
-    unitsMode === 'h' && 'text-primary'
-  );
+  const hourClasses = classNames('clockpicker-span-hours', unitsMode === 'h' && 'text-primary');
 
-  const minuteClasses = classNames(
-    'clockpicker-span-minutes',
-    unitsMode === 'm' && 'text-primary'
-  );
+  const minuteClasses = classNames('clockpicker-span-minutes', unitsMode === 'm' && 'text-primary');
 
   return (
     <div className={displayClasses}>
@@ -47,9 +33,7 @@ const TimePickerDisplay = ({
         </div>
         {hoursFormat === 12 && (
           <div className='clockpicker-display-column clockpicker-display-am-pm'>
-            <div className='clockpicker-span-am-pm'>
-              {dayTime.toUpperCase()}
-            </div>
+            <div className='clockpicker-span-am-pm'>{dayTime.toUpperCase()}</div>
           </div>
         )}
       </div>

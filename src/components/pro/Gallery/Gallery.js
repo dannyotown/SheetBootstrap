@@ -5,16 +5,7 @@ import { MDBBox } from 'mdbreact';
 import './Gallery.css';
 
 const Gallery = React.forwardRef(function Gallery(props, ref) {
-  const {
-    cellHeight = 180,
-    children,
-    className,
-    cols = 2,
-    tag,
-    spacing = 4,
-    style,
-    ...attributes
-  } = props;
+  const { cellHeight = 180, children, className, cols = 2, tag, spacing = 4, style, ...attributes } = props;
 
   const classes = classNames('mdb-gallery', className);
 
@@ -37,10 +28,7 @@ const Gallery = React.forwardRef(function Gallery(props, ref) {
         return React.cloneElement(child, {
           style: {
             width: `${(100 / cols) * childCols}%`,
-            height:
-              cellHeight === 'auto'
-                ? cellHeight
-                : cellHeight * childRows + spacing,
+            height: cellHeight === 'auto' ? cellHeight : cellHeight * childRows + spacing,
             padding: spacing / 2,
             ...child.props.style
           }

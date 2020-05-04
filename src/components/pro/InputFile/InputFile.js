@@ -43,25 +43,11 @@ const InputFile = ({
     files && setFiles(false);
   };
 
-  const btnClass = classNames(
-    'btn',
-    `btn-${btnColor}`,
-    'btn-sm',
-    reverse ? 'float-right' : 'float-left'
-  );
+  const btnClass = classNames('btn', `btn-${btnColor}`, 'btn-sm', reverse ? 'float-right' : 'float-left');
 
-  const inputFieldClass = classNames(
-    'file-path',
-    'validate',
-    files ? 'valid' : false,
-    className
-  );
+  const inputFieldClass = classNames('file-path', 'validate', files ? 'valid' : false, className);
 
-  const wrapperClass = classNames(
-    'file-field',
-    'md-form',
-    reverse && 'file-field-right'
-  );
+  const wrapperClass = classNames('file-field', 'md-form', reverse && 'file-field-right');
 
   return (
     <div data-test='input-file' className={wrapperClass}>

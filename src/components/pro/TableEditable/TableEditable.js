@@ -26,7 +26,9 @@ class TableEditable extends React.Component {
     }
 
     if (prevState.initialData !== initialData) {
-      if (getValue) {getValue(initialData);}
+      if (getValue) {
+        getValue(initialData);
+      }
     }
   }
 
@@ -57,7 +59,9 @@ class TableEditable extends React.Component {
   };
 
   decreaseIndex = index => {
-    if (index === 0) {return;}
+    if (index === 0) {
+      return;
+    }
     const newData = this.changeArrayOrder(index, index - 1);
     this.setState({
       ...this.state,
@@ -67,7 +71,9 @@ class TableEditable extends React.Component {
 
   increaseIndex = index => {
     const { initialData } = this.state;
-    if (index === initialData.length - 1) {return;}
+    if (index === initialData.length - 1) {
+      return;
+    }
     const newData = this.changeArrayOrder(index, index + 1);
     this.setState({
       ...this.state,
@@ -75,11 +81,7 @@ class TableEditable extends React.Component {
     });
   };
 
-  changeArrayOrder = (
-    oldIndex,
-    newIndex,
-    array = [...this.state.initialData]
-  ) => {
+  changeArrayOrder = (oldIndex, newIndex, array = [...this.state.initialData]) => {
     const newArray = array;
     const oldIndexValue = [...newArray[oldIndex]];
     const newIndexValue = [...newArray[newIndex]];
@@ -186,41 +188,27 @@ class TableEditable extends React.Component {
                         contentEditable
                         suppressContentEditableWarning='true'
                         onBlur={e => this.onBlurHandler(trIndex, tdIndex, e)}
-                        onKeyUp={e =>
-                          onChange(this.onChangeTd(e, trIndex, tdIndex))
-                        }
+                        onKeyUp={e => onChange(this.onChangeTd(e, trIndex, tdIndex))}
                       >
                         {td}
                       </td>
                     );
                   })}
                   <td>
-                    <span
-                      onClick={() => this.decreaseIndex(trIndex)}
-                      className='table-up'
-                    >
+                    <span onClick={() => this.decreaseIndex(trIndex)} className='table-up'>
                       <a href='#!' className='indigo-text'>
                         <Fa icon='long-arrow-alt-up' />
                       </a>
                     </span>
-                    <span
-                      onClick={() => this.increaseIndex(trIndex)}
-                      className='table-down'
-                    >
+                    <span onClick={() => this.increaseIndex(trIndex)} className='table-down'>
                       <a href='#!' className='indigo-text'>
                         <Fa icon='long-arrow-alt-down' />
                       </a>
                     </span>
                   </td>
                   <td>
-                    <span
-                      onClick={() => this.removeRow(trIndex)}
-                      className='table-remove'
-                    >
-                      <button
-                        type='button'
-                        className='btn btn-danger btn-rounded btn-sm my-0'
-                      >
+                    <span onClick={() => this.removeRow(trIndex)} className='table-remove'>
+                      <button type='button' className='btn btn-danger btn-rounded btn-sm my-0'>
                         Remove
                       </button>
                     </span>

@@ -79,11 +79,7 @@ class SideNavCat extends React.Component {
 
           return (
             <Tag>
-              <a
-                className={classes}
-                onClick={e => this.handleClick(e, id)}
-                {...attributes}
-              >
+              <a className={classes} onClick={e => this.handleClick(e, id)} {...attributes}>
                 {icon && (
                   <Fa
                     icon={icon}

@@ -3,23 +3,9 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonFree from '../../Button';
 
-const Button = ({
-  children,
-  className,
-  color,
-  flat,
-  floating,
-  gradient,
-  outline,
-  rounded,
-  ...attributes
-}) => {
+const Button = ({ children, className, color, flat, floating, gradient, outline, rounded, ...attributes }) => {
   const classes = classNames(
-    flat
-      ? 'btn-flat'
-      : gradient
-      ? `${gradient}-gradient`
-      : `btn${outline ? '-outline' : ''}-${color}`,
+    flat ? 'btn-flat' : gradient ? `${gradient}-gradient` : `btn${outline ? '-outline' : ''}-${color}`,
     {
       'btn-floating': floating,
       'btn-rounded': rounded
@@ -28,13 +14,7 @@ const Button = ({
   );
 
   return (
-    <ButtonFree
-      {...attributes}
-      className={classes}
-      color=''
-      flat={flat}
-      rounded={rounded}
-    >
+    <ButtonFree {...attributes} className={classes} color='' flat={flat} rounded={rounded}>
       {children}
     </ButtonFree>
   );

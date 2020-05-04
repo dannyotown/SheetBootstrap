@@ -54,11 +54,7 @@ const SmoothScroll = props => {
     active && 'active',
     (btn || floating) && 'btn',
     floating && 'btn-floating',
-    flat
-      ? 'btn-flat'
-      : gradient
-      ? `${gradient}-gradient`
-      : `btn${outline ? '-outline' : ''}-${color}`,
+    flat ? 'btn-flat' : gradient ? `${gradient}-gradient` : `btn${outline ? '-outline' : ''}-${color}`,
     size ? `btn-${size}` : false,
     rounded ? 'btn-rounded' : false,
     block ? 'btn-block' : false,

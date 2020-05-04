@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDBBtn, MDBIcon } from 'mdbreact';
 import moment from 'moment';
-import classNames from 'classNames';
+import classNames from 'classnames';
 import { takeAcutalDate } from '../../../../../utils';
 
 const DatePickerMovedButtons = ({

@@ -19,10 +19,7 @@ const Parallax = React.forwardRef((props, jarallax) => {
     width
   } = props;
 
-  const parentClasses = classNames(
-    keepImg ? 'jarallax-keep-img' : 'jarallax',
-    className
-  );
+  const parentClasses = classNames(keepImg ? 'jarallax-keep-img' : 'jarallax', className);
   const elementClasses = classNames(Tag === 'span' ? 'd-inline-block' : null);
 
   return (
@@ -60,12 +57,7 @@ const Parallax = React.forwardRef((props, jarallax) => {
         </Tag>
       )}
       {element && (
-        <Tag
-          className={elementClasses}
-          ref={jarallax}
-          data-jarallax-element={speed}
-          data-threshold={threshold}
-        >
+        <Tag className={elementClasses} ref={jarallax} data-jarallax-element={speed} data-threshold={threshold}>
           {children}
         </Tag>
       )}

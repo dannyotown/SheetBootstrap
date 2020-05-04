@@ -5,12 +5,7 @@ import classNames from 'classnames';
 const Avatar = props => {
   const { className, tag: Tag, round, circle, ...attributes } = props;
 
-  const classes = classNames(
-    'avatar',
-    round && 'rounded',
-    circle && 'rounded-circle',
-    className
-  );
+  const classes = classNames('avatar', round && 'rounded', circle && 'rounded-circle', className);
 
   return <Tag data-test='avatar' {...attributes} className={classes} />;
 };

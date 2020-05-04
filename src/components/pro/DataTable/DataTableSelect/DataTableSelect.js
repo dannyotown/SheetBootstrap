@@ -9,12 +9,7 @@ import SelectOption from '../../Select/SelectOption';
 const DataTableSelect = ({ value, onChange, entries, label, barReverse }) => (
   <div
     data-test='datatable-select'
-    className={classNames(
-      'dataTables_length',
-      'd-flex',
-      'flex-row',
-      barReverse && 'justify-content-end'
-    )}
+    className={classNames('dataTables_length', 'd-flex', 'flex-row', barReverse && 'justify-content-end')}
   >
     <label className='mt-4'>{label}</label>
     <Select getValue={onChange} className='my-0'>
@@ -32,11 +27,7 @@ const DataTableSelect = ({ value, onChange, entries, label, barReverse }) => (
 
 DataTableSelect.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.number).isRequired,
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.object
-  ]).isRequired,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.number.isRequired,
   barReverse: PropTypes.bool

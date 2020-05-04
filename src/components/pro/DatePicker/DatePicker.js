@@ -92,11 +92,7 @@ class DatePicker extends Component {
     return (
       <Tag data-test='date-picker' className={classes}>
         <MuiThemeProvider theme={muiTheme}>
-          <MuiPickersUtilsProvider
-            locale={locale}
-            moment={moment}
-            utils={MomentUtils}
-          >
+          <MuiPickersUtilsProvider locale={locale} moment={moment} utils={MomentUtils}>
             <UIDatePicker
               {...attributes}
               adornmentPosition={adornmentPosition}

@@ -3,7 +3,7 @@ import moment from 'moment';
 import React, { Component, createRef } from 'react';
 import { makeFirstLetterUpper, makeRandomID, takeThemeColor, takeAcutalDate } from '../../../../utils';
 import ReactDOM from 'react-dom';
-import classNames from 'classNames';
+import classNames from 'classnames';
 import DatePickerYears from './DatePickerYears/DatePickerYears';
 import DatePickerDays from '././DatePickerDays/DatePickerDays';
 import DatePickerMovedButtons from './DatePickerMovedButtons/DatePickerMovedButtons';

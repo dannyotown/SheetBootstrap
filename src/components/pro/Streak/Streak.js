@@ -3,24 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fa from '../../Fa';
 
-const MDBStreak = ({
-  children,
-  by,
-  byClass,
-  wrapperClass,
-  size,
-  quoteClass,
-  photo,
-  overlayClass
-}) => {
+const MDBStreak = ({ children, by, byClass, wrapperClass, size, quoteClass, photo, overlayClass }) => {
   const byClasses = classNames('text-center', 'font-italic', 'mb-0', byClass);
 
-  const wrapperClasses = classNames(
-    'streak',
-    photo && 'streak-photo',
-    size && `streak-${size}`,
-    wrapperClass
-  );
+  const wrapperClasses = classNames('streak', photo && 'streak-photo', size && `streak-${size}`, wrapperClass);
 
   const quoteClasses = classNames('h2-responsive', quoteClass);
 

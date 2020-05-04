@@ -5,12 +5,7 @@ import classNames from 'classnames';
 const DataTableInput = ({ value, onChange, label, barReverse }) => (
   <div
     data-test='datatable-input'
-    className={classNames(
-      'dataTables_filter',
-      'md-form',
-      'flex-row',
-      barReverse && 'text-left'
-    )}
+    className={classNames('dataTables_filter', 'md-form', 'flex-row', barReverse && 'text-left')}
   >
     <input
       value={value}

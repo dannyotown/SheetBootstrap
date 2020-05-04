@@ -11,8 +11,7 @@ class SelectInput extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.context.state.isEmpty !== this.props.context.state.isEmpty) {
-      this.props.selected &&
-        this.props.context.setSelected(this.props.selected);
+      this.props.selected && this.props.context.setSelected(this.props.selected);
     }
   }
 

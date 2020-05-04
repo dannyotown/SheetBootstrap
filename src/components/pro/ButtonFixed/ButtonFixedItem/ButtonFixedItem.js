@@ -88,11 +88,7 @@ class ButtonFixed extends React.Component {
               className={iconClass}
             />
           )}
-          {disabled ? (
-            false
-          ) : (
-            <Waves cursorPos={cursorPos} outline={outline} flat={flat} />
-          )}
+          {disabled ? false : <Waves cursorPos={cursorPos} outline={outline} flat={flat} />}
         </a>
       </li>
     );

@@ -9,12 +9,7 @@ const CollapseHeader = props => {
   const tagClasses = classNames('mb-0', tagClassName);
 
   return (
-    <div
-      data-test='collapse-header'
-      {...attributes}
-      className={classes}
-      style={{ cursor: 'pointer' }}
-    >
+    <div data-test='collapse-header' {...attributes} className={classes} style={{ cursor: 'pointer' }}>
       <Tag className={tagClasses}>{children}</Tag>
     </div>
   );

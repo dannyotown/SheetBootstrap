@@ -9,10 +9,7 @@ const imgClass = img => {
   if (!img || !img.complete) {
     return;
   }
-  if (
-    img.width / img.height >
-    img.parentElement.offsetWidth / img.parentElement.offsetHeight
-  ) {
+  if (img.width / img.height > img.parentElement.offsetWidth / img.parentElement.offsetHeight) {
     img.classList.remove('img-full-width');
     img.classList.add('img-full-height');
   } else {
@@ -35,16 +32,7 @@ function ensureImageCover(img) {
 }
 
 const GalleryList = React.forwardRef(function GalleryList(props, ref) {
-  const {
-    children,
-    cols,
-    tag,
-    rows,
-    titleClasses,
-    elementClasses,
-    styles,
-    ...attributes
-  } = props;
+  const { children, cols, tag, rows, titleClasses, elementClasses, styles, ...attributes } = props;
 
   const imgRef = useRef(null);
   const ec = classNames('mdb-gallery-element', elementClasses);
@@ -67,13 +55,7 @@ const GalleryList = React.forwardRef(function GalleryList(props, ref) {
   }, []);
 
   return (
-    <MDBBox
-      data-test='gallery-list'
-      tag={tag}
-      ref={ref}
-      {...attributes}
-      className={ec}
-    >
+    <MDBBox data-test='gallery-list' tag={tag} ref={ref} {...attributes} className={ec}>
       <MDBBox style={{ ...styles }} className={tc}>
         {React.Children.map(children, child => {
           if (!React.isValidElement) {

@@ -29,22 +29,9 @@ class SideNavLink extends React.Component {
   };
 
   render() {
-    const {
-      children,
-      className,
-      innerRef,
-      shortcut,
-      tag: Tag,
-      to,
-      topLevel,
-      ...attributes
-    } = this.props;
+    const { children, className, innerRef, shortcut, tag: Tag, to, topLevel, ...attributes } = this.props;
     const { cursorPos } = this.state;
-    const classes = classNames(
-      'Ripple-parent',
-      topLevel && 'collapsible-header',
-      className
-    );
+    const classes = classNames('Ripple-parent', topLevel && 'collapsible-header', className);
 
     const sideNavLink = (
       <SideNavContext.Consumer>
@@ -74,21 +61,15 @@ class SideNavLink extends React.Component {
           }
 
           return (
-            <Link
-              className={classes}
-              ref={innerRef}
-              onClick={this.handleClick}
-              to={to}
-              {...attributes}
-            >
+            <Link className={classes} ref={innerRef} onClick={this.handleClick} to={to} {...attributes}>
               {slim ? (
                 <>
                   <span className='sv-slim'>{shortcutVar}</span>
                   <span className='sv-normal'>{children}</span>
                 </>
               ) : (
-                  <span className='sv-normal'>{children}</span>
-                )}
+                <span className='sv-normal'>{children}</span>
+              )}
               <Waves cursorPos={cursorPos} />
             </Link>
           );

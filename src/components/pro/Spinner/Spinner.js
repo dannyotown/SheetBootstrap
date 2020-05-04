@@ -97,19 +97,13 @@ const Spinner = props => {
       <div className={wrapperClasses}>
         <div className={wrapperClasses}>
           <div className={wrapperClasses}>
-            <div className={wrapperClasses}>
-              {theChosenColorSpinner(spinnerClasses)}
-            </div>
+            <div className={wrapperClasses}>{theChosenColorSpinner(spinnerClasses)}</div>
           </div>
         </div>
       </div>
     );
   }
-  return (
-    <div className={wrapperClasses}>
-      {theChosenColorSpinner(spinnerClasses)}
-    </div>
-  );
+  return <div className={wrapperClasses}>{theChosenColorSpinner(spinnerClasses)}</div>;
 };
 
 Spinner.propTypes = {

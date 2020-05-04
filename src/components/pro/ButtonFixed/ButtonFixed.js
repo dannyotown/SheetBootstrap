@@ -61,10 +61,7 @@ class ButtonFixed extends React.Component {
 
     const { ulDisplay, cursorPos } = this.state;
 
-    const buttonFixedClasses = classNames(
-      'fixed-action-btn',
-      !!ulDisplay && 'active'
-    );
+    const buttonFixedClasses = classNames('fixed-action-btn', !!ulDisplay && 'active');
 
     const classes = classNames(
       floating ? 'btn-floating' : 'btn',
@@ -106,19 +103,9 @@ class ButtonFixed extends React.Component {
               className={iconClass}
             />
           )}
-          {disabled ? (
-            false
-          ) : (
-            <Waves cursorPos={cursorPos} outline={outline} flat={flat} />
-          )}
+          {disabled ? false : <Waves cursorPos={cursorPos} outline={outline} flat={flat} />}
         </a>
-        {children && (
-          <ul
-            className={`list-unstyled ${classNames(!ulDisplay && 'disabled')}`}
-          >
-            {children}
-          </ul>
-        )}
+        {children && <ul className={`list-unstyled ${classNames(!ulDisplay && 'disabled')}`}>{children}</ul>}
       </div>
     );
   }

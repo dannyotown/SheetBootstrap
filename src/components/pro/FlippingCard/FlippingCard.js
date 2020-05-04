@@ -2,19 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function RotatingCard({
-  children,
-  className,
-  flipped,
-  innerTag: InnerTag,
-  tag: Tag,
-  ...attributes
-}) {
-  const classes = classNames(
-    'card-rotating effect__click',
-    flipped && 'flipped',
-    className
-  );
+function RotatingCard({ children, className, flipped, innerTag: InnerTag, tag: Tag, ...attributes }) {
+  const classes = classNames('card-rotating effect__click', flipped && 'flipped', className);
 
   return (
     <Tag data-test='flipping-card' {...attributes} className='card-wrapper'>

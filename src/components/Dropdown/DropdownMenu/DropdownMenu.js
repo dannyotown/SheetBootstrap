@@ -16,17 +16,7 @@ import DropdownMenuComponent from './DropdownMenuComponent';
 
 class DropdownMenu extends Component {
   render() {
-    const {
-      basic,
-      children,
-      className,
-      color,
-      flip,
-      modifiers,
-      right,
-      tag,
-      ...attrs
-    } = this.props;
+    const { basic, children, className, color, flip, modifiers, right, tag, ...attrs } = this.props;
 
     const { isOpen, dropup, dropright, dropleft } = this.context;
 
@@ -44,13 +34,7 @@ class DropdownMenu extends Component {
     const Tag = tag;
 
     if (isOpen) {
-      const position1 = dropup
-        ? 'top'
-        : dropright
-        ? 'right'
-        : dropleft
-        ? 'left'
-        : 'bottom';
+      const position1 = dropup ? 'top' : dropright ? 'right' : dropleft ? 'left' : 'bottom';
 
       const position2 = right ? 'end' : 'start';
 
@@ -67,12 +51,7 @@ class DropdownMenu extends Component {
         data-test='dropdown-menu'
       >
         {({ placement, ref, style }) => (
-          <Tag
-            ref={ref}
-            style={style}
-            data-placement={placement}
-            className={classes}
-          >
+          <Tag ref={ref} style={style} data-placement={placement} className={classes}>
             <DropdownMenuComponent
               isOpen={isOpen}
               tag={Tag}
@@ -117,17 +96,7 @@ DropdownMenu.contextTypes = {
   dropright: PropTypes.bool.isRequired,
   dropleft: PropTypes.bool.isRequired,
   color: PropTypes.oneOfType([
-    PropTypes.oneOf([
-      'primary',
-      'default',
-      'secondary',
-      'success',
-      'dark',
-      'danger',
-      'info',
-      'warning',
-      'ins'
-    ]),
+    PropTypes.oneOf(['primary', 'default', 'secondary', 'success', 'dark', 'danger', 'info', 'warning', 'ins']),
     PropTypes.bool
   ])
 };

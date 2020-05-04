@@ -71,12 +71,7 @@ class ChipsInput extends Component {
           chipsList: chipsListUpdate
         },
         () => {
-          this.handleProps(
-            chipsList.length,
-            newChipString,
-            target.previousElementSibling,
-            chipsListUpdate
-          );
+          this.handleProps(chipsList.length, newChipString, target.previousElementSibling, chipsListUpdate);
         }
       );
     }

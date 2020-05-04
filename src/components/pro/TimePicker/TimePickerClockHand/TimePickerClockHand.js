@@ -9,18 +9,14 @@ const propTypes = {
 };
 
 const TimpiePickerClockHand = ({ angle, between, color, scale }) => {
-  const classes = classNames(
-    'time-picker-clock__hand',
-    color,
-    between && 'between'
-  );
+  const classes = classNames('time-picker-clock__hand', color, between && 'between');
 
   return (
     <div className={classes} style={{ transform: `rotate(${angle}deg)`, height: `calc((50% - 28px) * ${scale})` }}>
       <div className='time-picker-clock__hand--ring' />
     </div>
   );
-}
+};
 
 TimpiePickerClockHand.propTypes = propTypes;
 

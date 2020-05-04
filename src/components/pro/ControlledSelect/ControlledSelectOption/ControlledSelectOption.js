@@ -16,15 +16,8 @@ const ControlledSelectOption = ({
   focusBackgroundColor,
   selectAllClassName
 }) => {
-  const classes = classNames(
-    (disabled || separator) && 'disabled',
-    separator && 'optgroup',
-    checked && 'active'
-  );
-  const spanClasses = classNames(
-    'filtrable',
-    selectAllClassName && selectAllClassName
-  );
+  const classes = classNames((disabled || separator) && 'disabled', separator && 'optgroup', checked && 'active');
+  const spanClasses = classNames('filtrable', selectAllClassName && selectAllClassName);
   const focusedStyles = {
     backgroundColor: isFocused ? focusBackgroundColor : null,
     boxShadow: isFocused ? focusShadow : null
@@ -50,9 +43,7 @@ const ControlledSelectOption = ({
               disabled={disabled}
               onChange={() => {}}
             />
-            {!separator && (
-              <label style={{ height: '10px' }} data-multiple={multiple} />
-            )}
+            {!separator && <label style={{ height: '10px' }} data-multiple={multiple} />}
           </>
         )}
         {text || value}

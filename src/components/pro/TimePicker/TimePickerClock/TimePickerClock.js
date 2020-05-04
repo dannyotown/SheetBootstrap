@@ -54,11 +54,7 @@ class TimePickerClock extends Component {
   componentDidUpdate(prevProps, prevState) {
     const { max, min, value } = this.props;
     const { initialValue } = this.state;
-    if (
-      prevProps.max !== max ||
-      prevProps.min !== min ||
-      initialValue !== value
-    ) {
+    if (prevProps.max !== max || prevProps.min !== min || initialValue !== value) {
       this.buildComponentState();
     }
   }
@@ -93,20 +89,14 @@ class TimePickerClock extends Component {
     const { double, startFromInner, min } = this.props;
     const { outerRadius, clockRadius, innerRadius, digitsInRound } = this.state;
     if (startFromInner && double) {
-      return value - min >= digitsInRound
-        ? outerRadius / clockRadius
-        : innerRadius / clockRadius;
+      return value - min >= digitsInRound ? outerRadius / clockRadius : innerRadius / clockRadius;
     }
 
-    return value - min >= digitsInRound
-      ? innerRadius / clockRadius
-      : outerRadius / clockRadius;
+    return value - min >= digitsInRound ? innerRadius / clockRadius : outerRadius / clockRadius;
   };
 
   getAngle = (center, p1) => {
-    const value =
-      2 *
-      Math.atan2(p1.y - center.y - this.euclidean(center, p1), p1.x - center.x);
+    const value = 2 * Math.atan2(p1.y - center.y - this.euclidean(center, p1), p1.x - center.x);
     return Math.abs((value * 180) / Math.PI);
   };
 
@@ -133,28 +123,22 @@ class TimePickerClock extends Component {
   isValueAllowed = value => {
     const { allowedValues, min, max } = this.props;
 
-    return allowedValues.length
-      ? allowedValues.find(item => item === value)
-      : value >= min && value <= max;
+    return allowedValues.length ? allowedValues.find(item => item === value) : value >= min && value <= max;
   };
 
   isOnInner = (center, coords) => {
     const { double, startFromInner } = this.props;
     const centerDistance = this.euclidean(center, coords);
-    const betweenRadiusDistance =
-      (this.state.outerRadius + this.state.innerRadius) / 2 - 16;
+    const betweenRadiusDistance = (this.state.outerRadius + this.state.innerRadius) / 2 - 16;
 
     if (double) {
-      return startFromInner
-        ? centerDistance > betweenRadiusDistance
-        : centerDistance < betweenRadiusDistance;
+      return startFromInner ? centerDistance > betweenRadiusDistance : centerDistance < betweenRadiusDistance;
     }
 
     return false;
   };
 
-  computeTimeNumber = number =>
-    number < 10 ? `0${number.toString()}` : `${number.toString()}`;
+  computeTimeNumber = number => (number < 10 ? `0${number.toString()}` : `${number.toString()}`);
 
   computeHandAngle = exactAngle => {
     const { max } = this.props;
@@ -193,25 +177,13 @@ class TimePickerClock extends Component {
         <span
           className={classes}
           style={Object.assign(this.transformPosition(value), {
-            fontSize: !double
-              ? '140%'
-              : startFromInner
-              ? value <= 12
-                ? '120%'
-                : '100%'
-              : value > 12
-              ? '120%'
-              : '100%'
+            fontSize: !double ? '140%' : startFromInner ? (value <= 12 ? '120%' : '100%') : value > 12 ? '120%' : '100%'
           })}
           key={value}
           onMouseDown={e => this.onMouseDown(e, value)}
           onTouchStart={e => this.onMouseDown(e, value)}
         >
-          {max > 24
-            ? this.computeTimeNumber(value)
-            : value === 24
-            ? '00'
-            : value}
+          {max > 24 ? this.computeTimeNumber(value) : value === 24 ? '00' : value}
         </span>
       );
     }
@@ -257,23 +229,17 @@ class TimePickerClock extends Component {
 
   onDragMove = e => {
     e.preventDefault();
-    const {
-      isDragging,
-      initialValue,
-      degreesPerUnit,
-      digitsInRound
-    } = this.state;
+    const { isDragging, initialValue, degreesPerUnit, digitsInRound } = this.state;
     const { rotate, min } = this.props;
-    if (!isDragging && e.type !== 'click') {return;}
+    if (!isDragging && e.type !== 'click') {
+      return;
+    }
     const { center, coords } = this.getCoords(e);
     const isOnInner = this.isOnInner(center, coords);
     const exactHandAngle = this.getAngle(center, coords);
     const computedHandAngle = this.computeHandAngle(exactHandAngle);
 
-    const value =
-      Math.round((computedHandAngle - rotate) / degreesPerUnit) +
-      min +
-      (isOnInner ? digitsInRound : 0);
+    const value = Math.round((computedHandAngle - rotate) / degreesPerUnit) + min + (isOnInner ? digitsInRound : 0);
     const handAngle = rotate + degreesPerUnit * (value - min);
     const handScale = this.getScale(value);
 
@@ -316,12 +282,7 @@ class TimePickerClock extends Component {
         onTouchMove={this.onDragMove}
         ref={this.clockRef}
       >
-        <TimpiePickerClockHand
-          between={initialValue % step !== 0}
-          color={color}
-          angle={handAngle}
-          scale={handScale}
-        />
+        <TimpiePickerClockHand between={initialValue % step !== 0} color={color} angle={handAngle} scale={handScale} />
         {this.genClockDigits()}
       </div>
     );
