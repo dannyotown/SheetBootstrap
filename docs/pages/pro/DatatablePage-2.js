@@ -3,7 +3,7 @@ import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBBadge, MDBDataTa
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
 import Result from '../../components/result';
-import { testData as data } from '../../../src/components/utils';
+import { testData as data } from '../../utils';
 
 class DatatablePage extends Component {
   state = {
