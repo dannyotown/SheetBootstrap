@@ -29,6 +29,7 @@ import MDBCol from './components/Col';
 import MDBCollapse from './components/Collapse';
 import MDBContainer from './components/Container';
 import MDBDataTable from './components/DataTable';
+import MDBDataTableV5 from './components/DataTable/DataTableNew';
 import MDBDropdown from './components/Dropdown';
 import MDBDropdownItem from './components/Dropdown/DropdownItem';
 import MDBDropdownMenu from './components/Dropdown/DropdownMenu';
@@ -95,6 +96,7 @@ import MDBCollapseHeader from './components/pro/CollapseHeader';
 import MDBDatePicker from './components/pro/DatePicker';
 import MDBDatePickerV5 from './components/pro/DatePicker/DatePicker_new';
 import MDBExportToCSV from './components/pro/DataTable/ExportToCSV';
+import MDBExportToCSVV5 from './components/pro/DataTable/DataTableNew/ExportToCSV';
 import MDBFileInput from './components/pro/InputFile';
 import MDBGallery from './components/pro/Gallery';
 import MDBGalleryList from './components/pro/Gallery/GalleryList';
@@ -186,6 +188,7 @@ export {
   MDBCollapse,
   MDBContainer,
   MDBDataTable,
+  MDBDataTableV5,
   MDBDropdown,
   MDBDropdownItem,
   MDBDropdownMenu,
@@ -257,6 +260,7 @@ export {
   MDBDatePicker,
   MDBDatePickerV5,
   MDBExportToCSV,
+  MDBExportToCSVV5,
   MDBRotatingCard,
   MDBFileInput,
   MDBGallery,

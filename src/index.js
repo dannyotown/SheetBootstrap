@@ -28,6 +28,7 @@ import Col from './components/Col';
 import Collapse from './components/Collapse';
 import Container from './components/Container';
 import DataTable from './components/DataTable';
+import DataTableV5 from './components/DataTable/DataTableNew';
 import Dropdown from './components/Dropdown';
 import DropdownItem from './components/Dropdown/DropdownItem';
 import DropdownMenu from './components/Dropdown/DropdownMenu';
@@ -92,8 +93,8 @@ import CardUp from './components/pro/CardUp';
 import Chip from './components/pro/Chip';
 import ChipsInput from './components/pro/ChipsInput';
 import CollapseHeader from './components/pro/CollapseHeader';
-import DatePicker from './components/pro/DatePicker';
 import DatePickerV5 from './components/pro/DatePicker/DatePicker_new';
+import DatePicker from './components/pro/DatePicker';
 import ExportToCSV from './components/pro/DataTable/ExportToCSV';
 import FlippingCard from './components/pro/FlippingCard';
 import Gallery from './components/pro/Gallery';
@@ -185,6 +186,7 @@ export {
   Collapse,
   Container,
   DataTable,
+  DataTableV5,
   Dropdown,
   DropdownItem,
   DropdownMenu,
@@ -251,7 +253,6 @@ export {
   ChipsInput,
   CollapseHeader,
   cssTransition,
-  DatePicker,
   ExportToCSV,
   FlippingCard,
   Gallery as MDBGallery,
@@ -295,6 +296,8 @@ export {
   TimePicker,
   toast,
   ToastContainer,
+  DatePickerV5,
+  DatePicker,
   // PRO-END
 
   Alert as MDBAlert,
@@ -327,6 +330,7 @@ export {
   Collapse as MDBCollapse,
   Container as MDBContainer,
   DataTable as MDBDataTable,
+  DataTableV5 as MDBDataTableV5,
   Dropdown as MDBDropdown,
   DropdownItem as MDBDropdownItem,
   DropdownMenu as MDBDropdownMenu,

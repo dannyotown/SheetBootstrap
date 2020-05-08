@@ -23,6 +23,7 @@ import BadgePage from './pages/BadgePage';
 import BreadcrumbPage from './pages/BreadcrumbPage';
 import FaPage from './pages/FaPage';
 import DatatablePage from './pages/DatatablePage';
+import DatatablePageV5 from './pages/DatatablePage-2';
 import DatatableApiPage from './pages/DatatableApiPage';
 import ModalPage from './pages/ModalPage';
 import ModalFormPage from './pages/ModalFormPage';
@@ -79,6 +80,7 @@ import SelectPage from './pages/pro/SelectPage';
 import SideNavPage from './pages/pro/SideNavPage';
 import SlimSideNavPage from './pages/pro/SlimSideNavPage';
 import DatePickerPage from './pages/pro/DatePickerPage';
+
 import DoubleNavigationPage from './pages/pro/DoubleNavigationPage';
 import TimePickerPage from './pages/pro/TimePickerPage';
 import StickyPage from './pages/pro/StickyPage';
@@ -108,7 +110,9 @@ import CardsPagePro from './pages/pro/CardsPage';
 import SearchPagePro from './pages/pro/SearchPage';
 import FooterPagePro from './pages/pro/FooterPage';
 import TableEditable from './pages/pro/TableEditablePage';
+import DatatablePageProV5 from './pages/pro/DatatablePage-2';
 import DatatableCsvPage from './pages/pro/DatatableCsvPage';
+import DatatableCsvPage2 from './pages/pro/DatatableCsvPage-2';
 import ModalFormProPage from './pages/pro/ModalFormPage';
 import HabmburgerMenuPage from './pages/pro/HabmburgerMenuPage';
 import TimelinePage from './pages/pro/TimelinePage';
@@ -128,6 +132,7 @@ import PillsPagePro from './pages/pro/PillsPage';
 import InputGroupPagePro from './pages/pro/InputGroupPage';
 import GalleryPage from './pages/pro/GalleryPage';
 import DatatableFilterPage from './pages/pro/DatatableFilterPage';
+import DatatableFilterPage2 from './pages/pro/DatatableFilterPage-2';
 import TooltipsPagePro from './pages/pro/TooltipsPage';
 // PRO-END
 
@@ -144,7 +149,6 @@ class Routes extends React.Component {
         <Route exact path='/modals' component={ModalsNavPage} />
         <Route exact path='/navigation' component={NavigationNavPage} />
         <Route exact path='/tables' component={TablesNavPage} />
-
         {/* FREE */}
         <Route path='/addons/iframe' component={IframePage} />
         <Route path='/addons/edge-header' component={EdgeHeaderPage} />
@@ -196,7 +200,7 @@ class Routes extends React.Component {
         <Route path='/tables/table-styles' component={TableStylesPage} />
         <Route path='/tables/datatable-api' component={DatatableApiPage} />
         <Route path='/tables/datatable' component={DatatablePage} />
-
+        <Route path='/tables/datatable-2' component={DatatablePageV5} />
         {/* PRO-START */}
         <Route exact path='/sections' component={SectionsNavPage} />
         <Route path='/addons/pro/gallery' component={GalleryPage} />
@@ -260,15 +264,18 @@ class Routes extends React.Component {
         <Route path='/sections/team' component={TeamPage} />
         <Route path='/sections/testimonials' component={TestimonialsPage} />
         <Route path='/sections/videobackground' component={VideoBackgroundPage} />
+        <Route path='/tables/pro/datatable-2-pro' component={DatatablePageProV5} />
         <Route path='/tables/pro/datatable-csv' component={DatatableCsvPage} />
+        <Route path='/tables/pro/datatable-csv-2' component={DatatableCsvPage2} />
         <Route path='/tables/pro/datatable-filter' component={DatatableFilterPage} />
+        <Route path='/tables/pro/datatable-filter-2' component={DatatableFilterPage2} />
         <Route path='/tables/pro/table-styles' component={TableStylesPagePro} />
         <Route path='/tables/pro/tableeditable' component={TableEditable} />
         {/* PRO-END */}
         <Route
           render={function() {
             return <h1>Not Found</h1>;
-          }} 
+          }}
         />
       </Switch>
     );

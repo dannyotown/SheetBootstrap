@@ -16,17 +16,25 @@ const TablesNavPage = () => {
                   Tables
                 </h1>
                 <ul className='list-unstyled example-components-list'>
-                  <h6 className='mt-3 grey-text'><strong>FREE</strong> </h6>
+                  <h6 className='mt-3 grey-text'>
+                    <strong>FREE</strong>{' '}
+                  </h6>
                   <MenuLink to='/tables/datatable' title='Datatable' />
+                  <MenuLink to='/tables/datatable-2' title='DatatableV5' />
                   <MenuLink to='/tables/datatable-api' title='Datatable - data from API' />
                   <MenuLink to='/tables/table' title='Table' />
                   <MenuLink to='/tables/table-responsive' title='Table Responsive' />
                   <MenuLink to='/tables/table-scroll' title='Table Scroll' />
                   <MenuLink to='/tables/table-styles' title='Table Styles' />
                   {/* PRO-START */}
-                  <h6 className='mt-4 grey-text'><strong className='indigo-text'>PRO</strong> </h6>
+                  <h6 className='mt-4 grey-text'>
+                    <strong className='indigo-text'>PRO</strong>{' '}
+                  </h6>{' '}
+                  <MenuLink to='/tables/pro/datatable-2-pro' title='DatatableV5' />
                   <MenuLink to='/tables/pro/datatable-csv' title='Datatable - export to CSV' />
-                  <MenuLink to='/tables/pro/datatable-filter' title='Datatable Filter' />
+                  <MenuLink to='/tables/pro/datatable-csv-2' title='DatatableV5 - export to CSV' />
+                  <MenuLink to='/tables/pro/datatable-filter' title='Datatable Filter' />{' '}
+                  <MenuLink to='/tables/pro/datatable-filter-2' title='DatatableV5 Filter' />
                   <MenuLink to='/tables/pro/tableeditable' title='Table Editable' />
                   <MenuLink to='/tables/pro/table-styles' title='Table Styles' />
                   {/* PRO-END */}
@@ -38,6 +46,6 @@ const TablesNavPage = () => {
       </MDBAnimation>
     </>
   );
-}
+};
 
 export default TablesNavPage;

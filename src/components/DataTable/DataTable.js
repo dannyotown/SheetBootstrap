@@ -381,7 +381,7 @@ class DataTable extends Component {
       translateScrollHead
     } = this.state;
 
-    const tableClasses = classnames('dataTables_wrapper dt-bootstrap4', className);
+    const tableClasses = classNames('dataTables_wrapper dt-bootstrap4', className);
 
     return (
       <div data-test='datatable' className={tableClasses}>

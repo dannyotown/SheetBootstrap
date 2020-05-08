@@ -17,7 +17,7 @@ class SelectInput extends React.Component {
 
   render() {
     const classes = classNames('select-dropdown', this.props.className);
-    const { attributes, context } = this.props;
+    const { attributes, context, style } = this.props;
 
     const value = context.state.isEmpty
       ? this.props.selected && !context.label
@@ -33,6 +33,7 @@ class SelectInput extends React.Component {
         value={value}
         {...attributes}
         className={classes}
+        style={style}
       />
     );
   }
