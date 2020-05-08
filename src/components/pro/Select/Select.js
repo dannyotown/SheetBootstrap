@@ -309,6 +309,7 @@ class Select extends React.Component {
               changeFocus={this.changeFocus}
               focusShadow={focusShadow}
               focusBackgroundColor={focusBackgroundColor}
+              searchId={searchId}
             />
             {label && (
               <label className={labelClasses} style={controlledLabelStyles}>
