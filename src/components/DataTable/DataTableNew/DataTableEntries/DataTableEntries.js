@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import DataTableSelectFree from '../DataTableSelect/DataTableSelect';
+
 // PRO-START
 import DataTableSelect from '../../../pro/DataTable/DataTableNew/DataTableSelect';
 // FREE-START
@@ -22,6 +24,7 @@ const DataTableEntries = props => {
     label,
     barReverse,
     className,
+    proSelect,
     ...attributes
   } = props;
 
@@ -29,7 +32,19 @@ const DataTableEntries = props => {
 
   return (
     <div data-test='mdb-datatable-entries' className={classes}>
-      {paging && displayEntries && (
+      {paging && displayEntries && !proSelect && (
+        <DataTableSelectFree
+          value={entries}
+          onChange={handleEntriesChange}
+          entries={entriesArr}
+          label={label}
+          barReverse={barReverse}
+          {...attributes}
+        />
+      )}
+
+      {/* PRO-START */}
+      {paging && displayEntries && proSelect && (
         <DataTableSelect
           value={entries}
           onChange={handleEntriesChange}
@@ -39,6 +54,7 @@ const DataTableEntries = props => {
           {...attributes}
         />
       )}
+      {/* PRO-END */}
     </div>
   );
 };
@@ -50,7 +66,8 @@ DataTableEntries.propTypes = {
   handleEntriesChange: PropTypes.func.isRequired,
   label: PropTypes.oneOfType([PropTypes.number, PropTypes.object, PropTypes.string]).isRequired,
   paging: PropTypes.bool.isRequired,
-  barReverse: PropTypes.bool
+  barReverse: PropTypes.bool,
+  proSelect: PropTypes.bool
 };
 
 export default DataTableEntries;

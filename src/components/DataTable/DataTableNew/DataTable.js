@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { MDBSelect } from 'mdbreact';
 import DataTableTable from './DataTableTable';
 import DataTableTableScroll from './DataTableTableScroll';
 import DataTableEntries from './DataTableEntries';
@@ -9,8 +8,9 @@ import DataTableSearch from './DataTableSearch';
 import DataTableInfo from './DataTableInfo';
 import DataTablePagination from './DataTablePagination';
 // PRO-START
+import { MDBSelect } from 'mdbreact';
 import ExportToCsvBtn from '../../pro/DataTable/ExportToCSV';
-import { MDBInput } from '../../Input/Input';
+import MDBInput from '../../Input/Input';
 // PRO-END
 import './scss/_datatables2.scss';
 import './scss/_datatables-select2.scss';
@@ -691,6 +691,7 @@ class DataTable extends Component {
       tbodyTextWhite,
       theadColor,
       theadTextWhite,
+      proSelect,
       pagingTop,
       ...attributes
     } = this.props;
@@ -794,6 +795,7 @@ class DataTable extends Component {
                     entriesArr={entriesOptions}
                     label={entriesLabel}
                     barReverse={barReverse}
+                    proSelect={proSelect}
                   />
                 ) : (
                   ''
@@ -952,7 +954,8 @@ DataTable.defaultProps = {
   tbodyTextWhite: false,
   headCheckboxID: 'checkbox-id',
   proCheckboxes: false,
-  fullPagination: false
+  fullPagination: false,
+  proSelect: false
 };
 
 export default DataTable;

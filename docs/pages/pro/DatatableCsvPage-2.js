@@ -511,7 +511,7 @@ const DatatableCsvPage = () => {
           <SectionContainer header='Datatable to CSV export' noBorder>
             <MDBCard>
               <MDBCardBody>
-                <MDBDataTableV5 hover data={data} exportToCSV />
+                <MDBDataTableV5 hover data={data} exportToCSV proSelect />
               </MDBCardBody>
             </MDBCard>
           </SectionContainer>

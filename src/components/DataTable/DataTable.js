@@ -366,6 +366,7 @@ class DataTable extends Component {
       tbodyTextWhite,
       theadColor,
       theadTextWhite,
+      proSelect,
       ...attributes
     } = this.props;
 
@@ -394,6 +395,7 @@ class DataTable extends Component {
             entriesArr={entriesOptions}
             label={entriesLabel}
             barReverse={barReverse}
+            proSelect={proSelect}
           />
           <DataTableSearch
             handleSearchChange={this.handleSearchChange}
@@ -551,6 +553,7 @@ DataTable.propTypes = {
   pagesAmount: PropTypes.number,
   paginationLabel: PropTypes.arrayOf(PropTypes.string),
   paging: PropTypes.bool,
+  proSelect: PropTypes.bool,
   responsive: PropTypes.bool,
   responsiveLg: PropTypes.bool,
   responsiveMd: PropTypes.bool,
@@ -612,7 +615,8 @@ DataTable.defaultProps = {
   theadColor: '',
   theadTextWhite: false,
   tbodyColor: '',
-  tbodyTextWhite: false
+  tbodyTextWhite: false,
+  proSelect: false
 };
 
 export default DataTable;

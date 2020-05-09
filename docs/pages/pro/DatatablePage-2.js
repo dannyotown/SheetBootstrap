@@ -551,6 +551,7 @@ class DatatablePage extends Component {
                       this.showLogs1(e);
                     }}
                     proCheckboxes
+                    proSelect
                   />
                 </MDBCardBody>
               </MDBCard>
@@ -578,6 +579,7 @@ class DatatablePage extends Component {
                     }}
                     proCheckboxes
                     filledCheckboxes
+                    proSelect
                   />
                 </MDBCardBody>
               </MDBCard>
@@ -606,6 +608,7 @@ class DatatablePage extends Component {
                     checkboxFirstColumn
                     proCheckboxes
                     filledCheckboxes
+                    proSelect
                   />
                 </MDBCardBody>
               </MDBCard>
@@ -637,6 +640,7 @@ class DatatablePage extends Component {
                     multipleCheckboxes
                     proCheckboxes
                     filledCheckboxes
+                    proSelect
                   />
                 </MDBCardBody>
               </MDBCard>
