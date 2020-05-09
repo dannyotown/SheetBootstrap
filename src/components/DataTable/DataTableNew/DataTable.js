@@ -7,11 +7,13 @@ import DataTableEntries from './DataTableEntries';
 import DataTableSearch from './DataTableSearch';
 import DataTableInfo from './DataTableInfo';
 import DataTablePagination from './DataTablePagination';
-// PRO-START
 import { MDBSelect } from 'mdbreact';
-import ExportToCsvBtn from '../../pro/DataTable/ExportToCSV';
 import MDBInput from '../../Input/Input';
+
+// PRO-START
+import ExportToCsvBtn from '../../pro/DataTable/ExportToCSV';
 // PRO-END
+
 import './scss/_datatables2.scss';
 import './scss/_datatables-select2.scss';
 
