@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// PRO-START
-import DataTableInput from '../../pro/DataTable/DataTableInput';
-// FREE-START
+import DataTableInput from '../DataTableInput';
+import classNames from 'classnames';
 /*
 // PRO-END
 import DataTableInput from '../DataTableInput';
@@ -12,19 +11,40 @@ import DataTableInput from '../DataTableInput';
 // PRO-END
 
 const DataTableSearch = props => {
-  const { handleSearchChange, search, searching, label, barReverse } = props;
+  const {
+    handleSearchChange,
+    search,
+    searching,
+    label,
+    barReverse,
+    wrapperSearchStyle,
+    wrapperSearchClasses,
+    ...attributes
+  } = props;
+
+  const classes = classNames('col-sm-12 col-md-6', wrapperSearchClasses);
 
   return (
-    <div data-test='datatable-search' className='col-sm-12 col-md-6'>
-      {searching && (
+    searching && (
+      <div
+        data-test='datatable-search'
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: barReverse ? 'flex-start' : 'flex-end',
+          ...wrapperSearchStyle
+        }}
+        className={classes}
+      >
         <DataTableInput
           value={search}
           onChange={handleSearchChange}
           label={label}
           barReverse={barReverse}
+          {...attributes}
         />
-      )}
-    </div>
+      </div>
+    )
   );
 };
 

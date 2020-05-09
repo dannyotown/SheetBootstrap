@@ -386,24 +386,48 @@ class DataTable extends Component {
 
     return (
       <div data-test='datatable' className={tableClasses}>
-        <div className={`row${barReverse ? ' flex-row-reverse' : ''}`}>
-          <DataTableEntries
-            paging={paging}
-            displayEntries={displayEntries}
-            entries={entries}
-            handleEntriesChange={this.handleEntriesChange}
-            entriesArr={entriesOptions}
-            label={entriesLabel}
-            barReverse={barReverse}
-            proSelect={proSelect}
-          />
-          <DataTableSearch
-            handleSearchChange={this.handleSearchChange}
-            search={search}
-            searching={searching}
-            label={searchLabel}
-            barReverse={barReverse}
-          />
+        <div className={'row'}>
+          {barReverse ? (
+            <>
+              <DataTableSearch
+                handleSearchChange={this.handleSearchChange}
+                search={search}
+                searching={searching}
+                label={searchLabel}
+                barReverse={barReverse}
+              />
+              <DataTableEntries
+                paging={paging}
+                displayEntries={displayEntries}
+                entries={entries}
+                handleEntriesChange={this.handleEntriesChange}
+                entriesArr={entriesOptions}
+                label={entriesLabel}
+                barReverse={barReverse}
+                proSelect={proSelect}
+              />
+            </>
+          ) : (
+            <>
+              <DataTableEntries
+                paging={paging}
+                displayEntries={displayEntries}
+                entries={entries}
+                handleEntriesChange={this.handleEntriesChange}
+                entriesArr={entriesOptions}
+                label={entriesLabel}
+                barReverse={barReverse}
+                proSelect={proSelect}
+              />
+              <DataTableSearch
+                handleSearchChange={this.handleSearchChange}
+                search={search}
+                searching={searching}
+                label={searchLabel}
+                barReverse={barReverse}
+              />
+            </>
+          )}
         </div>
         {!scrollY && !scrollX && (
           <div className='row'>

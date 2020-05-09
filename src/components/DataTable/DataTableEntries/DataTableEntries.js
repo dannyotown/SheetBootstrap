@@ -28,7 +28,11 @@ const DataTableEntries = props => {
   } = props;
 
   return (
-    <div data-test='datatable-entries' className='col-sm-12 col-md-6' style={{ display: 'flex', alignItems: 'center' }}>
+    <div
+      data-test='datatable-entries'
+      className='col-sm-12 col-md-6'
+      style={{ display: 'flex', alignItems: 'center', justifyContent: barReverse && 'flex-end' }}
+    >
       {paging && displayEntries && !proSelect && (
         <DataTableSelectFree
           value={entries}

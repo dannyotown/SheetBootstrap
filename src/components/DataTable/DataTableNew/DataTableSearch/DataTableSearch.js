@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// PRO-START
-import DataTableInput from '../../../pro/DataTable/DataTableNew/DataTableInput';
-// FREE-START
+import DataTableInput from '../DataTableInput';
+
 /*
 // PRO-END
 import DataTableInput from '../DataTableInput';
@@ -25,7 +24,11 @@ const DataTableSearch = props => {
 
   return (
     searching && (
-      <div data-test='datatable-search' style={wrapperSearchStyle} className={wrapperSearchClasses}>
+      <div
+        data-test='datatable-search'
+        style={{ display: 'flex', alignItems: 'center', ...wrapperSearchStyle }}
+        className={wrapperSearchClasses}
+      >
         <DataTableInput
           value={search}
           onChange={handleSearchChange}
