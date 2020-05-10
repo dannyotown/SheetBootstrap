@@ -24,7 +24,7 @@ const DataTableSearch = props => {
   } = props;
 
   const classes = classNames('col-sm-12 col-md-6', wrapperSearchClasses);
-  console.log(materialSearch);
+
   return (
     searching && (
       <div

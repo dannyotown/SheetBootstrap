@@ -62,7 +62,7 @@ class DataTable extends Component {
 
   handleAllCheckBoxes = () => {
     const { getValueAllCheckBoxes } = this.props;
-    const { rows, headCheckBox, columns, filteredRows } = this.state;
+    const { rows, headCheckBox, columns } = this.state;
 
     const allRows = [...rows].map(row => {
       const { checked } = row;
@@ -221,7 +221,7 @@ class DataTable extends Component {
 
     if (checkbox) {
       if (multipleCheckboxes && prevState.filteredRows !== filteredRows) {
-        if (filteredRows[0].disabled !== undefined) {
+        if (filteredRows[0].disabled) {
           this.setState({
             disableHeadCheckbox: true
           });

@@ -23,8 +23,10 @@ const DataTableInput = ({ value, onChange, label, barReverse, materialSearch }) 
         <input
           className='form-control form-control-sm ml-0 my-1'
           type='text'
-          placeholder='Search'
+          placeholder={label || 'Search'}
           aria-label='Search'
+          value={value}
+          onChange={onChange}
         />
       )}
     </div>
