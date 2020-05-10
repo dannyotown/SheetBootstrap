@@ -3,30 +3,38 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { MDBInput } from 'mdbreact';
 
-const DataTableInput = ({ value, onChange, label, barReverse, materialSearch }) => (
-  <div
-    data-test='datatable-input'
-    className={classNames('mdb-datatable-filter', 'flex-row', barReverse && 'text-left')}
-  >
-    {materialSearch ? (
-      <MDBInput
-        hint='Search'
-        containerClass='mt-0'
-        value={value}
-        onChange={onChange}
-        type='search'
-        className='form-control form-control-sm'
-        placeholder={label || 'Search'}
-      />
-    ) : (
-      <input className='form-control form-control-sm ml-0 my-1' type='text' placeholder='Search' aria-label='Search' />
-    )}
-  </div>
-);
+const DataTableInput = ({ value, onChange, label, barReverse, materialSearch }) => {
+  return (
+    <div
+      data-test='datatable-input'
+      className={classNames('mdb-datatable-filter', 'flex-row', barReverse && 'text-left')}
+    >
+      {materialSearch ? (
+        <MDBInput
+          hint='Search'
+          containerClass='mt-0'
+          value={value}
+          onChange={onChange}
+          type='search'
+          className='form-control form-control-sm'
+          placeholder={label || 'Search'}
+        />
+      ) : (
+        <input
+          className='form-control form-control-sm ml-0 my-1'
+          type='text'
+          placeholder='Search'
+          aria-label='Search'
+        />
+      )}
+    </div>
+  );
+};
 
 DataTableInput.propTypes = {
   barReverse: PropTypes.bool,
   label: PropTypes.string,
+  materialSearch: PropTypes.bool,
   onChange: PropTypes.func,
   value: PropTypes.string
 };

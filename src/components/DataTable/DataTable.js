@@ -365,6 +365,7 @@ class DataTable extends Component {
       tbodyColor,
       tbodyTextWhite,
       theadColor,
+      materialSearch,
       theadTextWhite,
       proSelect,
       ...attributes
@@ -395,6 +396,7 @@ class DataTable extends Component {
                 searching={searching}
                 label={searchLabel}
                 barReverse={barReverse}
+                materialSearch={materialSearch}
               />
               <DataTableEntries
                 paging={paging}
@@ -425,6 +427,7 @@ class DataTable extends Component {
                 searching={searching}
                 label={searchLabel}
                 barReverse={barReverse}
+                materialSearch={materialSearch}
               />
             </>
           )}
@@ -567,6 +570,7 @@ DataTable.propTypes = {
   hover: PropTypes.bool,
   info: PropTypes.bool,
   infoLabel: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string]),
+  materialSearch: PropTypes.bool,
   maxHeight: PropTypes.string,
   noBottomColumns: PropTypes.bool,
   noRecordsFoundLabel: PropTypes.string,
@@ -640,7 +644,8 @@ DataTable.defaultProps = {
   theadTextWhite: false,
   tbodyColor: '',
   tbodyTextWhite: false,
-  proSelect: false
+  proSelect: false,
+  materialSearch: false
 };
 
 export default DataTable;

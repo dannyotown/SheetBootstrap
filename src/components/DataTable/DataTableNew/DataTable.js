@@ -558,7 +558,8 @@ class DataTable extends Component {
       entriesLabel,
       entriesOptions,
       pagingTop,
-      searchTop
+      searchTop,
+      materialSearch
     } = this.props;
     const { search } = this.state;
     return (
@@ -574,6 +575,7 @@ class DataTable extends Component {
           label={searchLabel}
           barReverse={barReverse}
           wrapperSearchClasses={`${barReverse && 'mr-3'}`}
+          materialSearch={materialSearch}
         />
         {searchTop && pagingTop && (
           <DataTableEntries
@@ -694,6 +696,7 @@ class DataTable extends Component {
       theadTextWhite,
       proSelect,
       pagingTop,
+      materialSearch,
       ...attributes
     } = this.props;
 
@@ -878,6 +881,7 @@ DataTable.propTypes = {
   hover: PropTypes.bool,
   info: PropTypes.bool,
   infoLabel: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string]),
+  materialSearch: PropTypes.bool,
   maxHeight: PropTypes.string,
   noBottomColumns: PropTypes.bool,
   noRecordsFoundLabel: PropTypes.string,
@@ -956,7 +960,8 @@ DataTable.defaultProps = {
   headCheckboxID: 'checkbox-id',
   proCheckboxes: false,
   fullPagination: false,
-  proSelect: false
+  proSelect: false,
+  materialSearch: false
 };
 
 export default DataTable;

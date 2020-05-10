@@ -19,11 +19,12 @@ const DataTableSearch = props => {
     barReverse,
     wrapperSearchStyle,
     wrapperSearchClasses,
+    materialSearch,
     ...attributes
   } = props;
 
   const classes = classNames('col-sm-12 col-md-6', wrapperSearchClasses);
-
+  console.log(materialSearch);
   return (
     searching && (
       <div
@@ -41,6 +42,7 @@ const DataTableSearch = props => {
           onChange={handleSearchChange}
           label={label}
           barReverse={barReverse}
+          materialSearch={materialSearch}
           {...attributes}
         />
       </div>
@@ -53,7 +55,8 @@ DataTableSearch.propTypes = {
   search: PropTypes.string.isRequired,
   searching: PropTypes.bool.isRequired,
   barReverse: PropTypes.bool,
-  label: PropTypes.string
+  label: PropTypes.string,
+  materialSearch: PropTypes.bool
 };
 
 export default DataTableSearch;
