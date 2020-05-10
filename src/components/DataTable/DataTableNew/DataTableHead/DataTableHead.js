@@ -6,6 +6,7 @@ const DataTableHead = props => {
   const { color, columns, handleSort, scrollX, scrollY, sortable, sorted, textWhite } = props;
 
   const theadClasses = classNames(
+    'mdb-dataTable-head',
     color && (color !== 'dark' && color !== 'light' ? color : `thead-${color}`),
     textWhite && 'text-white'
   );

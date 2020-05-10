@@ -35,7 +35,7 @@ DataTableInput.propTypes = {
   barReverse: PropTypes.bool,
   label: PropTypes.string,
   onChange: PropTypes.func,
-  value: PropTypes.string
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.array, PropTypes.number])
 };
 
 export default DataTableInput;
