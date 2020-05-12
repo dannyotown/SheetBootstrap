@@ -33,7 +33,8 @@ DataTableSelect.propTypes = {
   entries: PropTypes.arrayOf(PropTypes.number).isRequired,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object]).isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.number.isRequired
+  value: PropTypes.number.isRequired,
+  style: PropTypes.object
 };
 
 export default DataTableSelect;
