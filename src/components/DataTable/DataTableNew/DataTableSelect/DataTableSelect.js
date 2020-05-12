@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DataTableSelect = ({ value, onChange, entries, label }) => {
+const DataTableSelect = ({ value, onChange, entries, label, style, ...props }) => {
   const getValue = e => {
     const value = parseInt(e.target.value, 10);
     onChange(value);
@@ -15,7 +15,8 @@ const DataTableSelect = ({ value, onChange, entries, label }) => {
           value={value}
           onChange={getValue}
           className='custom-select custom-select-sm form-control form-control-sm'
-          style={{ marginLeft: '.5rem' }}
+          style={{ marginLeft: '.5rem', ...style }}
+          {...props}
         >
           {entries.map(entry => (
             <option key={entry} value={entry}>
