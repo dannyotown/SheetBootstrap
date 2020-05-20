@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Fa from '../../../Fa';
+import './TimelineStep.css';
 
 const TimelineStep = props => {
   const {
@@ -19,6 +20,7 @@ const TimelineStep = props => {
     children,
     inverted,
     colorful,
+    stepContentStyle,
     hoverable,
     label,
     ...attributes
@@ -28,8 +30,8 @@ const TimelineStep = props => {
 
   const stepContentClasses = classNames(
     'step-content',
-    'z-depth-1',
-    'ml-xl-0',
+    !hoverable && 'z-depth-1',
+    'ml-xl-1',
     colorful ? 'p-0 mt-2' : 'p-4',
     hoverable && 'hoverable',
     stepContentClassName
@@ -54,7 +56,15 @@ const TimelineStep = props => {
           {label}
         </span>
       </a>
-      <div className={stepContentClasses}>{children}</div>
+      <div
+        className={stepContentClasses}
+        style={{
+          marginLeft: colorful && '.1rem',
+          ...stepContentStyle
+        }}
+      >
+        {children}
+      </div>
     </li>
   );
 };
@@ -69,7 +79,8 @@ TimelineStep.propTypes = {
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
-  size: PropTypes.string
+  size: PropTypes.string,
+  stepContentStyle: PropTypes.object
 };
 
 TimelineStep.defaultProps = {
