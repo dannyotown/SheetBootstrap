@@ -124,7 +124,7 @@ class Modal extends Component {
 
     const { initialIsOpen } = this.state;
 
-    const whichPosition = pos => {
+    const whichPosition = () => {
       if (position === 'bottom-right') {
         return { top: 'auto', bottom: 10, right: 10, left: 'auto' };
       } else if (position === 'bottom-left') {
