@@ -3,6 +3,7 @@ import { MDBBtn, MDBIcon } from 'mdbreact';
 import moment from 'moment';
 import classNames from 'classnames';
 import { takeAcutalDate } from '../../../../../utils';
+import PropTypes from 'prop-types';
 
 const DatePickerMovedButtons = ({
   initialGetYears,
@@ -99,3 +100,19 @@ const DatePickerMovedButtons = ({
 };
 
 export default DatePickerMovedButtons;
+
+DatePickerMovedButtons.propTypes = {
+  chunkYears: PropTypes.number,
+  disableFuture: PropTypes.bool,
+  disablePast: PropTypes.bool,
+  getUpdateMonth: PropTypes.func,
+  getUpdateYear: PropTypes.func,
+  initialActualDate: PropTypes.any,
+  initialGetYears: PropTypes.bool,
+  initialMonthDate: PropTypes.bool,
+  leftArrowIcon: PropTypes.string,
+  maxDate: PropTypes.string,
+  minDate: PropTypes.string,
+  rightArrowIcon: PropTypes.string,
+  scrolledYears: PropTypes.bool
+};

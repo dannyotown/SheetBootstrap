@@ -1,12 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
-import {
-  findByTestAttr,
-  checkClass,
-  checkProps,
-  checkCallBack
-} from '../../../../tests/utils';
+import { findByTestAttr, checkClass, checkProps, checkCallBack } from '../../../../../tests/utils';
 import DataTableInput from './DataTableInput';
 
 const setup = (props = {}) => shallow(<DataTableInput {...props} />);
@@ -43,7 +38,7 @@ describe('<DataTableInput />', () => {
   });
 
   describe('sets label', () => {
-    test('sets correct input\'s placeholder', () => {
+    test("sets correct input's placeholder", () => {
       wrapper = setup({ label: 'test' });
       let input = wrapper.find('input').prop('placeholder');
       expect(input).toEqual('test');

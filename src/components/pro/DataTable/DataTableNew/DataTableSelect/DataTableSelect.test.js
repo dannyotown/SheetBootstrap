@@ -1,23 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ReactDOM from 'react-dom';
-import {
-  findByTestAttr,
-  checkProps,
-  checkClass
-} from '../../../../tests/utils';
+import { findByTestAttr, checkProps, checkClass } from '../../../../../tests/utils';
 import DataTableSelect from './DataTableSelect';
 
 const setup = (props = {}) =>
-  shallow(
-    <DataTableSelect
-      entries={[]}
-      label='testLabel'
-      onChange={() => {}}
-      value={10}
-      {...props}
-    />
-  );
+  shallow(<DataTableSelect entries={[]} label='testLabel' onChange={() => {}} value={10} {...props} />);
 
 describe('<DataTableSelect />', () => {
   let wrapper;
@@ -32,15 +20,7 @@ describe('<DataTableSelect />', () => {
 
   test('renders without errors', () => {
     const div = document.createElement('div');
-    ReactDOM.render(
-      <DataTableSelect
-        entries={[]}
-        label='testLabel'
-        onChange={() => {}}
-        value={10}
-      />,
-      div
-    );
+    ReactDOM.render(<DataTableSelect entries={[]} label='testLabel' onChange={() => {}} value={10} />, div);
   });
 
   test('does not throw warnings with expected props', () => {
@@ -59,7 +39,7 @@ describe('<DataTableSelect />', () => {
   });
 
   describe('sets classes', () => {
-    test('adds \'dataTables_length d-flex flex-row\' class by default', () => {
+    test("adds 'dataTables_length d-flex flex-row' class by default", () => {
       checkClass(wrapper, 'dataTables_length.d-flex.flex-row');
     });
   });

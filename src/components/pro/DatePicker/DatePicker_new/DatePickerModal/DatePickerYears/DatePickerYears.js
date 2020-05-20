@@ -2,6 +2,7 @@ import React from 'react';
 import { MDBBtn } from 'mdbreact';
 import moment from 'moment';
 import { takeThemeColor, takeAcutalDate } from '../../../../../utils';
+import PropTypes from 'prop-types';
 
 const DatePickerYears = ({
   scrolledYears,
@@ -104,3 +105,15 @@ const DatePickerYears = ({
 };
 
 export default DatePickerYears;
+
+DatePickerYears.propTypes = {
+  animateYearScrolling: PropTypes.bool,
+  autoOk: PropTypes.bool,
+  getUpdate: PropTypes.func,
+  initialActualDate: PropTypes.any,
+  initialBoxYears: PropTypes.array,
+  initialScrolledYears: PropTypes.array,
+  scrolledYears: PropTypes.bool,
+  theme: PropTypes.string,
+  yearsRef: PropTypes.node
+};

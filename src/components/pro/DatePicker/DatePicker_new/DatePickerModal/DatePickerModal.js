@@ -4,6 +4,7 @@ import React, { Component, createRef } from 'react';
 import { makeFirstLetterUpper, makeRandomID, takeThemeColor, takeAcutalDate } from '../../../../utils';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import DatePickerYears from './DatePickerYears/DatePickerYears';
 import DatePickerDays from '././DatePickerDays/DatePickerDays';
 import DatePickerMovedButtons from './DatePickerMovedButtons/DatePickerMovedButtons';
@@ -478,17 +479,34 @@ export default class DatePickerModal extends Component {
       clearLabel,
       disabledDates,
       disableFuture,
+      todayLabel,
       disablePast,
       format,
       inline,
       leftArrowIcon,
       locale,
+      lastDate,
+      keyboard,
+      getModalOpen,
+      getActualDate,
+      disableScrollModal,
+      changeApproved,
+      clearInputValue,
       maxDate,
       minDate,
       okLabel,
       rightArrowIcon,
       scrolledYears,
-      theme
+      allowKeyboardControl,
+      modalOpen,
+      getYears,
+      actualDate,
+      showTodayButton,
+      inputValue,
+      inputRef,
+      autoOk,
+      theme,
+      ...attributes
     } = this.props;
 
     const {
@@ -526,7 +544,7 @@ export default class DatePickerModal extends Component {
     return ReactDOM.createPortal(
       !inline ? (
         <FocusTrap>
-          <div className='mdb-react-date__picker'>
+          <div className='mdb-react-date__picker' {...attributes}>
             <div className='date-picker date-picker--opened' id='falseY_root' aria-hidden='false'>
               <div
                 className='date-picker__holder'
@@ -828,3 +846,63 @@ export default class DatePickerModal extends Component {
     );
   }
 }
+
+DatePickerModal.propTypes = {
+  actualDate: PropTypes.any,
+  allowKeyboardControl: PropTypes.bool,
+  animateYearScrolling: PropTypes.bool,
+  autoOk: PropTypes.bool,
+  backdrop: PropTypes.bool,
+  cancelLabel: PropTypes.any,
+  changeApproved: PropTypes.func,
+  chunkYears: PropTypes.number,
+  clearable: PropTypes.bool,
+  clearInputValue: PropTypes.func,
+  clearLabel: PropTypes.string,
+  dayDate: PropTypes.bool,
+  disabledDates: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  disableFuture: PropTypes.bool,
+  disablePast: PropTypes.bool,
+  disableScrollModal: PropTypes.bool,
+  format: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string, PropTypes.number, PropTypes.bool]),
+  getActualDate: PropTypes.func,
+  getModalOpen: PropTypes.func,
+  getUpdate: PropTypes.func,
+  getYears: PropTypes.any,
+  initialActualDate: PropTypes.any,
+  initialBoxYears: PropTypes.array,
+  initialScrolledYears: PropTypes.array,
+  inline: PropTypes.bool,
+  inputRef: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool
+  ]),
+  inputValue: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool
+  ]),
+  keyboard: PropTypes.bool,
+  lastDate: PropTypes.any,
+  leftArrowIcon: PropTypes.string,
+  locale: PropTypes.any,
+  maxDate: PropTypes.string,
+  minDate: PropTypes.string,
+  modalOpen: PropTypes.bool,
+  okLabel: PropTypes.string,
+  rightArrowIcon: PropTypes.string,
+  scrolledYears: PropTypes.bool,
+  showTodayButton: PropTypes.any,
+  theme: PropTypes.string,
+  todayLabel: PropTypes.any,
+  value: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string, PropTypes.number, PropTypes.bool]),
+  weekDays: PropTypes.array,
+  years: PropTypes.any,
+  yearsArray: PropTypes.bool,
+  yearsRef: PropTypes.node
+};
