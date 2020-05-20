@@ -10,7 +10,7 @@ const TimelinePage = () => {
 
       <SectionContainer tag='section' header='Basic example' className='p-5'>
         <MDBTimeline>
-          <MDBTimelineStep icon='check' className='dupa'>
+          <MDBTimelineStep icon='check'>
             <h4 className='font-weight-bold'>Ut enim ad minim veniam</h4>
             <p className='text-muted mt-3'>
               <MDBIcon icon='clock' aria-hidden='true' /> 11 hours ago via Twitter

@@ -20,7 +20,8 @@ const TimelineStep = props => {
     inverted,
     colorful,
     hoverable,
-    label
+    label,
+    ...attributes
   } = props;
 
   const circleClasses = classNames('circle', 'z-depth-1-half', color || 'primary-color', circleClassName);
@@ -37,7 +38,7 @@ const TimelineStep = props => {
   const liClasses = classNames(inverted && 'timeline-inverted', className);
 
   return (
-    <li className={liClasses}>
+    <li className={liClasses} {...attributes}>
       <a href={href}>
         <span className={circleClasses}>
           {icon && (
