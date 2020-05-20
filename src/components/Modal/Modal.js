@@ -147,6 +147,8 @@ class Modal extends Component {
     };
 
     const timeout = fade ? modalTransitionTimeout : 0;
+    const backdropTimeout = fade ? backdropTransitionTimeout : 0;
+
     const removeBackdropClass = {
       position: 'fixed',
       ...whichPosition(),
@@ -217,7 +219,7 @@ class Modal extends Component {
       <>
         {backdrop && (
           <Transition
-            timeout={timeout}
+            timeout={backdropTimeout}
             in={initialIsOpen}
             appear={initialIsOpen}
             mountOnEnter
@@ -266,8 +268,10 @@ Modal.defaultProps = {
 
 Modal.propTypes = {
   animation: PropTypes.string,
+  autoFocus: PropTypes.bool,
   backdrop: PropTypes.bool,
   backdropClassName: PropTypes.string,
+  backdropTransitionTimeout: PropTypes.number,
   cascading: PropTypes.bool,
   centered: PropTypes.bool,
   children: PropTypes.node,
@@ -281,9 +285,13 @@ Modal.propTypes = {
   hiddenModal: PropTypes.func,
   hideModal: PropTypes.func,
   id: PropTypes.string,
+  inline: PropTypes.bool,
+  isOpen: PropTypes.bool,
   keyboard: PropTypes.bool,
   modalClassName: PropTypes.string,
   modalStyle: PropTypes.string,
+  modalStylesWithoutBackdrop: PropTypes.object,
+  modalTransitionTimeout: PropTypes.number,
   noClickableBodyWithoutBackdrop: PropTypes.bool,
   overflowScroll: PropTypes.bool,
   position: PropTypes.string,
@@ -292,8 +300,10 @@ Modal.propTypes = {
   side: PropTypes.bool,
   size: PropTypes.string,
   tabIndex: PropTypes.string,
+  toggle: PropTypes.func,
   wrapClassName: PropTypes.string,
-  wrapperStyles: PropTypes.object
+  wrapperStyles: PropTypes.object,
+  zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 export default Modal;
