@@ -1,2 +1,2 @@
-export { default } from './SelectV5';
-export * from './SelectV5';
+export { default } from './Selectv5';
+export * from './Selectv5';

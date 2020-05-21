@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import { MDBInput, MDBBtn, MDBIcon } from 'mdbreact';
 import './material-selectV5.css';
 
-import SelectOptionsV5 from './SelectOptionsV5/SelectOptionsV5';
+import SelectOptionsV5 from './SelectOptionsv5/SelectOptionsv5';
 
 class SelectV5 extends Component {
   state = {

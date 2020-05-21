@@ -2,7 +2,7 @@ import { shallow, mount } from 'enzyme';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { checkClass, checkProps, findByTestAttr, checkCallBack } from '../../../../../tests/utils';
-import SelectOptionsV5 from './SelectOptionsV5';
+import SelectOptionsV5 from './SelectOptionsv5';
 
 const expectedProps = {
   inputRef: {

@@ -126,7 +126,7 @@ class SelectPage extends Component {
         <SectionContainer title='Controlled Select' header='Basic example'>
           <MDBRow className='d-flex justify-content-center'>
             <MDBCol md='6'>
-              <MDBSelectV5
+              <MDBSelect
                 color='primary'
                 getValue={this.getValueOfSelect}
                 getTextContent={this.getValueOfSelect}
@@ -428,6 +428,190 @@ class SelectPage extends Component {
                   <MDBSelectOption>Option nr 4</MDBSelectOption>
                 </MDBSelectOptions>
               </MDBSelect>
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <hr className='my-5 mdb-color lighten-3' />
+
+        <SectionContainer title='Select V5' header='Basic example'>
+          <MDBRow className='d-flex justify-content-center'>
+            <MDBCol md='6'>
+              <MDBSelectV5
+                color='primary'
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={basicOptions}
+                label='Basic example'
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header='Basic outline example' flexCenter>
+          <MDBCol md='6'>
+            <MDBSelectV5
+              outline
+              color='primary'
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={basicOutlineOptions}
+              label='Basic outline example'
+            />
+          </MDBCol>
+        </SectionContainer>
+        <SectionContainer header='Basic example with icon' flexCenter>
+          <MDBCol md='6'>
+            <MDBSelectV5
+              icon='user'
+              color='primary'
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={basicOutlineOptions}
+              label='Basic outline example'
+            />
+          </MDBCol>
+        </SectionContainer>
+        <SectionContainer header='Basic outline example with icon' flexCenter>
+          <MDBCol md='6'>
+            <MDBSelectV5
+              outline
+              icon='user'
+              color='primary'
+              getValue={this.getValueOfSelect}
+              getTextContent={this.getValueOfSelect}
+              options={basicOutlineOptions}
+              label='Basic outline example'
+            />
+          </MDBCol>
+        </SectionContainer>
+
+        <SectionContainer header='Search enabled'>
+          <MDBRow className='d-flex justify-content-center'>
+            <MDBCol md='6'>
+              <MDBSelectV5
+                search
+                color='primary'
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={searchOptions}
+                label='Search enabled'
+                searchId='select-search-1'
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header='Multiple select'>
+          <MDBRow className='d-flex justify-content-center'>
+            <MDBCol md='6'>
+              <MDBSelectV5
+                search
+                multiple
+                color='primary'
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={multipleOptions}
+                label='Multiple select'
+                searchId='select-search-2'
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header='Colorful select'>
+          <MDBRow className='d-flex justify-content-center'>
+            <MDBCol md='6'>
+              <MDBSelectV5
+                search
+                multiple
+                color='secondary'
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={colorfulOptions}
+                label='Colorful select'
+                searchId='select-search-3'
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header='Select All option'>
+          <MDBRow className='d-flex justify-content-center'>
+            <MDBCol md='6'>
+              <MDBSelectV5
+                selectAll
+                search
+                multiple
+                color='secondary'
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={selectAllOptions}
+                label='Select All option'
+                searchId='select-search-4'
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header='Without label'>
+          <MDBRow className='d-flex justify-content-center'>
+            <MDBCol md='6'>
+              <MDBSelectV5
+                outline
+                search
+                multiple
+                color='secondary'
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={withoutLabelOptions}
+                selected='Choose your option'
+                searchId='select-search-5'
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header='Without color'>
+          <MDBRow className='d-flex justify-content-center'>
+            <MDBCol md='6'>
+              <MDBSelectV5
+                selectAll
+                multiple
+                getValue={this.getValueOfSelect}
+                getTextContent={this.getValueOfSelect}
+                options={withoutLabelOptions}
+                label='Without color'
+                selected='Choose your option'
+              />
+            </MDBCol>
+          </MDBRow>
+        </SectionContainer>
+
+        <SectionContainer header='Dynamically change state'>
+          <MDBRow className='d-flex justify-content-center flex-column align-items-center'>
+            <MDBCol md='6'>
+              <MDBSelectV5
+                selectAll
+                outline
+                search
+                multiple
+                color='secondary'
+                getValue={this.handleDisabled}
+                getTextContent={this.getValueOfSelect}
+                options={dynamicOptions}
+                selected='Choose your option'
+                label='Dynamically change state'
+                searchId='select-search-7'
+              />
+            </MDBCol>
+            <MDBCol md='6' className='d-flex justify-content-center'>
+              <MDBBtn onClick={this.addOption} color='success'>
+                Add option
+              </MDBBtn>
+              <MDBBtn onClick={this.removeOption} color='danger' disabled={disabled}>
+                Remove option
+              </MDBBtn>
             </MDBCol>
           </MDBRow>
         </SectionContainer>
