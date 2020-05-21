@@ -2,6 +2,7 @@ import React from 'react';
 import { MDBBtn } from 'mdbreact';
 import moment from 'moment';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 const DatePickerDays = ({
   initialWeekDays,
@@ -118,3 +119,19 @@ const DatePickerDays = ({
 };
 
 export default DatePickerDays;
+
+DatePickerDays.propTypes = {
+  autoOk: PropTypes.bool,
+  disabledDates: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  disableFuture: PropTypes.bool,
+  disablePast: PropTypes.bool,
+  format: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.string, PropTypes.number, PropTypes.bool]),
+  getUpdate: PropTypes.func,
+  initialActualDate: PropTypes.any,
+  initialDayDate: PropTypes.array,
+  initialWeekDays: PropTypes.array,
+  maxDate: PropTypes.string,
+  minDate: PropTypes.string,
+  monthDaysRef: PropTypes.any,
+  theme: PropTypes.string
+};

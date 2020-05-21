@@ -2,6 +2,7 @@ import React from 'react';
 import { MDBBtn } from 'mdbreact';
 import classNames from 'classnames';
 import { takeThemeColor } from '../../../../../utils';
+import PropTypes from 'prop-types';
 
 const DatePickerFooter = ({
   initialGetYears,
@@ -40,3 +41,15 @@ const DatePickerFooter = ({
 };
 
 export default DatePickerFooter;
+
+DatePickerFooter.propTypes = {
+  cancelLabel: PropTypes.string,
+  clearable: PropTypes.bool,
+  clearLabel: PropTypes.string,
+  initialGetYears: PropTypes.bool,
+  okLabel: PropTypes.string,
+  onClickCancel: PropTypes.func,
+  onClickClear: PropTypes.func,
+  onClickOk: PropTypes.func,
+  theme: PropTypes.any
+};

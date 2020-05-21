@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { MDBBtn } from 'mdbreact';
 import { takeThemeColor, takeAcutalDate } from '../../../../../utils';
+import PropTypes from 'prop-types';
 
 const DatePickerMonths = ({ initialActualDate, theme, getUpdate }) => {
   const allMonths = moment.monthsShort();
@@ -52,3 +53,9 @@ const DatePickerMonths = ({ initialActualDate, theme, getUpdate }) => {
 };
 
 export default DatePickerMonths;
+
+DatePickerMonths.propTypes = {
+  getUpdate: PropTypes.func,
+  initialActualDate: PropTypes.any,
+  theme: PropTypes.string
+};

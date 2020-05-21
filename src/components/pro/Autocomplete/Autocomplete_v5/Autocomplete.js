@@ -373,15 +373,19 @@ Autocomplete.propTypes = {
   data: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   dataKey: PropTypes.string,
   focused: PropTypes.bool,
+  getValue: PropTypes.func,
   heightItem: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   highlight: PropTypes.bool,
   highlightBold: PropTypes.bool,
   highlightClasses: PropTypes.string,
   highlightStyles: PropTypes.object,
+  inputClass: PropTypes.string,
   labelClass: PropTypes.string,
   labelStyles: PropTypes.node,
   noSuggestion: PropTypes.array,
   placeholder: PropTypes.string,
+  value: PropTypes.PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.object]),
+  valueDefault: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   visibleOptions: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
