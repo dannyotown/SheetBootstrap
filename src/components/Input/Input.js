@@ -16,8 +16,11 @@ class Input extends React.Component {
     // User wants to access the input ref, but we have to use it intenrally to.
     // Return Ref instance to share ref with parent
     // then user sets ref as a callback -> inputRef={ref => this.myInputRef = ref}
-    const { inputRef, focused, indeterminate } = this.props;
+    const { inputRef, focused, indeterminate, selectInnerRef } = this.props;
+
     inputRef && inputRef(this.inputElementRef.current);
+    selectInnerRef && selectInnerRef(this.inputElementRef);
+
     if (focused === true) {
       this.setState({ isFocused: focused }, () => {
         this.setFocus();
@@ -35,16 +38,6 @@ class Input extends React.Component {
     }
 
     return null;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    const { focused } = this.props;
-
-    if (prevProps.focused !== focused) {
-      this.setState({ isFocused: focused }, () => {
-        this.setFocus();
-      });
-    }
   }
 
   onBlur = event => {
@@ -99,6 +92,7 @@ class Input extends React.Component {
       children,
       className,
       containerClass,
+      dataTest,
       disabled,
       error,
       filled,
@@ -116,15 +110,17 @@ class Input extends React.Component {
       id,
       indeterminate,
       inputRef,
+      isControlled,
+      selectInnerRef,
+      noTag,
+      outline,
       label,
       labelClass,
       labelId,
       labelStyles,
-      noTag,
       onIconClick,
       onIconMouseEnter,
       onIconMouseLeave,
-      outline,
       size,
       success,
       tag: Tag,
@@ -132,7 +128,6 @@ class Input extends React.Component {
       validate,
       value,
       valueDefault,
-      iconStyle,
       ...attributes
     } = this.props;
 
@@ -181,7 +176,7 @@ class Input extends React.Component {
     const iconClassFix = classNames(isNotEmpty && isFocused ? 'active' : false, iconClass, 'prefix');
 
     const labelClassFix = classNames(
-      isNotEmpty ? 'active' : false,
+      (isNotEmpty && !isControlled) || hint ? 'active' : false,
       disabled ? 'disabled' : false,
       type === 'checkbox' ? 'form-check-label' : false,
       type === 'radio' ? 'form-check-label' : false,
@@ -200,11 +195,10 @@ class Input extends React.Component {
             onClick={onIconClick || this.setFocus}
             onMouseEnter={onIconMouseEnter}
             onMouseLeave={onIconMouseLeave}
-            style={iconStyle}
           />
         )}
         <TagInput
-          data-test='input'
+          data-test={dataTest}
           {...attributes}
           className={classes}
           id={id}
@@ -243,6 +237,7 @@ Input.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   containerClass: PropTypes.string,
+  dataTest: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.string,
   filled: PropTypes.bool,
@@ -257,10 +252,10 @@ Input.propTypes = {
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
-  iconStyle: PropTypes.object,
   id: PropTypes.string,
   indeterminate: PropTypes.bool,
   inputRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  isControlled: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.object, PropTypes.bool]),
   labelClass: PropTypes.string,
   labelId: PropTypes.string,
@@ -286,6 +281,7 @@ Input.propTypes = {
 Input.defaultProps = {
   className: '',
   containerClass: '',
+  dataTest: 'input',
   disabled: false,
   error: '',
   filled: false,
@@ -303,6 +299,7 @@ Input.defaultProps = {
   iconRegular: false,
   iconSize: undefined,
   id: undefined,
+  isControlled: false,
   noTag: false,
   outline: false,
   label: ' ',

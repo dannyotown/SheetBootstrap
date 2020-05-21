@@ -7,7 +7,8 @@ import {
   MDBSelectOption,
   MDBContainer,
   MDBRow,
-  MDBCol
+  MDBCol,
+  MDBSelectV5
 } from 'mdbreact';
 import DocsLink from '../../components/docsLink';
 import SectionContainer from '../../components/sectionContainer';
@@ -125,7 +126,7 @@ class SelectPage extends Component {
         <SectionContainer title='Controlled Select' header='Basic example'>
           <MDBRow className='d-flex justify-content-center'>
             <MDBCol md='6'>
-              <MDBSelect
+              <MDBSelectV5
                 color='primary'
                 getValue={this.getValueOfSelect}
                 getTextContent={this.getValueOfSelect}
