@@ -1,13 +1,9 @@
 import React from 'react';
-import '.';
-import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
-// import '../../../../Transitions.css';
-import ScrollBar from '../../PerfectScrollbar';
+import { ScrollBar } from 'mdbreact';
 import SideNavContext from './SideNavContext';
-// import './scss/mdb-pro.scss';
 import './SideNav.css';
 
 class SideNav extends React.Component {
