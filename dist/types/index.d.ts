@@ -2159,21 +2159,22 @@ declare const MDBTimeline: FunctionComponent<{
 }>;
 
 declare const MDBTimelineStep: FunctionComponent<{
-  className?: string,
-  color?: string,
+  className?: string;
+  color?: string;
   colorful?: boolean;
   children?: ReactNode;
   hoverable?: boolean;
-  href?: string,
-  size?: string,
+  href?: string;
+  size?: string;
   inverted?: boolean;
-  icon?: string,
-  iconBrand?: boolean,
-  iconClass?: string,
-  iconLight?: boolean,
-  iconRegular?: boolean,
-  iconSize?: "lg" | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
+  icon?: string;
+  iconBrand?: boolean;
+  iconClass?: string;
+  iconLight?: boolean;
+  iconRegular?: boolean;
+  iconSize?: 'lg' | '1x' | '2x' | '3x' | '4x' | '5x' | '6x' | '7x' | '8x' | '9x' | '10x';
   label?: string;
+  stepContentStyle?: ReactNode;
   [rest: string]: any;
 }>;
 

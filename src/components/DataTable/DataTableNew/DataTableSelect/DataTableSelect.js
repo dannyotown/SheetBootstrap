@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const DataTableSelect = ({ value, onChange, entries, label, style, ...props }) => {
+const DataTableSelect = ({ value, onChange, entries, label, style, barReverse, ...props }) => {
   const getValue = e => {
     const value = parseInt(e.target.value, 10);
     onChange(value);
