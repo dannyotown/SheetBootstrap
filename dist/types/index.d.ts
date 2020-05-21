@@ -842,38 +842,44 @@ declare const MDBMedia: FunctionComponent<{
 
 declare class MDBModal extends Component<
   {
+    [rest: string]: any;
     animation?: 'top' | 'bottom' | 'left' | 'right';
     autoFocus?: boolean;
     backdrop?: boolean;
     backdropClassName?: string;
     backdropStyles?: object;
+    backdropTransitionTimeout?: number;
     cascading?: boolean;
     centered?: boolean;
+    children?: ReactNode;
     className?: string;
     contentClassName?: string;
-    children?: ReactNode;
-    fade?: boolean;
+    disableBackdrop?: boolean;
     disableFocusTrap?: boolean;
+    fade?: boolean;
     frame?: boolean;
     fullHeight?: boolean;
-    isOpen?: boolean;
-    id?: string;
-    labelledBy?: string;
-    modalClassName?: string;
-    modalStyle?: 'success' | 'info' | 'danger' | 'warning';
-    position?: string;
-    side?: boolean;
-    size?: 'sm' | 'md' | 'lg' | 'fluid';
-    role?: string;
-    tabIndex?: string;
-    wrapClassName?: boolean;
-    wrapperStyles?: object;
-    keyboard?: boolean;
-    toggle?: () => void;
     hiddenModal?: () => void;
     hideModal?: () => void;
+    id?: string;
+    inline: boolean;
+    isOpen?: boolean;
+    keyboard?: boolean;
+    modalClassName?: string;
+    modalStyle?: 'success' | 'info' | 'danger' | 'warning';
+    modalStylesWithoutBackdrop?: ReactNode;
+    modalTransitionTimeout?: number;
+    noClickableBodyWithoutBackdrop: boolean;
+    overflowScroll: boolean;
+    position?: string;
+    role?: string;
     showModal?: () => void;
-    [rest: string]: any;
+    side?: boolean;
+    size?: 'sm' | 'md' | 'lg' | 'fluid';
+    tabIndex?: string;
+    toggle?: () => void;
+    wrapClassName?: boolean;
+    wrapperStyles?: object;
   },
   any
 > {}

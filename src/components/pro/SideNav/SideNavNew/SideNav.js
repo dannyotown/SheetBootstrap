@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
-import { ScrollBar } from 'mdbreact';
+import ScrollBar from '../../PerfectScrollbar';
 import SideNavContext from './SideNavContext';
 import './SideNav.css';
 
