@@ -85,7 +85,7 @@ import Waves from './components/Waves';
 
 // PRO-START
 import Autocomplete from './components/pro/Autocomplete';
-import AutocompleteV5 from './components/pro/Autocomplete/Autocomplete_v5';
+import AutocompleteV5 from './components/pro/Autocomplete/Autocomplete_V5';
 import Avatar from './components/pro/Avatar';
 import ButtonFixed from './components/pro/ButtonFixed';
 import ButtonFixedItem from './components/pro/ButtonFixed/ButtonFixedItem';
@@ -113,6 +113,9 @@ import Select from './components/pro/Select';
 import SelectInput from './components/pro/Select/SelectInput';
 import SelectOption from './components/pro/Select/SelectOption';
 import SelectOptions from './components/pro/Select/SelectOptions';
+import SelectV5 from './components/pro/Select/Selectv5';
+import SelectOptionV5 from './components/pro/Select/Selectv5/SelectOptionv5';
+import SelectOptionsV5 from './components/pro/Select/Selectv5/SelectOptionsv5';
 import SideNav from './components/pro/SideNav';
 import SideNavCat from './components/pro/SideNav/SideNavCat';
 import SideNavItem from './components/pro/SideNav/SideNavItem';
@@ -268,9 +271,12 @@ export {
   ScrollSpyListItem,
   ScrollSpyText,
   Select,
+  SelectV5,
   SelectInput,
   SelectOption,
   SelectOptions,
+  SelectOptionV5,
+  SelectOptionsV5,
   SideNav,
   SideNavCat,
   SideNavItem,
@@ -414,9 +420,12 @@ export {
   ScrollSpyListItem as MDBScrollspyListItem,
   ScrollSpyText as MDBScrollspyText,
   Select as MDBSelect,
+  SelectV5 as MDBSelectV5,
   SelectInput as MDBSelectInput,
   SelectOption as MDBSelectOption,
   SelectOptions as MDBSelectOptions,
+  SelectOptionV5 as MDBSelectOptionV5,
+  SelectOptionsV5 as MDBSelectOptionsV5,
   SideNav as MDBSideNav,
   SideNavCat as MDBSideNavCat,
   SideNavItem as MDBSideNavItem,

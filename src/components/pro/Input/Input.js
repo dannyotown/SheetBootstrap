@@ -35,7 +35,16 @@ class Input extends React.Component {
   };
 
   render() {
-    const { children, className, counter, getCounter, onChange, ...attributes } = this.props;
+    const {
+      children,
+      className,
+      counter,
+      getCounter,
+      onChange,
+      placeholder,
+      selectInnerRef,
+      ...attributes
+    } = this.props;
     const { character, characterActive, characterMax } = this.state;
     const typeCounter = typeof characterMax === 'number';
     const classes = classNames(className, typeCounter && character >= characterMax && 'invalid');
@@ -48,6 +57,8 @@ class Input extends React.Component {
         onBlur={this.handleBlur}
         onFocus={this.handleFocus}
         className={classes}
+        hint={placeholder}
+        selectInnerRef={selectInnerRef}
       >
         {counter && characterActive && (
           <span className='character-counter' style={styles}>
