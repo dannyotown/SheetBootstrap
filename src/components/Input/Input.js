@@ -64,16 +64,19 @@ class Input extends React.Component {
   onChange = event => {
     event.stopPropagation();
     const { type, onChange, getValue } = this.props;
+    const { value, checked } = event.target;
 
     if (type !== 'checkbox' && type !== 'radio') {
       this.setState({
-        innerValue: event.target.value,
+        innerValue: value,
         isPristine: false
       });
+      getValue && getValue(value);
+    } else {
+      getValue && getValue(checked);
     }
 
     onChange && onChange(event);
-    getValue && getValue(event.target.value);
   };
 
   onInput = event => {
