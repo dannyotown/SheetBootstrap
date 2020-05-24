@@ -154,7 +154,7 @@ class Modal extends Component {
       ...whichPosition(),
       ...modalStylesWithoutBackdrop
     };
-    console.log(removeBackdropClass);
+
     const removeBackdropConditions = !backdrop && initialIsOpen && !noClickableBodyWithoutBackdrop;
 
     const modalDialogClasses = classNames(
