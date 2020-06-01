@@ -125,6 +125,7 @@ class Input extends React.Component {
       onIconMouseEnter,
       onIconMouseLeave,
       size,
+      iconStyle,
       success,
       tag: Tag,
       type,
@@ -198,6 +199,7 @@ class Input extends React.Component {
             onClick={onIconClick || this.setFocus}
             onMouseEnter={onIconMouseEnter}
             onMouseLeave={onIconMouseLeave}
+            style={iconStyle}
           />
         )}
         <TagInput
@@ -255,6 +257,7 @@ Input.propTypes = {
   iconLight: PropTypes.bool,
   iconRegular: PropTypes.bool,
   iconSize: PropTypes.string,
+  iconStyle: PropTypes.object,
   id: PropTypes.string,
   indeterminate: PropTypes.bool,
   inputRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
