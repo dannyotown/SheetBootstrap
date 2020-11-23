@@ -121,6 +121,7 @@ class Input extends React.Component {
       labelClass,
       labelId,
       labelStyles,
+      name,
       onIconClick,
       onIconMouseEnter,
       onIconMouseLeave,
@@ -150,6 +151,8 @@ class Input extends React.Component {
     }
 
     attributes.disabled = disabled;
+
+    attributes.name = name;
 
     const classes = classNames(
       formControlClass,
@@ -263,6 +266,7 @@ Input.propTypes = {
   labelClass: PropTypes.string,
   labelId: PropTypes.string,
   labelStyles: PropTypes.object,
+  name: PropTypes.string,
   noTag: PropTypes.bool,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
@@ -304,6 +308,7 @@ Input.defaultProps = {
   id: undefined,
   isControlled: false,
   noTag: false,
+  name: undefined,
   outline: false,
   label: ' ',
   labelClass: '',
