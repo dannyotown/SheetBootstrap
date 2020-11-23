@@ -152,7 +152,7 @@ class Input extends React.Component {
 
     attributes.disabled = disabled;
 
-    attributes.name = name;
+    // attributes.name = name;
 
     const classes = classNames(
       formControlClass,
@@ -209,6 +209,7 @@ class Input extends React.Component {
           className={classes}
           id={id}
           placeholder={hint}
+          name={name}
           ref={this.inputElementRef}
           value={innerValue}
           onBlur={this.onBlur}
