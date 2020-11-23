@@ -51,7 +51,7 @@ class Popover extends React.Component {
           this.popoverWrapperRef,
           {
             placement,
-            ...modifiers
+            modifiers
           },
           () =>
             setTimeout(() => {
@@ -60,6 +60,8 @@ class Popover extends React.Component {
         )
       });
     }
+
+    console.log(this.state.popperJS);
   };
 
   doToggle = toggler => {
