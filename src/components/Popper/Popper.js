@@ -60,8 +60,6 @@ class Popover extends React.Component {
         )
       });
     }
-
-    console.log(this.state.popperJS);
   };
 
   doToggle = toggler => {
