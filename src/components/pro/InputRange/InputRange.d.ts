@@ -7,7 +7,7 @@ declare class MDBInputRange extends React.Component<{
   step?: number;
   value?: number;
   tag?: string;
-  getValue?: () => void;
+  getValue?: (value: number) => void;
   [rest: string]: any;
 }, any> {}
 
