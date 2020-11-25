@@ -133,7 +133,7 @@ import MDBSmoothScroll from './components/pro/SmoothScroll';
 import MDBSpinner from './components/pro/Spinner';
 import MDBStep from './components/pro/Step';
 import MDBStepper from './components/pro/Stepper';
-import MDBSticky from './components/pro/Sticky';
+import MDBSticky from './components/pro/StickyContainer/Sticky';
 import MDBStickyContainer from './components/pro/StickyContainer';
 import MDBStreak from './components/pro/Streak';
 import MDBScrollspyText from './components/pro/ScrollSpy/ScrollSpyText';

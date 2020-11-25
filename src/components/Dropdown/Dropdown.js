@@ -22,6 +22,8 @@ class Dropdown extends Component {
     };
   }
 
+  dropdownContainer = React.createRef();
+
   componentDidMount() {
     this.handleEventsBinding();
   }
@@ -40,7 +42,7 @@ class Dropdown extends Component {
   }
 
   getContainer = () => {
-    return ReactDOM.findDOMNode(this);
+    return this.dropdownContainer.current;
   };
 
   addEvents = () => {
@@ -164,7 +166,7 @@ class Dropdown extends Component {
     );
     return (
       <Manager>
-        <div data-test='dropdown' className={classes} onKeyDown={this.handleKeyDown}>
+        <div data-test='dropdown' className={classes} onKeyDown={this.handleKeyDown} ref={this.dropdownContainer}>
           {children}
         </div>
       </Manager>

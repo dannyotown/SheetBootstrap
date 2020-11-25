@@ -1,23 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes, { bool } from 'prop-types';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-
 class Sticky extends Component {
-  static propTypes = {
-    children: PropTypes.func.isRequired,
-    bottomOffset: PropTypes.number,
-    relative: PropTypes.bool,
-    topOffset: PropTypes.number
-  };
-
-  static defaultProps = {
-    relative: false,
-    topOffset: 0,
-    bottomOffset: 0,
-    disableCompensation: false,
-    disableHardwareAcceleration: false
-  };
-
   static contextTypes = {
     subscribe: PropTypes.func,
     unsubscribe: PropTypes.func,
@@ -30,12 +14,13 @@ class Sticky extends Component {
     style: {}
   };
 
+  stickyRef = React.createRef();
+
   componentDidMount() {
     const { subscribe } = this.context;
-    if (!subscribe)
-      {throw new TypeError(
-        'Expected Sticky to be mounted within StickyContainer'
-      );}
+    if (!subscribe) {
+      throw new TypeError('Expected Sticky to be mounted within StickyContainer');
+    }
 
     subscribe(this.handleContainerEvent);
   }
@@ -50,43 +35,31 @@ class Sticky extends Component {
     const { disableCompensation } = this.props;
     const { isSticky, calculatedHeight } = this.state;
 
-    this.placeholder.style.paddingBottom = disableCompensation
-      ? 0
-      : `${isSticky ? calculatedHeight : 0}px`;
+    this.placeholder.style.paddingBottom = disableCompensation ? 0 : `${isSticky ? calculatedHeight : 0}px`;
   }
 
-  handleContainerEvent = ({
-    distanceFromTop,
-    distanceFromBottom,
-    eventSource
-  }) => {
+  handleContainerEvent = ({ distanceFromTop, distanceFromBottom, eventSource }) => {
     const parent = this.context.getParent();
 
     let preventingStickyStateChanges = false;
     if (this.props.relative) {
       preventingStickyStateChanges = eventSource !== parent;
-      distanceFromTop =
-        -(eventSource.scrollTop + eventSource.offsetTop) +
-        this.placeholder.offsetTop;
+      distanceFromTop = -(eventSource.scrollTop + eventSource.offsetTop) + this.placeholder.offsetTop;
     }
 
     const placeholderClientRect = this.placeholder.getBoundingClientRect();
     const contentClientRect = this.content.getBoundingClientRect();
     const calculatedHeight = contentClientRect.height;
 
-    const bottomDifference =
-      distanceFromBottom - this.props.bottomOffset - calculatedHeight;
+    const bottomDifference = distanceFromBottom - this.props.bottomOffset - calculatedHeight;
 
     const wasSticky = !!this.state.isSticky;
     const isSticky = preventingStickyStateChanges
       ? wasSticky
-      : distanceFromTop <= -this.props.topOffset &&
-        distanceFromBottom > -this.props.bottomOffset;
+      : distanceFromTop <= -this.props.topOffset && distanceFromBottom > -this.props.bottomOffset;
 
     distanceFromBottom =
-      (this.props.relative
-        ? parent.scrollHeight - parent.scrollTop
-        : distanceFromBottom) - calculatedHeight;
+      (this.props.relative ? parent.scrollHeight - parent.scrollTop : distanceFromBottom) - calculatedHeight;
 
     const style = !isSticky
       ? {}
@@ -117,14 +90,7 @@ class Sticky extends Component {
   };
 
   render() {
-    const {
-      isSticky,
-      wasSticky,
-      distanceFromTop,
-      distanceFromBottom,
-      calculatedHeight,
-      style
-    } = this.state;
+    const { isSticky, wasSticky, distanceFromTop, distanceFromBottom, calculatedHeight, style } = this.state;
     const { children } = this.props;
 
     const element = React.cloneElement(
@@ -144,13 +110,26 @@ class Sticky extends Component {
     );
 
     return (
-      <div>
+      <div ref={this.stickyRef}>
         <div ref={placeholder => (this.placeholder = placeholder)} />
         {element}
       </div>
     );
   }
 }
+
+Sticky.propTypes = {
+  disableCompensation: bool,
+  disableHardwareAcceleration: bool
+};
+
+Sticky.defaultProps = {
+  relative: false,
+  topOffset: 0,
+  bottomOffset: 0,
+  disableCompensation: false,
+  disableHardwareAcceleration: false
+};
 
 export default Sticky;
 export { Sticky as MDBSticky };

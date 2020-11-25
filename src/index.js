@@ -133,7 +133,7 @@ import SmoothScroll from './components/pro/SmoothScroll';
 import Spinner from './components/pro/Spinner';
 import Step from './components/pro/Step';
 import Stepper from './components/pro/Stepper';
-import Sticky from './components/pro/Sticky';
+import Sticky from './components/pro/StickyContainer/Sticky';
 import StickyContainer from './components/pro/StickyContainer';
 import Streak from './components/pro/Streak';
 import TableEditable from './components/pro/TableEditable';

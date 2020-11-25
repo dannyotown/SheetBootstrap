@@ -54,7 +54,7 @@ class SideNav extends React.Component {
         slimInitial: slimInitialOpen,
         slimInitialOpen: !slimInitialOpen
       });
-      const sidenav = ReactDOM.findDOMNode(this.sideNavRef.current);
+      const sidenav = this.sideNavRef.current;
       sidenav.classList.remove('slim');
     }
 
@@ -137,7 +137,7 @@ class SideNav extends React.Component {
 
     this.setState({ slimStart: !slimStart });
 
-    const sidenav = ReactDOM.findDOMNode(this.sideNavRef.current);
+    const sidenav = this.sideNavRef.current;
     sidenav.classList.toggle('slim');
   };
 

@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 declare class MDBStickyContent extends React.Component<any, any> {}
 

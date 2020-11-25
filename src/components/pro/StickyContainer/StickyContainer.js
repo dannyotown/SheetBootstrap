@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import raf from 'raf';
+import StickyContainerContext from './StickyContainerContext';
 
 class Container extends PureComponent {
   static childContextTypes = {
@@ -17,15 +18,7 @@ class Container extends PureComponent {
     };
   }
 
-  events = [
-    'resize',
-    'scroll',
-    'touchstart',
-    'touchmove',
-    'touchend',
-    'pageshow',
-    'load'
-  ];
+  events = ['resize', 'scroll', 'touchstart', 'touchmove', 'touchend', 'pageshow', 'load'];
 
   subscribers = [];
 
@@ -60,15 +53,11 @@ class Container extends PureComponent {
   getParent = () => this.node;
 
   componentDidMount() {
-    this.events.forEach(event =>
-      window.addEventListener(event, this.notifySubscribers)
-    );
+    this.events.forEach(event => window.addEventListener(event, this.notifySubscribers));
   }
 
   componentWillUnmount() {
-    this.events.forEach(event =>
-      window.removeEventListener(event, this.notifySubscribers)
-    );
+    this.events.forEach(event => window.removeEventListener(event, this.notifySubscribers));
   }
 
   render() {
