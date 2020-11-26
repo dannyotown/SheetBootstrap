@@ -138,16 +138,16 @@ class DataTable extends Component {
     return comp;
   };
 
+  isString = (value) => typeof value === 'string';
+
   sort = (rows, sortRows, field, direction) => {
     rows.sort((a, b) => {
       if (sortRows && sortRows.includes(field)) {
         return this.checkField(field, a, b, direction);
       }
 
-      const isString = typeof a[field] === 'string';
-
-      const aValue = isString ? (a[field].includes('$') ? Number(a[field].replace(/\$/g,'')) : a[field]) : a[field];
-      const bValue = isString ? (b[field].includes('$') ? Number(b[field].replace(/\$/g,'')) : b[field]) : b[field];
+      const aValue = this.isString(a[field]) ? (a[field].includes('$') ? Number(a[field].replace(/\$/g,'')) : a[field]) : a[field];
+      const bValue = this.isString(b[field]) ? (b[field].includes('$') ? Number(b[field].replace(/\$/g,'')) : b[field]) : b[field];
 
       return direction === 'asc' ? (aValue < bValue ? -1 : 1) : aValue > bValue ? -1 : 1;
     });
