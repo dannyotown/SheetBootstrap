@@ -423,15 +423,19 @@ class DataTable extends Component {
 
   handleSort = (field, sort) => {
     const { onSort, sortRows } = this.props;
+    const { direction } = this.state;
 
     if (sort === 'disabled') {
       return;
     }
+
+    this.setState({ direction: !direction });
+
     this.setState(
       prevState => {
-        const { rows, columns } = prevState;
+        const { rows, columns, direction: prevDir } = prevState;
         const newRows = [...rows];
-        const direction = sort === 'desc' ? 'desc' : 'asc';
+        const direction = prevDir ? 'asc' : 'desc';
 
         this.sort(newRows, sortRows, field, direction);
 
@@ -440,7 +444,7 @@ class DataTable extends Component {
             return;
           }
 
-          col.sort = col.field === field ? (col.sort === 'desc' ? 'asc' : 'desc') : '';
+          col.sort = col.field === field ? direction : '';
         });
 
         return {

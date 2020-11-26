@@ -572,6 +572,9 @@ class DatatablePage extends Component {
                     data={data}
                     searchTop
                     searchBottom={false}
+                    onSort={(e, d) => {
+                      console.log(e, d);
+                    }}
                   />
                 </MDBCardBody>
               </MDBCard>

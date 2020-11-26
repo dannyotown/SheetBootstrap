@@ -171,7 +171,7 @@ class DataTable extends Component {
             return;
           }
 
-          col.sort = col.field === field ? (col.sort === 'desc' ? 'asc' : 'desc') : '';
+          col.sort = col.field === field ? direction : '';
         });
 
         return {

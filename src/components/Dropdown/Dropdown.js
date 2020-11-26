@@ -199,13 +199,6 @@ Dropdown.defaultProps = {
   dropup: false,
   tag: 'div'
 };
-// Dropdown.childContextTypes = {
-//   dropleft: PropTypes.bool.isRequired,
-//   dropright: PropTypes.bool.isRequired,
-//   dropup: PropTypes.bool.isRequired,
-//   isOpen: PropTypes.bool.isRequired,
-//   toggle: PropTypes.func.isRequired
-// };
 
 export default Dropdown;
 export { Dropdown as MDBDropdown };
