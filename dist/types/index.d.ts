@@ -1142,12 +1142,15 @@ declare class MDBTabContent extends Component<{
   [rest: string]: any;
 }, any> {}
 
-declare class MDBTabPane extends Component<{
-  activeItemId?: any;
-  className?: string;
-  tabId?: any;
-  [rest: string]: any;
-}, any> {}
+declare class MDBTabPane extends Component<
+  {
+    activeItemId?: any;
+    className?: string;
+    tabId?: any;
+    [rest: string]: any;
+  },
+  any
+> {}
 
 declare const MDBTable: FunctionComponent<{
   autoWidth?: boolean;
@@ -1691,7 +1694,7 @@ declare class MDBInputRange extends Component<{
   step?: number;
   value?: number;
   tag?: string;
-  getValue?: () => void;
+  getValue?: (value: number) => void;
   [rest: string]: any;
 }, any> {}
 

@@ -58,17 +58,27 @@ const TreeviewList = props => {
   const iconArrow = theme !== 'colorful' ? 'angle-right' : opened ? 'minus-circle' : 'plus-circle';
 
   const arrow = children && (
-    <MDBIcon icon={iconArrow} rotate={theme !== 'colorful' ? (opened ? '90 down' : '0') : ''} className='rotate' onClick={ openOnToggler ? handleSwitch : null } />
+    <MDBIcon
+      icon={iconArrow}
+      rotate={theme !== 'colorful' ? (opened ? '90 down' : '0') : ''}
+      className='rotate'
+      onClick={openOnToggler ? handleSwitch : null}
+    />
   );
 
   const btn = children && (
-    <MDBBtn flat className='m-0 py-0 px-1 mr-1 z-depth-0' onClick={ openOnToggler ? handleSwitch : null }>
+    <MDBBtn flat className='m-0 py-0 px-1 mr-1 z-depth-0' onClick={openOnToggler ? handleSwitch : null}>
       {arrow}
     </MDBBtn>
   );
 
   return (
-    <Tag data-test='treeview-list' {...attributes} className={classes} style={{ cursor: !theme && !openOnToggler ? 'pointer' : 'unset' }}>
+    <Tag
+      data-test='treeview-list'
+      {...attributes}
+      className={classes}
+      style={{ cursor: !theme && !openOnToggler ? 'pointer' : 'unset' }}
+    >
       <span className={folder} onClick={!disabled && !openOnToggler ? handleSwitch : null}>
         {theme ? arrow : btn}
         <span>
@@ -103,10 +113,6 @@ TreeviewList.defaultProps = {
   icon: 'folder-open',
   opened: false,
   tag: 'li'
-};
-
-TreeviewList.contextTypes = {
-  theme: PropTypes.string
 };
 
 export default TreeviewList;
