@@ -1,22 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import raf from 'raf';
-import StickyContainerContext from './StickyContainerContext';
+import StickyContext from './StickyContext';
 
 class Container extends PureComponent {
-  static childContextTypes = {
-    subscribe: PropTypes.func,
-    unsubscribe: PropTypes.func,
-    getParent: PropTypes.func
+  state = {
+    subscription: '',
+    unsubscribion: ''
   };
 
-  getChildContext() {
-    return {
-      subscribe: this.subscribe,
-      unsubscribe: this.unsubscribe,
-      getParent: this.getParent
-    };
-  }
+  nodeRef = React.createRef();
 
   events = ['resize', 'scroll', 'touchstart', 'touchmove', 'touchend', 'pageshow', 'load'];
 
@@ -36,13 +29,13 @@ class Container extends PureComponent {
 
       raf(() => {
         this.framePending = false;
-        const { top, bottom } = this.node.getBoundingClientRect();
+        const { top, bottom } = this.nodeRef.current.getBoundingClientRect();
 
         this.subscribers.forEach(handler =>
           handler({
             distanceFromTop: top,
             distanceFromBottom: bottom,
-            eventSource: currentTarget === window ? document.body : this.node
+            eventSource: currentTarget === window ? document.body : this.nodeRef.current
           })
         );
       });
@@ -50,7 +43,9 @@ class Container extends PureComponent {
     }
   };
 
-  getParent = () => this.node;
+  getParent = () => {
+    return this.nodeRef.current;
+  };
 
   componentDidMount() {
     this.events.forEach(event => window.addEventListener(event, this.notifySubscribers));
@@ -61,15 +56,27 @@ class Container extends PureComponent {
   }
 
   render() {
+    const { isString, a, field, b } = this.state;
+
+    const fc = el =>
+      isString ? (el[field].includes('$') ? Number(el[field].replace(/\$/g, '')) : el[field]) : el[field];
+
+    const aValue = fc(a);
+    const bValue = fc(b);
+
     return (
-      <div
-        {...this.props}
-        ref={node => (this.node = node)}
-        onScroll={this.notifySubscribers}
-        onTouchStart={this.notifySubscribers}
-        onTouchMove={this.notifySubscribers}
-        onTouchEnd={this.notifySubscribers}
-      />
+      <StickyContext.Provider
+        value={{ subscribe: this.subscribe, unsubscribe: this.unsubscribe, getParent: this.getParent }}
+      >
+        <div
+          {...this.props}
+          ref={this.nodeRef}
+          onScroll={this.notifySubscribers}
+          onTouchStart={this.notifySubscribers}
+          onTouchMove={this.notifySubscribers}
+          onTouchEnd={this.notifySubscribers}
+        />
+      </StickyContext.Provider>
     );
   }
 }

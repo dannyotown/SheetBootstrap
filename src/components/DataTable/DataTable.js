@@ -139,27 +139,30 @@ class DataTable extends Component {
   };
 
   sort = (rows, sortRows, field, direction) => {
-    rows.sort((a, b) => {
+    return rows.sort((a, b) => {
       if (sortRows && sortRows.includes(field)) {
         return this.checkField(field, a, b, direction);
       }
 
-      return direction === 'asc' ? (a[field] < b[field] ? -1 : 1) : a[field] > b[field] ? -1 : 1;
+      return direction === 'desc' ? (a[field] < b[field] ? -1 : 1) : a[field] > b[field] ? -1 : 1;
     });
   };
 
   handleSort = (field, sort) => {
     const { onSort } = this.props;
+    const { direction } = this.state;
 
     if (sort === 'disabled') {
       return;
     }
 
+    this.setState({ direction: !direction });
+
     this.setState(
       prevState => {
         const { sortRows } = this.props;
-        const { rows, columns } = prevState;
-        const direction = sort === 'desc' ? 'desc' : 'asc';
+        const { rows, columns, direction: prevDir } = prevState;
+        const direction = prevDir ? 'asc' : 'desc';
 
         this.sort(rows, sortRows, field, direction);
 

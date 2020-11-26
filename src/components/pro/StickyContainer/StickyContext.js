@@ -1,7 +1,9 @@
 import React from 'react';
 
 const defaultValue = {
-  slim: false
+  subscribe: () => {},
+  unsubscribe: () => {},
+  getParent: () => {}
 };
 
 const StickyContainerContext = React.createContext(defaultValue);
