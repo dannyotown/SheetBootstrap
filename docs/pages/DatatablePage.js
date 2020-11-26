@@ -56,7 +56,7 @@ const DatatablePage = () => {
         age: '61',
         date: '2011/04/25',
         salary: '$320',
-        clickEvent: (row) => testClickEvent(row)
+        clickEvent: row => testClickEvent(row)
       },
       {
         name: 'Garrett Winters',
@@ -558,9 +558,6 @@ const DatatablePage = () => {
                   data={data()}
                   materialSearch={true}
                   proSelect
-                  onSort={(e, d) => {
-                    console.log(e, d);
-                  }}
                 />
               </MDBCardBody>
             </MDBCard>
