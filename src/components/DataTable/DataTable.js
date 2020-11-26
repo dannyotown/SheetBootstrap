@@ -144,7 +144,12 @@ class DataTable extends Component {
         return this.checkField(field, a, b, direction);
       }
 
-      return direction === 'asc' ? (a[field] < b[field] ? -1 : 1) : a[field] > b[field] ? -1 : 1;
+      const isString = typeof a[field] === 'string';
+
+      const aValue = isString ? (a[field].includes('$') ? Number(a[field].replace(/\$/g,'')) : a[field]) : a[field];
+      const bValue = isString ? (b[field].includes('$') ? Number(b[field].replace(/\$/g,'')) : b[field]) : b[field];
+
+      return direction === 'asc' ? (aValue < bValue ? -1 : 1) : aValue > bValue ? -1 : 1;
     });
   };
 
