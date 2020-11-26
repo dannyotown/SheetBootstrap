@@ -51,7 +51,7 @@ class Popover extends React.Component {
           this.popoverWrapperRef,
           {
             placement,
-            ...modifiers
+            modifiers
           },
           () =>
             setTimeout(() => {
