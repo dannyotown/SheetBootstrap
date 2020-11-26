@@ -40,7 +40,11 @@ const TableBody = props => {
     <tbody data-test='table-body' {...attributes} className={classes || undefined}>
       {rows &&
         rows.map((row, index) => (
-          <tr onClick={row.hasOwnProperty('clickEvent') ? () => { row.clickEvent(row) } : undefined} key={index}>
+          <tr
+            className={!!row.rowClassNames ? row.rowClassNames : undefined}
+            onClick={row.hasOwnProperty('clickEvent') ? row.clickEvent : undefined}
+            key={index}
+          >
             {columns
               ? columns.map(({ field }, key, array) => renderTD(field, key, array, row))
               : Object.keys(row).map((field, key, array) => renderTD(field, key, array, row))}
