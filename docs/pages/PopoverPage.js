@@ -16,9 +16,8 @@ const PopoverPage = () => {
           clickable
           isVisible={visible}
           id='popper1'
-          modifiers={{
-            placement: 'left'
-          }}
+          placement='left'
+
           onChange={val => setVisibility(val)}
         >
           <MDBBtn>popover on left</MDBBtn>
