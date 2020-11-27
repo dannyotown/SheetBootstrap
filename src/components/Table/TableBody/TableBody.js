@@ -2,11 +2,11 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const TableBody = props => {
+const TableBody = (props) => {
   const { children, color, columns, rows, textWhite, ...attributes } = props;
 
   const classes = classNames(color, {
-    'text-white': textWhite
+    'text-white': textWhite,
   });
   const renderTD = (field, key, array, row) => {
     if (field === 'clickEvent') {
@@ -42,7 +42,13 @@ const TableBody = props => {
         rows.map((row, index) => (
           <tr
             className={!!row.rowClassNames ? row.rowClassNames : undefined}
-            onClick={row.hasOwnProperty('clickEvent') ? row.clickEvent : undefined}
+            onClick={
+              row.hasOwnProperty('clickEvent')
+                ? () => {
+                    row.clickEvent(row);
+                  }
+                : undefined
+            }
             key={index}
           >
             {columns
@@ -59,11 +65,11 @@ TableBody.propTypes = {
   children: PropTypes.node,
   color: PropTypes.string,
   rows: PropTypes.arrayOf(PropTypes.object),
-  textWhite: PropTypes.bool
+  textWhite: PropTypes.bool,
 };
 
 TableBody.defaultProps = {
-  textWhite: false
+  textWhite: false,
 };
 
 export default TableBody;
