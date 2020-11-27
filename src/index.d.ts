@@ -85,7 +85,7 @@ import MDBWaves from './components/Waves';
 
 // PRO-START
 import MDBAutocomplete from './components/pro/Autocomplete';
-import MDBAutocomplete_V5 from './components/pro/Autocomplete/Autocomplete';
+import MDBAutocompleteV5 from './components/pro/Autocomplete/Autocomplete';
 import MDBAvatar from './components/pro/Avatar';
 import MDBButtonFixed from './components/pro/ButtonFixed';
 import MDBButtonFixedItem from './components/pro/ButtonFixed/ButtonFixedItem';
@@ -113,9 +113,9 @@ import MDBSelect from './components/pro/Select';
 import MDBSelectInput from './components/pro/Select/SelectInput';
 import MDBSelectOption from './components/pro/Select/SelectOption';
 import MDBSelectOptions from './components/pro/Select/SelectOptions';
-import MDBSelectV5 from './components/pro/Select/Selectv5';
-import MDBSelectOptionV5 from './components/pro/Select/Selectv5/SelectOptionv5';
-import MDBSelectOptionsV5 from './components/pro/Select/Selectv5/SelectOptionsV5';
+import MDBSelectV5 from './components/pro/Select/SelectV5';
+import MDBSelectOptionV5 from './components/pro/Select/SelectV5/SelectOptionV5';
+import MDBSelectOptionsV5 from './components/pro/Select/SelectV5/SelectOptionsV5';
 import MDBSideNav from './components/pro/SideNav';
 import MDBSideNavCat from './components/pro/SideNav/SideNavCat';
 import MDBSideNavItem from './components/pro/SideNav/SideNavItem';
@@ -251,8 +251,8 @@ export {
 
   // PRO-START
   MDBAutocomplete,
-  MDBAutocomplete_V5,
-  MDBAutocomplete_V5 as MDBAutoV5,
+  MDBAutocompleteV5,
+  MDBAutocompleteV5 as MDBAutoV5,
   MDBAvatar,
   MDBButtonFixed,
   MDBButtonFixedItem,
@@ -308,6 +308,6 @@ export {
   MDBTimelineStep,
   MDBTimePicker,
   MDBToast,
-  MDBToastContainer
+  MDBToastContainer,
   // PRO-END
 };
