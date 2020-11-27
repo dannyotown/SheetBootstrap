@@ -57,7 +57,6 @@ class DatatablePage extends Component {
           age: '61',
           date: '2011/04/25',
           salary: '$320',
-          clickEvent: (e) => console.log(e),
         },
         {
           name: 'Garrett Winters',
