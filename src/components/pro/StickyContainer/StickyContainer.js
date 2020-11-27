@@ -6,7 +6,7 @@ import StickyContext from './StickyContext';
 class Container extends PureComponent {
   state = {
     subscription: '',
-    unsubscribion: ''
+    unsubscribion: '',
   };
 
   nodeRef = React.createRef();
@@ -15,15 +15,15 @@ class Container extends PureComponent {
 
   subscribers = [];
 
-  subscribe = handler => {
+  subscribe = (handler) => {
     this.subscribers = this.subscribers.concat(handler);
   };
 
-  unsubscribe = handler => {
-    this.subscribers = this.subscribers.filter(current => current !== handler);
+  unsubscribe = (handler) => {
+    this.subscribers = this.subscribers.filter((current) => current !== handler);
   };
 
-  notifySubscribers = evt => {
+  notifySubscribers = (evt) => {
     if (!this.framePending) {
       const { currentTarget } = evt;
 
@@ -31,11 +31,11 @@ class Container extends PureComponent {
         this.framePending = false;
         const { top, bottom } = this.nodeRef.current.getBoundingClientRect();
 
-        this.subscribers.forEach(handler =>
+        this.subscribers.forEach((handler) =>
           handler({
             distanceFromTop: top,
             distanceFromBottom: bottom,
-            eventSource: currentTarget === window ? document.body : this.nodeRef.current
+            eventSource: currentTarget === window ? document.body : this.nodeRef.current,
           })
         );
       });
@@ -48,22 +48,14 @@ class Container extends PureComponent {
   };
 
   componentDidMount() {
-    this.events.forEach(event => window.addEventListener(event, this.notifySubscribers));
+    this.events.forEach((event) => window.addEventListener(event, this.notifySubscribers));
   }
 
   componentWillUnmount() {
-    this.events.forEach(event => window.removeEventListener(event, this.notifySubscribers));
+    this.events.forEach((event) => window.removeEventListener(event, this.notifySubscribers));
   }
 
   render() {
-    const { isString, a, field, b } = this.state;
-
-    const fc = el =>
-      isString ? (el[field].includes('$') ? Number(el[field].replace(/\$/g, '')) : el[field]) : el[field];
-
-    const aValue = fc(a);
-    const bValue = fc(b);
-
     return (
       <StickyContext.Provider
         value={{ subscribe: this.subscribe, unsubscribe: this.unsubscribe, getParent: this.getParent }}
