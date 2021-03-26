@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { checkClass, checkProps, findByTestAttr, checkCallBack } from '../../../../../tests/utils';
-import SelectOptionV5 from './SelectOptionv5';
+import SelectOptionV5 from './SelectOptionV5';
 
 const setup = (props = {}) => shallow(<SelectOptionV5 {...props} />);
 

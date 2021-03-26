@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Input from '../../../Input';
-import SelectOptionV5 from '../SelectOptionv5/SelectOptionv5';
+import SelectOptionV5 from '../SelectOptionV5/SelectOptionV5';
 
 class SelectOptionsV5 extends Component {
   state = {
