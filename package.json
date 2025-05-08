@@ -24,8 +24,8 @@
   "scripts": {
     "build": "yarn run sass-compile-pro && rollup -c",
     "build-free": "yarn run sass-compile-free && rollup -c",
-    "sass-compile-pro": "node-sass dist/scss/mdb-pro.scss dist/css/mdb.css --style=compressed",
-    "sass-compile-free": "node-sass dist/scss/mdb-free.scss dist/css/mdb.css --style=compressed",
+    "sass-compile-pro": "sass dist/scss/mdb-pro.scss dist/css/mdb.css --style=compressed",
+    "sass-compile-free": "sass dist/scss/mdb-free.scss dist/css/mdb.css --style=compressed",
     "webpack": "concurrently \"webpack-dev-server --watch\" ",
     "start": "yarn run webpack",
     "test": "jest",
